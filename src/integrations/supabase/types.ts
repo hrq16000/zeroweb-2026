@@ -4826,6 +4826,51 @@ export type Database = {
           },
         ]
       }
+      url_index_watch: {
+        Row: {
+          coverage_state: string | null
+          first_seen_at: string
+          id: string
+          indexed: boolean
+          indexed_at: string | null
+          last_checked_at: string | null
+          last_error: string | null
+          notes: string | null
+          section: string
+          sitemap: string | null
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          coverage_state?: string | null
+          first_seen_at?: string
+          id?: string
+          indexed?: boolean
+          indexed_at?: string | null
+          last_checked_at?: string | null
+          last_error?: string | null
+          notes?: string | null
+          section?: string
+          sitemap?: string | null
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          coverage_state?: string | null
+          first_seen_at?: string
+          id?: string
+          indexed?: boolean
+          indexed_at?: string | null
+          last_checked_at?: string | null
+          last_error?: string | null
+          notes?: string | null
+          section?: string
+          sitemap?: string | null
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
