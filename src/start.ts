@@ -105,6 +105,7 @@ function recordRedirectHit(fromPath: string): void {
 }
 
 const canonicalRedirectMiddleware = createMiddleware().server(async ({ next, request }) => {
+  if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
   try {
     await loadRedirectsIntoCache();
     const decision = computeCanonicalRedirect({
