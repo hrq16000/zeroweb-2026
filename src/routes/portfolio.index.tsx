@@ -118,26 +118,29 @@ export const Route = createFileRoute("/portfolio/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "CollectionPage",
-              "@id": `${URL}#collection`,
-              url: URL,
-              name: TITLE,
-              description: DESC,
-              inLanguage: "pt-BR",
-            },
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-                { "@type": "ListItem", position: 2, name: "Portfólio", item: URL },
-              ],
-            },
-          ],
-        }),
+        children: graph([
+          organizationNode(),
+          localBusinessNode(),
+          {
+            "@type": "CollectionPage",
+            "@id": `${URL}#collection`,
+            url: URL,
+            name: TITLE,
+            description: DESC,
+            inLanguage: "pt-BR",
+            isPartOf: { "@id": `${SITE_URL}/#organization` },
+          },
+          ...PORTFOLIO_SEGMENTS.map((s) => serviceNode(s)),
+          itemListNode(
+            `${URL}#projetos`,
+            "Projetos publicados pela 0WEB",
+            PORTFOLIO_ITEMS.map((i) => ({ url: `https://0web.com.br${i.slug}`, name: i.title })),
+          ),
+          breadcrumbNode([
+            { name: "Início", path: "/" },
+            { name: "Portfólio", path: "/portfolio" },
+          ]),
+        ]),
       },
     ],
   }),
