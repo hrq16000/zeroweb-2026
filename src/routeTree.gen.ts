@@ -20,6 +20,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapSolutionsDotxmlRouteImport } from './routes/sitemap-solutions[.]xml'
 import { Route as SitemapSkyscraperDotxmlRouteImport } from './routes/sitemap-skyscraper[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
+import { Route as SitemapPortfolioDotxmlRouteImport } from './routes/sitemap-portfolio[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapMarketplaceDotxmlRouteImport } from './routes/sitemap-marketplace[.]xml'
 import { Route as SitemapEditorialDotxmlRouteImport } from './routes/sitemap-editorial[.]xml'
@@ -238,6 +239,11 @@ const SitemapSkyscraperDotxmlRoute = SitemapSkyscraperDotxmlRouteImport.update({
 const SitemapServicesDotxmlRoute = SitemapServicesDotxmlRouteImport.update({
   id: '/sitemap-services.xml',
   path: '/sitemap-services.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapPortfolioDotxmlRoute = SitemapPortfolioDotxmlRouteImport.update({
+  id: '/sitemap-portfolio.xml',
+  path: '/sitemap-portfolio.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
@@ -1158,6 +1164,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
   '/sitemap-solutions.xml': typeof SitemapSolutionsDotxmlRoute
@@ -1333,6 +1340,7 @@ export interface FileRoutesByTo {
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
   '/sitemap-solutions.xml': typeof SitemapSolutionsDotxmlRoute
@@ -1510,6 +1518,7 @@ export interface FileRoutesById {
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
   '/sitemap-solutions.xml': typeof SitemapSolutionsDotxmlRoute
@@ -1688,6 +1697,7 @@ export interface FileRouteTypes {
     | '/sitemap-editorial.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
     | '/sitemap-solutions.xml'
@@ -1863,6 +1873,7 @@ export interface FileRouteTypes {
     | '/sitemap-editorial.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
     | '/sitemap-solutions.xml'
@@ -2039,6 +2050,7 @@ export interface FileRouteTypes {
     | '/sitemap-editorial.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
     | '/sitemap-solutions.xml'
@@ -2217,6 +2229,7 @@ export interface RootRouteChildren {
   SitemapEditorialDotxmlRoute: typeof SitemapEditorialDotxmlRoute
   SitemapMarketplaceDotxmlRoute: typeof SitemapMarketplaceDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
+  SitemapPortfolioDotxmlRoute: typeof SitemapPortfolioDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapSkyscraperDotxmlRoute: typeof SitemapSkyscraperDotxmlRoute
   SitemapSolutionsDotxmlRoute: typeof SitemapSolutionsDotxmlRoute
@@ -2362,6 +2375,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-services.xml'
       fullPath: '/sitemap-services.xml'
       preLoaderRoute: typeof SitemapServicesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-portfolio.xml': {
+      id: '/sitemap-portfolio.xml'
+      path: '/sitemap-portfolio.xml'
+      fullPath: '/sitemap-portfolio.xml'
+      preLoaderRoute: typeof SitemapPortfolioDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-pages.xml': {
@@ -3803,6 +3823,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapEditorialDotxmlRoute: SitemapEditorialDotxmlRoute,
   SitemapMarketplaceDotxmlRoute: SitemapMarketplaceDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
+  SitemapPortfolioDotxmlRoute: SitemapPortfolioDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapSkyscraperDotxmlRoute: SitemapSkyscraperDotxmlRoute,
   SitemapSolutionsDotxmlRoute: SitemapSolutionsDotxmlRoute,

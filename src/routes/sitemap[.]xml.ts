@@ -22,6 +22,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           "sitemap-bh-neighborhoods.xml",
           "sitemap-cwb-neighborhoods.xml",
           "sitemap-skyscraper.xml",
+          "sitemap-portfolio.xml",
         ];
 
         const xml = [
