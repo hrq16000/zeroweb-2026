@@ -1,20 +1,31 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { X, Sparkles, CalendarClock, Share2 } from "lucide-react";
 import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { subscribeScroll } from "@/lib/scroll-bus";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackConversion } from "@/lib/analytics";
 
-const STORAGE_KEY = "0web:portfolio-upsell-dismissed";
+const STORAGE_KEY = "0web:portfolio-upsell-shown";
+
+type Trigger = "timer" | "scroll" | "fallback";
 
 /**
  * Pop-up de captação exibido nas páginas de portfólio.
- * Dispara após 10s de leitura OU ao rolar até ~90% da página.
- * O CTA abre o funil/quiz já existente do portal.
+ * Regras de UX:
+ *  - dispara UMA única vez por sessão (10s de leitura, 90% de scroll ou
+ *    fallback de 25s quando a página não é rolável);
+ *  - o container é pointer-events-none: só o card captura cliques, o conteúdo
+ *    da página continua clicável no mobile;
+ *  - acessível: role="dialog" + aria-modal, focus trap, ESC e restauração de foco.
  */
 export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: string }) {
   const [visible, setVisible] = useState(false);
   const [funnelOpen, setFunnelOpen] = useState(false);
   const firedRef = useRef(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const lastFocusRef = useRef<HTMLElement | null>(null);
+  const triggerRef = useRef<Trigger>("timer");
+
+  const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -24,81 +35,177 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       /* noop */
     }
 
-    const fire = (trigger: "timer" | "scroll") => {
+    const fire = (trigger: Trigger) => {
       if (firedRef.current) return;
       firedRef.current = true;
+      triggerRef.current = trigger;
+      try {
+        sessionStorage.setItem(STORAGE_KEY, "1");
+      } catch {
+        /* noop */
+      }
+      lastFocusRef.current = (document.activeElement as HTMLElement) ?? null;
       setVisible(true);
-      trackEvent("popup_view", { label: "portfolio_upsell", location: pageName, trigger });
+      trackEvent("popup_view", {
+        label: "portfolio_upsell",
+        location: pageName,
+        route: routePath,
+        trigger,
+        event_category: "engagement",
+      });
     };
 
     const t = window.setTimeout(() => fire("timer"), 10000);
+    // Fallback: páginas curtas (sem scroll possível) ou leitura longa sem rolar.
+    const fb = window.setTimeout(() => fire("fallback"), 25000);
     const unsub = subscribeScroll((s) => {
       if (s.pct >= 0.9) fire("scroll");
     });
 
     return () => {
       window.clearTimeout(t);
+      window.clearTimeout(fb);
       unsub();
     };
-  }, [pageName]);
+  }, [pageName, routePath]);
 
-  const dismiss = () => {
-    setVisible(false);
-    try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      /* noop */
-    }
-  };
+  const close = useCallback(
+    (reason: "dismiss" | "cta") => {
+      setVisible(false);
+      if (reason === "dismiss") {
+        trackEvent("popup_dismiss", {
+          label: "portfolio_upsell",
+          location: pageName,
+          route: routePath,
+          trigger: triggerRef.current,
+          event_category: "engagement",
+        });
+        lastFocusRef.current?.focus?.();
+      }
+    },
+    [pageName, routePath],
+  );
 
-  if (!visible) {
-    return (
-      <FunnelModalWrapper
-        open={funnelOpen}
-        onClose={() => setFunnelOpen(false)}
-        funnelSlug="diagnostico-0web"
-        intent={{
-          purpose: "diagnosis",
-          source: `portfolio_upsell_${pageName}`,
-          pagePath: typeof window === "undefined" ? "/portfolio" : window.location.pathname,
-          placement: "section",
-        }}
-      />
-    );
-  }
+  // Acessibilidade: ESC + focus trap enquanto o card está visível.
+  useEffect(() => {
+    if (!visible) return;
+    const node = cardRef.current;
+    const focusables = () =>
+      Array.from(
+        node?.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      ).filter((el) => !el.hasAttribute("disabled"));
+
+    focusables()[0]?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        close("dismiss");
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const list = focusables();
+      if (list.length === 0) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && (active === first || !node?.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKey, true);
+    return () => document.removeEventListener("keydown", onKey, true);
+  }, [visible, close]);
+
+  // Mede conversão do quiz/funil aberto a partir deste pop-up.
+  useEffect(() => {
+    if (!funnelOpen || typeof window === "undefined") return;
+    const dl = (window.dataLayer = window.dataLayer ?? []);
+    const original = dl.push.bind(dl);
+    dl.push = ((...args: unknown[]) => {
+      for (const a of args) {
+        const ev = (a as { event?: string })?.event;
+        if (ev === "funnel_complete") {
+          trackConversion("popup_funnel_conversion", {
+            label: "portfolio_upsell",
+            location: pageName,
+            route: routePath,
+            trigger: triggerRef.current,
+          });
+        }
+      }
+      return original(...(args as never[]));
+    }) as typeof dl.push;
+    return () => {
+      dl.push = original;
+    };
+  }, [funnelOpen, pageName, routePath]);
+
+  const funnelModal = (
+    <FunnelModalWrapper
+      open={funnelOpen}
+      onClose={() => setFunnelOpen(false)}
+      funnelSlug="diagnostico-0web"
+      intent={{
+        purpose: "diagnosis",
+        source: `portfolio_upsell_${pageName}`,
+        pagePath: routePath,
+        placement: "section",
+      }}
+      context={{ popup: "portfolio_upsell", popup_route: routePath, popup_trigger: triggerRef.current }}
+    />
+  );
+
+  if (!visible) return funnelModal;
 
   return (
     <>
       <div className="fixed inset-x-0 bottom-0 z-50 p-3 sm:p-5 pointer-events-none">
         <div
+          ref={cardRef}
           role="dialog"
-          aria-label="Tenha um site próprio com a 0WEB"
-          className="pointer-events-auto mx-auto w-full max-w-xl rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-2xl p-4 sm:p-5 animate-in slide-in-from-bottom-6 fade-in duration-300"
+          aria-modal="true"
+          aria-labelledby="portfolio-upsell-title"
+          aria-describedby="portfolio-upsell-desc"
+          className="pointer-events-auto relative mx-auto w-full max-w-xl rounded-2xl border border-border bg-card/95 backdrop-blur-md shadow-2xl p-4 sm:p-5 animate-in slide-in-from-bottom-6 fade-in duration-300"
         >
           <button
             type="button"
-            onClick={dismiss}
-            aria-label="Fechar"
-            className="absolute right-3 top-3 sm:right-5 sm:top-5 grid place-items-center w-8 h-8 rounded-full bg-muted text-muted-foreground hover:text-foreground transition"
+            onClick={() => close("dismiss")}
+            aria-label="Fechar aviso"
+            className="absolute right-3 top-3 grid place-items-center w-11 h-11 sm:w-9 sm:h-9 rounded-full bg-muted text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none transition"
           >
             <X className="w-4 h-4" />
           </button>
 
-          <div className="pr-8">
+          <div className="pr-12">
             <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <Sparkles className="w-3.5 h-3.5" /> Gostou dessa página?
+              <Sparkles className="w-3.5 h-3.5" /> Gostou desta página?
             </p>
-            <h2 className="mt-1.5 text-lg sm:text-xl font-bold leading-snug text-foreground">
-              Tenha um site <span className="text-primary">.com.br</span> você também!
+            <h2 id="portfolio-upsell-title" className="mt-1.5 text-lg sm:text-xl font-bold leading-snug text-foreground">
+              Esta página foi criada pela 0WEB — a sua pode ficar assim também,
+              com domínio <span className="text-primary">.com.br</span> próprio.
             </h2>
+            <p id="portfolio-upsell-desc" className="mt-2 text-sm text-muted-foreground">
+              Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio,
+              com prazo e valor na hora.
+            </p>
             <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
               <li className="flex gap-2">
                 <CalendarClock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                Planos e condições especiais com até <strong className="text-foreground">90 dias para começar a pagar</strong>.
+                Site no ar primeiro: você tem <strong className="text-foreground">até 90 dias para começar a pagar</strong>.
               </li>
               <li className="flex gap-2">
                 <Share2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                Gestão de redes sociais com artes e postagens regulares, a partir de <strong className="text-foreground">4 postagens por mês</strong>.
+                Redes sociais cuidadas por nós: artes e postagens a partir de{" "}
+                <strong className="text-foreground">4 publicações por mês</strong>.
               </li>
             </ul>
 
@@ -106,18 +213,24 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
               <button
                 type="button"
                 onClick={() => {
-                  trackEvent("cta_click", { label: "portfolio_upsell", location: pageName });
-                  setVisible(false);
+                  trackEvent("cta_click", {
+                    label: "portfolio_upsell",
+                    location: pageName,
+                    route: routePath,
+                    trigger: triggerRef.current,
+                    event_category: "engagement",
+                  });
+                  close("cta");
                   setFunnelOpen(true);
                 }}
-                className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-lg hover:shadow-xl active:scale-95 transition"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ring outline-none active:scale-95 transition"
               >
-                Saiba mais — clique aqui
+                Quero meu site — ver condições
               </button>
               <button
                 type="button"
-                onClick={dismiss}
-                className="inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition"
+                onClick={() => close("dismiss")}
+                className="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none transition"
               >
                 Agora não
               </button>
@@ -126,17 +239,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
         </div>
       </div>
 
-      <FunnelModalWrapper
-        open={funnelOpen}
-        onClose={() => setFunnelOpen(false)}
-        funnelSlug="diagnostico-0web"
-        intent={{
-          purpose: "diagnosis",
-          source: `portfolio_upsell_${pageName}`,
-          pagePath: typeof window === "undefined" ? "/portfolio" : window.location.pathname,
-          placement: "section",
-        }}
-      />
+      {funnelModal}
     </>
   );
 }
