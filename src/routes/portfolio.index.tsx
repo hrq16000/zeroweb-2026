@@ -325,6 +325,40 @@ function PortfolioPage() {
               </div>
             </div>
 
+            {/* Silo programático: segmento × bairro */}
+            <section aria-labelledby="silo-title" className="space-y-6">
+              <h2 id="silo-title" className="text-2xl sm:text-3xl font-bold text-foreground">
+                Criação de sites por segmento e bairro
+              </h2>
+              <div className="grid gap-6 md:grid-cols-2">
+                {PORTFOLIO_SEGMENTS.map((seg) => (
+                  <div key={seg.slug} className="rounded-2xl border border-border/60 bg-card p-6">
+                    <h3 className="text-lg font-bold text-foreground">{seg.name}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{seg.keyword}</p>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {placesForSegment(seg, 8).map((place) => (
+                        <li key={place.slug}>
+                          <Link
+                            to={portfolioComboPath(seg.slug, place.slug)}
+                            className="inline-block rounded-lg bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                          >
+                            {place.name} — {place.city}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <InternalLinkCluster
+              links={portfolioClusterLinks({ segmentSlug: "beleza-estetica", limit: 10 })}
+              title="Hubs, serviços e guias relacionados"
+              description="Links internos automáticos que conectam portfólio, serviços e conteúdo."
+            />
+
+
           </div>
         </section>
       </main>
