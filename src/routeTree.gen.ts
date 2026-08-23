@@ -20,6 +20,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapSolutionsDotxmlRouteImport } from './routes/sitemap-solutions[.]xml'
 import { Route as SitemapSkyscraperDotxmlRouteImport } from './routes/sitemap-skyscraper[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
+import { Route as SitemapPortfolioDotxmlRouteImport } from './routes/sitemap-portfolio[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapMarketplaceDotxmlRouteImport } from './routes/sitemap-marketplace[.]xml'
 import { Route as SitemapEditorialDotxmlRouteImport } from './routes/sitemap-editorial[.]xml'
@@ -122,6 +123,7 @@ import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as ServicosCategoriaSlugRouteImport } from './routes/servicos.categoria.$slug'
 import { Route as RWhatsappTokenRouteImport } from './routes/r.whatsapp.$token'
+import { Route as PortfolioSegmentoBairroRouteImport } from './routes/portfolio.$segmento.$bairro'
 import { Route as BlogClusterClusterRouteImport } from './routes/blog.cluster.$cluster'
 import { Route as ApiPublicLeadWebhookRouteImport } from './routes/api/public/lead-webhook'
 import { Route as ApiPublicHydrationReportRouteImport } from './routes/api/public/hydration-report'
@@ -149,6 +151,7 @@ import { Route as AuthenticatedAppLicensesRouteImport } from './routes/_authenti
 import { Route as AuthenticatedAppLeadsRouteImport } from './routes/_authenticated/app.leads'
 import { Route as AuthenticatedAppLandingOverridesRouteImport } from './routes/_authenticated/app.landing-overrides'
 import { Route as AuthenticatedAppIntegracoesRouteImport } from './routes/_authenticated/app.integracoes'
+import { Route as AuthenticatedAppIndexacaoPortfolioRouteImport } from './routes/_authenticated/app.indexacao-portfolio'
 import { Route as AuthenticatedAppIndexacaoRouteImport } from './routes/_authenticated/app.indexacao'
 import { Route as AuthenticatedAppHydrationRouteImport } from './routes/_authenticated/app.hydration'
 import { Route as AuthenticatedAppEditorialRouteImport } from './routes/_authenticated/app.editorial'
@@ -237,6 +240,11 @@ const SitemapSkyscraperDotxmlRoute = SitemapSkyscraperDotxmlRouteImport.update({
 const SitemapServicesDotxmlRoute = SitemapServicesDotxmlRouteImport.update({
   id: '/sitemap-services.xml',
   path: '/sitemap-services.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapPortfolioDotxmlRoute = SitemapPortfolioDotxmlRouteImport.update({
+  id: '/sitemap-portfolio.xml',
+  path: '/sitemap-portfolio.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
@@ -755,6 +763,11 @@ const RWhatsappTokenRoute = RWhatsappTokenRouteImport.update({
   path: '/r/whatsapp/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioSegmentoBairroRoute = PortfolioSegmentoBairroRouteImport.update({
+  id: '/portfolio/$segmento/$bairro',
+  path: '/portfolio/$segmento/$bairro',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogClusterClusterRoute = BlogClusterClusterRouteImport.update({
   id: '/blog/cluster/$cluster',
   path: '/blog/cluster/$cluster',
@@ -903,6 +916,12 @@ const AuthenticatedAppIntegracoesRoute =
   AuthenticatedAppIntegracoesRouteImport.update({
     id: '/integracoes',
     path: '/integracoes',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppIndexacaoPortfolioRoute =
+  AuthenticatedAppIndexacaoPortfolioRouteImport.update({
+    id: '/indexacao-portfolio',
+    path: '/indexacao-portfolio',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppIndexacaoRoute =
@@ -1152,6 +1171,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
   '/sitemap-solutions.xml': typeof SitemapSolutionsDotxmlRoute
@@ -1222,6 +1242,7 @@ export interface FileRoutesByFullPath {
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
+  '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/app/leads': typeof AuthenticatedAppLeadsRoute
@@ -1249,6 +1270,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
+  '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/app/': typeof AuthenticatedAppIndexRoute
@@ -1326,6 +1348,7 @@ export interface FileRoutesByTo {
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
   '/sitemap-solutions.xml': typeof SitemapSolutionsDotxmlRoute
@@ -1395,6 +1418,7 @@ export interface FileRoutesByTo {
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
+  '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/app/leads': typeof AuthenticatedAppLeadsRoute
@@ -1422,6 +1446,7 @@ export interface FileRoutesByTo {
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
+  '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/app': typeof AuthenticatedAppIndexRoute
@@ -1502,6 +1527,7 @@ export interface FileRoutesById {
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
   '/sitemap-solutions.xml': typeof SitemapSolutionsDotxmlRoute
@@ -1572,6 +1598,7 @@ export interface FileRoutesById {
   '/_authenticated/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/_authenticated/app/hydration': typeof AuthenticatedAppHydrationRoute
   '/_authenticated/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
+  '/_authenticated/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/_authenticated/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/_authenticated/app/leads': typeof AuthenticatedAppLeadsRoute
@@ -1599,6 +1626,7 @@ export interface FileRoutesById {
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
+  '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
@@ -1679,6 +1707,7 @@ export interface FileRouteTypes {
     | '/sitemap-editorial.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
     | '/sitemap-solutions.xml'
@@ -1749,6 +1778,7 @@ export interface FileRouteTypes {
     | '/app/editorial'
     | '/app/hydration'
     | '/app/indexacao'
+    | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
     | '/app/leads'
@@ -1776,6 +1806,7 @@ export interface FileRouteTypes {
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
     | '/blog/cluster/$cluster'
+    | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/app/'
@@ -1853,6 +1884,7 @@ export interface FileRouteTypes {
     | '/sitemap-editorial.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
     | '/sitemap-solutions.xml'
@@ -1922,6 +1954,7 @@ export interface FileRouteTypes {
     | '/app/editorial'
     | '/app/hydration'
     | '/app/indexacao'
+    | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
     | '/app/leads'
@@ -1949,6 +1982,7 @@ export interface FileRouteTypes {
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
     | '/blog/cluster/$cluster'
+    | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/app'
@@ -2028,6 +2062,7 @@ export interface FileRouteTypes {
     | '/sitemap-editorial.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
     | '/sitemap-solutions.xml'
@@ -2098,6 +2133,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/editorial'
     | '/_authenticated/app/hydration'
     | '/_authenticated/app/indexacao'
+    | '/_authenticated/app/indexacao-portfolio'
     | '/_authenticated/app/integracoes'
     | '/_authenticated/app/landing-overrides'
     | '/_authenticated/app/leads'
@@ -2125,6 +2161,7 @@ export interface FileRouteTypes {
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
     | '/blog/cluster/$cluster'
+    | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/_authenticated/app/'
@@ -2205,6 +2242,7 @@ export interface RootRouteChildren {
   SitemapEditorialDotxmlRoute: typeof SitemapEditorialDotxmlRoute
   SitemapMarketplaceDotxmlRoute: typeof SitemapMarketplaceDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
+  SitemapPortfolioDotxmlRoute: typeof SitemapPortfolioDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapSkyscraperDotxmlRoute: typeof SitemapSkyscraperDotxmlRoute
   SitemapSolutionsDotxmlRoute: typeof SitemapSolutionsDotxmlRoute
@@ -2257,6 +2295,7 @@ export interface RootRouteChildren {
   ApiPublicHydrationReportRoute: typeof ApiPublicHydrationReportRoute
   ApiPublicLeadWebhookRoute: typeof ApiPublicLeadWebhookRoute
   BlogClusterClusterRoute: typeof BlogClusterClusterRoute
+  PortfolioSegmentoBairroRoute: typeof PortfolioSegmentoBairroRoute
   RWhatsappTokenRoute: typeof RWhatsappTokenRoute
   ApiPublicHooksAnomalyScanRoute: typeof ApiPublicHooksAnomalyScanRoute
   ApiPublicHooksGscIngestRoute: typeof ApiPublicHooksGscIngestRoute
@@ -2349,6 +2388,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-services.xml'
       fullPath: '/sitemap-services.xml'
       preLoaderRoute: typeof SitemapServicesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-portfolio.xml': {
+      id: '/sitemap-portfolio.xml'
+      path: '/sitemap-portfolio.xml'
+      fullPath: '/sitemap-portfolio.xml'
+      preLoaderRoute: typeof SitemapPortfolioDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-pages.xml': {
@@ -3065,6 +3111,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RWhatsappTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/$segmento/$bairro': {
+      id: '/portfolio/$segmento/$bairro'
+      path: '/portfolio/$segmento/$bairro'
+      fullPath: '/portfolio/$segmento/$bairro'
+      preLoaderRoute: typeof PortfolioSegmentoBairroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/cluster/$cluster': {
       id: '/blog/cluster/$cluster'
       path: '/blog/cluster/$cluster'
@@ -3252,6 +3305,13 @@ declare module '@tanstack/react-router' {
       path: '/integracoes'
       fullPath: '/app/integracoes'
       preLoaderRoute: typeof AuthenticatedAppIntegracoesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/indexacao-portfolio': {
+      id: '/_authenticated/app/indexacao-portfolio'
+      path: '/indexacao-portfolio'
+      fullPath: '/app/indexacao-portfolio'
+      preLoaderRoute: typeof AuthenticatedAppIndexacaoPortfolioRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/indexacao': {
@@ -3599,6 +3659,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppEditorialRoute: typeof AuthenticatedAppEditorialRouteWithChildren
   AuthenticatedAppHydrationRoute: typeof AuthenticatedAppHydrationRoute
   AuthenticatedAppIndexacaoRoute: typeof AuthenticatedAppIndexacaoRouteWithChildren
+  AuthenticatedAppIndexacaoPortfolioRoute: typeof AuthenticatedAppIndexacaoPortfolioRoute
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
   AuthenticatedAppLandingOverridesRoute: typeof AuthenticatedAppLandingOverridesRoute
   AuthenticatedAppLeadsRoute: typeof AuthenticatedAppLeadsRoute
@@ -3639,6 +3700,8 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppEditorialRoute: AuthenticatedAppEditorialRouteWithChildren,
   AuthenticatedAppHydrationRoute: AuthenticatedAppHydrationRoute,
   AuthenticatedAppIndexacaoRoute: AuthenticatedAppIndexacaoRouteWithChildren,
+  AuthenticatedAppIndexacaoPortfolioRoute:
+    AuthenticatedAppIndexacaoPortfolioRoute,
   AuthenticatedAppIntegracoesRoute: AuthenticatedAppIntegracoesRoute,
   AuthenticatedAppLandingOverridesRoute: AuthenticatedAppLandingOverridesRoute,
   AuthenticatedAppLeadsRoute: AuthenticatedAppLeadsRoute,
@@ -3783,6 +3846,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapEditorialDotxmlRoute: SitemapEditorialDotxmlRoute,
   SitemapMarketplaceDotxmlRoute: SitemapMarketplaceDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
+  SitemapPortfolioDotxmlRoute: SitemapPortfolioDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapSkyscraperDotxmlRoute: SitemapSkyscraperDotxmlRoute,
   SitemapSolutionsDotxmlRoute: SitemapSolutionsDotxmlRoute,
@@ -3835,6 +3899,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHydrationReportRoute: ApiPublicHydrationReportRoute,
   ApiPublicLeadWebhookRoute: ApiPublicLeadWebhookRoute,
   BlogClusterClusterRoute: BlogClusterClusterRoute,
+  PortfolioSegmentoBairroRoute: PortfolioSegmentoBairroRoute,
   RWhatsappTokenRoute: RWhatsappTokenRoute,
   ApiPublicHooksAnomalyScanRoute: ApiPublicHooksAnomalyScanRoute,
   ApiPublicHooksGscIngestRoute: ApiPublicHooksGscIngestRoute,
