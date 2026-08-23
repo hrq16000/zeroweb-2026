@@ -217,6 +217,7 @@ type OverrideDetailsProps = {
       valueJson: string;
       created_at: string;
       created_by: string | null;
+      changedFields: string[];
     }>;
   }>;
   onRollback: (historyId: string) => Promise<void>;
@@ -264,6 +265,7 @@ function OverrideDetails({ id, loadPreview, loadHistory, onRollback }: OverrideD
                   {h.action}
                 </Badge>
                 {h.created_at}
+                {h.created_by ? ` · por ${h.created_by}` : ""}
               </span>
               <Button
                 size="sm"
@@ -274,6 +276,11 @@ function OverrideDetails({ id, loadPreview, loadHistory, onRollback }: OverrideD
                 Restaurar
               </Button>
             </div>
+            {h.changedFields.length > 0 && (
+              <p className="text-[11px] text-muted-foreground">
+                Campos alterados: {h.changedFields.join(", ")}
+              </p>
+            )}
             <pre className="max-h-32 overflow-auto rounded bg-muted p-2 text-[11px]">
               {h.valueJson}
             </pre>
