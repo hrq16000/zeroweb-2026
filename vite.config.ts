@@ -4,8 +4,15 @@
 //     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+import path from "node:path";
+import { loadEnv } from "vite";
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { routeWatcherPlugin } from "./plugins/vite-plugin-route-watcher";
+
+// Load non-VITE_ env vars into process.env for server-side code only
+// (never injected into the client bundle).
+const serverEnv = loadEnv(process.env.NODE_ENV || "development", process.cwd(), "");
+Object.assign(process.env, serverEnv);
 
 export default defineConfig({
   tanstackStart: {
@@ -17,5 +24,18 @@ export default defineConfig({
   },
   vite: {
     plugins: [routeWatcherPlugin()],
+    resolve: {
+      alias: {
+        "entities/lib/decode.js": path.resolve(
+          import.meta.dirname,
+          "node_modules/entities/lib/decode.js",
+        ),
+        "entities/lib/encode.js": path.resolve(
+          import.meta.dirname,
+          "node_modules/entities/lib/encode.js",
+        ),
+        entities: path.resolve(import.meta.dirname, "node_modules/entities"),
+      },
+    },
   },
 });

@@ -164,6 +164,7 @@ import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authent
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
 import { Route as AuthenticatedAppFunisIndexRouteImport } from './routes/_authenticated/app.funis.index'
 import { Route as RWhatsappReissueTokenRouteImport } from './routes/r.whatsapp.reissue.$token'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as ApiPublicHooksVisitorsCleanupRouteImport } from './routes/api/public/hooks/visitors-cleanup'
 import { Route as ApiPublicHooksStripeRouteImport } from './routes/api/public/hooks/stripe'
 import { Route as ApiPublicHooksSeoMonitorRouteImport } from './routes/api/public/hooks/seo-monitor'
@@ -994,6 +995,12 @@ const RWhatsappReissueTokenRoute = RWhatsappReissueTokenRouteImport.update({
   path: '/r/whatsapp/reissue/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicHooksVisitorsCleanupRoute =
   ApiPublicHooksVisitorsCleanupRouteImport.update({
     id: '/api/public/hooks/visitors-cleanup',
@@ -1311,6 +1318,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
@@ -1489,6 +1497,7 @@ export interface FileRoutesByTo {
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
@@ -1671,6 +1680,7 @@ export interface FileRoutesById {
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/_authenticated/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
@@ -1853,6 +1863,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/seo-monitor'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis/'
     | '/app/funis/pipeline/regras'
@@ -2031,6 +2042,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/seo-monitor'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis'
     | '/app/funis/pipeline/regras'
@@ -2212,6 +2224,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/seo-monitor'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/_authenticated/app/funis/'
     | '/_authenticated/app/funis/pipeline/regras'
@@ -2333,6 +2346,7 @@ export interface RootRouteChildren {
   ApiPublicHooksSeoMonitorRoute: typeof ApiPublicHooksSeoMonitorRoute
   ApiPublicHooksStripeRoute: typeof ApiPublicHooksStripeRoute
   ApiPublicHooksVisitorsCleanupRoute: typeof ApiPublicHooksVisitorsCleanupRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
   RWhatsappReissueTokenRoute: typeof RWhatsappReissueTokenRoute
   ApiPublicLandingImagePageFileRoute: typeof ApiPublicLandingImagePageFileRoute
 }
@@ -3424,6 +3438,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RWhatsappReissueTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/visitors-cleanup': {
       id: '/api/public/hooks/visitors-cleanup'
       path: '/api/public/hooks/visitors-cleanup'
@@ -3957,6 +3978,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksSeoMonitorRoute: ApiPublicHooksSeoMonitorRoute,
   ApiPublicHooksStripeRoute: ApiPublicHooksStripeRoute,
   ApiPublicHooksVisitorsCleanupRoute: ApiPublicHooksVisitorsCleanupRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
   RWhatsappReissueTokenRoute: RWhatsappReissueTokenRoute,
   ApiPublicLandingImagePageFileRoute: ApiPublicLandingImagePageFileRoute,
 }

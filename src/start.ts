@@ -33,6 +33,7 @@ async function sha256Hex(text: string): Promise<string> {
 
 function shouldSkip(pathname: string): boolean {
   return (
+    pathname.startsWith("/lovable/") ||
     pathname.startsWith("/_build") ||
     pathname.startsWith("/_server") ||
     pathname.startsWith("/api/public") ||
@@ -105,6 +106,7 @@ function recordRedirectHit(fromPath: string): void {
 }
 
 const canonicalRedirectMiddleware = createMiddleware().server(async ({ next, request }) => {
+  if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
   try {
     await loadRedirectsIntoCache();
     const decision = computeCanonicalRedirect({
@@ -135,6 +137,7 @@ const canonicalRedirectMiddleware = createMiddleware().server(async ({ next, req
 
 
 const globalBlockMiddleware = createMiddleware().server(async ({ next, request }) => {
+  if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
   try {
     const url = new URL(request.url);
     if (request.method !== "GET" || shouldSkip(url.pathname)) return next();
@@ -229,6 +232,7 @@ function allowInsert(ipHash: string): boolean {
 }
 
 const visitorTrackingMiddleware = createMiddleware().server(async ({ next, request }) => {
+  if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
   let setCookieValue: string | null = null;
   try {
     const url = new URL(request.url);
