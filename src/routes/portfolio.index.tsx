@@ -20,6 +20,17 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
+import { PORTFOLIO_SEGMENTS, portfolioClusterLinks, placesForSegment, portfolioComboPath } from "@/lib/portfolio-clusters";
+import {
+  SITE_URL,
+  breadcrumbNode,
+  graph,
+  itemListNode,
+  localBusinessNode,
+  organizationNode,
+  serviceNode,
+} from "@/lib/portfolio-seo";
 
 const TITLE = "Portfólio & Vitrine de Sites · Projetos Reais Criados pela 0WEB";
 const DESC =
