@@ -137,6 +137,7 @@ const canonicalRedirectMiddleware = createMiddleware().server(async ({ next, req
 
 
 const globalBlockMiddleware = createMiddleware().server(async ({ next, request }) => {
+  if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
   try {
     const url = new URL(request.url);
     if (request.method !== "GET" || shouldSkip(url.pathname)) return next();
@@ -231,6 +232,7 @@ function allowInsert(ipHash: string): boolean {
 }
 
 const visitorTrackingMiddleware = createMiddleware().server(async ({ next, request }) => {
+  if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
   let setCookieValue: string | null = null;
   try {
     const url = new URL(request.url);
