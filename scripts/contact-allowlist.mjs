@@ -60,7 +60,7 @@ export function isAllowedWaDigits(digits) {
  * "onde" o dado entrou (ex.: `portfolio.renata-beauty-XYZ.js` → /portfolio/renata-beauty).
  */
 export function routeHintFromChunk(name) {
-  const base = name.replace(/-[A-Za-z0-9_]{6,}\.js$/, "").replace(/\.js$/, "");
+  const base = name.replace(/-[A-Za-z0-9_-]{6,}\.js$/, "").replace(/\.js$/, "");
   if (base.startsWith("app.")) return `/${base.replace(/\./g, "/")} (painel)`;
   if (/^[a-z0-9._$-]+$/.test(base)) return `/${base.replace(/^index$/, "").replace(/\./g, "/")}`;
   return `componente ${base}`;
