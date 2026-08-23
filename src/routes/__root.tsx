@@ -162,6 +162,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
+      // Google Search Console — verificação de propriedade (0web.com.br)
+      { name: "google-site-verification", content: "8T74s_DMPj2w764HA4c_vL7zVpKJU9GU6o2piGK0Fbc" },
       // Geo targeting (Curitiba/PR/BR + RMC)
       { name: "geo.region", content: "BR-PR" },
       { name: "geo.placename", content: "Curitiba" },
