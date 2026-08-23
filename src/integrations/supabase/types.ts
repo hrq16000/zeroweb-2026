@@ -1725,6 +1725,78 @@ export type Database = {
         }
         Relationships: []
       }
+      gsc_page_metrics: {
+        Row: {
+          clicks: number
+          created_at: string
+          ctr: number
+          date: string
+          id: string
+          impressions: number
+          page: string
+          page_type: string
+          position: number
+          query: string | null
+        }
+        Insert: {
+          clicks?: number
+          created_at?: string
+          ctr?: number
+          date: string
+          id?: string
+          impressions?: number
+          page: string
+          page_type?: string
+          position?: number
+          query?: string | null
+        }
+        Update: {
+          clicks?: number
+          created_at?: string
+          ctr?: number
+          date?: string
+          id?: string
+          impressions?: number
+          page?: string
+          page_type?: string
+          position?: number
+          query?: string | null
+        }
+        Relationships: []
+      }
+      gsc_sync_log: {
+        Row: {
+          created_at: string
+          duration_ms: number | null
+          error_message: string | null
+          id: string
+          kind: string
+          rows_count: number
+          site_url: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          duration_ms?: number | null
+          error_message?: string | null
+          id?: string
+          kind: string
+          rows_count?: number
+          site_url?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          duration_ms?: number | null
+          error_message?: string | null
+          id?: string
+          kind?: string
+          rows_count?: number
+          site_url?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       hero_slides: {
         Row: {
           badge: string | null
@@ -1925,6 +1997,36 @@ export type Database = {
           id?: string
           issue_type?: string
           open_count?: number
+        }
+        Relationships: []
+      }
+      indexnow_submissions: {
+        Row: {
+          created_at: string
+          engine: string
+          error_message: string | null
+          id: string
+          response_code: number | null
+          status: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          engine?: string
+          error_message?: string | null
+          id?: string
+          response_code?: number | null
+          status?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          engine?: string
+          error_message?: string | null
+          id?: string
+          response_code?: number | null
+          status?: string
+          url?: string
         }
         Relationships: []
       }
@@ -4357,6 +4459,48 @@ export type Database = {
           path?: string
           referrer?: string | null
           user_agent?: string | null
+        }
+        Relationships: []
+      }
+      seo_alerts: {
+        Row: {
+          alert_type: string
+          created_at: string
+          fix_link: string | null
+          id: string
+          notified_at: string | null
+          probable_cause: string | null
+          resolved_at: string | null
+          severity: string
+          suggested_fix: string | null
+          title: string
+          url: string | null
+        }
+        Insert: {
+          alert_type: string
+          created_at?: string
+          fix_link?: string | null
+          id?: string
+          notified_at?: string | null
+          probable_cause?: string | null
+          resolved_at?: string | null
+          severity?: string
+          suggested_fix?: string | null
+          title: string
+          url?: string | null
+        }
+        Update: {
+          alert_type?: string
+          created_at?: string
+          fix_link?: string | null
+          id?: string
+          notified_at?: string | null
+          probable_cause?: string | null
+          resolved_at?: string | null
+          severity?: string
+          suggested_fix?: string | null
+          title?: string
+          url?: string | null
         }
         Relationships: []
       }

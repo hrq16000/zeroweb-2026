@@ -48,6 +48,7 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/templates", icon: LayoutTemplate, label: "Templates" },
   { to: "/app/auditoria/identidade", icon: Fingerprint, label: "Auditoria Identidade" },
   { to: "/app/indexacao", icon: Search, label: "Indexação SEO" },
+  { to: "/app/seo-google", icon: Search, label: "Search Console" },
   { to: "/app/seo-404s", icon: Search, label: "404s e Redirects" },
   { to: "/app/funis", icon: LayoutTemplate, label: "Funis dinâmicos" },
 ];
