@@ -122,6 +122,7 @@ import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as ServicosCategoriaSlugRouteImport } from './routes/servicos.categoria.$slug'
 import { Route as RWhatsappTokenRouteImport } from './routes/r.whatsapp.$token'
+import { Route as PortfolioSegmentoBairroRouteImport } from './routes/portfolio.$segmento.$bairro'
 import { Route as BlogClusterClusterRouteImport } from './routes/blog.cluster.$cluster'
 import { Route as ApiPublicLeadWebhookRouteImport } from './routes/api/public/lead-webhook'
 import { Route as ApiPublicHydrationReportRouteImport } from './routes/api/public/hydration-report'
@@ -755,6 +756,11 @@ const RWhatsappTokenRoute = RWhatsappTokenRouteImport.update({
   path: '/r/whatsapp/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioSegmentoBairroRoute = PortfolioSegmentoBairroRouteImport.update({
+  id: '/portfolio/$segmento/$bairro',
+  path: '/portfolio/$segmento/$bairro',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogClusterClusterRoute = BlogClusterClusterRouteImport.update({
   id: '/blog/cluster/$cluster',
   path: '/blog/cluster/$cluster',
@@ -1249,6 +1255,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
+  '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/app/': typeof AuthenticatedAppIndexRoute
@@ -1422,6 +1429,7 @@ export interface FileRoutesByTo {
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
+  '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/app': typeof AuthenticatedAppIndexRoute
@@ -1599,6 +1607,7 @@ export interface FileRoutesById {
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
+  '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
@@ -1776,6 +1785,7 @@ export interface FileRouteTypes {
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
     | '/blog/cluster/$cluster'
+    | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/app/'
@@ -1949,6 +1959,7 @@ export interface FileRouteTypes {
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
     | '/blog/cluster/$cluster'
+    | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/app'
@@ -2125,6 +2136,7 @@ export interface FileRouteTypes {
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
     | '/blog/cluster/$cluster'
+    | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/_authenticated/app/'
@@ -2257,6 +2269,7 @@ export interface RootRouteChildren {
   ApiPublicHydrationReportRoute: typeof ApiPublicHydrationReportRoute
   ApiPublicLeadWebhookRoute: typeof ApiPublicLeadWebhookRoute
   BlogClusterClusterRoute: typeof BlogClusterClusterRoute
+  PortfolioSegmentoBairroRoute: typeof PortfolioSegmentoBairroRoute
   RWhatsappTokenRoute: typeof RWhatsappTokenRoute
   ApiPublicHooksAnomalyScanRoute: typeof ApiPublicHooksAnomalyScanRoute
   ApiPublicHooksGscIngestRoute: typeof ApiPublicHooksGscIngestRoute
@@ -3065,6 +3078,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RWhatsappTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/$segmento/$bairro': {
+      id: '/portfolio/$segmento/$bairro'
+      path: '/portfolio/$segmento/$bairro'
+      fullPath: '/portfolio/$segmento/$bairro'
+      preLoaderRoute: typeof PortfolioSegmentoBairroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/cluster/$cluster': {
       id: '/blog/cluster/$cluster'
       path: '/blog/cluster/$cluster'
@@ -3835,6 +3855,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHydrationReportRoute: ApiPublicHydrationReportRoute,
   ApiPublicLeadWebhookRoute: ApiPublicLeadWebhookRoute,
   BlogClusterClusterRoute: BlogClusterClusterRoute,
+  PortfolioSegmentoBairroRoute: PortfolioSegmentoBairroRoute,
   RWhatsappTokenRoute: RWhatsappTokenRoute,
   ApiPublicHooksAnomalyScanRoute: ApiPublicHooksAnomalyScanRoute,
   ApiPublicHooksGscIngestRoute: ApiPublicHooksGscIngestRoute,
