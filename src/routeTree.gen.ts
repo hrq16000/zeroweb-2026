@@ -125,6 +125,7 @@ import { Route as ServicosCategoriaSlugRouteImport } from './routes/servicos.cat
 import { Route as RWhatsappTokenRouteImport } from './routes/r.whatsapp.$token'
 import { Route as PortfolioSegmentoBairroRouteImport } from './routes/portfolio.$segmento.$bairro'
 import { Route as BlogClusterClusterRouteImport } from './routes/blog.cluster.$cluster'
+import { Route as ApiPublicSeoSyncRouteImport } from './routes/api/public/seo-sync'
 import { Route as ApiPublicLeadWebhookRouteImport } from './routes/api/public/lead-webhook'
 import { Route as ApiPublicHydrationReportRouteImport } from './routes/api/public/hydration-report'
 import { Route as ApiPublicHealthDbRouteImport } from './routes/api/public/health-db'
@@ -134,6 +135,7 @@ import { Route as AuthenticatedAppTemplatesRouteImport } from './routes/_authent
 import { Route as AuthenticatedAppSupportRouteImport } from './routes/_authenticated/app.support'
 import { Route as AuthenticatedAppServicosImagensRouteImport } from './routes/_authenticated/app.servicos-imagens'
 import { Route as AuthenticatedAppServicosRouteImport } from './routes/_authenticated/app.servicos'
+import { Route as AuthenticatedAppSeoGoogleRouteImport } from './routes/_authenticated/app.seo-google'
 import { Route as AuthenticatedAppSeoAuditoriaRouteImport } from './routes/_authenticated/app.seo-auditoria'
 import { Route as AuthenticatedAppSeo404sRouteImport } from './routes/_authenticated/app.seo-404s'
 import { Route as AuthenticatedAppReportsRouteImport } from './routes/_authenticated/app.reports'
@@ -773,6 +775,11 @@ const BlogClusterClusterRoute = BlogClusterClusterRouteImport.update({
   path: '/blog/cluster/$cluster',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicSeoSyncRoute = ApiPublicSeoSyncRouteImport.update({
+  id: '/api/public/seo-sync',
+  path: '/api/public/seo-sync',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicLeadWebhookRoute = ApiPublicLeadWebhookRouteImport.update({
   id: '/api/public/lead-webhook',
   path: '/api/public/lead-webhook',
@@ -822,6 +829,12 @@ const AuthenticatedAppServicosRoute =
   AuthenticatedAppServicosRouteImport.update({
     id: '/servicos',
     path: '/servicos',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppSeoGoogleRoute =
+  AuthenticatedAppSeoGoogleRouteImport.update({
+    id: '/seo-google',
+    path: '/seo-google',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppSeoAuditoriaRoute =
@@ -1260,6 +1273,7 @@ export interface FileRoutesByFullPath {
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
   '/app/seo-auditoria': typeof AuthenticatedAppSeoAuditoriaRoute
+  '/app/seo-google': typeof AuthenticatedAppSeoGoogleRoute
   '/app/servicos': typeof AuthenticatedAppServicosRouteWithChildren
   '/app/servicos-imagens': typeof AuthenticatedAppServicosImagensRoute
   '/app/support': typeof AuthenticatedAppSupportRouteWithChildren
@@ -1269,6 +1283,7 @@ export interface FileRoutesByFullPath {
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
+  '/api/public/seo-sync': typeof ApiPublicSeoSyncRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
   '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
@@ -1436,6 +1451,7 @@ export interface FileRoutesByTo {
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
   '/app/seo-auditoria': typeof AuthenticatedAppSeoAuditoriaRoute
+  '/app/seo-google': typeof AuthenticatedAppSeoGoogleRoute
   '/app/servicos': typeof AuthenticatedAppServicosRouteWithChildren
   '/app/servicos-imagens': typeof AuthenticatedAppServicosImagensRoute
   '/app/support': typeof AuthenticatedAppSupportRouteWithChildren
@@ -1445,6 +1461,7 @@ export interface FileRoutesByTo {
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
+  '/api/public/seo-sync': typeof ApiPublicSeoSyncRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
   '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
@@ -1616,6 +1633,7 @@ export interface FileRoutesById {
   '/_authenticated/app/reports': typeof AuthenticatedAppReportsRoute
   '/_authenticated/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
   '/_authenticated/app/seo-auditoria': typeof AuthenticatedAppSeoAuditoriaRoute
+  '/_authenticated/app/seo-google': typeof AuthenticatedAppSeoGoogleRoute
   '/_authenticated/app/servicos': typeof AuthenticatedAppServicosRouteWithChildren
   '/_authenticated/app/servicos-imagens': typeof AuthenticatedAppServicosImagensRoute
   '/_authenticated/app/support': typeof AuthenticatedAppSupportRouteWithChildren
@@ -1625,6 +1643,7 @@ export interface FileRoutesById {
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
+  '/api/public/seo-sync': typeof ApiPublicSeoSyncRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
   '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
@@ -1796,6 +1815,7 @@ export interface FileRouteTypes {
     | '/app/reports'
     | '/app/seo-404s'
     | '/app/seo-auditoria'
+    | '/app/seo-google'
     | '/app/servicos'
     | '/app/servicos-imagens'
     | '/app/support'
@@ -1805,6 +1825,7 @@ export interface FileRouteTypes {
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
+    | '/api/public/seo-sync'
     | '/blog/cluster/$cluster'
     | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
@@ -1972,6 +1993,7 @@ export interface FileRouteTypes {
     | '/app/reports'
     | '/app/seo-404s'
     | '/app/seo-auditoria'
+    | '/app/seo-google'
     | '/app/servicos'
     | '/app/servicos-imagens'
     | '/app/support'
@@ -1981,6 +2003,7 @@ export interface FileRouteTypes {
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
+    | '/api/public/seo-sync'
     | '/blog/cluster/$cluster'
     | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
@@ -2151,6 +2174,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/reports'
     | '/_authenticated/app/seo-404s'
     | '/_authenticated/app/seo-auditoria'
+    | '/_authenticated/app/seo-google'
     | '/_authenticated/app/servicos'
     | '/_authenticated/app/servicos-imagens'
     | '/_authenticated/app/support'
@@ -2160,6 +2184,7 @@ export interface FileRouteTypes {
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
+    | '/api/public/seo-sync'
     | '/blog/cluster/$cluster'
     | '/portfolio/$segmento/$bairro'
     | '/r/whatsapp/$token'
@@ -2294,6 +2319,7 @@ export interface RootRouteChildren {
   ApiPublicHealthDbRoute: typeof ApiPublicHealthDbRoute
   ApiPublicHydrationReportRoute: typeof ApiPublicHydrationReportRoute
   ApiPublicLeadWebhookRoute: typeof ApiPublicLeadWebhookRoute
+  ApiPublicSeoSyncRoute: typeof ApiPublicSeoSyncRoute
   BlogClusterClusterRoute: typeof BlogClusterClusterRoute
   PortfolioSegmentoBairroRoute: typeof PortfolioSegmentoBairroRoute
   RWhatsappTokenRoute: typeof RWhatsappTokenRoute
@@ -3125,6 +3151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogClusterClusterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/seo-sync': {
+      id: '/api/public/seo-sync'
+      path: '/api/public/seo-sync'
+      fullPath: '/api/public/seo-sync'
+      preLoaderRoute: typeof ApiPublicSeoSyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/lead-webhook': {
       id: '/api/public/lead-webhook'
       path: '/api/public/lead-webhook'
@@ -3186,6 +3219,13 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/app/servicos'
       preLoaderRoute: typeof AuthenticatedAppServicosRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/seo-google': {
+      id: '/_authenticated/app/seo-google'
+      path: '/seo-google'
+      fullPath: '/app/seo-google'
+      preLoaderRoute: typeof AuthenticatedAppSeoGoogleRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/seo-auditoria': {
@@ -3677,6 +3717,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppReportsRoute: typeof AuthenticatedAppReportsRoute
   AuthenticatedAppSeo404sRoute: typeof AuthenticatedAppSeo404sRoute
   AuthenticatedAppSeoAuditoriaRoute: typeof AuthenticatedAppSeoAuditoriaRoute
+  AuthenticatedAppSeoGoogleRoute: typeof AuthenticatedAppSeoGoogleRoute
   AuthenticatedAppServicosRoute: typeof AuthenticatedAppServicosRouteWithChildren
   AuthenticatedAppServicosImagensRoute: typeof AuthenticatedAppServicosImagensRoute
   AuthenticatedAppSupportRoute: typeof AuthenticatedAppSupportRouteWithChildren
@@ -3720,6 +3761,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppReportsRoute: AuthenticatedAppReportsRoute,
   AuthenticatedAppSeo404sRoute: AuthenticatedAppSeo404sRoute,
   AuthenticatedAppSeoAuditoriaRoute: AuthenticatedAppSeoAuditoriaRoute,
+  AuthenticatedAppSeoGoogleRoute: AuthenticatedAppSeoGoogleRoute,
   AuthenticatedAppServicosRoute: AuthenticatedAppServicosRouteWithChildren,
   AuthenticatedAppServicosImagensRoute: AuthenticatedAppServicosImagensRoute,
   AuthenticatedAppSupportRoute: AuthenticatedAppSupportRouteWithChildren,
@@ -3898,6 +3940,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHealthDbRoute: ApiPublicHealthDbRoute,
   ApiPublicHydrationReportRoute: ApiPublicHydrationReportRoute,
   ApiPublicLeadWebhookRoute: ApiPublicLeadWebhookRoute,
+  ApiPublicSeoSyncRoute: ApiPublicSeoSyncRoute,
   BlogClusterClusterRoute: BlogClusterClusterRoute,
   PortfolioSegmentoBairroRoute: PortfolioSegmentoBairroRoute,
   RWhatsappTokenRoute: RWhatsappTokenRoute,
