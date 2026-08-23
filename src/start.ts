@@ -33,6 +33,7 @@ async function sha256Hex(text: string): Promise<string> {
 
 function shouldSkip(pathname: string): boolean {
   return (
+    pathname.startsWith("/lovable/") ||
     pathname.startsWith("/_build") ||
     pathname.startsWith("/_server") ||
     pathname.startsWith("/api/public") ||
