@@ -1,12 +1,12 @@
 {
-  "correlationId": "eb8e9d02-ba76-4942-bc30-c34fc6fabd38",
-  "generatedAt": "2026-08-23T06:14:27.172Z",
+  "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
+  "generatedAt": "2026-08-23T06:14:36.834Z",
   "scanned": 284,
   "errors": 0,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "eb8e9d02-ba76-4942-bc30-c34fc6fabd38",
+      "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
       "level": "warn",
       "chunk": "app.pedidos-DlFUeyfE.js",
       "file": "dist/client/assets/app.pedidos-DlFUeyfE.js",
@@ -23,7 +23,7 @@
       "totalHits": 1
     },
     {
-      "correlationId": "eb8e9d02-ba76-4942-bc30-c34fc6fabd38",
+      "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
       "level": "warn",
       "chunk": "app.servicos-B6f62-8M.js",
       "file": "dist/client/assets/app.servicos-B6f62-8M.js",
