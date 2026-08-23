@@ -1,0 +1,43 @@
+name: build-validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # Instalação determinística a partir do lockfile (equivalente ao `npm ci`).
+      - name: Install (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Build (development)
+        run: node scripts/build-with-recovery.mjs --mode development
+
+      - name: Build (production)
+        run: node scripts/build-with-recovery.mjs
+
+      # Regressão de privacidade: falha o CI se um chunk público voltar a
+      # embutir wa.me / telefone / e-mail não-allowlisted.
+      - name: Client privacy regression
+        run: |
+          bun run validate:client-privacy
+          bun run validate:dist-contact
+
+      - name: Upload privacy report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-privacy-report
+          path: seo-reports/client-privacy-report.json
+          if-no-files-found: ignore

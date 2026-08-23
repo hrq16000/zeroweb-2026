@@ -1,73 +1,112 @@
 #!/usr/bin/env node
 /**
- * Validator: garante que o bundle público do cliente (dist/client/assets)
+ * Validador: garante que o bundle público do cliente (dist/client/assets)
  * não contém wa.me, e-mails corporativos ou telefones em números literais.
  *
- * Chunks admin (_authenticated/app.*) são inspecionados mas apenas emitem
+ * Gera um relatório detalhado (origem do leak, tamanho do chunk, rota provável,
+ * trecho de contexto) em seo-reports/client-privacy-report.json e falha o build
+ * quando um chunk público volta a vazar contato não-allowlisted.
+ *
+ * Chunks admin (painel autenticado) são inspecionados mas apenas emitem
  * warning — o painel só carrega após login e as strings encontradas são
  * de suporte a pedidos (número do próprio cliente do pedido), não da 0Web.
  */
-import { readdirSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync } from "node:fs";
+import { join, relative } from "node:path";
+import { randomUUID } from "node:crypto";
+import {
+  CLIENT_ALLOWED_PHONE,
+  isAdminChunk,
+  isAllowedWaDigits,
+  isClientShowcaseChunk,
+  routeHintFromChunk,
+} from "./contact-allowlist.mjs";
 
+const ROOT = process.cwd();
 const DIST = "dist/client/assets";
+const REPORT_DIR = join(ROOT, "seo-reports");
+const REPORT_FILE = join(REPORT_DIR, "client-privacy-report.json");
+const correlationId = process.env["BUILD_CORRELATION_ID"] || randomUUID();
+
 const WA = /wa\.me\/?(\d+)?/g;
-// contatos públicos de CLIENTES (páginas de portfólio) — não são contatos da 0WEB.
-// Ex.: Renata Beauty Studio, cujo site vitrine expõe o WhatsApp do próprio cliente.
-const CLIENT_ALLOW_DIGITS = new Set(["554196048639"]);
-// chunks de páginas-vitrine de clientes: o contato exposto é do próprio cliente
-const CLIENT_CHUNK_PREFIXES = [
-  "RenataBeautyView",
-  "RBeautyEditorialView",
-  "portfolio.renata-beauty",
-  "portfolio.r_beauty",
-];
-const CLIENT_ALLOW_PHONE = /^\+?55[- ]?\(?41\)?[- ]?9604-?8639$/;
 // e-mails: exclui domínios de vendors/schemas/typedefs conhecidos
 const EMAIL = /[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
 const EMAIL_ALLOW = /^(?:.*@)(?:sentry|example|schema\.org|w3\.org|whatwg|graphql|googleapis|gstatic|facebook|npmjs|types|radix|tanstack|babel|react|supabase|ai-sdk|floating|lovable|vite|fontsource|hookform|lookout|stripe|internal\.|noreply\.)|^(?:seu|email|nome|contato)@(?:email|exemplo|dominio)\./i;
 // telefones BR reais: precisam de FORMATAÇÃO (parênteses, +55 ou hifens
 // entre grupos) para não colidir com constantes numéricas (INT_MAX etc).
 const PHONE_PATTERNS = [
-  /\+55[- ]?\(?\d{2}\)?[- ]?9?\d{4}[- ]?\d{4}/g,       // +55 41 99745-2053
-  /\(\d{2}\)\s?9?\d{4}-?\d{4}/g,                        // (41) 99745-2053
-  /(?<!\d)\d{2}-9\d{4}-\d{4}(?!\d)/g,                   // 41-99745-2053
+  /\+55[- ]?\(?\d{2}\)?[- ]?9?\d{4}[- ]?\d{4}/g, // +55 41 99745-2053
+  /\(\d{2}\)\s?9?\d{4}-?\d{4}/g, // (41) 99745-2053
+  /(?<!\d)\d{2}-9\d{4}-\d{4}(?!\d)/g, // 41-99745-2053
 ];
 // placeholders comuns em form inputs — não são leak
 const PHONE_ALLOW = /^\(?\d?\d?\)?\s?9?9999-?9999$|^\(11\)\s?90000-0000$|^\(41\)\s?9\d{4}-\d{4}$/;
 
-
-const ADMIN_PREFIXES = ["app.pedidos", "app.servicos", "app.leads", "app.painel", "app.dashboard", "app.crm", "app.usuarios", "app.integracoes", "app.configuracoes", "app.marketplace", "app.b2b"];
-
-function isAdminChunk(name) {
-  return ADMIN_PREFIXES.some((p) => name.startsWith(p));
-}
-
 let errors = 0;
 let warns = 0;
+let scanned = 0;
+const findings = [];
+
+function snippet(src, index) {
+  return src
+    .slice(Math.max(0, index - 60), index + 60)
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 function scan(file) {
   const name = file.split("/").pop();
   const admin = isAdminChunk(name);
   const src = readFileSync(file, "utf8");
+  const bytes = statSync(file).size;
+  scanned++;
 
-  const clientPage = CLIENT_CHUNK_PREFIXES.some((p) => name.startsWith(p));
-  const waHits = clientPage
-    ? 0
-    : [...src.matchAll(WA)].filter((m) => !(m[1] && CLIENT_ALLOW_DIGITS.has(m[1]))).length;
-  const emailHits = [...src.matchAll(EMAIL)].filter((m) => !EMAIL_ALLOW.test(m[0])).map((m) => m[0]);
-  const phoneHits = PHONE_PATTERNS.flatMap((rx) => [...src.matchAll(rx)].map((m) => m[0]))
-    .filter((v) => !PHONE_ALLOW.test(v) && !CLIENT_ALLOW_PHONE.test(v.replace(/\s+/g, " ").trim()));
+  const showcase = isClientShowcaseChunk(name);
+  const hits = [];
 
-  if (waHits === 0 && emailHits.length === 0 && phoneHits.length === 0) return;
+  if (!showcase) {
+    for (const m of src.matchAll(WA)) {
+      if (isAllowedWaDigits(m[1])) continue;
+      hits.push({ kind: "wa.me", value: m[0], offset: m.index, context: snippet(src, m.index) });
+    }
+  }
+  for (const m of src.matchAll(EMAIL)) {
+    if (EMAIL_ALLOW.test(m[0])) continue;
+    hits.push({ kind: "email", value: m[0], offset: m.index, context: snippet(src, m.index) });
+  }
+  for (const rx of PHONE_PATTERNS) {
+    for (const m of src.matchAll(rx)) {
+      const v = m[0];
+      if (PHONE_ALLOW.test(v)) continue;
+      if (CLIENT_ALLOWED_PHONE.test(v.replace(/\s+/g, " ").trim())) continue;
+      hits.push({ kind: "phone", value: v, offset: m.index, context: snippet(src, m.index) });
+    }
+  }
 
-  const lvl = admin ? "WARN" : "ERROR";
-  if (admin) warns++; else errors++;
+  if (hits.length === 0) return;
 
-  console.log(`\n[${lvl}] ${name}`);
-  if (waHits) console.log(`  wa.me x${waHits}`);
-  if (emailHits.length) console.log(`  emails: ${[...new Set(emailHits)].slice(0, 5).join(", ")}`);
-  if (phoneHits.length) console.log(`  phones: ${[...new Set(phoneHits)].slice(0, 5).join(", ")}`);
+  const level = admin ? "warn" : "error";
+  if (admin) warns++;
+  else errors++;
+
+  const entry = {
+    correlationId,
+    level,
+    chunk: name,
+    file: relative(ROOT, file),
+    bytes,
+    routeHint: routeHintFromChunk(name),
+    hits: hits.slice(0, 20),
+    totalHits: hits.length,
+  };
+  findings.push(entry);
+
+  console.log(`\n[${level.toUpperCase()}] ${name}  (${(bytes / 1024).toFixed(1)} kB · ${entry.routeHint})`);
+  for (const h of hits.slice(0, 5)) {
+    console.log(`  ${h.kind}: ${h.value}  @${h.offset}`);
+    console.log(`     ↳ ${h.context}`);
+  }
+  if (hits.length > 5) console.log(`  … +${hits.length - 5} ocorrência(s)`);
 }
 
 function walk(dir) {
@@ -79,11 +118,26 @@ function walk(dir) {
   }
 }
 
-console.log(`[client-privacy] scanning ${DIST}`);
+console.log(`[client-privacy] scanning ${DIST} (correlationId=${correlationId})`);
 walk(DIST);
+
+try {
+  mkdirSync(REPORT_DIR, { recursive: true });
+  writeFileSync(
+    REPORT_FILE,
+    JSON.stringify(
+      { correlationId, generatedAt: new Date().toISOString(), scanned, errors, warns, findings },
+      null,
+      2,
+    ),
+  );
+  console.log(`[client-privacy] report → ${relative(ROOT, REPORT_FILE)}`);
+} catch (e) {
+  console.warn(`[client-privacy] não foi possível gravar o relatório: ${e.message}`);
+}
 
 if (errors) {
   console.error(`\n[client-privacy] FAIL — ${errors} public chunk(s) with leaks`);
   process.exit(1);
 }
-console.log(`\n[client-privacy] OK — public bundle clean (${warns} warning(s) in admin chunks)`);
+console.log(`\n[client-privacy] OK — public bundle clean (${scanned} chunks, ${warns} warning(s) in admin chunks)`);

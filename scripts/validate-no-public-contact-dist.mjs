@@ -9,6 +9,7 @@
  */
 import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
+import { CLIENT_ALLOWED_DIGITS } from "./contact-allowlist.mjs";
 
 const ROOT = process.cwd();
 const DIST = join(ROOT, "dist", "client"); // apenas o bundle entregue ao navegador
@@ -30,8 +31,9 @@ const PATTERNS = [
 
 // Caminhos internos legítimos que contêm "whatsapp" e não são contato.
 const SAFE_LINE = /\/r\/whatsapp\/|r\.whatsapp|whatsapp_redirect|whatsapp-redirect/;
-// Contatos públicos de CLIENTES (páginas de portfólio) — não são contatos da 0WEB.
-const CLIENT_ALLOW = /wa\.me\/554196048639/;
+// Contatos públicos de CLIENTES (páginas de portfólio) — não são contatos da
+// 0WEB. A allowlist é única e vive em scripts/contact-allowlist.mjs.
+const CLIENT_ALLOW = new RegExp(`wa\\.me/(?:${[...CLIENT_ALLOWED_DIGITS].join("|")})`);
 
 
 const EXT = /\.(js|mjs|cjs|html|json|map|txt|xml)$/;

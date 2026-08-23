@@ -35,6 +35,19 @@ function parseJsonValue(raw: string): unknown {
   }
 }
 
+/** Lista os campos (chaves de 1º nível) que diferem entre duas versões. */
+function diffFields(before: unknown, after: unknown): string[] {
+  const isObj = (v: unknown): v is Record<string, unknown> =>
+    typeof v === "object" && v !== null && !Array.isArray(v);
+  if (!isObj(before) || !isObj(after)) {
+    return JSON.stringify(before ?? null) === JSON.stringify(after ?? null) ? [] : ["value"];
+  }
+  const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
+  return [...keys]
+    .filter((k) => JSON.stringify(before[k] ?? null) !== JSON.stringify(after[k] ?? null))
+    .sort();
+}
+
 async function recordHistory(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   supabaseAdmin: any,
@@ -43,11 +56,14 @@ async function recordHistory(
     scope: string;
     key: string;
     value: unknown;
-    action: "publish" | "unpublish" | "rollback";
+    action: "publish" | "unpublish" | "rollback" | "draft" | "preview";
     created_by: string;
+    changed_fields?: string[];
   },
 ) {
-  const { error } = await supabaseAdmin.from("landing_overrides_history").insert(entry);
+  const { error } = await supabaseAdmin
+    .from("landing_overrides_history")
+    .insert({ ...entry, changed_fields: entry.changed_fields ?? [] });
   if (error) console.warn("[landing-overrides] history insert failed", error.message);
 }
 
@@ -84,6 +100,17 @@ export const adminPreviewLandingOverride = createServerFn({ method: "POST" })
       .eq("id", data.id)
       .single();
     if (error) throw new Error(error.message);
+
+    await recordHistory(supabaseAdmin, {
+      override_id: row.id,
+      scope: row.scope,
+      key: row.key,
+      value: row.draft_value ?? null,
+      action: "preview",
+      created_by: userId,
+      changed_fields: diffFields(row.published_value, row.draft_value),
+    });
+
     return {
       id: row.id,
       scope: row.scope,
@@ -105,7 +132,7 @@ export const adminListLandingOverrideHistory = createServerFn({ method: "POST" }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: rows, error } = await (supabaseAdmin as any)
       .from("landing_overrides_history")
-      .select("id, action, value, created_at, created_by")
+      .select("id, action, value, created_at, created_by, changed_fields")
       .eq("override_id", data.id)
       .order("created_at", { ascending: false })
       .limit(50);
@@ -117,6 +144,7 @@ export const adminListLandingOverrideHistory = createServerFn({ method: "POST" }
       value: unknown;
       created_at: string;
       created_by: string | null;
+      changed_fields: string[] | null;
     };
     // `value` é serializado como texto JSON para atravessar o RPC com segurança.
     return {
@@ -126,6 +154,7 @@ export const adminListLandingOverrideHistory = createServerFn({ method: "POST" }
         valueJson: JSON.stringify(r.value ?? null, null, 2),
         created_at: r.created_at,
         created_by: r.created_by,
+        changedFields: r.changed_fields ?? [],
       })),
     };
   });
@@ -140,6 +169,12 @@ export const adminSaveLandingOverrideDraft = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const draft = parseJsonValue(data.draftValue);
+
+    const { data: previous } = await supabaseAdmin
+      .from("landing_overrides")
+      .select("id, draft_value")
+      .eq("key", data.key)
+      .maybeSingle();
 
     const { data: row, error } = await supabaseAdmin
       .from("landing_overrides")
@@ -157,6 +192,19 @@ export const adminSaveLandingOverrideDraft = createServerFn({ method: "POST" })
       .single();
 
     if (error) throw new Error(error.message);
+
+    if (row?.id) {
+      await recordHistory(supabaseAdmin, {
+        override_id: row.id,
+        scope: data.scope,
+        key: data.key,
+        value: draft,
+        action: "draft",
+        created_by: userId,
+        changed_fields: diffFields(previous?.draft_value ?? null, draft),
+      });
+    }
+
     return { id: row?.id ?? null, status: "draft" as const };
   });
 
@@ -170,7 +218,7 @@ export const adminPublishLandingOverride = createServerFn({ method: "POST" })
 
     const { data: current, error: readError } = await supabaseAdmin
       .from("landing_overrides")
-      .select("scope, key, draft_value")
+      .select("scope, key, draft_value, published_value")
       .eq("id", data.id)
       .single();
     if (readError) throw new Error(readError.message);
@@ -197,6 +245,7 @@ export const adminPublishLandingOverride = createServerFn({ method: "POST" })
       value: current.draft_value,
       action: "publish",
       created_by: userId,
+      changed_fields: diffFields(current.published_value, current.draft_value),
     });
 
     return { status: "published" as const };
@@ -236,6 +285,7 @@ export const adminUnpublishLandingOverride = createServerFn({ method: "POST" })
         value: current.published_value ?? null,
         action: "unpublish",
         created_by: userId,
+        changed_fields: diffFields(current.published_value, null),
       });
     }
 
@@ -283,6 +333,7 @@ export const adminRollbackLandingOverride = createServerFn({ method: "POST" })
       value: version.value,
       action: "rollback",
       created_by: userId,
+      changed_fields: diffFields(version.value, null),
     });
 
     return { status: "rolled-back" as const };

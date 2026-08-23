@@ -36,5 +36,22 @@ export default defineConfig({
         ),
       },
     },
+    build: {
+      rollupOptions: {
+        // framer-motion/motion marcam módulos com "use client"; o Rollup avisa
+        // que a diretiva foi ignorada ao concatenar chunks. A diretiva é
+        // legítima e preservada pelo runtime do React — silenciamos apenas
+        // esse aviso para não poluir (nem quebrar) o build de produção.
+        onwarn(warning, defaultHandler) {
+          if (
+            warning.code === "MODULE_LEVEL_DIRECTIVE" &&
+            /framer-motion|node_modules\/motion/.test(warning.message)
+          ) {
+            return;
+          }
+          defaultHandler(warning);
+        },
+      },
+    },
   },
 });
