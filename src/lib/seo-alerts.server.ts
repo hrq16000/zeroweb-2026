@@ -44,28 +44,17 @@ export async function notifyPendingSeoAlerts(supabase: any) {
 }
 
 async function sendEmailAlert(text: string, count: number): Promise<boolean> {
-  const lovableApiKey = process.env.LOVABLE_API_KEY;
-  const resendKey = process.env.RESEND_API_KEY;
   const to = process.env.SEO_ALERT_EMAIL;
-  if (!lovableApiKey || !resendKey || !to) return false;
-
-  const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${lovableApiKey}`,
-      "X-Connection-Api-Key": resendKey,
-    },
-    body: JSON.stringify({
-      from: "0WEB Alertas <alertas@0web.com.br>",
-      to: [to],
-      subject: `[0WEB] ${count} alerta(s) de indexação/SEO`,
-      text,
-    }),
-  });
-  if (!res.ok) {
-    console.error(`[seo-alerts] email falhou [${res.status}]: ${await res.text()}`);
+  if (!to) return false;
+  try {
+    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+    const result = await sendTemplateEmail("seo-alert", to, {
+      templateData: { count, body: text },
+      idempotencyKey: `seo-alert-${new Date().toISOString().slice(0, 13)}-${count}`,
+    });
+    return result.sent;
+  } catch (e) {
+    console.error("[seo-alerts] email falhou:", e);
     return false;
   }
-  return true;
 }
