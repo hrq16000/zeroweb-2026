@@ -151,6 +151,7 @@ import { Route as AuthenticatedAppLicensesRouteImport } from './routes/_authenti
 import { Route as AuthenticatedAppLeadsRouteImport } from './routes/_authenticated/app.leads'
 import { Route as AuthenticatedAppLandingOverridesRouteImport } from './routes/_authenticated/app.landing-overrides'
 import { Route as AuthenticatedAppIntegracoesRouteImport } from './routes/_authenticated/app.integracoes'
+import { Route as AuthenticatedAppIndexacaoPortfolioRouteImport } from './routes/_authenticated/app.indexacao-portfolio'
 import { Route as AuthenticatedAppIndexacaoRouteImport } from './routes/_authenticated/app.indexacao'
 import { Route as AuthenticatedAppHydrationRouteImport } from './routes/_authenticated/app.hydration'
 import { Route as AuthenticatedAppEditorialRouteImport } from './routes/_authenticated/app.editorial'
@@ -917,6 +918,12 @@ const AuthenticatedAppIntegracoesRoute =
     path: '/integracoes',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppIndexacaoPortfolioRoute =
+  AuthenticatedAppIndexacaoPortfolioRouteImport.update({
+    id: '/indexacao-portfolio',
+    path: '/indexacao-portfolio',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppIndexacaoRoute =
   AuthenticatedAppIndexacaoRouteImport.update({
     id: '/indexacao',
@@ -1235,6 +1242,7 @@ export interface FileRoutesByFullPath {
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
+  '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/app/leads': typeof AuthenticatedAppLeadsRoute
@@ -1410,6 +1418,7 @@ export interface FileRoutesByTo {
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
+  '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/app/leads': typeof AuthenticatedAppLeadsRoute
@@ -1589,6 +1598,7 @@ export interface FileRoutesById {
   '/_authenticated/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/_authenticated/app/hydration': typeof AuthenticatedAppHydrationRoute
   '/_authenticated/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
+  '/_authenticated/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/_authenticated/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/_authenticated/app/leads': typeof AuthenticatedAppLeadsRoute
@@ -1768,6 +1778,7 @@ export interface FileRouteTypes {
     | '/app/editorial'
     | '/app/hydration'
     | '/app/indexacao'
+    | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
     | '/app/leads'
@@ -1943,6 +1954,7 @@ export interface FileRouteTypes {
     | '/app/editorial'
     | '/app/hydration'
     | '/app/indexacao'
+    | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
     | '/app/leads'
@@ -2121,6 +2133,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/editorial'
     | '/_authenticated/app/hydration'
     | '/_authenticated/app/indexacao'
+    | '/_authenticated/app/indexacao-portfolio'
     | '/_authenticated/app/integracoes'
     | '/_authenticated/app/landing-overrides'
     | '/_authenticated/app/leads'
@@ -3294,6 +3307,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppIntegracoesRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/indexacao-portfolio': {
+      id: '/_authenticated/app/indexacao-portfolio'
+      path: '/indexacao-portfolio'
+      fullPath: '/app/indexacao-portfolio'
+      preLoaderRoute: typeof AuthenticatedAppIndexacaoPortfolioRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/indexacao': {
       id: '/_authenticated/app/indexacao'
       path: '/indexacao'
@@ -3639,6 +3659,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppEditorialRoute: typeof AuthenticatedAppEditorialRouteWithChildren
   AuthenticatedAppHydrationRoute: typeof AuthenticatedAppHydrationRoute
   AuthenticatedAppIndexacaoRoute: typeof AuthenticatedAppIndexacaoRouteWithChildren
+  AuthenticatedAppIndexacaoPortfolioRoute: typeof AuthenticatedAppIndexacaoPortfolioRoute
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
   AuthenticatedAppLandingOverridesRoute: typeof AuthenticatedAppLandingOverridesRoute
   AuthenticatedAppLeadsRoute: typeof AuthenticatedAppLeadsRoute
@@ -3679,6 +3700,8 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppEditorialRoute: AuthenticatedAppEditorialRouteWithChildren,
   AuthenticatedAppHydrationRoute: AuthenticatedAppHydrationRoute,
   AuthenticatedAppIndexacaoRoute: AuthenticatedAppIndexacaoRouteWithChildren,
+  AuthenticatedAppIndexacaoPortfolioRoute:
+    AuthenticatedAppIndexacaoPortfolioRoute,
   AuthenticatedAppIntegracoesRoute: AuthenticatedAppIntegracoesRoute,
   AuthenticatedAppLandingOverridesRoute: AuthenticatedAppLandingOverridesRoute,
   AuthenticatedAppLeadsRoute: AuthenticatedAppLeadsRoute,
