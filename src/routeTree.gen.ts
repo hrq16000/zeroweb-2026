@@ -96,6 +96,7 @@ import { Route as RCodeRouteImport } from './routes/r.$code'
 import { Route as ProfissionalSlugRouteImport } from './routes/profissional.$slug'
 import { Route as PortfolioRenataBeautyRouteImport } from './routes/portfolio.renata-beauty'
 import { Route as PortfolioR_beautyRouteImport } from './routes/portfolio.r_beauty'
+import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
 import { Route as EstadosStateRouteImport } from './routes/estados.$state'
@@ -629,6 +630,11 @@ const PortfolioRenataBeautyRoute = PortfolioRenataBeautyRouteImport.update({
 const PortfolioR_beautyRoute = PortfolioR_beautyRouteImport.update({
   id: '/portfolio/r_beauty',
   path: '/portfolio/r_beauty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioDyzpromoRoute = PortfolioDyzpromoRouteImport.update({
+  id: '/portfolio/dyzpromo',
+  path: '/portfolio/dyzpromo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PedidoIdRoute = PedidoIdRouteImport.update({
@@ -1228,6 +1234,7 @@ export interface FileRoutesByFullPath {
   '/f/$slug': typeof FSlugRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
+  '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/renata-beauty': typeof PortfolioRenataBeautyRoute
   '/profissional/$slug': typeof ProfissionalSlugRoute
   '/r/$code': typeof RCodeRoute
@@ -1773,6 +1780,7 @@ export interface FileRouteTypes {
     | '/f/$slug'
     | '/pedido/$id'
     | '/portfolio/r_beauty'
+    | '/portfolio/dyzpromo'
     | '/portfolio/renata-beauty'
     | '/profissional/$slug'
     | '/r/$code'
@@ -2315,6 +2323,7 @@ export interface RootRouteChildren {
   FSlugRoute: typeof FSlugRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
+  PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   ProfissionalSlugRoute: typeof ProfissionalSlugRoute
   RCodeRoute: typeof RCodeRoute
@@ -2960,6 +2969,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/r_beauty'
       fullPath: '/portfolio/r_beauty'
       preLoaderRoute: typeof PortfolioR_beautyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/dyzpromo': {
+      id: '/portfolio/dyzpromo'
+      path: '/portfolio/dyzpromo'
+      fullPath: '/portfolio/dyzpromo'
+      preLoaderRoute: typeof PortfolioDyzpromoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pedido/$id': {
@@ -3944,6 +3960,7 @@ const rootRouteChildren: RootRouteChildren = {
   FSlugRoute: FSlugRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
+  PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
   PortfolioRenataBeautyRoute: PortfolioRenataBeautyRoute,
   ProfissionalSlugRoute: ProfissionalSlugRoute,
   RCodeRoute: RCodeRoute,
