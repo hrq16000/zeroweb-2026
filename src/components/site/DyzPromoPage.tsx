@@ -52,7 +52,6 @@ function DyzCTA({ label, className }: { label: string; className?: string }) {
     <BeautyBookingQuiz
       studioName="D.Y.Z Promo"
       recipientName="Denis"
-      phoneDigits="554198755277"
       theme="gold"
       mode="proposal"
       service="Divulgação e panfletagem"
