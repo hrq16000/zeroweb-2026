@@ -9,7 +9,7 @@ import { BrandLogo } from "@/components/site/BrandLogo";
  */
 export function RouteLoader() {
   const isLoading = useRouterState({
-    select: (s) => s.isLoading || s.isTransitioning,
+    select: (s) => s.isLoading,
   });
   const [visible, setVisible] = useState(false);
 
