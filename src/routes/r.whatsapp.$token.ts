@@ -107,8 +107,6 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               503,
             );
           }
-          finalDigits = contact.digits;
-
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const { data: lead } = await (supabaseAdmin as any)
             .from("dynamic_form_leads")
@@ -138,6 +136,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               503,
             );
           }
+          finalDigits = contact.digits;
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const { data: qs } = await (supabaseAdmin as any)

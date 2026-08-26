@@ -54,6 +54,15 @@ const gallery = [
   { src: "/images/dyzpromo/bandeira-centro.jpeg", alt: "Bandeira D.Y.Z Promo em ação de rua no centro" },
 ];
 
+const eventFormats = [
+  { icon: Users, title: "Promotores para eventos", text: "Equipe para recepção, orientação de público, credenciamento e ativação da sua marca." },
+  { icon: Gift, title: "Sampling e brindes", text: "Distribuição de produtos e brindes com abordagem simpática e foco na experiência." },
+  { icon: Megaphone, title: "Inaugurações e lançamentos", text: "Ações de impacto para abrir portas, apresentar novidades e gerar movimento desde o primeiro dia." },
+  { icon: ClipboardList, title: "Feiras e ações no PDV", text: "Apoio no ponto de venda para destacar ofertas, explicar produtos e aproximar pessoas." },
+  { icon: Radio, title: "Blitz e ativações locais", text: "Campanhas rápidas e coordenadas em rotas, bairros e pontos de grande circulação." },
+  { icon: ShieldCheck, title: "Supervisão e registro", text: "Orientação da equipe e registros da execução para você acompanhar a campanha com segurança." },
+];
+
 const campaignSteps = [
   { icon: ClipboardList, number: "01", title: "Entendemos a meta", text: "Oferta, público e bairro entram no briefing antes da equipe ir para a rua." },
   { icon: Route, number: "02", title: "Desenhamos a rota", text: "Escolhemos pontos, horários e formato de abordagem para cada campanha." },
@@ -87,7 +96,9 @@ function DyzHeader() {
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#071b49]/95 text-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
-          <img src="/images/dyzpromo/logo-dyz-promo.png" alt="D.Y.Z Promo — divulgação em campo" className="h-12 w-auto object-contain" />
+          <span className="inline-flex items-center rounded-xl bg-white px-2.5 py-1.5 shadow-[0_4px_18px_rgba(0,0,0,0.2)] ring-1 ring-white/40 sm:px-3">
+            <img src="/images/dyzpromo/logo-dyz-promo.png" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" />
+          </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
           <a href="#servicos" className="hover:text-white">Serviços</a><a href="#galeria" className="hover:text-white">Ações reais</a><a href="#clientes" className="hover:text-white">Clientes</a>
@@ -214,6 +225,28 @@ export function DyzPromoPage() {
           </div>
         </section>
 
+        <section className="bg-white px-5 py-20 sm:py-24" aria-labelledby="dyz-eventos-title">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Além da panfletagem</span>
+                <h2 id="dyz-eventos-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Sua campanha também pode virar experiência.</h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">Para eventos, inaugurações e ativações, a D.Y.Z combina pessoas, roteiro e presença para a marca ser lembrada depois que a ação termina.</p>
+              </div>
+              <DyzCTA label="Conversar sobre meu evento" className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-[#10295d] px-6 py-3.5 font-bold text-white shadow-lg transition hover:bg-[#1e5edb]" />
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {eventFormats.map(({ icon: Icon, title, text }, index) => (
+                <motion.article key={title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.06 }} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-1 hover:border-primary/40 hover:bg-white hover:shadow-lg">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#e7efff] text-[#1e5edb]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
+                  <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="relative overflow-hidden bg-[#071b49] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-process-title">
           <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#1e5edb]/30 blur-3xl" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
@@ -291,10 +324,10 @@ export function DyzPromoPage() {
               <h2 id="dyz-gallery-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Divulgação que acontece de verdade</h2>
               <p className="mt-4 leading-relaxed text-blue-100">Veja alguns registros de panfletagem, semáforo, cancela, faixas e ações promocionais realizadas pela equipe.</p>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {gallery.map((photo) => (
                 <figure key={photo.src} className="group overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-lg">
-                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105 sm:aspect-[4/3]" />
                 </figure>
               ))}
             </div>
