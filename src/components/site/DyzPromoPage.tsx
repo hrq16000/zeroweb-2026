@@ -181,7 +181,7 @@ export function DyzPromoPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Vamos colocar sua campanha em movimento?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Envie as informações básicas e receba uma conversa objetiva sobre locais, equipe e formato da ação.</p>
             <FunnelCTAButton
-              intent={{ ...dyzIntent, placement: "cta_final" }}
+              intent={{ ...dyzIntent, placement: "case-final" }}
               context={dyzContext}
               label="Solicitar orçamento"
               location="dyzpromo_final"
