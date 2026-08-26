@@ -136,6 +136,6 @@
     "vitest": "^4.1.8"
   },
   "overrides": {
-    "entities": "7.0.1"
+    "entities": "4.5.0"
   }
 }
