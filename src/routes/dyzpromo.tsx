@@ -95,7 +95,7 @@ export const Route = createFileRoute("/dyzpromo")({
   component: DyzPromoPage,
 });
 
-export function DyzPromoPage() {
+export export function DyzPromoPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
