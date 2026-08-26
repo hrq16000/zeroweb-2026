@@ -37,7 +37,6 @@ export const Route = createFileRoute("/dyzpromo")({
             name: "D.Y.Z Promo",
             description,
             url,
-            telephone: "+55 41 9875-5277",
             taxID: "68.500.745/0001-53",
             areaServed: { "@type": "City", name: "Curitiba" },
             parentOrganization: { "@type": "Organization", name: "0WEB", url: ORIGIN },

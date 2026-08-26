@@ -1,40 +1,40 @@
 {
-  "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
-  "generatedAt": "2026-08-23T06:14:36.834Z",
-  "scanned": 284,
+  "correlationId": "c6829287-a632-4f53-b4f5-68455793a8ff",
+  "generatedAt": "2026-08-26T07:38:57.451Z",
+  "scanned": 289,
   "errors": 0,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
+      "correlationId": "c6829287-a632-4f53-b4f5-68455793a8ff",
       "level": "warn",
-      "chunk": "app.pedidos-DlFUeyfE.js",
-      "file": "dist/client/assets/app.pedidos-DlFUeyfE.js",
-      "bytes": 7121,
+      "chunk": "app.pedidos-DKTU9a18.js",
+      "file": "dist/client/assets/app.pedidos-DKTU9a18.js",
+      "bytes": 10707,
       "routeHint": "/app/pedidos (painel)",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 5815,
-          "context": "lex flex-wrap gap-2\",children:[C&&a.jsxs(\"a\",{href:`https://wa.me/${C}`,target:\"_blank\",rel:\"noopener noreferrer\",classN"
+          "offset": 8264,
+          "context": ".pedidos.tsx:241:19\",children:[S&&t.jsxs(\"a\",{href:`https://wa.me/${S}`,target:\"_blank\",rel:\"noopener noreferrer\",classN"
         }
       ],
       "totalHits": 1
     },
     {
-      "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
+      "correlationId": "c6829287-a632-4f53-b4f5-68455793a8ff",
       "level": "warn",
-      "chunk": "app.servicos-B6f62-8M.js",
-      "file": "dist/client/assets/app.servicos-B6f62-8M.js",
-      "bytes": 34535,
-      "routeHint": "/app/servicos-B6f62-8M (painel)",
+      "chunk": "app.servicos-DeW9_ht7.js",
+      "file": "dist/client/assets/app.servicos-DeW9_ht7.js",
+      "bytes": 53498,
+      "routeHint": "/app/servicos (painel)",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 16915,
-          "context": "ta_target\",r.target.value),placeholder:\"/contato ou https://wa.me/…\"})})]}),e.jsxs(\"div\",{className:\"flex flex-wrap item"
+          "offset": 24002,
+          "context": ".target.value),\"onChange\"),placeholder:\"/contato ou https://wa.me/…\",\"data-tsd-source\":\"/src/routes/_authenticated/app.s"
         }
       ],
       "totalHits": 1
