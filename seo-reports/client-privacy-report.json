@@ -1,40 +1,40 @@
 {
-  "correlationId": "c6829287-a632-4f53-b4f5-68455793a8ff",
-  "generatedAt": "2026-08-26T07:38:57.451Z",
-  "scanned": 289,
+  "correlationId": "d8159bed-e4a4-4554-a6be-a549a35830bc",
+  "generatedAt": "2026-08-26T16:54:39.856Z",
+  "scanned": 290,
   "errors": 0,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "c6829287-a632-4f53-b4f5-68455793a8ff",
+      "correlationId": "d8159bed-e4a4-4554-a6be-a549a35830bc",
       "level": "warn",
-      "chunk": "app.pedidos-DKTU9a18.js",
-      "file": "dist/client/assets/app.pedidos-DKTU9a18.js",
-      "bytes": 10707,
+      "chunk": "app.pedidos-DmoefQje.js",
+      "file": "dist/client/assets/app.pedidos-DmoefQje.js",
+      "bytes": 7118,
       "routeHint": "/app/pedidos (painel)",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 8264,
-          "context": ".pedidos.tsx:241:19\",children:[S&&t.jsxs(\"a\",{href:`https://wa.me/${S}`,target:\"_blank\",rel:\"noopener noreferrer\",classN"
+          "offset": 5812,
+          "context": "lex flex-wrap gap-2\",children:[C&&a.jsxs(\"a\",{href:`https://wa.me/${C}`,target:\"_blank\",rel:\"noopener noreferrer\",classN"
         }
       ],
       "totalHits": 1
     },
     {
-      "correlationId": "c6829287-a632-4f53-b4f5-68455793a8ff",
+      "correlationId": "d8159bed-e4a4-4554-a6be-a549a35830bc",
       "level": "warn",
-      "chunk": "app.servicos-DeW9_ht7.js",
-      "file": "dist/client/assets/app.servicos-DeW9_ht7.js",
-      "bytes": 53498,
+      "chunk": "app.servicos-Hxan5Vux.js",
+      "file": "dist/client/assets/app.servicos-Hxan5Vux.js",
+      "bytes": 34533,
       "routeHint": "/app/servicos (painel)",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 24002,
-          "context": ".target.value),\"onChange\"),placeholder:\"/contato ou https://wa.me/…\",\"data-tsd-source\":\"/src/routes/_authenticated/app.s"
+          "offset": 16913,
+          "context": "ta_target\",r.target.value),placeholder:\"/contato ou https://wa.me/…\"})})]}),e.jsxs(\"div\",{className:\"flex flex-wrap item"
         }
       ],
       "totalHits": 1

@@ -15,6 +15,7 @@ export const CLIENT_ALLOWED_DIGITS = new Set(["554196048639", "554198755277"]);
 
 /** Prefixos de chunks que são páginas-vitrine de clientes. */
 export const CLIENT_CHUNK_PREFIXES = [
+  "BeautyBookingQuiz",
   "RenataBeautyView",
   "RBeautyEditorialView",
   "portfolio.renata-beauty",
