@@ -70,9 +70,13 @@ export function DyzPromoPage() {
                 A D.Y.Z Promo leva campanhas para onde as pessoas estão: com equipes preparadas, distribuição direcionada e presença que faz sua oferta ser percebida.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 font-bold text-slate-950 shadow-[0_0_35px_hsl(var(--accent)/0.35)] transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-                  Solicitar proposta <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
+                <FunnelCTAButton
+                  intent={dyzIntent}
+                  context={dyzContext}
+                  label="Solicitar proposta"
+                  location="dyzpromo_hero"
+                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 font-bold text-slate-950 shadow-[0_0_35px_hsl(var(--accent)/0.35)] transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                />
                 <a href="#servicos" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
                   Conhecer ações
                 </a>
@@ -113,7 +117,14 @@ export function DyzPromoPage() {
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Operação com cuidado</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Cada ação começa com um bom planejamento</h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">A equipe entende o objetivo, escolhe os pontos e executa a campanha com orientação clara para representar bem a sua marca.</p>
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center gap-2 font-semibold text-primary hover:underline">Montar minha ação <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+              <FunnelCTAButton
+                intent={{ ...dyzIntent, placement: "section" }}
+                context={dyzContext}
+                label="Montar minha ação"
+                location="dyzpromo_operation"
+                className="mt-7 inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+                showArrow
+              />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
@@ -155,9 +166,13 @@ export function DyzPromoPage() {
               <p className="mt-4 max-w-2xl leading-relaxed text-slate-300">Planeje a ação por bairro, cidade ou rota. A D.Y.Z Promo já circula por dezenas de pontos da Grande Curitiba.</p>
               <div className="mt-7 flex flex-wrap gap-2">{areas.map((area) => <span key={area} className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-slate-300">{area}</span>)}</div>
             </div>
-            <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-slate-950 transition hover:bg-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-              Falar com o Denis <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            </a>
+            <FunnelCTAButton
+              intent={{ ...dyzIntent, placement: "section" }}
+              context={dyzContext}
+              label="Falar com o Denis"
+              location="dyzpromo_coverage"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-slate-950 transition hover:bg-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            />
           </div>
         </section>
 
@@ -165,9 +180,13 @@ export function DyzPromoPage() {
           <div className="mx-auto max-w-4xl rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-accent/10 p-8 text-center sm:p-12">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Vamos colocar sua campanha em movimento?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Envie as informações básicas e receba uma conversa objetiva sobre locais, equipe e formato da ação.</p>
-            <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-              Solicitar orçamento no WhatsApp <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            <FunnelCTAButton
+              intent={{ ...dyzIntent, placement: "cta_final" }}
+              context={dyzContext}
+              label="Solicitar orçamento"
+              location="dyzpromo_final"
+              className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            />
             <p className="mt-5 text-xs text-muted-foreground">D.Y.Z Promo · CNPJ 68.500.745/0001-53 · Curitiba/PR</p>
           </div>
         </section>
