@@ -14,6 +14,8 @@ import {
   Route,
   ShieldCheck,
   Store,
+  Target,
+  Timer,
   Users,
   X,
 } from "lucide-react";
@@ -58,6 +60,12 @@ const campaignSteps = [
   { icon: Radio, number: "03", title: "Colocamos em campo", text: "Promotores orientados executam a ação com presença, cuidado e consistência." },
 ];
 
+const impactPoints = [
+  { icon: Target, value: "Público certo", text: "Ação desenhada para o bairro e o perfil da sua oferta." },
+  { icon: Timer, value: "Resposta rápida", text: "Briefing objetivo, equipe alinhada e campanha pronta para sair." },
+  { icon: ShieldCheck, value: "Presença confiável", text: "Promotores identificados, orientados e cuidadosos com a sua marca." },
+];
+
 function DyzCTA({ label, className }: { label: string; className?: string }) {
   return (
     <BeautyBookingQuiz
@@ -92,6 +100,27 @@ function DyzHeader() {
 
 function DyzFooter() {
   return <footer className="border-t border-white/10 bg-[#061536] px-5 py-10 text-blue-100"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">D.Y.Z Promo</strong> · Divulgação e panfletagem em Curitiba e região.</p><p className="text-xs text-blue-200/80">Página demonstrativa criada pela 0WEB.</p></div></footer>;
+}
+
+function DyzFloatingCTA() {
+  return (
+    <BeautyBookingQuiz
+      studioName="D.Y.Z Promo"
+      recipientName="Denis"
+      theme="gold"
+      mode="proposal"
+      service="Divulgação e panfletagem"
+      className="group fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition hover:scale-105 hover:bg-[#20ba5a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#061536] sm:pr-5"
+      ariaLabel="Falar com Denis pelo WhatsApp"
+    >
+      <span className="relative grid h-8 w-8 place-items-center rounded-full bg-white/20">
+        <span className="absolute inset-0 animate-ping rounded-full bg-white/20" aria-hidden="true" />
+        <MessageCircle className="relative h-5 w-5" aria-hidden="true" />
+      </span>
+      <span className="hidden sm:inline">Falar com o Denis</span>
+      <span className="sr-only sm:hidden">Falar com o Denis</span>
+    </BeautyBookingQuiz>
+  );
 }
 
 function DyzSocialProofPopup() {
@@ -153,6 +182,17 @@ export function DyzPromoPage() {
                 <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        <section className="border-y border-white/10 bg-[#0a204f] px-5 py-6 text-white" aria-label="Diferenciais da D.Y.Z Promo">
+          <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-3 sm:gap-6">
+            {impactPoints.map(({ icon: Icon, value, text }) => (
+              <motion.div key={value} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
+                <div><p className="font-bold">{value}</p><p className="mt-1 text-xs leading-relaxed text-blue-100">{text}</p></div>
+              </motion.div>
+            ))}
           </div>
         </section>
 
@@ -219,6 +259,31 @@ export function DyzPromoPage() {
           </div>
         </section>
 
+        <section className="bg-white px-5 py-20 sm:py-24" aria-labelledby="dyz-plano-title">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Campanha sem improviso</span>
+              <h2 id="dyz-plano-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">O que entra no planejamento da sua ação</h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">Cada campanha recebe uma recomendação prática para transformar circulação em atenção — e atenção em visita, conversa ou venda.</p>
+              <DyzCTA label="Quero planejar minha divulgação" className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#10295d] px-6 py-3.5 font-bold text-white shadow-lg transition hover:bg-[#1e5edb]" />
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                ["Objetivo da campanha", "Inauguração, oferta, lançamento, captação ou reforço de marca."],
+                ["Pontos de contato", "Semáforos, ruas, condomínios, cancelas, shoppings e mercados."],
+                ["Escala da equipe", "Quantidade de promotores e tempo de ação alinhados ao seu orçamento."],
+                ["Material e abordagem", "Orientação para panfletos, brindes, faixas e uma comunicação respeitosa."],
+              ].map(([title, text], index) => (
+                <motion.div key={title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <span className="text-xs font-black tracking-[0.2em] text-[#1e5edb]">0{index + 1}</span>
+                  <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="galeria" className="bg-[#0d2a68] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-gallery-title">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
@@ -278,6 +343,7 @@ export function DyzPromoPage() {
         </section>
       </main>
       <DyzSocialProofPopup />
+      <DyzFloatingCTA />
       <DyzFooter />
     </div>
   );
