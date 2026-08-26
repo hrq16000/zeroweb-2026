@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DyzPromoPage } from "./dyzpromo";
+import { DyzPromoPage } from "@/components/site/DyzPromoPage";
 
 const TITLE = "D.Y.Z Promo · Portfólio de Sites 0WEB";
 const DESC =
