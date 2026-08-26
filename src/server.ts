@@ -1,6 +1,6 @@
 import "./lib/error-capture";
 
-import { consumeLastCapturedError } from "./lib/error-capture";
+import { consumeLastCapturedError, isClientAbortError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
 type ServerEntry = {
@@ -89,6 +89,8 @@ export default {
       const normalized = await normalizeCatastrophicSsrResponse(response);
       return verifyAndProtectSsrHtml(normalized, request);
     } catch (error) {
+      // Cliente fechou a conexão no meio do stream: não é falha da aplicação.
+      if (isClientAbortError(error)) return new Response(null, { status: 499 });
       console.error(error);
       return new Response(renderErrorPage(), {
         status: 500,
