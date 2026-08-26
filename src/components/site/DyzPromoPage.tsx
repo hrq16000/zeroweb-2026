@@ -5,10 +5,13 @@ import {
   BarChart3,
   CarFront,
   CheckCircle2,
+  ClipboardList,
   Gift,
   Megaphone,
   MessageCircle,
   MapPin,
+  Radio,
+  Route,
   ShieldCheck,
   Store,
   Users,
@@ -47,6 +50,12 @@ const gallery = [
   { src: "/images/dyzpromo/cancela-shopping.jpeg", alt: "Promotora D.Y.Z Promo em ação de cancela" },
   { src: "/images/dyzpromo/cancela-mall.jpeg", alt: "Panfletagem D.Y.Z Promo em centro comercial" },
   { src: "/images/dyzpromo/bandeira-centro.jpeg", alt: "Bandeira D.Y.Z Promo em ação de rua no centro" },
+];
+
+const campaignSteps = [
+  { icon: ClipboardList, number: "01", title: "Entendemos a meta", text: "Oferta, público e bairro entram no briefing antes da equipe ir para a rua." },
+  { icon: Route, number: "02", title: "Desenhamos a rota", text: "Escolhemos pontos, horários e formato de abordagem para cada campanha." },
+  { icon: Radio, number: "03", title: "Colocamos em campo", text: "Promotores orientados executam a ação com presença, cuidado e consistência." },
 ];
 
 function DyzCTA({ label, className }: { label: string; className?: string }) {
@@ -147,7 +156,7 @@ export function DyzPromoPage() {
           </div>
         </section>
 
-        <section id="servicos" className="px-5 py-20 sm:py-24">
+        <section id="servicos" className="bg-[#f5f7fb] px-5 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Ações que movimentam</span>
@@ -159,6 +168,26 @@ export function DyzPromoPage() {
                 <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.07, duration: 0.45 }} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant">
                   <div className="relative h-32 overflow-hidden"><img src={image} alt={title + " — D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
                   <div className="p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-[#071b49] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-process-title">
+          <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#1e5edb]/30 blur-3xl" aria-hidden="true" />
+          <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#f7c948]">Uma operação que se move</span>
+              <h2 id="dyz-process-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Da ideia à rua, cada detalhe tem um próximo passo.</h2>
+              <p className="mt-5 max-w-xl leading-relaxed text-blue-100">A D.Y.Z transforma uma campanha em presença real — com planejamento, equipe e execução que respeitam o momento da sua marca.</p>
+              <DyzCTA label="Planejar minha campanha" className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f7c948] px-6 py-3.5 font-bold text-[#10295d] transition hover:bg-[#ffe08a]" />
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {campaignSteps.map(({ icon: Icon, number, title, text }, index) => (
+                <motion.article key={number} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
+                  <div className="flex items-center justify-between"><Icon className="h-6 w-6 text-[#f7c948]" aria-hidden="true" /><span className="text-xs font-black tracking-[0.2em] text-blue-200">{number}</span></div>
+                  <h3 className="mt-8 font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-blue-100">{text}</p>
                 </motion.article>
               ))}
             </div>
@@ -218,6 +247,11 @@ export function DyzPromoPage() {
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {clients.map((client) => <span key={client} className="rounded-full border border-border bg-card px-3.5 py-2 text-sm text-foreground/80">{client}</span>)}
+            </div>
+            <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-muted/40 py-4" aria-label="Segmentos atendidos">
+              <motion.div animate={{ x: [0, -420] }} transition={{ repeat: Infinity, duration: 18, ease: "linear" }} className="flex w-max gap-3 px-4">
+                {[...clients, ...clients].map((client, index) => <span key={`${client}-${index}`} className="whitespace-nowrap rounded-full bg-background px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">{client}</span>)}
+              </motion.div>
             </div>
           </div>
         </section>
