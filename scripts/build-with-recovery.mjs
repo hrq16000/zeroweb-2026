@@ -4,7 +4,7 @@
  *
  * O erro `Could not load .../node_modules/entities/lib/decode.js` acontece
  * quando o pacote `entities` é resolvido numa árvore de dependências
- * desatualizada (v4 usa lib/, v7 usa a raiz do pacote). Quando esse erro
+ * incompatível (o renderer usa o subpath lib/ fornecido pela v4). Quando esse erro
  * específico aparece, limpamos node_modules + cache do Vite, reinstalamos com
  * o lockfile e tentamos o build UMA vez.
  *
@@ -15,7 +15,7 @@ import { rmSync } from "node:fs";
 
 const dev = process.argv.includes("--mode") && process.argv.includes("development");
 const buildScript = dev ? "build:dev" : "build";
-const ENTITIES_ERROR = /node_modules\/entities\/lib\/(decode|encode)\.js/;
+const ENTITIES_ERROR = /(?:node_modules\/entities\/lib\/|Package subpath ['"]\.\/lib\/)(decode|encode)\.js/;
 
 function run(cmd, args) {
   console.log(`\n$ ${cmd} ${args.join(" ")}`);
