@@ -5,6 +5,8 @@ const TITLE = "D.Y.Z Promo · Portfólio de Sites 0WEB";
 const DESC =
   "Conheça a página demonstrativa criada pela 0WEB para a D.Y.Z Promo, especialista em divulgação, panfletagem e ações promocionais em Curitiba e região.";
 const URL = "https://0web.com.br/portfolio/dyzpromo";
+const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/faixa-equipe.jpeg";
+const ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo.png";
 
 export const Route = createFileRoute("/portfolio/dyzpromo")({
   head: () => ({
@@ -16,9 +18,13 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
-      { property: "og:site_name", content: "0WEB" },
+      { property: "og:site_name", content: "D.Y.Z Promo" },
+      { property: "og:image", content: SOCIAL_IMAGE },
+      { property: "og:image:alt", content: "Equipe D.Y.Z Promo realizando divulgação em Curitiba" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/png", href: ICON }],
     scripts: [
       {
         type: "application/ld+json",
@@ -29,6 +35,7 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
           url: URL,
           name: TITLE,
           description: DESC,
+          image: SOCIAL_IMAGE,
           inLanguage: "pt-BR",
           isPartOf: { "@type": "WebSite", "@id": "https://0web.com.br/#website" },
           about: { "@type": "LocalBusiness", name: "D.Y.Z Promo", taxID: "68.500.745/0001-53" },
