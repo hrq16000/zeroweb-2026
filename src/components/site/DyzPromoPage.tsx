@@ -182,9 +182,9 @@ export function DyzPromoPage() {
             <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
-                <img src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 h-full min-h-48 w-full rounded-2xl object-cover" />
-                <img src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 h-full min-h-32 w-full rounded-2xl object-cover" />
-                <img src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 h-full min-h-48 w-full rounded-2xl object-cover" />
+                <img src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 h-full min-h-40 w-full rounded-2xl object-cover object-top sm:min-h-48" />
+                <img src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 h-full min-h-28 w-full rounded-2xl object-cover object-top sm:min-h-32" />
+                <img src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 h-full min-h-40 w-full rounded-2xl object-cover object-top sm:min-h-48" />
                 <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
               </div>
             </motion.div>
@@ -212,7 +212,7 @@ export function DyzPromoPage() {
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {services.map(({ icon: Icon, title, text, image }, index) => (
                 <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -7, scale: 1.015 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.07, duration: 0.45 }} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/50 hover:shadow-elegant">
-                  <div className="relative h-32 overflow-hidden"><img src={image} alt={title + " — D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
+                  <div className="relative aspect-[16/10] overflow-hidden sm:aspect-auto sm:h-32"><img src={image} alt={title + " — D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
                   <div className="p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>
                 </motion.article>
               ))}
@@ -253,7 +253,7 @@ export function DyzPromoPage() {
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {regionalCoverage.map(({ title, text, image, badge }, index) => (
                 <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: index * 0.08 }} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative h-48 overflow-hidden sm:h-56"><img src={image} alt={title + " — cobertura D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" /><div className="absolute bottom-4 left-5 flex items-center gap-2 text-lg font-bold text-white"><MapPin className="h-5 w-5 text-emerald-300" aria-hidden="true" />{title}</div></div>
+                  <div className="relative aspect-[16/10] overflow-hidden sm:aspect-auto sm:h-56"><img src={image} alt={title + " — cobertura D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" /><div className="absolute bottom-4 left-5 flex items-center gap-2 text-lg font-bold text-white"><MapPin className="h-5 w-5 text-emerald-300" aria-hidden="true" />{title}</div></div>
                   <div className="p-5"><p className="text-sm leading-relaxed text-slate-600">{text}</p><span className="mt-4 inline-flex rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700">{badge}</span></div>
                 </motion.article>
               ))}
@@ -342,7 +342,7 @@ export function DyzPromoPage() {
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {gallery.map((photo) => (
                 <figure key={photo.src} className="group overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-lg">
-                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105 sm:aspect-[4/3]" />
+                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover object-top transition duration-500 group-hover:scale-105 sm:aspect-[4/3]" />
                 </figure>
               ))}
             </div>
