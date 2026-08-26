@@ -16,6 +16,9 @@ reutilize identidade, navegação, conteúdo, contato, SEO, CTA ou linguagem da
   destinatário, serviço, texto e visual pertencem ao cliente.
 - Prova social: usar `PortfolioSocialProofPopup`; conteúdo e tema devem ser do
   cliente.
+- Captação da 0WEB: manter `PortfolioUpsellPopup` como camada externa da
+  hospedagem/vitrine. Ele não pertence à identidade do cliente, mas é obrigatório
+  para transformar visitas aos portfolios em oportunidades para a 0WEB.
 - Contato: nunca inserir `wa.me`, telefone ou e-mail operacional no bundle.
   Resolver o destinatário no servidor por `clientKey`.
 - SEO: cada cliente precisa de título, descrição, canonical, imagem social e
@@ -24,8 +27,7 @@ reutilize identidade, navegação, conteúdo, contato, SEO, CTA ou linguagem da
 
 ## Proibido
 
-- `Header`, `Footer` ou `PortfolioUpsellPopup` da 0WEB dentro de um cliente.
+- `Header` ou `Footer` da 0WEB dentro da identidade visual de um cliente.
 - Copiar design/layout de outro portfolio como padrão visual.
 - Inferir `clientKey` pelo nome visível da empresa.
 - Expor contato direto ou dados sensíveis no código público.
-

@@ -18,6 +18,7 @@ import {
   Users,
 } from "lucide-react";
 import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 
 const services = [
@@ -390,6 +391,7 @@ export function DyzPromoPage() {
         </section>
       </main>
       <PortfolioSocialProofPopup clientKey="dyzpromo" eyebrow="D.Y.Z em campo" title="Campanhas para restaurantes, varejo, imóveis, estética e tecnologia." description="Experiência prática em Curitiba e região, com equipe orientada para cada ação." ctaLabel="Ver marcas atendidas" ctaHref="#clientes" delayMs={5000} className="border-white/15 bg-[#071b49]/95 text-white" accentClassName="text-[#f7c948]" />
+      <PortfolioUpsellPopup pageName="dyzpromo" />
       <DyzFloatingCTA />
       <DyzFooter />
     </div>

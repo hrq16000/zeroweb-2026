@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
@@ -733,6 +734,7 @@ export function RenataBeautyView() {
       </div>
 
       <PortfolioSocialProofPopup clientKey="renata-beauty" eyebrow="Renata Beauty em destaque" title="Cílios, unhas e sobrancelhas com atendimento pensado em cada detalhe." description="Veja os procedimentos, conheça o espaço e envie suas preferências organizadas para a profissional." ctaLabel="Conhecer procedimentos" ctaHref="#procedimentos" delayMs={6500} className="border-pink-500/30 bg-[#160d13]/95 text-white" accentClassName="text-pink-300" />
+      <PortfolioUpsellPopup pageName="renata-beauty" />
     </div>
   );
 }

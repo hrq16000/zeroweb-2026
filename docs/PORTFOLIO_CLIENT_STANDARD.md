@@ -24,6 +24,7 @@ hospedagem/criação, sem competir com a marca atendida.
 | Mecanismo de CTA/funil | Compartilhado e parametrizável |
 | Redirecionamento de contato | Compartilhado, tokenizado e resolvido no servidor |
 | Mecanismo de pop-up/prova social | Compartilhado e parametrizável |
+| Pop-up de captação da 0WEB | Camada externa obrigatória da vitrine/hospedagem |
 | Analytics e privacidade | Compartilhados, sempre identificados por `clientKey` |
 | Design, layout e animações | Exclusivos de cada cliente |
 | Textos, perguntas, respostas e ofertas | Exclusivos de cada cliente |
@@ -48,9 +49,10 @@ com uma chave imutável (`clientKey`) e possuir:
 6. perguntas e mensagem final coerentes com o ramo do cliente;
 7. pop-up de prova social usando `PortfolioSocialProofPopup` com conteúdo do
    próprio cliente;
-8. botão flutuante de contato quando adequado ao negócio;
-9. redirecionamento do contato resolvido somente no servidor;
-10. experiência responsiva, acessível e validada em mobile.
+8. pop-up de captação da 0WEB usando `PortfolioUpsellPopup`;
+9. botão flutuante de contato quando adequado ao negócio;
+10. redirecionamento do contato resolvido somente no servidor;
+11. experiência responsiva, acessível e validada em mobile.
 
 Novos clientes devem usar `PortfolioCTAQuiz` (alias genérico do mecanismo atual)
 e informar `clientKey` explicitamente. A configuração `quizConfig` permite
@@ -58,10 +60,22 @@ definir opções, títulos, explicações e exemplos próprios para cada ramo.
 
 ## 4. Isolamento obrigatório
 
-O componente do cliente não pode importar cabeçalho, rodapé, funil comercial ou
-pop-up institucional da 0WEB. Também não pode importar componentes de identidade
-de outro cliente. Componentes neutros de infraestrutura podem ser usados quando
-recebem toda a parametrização do cliente.
+O componente do cliente não pode importar cabeçalho, rodapé ou elementos de
+identidade da 0WEB. A exceção deliberada é `PortfolioUpsellPopup`: ele pertence
+à camada externa de hospedagem/vitrine e existe para captar novos negócios para
+a 0WEB a partir da visita ao portfolio. Também não pode importar componentes de
+identidade de outro cliente. Componentes neutros de infraestrutura podem ser
+usados quando recebem toda a parametrização do cliente.
+
+Existem, portanto, dois pop-ups com responsabilidades diferentes:
+
+- `PortfolioSocialProofPopup`: pertence ao cliente e reforça confiança no
+  serviço exibido;
+- `PortfolioUpsellPopup`: pertence à 0WEB e converte visitantes interessados em
+  contratar uma solução própria.
+
+Eles devem aparecer em sequência, sem sobreposição. A prova social é breve e o
+pop-up de captação da 0WEB entra depois, preservando leitura e conversão.
 
 São proibidos no código público: `wa.me`, números de telefone, e-mails
 operacionais, chaves, destinatários sensíveis e qualquer fallback que direcione
@@ -95,7 +109,8 @@ possuam diretório exclusivo.
 1. cadastrar o cliente no registro;
 2. criar assets e componente exclusivos;
 3. criar rota e metadados próprios;
-4. configurar CTA, perguntas, destinatário server-side e prova social;
+4. configurar CTA, perguntas, destinatário server-side, prova social e captação
+   da 0WEB;
 5. executar `npm run validate:portfolio-boundaries`;
 6. executar TypeScript, build e validadores de privacidade/SEO;
 7. revisar mobile e publicar.

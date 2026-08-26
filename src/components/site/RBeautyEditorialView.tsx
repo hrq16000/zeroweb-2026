@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
@@ -316,6 +317,7 @@ export function RBeautyEditorialView() {
       </footer>
 
       <PortfolioSocialProofPopup clientKey="r-beauty" eyebrow="Agenda R_Beauty" title="Atendimento dedicado a cílios, unhas, sobrancelhas e autocuidado." description="Conheça os procedimentos e escolha o melhor momento antes de conversar com a profissional." ctaLabel="Ver procedimentos" ctaHref="#menu" delayMs={6500} className="border-[#D4AF37]/30 bg-[#0C0A0B]/95 text-white" accentClassName="text-[#D4AF37]" />
+      <PortfolioUpsellPopup pageName="r_beauty" />
     </div>
   );
 }

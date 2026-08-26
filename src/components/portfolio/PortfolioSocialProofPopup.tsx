@@ -11,6 +11,7 @@ type Props = {
   ctaLabel: string;
   ctaHref: string;
   delayMs?: number;
+  autoDismissMs?: number;
   className?: string;
   accentClassName?: string;
 };
@@ -23,18 +24,24 @@ export function PortfolioSocialProofPopup({
   ctaLabel,
   ctaHref,
   delayMs = 6000,
+  autoDismissMs = 3500,
   className = "border-white/15 bg-slate-950/95 text-white",
   accentClassName = "text-amber-300",
 }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    let dismissTimer: number | undefined;
     const timer = window.setTimeout(() => {
       setOpen(true);
       trackEvent("portfolio_social_proof_view", { client_key: clientKey, location: "portfolio_client_site" });
+      dismissTimer = window.setTimeout(() => setOpen(false), autoDismissMs);
     }, delayMs);
-    return () => window.clearTimeout(timer);
-  }, [clientKey, delayMs]);
+    return () => {
+      window.clearTimeout(timer);
+      if (dismissTimer) window.clearTimeout(dismissTimer);
+    };
+  }, [autoDismissMs, clientKey, delayMs]);
 
   if (!open) return null;
 
@@ -58,4 +65,3 @@ export function PortfolioSocialProofPopup({
     </motion.aside>
   );
 }
-

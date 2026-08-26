@@ -18,7 +18,6 @@ const slugs = new Set();
 const forbiddenImports = [
   "@/components/site/Header",
   "@/components/site/Footer",
-  "@/components/site/PortfolioUpsellPopup",
 ];
 const publicContactPatterns = [
   [/wa\.me\//i, "link wa.me"],
@@ -67,6 +66,9 @@ for (const client of clients) {
   }
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
     errors.push(`${label}: mecanismo de prova social ausente`);
+  }
+  if (client.hostCaptureRequired && !component.includes("PortfolioUpsellPopup")) {
+    errors.push(`${label}: pop-up de captação da 0WEB ausente`);
   }
   for (const forbidden of forbiddenImports) {
     if (component.includes(forbidden)) errors.push(`${label}: dependência proibida (${forbidden})`);

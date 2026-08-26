@@ -7,7 +7,8 @@
     "componentFile": "src/components/site/DyzPromoPage.tsx",
     "assetsDir": "public/images/dyzpromo",
     "ctaMode": "proposal",
-    "socialProofRequired": true
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   },
   {
     "clientKey": "renata-beauty",
@@ -18,7 +19,8 @@
     "assetsDir": "public/images",
     "legacySharedAssets": true,
     "ctaMode": "booking",
-    "socialProofRequired": true
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   },
   {
     "clientKey": "r-beauty",
@@ -29,6 +31,7 @@
     "assetsDir": "public/images",
     "legacySharedAssets": true,
     "ctaMode": "booking",
-    "socialProofRequired": true
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

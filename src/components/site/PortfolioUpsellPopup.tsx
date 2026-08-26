@@ -24,13 +24,14 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const cardRef = useRef<HTMLDivElement | null>(null);
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const triggerRef = useRef<Trigger>("timer");
+  const storageKey = `${STORAGE_KEY}:${pageName}`;
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
+      if (sessionStorage.getItem(storageKey) === "1") return;
     } catch {
       /* noop */
     }
@@ -40,7 +41,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       firedRef.current = true;
       triggerRef.current = trigger;
       try {
-        sessionStorage.setItem(STORAGE_KEY, "1");
+        sessionStorage.setItem(storageKey, "1");
       } catch {
         /* noop */
       }
@@ -67,7 +68,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       window.clearTimeout(fb);
       unsub();
     };
-  }, [pageName, routePath]);
+  }, [pageName, routePath, storageKey]);
 
   const close = useCallback(
     (reason: "dismiss" | "cta") => {
