@@ -23,7 +23,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
 
         const {
           resolveWhatsAppRedirectToken,
-          resolveOperationalWhatsAppContact,
+          resolvePortfolioWhatsAppContact,
           buildWhatsAppLeadMessage,
           consumeWhatsAppRedirectToken,
           markVisitorFunnelRedirectedBySessionId,
@@ -81,17 +81,6 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           );
         }
 
-        // Resolve operational contact BEFORE consumption — if it isn't
-        // configured, don't burn the token.
-        const contact = resolveOperationalWhatsAppContact();
-        if (!contact && !resolved.row.isLegacy) {
-          return htmlErrorPage(
-            "Canal indisponível",
-            "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-            503,
-          );
-        }
-
         // Build the message from persisted data (or reuse legacy stored
         // message for pre-refactor rows). Do this BEFORE consuming so we
         // don't burn the token on a build failure.
@@ -111,7 +100,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           }
         } else {
           // Modern path: build from lead + session + form + questions.
-          if (!contact || !resolved.row.lead_id) {
+          if (!resolved.row.lead_id) {
             return htmlErrorPage(
               "Canal indisponível",
               "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
@@ -136,9 +125,19 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const { data: form } = await (supabaseAdmin as any)
             .from("dynamic_forms")
-            .select("id, name")
+            .select("id, name, slug")
             .eq("id", lead.form_id)
             .maybeSingle();
+
+          const clientKey = (lead.metadata_json as Record<string, unknown> | null)?.client_key;
+          const contact = resolvePortfolioWhatsAppContact(typeof clientKey === "string" ? clientKey : null);
+          if (!contact) {
+            return htmlErrorPage(
+              "Canal indisponível",
+              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
+              503,
+            );
+          }
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const { data: qs } = await (supabaseAdmin as any)
@@ -210,6 +209,12 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
 
           finalMessage = buildWhatsAppLeadMessage({
             protocol: session?.protocol ?? makeProtocol(),
+            brandName: typeof (lead.metadata_json as Record<string, unknown> | null)?.studio_name === "string"
+              ? (lead.metadata_json as Record<string, unknown>).studio_name as string
+              : null,
+            recipientName: typeof (lead.metadata_json as Record<string, unknown> | null)?.recipient_name === "string"
+              ? (lead.metadata_json as Record<string, unknown>).recipient_name as string
+              : null,
             funnelName: form?.name ?? null,
             answers: (lead.answers_json ?? {}) as Record<string, unknown>,
             questions,

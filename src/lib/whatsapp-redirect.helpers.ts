@@ -25,6 +25,9 @@ export function sanitizeText(input: unknown, maxLen = ANSWER_VALUE_MAX): string 
 
 export type LeadMessageContext = {
   protocol: string;
+  /** Identidade da amostra/cliente, quando o handoff veio de um portfólio. */
+  brandName?: string | null;
+  recipientName?: string | null;
   funnelName?: string | null;
   productName?: string | null;
   productPriceLabel?: string | null;
@@ -125,7 +128,11 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
   };
 
   const header: string[] = [];
-  header.push("Olá! Acabei de preencher uma solicitação na 0WEB.");
+  const brand = sanitizeText(ctx.brandName, 100);
+  const recipient = sanitizeText(ctx.recipientName, 80);
+  header.push(brand
+    ? `Olá${recipient ? `, ${recipient}` : ""}! Acabei de conhecer a página da ${brand} no site 0WEB.com.br e achei fantástica!`
+    : "Olá! Acabei de preencher uma solicitação na 0WEB.");
   header.push("");
   push(header, `PROTOCOLO`);
   push(header, ctx.protocol);

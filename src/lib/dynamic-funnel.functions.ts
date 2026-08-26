@@ -337,3 +337,61 @@ export const submitFunnel = createServerFn({ method: "POST" })
       alert_status: alertStatus,
     };
   });
+
+/**
+ * Envia os cinco passos dos portfólios de clientes para o mesmo handoff
+ * tokenizado usado pelos funis oficiais. O destinatário é resolvido somente
+ * no servidor a partir de uma chave permitida; nunca chega ao bundle público.
+ */
+export const submitPortfolioQuiz = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => z.object({
+    clientKey: z.enum(["dyzpromo", "renata-beauty", "r-beauty"]),
+    studioName: z.string().min(1).max(100),
+    recipientName: z.string().min(1).max(80),
+    mode: z.enum(["booking", "proposal"]),
+    answers: z.object({
+      service: z.string().max(180),
+      experience: z.string().max(180),
+      period: z.string().max(120),
+      timing: z.string().max(120),
+      note: z.string().max(280),
+    }),
+  }).parse(data))
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: form, error: formError } = await supabaseAdmin
+      .from("dynamic_forms")
+      .select("id")
+      .eq("slug", "funnel-service")
+      .eq("status", "published")
+      .maybeSingle();
+    if (formError || !form) throw new Error("Funil de atendimento indisponível");
+
+    const { data: lead, error: leadError } = await supabaseAdmin
+      .from("dynamic_form_leads")
+      .insert({
+        form_id: form.id,
+        answers_json: data.answers,
+        metadata_json: {
+          source: "portfolio_demo",
+          client_key: data.clientKey,
+          studio_name: data.studioName,
+          recipient_name: data.recipientName,
+          mode: data.mode,
+          completed_at: new Date().toISOString(),
+        },
+        contact_name: null,
+        contact_email: null,
+        contact_phone: null,
+        whatsapp_user_url: null,
+        whatsapp_alert_status: "disabled",
+      } as any)
+      .select("id")
+      .single();
+    if (leadError || !lead) throw new Error("Não foi possível registrar a solicitação");
+
+    const { createWhatsAppRedirectToken, hashIp, makeProtocol } = await import("@/lib/whatsapp-redirect.server");
+    const token = await createWhatsAppRedirectToken({ leadId: lead.id, ipHash: hashIp(null) });
+    if (!token.ok) throw new Error("Canal de atendimento indisponível");
+    return { redirectPath: token.redirectPath, protocol: makeProtocol() };
+  });

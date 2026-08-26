@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from "lucide-react";
 import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
+import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 
 type Theme = "pink" | "gold";
 type Answers = { service: string; experience: string; period: string; timing: string; note: string };
@@ -90,6 +92,9 @@ export function BeautyBookingQuiz({
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
+  const [redirecting, setRedirecting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const submitPortfolio = useServerFn(submitPortfolioQuiz);
   const dialogRef = useRef<HTMLDivElement>(null);
   const gold = theme === "gold";
   const accent = gold ? "#D4AF37" : "#f472b6";
@@ -141,11 +146,29 @@ export function BeautyBookingQuiz({
     setStep(nextStep);
   };
 
-  const completeInWhatsApp = () => {
+  const completeInWhatsApp = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if (redirecting) return;
     const conversion = { ...funnelContext, steps: 5, service: answers.service || "orientacao" };
     trackConversion("wa_funnel_complete", conversion);
     trackWhatsAppClick("beauty_booking_quiz_complete", conversion);
     void persistWaFunnelConversion({ ...answers, studio: studioName, source: "portfolio_demo" });
+    setRedirecting(true);
+    setSubmitError(null);
+    try {
+      const clientKey = studioName === "D.Y.Z Promo" ? "dyzpromo" : studioName === "R_Beauty Haute Studio" ? "r-beauty" : "renata-beauty";
+      const result = await submitPortfolio({ data: {
+        clientKey,
+        studioName,
+        recipientName,
+        mode: mode ?? "booking",
+        answers,
+      }});
+      window.location.assign(result.redirectPath);
+    } catch {
+      setRedirecting(false);
+      setSubmitError("Não foi possível abrir o atendimento agora. Tente novamente em instantes.");
+    }
   };
 
   const question = step === 0
@@ -157,10 +180,6 @@ export function BeautyBookingQuiz({
         : step === 3
           ? { label: "4 de 5", title: isProposal ? "Qual é o prazo da campanha?" : "Quando você gostaria de vir?", subtitle: isProposal ? "Uma previsão de prazo deixa a proposta muito mais precisa." : "Escolha a opção mais próxima da sua necessidade.", field: "timing" as const, options: timingOptions }
           : null;
-  // O navegador nunca recebe o destino de WhatsApp. A confirmação passa pelo
-  // formulário seguro de contato, que resolve o próximo passo no servidor.
-  const url = "/contato?origem=portfolio-funil&cliente=" + encodeURIComponent(studioName) + "&destinatario=" + encodeURIComponent(recipientName) + "&servico=" + encodeURIComponent(answers.service || service || "orientacao");
-
   return (
     <>
       <button type="button" onClick={start} className={className} aria-label={ariaLabel}>
@@ -224,10 +243,11 @@ export function BeautyBookingQuiz({
                     <p className="font-bold text-white">{answers.service}</p>
                     <p className="mt-1">{answers.experience} · {answers.period} · {answers.timing}</p>
                   </div>
-                  <a href={url} onClick={completeInWhatsApp} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
+                  <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                    {mode === "proposal" ? "Continuar pedido ao Denis" : "Continuar meu pedido"}
-                  </a>
+                    {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? "Continuar pedido ao Denis" : "Continuar meu pedido"}
+                  </button>
+                  {submitError && <p className="text-center text-xs text-red-300" role="alert">{submitError}</p>}
                   <button type="button" onClick={() => setStep(4)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-2 text-sm font-semibold text-gray-400 transition hover:text-white">
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                     Ajustar observação

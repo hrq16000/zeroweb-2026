@@ -76,6 +76,18 @@ export function resolveOperationalWhatsAppContact(): OperationalWhatsAppContact 
   return { digits };
 }
 
+/** Contatos dos clientes-demo: chaves fixas, números somente no servidor. */
+export function resolvePortfolioWhatsAppContact(clientKey?: string | null): OperationalWhatsAppContact | null {
+  const configured = clientKey === "dyzpromo"
+    ? (process.env.DYZ_PROMO_WHATSAPP_NUMBER ?? "554198755277")
+    : clientKey === "renata-beauty" || clientKey === "r-beauty"
+      ? (process.env.RENATA_BEAUTY_WHATSAPP_NUMBER ?? "554196048639")
+      : process.env.SUPPORT_WHATSAPP_NUMBER ?? "";
+  const digits = configured.replace(/\D/g, "");
+  if (!digits || digits.length < 10 || digits.length > 15) return null;
+  return { digits };
+}
+
 // ============================================================================
 // (2) createWhatsAppRedirectToken
 // ============================================================================
