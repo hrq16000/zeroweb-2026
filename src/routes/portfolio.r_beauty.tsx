@@ -18,6 +18,10 @@ export const Route = createFileRoute("/portfolio/r_beauty")({
       { property: "og:image", content: "https://0web.com.br/images/r-beauty-cilios.jpg" },
     ],
     links: [{ rel: "canonical", href: URL }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": URL, url: URL, name: TITLE, description: DESC, inLanguage: "pt-BR", about: { "@type": "BeautySalon", name: "R_Beauty Studio" } }),
+    }],
   }),
   component: RBeautyEditorialView,
 });

@@ -19,6 +19,8 @@
     "postbuild": "node scripts/optimize-blog-images.mjs && node scripts/validate-seo-images.mjs && node scripts/validate-canonicals.mjs && node scripts/validate-client-privacy.mjs && node scripts/validate-no-public-contact-dist.mjs",
     "validate:dist-contact": "node scripts/validate-no-public-contact-dist.mjs",
     "validate:client-privacy": "node scripts/validate-client-privacy.mjs",
+    "validate:portfolio-meta": "node scripts/validate-portfolio-meta.mjs",
+    "changelog:dyz": "node scripts/generate-dyz-changelog.mjs",
     "preview": "vite preview",
     "lhci": "lhci autorun --config=.lighthouserc.cjs",
     "seo:images": "node scripts/validate-seo-images.mjs",

@@ -34,10 +34,24 @@ jobs:
           bun run validate:client-privacy
           bun run validate:dist-contact
 
+      - name: Portfolio SEO metadata (canonical, Schema.org and Open Graph)
+        run: bun run validate:portfolio-meta
+
+      - name: Generate DYZ changelog and validation summary
+        run: bun run changelog:dyz
+
       - name: Upload privacy report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: client-privacy-report
           path: seo-reports/client-privacy-report.json
+          if-no-files-found: ignore
+
+      - name: Upload DYZ changelog
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dyzpromo-changelog
+          path: seo-reports/dyzpromo-changelog.md
           if-no-files-found: ignore
