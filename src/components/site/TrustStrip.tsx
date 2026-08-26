@@ -6,8 +6,8 @@ type Item = { icon: LucideIcon; title: string; desc: string };
 const ITEMS: Item[] = [
   { icon: ShieldCheck, title: "SSL grátis", desc: "Certificado auto-renovado em todos os planos" },
   { icon: ShieldAlert, title: "Anti-DDoS", desc: "Proteção empresarial Cloudflare inclusa" },
-  { icon: Globe2, title: "Edge CDN global", desc: "300+ pontos de presença · carrega em milissegundos" },
-  { icon: Activity, title: "100% de uptime", desc: "SLA garantido · sem janela de manutenção" },
+  { icon: Globe2, title: "Edge CDN global", desc: "Conteúdo distribuído para reduzir a latência" },
+  { icon: Activity, title: "Monitoramento", desc: "Disponibilidade e desempenho acompanhados" },
   { icon: Server, title: "Hospedagem inclusa", desc: "1º ano grátis em todos os sites entregues" },
   { icon: LifeBuoy, title: "Suporte pós-entrega", desc: "3 meses de acompanhamento sem custo" },
 ];

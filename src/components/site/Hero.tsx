@@ -8,10 +8,10 @@ import { useWaFunnel } from "@/components/site/WaFunnelModal";
 import heroDashboard from "@/assets/hero-dashboard.webp";
 
 const stats = [
-  { label: "Projetos", value: "+500" },
-  { label: "Anos de experiência", value: "+20" },
-  { label: "Aprovação", value: "95%" },
-  { label: "Suporte", value: "Nacional" },
+  { label: "Atendimento", value: "Brasil" },
+  { label: "Projetos", value: "Sob medida" },
+  { label: "SEO", value: "Estrutural" },
+  { label: "Suporte", value: "Humano" },
 ];
 
 const HERO_VARIANTS = {
@@ -23,7 +23,7 @@ const HERO_VARIANTS = {
   B: {
     headline: "Mais clientes. Menos esforço.",
     accent: "Tudo no mesmo time.",
-    sub: "Tecnologia, IA e marketing performam juntos para multiplicar seus leads em até 312% nos primeiros 90 dias.",
+    sub: "Tecnologia, IA e marketing trabalham juntos para transformar presença digital em oportunidades comerciais mensuráveis.",
   },
 } as const;
 
@@ -205,7 +205,7 @@ export function Hero() {
             <picture>
               <img
                 src={heroDashboard}
-                alt="Dashboard 0WEB mostrando crescimento de tráfego orgânico e leads qualificados"
+                alt="Dashboard 0WEB para acompanhamento de presença digital e oportunidades comerciais"
                 width={1280}
                 height={960}
                 fetchPriority="high"
@@ -217,13 +217,13 @@ export function Hero() {
             <div className="absolute -bottom-4 -left-4 sm:-left-6 glass rounded-2xl px-4 py-3 shadow-elegant hidden sm:flex items-center gap-3">
               <span className="grid place-items-center w-9 h-9 rounded-full bg-emerald-500/15 text-emerald-600 font-bold" aria-hidden="true">↑</span>
               <div>
-                <p className="text-xs text-muted-foreground">Tráfego orgânico</p>
-                <p className="text-lg font-bold font-display">+312%</p>
+                <p className="text-xs text-muted-foreground">SEO técnico</p>
+                <p className="text-lg font-bold font-display">Monitorado</p>
               </div>
             </div>
             <div className="absolute -top-3 -right-3 sm:-right-6 glass rounded-2xl px-4 py-3 shadow-elegant hidden sm:block">
-              <p className="text-xs text-muted-foreground">Leads/mês</p>
-              <p className="text-lg font-bold font-display text-gradient">2.8k</p>
+              <p className="text-xs text-muted-foreground">Métricas</p>
+              <p className="text-lg font-bold font-display text-gradient">Integradas</p>
             </div>
           </div>
         </motion.div>

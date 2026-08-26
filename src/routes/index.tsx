@@ -22,16 +22,10 @@ const FeaturedServices = lazy(() => import("@/components/site/FeaturedServices")
 const AISection = lazy(() => import("@/components/site/AISection").then((m) => ({ default: m.AISection })));
 const DiagnosticForm = lazy(() => import("@/components/site/DiagnosticForm").then((m) => ({ default: m.DiagnosticForm })));
 const Differentials = lazy(() => import("@/components/site/Differentials").then((m) => ({ default: m.Differentials })));
-const Cases = lazy(() => import("@/components/site/Cases").then((m) => ({ default: m.Cases })));
 const Plans = lazy(() => import("@/components/site/Plans").then((m) => ({ default: m.Plans })));
 const Process = lazy(() => import("@/components/site/ProcessTimeline").then((m) => ({ default: m.ProcessTimeline })));
-const StatsStrip = lazy(() => import("@/components/site/StatsStrip").then((m) => ({ default: m.StatsStrip })));
-const Testimonials = lazy(() => import("@/components/site/Testimonials").then((m) => ({ default: m.Testimonials })));
-
-const SocialProofSection = lazy(() => import("@/components/site/SocialProofSection").then((m) => ({ default: m.SocialProofSection })));
 const CTA = lazy(() => import("@/components/site/CTA").then((m) => ({ default: m.CTA })));
 const WhatsAppFloat = lazy(() => import("@/components/site/WhatsAppFloat").then((m) => ({ default: m.WhatsAppFloat })));
-const SocialProof = lazy(() => import("@/components/site/SocialProof").then((m) => ({ default: m.SocialProof })));
 const ExitIntent = lazy(() => import("@/components/site/ExitIntent").then((m) => ({ default: m.ExitIntent })));
 const ConsentBanner = lazy(() => import("@/components/site/ConsentBanner").then((m) => ({ default: m.ConsentBanner })));
 const ScrollTracker = lazy(() => import("@/components/site/ScrollTracker").then((m) => ({ default: m.ScrollTracker })));
@@ -68,7 +62,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:alt", content: "0WEB — Sites otimizados para anúncios, IA e marketing digital" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "article:section", content: "Home · Spotlight · Busca Global · Depoimentos" },
+      { property: "article:section", content: "Home · Serviços · Soluções · Diagnóstico" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
@@ -181,12 +175,8 @@ function Index() {
         {on("ai_section") && <Suspense key="ai_section" fallback={<Skel />}><AISection /></Suspense>}
         {on("diagnostic_form") && <Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense>}
         {on("differentials") && <Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense>}
-        {on("cases") && <Suspense key="cases" fallback={<Skel />}><Cases /></Suspense>}
-        <Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense>
         {on("plans") && <Suspense key="plans" fallback={<Skel />}><Plans /></Suspense>}
         {on("process") && <Suspense key="process" fallback={<Skel />}><Process /></Suspense>}
-        <Suspense key="testimonials" fallback={<Skel />}><Testimonials /></Suspense>
-        {on("social_proof") && <Suspense key="social_proof" fallback={<Skel />}><SocialProofSection /></Suspense>}
         {on("cta") && <Suspense key="cta" fallback={<Skel />}><CTA /></Suspense>}
 
 
@@ -194,7 +184,6 @@ function Index() {
       <Footer />
       <Suspense fallback={null}>
         <WhatsAppFloat />
-        <SocialProof />
         <ExitIntent />
         <ConsentBanner />
         <HomeChatbot />

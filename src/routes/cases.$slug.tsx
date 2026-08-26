@@ -37,6 +37,7 @@ export const Route = createFileRoute("/cases/$slug")({
         { title: c.seo.title },
         { name: "description", content: c.seo.description },
         { name: "keywords", content: c.seo.keywords },
+        { name: "robots", content: "noindex,follow,noarchive" },
         { property: "og:title", content: c.seo.title },
         { property: "og:description", content: c.seo.description },
         { property: "og:type", content: "article" },
