@@ -10,6 +10,9 @@ type Props = {
   studioName: string;
   theme: Theme;
   service?: string;
+  recipientName?: string;
+  phoneDigits?: string;
+  mode?: "booking" | "proposal";
   className?: string;
   ariaLabel?: string;
   children: ReactNode;
@@ -22,6 +25,13 @@ const SERVICES = [
   "Spa dos pés / autocuidado",
   "Quero uma orientação para escolher",
 ];
+const PROPOSAL_SERVICES = [
+  "Panfletagem e mão a mão",
+  "Semáforo e cancela",
+  "Bandeiras e faixas",
+  "Entrega de brindes",
+  "Ação personalizada",
+];
 const EXPERIENCE = [
   "É minha primeira aplicação",
   "Quero fazer manutenção",
@@ -31,14 +41,15 @@ const EXPERIENCE = [
 const PERIODS = ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"];
 const TIMINGS = ["Hoje ou amanhã", "Ainda nesta semana", "Na próxima semana", "Quero a primeira vaga disponível"];
 
-function whatsappMessage(studioName: string, answers: Answers) {
+function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"]) {
+  const isProposal = mode === "proposal";
   const lines = [
-    "🌷 *PEDIDO DE AGENDAMENTO*",
+    isProposal ? "📣 *PEDIDO DE PROPOSTA*" : "🌷 *PEDIDO DE AGENDAMENTO*",
     "",
-    "Olá, Renata! Tudo bem?",
+    `Olá, ${recipientName}! Tudo bem?`,
     "",
-    "Vi a página do *" + studioName + "* no portal *0WEB.com.br* e achei a sua página fantástica! ✨",
-    "Quero agendar um horário e já deixei os detalhes abaixo para facilitar o seu atendimento:",
+    "Vi a página do *" + studioName + "* no site *0WEB.com.br* e achei a sua página fantástica! ✨",
+    isProposal ? "Quero solicitar uma proposta e já deixei os detalhes abaixo para facilitar o seu atendimento:" : "Quero agendar um horário e já deixei os detalhes abaixo para facilitar o seu atendimento:",
     "",
     "*PREFERÊNCIAS DO ATENDIMENTO*",
     "• *Procedimento:* " + (answers.service || "Quero orientação para escolher"),
@@ -63,6 +74,9 @@ export function BeautyBookingQuiz({
   studioName,
   theme,
   service,
+  recipientName = "Renata",
+  phoneDigits = "554196048639",
+  mode = "booking",
   className,
   ariaLabel,
   children,
@@ -78,7 +92,8 @@ export function BeautyBookingQuiz({
     ? "border-[#D4AF37]/35 bg-[#D4AF37]/10 hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20"
     : "border-pink-400/35 bg-pink-500/10 hover:border-pink-300/80 hover:bg-pink-500/20";
   const primaryClass = gold ? "bg-[#D4AF37] text-black hover:bg-[#ecd080]" : "bg-pink-500 text-white hover:bg-pink-400";
-  const services = Array.from(new Set(service ? [service, ...SERVICES] : SERVICES));
+  const serviceOptions = mode === "proposal" ? PROPOSAL_SERVICES : SERVICES;
+  const services = Array.from(new Set(service ? [service, ...serviceOptions] : serviceOptions));
 
   useEffect(() => {
     if (!open) return;
@@ -90,7 +105,7 @@ export function BeautyBookingQuiz({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  const funnelContext = { location: "beauty_booking_quiz", studio_name: studioName, page_type: "portfolio_demo" };
+  const funnelContext = { location: "client_booking_quiz", studio_name: studioName, recipient_name: recipientName, page_type: "portfolio_demo" };
 
   const start = () => {
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
@@ -124,7 +139,7 @@ export function BeautyBookingQuiz({
   };
 
   const question = step === 0
-    ? { label: "1 de 5", title: "Qual atendimento você quer agendar?", subtitle: "Assim já preparamos a melhor orientação para você.", field: "service" as const, options: services }
+    ? { label: "1 de 5", title: mode === "proposal" ? "Qual ação você quer planejar?" : "Qual atendimento você quer agendar?", subtitle: mode === "proposal" ? "Assim o Denis já entende o formato ideal para sua campanha." : "Assim já preparamos a melhor orientação para você.", field: "service" as const, options: services }
     : step === 1
       ? { label: "2 de 5", title: "Você já conhece esse procedimento?", subtitle: "Isso ajuda a profissional a entender o seu momento.", field: "experience" as const, options: EXPERIENCE }
       : step === 2
@@ -132,7 +147,7 @@ export function BeautyBookingQuiz({
         : step === 3
           ? { label: "4 de 5", title: "Quando você gostaria de vir?", subtitle: "Escolha a opção mais próxima da sua necessidade.", field: "timing" as const, options: TIMINGS }
           : null;
-  const url = "https://wa.me/554196048639?text=" + encodeURIComponent(whatsappMessage(studioName, answers));
+  const url = "https://wa.me/" + phoneDigits + "?text=" + encodeURIComponent(whatsappMessage(studioName, answers, recipientName, mode));
 
   return (
     <>
@@ -149,7 +164,7 @@ export function BeautyBookingQuiz({
                   <Sparkles className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className={"text-xs font-bold uppercase tracking-[0.18em] " + accentText}>Agendamento inteligente</p>
+                  <p className={"text-xs font-bold uppercase tracking-[0.18em] " + accentText}>{mode === "proposal" ? "Proposta inteligente" : "Agendamento inteligente"}</p>
                   <p className="text-sm text-gray-300">Leva menos de um minuto</p>
                 </div>
               </div>
@@ -191,7 +206,7 @@ export function BeautyBookingQuiz({
                   <div className="space-y-2">
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
                     <h2 id="beauty-booking-quiz-title" className="text-2xl font-serif font-bold">Prontinho — sua mensagem está personalizada</h2>
-                    <p className="text-sm leading-relaxed text-gray-400">A Renata receberá seus dados organizados e já poderá indicar a melhor vaga para você.</p>
+                    <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed text-gray-300">
                     <p className="font-bold text-white">{answers.service}</p>
@@ -199,7 +214,7 @@ export function BeautyBookingQuiz({
                   </div>
                   <a href={url} target="_blank" rel="noopener noreferrer" onClick={completeInWhatsApp} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                    Enviar pedido pelo WhatsApp
+                    {mode === "proposal" ? "Enviar pedido ao Denis" : "Enviar pedido pelo WhatsApp"}
                   </a>
                   <button type="button" onClick={() => setStep(4)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-2 text-sm font-semibold text-gray-400 transition hover:text-white">
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />

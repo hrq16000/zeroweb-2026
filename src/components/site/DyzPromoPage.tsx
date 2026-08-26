@@ -12,11 +12,7 @@ import {
   Store,
   Users,
 } from "lucide-react";
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
 
 const services = [
   { icon: CarFront, title: "Semáforo", text: "Abordagem organizada em cruzamentos estratégicos para gerar alcance e lembrança de marca." },
@@ -51,25 +47,50 @@ const gallery = [
   { src: "/images/dyzpromo/bandeira-centro.jpeg", alt: "Bandeira D.Y.Z Promo em ação de rua no centro" },
 ];
 
-const dyzIntent = {
-  purpose: "proposal" as const,
-  source: "portfolio_dyzpromo" as const,
-  pagePath: "/portfolio/dyzpromo" as const,
-  placement: "hero" as const,
-};
+function DyzCTA({ label, className }: { label: string; className?: string }) {
+  return (
+    <BeautyBookingQuiz
+      studioName="D.Y.Z Promo"
+      recipientName="Denis"
+      phoneDigits="554198755277"
+      theme="gold"
+      mode="proposal"
+      service="Divulgação e panfletagem"
+      className={className}
+      ariaLabel={label}
+    >
+      {label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+    </BeautyBookingQuiz>
+  );
+}
 
-const dyzContext = {
-  assunto: "Ação promocional D.Y.Z Promo",
-  cidade: "Curitiba",
-  segmento: "Marketing promocional",
-};
+function DyzHeader() {
+  return (
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#071b49]/95 text-white backdrop-blur">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
+        <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
+          <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#1e5edb] text-lg font-black tracking-tight">D.Y.Z</span>
+          <span><strong className="block text-lg leading-none tracking-[0.08em]">PROMO</strong><small className="text-[10px] uppercase tracking-[0.2em] text-blue-200">Divulgação em campo</small></span>
+        </a>
+        <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
+          <a href="#servicos" className="hover:text-white">Serviços</a><a href="#galeria" className="hover:text-white">Ações reais</a><a href="#clientes" className="hover:text-white">Clientes</a>
+        </nav>
+        <DyzCTA label="Solicitar proposta" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#f7c948] px-5 py-3 text-sm font-bold text-[#10295d] shadow-lg transition hover:bg-[#ffe08a]" />
+      </div>
+    </header>
+  );
+}
+
+function DyzFooter() {
+  return <footer className="border-t border-white/10 bg-[#061536] px-5 py-10 text-blue-100"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">D.Y.Z Promo</strong> · Divulgação e panfletagem em Curitiba e região.</p><p className="text-xs text-blue-200/80">Página demonstrativa criada pela 0WEB.</p></div></footer>;
+}
 
 export function DyzPromoPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header />
+      <DyzHeader />
       <main>
-        <section className="relative overflow-hidden bg-slate-950 text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
+        <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.28),transparent_35%),radial-gradient(circle_at_90%_10%,hsl(var(--accent)/0.16),transparent_30%)]" aria-hidden="true" />
           <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
             <div className="max-w-3xl">
@@ -83,13 +104,7 @@ export function DyzPromoPage() {
                 A D.Y.Z Promo leva campanhas para onde as pessoas estão: com equipes preparadas, distribuição direcionada e presença que faz sua oferta ser percebida.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <FunnelCTAButton
-                  intent={dyzIntent}
-                  context={dyzContext}
-                  label="Solicitar proposta"
-                  location="dyzpromo_hero"
-                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-cyan-400 px-6 py-3.5 font-bold text-slate-950 shadow-[0_0_35px_hsl(var(--accent)/0.35)] transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                />
+                <DyzCTA label="Solicitar proposta" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f7c948] px-6 py-3.5 font-bold text-[#10295d] shadow-[0_0_35px_rgba(247,201,72,0.3)] transition hover:bg-[#ffe08a]" />
                 <a href="#servicos" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
                   Conhecer ações
                 </a>
@@ -130,14 +145,7 @@ export function DyzPromoPage() {
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Operação com cuidado</span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Cada ação começa com um bom planejamento</h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">A equipe entende o objetivo, escolhe os pontos e executa a campanha com orientação clara para representar bem a sua marca.</p>
-              <FunnelCTAButton
-                intent={{ ...dyzIntent, placement: "section" }}
-                context={dyzContext}
-                label="Montar minha ação"
-                location="dyzpromo_operation"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-primary hover:underline"
-                showArrow
-              />
+              <DyzCTA label="Montar minha ação" className="mt-7 inline-flex items-center gap-2 font-semibold text-primary hover:underline" />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
@@ -156,7 +164,7 @@ export function DyzPromoPage() {
           </div>
         </section>
 
-        <section className="bg-[#0d2a68] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-gallery-title">
+        <section id="galeria" className="bg-[#0d2a68] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-gallery-title">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">A D.Y.Z em campo</span>
@@ -173,7 +181,7 @@ export function DyzPromoPage() {
           </div>
         </section>
 
-        <section className="px-5 py-20 sm:py-24">
+        <section id="clientes" className="px-5 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-wrap items-end justify-between gap-5">
               <div>
@@ -196,13 +204,7 @@ export function DyzPromoPage() {
               <p className="mt-4 max-w-2xl leading-relaxed text-slate-300">Planeje a ação por bairro, cidade ou rota. A D.Y.Z Promo já circula por dezenas de pontos da Grande Curitiba.</p>
               <div className="mt-7 flex flex-wrap gap-2">{areas.map((area) => <span key={area} className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-slate-300">{area}</span>)}</div>
             </div>
-            <FunnelCTAButton
-              intent={{ ...dyzIntent, placement: "section" }}
-              context={dyzContext}
-              label="Falar com o Denis"
-              location="dyzpromo_coverage"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-bold text-slate-950 transition hover:bg-cyan-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-            />
+            <DyzCTA label="Falar com o Denis" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f7c948] px-6 py-3.5 font-bold text-[#10295d] transition hover:bg-[#ffe08a]" />
           </div>
         </section>
 
@@ -210,20 +212,12 @@ export function DyzPromoPage() {
           <div className="mx-auto max-w-4xl rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-accent/10 p-8 text-center sm:p-12">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Vamos colocar sua campanha em movimento?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Envie as informações básicas e receba uma conversa objetiva sobre locais, equipe e formato da ação.</p>
-            <FunnelCTAButton
-              intent={{ ...dyzIntent, placement: "case-final" }}
-              context={dyzContext}
-              label="Solicitar orçamento"
-              location="dyzpromo_final"
-              className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 font-bold text-primary-foreground shadow-glow-primary transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-            />
+            <DyzCTA label="Solicitar orçamento" className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f7c948] px-7 py-3.5 font-bold text-[#10295d] shadow-lg transition hover:bg-[#ffe08a]" />
             <p className="mt-5 text-xs text-muted-foreground">D.Y.Z Promo · CNPJ 68.500.745/0001-53 · Curitiba/PR</p>
           </div>
         </section>
       </main>
-      <Footer />
-      <FloatingFunnelCTA />
-      <PortfolioUpsellPopup pageName="dyzpromo" />
+      <DyzFooter />
     </div>
   );
 }

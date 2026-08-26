@@ -11,7 +11,7 @@
  */
 
 /** Dígitos (E.164 sem "+") de contatos de clientes autorizados em vitrines. */
-export const CLIENT_ALLOWED_DIGITS = new Set(["554196048639"]);
+export const CLIENT_ALLOWED_DIGITS = new Set(["554196048639", "554198755277"]);
 
 /** Prefixos de chunks que são páginas-vitrine de clientes. */
 export const CLIENT_CHUNK_PREFIXES = [
@@ -19,10 +19,12 @@ export const CLIENT_CHUNK_PREFIXES = [
   "RBeautyEditorialView",
   "portfolio.renata-beauty",
   "portfolio.r_beauty",
+  "DyzPromoPage",
+  "portfolio.dyzpromo",
 ];
 
 /** Telefone formatado de cliente autorizado. */
-export const CLIENT_ALLOWED_PHONE = /^\+?55[- ]?\(?41\)?[- ]?9604-?8639$/;
+export const CLIENT_ALLOWED_PHONE = /^(?:\+?55[- ]?\(?41\)?[- ]?(?:9604-?8639|9875-?5277))$/;
 
 /** Chunks do painel autenticado (leaks viram warning, não erro). */
 export const ADMIN_CHUNK_PREFIXES = [

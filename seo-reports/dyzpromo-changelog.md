@@ -1,7 +1,7 @@
 # Changelog automático — D.Y.Z Promo
 
-- Gerado em: 2026-08-26T07:56:48.171Z
-- Commit: 262e166
+- Gerado em: 2026-08-26T16:29:15.788Z
+- Commit: c61d224
 - Rota principal: `/portfolio/dyzpromo`
 - Galeria: 8 registros reais de ações de rua adicionados à página demonstrativa.
 - Portfólio: cards com imagem e título clicáveis, preview em modal, navegação anterior/próximo e fechamento por ESC.
