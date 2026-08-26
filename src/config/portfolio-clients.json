@@ -1,0 +1,34 @@
+[
+  {
+    "clientKey": "dyzpromo",
+    "slug": "dyzpromo",
+    "siteName": "D.Y.Z Promo",
+    "routeFile": "src/routes/portfolio.dyzpromo.tsx",
+    "componentFile": "src/components/site/DyzPromoPage.tsx",
+    "assetsDir": "public/images/dyzpromo",
+    "ctaMode": "proposal",
+    "socialProofRequired": true
+  },
+  {
+    "clientKey": "renata-beauty",
+    "slug": "renata-beauty",
+    "siteName": "Renata Beauty Studio",
+    "routeFile": "src/routes/portfolio.renata-beauty.tsx",
+    "componentFile": "src/components/site/RenataBeautyView.tsx",
+    "assetsDir": "public/images",
+    "legacySharedAssets": true,
+    "ctaMode": "booking",
+    "socialProofRequired": true
+  },
+  {
+    "clientKey": "r-beauty",
+    "slug": "r_beauty",
+    "siteName": "R_Beauty Haute Studio",
+    "routeFile": "src/routes/portfolio.r_beauty.tsx",
+    "componentFile": "src/components/site/RBeautyEditorialView.tsx",
+    "assetsDir": "public/images",
+    "legacySharedAssets": true,
+    "ctaMode": "booking",
+    "socialProofRequired": true
+  }
+]

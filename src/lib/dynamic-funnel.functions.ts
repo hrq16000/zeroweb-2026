@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest, getRequestHeader, getRequestIP } from "@tanstack/react-start/server";
 import { z } from "zod";
+import { PORTFOLIO_CLIENT_KEYS } from "@/lib/portfolio-client-keys";
 import { scoreLead } from "./lead-scoring";
 
 // ============ Types (also used by the client UI) ============
@@ -345,7 +346,7 @@ export const submitFunnel = createServerFn({ method: "POST" })
  */
 export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => z.object({
-    clientKey: z.enum(["dyzpromo", "renata-beauty", "r-beauty"]),
+    clientKey: z.enum(PORTFOLIO_CLIENT_KEYS),
     studioName: z.string().min(1).max(100),
     recipientName: z.string().min(1).max(80),
     mode: z.enum(["booking", "proposal"]),

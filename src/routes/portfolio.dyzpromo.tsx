@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DyzPromoPage } from "@/components/site/DyzPromoPage";
 
-const TITLE = "D.Y.Z Promo · Portfólio de Sites 0WEB";
+const TITLE = "D.Y.Z Promo · Divulgação e panfletagem em Curitiba";
 const DESC =
-  "Conheça a página demonstrativa criada pela 0WEB para a D.Y.Z Promo, especialista em divulgação, panfletagem e ações promocionais em Curitiba e região.";
+  "Divulgação, panfletagem, promotores e ações promocionais da D.Y.Z Promo em Curitiba e região metropolitana.";
 const URL = "https://0web.com.br/portfolio/dyzpromo";
 const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/faixa-equipe.jpeg";
 const ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo.png";
@@ -37,7 +37,6 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
           description: DESC,
           image: SOCIAL_IMAGE,
           inLanguage: "pt-BR",
-          isPartOf: { "@type": "WebSite", "@id": "https://0web.com.br/#website" },
           about: { "@type": "LocalBusiness", name: "D.Y.Z Promo", taxID: "68.500.745/0001-53" },
         }),
       },

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ComponentProps } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Sparkles, 
@@ -24,13 +24,17 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
+import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
 const INSTAGRAM_URL = "https://www.instagram.com/renatabeautystudiio/";
 const ADDRESS = "Rua Rondônia, 300 - Boneca do Iguaçu";
 const MAPS_URL = "https://maps.google.com/?q=Rua+Rond%C3%B4nia,+300+-+Boneca+do+Igua%C3%A7u";
+
+function BeautyBookingQuiz(props: Omit<ComponentProps<typeof PortfolioCTAQuiz>, "clientKey">) {
+  return <PortfolioCTAQuiz clientKey="renata-beauty" {...props} />;
+}
 
 export function RenataBeautyView() {
   const [selectedService, setSelectedService] = useState<string>("egipcio");
@@ -584,7 +588,7 @@ export function RenataBeautyView() {
                 </div>
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-gray-400">WhatsApp:</span>
-                  <span className="text-white font-semibold">+55 41 9604-8639</span>
+                  <span className="text-white font-semibold">Atendimento protegido pelo funil</span>
                 </div>
               </div>
 
@@ -706,7 +710,7 @@ export function RenataBeautyView() {
             </a>
             <span>•</span>
             <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" className="hover:text-pink-400 flex items-center gap-1.5">
-              <Phone className="w-4 h-4" /> +55 41 9604-8639
+              <Phone className="w-4 h-4" /> Atendimento pelo WhatsApp
             </BeautyBookingQuiz>
           </div>
 
@@ -728,7 +732,7 @@ export function RenataBeautyView() {
         </BeautyBookingQuiz>
       </div>
 
-      <PortfolioUpsellPopup pageName="renata-beauty" />
+      <PortfolioSocialProofPopup clientKey="renata-beauty" eyebrow="Renata Beauty em destaque" title="Cílios, unhas e sobrancelhas com atendimento pensado em cada detalhe." description="Veja os procedimentos, conheça o espaço e envie suas preferências organizadas para a profissional." ctaLabel="Conhecer procedimentos" ctaHref="#procedimentos" delayMs={6500} className="border-pink-500/30 bg-[#160d13]/95 text-white" accentClassName="text-pink-300" />
     </div>
   );
 }

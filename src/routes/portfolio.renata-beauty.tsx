@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { RenataBeautyView } from "@/components/site/RenataBeautyView";
 
-const TITLE = "Renata Beauty Studio · Portfólio de Sites 0WEB";
-const DESC = "Conheça o site desenvolvido pela 0WEB para o Espaço Renata Beauty Studio no Boneca do Iguaçu. Alta conversão para WhatsApp e design de luxo.";
+const TITLE = "Renata Beauty Studio · Cílios, unhas e sobrancelhas";
+const DESC = "Conheça os procedimentos, o espaço e as condições especiais do Renata Beauty Studio no Boneca do Iguaçu.";
 const URL = "https://0web.com.br/portfolio/renata-beauty";
 const SOCIAL_IMAGE = "https://0web.com.br/images/volume-egipcio-fios-w.jpg";
 const ICON = "https://0web.com.br/images/renata-beauty-icon.png";

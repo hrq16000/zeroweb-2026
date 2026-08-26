@@ -4,16 +4,29 @@ import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from 
 import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
+import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 
 type Theme = "pink" | "gold";
 type Answers = { service: string; experience: string; period: string; timing: string; note: string };
 
+export type PortfolioQuizConfig = {
+  services?: string[];
+  experienceOptions?: string[];
+  periodOptions?: string[];
+  timingOptions?: string[];
+  stepTitles?: Partial<Record<"service" | "experience" | "period" | "timing" | "note", string>>;
+  stepSubtitles?: Partial<Record<"service" | "experience" | "period" | "timing" | "note", string>>;
+  notePlaceholder?: string;
+};
+
 type Props = {
+  clientKey: PortfolioClientKey;
   studioName: string;
   theme: Theme;
   service?: string;
   recipientName?: string;
   mode?: "booking" | "proposal";
+  quizConfig?: PortfolioQuizConfig;
   className?: string;
   ariaLabel?: string;
   children: ReactNode;
@@ -80,11 +93,13 @@ function whatsappMessage(studioName: string, answers: Answers, recipientName: st
 }
 
 export function BeautyBookingQuiz({
+  clientKey,
   studioName,
   theme,
   service,
   recipientName = "Renata",
   mode = "booking",
+  quizConfig,
   className,
   ariaLabel,
   children,
@@ -104,10 +119,10 @@ export function BeautyBookingQuiz({
     : "border-pink-400/35 bg-pink-500/10 hover:border-pink-300/80 hover:bg-pink-500/20";
   const primaryClass = gold ? "bg-[#D4AF37] text-black hover:bg-[#ecd080]" : "bg-pink-500 text-white hover:bg-pink-400";
   const isProposal = mode === "proposal";
-  const serviceOptions = isProposal ? PROPOSAL_SERVICES : SERVICES;
-  const experienceOptions = isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE;
-  const periodOptions = isProposal ? PROPOSAL_PERIODS : PERIODS;
-  const timingOptions = isProposal ? PROPOSAL_TIMINGS : TIMINGS;
+  const serviceOptions = quizConfig?.services ?? (isProposal ? PROPOSAL_SERVICES : SERVICES);
+  const experienceOptions = quizConfig?.experienceOptions ?? (isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
+  const periodOptions = quizConfig?.periodOptions ?? (isProposal ? PROPOSAL_PERIODS : PERIODS);
+  const timingOptions = quizConfig?.timingOptions ?? (isProposal ? PROPOSAL_TIMINGS : TIMINGS);
   const services = Array.from(new Set(service ? [service, ...serviceOptions] : serviceOptions));
 
   useEffect(() => {
@@ -156,7 +171,6 @@ export function BeautyBookingQuiz({
     setRedirecting(true);
     setSubmitError(null);
     try {
-      const clientKey = studioName === "D.Y.Z Promo" ? "dyzpromo" : studioName === "R_Beauty Haute Studio" ? "r-beauty" : "renata-beauty";
       const result = await submitPortfolio({ data: {
         clientKey,
         studioName,
@@ -172,13 +186,13 @@ export function BeautyBookingQuiz({
   };
 
   const question = step === 0
-    ? { label: "1 de 5", title: mode === "proposal" ? "Qual ação você quer planejar?" : "Qual atendimento você quer agendar?", subtitle: mode === "proposal" ? "Assim o Denis já entende o formato ideal para sua campanha." : "Assim já preparamos a melhor orientação para você.", field: "service" as const, options: services }
+    ? { label: "1 de 5", title: quizConfig?.stepTitles?.service ?? (isProposal ? "Qual ação você quer planejar?" : "Qual atendimento você quer agendar?"), subtitle: quizConfig?.stepSubtitles?.service ?? (isProposal ? `Assim ${recipientName} já entende o formato ideal para sua campanha.` : "Assim já preparamos a melhor orientação para você."), field: "service" as const, options: services }
     : step === 1
-      ? { label: "2 de 5", title: isProposal ? "Qual é o objetivo principal da ação?" : "Você já conhece esse procedimento?", subtitle: isProposal ? "Essa resposta ajuda a montar uma equipe alinhada ao que você precisa divulgar." : "Isso ajuda a profissional a entender o seu momento.", field: "experience" as const, options: experienceOptions }
+      ? { label: "2 de 5", title: quizConfig?.stepTitles?.experience ?? (isProposal ? "Qual é o objetivo principal da ação?" : "Você já conhece esse procedimento?"), subtitle: quizConfig?.stepSubtitles?.experience ?? (isProposal ? "Essa resposta ajuda a montar uma equipe alinhada ao que você precisa divulgar." : "Isso ajuda a profissional a entender o seu momento."), field: "experience" as const, options: experienceOptions }
       : step === 2
-        ? { label: "3 de 5", title: isProposal ? "Quando a ação deve acontecer?" : "Qual período costuma ser melhor para você?", subtitle: isProposal ? "Assim o Denis consegue pensar em escala e pontos de maior movimento." : "Vamos tentar encontrar a vaga mais confortável.", field: "period" as const, options: periodOptions }
+        ? { label: "3 de 5", title: quizConfig?.stepTitles?.period ?? (isProposal ? "Quando a ação deve acontecer?" : "Qual período costuma ser melhor para você?"), subtitle: quizConfig?.stepSubtitles?.period ?? (isProposal ? `Assim ${recipientName} consegue pensar em escala e pontos de maior movimento.` : "Vamos tentar encontrar a vaga mais confortável."), field: "period" as const, options: periodOptions }
         : step === 3
-          ? { label: "4 de 5", title: isProposal ? "Qual é o prazo da campanha?" : "Quando você gostaria de vir?", subtitle: isProposal ? "Uma previsão de prazo deixa a proposta muito mais precisa." : "Escolha a opção mais próxima da sua necessidade.", field: "timing" as const, options: timingOptions }
+          ? { label: "4 de 5", title: quizConfig?.stepTitles?.timing ?? (isProposal ? "Qual é o prazo da campanha?" : "Quando você gostaria de vir?"), subtitle: quizConfig?.stepSubtitles?.timing ?? (isProposal ? "Uma previsão de prazo deixa a proposta muito mais precisa." : "Escolha a opção mais próxima da sua necessidade."), field: "timing" as const, options: timingOptions }
           : null;
   return (
     <>
@@ -224,10 +238,10 @@ export function BeautyBookingQuiz({
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <p className={"text-xs font-bold uppercase tracking-[0.2em] " + accentText}>5 de 5</p>
-                    <h2 id="beauty-booking-quiz-title" className="text-2xl font-serif font-bold">Quer acrescentar algum detalhe?</h2>
-                    <p className="text-sm leading-relaxed text-gray-400">É opcional. Você pode contar se tem preferência de estilo, horário ou alguma dúvida.</p>
+                    <h2 id="beauty-booking-quiz-title" className="text-2xl font-serif font-bold">{quizConfig?.stepTitles?.note ?? "Quer acrescentar algum detalhe?"}</h2>
+                    <p className="text-sm leading-relaxed text-gray-400">{quizConfig?.stepSubtitles?.note ?? (isProposal ? "É opcional. Conte sobre região, quantidade, material ou alguma necessidade especial." : "É opcional. Você pode contar se tem preferência de estilo, horário ou alguma dúvida.")}</p>
                   </div>
-                  <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder="Ex.: gosto de um efeito mais natural e consigo depois das 18h." className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
+                  <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder={quizConfig?.notePlaceholder ?? (isProposal ? "Ex.: ação em dois bairros, com entrega de brindes e previsão para o próximo mês." : "Ex.: gosto de um efeito mais natural e consigo depois das 18h.")} className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
                   <button type="button" onClick={showMessage} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
                     Ver minha mensagem pronta <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
@@ -245,7 +259,7 @@ export function BeautyBookingQuiz({
                   </div>
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                    {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? "Continuar pedido ao Denis" : "Continuar meu pedido"}
+                    {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? `Continuar pedido para ${recipientName}` : "Continuar meu pedido"}
                   </button>
                   {submitError && <p className="text-center text-xs text-red-300" role="alert">{submitError}</p>}
                   <button type="button" onClick={() => setStep(4)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-2 text-sm font-semibold text-gray-400 transition hover:text-white">
@@ -262,3 +276,6 @@ export function BeautyBookingQuiz({
     </>
   );
 }
+
+/** Nome recomendado para novos sites; o alias antigo permanece por compatibilidade. */
+export const PortfolioCTAQuiz = BeautyBookingQuiz;

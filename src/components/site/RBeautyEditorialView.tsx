@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Sparkles, 
@@ -19,13 +19,17 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
+import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
 const INSTAGRAM_URL = "https://www.instagram.com/renatabeautystudiio/";
 const ADDRESS = "Rua Rondônia, 300 - Boneca do Iguaçu";
 const MAPS_URL = "https://maps.google.com/?q=Rua+Rond%C3%B4nia,+300+-+Boneca+do+Igua%C3%A7u";
+
+function BeautyBookingQuiz(props: Omit<ComponentProps<typeof PortfolioCTAQuiz>, "clientKey">) {
+  return <PortfolioCTAQuiz clientKey="r-beauty" {...props} />;
+}
 
 export function RBeautyEditorialView() {
   const [activeTab, setActiveTab] = useState<"cilios" | "unhas" | "sobrancelhas">("cilios");
@@ -311,7 +315,7 @@ export function RBeautyEditorialView() {
         </div>
       </footer>
 
-      <PortfolioUpsellPopup pageName="r_beauty" />
+      <PortfolioSocialProofPopup clientKey="r-beauty" eyebrow="Agenda R_Beauty" title="Atendimento dedicado a cílios, unhas, sobrancelhas e autocuidado." description="Conheça os procedimentos e escolha o melhor momento antes de conversar com a profissional." ctaLabel="Ver procedimentos" ctaHref="#menu" delayMs={6500} className="border-[#D4AF37]/30 bg-[#0C0A0B]/95 text-white" accentClassName="text-[#D4AF37]" />
     </div>
   );
 }

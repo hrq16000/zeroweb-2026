@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { RBeautyEditorialView } from "@/components/site/RBeautyEditorialView";
 
-const TITLE = "R_Beauty Studio · Edição Especial Portfólio 0WEB";
-const DESC = "Conheça a versão editorial do Espaço R_Beauty Studio desenvolvida pela 0WEB. Tipografia cinética, alta conversão e sofisticação no Boneca do Iguaçu.";
+const TITLE = "R_Beauty Haute Studio · Cílios, unhas e sobrancelhas";
+const DESC = "Conheça os procedimentos de cílios, unhas, sobrancelhas e autocuidado do R_Beauty Haute Studio no Boneca do Iguaçu.";
 const URL = "https://0web.com.br/portfolio/r_beauty";
 const SOCIAL_IMAGE = "https://0web.com.br/images/r-beauty-cilios.jpg";
 const ICON = "https://0web.com.br/images/r-beauty-icon.png";

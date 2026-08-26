@@ -37,6 +37,9 @@ jobs:
       - name: Portfolio SEO metadata (canonical, Schema.org and Open Graph)
         run: bun run validate:portfolio-meta
 
+      - name: Portfolio client isolation and shared mechanisms
+        run: bun run validate:portfolio-boundaries
+
       - name: Generate DYZ changelog and validation summary
         run: bun run changelog:dyz
 
