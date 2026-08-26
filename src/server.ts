@@ -37,7 +37,7 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
-function verifyAndProtectSsrHtml(response: Response, request: Request): Response {
+function protectSsrHtml(response: Response): Response {
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.includes("text/html")) return response;
 
@@ -45,36 +45,10 @@ function verifyAndProtectSsrHtml(response: Response, request: Request): Response
   headers.set("cache-control", "private, no-cache, no-store, must-revalidate");
   headers.set("pragma", "no-cache");
   headers.set("expires", "0");
-  headers.set("x-0web-ssr-payload", "streaming-verification");
-
-  if (!response.body) {
-    console.error(`[ssr-payload-missing] route=${new URL(request.url).pathname} reason=empty-body`);
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
-  }
-
-  const route = new URL(request.url).pathname;
-  const decoder = new TextDecoder();
-  let hasDehydratedRouter = false;
-  let trailingText = "";
-  const inspector = new TransformStream<Uint8Array, Uint8Array>({
-    transform(chunk, controller) {
-      const text = trailingText + decoder.decode(chunk, { stream: true });
-      if (text.includes("$_TSR.router")) hasDehydratedRouter = true;
-      trailingText = text.slice(-32);
-      controller.enqueue(chunk);
-    },
-    flush() {
-      if (!hasDehydratedRouter) {
-        console.error(`[ssr-payload-missing] route=${route} status=${response.status}`);
-      }
-    },
-  });
-
-  return new Response(response.body.pipeThrough(inspector), {
+  // Preserve the framework-owned body stream. Wrapping it in TransformStream
+  // makes a normal browser disconnect surface as node:_http_server "aborted"
+  // after fetch() has already returned, beyond the request try/catch.
+  return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
     headers,
@@ -87,7 +61,7 @@ export default {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       const normalized = await normalizeCatastrophicSsrResponse(response);
-      return verifyAndProtectSsrHtml(normalized, request);
+      return protectSsrHtml(normalized);
     } catch (error) {
       // Cliente fechou a conexão no meio do stream: não é falha da aplicação.
       if (isClientAbortError(error)) return new Response(null, { status: 499 });
