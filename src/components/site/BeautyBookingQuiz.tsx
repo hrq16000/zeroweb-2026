@@ -31,6 +31,14 @@ const PROPOSAL_SERVICES = [
   "Entrega de brindes",
   "Ação personalizada",
 ];
+const PROPOSAL_EXPERIENCE = [
+  "É uma campanha nova",
+  "Quero reforçar uma campanha existente",
+  "Estou abrindo uma unidade ou fazendo inauguração",
+  "Ainda estou definindo a melhor estratégia",
+];
+const PROPOSAL_PERIODS = ["Dias úteis", "Fim de semana", "Horário de pico", "Ainda preciso de orientação"];
+const PROPOSAL_TIMINGS = ["Nos próximos 7 dias", "Ainda neste mês", "No próximo mês", "Estou planejando com antecedência"];
 const EXPERIENCE = [
   "É minha primeira aplicação",
   "Quero fazer manutenção",
@@ -50,11 +58,11 @@ function whatsappMessage(studioName: string, answers: Answers, recipientName: st
     "Vi a página do *" + studioName + "* no site *0WEB.com.br* e achei a sua página fantástica! ✨",
     isProposal ? "Quero solicitar uma proposta e já deixei os detalhes abaixo para facilitar o seu atendimento:" : "Quero agendar um horário e já deixei os detalhes abaixo para facilitar o seu atendimento:",
     "",
-    "*PREFERÊNCIAS DO ATENDIMENTO*",
-    "• *Procedimento:* " + (answers.service || "Quero orientação para escolher"),
-    "• *Momento:* " + (answers.experience || "Quero conversar antes de decidir"),
-    "• *Melhor período:* " + (answers.period || "Tenho flexibilidade"),
-    "• *Quando gostaria:* " + (answers.timing || "Quero a primeira vaga disponível"),
+    isProposal ? "*BRIEFING DA CAMPANHA*" : "*PREFERÊNCIAS DO ATENDIMENTO*",
+    (isProposal ? "• *Formato da ação:* " : "• *Procedimento:* ") + (answers.service || (isProposal ? "Quero orientação para escolher" : "Quero orientação para escolher")),
+    (isProposal ? "• *Objetivo/momento:* " : "• *Momento:* ") + (answers.experience || (isProposal ? "Quero conversar sobre o objetivo" : "Quero conversar antes de decidir")),
+    (isProposal ? "• *Janela da ação:* " : "• *Melhor período:* ") + (answers.period || (isProposal ? "Ainda preciso de orientação" : "Tenho flexibilidade")),
+    (isProposal ? "• *Prazo da campanha:* " : "• *Quando gostaria:* ") + (answers.timing || (isProposal ? "Estou planejando com antecedência" : "Quero a primeira vaga disponível")),
   ];
 
   if (answers.note.trim()) lines.push("", "*OBSERVAÇÃO*", answers.note.trim());
@@ -62,7 +70,7 @@ function whatsappMessage(studioName: string, answers: Answers, recipientName: st
   lines.push(
     "",
     "*PRÓXIMO PASSO*",
-    "Pode me enviar as próximas vagas disponíveis e confirmar o tempo estimado do atendimento, por favor?",
+    isProposal ? "Pode me orientar sobre equipe, locais, quantidade de promotores e investimento estimado, por favor?" : "Pode me enviar as próximas vagas disponíveis e confirmar o tempo estimado do atendimento, por favor?",
     "",
     "Obrigada! 💖",
   );
@@ -90,7 +98,11 @@ export function BeautyBookingQuiz({
     ? "border-[#D4AF37]/35 bg-[#D4AF37]/10 hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20"
     : "border-pink-400/35 bg-pink-500/10 hover:border-pink-300/80 hover:bg-pink-500/20";
   const primaryClass = gold ? "bg-[#D4AF37] text-black hover:bg-[#ecd080]" : "bg-pink-500 text-white hover:bg-pink-400";
-  const serviceOptions = mode === "proposal" ? PROPOSAL_SERVICES : SERVICES;
+  const isProposal = mode === "proposal";
+  const serviceOptions = isProposal ? PROPOSAL_SERVICES : SERVICES;
+  const experienceOptions = isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE;
+  const periodOptions = isProposal ? PROPOSAL_PERIODS : PERIODS;
+  const timingOptions = isProposal ? PROPOSAL_TIMINGS : TIMINGS;
   const services = Array.from(new Set(service ? [service, ...serviceOptions] : serviceOptions));
 
   useEffect(() => {
@@ -139,11 +151,11 @@ export function BeautyBookingQuiz({
   const question = step === 0
     ? { label: "1 de 5", title: mode === "proposal" ? "Qual ação você quer planejar?" : "Qual atendimento você quer agendar?", subtitle: mode === "proposal" ? "Assim o Denis já entende o formato ideal para sua campanha." : "Assim já preparamos a melhor orientação para você.", field: "service" as const, options: services }
     : step === 1
-      ? { label: "2 de 5", title: "Você já conhece esse procedimento?", subtitle: "Isso ajuda a profissional a entender o seu momento.", field: "experience" as const, options: EXPERIENCE }
+      ? { label: "2 de 5", title: isProposal ? "Qual é o objetivo principal da ação?" : "Você já conhece esse procedimento?", subtitle: isProposal ? "Essa resposta ajuda a montar uma equipe alinhada ao que você precisa divulgar." : "Isso ajuda a profissional a entender o seu momento.", field: "experience" as const, options: experienceOptions }
       : step === 2
-        ? { label: "3 de 5", title: "Qual período costuma ser melhor para você?", subtitle: "Vamos tentar encontrar a vaga mais confortável.", field: "period" as const, options: PERIODS }
+        ? { label: "3 de 5", title: isProposal ? "Quando a ação deve acontecer?" : "Qual período costuma ser melhor para você?", subtitle: isProposal ? "Assim o Denis consegue pensar em escala e pontos de maior movimento." : "Vamos tentar encontrar a vaga mais confortável.", field: "period" as const, options: periodOptions }
         : step === 3
-          ? { label: "4 de 5", title: "Quando você gostaria de vir?", subtitle: "Escolha a opção mais próxima da sua necessidade.", field: "timing" as const, options: TIMINGS }
+          ? { label: "4 de 5", title: isProposal ? "Qual é o prazo da campanha?" : "Quando você gostaria de vir?", subtitle: isProposal ? "Uma previsão de prazo deixa a proposta muito mais precisa." : "Escolha a opção mais próxima da sua necessidade.", field: "timing" as const, options: timingOptions }
           : null;
   // O navegador nunca recebe o destino de WhatsApp. A confirmação passa pelo
   // formulário seguro de contato, que resolve o próximo passo no servidor.

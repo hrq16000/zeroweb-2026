@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   ShieldCheck,
   Store,
   Users,
+  X,
 } from "lucide-react";
 import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
 
@@ -81,6 +83,24 @@ function DyzHeader() {
 
 function DyzFooter() {
   return <footer className="border-t border-white/10 bg-[#061536] px-5 py-10 text-blue-100"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">D.Y.Z Promo</strong> · Divulgação e panfletagem em Curitiba e região.</p><p className="text-xs text-blue-200/80">Página demonstrativa criada pela 0WEB.</p></div></footer>;
+}
+
+function DyzSocialProofPopup() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setOpen(true), 5000);
+    return () => window.clearTimeout(timer);
+  }, []);
+  if (!open) return null;
+  return (
+    <motion.aside initial={{ opacity: 0, y: 24, x: -12 }} animate={{ opacity: 1, y: 0, x: 0 }} exit={{ opacity: 0, y: 24 }} className="fixed bottom-5 left-5 z-30 w-[min(360px,calc(100vw-2.5rem))] rounded-2xl border border-white/15 bg-[#071b49]/95 p-4 text-white shadow-2xl backdrop-blur" aria-label="Prova social da D.Y.Z Promo">
+      <button type="button" onClick={() => setOpen(false)} aria-label="Fechar prova social" className="absolute right-2 top-2 rounded-full p-1.5 text-blue-200 hover:bg-white/10 hover:text-white"><X className="h-4 w-4" /></button>
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f7c948]">D.Y.Z em campo</p>
+      <p className="mt-2 text-sm font-semibold leading-snug">Campanhas para restaurantes, varejo, imóveis, estética e tecnologia.</p>
+      <p className="mt-2 text-xs text-blue-200">Experiência prática em Curitiba e região, com equipe orientada para cada ação.</p>
+      <a href="#clientes" onClick={() => setOpen(false)} className="mt-3 inline-flex text-xs font-bold text-[#f7c948] hover:underline">Ver marcas atendidas →</a>
+    </motion.aside>
+  );
 }
 
 export function DyzPromoPage() {
@@ -223,6 +243,7 @@ export function DyzPromoPage() {
           </div>
         </section>
       </main>
+      <DyzSocialProofPopup />
       <DyzFooter />
     </div>
   );
