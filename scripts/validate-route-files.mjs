@@ -24,6 +24,7 @@ const src = readFileSync(TREE, "utf8");
 // Captura imports como: from './routes/foo' / from './routes/foo/bar'
 const re = /from\s+['"]\.\/routes\/([^'"]+)['"]/g;
 const missing = [];
+const syntaxErrors = [];
 const seen = new Set();
 
 let m;
@@ -43,6 +44,30 @@ while ((m = re.exec(src)) !== null) {
   if (!found) missing.push(rel);
 }
 
+// The TanStack generator currently reports a generic "Crawling result not
+// available" when route parsing fails. Catch common malformed export syntax
+// before Vite starts so CI points to the actual route and line.
+for (const rel of seen) {
+  const candidates = [
+    `${rel}.tsx`,
+    `${rel}.ts`,
+    path.join(rel, "index.tsx"),
+    path.join(rel, "index.ts"),
+  ];
+  const routeFile = candidates
+    .map((candidate) => path.join(ROUTES_DIR, candidate))
+    .find((candidate) => existsSync(candidate));
+  if (!routeFile) continue;
+
+  const routeSource = readFileSync(routeFile, "utf8");
+  const duplicateExport = /\bexport\s+export\b/g;
+  let match;
+  while ((match = duplicateExport.exec(routeSource)) !== null) {
+    const line = routeSource.slice(0, match.index).split("\n").length;
+    syntaxErrors.push(`${path.relative(ROOT, routeFile)}:${line} — declaração "export export" inválida`);
+  }
+}
+
 if (missing.length > 0) {
   console.error("");
   console.error("✖ [validate-route-files] Arquivos de rota ausentes:");
@@ -53,6 +78,16 @@ if (missing.length > 0) {
   console.error("    1) Recrie o(s) arquivo(s) listado(s); ou");
   console.error("    2) Remova as referências antigas e regenere a árvore:");
   console.error("       rm -rf node_modules/.vite .vite .output && bun run dev");
+  console.error("");
+  process.exit(1);
+}
+
+if (syntaxErrors.length > 0) {
+  console.error("");
+  console.error("✖ [validate-route-files] Erros de sintaxe em arquivos de rota:");
+  for (const error of syntaxErrors) console.error(`   • ${error}`);
+  console.error("");
+  console.error('  Esses erros impedem o crawler do TanStack de gerar routeTree.gen.ts.');
   console.error("");
   process.exit(1);
 }
