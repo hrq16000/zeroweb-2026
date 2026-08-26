@@ -40,9 +40,9 @@ const areas = [
 
 const dyzIntent = {
   purpose: "proposal" as const,
-  source: "portfolio_dyzpromo",
-  pagePath: "/portfolio/dyzpromo",
-  placement: "hero",
+  source: "portfolio_dyzpromo" as const,
+  pagePath: "/portfolio/dyzpromo" as const,
+  placement: "hero" as const,
 };
 
 const dyzContext = {
