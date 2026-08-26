@@ -38,10 +38,18 @@ const areas = [
   "São José dos Pinhais", "Piraquara", "Bairro Alto", "Jardim das Américas",
 ];
 
-function whatsappUrl() {
-  return `https://wa.me/${WHATSAPP_DIGITS}?text=${encodeURIComponent(whatsappMessage)}`;
-}
+const dyzIntent = {
+  purpose: "proposal" as const,
+  source: "portfolio_dyzpromo",
+  pagePath: "/portfolio/dyzpromo",
+  placement: "hero",
+};
 
+const dyzContext = {
+  assunto: "Ação promocional D.Y.Z Promo",
+  cidade: "Curitiba",
+  segmento: "Marketing promocional",
+};
 
 export function DyzPromoPage() {
   return (
