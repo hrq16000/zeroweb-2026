@@ -15,6 +15,8 @@ import {
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const services = [
   { icon: CarFront, title: "Semáforo", text: "Abordagem organizada em cruzamentos estratégicos para gerar alcance e lembrança de marca." },
@@ -36,6 +38,17 @@ const areas = [
   "Santa Felicidade", "Ecoville", "Champagnat", "Água Verde", "Centro",
   "Xaxim", "Novo Mundo", "Capão Raso", "Uberaba", "Pinhais",
   "São José dos Pinhais", "Piraquara", "Bairro Alto", "Jardim das Américas",
+];
+
+const gallery = [
+  { src: "/images/dyzpromo/panfletagem-praca.jpeg", alt: "Promotora D.Y.Z Promo realizando panfletagem em espaço público" },
+  { src: "/images/dyzpromo/panfletagem-semaforo.jpeg", alt: "Panfletagem da D.Y.Z Promo em abordagem no trânsito" },
+  { src: "/images/dyzpromo/entrega-residencial.jpeg", alt: "Equipe D.Y.Z Promo entregando material em residência" },
+  { src: "/images/dyzpromo/acao-semaforo.jpeg", alt: "Ação promocional da D.Y.Z Promo no semáforo" },
+  { src: "/images/dyzpromo/faixa-equipe.jpeg", alt: "Equipe D.Y.Z Promo com faixa de divulgação em Curitiba" },
+  { src: "/images/dyzpromo/cancela-shopping.jpeg", alt: "Promotora D.Y.Z Promo em ação de cancela" },
+  { src: "/images/dyzpromo/cancela-mall.jpeg", alt: "Panfletagem D.Y.Z Promo em centro comercial" },
+  { src: "/images/dyzpromo/bandeira-centro.jpeg", alt: "Bandeira D.Y.Z Promo em ação de rua no centro" },
 ];
 
 const dyzIntent = {
@@ -143,6 +156,23 @@ export function DyzPromoPage() {
           </div>
         </section>
 
+        <section className="bg-[#0d2a68] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-gallery-title">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">A D.Y.Z em campo</span>
+              <h2 id="dyz-gallery-title" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Divulgação que acontece de verdade</h2>
+              <p className="mt-4 leading-relaxed text-blue-100">Veja alguns registros de panfletagem, semáforo, cancela, faixas e ações promocionais realizadas pela equipe.</p>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+              {gallery.map((photo) => (
+                <figure key={photo.src} className="group overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-lg">
+                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="px-5 py-20 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-wrap items-end justify-between gap-5">
@@ -192,6 +222,8 @@ export function DyzPromoPage() {
         </section>
       </main>
       <Footer />
+      <FloatingFunnelCTA />
+      <PortfolioUpsellPopup pageName="dyzpromo" />
     </div>
   );
 }

@@ -17,7 +17,11 @@ export const Route = createFileRoute("/portfolio/renata-beauty")({
       { property: "og:url", content: URL },
       { property: "og:image", content: "https://0web.com.br/images/volume-egipcio-fios-w.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://0web.com.br/renata-beauty" }],
+    links: [{ rel: "canonical", href: URL }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": URL, url: URL, name: TITLE, description: DESC, inLanguage: "pt-BR", about: { "@type": "BeautySalon", name: "Renata Beauty Studio" } }),
+    }],
   }),
   component: RenataBeautyView,
 });

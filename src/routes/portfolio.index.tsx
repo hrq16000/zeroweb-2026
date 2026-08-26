@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -11,7 +11,10 @@ import {
   Zap, 
   Globe, 
   Phone,
-  ShieldCheck
+  ShieldCheck,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -47,6 +50,19 @@ const CATEGORIES = [
 
 const PORTFOLIO_ITEMS = [
   {
+    id: "dyzpromo",
+    slug: "/portfolio/dyzpromo",
+    category: "servicos",
+    title: "D.Y.Z Promo",
+    subtitle: "Divulgação, Panfletagem & Ações Promocionais",
+    location: "Curitiba e região — PR",
+    badge: "Cliente 0WEB",
+    image: "/images/dyzpromo/faixa-equipe.jpeg",
+    tags: ["Panfletagem", "Ações de Rua", "Brindes", "Marketing Promocional"],
+    metrics: "Presença local",
+    summary: "Página demonstrativa criada para apresentar a operação de divulgação da D.Y.Z Promo, com cobertura por bairros e contato direto para orçamento.",
+  },
+  {
     id: "renata-beauty",
     slug: "/portfolio/renata-beauty",
     category: "beleza",
@@ -72,19 +88,6 @@ const PORTFOLIO_ITEMS = [
     tags: ["Tipografia Cinética", "Comparador Antes/Depois", "Champagne Gold"],
     metrics: "Experiência VIP",
     summary: "Versão com estética de alta costura, slider interativo de antes e depois, e tipografia cinética para posicionamento premium.",
-  },
-  {
-    id: "dyzpromo",
-    slug: "/portfolio/dyzpromo",
-    category: "servicos",
-    title: "D.Y.Z Promo",
-    subtitle: "Divulgação, Panfletagem & Ações Promocionais",
-    location: "Curitiba e região — PR",
-    badge: "Cliente 0WEB",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80",
-    tags: ["Panfletagem", "Ações de Rua", "Brindes", "Marketing Promocional"],
-    metrics: "Presença local",
-    summary: "Página demonstrativa criada para apresentar a operação de divulgação da D.Y.Z Promo, com cobertura por bairros e contato direto para orçamento.",
   },
   {
     id: "clinica-sorriso",
@@ -173,10 +176,26 @@ export const Route = createFileRoute("/portfolio/")({
 
 function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("todos");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const filteredItems = activeCategory === "todos" 
     ? PORTFOLIO_ITEMS 
     : PORTFOLIO_ITEMS.filter(item => item.category === activeCategory);
+
+  const selectedItem = selectedIndex === null ? null : filteredItems[selectedIndex];
+
+  useEffect(() => {
+    if (!selectedItem) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedIndex(null);
+      if (event.key === "ArrowRight") setSelectedIndex((current) => current === null ? null : (current + 1) % filteredItems.length);
+      if (event.key === "ArrowLeft") setSelectedIndex((current) => current === null ? null : (current - 1 + filteredItems.length) % filteredItems.length);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    return () => { document.body.style.overflow = previousOverflow; document.removeEventListener("keydown", onKeyDown); };
+  }, [selectedItem, filteredItems.length]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-primary-foreground">
@@ -254,7 +273,7 @@ function PortfolioPage() {
                     className="group rounded-3xl bg-card border border-border/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
                   >
                     {/* Card Media Preview */}
-                    <div className="relative h-64 sm:h-72 overflow-hidden bg-muted">
+                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block h-64 w-full overflow-hidden bg-muted text-left sm:h-72" aria-label={`Abrir preview de ${item.title}`}>
                       <img 
                         src={item.image} 
                         alt={item.title}
@@ -277,7 +296,7 @@ function PortfolioPage() {
                           {item.metrics}
                         </span>
                       </div>
-                    </div>
+                    </button>
 
                     {/* Card Content */}
                     <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-5">
@@ -289,9 +308,9 @@ function PortfolioPage() {
                           <span className="text-xs text-muted-foreground">{item.location}</span>
                         </div>
 
-                        <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="text-left text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                           {item.title}
-                        </h3>
+                        </button>
 
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           {item.summary}
@@ -380,6 +399,22 @@ function PortfolioPage() {
       <WhatsAppFloat />
       <FloatingFunnelCTA />
       <PortfolioUpsellPopup pageName="portfolio-index" />
+      {selectedItem && selectedIndex !== null && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/85 p-3 backdrop-blur-sm sm:p-6" role="dialog" aria-modal="true" aria-labelledby="portfolio-preview-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedIndex(null); }}>
+          <div className="relative flex h-[min(92vh,860px)] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/15 bg-background shadow-2xl">
+            <div className="flex items-center justify-between gap-3 border-b border-border/60 px-4 py-3 sm:px-6">
+              <div className="min-w-0"><p className="text-xs font-semibold uppercase tracking-wider text-primary">Preview do portfólio</p><h2 id="portfolio-preview-title" className="truncate text-lg font-bold sm:text-xl">{selectedItem.title}</h2></div>
+              <button type="button" onClick={() => setSelectedIndex(null)} className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-muted text-foreground hover:bg-muted/70" aria-label="Fechar preview"><X className="h-5 w-5" /></button>
+            </div>
+            <div className="relative min-h-0 flex-1 bg-muted"><iframe key={selectedItem.slug} src={`${selectedItem.slug}?preview=1&v=20260826`} title={`Preview de ${selectedItem.title}`} className="h-full w-full border-0" /></div>
+            <div className="flex items-center justify-between gap-3 border-t border-border/60 px-4 py-3 sm:px-6">
+              <button type="button" onClick={() => setSelectedIndex((selectedIndex - 1 + filteredItems.length) % filteredItems.length)} className="inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted"><ChevronLeft className="h-4 w-4" /> Anterior</button>
+              <span className="text-xs text-muted-foreground">{selectedIndex + 1} de {filteredItems.length}</span>
+              <button type="button" onClick={() => setSelectedIndex((selectedIndex + 1) % filteredItems.length)} className="inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted">Próximo <ChevronRight className="h-4 w-4" /></button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
