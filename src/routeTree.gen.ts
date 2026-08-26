@@ -2323,6 +2323,7 @@ export interface RootRouteChildren {
   FSlugRoute: typeof FSlugRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
+  PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioRenataBeautyRoute: typeof PortfolioRenataBeautyRoute
   ProfissionalSlugRoute: typeof ProfissionalSlugRoute
   RCodeRoute: typeof RCodeRoute
