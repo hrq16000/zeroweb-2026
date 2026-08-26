@@ -25,3 +25,22 @@ export function consumeLastCapturedError(): unknown {
   lastCapturedError = undefined;
   return error;
 }
+
+/**
+ * `Error: aborted` (node:_http_server abortIncoming) e ECONNRESET acontecem
+ * quando o navegador fecha a conexão no meio do streaming SSR — não é um erro
+ * da aplicação e não deve virar página de erro nem telemetria.
+ */
+export function isClientAbortError(error: unknown): boolean {
+  if (!error) return false;
+  const err = error as { message?: unknown; code?: unknown; name?: unknown };
+  const code = typeof err.code === "string" ? err.code : "";
+  const message = typeof err.message === "string" ? err.message : String(error);
+  return (
+    code === "ECONNRESET" ||
+    code === "ERR_STREAM_PREMATURE_CLOSE" ||
+    err.name === "AbortError" ||
+    /^aborted$/i.test(message.trim()) ||
+    /aborted|socket hang up|premature close/i.test(message)
+  );
+}
