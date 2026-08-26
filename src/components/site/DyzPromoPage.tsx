@@ -15,11 +15,11 @@ import {
 import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
 
 const services = [
-  { icon: CarFront, title: "Semáforo", text: "Abordagem organizada em cruzamentos estratégicos para gerar alcance e lembrança de marca." },
-  { icon: Users, title: "Mão a mão", text: "Distribuição direcionada em ruas, comércios, condomínios e pontos de grande circulação." },
-  { icon: Store, title: "Cancela", text: "Ações em entradas e saídas de shopping centers, mercados e estacionamentos." },
-  { icon: Megaphone, title: "Bandeiras e faixa", text: "Presença visual de alto impacto para inaugurações, ofertas e campanhas locais." },
-  { icon: Gift, title: "Entrega de brindes", text: "Sampling e distribuição de brindes que transformam uma abordagem em experiência." },
+  { icon: CarFront, title: "Semáforo", image: "/images/dyzpromo/acao-semaforo.jpeg", text: "Abordagem organizada em cruzamentos estratégicos para gerar alcance e lembrança de marca." },
+  { icon: Users, title: "Mão a mão", image: "/images/dyzpromo/panfletagem-praca.jpeg", text: "Distribuição direcionada em ruas, comércios, condomínios e pontos de grande circulação." },
+  { icon: Store, title: "Cancela", image: "/images/dyzpromo/cancela-shopping.jpeg", text: "Ações em entradas e saídas de shopping centers, mercados e estacionamentos." },
+  { icon: Megaphone, title: "Bandeiras e faixa", image: "/images/dyzpromo/faixa-equipe.jpeg", text: "Presença visual de alto impacto para inaugurações, ofertas e campanhas locais." },
+  { icon: Gift, title: "Entrega de brindes", image: "/images/dyzpromo/entrega-residencial.jpeg", text: "Sampling e distribuição de brindes que transformam uma abordagem em experiência." },
 ];
 
 const clients = [
@@ -69,8 +69,7 @@ function DyzHeader() {
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#071b49]/95 text-white backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
-          <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#1e5edb] text-lg font-black tracking-tight">D.Y.Z</span>
-          <span><strong className="block text-lg leading-none tracking-[0.08em]">PROMO</strong><small className="text-[10px] uppercase tracking-[0.2em] text-blue-200">Divulgação em campo</small></span>
+          <img src="/images/dyzpromo/logo-dyz-promo.png" alt="D.Y.Z Promo — divulgação em campo" className="h-12 w-auto object-contain" />
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
           <a href="#servicos" className="hover:text-white">Serviços</a><a href="#galeria" className="hover:text-white">Ações reais</a><a href="#clientes" className="hover:text-white">Clientes</a>
@@ -92,7 +91,7 @@ export function DyzPromoPage() {
       <main>
         <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.28),transparent_35%),radial-gradient(circle_at_90%_10%,hsl(var(--accent)/0.16),transparent_30%)]" aria-hidden="true" />
-          <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1fr_0.9fr] lg:px-8">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
                 <Megaphone className="h-4 w-4" aria-hidden="true" /> Marketing promocional
@@ -117,6 +116,15 @@ export function DyzPromoPage() {
                 ))}
               </div>
             </div>
+            <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative mx-auto w-full max-w-xl">
+              <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
+              <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
+                <img src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 h-full min-h-48 w-full rounded-2xl object-cover" />
+                <img src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 h-full min-h-32 w-full rounded-2xl object-cover" />
+                <img src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 h-full min-h-48 w-full rounded-2xl object-cover" />
+                <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -128,11 +136,10 @@ export function DyzPromoPage() {
               <p className="mt-4 text-muted-foreground">Do impacto rápido no semáforo à experiência de entregar um brinde: combinamos canais, locais e equipe para cada objetivo.</p>
             </div>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {services.map(({ icon: Icon, title, text }, index) => (
-                <motion.article key={title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.05 }} className="rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary"><Icon className="h-5 w-5" aria-hidden="true" /></div>
-                  <h3 className="mt-5 font-bold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              {services.map(({ icon: Icon, title, text, image }, index) => (
+                <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.07, duration: 0.45 }} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant">
+                  <div className="relative h-32 overflow-hidden"><img src={image} alt={title + " — D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
+                  <div className="p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>
                 </motion.article>
               ))}
             </div>
