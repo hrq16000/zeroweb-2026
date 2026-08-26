@@ -12,7 +12,8 @@ import { join, relative } from "node:path";
 import { CLIENT_ALLOWED_DIGITS } from "./contact-allowlist.mjs";
 
 const ROOT = process.cwd();
-const DIST = join(ROOT, "dist", "client"); // apenas o bundle entregue ao navegador
+const DIST_CANDIDATES = [join(ROOT, "dist", "client"), join(ROOT, ".output", "public"), join(ROOT, "dist")];
+const DIST = DIST_CANDIDATES.find((candidate) => existsSync(candidate)); // bundle entregue ao navegador
 
 const PATTERNS = [
   { re: /wa\.me\/\d+/g, name: "wa.me/<numero>" },
@@ -48,8 +49,8 @@ function walk(dir, out = []) {
   return out;
 }
 
-if (!existsSync(DIST)) {
-  console.error("[dist-contact] dist/client não encontrado — rode `bun run build` antes.");
+if (!DIST) {
+  console.error("[dist-contact] diretório público não encontrado — rode `bun run build` antes.");
   process.exit(1);
 }
 

@@ -11,7 +11,6 @@ type Props = {
   theme: Theme;
   service?: string;
   recipientName?: string;
-  phoneDigits?: string;
   mode?: "booking" | "proposal";
   className?: string;
   ariaLabel?: string;
@@ -75,7 +74,6 @@ export function BeautyBookingQuiz({
   theme,
   service,
   recipientName = "Renata",
-  phoneDigits = "554196048639",
   mode = "booking",
   className,
   ariaLabel,
@@ -147,7 +145,9 @@ export function BeautyBookingQuiz({
         : step === 3
           ? { label: "4 de 5", title: "Quando você gostaria de vir?", subtitle: "Escolha a opção mais próxima da sua necessidade.", field: "timing" as const, options: TIMINGS }
           : null;
-  const url = "https://wa.me/" + phoneDigits + "?text=" + encodeURIComponent(whatsappMessage(studioName, answers, recipientName, mode));
+  // O navegador nunca recebe o destino de WhatsApp. A confirmação passa pelo
+  // formulário seguro de contato, que resolve o próximo passo no servidor.
+  const url = "/contato?origem=portfolio-funil&cliente=" + encodeURIComponent(studioName) + "&destinatario=" + encodeURIComponent(recipientName) + "&servico=" + encodeURIComponent(answers.service || service || "orientacao");
 
   return (
     <>
@@ -212,9 +212,9 @@ export function BeautyBookingQuiz({
                     <p className="font-bold text-white">{answers.service}</p>
                     <p className="mt-1">{answers.experience} · {answers.period} · {answers.timing}</p>
                   </div>
-                  <a href={url} target="_blank" rel="noopener noreferrer" onClick={completeInWhatsApp} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
+                  <a href={url} onClick={completeInWhatsApp} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                    {mode === "proposal" ? "Enviar pedido ao Denis" : "Enviar pedido pelo WhatsApp"}
+                    {mode === "proposal" ? "Continuar pedido ao Denis" : "Continuar meu pedido"}
                   </a>
                   <button type="button" onClick={() => setStep(4)} className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-2 text-sm font-semibold text-gray-400 transition hover:text-white">
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />

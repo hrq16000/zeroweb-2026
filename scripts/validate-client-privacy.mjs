@@ -11,7 +11,7 @@
  * warning — o painel só carrega após login e as strings encontradas são
  * de suporte a pedidos (número do próprio cliente do pedido), não da 0Web.
  */
-import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { randomUUID } from "node:crypto";
 import {
@@ -23,7 +23,8 @@ import {
 } from "./contact-allowlist.mjs";
 
 const ROOT = process.cwd();
-const DIST = "dist/client/assets";
+const DIST_CANDIDATES = ["dist/client/assets", ".output/public/assets", "dist/assets"];
+const DIST = DIST_CANDIDATES.find((candidate) => existsSync(join(ROOT, candidate)));
 const REPORT_DIR = join(ROOT, "seo-reports");
 const REPORT_FILE = join(REPORT_DIR, "client-privacy-report.json");
 const correlationId = process.env["BUILD_CORRELATION_ID"] || randomUUID();
@@ -55,7 +56,7 @@ function snippet(src, index) {
 }
 
 function scan(file) {
-  const name = file.split("/").pop();
+  const name = file.replaceAll("\\", "/").split("/").pop();
   const admin = isAdminChunk(name);
   const src = readFileSync(file, "utf8");
   const bytes = statSync(file).size;
@@ -118,6 +119,10 @@ function walk(dir) {
   }
 }
 
+if (!DIST) {
+  console.error(`[client-privacy] nenhum diretório de assets encontrado (${DIST_CANDIDATES.join(", ")})`);
+  process.exit(1);
+}
 console.log(`[client-privacy] scanning ${DIST} (correlationId=${correlationId})`);
 walk(DIST);
 
