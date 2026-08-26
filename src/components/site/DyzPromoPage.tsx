@@ -167,6 +167,8 @@ export function DyzPromoPage() {
       <main>
         <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.28),transparent_35%),radial-gradient(circle_at_90%_10%,hsl(var(--accent)/0.16),transparent_30%)]" aria-hidden="true" />
+          <motion.div animate={{ x: [0, 24, 0], y: [0, -16, 0], scale: [1, 1.08, 1] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" aria-hidden="true" />
+          <motion.div animate={{ x: [0, -20, 0], y: [0, 18, 0], scale: [1, 0.92, 1] }} transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }} className="absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-[#f7c948]/10 blur-3xl" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1fr_0.9fr] lg:px-8">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
@@ -191,8 +193,9 @@ export function DyzPromoPage() {
                   </div>
                 ))}
               </div>
+              <motion.a href="#servicos" animate={{ y: [0, 6, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }} className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200 hover:text-white">Veja como a D.Y.Z atua <ArrowRight className="h-4 w-4 rotate-90" aria-hidden="true" /></motion.a>
             </div>
-            <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative mx-auto w-full max-w-xl">
+            <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
                 <img src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 h-full min-h-48 w-full rounded-2xl object-cover" />
@@ -224,7 +227,7 @@ export function DyzPromoPage() {
             </div>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {services.map(({ icon: Icon, title, text, image }, index) => (
-                <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.07, duration: 0.45 }} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant">
+                <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -7, scale: 1.015 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.07, duration: 0.45 }} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/50 hover:shadow-elegant">
                   <div className="relative h-32 overflow-hidden"><img src={image} alt={title + " — D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
                   <div className="p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>
                 </motion.article>
@@ -245,7 +248,7 @@ export function DyzPromoPage() {
             </div>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {eventFormats.map(({ icon: Icon, title, text }, index) => (
-                <motion.article key={title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.06 }} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-1 hover:border-primary/40 hover:bg-white hover:shadow-lg">
+                <motion.article key={title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -6 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.06 }} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:border-primary/40 hover:bg-white hover:shadow-lg">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#e7efff] text-[#1e5edb]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
                   <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
