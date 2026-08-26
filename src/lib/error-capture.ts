@@ -34,14 +34,16 @@ export function consumeLastCapturedError(): unknown {
  */
 export function isClientAbortError(error: unknown): boolean {
   if (!error) return false;
-  const err = error as { message?: unknown; code?: unknown; name?: unknown };
+  const err = error as { message?: unknown; code?: unknown; name?: unknown; cause?: unknown };
   const code = typeof err.code === "string" ? err.code : "";
   const message = typeof err.message === "string" ? err.message : String(error);
-  return (
+  const directlyAborted = (
     code === "ECONNRESET" ||
     code === "ERR_STREAM_PREMATURE_CLOSE" ||
     err.name === "AbortError" ||
     /^aborted$/i.test(message.trim()) ||
     /aborted|socket hang up|premature close/i.test(message)
   );
+  if (directlyAborted) return true;
+  return err.cause !== error && isClientAbortError(err.cause);
 }
