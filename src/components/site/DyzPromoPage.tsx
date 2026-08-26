@@ -66,7 +66,15 @@ const eventFormats = [
 const campaignSteps = [
   { icon: ClipboardList, number: "01", title: "Entendemos a meta", text: "Oferta, público e bairro entram no briefing antes da equipe ir para a rua." },
   { icon: Route, number: "02", title: "Desenhamos a rota", text: "Escolhemos pontos, horários e formato de abordagem para cada campanha." },
-  { icon: Radio, number: "03", title: "Colocamos em campo", text: "Promotores orientados executam a ação com presença, cuidado e consistência." },
+  { icon: ClipboardList, number: "03", title: "Preparamos a equipe", text: "Alinhamos uniforme, material, roteiro e a mensagem que precisa chegar ao público." },
+  { icon: Radio, number: "04", title: "Colocamos em campo", text: "Promotores orientados executam a ação com presença, cuidado e consistência." },
+  { icon: BarChart3, number: "05", title: "Acompanhamos a entrega", text: "Você recebe registros da operação e uma visão clara do que foi realizado." },
+];
+
+const regionalCoverage = [
+  { title: "Curitiba", text: "Bairros, eixos comerciais, semáforos, shoppings e mercados.", image: "/images/dyzpromo/bandeira-centro.jpeg", badge: "Capital" },
+  { title: "Região metropolitana", text: "Pinhais, São José dos Pinhais, Piraquara, Colombo e cidades próximas.", image: "/images/dyzpromo/cancela-mall.jpeg", badge: "Sob consulta" },
+  { title: "Rotas sob medida", text: "Definimos os pontos conforme o público, o objetivo e o raio da campanha.", image: "/images/dyzpromo/faixa-equipe.jpeg", badge: "Planejamento" },
 ];
 
 const impactPoints = [
@@ -101,7 +109,7 @@ function DyzHeader() {
           </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
-          <a href="#servicos" className="hover:text-white">Serviços</a><a href="#galeria" className="hover:text-white">Ações reais</a><a href="#clientes" className="hover:text-white">Clientes</a>
+          <a href="#servicos" className="hover:text-white">Serviços</a><a href="#cobertura" className="hover:text-white">Cobertura</a><a href="#galeria" className="hover:text-white">Ações reais</a><a href="#clientes" className="hover:text-white">Clientes</a>
         </nav>
         <DyzCTA label="Solicitar proposta" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#f7c948] px-5 py-3 text-sm font-bold text-[#10295d] shadow-lg transition hover:bg-[#ffe08a]" />
       </div>
@@ -247,6 +255,26 @@ export function DyzPromoPage() {
           </div>
         </section>
 
+        <section id="cobertura" className="relative overflow-hidden bg-[#f4f8f7] px-5 py-20 sm:py-24" aria-labelledby="dyz-cobertura-title">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(15,118,110,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,118,110,0.05)_1px,transparent_1px)] bg-[size:34px_34px]" aria-hidden="true" />
+          <div className="relative mx-auto max-w-7xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Presença regional</span>
+              <h2 id="dyz-cobertura-title" className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">Atendimentos em Curitiba e região metropolitana.</h2>
+              <p className="mt-4 text-lg leading-relaxed text-slate-600">Conhecemos a dinâmica de cada rota e montamos uma operação proporcional ao seu público, ao seu bairro e à sua campanha.</p>
+            </div>
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {regionalCoverage.map(({ title, text, image, badge }, index) => (
+                <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: index * 0.08 }} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative h-48 overflow-hidden sm:h-56"><img src={image} alt={title + " — cobertura D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" /><div className="absolute bottom-4 left-5 flex items-center gap-2 text-lg font-bold text-white"><MapPin className="h-5 w-5 text-emerald-300" aria-hidden="true" />{title}</div></div>
+                  <div className="p-5"><p className="text-sm leading-relaxed text-slate-600">{text}</p><span className="mt-4 inline-flex rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700">{badge}</span></div>
+                </motion.article>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-emerald-200 bg-white/80 p-5 text-center sm:flex-row sm:text-left"><p className="text-sm text-slate-600">Não encontrou sua cidade? Verificamos a disponibilidade da equipe para novas rotas.</p><DyzCTA label="Consultar minha região" className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-700" /></div>
+          </div>
+        </section>
+
         <section className="relative overflow-hidden bg-[#071b49] px-5 py-20 text-white sm:py-24" aria-labelledby="dyz-process-title">
           <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-[#1e5edb]/30 blur-3xl" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
@@ -256,7 +284,7 @@ export function DyzPromoPage() {
               <p className="mt-5 max-w-xl leading-relaxed text-blue-100">A D.Y.Z transforma uma campanha em presença real — com planejamento, equipe e execução que respeitam o momento da sua marca.</p>
               <DyzCTA label="Planejar minha campanha" className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f7c948] px-6 py-3.5 font-bold text-[#10295d] transition hover:bg-[#ffe08a]" />
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
               {campaignSteps.map(({ icon: Icon, number, title, text }, index) => (
                 <motion.article key={number} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
                   <div className="flex items-center justify-between"><Icon className="h-6 w-6 text-[#f7c948]" aria-hidden="true" /><span className="text-xs font-black tracking-[0.2em] text-blue-200">{number}</span></div>
