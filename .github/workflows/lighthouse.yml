@@ -10,7 +10,7 @@ on:
       target_url:
         description: "URL alvo (default: produção)"
         required: false
-        default: "https://grow-evolution-engine.lovable.app"
+        default: "https://0web.com.br"
 
 jobs:
   lighthouse:
@@ -22,12 +22,12 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
 
       - name: Install deps
         run: bun install --frozen-lockfile
 
       - name: Run Lighthouse CI
         env:
-          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://grow-evolution-engine.lovable.app' }}
+          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
         run: bunx lhci autorun --config=.lighthouserc.cjs

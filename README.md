@@ -1,5 +1,15 @@
 # 0WEB Growth Engine
 
+## Contrato de desenvolvimento
+
+- Gerenciador oficial: Bun 1.4.0, definido em `packageManager` e no GitHub Actions.
+- Instalação reprodutível: `bun install --frozen-lockfile`.
+- Lockfile oficial: `bun.lock`. Não gerar ou versionar `package-lock.json`.
+- Verificação mínima antes de abrir PR: `bun test && bun run build`.
+- A integração RLS só é executada quando as credenciais de servidor do Supabase estão disponíveis; sem elas, o teste informa `SKIP` sem mascarar falhas unitárias.
+
+Toda alteração deve partir de uma issue, ser entregue em branch própria e abrir PR mencionando a issue correspondente.
+
 PROJETO COMPLETO — 0WEB.COM.BR
 
 

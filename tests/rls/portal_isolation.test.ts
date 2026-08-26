@@ -17,12 +17,9 @@ const URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL!;
 const ANON = process.env.SUPABASE_PUBLISHABLE_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY!;
 const SRK = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
-if (!URL || !ANON || !SRK) {
-  console.error("Missing SUPABASE_URL / PUBLISHABLE_KEY / SERVICE_ROLE_KEY");
-  process.exit(1);
-}
+const hasIntegrationEnv = Boolean(URL && ANON && SRK);
 
-const admin = createClient(URL, SRK, { auth: { persistSession: false } });
+const admin = hasIntegrationEnv ? createClient(URL, SRK, { auth: { persistSession: false } }) : null;
 
 function ok(label: string) { console.log("✓", label); }
 function fail(label: string, extra?: unknown): never {
@@ -31,6 +28,8 @@ function fail(label: string, extra?: unknown): never {
 }
 
 async function main() {
+  if (!admin) return;
+
   const stamp = Date.now();
   const emailA = `rls-a-${stamp}@example.com`;
   const emailB = `rls-b-${stamp}@example.com`;
@@ -116,4 +115,11 @@ async function main() {
   console.log("\nAll RLS isolation assertions passed.");
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+if (hasIntegrationEnv) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+} else {
+  console.warn("[rls] SKIP — integração requer SUPABASE_URL, PUBLISHABLE_KEY e SERVICE_ROLE_KEY");
+}

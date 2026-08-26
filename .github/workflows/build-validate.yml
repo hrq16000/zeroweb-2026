@@ -15,11 +15,14 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
 
       # Instalação determinística a partir do lockfile (equivalente ao `npm ci`).
       - name: Install (frozen lockfile)
         run: bun install --frozen-lockfile
+
+      - name: Unit and structural tests
+        run: bun test
 
       - name: Build (development)
         run: node scripts/build-with-recovery.mjs --mode development

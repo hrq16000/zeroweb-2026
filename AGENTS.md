@@ -1,7 +1,15 @@
 # Regra oficial da zona de portfolios
 
+## Contrato de entrega
+
+- Use Bun 1.4.0 e `bun.lock` como fonte única de dependências.
+- Não gere nem versione `package-lock.json`.
+- Instale com `bun install --frozen-lockfile`.
+- Antes de entregar, execute `bun test` e `bun run build`.
+- Toda correção, melhoria ou função nasce em uma issue e é entregue por PR que menciona essa issue. Nunca publique trabalho diretamente no `main`.
+
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
-`docs/PORTFOLIO_CLIENT_STANDARD.md` e execute `npm run validate:portfolio-boundaries`.
+`docs/PORTFOLIO_CLIENT_STANDARD.md` e execute `bun run validate:portfolio-boundaries`.
 
 ## Princípio obrigatório
 
