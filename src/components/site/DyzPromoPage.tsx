@@ -14,10 +14,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-
-const WHATSAPP_DIGITS = "554198755277";
-const whatsappMessage =
-  "Olá, Denis! Vi a página da D.Y.Z Promo no site da 0WEB e gostei muito do trabalho de divulgação. Quero solicitar uma proposta para uma ação promocional.\n\nMeu negócio é: \nCidade/bairros da ação: \nTipo de divulgação: \nPeríodo desejado: ";
+import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
 const services = [
   { icon: CarFront, title: "Semáforo", text: "Abordagem organizada em cruzamentos estratégicos para gerar alcance e lembrança de marca." },
