@@ -1,40 +1,74 @@
 {
-  "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
-  "generatedAt": "2026-08-23T06:14:36.834Z",
-  "scanned": 284,
-  "errors": 0,
+  "correlationId": "9455d314-a592-47af-bc75-3ef6fefcd725",
+  "generatedAt": "2026-08-26T07:33:42.634Z",
+  "scanned": 289,
+  "errors": 2,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
-      "level": "warn",
-      "chunk": "app.pedidos-DlFUeyfE.js",
-      "file": "dist/client/assets/app.pedidos-DlFUeyfE.js",
-      "bytes": 7121,
-      "routeHint": "/app/pedidos (painel)",
+      "correlationId": "9455d314-a592-47af-bc75-3ef6fefcd725",
+      "level": "error",
+      "chunk": "DyzPromoPage-C2Otvlqt.js",
+      "file": "dist/client/assets/DyzPromoPage-C2Otvlqt.js",
+      "bytes": 15547,
+      "routeHint": "componente DyzPromoPage",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 5815,
-          "context": "lex flex-wrap gap-2\",children:[C&&a.jsxs(\"a\",{href:`https://wa.me/${C}`,target:\"_blank\",rel:\"noopener noreferrer\",classN"
+          "offset": 2143,
+          "context": "ro Alto\",\"Jardim das Américas\"];function t(){return`https://wa.me/${z}?text=${encodeURIComponent(N)}`}r(t,\"whatsappUrl\")"
         }
       ],
       "totalHits": 1
     },
     {
-      "correlationId": "f0861149-523e-48a1-833a-dc54bac86bac",
+      "correlationId": "9455d314-a592-47af-bc75-3ef6fefcd725",
       "level": "warn",
-      "chunk": "app.servicos-B6f62-8M.js",
-      "file": "dist/client/assets/app.servicos-B6f62-8M.js",
-      "bytes": 34535,
-      "routeHint": "/app/servicos-B6f62-8M (painel)",
+      "chunk": "app.pedidos-CvmhbuWZ.js",
+      "file": "dist/client/assets/app.pedidos-CvmhbuWZ.js",
+      "bytes": 10707,
+      "routeHint": "/app/pedidos (painel)",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 16915,
-          "context": "ta_target\",r.target.value),placeholder:\"/contato ou https://wa.me/…\"})})]}),e.jsxs(\"div\",{className:\"flex flex-wrap item"
+          "offset": 8264,
+          "context": ".pedidos.tsx:241:19\",children:[S&&t.jsxs(\"a\",{href:`https://wa.me/${S}`,target:\"_blank\",rel:\"noopener noreferrer\",classN"
+        }
+      ],
+      "totalHits": 1
+    },
+    {
+      "correlationId": "9455d314-a592-47af-bc75-3ef6fefcd725",
+      "level": "warn",
+      "chunk": "app.servicos-DyrPhzhU.js",
+      "file": "dist/client/assets/app.servicos-DyrPhzhU.js",
+      "bytes": 53498,
+      "routeHint": "/app/servicos (painel)",
+      "hits": [
+        {
+          "kind": "wa.me",
+          "value": "wa.me/",
+          "offset": 24002,
+          "context": ".target.value),\"onChange\"),placeholder:\"/contato ou https://wa.me/…\",\"data-tsd-source\":\"/src/routes/_authenticated/app.s"
+        }
+      ],
+      "totalHits": 1
+    },
+    {
+      "correlationId": "9455d314-a592-47af-bc75-3ef6fefcd725",
+      "level": "error",
+      "chunk": "index-BsBVJtmJ.js",
+      "file": "dist/client/assets/index-BsBVJtmJ.js",
+      "bytes": 1735044,
+      "routeHint": "/",
+      "hits": [
+        {
+          "kind": "phone",
+          "value": "+55 41 9875-5277",
+          "offset": 1322388,
+          "context": "business`,name:\"D.Y.Z Promo\",description:e,url:a,telephone:\"+55 41 9875-5277\",taxID:\"68.500.745/0001-53\",areaServed:{\"@t"
         }
       ],
       "totalHits": 1
