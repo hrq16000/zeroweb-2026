@@ -147,6 +147,11 @@
     --scrollbar-thumb-hover: #c47a68;
     --scrollbar-track: #f1dfcf;
   }
+  :root:has(.portfolio-theme-paraiso) {
+    --scrollbar-thumb: #f5bd21;
+    --scrollbar-thumb-hover: #ffd34f;
+    --scrollbar-track: #17130f;
+  }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;

@@ -91,6 +91,8 @@ export function resolvePortfolioWhatsAppContact(clientKey?: string | null): Oper
         ? "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER"
         : clientKey === "emporio-lelecute"
           ? "EMPORIO_LELECUTE_WHATSAPP_NUMBER"
+          : clientKey === "paraiso-do-hot-dog"
+            ? "PARAISO_HOT_DOG_WHATSAPP_NUMBER"
       : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");
