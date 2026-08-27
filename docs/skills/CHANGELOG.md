@@ -79,3 +79,23 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   `bun run scan:source-privacy` OK; `bun run test:e2e:portfolio-popup`
   7 sites OK; verificação visual dos painéis sem erros de console.
 - Relatório evidence-first: `docs/skills/evidence/popup-governanca.md`.
+# 2026-08-27 — monitoramento e Lighthouse de portfólios
+
+# 2026-08-27 — contrato canônico do catálogo
+
+# 2026-08-27 — catálogo mobile-first (ciclo 3)
+
+- `/portfolio` passou a derivar identidade, segmento e tipo do catálogo canônico.
+- Adicionados filtro por tipo, ordenação A–Z, query params e carregamento incremental de cards.
+- Mantido o fallback visual legado durante a migração de conteúdo, evitando regressão de imagens/copy.
+- Gates de catálogo, boundaries, metadata e performance aprovados.
+
+- Criado `src/config/portfolio-catalog.json` com metadados de descoberta para 10 itens.
+- Adicionado `validate:portfolio-catalog` ao prebuild e ao workflow de gates.
+- O gate verifica campos obrigatórios, slugs únicos/válidos, tags e cobertura de clientes registrados.
+- A migração dos cards da rota para essa fonte única fica planejada para o próximo ciclo, evitando alterar dados históricos sem revisão.
+
+- Skills aplicadas: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates` e padrão oficial de clientes.
+- Implementado: captura nativa de LCP/CLS/INP por slug, ingestão server-side limitada, Lighthouse CI para todos os slugs registrados e upload de relatórios JSON/HTML.
+- Validação: `validate:portfolio-boundaries`, `validate:portfolio-meta` e `validate:portfolio-performance` aprovados. Build local iniciou e regenerou `routeTree.gen.ts`; typecheck completo ficou limitado pelo tempo do ambiente.
+- Publicação: depende de `LHCI_TARGET_URL` apontando para o deploy/preview; nenhuma credencial ou deploy foi inventado.

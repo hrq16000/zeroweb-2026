@@ -8,6 +8,7 @@ import {
   resolvePortfolioClientKey,
   resolvePortfolioStandards,
 } from "@/lib/portfolio-global-config";
+import { PortfolioVitals } from "@/lib/portfolio-vitals";
 
 type Props = {
   slug: string;
@@ -31,6 +32,7 @@ export function PortfolioStandardShell({ slug, children }: Props) {
 
   return (
     <>
+      <PortfolioVitals slug={slug} />
       {standards.shareButton.enabled ? (
         <PortfolioShareButton
           position={standards.shareButton.position}

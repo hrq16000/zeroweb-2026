@@ -25,6 +25,7 @@ import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
+import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { PORTFOLIO_SEGMENTS, portfolioClusterLinks, placesForSegment, portfolioComboPath } from "@/lib/portfolio-clusters";
 import {
   SITE_URL,
@@ -49,7 +50,7 @@ const CATEGORIES = [
   { id: "juridico", label: "Advocacia & Consultoria" },
 ];
 
-const PORTFOLIO_ITEMS = [
+const LEGACY_PORTFOLIO_ITEMS = [
   {
     id: "marido-de-aluguel",
     live: true,
@@ -194,6 +195,13 @@ const PORTFOLIO_ITEMS = [
   },
 ];
 
+// O registro canônico controla identidade e descoberta; estes campos visuais
+// históricos serão migrados para o catálogo no ciclo de conteúdo.
+const PORTFOLIO_ITEMS = portfolioCatalog.map((canonical) => {
+  const legacy = LEGACY_PORTFOLIO_ITEMS.find((item) => item.slug === `/portfolio/${canonical.slug}`);
+  return { ...legacy, ...canonical, id: canonical.slug, slug: `/portfolio/${canonical.slug}`, category: canonical.segment };
+}).filter((item) => item.image);
+
 export const Route = createFileRoute("/portfolio/")({
   head: () => ({
     meta: [
@@ -239,11 +247,24 @@ export const Route = createFileRoute("/portfolio/")({
 });
 
 function PortfolioPage() {
-  const [activeCategory, setActiveCategory] = useState("todos");
-  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState(() => typeof window === "undefined" ? "todos" : new URLSearchParams(window.location.search).get("segment") || "todos");
+  const [search, setSearch] = useState(() => typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("q") || "");
+  const [sort, setSort] = useState(() => typeof window === "undefined" ? "recent" : new URLSearchParams(window.location.search).get("sort") || "recent");
+  const [projectType, setProjectType] = useState(() => typeof window === "undefined" ? "todos" : new URLSearchParams(window.location.search).get("type") || "todos");
+  const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const filteredItems = PORTFOLIO_ITEMS.filter(item => (activeCategory === "todos" || item.category === activeCategory) && `${item.title} ${item.subtitle} ${item.location} ${item.tags.join(" ")}`.toLowerCase().includes(search.toLowerCase())).reverse();
+  const filteredItems = [...PORTFOLIO_ITEMS].filter(item => (activeCategory === "todos" || item.category === activeCategory) && (projectType === "todos" || item.projectType === projectType) && `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`.toLowerCase().includes(search.toLowerCase())).sort((a, b) => sort === "az" ? a.title.localeCompare(b.title, "pt-BR") : 0);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (activeCategory !== "todos") params.set("segment", activeCategory);
+    if (search) params.set("q", search);
+    if (sort !== "recent") params.set("sort", sort);
+    if (projectType !== "todos") params.set("type", projectType);
+    window.history.replaceState(null, "", `${window.location.pathname}${params.toString() ? `?${params}` : ""}`);
+    setVisibleCount(6);
+  }, [activeCategory, search, sort, projectType]);
 
   const selectedItem = selectedIndex === null ? null : filteredItems[selectedIndex];
 
@@ -264,7 +285,7 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-primary-foreground">
       <Header />
       
-      <main className="flex-1">
+      <main className="flex-1 pt-16 lg:pt-20">
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
           <div className="container max-w-6xl mx-auto px-4 py-3">
@@ -298,7 +319,7 @@ function PortfolioPage() {
         </section>
 
         {/* Category Filters */}
-        <section className="py-8 px-4 border-y border-border/40 bg-card sticky top-20 z-30 shadow-xs backdrop-blur-md">
+        <section className="py-4 sm:py-6 px-4 border-y border-border/40 bg-card sticky top-16 lg:top-20 z-30 shadow-xs backdrop-blur-md">
           <div className="container max-w-6xl mx-auto flex items-center justify-center gap-2 overflow-x-auto pb-2 sm:pb-0">
             {CATEGORIES.map((cat) => (
               <button
@@ -319,7 +340,7 @@ function PortfolioPage() {
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="py-16 px-4">
           <div className="container max-w-6xl mx-auto space-y-12">
-            <div className="mb-6 flex flex-col gap-3 sm:flex-row"><label className="relative flex-1"><Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar por serviço, cidade ou tecnologia" aria-label="Buscar projetos do portfólio" className="h-12 w-full rounded-2xl border border-border bg-card pl-11 pr-4 text-sm outline-none transition-shadow focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30" /></label><p aria-live="polite" className="flex items-center rounded-2xl bg-muted/50 px-4 text-sm text-muted-foreground">{filteredItems.length} resultados</p></div>
+            <div className="mb-6 flex flex-col gap-3 sm:flex-row"><label className="relative flex-1"><Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar por serviço, cidade ou tecnologia" aria-label="Buscar projetos do portfólio" className="h-12 w-full rounded-2xl border border-border bg-card pl-11 pr-4 text-sm outline-none transition-shadow focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30" /></label><select aria-label="Filtrar por tipo de projeto" value={projectType} onChange={(e) => setProjectType(e.target.value)} className="h-12 rounded-2xl border border-border bg-card px-4 text-sm text-foreground"><option value="todos">Todos os tipos</option><option value="landing">Landing pages</option><option value="catalog">Catálogos</option><option value="institutional">Institucionais</option></select><select aria-label="Ordenar projetos" value={sort} onChange={(e) => setSort(e.target.value)} className="h-12 rounded-2xl border border-border bg-card px-4 text-sm text-foreground"><option value="recent">Mais recentes</option><option value="az">Nome (A–Z)</option></select><p aria-live="polite" className="flex items-center rounded-2xl bg-muted/50 px-4 text-sm text-muted-foreground">{filteredItems.length} resultados</p></div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Resumo do catálogo">
               <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{PORTFOLIO_ITEMS.length}</p><p className="mt-1 text-xs text-muted-foreground">projetos catalogados</p></div>
               <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{CATEGORIES.length - 1}</p><p className="mt-1 text-xs text-muted-foreground">segmentos</p></div>
@@ -329,7 +350,7 @@ function PortfolioPage() {
             
             <div className="grid md:grid-cols-2 gap-8">
               <AnimatePresence>
-                {filteredItems.map((item) => (
+                {filteredItems.slice(0, visibleCount).map((item) => (
                   <motion.div
                     key={item.id}
                     layout
@@ -407,6 +428,7 @@ function PortfolioPage() {
                 ))}
               </AnimatePresence>
             </div>
+            {visibleCount < filteredItems.length ? <button type="button" onClick={() => setVisibleCount((count) => count + 6)} className="mx-auto flex min-h-11 items-center rounded-full border border-border px-5 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Carregar mais projetos</button> : null}
 
             {/* Banner Callout for Custom Sites */}
             <div className="rounded-3xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 p-8 sm:p-12 text-center space-y-6">
