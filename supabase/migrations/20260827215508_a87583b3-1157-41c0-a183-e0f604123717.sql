@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.popup_configs_audit_trg() FROM anon, authenticated, PUBLIC;

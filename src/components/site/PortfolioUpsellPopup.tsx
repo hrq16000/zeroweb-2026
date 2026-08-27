@@ -40,7 +40,24 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
   const slug = useMemo(() => portfolioSlugFromPath(routePath), [routePath]);
-  const cfg = useMemo(() => resolvePortfolioUpsellConfig(slug), [slug]);
+  const baseCfg = useMemo(() => resolvePortfolioUpsellConfig(slug), [slug]);
+  const [cfg, setCfg] = useState(baseCfg);
+
+  // Override em runtime vindo do painel administrativo (sem deploy).
+  useEffect(() => {
+    let alive = true;
+    setCfg(baseCfg);
+    void import("@/lib/popup-config-remote")
+      .then((m) => m.fetchPopupConfig(slug))
+      .then((next) => {
+        if (alive) setCfg(next);
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [slug, baseCfg]);
+
   const trackingBase = useMemo(
     () => ({
       label: "portfolio_upsell",

@@ -14,6 +14,7 @@
 import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { randomUUID } from "node:crypto";
+import { createRequire } from "node:module";
 import {
   CLIENT_ALLOWED_PHONE,
   isAdminChunk,
@@ -27,6 +28,8 @@ const DIST_CANDIDATES = ["dist/client/assets", ".output/public/assets", "dist/as
 const DIST = DIST_CANDIDATES.find((candidate) => existsSync(join(ROOT, candidate)));
 const REPORT_DIR = join(ROOT, "seo-reports");
 const REPORT_FILE = join(REPORT_DIR, "client-privacy-report.json");
+const REPORT_MD = join(REPORT_DIR, "client-privacy-report.md");
+const require = createRequire(import.meta.url);
 const correlationId = process.env["BUILD_CORRELATION_ID"] || randomUUID();
 
 const WA = /wa\.me\/?(\d+)?/g;
@@ -53,6 +56,37 @@ function snippet(src, index) {
     .slice(Math.max(0, index - 60), index + 60)
     .replace(/\s+/g, " ")
     .trim();
+}
+
+/** Converte um offset absoluto em { line, column } 1-based/0-based para source maps. */
+function offsetToLineColumn(src, offset) {
+  let line = 1;
+  let lastBreak = -1;
+  for (let i = 0; i < offset; i++) {
+    if (src.charCodeAt(i) === 10) {
+      line++;
+      lastBreak = i;
+    }
+  }
+  return { line, column: offset - lastBreak - 1 };
+}
+
+const mapCache = new Map();
+/** Carrega o source map de um chunk, se existir. Nunca lança. */
+function loadSourceMap(file) {
+  if (mapCache.has(file)) return mapCache.get(file);
+  let consumer = null;
+  try {
+    const mapFile = `${file}.map`;
+    if (existsSync(mapFile)) {
+      const { SourceMapConsumer } = require("source-map-js");
+      consumer = new SourceMapConsumer(JSON.parse(readFileSync(mapFile, "utf8")));
+    }
+  } catch {
+    consumer = null;
+  }
+  mapCache.set(file, consumer);
+  return consumer;
 }
 
 function scan(file) {
@@ -86,6 +120,20 @@ function scan(file) {
 
   if (hits.length === 0) return;
 
+  // Mapeia cada ocorrência para o arquivo-fonte original quando há source map.
+  const consumer = loadSourceMap(file);
+  if (consumer) {
+    for (const h of hits) {
+      const pos = offsetToLineColumn(src, h.offset);
+      try {
+        const orig = consumer.originalPositionFor(pos);
+        if (orig?.source) h.source = `${orig.source}:${orig.line ?? "?"}:${orig.column ?? "?"}`;
+      } catch {
+        /* map inválido */
+      }
+    }
+  }
+
   const level = admin ? "warn" : "error";
   if (admin) warns++;
   else errors++;
@@ -108,6 +156,35 @@ function scan(file) {
     console.log(`     ↳ ${h.context}`);
   }
   if (hits.length > 5) console.log(`  … +${hits.length - 5} ocorrência(s)`);
+}
+
+/** Relatório legível com origem mapeada para revisão humana e CI. */
+function markdownReport() {
+  const lines = [
+    "# Relatório de privacidade do bundle público",
+    "",
+    `- correlationId: \`${correlationId}\``,
+    `- gerado em: ${new Date().toISOString()}`,
+    `- chunks analisados: ${scanned}`,
+    `- erros (bloqueantes): ${errors}`,
+    `- avisos (chunks admin): ${warns}`,
+    "",
+  ];
+  if (findings.length === 0) {
+    lines.push("Nenhum vazamento encontrado.", "");
+    return lines.join("\n");
+  }
+  for (const f of findings) {
+    lines.push(`## [${f.level.toUpperCase()}] ${f.chunk}`, "");
+    lines.push(`- rota: ${f.routeHint}`, `- arquivo: \`${f.file}\``, `- ocorrências: ${f.totalHits}`, "");
+    lines.push("| tipo | valor | origem | contexto |", "| --- | --- | --- | --- |");
+    for (const h of f.hits) {
+      const ctx = String(h.context ?? "").replaceAll("|", "\\|").slice(0, 160);
+      lines.push(`| ${h.kind} | \`${h.value}\` | ${h.source ?? `offset ${h.offset}`} | ${ctx} |`);
+    }
+    lines.push("");
+  }
+  return lines.join("\n");
 }
 
 function walk(dir) {
@@ -136,7 +213,9 @@ try {
       2,
     ),
   );
+  writeFileSync(REPORT_MD, markdownReport());
   console.log(`[client-privacy] report → ${relative(ROOT, REPORT_FILE)}`);
+  console.log(`[client-privacy] report → ${relative(ROOT, REPORT_MD)}`);
 } catch (e) {
   console.warn(`[client-privacy] não foi possível gravar o relatório: ${e.message}`);
 }

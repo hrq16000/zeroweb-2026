@@ -3702,6 +3702,93 @@ export type Database = {
         }
         Relationships: []
       }
+      popup_config_audit: {
+        Row: {
+          action: string
+          actor: string | null
+          created_at: string
+          id: string
+          new_values: Json | null
+          old_values: Json | null
+          slug: string
+        }
+        Insert: {
+          action: string
+          actor?: string | null
+          created_at?: string
+          id?: string
+          new_values?: Json | null
+          old_values?: Json | null
+          slug: string
+        }
+        Update: {
+          action?: string
+          actor?: string | null
+          created_at?: string
+          id?: string
+          new_values?: Json | null
+          old_values?: Json | null
+          slug?: string
+        }
+        Relationships: []
+      }
+      popup_configs: {
+        Row: {
+          alert_thresholds: Json
+          bullets: string[] | null
+          created_at: string
+          cta_label: string | null
+          description: string | null
+          dismiss_label: string | null
+          enabled: boolean
+          funnel_slug: string | null
+          highlight: string | null
+          id: string
+          kicker: string | null
+          rules: Json
+          slug: string
+          title: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          alert_thresholds?: Json
+          bullets?: string[] | null
+          created_at?: string
+          cta_label?: string | null
+          description?: string | null
+          dismiss_label?: string | null
+          enabled?: boolean
+          funnel_slug?: string | null
+          highlight?: string | null
+          id?: string
+          kicker?: string | null
+          rules?: Json
+          slug: string
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          alert_thresholds?: Json
+          bullets?: string[] | null
+          created_at?: string
+          cta_label?: string | null
+          description?: string | null
+          dismiss_label?: string | null
+          enabled?: boolean
+          funnel_slug?: string | null
+          highlight?: string | null
+          id?: string
+          kicker?: string | null
+          rules?: Json
+          slug?: string
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       portal_companies: {
         Row: {
           company_id: string

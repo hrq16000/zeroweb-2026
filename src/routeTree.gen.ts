@@ -38,6 +38,7 @@ import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PainelRouteImport } from './routes/painel'
 import { Route as PainelCrmRouteImport } from './routes/painel-crm'
 import { Route as PainelFunisRouteImport } from './routes/painel-funis'
+import { Route as PainelPopupRouteImport } from './routes/painel-popup'
 import { Route as PainelPortfolioRouteImport } from './routes/painel-portfolio'
 import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as PlanosRouteImport } from './routes/planos'
@@ -338,6 +339,11 @@ const PainelCrmRoute = PainelCrmRouteImport.update({
 const PainelFunisRoute = PainelFunisRouteImport.update({
   id: '/painel-funis',
   path: '/painel-funis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelPopupRoute = PainelPopupRouteImport.update({
+  id: '/painel-popup',
+  path: '/painel-popup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PainelPortfolioRoute = PainelPortfolioRouteImport.update({
@@ -1208,6 +1214,7 @@ export interface FileRoutesByFullPath {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-popup': typeof PainelPopupRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
@@ -1395,6 +1402,7 @@ export interface FileRoutesByTo {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-popup': typeof PainelPopupRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
@@ -1582,6 +1590,7 @@ export interface FileRoutesById {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-popup': typeof PainelPopupRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
@@ -1771,6 +1780,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-popup'
     | '/painel-portfolio'
     | '/parceiros'
     | '/planos'
@@ -1958,6 +1968,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-popup'
     | '/painel-portfolio'
     | '/parceiros'
     | '/planos'
@@ -2144,6 +2155,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-popup'
     | '/painel-portfolio'
     | '/parceiros'
     | '/planos'
@@ -2333,6 +2345,7 @@ export interface RootRouteChildren {
   PainelRoute: typeof PainelRoute
   PainelCrmRoute: typeof PainelCrmRoute
   PainelFunisRoute: typeof PainelFunisRoute
+  PainelPopupRoute: typeof PainelPopupRoute
   PainelPortfolioRoute: typeof PainelPortfolioRoute
   ParceirosRoute: typeof ParceirosRoute
   PlanosRoute: typeof PlanosRoute
@@ -2632,6 +2645,13 @@ declare module '@tanstack/react-router' {
       path: '/painel-funis'
       fullPath: '/painel-funis'
       preLoaderRoute: typeof PainelFunisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-popup': {
+      id: '/painel-popup'
+      path: '/painel-popup'
+      fullPath: '/painel-popup'
+      preLoaderRoute: typeof PainelPopupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/painel-portfolio': {
@@ -4010,6 +4030,7 @@ const rootRouteChildren: RootRouteChildren = {
   PainelRoute: PainelRoute,
   PainelCrmRoute: PainelCrmRoute,
   PainelFunisRoute: PainelFunisRoute,
+  PainelPopupRoute: PainelPopupRoute,
   PainelPortfolioRoute: PainelPortfolioRoute,
   ParceirosRoute: ParceirosRoute,
   PlanosRoute: PlanosRoute,

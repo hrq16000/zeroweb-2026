@@ -120,7 +120,18 @@ function PortfolioPerformancePanel() {
                 </h2>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {data.alerts.map((a) => (
-                    <li key={a}>{a}</li>
+                    <li key={`${a.slug}-${a.metric}`} className="flex items-start gap-2">
+                      <span
+                        className={
+                          a.severity === "critical"
+                            ? "mt-0.5 rounded bg-destructive px-1.5 py-0.5 text-[10px] font-semibold uppercase text-destructive-foreground"
+                            : "mt-0.5 rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-foreground"
+                        }
+                      >
+                        {a.severity === "critical" ? "crítico" : "atenção"}
+                      </span>
+                      <span>{a.message}</span>
+                    </li>
                   ))}
                 </ul>
               </section>
