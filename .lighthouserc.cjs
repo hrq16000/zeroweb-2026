@@ -21,6 +21,8 @@ module.exports = {
         `${TARGET_URL}/servicos/criacao-de-sites`,
         `${TARGET_URL}/portfolio`,
         `${TARGET_URL}/portfolio/rm-fretes`,
+        `${TARGET_URL}/portfolio/emporio-lelecute`,
+        `${TARGET_URL}/portfolio/marido-de-aluguel`,
       ],
       numberOfRuns: 2,
       settings: {
@@ -50,6 +52,13 @@ module.exports = {
         "robots-txt": "error",
         "image-alt": "error",
         "http-status-code": "error",
+
+        // Performance dos projetos de portfólio: imagens e JS sob demanda.
+        "uses-responsive-images": ["warn", { maxLength: 0 }],
+        "modern-image-formats": ["warn", { maxLength: 0 }],
+        "offscreen-images": ["error", { maxLength: 0 }],
+        "unused-javascript": ["warn", { maxNumericValue: 150000 }],
+        "uses-long-cache-ttl": ["warn", { maxNumericValue: 200000 }],
       },
     },
     upload: {

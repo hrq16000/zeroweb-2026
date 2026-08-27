@@ -38,6 +38,23 @@ Regras:
 
 ## 2. Code splitting e lazy mount
 
+A rota compartilhada `src/routes/portfolio.$slug.tsx` já carrega **cada site de
+cliente como um chunk próprio** via `React.lazy` + `Suspense`. Ao registrar um
+cliente novo, siga o mesmo padrão — nunca importe o componente do cliente
+estaticamente na rota:
+
+```tsx
+const NovoClientePage = lazy(() =>
+  import("@/components/site/NovoClientePage").then((m) => ({ default: m.NovoClientePage })),
+);
+```
+
+Dados usados no `head()`/JSON-LD (FAQ, ofertas) devem viver em módulo de dados
+separado (ex.: `src/components/site/marido-de-aluguel-faq.ts`), senão o import
+estático anula o split. O SSR continua renderizando o conteúdo completo, então
+não há perda de SEO.
+
+
 Seções pesadas (galerias, mapas, carrosséis, blocos animados) devem ser
 carregadas sob demanda com `React.lazy` + `LazySection`:
 
