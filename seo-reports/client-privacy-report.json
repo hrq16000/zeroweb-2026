@@ -1,15 +1,15 @@
 {
-  "correlationId": "2cebbe9e-6514-440e-8094-698580664824",
-  "generatedAt": "2026-08-26T21:01:09.105Z",
-  "scanned": 291,
+  "correlationId": "670a3d9a-5761-461e-81f5-90597dca515f",
+  "generatedAt": "2026-08-27T05:00:35.832Z",
+  "scanned": 290,
   "errors": 0,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "2cebbe9e-6514-440e-8094-698580664824",
+      "correlationId": "670a3d9a-5761-461e-81f5-90597dca515f",
       "level": "warn",
-      "chunk": "app.pedidos-DUFZzPuX.js",
-      "file": ".output\\public\\assets\\app.pedidos-DUFZzPuX.js",
+      "chunk": "app.pedidos-CUE6P0fP.js",
+      "file": "dist/client/assets/app.pedidos-CUE6P0fP.js",
       "bytes": 7118,
       "routeHint": "/app/pedidos (painel)",
       "hits": [
@@ -23,17 +23,17 @@
       "totalHits": 1
     },
     {
-      "correlationId": "2cebbe9e-6514-440e-8094-698580664824",
+      "correlationId": "670a3d9a-5761-461e-81f5-90597dca515f",
       "level": "warn",
-      "chunk": "app.servicos-BDKDbTQ6.js",
-      "file": ".output\\public\\assets\\app.servicos-BDKDbTQ6.js",
-      "bytes": 33367,
+      "chunk": "app.servicos-C_LD4wFw.js",
+      "file": "dist/client/assets/app.servicos-C_LD4wFw.js",
+      "bytes": 34533,
       "routeHint": "/app/servicos (painel)",
       "hits": [
         {
           "kind": "wa.me",
           "value": "wa.me/",
-          "offset": 15747,
+          "offset": 16913,
           "context": "ta_target\",r.target.value),placeholder:\"/contato ou https://wa.me/…\"})})]}),e.jsxs(\"div\",{className:\"flex flex-wrap item"
         }
       ],
