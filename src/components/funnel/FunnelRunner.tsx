@@ -85,6 +85,7 @@ export function FunnelRunner({
   onComplete,
   prefill,
   context,
+  clientKey,
 }: {
   funnel: FunnelDefinition;
   embedded?: boolean;
@@ -93,6 +94,8 @@ export function FunnelRunner({
   prefill?: Record<string, string | string[]>;
   /** Contexto sintetizado da página de origem, enviado junto ao lead. */
   context?: Record<string, string>;
+  /** Cliente de portfólio dono do funil — roteia o lead no servidor. */
+  clientKey?: string;
 }) {
   const submit = useServerFn(submitFunnel);
   const createSession = useServerFn(createVisitorFunnelSession);
@@ -222,6 +225,7 @@ export function FunnelRunner({
             gclid: url.searchParams.get("gclid") ?? undefined,
             fbclid: url.searchParams.get("fbclid") ?? undefined,
             started_at: startedAt,
+            client_key: clientKey,
           },
         },
       });

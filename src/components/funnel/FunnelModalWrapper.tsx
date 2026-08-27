@@ -164,6 +164,7 @@ export function FunnelModalWrapper({
                   embedded
                   prefill={prefill}
                   context={context}
+                  clientKey={intent?.companySlug}
                   onComplete={() => setCompleted(true)}
                 />
               </div>
