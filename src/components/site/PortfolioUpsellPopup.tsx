@@ -10,7 +10,9 @@ const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 type Trigger = "timer" | "scroll" | "fallback";
 
 /** Guard de instância única por página (rota + componente do cliente). */
-let mountedInstances = 0;
+const instanceGuard: { count: number } = ((globalThis as Record<string, unknown>)[
+  "__0webPortfolioUpsellGuard"
+] ??= { count: 0 }) as { count: number };
 
 
 /**
@@ -39,8 +41,8 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     if (shouldSuppressPortfolioHostOverlays()) return;
     // Instância única: a rota /portfolio/* renderiza o pop-up por padrão e o
     // site do cliente pode renderizá-lo também; só o primeiro assume.
-    if (mountedInstances > 0 && !ownerRef.current) return;
-    mountedInstances += 1;
+    if (instanceGuard.count > 0 && !ownerRef.current) return;
+    instanceGuard.count += 1;
     ownerRef.current = true;
 
     try {
@@ -78,7 +80,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
     return () => {
       if (ownerRef.current) {
-        mountedInstances = Math.max(0, mountedInstances - 1);
+        instanceGuard.count = Math.max(0, instanceGuard.count - 1);
         ownerRef.current = false;
       }
       window.clearTimeout(t);
