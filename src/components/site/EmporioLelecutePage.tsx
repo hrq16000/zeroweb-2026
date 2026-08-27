@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Facebook, Gift, Instagram, MapPin, MessageCircle, Sparkles } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const INSTAGRAM_URL = "https://www.instagram.com/emporiolelecute/";
 const FACEBOOK_URL = "https://www.facebook.com/emporiolelecute/";
@@ -44,6 +45,7 @@ export function EmporioLelecutePage() {
 
       <section className="bg-[#3d2921] px-5 py-20 text-[#fffaf4] sm:px-8"><div className="mx-auto max-w-3xl text-center"><p className="text-xs font-bold uppercase tracking-[.25em] text-[#f4c99f]">Acompanhe o processo real</p><h2 className="mt-3 font-serif text-4xl">Bastidores, novidades e pedidos no Instagram</h2><p className="mx-auto mt-4 max-w-xl text-[#f6dfca]">Veja as criações publicadas pela própria Empório LeleCute e fale diretamente com a marca.</p><div className="mx-auto mt-8 max-w-xl overflow-hidden rounded-3xl border border-[#f4c99f]/30 bg-white shadow-2xl"><iframe src={`${INSTAGRAM_URL}embed/`} title="Instagram oficial do Empório LeleCute" className="h-[620px] w-full" loading="lazy" scrolling="no" referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms" /></div><div className="mt-6 flex flex-wrap justify-center gap-3"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#f4c99f]/40 px-5 py-3 text-sm font-bold text-[#f4c99f] transition hover:bg-[#f4c99f] hover:text-[#3d2921]"><Instagram className="h-4 w-4" /> @emporiolelecute</a><a href={FACEBOOK_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10"><Facebook className="h-4 w-4" /> Facebook</a></div></div></section>
       <footer className="bg-[#2b1d18] px-5 py-8 text-center text-sm text-[#d7b9a5]"><p className="inline-flex items-center gap-2"><MapPin className="h-4 w-4" /> São José dos Pinhais · Paraná</p><p className="mt-2">Site demonstrativo desenvolvido pela 0WEB. Atendimento e orçamento pelo funil seguro.</p></footer>
+      <PortfolioUpsellPopup pageName="portfolio-emporio-lelecute" />
     </main>
   );
 }

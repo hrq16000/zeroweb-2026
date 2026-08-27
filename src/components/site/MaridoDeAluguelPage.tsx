@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, Clock3, Hammer, MapPin, ShieldCheck, Star, Wrench, ExternalLink } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 export const MARIDO_ALUGUEL_FAQ = [
   { q: "O que faz um marido de aluguel?", a: "Resolve pequenos reparos e melhorias residenciais, como instalações, ajustes hidráulicos, pintura, montagem e manutenção preventiva." },
@@ -46,6 +47,7 @@ export function MaridoDeAluguelPage() {
       </main>
       <footer className="bg-slate-950 px-5 py-10 text-sm text-slate-400 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">Marido de Aluguel</strong> · Serviços residenciais locais</p><p>Site demonstrativo criado pela 0WEB</p></div></footer>
       <PortfolioSocialProofPopup clientKey="marido-de-aluguel" eyebrow="Experiências reais" title="Veja como organizamos serviços e contatos para negócios locais." description="O catálogo conecta avaliações, contexto e próximo passo sem expor dados de contato no código público." ctaLabel="Conhecer a estrutura" ctaHref="#processo" delayMs={9000} />
+      <PortfolioUpsellPopup pageName="portfolio-marido-de-aluguel" />
     </div>
   );
 }
