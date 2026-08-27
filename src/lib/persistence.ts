@@ -142,10 +142,8 @@ export async function persistWaFunnelOpen(totalSteps: number) {
         utm_medium: c.utms.utm_medium ?? null,
         utm_campaign: c.utms.utm_campaign ?? null,
         answers_json: {},
-      })
-      .select("id")
-      .single();
-    if (!error && data) waSessionRowId = data.id as string;
+      });
+    if (!error) waSessionRowId = newId;
   } catch {
     /* swallow */
   }
