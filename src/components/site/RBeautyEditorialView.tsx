@@ -207,7 +207,7 @@ export function RBeautyEditorialView() {
               src="/images/volume-egipcio-fios-w.jpg"
               alt="Resultado de extensão de cílios Volume Egípcio"
               className="absolute inset-0 w-full h-full object-cover"
-            />
+ loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
               <span className="inline-flex rounded-full bg-[#D4AF37] px-3 py-1 text-xs font-bold text-black">RESULTADO EM DESTAQUE</span>

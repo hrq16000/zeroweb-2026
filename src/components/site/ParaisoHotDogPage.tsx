@@ -201,7 +201,7 @@ export function ParaisoHotDogPage() {
               src="/images/paraiso-hot-dog-menu.png"
               alt="Cardápio real do Paraíso do Hot Dog — toque para ampliar"
               className="mx-auto max-h-[520px] w-full rounded-3xl border-4 border-[#f5bd21] object-cover shadow-2xl transition group-hover:scale-[1.01]"
-            />
+ loading="lazy" decoding="async" />
             <span className="mt-3 block text-center text-xs font-bold text-[#ffe9a5]">
               Toque para ampliar o cardápio completo
             </span>
@@ -251,7 +251,7 @@ export function ParaisoHotDogPage() {
                   alt={`${p.name} do Paraíso do Hot Dog`}
                   className="h-36 w-full object-cover"
                   loading="lazy"
-                />
+ decoding="async" />
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -416,7 +416,7 @@ export function ParaisoHotDogPage() {
             src="/images/paraiso-hot-dog-menu.png"
             alt="Cardápio completo do Paraíso do Hot Dog"
             className="max-h-[94vh] max-w-full rounded-xl object-contain shadow-2xl"
-          />
+ loading="lazy" decoding="async" />
         </div>
       )}
       <PortfolioSocialProofPopup
