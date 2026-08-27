@@ -17,6 +17,13 @@ Pick every label that applies:
 `content/SEO` · `motion` · `accessibility-fix` · `performance` · `bugfix`
 `backend/RLS` · `docs`
 
+## Step 1.5 — Discover skills dynamically
+
+O catálogo instalado não é o limite. Para qualquer tarefa substancial, rode
+`0web-skill-discovery`: FIND SKILLS → RANK → SECURITY REVIEW → SELECT STACK,
+priorizando `find-skills` (Vercel), Skills.sh, repositório oficial do fornecedor
+e o GitHub original. Marketplaces são triagem, nunca aprovação final.
+
 ## Step 2 — Compose the skill stack
 
 | Task class | Stack (in order) |
