@@ -93,6 +93,21 @@ const PORTFOLIO_ITEMS = [
     summary: "Experiência editorial para apresentar criações artesanais, ocasiões especiais e orçamento personalizado.",
   },
   {
+    id: "rm-fretes",
+    live: true,
+    slug: "/portfolio/rm-fretes",
+    category: "servicos",
+    title: "RM Fretes",
+    subtitle: "Fretes, Carretos & Pequenas Mudanças",
+    location: "Curitiba e Região Metropolitana — PR",
+    badge: "Projeto publicado",
+    image: "/images/rm-fretes-hero.png",
+    tags: ["Fretes", "Carretos", "Mudanças", "Orçamento rápido"],
+    metrics: "Orçamento por funil",
+    summary: "Landing page direta para pedidos de frete e carreto, com orçamento guiado e atendimento local em Curitiba e região.",
+  },
+
+  {
     id: "paraiso-do-hot-dog",
     live: true,
     slug: "/portfolio/paraiso-do-hot-dog",

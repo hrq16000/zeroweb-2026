@@ -214,12 +214,18 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             (session?.page_url as string | null) ??
             ((meta.page_url as string) ?? null);
 
-          const contextLines = originSnap?.page_context
-            ? Object.entries(originSnap.page_context)
-                .slice(0, 8)
-                .filter(([, v]) => typeof v === "string" && v)
-                .map(([k, v]) => `• ${k}: ${String(v)}`)
-            : [];
+          // O contexto do pedido vem da sessão (page_context) e, quando ela
+          // não existe/falhou, do próprio lead (order_context) — assim
+          // order_items/order_total/fulfillment/customer_note nunca somem.
+          const rawContext: Record<string, unknown> = {
+            ...((meta.order_context as Record<string, unknown> | undefined) ?? {}),
+            ...(originSnap?.page_context ?? {}),
+          };
+          const contextLines = Object.entries(rawContext)
+            .slice(0, 8)
+            .filter(([, v]) => typeof v === "string" && v)
+            .map(([k, v]) => `• ${k}: ${String(v)}`);
+
 
           const cartLines = Array.isArray(session?.cart_snapshot_final)
             ? (session!.cart_snapshot_final as Array<Record<string, unknown>>)

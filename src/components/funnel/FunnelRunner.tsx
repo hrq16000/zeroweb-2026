@@ -226,7 +226,18 @@ export function FunnelRunner({
             fbclid: url.searchParams.get("fbclid") ?? undefined,
             started_at: startedAt,
             client_key: clientKey,
+            // Redundância proposital: mesmo se a sessão não tiver sido criada,
+            // o pedido do carrinho chega ao lead e à mensagem final.
+            order_context: context
+              ? {
+                  order_items: context.order_items,
+                  order_total: context.order_total,
+                  fulfillment: context.fulfillment,
+                  customer_note: context.customer_note,
+                }
+              : undefined,
           },
+
         },
       });
       trackConversion("funnel_complete", {
@@ -283,13 +294,24 @@ export function FunnelRunner({
         // Small delay so the transition frame is visible.
         setTimeout(() => {
           try {
+            trackEvent("whatsapp_message_sent", {
+              funnel_slug: funnel.slug,
+              funnel_id: funnel.id,
+              protocol: protocol ?? undefined,
+              client_key: clientKey,
+            });
             window.location.href = redirectPath;
           } catch {
+            trackEvent("whatsapp_redirect_failed", {
+              funnel_slug: funnel.slug,
+              protocol: protocol ?? undefined,
+            });
             setDone((prev) =>
               prev ? { ...prev, redirectFailed: true } : prev,
             );
           }
         }, 700);
+
         // If we're still on this page after ~4s, treat as blocked and show fallback.
         setTimeout(() => {
           setDone((prev) =>
