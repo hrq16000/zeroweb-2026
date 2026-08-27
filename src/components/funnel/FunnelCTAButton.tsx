@@ -68,12 +68,15 @@ export function FunnelCTAButton({
     ? buildContactFallbackHref(intent)
     : "/contato";
 
+  const currentPath = typeof window === "undefined" ? "/" : window.location.pathname;
+  const portfolioCompany = currentPath.includes("/portfolio/marido-de-aluguel") ? "marido-de-aluguel" : undefined;
   const runtimeIntent: ContactIntent = intent ?? {
     purpose: resolvedPageType === "service" ? "proposal" : "diagnosis",
     source: location ?? `${resolvedPageType}_${serviceSlug ?? "page"}`,
-    pagePath: typeof window === "undefined" ? "/" : window.location.pathname,
+    pagePath: currentPath,
     placement: resolvedPageType === "post" ? "article" : "section",
     serviceSlug,
+    companySlug: portfolioCompany,
   };
 
   const onClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
