@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError, isClientAbortError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { applySecurityHeaders } from "./lib/security-headers";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -71,7 +72,7 @@ export default {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       const normalized = await normalizeCatastrophicSsrResponse(response, request);
-      return protectSsrHtml(normalized);
+      return applySecurityHeaders(protectSsrHtml(normalized));
     } catch (error) {
       // Cliente fechou a conexão no meio do stream: não é falha da aplicação.
       if (isClientAbortError(error)) return new Response(null, { status: 499 });

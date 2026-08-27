@@ -123,6 +123,8 @@ export function FunnelModalWrapper({
               ? "Falar com o Mestre dos Serviços"
               : intent?.companySlug === "paraiso-do-hot-dog"
                 ? "Enviar pedido ao Paraíso do Hot Dog"
+                : intent?.companySlug === "rm-fretes"
+                  ? "Pedir frete à RM Fretes"
                 : "Falar com a 0WEB"}
           </DialogPrimitive.Title>
           <DialogPrimitive.Description className="sr-only">
