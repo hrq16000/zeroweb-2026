@@ -84,7 +84,7 @@ export function FunnelModalWrapper({ open, onClose, funnelSlug, serviceSlug, int
                      overflow-hidden flex flex-col"
         >
           <DialogPrimitive.Title className="sr-only">
-            Falar com a 0WEB
+            {intent?.companySlug === "marido-de-aluguel" ? "Falar com o Mestre dos Serviços" : "Falar com a 0WEB"}
           </DialogPrimitive.Title>
           <DialogPrimitive.Description className="sr-only">
             Responda algumas perguntas rápidas para receber uma proposta personalizada.
