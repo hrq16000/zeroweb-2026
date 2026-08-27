@@ -8,6 +8,8 @@ import { EmporioLelecutePage } from "@/components/site/EmporioLelecutePage";
 import { ParaisoHotDogPage } from "@/components/site/ParaisoHotDogPage";
 import { RMFretesPage } from "@/components/site/RMFretesPage";
 import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
