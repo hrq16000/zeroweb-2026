@@ -383,9 +383,9 @@ export function ParaisoHotDogPage() {
       <FunnelModalWrapper
         open={funnelOpen}
         onClose={() => setFunnelOpen(false)}
-        funnelSlug="funnel-order-support"
+        funnelSlug="funnel-service"
         intent={{
-          purpose: "order-support",
+          purpose: "proposal",
           source: "portfolio-paraiso-do-hot-dog",
           pagePath: "/portfolio/paraiso-do-hot-dog",
           placement: "section",

@@ -4,10 +4,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Loader2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { FunnelRunner } from "./FunnelRunner";
-import {
-  getPublicFunnel,
-  type FunnelDefinition,
-} from "@/lib/dynamic-funnel.functions";
+import { getPublicFunnel, type FunnelDefinition } from "@/lib/dynamic-funnel.functions";
 import { trackEvent } from "@/lib/analytics";
 import type { ContactIntent } from "@/lib/contact-intent";
 
@@ -28,8 +25,15 @@ type Props = {
  * Toda a lógica de etapas/leads/condições continua no FunnelRunner +
  * dynamic_forms — este componente só cuida da apresentação modal.
  */
-export function FunnelModalWrapper({ open, onClose, funnelSlug, serviceSlug, intent, prefill, context }: Props) {
-
+export function FunnelModalWrapper({
+  open,
+  onClose,
+  funnelSlug,
+  serviceSlug,
+  intent,
+  prefill,
+  context,
+}: Props) {
   const fetchFunnel = useServerFn(getPublicFunnel);
   const [funnel, setFunnel] = useState<FunnelDefinition | null>(null);
   const [loading, setLoading] = useState(false);
@@ -43,7 +47,13 @@ export function FunnelModalWrapper({ open, onClose, funnelSlug, serviceSlug, int
     if (funnel?.slug === funnelSlug) {
       // Already loaded: emit funnel_open now that the modal is open with a
       // definition ready to render.
-      trackEvent("funnel_open", { funnel_slug: funnelSlug, service_slug: serviceSlug, purpose: intent?.purpose, source: intent?.source, page_path: intent?.pagePath });
+      trackEvent("funnel_open", {
+        funnel_slug: funnelSlug,
+        service_slug: serviceSlug,
+        purpose: intent?.purpose,
+        source: intent?.source,
+        page_path: intent?.pagePath,
+      });
       return;
     }
     setLoading(true);
@@ -51,25 +61,50 @@ export function FunnelModalWrapper({ open, onClose, funnelSlug, serviceSlug, int
       .then((f) => {
         if (!f) {
           setError("Funil indisponível no momento.");
-          trackEvent("funnel_error", { funnel_slug: funnelSlug, reason: "not_found", service_slug: serviceSlug, purpose: intent?.purpose, source: intent?.source });
+          trackEvent("funnel_error", {
+            funnel_slug: funnelSlug,
+            reason: "not_found",
+            service_slug: serviceSlug,
+            purpose: intent?.purpose,
+            source: intent?.source,
+          });
         } else {
           setFunnel(f);
-          trackEvent("funnel_open", { funnel_slug: funnelSlug, service_slug: serviceSlug, purpose: intent?.purpose, source: intent?.source, page_path: intent?.pagePath });
+          trackEvent("funnel_open", {
+            funnel_slug: funnelSlug,
+            service_slug: serviceSlug,
+            purpose: intent?.purpose,
+            source: intent?.source,
+            page_path: intent?.pagePath,
+          });
         }
       })
       .catch(() => {
         setError("Não foi possível carregar o funil.");
-        trackEvent("funnel_error", { funnel_slug: funnelSlug, reason: "load_failed", service_slug: serviceSlug, purpose: intent?.purpose, source: intent?.source });
+        trackEvent("funnel_error", {
+          funnel_slug: funnelSlug,
+          reason: "load_failed",
+          service_slug: serviceSlug,
+          purpose: intent?.purpose,
+          source: intent?.source,
+        });
       })
       .finally(() => setLoading(false));
-  }, [open, funnelSlug, fetchFunnel, funnel?.slug, intent?.pagePath, intent?.purpose, intent?.source, serviceSlug]);
+  }, [
+    open,
+    funnelSlug,
+    fetchFunnel,
+    funnel?.slug,
+    intent?.pagePath,
+    intent?.purpose,
+    intent?.source,
+    serviceSlug,
+  ]);
 
   return (
     <DialogPrimitive.Root open={open} onOpenChange={(o) => !o && onClose()}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
-        />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
         <DialogPrimitive.Content
           onInteractOutside={(e) => e.preventDefault()}
           onEscapeKeyDown={(e) => {
@@ -84,7 +119,11 @@ export function FunnelModalWrapper({ open, onClose, funnelSlug, serviceSlug, int
                      overflow-hidden flex flex-col"
         >
           <DialogPrimitive.Title className="sr-only">
-            {intent?.companySlug === "marido-de-aluguel" ? "Falar com o Mestre dos Serviços" : "Falar com a 0WEB"}
+            {intent?.companySlug === "marido-de-aluguel"
+              ? "Falar com o Mestre dos Serviços"
+              : intent?.companySlug === "paraiso-do-hot-dog"
+                ? "Enviar pedido ao Paraíso do Hot Dog"
+                : "Falar com a 0WEB"}
           </DialogPrimitive.Title>
           <DialogPrimitive.Description className="sr-only">
             Responda algumas perguntas rápidas para receber uma proposta personalizada.
