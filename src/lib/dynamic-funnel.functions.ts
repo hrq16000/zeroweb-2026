@@ -225,9 +225,14 @@ export const submitFunnel = createServerFn({ method: "POST" })
       ...(data.client_metadata?.client_key
         ? { client_key: data.client_metadata.client_key }
         : {}),
+      ...(data.client_metadata?.order_context &&
+      Object.values(data.client_metadata.order_context).some((v) => typeof v === "string" && v)
+        ? { order_context: data.client_metadata.order_context }
+        : {}),
       completed_at: new Date().toISOString(),
       ...geo,
     };
+
 
     // pull contact fields
     const contact_name = (data.answers.nome ?? data.answers.name ?? null) as string | null;
