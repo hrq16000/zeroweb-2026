@@ -77,9 +77,14 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     });
 
     return () => {
+      if (ownerRef.current) {
+        mountedInstances = Math.max(0, mountedInstances - 1);
+        ownerRef.current = false;
+      }
       window.clearTimeout(t);
       window.clearTimeout(fb);
       unsub();
+
     };
   }, [pageName, routePath, storageKey]);
 
