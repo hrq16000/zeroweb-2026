@@ -3,10 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useFunnel, type FunnelPageType } from "@/hooks/useFunnel";
 import { FunnelModalWrapper } from "./FunnelModalWrapper";
 import { trackEvent } from "@/lib/analytics";
-import {
-  buildContactFallbackHref,
-  type ContactIntent,
-} from "@/lib/contact-intent";
+import { buildContactFallbackHref, type ContactIntent } from "@/lib/contact-intent";
 
 type LegacyProps = {
   pageType: FunnelPageType;
@@ -54,23 +51,34 @@ export function FunnelCTAButton({
   context,
 }: Props) {
   const resolvedPageType: FunnelPageType = pageType ?? "common";
+  const currentPath = typeof window === "undefined" ? "/" : window.location.pathname;
+  const portfolioCompany = currentPath.includes("/portfolio/marido-de-aluguel")
+    ? "marido-de-aluguel"
+    : undefined;
+  const effectiveIntent =
+    intent ??
+    (portfolioCompany
+      ? {
+          purpose: "proposal" as const,
+          source: "portfolio-marido-de-aluguel",
+          pagePath: currentPath,
+          placement: "section" as const,
+          companySlug: portfolioCompany,
+        }
+      : undefined);
   const {
     isOpen,
     openFunnel,
     closeFunnel,
     funnelSlug: resolvedFunnelSlug,
-  } = useFunnel(resolvedPageType, serviceSlug, serviceFunnels, intent);
+  } = useFunnel(resolvedPageType, serviceSlug, serviceFunnels, effectiveIntent);
   const funnelSlug = funnelSlugOverride ?? resolvedFunnelSlug;
 
   const clickingRef = useRef(false);
 
-  const fallbackHref = intent
-    ? buildContactFallbackHref(intent)
-    : "/contato";
+  const fallbackHref = intent ? buildContactFallbackHref(intent) : "/contato";
 
-  const currentPath = typeof window === "undefined" ? "/" : window.location.pathname;
-  const portfolioCompany = currentPath.includes("/portfolio/marido-de-aluguel") ? "marido-de-aluguel" : undefined;
-  const runtimeIntent: ContactIntent = intent ?? {
+  const runtimeIntent: ContactIntent = effectiveIntent ?? {
     purpose: resolvedPageType === "service" ? "proposal" : "diagnosis",
     source: location ?? `${resolvedPageType}_${serviceSlug ?? "page"}`,
     pagePath: currentPath,
@@ -87,7 +95,9 @@ export function FunnelCTAButton({
       return;
     }
     clickingRef.current = true;
-    setTimeout(() => { clickingRef.current = false; }, 400);
+    setTimeout(() => {
+      clickingRef.current = false;
+    }, 400);
 
     e.preventDefault();
     trackEvent("contact_cta_click", {
@@ -107,7 +117,7 @@ export function FunnelCTAButton({
         href={fallbackHref}
         onClick={onClick}
         data-funnel-slug={funnelSlug}
-        data-testid="funnel-cta" 
+        data-testid="funnel-cta"
         className={
           className ??
           "inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary hover:opacity-95 transition-opacity"
