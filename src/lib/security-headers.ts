@@ -27,7 +27,6 @@ export const SECURITY_HEADERS: Record<string, string> = {
   "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
-  "x-frame-options": "SAMEORIGIN",
   "permissions-policy": "geolocation=(), microphone=(), camera=(), payment=()",
 };
 
