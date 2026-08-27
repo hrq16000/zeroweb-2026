@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, Phone, Clock3, Utensils, Scale, HeartPulse } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { TrustStrip } from "@/components/site/TrustStrip";
@@ -237,6 +237,9 @@ export const Route = createFileRoute("/sites/$vertical")({
 
 function VerticalHub() {
   const { vertical: v } = Route.useLoaderData();
+  if (["clinicas", "advocacia", "restaurantes"].includes(v.slug)) {
+    return <PrototypeSite vertical={v} />;
+  }
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -320,6 +323,59 @@ function VerticalHub() {
         </section>
       </main>
       <Footer />
+    </div>
+  );
+}
+
+function PrototypeSite({ vertical: v }: { vertical: VerticalConfig }) {
+  const isClinic = v.slug === "clinicas";
+  const isLaw = v.slug === "advocacia";
+  const data = isClinic
+    ? {
+        eyebrow: "Cuidado que olha o todo",
+        title: "Sua saúde em boas mãos, do primeiro acolhimento ao acompanhamento.",
+        desc: "Uma equipe integrada para cuidar de você com escuta, precisão e um plano feito para a sua rotina.",
+        accent: "#1b766d", soft: "#e5f3ef", ink: "#153d3a", image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1400&q=85",
+        icon: HeartPulse, cta: "Agendar avaliação", secondary: "Conheça a clínica",
+        cards: ["Clínica médica", "Psicologia", "Nutrição"],
+        label: "Atendimento humanizado",
+      }
+    : isLaw
+    ? {
+        eyebrow: "Estratégia antes do conflito",
+        title: "Decisões jurídicas mais seguras para momentos que pedem clareza.",
+        desc: "Advocacia consultiva e contenciosa para empresas e pessoas que precisam de direção, presença e resultado.",
+        accent: "#a47745", soft: "#f4ede4", ink: "#2d2925", image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1400&q=85",
+        icon: Scale, cta: "Falar com o escritório", secondary: "Áreas de atuação",
+        cards: ["Direito empresarial", "Contratos e negócios", "Relações de trabalho"],
+        label: "Consultoria com visão de negócio",
+      }
+    : {
+        eyebrow: "Cozinha de autor · Savassi",
+        title: "Uma mesa para desacelerar. Sabores para lembrar.",
+        desc: "Ingredientes brasileiros, técnica artesanal e uma carta feita para acompanhar conversas longas.",
+        accent: "#b85c3d", soft: "#f8e8dc", ink: "#33221c", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
+        icon: Utensils, cta: "Reservar uma mesa", secondary: "Ver o cardápio",
+        cards: ["Menu degustação", "Almoço executivo", "Carta de vinhos"],
+        label: "Feito no tempo certo",
+      };
+  const Icon = data.icon;
+  return (
+    <div className="min-h-screen" style={{ background: data.soft, color: data.ink }}>
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8">
+        <div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-full text-white" style={{ background: data.accent }}><Icon className="h-5 w-5" /></span><span className="font-display text-lg font-bold">{isClinic ? "integra" : isLaw ? "Almeida & Torres" : "casa nativa"}</span></div>
+        <nav className="hidden items-center gap-7 text-sm font-medium md:flex"><a href="#sobre">Sobre</a><a href="#servicos">{isLaw ? "Atuação" : isClinic ? "Especialidades" : "Experiência"}</a><a href="#contato">Contato</a></nav>
+        <a href="#contato" className="rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: data.accent }}>{data.cta}</a>
+      </header>
+      <main>
+        <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-20 pt-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-20">
+          <div><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>{data.eyebrow}</p><h1 className="mt-5 max-w-xl font-display text-5xl font-semibold leading-[1.03] tracking-tight sm:text-6xl">{data.title}</h1><p className="mt-6 max-w-lg text-lg leading-8 opacity-75">{data.desc}</p><div className="mt-8 flex flex-wrap gap-3"><a href="#contato" className="rounded-full px-6 py-3.5 font-semibold text-white" style={{ background: data.accent }}>{data.cta} <ArrowRight className="ml-2 inline h-4 w-4" /></a><a href="#sobre" className="rounded-full border px-6 py-3.5 font-semibold">{data.secondary}</a></div></div>
+          <div className="relative"><img src={data.image} alt={data.label} className="h-[430px] w-full rounded-[2rem] object-cover shadow-2xl"/><div className="absolute -bottom-5 -left-3 rounded-2xl bg-white p-4 shadow-xl sm:-left-6"><div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl" style={{ background: data.soft, color: data.accent }}><Icon className="h-5 w-5" /></span><div><p className="text-xs font-bold uppercase tracking-wider text-slate-500">{data.label}</p><p className="mt-1 text-sm font-semibold text-slate-800">Uma experiência pensada para você</p></div></div></div></div>
+        </section>
+        <section id="servicos" className="bg-white/65 py-20"><div className="mx-auto max-w-6xl px-5 lg:px-8"><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>{isLaw ? "Como podemos ajudar" : isClinic ? "Cuidado completo" : "Para cada momento"}</p><h2 className="mt-3 max-w-xl font-display text-4xl font-semibold">{isLaw ? "Conhecimento aplicado ao que importa." : isClinic ? "Tudo conectado para você se sentir bem." : "O melhor da casa chega à sua mesa."}</h2><div className="mt-10 grid gap-4 md:grid-cols-3">{data.cards.map((card, i) => <article key={card} className="rounded-2xl border border-black/10 bg-white p-6"><span className="text-sm font-bold" style={{ color: data.accent }}>0{i + 1}</span><h3 className="mt-10 text-xl font-semibold">{card}</h3><p className="mt-3 text-sm leading-6 opacity-65">Atendimento próximo, informação clara e uma experiência desenhada nos detalhes.</p><a href="#contato" className="mt-6 inline-flex items-center gap-2 text-sm font-bold" style={{ color: data.accent }}>Saiba mais <ArrowRight className="h-4 w-4" /></a></article>)}</div></div></section>
+        <section id="sobre" className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>A diferença está no jeito</p><h2 className="mt-3 font-display text-4xl font-semibold">Presença, cuidado e confiança em cada detalhe.</h2></div><div className="space-y-5 text-lg leading-8 opacity-75"><p>Este protótipo foi pensado para transformar a identidade do negócio em uma jornada digital clara, elegante e preparada para gerar contato.</p><div className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5" style={{ color: data.accent }} /> Resposta rápida e atendimento próximo</div><div className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5" style={{ color: data.accent }} /> Conteúdo claro para ajudar na decisão</div></div></section>
+        <section id="contato" className="px-5 pb-20 lg:px-8"><div className="mx-auto max-w-6xl rounded-[2rem] p-8 text-white sm:p-12" style={{ background: data.accent }}><div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end"><div><p className="text-sm font-bold uppercase tracking-[.18em] text-white/70">Vamos conversar</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-semibold">O próximo passo começa com uma mensagem.</h2></div><a href="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold" style={{ color: data.accent }}>{data.cta} <ArrowRight className="h-4 w-4" /></a></div><div className="mt-10 flex flex-wrap gap-5 border-t border-white/20 pt-5 text-sm text-white/80"><span><Phone className="mr-2 inline h-4 w-4" />(11) 99999-0000</span><span><Clock3 className="mr-2 inline h-4 w-4" />Seg–Sex · 8h às 18h</span><span><MapPin className="mr-2 inline h-4 w-4" />Atendimento presencial e online</span></div></div></section>
+      </main>
     </div>
   );
 }
