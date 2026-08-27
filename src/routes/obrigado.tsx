@@ -324,7 +324,7 @@ function ObrigadoPage() {
             <div className="grid sm:grid-cols-3 gap-4">
               {content.testimonials.map((t) => (
                 <figure key={t.name} className="rounded-2xl border border-border bg-card p-5">
-                  <div className="flex gap-0.5 mb-2 text-yellow-500" aria-label="5 estrelas">
+                  <div className="flex gap-0.5 mb-2 text-yellow-500" role="img" aria-label="5 estrelas">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}

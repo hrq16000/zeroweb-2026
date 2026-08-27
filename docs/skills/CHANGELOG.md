@@ -36,3 +36,13 @@ CHANGES:
 VALIDATION (comandos + saída real):
 SKILLS REJECTED / REASON:
 ```
+
+## Automação e validação de /portfolio
+
+- Skills: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`.
+- Entregas: gerador `scaffold:portfolio`, validador estrutural
+  `validate:portfolio-scaffold` (no prebuild), E2E de pop-up, regressão visual,
+  auditoria axe-core, budgets Lighthouse ampliados, painel de performance dos
+  portfólios e página viva do design system.
+- Validação: `bun test` (183 pass), `validate:portfolio-boundaries`,
+  `validate:portfolio-meta`, `validate:portfolio-scaffold`, typecheck e build.

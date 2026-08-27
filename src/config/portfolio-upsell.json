@@ -1,0 +1,23 @@
+{
+  "default": {
+    "enabled": true,
+    "kicker": "Gostou desta página?",
+    "title": "Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio.",
+    "highlight": ".com.br",
+    "description": "Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora.",
+    "bullets": [
+      "Site no ar primeiro: você tem até 90 dias para começar a pagar.",
+      "Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês."
+    ],
+    "ctaLabel": "Quero meu site — ver condições",
+    "dismissLabel": "Agora não",
+    "funnelSlug": "diagnostico-0web",
+    "display": {
+      "timerMs": 10000,
+      "fallbackMs": 25000,
+      "scrollPct": 0.9,
+      "oncePerSession": true
+    }
+  },
+  "bySlug": {}
+}

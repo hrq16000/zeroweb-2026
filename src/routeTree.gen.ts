@@ -23,6 +23,7 @@ import { Route as ConsultoriaRouteImport } from './routes/consultoria'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as CriacaoSitesRouteImport } from './routes/criacao-sites'
 import { Route as DesenvolvimentoRouteImport } from './routes/desenvolvimento'
+import { Route as DesignSystemRouteImport } from './routes/design-system'
 import { Route as DyzpromoRouteImport } from './routes/dyzpromo'
 import { Route as EstadosRouteImport } from './routes/estados'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -37,6 +38,7 @@ import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PainelRouteImport } from './routes/painel'
 import { Route as PainelCrmRouteImport } from './routes/painel-crm'
 import { Route as PainelFunisRouteImport } from './routes/painel-funis'
+import { Route as PainelPortfolioRouteImport } from './routes/painel-portfolio'
 import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as PlanosComparativoRouteImport } from './routes/planos-comparativo'
@@ -263,6 +265,11 @@ const DesenvolvimentoRoute = DesenvolvimentoRouteImport.update({
   path: '/desenvolvimento',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignSystemRoute = DesignSystemRouteImport.update({
+  id: '/design-system',
+  path: '/design-system',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DyzpromoRoute = DyzpromoRouteImport.update({
   id: '/dyzpromo',
   path: '/dyzpromo',
@@ -331,6 +338,11 @@ const PainelCrmRoute = PainelCrmRouteImport.update({
 const PainelFunisRoute = PainelFunisRouteImport.update({
   id: '/painel-funis',
   path: '/painel-funis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelPortfolioRoute = PainelPortfolioRouteImport.update({
+  id: '/painel-portfolio',
+  path: '/painel-portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParceirosRoute = ParceirosRouteImport.update({
@@ -1181,6 +1193,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
+  '/design-system': typeof DesignSystemRoute
   '/dyzpromo': typeof DyzpromoRoute
   '/estados': typeof EstadosRouteWithChildren
   '/faq': typeof FaqRoute
@@ -1195,6 +1208,7 @@ export interface FileRoutesByFullPath {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-portfolio': typeof PainelPortfolioRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1366,6 +1380,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
+  '/design-system': typeof DesignSystemRoute
   '/dyzpromo': typeof DyzpromoRoute
   '/estados': typeof EstadosRouteWithChildren
   '/faq': typeof FaqRoute
@@ -1380,6 +1395,7 @@ export interface FileRoutesByTo {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-portfolio': typeof PainelPortfolioRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1551,6 +1567,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
+  '/design-system': typeof DesignSystemRoute
   '/dyzpromo': typeof DyzpromoRoute
   '/estados': typeof EstadosRouteWithChildren
   '/faq': typeof FaqRoute
@@ -1565,6 +1582,7 @@ export interface FileRoutesById {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-portfolio': typeof PainelPortfolioRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1738,6 +1756,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/criacao-sites'
     | '/desenvolvimento'
+    | '/design-system'
     | '/dyzpromo'
     | '/estados'
     | '/faq'
@@ -1752,6 +1771,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-portfolio'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -1923,6 +1943,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/criacao-sites'
     | '/desenvolvimento'
+    | '/design-system'
     | '/dyzpromo'
     | '/estados'
     | '/faq'
@@ -1937,6 +1958,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-portfolio'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2107,6 +2129,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/criacao-sites'
     | '/desenvolvimento'
+    | '/design-system'
     | '/dyzpromo'
     | '/estados'
     | '/faq'
@@ -2121,6 +2144,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-portfolio'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2294,6 +2318,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   CriacaoSitesRoute: typeof CriacaoSitesRoute
   DesenvolvimentoRoute: typeof DesenvolvimentoRoute
+  DesignSystemRoute: typeof DesignSystemRoute
   DyzpromoRoute: typeof DyzpromoRoute
   EstadosRoute: typeof EstadosRouteWithChildren
   FaqRoute: typeof FaqRoute
@@ -2308,6 +2333,7 @@ export interface RootRouteChildren {
   PainelRoute: typeof PainelRoute
   PainelCrmRoute: typeof PainelCrmRoute
   PainelFunisRoute: typeof PainelFunisRoute
+  PainelPortfolioRoute: typeof PainelPortfolioRoute
   ParceirosRoute: typeof ParceirosRoute
   PlanosRoute: typeof PlanosRoute
   PlanosComparativoRoute: typeof PlanosComparativoRoute
@@ -2503,6 +2529,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesenvolvimentoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design-system': {
+      id: '/design-system'
+      path: '/design-system'
+      fullPath: '/design-system'
+      preLoaderRoute: typeof DesignSystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dyzpromo': {
       id: '/dyzpromo'
       path: '/dyzpromo'
@@ -2599,6 +2632,13 @@ declare module '@tanstack/react-router' {
       path: '/painel-funis'
       fullPath: '/painel-funis'
       preLoaderRoute: typeof PainelFunisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-portfolio': {
+      id: '/painel-portfolio'
+      path: '/painel-portfolio'
+      fullPath: '/painel-portfolio'
+      preLoaderRoute: typeof PainelPortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parceiros': {
@@ -3955,6 +3995,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   CriacaoSitesRoute: CriacaoSitesRoute,
   DesenvolvimentoRoute: DesenvolvimentoRoute,
+  DesignSystemRoute: DesignSystemRoute,
   DyzpromoRoute: DyzpromoRoute,
   EstadosRoute: EstadosRouteWithChildren,
   FaqRoute: FaqRoute,
@@ -3969,6 +4010,7 @@ const rootRouteChildren: RootRouteChildren = {
   PainelRoute: PainelRoute,
   PainelCrmRoute: PainelCrmRoute,
   PainelFunisRoute: PainelFunisRoute,
+  PainelPortfolioRoute: PainelPortfolioRoute,
   ParceirosRoute: ParceirosRoute,
   PlanosRoute: PlanosRoute,
   PlanosComparativoRoute: PlanosComparativoRoute,

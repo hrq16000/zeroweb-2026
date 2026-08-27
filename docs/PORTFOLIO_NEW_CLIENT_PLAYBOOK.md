@@ -69,3 +69,30 @@ ou no JS público.
 Seguir `docs/AGENT_SKILLS_GOVERNANCE.md`: direção de `frontend-design`, revisão
 Apple (acessibilidade + mobile) e passada de `ui-craft`. Validar imagens reais,
 estados de carregamento/erro, `prefers-reduced-motion` e viewport 393×852.
+
+## 6. Automação, testes e observabilidade
+
+Gerador de projeto (cria componente, pasta de imagens, migration do funil e
+registros obrigatórios):
+
+```bash
+bun run scaffold:portfolio -- --slug <slug> --name "Nome do Cliente"
+bun run scaffold:portfolio -- --slug <slug> --name "Nome" --dry-run
+```
+
+Portões automáticos adicionais:
+
+```bash
+bun run validate:portfolio-scaffold   # conformidade estrutural de todo /portfolio (roda no prebuild)
+bun run test:e2e:portfolio-popup      # pop-up único, 1x por sessão, ?preview=1 não silencia
+bun run test:visual                   # regressão visual (mobile + desktop); --update regrava baselines
+bun run audit:a11y                    # axe-core em todas as rotas de portfólio
+```
+
+Budgets de performance/SEO/acessibilidade rodam no Lighthouse CI
+(`.lighthouserc.cjs`), incluindo `/portfolio` e um site de cliente; scores
+abaixo do budget quebram o PR.
+
+Observabilidade: `/painel-portfolio` (restrito) mostra impressões, cliques,
+CTR, descartes e conversões do pop-up por projeto, com alertas de queda.
+Documentação viva do design system: `/design-system`.

@@ -90,7 +90,7 @@ export function SocialProofBlock({ ctxId = "servicos_social_proof" }: { ctxId?: 
               <figure key={t.name} className="rounded-2xl border border-border bg-card p-6 flex flex-col">
                 <Quote className="w-6 h-6 text-primary" />
                 <blockquote className="mt-3 text-sm text-foreground/90 flex-1">"{t.text}"</blockquote>
-                <div className="mt-4 flex items-center gap-1 text-yellow-500" aria-label="5 estrelas">
+                <div className="mt-4 flex items-center gap-1 text-yellow-500" role="img" aria-label="5 estrelas">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
                 <figcaption className="mt-3 text-sm">
