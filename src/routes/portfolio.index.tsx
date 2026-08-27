@@ -87,7 +87,7 @@ const PORTFOLIO_ITEMS = [
     subtitle: "Lembrancinhas Artesanais & Presentes Personalizados",
     location: "São José dos Pinhais — PR",
     badge: "Site demonstrativo",
-    image: "https://emporiolelecute.com.br/favicon.ico",
+    image: "/images/emporio-lelecute-og.webp",
     tags: ["Sabonetes", "Mini-velas", "Casamentos", "Presentes"],
     metrics: "Catálogo local",
     summary: "Experiência editorial para apresentar criações artesanais, ocasiões especiais e orçamento personalizado.",
