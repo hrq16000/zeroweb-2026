@@ -16,7 +16,7 @@ import { join } from "node:path";
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 
 const TARGETS = [
-  { path: "/portfolio/paraiso-do-hot-dog", cta: /Montar meu pedido|Pedir agora|Fazer pedido|Peça/i },
+  { path: "/portfolio/paraiso-do-hot-dog", cta: /Continuar pedido/i, prepare: "cart" },
   { path: "/portfolio/r_beauty", cta: /Agendar|AGENDAMENTO|Quero/i },
   { path: "/portfolio/renata-beauty", cta: /GARANTIR HORÁRIO|Agendar|Quero/i },
   { path: "/portfolio/dyzpromo", cta: /Solicitar proposta|Pedir orçamento/i },
@@ -53,6 +53,15 @@ for (const target of TARGETS) {
   try {
     await page.goto(baseUrl + target.path, { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(2000);
+
+    if (target.prepare === "cart") {
+      // O CTA do delivery só aparece com itens no carrinho.
+      const add = page.getByRole("button", { name: /Adicionar|Montar|\+/ }).first();
+      if (await add.count()) {
+        await add.click({ force: true }).catch(() => {});
+        await page.waitForTimeout(800);
+      }
+    }
 
     const cta = page.getByRole("button", { name: target.cta }).first();
     if (!(await cta.count())) {
