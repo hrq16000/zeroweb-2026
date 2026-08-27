@@ -215,6 +215,9 @@ export function FunnelRunner({
           client_metadata: {
             page_url: window.location.href,
             referrer: document.referrer || undefined,
+            // Correlaciona a conclusão com a sessão que contém o carrinho,
+            // contexto da página e modalidade do pedido.
+            session_id: funnelSessionId,
             utm,
             gclid: url.searchParams.get("gclid") ?? undefined,
             fbclid: url.searchParams.get("fbclid") ?? undefined,
