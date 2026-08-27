@@ -62,3 +62,20 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 `SECURITY_REVIEW_REQUIRED`/`REFERENCE_ONLY`/`REDUNDANT` até revisão do repositório original.
 
 **Validation:** `bun test` + typecheck (docs/skills only, sem impacto de runtime).
+
+## Governança de skills + gates do pop-up
+
+- Tarefa: dashboard de skills, relatório evidence-first, testes de pipeline,
+  guardrails de landing, scanner de privacidade pré-build, métricas temporais,
+  simulação/amostragem, canais de alerta e integração ao CI.
+- Skills usadas: `0web-skill-router` (classificação e stack),
+  `0web-design-system` (tokens e componentes dos painéis),
+  `0web-ui-quality-gates` (estados, foco, alvos ≥44px, evidência),
+  `.design-rules` Apple HIG (revisão de hierarquia e leitura).
+- Skills rejeitadas: landing-page skills (tarefa não é landing) e todas as de
+  status `SECURITY_REVIEW_REQUIRED`/`QUARANTINED` (sem auditoria da origem).
+- Validação real: `bun test` 216 pass / 0 fail; `bunx tsgo --noEmit` limpo;
+  `bun run build` com todos os gates OK e bundle público sem contatos;
+  `bun run scan:source-privacy` OK; `bun run test:e2e:portfolio-popup`
+  7 sites OK; verificação visual dos painéis sem erros de console.
+- Relatório evidence-first: `docs/skills/evidence/popup-governanca.md`.

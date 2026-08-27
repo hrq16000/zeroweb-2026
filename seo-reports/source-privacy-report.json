@@ -1,0 +1,7 @@
+{
+  "generatedAt": "2026-08-27T22:14:32.643Z",
+  "scanned": "src/**/*.{ts,tsx,json} (excluídos scripts, docs, server-only)",
+  "errors": 0,
+  "warnings": 0,
+  "findings": []
+}

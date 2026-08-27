@@ -3745,7 +3745,10 @@ export type Database = {
           highlight: string | null
           id: string
           kicker: string | null
+          notify_channels: Json
           rules: Json
+          sample_rate: number
+          simulation_enabled: boolean
           slug: string
           title: string | null
           updated_at: string
@@ -3763,7 +3766,10 @@ export type Database = {
           highlight?: string | null
           id?: string
           kicker?: string | null
+          notify_channels?: Json
           rules?: Json
+          sample_rate?: number
+          simulation_enabled?: boolean
           slug: string
           title?: string | null
           updated_at?: string
@@ -3781,7 +3787,10 @@ export type Database = {
           highlight?: string | null
           id?: string
           kicker?: string | null
+          notify_channels?: Json
           rules?: Json
+          sample_rate?: number
+          simulation_enabled?: boolean
           slug?: string
           title?: string | null
           updated_at?: string

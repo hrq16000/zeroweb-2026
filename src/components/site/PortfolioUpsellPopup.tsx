@@ -42,15 +42,17 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const slug = useMemo(() => portfolioSlugFromPath(routePath), [routePath]);
   const baseCfg = useMemo(() => resolvePortfolioUpsellConfig(slug), [slug]);
   const [cfg, setCfg] = useState(baseCfg);
+  const telemetryRef = useRef({ sampleRate: 1, simulationEnabled: false });
 
   // Override em runtime vindo do painel administrativo (sem deploy).
   useEffect(() => {
     let alive = true;
     setCfg(baseCfg);
     void import("@/lib/popup-config-remote")
-      .then((m) => m.fetchPopupConfig(slug))
-      .then((next) => {
+      .then(async (m) => {
+        const next = await m.fetchPopupConfig(slug);
         if (alive) setCfg(next);
+        telemetryRef.current = await m.fetchPopupTelemetry(slug);
       })
       .catch(() => undefined);
     return () => {
@@ -69,6 +71,19 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     }),
     [pageName, routePath, slug],
   );
+
+  /**
+   * Envio de evento respeitando amostragem e modo simulação por slug.
+   * Em staging a taxa reduz o volume; eventos simulados ficam marcados.
+   */
+  const track = useCallback((name: string, payload: Record<string, string | number | boolean | undefined>) => {
+    const settings = telemetryRef.current;
+    if (settings.sampleRate < 1) {
+      if (settings.sampleRate <= 0) return;
+      if (Math.random() >= settings.sampleRate) return;
+    }
+    trackEvent(name, settings.simulationEnabled ? { ...payload, simulated: true } : payload);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -97,7 +112,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       }
       lastFocusRef.current = (document.activeElement as HTMLElement) ?? null;
       setVisible(true);
-      trackEvent("popup_view", { ...trackingBase, trigger });
+      track("popup_view", { ...trackingBase, trigger });
     };
 
     const t = window.setTimeout(() => fire("timer"), cfg.display.timerMs);
@@ -117,17 +132,17 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       unsub();
 
     };
-  }, [cfg, storageKey, trackingBase]);
+  }, [cfg, storageKey, trackingBase, track]);
 
   const close = useCallback(
     (reason: "dismiss" | "cta") => {
       setVisible(false);
       if (reason === "dismiss") {
-        trackEvent("popup_dismiss", { ...trackingBase, trigger: triggerRef.current });
+        track("popup_dismiss", { ...trackingBase, trigger: triggerRef.current });
         lastFocusRef.current?.focus?.();
       }
     },
-    [trackingBase],
+    [trackingBase, track],
   );
 
   // Acessibilidade: ESC + focus trap enquanto o card está visível.
@@ -269,7 +284,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
                 type="button"
                 data-testid="portfolio-upsell-cta"
                 onClick={() => {
-                  trackEvent("cta_click", { ...trackingBase, trigger: triggerRef.current });
+                  track("cta_click", { ...trackingBase, trigger: triggerRef.current });
                   close("cta");
                   setFunnelOpen(true);
                 }}

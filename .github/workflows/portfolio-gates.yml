@@ -30,6 +30,9 @@ jobs:
       - name: Unit tests
         run: bun test
 
+      - name: Privacidade em nível de fonte
+        run: bun run scan:source-privacy
+
       - name: validate:portfolio-boundaries
         run: bun run validate:portfolio-boundaries
 
@@ -93,4 +96,6 @@ jobs:
             seo-reports/a11y-report.json
             seo-reports/visual
             seo-reports/popup-shots
+            seo-reports/source-privacy-report.md
+            seo-reports/client-privacy-report.json
           if-no-files-found: ignore

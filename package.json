@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "test": "bun test",
-    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs",
+    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/scan-source-privacy.mjs",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",
@@ -44,7 +44,9 @@
     "test:visual": "node scripts/playwright-visual-regression.mjs",
     "test:visual:update": "node scripts/playwright-visual-regression.mjs --update",
     "audit:a11y": "node scripts/audit-accessibility.mjs",
-    "scaffold:portfolio": "node scripts/scaffold-portfolio-client.mjs"
+    "scaffold:portfolio": "node scripts/scaffold-portfolio-client.mjs",
+    "scan:source-privacy": "node scripts/scan-source-privacy.mjs",
+    "skills:evidence": "bun scripts/skill-evidence-report.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

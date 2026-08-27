@@ -1,25 +1,25 @@
 # Relatório de privacidade do bundle público
 
-- correlationId: `015fba09-bc9c-49f4-90d7-a83de3595914`
-- gerado em: 2026-08-27T22:01:12.337Z
-- chunks analisados: 294
+- correlationId: `73d1424e-7a30-4ebd-a57d-ada96514e638`
+- gerado em: 2026-08-27T22:15:46.516Z
+- chunks analisados: 298
 - erros (bloqueantes): 0
 - avisos (chunks admin): 2
 
-## [WARN] app.pedidos-C6fh-owG.js
+## [WARN] app.pedidos-D6235eTj.js
 
 - rota: /app/pedidos (painel)
-- arquivo: `dist/client/assets/app.pedidos-C6fh-owG.js`
+- arquivo: `dist/client/assets/app.pedidos-D6235eTj.js`
 - ocorrências: 1
 
 | tipo | valor | origem | contexto |
 | --- | --- | --- | --- |
 | wa.me | `wa.me/` | offset 5812 | lex flex-wrap gap-2",children:[C&&a.jsxs("a",{href:`https://wa.me/${C}`,target:"_blank",rel:"noopener noreferrer",classN |
 
-## [WARN] app.servicos-Cqpbf2O4.js
+## [WARN] app.servicos-B8bDu_BA.js
 
 - rota: /app/servicos (painel)
-- arquivo: `dist/client/assets/app.servicos-Cqpbf2O4.js`
+- arquivo: `dist/client/assets/app.servicos-B8bDu_BA.js`
 - ocorrências: 1
 
 | tipo | valor | origem | contexto |
