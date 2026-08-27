@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { DyzPromoPage } from "@/components/site/DyzPromoPage";
 
 const TITLE = "D.Y.Z Promo · Divulgação e panfletagem em Curitiba";
@@ -42,5 +43,13 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       },
     ],
   }),
-  component: DyzPromoPage,
+  component: DyzPromoPageRoute,
 });
+
+function DyzPromoPageRoute() {
+  return (
+    <PortfolioStandardShell slug="dyzpromo">
+      <DyzPromoPage />
+    </PortfolioStandardShell>
+  );
+}
