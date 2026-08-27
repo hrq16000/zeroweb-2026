@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const registryPath = resolve(root, "src/config/portfolio-clients.json");
+const whatsappRedirectPath = resolve(root, "src/routes/r.whatsapp.$token.ts");
 const errors = [];
 
 if (!existsSync(registryPath)) {
@@ -13,12 +14,25 @@ if (!existsSync(registryPath)) {
 }
 
 const clients = JSON.parse(readFileSync(registryPath, "utf8"));
+
+if (!existsSync(whatsappRedirectPath)) {
+  errors.push("roteador privado de WhatsApp ausente");
+} else {
+  const redirectSource = readFileSync(whatsappRedirectPath, "utf8");
+  if (/clientContact\s*\?\?\s*resolveOperationalWhatsAppContact\s*\(/.test(redirectSource)) {
+    errors.push("roteador permite fallback de cliente para o contato central da 0WEB");
+  }
+  if (
+    !/typeof clientKey === ["']string["']\s*\?\s*clientContact\s*:\s*resolveOperationalWhatsAppContact\s*\(/s.test(
+      redirectSource,
+    )
+  ) {
+    errors.push("roteador não garante separação explícita entre cliente e contato central");
+  }
+}
 const keys = new Set();
 const slugs = new Set();
-const forbiddenImports = [
-  "@/components/site/Header",
-  "@/components/site/Footer",
-];
+const forbiddenImports = ["@/components/site/Header", "@/components/site/Footer"];
 const publicContactPatterns = [
   [/wa\.me\//i, "link wa.me"],
   [/(?<!\d)(?:\+?55\s*)?\(?\d{2}\)?\s*9\d{4}[-\s]?\d{4}(?!\d)/, "telefone celular"],
@@ -26,7 +40,8 @@ const publicContactPatterns = [
 
 for (const client of clients) {
   const label = client.clientKey || "cliente-sem-chave";
-  if (!client.clientKey || keys.has(client.clientKey)) errors.push(`${label}: clientKey ausente ou duplicada`);
+  if (!client.clientKey || keys.has(client.clientKey))
+    errors.push(`${label}: clientKey ausente ou duplicada`);
   if (!client.slug || slugs.has(client.slug)) errors.push(`${label}: slug ausente ou duplicado`);
   keys.add(client.clientKey);
   slugs.add(client.slug);
@@ -39,8 +54,10 @@ for (const client of clients) {
   const componentPath = resolve(root, client.componentFile || "arquivo-inexistente");
   const assetsPath = resolve(root, client.assetsDir || "diretorio-inexistente");
   if (!existsSync(routePath)) errors.push(`${label}: rota não encontrada (${client.routeFile})`);
-  if (!existsSync(componentPath)) errors.push(`${label}: componente não encontrado (${client.componentFile})`);
-  if (!existsSync(assetsPath)) errors.push(`${label}: diretório de assets não encontrado (${client.assetsDir})`);
+  if (!existsSync(componentPath))
+    errors.push(`${label}: componente não encontrado (${client.componentFile})`);
+  if (!existsSync(assetsPath))
+    errors.push(`${label}: diretório de assets não encontrado (${client.assetsDir})`);
   if (client.assetsDir === "public/images" && !client.legacySharedAssets) {
     errors.push(`${label}: novo cliente precisa de diretório de assets exclusivo`);
   }
@@ -84,4 +101,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`[portfolio-boundaries] OK — ${clients.length} sites de clientes isolados e parametrizados.`);
+console.log(
+  `[portfolio-boundaries] OK — ${clients.length} sites de clientes isolados e parametrizados.`,
+);

@@ -20,10 +20,22 @@ export const Route = createFileRoute("/portfolio/$slug")({
   head: ({ loaderData }) => {
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
     const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Demonstração de site";
-    const description = loaderData?.slug === "emporio-lelecute"
-      ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
-      : loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.";
+    const description =
+      loaderData?.slug === "emporio-lelecute"
+        ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
+        : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
+    const socialImage = absUrl(
+      loaderData?.slug === "rm-fretes"
+        ? "/images/rm-fretes/anuncio-oficial.png"
+        : loaderData?.slug === "emporio-lelecute"
+          ? "/images/emporio-lelecute-og.webp"
+          : loaderData?.slug === "paraiso-do-hot-dog"
+            ? "/images/paraiso-hot-dog-cover.png"
+            : "/images/mestre-dos-servicos-logo.jpg",
+    );
+    const icon =
+      loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage;
     const vertical = loaderData?.vertical;
     const isMarido = loaderData?.slug === "marido-de-aluguel";
     return {
@@ -31,55 +43,74 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { title: `${title} · Portfólio 0WEB` },
         { name: "description", content: description },
         { name: "robots", content: "index,follow,max-image-preview:large" },
-        { name: "keywords", content: isMarido ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial" : (vertical?.keywords ?? "site profissional, criação de sites, SEO local") },
+        {
+          name: "keywords",
+          content: isMarido
+            ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
+        },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:type", content: "website" },
-        { property: "og:site_name", content: "0WEB · Portfólio" },
+        { property: "og:site_name", content: title },
+        { property: "og:image", content: socialImage },
         { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: url },
+        { rel: "icon", href: icon },
+      ],
       scripts: vertical
-        ? [{
-            type: "application/ld+json",
-            children: graph([
-              organizationNode(),
-              {
-                "@type": "WebPage",
-                "@id": url,
-                url,
-                name: `${title} · Portfólio 0WEB`,
-                description,
-                inLanguage: "pt-BR",
-                isPartOf: { "@id": "https://0web.com.br/portfolio" },
-              },
-              {
-                ...serviceNode({
-                  slug: vertical.slug,
-                  name: vertical.name,
-                  keyword: vertical.keywords,
-                  intent: vertical.hero,
-                  services: vertical.services.map((service) => service.to),
-                  hubs: [],
-                  showcases: [],
-                  deliverables: vertical.services.map((service) => service.title),
-                }),
-                "@id": `${url}#service`,
-                url,
-              },
-              ...(isMarido ? [{
-                "@type": "FAQPage",
-                "@id": `${url}#faq`,
-                mainEntity: MARIDO_ALUGUEL_FAQ.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })),
-              }] : []),
-              breadcrumbNode([
-                { name: "Início", path: "/" },
-                { name: "Portfólio", path: "/portfolio" },
-                { name: title, path: `/portfolio/${loaderData?.slug ?? ""}` },
+        ? [
+            {
+              type: "application/ld+json",
+              children: graph([
+                organizationNode(),
+                {
+                  "@type": "WebPage",
+                  "@id": url,
+                  url,
+                  name: `${title} · Portfólio 0WEB`,
+                  description,
+                  inLanguage: "pt-BR",
+                  isPartOf: { "@id": "https://0web.com.br/portfolio" },
+                },
+                {
+                  ...serviceNode({
+                    slug: vertical.slug,
+                    name: vertical.name,
+                    keyword: vertical.keywords,
+                    intent: vertical.hero,
+                    services: vertical.services.map((service) => service.to),
+                    hubs: [],
+                    showcases: [],
+                    deliverables: vertical.services.map((service) => service.title),
+                  }),
+                  "@id": `${url}#service`,
+                  url,
+                },
+                ...(isMarido
+                  ? [
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: MARIDO_ALUGUEL_FAQ.map((faq) => ({
+                          "@type": "Question",
+                          name: faq.q,
+                          acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                breadcrumbNode([
+                  { name: "Início", path: "/" },
+                  { name: "Portfólio", path: "/portfolio" },
+                  { name: title, path: `/portfolio/${loaderData?.slug ?? ""}` },
+                ]),
               ]),
-            ]),
-          }]
+            },
+          ]
         : undefined,
     };
   },
@@ -88,5 +119,20 @@ export const Route = createFileRoute("/portfolio/$slug")({
 
 function PortfolioPrototypePage() {
   const { vertical, slug } = Route.useLoaderData();
-  return <><PortfolioShareButton />{slug === "marido-de-aluguel" ? <MaridoDeAluguelPage /> : slug === "emporio-lelecute" ? <EmporioLelecutePage /> : slug === "paraiso-do-hot-dog" ? <ParaisoHotDogPage /> : slug === "rm-fretes" ? <RMFretesPage /> : <PrototypeSite vertical={vertical} />}</>;
+  return (
+    <>
+      <PortfolioShareButton />
+      {slug === "marido-de-aluguel" ? (
+        <MaridoDeAluguelPage />
+      ) : slug === "emporio-lelecute" ? (
+        <EmporioLelecutePage />
+      ) : slug === "paraiso-do-hot-dog" ? (
+        <ParaisoHotDogPage />
+      ) : slug === "rm-fretes" ? (
+        <RMFretesPage />
+      ) : (
+        <PrototypeSite vertical={vertical} />
+      )}
+    </>
+  );
 }

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils, X } from "lucide-react";
-import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const products = [
@@ -126,7 +127,6 @@ export function ParaisoHotDogPage() {
   const [custom, setCustom] = useState<Record<string, string[]>>({});
   const [delivery, setDelivery] = useState<"retirada" | "entrega">("retirada");
   const [note, setNote] = useState("");
-  const [funnelOpen, setFunnelOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("Todos");
   const total = useMemo(
@@ -138,6 +138,29 @@ export function ParaisoHotDogPage() {
     category === "Todos"
       ? productsWithImages
       : productsWithImages.filter((p) => p.category === category);
+  const orderSummary = products
+    .filter((p) => cart[p.id])
+    .map(
+      (p) =>
+        `${cart[p.id]}x ${p.name}${custom[p.id]?.length ? ` (${custom[p.id].join("/")})` : ""}`,
+    )
+    .join(", ")
+    .concat(` · ${delivery} · R$ ${total.toFixed(2).replace(".", ",")}`)
+    .slice(0, 175);
+  const orderQuiz = {
+    services: [orderSummary || "Meu pedido do cardápio"],
+    experienceOptions: [delivery === "entrega" ? "Entrega" : "Retirada no local"],
+    periodOptions: ["Pix", "Dinheiro", "Cartão de crédito", "Cartão de débito"],
+    timingOptions: ["Assim que possível", "Confirmar previsão no WhatsApp"],
+    stepTitles: {
+      service: "Confira os itens do pedido",
+      experience: "Como você quer receber?",
+      period: "Como prefere pagar?",
+      timing: "Quando deseja receber?",
+      note: "Últimos detalhes do pedido",
+    },
+    notePlaceholder: note || "Informe endereço, referência, troco ou alguma observação.",
+  };
   const toggleExtra = (id: string, extra: string) =>
     setCustom((v) => ({
       ...v,
@@ -334,13 +357,27 @@ export function ParaisoHotDogPage() {
             placeholder="Observação do pedido (opcional)"
             className="mt-4 min-h-20 w-full resize-none rounded-2xl border border-white/15 bg-white/5 p-3 text-sm text-white placeholder:text-[#c9b99e] outline-none focus:border-[#f5bd21]"
           />
-          <button
-            disabled={!count}
-            onClick={() => setFunnelOpen(true)}
-            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#f5bd21] px-5 py-3.5 font-black text-black transition hover:bg-[#ffd34f] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            Continuar pedido <ArrowRight className="h-4 w-4" />
-          </button>
+          {count ? (
+            <PortfolioCTAQuiz
+              clientKey="paraiso-do-hot-dog"
+              studioName="Paraíso do Hot Dog"
+              recipientName="Paraíso do Hot Dog"
+              theme="navy"
+              mode="proposal"
+              service={orderSummary}
+              quizConfig={orderQuiz}
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#f5bd21] px-5 py-3.5 font-black text-black transition hover:bg-[#ffd34f]"
+            >
+              Continuar pedido <ArrowRight className="h-4 w-4" />
+            </PortfolioCTAQuiz>
+          ) : (
+            <button
+              disabled
+              className="mt-4 inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-[#f5bd21] px-5 py-3.5 font-black text-black opacity-40"
+            >
+              Escolha um item para continuar
+            </button>
+          )}
           <p className="mt-3 text-center text-xs text-[#c9b99e]">
             Av. Rui Barbosa · São José dos Pinhais
           </p>
@@ -380,29 +417,14 @@ export function ParaisoHotDogPage() {
           />
         </div>
       )}
-      <FunnelModalWrapper
-        open={funnelOpen}
-        onClose={() => setFunnelOpen(false)}
-        funnelSlug="funnel-paraiso-hot-dog"
-        intent={{
-          purpose: "proposal",
-          source: "portfolio-paraiso-do-hot-dog",
-          pagePath: "/portfolio/paraiso-do-hot-dog",
-          placement: "section",
-          companySlug: "paraiso-do-hot-dog",
-        }}
-        context={{
-          order_total: String(total),
-          order_items: products
-            .filter((p) => cart[p.id])
-            .map(
-              (p) =>
-                `${cart[p.id]}x ${p.name}${custom[p.id]?.length ? ` (${custom[p.id].join(", ")})` : ""}`,
-            )
-            .join(", "),
-          fulfillment: delivery,
-          customer_note: note.slice(0, 280),
-        }}
+      <PortfolioSocialProofPopup
+        clientKey="paraiso-do-hot-dog"
+        eyebrow="Pedido direto"
+        title="Monte seu pedido e envie tudo organizado."
+        description="Itens, entrega e pagamento seguem para o atendimento do Paraíso do Hot Dog."
+        ctaLabel="Ver cardápio"
+        ctaHref="#cardapio"
+        delayMs={8000}
       />
       <PortfolioUpsellPopup pageName="portfolio-paraiso-do-hot-dog" />
     </main>

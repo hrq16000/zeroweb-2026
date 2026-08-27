@@ -33,5 +33,49 @@
     "ctaMode": "booking",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "marido-de-aluguel",
+    "slug": "marido-de-aluguel",
+    "siteName": "Mestre dos Serviços",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MaridoDeAluguelPage.tsx",
+    "assetsDir": "public/images/mestre-dos-servicos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "emporio-lelecute",
+    "slug": "emporio-lelecute",
+    "siteName": "Empório LeleCute",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EmporioLelecutePage.tsx",
+    "assetsDir": "public/images/emporio-lelecute",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "paraiso-do-hot-dog",
+    "slug": "paraiso-do-hot-dog",
+    "siteName": "Paraíso do Hot Dog",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
+    "assetsDir": "public/images/paraiso-do-hot-dog",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "rm-fretes",
+    "slug": "rm-fretes",
+    "siteName": "RM Fretes",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/RMFretesPage.tsx",
+    "assetsDir": "public/images/rm-fretes",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

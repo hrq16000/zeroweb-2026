@@ -35,13 +35,9 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           CONSUME_TOKEN_RATE_MAX,
         } = await import("@/lib/whatsapp-redirect.server");
 
-        const { reportRoutingIncident } = await import(
-          "@/lib/funnel-routing-incidents.server"
-        );
+        const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
 
-        const { supabaseAdmin } = await import(
-          "@/integrations/supabase/client.server"
-        );
+        const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
         // Rate limit by token + ip_hash — allows the reuse window but blocks abuse.
         const ip =
@@ -50,15 +46,12 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           null;
         const ipHash = hashIp(ip) ?? "no-ip";
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const { data: rlOk } = await (supabaseAdmin as any).rpc(
-          "check_and_record_rate_limit",
-          {
-            p_scope: `wa_redirect:${token.slice(0, 16)}`,
-            p_ip_hash: ipHash,
-            p_window_seconds: CONSUME_TOKEN_RATE_WINDOW_S,
-            p_max_hits: CONSUME_TOKEN_RATE_MAX,
-          },
-        );
+        const { data: rlOk } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
+          p_scope: `wa_redirect:${token.slice(0, 16)}`,
+          p_ip_hash: ipHash,
+          p_window_seconds: CONSUME_TOKEN_RATE_WINDOW_S,
+          p_max_hits: CONSUME_TOKEN_RATE_MAX,
+        });
         if (rlOk === false) {
           return htmlErrorPage(
             "Muitas tentativas",
@@ -135,17 +128,18 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           const clientKey = (lead.metadata_json as Record<string, unknown> | null)?.client_key;
           const clientContact =
             typeof clientKey === "string" ? resolvePortfolioWhatsAppContact(clientKey) : null;
-          // Fallback: nenhum funil pode morrer em 503 por falta de número do
-          // cliente. Quando a variável privada do cliente não está configurada,
-          // o atendimento cai na central da 0WEB e o incidente é registrado.
-          const contact = clientContact ?? resolveOperationalWhatsAppContact();
+          // Sites de clientes nunca podem cair no atendimento da 0WEB. Se a
+          // variável privada estiver ausente, falhamos de forma explícita e
+          // registramos o incidente para correção operacional.
+          const contact =
+            typeof clientKey === "string" ? clientContact : resolveOperationalWhatsAppContact();
           if (!clientContact && typeof clientKey === "string") {
             await reportRoutingIncident({
               clientKey,
               leadId: lead.id as string,
               token,
               reason: "missing_client_whatsapp_number",
-              fellBackToCentral: Boolean(contact),
+              fellBackToCentral: false,
             });
           }
           if (!contact) {
@@ -210,9 +204,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             page_title?: string;
             page_context?: Record<string, unknown>;
           } | null;
-          const pageUrl =
-            (session?.page_url as string | null) ??
-            ((meta.page_url as string) ?? null);
+          const pageUrl = (session?.page_url as string | null) ?? (meta.page_url as string) ?? null;
 
           // O contexto do pedido vem da sessão (page_context) e, quando ela
           // não existe/falhou, do próprio lead (order_context) — assim
@@ -225,7 +217,6 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             .slice(0, 8)
             .filter(([, v]) => typeof v === "string" && v)
             .map(([k, v]) => `• ${k}: ${String(v)}`);
-
 
           const cartLines = Array.isArray(session?.cart_snapshot_final)
             ? (session!.cart_snapshot_final as Array<Record<string, unknown>>)
@@ -240,12 +231,16 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
 
           finalMessage = buildWhatsAppLeadMessage({
             protocol: session?.protocol ?? makeProtocol(),
-            brandName: typeof (lead.metadata_json as Record<string, unknown> | null)?.studio_name === "string"
-              ? (lead.metadata_json as Record<string, unknown>).studio_name as string
-              : null,
-            recipientName: typeof (lead.metadata_json as Record<string, unknown> | null)?.recipient_name === "string"
-              ? (lead.metadata_json as Record<string, unknown>).recipient_name as string
-              : null,
+            brandName:
+              typeof (lead.metadata_json as Record<string, unknown> | null)?.studio_name ===
+              "string"
+                ? ((lead.metadata_json as Record<string, unknown>).studio_name as string)
+                : null,
+            recipientName:
+              typeof (lead.metadata_json as Record<string, unknown> | null)?.recipient_name ===
+              "string"
+                ? ((lead.metadata_json as Record<string, unknown>).recipient_name as string)
+                : null,
             funnelName: form?.name ?? null,
             answers: (lead.answers_json ?? {}) as Record<string, unknown>,
             questions,
@@ -257,16 +252,12 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             utmCampaign: session?.utm_campaign ?? null,
             cartSummary: cartLines,
           });
-
         }
 
         // Atomic consume.
         const consumed = await consumeWhatsAppRedirectToken(token);
         if (consumed.status === "not_found") {
-          return htmlErrorPage(
-            "Link inválido",
-            "Volte ao site e envie novamente sua solicitação.",
-          );
+          return htmlErrorPage("Link inválido", "Volte ao site e envie novamente sua solicitação.");
         }
         if (consumed.status === "expired" || consumed.status === "used_out_of_window") {
           const { getProtocolForToken } = await import("@/lib/whatsapp-redirect.server");

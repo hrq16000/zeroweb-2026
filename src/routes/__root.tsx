@@ -201,7 +201,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               ],
             },
             {
-              "@type": "LocalBusiness",
+              "@type": "ProfessionalService",
               "@id": "https://0web.com.br/#localbusiness",
               name: "0WEB",
               image: "https://0web.com.br/favicon.ico",
