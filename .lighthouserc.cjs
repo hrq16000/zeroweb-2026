@@ -19,6 +19,8 @@ module.exports = {
         `${TARGET_URL}/blog/3-palavras-chatgpt-respostas-inteligentes`,
         `${TARGET_URL}/servicos`,
         `${TARGET_URL}/servicos/criacao-de-sites`,
+        `${TARGET_URL}/portfolio`,
+        `${TARGET_URL}/portfolio/rm-fretes`,
       ],
       numberOfRuns: 2,
       settings: {
@@ -28,10 +30,10 @@ module.exports = {
     },
     assert: {
       assertions: {
-        // Category scores
+        // Budgets mínimos — bloqueiam o PR quando quebrados.
         "categories:performance": ["error", { minScore: 0.9 }],
         "categories:seo": ["error", { minScore: 0.95 }],
-        "categories:accessibility": ["warn", { minScore: 0.9 }],
+        "categories:accessibility": ["error", { minScore: 0.95 }],
         "categories:best-practices": ["warn", { minScore: 0.9 }],
 
         // Core Web Vitals (lab proxies; INP estimated via TBT)

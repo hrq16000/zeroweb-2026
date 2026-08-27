@@ -161,7 +161,7 @@ export function Testimonials() {
                 aria-label={`Depoimento ${i + 1} de ${total}`}
               >
                 <Quote className="w-8 h-8 text-primary/40 absolute top-6 right-6" aria-hidden="true" />
-                <div className="flex gap-0.5 text-primary" aria-label="Avaliação 5 de 5 estrelas">
+                <div className="flex gap-0.5 text-primary" role="img" aria-label="Avaliação 5 de 5 estrelas">
                   {Array.from({ length: 5 }).map((_, k) => (
                     <Star key={k} className="w-4 h-4 fill-current" aria-hidden="true" />
                   ))}

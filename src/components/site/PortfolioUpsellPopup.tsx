@@ -1,9 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { X, Sparkles, CalendarClock, Share2 } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { X, Sparkles, CheckCircle2 } from "lucide-react";
 import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
+import {
+  portfolioSlugFromPath,
+  resolvePortfolioUpsellConfig,
+} from "@/lib/portfolio-upsell-config";
 
 const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 
@@ -35,9 +39,23 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const storageKey = `${STORAGE_KEY}:${pageName}`;
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
+  const slug = useMemo(() => portfolioSlugFromPath(routePath), [routePath]);
+  const cfg = useMemo(() => resolvePortfolioUpsellConfig(slug), [slug]);
+  const trackingBase = useMemo(
+    () => ({
+      label: "portfolio_upsell",
+      location: pageName,
+      route: routePath,
+      project: slug,
+      slug,
+      event_category: "engagement" as const,
+    }),
+    [pageName, routePath, slug],
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!cfg.enabled) return;
     if (shouldSuppressPortfolioHostOverlays()) return;
     // Instância única: a rota /portfolio/* renderiza o pop-up por padrão e o
     // site do cliente pode renderizá-lo também; só o primeiro assume.
@@ -46,7 +64,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     ownerRef.current = true;
 
     try {
-      if (sessionStorage.getItem(storageKey) === "1") return;
+      if (cfg.display.oncePerSession && sessionStorage.getItem(storageKey) === "1") return;
     } catch {
       /* noop */
     }
@@ -62,20 +80,14 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       }
       lastFocusRef.current = (document.activeElement as HTMLElement) ?? null;
       setVisible(true);
-      trackEvent("popup_view", {
-        label: "portfolio_upsell",
-        location: pageName,
-        route: routePath,
-        trigger,
-        event_category: "engagement",
-      });
+      trackEvent("popup_view", { ...trackingBase, trigger });
     };
 
-    const t = window.setTimeout(() => fire("timer"), 10000);
+    const t = window.setTimeout(() => fire("timer"), cfg.display.timerMs);
     // Fallback: páginas curtas (sem scroll possível) ou leitura longa sem rolar.
-    const fb = window.setTimeout(() => fire("fallback"), 25000);
+    const fb = window.setTimeout(() => fire("fallback"), cfg.display.fallbackMs);
     const unsub = subscribeScroll((s) => {
-      if (s.pct >= 0.9) fire("scroll");
+      if (s.pct >= cfg.display.scrollPct) fire("scroll");
     });
 
     return () => {
@@ -88,23 +100,17 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       unsub();
 
     };
-  }, [pageName, routePath, storageKey]);
+  }, [cfg, storageKey, trackingBase]);
 
   const close = useCallback(
     (reason: "dismiss" | "cta") => {
       setVisible(false);
       if (reason === "dismiss") {
-        trackEvent("popup_dismiss", {
-          label: "portfolio_upsell",
-          location: pageName,
-          route: routePath,
-          trigger: triggerRef.current,
-          event_category: "engagement",
-        });
+        trackEvent("popup_dismiss", { ...trackingBase, trigger: triggerRef.current });
         lastFocusRef.current?.focus?.();
       }
     },
-    [pageName, routePath],
+    [trackingBase],
   );
 
   // Acessibilidade: ESC + focus trap enquanto o card está visível.
@@ -155,9 +161,13 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
         const ev = (a as { event?: string })?.event;
         if (ev === "funnel_complete") {
           trackConversion("popup_funnel_conversion", {
-            label: "portfolio_upsell",
-            location: pageName,
-            route: routePath,
+            ...trackingBase,
+            trigger: triggerRef.current,
+          });
+        }
+        if (ev === "whatsapp_message_sent" || ev === "whatsapp_redirect") {
+          trackConversion("popup_whatsapp_conversion", {
+            ...trackingBase,
             trigger: triggerRef.current,
           });
         }
@@ -167,13 +177,13 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     return () => {
       dl.push = original;
     };
-  }, [funnelOpen, pageName, routePath]);
+  }, [funnelOpen, trackingBase]);
 
   const funnelModal = (
     <FunnelModalWrapper
       open={funnelOpen}
       onClose={() => setFunnelOpen(false)}
-      funnelSlug="diagnostico-0web"
+      funnelSlug={cfg.funnelSlug}
       intent={{
         purpose: "diagnosis",
         source: `portfolio_upsell_${pageName}`,
@@ -191,6 +201,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       <div className="fixed inset-x-0 bottom-0 z-50 p-3 sm:p-5 pointer-events-none">
         <div
           ref={cardRef}
+          data-testid="portfolio-upsell"
           role="dialog"
           aria-modal="true"
           aria-labelledby="portfolio-upsell-title"
@@ -208,52 +219,53 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
           <div className="pr-12">
             <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary">
-              <Sparkles className="w-3.5 h-3.5" /> Gostou desta página?
+              <Sparkles className="w-3.5 h-3.5" /> {cfg.kicker}
             </p>
             <h2 id="portfolio-upsell-title" className="mt-1.5 text-lg sm:text-xl font-bold leading-snug text-foreground">
-              Tenha seu site profissional com a 0WEB — esta página pode ser a sua também,
-              com domínio <span className="text-primary">.com.br</span> próprio.
+              {cfg.highlight && cfg.title.includes(cfg.highlight)
+                ? (() => {
+                    const [before, ...rest] = cfg.title.split(cfg.highlight);
+                    return (
+                      <>
+                        {before}
+                        <span className="text-primary">{cfg.highlight}</span>
+                        {rest.join(cfg.highlight)}
+                      </>
+                    );
+                  })()
+                : cfg.title}
             </h2>
             <p id="portfolio-upsell-desc" className="mt-2 text-sm text-muted-foreground">
-              Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio,
-              com prazo e valor na hora.
+              {cfg.description}
             </p>
             <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
-              <li className="flex gap-2">
-                <CalendarClock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                Site no ar primeiro: você tem <strong className="text-foreground">até 90 dias para começar a pagar</strong>.
-              </li>
-              <li className="flex gap-2">
-                <Share2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                Redes sociais cuidadas por nós: artes e postagens a partir de{" "}
-                <strong className="text-foreground">4 publicações por mês</strong>.
-              </li>
+              {cfg.bullets.map((bullet) => (
+                <li key={bullet} className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true" />
+                  {bullet}
+                </li>
+              ))}
             </ul>
 
             <div className="mt-4 flex flex-wrap gap-2">
               <button
                 type="button"
+                data-testid="portfolio-upsell-cta"
                 onClick={() => {
-                  trackEvent("cta_click", {
-                    label: "portfolio_upsell",
-                    location: pageName,
-                    route: routePath,
-                    trigger: triggerRef.current,
-                    event_category: "engagement",
-                  });
+                  trackEvent("cta_click", { ...trackingBase, trigger: triggerRef.current });
                   close("cta");
                   setFunnelOpen(true);
                 }}
                 className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ring outline-none active:scale-95 transition"
               >
-                Quero meu site — ver condições
+                {cfg.ctaLabel}
               </button>
               <button
                 type="button"
                 onClick={() => close("dismiss")}
                 className="inline-flex min-h-11 items-center justify-center rounded-full px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring outline-none transition"
               >
-                Agora não
+                {cfg.dismissLabel}
               </button>
             </div>
           </div>

@@ -267,8 +267,10 @@ export function SmartServiceSearch({
             }
           }}
           placeholder={livePlaceholder}
+          role="combobox"
           aria-autocomplete="list"
           aria-expanded={showPanel}
+          aria-controls="smart-service-search-listbox"
           style={{ fontSize: `${fontPx}px` }}
           className="w-full h-14 pl-12 pr-12 rounded-2xl border-2 border-border bg-card shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition placeholder:text-muted-foreground/80"
         />
@@ -294,7 +296,7 @@ export function SmartServiceSearch({
       {showPanel && (
         <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 rounded-2xl border border-border bg-popover shadow-2xl overflow-hidden animate-fade-in">
           {suggestions.length > 0 ? (
-            <ul role="listbox" className="max-h-[60vh] overflow-y-auto">
+            <ul id="smart-service-search-listbox" role="listbox" className="max-h-[60vh] overflow-y-auto">
               {suggestions.map((s, i) => (
                 <li key={s.slug} role="option" aria-selected={i === highlight}>
                   <Link

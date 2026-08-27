@@ -453,7 +453,7 @@ function ServicosHub() {
                       aria-label={`Ver detalhes do serviço ${s.name}`}
                     >
                       {newSet.has(s.slug) && (
-                        <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-md">
+                        <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-700 text-white text-[10px] font-bold uppercase tracking-wider shadow-md">
                           <Sparkles className="w-3 h-3" /> Novo
                         </span>
                       )}
@@ -489,7 +489,7 @@ function ServicosHub() {
                                       : isGmn
                                         ? `Plano Único R$ ${Number(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 0 })}`
                                       : `R$ ${Number(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 0 })}`}
-                                    {!isTrafegoPago && !isGmn && s.pricePeriod ? <span className="opacity-70">/{s.pricePeriod}</span> : null}
+                                    {!isTrafegoPago && !isGmn && s.pricePeriod ? <span className="font-medium">/{s.pricePeriod}</span> : null}
                                   </span>
                                 )}
                                 {s.deliveryDays && (

@@ -117,7 +117,7 @@ export function ThankYouModal({ open, onOpenChange, source }: Props) {
           </div>
           {content.testimonials[0] && (
             <figure className="border-t border-border/60 pt-2">
-              <div className="flex gap-0.5 text-yellow-500 mb-1" aria-label="5 estrelas">
+              <div className="flex gap-0.5 text-yellow-500 mb-1" role="img" aria-label="5 estrelas">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}

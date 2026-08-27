@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-08-27T21:29:40.247Z",
+  "report": [
+    {
+      "route": "/",
+      "violations": []
+    },
+    {
+      "route": "/servicos",
+      "violations": []
+    }
+  ]
+}

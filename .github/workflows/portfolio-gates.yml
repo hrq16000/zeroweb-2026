@@ -1,0 +1,96 @@
+name: portfolio-gates
+
+# Portões obrigatórios do playbook (docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md).
+# Todo PR que toca /portfolio, o design system ou os validadores passa por aqui
+# antes de qualquer publicação.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  static-gates:
+    name: Testes, tipos e validadores estáticos
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Install (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        run: bunx tsc --noEmit
+
+      - name: Unit tests
+        run: bun test
+
+      - name: validate:portfolio-boundaries
+        run: bun run validate:portfolio-boundaries
+
+      - name: validate:portfolio-meta
+        run: bun run validate:portfolio-meta
+
+      - name: validate:portfolio-scaffold
+        run: bun run validate:portfolio-scaffold
+
+  runtime-gates:
+    name: Pop-up, funis, acessibilidade e regressão visual
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    needs: static-gates
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Install (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Install Chromium
+        run: bunx playwright install --with-deps chromium
+
+      - name: Build
+        run: bun run build
+
+      - name: Start preview server
+        run: |
+          bun run preview --port 8080 &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:8080/ && break; sleep 2; done
+
+      - name: Pop-up único em /portfolio/$slug
+        env:
+          E2E_BASE_URL: http://localhost:8080
+        run: bun run test:e2e:portfolio-popup
+
+      - name: Funis individuais de portfólio
+        env:
+          E2E_BASE_URL: http://localhost:8080
+        run: bun run test:e2e:portfolio-funnels
+
+      - name: Acessibilidade (axe-core)
+        env:
+          E2E_BASE_URL: http://localhost:8080
+        run: bun run audit:a11y
+
+      - name: Regressão visual
+        env:
+          E2E_BASE_URL: http://localhost:8080
+        run: bun run test:visual
+
+      - name: Upload evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-gates-evidence
+          path: |
+            seo-reports/a11y-report.json
+            seo-reports/visual
+            seo-reports/popup-shots
+          if-no-files-found: ignore

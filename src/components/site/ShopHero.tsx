@@ -90,6 +90,8 @@ export function ShopHero({ slides, intervalMs = 7000 }: Props) {
             <div
               key={s.id}
               aria-hidden={!active}
+              // React 19: `inert` remove foco/AT dos slides inativos (axe: aria-hidden-focus).
+              inert={!active}
               className="absolute inset-0 transition-opacity duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[opacity,transform]"
               style={{
                 opacity: active ? 1 : 0,
