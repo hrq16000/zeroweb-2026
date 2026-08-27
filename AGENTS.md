@@ -1,4 +1,23 @@
+# AGENTS.md — router do 0WEB
+
+Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
+`.agents/skills/0web-skill-router/SKILL.md` e monte o skill stack.
+
+| Preciso de | Leia |
+|---|---|
+| Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
+| Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
+| Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
+| Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` |
+| Novo cliente em `/portfolio` | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` · `docs/PORTFOLIO_CLIENT_STANDARD.md` |
+| Funis | `docs/PORTFOLIO_FUNNELS.md` |
+
+Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
+`docs/skills/CHANGELOG.md`.
+
 # Regra oficial da zona de portfolios
+
 
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 `docs/PORTFOLIO_CLIENT_STANDARD.md` e execute `npm run validate:portfolio-boundaries`.
