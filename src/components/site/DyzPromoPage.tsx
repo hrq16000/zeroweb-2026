@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
   ArrowRight,
@@ -16,6 +17,7 @@ import {
   Target,
   Timer,
   Users,
+  X,
 } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
@@ -76,6 +78,14 @@ const regionalCoverage = [
   { title: "Região metropolitana", text: "Pinhais, São José dos Pinhais, Piraquara, Colombo e cidades próximas.", image: "/images/dyzpromo/cancela-mall.jpeg", badge: "Sob consulta" },
   { title: "Rotas sob medida", text: "Definimos os pontos conforme o público, o objetivo e o raio da campanha.", image: "/images/dyzpromo/faixa-equipe.jpeg", badge: "Planejamento" },
 ];
+
+function DyzImage({ src, alt, className = "", imageClassName = "" }: { src: string; alt: string; className?: string; imageClassName?: string }) {
+  return (
+    <button type="button" className={`group/dyz-image relative block w-full overflow-hidden text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f7c948] ${className}`} onClick={() => window.dispatchEvent(new CustomEvent("dyz:open-image", { detail: { src, alt } }))} aria-label={`Ampliar imagem: ${alt}`}>
+      <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} />
+    </button>
+  );
+}
 
 const impactPoints = [
   { icon: Target, value: "Público certo", text: "Ação desenhada para o bairro e o perfil da sua oferta." },
@@ -145,6 +155,12 @@ function DyzFloatingCTA() {
 }
 
 export function DyzPromoPage() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  useEffect(() => {
+    const open = (event: Event) => setLightbox((event as CustomEvent<{ src: string; alt: string }>).detail);
+    window.addEventListener("dyz:open-image", open);
+    return () => window.removeEventListener("dyz:open-image", open);
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <DyzHeader />
@@ -182,9 +198,9 @@ export function DyzPromoPage() {
             <motion.div initial={{ opacity: 0, scale: 0.94, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} whileHover={{ y: -6 }} className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-[#1e5edb]/20 blur-2xl" aria-hidden="true" />
               <div className="relative grid grid-cols-5 grid-rows-5 gap-3 rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-sm">
-                <img src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 h-full min-h-40 w-full rounded-2xl object-cover object-top sm:min-h-48" />
-                <img src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 h-full min-h-28 w-full rounded-2xl object-cover object-top sm:min-h-32" />
-                <img src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 h-full min-h-40 w-full rounded-2xl object-cover object-top sm:min-h-48" />
+                <DyzImage src="/images/dyzpromo/faixa-equipe.jpeg" alt="Equipe D.Y.Z Promo em ação de rua" className="col-span-3 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
+                <DyzImage src="/images/dyzpromo/panfletagem-semaforo.jpeg" alt="Panfletagem D.Y.Z Promo no trânsito" className="col-span-2 row-span-2 min-h-28 rounded-2xl bg-slate-950/30 sm:min-h-32" />
+                <DyzImage src="/images/dyzpromo/cancela-mall.jpeg" alt="Ação D.Y.Z Promo em centro comercial" className="col-span-2 row-span-3 min-h-40 rounded-2xl bg-slate-950/30 sm:min-h-48" />
                 <div className="col-span-3 row-span-2 flex flex-col justify-center rounded-2xl bg-[#f7c948] p-5 text-[#10295d] shadow-lg"><p className="text-3xl font-black leading-none">+ alcance</p><p className="mt-2 text-sm font-semibold">presença que sua oferta merece.</p></div>
               </div>
             </motion.div>
@@ -212,7 +228,7 @@ export function DyzPromoPage() {
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {services.map(({ icon: Icon, title, text, image }, index) => (
                 <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -7, scale: 1.015 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: index * 0.07, duration: 0.45 }} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/50 hover:shadow-elegant">
-                  <div className="relative aspect-[16/10] overflow-hidden sm:aspect-auto sm:h-32"><img src={image} alt={title + " — D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 sm:aspect-auto sm:h-32"><DyzImage src={image} alt={title + " — D.Y.Z Promo"} className="absolute inset-0" /><div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/55 to-transparent" /><div className="absolute bottom-3 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[#f7c948] text-[#10295d]"><Icon className="h-5 w-5" aria-hidden="true" /></div></div>
                   <div className="p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></div>
                 </motion.article>
               ))}
@@ -253,7 +269,7 @@ export function DyzPromoPage() {
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {regionalCoverage.map(({ title, text, image, badge }, index) => (
                 <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: index * 0.08 }} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative aspect-[16/10] overflow-hidden sm:aspect-auto sm:h-56"><img src={image} alt={title + " — cobertura D.Y.Z Promo"} loading="lazy" className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" /><div className="absolute bottom-4 left-5 flex items-center gap-2 text-lg font-bold text-white"><MapPin className="h-5 w-5 text-emerald-300" aria-hidden="true" />{title}</div></div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 sm:aspect-auto sm:h-56"><DyzImage src={image} alt={title + " — cobertura D.Y.Z Promo"} className="absolute inset-0" /><div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" /><div className="absolute bottom-4 left-5 flex items-center gap-2 text-lg font-bold text-white"><MapPin className="h-5 w-5 text-emerald-300" aria-hidden="true" />{title}</div></div>
                   <div className="p-5"><p className="text-sm leading-relaxed text-slate-600">{text}</p><span className="mt-4 inline-flex rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700">{badge}</span></div>
                 </motion.article>
               ))}
@@ -342,7 +358,7 @@ export function DyzPromoPage() {
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {gallery.map((photo) => (
                 <figure key={photo.src} className="group overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-lg">
-                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover object-top transition duration-500 group-hover:scale-105 sm:aspect-[4/3]" />
+                  <DyzImage src={photo.src} alt={photo.alt} className="aspect-[4/3] bg-slate-950/20" />
                 </figure>
               ))}
             </div>
@@ -390,6 +406,7 @@ export function DyzPromoPage() {
           </div>
         </section>
       </main>
+      {lightbox && <div className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={() => setLightbox(null)}><button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20" aria-label="Fechar imagem"><X className="h-6 w-6" /></button><img src={lightbox.src} alt={lightbox.alt} className="max-h-[92vh] max-w-full object-contain" onClick={(event) => event.stopPropagation()} /></div>}
       <PortfolioSocialProofPopup clientKey="dyzpromo" eyebrow="D.Y.Z em campo" title="Campanhas para restaurantes, varejo, imóveis, estética e tecnologia." description="Experiência prática em Curitiba e região, com equipe orientada para cada ação." ctaLabel="Ver marcas atendidas" ctaHref="#clientes" delayMs={5000} className="border-white/15 bg-[#071b49]/95 text-white" accentClassName="text-[#f7c948]" />
       <PortfolioUpsellPopup pageName="dyzpromo" />
       <DyzFloatingCTA />
