@@ -95,7 +95,7 @@ const PORTFOLIO_ITEMS = [
   {
     id: "clinica-sorriso",
     live: false,
-    slug: "/sites/clinicas",
+    slug: "/portfolio/clinica-integrada",
     category: "saude",
     title: "Clínica Integrada de Saúde",
     subtitle: "Odontologia, Harmonização & Implantes",
@@ -109,7 +109,7 @@ const PORTFOLIO_ITEMS = [
   {
     id: "advocacia-pro",
     live: false,
-    slug: "/sites/advocacia",
+    slug: "/portfolio/almeida-torres",
     category: "juridico",
     title: "Escritório de Advocacia & Consultoria",
     subtitle: "Direito Empresarial, Trabalhista e Previdenciário",
@@ -123,7 +123,7 @@ const PORTFOLIO_ITEMS = [
   {
     id: "restaurante-express",
     live: false,
-    slug: "/sites/restaurantes",
+    slug: "/portfolio/casa-nativa",
     category: "servicos",
     title: "Bistrô & Gastronomia Artesanal",
     subtitle: "Cardápio Digital, Reservas & Delivery",

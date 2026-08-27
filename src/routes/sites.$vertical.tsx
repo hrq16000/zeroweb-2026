@@ -6,7 +6,7 @@ import { TrustStrip } from "@/components/site/TrustStrip";
 import { absUrl } from "@/lib/seo";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 
-type VerticalConfig = {
+export type VerticalConfig = {
   slug: string;
   name: string;
   hero: string;
@@ -16,7 +16,7 @@ type VerticalConfig = {
   keywords: string;
 };
 
-const VERTICALS: Record<string, VerticalConfig> = {
+export const VERTICALS: Record<string, VerticalConfig> = {
   restaurantes: {
     slug: "restaurantes",
     name: "Restaurantes e Food Service",
@@ -327,7 +327,7 @@ function VerticalHub() {
   );
 }
 
-function PrototypeSite({ vertical: v }: { vertical: VerticalConfig }) {
+export function PrototypeSite({ vertical: v }: { vertical: VerticalConfig }) {
   const isClinic = v.slug === "clinicas";
   const isLaw = v.slug === "advocacia";
   const data = isClinic
