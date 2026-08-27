@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { TrustStrip } from "@/components/site/TrustStrip";
 import { absUrl } from "@/lib/seo";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 export type VerticalConfig = {
   slug: string;
@@ -376,6 +377,7 @@ export function PrototypeSite({ vertical: v }: { vertical: VerticalConfig }) {
         <section id="sobre" className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8"><div><p className="text-sm font-bold uppercase tracking-[.18em]" style={{ color: data.accent }}>A diferença está no jeito</p><h2 className="mt-3 font-display text-4xl font-semibold">Presença, cuidado e confiança em cada detalhe.</h2></div><div className="space-y-5 text-lg leading-8 opacity-75"><p>Este protótipo foi pensado para transformar a identidade do negócio em uma jornada digital clara, elegante e preparada para gerar contato.</p><div className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5" style={{ color: data.accent }} /> Resposta rápida e atendimento próximo</div><div className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5" style={{ color: data.accent }} /> Conteúdo claro para ajudar na decisão</div></div></section>
         <section id="contato" className="px-5 pb-20 lg:px-8"><div className="mx-auto max-w-6xl rounded-[2rem] p-8 text-white sm:p-12" style={{ background: data.accent }}><div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end"><div><p className="text-sm font-bold uppercase tracking-[.18em] text-white/70">Vamos conversar</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-semibold">O próximo passo começa com uma mensagem.</h2></div><a href="/contato" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold" style={{ color: data.accent }}>{data.cta} <ArrowRight className="h-4 w-4" /></a></div><div className="mt-10 flex flex-wrap gap-5 border-t border-white/20 pt-5 text-sm text-white/80"><span><Phone className="mr-2 inline h-4 w-4" />Atendimento por formulário e WhatsApp</span><span><Clock3 className="mr-2 inline h-4 w-4" />Seg–Sex · 8h às 18h</span><span><MapPin className="mr-2 inline h-4 w-4" />Atendimento presencial e online</span></div></div></section>
       </main>
+      <PortfolioUpsellPopup pageName={`portfolio-prototype-${v.slug}`} />
     </div>
   );
 }
