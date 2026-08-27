@@ -1,6 +1,6 @@
 import { useState, type ComponentProps } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
+import {
   Sparkles, 
   Clock, 
   MapPin, 
@@ -18,6 +18,7 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";

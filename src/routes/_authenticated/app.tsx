@@ -9,7 +9,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
 import { getMyProfile, listMyNotifications } from "@/lib/clientarea.functions";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export const Route = createFileRoute("/_authenticated/app")({
   component: AppShell,
@@ -183,9 +182,7 @@ function AppShell() {
               </button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 w-72 flex flex-col">
-              <VisuallyHidden>
-                <SheetTitle>Navegação</SheetTitle>
-              </VisuallyHidden>
+              <SheetTitle className="sr-only">Navegação</SheetTitle>
               <div className="px-5 py-5 border-b border-border">
                 <Link to="/" className="text-lg font-bold font-display" onClick={() => setMobileOpen(false)}>
                   0WEB

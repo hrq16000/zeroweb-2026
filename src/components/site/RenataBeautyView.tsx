@@ -23,6 +23,7 @@ import {
   Zap,
   CheckCircle2
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";

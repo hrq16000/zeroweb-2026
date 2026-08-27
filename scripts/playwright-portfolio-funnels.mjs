@@ -14,6 +14,7 @@ import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
+const configuredBrowser = process.env.E2E_BROWSER_PATH;
 
 const TARGETS = [
   { path: "/portfolio/paraiso-do-hot-dog", cta: /Continuar pedido/i, prepare: "cart" },
@@ -35,7 +36,12 @@ const installed = existsSync(root)
 
 const browser = await chromium.launch({
   headless: true,
-  executablePath: existsSync(bundled) ? bundled : installed,
+  executablePath:
+    configuredBrowser && existsSync(configuredBrowser)
+      ? configuredBrowser
+      : existsSync(bundled)
+        ? bundled
+        : installed,
 });
 
 const failures = [];
