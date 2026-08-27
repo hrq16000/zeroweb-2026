@@ -15,28 +15,10 @@ import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocia
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-export const MARIDO_ALUGUEL_FAQ = [
-  {
-    q: "O que faz um marido de aluguel?",
-    a: "Resolve pequenos reparos e melhorias residenciais, como instalações, ajustes hidráulicos, pintura, montagem e manutenção preventiva.",
-  },
-  {
-    q: "Atende em Curitiba e região?",
-    a: "Sim. O atendimento pode ser organizado por cidade, bairro e tipo de serviço, conforme disponibilidade do profissional.",
-  },
-  {
-    q: "Como recebo um orçamento?",
-    a: "Envie o que precisa pelo formulário seguro. A equipe confirma os detalhes, a localização e retorna com prazo e faixa de investimento.",
-  },
-  {
-    q: "O serviço tem garantia?",
-    a: "A garantia e as condições são informadas antes da execução, de acordo com o profissional e o tipo de reparo contratado.",
-  },
-  {
-    q: "Posso contratar mais de um reparo na mesma visita?",
-    a: "Sim. Liste todos os reparos no briefing para que o profissional avalie materiais, tempo e a melhor sequência de execução.",
-  },
-];
+import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
+
+export { MARIDO_ALUGUEL_FAQ };
+
 
 const services = [
   ["Instalações", "Prateleiras, suportes, varais, cortinas, luminárias e acessórios."],
