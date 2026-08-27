@@ -117,8 +117,19 @@ const submitSchema = z.object({
       // Chave do cliente de portfólio: roteia o lead para o WhatsApp privado
       // do cliente (resolvido apenas no servidor).
       client_key: z.enum(PORTFOLIO_CLIENT_KEYS).optional(),
+      // Contexto de carrinho/pedido preservado em todas as transições.
+      order_context: z
+        .object({
+          order_items: z.string().max(2000).optional(),
+          order_total: z.string().max(40).optional(),
+          fulfillment: z.string().max(60).optional(),
+          customer_note: z.string().max(280).optional(),
+        })
+        .partial()
+        .optional(),
     })
     .optional(),
+
 });
 
 async function lookupGeo(ip: string | null): Promise<Record<string, unknown>> {
