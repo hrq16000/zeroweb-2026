@@ -50,6 +50,20 @@ const CATEGORIES = [
 
 const PORTFOLIO_ITEMS = [
   {
+    id: "marido-de-aluguel",
+    live: true,
+    slug: "/portfolio/marido-de-aluguel",
+    category: "servicos",
+    title: "Marido de Aluguel",
+    subtitle: "Reparos Residenciais & Manutenção",
+    location: "Curitiba e região — PR",
+    badge: "Site demonstrativo",
+    image: "https://images.unsplash.com/photo-1581147036324-c17ac41f7b4a?auto=format&fit=crop&w=1000&q=80",
+    tags: ["Reparos", "Instalações", "Manutenção Local"],
+    metrics: "SEO local",
+    summary: "Landing page estruturada para captar pedidos de pequenos reparos, instalações e manutenção residencial por cidade e bairro.",
+  },
+  {
     id: "dyzpromo",
     live: true,
     slug: "/portfolio/dyzpromo",
@@ -62,6 +76,20 @@ const PORTFOLIO_ITEMS = [
     tags: ["Panfletagem", "Ações de Rua", "Brindes", "Marketing Promocional"],
     metrics: "Presença local",
     summary: "Página demonstrativa criada para apresentar a operação de divulgação da D.Y.Z Promo, com cobertura por bairros e contato direto para orçamento.",
+  },
+  {
+    id: "emporio-lelecute",
+    live: true,
+    slug: "/portfolio/emporio-lelecute",
+    category: "servicos",
+    title: "Empório LeleCute",
+    subtitle: "Lembrancinhas Artesanais & Presentes Personalizados",
+    location: "São José dos Pinhais — PR",
+    badge: "Site demonstrativo",
+    image: "https://emporiolelecute.com.br/favicon.ico",
+    tags: ["Sabonetes", "Mini-velas", "Casamentos", "Presentes"],
+    metrics: "Catálogo local",
+    summary: "Experiência editorial para apresentar criações artesanais, ocasiões especiais e orçamento personalizado.",
   },
   {
     id: "renata-beauty",
@@ -94,13 +122,13 @@ const PORTFOLIO_ITEMS = [
   },
   {
     id: "clinica-sorriso",
-    live: false,
+    live: true,
     slug: "/portfolio/clinica-integrada",
     category: "saude",
     title: "Clínica Integrada de Saúde",
     subtitle: "Odontologia, Harmonização & Implantes",
     location: "Curitiba — PR",
-    badge: "Modelo 0WEB",
+    badge: "Site demonstrativo",
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
     tags: ["Agendamento Online", "SEO Local", "Google Meu Negócio"],
     metrics: "Modelo ilustrativo",
@@ -108,13 +136,13 @@ const PORTFOLIO_ITEMS = [
   },
   {
     id: "advocacia-pro",
-    live: false,
+    live: true,
     slug: "/portfolio/almeida-torres",
     category: "juridico",
     title: "Escritório de Advocacia & Consultoria",
     subtitle: "Direito Empresarial, Trabalhista e Previdenciário",
     location: "São Paulo — SP",
-    badge: "Modelo 0WEB",
+    badge: "Site demonstrativo",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
     tags: ["Provimento 205 OAB", "Artigos Jurídicos", "Formulário LGPD"],
     metrics: "Modelo ilustrativo",
@@ -122,13 +150,13 @@ const PORTFOLIO_ITEMS = [
   },
   {
     id: "restaurante-express",
-    live: false,
+    live: true,
     slug: "/portfolio/casa-nativa",
     category: "servicos",
     title: "Bistrô & Gastronomia Artesanal",
     subtitle: "Cardápio Digital, Reservas & Delivery",
     location: "Belo Horizonte — MG",
-    badge: "Modelo 0WEB",
+    badge: "Site demonstrativo",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
     tags: ["Cardápio Interativo", "Sem Taxas de iFood", "Google Maps"],
     metrics: "Modelo ilustrativo",
@@ -211,7 +239,7 @@ function PortfolioPage() {
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
           <div className="container max-w-6xl mx-auto px-4 py-3">
-            <Breadcrumbs items={[{ name: "Início", path: "/" }, { name: "Portfólio", path: "/portfolio" }]} />
+            <Breadcrumbs items={[{ name: "Portfólio", path: "/portfolio" }]} />
           </div>
         </div>
 
@@ -230,14 +258,11 @@ function PortfolioPage() {
               Veja landing pages e portfólios desenvolvidos com design moderno, SEO de alta performance e integração direta para faturar no WhatsApp.
             </p>
 
-            {/* Quick CTA */}
+            {/* CTA neutro: o catálogo não privilegia nenhum cliente. */}
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
               <FunnelCTAButton label="Quero Meu Site em 24h" className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary hover:opacity-95 transition-opacity shadow-lg" />
-              <a 
-                href="/portfolio/renata-beauty" 
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 text-sm font-semibold transition-all"
-              >
-                <Sparkles className="w-4 h-4 text-pink-500" /> Ver Destaque: Renata Beauty
+              <a href="#catalogo" className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border text-foreground hover:border-primary hover:text-primary text-sm font-semibold transition-all">
+                Explorar o catálogo <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -263,8 +288,14 @@ function PortfolioPage() {
         </section>
 
         {/* Projects Showcase Grid */}
-        <section className="py-16 px-4">
+        <section id="catalogo" className="py-16 px-4">
           <div className="container max-w-6xl mx-auto space-y-12">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Resumo do catálogo">
+              <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{PORTFOLIO_ITEMS.length}</p><p className="mt-1 text-xs text-muted-foreground">projetos catalogados</p></div>
+              <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{CATEGORIES.length - 1}</p><p className="mt-1 text-xs text-muted-foreground">segmentos</p></div>
+              <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{PORTFOLIO_ITEMS.filter((item) => item.live).length}</p><p className="mt-1 text-xs text-muted-foreground">sites publicados</p></div>
+              <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">Neutro</p><p className="mt-1 text-xs text-muted-foreground">catálogo sem destaque</p></div>
+            </div>
             
             <div className="grid md:grid-cols-2 gap-8">
               <AnimatePresence>
@@ -336,7 +367,7 @@ function PortfolioPage() {
                           to={item.slug}
                           className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
                         >
-                          Ver {item.live ? "site ao vivo" : "modelo"} <ExternalLink className="w-4 h-4" />
+                          Ver site <ExternalLink className="w-4 h-4" />
                         </Link>
 
                         <FunnelCTAButton label="Pedir Igual" className="inline-flex items-center gap-2 rounded-full border border-primary/30 text-primary font-semibold px-4 py-2 text-sm hover:bg-primary/10 transition-colors" />
@@ -409,19 +440,13 @@ function PortfolioPage() {
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/85 p-3 backdrop-blur-sm sm:p-6" role="dialog" aria-modal="true" aria-labelledby="portfolio-preview-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedIndex(null); }}>
           <div className="relative flex h-[min(92vh,860px)] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/15 bg-background shadow-2xl">
             <div className="flex items-center justify-between gap-3 border-b border-border/60 px-4 py-3 sm:px-6">
-              <div className="min-w-0"><p className="text-xs font-semibold uppercase tracking-wider text-primary">{selectedItem.live ? "Preview do portfólio" : "Modelo ilustrativo"}</p><h2 id="portfolio-preview-title" className="truncate text-lg font-bold sm:text-xl">{selectedItem.title}</h2></div>
+              <div className="min-w-0"><p className="text-xs font-semibold uppercase tracking-wider text-primary">Site dentro do portfólio</p><h2 id="portfolio-preview-title" className="truncate text-lg font-bold sm:text-xl">{selectedItem.title}</h2></div>
               <button type="button" onClick={() => setSelectedIndex(null)} className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-muted text-foreground hover:bg-muted/70" aria-label="Fechar preview"><X className="h-5 w-5" /></button>
             </div>
             <div className="relative min-h-0 flex-1 bg-muted">
               {selectedItem.live ? (
                 <iframe key={selectedItem.slug} src={`${selectedItem.slug}?preview=1&v=20260826`} title={`Preview de ${selectedItem.title}`} referrerPolicy="no-referrer" className="h-full w-full border-0" />
-              ) : (
-                <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
-                  <img src={selectedItem.image} alt="" className="max-h-64 w-full max-w-xl rounded-2xl object-cover" />
-                  <p className="max-w-md text-sm text-muted-foreground">Este card é um modelo da 0WEB, não o site de um cliente. Use-o como referência de segmento.</p>
-                  <Link to={selectedItem.slug} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">Ver modelo</Link>
-                </div>
-              )}
+              ) : null}
             </div>
             <div className="flex items-center justify-between gap-3 border-t border-border/60 px-4 py-3 sm:px-6">
               <button type="button" onClick={() => setSelectedIndex((selectedIndex - 1 + filteredItems.length) % filteredItems.length)} className="inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted"><ChevronLeft className="h-4 w-4" /> Anterior</button>

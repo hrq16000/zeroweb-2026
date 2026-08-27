@@ -162,7 +162,7 @@ export function RenataBeautyView() {
 
   return (
     <div 
-      className="min-h-screen bg-[#0B0609] text-[#F9F5F7] font-sans selection:bg-[#E6007A] selection:text-white relative overflow-hidden"
+      className="portfolio-theme-renata min-h-screen bg-[#0B0609] text-[#F9F5F7] font-sans selection:bg-[#E6007A] selection:text-white relative overflow-hidden"
       onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
     >
       

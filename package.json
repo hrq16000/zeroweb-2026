@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "test": "bun test",
-    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs",
+    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-meta.mjs",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",

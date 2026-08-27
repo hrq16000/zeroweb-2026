@@ -162,7 +162,7 @@ export function DyzPromoPage() {
     return () => window.removeEventListener("dyz:open-image", open);
   }, []);
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="portfolio-theme-dyz min-h-screen bg-background text-foreground">
       <DyzHeader />
       <main>
         <section id="inicio" className="relative overflow-hidden bg-[#061536] text-white pt-32 pb-20 sm:pt-40 sm:pb-28">

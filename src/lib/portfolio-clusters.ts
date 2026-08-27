@@ -86,6 +86,16 @@ export const PORTFOLIO_SEGMENTS: PortfolioSegment[] = [
       "Carregamento em menos de 1 segundo",
     ],
   },
+  {
+    slug: "marido-de-aluguel",
+    name: "Marido de Aluguel",
+    keyword: "marido de aluguel, reparos residenciais e manutenção residencial",
+    intent: "resolver pequenos reparos com orçamento claro e atendimento local",
+    services: ["/portfolio/marido-de-aluguel", "/servicos/presenca-digital-google"],
+    hubs: ["/areas-de-atendimento", "/portfolio"],
+    showcases: [{ path: "/portfolio/marido-de-aluguel", label: "Serviços de marido de aluguel" }],
+    deliverables: ["Instalações e montagens", "Reparos hidráulicos simples", "Pintura e acabamento", "Manutenção preventiva"],
+  },
 ];
 
 export function findPortfolioSegment(slug: string) {

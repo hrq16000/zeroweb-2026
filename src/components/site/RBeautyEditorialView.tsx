@@ -36,7 +36,7 @@ export function RBeautyEditorialView() {
   const [activeTab, setActiveTab] = useState<"cilios" | "unhas" | "sobrancelhas">("cilios");
 
   return (
-    <div className="min-h-screen bg-[#0C0A0B] text-[#F5F2F0] font-sans selection:bg-[#D4AF37] selection:text-black relative overflow-hidden">
+    <div className="portfolio-theme-rbeauty min-h-screen bg-[#0C0A0B] text-[#F5F2F0] font-sans selection:bg-[#D4AF37] selection:text-black relative overflow-hidden">
       
       {/* Background Ambient Lights */}
       <div className="fixed top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-b from-[#D4AF37]/10 via-[#C07D7B]/10 to-transparent rounded-full blur-[140px] pointer-events-none -z-10" />

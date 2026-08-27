@@ -43,6 +43,12 @@
 :root {
   --radius: 0.875rem;
 
+  /* Scrollbar global: a interface mantém o azul 0WEB por padrão. As páginas
+     de clientes sobrescrevem estes tokens através dos temas abaixo. */
+  --scrollbar-thumb: oklch(0.58 0.24 262);
+  --scrollbar-thumb-hover: oklch(0.48 0.22 262);
+  --scrollbar-track: oklch(0.96 0.008 248);
+
   --background: oklch(1 0 0);
   --surface: oklch(0.984 0.005 248);
   --foreground: oklch(0.20 0.04 260);
@@ -92,6 +98,45 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overscroll-behavior-y: none;
+  }
+  html {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+  }
+  html::-webkit-scrollbar { width: 11px; height: 11px; }
+  html::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+  html::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border: 3px solid var(--scrollbar-track);
+    border-radius: 999px;
+  }
+  html::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+  /* Temas são ativados pela presença do wrapper da página, sem expor a
+     identidade de um cliente em componentes compartilhados. */
+  :root:has(.portfolio-theme-dyz) {
+    --scrollbar-thumb: #f7c948;
+    --scrollbar-thumb-hover: #ffe08a;
+    --scrollbar-track: #061536;
+  }
+  :root:has(.portfolio-theme-renata) {
+    --scrollbar-thumb: #e6007a;
+    --scrollbar-thumb-hover: #ff4ca6;
+    --scrollbar-track: #180e15;
+  }
+  :root:has(.portfolio-theme-rbeauty) {
+    --scrollbar-thumb: #d4af37;
+    --scrollbar-thumb-hover: #e5c378;
+    --scrollbar-track: #0c0a0b;
+  }
+  :root:has(.portfolio-theme-prototype) {
+    --scrollbar-thumb: var(--primary);
+    --scrollbar-thumb-hover: var(--primary);
+    --scrollbar-track: var(--muted);
+  }
+  :root:has(.portfolio-theme-emporio) {
+    --scrollbar-thumb: #a55d4f;
+    --scrollbar-thumb-hover: #c47a68;
+    --scrollbar-track: #f1dfcf;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);

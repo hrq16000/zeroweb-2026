@@ -361,7 +361,7 @@ export function PrototypeSite({ vertical: v }: { vertical: VerticalConfig }) {
       };
   const Icon = data.icon;
   return (
-    <div className="min-h-screen" style={{ background: data.soft, color: data.ink }}>
+    <div className="portfolio-theme-prototype min-h-screen" style={{ background: data.soft, color: data.ink }}>
       <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 lg:px-8">
         <div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-full text-white" style={{ background: data.accent }}><Icon className="h-5 w-5" /></span><span className="font-display text-lg font-bold">{isClinic ? "integra" : isLaw ? "Almeida & Torres" : "casa nativa"}</span></div>
         <nav className="hidden items-center gap-7 text-sm font-medium md:flex"><a href="#sobre">Sobre</a><a href="#servicos">{isLaw ? "Atuação" : isClinic ? "Especialidades" : "Experiência"}</a><a href="#contato">Contato</a></nav>

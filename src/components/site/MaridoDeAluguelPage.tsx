@@ -1,0 +1,50 @@
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, Clock3, Hammer, MapPin, ShieldCheck, Star, Wrench } from "lucide-react";
+import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+
+export const MARIDO_ALUGUEL_FAQ = [
+  { q: "O que faz um marido de aluguel?", a: "Resolve pequenos reparos e melhorias residenciais, como instalações, ajustes hidráulicos, pintura, montagem e manutenção preventiva." },
+  { q: "Atende em Curitiba e região?", a: "Sim. O atendimento pode ser organizado por cidade, bairro e tipo de serviço, conforme disponibilidade do profissional." },
+  { q: "Como recebo um orçamento?", a: "Envie o que precisa pelo formulário seguro. A equipe confirma os detalhes, a localização e retorna com prazo e faixa de investimento." },
+  { q: "O serviço tem garantia?", a: "A garantia e as condições são informadas antes da execução, de acordo com o profissional e o tipo de reparo contratado." },
+  { q: "Posso contratar mais de um reparo na mesma visita?", a: "Sim. Liste todos os reparos no briefing para que o profissional avalie materiais, tempo e a melhor sequência de execução." },
+];
+
+const services = [
+  ["Instalações", "Prateleiras, suportes, varais, cortinas, luminárias e acessórios."],
+  ["Reparos hidráulicos", "Torneiras, sifões, registros, vazamentos simples e ajustes."],
+  ["Montagem e ajustes", "Móveis, portas, gavetas, dobradiças e pequenos consertos."],
+  ["Pintura e acabamento", "Retoques, paredes pequenas, vedação e acabamento cuidadoso."],
+  ["Manutenção preventiva", "Checklist de pequenos problemas antes que virem prejuízo."],
+  ["Adequações para imóveis", "Preparação para mudança, locação, venda ou vistoria."],
+];
+
+export function MaridoDeAluguelPage() {
+  const [openFaq, setOpenFaq] = useState(0);
+  return (
+    <div className="portfolio-theme-prototype min-h-screen bg-[#f7f8fa] text-slate-950">
+      <header className="border-b border-slate-200 bg-white/90 px-5 py-4 backdrop-blur lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" className="flex items-center gap-2 font-display text-lg font-bold"><span className="grid h-9 w-9 place-items-center rounded-xl bg-[#173b67] text-white"><Wrench className="h-4 w-4" /></span>Marido de Aluguel</a>
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex"><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a><a href="#faq">Dúvidas</a></nav>
+          <FunnelCTAButton label="Pedir orçamento" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#173b67] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#102d50]" />
+        </div>
+      </header>
+      <main>
+        <section id="inicio" className="bg-[#173b67] px-5 py-20 text-white sm:py-28 lg:px-8">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+            <div><p className="text-sm font-bold uppercase tracking-[.18em] text-amber-300">Reparos residenciais com confiança</p><h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.03] sm:text-6xl">Marido de aluguel para resolver o que sua casa precisa.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-blue-100">Instalações, montagens, manutenção e pequenos reparos para casas, apartamentos, escritórios e imóveis de aluguel.</p><div className="mt-8 flex flex-wrap gap-3"><FunnelCTAButton label="Pedir orçamento seguro" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-300 px-6 py-3.5 font-bold text-slate-950 hover:bg-amber-200" /><a href="#servicos" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 font-semibold text-white hover:bg-white/10">Ver serviços <ArrowRight className="h-4 w-4" /></a></div><div className="mt-8 flex flex-wrap gap-5 text-sm text-blue-100"><span><ShieldCheck className="mr-2 inline h-4 w-4 text-amber-300" />Profissionais avaliados</span><span><Clock3 className="mr-2 inline h-4 w-4 text-amber-300" />Resposta rápida</span><span><MapPin className="mr-2 inline h-4 w-4 text-amber-300" />Atendimento local</span></div></div>
+            <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur"><div className="grid gap-3 sm:grid-cols-2"><div className="rounded-2xl bg-white p-5 text-slate-950"><Hammer className="h-6 w-6 text-[#173b67]" /><p className="mt-8 text-2xl font-bold">1 visita</p><p className="mt-1 text-sm text-slate-500">para organizar vários reparos</p></div><div className="rounded-2xl bg-amber-300 p-5 text-slate-950"><Star className="h-6 w-6" /><p className="mt-8 text-2xl font-bold">Cuidado</p><p className="mt-1 text-sm text-slate-700">com o imóvel e o acabamento</p></div><div className="rounded-2xl bg-slate-950/40 p-5 sm:col-span-2"><p className="text-sm leading-6 text-blue-100">Descreva o problema, envie fotos se quiser e receba um próximo passo claro.</p></div></div></div>
+          </div>
+        </section>
+        <section id="servicos" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.18em] text-[#173b67]">O que fazemos</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-semibold">Pequenos reparos que devolvem tempo e tranquilidade.</h2><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{services.map(([title, text], index) => <article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><span className="text-sm font-bold text-[#173b67]">0{index + 1}</span><h3 className="mt-8 text-xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{text}</p></article>)}</div></div></section>
+        <section id="processo" className="bg-white px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.18em] text-[#173b67]">Como funciona</p><h2 className="mt-3 font-display text-4xl font-semibold">Do pedido à solução, sem adivinhação.</h2><div className="mt-10 grid gap-4 md:grid-cols-3">{[["01", "Você explica", "Conte o que precisa, onde é e quando gostaria de resolver."], ["02", "A gente organiza", "Validamos escopo, materiais, região e o melhor profissional."], ["03", "Você aprova", "Com prazo e condições claros, o reparo é agendado."]].map(([n, t, d]) => <div key={n} className="rounded-2xl border border-slate-200 p-6"><span className="text-3xl font-black text-amber-500">{n}</span><h3 className="mt-8 text-xl font-semibold">{t}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{d}</p></div>)}</div></div></section>
+        <section className="px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2"><div><p className="text-sm font-bold uppercase tracking-[.18em] text-[#173b67]">Preços e orçamento</p><h2 className="mt-3 font-display text-4xl font-semibold">Cada reparo tem um contexto. O orçamento também.</h2><p className="mt-5 leading-7 text-slate-600">O valor depende do tipo de serviço, quantidade de itens, materiais, urgência e localização. Por isso, o orçamento é organizado com as informações do seu imóvel — sem promessa genérica.</p></div><div className="rounded-3xl bg-[#173b67] p-8 text-white"><CheckCircle2 className="h-7 w-7 text-amber-300" /><h3 className="mt-5 text-2xl font-semibold">Receba uma estimativa clara</h3><p className="mt-3 text-sm leading-6 text-blue-100">Envie seu pedido pelo funil e receba orientação para comparar escopo, prazo e condições antes de contratar.</p><FunnelCTAButton label="Solicitar orçamento" className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-amber-300 px-5 py-3 font-bold text-slate-950 hover:bg-amber-200" /></div></div></section>
+        <section id="faq" className="bg-white px-5 py-20 lg:px-8"><div className="mx-auto max-w-3xl"><p className="text-sm font-bold uppercase tracking-[.18em] text-[#173b67]">Perguntas frequentes</p><h2 className="mt-3 font-display text-4xl font-semibold">Antes de chamar um profissional, tire suas dúvidas.</h2><div className="mt-8 space-y-3">{MARIDO_ALUGUEL_FAQ.map((faq, index) => <div key={faq.q} className="rounded-2xl border border-slate-200"><button type="button" className="flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? -1 : index)}>{faq.q}<span className="text-2xl text-[#173b67]">{openFaq === index ? "−" : "+"}</span></button>{openFaq === index && <p className="px-5 pb-5 text-sm leading-6 text-slate-600">{faq.a}</p>}</div>)}</div><div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-slate-50 p-5"><div className="flex items-center gap-3 text-sm text-slate-600"><Star className="h-5 w-5 text-amber-500" />Avaliações e experiências são conectadas ao sistema de reviews.</div><FunnelCTAButton label="Falar sobre meu reparo" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#173b67] px-5 py-3 text-sm font-semibold text-white" /></div></div></section>
+      </main>
+      <footer className="bg-slate-950 px-5 py-10 text-sm text-slate-400 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">Marido de Aluguel</strong> · Serviços residenciais locais</p><p>Site demonstrativo criado pela 0WEB</p></div></footer>
+      <PortfolioSocialProofPopup clientKey="marido-de-aluguel" eyebrow="Experiências reais" title="Veja como organizamos serviços e contatos para negócios locais." description="O catálogo conecta avaliações, contexto e próximo passo sem expor dados de contato no código público." ctaLabel="Conhecer a estrutura" ctaHref="#processo" delayMs={9000} />
+    </div>
+  );
+}
