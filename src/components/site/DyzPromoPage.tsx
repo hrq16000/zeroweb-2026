@@ -117,7 +117,7 @@ function DyzHeader() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
           <span className="inline-flex items-center rounded-xl bg-white px-2.5 py-1.5 shadow-[0_4px_18px_rgba(0,0,0,0.2)] ring-1 ring-white/40 sm:px-3">
-            <img src="/images/dyzpromo/logo-dyz-promo.png" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" />
+            <img src="/images/dyzpromo/logo-dyz-promo.png" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" loading="lazy" decoding="async" />
           </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
@@ -407,7 +407,7 @@ export function DyzPromoPage() {
           </div>
         </section>
       </main>
-      {lightbox && <div className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={() => setLightbox(null)}><button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20" aria-label="Fechar imagem"><X className="h-6 w-6" /></button><img src={lightbox.src} alt={lightbox.alt} className="max-h-[92vh] max-w-full object-contain" onClick={(event) => event.stopPropagation()} /></div>}
+      {lightbox && <div className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={() => setLightbox(null)}><button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20" aria-label="Fechar imagem"><X className="h-6 w-6" /></button><img src={lightbox.src} alt={lightbox.alt} loading="lazy" decoding="async" className="max-h-[92vh] max-w-full object-contain" onClick={(event) => event.stopPropagation()} /></div>}
       <PortfolioSocialProofPopup clientKey="dyzpromo" eyebrow="D.Y.Z em campo" title="Campanhas para restaurantes, varejo, imóveis, estética e tecnologia." description="Experiência prática em Curitiba e região, com equipe orientada para cada ação." ctaLabel="Ver marcas atendidas" ctaHref="#clientes" delayMs={5000} className="border-white/15 bg-[#071b49]/95 text-white" accentClassName="text-[#f7c948]" />
       <PortfolioUpsellPopup pageName="dyzpromo" />
       <DyzFloatingCTA />

@@ -121,7 +121,7 @@ export function RMFretesPage() {
               alt="Anúncio oficial da RM Fretes com veículo de frete"
               className="relative mx-auto max-h-[640px] rounded-[2rem] border border-[#ffd000]/40 object-contain shadow-2xl"
               loading="eager"
-            />
+ decoding="async" fetchPriority="high" />
           </div>
         </div>
       </section>
@@ -161,7 +161,7 @@ export function RMFretesPage() {
             alt="Veículo da RM Fretes transportando carga especial"
             className="w-full rounded-[2rem] border border-white/10 object-cover shadow-2xl"
             loading="lazy"
-          />
+ decoding="async" />
           <div>
             <p className="text-sm font-black uppercase tracking-[.2em] text-[#ffd000]">
               Como funciona

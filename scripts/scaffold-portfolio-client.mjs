@@ -63,9 +63,16 @@ const write = (relPath, content) => {
   written.push(relPath);
 };
 
-const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+const componentSource = `import { lazy } from "react";
+import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { LazySection } from "@/components/portfolio/LazySection";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+
+// Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
+// Ver docs/PORTFOLIO_PERFORMANCE.md
+// const Galeria = lazy(() => import("./${pascal}Galeria"));
 
 /**
  * Site exclusivo de ${siteName} (/portfolio/${slug}).
@@ -86,6 +93,16 @@ export function ${componentName}() {
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
             Substitua por uma descrição real do negócio, sem métricas inventadas.
           </p>
+          {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
+          <PortfolioImage
+            src="/images/${slug}/capa.webp"
+            alt="${siteName}"
+            priority
+            width={1200}
+            height={800}
+            className="mt-8 w-full rounded-3xl object-cover"
+          />
+
           <div className="mt-8">
             <FunnelCTAButton
               clientKey="${clientKey}"
@@ -98,6 +115,12 @@ export function ${componentName}() {
           </div>
         </section>
       </main>
+
+      {/* Exemplo de seção sob demanda:
+      <LazySection minHeight={320} fallback={<div className="h-80 animate-pulse rounded-2xl bg-muted" />}>
+        <Galeria />
+      </LazySection>
+      */}
 
       <PortfolioSocialProofPopup clientKey="${clientKey}" />
       <PortfolioHostCredit />
@@ -165,7 +188,8 @@ Próximos passos obrigatórios (docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md):
   3. Preencher a migration supabase/migrations/${migrationName} com as etapas reais.
   4. Cadastrar o secret privado ${secretName} (somente servidor).
   5. Adicionar imagens reais em ${assetsDir}.
-  6. Rodar: bun run validate:portfolio-boundaries && bun run validate:portfolio-meta && bun test && bun run build
+  6. Otimizar imagens em .webp e manter apenas 1 imagem priority (docs/PORTFOLIO_PERFORMANCE.md).
+  7. Rodar: bun run validate:portfolio-performance && bun run validate:portfolio-boundaries && bun run validate:portfolio-meta && bun test && bun run build
 
 Herdados automaticamente pela rota compartilhada: pop-up de captação da 0WEB,
 botão de compartilhamento, SEO base, breadcrumbs e JSON-LD.
