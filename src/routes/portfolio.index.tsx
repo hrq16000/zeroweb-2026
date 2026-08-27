@@ -101,7 +101,7 @@ const PORTFOLIO_ITEMS = [
     subtitle: "Pedidos Online · Hot Dogs, Pastéis & Porções",
     location: "São José dos Pinhais — PR",
     badge: "Projeto real",
-    image: "/images/paraiso-hot-dog-menu.png",
+    image: "/images/paraiso-hot-dog-cover.png",
     tags: ["Cardápio Online", "Entrega", "Retirada", "WhatsApp"],
     metrics: "Pedido funcional",
     summary: "Catálogo interativo com montagem do pedido, adicionais, escolha de entrega ou retirada e envio organizado pelo WhatsApp.",
