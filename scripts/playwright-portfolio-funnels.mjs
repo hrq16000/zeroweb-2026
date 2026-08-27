@@ -78,7 +78,7 @@ for (const target of TARGETS) {
     await cta.click({ force: true });
     await page.waitForTimeout(1500);
 
-    for (let step = 0; step < 16; step += 1) {
+    for (let step = 0; step < 24; step += 1) {
       const dialog = page.locator("[role=dialog]").last();
       if (!(await dialog.count())) break;
 
