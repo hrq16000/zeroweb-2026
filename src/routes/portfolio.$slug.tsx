@@ -133,6 +133,11 @@ function PortfolioPrototypePage() {
       ) : (
         <PrototypeSite vertical={vertical} />
       )}
+      {/* Camada da hospedagem: garantida pela rota para todo projeto novo,
+          mesmo que o componente do cliente esqueça de renderizá-la.
+          O componente possui guard de instância única. */}
+      <PortfolioUpsellPopup pageName={`portfolio-${slug}`} />
     </>
   );
 }
+
