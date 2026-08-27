@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { RenataBeautyView } from "@/components/site/RenataBeautyView";
 
 const TITLE = "Renata Beauty Studio · Cílios, unhas e sobrancelhas";
@@ -29,5 +30,13 @@ export const Route = createFileRoute("/portfolio/renata-beauty")({
       children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": URL, url: URL, name: TITLE, description: DESC, image: SOCIAL_IMAGE, inLanguage: "pt-BR", about: { "@type": "BeautySalon", name: "Renata Beauty Studio" } }),
     }],
   }),
-  component: RenataBeautyView,
+  component: RenataBeautyViewRoute,
 });
+
+function RenataBeautyViewRoute() {
+  return (
+    <PortfolioStandardShell slug="renata-beauty">
+      <RenataBeautyView />
+    </PortfolioStandardShell>
+  );
+}

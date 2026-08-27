@@ -134,3 +134,5 @@ possuam diretório exclusivo.
 Nenhum novo portfolio está pronto apenas porque renderiza. Ele está pronto
 quando passa no contrato de isolamento, atendimento, identidade, privacidade e
 metadados.
+
+> Padrões universais aplicados automaticamente (compartilhar, contato flutuante, rodapé e captação): ver `docs/PORTFOLIO_GLOBAL_STANDARDS.md`.

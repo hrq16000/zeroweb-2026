@@ -24,12 +24,16 @@ const routeSource = read("src/routes/portfolio.$slug.tsx");
 const registrySource = read("src/lib/portfolio-site-registry.ts");
 const upsellConfigRaw = read("src/config/portfolio-upsell.json");
 
-if (!/<PortfolioUpsellPopup/.test(routeSource)) {
+// A casca padrão (PortfolioStandardShell) já garante pop-up de captação,
+// botão de compartilhar, contato flutuante e rodapé da hospedagem.
+const sharedShell = /<PortfolioStandardShell/.test(routeSource);
+if (!sharedShell && !/<PortfolioUpsellPopup/.test(routeSource)) {
   errors.push("rota compartilhada não renderiza PortfolioUpsellPopup");
 }
-if (!/<PortfolioShareButton/.test(routeSource)) {
+if (!sharedShell && !/<PortfolioShareButton/.test(routeSource)) {
   errors.push("rota compartilhada não renderiza PortfolioShareButton");
 }
+
 
 if (!upsellConfigRaw) {
   errors.push("configuração central do pop-up ausente (src/config/portfolio-upsell.json)");
@@ -102,11 +106,13 @@ for (const client of clients) {
       errors.push(`${label} ausente em src/lib/portfolio-site-registry.ts (sitemap/SEO/card)`);
     }
   } else {
-    // Rota dedicada: a cobertura de pop-up/share não vem da rota compartilhada.
-    if (!/PortfolioUpsellPopup/.test(componentSource)) {
+    // Rota dedicada: a cobertura vem da casca padrão ou do próprio componente.
+    const dedicatedSource = read(client.routeFile);
+    const dedicatedShell = /PortfolioStandardShell/.test(dedicatedSource);
+    if (!dedicatedShell && !/PortfolioUpsellPopup/.test(componentSource)) {
       errors.push(`${label} rota dedicada sem pop-up de captação da 0WEB`);
     }
-    const dedicatedRoute = read(client.routeFile);
+    const dedicatedRoute = dedicatedSource;
     if (dedicatedRoute && !/rel: "canonical"|rel: 'canonical'/.test(dedicatedRoute)) {
       errors.push(`${label} rota dedicada sem canonical`);
     }

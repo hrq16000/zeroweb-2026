@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-08-27T22:35:00.897Z",
+  "configVersion": 1,
+  "total": 7,
+  "conformes": 7,
+  "projetos": [
+    {
+      "clientKey": "dyzpromo",
+      "slug": "dyzpromo",
+      "routeFile": "src/routes/portfolio.dyzpromo.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating",
+        "footer"
+      ],
+      "problems": []
+    },
+    {
+      "clientKey": "renata-beauty",
+      "slug": "renata-beauty",
+      "routeFile": "src/routes/portfolio.renata-beauty.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating",
+        "footer"
+      ],
+      "problems": []
+    },
+    {
+      "clientKey": "r-beauty",
+      "slug": "r_beauty",
+      "routeFile": "src/routes/portfolio.r_beauty.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating",
+        "footer"
+      ],
+      "problems": []
+    },
+    {
+      "clientKey": "marido-de-aluguel",
+      "slug": "marido-de-aluguel",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating"
+      ],
+      "problems": []
+    },
+    {
+      "clientKey": "emporio-lelecute",
+      "slug": "emporio-lelecute",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating",
+        "footer"
+      ],
+      "problems": []
+    },
+    {
+      "clientKey": "paraiso-do-hot-dog",
+      "slug": "paraiso-do-hot-dog",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating"
+      ],
+      "problems": []
+    },
+    {
+      "clientKey": "rm-fretes",
+      "slug": "rm-fretes",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [
+        "contactFloating"
+      ],
+      "problems": []
+    }
+  ]
+}

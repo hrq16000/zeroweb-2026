@@ -7,8 +7,7 @@ import { MaridoDeAluguelPage, MARIDO_ALUGUEL_FAQ } from "@/components/site/Marid
 import { EmporioLelecutePage } from "@/components/site/EmporioLelecutePage";
 import { ParaisoHotDogPage } from "@/components/site/ParaisoHotDogPage";
 import { RMFretesPage } from "@/components/site/RMFretesPage";
-import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -122,8 +121,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 function PortfolioPrototypePage() {
   const { vertical, slug } = Route.useLoaderData();
   return (
-    <>
-      <PortfolioShareButton />
+    <PortfolioStandardShell slug={slug}>
       {slug === "marido-de-aluguel" ? (
         <MaridoDeAluguelPage />
       ) : slug === "emporio-lelecute" ? (
@@ -135,11 +133,6 @@ function PortfolioPrototypePage() {
       ) : (
         <PrototypeSite vertical={vertical} />
       )}
-      {/* Camada da hospedagem: garantida pela rota para todo projeto novo,
-          mesmo que o componente do cliente esqueça de renderizá-la.
-          O componente possui guard de instância única. */}
-      <PortfolioUpsellPopup pageName={`portfolio-${slug}`} />
-    </>
+    </PortfolioStandardShell>
   );
 }
-

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { RBeautyEditorialView } from "@/components/site/RBeautyEditorialView";
 
 const TITLE = "R_Beauty Haute Studio · Cílios, unhas e sobrancelhas";
@@ -29,5 +30,13 @@ export const Route = createFileRoute("/portfolio/r_beauty")({
       children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": URL, url: URL, name: TITLE, description: DESC, image: SOCIAL_IMAGE, inLanguage: "pt-BR", about: { "@type": "BeautySalon", name: "R_Beauty Studio" } }),
     }],
   }),
-  component: RBeautyEditorialView,
+  component: RBeautyEditorialViewRoute,
 });
+
+function RBeautyEditorialViewRoute() {
+  return (
+    <PortfolioStandardShell slug="r_beauty">
+      <RBeautyEditorialView />
+    </PortfolioStandardShell>
+  );
+}
