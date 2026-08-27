@@ -226,7 +226,18 @@ export function FunnelRunner({
             fbclid: url.searchParams.get("fbclid") ?? undefined,
             started_at: startedAt,
             client_key: clientKey,
+            // Redundância proposital: mesmo se a sessão não tiver sido criada,
+            // o pedido do carrinho chega ao lead e à mensagem final.
+            order_context: context
+              ? {
+                  order_items: context.order_items,
+                  order_total: context.order_total,
+                  fulfillment: context.fulfillment,
+                  customer_note: context.customer_note,
+                }
+              : undefined,
           },
+
         },
       });
       trackConversion("funnel_complete", {
