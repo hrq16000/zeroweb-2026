@@ -304,7 +304,7 @@ function PortfolioPage() {
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="py-16 px-4">
           <div className="container max-w-6xl mx-auto space-y-12">
-            <div className="mb-6 flex flex-col gap-3 sm:flex-row"><label className="relative flex-1"><Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar por serviço, cidade ou tecnologia" className="h-12 w-full rounded-2xl border border-border bg-card pl-11 pr-4 text-sm outline-none focus:border-primary" /></label><p className="flex items-center rounded-2xl bg-muted/50 px-4 text-sm text-muted-foreground">{filteredItems.length} resultados</p></div>
+            <div className="mb-6 flex flex-col gap-3 sm:flex-row"><label className="relative flex-1"><Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar por serviço, cidade ou tecnologia" aria-label="Buscar projetos do portfólio" className="h-12 w-full rounded-2xl border border-border bg-card pl-11 pr-4 text-sm outline-none transition-shadow focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30" /></label><p aria-live="polite" className="flex items-center rounded-2xl bg-muted/50 px-4 text-sm text-muted-foreground">{filteredItems.length} resultados</p></div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Resumo do catálogo">
               <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{PORTFOLIO_ITEMS.length}</p><p className="mt-1 text-xs text-muted-foreground">projetos catalogados</p></div>
               <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">{CATEGORIES.length - 1}</p><p className="mt-1 text-xs text-muted-foreground">segmentos</p></div>
@@ -322,10 +322,10 @@ function PortfolioPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="group rounded-3xl bg-card border border-border/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+                    className="group rounded-3xl bg-card border border-border/60 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
                   >
                     {/* Card Media Preview */}
-                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block h-64 w-full overflow-hidden bg-muted text-left sm:h-72" aria-label={`Abrir preview de ${item.title}`}>
+                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block h-64 w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary sm:h-72" aria-label={`Abrir preview de ${item.title}`}>
                       <img 
                         src={item.image} 
                         alt={item.title}
