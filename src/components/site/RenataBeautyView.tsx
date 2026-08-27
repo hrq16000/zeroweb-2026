@@ -23,10 +23,10 @@ import {
   Zap,
   CheckCircle2
 } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
 const INSTAGRAM_URL = "https://www.instagram.com/renatabeautystudiio/";
@@ -715,9 +715,10 @@ export function RenataBeautyView() {
             </BeautyBookingQuiz>
           </div>
 
-          <div className="text-[11px] text-gray-400">
-            Hospedado no <Link to="/portfolio" className="text-pink-400 hover:underline">0web.com.br Portfólio</Link>
-          </div>
+          <PortfolioHostCredit
+            className="text-[11px] text-gray-400"
+            linkClassName="font-semibold text-pink-400 underline underline-offset-4 hover:text-pink-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+          />
 
         </div>
       </footer>

@@ -22,6 +22,7 @@ import {
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 
 const services = [
   { icon: CarFront, title: "Semáforo", image: "/images/dyzpromo/acao-semaforo.jpeg", text: "Abordagem organizada em cruzamentos estratégicos para gerar alcance e lembrança de marca." },
@@ -129,7 +130,7 @@ function DyzHeader() {
 }
 
 function DyzFooter() {
-  return <footer className="border-t border-white/10 bg-[#061536] px-5 py-10 text-blue-100"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">D.Y.Z Promo</strong> · Divulgação e panfletagem em Curitiba e região.</p><p className="text-xs text-blue-200/80">Projeto publicado pela 0WEB.</p></div></footer>;
+  return <footer className="border-t border-white/10 bg-[#061536] px-5 py-10 text-blue-100"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">D.Y.Z Promo</strong> · Divulgação e panfletagem em Curitiba e região.</p><PortfolioHostCredit className="text-xs text-blue-200/80" linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#f7c948] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f7c948]" /></div></footer>;
 }
 
 function DyzFloatingCTA() {
@@ -414,4 +415,3 @@ export function DyzPromoPage() {
     </div>
   );
 }
-

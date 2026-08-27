@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 export const MARIDO_ALUGUEL_FAQ = [
@@ -331,7 +332,7 @@ export function MaridoDeAluguelPage() {
           <p>
             <strong className="text-white">Marido de Aluguel</strong> · Serviços residenciais locais
           </p>
-          <p>Projeto publicado pela 0WEB</p>
+          <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300" />
         </div>
       </footer>
       <PortfolioSocialProofPopup

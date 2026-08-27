@@ -53,6 +53,12 @@ com uma chave imutável (`clientKey`) e possuir:
 9. botão flutuante de contato quando adequado ao negócio;
 10. redirecionamento do contato resolvido somente no servidor;
 11. experiência responsiva, acessível e validada em mobile.
+12. crédito discreto no rodapé usando `PortfolioHostCredit`, com link para
+    `https://0web.com.br`;
+
+Os itens 8 e 12 são universais e não podem ser desativados por configuração do
+cliente. O script `npm run validate:portfolio-boundaries` falha se qualquer
+portfolio registrado omitir o pop-up de captação ou o crédito com link.
 
 Novos clientes devem usar `PortfolioCTAQuiz` (alias genérico do mecanismo atual)
 e informar `clientKey` explicitamente. A configuração `quizConfig` permite
@@ -76,6 +82,12 @@ Existem, portanto, dois pop-ups com responsabilidades diferentes:
 
 Eles devem aparecer em sequência, sem sobreposição. A prova social é breve e o
 pop-up de captação da 0WEB entra depois, preservando leitura e conversão.
+
+O crédito de desenvolvimento também é universal: todo site de cliente deve
+renderizar `PortfolioHostCredit` no rodapé. O componente padroniza texto, link e
+acessibilidade, enquanto cada cliente pode definir apenas cores e acabamento
+compatíveis com sua identidade. O validador de boundaries bloqueia portfolios
+registrados sem o crédito ou sem `PortfolioUpsellPopup`.
 
 São proibidos no código público: `wa.me`, números de telefone, e-mails
 operacionais, chaves, destinatários sensíveis e qualquer fallback que direcione

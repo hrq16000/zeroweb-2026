@@ -84,8 +84,11 @@ for (const client of clients) {
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
     errors.push(`${label}: mecanismo de prova social ausente`);
   }
-  if (client.hostCaptureRequired && !component.includes("PortfolioUpsellPopup")) {
+  if (!component.includes("PortfolioUpsellPopup")) {
     errors.push(`${label}: pop-up de captação da 0WEB ausente`);
+  }
+  if (!component.includes("PortfolioHostCredit")) {
+    errors.push(`${label}: crédito universal com link da 0WEB ausente`);
   }
   for (const forbidden of forbiddenImports) {
     if (component.includes(forbidden)) errors.push(`${label}: dependência proibida (${forbidden})`);

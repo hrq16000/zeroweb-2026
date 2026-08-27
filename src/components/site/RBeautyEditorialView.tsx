@@ -18,10 +18,10 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { BeautyBookingQuiz as PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { InstagramFeedSection } from "@/components/site/InstagramFeedSection";
 
 const INSTAGRAM_URL = "https://www.instagram.com/renatabeautystudiio/";
@@ -310,9 +310,10 @@ export function RBeautyEditorialView() {
             </BeautyBookingQuiz>
           </div>
 
-          <div className="text-[11px]">
-            Vitrine do <Link to="/portfolio" className="text-[#D4AF37] hover:underline">0WEB Portfólio</Link>
-          </div>
+          <PortfolioHostCredit
+            className="text-[11px]"
+            linkClassName="font-semibold text-[#D4AF37] underline underline-offset-4 hover:text-[#ecd080] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+          />
         </div>
       </footer>
 

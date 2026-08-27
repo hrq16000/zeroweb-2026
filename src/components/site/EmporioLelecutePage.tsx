@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const INSTAGRAM_URL = "https://www.instagram.com/emporiolelecute/";
@@ -171,9 +172,7 @@ export function EmporioLelecutePage() {
         <p className="inline-flex items-center gap-2">
           <MapPin className="h-4 w-4" /> São José dos Pinhais · Paraná
         </p>
-        <p className="mt-2">
-          Projeto publicado desenvolvido pela 0WEB. Atendimento e orçamento pelo funil seguro.
-        </p>
+        <PortfolioHostCredit className="mt-2" linkClassName="font-semibold text-[#f4dfd0] underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfd0]" />
       </footer>
       <PortfolioSocialProofPopup
         clientKey="emporio-lelecute"

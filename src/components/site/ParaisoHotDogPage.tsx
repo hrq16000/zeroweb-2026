@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils, X } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const products = [
@@ -393,7 +394,8 @@ export function ParaisoHotDogPage() {
         </p>
       </section>
       <footer className="bg-[#17130f] px-5 py-8 text-center text-sm text-[#c9b99e]">
-        Paraíso do Hot Dog · Av. Rui Barbosa · São José dos Pinhais, PR
+        <p>Paraíso do Hot Dog · Av. Rui Barbosa · São José dos Pinhais, PR</p>
+        <PortfolioHostCredit className="mt-2 text-xs" linkClassName="font-semibold text-[#f5d36a] underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5d36a]" />
       </footer>
       {menuOpen && (
         <div

@@ -845,8 +845,8 @@ Prefer working locally? You need Node.js and npm — [install with nvm](https://
 This repository already uses TanStack React Start for SSR. The codebase includes server and client entrypoints (src/server.ts, src/client.tsx) and file-based routes (src/routes/). The README has been updated to reflect the actual stack.
 
 ```sh
-git clone https://github.com/hrq16000/zeroweb.git
-cd zeroweb
+git clone https://github.com/hrq16000/zeroweb-2026.git
+cd zeroweb-2026
 npm install
 npm run dev
 ```

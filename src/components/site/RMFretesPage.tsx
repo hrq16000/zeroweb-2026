@@ -8,8 +8,9 @@ import {
   PackageCheck,
   ShieldCheck,
 } from "lucide-react";
-import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const services = [
@@ -41,47 +42,9 @@ const faq = [
   ],
 ];
 
-const quizConfig = {
-  services: [
-    "Frete rápido",
-    "Carreto",
-    "Pequena mudança",
-    "Transporte de móvel ou eletrodoméstico",
-    "Carga especial",
-  ],
-  experienceOptions: [
-    "Poucos itens",
-    "Móveis e eletrodomésticos",
-    "Caixas e volumes",
-    "Carga que precisa de avaliação",
-  ],
-  periodOptions: [
-    "Curitiba",
-    "São José dos Pinhais",
-    "Colombo / Pinhais",
-    "Outra cidade da Região Metropolitana",
-  ],
-  timingOptions: ["Hoje", "Nas próximas 48 horas", "Ainda nesta semana", "Estou planejando a data"],
-  stepTitles: {
-    service: "Que transporte você precisa?",
-    experience: "O que será transportado?",
-    period: "Onde começa o frete?",
-    timing: "Quando você precisa do transporte?",
-    note: "Informe origem, destino e detalhes da carga",
-  },
-  stepSubtitles: {
-    service: "A RM Fretes recebe seu pedido já organizado.",
-    experience: "Isso ajuda a avaliar espaço, proteção e tempo de serviço.",
-    period: "A rota é essencial para calcular disponibilidade e deslocamento.",
-    timing: "Pedidos urgentes dependem da agenda e da rota do dia.",
-    note: "Inclua bairros, quantidade de itens, escadas, elevador e medidas se souber.",
-  },
-  notePlaceholder:
-    "Ex.: retirar uma geladeira no Água Verde e entregar no Centro, prédio com elevador.",
-};
-
 export function RMFretesPage() {
   const [openFaq, setOpenFaq] = useState(0);
+  const [funnelOpen, setFunnelOpen] = useState(false);
   const ctaClass =
     "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#ffd000] px-6 py-3.5 font-black text-[#080b12] shadow-[0_14px_40px_rgba(255,208,0,.22)] transition hover:-translate-y-0.5 hover:bg-[#ffe05b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#ffd000]/40";
   return (
@@ -96,17 +59,13 @@ export function RMFretesPage() {
             <a href="#como-funciona">Como funciona</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
-          <PortfolioCTAQuiz
-            clientKey="rm-fretes"
-            studioName="RM Fretes"
-            recipientName="RM Fretes"
-            theme="navy"
-            mode="proposal"
-            quizConfig={quizConfig}
+          <button
+            type="button"
+            onClick={() => setFunnelOpen(true)}
             className="rounded-full border border-[#ffd000]/60 px-4 py-2.5 text-sm font-bold text-[#ffd000] hover:bg-[#ffd000] hover:text-black"
           >
             Pedir frete
-          </PortfolioCTAQuiz>
+          </button>
         </div>
       </header>
 
@@ -125,18 +84,14 @@ export function RMFretesPage() {
               facilitado.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <PortfolioCTAQuiz
-                clientKey="rm-fretes"
-                studioName="RM Fretes"
-                recipientName="RM Fretes"
-                theme="navy"
-                mode="proposal"
-                quizConfig={quizConfig}
+              <button
+                type="button"
+                onClick={() => setFunnelOpen(true)}
                 className={ctaClass}
-                ariaLabel="Pedir orçamento de frete à RM Fretes"
+                aria-label="Pedir orçamento de frete à RM Fretes"
               >
                 Calcular meu frete <ArrowRight className="h-5 w-5" />
-              </PortfolioCTAQuiz>
+              </button>
               <a
                 href="#servicos"
                 className="inline-flex min-h-12 items-center rounded-full border border-white/20 px-6 py-3.5 font-bold text-white hover:bg-white/10"
@@ -284,23 +239,25 @@ export function RMFretesPage() {
               </div>
             ))}
           </div>
-          <PortfolioCTAQuiz
-            clientKey="rm-fretes"
-            studioName="RM Fretes"
-            recipientName="RM Fretes"
-            theme="navy"
-            mode="proposal"
-            quizConfig={quizConfig}
+          <button
+            type="button"
+            onClick={() => setFunnelOpen(true)}
             className={`${ctaClass} mt-8 w-full sm:w-auto`}
           >
             Solicitar orçamento agora <ArrowRight className="h-5 w-5" />
-          </PortfolioCTAQuiz>
+          </button>
         </div>
       </section>
 
       <footer className="border-t border-white/10 px-5 py-10 text-center text-sm text-slate-400">
-        <strong className="text-white">RM Fretes</strong> · Fretes rápidos em Curitiba e Região
-        Metropolitana
+        <p>
+          <strong className="text-white">RM Fretes</strong> · Fretes rápidos em Curitiba e Região
+          Metropolitana
+        </p>
+        <PortfolioHostCredit
+          className="mt-3 text-xs text-slate-500"
+          linkClassName="font-semibold text-slate-300 underline decoration-slate-600 underline-offset-4 transition hover:text-[#ffd000] focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd000]"
+        />
       </footer>
       <PortfolioSocialProofPopup
         clientKey="rm-fretes"
@@ -312,6 +269,23 @@ export function RMFretesPage() {
         delayMs={8000}
       />
       <PortfolioUpsellPopup pageName="portfolio-rm-fretes" />
+      <FunnelModalWrapper
+        open={funnelOpen}
+        onClose={() => setFunnelOpen(false)}
+        funnelSlug="funnel-service"
+        intent={{
+          purpose: "proposal",
+          source: "portfolio-rm-fretes",
+          pagePath: "/portfolio/rm-fretes",
+          placement: "hero",
+          companySlug: "rm-fretes",
+        }}
+        prefill={{ service: "Fretes, carretos e pequenas mudanças" }}
+        context={{
+          service: "fretes, carretos e pequenas mudanças",
+          region: "Curitiba e Região Metropolitana",
+        }}
+      />
     </main>
   );
 }
