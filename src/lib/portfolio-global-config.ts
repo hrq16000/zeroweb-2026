@@ -10,6 +10,7 @@
 import globalConfig from "@/config/portfolio-global-config.json";
 import clients from "@/config/portfolio-clients.json";
 import { isPortfolioClientKey, type PortfolioClientKey } from "@/lib/portfolio-client-keys";
+import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 
 export type SharePosition = "top-right" | "top-left" | "bottom-right";
 export type FloatingPosition = "bottom-right" | "bottom-left";
@@ -29,6 +30,8 @@ export type PortfolioStandards = {
     /** Derivado de `portfolio-clients.json` (ctaMode), com override opcional. */
     mode: ContactMode;
     studioName: string;
+    /** Perguntas do funil específicas do segmento do cliente. */
+    quizConfig?: PortfolioQuizConfig;
   };
   footer: { enabled: boolean; hostCredit: boolean; showYear: boolean; variant: SurfaceVariant };
   hostCapturePopup: { enabled: true };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, Share2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 type SharePosition = "top-right" | "top-left" | "bottom-right";
 type SurfaceVariant = "light" | "dark";
@@ -20,10 +21,12 @@ export function PortfolioShareButton({
   position = "top-right",
   variant = "light",
   label = "Compartilhar",
+  slug,
 }: {
   position?: SharePosition;
   variant?: SurfaceVariant;
   label?: string;
+  slug?: string;
 } = {}) {
   const [copied, setCopied] = useState(false);
   const share = async () => {
@@ -32,6 +35,11 @@ export function PortfolioShareButton({
       text: "Confira este projeto publicado pela 0WEB",
       url: window.location.href,
     };
+    trackEvent("portfolio_share_click", {
+      portfolio_slug: slug ?? "unknown",
+      page_type: "portfolio_client",
+      method: typeof navigator !== "undefined" && "share" in navigator ? "native" : "clipboard",
+    });
     try {
       if (navigator.share) await navigator.share(data);
       else {

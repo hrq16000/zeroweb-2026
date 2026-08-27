@@ -37,29 +37,209 @@
   },
   "overrides": {
     "dyzpromo": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe D.Y.Z", "label": "Pedir proposta" },
-      "footer": { "variant": "dark" }
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe D.Y.Z",
+        "label": "Pedir proposta"
+      },
+      "footer": {
+        "variant": "dark"
+      }
     },
     "renata-beauty": {
-      "contactFloating": { "theme": "pink", "recipientName": "Renata", "label": "Agendar horário" },
-      "footer": { "variant": "dark" }
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "Renata",
+        "label": "Agendar horário"
+      },
+      "footer": {
+        "variant": "dark"
+      }
     },
     "r-beauty": {
-      "contactFloating": { "theme": "gold", "recipientName": "Renata", "label": "Agendar horário" },
-      "footer": { "variant": "dark" }
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "Renata",
+        "label": "Agendar horário"
+      },
+      "footer": {
+        "variant": "dark"
+      }
     },
     "marido-de-aluguel": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe", "label": "Pedir orçamento" }
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe",
+        "label": "Pedir orçamento",
+        "quizConfig": {
+          "services": [
+            "Reparos elétricos",
+            "Reparos hidráulicos",
+            "Montagem de móveis",
+            "Pintura e acabamento",
+            "Preciso de orientação"
+          ],
+          "experienceOptions": [
+            "É um reparo pontual",
+            "São vários serviços",
+            "Manutenção preventiva",
+            "Ainda estou avaliando"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Fim de semana",
+            "Tenho flexibilidade"
+          ],
+          "timingOptions": [
+            "É urgente",
+            "Ainda nesta semana",
+            "Na próxima semana",
+            "Estou planejando"
+          ],
+          "stepTitles": {
+            "service": "Qual serviço você precisa?",
+            "experience": "Como é a demanda?",
+            "period": "Melhor período para a visita?",
+            "timing": "Qual o prazo?"
+          },
+          "notePlaceholder": "Ex.: trocar 2 tomadas e montar um guarda-roupa."
+        }
+      }
     },
     "emporio-lelecute": {
-      "contactFloating": { "theme": "pink", "recipientName": "a Lele", "label": "Pedir orçamento" },
-      "footer": { "variant": "dark" }
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a Lele",
+        "label": "Pedir orçamento",
+        "quizConfig": {
+          "services": [
+            "Lembrancinhas personalizadas",
+            "Mini-velas e sabonetes",
+            "Kit presente",
+            "Convites perfumados",
+            "Quero uma orientação"
+          ],
+          "experienceOptions": [
+            "Casamento ou noivado",
+            "Chá de bebê ou maternidade",
+            "Aniversário ou data especial",
+            "Ainda estou definindo a ocasião"
+          ],
+          "periodOptions": [
+            "Até 30 unidades",
+            "De 30 a 100 unidades",
+            "Mais de 100 unidades",
+            "Ainda não sei a quantidade"
+          ],
+          "timingOptions": [
+            "Nas próximas 2 semanas",
+            "Ainda neste mês",
+            "No próximo mês",
+            "Estou planejando com antecedência"
+          ],
+          "stepTitles": {
+            "service": "Que tipo de lembrança você procura?",
+            "experience": "Qual é a ocasião?",
+            "period": "Qual a quantidade aproximada?",
+            "timing": "Para quando você precisa?",
+            "note": "Quer contar mais detalhes?"
+          },
+          "stepSubtitles": {
+            "service": "Assim a Lele já pensa no formato e no aroma ideais.",
+            "experience": "Cada celebração pede um acabamento diferente.",
+            "period": "A quantidade define prazo e valor da produção.",
+            "timing": "Peças artesanais precisam de tempo de produção.",
+            "note": "Cores, tema, nomes personalizados ou embalagem especial."
+          },
+          "notePlaceholder": "Ex.: 60 sabonetes com tag personalizada para chá de bebê em outubro."
+        }
+      },
+      "footer": {
+        "variant": "dark"
+      }
     },
     "paraiso-do-hot-dog": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe", "label": "Fazer pedido" }
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe",
+        "label": "Fazer pedido",
+        "quizConfig": {
+          "services": [
+            "Pedido para entrega",
+            "Pedido para retirada",
+            "Combo em família",
+            "Pedido para evento",
+            "Quero ver o cardápio"
+          ],
+          "experienceOptions": [
+            "É meu primeiro pedido",
+            "Já sou cliente",
+            "Quero indicação do que pedir",
+            "Pedido para um grupo"
+          ],
+          "periodOptions": [
+            "Agora",
+            "Mais tarde hoje",
+            "Amanhã",
+            "Ainda estou decidindo"
+          ],
+          "timingOptions": [
+            "O quanto antes",
+            "Em até 1 hora",
+            "Em horário marcado",
+            "Sem pressa"
+          ],
+          "stepTitles": {
+            "service": "Como você quer pedir?",
+            "experience": "Como podemos te ajudar?",
+            "period": "Para quando é o pedido?",
+            "timing": "Qual a urgência?"
+          },
+          "notePlaceholder": "Ex.: 3 dogs completos sem cebola e 2 refrigerantes."
+        }
+      }
     },
     "rm-fretes": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe RM", "label": "Pedir orçamento" }
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe RM",
+        "label": "Pedir orçamento",
+        "quizConfig": {
+          "services": [
+            "Mudança residencial",
+            "Mudança comercial",
+            "Frete pontual / carreto",
+            "Transporte de móveis grandes",
+            "Preciso de orientação"
+          ],
+          "experienceOptions": [
+            "Mesma cidade",
+            "Entre cidades",
+            "Outro estado",
+            "Ainda estou avaliando"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Fim de semana",
+            "Tenho flexibilidade"
+          ],
+          "timingOptions": [
+            "Nos próximos dias",
+            "Ainda nesta semana",
+            "Neste mês",
+            "Estou planejando"
+          ],
+          "stepTitles": {
+            "service": "Qual serviço você precisa?",
+            "experience": "Qual é o trajeto?",
+            "period": "Melhor período para a coleta?",
+            "timing": "Quando deve acontecer?"
+          },
+          "notePlaceholder": "Ex.: apartamento no 3º andar sem elevador, com geladeira e sofá."
+        }
+      }
     }
   }
 }
