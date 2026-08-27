@@ -8,6 +8,8 @@ import { EmporioLelecutePage } from "@/components/site/EmporioLelecutePage";
 import { ParaisoHotDogPage } from "@/components/site/ParaisoHotDogPage";
 import { RMFretesPage } from "@/components/site/RMFretesPage";
 import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
@@ -133,6 +135,11 @@ function PortfolioPrototypePage() {
       ) : (
         <PrototypeSite vertical={vertical} />
       )}
+      {/* Camada da hospedagem: garantida pela rota para todo projeto novo,
+          mesmo que o componente do cliente esqueça de renderizá-la.
+          O componente possui guard de instância única. */}
+      <PortfolioUpsellPopup pageName={`portfolio-${slug}`} />
     </>
   );
 }
+

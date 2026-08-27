@@ -4,6 +4,10 @@ Status: **obrigatório**
 Escopo: todas as rotas `/portfolio/<slug>`  
 Responsável pela plataforma: 0WEB
 
+Checklist operacional de novos projetos: `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md`.
+O pop-up de captação da 0WEB é renderizado pela rota `/portfolio/$slug` para
+todo projeto novo; overlays só são silenciados com `?0web_preview=1`.
+
 ## 1. Definição
 
 `/portfolio` é a vitrine e camada de hospedagem da 0WEB. Cada endereço

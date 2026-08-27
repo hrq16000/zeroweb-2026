@@ -9,6 +9,12 @@ const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 
 type Trigger = "timer" | "scroll" | "fallback";
 
+/** Guard de instância única por página (rota + componente do cliente). */
+const instanceGuard: { count: number } = ((globalThis as Record<string, unknown>)[
+  "__0webPortfolioUpsellGuard"
+] ??= { count: 0 }) as { count: number };
+
+
 /**
  * Pop-up de captação exibido nas páginas de portfólio.
  * Regras de UX:
@@ -22,6 +28,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const [visible, setVisible] = useState(false);
   const [funnelOpen, setFunnelOpen] = useState(false);
   const firedRef = useRef(false);
+  const ownerRef = useRef(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const triggerRef = useRef<Trigger>("timer");
@@ -32,6 +39,12 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (shouldSuppressPortfolioHostOverlays()) return;
+    // Instância única: a rota /portfolio/* renderiza o pop-up por padrão e o
+    // site do cliente pode renderizá-lo também; só o primeiro assume.
+    if (instanceGuard.count > 0 && !ownerRef.current) return;
+    instanceGuard.count += 1;
+    ownerRef.current = true;
+
     try {
       if (sessionStorage.getItem(storageKey) === "1") return;
     } catch {
@@ -66,9 +79,14 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     });
 
     return () => {
+      if (ownerRef.current) {
+        instanceGuard.count = Math.max(0, instanceGuard.count - 1);
+        ownerRef.current = false;
+      }
       window.clearTimeout(t);
       window.clearTimeout(fb);
       unsub();
+
     };
   }, [pageName, routePath, storageKey]);
 
