@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Clock3, Hammer, MapPin, ShieldCheck, Star, Wrench } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock3, Hammer, MapPin, ShieldCheck, Star, Wrench, ExternalLink } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 
@@ -32,6 +32,7 @@ export function MaridoDeAluguelPage() {
         </div>
       </header>
       <main>
+        <div className="mx-auto max-w-6xl px-5 pt-6 lg:px-8"><a href="https://www.mestredosservicos.com.br/" target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"><img src="https://www.mestredosservicos.com.br/logo.jpg" alt="Mestre dos Serviços" className="h-28 w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]" loading="eager" /><span className="flex items-center justify-between px-5 py-3 text-sm font-semibold text-[#173b67]">Site oficial do Mestre dos Serviços <ExternalLink className="h-4 w-4" /></span></a></div>
         <section id="inicio" className="bg-[#173b67] px-5 py-20 text-white sm:py-28 lg:px-8">
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
             <div><p className="text-sm font-bold uppercase tracking-[.18em] text-amber-300">Reparos residenciais com confiança</p><h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.03] sm:text-6xl">Marido de aluguel para resolver o que sua casa precisa.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-blue-100">Instalações, montagens, manutenção e pequenos reparos para casas, apartamentos, escritórios e imóveis de aluguel.</p><div className="mt-8 flex flex-wrap gap-3"><FunnelCTAButton label="Pedir orçamento seguro" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-300 px-6 py-3.5 font-bold text-slate-950 hover:bg-amber-200" /><a href="#servicos" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 font-semibold text-white hover:bg-white/10">Ver serviços <ArrowRight className="h-4 w-4" /></a></div><div className="mt-8 flex flex-wrap gap-5 text-sm text-blue-100"><span><ShieldCheck className="mr-2 inline h-4 w-4 text-amber-300" />Profissionais avaliados</span><span><Clock3 className="mr-2 inline h-4 w-4 text-amber-300" />Resposta rápida</span><span><MapPin className="mr-2 inline h-4 w-4 text-amber-300" />Atendimento local</span></div></div>
