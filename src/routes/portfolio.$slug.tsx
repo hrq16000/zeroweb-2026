@@ -136,17 +136,19 @@ function PortfolioPrototypePage() {
   const { vertical, slug } = Route.useLoaderData();
   return (
     <PortfolioStandardShell slug={slug}>
-      {slug === "marido-de-aluguel" ? (
-        <MaridoDeAluguelPage />
-      ) : slug === "emporio-lelecute" ? (
-        <EmporioLelecutePage />
-      ) : slug === "paraiso-do-hot-dog" ? (
-        <ParaisoHotDogPage />
-      ) : slug === "rm-fretes" ? (
-        <RMFretesPage />
-      ) : (
-        <PrototypeSite vertical={vertical} />
-      )}
+      <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+        {slug === "marido-de-aluguel" ? (
+          <MaridoDeAluguelPage />
+        ) : slug === "emporio-lelecute" ? (
+          <EmporioLelecutePage />
+        ) : slug === "paraiso-do-hot-dog" ? (
+          <ParaisoHotDogPage />
+        ) : slug === "rm-fretes" ? (
+          <RMFretesPage />
+        ) : (
+          <PrototypeSite vertical={vertical} />
+        )}
+      </Suspense>
     </PortfolioStandardShell>
   );
 }
