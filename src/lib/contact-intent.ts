@@ -89,6 +89,7 @@ const ALLOWED_FUNNELS = new Set([
   "funnel-partner",
   "funnel-lgpd",
   "funnel-order-support",
+  "funnel-paraiso-hot-dog",
 ]);
 
 /**
