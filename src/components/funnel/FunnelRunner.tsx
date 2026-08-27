@@ -294,13 +294,24 @@ export function FunnelRunner({
         // Small delay so the transition frame is visible.
         setTimeout(() => {
           try {
+            trackEvent("whatsapp_message_sent", {
+              funnel_slug: funnel.slug,
+              funnel_id: funnel.id,
+              protocol: protocol ?? undefined,
+              client_key: clientKey,
+            });
             window.location.href = redirectPath;
           } catch {
+            trackEvent("whatsapp_redirect_failed", {
+              funnel_slug: funnel.slug,
+              protocol: protocol ?? undefined,
+            });
             setDone((prev) =>
               prev ? { ...prev, redirectFailed: true } : prev,
             );
           }
         }, 700);
+
         // If we're still on this page after ~4s, treat as blocked and show fallback.
         setTimeout(() => {
           setDone((prev) =>
