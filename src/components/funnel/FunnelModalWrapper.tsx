@@ -4,7 +4,6 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Loader2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { FunnelRunner } from "./FunnelRunner";
-import { isPortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { getPublicFunnel, type FunnelDefinition } from "@/lib/dynamic-funnel.functions";
 import { trackEvent } from "@/lib/analytics";
 import type { ContactIntent } from "@/lib/contact-intent";
@@ -165,9 +164,7 @@ export function FunnelModalWrapper({
                   embedded
                   prefill={prefill}
                   context={context}
-                  clientKey={
-                    isPortfolioClientKey(intent?.companySlug) ? intent?.companySlug : undefined
-                  }
+                  clientKey={intent?.companySlug}
                   onComplete={() => setCompleted(true)}
                 />
               </div>
