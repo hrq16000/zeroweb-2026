@@ -51,6 +51,7 @@ const CATEGORIES = [
 const PORTFOLIO_ITEMS = [
   {
     id: "dyzpromo",
+    live: true,
     slug: "/portfolio/dyzpromo",
     category: "servicos",
     title: "D.Y.Z Promo",
@@ -64,6 +65,7 @@ const PORTFOLIO_ITEMS = [
   },
   {
     id: "renata-beauty",
+    live: true,
     slug: "/portfolio/renata-beauty",
     category: "beleza",
     title: "Renata Beauty Studio (Versão Oficial)",
@@ -78,6 +80,7 @@ const PORTFOLIO_ITEMS = [
   },
   {
     id: "r_beauty",
+    live: true,
     slug: "/portfolio/r_beauty",
     category: "beleza",
     title: "R_Beauty Studio & Spa (Versão Editorial)",
@@ -91,41 +94,44 @@ const PORTFOLIO_ITEMS = [
   },
   {
     id: "clinica-sorriso",
+    live: false,
     slug: "/sites/clinicas",
     category: "saude",
     title: "Clínica Integrada de Saúde",
     subtitle: "Odontologia, Harmonização & Implantes",
     location: "Curitiba — PR",
-    badge: "Alta Conversão",
+    badge: "Modelo 0WEB",
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
     tags: ["Agendamento Online", "SEO Local", "Google Meu Negócio"],
-    metrics: "187 leads/mês no Google",
+    metrics: "Modelo ilustrativo",
     summary: "Estrutura completa com páginas de procedimentos, depoimentos em vídeo e captação de pacientes para tratamentos de alto ticket.",
   },
   {
     id: "advocacia-pro",
+    live: false,
     slug: "/sites/advocacia",
     category: "juridico",
     title: "Escritório de Advocacia & Consultoria",
     subtitle: "Direito Empresarial, Trabalhista e Previdenciário",
     location: "São Paulo — SP",
-    badge: "OAB Conforme",
+    badge: "Modelo 0WEB",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
     tags: ["Provimento 205 OAB", "Artigos Jurídicos", "Formulário LGPD"],
-    metrics: "Topo do Google para 14 termos",
+    metrics: "Modelo ilustrativo",
     summary: "Site institucional sóbrio e moderno com autoridade técnica, artigos que ranqueiam no Google e conformidade ética total.",
   },
   {
     id: "restaurante-express",
+    live: false,
     slug: "/sites/restaurantes",
     category: "servicos",
     title: "Bistrô & Gastronomia Artesanal",
     subtitle: "Cardápio Digital, Reservas & Delivery",
     location: "Belo Horizonte — MG",
-    badge: "Cardápio QR Code",
+    badge: "Modelo 0WEB",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
     tags: ["Cardápio Interativo", "Sem Taxas de iFood", "Google Maps"],
-    metrics: "+45% reservas diretas",
+    metrics: "Modelo ilustrativo",
     summary: "Página leve com carregamento em menos de 1 segundo, cardápio direto no celular e integração com pedidos no WhatsApp.",
   },
 ];
@@ -330,7 +336,7 @@ function PortfolioPage() {
                           to={item.slug}
                           className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
                         >
-                          Ver Demonstração Ao Vivo <ExternalLink className="w-4 h-4" />
+                          Ver {item.live ? "site ao vivo" : "modelo"} <ExternalLink className="w-4 h-4" />
                         </Link>
 
                         <FunnelCTAButton label="Pedir Igual" className="inline-flex items-center gap-2 rounded-full border border-primary/30 text-primary font-semibold px-4 py-2 text-sm hover:bg-primary/10 transition-colors" />
@@ -403,10 +409,20 @@ function PortfolioPage() {
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/85 p-3 backdrop-blur-sm sm:p-6" role="dialog" aria-modal="true" aria-labelledby="portfolio-preview-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedIndex(null); }}>
           <div className="relative flex h-[min(92vh,860px)] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/15 bg-background shadow-2xl">
             <div className="flex items-center justify-between gap-3 border-b border-border/60 px-4 py-3 sm:px-6">
-              <div className="min-w-0"><p className="text-xs font-semibold uppercase tracking-wider text-primary">Preview do portfólio</p><h2 id="portfolio-preview-title" className="truncate text-lg font-bold sm:text-xl">{selectedItem.title}</h2></div>
+              <div className="min-w-0"><p className="text-xs font-semibold uppercase tracking-wider text-primary">{selectedItem.live ? "Preview do portfólio" : "Modelo ilustrativo"}</p><h2 id="portfolio-preview-title" className="truncate text-lg font-bold sm:text-xl">{selectedItem.title}</h2></div>
               <button type="button" onClick={() => setSelectedIndex(null)} className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-muted text-foreground hover:bg-muted/70" aria-label="Fechar preview"><X className="h-5 w-5" /></button>
             </div>
-            <div className="relative min-h-0 flex-1 bg-muted"><iframe key={selectedItem.slug} src={`${selectedItem.slug}?preview=1&v=20260826`} title={`Preview de ${selectedItem.title}`} className="h-full w-full border-0" /></div>
+            <div className="relative min-h-0 flex-1 bg-muted">
+              {selectedItem.live ? (
+                <iframe key={selectedItem.slug} src={`${selectedItem.slug}?preview=1&v=20260826`} title={`Preview de ${selectedItem.title}`} referrerPolicy="no-referrer" className="h-full w-full border-0" />
+              ) : (
+                <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
+                  <img src={selectedItem.image} alt="" className="max-h-64 w-full max-w-xl rounded-2xl object-cover" />
+                  <p className="max-w-md text-sm text-muted-foreground">Este card é um modelo da 0WEB, não o site de um cliente. Use-o como referência de segmento.</p>
+                  <Link to={selectedItem.slug} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">Ver modelo</Link>
+                </div>
+              )}
+            </div>
             <div className="flex items-center justify-between gap-3 border-t border-border/60 px-4 py-3 sm:px-6">
               <button type="button" onClick={() => setSelectedIndex((selectedIndex - 1 + filteredItems.length) % filteredItems.length)} className="inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted"><ChevronLeft className="h-4 w-4" /> Anterior</button>
               <span className="text-xs text-muted-foreground">{selectedIndex + 1} de {filteredItems.length}</span>

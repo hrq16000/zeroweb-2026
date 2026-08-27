@@ -374,7 +374,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         form_id: form.id,
         answers_json: data.answers,
         metadata_json: {
-          source: "portfolio_demo",
+          source: "portfolio_client",
           client_key: data.clientKey,
           studio_name: data.studioName,
           recipient_name: data.recipientName,

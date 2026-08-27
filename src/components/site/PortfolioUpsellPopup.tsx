@@ -3,6 +3,7 @@ import { X, Sparkles, CalendarClock, Share2 } from "lucide-react";
 import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
+import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
 
 const STORAGE_KEY = "0web:portfolio-upsell-shown";
 
@@ -30,6 +31,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (shouldSuppressPortfolioHostOverlays()) return;
     try {
       if (sessionStorage.getItem(storageKey) === "1") return;
     } catch {

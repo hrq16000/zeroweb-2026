@@ -17,7 +17,7 @@ export const Route = createFileRoute("/portfolio/r_beauty")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
-      { property: "og:site_name", content: "R_Beauty Studio & Spa" },
+      { property: "og:site_name", content: "R_Beauty Haute Studio" },
       { property: "og:image", content: "https://0web.com.br/images/r-beauty-cilios.jpg" },
       { property: "og:image:alt", content: "R_Beauty Studio com destaque para cílios" },
       { name: "twitter:card", content: "summary_large_image" },

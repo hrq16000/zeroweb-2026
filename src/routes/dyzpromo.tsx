@@ -1,5 +1,5 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { absUrl, ORIGIN } from "@/lib/seo";
+import { absUrl } from "@/lib/seo";
 import { DyzPromoPage } from "@/components/site/DyzPromoPage";
 
 export const Route = createFileRoute("/dyzpromo")({
@@ -39,7 +39,6 @@ export const Route = createFileRoute("/dyzpromo")({
             url,
             taxID: "68.500.745/0001-53",
             areaServed: { "@type": "City", name: "Curitiba" },
-            parentOrganization: { "@type": "Organization", name: "0WEB", url: ORIGIN },
             serviceType: "Marketing promocional e divulgação",
           }),
         },

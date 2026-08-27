@@ -33,8 +33,8 @@ const INSTAGRAM_URL = "https://www.instagram.com/renatabeautystudiio/";
 const ADDRESS = "Rua Rondônia, 300 - Boneca do Iguaçu";
 const MAPS_URL = "https://maps.google.com/?q=Rua+Rond%C3%B4nia,+300+-+Boneca+do+Igua%C3%A7u";
 
-function BeautyBookingQuiz(props: Omit<ComponentProps<typeof PortfolioCTAQuiz>, "clientKey">) {
-  return <PortfolioCTAQuiz clientKey="renata-beauty" {...props} />;
+function BeautyBookingQuiz(props: Omit<ComponentProps<typeof PortfolioCTAQuiz>, "clientKey" | "recipientName">) {
+  return <PortfolioCTAQuiz clientKey="renata-beauty" recipientName="Renata" {...props} />;
 }
 
 export function RenataBeautyView() {

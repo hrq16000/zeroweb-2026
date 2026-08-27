@@ -52,6 +52,17 @@ describe("buildWhatsAppLeadMessage", () => {
     expect(msg).toContain("Aumentar vendas");
   });
 
+  it("não cita a 0WEB quando a mensagem é de um cliente com marca própria", () => {
+    const msg = buildWhatsAppLeadMessage({
+      ...baseCtx,
+      brandName: "D.Y.Z Promo",
+      recipientName: "Denis",
+    });
+    expect(msg).toContain("D.Y.Z Promo");
+    expect(msg).toContain("Denis");
+    expect(msg).not.toMatch(/0WEB\.com\.br/i);
+  });
+
   it("preserves visitor-provided phone and email answers", () => {
     const msg = buildWhatsAppLeadMessage(baseCtx);
     expect(msg).toContain("41999990000");

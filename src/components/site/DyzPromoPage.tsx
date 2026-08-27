@@ -17,7 +17,7 @@ import {
   Timer,
   Users,
 } from "lucide-react";
-import { BeautyBookingQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 
@@ -85,18 +85,18 @@ const impactPoints = [
 
 function DyzCTA({ label, className }: { label: string; className?: string }) {
   return (
-    <BeautyBookingQuiz
+    <PortfolioCTAQuiz
       clientKey="dyzpromo"
       studioName="D.Y.Z Promo"
       recipientName="Denis"
-      theme="gold"
+      theme="navy"
       mode="proposal"
       service="Divulgação e panfletagem"
       className={className}
       ariaLabel={label}
     >
       {label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
-    </BeautyBookingQuiz>
+    </PortfolioCTAQuiz>
   );
 }
 
@@ -124,11 +124,11 @@ function DyzFooter() {
 
 function DyzFloatingCTA() {
   return (
-    <BeautyBookingQuiz
+    <PortfolioCTAQuiz
       clientKey="dyzpromo"
       studioName="D.Y.Z Promo"
       recipientName="Denis"
-      theme="gold"
+      theme="navy"
       mode="proposal"
       service="Divulgação e panfletagem"
       className="group fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition hover:scale-105 hover:bg-[#20ba5a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#061536] sm:pr-5"
@@ -140,7 +140,7 @@ function DyzFloatingCTA() {
       </span>
       <span className="hidden sm:inline">Falar com o Denis</span>
       <span className="sr-only sm:hidden">Falar com o Denis</span>
-    </BeautyBookingQuiz>
+    </PortfolioCTAQuiz>
   );
 }
 

@@ -24,6 +24,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
         const {
           resolveWhatsAppRedirectToken,
           resolvePortfolioWhatsAppContact,
+          resolveOperationalWhatsAppContact,
           buildWhatsAppLeadMessage,
           consumeWhatsAppRedirectToken,
           markVisitorFunnelRedirectedBySessionId,
@@ -128,7 +129,9 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             .maybeSingle();
 
           const clientKey = (lead.metadata_json as Record<string, unknown> | null)?.client_key;
-          const contact = resolvePortfolioWhatsAppContact(typeof clientKey === "string" ? clientKey : null);
+          const contact = typeof clientKey === "string"
+            ? resolvePortfolioWhatsAppContact(clientKey)
+            : resolveOperationalWhatsAppContact();
           if (!contact) {
             return htmlErrorPage(
               "Canal indisponível",

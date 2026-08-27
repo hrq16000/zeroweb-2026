@@ -6,7 +6,7 @@ import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } f
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 
-type Theme = "pink" | "gold";
+type Theme = "pink" | "gold" | "navy";
 type Answers = { service: string; experience: string; period: string; timing: string; note: string };
 
 export type PortfolioQuizConfig = {
@@ -24,7 +24,7 @@ type Props = {
   studioName: string;
   theme: Theme;
   service?: string;
-  recipientName?: string;
+  recipientName: string;
   mode?: "booking" | "proposal";
   quizConfig?: PortfolioQuizConfig;
   className?: string;
@@ -66,15 +66,15 @@ const TIMINGS = ["Hoje ou amanhã", "Ainda nesta semana", "Na próxima semana", 
 function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"]) {
   const isProposal = mode === "proposal";
   const lines = [
-    isProposal ? "📣 *PEDIDO DE PROPOSTA*" : "🌷 *PEDIDO DE AGENDAMENTO*",
+    isProposal ? "*PEDIDO DE PROPOSTA*" : "*PEDIDO DE AGENDAMENTO*",
     "",
     `Olá, ${recipientName}! Tudo bem?`,
     "",
-    "Vi a página do *" + studioName + "* no site *0WEB.com.br* e achei a sua página fantástica! ✨",
-    isProposal ? "Quero solicitar uma proposta e já deixei os detalhes abaixo para facilitar o seu atendimento:" : "Quero agendar um horário e já deixei os detalhes abaixo para facilitar o seu atendimento:",
+    `Vim pela página da *${studioName}* e quero conversar sobre ${isProposal ? "uma campanha" : "um atendimento"}.`,
+    isProposal ? "Deixei o briefing abaixo para facilitar a proposta:" : "Deixei as preferências abaixo para facilitar o agendamento:",
     "",
     isProposal ? "*BRIEFING DA CAMPANHA*" : "*PREFERÊNCIAS DO ATENDIMENTO*",
-    (isProposal ? "• *Formato da ação:* " : "• *Procedimento:* ") + (answers.service || (isProposal ? "Quero orientação para escolher" : "Quero orientação para escolher")),
+    (isProposal ? "• *Formato da ação:* " : "• *Procedimento:* ") + (answers.service || "Quero orientação para escolher"),
     (isProposal ? "• *Objetivo/momento:* " : "• *Momento:* ") + (answers.experience || (isProposal ? "Quero conversar sobre o objetivo" : "Quero conversar antes de decidir")),
     (isProposal ? "• *Janela da ação:* " : "• *Melhor período:* ") + (answers.period || (isProposal ? "Ainda preciso de orientação" : "Tenho flexibilidade")),
     (isProposal ? "• *Prazo da campanha:* " : "• *Quando gostaria:* ") + (answers.timing || (isProposal ? "Estou planejando com antecedência" : "Quero a primeira vaga disponível")),
@@ -87,17 +87,44 @@ function whatsappMessage(studioName: string, answers: Answers, recipientName: st
     "*PRÓXIMO PASSO*",
     isProposal ? "Pode me orientar sobre equipe, locais, quantidade de promotores e investimento estimado, por favor?" : "Pode me enviar as próximas vagas disponíveis e confirmar o tempo estimado do atendimento, por favor?",
     "",
-    "Obrigada! 💖",
+    "Aguardo seu retorno.",
   );
   return lines.join("\n");
 }
+
+const THEMES: Record<Theme, { accent: string; accentText: string; optionClass: string; primaryClass: string; panel: string; titleClass: string }> = {
+  pink: {
+    accent: "#f472b6",
+    accentText: "text-pink-300",
+    optionClass: "border-pink-400/35 bg-pink-500/10 hover:border-pink-300/80 hover:bg-pink-500/20",
+    primaryClass: "bg-pink-500 text-white hover:bg-pink-400",
+    panel: "bg-[#160d13]",
+    titleClass: "font-serif",
+  },
+  gold: {
+    accent: "#D4AF37",
+    accentText: "text-[#D4AF37]",
+    optionClass: "border-[#D4AF37]/35 bg-[#D4AF37]/10 hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20",
+    primaryClass: "bg-[#D4AF37] text-black hover:bg-[#ecd080]",
+    panel: "bg-[#0C0A0B]",
+    titleClass: "font-serif",
+  },
+  navy: {
+    accent: "#f7c948",
+    accentText: "text-[#f7c948]",
+    optionClass: "border-[#f7c948]/35 bg-[#f7c948]/10 hover:border-[#f7c948]/80 hover:bg-[#f7c948]/20",
+    primaryClass: "bg-[#f7c948] text-[#10295d] hover:bg-[#ffe08a]",
+    panel: "bg-[#071b49]",
+    titleClass: "font-sans",
+  },
+};
 
 export function BeautyBookingQuiz({
   clientKey,
   studioName,
   theme,
   service,
-  recipientName = "Renata",
+  recipientName,
   mode = "booking",
   quizConfig,
   className,
@@ -111,13 +138,8 @@ export function BeautyBookingQuiz({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const gold = theme === "gold";
-  const accent = gold ? "#D4AF37" : "#f472b6";
-  const accentText = gold ? "text-[#D4AF37]" : "text-pink-300";
-  const optionClass = gold
-    ? "border-[#D4AF37]/35 bg-[#D4AF37]/10 hover:border-[#D4AF37]/80 hover:bg-[#D4AF37]/20"
-    : "border-pink-400/35 bg-pink-500/10 hover:border-pink-300/80 hover:bg-pink-500/20";
-  const primaryClass = gold ? "bg-[#D4AF37] text-black hover:bg-[#ecd080]" : "bg-pink-500 text-white hover:bg-pink-400";
+  const look = THEMES[theme];
+  const { accent, accentText, optionClass, primaryClass, panel, titleClass } = look;
   const isProposal = mode === "proposal";
   const serviceOptions = quizConfig?.services ?? (isProposal ? PROPOSAL_SERVICES : SERVICES);
   const experienceOptions = quizConfig?.experienceOptions ?? (isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
@@ -135,7 +157,7 @@ export function BeautyBookingQuiz({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  const funnelContext = { location: "client_booking_quiz", studio_name: studioName, recipient_name: recipientName, page_type: "portfolio_demo" };
+  const funnelContext = { location: "portfolio_cta_quiz", studio_name: studioName, recipient_name: recipientName, page_type: "portfolio_client", client_key: clientKey };
 
   const start = () => {
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
@@ -166,8 +188,8 @@ export function BeautyBookingQuiz({
     if (redirecting) return;
     const conversion = { ...funnelContext, steps: 5, service: answers.service || "orientacao" };
     trackConversion("wa_funnel_complete", conversion);
-    trackWhatsAppClick("beauty_booking_quiz_complete", conversion);
-    void persistWaFunnelConversion({ ...answers, studio: studioName, source: "portfolio_demo" });
+    trackWhatsAppClick("portfolio_cta_quiz_complete", conversion);
+    void persistWaFunnelConversion({ ...answers, studio: studioName, source: "portfolio_client" });
     setRedirecting(true);
     setSubmitError(null);
     try {
@@ -202,7 +224,7 @@ export function BeautyBookingQuiz({
 
       {open ? (
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-6" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
-          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="beauty-booking-quiz-title" tabIndex={-1} className="w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/15 bg-[#160d13] text-white shadow-2xl outline-none">
+          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="portfolio-cta-quiz-title" tabIndex={-1} className={"w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/15 text-white shadow-2xl outline-none " + panel}>
             <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ backgroundColor: accent + "22", color: accent }}>
@@ -223,7 +245,7 @@ export function BeautyBookingQuiz({
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <p className={"text-xs font-bold uppercase tracking-[0.2em] " + accentText}>{question.label}</p>
-                    <h2 id="beauty-booking-quiz-title" className="text-2xl font-serif font-bold">{question.title}</h2>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{question.title}</h2>
                     <p className="text-sm leading-relaxed text-gray-400">{question.subtitle}</p>
                   </div>
                   <div className="grid gap-2.5">
@@ -238,7 +260,7 @@ export function BeautyBookingQuiz({
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <p className={"text-xs font-bold uppercase tracking-[0.2em] " + accentText}>5 de 5</p>
-                    <h2 id="beauty-booking-quiz-title" className="text-2xl font-serif font-bold">{quizConfig?.stepTitles?.note ?? "Quer acrescentar algum detalhe?"}</h2>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{quizConfig?.stepTitles?.note ?? "Quer acrescentar algum detalhe?"}</h2>
                     <p className="text-sm leading-relaxed text-gray-400">{quizConfig?.stepSubtitles?.note ?? (isProposal ? "É opcional. Conte sobre região, quantidade, material ou alguma necessidade especial." : "É opcional. Você pode contar se tem preferência de estilo, horário ou alguma dúvida.")}</p>
                   </div>
                   <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder={quizConfig?.notePlaceholder ?? (isProposal ? "Ex.: ação em dois bairros, com entrega de brindes e previsão para o próximo mês." : "Ex.: gosto de um efeito mais natural e consigo depois das 18h.")} className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
@@ -250,12 +272,11 @@ export function BeautyBookingQuiz({
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
-                    <h2 id="beauty-booking-quiz-title" className="text-2xl font-serif font-bold">Prontinho — sua mensagem está personalizada</h2>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Prontinho — sua mensagem está personalizada</h2>
                     <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed text-gray-300">
-                    <p className="font-bold text-white">{answers.service}</p>
-                    <p className="mt-1">{answers.experience} · {answers.period} · {answers.timing}</p>
+                  <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
+                    {whatsappMessage(studioName, answers, recipientName, mode)}
                   </div>
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />

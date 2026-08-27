@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
 
 type Props = {
   clientKey: string;
@@ -31,6 +32,7 @@ export function PortfolioSocialProofPopup({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    if (shouldSuppressPortfolioHostOverlays()) return;
     let dismissTimer: number | undefined;
     const timer = window.setTimeout(() => {
       setOpen(true);

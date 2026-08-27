@@ -17,6 +17,7 @@ if (typeof window !== "undefined") {
 
 import { randomBytes, createHash } from "node:crypto";
 import { getOperationalContact } from "@/lib/contact.server";
+import { isPortfolioClientKey } from "@/lib/portfolio-client-keys";
 import {
   WHATSAPP_TOKEN_TTL_MS,
   WHATSAPP_REDIRECT_REUSE_WINDOW_MS,
@@ -76,14 +77,19 @@ export function resolveOperationalWhatsAppContact(): OperationalWhatsAppContact 
   return { digits };
 }
 
-/** Contatos dos clientes-demo: chaves fixas, números somente no servidor. */
+/**
+ * Destinatário do site de um cliente. Sem fallback para o WhatsApp da 0WEB
+ * e sem número no código-fonte: só a env do cliente.
+ */
 export function resolvePortfolioWhatsAppContact(clientKey?: string | null): OperationalWhatsAppContact | null {
-  const configured = clientKey === "dyzpromo"
-    ? (process.env.DYZ_PROMO_WHATSAPP_NUMBER ?? "554198755277")
+  if (!isPortfolioClientKey(clientKey)) return null;
+  const envName = clientKey === "dyzpromo"
+    ? "DYZ_PROMO_WHATSAPP_NUMBER"
     : clientKey === "renata-beauty" || clientKey === "r-beauty"
-      ? (process.env.RENATA_BEAUTY_WHATSAPP_NUMBER ?? "554196048639")
-      : process.env.SUPPORT_WHATSAPP_NUMBER ?? "";
-  const digits = configured.replace(/\D/g, "");
+      ? "RENATA_BEAUTY_WHATSAPP_NUMBER"
+      : null;
+  if (!envName) return null;
+  const digits = (process.env[envName] ?? "").replace(/\D/g, "");
   if (!digits || digits.length < 10 || digits.length > 15) return null;
   return { digits };
 }
