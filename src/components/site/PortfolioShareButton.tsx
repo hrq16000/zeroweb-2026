@@ -38,7 +38,7 @@ export function PortfolioShareButton({
     trackEvent("portfolio_share_click", {
       portfolio_slug: slug ?? "unknown",
       page_type: "portfolio_client",
-      method: navigator.share ? "native" : "clipboard",
+      method: typeof navigator !== "undefined" && "share" in navigator ? "native" : "clipboard",
     });
     try {
       if (navigator.share) await navigator.share(data);
