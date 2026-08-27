@@ -17,6 +17,14 @@ As skills são referências de execução e revisão; não substituem conteúdo 
 | Snyk UI/UX skill references | Auditoria de acessibilidade, segurança de dependências e revisão de skills de terceiros antes de adoção. |
 | Figma/MCP e DESIGN.md | Referência visual verificável quando houver arquivo de design aprovado. |
 
+## Regra obrigatória para todos os projetos
+
+Esta documentação é normativa para todos os projetos atuais e futuros do
+portal e de `/portfolio/`. O `AGENTS.md` da raiz reforça a regra para qualquer
+agente ou pessoa que altere o repositório. Exceções precisam ser justificadas
+no próprio projeto e não podem remover os requisitos de segurança, acessibilidade
+ou separação de funis.
+
 ## Processo obrigatório para novos projetos
 
 1. Definir objetivo, público, identidade, conteúdo real e CTA do cliente.

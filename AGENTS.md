@@ -3,6 +3,17 @@
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 `docs/PORTFOLIO_CLIENT_STANDARD.md` e execute `npm run validate:portfolio-boundaries`.
 
+## Skills obrigatórias
+
+Toda implementação nova ou revisão visual em `/portfolio/` deve seguir
+`docs/AGENT_SKILLS_GOVERNANCE.md`. No mínimo, aplique a direção do
+`frontend-design`, a revisão de acessibilidade/mobile da Apple Design Skill e a
+passada de `ui-craft` adequada (tokens, adapt, animate, polish ou audit). A
+decisão e o resultado devem ser registrados no PR/commit ou na documentação do
+projeto. Não publique uma nova página sem validar funil individual, SEO,
+imagens reais, estados de carregamento/erro, `prefers-reduced-motion` e
+viewports móveis.
+
 ## Princípio obrigatório
 
 Cada `/portfolio/<slug>` é um site independente de um cliente. A 0WEB fornece
