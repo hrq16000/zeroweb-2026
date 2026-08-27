@@ -36,6 +36,7 @@ export function PortfolioStandardShell({ slug, children }: Props) {
           position={standards.shareButton.position}
           variant={standards.shareButton.variant}
           label={standards.shareButton.label}
+          slug={slug}
         />
       ) : null}
 
@@ -59,6 +60,8 @@ export function PortfolioStandardShell({ slug, children }: Props) {
           mode={standards.contactFloating.mode}
           label={standards.contactFloating.label}
           position={standards.contactFloating.position}
+          quizConfig={standards.contactFloating.quizConfig}
+          slug={slug}
         />
       ) : null}
 

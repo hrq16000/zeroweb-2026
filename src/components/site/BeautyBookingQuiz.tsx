@@ -29,6 +29,7 @@ type Props = {
   quizConfig?: PortfolioQuizConfig;
   className?: string;
   ariaLabel?: string;
+  onOpen?: () => void;
   children: ReactNode;
 };
 
@@ -92,6 +93,15 @@ function whatsappMessage(studioName: string, answers: Answers, recipientName: st
   return lines.join("\n");
 }
 
+/** Adia efeitos não visuais para depois da pintura, mantendo o clique instantâneo. */
+function queueTelemetry(task: () => void) {
+  if (typeof window === "undefined") return;
+  const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => number })
+    .requestIdleCallback;
+  if (idle) idle(task);
+  else window.setTimeout(task, 0);
+}
+
 const THEMES: Record<Theme, { accent: string; accentText: string; optionClass: string; primaryClass: string; panel: string; titleClass: string }> = {
   pink: {
     accent: "#f472b6",
@@ -129,6 +139,7 @@ export function BeautyBookingQuiz({
   quizConfig,
   className,
   ariaLabel,
+  onOpen,
   children,
 }: Props) {
   const [open, setOpen] = useState(false);
@@ -160,20 +171,26 @@ export function BeautyBookingQuiz({
   const funnelContext = { location: "portfolio_cta_quiz", studio_name: studioName, recipient_name: recipientName, page_type: "portfolio_client", client_key: clientKey };
 
   const start = () => {
+    onOpen?.();
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
     setStep(0);
     setOpen(true);
-    trackConversion("wa_funnel_open", funnelContext);
-    void persistWaFunnelOpen(5);
+    // Telemetria fora do caminho crítico: o modal abre no mesmo frame do clique.
+    queueTelemetry(() => {
+      trackConversion("wa_funnel_open", funnelContext);
+      void persistWaFunnelOpen(5);
+    });
   };
 
   const choose = (field: keyof Omit<Answers, "note">, value: string) => {
     const next = { ...answers, [field]: value };
     const stepIndex = step + 1;
     setAnswers(next);
-    trackEvent("wa_funnel_step", { ...funnelContext, step_id: field, step_index: stepIndex });
-    void persistWaFunnelStep(stepIndex, next);
     setStep((current) => current + 1);
+    queueTelemetry(() => {
+      trackEvent("wa_funnel_step", { ...funnelContext, step_id: field, step_index: stepIndex });
+      void persistWaFunnelStep(stepIndex, next);
+    });
   };
 
   const showMessage = () => {

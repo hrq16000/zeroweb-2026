@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
-import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioCTAQuiz, type PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
+import { trackEvent } from "@/lib/analytics";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import type { ContactMode, ContactTheme, FloatingPosition } from "@/lib/portfolio-global-config";
 
@@ -11,6 +12,8 @@ type Props = {
   mode: ContactMode;
   label: string;
   position: FloatingPosition;
+  quizConfig?: PortfolioQuizConfig;
+  slug?: string;
 };
 
 const POSITION: Record<FloatingPosition, string> = {
@@ -37,6 +40,8 @@ export function PortfolioContactFloating({
   mode,
   label,
   position,
+  quizConfig,
+  slug,
 }: Props) {
   return (
     <PortfolioCTAQuiz
@@ -45,7 +50,15 @@ export function PortfolioContactFloating({
       recipientName={recipientName}
       theme={theme}
       mode={mode}
+      quizConfig={quizConfig}
       ariaLabel={label}
+      onOpen={() =>
+        trackEvent("portfolio_contact_floating_click", {
+          portfolio_slug: slug ?? clientKey,
+          client_key: clientKey,
+          page_type: "portfolio_client",
+        })
+      }
       className={`fixed z-40 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]}`}
     >
       <MessageCircle className="h-4 w-4" aria-hidden="true" />
