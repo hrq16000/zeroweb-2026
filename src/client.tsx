@@ -96,6 +96,11 @@ async function waitForServerPayload(): Promise<boolean> {
   return false;
 }
 
+// Drena eventos analíticos que ficaram pendentes em sessões anteriores.
+void import("./lib/analytics-queue")
+  .then((m) => m.initAnalyticsQueue())
+  .catch(() => undefined);
+
 void waitForServerPayload().then((hasPayload) => {
   if (hasPayload) {
     hydrateFromServerPayload();

@@ -36,7 +36,7 @@ export async function persistEvent(eventName: string, params: Json = {}) {
     const c = ctx();
     const ab = abState();
     const location = (params.location as string | undefined) ?? null;
-    await supabase.from("analytics_events").insert({
+    const row = {
       session_id: getSessionId(),
       visitor_id: getVisitorId(),
       event_name: eventName,
@@ -53,7 +53,10 @@ export async function persistEvent(eventName: string, params: Json = {}) {
       referrer: c.referrer,
       device_type: getDeviceType(),
       metadata_json: params,
-    });
+    };
+    // Entrega garantida: upsert idempotente + fila local com backoff se falhar.
+    const { sendOrQueueEvent } = await import("./analytics-queue");
+    await sendOrQueueEvent(row);
   } catch {
     /* swallow */
   }

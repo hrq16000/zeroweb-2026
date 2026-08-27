@@ -14,13 +14,30 @@ export type PopupProjectMetrics = {
   conversionRate: number;
 };
 
+export type PopupAlert = {
+  slug: string;
+  severity: "critical" | "warning";
+  metric: "impressions" | "clicks" | "ctr" | "conversionRate";
+  value: number;
+  threshold: number;
+  windowDays: number;
+  message: string;
+};
+
 export type PopupMetricsResult = {
   windowDays: number;
   totals: Omit<PopupProjectMetrics, "slug" | "path">;
   projects: PopupProjectMetrics[];
-  alerts: string[];
+  alerts: PopupAlert[];
   generatedAt: string;
 };
+
+/** Limites padrão — sobrescritos por slug em popup_configs.alert_thresholds. */
+export const DEFAULT_POPUP_THRESHOLDS = {
+  minImpressions: 1,
+  minCtr: 0.02,
+  minConversionRate: 0.05,
+} as const;
 
 const EVENTS = {
   popup_view: "impressions",
@@ -109,14 +126,61 @@ export const getPortfolioPopupMetrics = createServerFn({ method: "GET" })
       ? (totals.funnelConversions + totals.whatsappConversions) / totals.clicks
       : 0;
 
-    // Alertas simples de queda: projeto com tráfego e nenhum sinal de conversão.
-    const alerts: string[] = [];
-    for (const p of projects) {
-      if (p.impressions === 0) alerts.push(`${p.slug}: nenhuma impressão do pop-up no período`);
-      else if (p.clicks === 0) alerts.push(`${p.slug}: ${p.impressions} impressões e nenhum clique`);
-      else if (p.funnelConversions + p.whatsappConversions === 0)
-        alerts.push(`${p.slug}: cliques sem conversão de funil/WhatsApp`);
+    // Limites por projeto (painel administrativo) com fallback global.
+    const thresholdsBySlug = new Map<string, Partial<typeof DEFAULT_POPUP_THRESHOLDS>>();
+    const { data: configs } = await context.supabase
+      .from("popup_configs")
+      .select("slug, alert_thresholds");
+    for (const c of (configs ?? []) as Array<{ slug: string; alert_thresholds: unknown }>) {
+      thresholdsBySlug.set(c.slug, (c.alert_thresholds ?? {}) as Partial<typeof DEFAULT_POPUP_THRESHOLDS>);
     }
+
+    const alerts: PopupAlert[] = [];
+    const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
+    for (const p of projects) {
+      const t = { ...DEFAULT_POPUP_THRESHOLDS, ...(thresholdsBySlug.get(p.slug) ?? {}) };
+      const push = (
+        severity: PopupAlert["severity"],
+        metric: PopupAlert["metric"],
+        value: number,
+        threshold: number,
+        message: string,
+      ) => alerts.push({ slug: p.slug, severity, metric, value, threshold, windowDays: data.days, message });
+
+      if (p.impressions < t.minImpressions) {
+        push(
+          "critical",
+          "impressions",
+          p.impressions,
+          t.minImpressions,
+          `${p.slug}: ${p.impressions} impressão(ões) em ${data.days}d (mínimo ${t.minImpressions}) — verifique tracking ou exibição do pop-up`,
+        );
+        continue;
+      }
+      if (p.clicks === 0) {
+        push("critical", "clicks", 0, 1, `${p.slug}: ${p.impressions} impressões e nenhum clique em ${data.days}d`);
+        continue;
+      }
+      if (p.ctr < t.minCtr) {
+        push(
+          "warning",
+          "ctr",
+          p.ctr,
+          t.minCtr,
+          `${p.slug}: CTR ${pct(p.ctr)} abaixo do limite ${pct(t.minCtr)} em ${data.days}d`,
+        );
+      }
+      if (p.conversionRate < t.minConversionRate) {
+        push(
+          "warning",
+          "conversionRate",
+          p.conversionRate,
+          t.minConversionRate,
+          `${p.slug}: conversão ${pct(p.conversionRate)} abaixo do limite ${pct(t.minConversionRate)} em ${data.days}d`,
+        );
+      }
+    }
+    alerts.sort((a, b) => (a.severity === b.severity ? 0 : a.severity === "critical" ? -1 : 1));
 
     return {
       windowDays: data.days,
