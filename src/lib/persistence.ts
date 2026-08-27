@@ -123,9 +123,13 @@ export async function persistWaFunnelOpen(totalSteps: number) {
   try {
     const c = ctx();
     const ab = abState();
-    const { data, error } = await supabase
+    // O id é gerado no cliente: anon pode inserir, mas não pode ler a tabela
+    // (nenhuma policy de SELECT pública), então `.select()` retornaria erro.
+    const newId = crypto.randomUUID();
+    const { error } = await supabase
       .from("wa_funnel_sessions")
       .insert({
+        id: newId,
         session_id: getSessionId(),
         started_at: new Date().toISOString(),
         current_step: 0,
