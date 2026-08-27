@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils } from "lucide-react";
+import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils, X } from "lucide-react";
 import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
@@ -127,6 +127,7 @@ export function ParaisoHotDogPage() {
   const [delivery, setDelivery] = useState<"retirada" | "entrega">("retirada");
   const [note, setNote] = useState("");
   const [funnelOpen, setFunnelOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("Todos");
   const total = useMemo(
     () => productsWithImages.reduce((sum, p) => sum + (cart[p.id] ?? 0) * p.price, 0),
@@ -166,11 +167,21 @@ export function ParaisoHotDogPage() {
               Montar meu pedido <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-          <img
-            src="/images/paraiso-hot-dog-menu.png"
-            alt="Cardápio real do Paraíso do Hot Dog"
-            className="mx-auto max-h-[520px] w-full max-w-md rounded-3xl border-4 border-[#f5bd21] object-cover shadow-2xl"
-          />
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="group mx-auto block w-full max-w-md text-left"
+            aria-label="Abrir cardápio completo em tela cheia"
+          >
+            <img
+              src="/images/paraiso-hot-dog-menu.png"
+              alt="Cardápio real do Paraíso do Hot Dog — toque para ampliar"
+              className="mx-auto max-h-[520px] w-full rounded-3xl border-4 border-[#f5bd21] object-cover shadow-2xl transition group-hover:scale-[1.01]"
+            />
+            <span className="mt-3 block text-center text-xs font-bold text-[#ffe9a5]">
+              Toque para ampliar o cardápio completo
+            </span>
+          </button>
         </div>
       </section>
       <section
@@ -207,61 +218,66 @@ export function ParaisoHotDogPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {visibleProducts.map((p) => (
-          <article
-            key={p.id}
-            className="overflow-hidden rounded-3xl border border-[#eed9a7] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-          >
-            <img src={p.image} alt={`${p.name} do Paraíso do Hot Dog`} className="h-36 w-full object-cover" loading="lazy" />
-            <div className="p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-[#b46b00]">
-                      {p.category}
-                    </p>
-                    <h3 className="text-xl font-bold">{p.name}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#765c42]">{p.desc}</p>
-                  </div>
-                  <span className="whitespace-nowrap text-lg font-black text-[#b46b00]">
-                    R$ {p.price},00
-                  </span>
-                </div>
-                <div className="mt-5 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <button
-                      aria-label={`Diminuir ${p.name}`}
-                      onClick={() =>
-                        setCart((v) => ({ ...v, [p.id]: Math.max(0, (v[p.id] ?? 0) - 1) }))
-                      }
-                      className="grid h-10 w-10 place-items-center rounded-full border border-[#e4c981] hover:bg-[#fff2c6]"
-                    >
-                      <Minus className="h-4 w-4" />
-                    </button>
-                    <span className="w-6 text-center font-bold">{cart[p.id] ?? 0}</span>
-                    <button
-                      aria-label={`Adicionar ${p.name}`}
-                      onClick={() => setCart((v) => ({ ...v, [p.id]: (v[p.id] ?? 0) + 1 }))}
-                      className="grid h-10 w-10 place-items-center rounded-full bg-[#f5bd21] text-black hover:bg-[#ffd34f]"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  </div>
-                  {(cart[p.id] ?? 0) > 0 && (
-                    <div className="flex flex-wrap justify-end gap-1">
-                      {extras.slice(0, 3).map((e) => (
-                        <button
-                          key={e}
-                          onClick={() => toggleExtra(p.id, e)}
-                          className={`rounded-full px-2 py-1 text-[10px] font-semibold ${custom[p.id]?.includes(e) ? "bg-[#17130f] text-white" : "bg-[#fff2c6] text-[#765c42]"}`}
-                        >
-                          {custom[p.id]?.includes(e) && <Check className="mr-1 inline h-3 w-3" />}
-                          {e}
-                        </button>
-                      ))}
+              <article
+                key={p.id}
+                className="overflow-hidden rounded-3xl border border-[#eed9a7] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <img
+                  src={p.image}
+                  alt={`${p.name} do Paraíso do Hot Dog`}
+                  className="h-36 w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-[#b46b00]">
+                        {p.category}
+                      </p>
+                      <h3 className="text-xl font-bold">{p.name}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[#765c42]">{p.desc}</p>
                     </div>
-                  )}
+                    <span className="whitespace-nowrap text-lg font-black text-[#b46b00]">
+                      R$ {p.price},00
+                    </span>
+                  </div>
+                  <div className="mt-5 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <button
+                        aria-label={`Diminuir ${p.name}`}
+                        onClick={() =>
+                          setCart((v) => ({ ...v, [p.id]: Math.max(0, (v[p.id] ?? 0) - 1) }))
+                        }
+                        className="grid h-10 w-10 place-items-center rounded-full border border-[#e4c981] hover:bg-[#fff2c6]"
+                      >
+                        <Minus className="h-4 w-4" />
+                      </button>
+                      <span className="w-6 text-center font-bold">{cart[p.id] ?? 0}</span>
+                      <button
+                        aria-label={`Adicionar ${p.name}`}
+                        onClick={() => setCart((v) => ({ ...v, [p.id]: (v[p.id] ?? 0) + 1 }))}
+                        className="grid h-10 w-10 place-items-center rounded-full bg-[#f5bd21] text-black hover:bg-[#ffd34f]"
+                      >
+                        <Plus className="h-4 w-4" />
+                      </button>
+                    </div>
+                    {(cart[p.id] ?? 0) > 0 && (
+                      <div className="flex flex-wrap justify-end gap-1">
+                        {extras.slice(0, 3).map((e) => (
+                          <button
+                            key={e}
+                            onClick={() => toggleExtra(p.id, e)}
+                            className={`rounded-full px-2 py-1 text-[10px] font-semibold ${custom[p.id]?.includes(e) ? "bg-[#17130f] text-white" : "bg-[#fff2c6] text-[#765c42]"}`}
+                          >
+                            {custom[p.id]?.includes(e) && <Check className="mr-1 inline h-3 w-3" />}
+                            {e}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-            </div>
-          </article>
+              </article>
             ))}
           </div>
         </div>
@@ -342,6 +358,28 @@ export function ParaisoHotDogPage() {
       <footer className="bg-[#17130f] px-5 py-8 text-center text-sm text-[#c9b99e]">
         Paraíso do Hot Dog · Av. Rui Barbosa · São José dos Pinhais, PR
       </footer>
+      {menuOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Cardápio ampliado"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/90 p-3 sm:p-8"
+        >
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white text-black shadow-xl"
+            aria-label="Fechar cardápio ampliado"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <img
+            src="/images/paraiso-hot-dog-menu.png"
+            alt="Cardápio completo do Paraíso do Hot Dog"
+            className="max-h-[94vh] max-w-full rounded-xl object-contain shadow-2xl"
+          />
+        </div>
+      )}
       <FunnelModalWrapper
         open={funnelOpen}
         onClose={() => setFunnelOpen(false)}
