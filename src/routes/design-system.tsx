@@ -145,7 +145,7 @@ function DesignSystemPage() {
             <li>• Contraste de texto ≥ 4,5:1 e de UI ≥ 3:1.</li>
             <li>• Animar apenas transform/opacity e respeitar prefers-reduced-motion.</li>
             <li>• Em /portfolio/&lt;slug&gt; a identidade do cliente é soberana: nada de Header, Footer, paleta ou copy da 0WEB.</li>
-            <li>• Nenhum contato operacional (wa.me, telefone, e-mail) no bundle público.</li>
+            <li>• Nenhum contato operacional (links de WhatsApp, telefone, e-mail) no bundle público.</li>
             <li>• Sem métricas, depoimentos ou selos sem fonte auditável.</li>
           </ul>
         </Section>
