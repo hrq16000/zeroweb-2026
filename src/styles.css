@@ -105,6 +105,9 @@
     -webkit-font-smoothing: antialiased;
     overscroll-behavior-y: none;
   }
+  main {
+    animation: page-reveal 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
   html {
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
     scrollbar-width: thin;
@@ -148,6 +151,11 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+}
+
+@keyframes page-reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @utility text-gradient {

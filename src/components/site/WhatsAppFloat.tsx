@@ -7,6 +7,15 @@ export function WhatsAppFloat() {
   const { open } = useWaFunnel();
   const controls = useAnimationControls();
   const [showBubble, setShowBubble] = useState(false);
+  const [nearFooter, setNearFooter] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setNearFooter(entry.isIntersecting), { threshold: 0.05 });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   // Periodic shake + blink to call attention
   useEffect(() => {
@@ -31,7 +40,7 @@ export function WhatsAppFloat() {
   }, [controls]);
 
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex items-end gap-2">
+    <div className={`fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-4 z-40 flex items-end gap-2 transition-[opacity,transform] duration-300 sm:bottom-5 sm:right-5 ${nearFooter ? "pointer-events-none translate-y-6 opacity-0" : "opacity-100"}`} aria-hidden={nearFooter}>
       {showBubble && (
         <motion.div
           initial={{ opacity: 0, x: 12, y: 6 }}
