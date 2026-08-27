@@ -34,6 +34,7 @@
     "offers:validate": "node scripts/validate-public-offers.mjs",
     "test:e2e:hydration": "node scripts/playwright-hydration.mjs",
     "test:e2e:funnel": "node scripts/playwright-funnel-e2e.mjs",
+    "test:e2e:portfolio-funnels": "node scripts/playwright-portfolio-funnels.mjs",
     "validate:ssr-payload": "node scripts/validate-ssr-dehydrated.mjs",
     "ci:hydration": "bun run validate:ssr-payload && bun run test:e2e:hydration",
     "build:check": "node scripts/build-with-recovery.mjs",
