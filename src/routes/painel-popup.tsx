@@ -56,6 +56,11 @@ type Draft = {
   minImpressions: string;
   minCtr: string;
   minConversionRate: string;
+  sampleRate: string;
+  simulationEnabled: boolean;
+  slackWebhookUrl: string;
+  notifyEmail: string;
+  notifyWebhookUrl: string;
 };
 
 const emptyDraft: Draft = {
@@ -76,6 +81,11 @@ const emptyDraft: Draft = {
   minImpressions: "",
   minCtr: "",
   minConversionRate: "",
+  sampleRate: "1",
+  simulationEnabled: false,
+  slackWebhookUrl: "",
+  notifyEmail: "",
+  notifyWebhookUrl: "",
 };
 
 function toDraft(row: PopupConfigAdminRow): Draft {
@@ -99,6 +109,11 @@ function toDraft(row: PopupConfigAdminRow): Draft {
     minImpressions: t.minImpressions?.toString() ?? "",
     minCtr: t.minCtr?.toString() ?? "",
     minConversionRate: t.minConversionRate?.toString() ?? "",
+    sampleRate: (row.sample_rate ?? 1).toString(),
+    simulationEnabled: row.simulation_enabled ?? false,
+    slackWebhookUrl: row.notify_channels?.slack_webhook_url ?? "",
+    notifyEmail: row.notify_channels?.email ?? "",
+    notifyWebhookUrl: row.notify_channels?.webhook_url ?? "",
   };
 }
 
@@ -162,6 +177,13 @@ function PopupConfigPanel() {
             minImpressions: num(draft.minImpressions),
             minCtr: num(draft.minCtr),
             minConversionRate: num(draft.minConversionRate),
+          },
+          sample_rate: num(draft.sampleRate) ?? 1,
+          simulation_enabled: draft.simulationEnabled,
+          notify_channels: {
+            slack_webhook_url: str(draft.slackWebhookUrl),
+            email: str(draft.notifyEmail),
+            webhook_url: str(draft.notifyWebhookUrl),
           },
         },
       });
@@ -255,6 +277,43 @@ function PopupConfigPanel() {
           <div>
             <Label htmlFor="scroll">Scroll (0–1)</Label>
             <Input id="scroll" inputMode="decimal" value={draft.scrollPct} onChange={(e) => set("scrollPct", e.target.value)} />
+          </div>
+          <div>
+            <Label htmlFor="sample">Taxa de amostragem (0–1)</Label>
+            <Input
+              id="sample"
+              inputMode="decimal"
+              value={draft.sampleRate}
+              onChange={(e) => set("sampleRate", e.target.value)}
+            />
+            <p className="mt-1 text-xs text-muted-foreground">
+              Use valores menores que 1 em staging para reduzir a geração de eventos.
+            </p>
+          </div>
+          <div className="flex items-end">
+            <label className="flex items-center gap-2 text-sm">
+              <Switch
+                checked={draft.simulationEnabled}
+                onCheckedChange={(v) => set("simulationEnabled", v)}
+              />
+              Modo simulação (eventos marcados como simulados)
+            </label>
+          </div>
+          <div className="md:col-span-2">
+            <Label htmlFor="slack">Webhook do Slack (alertas)</Label>
+            <Input id="slack" value={draft.slackWebhookUrl} onChange={(e) => set("slackWebhookUrl", e.target.value)} />
+          </div>
+          <div>
+            <Label htmlFor="notify-email">E-mail de alerta</Label>
+            <Input id="notify-email" value={draft.notifyEmail} onChange={(e) => set("notifyEmail", e.target.value)} />
+          </div>
+          <div>
+            <Label htmlFor="notify-webhook">Webhook genérico</Label>
+            <Input
+              id="notify-webhook"
+              value={draft.notifyWebhookUrl}
+              onChange={(e) => set("notifyWebhookUrl", e.target.value)}
+            />
           </div>
           <div>
             <Label htmlFor="starts">Início (ISO)</Label>

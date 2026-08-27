@@ -39,7 +39,9 @@ import { Route as PainelRouteImport } from './routes/painel'
 import { Route as PainelCrmRouteImport } from './routes/painel-crm'
 import { Route as PainelFunisRouteImport } from './routes/painel-funis'
 import { Route as PainelPopupRouteImport } from './routes/painel-popup'
+import { Route as PainelPopupMetricasRouteImport } from './routes/painel-popup-metricas'
 import { Route as PainelPortfolioRouteImport } from './routes/painel-portfolio'
+import { Route as PainelSkillsRouteImport } from './routes/painel-skills'
 import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as PlanosComparativoRouteImport } from './routes/planos-comparativo'
@@ -346,9 +348,19 @@ const PainelPopupRoute = PainelPopupRouteImport.update({
   path: '/painel-popup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PainelPopupMetricasRoute = PainelPopupMetricasRouteImport.update({
+  id: '/painel-popup-metricas',
+  path: '/painel-popup-metricas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PainelPortfolioRoute = PainelPortfolioRouteImport.update({
   id: '/painel-portfolio',
   path: '/painel-portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelSkillsRoute = PainelSkillsRouteImport.update({
+  id: '/painel-skills',
+  path: '/painel-skills',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParceirosRoute = ParceirosRouteImport.update({
@@ -1215,7 +1227,9 @@ export interface FileRoutesByFullPath {
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
   '/painel-popup': typeof PainelPopupRoute
+  '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
+  '/painel-skills': typeof PainelSkillsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1403,7 +1417,9 @@ export interface FileRoutesByTo {
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
   '/painel-popup': typeof PainelPopupRoute
+  '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
+  '/painel-skills': typeof PainelSkillsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1591,7 +1607,9 @@ export interface FileRoutesById {
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
   '/painel-popup': typeof PainelPopupRoute
+  '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
+  '/painel-skills': typeof PainelSkillsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1781,7 +1799,9 @@ export interface FileRouteTypes {
     | '/painel-crm'
     | '/painel-funis'
     | '/painel-popup'
+    | '/painel-popup-metricas'
     | '/painel-portfolio'
+    | '/painel-skills'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -1969,7 +1989,9 @@ export interface FileRouteTypes {
     | '/painel-crm'
     | '/painel-funis'
     | '/painel-popup'
+    | '/painel-popup-metricas'
     | '/painel-portfolio'
+    | '/painel-skills'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2156,7 +2178,9 @@ export interface FileRouteTypes {
     | '/painel-crm'
     | '/painel-funis'
     | '/painel-popup'
+    | '/painel-popup-metricas'
     | '/painel-portfolio'
+    | '/painel-skills'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2346,7 +2370,9 @@ export interface RootRouteChildren {
   PainelCrmRoute: typeof PainelCrmRoute
   PainelFunisRoute: typeof PainelFunisRoute
   PainelPopupRoute: typeof PainelPopupRoute
+  PainelPopupMetricasRoute: typeof PainelPopupMetricasRoute
   PainelPortfolioRoute: typeof PainelPortfolioRoute
+  PainelSkillsRoute: typeof PainelSkillsRoute
   ParceirosRoute: typeof ParceirosRoute
   PlanosRoute: typeof PlanosRoute
   PlanosComparativoRoute: typeof PlanosComparativoRoute
@@ -2654,11 +2680,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PainelPopupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/painel-popup-metricas': {
+      id: '/painel-popup-metricas'
+      path: '/painel-popup-metricas'
+      fullPath: '/painel-popup-metricas'
+      preLoaderRoute: typeof PainelPopupMetricasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/painel-portfolio': {
       id: '/painel-portfolio'
       path: '/painel-portfolio'
       fullPath: '/painel-portfolio'
       preLoaderRoute: typeof PainelPortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-skills': {
+      id: '/painel-skills'
+      path: '/painel-skills'
+      fullPath: '/painel-skills'
+      preLoaderRoute: typeof PainelSkillsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parceiros': {
@@ -4031,7 +4071,9 @@ const rootRouteChildren: RootRouteChildren = {
   PainelCrmRoute: PainelCrmRoute,
   PainelFunisRoute: PainelFunisRoute,
   PainelPopupRoute: PainelPopupRoute,
+  PainelPopupMetricasRoute: PainelPopupMetricasRoute,
   PainelPortfolioRoute: PainelPortfolioRoute,
+  PainelSkillsRoute: PainelSkillsRoute,
   ParceirosRoute: ParceirosRoute,
   PlanosRoute: PlanosRoute,
   PlanosComparativoRoute: PlanosComparativoRoute,

@@ -21,6 +21,14 @@ const thresholdsSchema = z
   })
   .default({});
 
+const notifyChannelsSchema = z
+  .object({
+    slack_webhook_url: z.string().url().max(500).nullable().optional(),
+    email: z.string().email().max(200).nullable().optional(),
+    webhook_url: z.string().url().max(500).nullable().optional(),
+  })
+  .default({});
+
 const upsertSchema = z.object({
   slug: z
     .string()
@@ -43,6 +51,10 @@ const upsertSchema = z.object({
   bullets: z.array(z.string().max(240)).max(6).nullable().optional(),
   rules: rulesSchema,
   alert_thresholds: thresholdsSchema,
+  /** 0..1 — reduz temporariamente a geração de eventos (staging). */
+  sample_rate: z.number().min(0).max(1).default(1),
+  simulation_enabled: z.boolean().default(false),
+  notify_channels: notifyChannelsSchema,
 });
 
 export type PopupConfigAdminRow = z.infer<typeof upsertSchema> & {

@@ -29,6 +29,19 @@ export type PopupAlertThresholds = {
   minConversionRate?: number;
 };
 
+export type PopupNotifyChannels = {
+  slack_webhook_url?: string | null;
+  email?: string | null;
+  webhook_url?: string | null;
+};
+
+export type PopupTelemetrySettings = {
+  /** 0..1 — fração de eventos efetivamente enviados (staging usa valor baixo). */
+  sampleRate: number;
+  /** Quando ligado, os eventos são marcados como simulados. */
+  simulationEnabled: boolean;
+};
+
 export type PopupConfigRow = {
   id: string;
   slug: string;
@@ -43,6 +56,9 @@ export type PopupConfigRow = {
   bullets: string[] | null;
   rules: PopupDisplayRules;
   alert_thresholds: PopupAlertThresholds;
+  sample_rate?: number | null;
+  simulation_enabled?: boolean | null;
+  notify_channels?: PopupNotifyChannels | null;
   updated_at: string;
 };
 
@@ -117,7 +133,7 @@ export async function fetchPopupConfig(slug: string): Promise<PortfolioUpsellCon
     const { data, error } = await supabase
       .from("popup_configs")
       .select(
-        "id, slug, enabled, kicker, title, description, highlight, cta_label, dismiss_label, funnel_slug, bullets, rules, alert_thresholds, updated_at",
+        "id, slug, enabled, kicker, title, description, highlight, cta_label, dismiss_label, funnel_slug, bullets, rules, alert_thresholds, sample_rate, simulation_enabled, notify_channels, updated_at",
       );
     if (error) return base;
     const rows: Record<string, PopupConfigRow> = {};
@@ -127,4 +143,27 @@ export async function fetchPopupConfig(slug: string): Promise<PortfolioUpsellCon
   } catch {
     return base;
   }
+}
+
+/** Configuração de telemetria do slug — usada para amostragem/simulação. */
+export async function fetchPopupTelemetry(slug: string): Promise<PopupTelemetrySettings> {
+  const fallback: PopupTelemetrySettings = { sampleRate: 1, simulationEnabled: false };
+  if (typeof window === "undefined") return fallback;
+  const cached = readCache();
+  const row = cached?.rows[slug];
+  if (row) {
+    return {
+      sampleRate: typeof row.sample_rate === "number" ? row.sample_rate : 1,
+      simulationEnabled: row.simulation_enabled === true,
+    };
+  }
+  // Cache frio: a própria fetchPopupConfig preenche o cache; não duplica request.
+  return fallback;
+}
+
+/** Decide se um evento deve ser enviado, respeitando a taxa de amostragem. */
+export function shouldSampleEvent(settings: PopupTelemetrySettings): boolean {
+  if (settings.sampleRate >= 1) return true;
+  if (settings.sampleRate <= 0) return false;
+  return Math.random() < settings.sampleRate;
 }
