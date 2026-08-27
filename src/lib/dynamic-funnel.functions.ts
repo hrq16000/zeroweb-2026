@@ -114,6 +114,9 @@ const submitSchema = z.object({
       fbclid: z.string().max(255).optional(),
       started_at: z.string().max(50).optional(),
       session_id: z.string().min(4).max(120).optional(),
+      // Chave do cliente de portfólio: roteia o lead para o WhatsApp privado
+      // do cliente (resolvido apenas no servidor).
+      client_key: z.enum(PORTFOLIO_CLIENT_KEYS).optional(),
     })
     .optional(),
 });
@@ -208,6 +211,9 @@ export const submitFunnel = createServerFn({ method: "POST" })
       gclid: data.client_metadata?.gclid,
       fbclid: data.client_metadata?.fbclid,
       started_at: data.client_metadata?.started_at,
+      ...(data.client_metadata?.client_key
+        ? { client_key: data.client_metadata.client_key }
+        : {}),
       completed_at: new Date().toISOString(),
       ...geo,
     };
