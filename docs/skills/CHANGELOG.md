@@ -46,3 +46,19 @@ SKILLS REJECTED / REASON:
   portfólios e página viva do design system.
 - Validação: `bun test` (183 pass), `validate:portfolio-boundaries`,
   `validate:portfolio-meta`, `validate:portfolio-scaffold`, typecheck e build.
+
+## 2026-08-27 — Descoberta dinâmica de skills
+
+**Task:** substituir o catálogo estático por um processo de descoberta, ranking,
+revisão de segurança e composição dinâmica de skills.
+
+**Changes:** nova skill `.agents/skills/0web-skill-discovery` (pipeline
+TASK→CLASSIFY→FIND→RANK→SECURITY→SELECT→EXECUTE→CROSS-REVIEW→TEST→VISUAL QA→SHIP,
+modelo de autoridade por camada, landing page policy evidence-first, regra
+anti-redundância, cross-review); `Step 1.5` no `0web-skill-router`; novo vocabulário
+de status e fila de auditoria em `docs/skills/REGISTRY.md`.
+
+**Skills rejected:** nenhuma instalada nesta rodada — as 11 candidatas entram como
+`SECURITY_REVIEW_REQUIRED`/`REFERENCE_ONLY`/`REDUNDANT` até revisão do repositório original.
+
+**Validation:** `bun test` + typecheck (docs/skills only, sem impacto de runtime).

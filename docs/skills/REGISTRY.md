@@ -1,7 +1,15 @@
 # Skill registry — 0WEB
 
-Status: `ACTIVE` · `CONDITIONAL` · `REFERENCE` · `QUARANTINED` · `DEPRECATED` ·
+Status: `APPROVED_GLOBAL` · `APPROVED_CONDITIONAL` · `REFERENCE_ONLY` ·
+`SECURITY_REVIEW_REQUIRED` · `REDUNDANT` · `QUARANTINED` · `REJECTED` ·
 `UNAVAILABLE_UPSTREAM`
+
+Legado (equivalências): `ACTIVE` = `APPROVED_GLOBAL`, `CONDITIONAL` =
+`APPROVED_CONDITIONAL`, `REFERENCE` = `REFERENCE_ONLY`.
+
+O catálogo é dinâmico: antes de tarefas substanciais, rode
+`.agents/skills/0web-skill-discovery/SKILL.md` para buscar, ranquear e revisar
+skills ainda não listadas aqui.
 
 Última revisão: 2026-08-27.
 
