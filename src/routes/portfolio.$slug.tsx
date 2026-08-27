@@ -1,13 +1,27 @@
+import { lazy, Suspense } from "react";
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PrototypeSite, VERTICALS } from "./sites.$vertical";
 import { absUrl } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
-import { MaridoDeAluguelPage, MARIDO_ALUGUEL_FAQ } from "@/components/site/MaridoDeAluguelPage";
-import { EmporioLelecutePage } from "@/components/site/EmporioLelecutePage";
-import { ParaisoHotDogPage } from "@/components/site/ParaisoHotDogPage";
-import { RMFretesPage } from "@/components/site/RMFretesPage";
+import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
+
+// Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
+// próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
+// renderizando o conteúdo (React resolve o lazy no stream), preservando SEO.
+const MaridoDeAluguelPage = lazy(() =>
+  import("@/components/site/MaridoDeAluguelPage").then((m) => ({ default: m.MaridoDeAluguelPage })),
+);
+const EmporioLelecutePage = lazy(() =>
+  import("@/components/site/EmporioLelecutePage").then((m) => ({ default: m.EmporioLelecutePage })),
+);
+const ParaisoHotDogPage = lazy(() =>
+  import("@/components/site/ParaisoHotDogPage").then((m) => ({ default: m.ParaisoHotDogPage })),
+);
+const RMFretesPage = lazy(() =>
+  import("@/components/site/RMFretesPage").then((m) => ({ default: m.RMFretesPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
