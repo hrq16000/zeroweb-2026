@@ -30,6 +30,15 @@ if (!existsSync(whatsappRedirectPath)) {
     errors.push("roteador não garante separação explícita entre cliente e contato central");
   }
 }
+const previewSource = existsSync(resolve(root, "src/lib/portfolio-preview.ts"))
+  ? readFileSync(resolve(root, "src/lib/portfolio-preview.ts"), "utf8")
+  : "";
+if (/get\(["']preview["']\)/.test(previewSource)) {
+  errors.push(
+    "supressão de overlays usa o parâmetro genérico `preview` (usar `0web_preview`)",
+  );
+}
+
 const keys = new Set();
 const slugs = new Set();
 const forbiddenImports = ["@/components/site/Header", "@/components/site/Footer"];
@@ -84,7 +93,7 @@ for (const client of clients) {
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
     errors.push(`${label}: mecanismo de prova social ausente`);
   }
-  if (!component.includes("PortfolioUpsellPopup")) {
+  if (!combined.includes("PortfolioUpsellPopup")) {
     errors.push(`${label}: pop-up de captação da 0WEB ausente`);
   }
   if (!component.includes("PortfolioHostCredit")) {
