@@ -9,6 +9,10 @@ const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 
 type Trigger = "timer" | "scroll" | "fallback";
 
+/** Guard de instância única por página (rota + componente do cliente). */
+let mountedInstances = 0;
+
+
 /**
  * Pop-up de captação exibido nas páginas de portfólio.
  * Regras de UX:
