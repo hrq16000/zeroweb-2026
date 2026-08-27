@@ -26,6 +26,7 @@ As referências de `DESIGN.md`, Mobbin, Figma, shadcn, Motion.dev, GSAP e Transi
 - `sites-building`: construção e revisão das páginas web existentes.
 - `sites-hosting`: publicação somente após build verificável e configuração de hospedagem.
 - `ui-craft`: instalado a partir de `educlopez/ui-craft`, com passes de descoberta, tokens, craft, critique, responsive, motion, polish, a11y e finalize disponíveis para as superfícies do portal.
+- `apple-design`: referências Apple HIG registradas em `.design-rules/`; aplicada como auditoria multiplataforma de acessibilidade, contraste, foco, navegação, modais, responsividade e estados. APIs e padrões exclusivos de iOS não são impostos ao site.
 
 ## Auditoria de skills comunitárias (2026-08-27)
 
