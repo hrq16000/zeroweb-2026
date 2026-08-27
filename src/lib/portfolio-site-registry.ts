@@ -17,6 +17,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "casa-nativa", vertical: "restaurantes", siteName: "Casa Nativa Bistrô", kind: "prototype", indexable: true },
   { slug: "emporio-lelecute", vertical: "comercios", siteName: "Empório LeleCute · Lembrancinhas Artesanais", kind: "prototype", indexable: true },
   { slug: "paraiso-do-hot-dog", vertical: "restaurantes", siteName: "Paraíso do Hot Dog · Cardápio Online", kind: "prototype", indexable: true },
+  { slug: "rm-fretes", vertical: "prestadores-de-servicos", siteName: "RM Fretes · Frete Rápido em Curitiba", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

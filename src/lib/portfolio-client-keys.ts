@@ -1,5 +1,5 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
-export const PORTFOLIO_CLIENT_KEYS = ["dyzpromo", "renata-beauty", "r-beauty", "marido-de-aluguel", "emporio-lelecute", "paraiso-do-hot-dog"] as const;
+export const PORTFOLIO_CLIENT_KEYS = ["dyzpromo", "renata-beauty", "r-beauty", "marido-de-aluguel", "emporio-lelecute", "paraiso-do-hot-dog", "rm-fretes"] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 
 export function isPortfolioClientKey(value: unknown): value is PortfolioClientKey {
