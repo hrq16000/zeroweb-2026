@@ -25,5 +25,15 @@ As referências de `DESIGN.md`, Mobbin, Figma, shadcn, Motion.dev, GSAP e Transi
 - `frontend-design`: instalado de `anthropics/skills/skills/frontend-design` e adotado como critério de direção visual.
 - `sites-building`: construção e revisão das páginas web existentes.
 - `sites-hosting`: publicação somente após build verificável e configuração de hospedagem.
+- `ui-craft`: instalado a partir de `educlopez/ui-craft`, com passes de descoberta, tokens, craft, critique, responsive, motion, polish, a11y e finalize disponíveis para as superfícies do portal.
+
+## Auditoria de skills comunitárias (2026-08-27)
+
+- `K-Dense-AI/scientific-agent-skills/skills/ui-ux-design`: não encontrado no repositório atual; não instalar uma referência inexistente.
+- `ui-ux-agent-skill-system`: potencialmente amplo e orientado a adaptadores/MCP; manter como opção futura, sem adicionar dependências ao portal agora.
+- `ui-craft`: compatível e instalado; é a principal camada operacional para UI/UX do portal React/Tailwind.
+- `open-design-skill` e `tasteful-ui-skill`: referências úteis para direção visual, mas sobrepõem `frontend-design`/`ui-craft`; não foram instaladas para evitar regras concorrentes.
+- `apple-design-skill`, `figma-ai-bridge`, `agent-ready` e `figma-context-mcp-skill`: específicos de Apple/Figma ou fluxo MCP; não são necessários para as páginas web atuais.
+- `ux-discovery-interviewer` e `uxui-principles-agent-skills`: podem apoiar pesquisa/auditoria, mas não substituem a implementação visual e ficam fora do escopo automático do portal.
 
 Última revisão: 2026-08-27.
