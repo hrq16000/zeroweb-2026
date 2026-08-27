@@ -6,6 +6,7 @@ import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/port
 import { MaridoDeAluguelPage, MARIDO_ALUGUEL_FAQ } from "@/components/site/MaridoDeAluguelPage";
 import { EmporioLelecutePage } from "@/components/site/EmporioLelecutePage";
 import { ParaisoHotDogPage } from "@/components/site/ParaisoHotDogPage";
+import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
@@ -86,8 +87,5 @@ export const Route = createFileRoute("/portfolio/$slug")({
 
 function PortfolioPrototypePage() {
   const { vertical, slug } = Route.useLoaderData();
-  if (slug === "marido-de-aluguel") return <MaridoDeAluguelPage />;
-  if (slug === "emporio-lelecute") return <EmporioLelecutePage />;
-  if (slug === "paraiso-do-hot-dog") return <ParaisoHotDogPage />;
-  return <PrototypeSite vertical={vertical} />;
+  return <><PortfolioShareButton />{slug === "marido-de-aluguel" ? <MaridoDeAluguelPage /> : slug === "emporio-lelecute" ? <EmporioLelecutePage /> : slug === "paraiso-do-hot-dog" ? <ParaisoHotDogPage /> : <PrototypeSite vertical={vertical} />}</>;
 }
