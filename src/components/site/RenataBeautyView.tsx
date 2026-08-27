@@ -315,6 +315,8 @@ export function RenataBeautyView() {
                 <img 
                   src="/images/renata-beauty-flyer.jpg" 
                   alt="Espaço Renata Beauty Studio Inauguração" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80";
