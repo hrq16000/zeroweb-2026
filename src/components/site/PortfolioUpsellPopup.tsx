@@ -5,7 +5,7 @@ import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
 
-const STORAGE_KEY = "0web:portfolio-upsell-shown";
+const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 
 type Trigger = "timer" | "scroll" | "fallback";
 
@@ -193,7 +193,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
               <Sparkles className="w-3.5 h-3.5" /> Gostou desta página?
             </p>
             <h2 id="portfolio-upsell-title" className="mt-1.5 text-lg sm:text-xl font-bold leading-snug text-foreground">
-              Esta página foi criada pela 0WEB — a sua pode ficar assim também,
+              Tenha seu site profissional com a 0WEB — esta página pode ser a sua também,
               com domínio <span className="text-primary">.com.br</span> próprio.
             </h2>
             <p id="portfolio-upsell-desc" className="mt-2 text-sm text-muted-foreground">

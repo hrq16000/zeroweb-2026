@@ -6,6 +6,7 @@ export function isPortfolioPreviewMode(search = typeof window === "undefined" ? 
 
 export function shouldSuppressPortfolioHostOverlays(): boolean {
   if (typeof window === "undefined") return true;
-  if (window.self !== window.top) return true;
+  // O navegador embutido do portal pode usar iframe, mas ainda é uma visita
+  // real ao portfolio. Só o modo explícito de preview deve silenciar overlays.
   return isPortfolioPreviewMode(window.location.search);
 }
