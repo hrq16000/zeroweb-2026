@@ -59,7 +59,7 @@ const PORTFOLIO_ITEMS = [
     subtitle: "Reparos Residenciais & Manutenção",
     location: "Curitiba e região — PR",
     badge: "Site demonstrativo",
-    image: "https://images.unsplash.com/photo-1581147036324-c17ac41f7b4a?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/mestre-dos-servicos-logo.jpg",
     tags: ["Reparos", "Instalações", "Manutenção Local"],
     metrics: "SEO local",
     summary: "Landing page estruturada para captar pedidos de pequenos reparos, instalações e manutenção residencial por cidade e bairro.",
