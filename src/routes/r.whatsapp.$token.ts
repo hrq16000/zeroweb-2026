@@ -35,6 +35,10 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           CONSUME_TOKEN_RATE_MAX,
         } = await import("@/lib/whatsapp-redirect.server");
 
+        const { reportRoutingIncident } = await import(
+          "@/lib/funnel-routing-incidents.server"
+        );
+
         const { supabaseAdmin } = await import(
           "@/integrations/supabase/client.server"
         );
@@ -129,10 +133,29 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             .maybeSingle();
 
           const clientKey = (lead.metadata_json as Record<string, unknown> | null)?.client_key;
-          const contact = typeof clientKey === "string"
-            ? resolvePortfolioWhatsAppContact(clientKey)
-            : resolveOperationalWhatsAppContact();
+          const clientContact =
+            typeof clientKey === "string" ? resolvePortfolioWhatsAppContact(clientKey) : null;
+          // Fallback: nenhum funil pode morrer em 503 por falta de número do
+          // cliente. Quando a variável privada do cliente não está configurada,
+          // o atendimento cai na central da 0WEB e o incidente é registrado.
+          const contact = clientContact ?? resolveOperationalWhatsAppContact();
+          if (!clientContact && typeof clientKey === "string") {
+            await reportRoutingIncident({
+              clientKey,
+              leadId: lead.id as string,
+              token,
+              reason: "missing_client_whatsapp_number",
+              fellBackToCentral: Boolean(contact),
+            });
+          }
           if (!contact) {
+            await reportRoutingIncident({
+              clientKey: typeof clientKey === "string" ? clientKey : null,
+              leadId: lead.id as string,
+              token,
+              reason: "missing_operational_whatsapp_number",
+              fellBackToCentral: false,
+            });
             return htmlErrorPage(
               "Canal indisponível",
               "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
