@@ -272,7 +272,7 @@ export function RMFretesPage() {
       <FunnelModalWrapper
         open={funnelOpen}
         onClose={() => setFunnelOpen(false)}
-        funnelSlug="funnel-service"
+        funnelSlug="funnel-rm-fretes"
         intent={{
           purpose: "proposal",
           source: "portfolio-rm-fretes",
