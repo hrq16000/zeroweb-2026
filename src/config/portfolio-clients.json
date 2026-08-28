@@ -176,5 +176,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "paulo-mestre-de-obras",
+    "slug": "paulo-mestre-de-obras",
+    "siteName": "Paulo Mestre de Obras",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/PauloMestreDeObrasPage.tsx",
+    "assetsDir": "public/images/paulo-mestre-de-obras",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

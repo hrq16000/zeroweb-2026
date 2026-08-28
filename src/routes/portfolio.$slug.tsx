@@ -50,6 +50,9 @@ const LkAlvenariaPage = lazy(() =>
 const LucasArrumaMaquinaLavarPage = lazy(() =>
   import("@/components/site/LucasArrumaMaquinaLavarPage").then((m) => ({ default: m.LucasArrumaMaquinaLavarPage })),
 );
+const PauloMestreDeObrasPage = lazy(() =>
+  import("@/components/site/PauloMestreDeObrasPage").then((m) => ({ default: m.PauloMestreDeObrasPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -72,6 +75,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isVilaCapivara = loaderData?.slug === "vila-da-capivara";
     const isLkAlvenaria = loaderData?.slug === "lk-alvenaria";
     const isLucasArruma = loaderData?.slug === "lucas-arruma-maquina-lavar";
+    const isPauloMestre = loaderData?.slug === "paulo-mestre-de-obras";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -92,6 +96,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Construção, fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas com contrato e garantia."
           : isLucasArruma
             ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
+          : isPauloMestre
+            ? "Serviços de pedreiro, azulejista e construção civil para fundação, alvenaria, revestimentos e reformas."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -122,6 +128,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/lk-alvenaria/portfolio.webp"
                 : isLucasArruma
                   ? "/images/lucas-arruma-maquina-lavar/capa.webp"
+                : isPauloMestre
+                  ? "/images/paulo-mestre-de-obras/capa.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -154,6 +162,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "alvenaria Curitiba, fundação, baldrame, muro de arrimo, concretagem, reformas, drywall, forro PVC"
                 : isLucasArruma
                   ? "conserto máquina de lavar, manutenção máquina de lavar, assistência máquina de lavar, lavadora não liga, máquina não centrifuga"
+                : isPauloMestre
+                  ? "pedreiro Curitiba, mestre de obras, azulejista, alvenaria, pisos e revestimentos, reformas residenciais"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -255,6 +265,8 @@ function PortfolioPrototypePage() {
           <LkAlvenariaPage />
         ) : slug === "lucas-arruma-maquina-lavar" ? (
           <LucasArrumaMaquinaLavarPage />
+        ) : slug === "paulo-mestre-de-obras" ? (
+          <PauloMestreDeObrasPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

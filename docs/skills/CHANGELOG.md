@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Paulo Mestre de Obras
+
+- **Tarefa:** criar site de cliente para pedreiro, azulejista, construção civil, reformas e reparos.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- **Alterações:** componente exclusivo, imagem anexada otimizada para WebP, CTA/funil próprio, prova social, SEO, sitemap e assets por cliente.
+- **Privacidade:** telefone não entra no bundle; destinatário será resolvido por secret server-side `PAULO_MESTRE_DE_OBRAS_WHATSAPP_NUMBER`.
+- **Validação:** executada após integração do catálogo, rota, assets e migration.
+
 ## 2026-08-28 — novo portfolio Lucas Arruma Máquina de Lavar
 
 - **Tarefa:** criar site de cliente para diagnóstico, conserto e manutenção de máquinas de lavar.
