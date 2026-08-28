@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Mary Diarista
+
+- Página para diárias, pós-obra, pós-mudança e organização em Curitiba.
+- Agenda parametrizada para quintas-feiras, clientes semanais, quinzenais e atendimentos esporádicos.
+- Arte otimizada em WebP, funil individual, prova social, SEO local e motion mobile-first.
+- Telefone protegido server-side em `MARY_DIARISTA_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio Eisenfer Tubos e Aços
 
 - Página de catálogo B2B para tubos, perfis, chapas e telhas metálicas em São José dos Pinhais.

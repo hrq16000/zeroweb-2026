@@ -286,5 +286,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "mary-diarista",
+    "slug": "mary-diarista",
+    "siteName": "Mary Diarista",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MaryDiaristaPage.tsx",
+    "assetsDir": "public/images/mary-diarista",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

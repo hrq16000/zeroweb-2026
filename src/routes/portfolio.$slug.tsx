@@ -80,6 +80,9 @@ const EletroSolucoesEficazesPage = lazy(() =>
 const EisenferTubosAcosPage = lazy(() =>
   import("@/components/site/EisenferTubosAcosPage").then((m) => ({ default: m.EisenferTubosAcosPage })),
 );
+const MaryDiaristaPage = lazy(() =>
+  import("@/components/site/MaryDiaristaPage").then((m) => ({ default: m.MaryDiaristaPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -112,6 +115,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEletrovale = loaderData?.slug === "eletrovale-eletromecanica";
     const isEletroSolucoes = loaderData?.slug === "eletro-solucoes-eficazes";
     const isEisenfer = loaderData?.slug === "eisenfer-tubos-acos";
+    const isMary = loaderData?.slug === "mary-diarista";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -152,6 +156,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Instalações elétricas, manutenção, iluminação e automação residencial, predial e industrial em Pinhais e região."
           : isEisenfer
             ? "Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais em São José dos Pinhais."
+          : isMary
+            ? "Mary Diarista oferece diárias, limpeza pós-obra e organização em Curitiba, com agenda semanal, quinzenal e esporádica."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -202,6 +208,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/eletro-solucoes-eficazes/servicos.webp"
                 : isEisenfer
                   ? "/images/eisenfer-tubos-acos/telhas.webp"
+                : isMary
+                  ? "/images/mary-diarista/servicos.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -254,6 +262,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Eletro Soluções Eficazes Pinhais, instalações elétricas, iluminação, automação residencial, predial e industrial, manutenção elétrica"
                 : isEisenfer
                   ? "Eisenfer Tubos e Aços São José dos Pinhais, tubos de aço, perfis, chapas, telhas metálicas, telha sanduíche"
+                : isMary
+                  ? "Mary Diarista Curitiba, limpeza residencial, diária, pós-obra, pós-mudança, personal organizer, diarista quinta-feira"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -375,6 +385,8 @@ function PortfolioPrototypePage() {
           <EletroSolucoesEficazesPage />
         ) : slug === "eisenfer-tubos-acos" ? (
           <EisenferTubosAcosPage />
+        ) : slug === "mary-diarista" ? (
+          <MaryDiaristaPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
