@@ -76,10 +76,13 @@ export const listPortfolioFunnelLeads = createServerFn({ method: "POST" })
       const meta = (r.metadata_json ?? null) as Record<string, unknown> | null;
       const clientKey = typeof meta?.client_key === "string" ? meta.client_key : null;
       const isPortfolioLead = meta?.source === "portfolio_client" && clientKey;
+      const portfolioFunnelSlug = typeof meta?.funnel_slug === "string"
+        ? meta.funnel_slug
+        : (clientKey ? `portfolio-${clientKey}` : null);
       return {
         id: r.id as string,
         created_at: r.created_at as string,
-        funnel_slug: isPortfolioLead ? `portfolio-${clientKey}` : (r.dynamic_forms?.slug ?? "—"),
+        funnel_slug: isPortfolioLead && portfolioFunnelSlug ? portfolioFunnelSlug : (r.dynamic_forms?.slug ?? "—"),
         funnel_name: isPortfolioLead
           ? (typeof meta?.studio_name === "string" ? meta.studio_name : clientKey)
           : (r.dynamic_forms?.name ?? "—"),
