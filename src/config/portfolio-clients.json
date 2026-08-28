@@ -297,5 +297,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "acai-total-araucaria",
+    "slug": "acai-total-araucaria",
+    "siteName": "Açaí Total Araucária",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AcaiTotalAraucariaPage.tsx",
+    "assetsDir": "public/images/acai-total-araucaria",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

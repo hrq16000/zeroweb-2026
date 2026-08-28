@@ -83,6 +83,9 @@ const EisenferTubosAcosPage = lazy(() =>
 const MaryDiaristaPage = lazy(() =>
   import("@/components/site/MaryDiaristaPage").then((m) => ({ default: m.MaryDiaristaPage })),
 );
+const AcaiTotalAraucariaPage = lazy(() =>
+  import("@/components/site/AcaiTotalAraucariaPage").then((m) => ({ default: m.AcaiTotalAraucariaPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -116,6 +119,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEletroSolucoes = loaderData?.slug === "eletro-solucoes-eficazes";
     const isEisenfer = loaderData?.slug === "eisenfer-tubos-acos";
     const isMary = loaderData?.slug === "mary-diarista";
+    const isAcai = loaderData?.slug === "acai-total-araucaria";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -158,6 +162,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais em São José dos Pinhais."
           : isMary
             ? "Mary Diarista oferece diárias, limpeza pós-obra e organização em Curitiba, com agenda semanal, quinzenal e esporádica."
+          : isAcai
+            ? "Açaí Total Araucária: copões e litrões de açaí com frutas, cremes e complementos, com entrega em casa."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -210,6 +216,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/eisenfer-tubos-acos/telhas.webp"
                 : isMary
                   ? "/images/mary-diarista/servicos.webp"
+                : isAcai
+                  ? "/images/acai-total-araucaria/acai.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -264,6 +272,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Eisenfer Tubos e Aços São José dos Pinhais, tubos de aço, perfis, chapas, telhas metálicas, telha sanduíche"
                 : isMary
                   ? "Mary Diarista Curitiba, limpeza residencial, diária, pós-obra, pós-mudança, personal organizer, diarista quinta-feira"
+                : isAcai
+                  ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -387,6 +397,8 @@ function PortfolioPrototypePage() {
           <EisenferTubosAcosPage />
         ) : slug === "mary-diarista" ? (
           <MaryDiaristaPage />
+        ) : slug === "acai-total-araucaria" ? (
+          <AcaiTotalAraucariaPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
