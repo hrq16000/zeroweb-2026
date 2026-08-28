@@ -36,6 +36,9 @@ jobs:
       - name: validate:portfolio-boundaries
         run: bun run validate:portfolio-boundaries
 
+      - name: validate:portfolio-catalog
+        run: bun run validate:portfolio-catalog
+
       - name: validate:portfolio-meta
         run: bun run validate:portfolio-meta
 

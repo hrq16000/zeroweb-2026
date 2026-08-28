@@ -6,6 +6,22 @@ padrão da plataforma.
 
 ## 1. Camadas — quem garante o quê
 
+### Contrato de catálogo (obrigatório)
+
+Além dos campos técnicos abaixo, todo cliente deve possuir metadados de
+descoberta: `segment`, `subsegments`, `projectType`, `city`, `state`,
+`services`, `technologies`, `tags`, `status` (`published`, `draft` ou
+`coming-soon`), `publishedAt`, `featured`, resumo curto e imagem do card.
+Esses dados devem ter uma única fonte de verdade e alimentar card, busca,
+filtros, sitemap, JSON-LD, Lighthouse e testes. Não duplicar o card diretamente
+em uma rota sem atualizar o registro canônico.
+
+O contrato de consistência exige que todo item publicado do catálogo tenha uma
+rota resolvível, componente e imagem existentes, slug único, canonical próprio
+e entrada no sitemap; e que toda rota pública de cliente esteja presente no
+catálogo. Projetos demonstrativos devem ser marcados explicitamente e nunca
+receber métricas ou prova social inventadas.
+
 | Camada | Quem garante | Onde |
 |---|---|---|
 | Pop-up de captação da 0WEB (`PortfolioUpsellPopup`) | **Plataforma (rota)** | `src/routes/portfolio.$slug.tsx` renderiza automaticamente |
@@ -30,7 +46,9 @@ ferramentas externas injetam esse parâmetro e o pop-up sumia em visitas reais.
 
 ## 3. Checklist de lançamento (executar na ordem)
 
-1. Registrar o cliente em `src/config/portfolio-clients.json`
+1. Registrar o cliente em `src/config/portfolio-clients.json` e
+   `src/config/portfolio-catalog.json` (o gate `validate:portfolio-catalog`
+   bloqueia slugs duplicados, campos ausentes e clientes sem item de catálogo)
    (`clientKey`, `slug`, `siteName`, `routeFile`, `componentFile`, `assetsDir`,
    `ctaMode`, `socialProofRequired`, `hostCaptureRequired`).
 2. Adicionar a chave em `src/lib/portfolio-client-keys.ts`.

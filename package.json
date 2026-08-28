@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "test": "bun test",
-    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs",
+    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",
@@ -21,6 +21,7 @@
     "validate:client-privacy": "node scripts/validate-client-privacy.mjs",
     "validate:portfolio-meta": "node scripts/validate-portfolio-meta.mjs",
     "validate:portfolio-boundaries": "node scripts/validate-portfolio-boundaries.mjs",
+    "validate:portfolio-catalog": "node scripts/validate-portfolio-catalog.mjs",
     "changelog:dyz": "node scripts/generate-dyz-changelog.mjs",
     "preview": "vite preview",
     "lhci": "lhci autorun --config=.lighthouserc.cjs",

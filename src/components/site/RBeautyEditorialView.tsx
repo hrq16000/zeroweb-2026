@@ -110,7 +110,7 @@ export function RBeautyEditorialView() {
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]">Condição de Abertura</span>
-                  <h3 className="text-lg font-serif font-semibold text-white">Cílios Volume Egípcio ou Brasileiro</h3>
+                  <h2 className="text-lg font-serif font-semibold text-white">Cílios Volume Egípcio ou Brasileiro</h2>
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-gray-400 line-through">R$ 180,00</span>
@@ -119,7 +119,7 @@ export function RBeautyEditorialView() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <BeautyBookingQuiz studioName="R_Beauty Haute Studio" theme="gold" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-5 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
+                <BeautyBookingQuiz studioName="R_Beauty Haute Studio" theme="gold" className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0E7A3C] hover:bg-[#0B6431] text-white px-5 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
                   <MessageCircle className="w-4 h-4 fill-white" />
                   Reservar Meu Horário
                 </BeautyBookingQuiz>
@@ -175,6 +175,7 @@ export function RBeautyEditorialView() {
                   </div>
                   <a 
                     href={MAPS_URL}
+                    aria-label="Abrir a localização do estúdio no Google Maps"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-xl bg-[#D4AF37] text-black hover:scale-105 transition-all"

@@ -73,6 +73,13 @@ for (const route of routes) {
     try {
       // `0web_preview=1` silencia overlays da hospedagem: screenshots estáveis.
       await page.goto(`${baseUrl}${route.path}?0web_preview=1`, { waitUntil: "domcontentloaded" });
+      // Estabiliza a captura: rede ociosa + imagens decodificadas antes do screenshot.
+      await page.waitForLoadState("networkidle").catch(() => {});
+      await page
+        .waitForFunction(() => Array.from(document.images).every((img) => img.complete), undefined, {
+          timeout: 15000,
+        })
+        .catch(() => {});
       await page.waitForTimeout(2500);
       const buffer = await page.screenshot();
       const baselinePath = join(baselineDir, key);
