@@ -5,7 +5,7 @@ import { RenataBeautyView } from "@/components/site/RenataBeautyView";
 const TITLE = "Renata Beauty Studio · Cílios, unhas e sobrancelhas";
 const DESC = "Conheça os procedimentos, o espaço e as condições especiais do Renata Beauty Studio no Boneca do Iguaçu.";
 const URL = "https://0web.com.br/portfolio/renata-beauty";
-const SOCIAL_IMAGE = "https://0web.com.br/images/volume-egipcio-fios-w.jpg";
+const SOCIAL_IMAGE = "https://0web.com.br/images/renata-beauty-promo.webp";
 const ICON = "https://0web.com.br/images/renata-beauty-icon.png";
 
 export const Route = createFileRoute("/portfolio/renata-beauty")({
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/portfolio/renata-beauty")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
       { property: "og:site_name", content: "Renata Beauty Studio" },
-      { property: "og:image", content: "https://0web.com.br/images/volume-egipcio-fios-w.jpg" },
+      { property: "og:image", content: SOCIAL_IMAGE },
       { property: "og:image:alt", content: "Cílios Volume Egípcio do Renata Beauty Studio" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SOCIAL_IMAGE },
