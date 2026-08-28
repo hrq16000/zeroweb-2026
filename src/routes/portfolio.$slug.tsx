@@ -53,7 +53,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         : loaderData?.slug === "emporio-lelecute"
           ? "/images/emporio-lelecute-og.webp"
           : loaderData?.slug === "paraiso-do-hot-dog"
-            ? "/images/paraiso-hot-dog-cover.png"
+          ? "/images/paraiso-hot-dog-cover.webp"
             : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon =

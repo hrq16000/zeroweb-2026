@@ -119,8 +119,8 @@ const productsWithImages = products.map((product) => ({
   ...product,
   image:
     product.category === "Hot dogs" || product.category === "Combos"
-      ? "/images/paraiso-hot-dog-cover.png"
-      : "/images/paraiso-hot-dog-menu.png",
+      ? "/images/paraiso-hot-dog-cover.webp"
+      : "/images/paraiso-hot-dog-menu.webp",
 }));
 
 export function ParaisoHotDogPage() {
@@ -198,7 +198,7 @@ export function ParaisoHotDogPage() {
             aria-label="Abrir cardápio completo em tela cheia"
           >
             <img
-              src="/images/paraiso-hot-dog-menu.png"
+              src="/images/paraiso-hot-dog-menu.webp"
               alt="Cardápio real do Paraíso do Hot Dog — toque para ampliar"
               className="mx-auto max-h-[520px] w-full rounded-3xl border-4 border-[#f5bd21] object-cover shadow-2xl transition group-hover:scale-[1.01]"
  loading="lazy" decoding="async" />
@@ -413,7 +413,7 @@ export function ParaisoHotDogPage() {
             <X className="h-5 w-5" />
           </button>
           <img
-            src="/images/paraiso-hot-dog-menu.png"
+            src="/images/paraiso-hot-dog-menu.webp"
             alt="Cardápio completo do Paraíso do Hot Dog"
             className="max-h-[94vh] max-w-full rounded-xl object-contain shadow-2xl"
  loading="lazy" decoding="async" />
