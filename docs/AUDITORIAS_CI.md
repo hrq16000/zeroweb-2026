@@ -76,3 +76,54 @@ Correção em `src/lib/analytics-queue.ts`:
 
 Não alterar a política de RLS para permitir UPDATE anônimo: eventos analíticos
 são append-only.
+
+## Regressão visual estável (`/`, `/portfolio`, `/portfolio/:slug`)
+
+`bun run test:visual` cobre 31 rotas × 3 viewports (desktop 1280×900, tablet
+834×1112, mobile 393×852) = 93 capturas.
+
+Fontes de ruído eliminadas — sem elas a home acusava até 28% de pixels
+alterados sem nenhuma regressão real:
+
+- **Variantes A/B** (`hero_copy`, `hero_cta`, `hero_primary_cta`,
+  `home_spotlight_copy`, `testimonials_headline`) eram sorteadas por sessão.
+  O script fixa a variante `A` gravando `0web_ab_winner_v1` via `addInitScript`.
+- **Blocos voláteis por dados** (`#servicos-destaque`, `#spotlight`, e qualquer
+  elemento marcado com `data-visual-volatile="true"`) ficam com
+  `visibility: hidden` — o layout é preservado, o conteúdo não entra no diff.
+- **Camadas fixas/sticky** (chatbot, banner de consentimento, CTAs flutuantes,
+  toasts) são ocultadas logo antes do screenshot.
+- Animações, transições e caret são congelados.
+
+Variáveis: `VISUAL_THRESHOLD` (padrão 0.02), `VISUAL_CONCURRENCY`,
+`VISUAL_ROUTE_TIMEOUT_MS`, `VISUAL_ONLY=<nome-da-rota>`.
+Regravar referências: `bun run test:visual -- --update` (a primeira execução
+após mudança de UI real precisa disso; sempre revise o diff antes).
+
+## Regeneração manual de imagens sociais
+
+`bun run social:regen` (ou `bun run social:regen -- <clientKey> …`) regera, a
+partir da imagem fonte real de cada cliente:
+
+- `og:image` / `twitter:image` → JPEG 1200×630 (WhatsApp e Facebook não leem WebP);
+- `apple-touch-icon` → PNG 180×180 (iOS ignora WebP/SVG nesse slot);
+- `socialVersion` (SHA-1 de 8 caracteres) usado como cache-busting das prévias.
+
+Roda como worker/CLI em Node com ImageMagick. **Não** existe endpoint
+serverless equivalente: o runtime de borda do site não possui ImageMagick nem
+filesystem gravável. Cada execução grava
+`public/audit/social-regen-history.json` (50 execuções, com executor, escopo e
+totais), exibido em `/painel-auditorias`.
+
+## Painel de eventos de analytics descartados
+
+Quando `sanitizeEventName()` rejeita um `event_name` (nulo, vazio ou fora do
+limite de 64 caracteres da RLS), o evento original é descartado — mas agora um
+evento sentinela `analytics_event_discarded` é gravado com `path`, `page` e
+`metadata_json = { reason, original_event_name }`. O sentinela nunca se
+auto-reporta, evitando laço.
+
+`/painel-auditorias` agrupa esses descartes por rota + `event_name` inválido +
+motivo, com janela configurável (1 h a 7 dias) e limiar de alerta (padrão 20
+descartes na janela). A leitura de `analytics_events` continua restrita a
+administradores pela RLS existente.
