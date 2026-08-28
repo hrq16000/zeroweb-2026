@@ -38,6 +38,7 @@ import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PainelRouteImport } from './routes/painel'
 import { Route as PainelCrmRouteImport } from './routes/painel-crm'
 import { Route as PainelFunisRouteImport } from './routes/painel-funis'
+import { Route as PainelMetadadosRouteImport } from './routes/painel-metadados'
 import { Route as PainelPopupRouteImport } from './routes/painel-popup'
 import { Route as PainelPopupMetricasRouteImport } from './routes/painel-popup-metricas'
 import { Route as PainelPortfolioRouteImport } from './routes/painel-portfolio'
@@ -343,6 +344,11 @@ const PainelCrmRoute = PainelCrmRouteImport.update({
 const PainelFunisRoute = PainelFunisRouteImport.update({
   id: '/painel-funis',
   path: '/painel-funis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelMetadadosRoute = PainelMetadadosRouteImport.update({
+  id: '/painel-metadados',
+  path: '/painel-metadados',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PainelPopupRoute = PainelPopupRouteImport.update({
@@ -1239,6 +1245,7 @@ export interface FileRoutesByFullPath {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-metadados': typeof PainelMetadadosRoute
   '/painel-popup': typeof PainelPopupRoute
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
@@ -1431,6 +1438,7 @@ export interface FileRoutesByTo {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-metadados': typeof PainelMetadadosRoute
   '/painel-popup': typeof PainelPopupRoute
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
@@ -1623,6 +1631,7 @@ export interface FileRoutesById {
   '/painel': typeof PainelRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
+  '/painel-metadados': typeof PainelMetadadosRoute
   '/painel-popup': typeof PainelPopupRoute
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
@@ -1817,6 +1826,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-metadados'
     | '/painel-popup'
     | '/painel-popup-metricas'
     | '/painel-portfolio'
@@ -2009,6 +2019,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-metadados'
     | '/painel-popup'
     | '/painel-popup-metricas'
     | '/painel-portfolio'
@@ -2200,6 +2211,7 @@ export interface FileRouteTypes {
     | '/painel'
     | '/painel-crm'
     | '/painel-funis'
+    | '/painel-metadados'
     | '/painel-popup'
     | '/painel-popup-metricas'
     | '/painel-portfolio'
@@ -2394,6 +2406,7 @@ export interface RootRouteChildren {
   PainelRoute: typeof PainelRoute
   PainelCrmRoute: typeof PainelCrmRoute
   PainelFunisRoute: typeof PainelFunisRoute
+  PainelMetadadosRoute: typeof PainelMetadadosRoute
   PainelPopupRoute: typeof PainelPopupRoute
   PainelPopupMetricasRoute: typeof PainelPopupMetricasRoute
   PainelPortfolioRoute: typeof PainelPortfolioRoute
@@ -2698,6 +2711,13 @@ declare module '@tanstack/react-router' {
       path: '/painel-funis'
       fullPath: '/painel-funis'
       preLoaderRoute: typeof PainelFunisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-metadados': {
+      id: '/painel-metadados'
+      path: '/painel-metadados'
+      fullPath: '/painel-metadados'
+      preLoaderRoute: typeof PainelMetadadosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/painel-popup': {
@@ -4111,6 +4131,7 @@ const rootRouteChildren: RootRouteChildren = {
   PainelRoute: PainelRoute,
   PainelCrmRoute: PainelCrmRoute,
   PainelFunisRoute: PainelFunisRoute,
+  PainelMetadadosRoute: PainelMetadadosRoute,
   PainelPopupRoute: PainelPopupRoute,
   PainelPopupMetricasRoute: PainelPopupMetricasRoute,
   PainelPortfolioRoute: PainelPortfolioRoute,

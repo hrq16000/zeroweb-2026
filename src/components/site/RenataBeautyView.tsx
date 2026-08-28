@@ -318,6 +318,7 @@ export function RenataBeautyView() {
                   loading="lazy"
                   decoding="async"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={1024} height={1536}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80";
                   }}
@@ -438,7 +439,7 @@ export function RenataBeautyView() {
                   src={currentServiceObj.image} 
                   alt={currentServiceObj.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
- loading="lazy" decoding="async" />
+ loading="lazy" decoding="async" width={1200} height={800} />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A0C16] via-transparent to-transparent opacity-50" />
                 <div className="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-pink-200 border border-pink-500/30 flex items-center gap-1.5">
                   <Crown className="w-3.5 h-3.5 text-yellow-300" /> {currentServiceObj.badgeHighlight}
@@ -518,14 +519,14 @@ export function RenataBeautyView() {
                   src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" 
                   alt="Resultado de Extensão de Cílios" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
- loading="lazy" decoding="async" />
+ loading="lazy" decoding="async" width={1200} height={800} />
               </div>
               <div className="rounded-2xl overflow-hidden border border-pink-500/20 shadow-xl h-60">
                 <img 
                   src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" 
                   alt="Harmonia de Olhar e Sobrancelha" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
- loading="lazy" decoding="async" />
+ loading="lazy" decoding="async" width={1200} height={800} />
               </div>
             </div>
 
@@ -535,7 +536,7 @@ export function RenataBeautyView() {
                   src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" 
                   alt="Alongamento de Unhas Studio" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
- loading="lazy" decoding="async" />
+ loading="lazy" decoding="async" width={1200} height={800} />
               </div>
               <div className="rounded-2xl overflow-hidden border border-pink-500/30 shadow-xl h-52 bg-gradient-to-br from-[#E6007A]/40 to-[#12080E] p-5 flex flex-col justify-between">
                 <Crown className="w-8 h-8 text-yellow-300" />

@@ -6,7 +6,7 @@ const TITLE = "D.Y.Z Promo · Divulgação e panfletagem em Curitiba";
 const DESC =
   "Divulgação, panfletagem, promotores e ações promocionais da D.Y.Z Promo em Curitiba e região metropolitana.";
 const URL = "https://0web.com.br/portfolio/dyzpromo";
-const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg";
+const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg?v=1bb5971a";
 const ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo.webp";
 
 export const Route = createFileRoute("/portfolio/dyzpromo")({
@@ -22,10 +22,13 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       { property: "og:site_name", content: "D.Y.Z Promo" },
       { property: "og:image", content: SOCIAL_IMAGE },
       { property: "og:image:alt", content: "Equipe D.Y.Z Promo realizando divulgação em Curitiba" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/png", href: ICON }],
+    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/png", href: ICON }, { rel: "apple-touch-icon", href: ICON }],
     scripts: [
       {
         type: "application/ld+json",

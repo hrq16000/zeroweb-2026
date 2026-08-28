@@ -6,7 +6,7 @@ import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
-import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
+import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-assets";
 
 // Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
 // próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
@@ -173,7 +173,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
-    const socialImage = absUrl(
+    const socialImage = withSocialVersion(absUrl(
       assetConfig?.socialImage
         ? assetConfig.socialImage
         : loaderData?.slug === "rm-fretes"
@@ -227,7 +227,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 : isJkl
                   ? "/images/jkl-marcenaria/cozinha.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
-    );
+    ), loaderData?.slug);
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
     const vertical = loaderData?.vertical;
     const isMarido = loaderData?.slug === "marido-de-aluguel";

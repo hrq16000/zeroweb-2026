@@ -3,6 +3,7 @@
  *  WhatsApp/Facebook não renderizam WebP em link preview. */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
 const file = resolve("src/config/portfolio-assets.json");
@@ -10,15 +11,20 @@ const cfg = JSON.parse(readFileSync(file, "utf8"));
 let changed = 0;
 for (const [key, entry] of Object.entries(cfg.clients)) {
   const src = entry.socialImage;
-  if (typeof src !== "string" || !src.startsWith("/images/") || src.endsWith(".jpg")) continue;
-  const jpgRel = src.replace(/\.[a-z0-9]+$/i, "-og.jpg");
+  if (typeof src !== "string" || !src.startsWith("/images/")) continue;
+  const jpgRel = src.endsWith(".jpg") ? src : src.replace(/\.[a-z0-9]+$/i, "-og.jpg");
   const srcPath = resolve("public", src.slice(1));
   const outPath = resolve("public", jpgRel.slice(1));
-  if (!existsSync(srcPath)) { console.warn(`[social-jpg] fonte ausente: ${key} ${src}`); continue; }
   if (!existsSync(outPath)) {
+    if (!existsSync(srcPath)) { console.warn(`[social-jpg] fonte ausente: ${key} ${src}`); continue; }
     execFileSync("magick", [srcPath, "-resize", "1200x630^", "-gravity", "center", "-extent", "1200x630", "-background", "white", "-flatten", "-quality", "82", outPath]);
   }
   entry.socialImage = jpgRel;
+  // Versão para cache-busting das prévias sociais (WhatsApp/Facebook/X).
+  entry.socialVersion = createHash("sha1")
+    .update(readFileSync(outPath))
+    .digest("hex")
+    .slice(0, 8);
   changed++;
 }
 writeFileSync(file, `${JSON.stringify(cfg, null, 2)}\n`);

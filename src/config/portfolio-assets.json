@@ -18,7 +18,8 @@
         "description": "Ações promocionais planejadas para o público e a região da sua empresa.",
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "1bb5971a"
     },
     "renata-beauty": {
       "icon": "/images/renata-beauty-icon.webp",
@@ -29,7 +30,8 @@
         "description": "Conheça os serviços e escolha o melhor momento para seu atendimento.",
         "ctaLabel": "Ver procedimentos",
         "ctaHref": "#procedimentos"
-      }
+      },
+      "socialVersion": "4268ed21"
     },
     "r-beauty": {
       "icon": "/images/r-beauty-icon.webp",
@@ -40,7 +42,8 @@
         "description": "Explore os procedimentos e encontre o cuidado ideal para você.",
         "ctaLabel": "Ver procedimentos",
         "ctaHref": "#menu"
-      }
+      },
+      "socialVersion": "758635fe"
     },
     "marido-de-aluguel": {
       "icon": "/images/mestre-dos-servicos-logo.jpg",
@@ -51,7 +54,8 @@
         "description": "Conte o que precisa e receba um próximo passo organizado.",
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "fb7f7321"
     },
     "emporio-lelecute": {
       "icon": "/images/emporio-lelecute-og.webp",
@@ -62,7 +66,8 @@
         "description": "Escolha o estilo, a ocasião e o acabamento das suas peças.",
         "ctaLabel": "Ver opções",
         "ctaHref": "#catalogo"
-      }
+      },
+      "socialVersion": "ceb6db94"
     },
     "paraiso-do-hot-dog": {
       "icon": "/images/paraiso-hot-dog-cover.webp",
@@ -73,7 +78,8 @@
         "description": "Veja opções, combinações e formas de pedir para sua ocasião.",
         "ctaLabel": "Ver cardápio",
         "ctaHref": "#cardapio"
-      }
+      },
+      "socialVersion": "9cb6e38f"
     },
     "rm-fretes": {
       "icon": "/images/rm-fretes/anuncio-oficial.png",
@@ -84,7 +90,8 @@
         "description": "Envie os detalhes do trajeto e receba uma orientação objetiva.",
         "ctaLabel": "Conhecer fretes",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "b25eea31"
     },
     "rj-servicos-drywall": {
       "icon": "/images/rj-servicos-drywall/acabamento-sala.webp",
@@ -95,7 +102,8 @@
         "description": "Conte o que deseja transformar e receba uma avaliação inicial.",
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "c2ad247b"
     },
     "confeitaria-chyrley": {
       "icon": "/images/confeitaria-chyrley/capa.webp",
@@ -106,7 +114,8 @@
         "description": "Bolos, kits festa, salgados e doces feitos para celebrar do seu jeito.",
         "ctaLabel": "Montar minha festa",
         "ctaHref": "#encomenda"
-      }
+      },
+      "socialVersion": "68cf6ddd"
     },
     "mp-festas-eventos": {
       "icon": "/images/mp-festas-eventos/capa.webp",
@@ -117,7 +126,8 @@
         "description": "Escolha o pacote, conte o tema e receba uma orientação para a sua data.",
         "ctaLabel": "Ver pacotes",
         "ctaHref": "#pacotes"
-      }
+      },
+      "socialVersion": "ba743f4f"
     },
     "studio-de-cilios": {
       "icon": "/images/studio-de-cilios/portfolio-1.webp",
@@ -128,7 +138,8 @@
         "description": "Escolha um estilo, conte sua preferência e encontre um horário para cuidar de você.",
         "ctaLabel": "Conhecer estilos",
         "ctaHref": "#estilos"
-      }
+      },
+      "socialVersion": "7936dd39"
     },
     "refrigeracao-maresia": {
       "icon": "/images/refrigeracao-maresia/capa.webp",
@@ -139,7 +150,8 @@
         "description": "Conte o sintoma e receba uma orientação para o próximo passo.",
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "388fccb5"
     },
     "ag-electrical-services": {
       "icon": "/images/ag-electrical-services/logo.webp",
@@ -150,7 +162,8 @@
         "description": "Conte o que precisa instalar, modernizar ou organizar e receba um próximo passo claro.",
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "a5f66dba"
     },
     "vila-da-capivara": {
       "icon": "/images/vila-da-capivara/editorial.webp",
@@ -161,7 +174,8 @@
         "description": "Escolha um kit, conte a ocasião e receba uma orientação para sua encomenda.",
         "ctaLabel": "Ver kits",
         "ctaHref": "#kits"
-      }
+      },
+      "socialVersion": "658d1ec9"
     },
     "lk-alvenaria": {
       "icon": "/images/lk-alvenaria/portfolio.webp",
@@ -172,7 +186,8 @@
         "description": "Conte a etapa do projeto e receba um próximo passo organizado.",
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "ede919c0"
     },
     "lucas-arruma-maquina-lavar": {
       "icon": "/images/lucas-arruma-maquina-lavar/capa.webp",
@@ -183,7 +198,8 @@
         "description": "Conte o sintoma e receba orientação para o próximo passo.",
         "ctaLabel": "Solicitar diagnóstico",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "3be42c1c"
     },
     "paulo-mestre-de-obras": {
       "icon": "/images/paulo-mestre-de-obras/capa.webp",
@@ -194,7 +210,8 @@
         "description": "Conte a etapa do projeto e receba um próximo passo organizado.",
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "e4471787"
     },
     "ecommerce-on": {
       "icon": "/images/ecommerce-on/logo.webp",
@@ -205,7 +222,8 @@
         "description": "Conte o desafio e receba um próximo passo estratégico.",
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#solucoes"
-      }
+      },
+      "socialVersion": "e5f67e63"
     },
     "no-brilho-higienizacao": {
       "icon": "/images/no-brilho-higienizacao/capa.webp",
@@ -216,7 +234,8 @@
         "description": "Conte o que deseja higienizar e receba um próximo passo claro.",
         "ctaLabel": "Agendar higienização",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "275de007"
     },
     "salao-da-marcia": {
       "icon": "/images/salao-da-marcia/depilacao.webp",
@@ -227,7 +246,8 @@
         "description": "Escolha o serviço e receba uma orientação para agendar.",
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "11b45218"
     },
     "espaco-cih-luh": {
       "icon": "/images/espaco-cih-luh/promocao.webp",
@@ -238,7 +258,8 @@
         "description": "Escolha seu cuidado e receba orientação para garantir um horário.",
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "096aff4b"
     },
     "diego-montador-moveis": {
       "icon": "/images/diego-montador-moveis/capa.webp",
@@ -249,7 +270,8 @@
         "description": "Conte o que precisa e receba um próximo passo organizado.",
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "6c697697"
     },
     "aguia-sul-sinalizacao": {
       "icon": "/images/aguia-sul-sinalizacao/logo.webp",
@@ -260,7 +282,8 @@
         "description": "Conte o desafio e receba um próximo passo profissional.",
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "7aa8c64b"
     },
     "eletrovale-eletromecanica": {
       "icon": "/images/eletrovale-eletromecanica/equipamentos.webp",
@@ -271,7 +294,8 @@
         "description": "Conte o equipamento e receba um próximo passo técnico.",
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "83cf815a"
     },
     "eletro-solucoes-eficazes": {
       "icon": "/images/eletro-solucoes-eficazes/servicos.webp",
@@ -282,7 +306,8 @@
         "description": "Conte o desafio e receba um próximo passo profissional.",
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "ffe3c76f"
     },
     "eisenfer-tubos-acos": {
       "icon": "/images/eisenfer-tubos-acos/telhas.webp",
@@ -293,7 +318,8 @@
         "description": "Conte o projeto e receba um próximo passo especializado.",
         "ctaLabel": "Conhecer produtos",
         "ctaHref": "#produtos"
-      }
+      },
+      "socialVersion": "9c5137c6"
     },
     "mary-diarista": {
       "icon": "/images/mary-diarista/servicos.webp",
@@ -304,7 +330,8 @@
         "description": "Conte sua necessidade e receba um próximo passo cuidadoso.",
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "5db03143"
     },
     "acai-total-araucaria": {
       "icon": "/images/acai-total-araucaria/logo.webp",
@@ -315,7 +342,8 @@
         "description": "Escolha seu pedido e receba em casa.",
         "ctaLabel": "Ver cardápio",
         "ctaHref": "https://acaitotalaraucariaomaisbemavaliadodacidade.ola.click/products"
-      }
+      },
+      "socialVersion": "8e9a230d"
     },
     "jkl-marcenaria": {
       "icon": "/images/jkl-marcenaria/cozinha.webp",
@@ -326,7 +354,8 @@
         "description": "Conte seu projeto e receba um próximo passo personalizado.",
         "ctaLabel": "Ver soluções",
         "ctaHref": "#servicos"
-      }
+      },
+      "socialVersion": "573f65ec"
     }
   }
 }
