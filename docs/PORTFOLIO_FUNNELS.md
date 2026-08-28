@@ -28,3 +28,17 @@ Quando um portfolio ainda não possui override de perguntas, o fallback global �
 um briefing de serviço (não panfletagem). Campanhas promocionais devem declarar
 `proposalKind: "campaign"` explicitamente, evitando mistura de perguntas e da
 mensagem de próximo passo entre clientes.
+
+## Invariante: botão flutuante = funil do CTA da página
+
+`scripts/sync-portfolio-quiz-configs.mjs` extrai o funil declarado em cada
+página de cliente (`src/components/site/*.tsx`) e gera
+`src/config/portfolio-quiz-configs.generated.ts`. O resolvedor
+`resolvePortfolioStandards()` usa esse registro como `contactFloating.quizConfig`,
+com precedência para um override explícito em `portfolio-global-config.json`.
+
+- Regerar: `bun run sync:portfolio-quiz`
+- Gate (roda no `prebuild`): `bun run validate:portfolio-quiz`
+
+Funis montados em runtime (ex.: pedido do Paraíso do Hot Dog) não entram no
+registro; nesses casos declare o funil no override do cliente.
