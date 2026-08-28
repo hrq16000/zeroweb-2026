@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-28T04:07:19.022Z",
+  "generatedAt": "2026-08-28T07:31:47.999Z",
   "configVersion": 1,
-  "total": 8,
-  "conformes": 8,
+  "total": 17,
+  "conformes": 17,
   "projetos": [
     {
       "clientKey": "dyzpromo",
@@ -81,6 +81,78 @@
     {
       "clientKey": "rj-servicos-drywall",
       "slug": "rj-servicos-drywall",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "confeitaria-chyrley",
+      "slug": "confeitaria-chyrley",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "mp-festas-eventos",
+      "slug": "mp-festas-eventos",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "studio-de-cilios",
+      "slug": "studio-de-cilios",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "refrigeracao-maresia",
+      "slug": "refrigeracao-maresia",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "ag-electrical-services",
+      "slug": "ag-electrical-services",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "vila-da-capivara",
+      "slug": "vila-da-capivara",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "lk-alvenaria",
+      "slug": "lk-alvenaria",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "lucas-arruma-maquina-lavar",
+      "slug": "lucas-arruma-maquina-lavar",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "paulo-mestre-de-obras",
+      "slug": "paulo-mestre-de-obras",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "standardShell": true,
       "overrides": [],
