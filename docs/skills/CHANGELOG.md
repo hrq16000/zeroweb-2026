@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — atualização promocional Renata Beauty
+
+- **Tarefa:** atualizar oferta de extensão de cílios para Volume Brasileiro, Egípcio ou Fox Eyes por R$ 100,00.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, otimização mobile-first.
+- **Alterações:** nova arte promocional em WebP aplicada ao hero e aos metadados sociais, copy de oferta atualizada e CTA preservado.
+
 ## 2026-08-28 — novo portfolio Salão da Marcia
 
 - **Tarefa:** criar site local de beleza em Cidade Jardim, São José dos Pinhais, com depilação, cabelos, pé e mão.

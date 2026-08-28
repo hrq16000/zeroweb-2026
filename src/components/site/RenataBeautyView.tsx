@@ -184,7 +184,7 @@ export function RenataBeautyView() {
             <span className="bg-white/20 text-white px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 animate-pulse">
               <Flame className="w-3.5 h-3.5 text-yellow-300 fill-yellow-300" /> INAUGURAÇÃO
             </span>
-            <span>Cílios Volume Egípcio ou Brasileiro por apenas <strong>R$ 100,00</strong>!</span>
+            <span>Volume Brasileiro, Egípcio ou Fox Eyes por apenas <strong>R$ 100,00</strong>!</span>
           </div>
           <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" service="Cílios — Volume Egípcio ou Brasileiro" className="hidden sm:inline-flex items-center gap-1 font-bold text-yellow-200 hover:text-white transition-all hover:translate-x-1 text-xs uppercase tracking-wider">
             Garantir Horário <ArrowRight className="w-3.5 h-3.5" />
@@ -263,7 +263,7 @@ export function RenataBeautyView() {
                     <span className="text-[10px] font-bold text-yellow-300 uppercase tracking-widest bg-yellow-400/10 px-2 py-0.5 rounded-md">
                       Oferta Inauguração
                     </span>
-                    <span className="text-xs text-pink-300 font-semibold">Volume Egípcio ou Brasileiro</span>
+                  <span className="text-xs text-pink-300 font-semibold">Brasileiro, Egípcio ou Fox Eyes</span>
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-sm text-gray-400 line-through">R$ 180,00</span>
@@ -313,7 +313,7 @@ export function RenataBeautyView() {
               
               <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                 <img 
-                  src="/images/renata-beauty-flyer.jpg" 
+                  src="/images/renata-beauty-promo.webp"
                   alt="Espaço Renata Beauty Studio Inauguração" 
                   loading="lazy"
                   decoding="async"
