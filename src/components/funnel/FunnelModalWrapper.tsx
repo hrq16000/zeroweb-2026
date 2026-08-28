@@ -104,14 +104,15 @@ export function FunnelModalWrapper({
   return (
     <DialogPrimitive.Root open={open} onOpenChange={(o) => !o && onClose()}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        {/* Keep the funnel above portfolio preview shells and sticky client headers. */}
+        <DialogPrimitive.Overlay className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
         <DialogPrimitive.Content
           onInteractOutside={(e) => e.preventDefault()}
           onEscapeKeyDown={(e) => {
             // Permite fechar com ESC apenas se concluído ou em estado de erro.
             if (!completed && !error) e.preventDefault();
           }}
-          className="fixed z-50 bg-background text-foreground shadow-2xl
+          className="fixed z-[101] bg-background text-foreground shadow-2xl
                      data-[state=open]:animate-in data-[state=closed]:animate-out
                      data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0
                      inset-0 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2
@@ -135,7 +136,7 @@ export function FunnelModalWrapper({
             type="button"
             aria-label="Fechar"
             onClick={onClose}
-            className="absolute right-3 top-3 z-50 grid place-items-center w-9 h-9 rounded-full bg-background/80 backdrop-blur border border-border hover:bg-muted transition"
+            className="absolute right-3 top-3 z-[102] grid place-items-center w-9 h-9 rounded-full bg-background/80 backdrop-blur border border-border hover:bg-muted transition"
           >
             <X className="w-4 h-4" />
           </button>
