@@ -14,9 +14,9 @@ export const FLOATING_SLOT = {
   /** ~20px acima da borda inferior segura. */
   one: "bottom-[calc(1.25rem+env(safe-area-inset-bottom))]",
   /** Acima do slot 1 (altura do FAB + gap de 8pt). */
-  two: "bottom-[calc(5.25rem+env(safe-area-inset-bottom))]",
+  two: "bottom-[calc(6rem+env(safe-area-inset-bottom))]",
   /** Acima do slot 2. */
-  three: "bottom-[calc(9.5rem+env(safe-area-inset-bottom))]",
+  three: "bottom-[calc(10.75rem+env(safe-area-inset-bottom))]",
   /** Coluna direita (WhatsApp). */
   right: "bottom-[calc(5.5rem+env(safe-area-inset-bottom))]",
 } as const;
