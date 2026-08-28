@@ -149,6 +149,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
 
+## 2026-08-28 — novo portfolio MP Festas e Eventos
+
+- **Tarefa:** criar site independente para decoração de festas em Araucária e região, com pacotes Festa na Mesa, Clássica e Premium.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, motion/responsivo e otimização mobile-first de imagens.
+- **Alterações:** slug `mp-festas-eventos`, página exclusiva, catálogo, sitemap, SEO local, ícone/OG próprios, galeria real otimizada para WebP, CTA/funil individual, prova social e crédito de hospedagem.
+- **Conteúdo:** hero de conversão, preços informados pelo cliente (R$ 160/R$ 250/R$ 350), galeria de temas, atendimento local, agenda limitada e link oficial do Instagram informado no material.
+- **Privacidade:** telefone e destinatário não entram no bundle; produção requer secret server-side `MP_FESTAS_EVENTOS_WHATSAPP_NUMBER`. Link de Facebook em formato share não foi publicado como rede oficial.
+- **Validação:** `validate-portfolio-boundaries`, `validate-portfolio-meta`, `validate-portfolio-catalog`, `validate-portfolio-assets` e `git diff --check` executados; todos os gates passaram após correção de whitespace.
+
 ## 2026-08-28 — RJ Serviços de Drywall
 
 - Task: novo site independente em `/portfolio/rj-servicos-drywall`, com identidade, imagens, funil, SEO local e motion próprios.

@@ -20,6 +20,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "rm-fretes", vertical: "prestadores-de-servicos", siteName: "RM Fretes · Frete Rápido em Curitiba", kind: "prototype", indexable: true },
   { slug: "rj-servicos-drywall", vertical: "prestadores-de-servicos", siteName: "RJ Serviços de Drywall · Curitiba", kind: "prototype", indexable: true },
   { slug: "confeitaria-chyrley", vertical: "restaurantes", siteName: "Chyrley Doces & Festas · Rio Bonito", kind: "prototype", indexable: true },
+  { slug: "mp-festas-eventos", vertical: "comercios", siteName: "MP Festas e Eventos · Araucária", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {
