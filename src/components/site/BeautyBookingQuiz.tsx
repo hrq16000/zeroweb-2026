@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from "lucide-react";
 import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics";
@@ -242,7 +243,7 @@ export function BeautyBookingQuiz({
         {children}
       </button>
 
-      {open ? (
+      {open && typeof document !== "undefined" ? createPortal((
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/75 p-3 backdrop-blur-sm sm:items-center sm:p-6" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
           <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="portfolio-cta-quiz-title" tabIndex={-1} className={"w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/15 text-white shadow-2xl outline-none " + panel}>
             <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-7">
@@ -313,7 +314,7 @@ export function BeautyBookingQuiz({
             <div className="h-1 bg-white/10" aria-hidden="true"><div className="h-full transition-all duration-300" style={{ width: Math.min(step + 1, 5) / 5 * 100 + "%", backgroundColor: accent }} /></div>
           </div>
         </div>
-      ) : null}
+      ), document.body) : null}
     </>
   );
 }
