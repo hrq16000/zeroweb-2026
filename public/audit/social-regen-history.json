@@ -1,0 +1,23 @@
+[
+  {
+    "runAt": "2026-08-28T18:55:22.649Z",
+    "actor": "verificacao",
+    "scope": [
+      "rm-fretes"
+    ],
+    "totals": {
+      "ok": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "results": [
+      {
+        "client": "rm-fretes",
+        "status": "ok",
+        "socialImage": "/images/rm-fretes-hero-og.jpg",
+        "touchIcon": "/images/rm-fretes-hero-touch.png",
+        "version": "a179a145"
+      }
+    ]
+  }
+]

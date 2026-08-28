@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from "lucide-react";
@@ -6,6 +6,7 @@ import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
+import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
 import { formatLocation, getGeoForLead } from "@/lib/geo-location";
 
 type Theme = "pink" | "gold" | "navy";
@@ -150,7 +151,7 @@ export function BeautyBookingQuiz({
   service,
   recipientName,
   mode = "booking",
-  quizConfig,
+  quizConfig: localQuizConfig,
   className,
   ariaLabel,
   onOpen,
@@ -167,6 +168,11 @@ export function BeautyBookingQuiz({
   const dialogRef = useRef<HTMLDivElement>(null);
   const look = THEMES[theme];
   const { accent, accentText, optionClass, primaryClass, panel, titleClass } = look;
+  // Funil unificado: base canônica do cliente + ajustes locais desta chamada.
+  const quizConfig = useMemo(
+    () => mergePortfolioFunnelConfig(clientKey, localQuizConfig),
+    [clientKey, localQuizConfig],
+  );
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
   const serviceOptions = quizConfig?.services ?? (isServiceProposal ? SERVICES : isProposal ? PROPOSAL_SERVICES : SERVICES);
