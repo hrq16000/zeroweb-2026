@@ -4055,6 +4055,36 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_web_vitals: {
+        Row: {
+          captured_at: string
+          id: string
+          metric: string
+          metric_id: string
+          path: string
+          slug: string
+          value: number
+        }
+        Insert: {
+          captured_at?: string
+          id?: string
+          metric: string
+          metric_id: string
+          path: string
+          slug: string
+          value: number
+        }
+        Update: {
+          captured_at?: string
+          id?: string
+          metric?: string
+          metric_id?: string
+          path?: string
+          slug?: string
+          value?: number
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

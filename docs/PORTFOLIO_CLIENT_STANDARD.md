@@ -136,3 +136,35 @@ quando passa no contrato de isolamento, atendimento, identidade, privacidade e
 metadados.
 
 > Padrões universais aplicados automaticamente (compartilhar, contato flutuante, rodapé e captação): ver `docs/PORTFOLIO_GLOBAL_STANDARDS.md`.
+
+## 8. Fonte canônica do catálogo (`src/config/portfolio-catalog.json`)
+
+`/portfolio` é um catálogo escalável. A identidade de descoberta de cada projeto
+(`slug`, `clientKey`, `title`, `segment`, `projectType`, `status`, `city`,
+`state`, `tags`) vive apenas em `src/config/portfolio-catalog.json`. Cards,
+busca, filtros (segmento, tipo, texto, ordenação), paginação incremental,
+sitemap, SEO, Lighthouse CI e testes consomem essa mesma fonte.
+
+- `src/config/portfolio-clients.json` continua responsável pelo contrato
+  técnico do site do cliente (rota, componente, assets, CTA, isolamento).
+- `src/lib/portfolio-site-registry.ts` permanece como camada de SEO/sitemap e
+  deve conter todo slug publicado do catálogo.
+- Campos visuais legados na rota `/portfolio` são um fallback temporário e vão
+  sendo migrados para o catálogo; nenhum card novo deve nascer só na rota.
+- `bun run validate:portfolio-catalog` bloqueia slugs duplicados/ inválidos,
+  campos ausentes e clientes registrados sem item de catálogo.
+
+Filtros ficam persistidos na URL (`?segment=`, `?type=`, `?q=`, `?sort=`) e o
+catálogo carrega em blocos ("Carregar mais"), com estados vazio/carregando/erro,
+alvos de toque de 44px e respeito a `prefers-reduced-motion`.
+
+## 9. Web Vitals de campo
+
+`PortfolioStandardShell` coleta LCP, CLS e INP por slug e envia para
+`/api/public/portfolio-vitals`. O endpoint valida métrica, valor, `id`, `slug` e
+`path`, recusa qualquer outro campo e nunca recebe PII. A persistência usa
+`public.portfolio_web_vitals` (RLS ativa, acesso público revogado, escrita e
+leitura apenas por `service_role`, índices por slug/métrica/data), com fallback
+em memória quando o banco está indisponível. O painel `/painel-web-vitals`
+(restrito a administradores) mostra p75 por métrica, volume de amostras e
+alertas de regressão contra os budgets 2500 ms / 0,1 / 200 ms.

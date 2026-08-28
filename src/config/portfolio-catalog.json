@@ -1,0 +1,12 @@
+[
+  {"slug":"marido-de-aluguel","clientKey":"marido-de-aluguel","title":"Marido de Aluguel","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["reparos","manutencao","seo-local"]},
+  {"slug":"dyzpromo","clientKey":"dyzpromo","title":"D.Y.Z Promo","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["panfletagem","acoes-locais"]},
+  {"slug":"emporio-lelecute","clientKey":"emporio-lelecute","title":"Empório LeleCute","segment":"servicos","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["presentes","artesanal"]},
+  {"slug":"rm-fretes","clientKey":"rm-fretes","title":"RM Fretes","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["fretes","mudancas"]},
+  {"slug":"paraiso-do-hot-dog","clientKey":"paraiso-do-hot-dog","title":"Paraíso do Hot Dog","segment":"servicos","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["delivery","cardapio"]},
+  {"slug":"renata-beauty","clientKey":"renata-beauty","title":"Renata Beauty Studio","segment":"beleza","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["cilios","unhas"]},
+  {"slug":"r_beauty","clientKey":"r-beauty","title":"R_Beauty Studio & Spa","segment":"beleza","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["estetica","spa"]},
+  {"slug":"clinica-integrada","clientKey":"clinica-integrada","title":"Clínica Integrada de Saúde","segment":"saude","projectType":"institutional","status":"published","city":"Curitiba","state":"PR","tags":["odontologia","saude"]},
+  {"slug":"almeida-torres","clientKey":"almeida-torres","title":"Almeida Torres Advocacia","segment":"juridico","projectType":"institutional","status":"published","city":"São Paulo","state":"SP","tags":["advocacia","consultoria"]},
+  {"slug":"casa-nativa","clientKey":"casa-nativa","title":"Casa Nativa Bistrô","segment":"servicos","projectType":"catalog","status":"published","city":"Belo Horizonte","state":"MG","tags":["restaurante","reservas"]}
+]

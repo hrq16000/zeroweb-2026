@@ -7,8 +7,11 @@
  * Local: `bun run lhci` (requires LHCI_TARGET_URL env or defaults to preview).
  * CI:    .github/workflows/lighthouse.yml
  */
+const fs = require("node:fs");
 const TARGET_URL =
-  process.env.LHCI_TARGET_URL || "https://grow-evolution-engine.lovable.app";
+  process.env.LHCI_TARGET_URL || "https://zeroweb.lovable.app";
+const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
+const portfolioUrls = clients.map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 
 module.exports = {
   ci: {
@@ -20,9 +23,7 @@ module.exports = {
         `${TARGET_URL}/servicos`,
         `${TARGET_URL}/servicos/criacao-de-sites`,
         `${TARGET_URL}/portfolio`,
-        `${TARGET_URL}/portfolio/rm-fretes`,
-        `${TARGET_URL}/portfolio/emporio-lelecute`,
-        `${TARGET_URL}/portfolio/marido-de-aluguel`,
+        ...portfolioUrls,
       ],
       numberOfRuns: 2,
       settings: {

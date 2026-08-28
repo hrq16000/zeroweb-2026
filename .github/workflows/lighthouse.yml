@@ -29,5 +29,15 @@ jobs:
 
       - name: Run Lighthouse CI
         env:
-          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://grow-evolution-engine.lovable.app' }}
+          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://zeroweb.lovable.app' }}
         run: bunx lhci autorun --config=.lighthouserc.cjs
+
+      - name: Upload Lighthouse reports (JSON/HTML)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-portfolio-${{ github.run_id }}
+          path: |
+            .lighthouseci/**
+            lhci-reports/**
+          if-no-files-found: ignore

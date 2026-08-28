@@ -42,6 +42,7 @@ import { Route as PainelPopupRouteImport } from './routes/painel-popup'
 import { Route as PainelPopupMetricasRouteImport } from './routes/painel-popup-metricas'
 import { Route as PainelPortfolioRouteImport } from './routes/painel-portfolio'
 import { Route as PainelSkillsRouteImport } from './routes/painel-skills'
+import { Route as PainelWebVitalsRouteImport } from './routes/painel-web-vitals'
 import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as PlanosComparativoRouteImport } from './routes/planos-comparativo'
@@ -166,6 +167,7 @@ import { Route as AuthenticatedAppVisitantesRouteImport } from './routes/_authen
 import { Route as ApiPublicHealthDbRouteImport } from './routes/api/public/health-db'
 import { Route as ApiPublicHydrationReportRouteImport } from './routes/api/public/hydration-report'
 import { Route as ApiPublicLeadWebhookRouteImport } from './routes/api/public/lead-webhook'
+import { Route as ApiPublicPortfolioVitalsRouteImport } from './routes/api/public/portfolio-vitals'
 import { Route as ApiPublicSeoSyncRouteImport } from './routes/api/public/seo-sync'
 import { Route as BlogClusterClusterRouteImport } from './routes/blog.cluster.$cluster'
 import { Route as PortfolioSegmentoBairroRouteImport } from './routes/portfolio.$segmento.$bairro'
@@ -361,6 +363,11 @@ const PainelPortfolioRoute = PainelPortfolioRouteImport.update({
 const PainelSkillsRoute = PainelSkillsRouteImport.update({
   id: '/painel-skills',
   path: '/painel-skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelWebVitalsRoute = PainelWebVitalsRouteImport.update({
+  id: '/painel-web-vitals',
+  path: '/painel-web-vitals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParceirosRoute = ParceirosRouteImport.update({
@@ -1013,6 +1020,12 @@ const ApiPublicLeadWebhookRoute = ApiPublicLeadWebhookRouteImport.update({
   path: '/api/public/lead-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicPortfolioVitalsRoute =
+  ApiPublicPortfolioVitalsRouteImport.update({
+    id: '/api/public/portfolio-vitals',
+    path: '/api/public/portfolio-vitals',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicSeoSyncRoute = ApiPublicSeoSyncRouteImport.update({
   id: '/api/public/seo-sync',
   path: '/api/public/seo-sync',
@@ -1230,6 +1243,7 @@ export interface FileRoutesByFullPath {
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/painel-skills': typeof PainelSkillsRoute
+  '/painel-web-vitals': typeof PainelWebVitalsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1353,6 +1367,7 @@ export interface FileRoutesByFullPath {
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
+  '/api/public/portfolio-vitals': typeof ApiPublicPortfolioVitalsRoute
   '/api/public/seo-sync': typeof ApiPublicSeoSyncRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
   '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
@@ -1420,6 +1435,7 @@ export interface FileRoutesByTo {
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/painel-skills': typeof PainelSkillsRoute
+  '/painel-web-vitals': typeof PainelWebVitalsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1541,6 +1557,7 @@ export interface FileRoutesByTo {
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
+  '/api/public/portfolio-vitals': typeof ApiPublicPortfolioVitalsRoute
   '/api/public/seo-sync': typeof ApiPublicSeoSyncRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
   '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
@@ -1610,6 +1627,7 @@ export interface FileRoutesById {
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/painel-skills': typeof PainelSkillsRoute
+  '/painel-web-vitals': typeof PainelWebVitalsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1733,6 +1751,7 @@ export interface FileRoutesById {
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
+  '/api/public/portfolio-vitals': typeof ApiPublicPortfolioVitalsRoute
   '/api/public/seo-sync': typeof ApiPublicSeoSyncRoute
   '/blog/cluster/$cluster': typeof BlogClusterClusterRoute
   '/portfolio/$segmento/$bairro': typeof PortfolioSegmentoBairroRoute
@@ -1802,6 +1821,7 @@ export interface FileRouteTypes {
     | '/painel-popup-metricas'
     | '/painel-portfolio'
     | '/painel-skills'
+    | '/painel-web-vitals'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -1925,6 +1945,7 @@ export interface FileRouteTypes {
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
+    | '/api/public/portfolio-vitals'
     | '/api/public/seo-sync'
     | '/blog/cluster/$cluster'
     | '/portfolio/$segmento/$bairro'
@@ -1992,6 +2013,7 @@ export interface FileRouteTypes {
     | '/painel-popup-metricas'
     | '/painel-portfolio'
     | '/painel-skills'
+    | '/painel-web-vitals'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2113,6 +2135,7 @@ export interface FileRouteTypes {
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
+    | '/api/public/portfolio-vitals'
     | '/api/public/seo-sync'
     | '/blog/cluster/$cluster'
     | '/portfolio/$segmento/$bairro'
@@ -2181,6 +2204,7 @@ export interface FileRouteTypes {
     | '/painel-popup-metricas'
     | '/painel-portfolio'
     | '/painel-skills'
+    | '/painel-web-vitals'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2304,6 +2328,7 @@ export interface FileRouteTypes {
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
+    | '/api/public/portfolio-vitals'
     | '/api/public/seo-sync'
     | '/blog/cluster/$cluster'
     | '/portfolio/$segmento/$bairro'
@@ -2373,6 +2398,7 @@ export interface RootRouteChildren {
   PainelPopupMetricasRoute: typeof PainelPopupMetricasRoute
   PainelPortfolioRoute: typeof PainelPortfolioRoute
   PainelSkillsRoute: typeof PainelSkillsRoute
+  PainelWebVitalsRoute: typeof PainelWebVitalsRoute
   ParceirosRoute: typeof ParceirosRoute
   PlanosRoute: typeof PlanosRoute
   PlanosComparativoRoute: typeof PlanosComparativoRoute
@@ -2449,6 +2475,7 @@ export interface RootRouteChildren {
   ApiPublicHealthDbRoute: typeof ApiPublicHealthDbRoute
   ApiPublicHydrationReportRoute: typeof ApiPublicHydrationReportRoute
   ApiPublicLeadWebhookRoute: typeof ApiPublicLeadWebhookRoute
+  ApiPublicPortfolioVitalsRoute: typeof ApiPublicPortfolioVitalsRoute
   ApiPublicSeoSyncRoute: typeof ApiPublicSeoSyncRoute
   BlogClusterClusterRoute: typeof BlogClusterClusterRoute
   PortfolioSegmentoBairroRoute: typeof PortfolioSegmentoBairroRoute
@@ -2699,6 +2726,13 @@ declare module '@tanstack/react-router' {
       path: '/painel-skills'
       fullPath: '/painel-skills'
       preLoaderRoute: typeof PainelSkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-web-vitals': {
+      id: '/painel-web-vitals'
+      path: '/painel-web-vitals'
+      fullPath: '/painel-web-vitals'
+      preLoaderRoute: typeof PainelWebVitalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parceiros': {
@@ -3569,6 +3603,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicLeadWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/portfolio-vitals': {
+      id: '/api/public/portfolio-vitals'
+      path: '/api/public/portfolio-vitals'
+      fullPath: '/api/public/portfolio-vitals'
+      preLoaderRoute: typeof ApiPublicPortfolioVitalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/seo-sync': {
       id: '/api/public/seo-sync'
       path: '/api/public/seo-sync'
@@ -4074,6 +4115,7 @@ const rootRouteChildren: RootRouteChildren = {
   PainelPopupMetricasRoute: PainelPopupMetricasRoute,
   PainelPortfolioRoute: PainelPortfolioRoute,
   PainelSkillsRoute: PainelSkillsRoute,
+  PainelWebVitalsRoute: PainelWebVitalsRoute,
   ParceirosRoute: ParceirosRoute,
   PlanosRoute: PlanosRoute,
   PlanosComparativoRoute: PlanosComparativoRoute,
@@ -4150,6 +4192,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHealthDbRoute: ApiPublicHealthDbRoute,
   ApiPublicHydrationReportRoute: ApiPublicHydrationReportRoute,
   ApiPublicLeadWebhookRoute: ApiPublicLeadWebhookRoute,
+  ApiPublicPortfolioVitalsRoute: ApiPublicPortfolioVitalsRoute,
   ApiPublicSeoSyncRoute: ApiPublicSeoSyncRoute,
   BlogClusterClusterRoute: BlogClusterClusterRoute,
   PortfolioSegmentoBairroRoute: PortfolioSegmentoBairroRoute,

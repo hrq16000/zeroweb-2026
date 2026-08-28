@@ -77,7 +77,7 @@ export function InstagramFeedSection({
             Ver perfil completo
             <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
           </a>
-          <p className="mt-3 text-xs text-gray-500">
+          <p className="mt-3 text-xs text-gray-300">
             Se o feed não aparecer, o Instagram pode estar bloqueado pelas
             preferências de privacidade do navegador.
           </p>
