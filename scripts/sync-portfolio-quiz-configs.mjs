@@ -96,12 +96,11 @@ for (const file of readdirSync(SITE_DIR).filter((f) => f.endsWith(".tsx"))) {
 
   let value;
   try {
-    // Remove asserções TypeScript (`as const`, `as Foo`) antes de avaliar o literal.
-    const plain = literal.replace(/\s+as\s+(const|[A-Za-z_$][\w$.<>\[\]"']*)/g, "");
+    const names = Object.keys(scope);
     // eslint-disable-next-line no-new-func
-    value = new Function(`return (${plain});`)();
+    value = new Function(...names, `return (${stripTypes(literal)});`)(...names.map((n) => scope[n]));
   } catch (err) {
-    problems.push(`${file}: literal do funil inválido (${err.message})\n${stripTypes(literal).slice(0, 300)}`);
+    problems.push(`${file}: literal do funil inválido (${err.message})`);
     continue;
   }
   entries.set(clientKey, value);
