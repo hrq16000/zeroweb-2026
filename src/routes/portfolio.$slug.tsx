@@ -35,6 +35,9 @@ const MpFestasEventosPage = lazy(() =>
 const StudioDeCiliosPage = lazy(() =>
   import("@/components/site/StudioDeCiliosPage").then((m) => ({ default: m.StudioDeCiliosPage })),
 );
+const RefrigeracaoMaresiaPage = lazy(() =>
+  import("@/components/site/RefrigeracaoMaresiaPage").then((m) => ({ default: m.RefrigeracaoMaresiaPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -52,6 +55,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isChyrley = loaderData?.slug === "confeitaria-chyrley";
     const isMpFestas = loaderData?.slug === "mp-festas-eventos";
     const isStudioCilios = loaderData?.slug === "studio-de-cilios";
+    const isMaresia = loaderData?.slug === "refrigeracao-maresia";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -62,6 +66,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Decoração de festas em Araucária e região: Festa na Mesa, decoração clássica e premium para aniversários, casamentos e eventos especiais."
           : isStudioCilios
             ? "Extensão de cílios com efeito personalizado: Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio com agendamento online."
+          : isMaresia
+            ? "Manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana. Recarga de gás, motor, sensor e manutenção preventiva ou corretiva."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -82,6 +88,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 ? "/images/mp-festas-eventos/capa.webp"
                 : isStudioCilios
                   ? "/images/studio-de-cilios/portfolio-1.webp"
+                : isMaresia
+                  ? "/images/refrigeracao-maresia/capa.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -104,6 +112,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 ? "decoração de festas Araucária, Festa na Mesa, decoração clássica, decoração premium, festas infantis, eventos"
                 : isStudioCilios
                   ? "extensão de cílios, fio a fio, Mega Brasileiro, Mega Egípcio, Fox Eyes, agendamento de cílios"
+                : isMaresia
+                  ? "refrigeração Curitiba, conserto de geladeira, manutenção de freezer, recarga de gás, troca de motor, troca de sensor"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -195,6 +205,8 @@ function PortfolioPrototypePage() {
           <MpFestasEventosPage />
         ) : slug === "studio-de-cilios" ? (
           <StudioDeCiliosPage />
+        ) : slug === "refrigeracao-maresia" ? (
+          <RefrigeracaoMaresiaPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

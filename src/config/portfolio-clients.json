@@ -121,5 +121,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "refrigeracao-maresia",
+    "slug": "refrigeracao-maresia",
+    "siteName": "Refrigeração Maresia",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
+    "assetsDir": "public/images/refrigeracao-maresia",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
