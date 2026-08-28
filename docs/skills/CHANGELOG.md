@@ -399,3 +399,8 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Contato flutuante agora se oculta quando o rodapé entra na viewport, sem cobrir o crédito 0WEB; retorno ao topo segue acessível.
 - Fallback de `PortfolioCTAQuiz` passou a briefing de serviço; campanha só é usada com `proposalKind: "campaign"` explícito (D.Y.Z parametrizado).
 - Catálogo raiz mantém blocos responsivos e adiciona carregamento incremental ao aproximar-se do fim; CTA reduzido para “Carregar mais”.
+
+## 2026-08-28 — correção de rota Studio de Cílios
+
+- Adicionado o segmento `beleza` ao mapa de verticais compartilhado; `/portfolio/studio-de-cilios` deixa de cair em 404 e mantém seus metadados e componente exclusivos.
+- Validados boundaries, metadados, catálogo e TypeScript.
