@@ -85,8 +85,10 @@ for (const file of readdirSync(SITE_DIR).filter((f) => f.endsWith(".tsx"))) {
   const scope = {};
   for (const m of source.matchAll(/^const ([A-Za-z_$][\w$]*) = (\[[\s\S]*?\n\])(?: as const)?;/gm)) {
     try {
+      // Valores que são componentes/ícones importados viram null: só interessam os textos.
+      const plain = stripTypes(m[2]).replace(/:\s*[A-Z][\w$]*\s*(?=[,}])/g, ": null");
       // eslint-disable-next-line no-new-func
-      scope[m[1]] = new Function(`return (${stripTypes(m[2])});`)();
+      scope[m[1]] = new Function(`return (${plain});`)();
     } catch {
       /* ignora constantes que dependem de imports (ícones, componentes) */
     }
