@@ -39,9 +39,25 @@ function readObjectLiteral(source, startIdx) {
   return null;
 }
 
-/** Remove asserções TypeScript (`as const`, `as Foo`) de um literal. */
+/** Remove asserções TypeScript (`as const`, `as Foo`) fora de strings. */
 function stripTypes(code) {
-  return code.replace(/\s+as\s+(const|[A-Za-z_$][\w$.<>\[\]"']*)/g, "");
+  let out = "";
+  let inStr = null;
+  for (let i = 0; i < code.length; i += 1) {
+    const ch = code[i];
+    if (inStr) {
+      out += ch;
+      if (ch === "\\") { out += code[i + 1] ?? ""; i += 1; }
+      else if (ch === inStr) inStr = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'" || ch === "`") { inStr = ch; out += ch; continue; }
+    const rest = code.slice(i);
+    const m = rest.match(/^\s+as\s+(const|[A-Za-z_$][\w$.<>\[\]]*)/);
+    if (m) { i += m[0].length - 1; continue; }
+    out += ch;
+  }
+  return out;
 }
 
 const entries = new Map();
