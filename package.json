@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "test": "bun test",
-    "prebuild": "node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs && node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check",
+    "prebuild": "node scripts/generate-social-jpg.mjs && node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs && node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",
@@ -57,7 +57,12 @@
     "validate:portfolio-assets": "node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check",
     "optimize:portfolio-images": "node scripts/optimize-portfolio-images.mjs",
     "validate:link-previews": "node scripts/validate-link-previews.mjs",
-    "audit:seo-indexability": "node scripts/validate-canonicals.mjs && node scripts/validate-sitemaps.mjs && node scripts/validate-schemas.mjs && node scripts/run-seo-diff.mjs"
+    "audit:seo-indexability": "node scripts/validate-canonicals.mjs && node scripts/validate-sitemaps.mjs && node scripts/validate-schemas.mjs && node scripts/run-seo-diff.mjs",
+    "validate:head-icons": "node scripts/validate-head-icons.mjs",
+    "audit:indexability": "node scripts/audit-seo-indexability.mjs",
+    "audit:indexability:before": "node scripts/audit-seo-indexability.mjs --label=before",
+    "audit:indexability:after": "node scripts/audit-seo-indexability.mjs --label=after",
+    "audit:report": "node scripts/ci-audit-report.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

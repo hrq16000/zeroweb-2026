@@ -36,6 +36,7 @@ import { Route as MapaDoSiteRouteImport } from './routes/mapa-do-site'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PainelRouteImport } from './routes/painel'
+import { Route as PainelAuditoriasRouteImport } from './routes/painel-auditorias'
 import { Route as PainelCrmRouteImport } from './routes/painel-crm'
 import { Route as PainelFunisRouteImport } from './routes/painel-funis'
 import { Route as PainelMetadadosRouteImport } from './routes/painel-metadados'
@@ -334,6 +335,11 @@ const ObrigadoRoute = ObrigadoRouteImport.update({
 const PainelRoute = PainelRouteImport.update({
   id: '/painel',
   path: '/painel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelAuditoriasRoute = PainelAuditoriasRouteImport.update({
+  id: '/painel-auditorias',
+  path: '/painel-auditorias',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PainelCrmRoute = PainelCrmRouteImport.update({
@@ -1243,6 +1249,7 @@ export interface FileRoutesByFullPath {
   '/marketplace': typeof MarketplaceRoute
   '/obrigado': typeof ObrigadoRoute
   '/painel': typeof PainelRoute
+  '/painel-auditorias': typeof PainelAuditoriasRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
   '/painel-metadados': typeof PainelMetadadosRoute
@@ -1436,6 +1443,7 @@ export interface FileRoutesByTo {
   '/marketplace': typeof MarketplaceRoute
   '/obrigado': typeof ObrigadoRoute
   '/painel': typeof PainelRoute
+  '/painel-auditorias': typeof PainelAuditoriasRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
   '/painel-metadados': typeof PainelMetadadosRoute
@@ -1629,6 +1637,7 @@ export interface FileRoutesById {
   '/marketplace': typeof MarketplaceRoute
   '/obrigado': typeof ObrigadoRoute
   '/painel': typeof PainelRoute
+  '/painel-auditorias': typeof PainelAuditoriasRoute
   '/painel-crm': typeof PainelCrmRoute
   '/painel-funis': typeof PainelFunisRoute
   '/painel-metadados': typeof PainelMetadadosRoute
@@ -1824,6 +1833,7 @@ export interface FileRouteTypes {
     | '/marketplace'
     | '/obrigado'
     | '/painel'
+    | '/painel-auditorias'
     | '/painel-crm'
     | '/painel-funis'
     | '/painel-metadados'
@@ -2017,6 +2027,7 @@ export interface FileRouteTypes {
     | '/marketplace'
     | '/obrigado'
     | '/painel'
+    | '/painel-auditorias'
     | '/painel-crm'
     | '/painel-funis'
     | '/painel-metadados'
@@ -2209,6 +2220,7 @@ export interface FileRouteTypes {
     | '/marketplace'
     | '/obrigado'
     | '/painel'
+    | '/painel-auditorias'
     | '/painel-crm'
     | '/painel-funis'
     | '/painel-metadados'
@@ -2404,6 +2416,7 @@ export interface RootRouteChildren {
   MarketplaceRoute: typeof MarketplaceRoute
   ObrigadoRoute: typeof ObrigadoRoute
   PainelRoute: typeof PainelRoute
+  PainelAuditoriasRoute: typeof PainelAuditoriasRoute
   PainelCrmRoute: typeof PainelCrmRoute
   PainelFunisRoute: typeof PainelFunisRoute
   PainelMetadadosRoute: typeof PainelMetadadosRoute
@@ -2697,6 +2710,13 @@ declare module '@tanstack/react-router' {
       path: '/painel'
       fullPath: '/painel'
       preLoaderRoute: typeof PainelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-auditorias': {
+      id: '/painel-auditorias'
+      path: '/painel-auditorias'
+      fullPath: '/painel-auditorias'
+      preLoaderRoute: typeof PainelAuditoriasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/painel-crm': {
@@ -4129,6 +4149,7 @@ const rootRouteChildren: RootRouteChildren = {
   MarketplaceRoute: MarketplaceRoute,
   ObrigadoRoute: ObrigadoRoute,
   PainelRoute: PainelRoute,
+  PainelAuditoriasRoute: PainelAuditoriasRoute,
   PainelCrmRoute: PainelCrmRoute,
   PainelFunisRoute: PainelFunisRoute,
   PainelMetadadosRoute: PainelMetadadosRoute,
