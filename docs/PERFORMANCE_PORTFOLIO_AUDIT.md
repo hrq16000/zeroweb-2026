@@ -27,6 +27,13 @@ Data: 2026-08-28 · Escopo: `/portfolio/<slug>` em produção
 
 Reduzir o payload visual inicial sem degradar SEO, acessibilidade, identidade do cliente ou estabilidade do LCP.
 
+### Execução desta rodada
+
+Variantes WebP foram geradas com Sharp e servidas nas referências públicas de
+D.Y.Z Promo, Paraíso do Hot Dog e RM Fretes. Exemplos: capa do Paraíso caiu de
+2,02 MB para 153 KB; hero da RM Fretes de 1,99 MB para 102 KB; menu do Paraíso
+de 440 KB para 61 KB. Os originais permanecem preservados para rollback.
+
 ## Parâmetros operacionais
 
 Os limites de LCP, CLS, INP, bytes por imagem e política de adiamento de

@@ -136,3 +136,4 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 - Criado `src/config/portfolio-performance.json` com budgets de LCP/CLS/INP, limites de bytes, formatos preferidos e política de adiamento de overlays/telemetria.
 - Documentação atualizada para que novos clientes herdem os mesmos limites e exceções sejam explícitas por slug.
+- Geradas 8 variantes WebP com Sharp; referências públicas atualizadas, com reduções de até 95% e originais preservados.
