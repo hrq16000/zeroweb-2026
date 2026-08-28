@@ -6,6 +6,7 @@ import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
+import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 
 // Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
 // próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
@@ -45,8 +46,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
         ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
         : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
+    const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = absUrl(
-      loaderData?.slug === "rm-fretes"
+      assetConfig?.socialImage
+        ? assetConfig.socialImage
+        : loaderData?.slug === "rm-fretes"
         ? "/images/rm-fretes/anuncio-oficial.png"
         : isRjDrywall
           ? "/images/rj-servicos-drywall/acabamento-sala.webp"
@@ -56,8 +60,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
           ? "/images/paraiso-hot-dog-cover.webp"
             : "/images/mestre-dos-servicos-logo.jpg",
     );
-    const icon =
-      loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage;
+    const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
     const vertical = loaderData?.vertical;
     const isMarido = loaderData?.slug === "marido-de-aluguel";
     return {

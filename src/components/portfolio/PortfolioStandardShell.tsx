@@ -10,6 +10,8 @@ import {
 } from "@/lib/portfolio-global-config";
 import { PortfolioVitals } from "@/lib/portfolio-vitals";
 import { PortfolioBackToTop } from "@/components/portfolio/PortfolioBackToTop";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 
 type Props = {
   slug: string;
@@ -32,6 +34,7 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
   const client = findPortfolioClient(slug);
   const clientKey = resolvePortfolioClientKey(slug);
   const siteName = client?.siteName ?? "Projeto";
+  const proof = resolvePortfolioAssets(slug)?.proof;
 
   return (
     <>
@@ -46,6 +49,8 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
       ) : null}
 
       {children}
+
+      {clientKey && proof ? <PortfolioSocialProofPopup clientKey={clientKey} {...proof} /> : null}
 
       {includePlatformFooter && standards.footer.enabled ? (
         <PortfolioStandardFooter

@@ -143,3 +143,8 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Criado `src/config/portfolio-performance.json` com budgets de LCP/CLS/INP, limites de bytes, formatos preferidos e política de adiamento de overlays/telemetria.
 - Documentação atualizada para que novos clientes herdem os mesmos limites e exceções sejam explícitas por slug.
 - Geradas 8 variantes WebP com Sharp; referências públicas atualizadas, com reduções de até 95% e originais preservados.
+
+## 2026-08-28 — assets e prova social por cliente
+
+- Criado `src/config/portfolio-assets.json` como contrato único de ícone, imagem social, política mobile-first e copy de prova social por slug.
+- A rota passou a resolver favicon/OG image pelo contrato; `PortfolioStandardShell` garante prova social própria com guard anti-duplicação.
