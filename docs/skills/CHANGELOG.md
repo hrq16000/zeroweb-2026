@@ -148,3 +148,8 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 - Criado `src/config/portfolio-assets.json` como contrato único de ícone, imagem social, política mobile-first e copy de prova social por slug.
 - A rota passou a resolver favicon/OG image pelo contrato; `PortfolioStandardShell` garante prova social própria com guard anti-duplicação.
+
+## 2026-08-28 — gate automático de assets
+
+- Criado `validate:portfolio-assets` e incluído no `prebuild`.
+- O gate bloqueia clientes sem `icon`, `socialImage` ou `proof`, além de verificar a existência dos arquivos públicos referenciados.
