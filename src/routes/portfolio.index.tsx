@@ -57,7 +57,7 @@ const LEGACY_PORTFOLIO_ITEMS = [
     live: true,
     slug: "/portfolio/marido-de-aluguel",
     category: "servicos",
-    title: "Marido de Aluguel",
+    title: "Mestre dos Serviços",
     subtitle: "Reparos Residenciais & Manutenção",
     location: "Curitiba e região — PR",
     badge: "Projeto publicado",
