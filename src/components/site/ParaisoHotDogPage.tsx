@@ -252,7 +252,7 @@ export function ParaisoHotDogPage() {
                   alt={`${p.name} do Paraíso do Hot Dog`}
                   className="h-36 w-full object-cover"
                   loading="lazy"
- decoding="async" />
+ decoding="async" width={1200} height={800} />
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <div>

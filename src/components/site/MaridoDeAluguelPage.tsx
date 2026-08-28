@@ -226,7 +226,7 @@ export function MaridoDeAluguelPage() {
               </div>
             </div>
             <motion.a href="https://www.instagram.com/mestresdosservicos" target="_blank" rel="noreferrer" whileHover={{ y: -6 }} className="group overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl">
-              <img src={caseMestre} alt="Mestre dos Serviços em destaque" className="h-64 w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
+              <img src={caseMestre} alt="Mestre dos Serviços em destaque" className="h-64 w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async" width={1200} height={800} />
               <div className="p-5"><p className="font-semibold">@mestresdosservicos</p><p className="mt-1 text-sm text-blue-100">Conteúdos recentes e inspiração para seus próximos reparos.</p></div>
             </motion.a>
           </div>

@@ -83,7 +83,7 @@ const regionalCoverage = [
 function DyzImage({ src, alt, className = "", imageClassName = "" }: { src: string; alt: string; className?: string; imageClassName?: string }) {
   return (
     <button type="button" className={`group/dyz-image relative block w-full overflow-hidden text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f7c948] ${className}`} onClick={() => window.dispatchEvent(new CustomEvent("dyz:open-image", { detail: { src, alt } }))} aria-label={`Ampliar imagem: ${alt}`}>
-      <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} />
+      <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full object-contain transition duration-500 group-hover/dyz-image:scale-[1.02] ${imageClassName}`} width={1200} height={800} />
     </button>
   );
 }
@@ -409,7 +409,7 @@ export function DyzPromoPage() {
           </div>
         </section>
       </main>
-      {lightbox && <div className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={() => setLightbox(null)}><button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20" aria-label="Fechar imagem"><X className="h-6 w-6" /></button><img src={lightbox.src} alt={lightbox.alt} loading="lazy" decoding="async" className="max-h-[92vh] max-w-full object-contain" onClick={(event) => event.stopPropagation()} /></div>}
+      {lightbox && <div className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={() => setLightbox(null)}><button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20" aria-label="Fechar imagem"><X className="h-6 w-6" /></button><img src={lightbox.src} alt={lightbox.alt} loading="lazy" decoding="async" className="max-h-[92vh] max-w-full object-contain" onClick={(event) = width={1200} height={800}> event.stopPropagation()} /></div>}
       <PortfolioSocialProofPopup clientKey="dyzpromo" eyebrow="D.Y.Z em campo" title="Campanhas para restaurantes, varejo, imóveis, estética e tecnologia." description="Experiência prática em Curitiba e região, com equipe orientada para cada ação." ctaLabel="Ver marcas atendidas" ctaHref="#clientes" delayMs={5000} className="border-white/15 bg-[#071b49]/95 text-white" accentClassName="text-[#f7c948]" />
       <PortfolioUpsellPopup pageName="dyzpromo" />
       <DyzFloatingCTA />
