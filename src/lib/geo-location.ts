@@ -3,6 +3,7 @@
 
 export type GeoInfo = {
   city?: string;
+  neighborhood?: string;
   region?: string;
   country?: string;
   latitude?: number;
@@ -34,11 +35,12 @@ export async function getIpGeo(): Promise<GeoInfo | null> {
   if (inflight) return inflight;
   inflight = (async () => {
     try {
-      const r = await fetch("https://ipwho.is/?fields=success,city,region,country,latitude,longitude", { cache: "force-cache" });
+      const r = await fetch("https://ipwho.is/?fields=success,city,region,country,latitude,longitude,district,suburb,neighborhood", { cache: "force-cache" });
       const j = await r.json();
       if (!j?.success) return null;
       const g: GeoInfo = {
         city: j.city || undefined,
+        neighborhood: j.district || j.suburb || j.neighborhood || undefined,
         region: j.region || undefined,
         country: j.country || undefined,
         latitude: typeof j.latitude === "number" ? j.latitude : undefined,
@@ -89,7 +91,7 @@ export async function requestGpsThenFallback(): Promise<GeoInfo | null> {
 
 export function formatLocation(g: GeoInfo | null | undefined): string {
   if (!g) return "";
-  return [g.city, g.region].filter(Boolean).join(" / ");
+  return [g.neighborhood, g.city, g.region].filter(Boolean).join(" / ");
 }
 
 // ---------------------------------------------------------------------------
