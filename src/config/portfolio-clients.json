@@ -242,5 +242,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "aguia-sul-sinalizacao",
+    "slug": "aguia-sul-sinalizacao",
+    "siteName": "Águia Sul Sinalização",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AguiaSulSinalizacaoPage.tsx",
+    "assetsDir": "public/images/aguia-sul-sinalizacao",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

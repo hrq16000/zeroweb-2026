@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Águia Sul Sinalização
+
+- **Tarefa:** criar presença B2B para pintura e sinalização horizontal em Curitiba e região.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, otimização mobile-first.
+- **Alterações:** página exclusiva com motion, logo fornecida otimizada em WebP, serviços de estacionamento/pintura industrial, funil, prova social, SEO local e catálogo.
+- **Privacidade:** telefone/e-mail não entram no bundle; produção requer `AGUIA_SUL_SINALIZACAO_WHATSAPP_NUMBER` server-side.
+
 ## 2026-08-28 — novo portfolio Diego Montador de Móveis
 
 - **Tarefa:** criar site independente para montagem/desmontagem de móveis, consertos e instalações no Sítio Cercado, Curitiba.
