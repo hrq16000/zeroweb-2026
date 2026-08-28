@@ -19,6 +19,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "paraiso-do-hot-dog", vertical: "restaurantes", siteName: "Paraíso do Hot Dog · Cardápio Online", kind: "prototype", indexable: true },
   { slug: "rm-fretes", vertical: "prestadores-de-servicos", siteName: "RM Fretes · Frete Rápido em Curitiba", kind: "prototype", indexable: true },
   { slug: "rj-servicos-drywall", vertical: "prestadores-de-servicos", siteName: "RJ Serviços de Drywall · Curitiba", kind: "prototype", indexable: true },
+  { slug: "confeitaria-chyrley", vertical: "restaurantes", siteName: "Chyrley Doces & Festas · Rio Bonito", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

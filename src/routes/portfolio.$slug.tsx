@@ -26,6 +26,9 @@ const RMFretesPage = lazy(() =>
 const RjServicosDrywallPage = lazy(() =>
   import("@/components/site/RjServicosDrywallPage").then((m) => ({ default: m.RjServicosDrywallPage })),
 );
+const ConfeitariaChyrleyPage = lazy(() =>
+  import("@/components/site/ConfeitariaChyrleyPage").then((m) => ({ default: m.ConfeitariaChyrleyPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -40,11 +43,14 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
     const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Demonstração de site";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
+    const isChyrley = loaderData?.slug === "confeitaria-chyrley";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
         ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
-        : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
+        : isChyrley
+          ? "Bolos, kits festa, salgados, docinhos e Copo da Felicidade feitos por Chyrley em Rio Bonito, Paraná. Encomende para sua comemoração."
+          : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = absUrl(
@@ -58,7 +64,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
           ? "/images/emporio-lelecute-og.webp"
           : loaderData?.slug === "paraiso-do-hot-dog"
           ? "/images/paraiso-hot-dog-cover.webp"
-            : "/images/mestre-dos-servicos-logo.jpg",
+            : isChyrley
+              ? "/images/confeitaria-chyrley/capa.webp"
+              : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
     const vertical = loaderData?.vertical;
@@ -74,7 +82,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
-            : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
+            : isChyrley
+              ? "confeitaria Rio Bonito, bolo personalizado, kit festa, salgados para festa, Copo da Felicidade, doces artesanais"
+              : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
         { property: "og:description", content: description },
@@ -159,6 +169,8 @@ function PortfolioPrototypePage() {
           <RMFretesPage />
         ) : slug === "rj-servicos-drywall" ? (
           <RjServicosDrywallPage />
+        ) : slug === "confeitaria-chyrley" ? (
+          <ConfeitariaChyrleyPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
