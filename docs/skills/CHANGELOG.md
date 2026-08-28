@@ -125,3 +125,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Finding: `FunnelModalWrapper` usava o mesmo nível `z-50` do shell de preview; em stacking contexts aninhados o overlay e o painel eram parcialmente encobertos.
 - Change: camada parametrizada do modal (`z-[100]`, conteúdo `z-[101]`, fechar `z-[102]`) com comentário de contrato, preservando fallback sem JavaScript e foco/ESC do Dialog.
 - Auditoria transversal: removida a duplicação de rodapé nos clientes que já possuem footer editorial e adicionado `PortfolioBackToTop` universal, com alvo de toque de 44px e posição acima do CTA flutuante.
+
+## 2026-08-28 — performance de portfolios (ciclo 1)
+
+- Skills aplicadas: `0web-skill-router`, `0web-ui-quality-gates` e Vercel React Best Practices.
+- Auditoria: 8 rotas HTTP 200; HTML SSR entre 30–88 KB; assets raster críticos acima de 1,9 MB identificados; gate de imagens passou.
+- Próximo ciclo engatilhado em `docs/PERFORMANCE_PORTFOLIO_AUDIT.md`: conversão WebP/AVIF, budgets LCP/CLS/INP, waterfall de hidratação e QA funcional por slug.
