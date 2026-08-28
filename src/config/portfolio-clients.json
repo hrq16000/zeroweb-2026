@@ -99,5 +99,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "mp-festas-eventos",
+    "slug": "mp-festas-eventos",
+    "siteName": "MP Festas e Eventos",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MpFestasEventosPage.tsx",
+    "assetsDir": "public/images/mp-festas-eventos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

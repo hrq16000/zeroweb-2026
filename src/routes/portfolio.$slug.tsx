@@ -29,6 +29,9 @@ const RjServicosDrywallPage = lazy(() =>
 const ConfeitariaChyrleyPage = lazy(() =>
   import("@/components/site/ConfeitariaChyrleyPage").then((m) => ({ default: m.ConfeitariaChyrleyPage })),
 );
+const MpFestasEventosPage = lazy(() =>
+  import("@/components/site/MpFestasEventosPage").then((m) => ({ default: m.MpFestasEventosPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -44,12 +47,15 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Demonstração de site";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
     const isChyrley = loaderData?.slug === "confeitaria-chyrley";
+    const isMpFestas = loaderData?.slug === "mp-festas-eventos";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
         ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
         : isChyrley
           ? "Bolos, kits festa, salgados, docinhos e Copo da Felicidade feitos por Chyrley em Rio Bonito, Paraná. Encomende para sua comemoração."
+          : isMpFestas
+            ? "Decoração de festas em Araucária e região: Festa na Mesa, decoração clássica e premium para aniversários, casamentos e eventos especiais."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -64,8 +70,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
           ? "/images/emporio-lelecute-og.webp"
           : loaderData?.slug === "paraiso-do-hot-dog"
           ? "/images/paraiso-hot-dog-cover.webp"
-            : isChyrley
+              : isChyrley
               ? "/images/confeitaria-chyrley/capa.webp"
+              : isMpFestas
+                ? "/images/mp-festas-eventos/capa.webp"
               : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -84,6 +92,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
             : isChyrley
               ? "confeitaria Rio Bonito, bolo personalizado, kit festa, salgados para festa, Copo da Felicidade, doces artesanais"
+              : isMpFestas
+                ? "decoração de festas Araucária, Festa na Mesa, decoração clássica, decoração premium, festas infantis, eventos"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -171,6 +181,8 @@ function PortfolioPrototypePage() {
           <RjServicosDrywallPage />
         ) : slug === "confeitaria-chyrley" ? (
           <ConfeitariaChyrleyPage />
+        ) : slug === "mp-festas-eventos" ? (
+          <MpFestasEventosPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
