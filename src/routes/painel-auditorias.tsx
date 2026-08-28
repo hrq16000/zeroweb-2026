@@ -145,6 +145,9 @@ function AuditPanel() {
       }
       setHistory(histRes.ok ? ((await histRes.json()) as HistoryEntry[]) : []);
       setSocialRuns(socialRes.ok ? ((await socialRes.json()) as SocialRegenRun[]) : []);
+      const [runs, control] = await Promise.all([fetchOpsJobRuns(25), fetchOpsJobControl()]);
+      setJobRuns(runs);
+      setJobControl(control);
     } catch {
       setMissing(true);
     } finally {
