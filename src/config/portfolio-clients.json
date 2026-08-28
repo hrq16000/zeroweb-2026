@@ -165,5 +165,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "lucas-arruma-maquina-lavar",
+    "slug": "lucas-arruma-maquina-lavar",
+    "siteName": "Lucas Arruma Máquina de Lavar",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
+    "assetsDir": "public/images/lucas-arruma-maquina-lavar",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

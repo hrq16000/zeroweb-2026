@@ -47,6 +47,9 @@ const VilaDaCapivaraPage = lazy(() =>
 const LkAlvenariaPage = lazy(() =>
   import("@/components/site/LkAlvenariaPage").then((m) => ({ default: m.LkAlvenariaPage })),
 );
+const LucasArrumaMaquinaLavarPage = lazy(() =>
+  import("@/components/site/LucasArrumaMaquinaLavarPage").then((m) => ({ default: m.LucasArrumaMaquinaLavarPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -68,6 +71,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAgElectrical = loaderData?.slug === "ag-electrical-services";
     const isVilaCapivara = loaderData?.slug === "vila-da-capivara";
     const isLkAlvenaria = loaderData?.slug === "lk-alvenaria";
+    const isLucasArruma = loaderData?.slug === "lucas-arruma-maquina-lavar";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -86,6 +90,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Bolos personalizados, brigadeiros gourmet, salgados e kits festa completos para aniversários e eventos em Campo Comprido, Curitiba."
           : isLkAlvenaria
             ? "Construção, fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas com contrato e garantia."
+          : isLucasArruma
+            ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -114,6 +120,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/vila-da-capivara/capa.webp"
                 : isLkAlvenaria
                   ? "/images/lk-alvenaria/portfolio.webp"
+                : isLucasArruma
+                  ? "/images/lucas-arruma-maquina-lavar/capa.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -144,6 +152,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Vila da Capivara Curitiba, kit festa, bolo personalizado, brigadeiro gourmet, salgados, Campo Comprido"
                 : isLkAlvenaria
                   ? "alvenaria Curitiba, fundação, baldrame, muro de arrimo, concretagem, reformas, drywall, forro PVC"
+                : isLucasArruma
+                  ? "conserto máquina de lavar, manutenção máquina de lavar, assistência máquina de lavar, lavadora não liga, máquina não centrifuga"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -243,6 +253,8 @@ function PortfolioPrototypePage() {
           <VilaDaCapivaraPage />
         ) : slug === "lk-alvenaria" ? (
           <LkAlvenariaPage />
+        ) : slug === "lucas-arruma-maquina-lavar" ? (
+          <LucasArrumaMaquinaLavarPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
