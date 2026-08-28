@@ -132,6 +132,12 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Auditoria: 8 rotas HTTP 200; HTML SSR entre 30–88 KB; assets raster críticos acima de 1,9 MB identificados; gate de imagens passou.
 - Próximo ciclo engatilhado em `docs/PERFORMANCE_PORTFOLIO_AUDIT.md`: conversão WebP/AVIF, budgets LCP/CLS/INP, waterfall de hidratação e QA funcional por slug.
 
+## 2026-08-28 — modal de CTA portalizado
+
+- Finding: CTAs superiores dentro do preview eram renderizados em stacking contexts transformados; o `position: fixed` podia calcular o painel fora da viewport.
+- Change: `BeautyBookingQuiz` agora monta o diálogo em `document.body` via portal, mantendo o mesmo funil, foco, fechamento e fallback.
+- Validation: reprodução Playwright confirmou bounding box negativo antes da correção; boundaries, diff e hooks de pre-commit passaram após a correção.
+
 ## 2026-08-28 — performance parametrizada (ciclo 2 iniciado)
 
 - Criado `src/config/portfolio-performance.json` com budgets de LCP/CLS/INP, limites de bytes, formatos preferidos e política de adiamento de overlays/telemetria.
