@@ -91,7 +91,8 @@
         "ctaLabel": "Conhecer fretes",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "b25eea31"
+      "socialVersion": "a179a145",
+      "touchIcon": "/images/rm-fretes-hero-touch.png"
     },
     "rj-servicos-drywall": {
       "icon": "/images/rj-servicos-drywall/acabamento-sala.webp",
