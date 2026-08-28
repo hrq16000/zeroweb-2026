@@ -117,7 +117,7 @@ function DyzHeader() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
           <span className="inline-flex items-center rounded-xl bg-white px-2.5 py-1.5 shadow-[0_4px_18px_rgba(0,0,0,0.2)] ring-1 ring-white/40 sm:px-3">
-            <img src="/images/dyzpromo/logo-dyz-promo.png" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" loading="lazy" decoding="async" />
+            <img src="/images/dyzpromo/logo-dyz-promo.webp" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" loading="lazy" decoding="async" />
           </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">

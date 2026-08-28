@@ -49,7 +49,8 @@
     "scan:source-privacy": "node scripts/scan-source-privacy.mjs",
     "skills:evidence": "bun scripts/skill-evidence-report.mjs",
     "audit:portfolio-standards": "node scripts/audit-portfolio-standards.mjs",
-    "validate:portfolio-performance": "node scripts/validate-portfolio-performance.mjs"
+    "validate:portfolio-performance": "node scripts/validate-portfolio-performance.mjs",
+    "optimize:portfolio-images": "node scripts/optimize-portfolio-images.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

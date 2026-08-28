@@ -157,7 +157,7 @@ export function RMFretesPage() {
       <section id="como-funciona" className="px-5 py-20">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
           <img
-            src="/images/rm-fretes/carroceria-carga.png"
+            src="/images/rm-fretes/carroceria-carga.webp"
             alt="Veículo da RM Fretes transportando carga especial"
             className="w-full rounded-[2rem] border border-white/10 object-cover shadow-2xl"
             loading="lazy"
