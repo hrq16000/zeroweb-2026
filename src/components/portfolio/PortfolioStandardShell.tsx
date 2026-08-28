@@ -9,10 +9,13 @@ import {
   resolvePortfolioStandards,
 } from "@/lib/portfolio-global-config";
 import { PortfolioVitals } from "@/lib/portfolio-vitals";
+import { PortfolioBackToTop } from "@/components/portfolio/PortfolioBackToTop";
 
 type Props = {
   slug: string;
   children: ReactNode;
+  /** Dedicated client pages already own their editorial footer. */
+  includePlatformFooter?: boolean;
 };
 
 /**
@@ -24,7 +27,7 @@ type Props = {
  *
  * Overrides por cliente ficam em `src/config/portfolio-global-config.json`.
  */
-export function PortfolioStandardShell({ slug, children }: Props) {
+export function PortfolioStandardShell({ slug, children, includePlatformFooter = false }: Props) {
   const standards = resolvePortfolioStandards(slug);
   const client = findPortfolioClient(slug);
   const clientKey = resolvePortfolioClientKey(slug);
@@ -44,7 +47,7 @@ export function PortfolioStandardShell({ slug, children }: Props) {
 
       {children}
 
-      {standards.footer.enabled ? (
+      {includePlatformFooter && standards.footer.enabled ? (
         <PortfolioStandardFooter
           siteName={siteName}
           variant={standards.footer.variant}
@@ -66,6 +69,8 @@ export function PortfolioStandardShell({ slug, children }: Props) {
           slug={slug}
         />
       ) : null}
+
+      <PortfolioBackToTop />
 
       {/* Camada externa da hospedagem: obrigatória, com guard de instância única. */}
       <PortfolioUpsellPopup pageName={`portfolio-${slug}`} />
