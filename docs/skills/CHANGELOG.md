@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — painel de leads com contexto de pedido e cliente
+
+- O funil de portfolio aceita `orderContext` estruturado e o Paraíso do Hot Dog envia itens, total, modalidade e observação em campos próprios.
+- O painel identifica leads pelo slug virtual `portfolio-<clientKey>` e pelo nome do cliente, preservando o mecanismo compartilhado sem agrupar tudo como `funnel-service`.
+- Filtros do painel aceitam os slugs virtuais sem alterar a consulta dos funis institucionais.
+
+
 ## 2026-08-28 — correção do pedido Paraíso do Hot Dog
 
 - Removido truncamento fixo de 175 caracteres que cortava listas grandes, modalidade e total.

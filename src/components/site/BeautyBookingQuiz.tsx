@@ -33,6 +33,12 @@ type Props = {
   className?: string;
   ariaLabel?: string;
   onOpen?: () => void;
+  orderContext?: {
+    order_items?: string;
+    order_total?: string;
+    fulfillment?: string;
+    customer_note?: string;
+  };
   children: ReactNode;
 };
 
@@ -144,6 +150,7 @@ export function BeautyBookingQuiz({
   className,
   ariaLabel,
   onOpen,
+  orderContext,
   children,
 }: Props) {
   const [open, setOpen] = useState(false);
@@ -221,6 +228,7 @@ export function BeautyBookingQuiz({
         mode: mode ?? "booking",
         answers,
         pageUrl: window.location.href,
+        orderContext,
       }});
       window.location.assign(result.redirectPath);
     } catch {

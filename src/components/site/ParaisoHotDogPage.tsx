@@ -368,6 +368,15 @@ export function ParaisoHotDogPage() {
               mode="proposal"
               service={orderSummary}
               quizConfig={orderQuiz}
+              orderContext={{
+                order_items: products
+                  .filter((product) => cart[product.id])
+                  .map((product) => `${cart[product.id]}x ${product.name}${custom[product.id]?.length ? ` (${custom[product.id].join("/")})` : ""}`)
+                  .join(", "),
+                order_total: `R$ ${total.toFixed(2).replace(".", ",")}`,
+                fulfillment: delivery === "entrega" ? "Entrega" : "Retirada no local",
+                customer_note: note.trim() || undefined,
+              }}
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#f5bd21] px-5 py-3.5 font-black text-black transition hover:bg-[#ffd34f]"
             >
               Continuar pedido <ArrowRight className="h-4 w-4" />
