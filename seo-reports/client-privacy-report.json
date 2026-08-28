@@ -1,15 +1,15 @@
 {
-  "correlationId": "f8adaa05-ee10-40f0-b40e-7e315756e10f",
-  "generatedAt": "2026-08-28T17:11:45.978Z",
+  "correlationId": "a79968c4-5434-4aa6-805f-eb60df980791",
+  "generatedAt": "2026-08-28T18:57:35.477Z",
   "scanned": 346,
   "errors": 0,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "f8adaa05-ee10-40f0-b40e-7e315756e10f",
+      "correlationId": "a79968c4-5434-4aa6-805f-eb60df980791",
       "level": "warn",
-      "chunk": "app.pedidos-LgLt-6qB.js",
-      "file": "dist/client/assets/app.pedidos-LgLt-6qB.js",
+      "chunk": "app.pedidos-BzE_S3z9.js",
+      "file": "dist/client/assets/app.pedidos-BzE_S3z9.js",
       "bytes": 7118,
       "routeHint": "/app/pedidos (painel)",
       "hits": [
@@ -23,10 +23,10 @@
       "totalHits": 1
     },
     {
-      "correlationId": "f8adaa05-ee10-40f0-b40e-7e315756e10f",
+      "correlationId": "a79968c4-5434-4aa6-805f-eb60df980791",
       "level": "warn",
-      "chunk": "app.servicos-qT7ICuk7.js",
-      "file": "dist/client/assets/app.servicos-qT7ICuk7.js",
+      "chunk": "app.servicos-DilBHfGD.js",
+      "file": "dist/client/assets/app.servicos-DilBHfGD.js",
       "bytes": 34533,
       "routeHint": "/app/servicos (painel)",
       "hits": [
