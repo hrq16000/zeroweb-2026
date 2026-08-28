@@ -154,6 +154,16 @@
     --scrollbar-thumb-hover: #ffd34f;
     --scrollbar-track: #17130f;
   }
+  :root:has(.portfolio-theme-rj) {
+    --background: oklch(0.97 0.009 255); --foreground: oklch(0.20 0.035 255);
+    --surface: oklch(0.94 0.012 255); --card: oklch(1 0 0); --card-foreground: oklch(0.20 0.035 255);
+    --primary: oklch(0.69 0.17 68); --primary-foreground: oklch(0.16 0.035 255);
+    --secondary: oklch(0.19 0.07 260); --secondary-foreground: oklch(0.98 0.006 250);
+    --accent: oklch(0.84 0.08 240); --accent-foreground: oklch(0.18 0.04 260);
+    --muted: oklch(0.92 0.015 252); --muted-foreground: oklch(0.55 0.02 250);
+    --border: oklch(0.84 0.02 253); --ring: oklch(0.69 0.17 68);
+    --scrollbar-thumb: oklch(0.69 0.17 68); --scrollbar-thumb-hover: oklch(0.76 0.18 72); --scrollbar-track: oklch(0.19 0.07 260);
+  }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
@@ -179,6 +189,23 @@
     animation-timeline: view();
     animation-range: entry 0% cover 28%;
   }
+  .portfolio-theme-rj section { animation: section-reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 24%; }
+}
+
+.rj-grid-lines { background-image: linear-gradient(color-mix(in oklab, var(--accent) 20%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--accent) 20%, transparent) 1px, transparent 1px); background-size: 42px 42px; }
+@media (prefers-reduced-motion: no-preference) { .rj-level-line { animation: rj-level-scan 4s ease-in-out infinite alternate; } }
+@keyframes rj-level-scan { from { transform: translateX(-20%); } to { transform: translateX(220%); } }
+
+/* O tema do cliente fica no próprio shell para vencer os tokens globais
+   não-layered sem contaminar outros projetos do portfólio. */
+.portfolio-theme-rj {
+  --background: oklch(0.97 0.009 255); --foreground: oklch(0.20 0.035 255);
+  --surface: oklch(0.94 0.012 255); --card: oklch(1 0 0); --card-foreground: oklch(0.20 0.035 255);
+  --primary: oklch(0.69 0.17 68); --primary-foreground: oklch(0.16 0.035 255);
+  --secondary: oklch(0.19 0.07 260); --secondary-foreground: oklch(0.98 0.006 250);
+  --accent: oklch(0.84 0.08 240); --accent-foreground: oklch(0.18 0.04 260);
+  --muted: oklch(0.92 0.015 252); --muted-foreground: oklch(0.55 0.02 250);
+  --border: oklch(0.84 0.02 253); --ring: oklch(0.69 0.17 68);
 }
 
 @keyframes section-reveal {

@@ -17,6 +17,8 @@ export type PortfolioQuizConfig = {
   stepTitles?: Partial<Record<"service" | "experience" | "period" | "timing" | "note", string>>;
   stepSubtitles?: Partial<Record<"service" | "experience" | "period" | "timing" | "note", string>>;
   notePlaceholder?: string;
+  /** Ajusta a copy de propostas para prestadores de serviço; o padrão legado é campanha. */
+  proposalKind?: "campaign" | "service";
 };
 
 type Props = {
@@ -64,21 +66,22 @@ const EXPERIENCE = [
 const PERIODS = ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"];
 const TIMINGS = ["Hoje ou amanhã", "Ainda nesta semana", "Na próxima semana", "Quero a primeira vaga disponível"];
 
-function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"]) {
+function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"], proposalKind: PortfolioQuizConfig["proposalKind"] = "campaign") {
   const isProposal = mode === "proposal";
+  const isServiceProposal = isProposal && proposalKind === "service";
   const lines = [
     isProposal ? "*PEDIDO DE PROPOSTA*" : "*PEDIDO DE AGENDAMENTO*",
     "",
     `Olá, ${recipientName}! Tudo bem?`,
     "",
-    `Vim pela página da *${studioName}* e quero conversar sobre ${isProposal ? "uma campanha" : "um atendimento"}.`,
-    isProposal ? "Deixei o briefing abaixo para facilitar a proposta:" : "Deixei as preferências abaixo para facilitar o agendamento:",
+    `Vim pela página da *${studioName}* e quero conversar sobre ${isServiceProposal ? "um serviço" : isProposal ? "uma campanha" : "um atendimento"}.`,
+    isProposal ? `Deixei ${isServiceProposal ? "os detalhes" : "o briefing"} abaixo para facilitar a proposta:` : "Deixei as preferências abaixo para facilitar o agendamento:",
     "",
     isProposal ? "*BRIEFING DA CAMPANHA*" : "*PREFERÊNCIAS DO ATENDIMENTO*",
-    (isProposal ? "• *Formato da ação:* " : "• *Procedimento:* ") + (answers.service || "Quero orientação para escolher"),
+    (isProposal ? `• *${isServiceProposal ? "Serviço" : "Formato da ação"}:* ` : "• *Procedimento:* ") + (answers.service || "Quero orientação para escolher"),
     (isProposal ? "• *Objetivo/momento:* " : "• *Momento:* ") + (answers.experience || (isProposal ? "Quero conversar sobre o objetivo" : "Quero conversar antes de decidir")),
     (isProposal ? "• *Janela da ação:* " : "• *Melhor período:* ") + (answers.period || (isProposal ? "Ainda preciso de orientação" : "Tenho flexibilidade")),
-    (isProposal ? "• *Prazo da campanha:* " : "• *Quando gostaria:* ") + (answers.timing || (isProposal ? "Estou planejando com antecedência" : "Quero a primeira vaga disponível")),
+    (isProposal ? `• *${isServiceProposal ? "Prazo do serviço" : "Prazo da campanha"}:* ` : "• *Quando gostaria:* ") + (answers.timing || (isProposal ? "Estou planejando com antecedência" : "Quero a primeira vaga disponível")),
   ];
 
   if (answers.note.trim()) lines.push("", "*OBSERVAÇÃO*", answers.note.trim());
@@ -293,7 +296,7 @@ export function BeautyBookingQuiz({
                     <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
-                    {whatsappMessage(studioName, answers, recipientName, mode)}
+                    {whatsappMessage(studioName, answers, recipientName, mode, quizConfig?.proposalKind)}
                   </div>
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />

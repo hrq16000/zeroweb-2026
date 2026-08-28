@@ -22,6 +22,9 @@ const ParaisoHotDogPage = lazy(() =>
 const RMFretesPage = lazy(() =>
   import("@/components/site/RMFretesPage").then((m) => ({ default: m.RMFretesPage })),
 );
+const RjServicosDrywallPage = lazy(() =>
+  import("@/components/site/RjServicosDrywallPage").then((m) => ({ default: m.RjServicosDrywallPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -35,14 +38,18 @@ export const Route = createFileRoute("/portfolio/$slug")({
   head: ({ loaderData }) => {
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
     const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Demonstração de site";
-    const description =
-      loaderData?.slug === "emporio-lelecute"
+    const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
+    const description = isRjDrywall
+      ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
+      : loaderData?.slug === "emporio-lelecute"
         ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
         : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const socialImage = absUrl(
       loaderData?.slug === "rm-fretes"
         ? "/images/rm-fretes/anuncio-oficial.png"
+        : isRjDrywall
+          ? "/images/rj-servicos-drywall/acabamento-sala.webp"
         : loaderData?.slug === "emporio-lelecute"
           ? "/images/emporio-lelecute-og.webp"
           : loaderData?.slug === "paraiso-do-hot-dog"
@@ -60,7 +67,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: "index,follow,max-image-preview:large" },
         {
           name: "keywords",
-          content: isMarido
+          content: isRjDrywall
+            ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
+            : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
             : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
@@ -145,6 +154,8 @@ function PortfolioPrototypePage() {
           <ParaisoHotDogPage />
         ) : slug === "rm-fretes" ? (
           <RMFretesPage />
+        ) : slug === "rj-servicos-drywall" ? (
+          <RjServicosDrywallPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

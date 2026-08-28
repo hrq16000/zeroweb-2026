@@ -95,7 +95,9 @@ export function resolvePortfolioWhatsAppContact(clientKey?: string | null): Oper
             ? "PARAISO_HOT_DOG_WHATSAPP_NUMBER"
             : clientKey === "rm-fretes"
               ? "RM_FRETES_WHATSAPP_NUMBER"
-      : null;
+              : clientKey === "rj-servicos-drywall"
+                ? "RJ_SERVICOS_DRYWALL_WHATSAPP_NUMBER"
+                : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");
   if (!digits || digits.length < 10 || digits.length > 15) return null;

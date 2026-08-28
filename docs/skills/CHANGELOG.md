@@ -83,6 +83,18 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-27 — contrato canônico do catálogo
 
+## 2026-08-28 — RJ Serviços de Drywall
+
+**Task:** novo site independente em `/portfolio/rj-servicos-drywall`, com identidade, imagens, funil, SEO local e motion próprios.
+
+**Skills used:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, `0web-ui-quality-gates`, Apple HIG e `imagegen`. React Best Practices foi aplicado como revisão de composição/performance, sem nova dependência.
+
+**Findings:** contato da arte de referência não pode entrar no bundle; prova social sem métricas ou depoimentos; imagens abaixo da dobra devem ser lazy; movimento deve cessar em `prefers-reduced-motion`.
+
+**Changes:** cliente/catálogo/registry, página exclusiva, tema semântico, SEO local, dois assets próprios e migration do funil `funnel-rj-servicos-drywall`.
+
+**Skills rejected / reason:** skills externas de landing/CRO ficaram `REFERENCE_ONLY` por redundância e ausência de auditoria upstream; nenhum template foi instalado.
+
 # 2026-08-27 — catálogo mobile-first (ciclo 3)
 
 - `/portfolio` passou a derivar identidade, segmento e tipo do catálogo canônico.

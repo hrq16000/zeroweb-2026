@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-27T23:17:33.903Z",
+  "generatedAt": "2026-08-28T00:34:16.934Z",
   "configVersion": 1,
-  "total": 7,
-  "conformes": 7,
+  "total": 8,
+  "conformes": 8,
   "projetos": [
     {
       "clientKey": "dyzpromo",
@@ -76,6 +76,14 @@
       "overrides": [
         "contactFloating"
       ],
+      "problems": []
+    },
+    {
+      "clientKey": "rj-servicos-drywall",
+      "slug": "rj-servicos-drywall",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
       "problems": []
     }
   ]
