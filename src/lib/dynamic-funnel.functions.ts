@@ -399,6 +399,15 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   }).parse(data))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    // Painel de leads lê sempre de order_context: quando o componente não
+    // envia o contexto do carrinho, derivamos das respostas do quiz.
+    const orderContext = {
+      order_items: data.orderContext?.order_items || data.answers.service || undefined,
+      order_total: data.orderContext?.order_total || undefined,
+      fulfillment: data.orderContext?.fulfillment || data.answers.period || undefined,
+      customer_note: data.orderContext?.customer_note || data.answers.note || undefined,
+    };
+    const hasOrderContext = Object.values(orderContext).some(Boolean);
     // Funil do cliente quando existir (portfolio-<clientKey>); o funil
     // genérico de serviço permanece apenas como fallback.
     const clientFunnelSlug = `portfolio-${data.clientKey}`;
@@ -433,7 +442,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           studio_name: data.studioName,
           recipient_name: data.recipientName,
           mode: data.mode,
-          ...(data.orderContext ? { order_context: data.orderContext } : {}),
+          ...(hasOrderContext ? { order_context: orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
           ...(geo.city ? { city: geo.city } : {}),

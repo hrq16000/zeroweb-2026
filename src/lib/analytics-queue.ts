@@ -75,16 +75,25 @@ let timer: number | null = null;
 let listenersBound = false;
 
 /** Limite aceito pela policy de INSERT em analytics_events. */
-const MAX_EVENT_NAME = 64;
+const MAX_EVENT_NAME = 128;
+
+/** Nome usado quando o chamador não informou um evento válido. */
+export const FALLBACK_EVENT_NAME = "unknown_event";
 
 /**
  * Normaliza o nome do evento para o formato aceito pela RLS.
- * Retorna null quando o evento é inválido (deve ser descartado, não enfileirado).
+ * Nunca retorna vazio: nomes ausentes viram `unknown_event`, para que a
+ * telemetria continue auditável em vez de sumir silenciosamente.
  */
-export function sanitizeEventName(value: unknown): string | null {
-  if (typeof value !== "string") return null;
-  const name = value.trim().slice(0, MAX_EVENT_NAME);
-  return name.length > 0 ? name : null;
+export function sanitizeEventName(value: unknown): string {
+  const raw = typeof value === "string" ? value.trim() : "";
+  return (raw || FALLBACK_EVENT_NAME).slice(0, MAX_EVENT_NAME);
+}
+
+/** Log visível apenas em desenvolvimento — nunca quebra a UX. */
+function devWarn(message: string, detail?: unknown) {
+  const isDev = typeof import.meta !== "undefined" && Boolean(import.meta.env?.DEV);
+  if (isDev && typeof console !== "undefined") console.warn(`[analytics] ${message}`, detail);
 }
 
 /**
@@ -126,13 +135,11 @@ async function reportDiscard(row: Record<string, unknown>, reason: string) {
 }
 
 async function sendRow(id: string, row: Record<string, unknown>): Promise<boolean> {
-  const eventName = sanitizeEventName((row as { event_name?: unknown }).event_name);
-  if (!eventName) {
-    if (typeof console !== "undefined") {
-      console.warn("[analytics] evento descartado: event_name inválido", row);
-    }
+  const original = (row as { event_name?: unknown }).event_name;
+  const eventName = sanitizeEventName(original);
+  if (eventName === FALLBACK_EVENT_NAME && typeof original !== "string") {
+    devWarn("event_name ausente — enviado como unknown_event", row);
     void reportDiscard(row, "invalid_event_name");
-    return true; // inválido por definição: não reenfileirar
   }
   try {
     const { supabase } = await import("@/integrations/supabase/client");
@@ -142,8 +149,11 @@ async function sendRow(id: string, row: Record<string, unknown>): Promise<boolea
       .insert({ ...(row as any), id, event_name: eventName });
     if (!error) return true;
     // 23505 = chave duplicada → o evento já está persistido.
-    return error.code === "23505";
-  } catch {
+    if (error.code === "23505") return true;
+    devWarn(`insert rejeitado (${error.code ?? "?"}): ${error.message}`, { id, eventName });
+    return false;
+  } catch (e) {
+    devWarn("falha de rede ao gravar evento", e);
     return false;
   }
 }

@@ -151,7 +151,9 @@ export const Route = createFileRoute("/")({
   loader: async ({ context }) => {
     // Ambos precisam estar no cache antes do SSR: FeaturedServices lê
     // services-nav e precisa renderizar o mesmo HTML no cliente.
-    await Promise.all([
+    // Falha de banco (RLS, indisponibilidade) não pode derrubar a Home:
+    // as seções caem para o estado padrão em vez de 500 / tela branca.
+    await Promise.allSettled([
       context.queryClient.ensureQueryData(homeSectionsQuery),
       context.queryClient.ensureQueryData(servicesNavQuery),
     ]);

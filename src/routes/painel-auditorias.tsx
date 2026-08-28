@@ -1,6 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, CheckCircle2, Download, RefreshCcw } from "lucide-react";
+import { AlertTriangle, Bell, CheckCircle2, Download, RefreshCcw } from "lucide-react";
+import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
+import { testAnalyticsAlert } from "@/lib/alerts-test.functions";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
@@ -124,6 +127,8 @@ function AuditPanel() {
   const [discards, setDiscards] = useState<DiscardSummary | null>(null);
   const [windowHours, setWindowHours] = useState(24);
   const [threshold, setThreshold] = useState(DEFAULT_DISCARD_THRESHOLD);
+  const [testingAlert, setTestingAlert] = useState(false);
+  const testAlert = useServerFn(testAnalyticsAlert);
   const [socialRuns, setSocialRuns] = useState<SocialRegenRun[]>([]);
   const [jobRuns, setJobRuns] = useState<OpsJobRun[]>([]);
   const [jobControl, setJobControl] = useState<OpsJobControl[]>([]);
@@ -321,6 +326,32 @@ function AuditPanel() {
                   className="w-16 rounded-lg border border-border bg-background px-2 py-1"
                 />
               </label>
+              <button
+                type="button"
+                disabled={testingAlert}
+                onClick={async () => {
+                  setTestingAlert(true);
+                  try {
+                    const res = await testAlert({ data: { threshold, windowHours } });
+                    if (res.ok) toast.success("Alerta de teste disparado com sucesso.");
+                    else toast.error(`Falha ao disparar alerta: ${res.error ?? "canal indisponível"}`);
+                  } catch (e) {
+                    toast.error(e instanceof Error ? e.message : "Não foi possível disparar o alerta.");
+                  } finally {
+                    setTestingAlert(false);
+                  }
+                }}
+                className="inline-flex items-center gap-1 rounded-lg border border-border px-2 py-1 hover:bg-muted disabled:opacity-50"
+              >
+                <Bell className="h-3.5 w-3.5" />
+                {testingAlert ? "Enviando…" : "Testar alerta agora"}
+              </button>
+              <Link
+                to="/painel/historico-jobs"
+                className="rounded-lg border border-border px-2 py-1 hover:bg-muted"
+              >
+                Histórico de jobs
+              </Link>
             </div>
           </div>
 

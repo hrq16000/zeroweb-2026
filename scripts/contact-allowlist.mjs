@@ -10,6 +10,12 @@
  * Toda allowlist vive aqui e é consumida pelos dois validadores de build.
  */
 
+/**
+ * Contato comercial público (não é PII de visitante). Fica separado dos
+ * contatos de clientes para o relatório distinguir a origem do match.
+ */
+export const BUSINESS_ALLOWED_DIGITS = new Set(["554198755277"]);
+
 /** Dígitos (E.164 sem "+") de contatos de clientes autorizados em vitrines. */
 export const CLIENT_ALLOWED_DIGITS = new Set(["554196048639", "554198755277"]);
 
@@ -24,8 +30,8 @@ export const CLIENT_CHUNK_PREFIXES = [
   "portfolio.dyzpromo",
 ];
 
-/** Telefone formatado de cliente autorizado. */
-export const CLIENT_ALLOWED_PHONE = /^(?:\+?55[- ]?\(?41\)?[- ]?(?:9604-?8639|9875-?5277))$/;
+/** Telefone formatado de cliente autorizado ou do contato comercial oficial. */
+export const CLIENT_ALLOWED_PHONE = /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277))$/;
 
 /** Chunks do painel autenticado (leaks viram warning, não erro). */
 export const ADMIN_CHUNK_PREFIXES = [
@@ -55,7 +61,8 @@ export function isAdminChunk(name) {
 }
 
 export function isAllowedWaDigits(digits) {
-  return Boolean(digits) && CLIENT_ALLOWED_DIGITS.has(digits);
+  if (!digits) return false;
+  return CLIENT_ALLOWED_DIGITS.has(digits) || BUSINESS_ALLOWED_DIGITS.has(digits);
 }
 
 /**
