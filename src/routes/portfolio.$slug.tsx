@@ -71,6 +71,9 @@ const DiegoMontadorMoveisPage = lazy(() =>
 const AguiaSulSinalizacaoPage = lazy(() =>
   import("@/components/site/AguiaSulSinalizacaoPage").then((m) => ({ default: m.AguiaSulSinalizacaoPage })),
 );
+const EletrovaleEletromecanicaPage = lazy(() =>
+  import("@/components/site/EletrovaleEletromecanicaPage").then((m) => ({ default: m.EletrovaleEletromecanicaPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -100,6 +103,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCihLuh = loaderData?.slug === "espaco-cih-luh";
     const isDiego = loaderData?.slug === "diego-montador-moveis";
     const isAguia = loaderData?.slug === "aguia-sul-sinalizacao";
+    const isEletrovale = loaderData?.slug === "eletrovale-eletromecanica";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -134,6 +138,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Montagem e desmontagem de móveis, consertos, adaptações e instalações residenciais no Sítio Cercado, Curitiba."
           : isAguia
             ? "Pintura e sinalização horizontal para estacionamentos, condomínios, comércios e indústrias em Curitiba e região."
+          : isEletrovale
+            ? "Manutenção e rebobinamento de bombas, motores, motoredutores e motofreios com excelência técnica."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -178,6 +184,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/diego-montador-moveis/capa.webp"
                 : isAguia
                   ? "/images/aguia-sul-sinalizacao/logo.webp"
+                : isEletrovale
+                  ? "/images/eletrovale-eletromecanica/equipamentos.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -224,6 +232,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "montador de móveis Curitiba, montagem de móveis Sítio Cercado, marido de aluguel Curitiba, conserto de móveis, instalação de TV, instalação de persianas"
                 : isAguia
                   ? "sinalização horizontal Curitiba, pintura de estacionamento, demarcação de vagas, faixas de pedestres, pintura industrial, Águia Sul"
+                : isEletrovale
+                  ? "Eletrovale Eletromecânica Curitiba, rebobinamento de motores, manutenção de bombas, motoredutores, motofreios, manutenção industrial"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -339,6 +349,8 @@ function PortfolioPrototypePage() {
           <DiegoMontadorMoveisPage />
         ) : slug === "aguia-sul-sinalizacao" ? (
           <AguiaSulSinalizacaoPage />
+        ) : slug === "eletrovale-eletromecanica" ? (
+          <EletrovaleEletromecanicaPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

@@ -253,5 +253,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "eletrovale-eletromecanica",
+    "slug": "eletrovale-eletromecanica",
+    "siteName": "Eletrovale Eletromecânica",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EletrovaleEletromecanicaPage.tsx",
+    "assetsDir": "public/images/eletrovale-eletromecanica",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
