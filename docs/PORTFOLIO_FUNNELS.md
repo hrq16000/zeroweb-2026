@@ -23,3 +23,8 @@ Nenhum CTA interno pode herdar automaticamente o funil institucional da 0WEB. O 
 5. Validar rotas, metadados e fluxo antes do deploy.
 
 O texto “Protegido por 0WEB” identifica apenas a infraestrutura técnica; não transforma o funil do cliente em funil comercial da 0WEB.
+
+Quando um portfolio ainda não possui override de perguntas, o fallback global é
+um briefing de serviço (não panfletagem). Campanhas promocionais devem declarar
+`proposalKind: "campaign"` explicitamente, evitando mistura de perguntas e da
+mensagem de próximo passo entre clientes.

@@ -40,7 +40,14 @@
       "contactFloating": {
         "theme": "navy",
         "recipientName": "a equipe D.Y.Z",
-        "label": "Pedir proposta"
+        "label": "Pedir proposta",
+        "quizConfig": {
+          "proposalKind": "campaign",
+          "services": ["Panfletagem e mão a mão", "Semáforo e cancela", "Bandeiras e faixas", "Entrega de brindes", "Ação personalizada"],
+          "experienceOptions": ["Campanha nova", "Reforçar campanha existente", "Inauguração ou nova unidade", "Ainda estou definindo"],
+          "periodOptions": ["Dias úteis", "Fim de semana", "Horário de pico", "Ainda preciso de orientação"],
+          "timingOptions": ["Nos próximos 7 dias", "Ainda neste mês", "No próximo mês", "Estou planejando"]
+        }
       },
       "footer": {
         "variant": "dark"

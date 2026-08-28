@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -271,6 +271,7 @@ function PortfolioPage() {
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visitorCity, setVisitorCity] = useState<string | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let active = true;
@@ -299,6 +300,16 @@ function PortfolioPage() {
     window.history.replaceState(null, "", `${window.location.pathname}${params.toString() ? `?${params}` : ""}`);
     setVisibleCount(6);
   }, [activeCategory, search, sort, projectType]);
+
+  useEffect(() => {
+    const target = loadMoreRef.current;
+    if (!target || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setVisibleCount((count) => Math.min(count + 6, filteredItems.length));
+    }, { rootMargin: "320px" });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [filteredItems.length]);
 
   const selectedItem = selectedIndex === null ? null : filteredItems[selectedIndex];
 
@@ -466,7 +477,7 @@ function PortfolioPage() {
                 ))}
               </AnimatePresence>
             </div>
-            {visibleCount < filteredItems.length ? <button type="button" onClick={() => setVisibleCount((count) => count + 6)} className="mx-auto flex min-h-11 items-center rounded-full border border-border px-5 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Carregar mais projetos</button> : null}
+            {visibleCount < filteredItems.length ? <><div ref={loadMoreRef} className="h-2" aria-hidden="true" /><button type="button" onClick={() => setVisibleCount((count) => Math.min(count + 6, filteredItems.length))} className="mx-auto flex min-h-11 items-center rounded-full border border-border px-5 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Carregar mais</button></> : null}
 
             {/* Banner Callout for Custom Sites */}
             <div className="rounded-3xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 p-8 sm:p-12 text-center space-y-6">

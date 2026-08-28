@@ -126,3 +126,8 @@ sempre a mesma e não remove funcionalidade existente: envolver o componente do
 cliente na casca e mover ajustes visuais para `overrides`. Rodapés e CTAs
 próprios do cliente permanecem — o rodapé padrão é uma faixa fina de
 hospedagem, complementar.
+
+O contato flutuante observa o rodapé e é ocultado quando a área de crédito
+entra na viewport, preservando a leitura do “Site desenvolvido por 0WEB”; o
+botão de retorno ao topo permanece acessível acima dessa área. No catálogo raiz,
+os cards carregam em blocos e avançam automaticamente ao aproximar-se do fim.
