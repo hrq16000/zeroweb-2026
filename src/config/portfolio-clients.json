@@ -209,5 +209,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "salao-da-marcia",
+    "slug": "salao-da-marcia",
+    "siteName": "Salão da Marcia",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/SalaoDaMarciaPage.tsx",
+    "assetsDir": "public/images/salao-da-marcia",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
