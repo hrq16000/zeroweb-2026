@@ -347,7 +347,7 @@ function AuditPanel() {
                 {testingAlert ? "Enviando…" : "Testar alerta agora"}
               </button>
               <Link
-                to="/painel_/historico-jobs"
+                to="/painel/historico-jobs"
                 className="rounded-lg border border-border px-2 py-1 hover:bg-muted"
               >
                 Histórico de jobs
