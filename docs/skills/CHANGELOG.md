@@ -165,3 +165,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - A vitrine `/portfolio` foi compactada para grade responsiva (2 colunas mobile, 3 tablet, 4 desktop e até 6 em telas amplas), cards com resumo truncado e mídia menor.
 - Hero da vitrine teve espaçamento reduzido para acelerar descoberta e diminuir rolagem.
 - Gates de boundaries, meta, assets e diff passaram; a priorização geográfica por cidade/IP fica como etapa posterior, condicionada a consentimento e dados confiáveis.
+## 2026-08-28 — priorização local silenciosa no catálogo
+
+- **Tarefa:** próximo ciclo do `/portfolio`, favorecendo projetos da cidade estimada do visitante.
+- **Skills:** `0web-skill-router`, `0web-ui-quality-gates`, acessibilidade/responsivo e performance.
+- **Achados:** o catálogo já tinha localização estruturada por projeto, mas a ordenação ignorava a cidade do visitante.
+- **Alteração:** resolução IP em background, usando cache de sessão e falha silenciosa; quando a cidade coincide, os cards locais sobem apenas na ordenação padrão. Busca, filtros e ordem alfabética permanecem determinísticos.
+- **Privacidade:** não solicita GPS, não exibe o endereço estimado e não envia a cidade ao cliente; sem retorno do provedor, mantém a ordem original.
+- **Validação:** `validate:portfolio-boundaries`, `validate:portfolio-meta`, `validate:portfolio-assets` e `git diff --check`.

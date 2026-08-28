@@ -25,6 +25,7 @@ import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
+import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { PORTFOLIO_SEGMENTS, portfolioClusterLinks, placesForSegment, portfolioComboPath } from "@/lib/portfolio-clusters";
 import {
@@ -269,8 +270,25 @@ function PortfolioPage() {
   const [projectType, setProjectType] = useState(() => typeof window === "undefined" ? "todos" : new URLSearchParams(window.location.search).get("type") || "todos");
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [visitorCity, setVisitorCity] = useState<string | null>(null);
 
-  const filteredItems = [...PORTFOLIO_ITEMS].filter(item => (activeCategory === "todos" || item.category === activeCategory) && (projectType === "todos" || item.projectType === projectType) && `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`.toLowerCase().includes(search.toLowerCase())).sort((a, b) => sort === "az" ? a.title.localeCompare(b.title, "pt-BR") : 0);
+  useEffect(() => {
+    let active = true;
+    void getIpGeo().then((geo) => {
+      if (active && geo?.city) setVisitorCity(geo.city);
+    });
+    return () => { active = false; };
+  }, []);
+
+  const filteredItems = [...PORTFOLIO_ITEMS]
+    .filter(item => (activeCategory === "todos" || item.category === activeCategory) && (projectType === "todos" || item.projectType === projectType) && `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`.toLowerCase().includes(search.toLowerCase()))
+    .sort((a, b) => {
+      if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
+      if (!visitorCity) return 0;
+      const city = visitorCity.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      const score = (location?: string) => location?.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(city) ? 1 : 0;
+      return score(b.location) - score(a.location);
+    });
 
   useEffect(() => {
     const params = new URLSearchParams();
