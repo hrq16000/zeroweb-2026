@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio No Brilho Higienização
+
+- **Tarefa:** criar site local para higienização profissional de estofados a domicílio em São José dos Pinhais.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- **Alterações:** componente exclusivo, arte fornecida otimizada para WebP, CTA/funil próprio, prova social, SEO, sitemap e assets por cliente.
+- **Privacidade:** telefone não entra no bundle; destinatário será resolvido por secret server-side `NO_BRILHO_HIGIENIZACAO_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio Ecommerce On
 
 - **Tarefa:** criar site de cliente para agência digital com SEO, e-commerce, mídia, conteúdo e automação.
