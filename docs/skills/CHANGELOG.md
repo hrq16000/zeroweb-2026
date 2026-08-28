@@ -149,6 +149,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
 
+## 2026-08-28 — novo portfolio Refrigeração Maresia
+
+- **Tarefa:** criar site independente para manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, motion/responsivo e otimização mobile-first de imagens.
+- **Alterações:** slug `refrigeracao-maresia`, página exclusiva, catálogo, sitemap, SEO local, ícone/OG próprios, imagem real otimizada em WebP, funil de diagnóstico individual, prova social e crédito 0WEB.
+- **Conteúdo:** recarga de gás, troca de motor, troca de sensor, manutenção preventiva/corretiva e valor inicial de R$ 150 conforme arte fornecida.
+- **Privacidade:** telefone fornecido não entra no bundle; produção requer secret server-side `REFRIGERACAO_MARESIA_WHATSAPP_NUMBER`.
+- **Validação:** executar boundaries, meta, catálogo, assets, typecheck e diff antes do PR.
+
 ## 2026-08-28 — novo portfolio Studio de Cílios
 
 - **Tarefa:** criar página independente para extensão de cílios com os serviços Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio.

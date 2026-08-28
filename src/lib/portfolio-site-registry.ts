@@ -22,6 +22,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "confeitaria-chyrley", vertical: "restaurantes", siteName: "Chyrley Doces & Festas · Rio Bonito", kind: "prototype", indexable: true },
   { slug: "mp-festas-eventos", vertical: "comercios", siteName: "MP Festas e Eventos · Araucária", kind: "prototype", indexable: true },
   { slug: "studio-de-cilios", vertical: "beleza", siteName: "Studio de Cílios · Extensão personalizada", kind: "prototype", indexable: true },
+  { slug: "refrigeracao-maresia", vertical: "prestadores-de-servicos", siteName: "Refrigeração Maresia · Curitiba e Região", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {
