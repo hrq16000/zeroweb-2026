@@ -53,6 +53,9 @@ const LucasArrumaMaquinaLavarPage = lazy(() =>
 const PauloMestreDeObrasPage = lazy(() =>
   import("@/components/site/PauloMestreDeObrasPage").then((m) => ({ default: m.PauloMestreDeObrasPage })),
 );
+const EcommerceOnPage = lazy(() =>
+  import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -76,6 +79,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isLkAlvenaria = loaderData?.slug === "lk-alvenaria";
     const isLucasArruma = loaderData?.slug === "lucas-arruma-maquina-lavar";
     const isPauloMestre = loaderData?.slug === "paulo-mestre-de-obras";
+    const isEcommerceOn = loaderData?.slug === "ecommerce-on";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -98,6 +102,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
           : isPauloMestre
             ? "Serviços de pedreiro, azulejista e construção civil para fundação, alvenaria, revestimentos e reformas."
+          : isEcommerceOn
+            ? "Agência digital para SEO, e-commerce, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -130,6 +136,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/lucas-arruma-maquina-lavar/capa.webp"
                 : isPauloMestre
                   ? "/images/paulo-mestre-de-obras/capa.webp"
+                : isEcommerceOn
+                  ? "/images/ecommerce-on/servicos.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -164,6 +172,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "conserto máquina de lavar, manutenção máquina de lavar, assistência máquina de lavar, lavadora não liga, máquina não centrifuga"
                 : isPauloMestre
                   ? "pedreiro Curitiba, mestre de obras, azulejista, alvenaria, pisos e revestimentos, reformas residenciais"
+                : isEcommerceOn
+                  ? "agência digital Curitiba, SEO, e-commerce, tráfego pago, gestão de redes sociais, marketing digital, automação"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -267,6 +277,8 @@ function PortfolioPrototypePage() {
           <LucasArrumaMaquinaLavarPage />
         ) : slug === "paulo-mestre-de-obras" ? (
           <PauloMestreDeObrasPage />
+        ) : slug === "ecommerce-on" ? (
+          <EcommerceOnPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

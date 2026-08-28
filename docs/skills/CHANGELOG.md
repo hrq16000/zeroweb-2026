@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Ecommerce On
+
+- **Tarefa:** criar site de cliente para agência digital com SEO, e-commerce, mídia, conteúdo e automação.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- **Alterações:** componente exclusivo com imagens fornecidas, CTA/funil próprio, prova social, SEO, sitemap e assets WebP.
+- **Privacidade:** telefones das filiais não entram no bundle; destinatários serão resolvidos por secret server-side `ECOMMERCE_ON_WHATSAPP_NUMBER`.
+- **Validação:** executar validadores de catálogo, boundaries, assets e TypeScript antes do merge.
+
 ## 2026-08-28 — novo portfolio Paulo Mestre de Obras
 
 - **Tarefa:** criar site de cliente para pedreiro, azulejista, construção civil, reformas e reparos.

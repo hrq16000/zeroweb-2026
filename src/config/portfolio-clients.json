@@ -187,5 +187,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "ecommerce-on",
+    "slug": "ecommerce-on",
+    "siteName": "Ecommerce On",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EcommerceOnPage.tsx",
+    "assetsDir": "public/images/ecommerce-on",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
