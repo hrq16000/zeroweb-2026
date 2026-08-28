@@ -17,6 +17,8 @@ type Props = {
   accentClassName?: string;
 };
 
+const socialProofGuard: { owners: Set<string> } = ((globalThis as Record<string, unknown>)["__0webPortfolioSocialProofGuard"] ??= { owners: new Set<string>() }) as { owners: Set<string> };
+
 export function PortfolioSocialProofPopup({
   clientKey,
   eyebrow,
@@ -33,6 +35,8 @@ export function PortfolioSocialProofPopup({
 
   useEffect(() => {
     if (shouldSuppressPortfolioHostOverlays()) return;
+    if (socialProofGuard.owners.has(clientKey)) return;
+    socialProofGuard.owners.add(clientKey);
     let dismissTimer: number | undefined;
     const timer = window.setTimeout(() => {
       setOpen(true);
@@ -42,6 +46,7 @@ export function PortfolioSocialProofPopup({
     return () => {
       window.clearTimeout(timer);
       if (dismissTimer) window.clearTimeout(dismissTimer);
+      socialProofGuard.owners.delete(clientKey);
     };
   }, [autoDismissMs, clientKey, delayMs]);
 
