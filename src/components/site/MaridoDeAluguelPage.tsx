@@ -116,7 +116,7 @@ export function MaridoDeAluguelPage() {
                 alt="Mestre dos Serviços"
                 className="h-24 w-24 rounded-2xl object-cover shadow-lg ring-2 ring-amber-300/60 transition duration-500 group-hover:rotate-2 group-hover:scale-105"
                 loading="eager"
- decoding="async" fetchPriority="high" />
+ decoding="async" fetchPriority="high" width={1024} height={1024} />
               <div className="text-white">
                 <p className="text-xs font-bold uppercase tracking-[.2em] text-amber-300">
                   Mestre dos Serviços
