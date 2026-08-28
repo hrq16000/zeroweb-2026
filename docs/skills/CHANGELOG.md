@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Açaí Total Araucária
+
+- Página de delivery para copões e litrões de açaí em Araucária.
+- Cardápio digital, CTA de pedido, motion, SEO local, prova social e funil próprio.
+- Fotos e logo fornecidas otimizadas em WebP; telefone protegido em `ACAI_TOTAL_ARAUCARIA_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio Mary Diarista
 
 - Página para diárias, pós-obra, pós-mudança e organização em Curitiba.
