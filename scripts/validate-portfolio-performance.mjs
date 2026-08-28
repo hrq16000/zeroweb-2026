@@ -3,7 +3,7 @@
  * Portão de performance dos projetos /portfolio/<slug>.
  *
  * Regras (aplicadas a todo cliente registrado em portfolio-clients.json):
- *  - toda <img> crua precisa de `loading` e `decoding` explícitos
+ *  - toda <img> crua precisa de `loading`, `decoding="async"` e width/height
  *    (ou usar <PortfolioImage> / <Picture>, que já garantem isso);
  *  - no máximo 1 imagem `eager`/priority por projeto (candidata a LCP);
  *  - nenhuma imagem `eager` sem `fetchPriority`/priority.
@@ -39,8 +39,11 @@ for (const client of clients) {
     if (!/\bloading=/.test(tag)) {
       errors.push(`${label} <img> sem loading explícito (${where})`);
     }
-    if (!/\bdecoding=/.test(tag)) {
+    if (!/\bdecoding=["']async["']/.test(tag)) {
       errors.push(`${label} <img> sem decoding="async" (${where})`);
+    }
+    if (!/\bwidth=/.test(tag) || !/\bheight=/.test(tag)) {
+      errors.push(`${label} <img> sem width/height explícitos (${where})`);
     }
     if (/loading=["'{]?\s*["']?eager/.test(tag)) {
       eagerCount += 1;
