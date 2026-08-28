@@ -23,6 +23,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "mp-festas-eventos", vertical: "comercios", siteName: "MP Festas e Eventos · Araucária", kind: "prototype", indexable: true },
   { slug: "studio-de-cilios", vertical: "beleza", siteName: "Studio de Cílios · Extensão personalizada", kind: "prototype", indexable: true },
   { slug: "refrigeracao-maresia", vertical: "prestadores-de-servicos", siteName: "Refrigeração Maresia · Curitiba e Região", kind: "prototype", indexable: true },
+  { slug: "ag-electrical-services", vertical: "prestadores-de-servicos", siteName: "A&G Electrical Services · Elétrica e Redes", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

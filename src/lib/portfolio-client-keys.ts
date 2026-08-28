@@ -1,6 +1,6 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-  "refrigeracao-maresia","studio-de-cilios","mp-festas-eventos","confeitaria-chyrley",
+  "ag-electrical-services","refrigeracao-maresia","studio-de-cilios","mp-festas-eventos","confeitaria-chyrley",
   "dyzpromo",
   "renata-beauty",
   "r-beauty",

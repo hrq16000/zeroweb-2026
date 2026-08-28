@@ -132,5 +132,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "ag-electrical-services",
+    "slug": "ag-electrical-services",
+    "siteName": "A&G Electrical Services",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AgElectricalServicesPage.tsx",
+    "assetsDir": "public/images/ag-electrical-services",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
