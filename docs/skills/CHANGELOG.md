@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Eisenfer Tubos e Aços
+
+- Página de catálogo B2B para tubos, perfis, chapas e telhas metálicas em São José dos Pinhais.
+- Skills: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, otimização mobile-first.
+- Artes reais otimizadas em WebP, funil de cotação, prova social, SEO local, catálogo e links oficiais.
+- Telefone protegido server-side em `EISENFER_TUBOS_ACOS_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio Eletro Soluções Eficazes
 
 - Página para instalações, iluminação, manutenção e automação elétrica em Pinhais e região.
