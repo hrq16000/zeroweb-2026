@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, X, Send, ArrowRight, AlertTriangle, Pencil } from "lucide-react";
 import { listServicesNav } from "@/lib/services-nav.functions";
 import { supabase } from "@/integrations/supabase/client";
+import { FLOATING_SLOT, FLOATING_Z } from "@/lib/floating-stack";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { useNearFooter } from "@/hooks/useNearFooter";
 import {
@@ -347,7 +348,7 @@ export function HomeChatbot() {
             aria-haspopup="dialog"
             aria-expanded={open}
             className={[
-              "fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] left-4 z-[60] inline-flex items-center gap-2.5 sm:bottom-40 sm:left-6",
+              `fixed ${FLOATING_SLOT.two} left-4 sm:left-5 ${FLOATING_Z.fab} inline-flex items-center gap-2.5`,
               "rounded-full bg-primary text-primary-foreground font-semibold",
               "pl-4 pr-5 py-3 shadow-xl shadow-primary/30 hover:scale-[1.03] transition",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2",
@@ -372,7 +373,7 @@ export function HomeChatbot() {
             exit={{ opacity: 0, y: 24, scale: 0.96 }}
             transition={{ duration: 0.18 }}
             className={[
-              "fixed z-[60] flex flex-col bg-card text-foreground border border-border shadow-2xl overflow-hidden",
+              `fixed ${FLOATING_Z.panel} flex flex-col bg-card text-foreground border border-border shadow-2xl overflow-hidden`,
               "inset-0 sm:inset-auto sm:bottom-5 sm:left-5 sm:rounded-2xl",
               "sm:w-[360px] sm:h-[480px]",
             ].join(" ")}

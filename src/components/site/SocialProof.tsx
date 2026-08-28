@@ -4,6 +4,8 @@ import { CheckCircle2, MapPin, Star, Users, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { trackEvent } from "@/lib/analytics";
+import { useNearFooter } from "@/hooks/useNearFooter";
+import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 import { getSocialProofFeed, type SocialProofItem as Notif } from "@/lib/social-proof.functions";
 
 // Fallback usado apenas se a chamada ao servidor falhar ou não retornar itens
@@ -19,7 +21,7 @@ export function SocialProof() {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const [online, setOnline] = useState(127);
+  const nearFooter = useNearFooter();
 
   const fetchFeed = useServerFn(getSocialProofFeed);
   const { data } = useQuery({
@@ -60,13 +62,9 @@ export function SocialProof() {
         setVisible(true);
       }, 500);
     }, 8500);
-    const live = setInterval(() => {
-      setOnline((n) => Math.max(80, Math.min(220, n + Math.floor(Math.random() * 9) - 4)));
-    }, 4000);
     return () => {
       clearTimeout(start);
       clearInterval(cycle);
-      clearInterval(live);
     };
   }, [dismissed, pool.length]);
 
@@ -75,18 +73,6 @@ export function SocialProof() {
 
   return (
     <>
-      {/* Live online counter (bottom-left) */}
-      <div className="fixed bottom-5 left-5 z-40 hidden sm:flex items-center gap-2 rounded-full glass px-3 py-2 shadow-elegant text-xs font-medium">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-        </span>
-        <Users className="w-3.5 h-3.5 text-emerald-500" />
-        <span>
-          <strong className="text-foreground">{online}</strong>{" "}
-          <span className="text-muted-foreground">pessoas online</span>
-        </span>
-      </div>
 
       <AnimatePresence>
         {visible && !dismissed && (
@@ -97,7 +83,7 @@ export function SocialProof() {
             exit={{ y: 24, opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 280, damping: 24 }}
             onAnimationStart={() => trackEvent("social_proof_view", { name: item.name })}
-            className="fixed bottom-24 left-4 sm:left-5 z-40 max-w-[19rem]"
+            className={`fixed ${FLOATING_SLOT.three} left-4 sm:left-5 ${FLOATING_Z.fab} max-w-[19rem] ${hideNearFooter(nearFooter)}`}
           >
             <div className="relative rounded-2xl glass shadow-elegant border border-border p-3 pr-8">
               <button

@@ -70,7 +70,7 @@ export function ConsentBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 120, opacity: 0 }}
           transition={{ type: "spring", stiffness: 220, damping: 28 }}
-          className="fixed bottom-4 inset-x-4 lg:left-auto lg:right-6 lg:bottom-6 z-[60] max-w-xl"
+          className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] inset-x-4 lg:left-auto lg:right-6 z-[80] max-w-xl"
         >
           <div className="relative glass rounded-2xl shadow-elegant border border-border p-5">
             <button
