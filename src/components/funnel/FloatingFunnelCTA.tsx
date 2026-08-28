@@ -3,6 +3,7 @@ import { MessageSquare } from "lucide-react";
 import { FunnelModalWrapper } from "./FunnelModalWrapper";
 import { trackEvent } from "@/lib/analytics";
 import type { ContactIntent } from "@/lib/contact-intent";
+import { useNearFooter } from "@/hooks/useNearFooter";
 
 /**
  * Botão flutuante (canto inferior ESQUERDO — para não colidir com o
@@ -25,6 +26,7 @@ export function FloatingFunnelCTA({
     pagePath: typeof window === "undefined" ? "/" : window.location.pathname,
     placement: "sticky-mobile",
   };
+  const nearFooter = useNearFooter();
   return (
     <>
       <button
@@ -33,12 +35,14 @@ export function FloatingFunnelCTA({
           trackEvent("cta_click", { label: "floating_funnel", location, funnel: funnelSlug });
           setOpen(true);
         }}
-        className="fixed bottom-5 left-5 z-40 inline-flex items-center gap-2 rounded-full
+        className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-4 z-40 sm:bottom-24 sm:left-6 ${nearFooter ? "pointer-events-none opacity-0 translate-y-6" : "opacity-100"} transition-[opacity,transform] duration-300 inline-flex items-center gap-2 rounded-full
                    bg-secondary text-secondary-foreground border border-border
                    px-4 py-3 text-sm font-semibold shadow-lg hover:shadow-xl
                    hover:bg-secondary/90 active:scale-95 transition-all
-                   max-[420px]:px-3 max-[420px]:py-2.5"
+                   max-[420px]:px-3 max-[420px]:py-2.5`}
         aria-label={label}
+        aria-hidden={nearFooter}
+        tabIndex={nearFooter ? -1 : 0}
       >
         <MessageSquare className="w-4 h-4" />
         <span className="hidden sm:inline">{label}</span>

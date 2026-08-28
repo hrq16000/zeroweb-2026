@@ -15,7 +15,7 @@ const BULLETS = [
 export function HomeSpotlight() {
   const variant = useExperiment("home_spotlight_copy", ["A", "B"] as const);
   const headline = variant === "A"
-    ? { pre: "Anúncios sem site otimizado?", em: "você perde até 70% dos leads." }
+    ? { pre: "Anúncios sem site otimizado?", em: "o clique vira custo, não cliente." }
     : { pre: "Cada clique pago sem destino certo?", em: "é dinheiro virando fumaça." };
   const ctaLabel = variant === "A" ? "Obter orçamento gratuito" : "Falar com especialista agora";
   return (
@@ -59,8 +59,8 @@ export function HomeSpotlight() {
             </p>
 
             <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-muted px-4 py-1.5 text-sm font-medium">
-              A partir de <span className="text-foreground font-bold">R$ 1.490</span>
-              <span className="text-muted-foreground">· entrega em 7 dias</span>
+              <span className="text-foreground font-bold">Escopo sob medida</span>
+              <span className="text-muted-foreground">· orçamento e prazo definidos no diagnóstico</span>
             </div>
 
             <ul className="mt-7 space-y-3.5">
