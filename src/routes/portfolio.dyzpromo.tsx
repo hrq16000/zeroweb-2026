@@ -6,7 +6,7 @@ const TITLE = "D.Y.Z Promo · Divulgação e panfletagem em Curitiba";
 const DESC =
   "Divulgação, panfletagem, promotores e ações promocionais da D.Y.Z Promo em Curitiba e região metropolitana.";
 const URL = "https://0web.com.br/portfolio/dyzpromo";
-const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/faixa-equipe.jpeg";
+const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg";
 const ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo.webp";
 
 export const Route = createFileRoute("/portfolio/dyzpromo")({
