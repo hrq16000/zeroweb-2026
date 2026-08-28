@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — correção do pedido Paraíso do Hot Dog
+
+- Removido truncamento fixo de 175 caracteres que cortava listas grandes, modalidade e total.
+- A observação do carrinho (endereço, troco e instruções) passa a acompanhar o resumo enviado ao funil.
+- O quiz usa `proposalKind: service`, evitando classificar pedidos como campanha/funnel-service genérico.
+
+
 ## 2026-08-28 — documentação consolidada da parametrização global
 
 - **Tarefa:** documentar o contrato completo de `/portfolio/<slug>` e do CTA/funil.
