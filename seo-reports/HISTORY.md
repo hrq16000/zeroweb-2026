@@ -273,3 +273,6 @@ Implementação: `createFileRoute(...).beforeLoad → throw redirect({statusCode
   - ❌ (2) `/servicos/trafego-pago`
   - ❌ (2) `/servicos/trafego-pago-local`
 
+## 2026-08-28T07-31-43-003Z — sitemap/robots — https://0web.com.br
+- Checks: **7** | Falhas: **0** | Relatório: `seo-reports/sitemaps-2026-08-28T07-31-43-003Z.json`
+

@@ -1,0 +1,119 @@
+{
+  "base": "https://0web.com.br",
+  "generated_at": "2026-08-28T07:31:43.003Z",
+  "checks": [
+    {
+      "name": "robots.txt: 1 diretiva Sitemap:",
+      "ok": true,
+      "detail": "encontradas: 1 (Sitemap: https://0web.com.br/sitemap.xml)"
+    },
+    {
+      "name": "robots.txt: não bloqueia /servicos",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "sitemap-pages.xml inclui /servicos",
+      "ok": true,
+      "detail": "total urls: 48"
+    },
+    {
+      "name": "sitemap-services.xml acessível",
+      "ok": true,
+      "detail": "total urls: 23"
+    },
+    {
+      "name": "sitemap-services.xml contém slugs obrigatórios (4)",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "sitemap-services.xml sem URLs duplicadas",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Sem duplicidade /servicos/{slug} entre pages.xml e services.xml",
+      "ok": true,
+      "detail": null
+    }
+  ],
+  "data": {
+    "robots": "# 0WEB — robots.txt\n# Libera CSS, JS, fontes e imagens para todos os crawlers (Google PageSpeed,\n# Lighthouse e indexação mobile dependem desses assets).\n\nUser-agent: *\nAllow: /\nAllow: /assets/\nAllow: /_build/\nAllow: /__l5e/\nAllow: /*.css$\nAllow: /*.js$\nAllow: /*.mjs$\nAllow: /*.map$\nAllow: /*.json$\nAllow: /*.svg$\nAllow: /*.png$\nAllow: /*.jpg$\nAllow: /*.jpeg$\nAllow: /*.webp$\nAllow: /*.avif$\nAllow: /*.ico$\nAllow: /*.woff$\nAllow: /*.woff2$\nAllow: /*.ttf$\n\n# Áreas administrativas / autenticadas (não indexar)\nDisallow: /app\nDisallow: /app/\nDisallow: /auth\nDisallow: /painel\nDisallow: /painel-crm\nDisallow: /qa-events\nDisallow: /r/\nDisallow: /api/\nDisallow: /checkout\nDisallow: /pedido/\nDisallow: /obrigado\n\n# Crawl-delay leve para bots agressivos (Google ignora; protege contra outros)\nUser-agent: AhrefsBot\nCrawl-delay: 5\n\nUser-agent: SemrushBot\nCrawl-delay: 5\n\nSitemap: https://0web.com.br/sitemap.xml\n",
+    "pagesUrls": [
+      "https://0web.com.br/",
+      "https://0web.com.br/servicos",
+      "https://0web.com.br/sobre",
+      "https://0web.com.br/contato",
+      "https://0web.com.br/solicitar-orcamento",
+      "https://0web.com.br/infraestrutura",
+      "https://0web.com.br/sites",
+      "https://0web.com.br/sites/restaurantes",
+      "https://0web.com.br/sites/advocacia",
+      "https://0web.com.br/sites/imobiliarias",
+      "https://0web.com.br/sites/clinicas",
+      "https://0web.com.br/sites/oficinas",
+      "https://0web.com.br/sites/lojas",
+      "https://0web.com.br/sites/comercios",
+      "https://0web.com.br/sites/prestadores-de-servicos",
+      "https://0web.com.br/planos-comparativo",
+      "https://0web.com.br/areas-de-atendimento",
+      "https://0web.com.br/sites-robustos",
+      "https://0web.com.br/servicos/categoria/seo",
+      "https://0web.com.br/servicos/categoria/ia",
+      "https://0web.com.br/servicos/categoria/automacao",
+      "https://0web.com.br/servicos/categoria/trafego-pago",
+      "https://0web.com.br/servicos/categoria/criacao-de-sites",
+      "https://0web.com.br/sites-robustos/velocidade-e-core-web-vitals",
+      "https://0web.com.br/sites-robustos/seo-tecnico-para-sites-institucionais",
+      "https://0web.com.br/sites-robustos/site-que-converte-estrutura-de-paginas",
+      "https://0web.com.br/sites-robustos/integracoes-e-automacoes",
+      "https://0web.com.br/sites-robustos/manutencao-seguranca-e-escala",
+      "https://0web.com.br/cidades",
+      "https://0web.com.br/estados",
+      "https://0web.com.br/portfolio",
+      "https://0web.com.br/portfolio/renata-beauty",
+      "https://0web.com.br/portfolio/r_beauty",
+      "https://0web.com.br/portfolio/dyzpromo",
+      "https://0web.com.br/cases",
+      "https://0web.com.br/blog",
+      "https://0web.com.br/planos",
+      "https://0web.com.br/faq",
+      "https://0web.com.br/solucoes",
+      "https://0web.com.br/mapa-do-site",
+      "https://0web.com.br/calculadora-orcamento",
+      "https://0web.com.br/blog-skyscraper",
+      "https://0web.com.br/solicitar-diagnostico",
+      "https://0web.com.br/politica-privacidade",
+      "https://0web.com.br/privacidade",
+      "https://0web.com.br/lgpd",
+      "https://0web.com.br/termos",
+      "https://0web.com.br/rss.xml"
+    ],
+    "servicesUrls": [
+      "https://0web.com.br/servicos/automacao-com-ia",
+      "https://0web.com.br/servicos/cartao-digital",
+      "https://0web.com.br/servicos/catalogo-digital",
+      "https://0web.com.br/servicos/chatbot-whatsapp",
+      "https://0web.com.br/servicos/comunicacao-visual",
+      "https://0web.com.br/servicos/criacao-de-sites",
+      "https://0web.com.br/servicos/ebook-profissional",
+      "https://0web.com.br/servicos/gestao-redes-sociais",
+      "https://0web.com.br/servicos/google-ads-299",
+      "https://0web.com.br/servicos/google-meu-negocio",
+      "https://0web.com.br/servicos/identidade-visual",
+      "https://0web.com.br/servicos/landing-pages",
+      "https://0web.com.br/servicos/loja-virtual",
+      "https://0web.com.br/servicos/marketing-digital",
+      "https://0web.com.br/servicos/marketplace",
+      "https://0web.com.br/servicos/outdoor-digital",
+      "https://0web.com.br/servicos/portfolio-empresarial",
+      "https://0web.com.br/servicos/presenca-digital",
+      "https://0web.com.br/servicos/seo",
+      "https://0web.com.br/servicos/site-express",
+      "https://0web.com.br/servicos/trafego-pago",
+      "https://0web.com.br/servicos/trafego-pago-local",
+      "https://0web.com.br/servicos/videos-empresariais"
+    ]
+  }
+}
