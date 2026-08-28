@@ -74,7 +74,7 @@ const EXPERIENCE = [
 const PERIODS = ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"];
 const TIMINGS = ["Hoje ou amanhã", "Ainda nesta semana", "Na próxima semana", "Quero a primeira vaga disponível"];
 
-function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"], proposalKind: PortfolioQuizConfig["proposalKind"] = "campaign", pageUrl = "", location = "") {
+function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"], proposalKind: PortfolioQuizConfig["proposalKind"] = "service", pageUrl = "", location = "") {
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && proposalKind === "service";
   const lines = [
@@ -168,10 +168,11 @@ export function BeautyBookingQuiz({
   const look = THEMES[theme];
   const { accent, accentText, optionClass, primaryClass, panel, titleClass } = look;
   const isProposal = mode === "proposal";
-  const serviceOptions = quizConfig?.services ?? (isProposal ? PROPOSAL_SERVICES : SERVICES);
-  const experienceOptions = quizConfig?.experienceOptions ?? (isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
-  const periodOptions = quizConfig?.periodOptions ?? (isProposal ? PROPOSAL_PERIODS : PERIODS);
-  const timingOptions = quizConfig?.timingOptions ?? (isProposal ? PROPOSAL_TIMINGS : TIMINGS);
+  const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
+  const serviceOptions = quizConfig?.services ?? (isServiceProposal ? SERVICES : isProposal ? PROPOSAL_SERVICES : SERVICES);
+  const experienceOptions = quizConfig?.experienceOptions ?? (isServiceProposal ? EXPERIENCE : isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
+  const periodOptions = quizConfig?.periodOptions ?? (isServiceProposal ? PERIODS : isProposal ? PROPOSAL_PERIODS : PERIODS);
+  const timingOptions = quizConfig?.timingOptions ?? (isServiceProposal ? TIMINGS : isProposal ? PROPOSAL_TIMINGS : TIMINGS);
   const services = Array.from(new Set(service ? [service, ...serviceOptions] : serviceOptions));
 
   useEffect(() => {

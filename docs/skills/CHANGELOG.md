@@ -393,3 +393,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Skills aplicadas: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, direção mobile-first e motion acessível.
 - Arte real da cozinha otimizada para WebP e registrada como ícone/imagem social do slug.
 - Funil individual `funnel-jkl-marcenaria` criado; contato resolvido server-side por `JKL_MARCENARIA_WHATSAPP_NUMBER`.
+
+## 2026-08-28 — auditoria global de overlays, funis e catálogo
+
+- Contato flutuante agora se oculta quando o rodapé entra na viewport, sem cobrir o crédito 0WEB; retorno ao topo segue acessível.
+- Fallback de `PortfolioCTAQuiz` passou a briefing de serviço; campanha só é usada com `proposalKind: "campaign"` explícito (D.Y.Z parametrizado).
+- Catálogo raiz mantém blocos responsivos e adiciona carregamento incremental ao aproximar-se do fim; CTA reduzido para “Carregar mais”.

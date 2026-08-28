@@ -103,6 +103,7 @@ function DyzCTA({ label, className }: { label: string; className?: string }) {
       theme="navy"
       mode="proposal"
       service="Divulgação e panfletagem"
+      quizConfig={{ proposalKind: "campaign" }}
       className={className}
       ariaLabel={label}
     >
@@ -141,6 +142,7 @@ function DyzFloatingCTA() {
       recipientName="Denis"
       theme="navy"
       mode="proposal"
+      quizConfig={{ proposalKind: "campaign" }}
       service="Divulgação e panfletagem"
       className="group fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition hover:scale-105 hover:bg-[#20ba5a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#061536] sm:pr-5"
       ariaLabel="Falar com Denis pelo WhatsApp"

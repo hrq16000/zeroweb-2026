@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { PortfolioCTAQuiz, type PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 import { trackEvent } from "@/lib/analytics";
@@ -43,6 +44,16 @@ export function PortfolioContactFloating({
   quizConfig,
   slug,
 }: Props) {
+  const [nearFooter, setNearFooter] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setNearFooter(entry.isIntersecting), { threshold: 0.05 });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <PortfolioCTAQuiz
       clientKey={clientKey}
@@ -59,7 +70,8 @@ export function PortfolioContactFloating({
           page_type: "portfolio_client",
         })
       }
-      className={`fixed z-40 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]}`}
+      className={`fixed z-40 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg transition-[opacity,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${nearFooter ? "pointer-events-none translate-y-6 opacity-0" : "opacity-100"}`}
+      aria-hidden={nearFooter}
     >
       <MessageCircle className="h-4 w-4" aria-hidden="true" />
       <span className="hidden sm:inline">{label}</span>
