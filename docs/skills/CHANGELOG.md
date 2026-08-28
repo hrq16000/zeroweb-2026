@@ -149,6 +149,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
 
+## 2026-08-28 — novo portfolio A&G Electrical Services
+
+- **Tarefa:** criar site independente de elétrica geral, infraestrutura de redes, cabeamento UTP, CFTV e organização de racks.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, motion/responsivo e otimização mobile-first de imagens.
+- **Alterações:** slug `ag-electrical-services`, página exclusiva, catálogo, sitemap, SEO local, logo/OG próprios, portfólio Laserway real otimizado em WebP, funil técnico individual, prova social e crédito 0WEB.
+- **Conteúdo:** soluções residenciais, prediais, comerciais e industriais; galeria de racks e infraestrutura fornecida pelo cliente.
+- **Privacidade:** telefone fornecido não entra no bundle; produção requer secret server-side `AG_ELECTRICAL_SERVICES_WHATSAPP_NUMBER`.
+- **Validação:** executar boundaries, meta, catálogo, assets, typecheck e diff antes do PR.
+
 ## 2026-08-28 — novo portfolio Refrigeração Maresia
 
 - **Tarefa:** criar site independente para manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana.
