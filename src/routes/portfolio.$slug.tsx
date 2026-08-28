@@ -292,11 +292,18 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: title },
         { property: "og:image", content: socialImage },
+        { property: "og:image:secure_url", content: socialImage },
+        { property: "og:image:type", content: "image/jpeg" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: title },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: socialImage },
       ],
       links: [
         { rel: "canonical", href: url },
         { rel: "icon", href: icon },
+        { rel: "apple-touch-icon", href: icon },
       ],
       scripts: vertical
         ? [

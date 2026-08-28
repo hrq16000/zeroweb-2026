@@ -5,7 +5,7 @@ import { RBeautyEditorialView } from "@/components/site/RBeautyEditorialView";
 const TITLE = "R_Beauty Haute Studio · Cílios, unhas e sobrancelhas";
 const DESC = "Conheça os procedimentos de cílios, unhas, sobrancelhas e autocuidado do R_Beauty Haute Studio no Boneca do Iguaçu.";
 const URL = "https://0web.com.br/portfolio/r_beauty";
-const SOCIAL_IMAGE = "https://0web.com.br/images/r-beauty-cilios.jpg";
+const SOCIAL_IMAGE = "https://0web.com.br/images/r-beauty-icon-og.jpg";
 const ICON = "https://0web.com.br/images/r-beauty-icon.png";
 
 export const Route = createFileRoute("/portfolio/r_beauty")({
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/portfolio/r_beauty")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
       { property: "og:site_name", content: "R_Beauty Haute Studio" },
-      { property: "og:image", content: "https://0web.com.br/images/r-beauty-cilios.jpg" },
+      { property: "og:image", content: "https://0web.com.br/images/r-beauty-icon-og.jpg" },
       { property: "og:image:alt", content: "R_Beauty Studio com destaque para cílios" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SOCIAL_IMAGE },
