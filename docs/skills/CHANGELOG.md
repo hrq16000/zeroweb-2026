@@ -131,3 +131,8 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Skills aplicadas: `0web-skill-router`, `0web-ui-quality-gates` e Vercel React Best Practices.
 - Auditoria: 8 rotas HTTP 200; HTML SSR entre 30–88 KB; assets raster críticos acima de 1,9 MB identificados; gate de imagens passou.
 - Próximo ciclo engatilhado em `docs/PERFORMANCE_PORTFOLIO_AUDIT.md`: conversão WebP/AVIF, budgets LCP/CLS/INP, waterfall de hidratação e QA funcional por slug.
+
+## 2026-08-28 — performance parametrizada (ciclo 2 iniciado)
+
+- Criado `src/config/portfolio-performance.json` com budgets de LCP/CLS/INP, limites de bytes, formatos preferidos e política de adiamento de overlays/telemetria.
+- Documentação atualizada para que novos clientes herdem os mesmos limites e exceções sejam explícitas por slug.
