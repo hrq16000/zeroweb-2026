@@ -95,12 +95,43 @@ export function sanitizeEventName(value: unknown): string | null {
  * A idempotência vem do `id` gerado no cliente — uma chave duplicada (23505)
  * significa que o evento já foi gravado e é tratada como sucesso.
  */
+/** Nome do evento sentinela usado para auditar descartes no painel. */
+export const DISCARD_EVENT_NAME = "analytics_event_discarded";
+
+/**
+ * Registra o descarte como um evento válido e auditável.
+ * Sem isso o descarte só existia no console do visitante e o painel
+ * não conseguia medir perda de telemetria por rota.
+ */
+async function reportDiscard(row: Record<string, unknown>, reason: string) {
+  const original = (row as { event_name?: unknown }).event_name;
+  if (original === DISCARD_EVENT_NAME) return; // nunca reportar o próprio sentinela
+  try {
+    const { supabase } = await import("@/integrations/supabase/client");
+    await supabase.from("analytics_events").insert({
+      event_name: DISCARD_EVENT_NAME,
+      path: typeof row.path === "string" ? row.path : null,
+      page: typeof row.page === "string" ? row.page : null,
+      session_id: typeof row.session_id === "string" ? row.session_id : null,
+      visitor_id: typeof row.visitor_id === "string" ? row.visitor_id : null,
+      metadata_json: {
+        reason,
+        original_event_name: typeof original === "string" ? original.slice(0, 120) : String(original ?? "null"),
+      },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
+  } catch {
+    /* descarte é diagnóstico: nunca deve quebrar o fluxo do visitante */
+  }
+}
+
 async function sendRow(id: string, row: Record<string, unknown>): Promise<boolean> {
   const eventName = sanitizeEventName((row as { event_name?: unknown }).event_name);
   if (!eventName) {
     if (typeof console !== "undefined") {
       console.warn("[analytics] evento descartado: event_name inválido", row);
     }
+    void reportDiscard(row, "invalid_event_name");
     return true; // inválido por definição: não reenfileirar
   }
   try {
