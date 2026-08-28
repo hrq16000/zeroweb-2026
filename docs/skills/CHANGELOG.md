@@ -180,3 +180,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alteração:** somente os dois primeiros cards recebem prioridade alta; demais imagens usam lazy-loading, `decoding=async` e `sizes` coerentes com 2/3/4/6 colunas.
 - **Resultado esperado:** menor custo de rede e renderização inicial em mobile, sem remover conteúdo indexável.
 - **Validação:** gates de portfolios, metadados e assets aprovados; pre-commit com Schema.org, canonicals e rotas.
+## 2026-08-28 — conteúdo rico do Mestre dos Serviços
+
+- Corrigido o nome público do cliente no catálogo para **Mestre dos Serviços**; “marido de aluguel” permanece como categoria/termo SEO.
+- Hero, navegação, rodapé e copy atualizados para a marca correta.
+- Adicionada seção de presença social com links oficiais do Instagram e Facebook, imagem de case e microanimação com respeito ao reduced-motion global.
+- Domínio oficial `mestredosservicos.com.br` permanece visível e clicável.

@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { motion } from "motion/react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -16,6 +17,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
+import caseMestre from "@/assets/case-mestredosservicos.webp";
 
 export { MARIDO_ALUGUEL_FAQ };
 
@@ -87,7 +89,7 @@ export function MaridoDeAluguelPage() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#173b67] text-white">
               <Wrench className="h-4 w-4" />
             </span>
-            Marido de Aluguel
+            Mestre dos Serviços
           </a>
           <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
             <a href="#servicos">Serviços</a>
@@ -137,7 +139,7 @@ export function MaridoDeAluguelPage() {
                 Reparos residenciais com confiança
               </p>
               <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.03] sm:text-6xl">
-                Marido de aluguel para resolver o que sua casa precisa.
+                Mestre dos Serviços para resolver o que sua casa precisa.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-100">
                 Instalações, montagens, manutenção e pequenos reparos para casas, apartamentos,
@@ -210,6 +212,23 @@ export function MaridoDeAluguelPage() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+        <section id="presenca" className="bg-[#102d50] px-5 py-20 text-white lg:px-8">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[.18em] text-amber-300">Presença oficial</p>
+              <h2 className="mt-3 font-display text-4xl font-semibold">Dicas, bastidores e soluções no Instagram.</h2>
+              <p className="mt-5 max-w-xl leading-7 text-blue-100">Acompanhe os conteúdos do Mestre dos Serviços e veja ideias práticas para cuidar da sua casa, preparar um imóvel e evitar pequenos problemas.</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href="https://www.instagram.com/mestresdosservicos" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center rounded-full bg-amber-300 px-5 py-3 font-bold text-slate-950 hover:bg-amber-200">Ver Instagram</a>
+                <a href="https://www.facebook.com/mestresdosservicos" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center rounded-full border border-white/30 px-5 py-3 font-semibold text-white hover:bg-white/10">Facebook</a>
+              </div>
+            </div>
+            <motion.a href="https://www.instagram.com/mestresdosservicos" target="_blank" rel="noreferrer" whileHover={{ y: -6 }} className="group overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl">
+              <img src={caseMestre} alt="Mestre dos Serviços em destaque" className="h-64 w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
+              <div className="p-5"><p className="font-semibold">@mestresdosservicos</p><p className="mt-1 text-sm text-blue-100">Conteúdos recentes e inspiração para seus próximos reparos.</p></div>
+            </motion.a>
           </div>
         </section>
         <section id="processo" className="bg-white px-5 py-20 lg:px-8">
@@ -312,7 +331,7 @@ export function MaridoDeAluguelPage() {
       <footer className="bg-slate-950 px-5 py-10 text-sm text-slate-400 lg:px-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            <strong className="text-white">Marido de Aluguel</strong> · Serviços residenciais locais
+            <strong className="text-white">Mestre dos Serviços</strong> · Marido de aluguel em Curitiba e região
           </p>
           <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300" />
         </div>
