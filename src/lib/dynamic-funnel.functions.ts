@@ -367,6 +367,15 @@ export const submitFunnel = createServerFn({ method: "POST" })
  * tokenizado usado pelos funis oficiais. O destinatário é resolvido somente
  * no servidor a partir de uma chave permitida; nunca chega ao bundle público.
  */
+// Campo de texto tolerante: nunca rejeita por tamanho — apenas apara o
+// excedente no servidor. Pedidos longos (dezenas de itens + observação)
+// deixam de virar erro de envio.
+const softText = (max: number) =>
+  z.preprocess(
+    (v) => (typeof v === "string" ? v.slice(0, max) : v),
+    z.string().max(max),
+  );
+
 export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => z.object({
     clientKey: z.enum(PORTFOLIO_CLIENT_KEYS),
@@ -375,31 +384,35 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     mode: z.enum(["booking", "proposal"]),
     pageUrl: z.string().url().max(500).optional(),
     orderContext: z.object({
-      order_items: z.string().max(4000).optional(),
-      order_total: z.string().max(80).optional(),
-      fulfillment: z.string().max(80).optional(),
-      customer_note: z.string().max(500).optional(),
+      order_items: softText(8000).optional(),
+      order_total: softText(120).optional(),
+      fulfillment: softText(120).optional(),
+      customer_note: softText(2000).optional(),
     }).optional(),
     answers: z.object({
-      // Pedidos de catálogo podem conter dezenas de itens, adicionais,
-      // modalidade, total e observação. O limite anterior de 180 rejeitava
-      // pedidos válidos depois que removemos o truncamento da interface.
-      service: z.string().max(4000),
-      experience: z.string().max(180),
-      period: z.string().max(120),
-      timing: z.string().max(120),
-      note: z.string().max(280),
+      service: softText(8000),
+      experience: softText(400),
+      period: softText(400),
+      timing: softText(400),
+      note: softText(2000),
     }),
   }).parse(data))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: form, error: formError } = await supabaseAdmin
+    // Funil do cliente quando existir (portfolio-<clientKey>); o funil
+    // genérico de serviço permanece apenas como fallback.
+    const clientFunnelSlug = `portfolio-${data.clientKey}`;
+    const { data: forms, error: formError } = await supabaseAdmin
       .from("dynamic_forms")
-      .select("id")
-      .eq("slug", "funnel-service")
-      .eq("status", "published")
-      .maybeSingle();
-    if (formError || !form) throw new Error("Funil de atendimento indisponível");
+      .select("id, slug")
+      .in("slug", [clientFunnelSlug, "funnel-service"])
+      .eq("status", "published");
+    if (formError) throw new Error("Funil de atendimento indisponível");
+    const form =
+      (forms ?? []).find((f) => f.slug === clientFunnelSlug) ??
+      (forms ?? []).find((f) => f.slug === "funnel-service");
+    if (!form) throw new Error("Funil de atendimento indisponível");
+
 
     let ip: string | null = null;
     let pageUrl = "";
