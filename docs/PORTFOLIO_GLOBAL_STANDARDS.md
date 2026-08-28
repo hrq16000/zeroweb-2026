@@ -42,6 +42,48 @@ Arquivo: `src/config/portfolio-global-config.json`
 Resolução tipada: `resolvePortfolioStandards(slugOrKey)` em
 `src/lib/portfolio-global-config.ts` (aceita `slug` ou `clientKey`).
 
+## 2.1 Mensagem global do CTA/funil
+
+Todo CTA de cliente deve usar `PortfolioCTAQuiz`/`FunnelCTAButton` com
+`clientKey` explícito. A mensagem gerada pelo mecanismo compartilhado começa
+com a identificação da página e preserva a URL completa:
+
+```text
+Olá, [cliente]! Vim pela página da *[nome do cliente]* e quero conversar sobre um atendimento.
+🔗 URL completa: [URL inteira do /portfolio/<slug>]
+✨ A página é linda e encontrei exatamente o que procurava!
+```
+
+Quando disponível, o servidor acrescenta cidade, região e bairro estimados por
+IP. O bairro só é incluído se o provedor retornar `district`, `suburb` ou
+`neighborhood`; nenhum valor é inventado. IP, user-agent e identificadores
+internos nunca aparecem na mensagem. Se a consulta falhar, o atendimento segue
+sem localização.
+
+O destinatário é resolvido no servidor por `clientKey`; números de telefone,
+e-mails operacionais e links diretos de mensageiro não podem entrar no bundle.
+
+## 2.2 Contrato de conteúdo e descoberta
+
+Cada cliente deve ter nome, categoria, cidade/estado, resumo, tags, imagem de
+capa, ícone, imagem social, prova social e SEO próprios. A raiz `/portfolio`
+funciona como catálogo escalável: filtros persistidos na URL, busca textual,
+ordenação, carregamento incremental e priorização silenciosa por cidade estimada
+quando houver correspondência confiável. A ausência de geo mantém a ordem
+neutra.
+
+O sitemap e o `ItemList` são derivados do catálogo canônico, portanto cada novo
+slug publicado deve ser registrado em `portfolio-catalog.json` e
+`portfolio-site-registry.ts` antes do deploy.
+
+## 2.3 Performance e mídia
+
+Imagens devem usar o diretório exclusivo do cliente e formatos compactados
+(WebP/AVIF quando disponíveis), com `loading="lazy"`, `decoding="async"` e
+`sizes` responsivo para conteúdo abaixo da dobra. O primeiro conteúdo visual
+recebe prioridade limitada; não se deve bloquear a página inteira aguardando
+geo, redes sociais ou popups. Animações devem respeitar `prefers-reduced-motion`.
+
 ## 3. Overrides controlados
 
 - Overrides são **parciais**: qualquer campo não informado cai no padrão global.
