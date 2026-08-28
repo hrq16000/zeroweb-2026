@@ -5,6 +5,8 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { persistLead } from "@/lib/persistence";
 import { trackConversion } from "@/lib/analytics";
+import { useNearFooter } from "@/hooks/useNearFooter";
+import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 
 const STORAGE_KEY = "0web_lead_widget_v1";
 const TOTAL_STEPS = 4;
@@ -210,7 +212,7 @@ export function LeadWidget() {
   };
 
   return (
-    <div className="fixed bottom-5 left-5 z-40 print:hidden">
+    <div className={`fixed ${FLOATING_SLOT.one} left-4 sm:left-5 ${FLOATING_Z.fab} print:hidden ${hideNearFooter(nearFooter)}`}>
       <AnimatePresence>
         {!open && (
           <motion.button
