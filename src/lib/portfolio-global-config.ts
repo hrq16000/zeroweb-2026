@@ -11,6 +11,7 @@ import globalConfig from "@/config/portfolio-global-config.json";
 import clients from "@/config/portfolio-clients.json";
 import { isPortfolioClientKey, type PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
+import { resolvePortfolioQuizConfig } from "@/config/portfolio-quiz-configs.generated";
 
 export type SharePosition = "top-right" | "top-left" | "bottom-right";
 export type FloatingPosition = "bottom-right" | "bottom-left";
@@ -89,6 +90,9 @@ export function resolvePortfolioStandards(slugOrKey: string): PortfolioStandards
       behavior: "funnel-modal",
       mode: (contact.mode ?? ctaMode) as ContactMode,
       studioName: contact.studioName ?? client?.siteName ?? "Este projeto",
+      // Invariante: o botão flutuante abre o MESMO funil do CTA da página.
+      // Precedência: override explícito do cliente > registro gerado da página.
+      quizConfig: contact.quizConfig ?? resolvePortfolioQuizConfig(key),
     },
     footer: merge<PortfolioStandards["footer"]>("footer"),
     // Camada da hospedagem: não pode ser desativada por configuração de cliente.
