@@ -65,6 +65,9 @@ const SalaoDaMarciaPage = lazy(() =>
 const EspacoCihLuhPage = lazy(() =>
   import("@/components/site/EspacoCihLuhPage").then((m) => ({ default: m.EspacoCihLuhPage })),
 );
+const DiegoMontadorMoveisPage = lazy(() =>
+  import("@/components/site/DiegoMontadorMoveisPage").then((m) => ({ default: m.DiegoMontadorMoveisPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -92,6 +95,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isNoBrilho = loaderData?.slug === "no-brilho-higienizacao";
     const isSalaoMarcia = loaderData?.slug === "salao-da-marcia";
     const isCihLuh = loaderData?.slug === "espaco-cih-luh";
+    const isDiego = loaderData?.slug === "diego-montador-moveis";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -122,6 +126,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Salão da Marcia em Cidade Jardim, São José dos Pinhais: depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
           : isCihLuh
             ? "Espaço CIH & LUH, o casal das unhas: alongamento em gel, reconstruções, pedicure e cuidados podológicos."
+          : isDiego
+            ? "Montagem e desmontagem de móveis, consertos, adaptações e instalações residenciais no Sítio Cercado, Curitiba."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -162,6 +168,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/salao-da-marcia/depilacao.webp"
                 : isCihLuh
                   ? "/images/espaco-cih-luh/promocao.webp"
+                : isDiego
+                  ? "/images/diego-montador-moveis/capa.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -204,6 +212,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Salão da Marcia São José dos Pinhais, depilação com cera, progressiva, corte, hidratação, mechas, pé e mão"
                 : isCihLuh
                   ? "Espaço CIH LUH Manaus, alongamento em gel, unhas, pedicure, podologia, reconstrução de unhas"
+                : isDiego
+                  ? "montador de móveis Curitiba, montagem de móveis Sítio Cercado, marido de aluguel Curitiba, conserto de móveis, instalação de TV, instalação de persianas"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -315,6 +325,8 @@ function PortfolioPrototypePage() {
           <SalaoDaMarciaPage />
         ) : slug === "espaco-cih-luh" ? (
           <EspacoCihLuhPage />
+        ) : slug === "diego-montador-moveis" ? (
+          <DiegoMontadorMoveisPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

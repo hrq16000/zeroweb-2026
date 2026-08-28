@@ -231,5 +231,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "diego-montador-moveis",
+    "slug": "diego-montador-moveis",
+    "siteName": "Diego Montador de Móveis",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/DiegoMontadorMoveisPage.tsx",
+    "assetsDir": "public/images/diego-montador-moveis",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
