@@ -384,7 +384,7 @@ function PortfolioPage() {
             
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
               <AnimatePresence>
-                {filteredItems.slice(0, visibleCount).map((item) => (
+                {filteredItems.slice(0, visibleCount).map((item, index) => (
                   <motion.div
                     key={item.id}
                     layout
@@ -399,6 +399,10 @@ function PortfolioPage() {
                       <img 
                         src={item.image} 
                         alt={item.title}
+                        loading={index < 2 ? "eager" : "lazy"}
+                        decoding="async"
+                        fetchPriority={index < 2 ? "high" : "auto"}
+                        sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, 16vw"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         onError={(e) => {
                           if (item.fallbackImage) {

@@ -173,3 +173,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alteração:** resolução IP em background, usando cache de sessão e falha silenciosa; quando a cidade coincide, os cards locais sobem apenas na ordenação padrão. Busca, filtros e ordem alfabética permanecem determinísticos.
 - **Privacidade:** não solicita GPS, não exibe o endereço estimado e não envia a cidade ao cliente; sem retorno do provedor, mantém a ordem original.
 - **Validação:** `validate:portfolio-boundaries`, `validate:portfolio-meta`, `validate:portfolio-assets` e `git diff --check`.
+## 2026-08-28 — carregamento progressivo das imagens do catálogo
+
+- **Tarefa:** novo ciclo de performance para a vitrine `/portfolio`.
+- **Skills:** `0web-skill-router`, `0web-ui-quality-gates` e performance/responsivo.
+- **Alteração:** somente os dois primeiros cards recebem prioridade alta; demais imagens usam lazy-loading, `decoding=async` e `sizes` coerentes com 2/3/4/6 colunas.
+- **Resultado esperado:** menor custo de rede e renderização inicial em mobile, sem remover conteúdo indexável.
+- **Validação:** gates de portfolios, metadados e assets aprovados; pre-commit com Schema.org, canonicals e rotas.
