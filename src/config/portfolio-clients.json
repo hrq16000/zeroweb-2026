@@ -88,5 +88,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "confeitaria-chyrley",
+    "slug": "confeitaria-chyrley",
+    "siteName": "Chyrley Doces & Festas",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ConfeitariaChyrleyPage.tsx",
+    "assetsDir": "public/images/confeitaria-chyrley",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

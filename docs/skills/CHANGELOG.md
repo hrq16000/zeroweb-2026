@@ -1,5 +1,15 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Chyrley Doces & Festas
+
+- **Tarefa:** criar site de cliente para bolos, kits festa, salgados, docinhos e Copo da Felicidade em Rio Bonito.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, imagegen e performance mobile-first.
+- **Alterações:** slug `confeitaria-chyrley`, componente exclusivo, capa e galeria com imagens reais anexadas, imagem complementar gerada sem texto, CTA/funil próprio, prova social, SEO, sitemap e assets WebP.
+- **Conteúdo:** hero de conversão, ofertas, galeria, modalidades de retirada/envio, pagamento e fluxo de encomenda.
+- **Privacidade:** telefone não entra no bundle; destinatário será resolvido por secret server-side `CONFEITARIA_CHYRLEY_WHATSAPP_NUMBER`. Perfis sociais não foram inventados.
+- **Validação:** pendente executar após preencher a secret de produção e validar migration no ambiente Supabase.
+
+
 ## 2026-08-28 — pedidos extensos sem rejeição no funil
 
 - O contrato server-side de `answers.service` passou de 180 para 4000 caracteres, alinhado ao limite já aplicado ao `orderContext.order_items`.
