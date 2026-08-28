@@ -1,6 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, CheckCircle2, Download, RefreshCcw } from "lucide-react";
+import { AlertTriangle, Bell, CheckCircle2, Download, RefreshCcw } from "lucide-react";
+import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
+import { testAnalyticsAlert } from "@/lib/alerts-test.functions";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
@@ -124,6 +127,8 @@ function AuditPanel() {
   const [discards, setDiscards] = useState<DiscardSummary | null>(null);
   const [windowHours, setWindowHours] = useState(24);
   const [threshold, setThreshold] = useState(DEFAULT_DISCARD_THRESHOLD);
+  const [testingAlert, setTestingAlert] = useState(false);
+  const testAlert = useServerFn(testAnalyticsAlert);
   const [socialRuns, setSocialRuns] = useState<SocialRegenRun[]>([]);
   const [jobRuns, setJobRuns] = useState<OpsJobRun[]>([]);
   const [jobControl, setJobControl] = useState<OpsJobControl[]>([]);
