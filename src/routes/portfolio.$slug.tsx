@@ -56,6 +56,9 @@ const PauloMestreDeObrasPage = lazy(() =>
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
+const NoBrilhoHigienizacaoPage = lazy(() =>
+  import("@/components/site/NoBrilhoHigienizacaoPage").then((m) => ({ default: m.NoBrilhoHigienizacaoPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -80,6 +83,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isLucasArruma = loaderData?.slug === "lucas-arruma-maquina-lavar";
     const isPauloMestre = loaderData?.slug === "paulo-mestre-de-obras";
     const isEcommerceOn = loaderData?.slug === "ecommerce-on";
+    const isNoBrilho = loaderData?.slug === "no-brilho-higienizacao";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -104,6 +108,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Serviços de pedreiro, azulejista e construção civil para fundação, alvenaria, revestimentos e reformas."
           : isEcommerceOn
             ? "Agência digital para SEO, e-commerce, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
+          : isNoBrilho
+            ? "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes e bancos automotivos em São José dos Pinhais."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -138,6 +144,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/paulo-mestre-de-obras/capa.webp"
                 : isEcommerceOn
                   ? "/images/ecommerce-on/servicos.webp"
+                : isNoBrilho
+                  ? "/images/no-brilho-higienizacao/capa.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -174,6 +182,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "pedreiro Curitiba, mestre de obras, azulejista, alvenaria, pisos e revestimentos, reformas residenciais"
                 : isEcommerceOn
                   ? "agência digital Curitiba, SEO, e-commerce, tráfego pago, gestão de redes sociais, marketing digital, automação"
+                : isNoBrilho
+                  ? "higienização de estofados São José dos Pinhais, limpeza de sofá, higienização de colchão, limpeza a domicílio"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -279,6 +289,8 @@ function PortfolioPrototypePage() {
           <PauloMestreDeObrasPage />
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />
+        ) : slug === "no-brilho-higienizacao" ? (
+          <NoBrilhoHigienizacaoPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

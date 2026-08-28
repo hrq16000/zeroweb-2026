@@ -198,5 +198,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "no-brilho-higienizacao",
+    "slug": "no-brilho-higienizacao",
+    "siteName": "No Brilho Higienização",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
+    "assetsDir": "public/images/no-brilho-higienizacao",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

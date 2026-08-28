@@ -1,6 +1,6 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-  "ecommerce-on","paulo-mestre-de-obras","lucas-arruma-maquina-lavar","lk-alvenaria","vila-da-capivara","ag-electrical-services","refrigeracao-maresia","studio-de-cilios","mp-festas-eventos","confeitaria-chyrley",
+  "no-brilho-higienizacao","ecommerce-on","paulo-mestre-de-obras","lucas-arruma-maquina-lavar","lk-alvenaria","vila-da-capivara","ag-electrical-services","refrigeracao-maresia","studio-de-cilios","mp-festas-eventos","confeitaria-chyrley",
   "dyzpromo",
   "renata-beauty",
   "r-beauty",
