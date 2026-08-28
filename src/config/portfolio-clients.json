@@ -77,5 +77,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "rj-servicos-drywall",
+    "slug": "rj-servicos-drywall",
+    "siteName": "RJ Serviços de Drywall",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/RjServicosDrywallPage.tsx",
+    "assetsDir": "public/images/rj-servicos-drywall",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
