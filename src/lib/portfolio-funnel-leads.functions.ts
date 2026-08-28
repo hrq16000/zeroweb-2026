@@ -65,19 +65,25 @@ export const listPortfolioFunnelLeads = createServerFn({ method: "POST" })
       )
       .order("created_at", { ascending: false })
       .limit(data.limit ?? 200);
-    if (data.funnel_slug) q = q.eq("dynamic_forms.slug", data.funnel_slug);
+    if (data.funnel_slug && !data.funnel_slug.startsWith("portfolio-")) {
+      q = q.eq("dynamic_forms.slug", data.funnel_slug);
+    }
 
     const { data: rows, error } = await q;
     if (error) throw new Error(error.message);
 
     let leads: PortfolioFunnelLead[] = ((rows ?? []) as any[]).map((r) => {
       const meta = (r.metadata_json ?? null) as Record<string, unknown> | null;
+      const clientKey = typeof meta?.client_key === "string" ? meta.client_key : null;
+      const isPortfolioLead = meta?.source === "portfolio_client" && clientKey;
       return {
         id: r.id as string,
         created_at: r.created_at as string,
-        funnel_slug: r.dynamic_forms?.slug ?? "—",
-        funnel_name: r.dynamic_forms?.name ?? "—",
-        client_key: typeof meta?.client_key === "string" ? meta.client_key : null,
+        funnel_slug: isPortfolioLead ? `portfolio-${clientKey}` : (r.dynamic_forms?.slug ?? "—"),
+        funnel_name: isPortfolioLead
+          ? (typeof meta?.studio_name === "string" ? meta.studio_name : clientKey)
+          : (r.dynamic_forms?.name ?? "—"),
+        client_key: clientKey,
         contact_name: r.contact_name ?? null,
         contact_phone: r.contact_phone ?? null,
         status: (r.whatsapp_alert_status as string | null) ?? null,
@@ -87,6 +93,9 @@ export const listPortfolioFunnelLeads = createServerFn({ method: "POST" })
     });
 
     if (data.client_key) leads = leads.filter((l) => l.client_key === data.client_key);
+    if (data.funnel_slug?.startsWith("portfolio-")) {
+      leads = leads.filter((l) => l.funnel_slug === data.funnel_slug);
+    }
     if (data.status) leads = leads.filter((l) => l.status === data.status);
 
     const funnels = Array.from(new Set(leads.map((l) => l.funnel_slug))).sort();

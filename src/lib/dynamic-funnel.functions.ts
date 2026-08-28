@@ -374,6 +374,12 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     recipientName: z.string().min(1).max(80),
     mode: z.enum(["booking", "proposal"]),
     pageUrl: z.string().url().max(500).optional(),
+    orderContext: z.object({
+      order_items: z.string().max(4000).optional(),
+      order_total: z.string().max(80).optional(),
+      fulfillment: z.string().max(80).optional(),
+      customer_note: z.string().max(500).optional(),
+    }).optional(),
     answers: z.object({
       service: z.string().max(180),
       experience: z.string().max(180),
@@ -410,6 +416,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           studio_name: data.studioName,
           recipient_name: data.recipientName,
           mode: data.mode,
+          ...(data.orderContext ? { order_context: data.orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
           ...(geo.city ? { city: geo.city } : {}),
