@@ -1,6 +1,6 @@
 # Relatório de privacidade (fonte)
 
-Gerado em 2026-08-28T18:55:44.418Z
+Gerado em 2026-08-28T23:06:38.401Z
 
 - erros: 0
 - avisos: 0
