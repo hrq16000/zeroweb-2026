@@ -11,6 +11,7 @@ import globalConfig from "@/config/portfolio-global-config.json";
 import clients from "@/config/portfolio-clients.json";
 import { isPortfolioClientKey, type PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
+import { resolvePortfolioQuizConfig } from "@/config/portfolio-quiz-configs.generated";
 
 export type SharePosition = "top-right" | "top-left" | "bottom-right";
 export type FloatingPosition = "bottom-right" | "bottom-left";
