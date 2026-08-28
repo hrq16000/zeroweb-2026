@@ -381,7 +381,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       customer_note: z.string().max(500).optional(),
     }).optional(),
     answers: z.object({
-      service: z.string().max(180),
+      // Pedidos de catálogo podem conter dezenas de itens, adicionais,
+      // modalidade, total e observação. O limite anterior de 180 rejeitava
+      // pedidos válidos depois que removemos o truncamento da interface.
+      service: z.string().max(4000),
       experience: z.string().max(180),
       period: z.string().max(120),
       timing: z.string().max(120),
@@ -413,6 +416,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         metadata_json: {
           source: "portfolio_client",
           client_key: data.clientKey,
+          funnel_slug: `portfolio-${data.clientKey}`,
           studio_name: data.studioName,
           recipient_name: data.recipientName,
           mode: data.mode,

@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — pedidos extensos sem rejeição no funil
+
+- O contrato server-side de `answers.service` passou de 180 para 4000 caracteres, alinhado ao limite já aplicado ao `orderContext.order_items`.
+- Novos leads registram `metadata_json.funnel_slug = portfolio-<clientKey>`, além do `client_key` e contexto estruturado.
+- O painel prefere o slug persistido e mantém fallback compatível para leads anteriores.
+
+
 ## 2026-08-28 — paridade da prévia e mensagem final dos portfolios
 
 - Corrigida a prévia “sua mensagem está personalizada”, que ainda usava copy antiga.
