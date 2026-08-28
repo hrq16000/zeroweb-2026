@@ -33,6 +33,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "salao-da-marcia", vertical: "beleza", siteName: "Salão da Marcia · Cidade Jardim", kind: "prototype", indexable: true },
   { slug: "espaco-cih-luh", vertical: "beleza", siteName: "Espaço CIH & LUH · O Casal das Unhas", kind: "prototype", indexable: true },
   { slug: "diego-montador-moveis", vertical: "prestadores-de-servicos", siteName: "Diego Montador de Móveis · Sítio Cercado", kind: "prototype", indexable: true },
+  { slug: "aguia-sul-sinalizacao", vertical: "prestadores-de-servicos", siteName: "Águia Sul Sinalização · Pintura e Segurança", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

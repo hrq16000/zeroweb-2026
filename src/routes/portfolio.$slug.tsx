@@ -68,6 +68,9 @@ const EspacoCihLuhPage = lazy(() =>
 const DiegoMontadorMoveisPage = lazy(() =>
   import("@/components/site/DiegoMontadorMoveisPage").then((m) => ({ default: m.DiegoMontadorMoveisPage })),
 );
+const AguiaSulSinalizacaoPage = lazy(() =>
+  import("@/components/site/AguiaSulSinalizacaoPage").then((m) => ({ default: m.AguiaSulSinalizacaoPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -96,6 +99,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isSalaoMarcia = loaderData?.slug === "salao-da-marcia";
     const isCihLuh = loaderData?.slug === "espaco-cih-luh";
     const isDiego = loaderData?.slug === "diego-montador-moveis";
+    const isAguia = loaderData?.slug === "aguia-sul-sinalizacao";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -128,6 +132,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Espaço CIH & LUH, o casal das unhas: alongamento em gel, reconstruções, pedicure e cuidados podológicos."
           : isDiego
             ? "Montagem e desmontagem de móveis, consertos, adaptações e instalações residenciais no Sítio Cercado, Curitiba."
+          : isAguia
+            ? "Pintura e sinalização horizontal para estacionamentos, condomínios, comércios e indústrias em Curitiba e região."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -170,6 +176,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/espaco-cih-luh/promocao.webp"
                 : isDiego
                   ? "/images/diego-montador-moveis/capa.webp"
+                : isAguia
+                  ? "/images/aguia-sul-sinalizacao/logo.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -214,6 +222,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Espaço CIH LUH Manaus, alongamento em gel, unhas, pedicure, podologia, reconstrução de unhas"
                 : isDiego
                   ? "montador de móveis Curitiba, montagem de móveis Sítio Cercado, marido de aluguel Curitiba, conserto de móveis, instalação de TV, instalação de persianas"
+                : isAguia
+                  ? "sinalização horizontal Curitiba, pintura de estacionamento, demarcação de vagas, faixas de pedestres, pintura industrial, Águia Sul"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -327,6 +337,8 @@ function PortfolioPrototypePage() {
           <EspacoCihLuhPage />
         ) : slug === "diego-montador-moveis" ? (
           <DiegoMontadorMoveisPage />
+        ) : slug === "aguia-sul-sinalizacao" ? (
+          <AguiaSulSinalizacaoPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
