@@ -127,3 +127,24 @@ auto-reporta, evitando laço.
 motivo, com janela configurável (1 h a 7 dias) e limiar de alerta (padrão 20
 descartes na janela). A leitura de `analytics_events` continua restrita a
 administradores pela RLS existente.
+
+## Rotinas agendadas (ops jobs)
+
+Rotinas periódicas passam pelo runner `src/lib/ops-jobs.server.ts`, que grava
+cada execução em `ops_job_runs` e mantém estado em `ops_job_control`:
+
+- **lock single-flight** — execução concorrente da mesma rotina é recusada
+  (`already_running`), com liberação automática após 15 min de execução travada;
+- **pausa manual** — `ops_job_control.paused = true` desliga a rotina sem deploy;
+- **circuit breaker** — 3 falhas consecutivas abrem o circuito por 1 h.
+
+Endpoints (todos exigem o header `x-cron-secret`):
+
+| Rotina | Endpoint | Função |
+|---|---|---|
+| `analytics_discards_scan` | `POST /api/public/hooks/discards-scan?hours=24&threshold=20` | avalia telemetria descartada e alerta por WhatsApp |
+| `social_images_regen` | `POST /api/public/hooks/social-regen-log` | recebe o resultado do worker de imagens sociais |
+
+O worker `bun run social:regen` envia o histórico automaticamente quando
+`SOCIAL_REGEN_HOOK_URL` e `CRON_SECRET` estão definidos. O `/painel-auditorias`
+exibe execuções, duração, erro e estado do circuito na seção "Rotinas agendadas".
