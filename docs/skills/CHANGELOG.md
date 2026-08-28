@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Diego Montador de Móveis
+
+- **Tarefa:** criar site independente para montagem/desmontagem de móveis, consertos e instalações no Sítio Cercado, Curitiba.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, `imagegen`, performance mobile-first.
+- **Alterações:** página exclusiva com motion, capa editorial gerada e otimizada em WebP, catálogo/SEO/sitemap, funil individual, prova social e popup de captação 0WEB.
+- **Privacidade:** telefone não entra no bundle; produção requer `DIEGO_MONTADOR_MOVEIS_WHATSAPP_NUMBER` server-side.
+
 ## 2026-08-28 — novo portfolio Espaço CIH & LUH
 
 - **Tarefa:** criar site para o casal das unhas, com alongamento em gel, reconstruções, pedicure e cuidados podológicos.
