@@ -146,8 +146,8 @@ export function ParaisoHotDogPage() {
         `${cart[p.id]}x ${p.name}${custom[p.id]?.length ? ` (${custom[p.id].join("/")})` : ""}`,
     )
     .join(", ")
-    .concat(` · ${delivery} · R$ ${total.toFixed(2).replace(".", ",")}`)
-    .slice(0, 175);
+    .concat(` · ${delivery === "entrega" ? "ENTREGA" : "RETIRADA"} · R$ ${total.toFixed(2).replace(".", ",")}`)
+    .concat(note.trim() ? ` · Observação: ${note.trim()}` : "");
   const orderQuiz = {
     services: [orderSummary || "Meu pedido do cardápio"],
     experienceOptions: [delivery === "entrega" ? "Entrega" : "Retirada no local"],
@@ -161,6 +161,7 @@ export function ParaisoHotDogPage() {
       note: "Últimos detalhes do pedido",
     },
     notePlaceholder: note || "Informe endereço, referência, troco ou alguma observação.",
+    proposalKind: "service" as const,
   };
   const toggleExtra = (id: string, extra: string) =>
     setCustom((v) => ({
