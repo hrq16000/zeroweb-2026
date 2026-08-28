@@ -6,6 +6,7 @@ import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
+import { formatLocation, getGeoForLead } from "@/lib/geo-location";
 
 type Theme = "pink" | "gold" | "navy";
 type Answers = { service: string; experience: string; period: string; timing: string; note: string };
@@ -73,7 +74,7 @@ const EXPERIENCE = [
 const PERIODS = ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"];
 const TIMINGS = ["Hoje ou amanhã", "Ainda nesta semana", "Na próxima semana", "Quero a primeira vaga disponível"];
 
-function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"], proposalKind: PortfolioQuizConfig["proposalKind"] = "campaign") {
+function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"], proposalKind: PortfolioQuizConfig["proposalKind"] = "campaign", pageUrl = "", location = "") {
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && proposalKind === "service";
   const lines = [
@@ -82,6 +83,9 @@ function whatsappMessage(studioName: string, answers: Answers, recipientName: st
     `Olá, ${recipientName}! Tudo bem?`,
     "",
     `Vim pela página da *${studioName}* e quero conversar sobre ${isServiceProposal ? "um serviço" : isProposal ? "uma campanha" : "um atendimento"}.`,
+    ...(pageUrl ? [`🔗 URL completa: ${pageUrl}`] : []),
+    "✨ A página é linda, parabéns! Encontrei exatamente o que procurava.",
+    ...(location ? [`📍 Sou de ${location}.`] : []),
     isProposal ? `Deixei ${isServiceProposal ? "os detalhes" : "o briefing"} abaixo para facilitar a proposta:` : "Deixei as preferências abaixo para facilitar o agendamento:",
     "",
     isProposal ? "*BRIEFING DA CAMPANHA*" : "*PREFERÊNCIAS DO ATENDIMENTO*",
@@ -158,6 +162,7 @@ export function BeautyBookingQuiz({
   const [answers, setAnswers] = useState<Answers>({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
   const [redirecting, setRedirecting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [previewLocation, setPreviewLocation] = useState("");
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
   const dialogRef = useRef<HTMLDivElement>(null);
   const look = THEMES[theme];
@@ -185,6 +190,7 @@ export function BeautyBookingQuiz({
     onOpen?.();
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
     setStep(0);
+    void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));
     setOpen(true);
     // Telemetria fora do caminho crítico: o modal abre no mesmo frame do clique.
     queueTelemetry(() => {
@@ -306,7 +312,15 @@ export function BeautyBookingQuiz({
                     <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
-                    {whatsappMessage(studioName, answers, recipientName, mode, quizConfig?.proposalKind)}
+                    {whatsappMessage(
+                      studioName,
+                      answers,
+                      recipientName,
+                      mode,
+                      quizConfig?.proposalKind,
+                      typeof window !== "undefined" ? window.location.href : "",
+                      previewLocation,
+                    )}
                   </div>
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />

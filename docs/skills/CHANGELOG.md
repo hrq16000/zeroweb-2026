@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — paridade da prévia e mensagem final dos portfolios
+
+- Corrigida a prévia “sua mensagem está personalizada”, que ainda usava copy antiga.
+- Todos os `PortfolioCTAQuiz` passam a mostrar nome do cliente, URL completa, elogio “A página é linda, parabéns!” e localização estimada.
+- Geo-IP silencioso passou a aceitar bairro (`district`/`suburb`/`neighborhood`) além de cidade e região; ausência de dado mantém fallback sem localização.
+- O gerador final server-side recebeu a mesma frase, evitando divergência entre prévia e mensagem enviada.
+
+
 ## 2026-08-28 — painel de leads com contexto de pedido e cliente
 
 - O funil de portfolio aceita `orderContext` estruturado e o Paraíso do Hot Dog envia itens, total, modalidade e observação em campos próprios.
