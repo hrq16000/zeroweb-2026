@@ -83,18 +83,6 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-27 — contrato canônico do catálogo
 
-## 2026-08-28 — RJ Serviços de Drywall
-
-**Task:** novo site independente em `/portfolio/rj-servicos-drywall`, com identidade, imagens, funil, SEO local e motion próprios.
-
-**Skills used:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, `0web-ui-quality-gates`, Apple HIG e `imagegen`. React Best Practices foi aplicado como revisão de composição/performance, sem nova dependência.
-
-**Findings:** contato da arte de referência não pode entrar no bundle; prova social sem métricas ou depoimentos; imagens abaixo da dobra devem ser lazy; movimento deve cessar em `prefers-reduced-motion`.
-
-**Changes:** cliente/catálogo/registry, página exclusiva, tema semântico, SEO local, dois assets próprios e migration do funil `funnel-rj-servicos-drywall`.
-
-**Skills rejected / reason:** skills externas de landing/CRO ficaram `REFERENCE_ONLY` por redundância e ausência de auditoria upstream; nenhum template foi instalado.
-
 # 2026-08-27 — catálogo mobile-first (ciclo 3)
 
 - `/portfolio` passou a derivar identidade, segmento e tipo do catálogo canônico.
@@ -111,3 +99,21 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Implementado: captura nativa de LCP/CLS/INP por slug, ingestão server-side limitada, Lighthouse CI para todos os slugs registrados e upload de relatórios JSON/HTML.
 - Validação: `validate:portfolio-boundaries`, `validate:portfolio-meta` e `validate:portfolio-performance` aprovados. Build local iniciou e regenerou `routeTree.gen.ts`; typecheck completo ficou limitado pelo tempo do ambiente.
 - Publicação: depende de `LHCI_TARGET_URL` apontando para o deploy/preview; nenhuma credencial ou deploy foi inventado.
+
+# 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
+
+## 2026-08-28 — RJ Serviços de Drywall
+
+- Task: novo site independente em `/portfolio/rj-servicos-drywall`, com identidade, imagens, funil, SEO local e motion próprios.
+- Skills: `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, `0web-ui-quality-gates`, Apple HIG e `imagegen`.
+- Findings: contato da arte de referência permaneceu fora do bundle; prova social sem métricas inventadas; imagens otimizadas; `prefers-reduced-motion` respeitado.
+- Changes: cliente/catálogo/registry, página exclusiva, tema semântico, SEO local, dois assets próprios, migration e roteamento server-side do WhatsApp.
+- Skills externas de landing/CRO rejeitadas por redundância e ausência de auditoria upstream; nenhum template instalado.
+
+- Integrada a branch `codex/portfolio-catalog-cycle4` preservando as alterações existentes.
+- Migration `20260828001000_create_portfolio_web_vitals.sql` aplicada (RLS, acesso público revogado, service_role apenas, índices por slug/métrica/data).
+- Novo painel `/painel-web-vitals` com p75 de LCP/CLS/INP, amostras e alertas por slug (`src/lib/portfolio-vitals-metrics.functions.ts`, guarda de admin).
+- `/portfolio` passou a derivar os cards do catálogo canônico com tipagem explícita; filtros de segmento, tipo, busca e ordenação persistidos na URL.
+- `LHCI_TARGET_URL` corrigido para o domínio real de produção; Lighthouse CI cobre todos os slugs registrados e publica relatórios JSON/HTML como artefatos.
+- Regressão visual estabilizada (espera por rede ociosa e imagens decodificadas) — 16 capturas em 0,00% de diferença.
+- Gates executados: catálogo, boundaries, meta, scaffold, performance, `bun test` (230), `bun run build`, a11y, E2E de popup e de funis, regressão visual.

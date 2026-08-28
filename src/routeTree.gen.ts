@@ -42,6 +42,7 @@ import { Route as PainelPopupRouteImport } from './routes/painel-popup'
 import { Route as PainelPopupMetricasRouteImport } from './routes/painel-popup-metricas'
 import { Route as PainelPortfolioRouteImport } from './routes/painel-portfolio'
 import { Route as PainelSkillsRouteImport } from './routes/painel-skills'
+import { Route as PainelWebVitalsRouteImport } from './routes/painel-web-vitals'
 import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as PlanosComparativoRouteImport } from './routes/planos-comparativo'
@@ -362,6 +363,11 @@ const PainelPortfolioRoute = PainelPortfolioRouteImport.update({
 const PainelSkillsRoute = PainelSkillsRouteImport.update({
   id: '/painel-skills',
   path: '/painel-skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelWebVitalsRoute = PainelWebVitalsRouteImport.update({
+  id: '/painel-web-vitals',
+  path: '/painel-web-vitals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParceirosRoute = ParceirosRouteImport.update({
@@ -1237,6 +1243,7 @@ export interface FileRoutesByFullPath {
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/painel-skills': typeof PainelSkillsRoute
+  '/painel-web-vitals': typeof PainelWebVitalsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1428,6 +1435,7 @@ export interface FileRoutesByTo {
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/painel-skills': typeof PainelSkillsRoute
+  '/painel-web-vitals': typeof PainelWebVitalsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1619,6 +1627,7 @@ export interface FileRoutesById {
   '/painel-popup-metricas': typeof PainelPopupMetricasRoute
   '/painel-portfolio': typeof PainelPortfolioRoute
   '/painel-skills': typeof PainelSkillsRoute
+  '/painel-web-vitals': typeof PainelWebVitalsRoute
   '/parceiros': typeof ParceirosRoute
   '/planos': typeof PlanosRoute
   '/planos-comparativo': typeof PlanosComparativoRoute
@@ -1812,6 +1821,7 @@ export interface FileRouteTypes {
     | '/painel-popup-metricas'
     | '/painel-portfolio'
     | '/painel-skills'
+    | '/painel-web-vitals'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2003,6 +2013,7 @@ export interface FileRouteTypes {
     | '/painel-popup-metricas'
     | '/painel-portfolio'
     | '/painel-skills'
+    | '/painel-web-vitals'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2193,6 +2204,7 @@ export interface FileRouteTypes {
     | '/painel-popup-metricas'
     | '/painel-portfolio'
     | '/painel-skills'
+    | '/painel-web-vitals'
     | '/parceiros'
     | '/planos'
     | '/planos-comparativo'
@@ -2386,6 +2398,7 @@ export interface RootRouteChildren {
   PainelPopupMetricasRoute: typeof PainelPopupMetricasRoute
   PainelPortfolioRoute: typeof PainelPortfolioRoute
   PainelSkillsRoute: typeof PainelSkillsRoute
+  PainelWebVitalsRoute: typeof PainelWebVitalsRoute
   ParceirosRoute: typeof ParceirosRoute
   PlanosRoute: typeof PlanosRoute
   PlanosComparativoRoute: typeof PlanosComparativoRoute
@@ -2713,6 +2726,13 @@ declare module '@tanstack/react-router' {
       path: '/painel-skills'
       fullPath: '/painel-skills'
       preLoaderRoute: typeof PainelSkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel-web-vitals': {
+      id: '/painel-web-vitals'
+      path: '/painel-web-vitals'
+      fullPath: '/painel-web-vitals'
+      preLoaderRoute: typeof PainelWebVitalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parceiros': {
@@ -4095,6 +4115,7 @@ const rootRouteChildren: RootRouteChildren = {
   PainelPopupMetricasRoute: PainelPopupMetricasRoute,
   PainelPortfolioRoute: PainelPortfolioRoute,
   PainelSkillsRoute: PainelSkillsRoute,
+  PainelWebVitalsRoute: PainelWebVitalsRoute,
   ParceirosRoute: ParceirosRoute,
   PlanosRoute: PlanosRoute,
   PlanosComparativoRoute: PlanosComparativoRoute,

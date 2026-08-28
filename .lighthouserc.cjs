@@ -9,7 +9,7 @@
  */
 const fs = require("node:fs");
 const TARGET_URL =
-  process.env.LHCI_TARGET_URL || "https://grow-evolution-engine.lovable.app";
+  process.env.LHCI_TARGET_URL || "https://zeroweb.lovable.app";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
 const portfolioUrls = clients.map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
 

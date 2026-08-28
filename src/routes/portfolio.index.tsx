@@ -197,10 +197,26 @@ const LEGACY_PORTFOLIO_ITEMS = [
 
 // O registro canônico controla identidade e descoberta; estes campos visuais
 // históricos serão migrados para o catálogo no ciclo de conteúdo.
-const PORTFOLIO_ITEMS = portfolioCatalog.map((canonical) => {
-  const legacy = LEGACY_PORTFOLIO_ITEMS.find((item) => item.slug === `/portfolio/${canonical.slug}`);
-  return { ...legacy, ...canonical, id: canonical.slug, slug: `/portfolio/${canonical.slug}`, category: canonical.segment };
-}).filter((item) => item.image);
+type LegacyItem = (typeof LEGACY_PORTFOLIO_ITEMS)[number];
+type CatalogItem = (typeof portfolioCatalog)[number];
+type PortfolioItem = Partial<LegacyItem> &
+  CatalogItem & { id: string; slug: string; category: string; image?: string };
+
+const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog
+  .map((canonical) => {
+    const legacy = LEGACY_PORTFOLIO_ITEMS.find(
+      (item) => item.slug === `/portfolio/${canonical.slug}`,
+    ) as Partial<LegacyItem> | undefined;
+    return {
+      ...(legacy ?? {}),
+      ...canonical,
+      id: canonical.slug,
+      slug: `/portfolio/${canonical.slug}`,
+      category: canonical.segment,
+    } as PortfolioItem;
+  })
+  .filter((item) => Boolean(item.image));
+
 
 export const Route = createFileRoute("/portfolio/")({
   head: () => ({
