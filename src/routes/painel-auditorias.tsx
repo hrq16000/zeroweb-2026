@@ -5,6 +5,12 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
 import { fetchAnalyticsDiscards, DEFAULT_DISCARD_THRESHOLD, type DiscardSummary } from "@/lib/analytics-discards";
+import {
+  fetchOpsJobRuns,
+  fetchOpsJobControl,
+  type OpsJobRun,
+  type OpsJobControl,
+} from "@/lib/ops-jobs";
 
 export const Route = createFileRoute("/painel-auditorias")({
   head: () => ({
@@ -119,6 +125,8 @@ function AuditPanel() {
   const [windowHours, setWindowHours] = useState(24);
   const [threshold, setThreshold] = useState(DEFAULT_DISCARD_THRESHOLD);
   const [socialRuns, setSocialRuns] = useState<SocialRegenRun[]>([]);
+  const [jobRuns, setJobRuns] = useState<OpsJobRun[]>([]);
+  const [jobControl, setJobControl] = useState<OpsJobControl[]>([]);
 
   const load = async () => {
     setLoading(true);
