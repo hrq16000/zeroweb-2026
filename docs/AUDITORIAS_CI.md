@@ -53,3 +53,26 @@ O `sitemap.xml` é um índice e 8 URLs aparecem em mais de um sitemap filho
 portfólios com rota dedicada). Não bloqueia indexação, mas a deduplicação entre
 `sitemap-pages.xml` e os sitemaps temáticos deve ser tratada na geração —
 alteração de escopo maior, registrada aqui em vez de aplicada às cegas.
+
+## Analytics — rejeição 42501 em `analytics_events` (corrigido)
+
+Causa raiz confirmada por reprodução HTTP com a chave pública:
+
+- `POST /analytics_events?on_conflict=id` (upsert) → `401 / 42501` "new row violates row-level security policy";
+- `POST /analytics_events` (INSERT puro) → `201`.
+
+O PostgREST exige política de UPDATE para resolver `on_conflict`; a tabela só
+possui políticas de INSERT (`anon_insert_events` / `auth_insert_events`, com
+`event_name IS NOT NULL AND length(event_name) <= 64`). Nenhum evento legítimo
+era barrado pelo limite de 64 caracteres — o bloqueio vinha do upsert.
+
+Correção em `src/lib/analytics-queue.ts`:
+
+- envio por INSERT puro com `id` gerado no cliente;
+- `23505` (chave duplicada) tratado como sucesso → idempotência preservada;
+- `sanitizeEventName()` normaliza/trunca `event_name` em 64 caracteres e
+  descarta eventos inválidos com `console.warn`, sem reenfileirar (evita retry
+  infinito).
+
+Não alterar a política de RLS para permitir UPDATE anônimo: eventos analíticos
+são append-only.

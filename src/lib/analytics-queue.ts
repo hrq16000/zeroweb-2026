@@ -74,19 +74,49 @@ let flushing = false;
 let timer: number | null = null;
 let listenersBound = false;
 
-/** Envia uma linha para analytics_events de forma idempotente. */
+/** Limite aceito pela policy de INSERT em analytics_events. */
+const MAX_EVENT_NAME = 64;
+
+/**
+ * Normaliza o nome do evento para o formato aceito pela RLS.
+ * Retorna null quando o evento é inválido (deve ser descartado, não enfileirado).
+ */
+export function sanitizeEventName(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const name = value.trim().slice(0, MAX_EVENT_NAME);
+  return name.length > 0 ? name : null;
+}
+
+/**
+ * Envia uma linha para analytics_events de forma idempotente.
+ *
+ * Usa INSERT puro (não `upsert`): o PostgREST exige política de UPDATE para
+ * `on_conflict`, o que fazia toda gravação anônima ser rejeitada com 42501.
+ * A idempotência vem do `id` gerado no cliente — uma chave duplicada (23505)
+ * significa que o evento já foi gravado e é tratada como sucesso.
+ */
 async function sendRow(id: string, row: Record<string, unknown>): Promise<boolean> {
+  const eventName = sanitizeEventName((row as { event_name?: unknown }).event_name);
+  if (!eventName) {
+    if (typeof console !== "undefined") {
+      console.warn("[analytics] evento descartado: event_name inválido", row);
+    }
+    return true; // inválido por definição: não reenfileirar
+  }
   try {
     const { supabase } = await import("@/integrations/supabase/client");
     const { error } = await supabase
       .from("analytics_events")
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .upsert({ id, ...(row as any) }, { onConflict: "id", ignoreDuplicates: true });
-    return !error;
+      .insert({ ...(row as any), id, event_name: eventName });
+    if (!error) return true;
+    // 23505 = chave duplicada → o evento já está persistido.
+    return error.code === "23505";
   } catch {
     return false;
   }
 }
+
 
 export async function flushQueue(): Promise<{ sent: number; pending: number }> {
   if (flushing || !canUseStorage()) return { sent: 0, pending: readQueue().length };
