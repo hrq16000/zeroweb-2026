@@ -95,6 +95,7 @@ export function LeadWidget() {
   const [services, setServices] = useState<Array<{ slug: string; title: string }>>(FALLBACK_SERVICES);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const nearFooter = useNearFooter();
   const [pulse, setPulse] = useState(false);
   const hydrated = useRef(false);
 
