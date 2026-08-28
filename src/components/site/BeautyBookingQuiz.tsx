@@ -220,6 +220,7 @@ export function BeautyBookingQuiz({
         recipientName,
         mode: mode ?? "booking",
         answers,
+        pageUrl: window.location.href,
       }});
       window.location.assign(result.redirectPath);
     } catch {

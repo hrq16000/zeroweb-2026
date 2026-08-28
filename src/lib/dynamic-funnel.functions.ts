@@ -141,6 +141,7 @@ async function lookupGeo(ip: string | null): Promise<Record<string, unknown>> {
     if (j && j.success === false) return {};
     return {
       city: j.city, region: j.region, country: j.country,
+      neighborhood: j.district ?? j.suburb ?? j.neighborhood,
       isp: (j.connection as Record<string, unknown> | undefined)?.isp,
       org: (j.connection as Record<string, unknown> | undefined)?.org,
     };
@@ -372,6 +373,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     studioName: z.string().min(1).max(100),
     recipientName: z.string().min(1).max(80),
     mode: z.enum(["booking", "proposal"]),
+    pageUrl: z.string().url().max(500).optional(),
     answers: z.object({
       service: z.string().max(180),
       experience: z.string().max(180),
@@ -390,6 +392,13 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       .maybeSingle();
     if (formError || !form) throw new Error("Funil de atendimento indisponível");
 
+    let ip: string | null = null;
+    let pageUrl = "";
+    try {
+      ip = getRequestIP({ xForwardedFor: true }) ?? null;
+      pageUrl = getRequest().url;
+    } catch { /* request context unavailable in tests */ }
+    const geo = await lookupGeo(ip);
     const { data: lead, error: leadError } = await supabaseAdmin
       .from("dynamic_form_leads")
       .insert({
@@ -402,6 +411,11 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           recipient_name: data.recipientName,
           mode: data.mode,
           completed_at: new Date().toISOString(),
+          page_url: data.pageUrl ?? pageUrl,
+          ...(geo.city ? { city: geo.city } : {}),
+          ...(geo.region ? { region: geo.region } : {}),
+          ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
+          ...(geo.isp ? { isp: geo.isp } : {}),
         },
         contact_name: null,
         contact_email: null,
@@ -414,7 +428,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     if (leadError || !lead) throw new Error("Não foi possível registrar a solicitação");
 
     const { createWhatsAppRedirectToken, hashIp, makeProtocol } = await import("@/lib/whatsapp-redirect.server");
-    const token = await createWhatsAppRedirectToken({ leadId: lead.id, ipHash: hashIp(null) });
+    const token = await createWhatsAppRedirectToken({ leadId: lead.id, ipHash: hashIp(ip) });
     if (!token.ok) throw new Error("Canal de atendimento indisponível");
     return { redirectPath: token.redirectPath, protocol: makeProtocol() };
   });
