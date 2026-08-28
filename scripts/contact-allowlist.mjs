@@ -10,6 +10,12 @@
  * Toda allowlist vive aqui e é consumida pelos dois validadores de build.
  */
 
+/**
+ * Contato comercial público (não é PII de visitante). Fica separado dos
+ * contatos de clientes para o relatório distinguir a origem do match.
+ */
+export const BUSINESS_ALLOWED_DIGITS = new Set(["554198755277"]);
+
 /** Dígitos (E.164 sem "+") de contatos de clientes autorizados em vitrines. */
 export const CLIENT_ALLOWED_DIGITS = new Set(["554196048639", "554198755277"]);
 
