@@ -80,6 +80,11 @@ jobs:
           E2E_BASE_URL: http://localhost:8080
         run: bun run test:e2e:portfolio-funnels
 
+      - name: Prévias de link e ícones (headless)
+        env:
+          BASE_URL: http://localhost:8080
+        run: bun run validate:link-previews
+
       - name: Acessibilidade (axe-core)
         env:
           E2E_BASE_URL: http://localhost:8080
@@ -97,6 +102,7 @@ jobs:
           name: portfolio-gates-evidence
           path: |
             seo-reports/a11y-report.json
+            seo-reports/link-preview-report.json
             seo-reports/visual
             seo-reports/popup-shots
             seo-reports/source-privacy-report.md

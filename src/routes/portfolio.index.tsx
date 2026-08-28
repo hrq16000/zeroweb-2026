@@ -229,6 +229,9 @@ export const Route = createFileRoute("/portfolio/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
+      { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://0web.com.br/og-default.jpg" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [

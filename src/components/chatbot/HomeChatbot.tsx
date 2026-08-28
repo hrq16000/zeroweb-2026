@@ -7,6 +7,7 @@ import { MessageCircle, X, Send, ArrowRight, AlertTriangle, Pencil } from "lucid
 import { listServicesNav } from "@/lib/services-nav.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent, trackConversion } from "@/lib/analytics";
+import { useNearFooter } from "@/hooks/useNearFooter";
 import {
   STORAGE_KEY,
   initialState,
@@ -33,6 +34,7 @@ function uid() {
 
 export function HomeChatbot() {
   const [open, setOpen] = useState(false);
+  const nearFooter = useNearFooter();
   const [pulse, setPulse] = useState(true);
   const [state, setState] = useState<State>(() => initialState);
   const [hydrated, setHydrated] = useState(false);
@@ -333,7 +335,7 @@ export function HomeChatbot() {
     <>
       {/* Closed: pill button */}
       <AnimatePresence>
-        {!open && (
+        {!open && !nearFooter && (
           <motion.button
             key="chatbot-pill"
             type="button"
@@ -345,7 +347,7 @@ export function HomeChatbot() {
             aria-haspopup="dialog"
             aria-expanded={open}
             className={[
-              "fixed bottom-5 left-5 z-[60] inline-flex items-center gap-2.5",
+              "fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] left-4 z-[60] inline-flex items-center gap-2.5 sm:bottom-40 sm:left-6",
               "rounded-full bg-primary text-primary-foreground font-semibold",
               "pl-4 pr-5 py-3 shadow-xl shadow-primary/30 hover:scale-[1.03] transition",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2",

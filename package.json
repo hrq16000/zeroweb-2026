@@ -55,7 +55,9 @@
     "validate:portfolio-icons": "node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check",
     "assets:social": "node scripts/generate-social-jpg.mjs",
     "validate:portfolio-assets": "node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check",
-    "optimize:portfolio-images": "node scripts/optimize-portfolio-images.mjs"
+    "optimize:portfolio-images": "node scripts/optimize-portfolio-images.mjs",
+    "validate:link-previews": "node scripts/validate-link-previews.mjs",
+    "audit:seo-indexability": "node scripts/validate-canonicals.mjs && node scripts/validate-sitemaps.mjs && node scripts/validate-schemas.mjs && node scripts/run-seo-diff.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

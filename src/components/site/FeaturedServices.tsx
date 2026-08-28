@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { type NavService } from "@/lib/services-nav.functions";
 import { servicesNavQuery } from "@/lib/services-nav-query";
+import { serviceCoverFallback } from "@/lib/service-cover-fallback";
 
 type Props = {
   title?: string;
@@ -57,23 +58,17 @@ export function FeaturedServices({
               params={{ slug: s.slug }}
               className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary hover:-translate-y-1 hover:shadow-elegant transition-all duration-300"
             >
-              {s.imageUrl ? (
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={s.imageUrl}
-                    alt={s.imageAlt || s.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              ) : (
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 flex flex-col items-center justify-center gap-1">
-                  <Sparkles className="w-8 h-8 text-primary/40" />
-                  <span className="text-[10px] uppercase tracking-wider text-muted-foreground/70">
-                    Capa pendente
-                  </span>
-                </div>
-              )}
+              <div className="aspect-video overflow-hidden bg-muted">
+                <img
+                  src={s.imageUrl || serviceCoverFallback(s.slug, s.category)}
+                  alt={s.imageAlt || `Ilustração do serviço ${s.name}`}
+                  width={1280}
+                  height={720}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-4">
                 <p className="text-[10px] uppercase tracking-wider text-primary font-bold">
                   {s.category}

@@ -40,13 +40,13 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-background pt-20 pb-10">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
           {/* Col 1 — Marca */}
           <div className="lg:col-span-4">
             <Link to="/" className="inline-flex items-center gap-2" aria-label="0WEB — Início">
               <BrandLogo size={36} className="brightness-0 invert" />
             </Link>
-            <p className="mt-4 text-background/70 max-w-sm leading-relaxed">
+            <p className="mt-4 text-background/85 max-w-sm leading-relaxed">
               Tecnologia que gera crescimento. Sites, IA e marketing digital para empresas que querem liderar.
             </p>
 
@@ -86,21 +86,21 @@ export function Footer() {
 
           {/* Col 2 — Serviços */}
           <div className="lg:col-span-3 sm:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/60">Serviços</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/75">Serviços</h4>
             <ul className="mt-4 space-y-2.5 text-sm">
               {servicosCol.map((l) => (
                 <li key={l.slug}>
                   <Link
                     to="/servicos/$slug"
                     params={{ slug: l.slug }}
-                    className="text-background/80 hover:text-accent transition"
+                    className="text-background/90 hover:text-accent transition"
                   >
                     {l.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link to="/servicos" className="text-background/60 hover:text-accent transition text-xs uppercase tracking-wider">
+                <Link to="/servicos" className="text-background/75 hover:text-accent transition text-xs uppercase tracking-wider">
                   Ver todos →
                 </Link>
               </li>
@@ -109,11 +109,11 @@ export function Footer() {
 
           {/* Col 3 — Empresa */}
           <div className="lg:col-span-2 sm:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/60">Empresa</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/75">Empresa</h4>
             <ul className="mt-4 space-y-2.5 text-sm">
               {empresaCol.map((l) => (
                 <li key={l.label}>
-                  <Link to={l.to} className="text-background/80 hover:text-accent transition">
+                  <Link to={l.to} className="text-background/90 hover:text-accent transition">
                     {l.label}
                   </Link>
                 </li>
@@ -123,16 +123,16 @@ export function Footer() {
 
           {/* Col 4 — Suporte */}
           <div className="lg:col-span-3 sm:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/60">Suporte</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/75">Suporte</h4>
             <ul className="mt-4 space-y-2.5 text-sm">
               {suporteCol.map((l) => (
                 <li key={l.label}>
                   {l.to ? (
-                    <Link to={l.to} className="text-background/80 hover:text-accent transition">
+                    <Link to={l.to} className="text-background/90 hover:text-accent transition">
                       {l.label}
                     </Link>
                   ) : (
-                    <a href={l.href!} className="text-background/80 hover:text-accent transition">
+                    <a href={l.href!} className="text-background/90 hover:text-accent transition">
                       {l.label}
                     </a>
                   )}
@@ -142,11 +142,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-background/10 flex flex-wrap items-center justify-between gap-4 text-xs text-background/60">
-          <p>
+        <div className="mt-14 pt-8 border-t border-background/20 flex flex-wrap items-center justify-between gap-3 text-sm text-background/85">
+          <p className="leading-relaxed">
             © 2026 0WEB · CNPJ 41.723.708/0001-58 · Marketing Digital desde 2006.
           </p>
-          <p className="text-background/50">Desenvolvido por 0web</p>
+          <p className="text-background/85">Desenvolvido por 0WEB</p>
         </div>
       </div>
     </footer>

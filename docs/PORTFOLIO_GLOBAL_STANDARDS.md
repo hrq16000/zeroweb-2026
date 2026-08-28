@@ -131,3 +131,35 @@ O contato flutuante observa o rodapé e é ocultado quando a área de crédito
 entra na viewport, preservando a leitura do “Site desenvolvido por 0WEB”; o
 botão de retorno ao topo permanece acessível acima dessa área. No catálogo raiz,
 os cards carregam em blocos e avançam automaticamente ao aproximar-se do fim.
+
+## Prévia de link e ícones (gate automático)
+
+`bun run validate:link-previews` (CI: workflow `portfolio-gates`, job
+`runtime-gates`) busca o HTML servido de `/`, `/portfolio` e de cada
+`/portfolio/<slug>` e valida por HTTP:
+
+- `og:image` e `twitter:image` presentes, com status 200, `Content-Type`
+  `image/*` e no mínimo 600×315;
+- `apple-touch-icon` e favicons declarados no `<head>` com status 200,
+  `Content-Type` correto e dimensões legíveis.
+
+O relatório é gravado em `seo-reports/link-preview-report.json` e é a fonte de
+evidência do painel interno `/painel-metadados`. Rota nova sem prévia social
+quebra o build — gere o JPEG com `bun run assets:social` antes de publicar.
+
+## Indexabilidade e regressão de SEO
+
+`bun run audit:seo-indexability` encadeia canonicals, sitemaps, schemas e o
+diff de SEO (`scripts/run-seo-diff.mjs`), gerando o comparativo antes/depois em
+`seo-reports/`. Lighthouse por rota de portfólio (Performance, SEO, A11y,
+Best Practices) roda em `.github/workflows/lighthouse.yml` com os budgets de
+`.lighthouserc.cjs`; qualquer queda abaixo do alvo bloqueia o PR.
+
+## Home — regras de conteúdo
+
+- Cards de serviço nunca exibem "capa pendente": sem imagem cadastrada no
+  painel, entra a ilustração abstrata de `src/lib/service-cover-fallback.ts`
+  (sem texto, sem foto de cliente, sem promessa comercial).
+- A home não publica preço fixo fora do quadro de planos; o quadro de planos
+  carrega a nota sobre domínio e escopo.
+- Nenhuma métrica de resultado sem fonte auditável.

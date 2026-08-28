@@ -118,6 +118,12 @@ export function Plans() {
             );
           })}
         </div>
+
+        <p className="mt-8 text-xs text-muted-foreground max-w-3xl">
+          * Valores mensais referentes aos serviços listados em cada plano. O registro e a
+          renovação do domínio próprio são contratados à parte, em nome do cliente. Escopos fora
+          do que está descrito acima são orçados no diagnóstico.
+        </p>
       </div>
     </section>
   );
