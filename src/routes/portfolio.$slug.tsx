@@ -86,6 +86,9 @@ const MaryDiaristaPage = lazy(() =>
 const AcaiTotalAraucariaPage = lazy(() =>
   import("@/components/site/AcaiTotalAraucariaPage").then((m) => ({ default: m.AcaiTotalAraucariaPage })),
 );
+const JklMarcenariaPage = lazy(() =>
+  import("@/components/site/JklMarcenariaPage").then((m) => ({ default: m.JklMarcenariaPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -120,6 +123,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEisenfer = loaderData?.slug === "eisenfer-tubos-acos";
     const isMary = loaderData?.slug === "mary-diarista";
     const isAcai = loaderData?.slug === "acai-total-araucaria";
+    const isJkl = loaderData?.slug === "jkl-marcenaria";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -164,6 +168,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Mary Diarista oferece diárias, limpeza pós-obra e organização em Curitiba, com agenda semanal, quinzenal e esporádica."
           : isAcai
             ? "Açaí Total Araucária: copões e litrões de açaí com frutas, cremes e complementos, com entrega em casa."
+          : isJkl
+            ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -218,6 +224,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/mary-diarista/servicos.webp"
                 : isAcai
                   ? "/images/acai-total-araucaria/acai.webp"
+                : isJkl
+                  ? "/images/jkl-marcenaria/cozinha.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -274,6 +282,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Mary Diarista Curitiba, limpeza residencial, diária, pós-obra, pós-mudança, personal organizer, diarista quinta-feira"
                 : isAcai
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
+                : isJkl
+                  ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -399,6 +409,8 @@ function PortfolioPrototypePage() {
           <MaryDiaristaPage />
         ) : slug === "acai-total-araucaria" ? (
           <AcaiTotalAraucariaPage />
+        ) : slug === "jkl-marcenaria" ? (
+          <JklMarcenariaPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

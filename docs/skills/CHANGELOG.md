@@ -386,3 +386,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Hero, navegação, rodapé e copy atualizados para a marca correta.
 - Adicionada seção de presença social com links oficiais do Instagram e Facebook, imagem de case e microanimação com respeito ao reduced-motion global.
 - Domínio oficial `mestredosservicos.com.br` permanece visível e clicável.
+
+## 2026-08-28 — novo portfolio JKL Marcenaria
+
+- Criada página exclusiva para móveis sob medida em MDF, com hero, soluções, diferenciais, CTA guiado e prova social temática.
+- Skills aplicadas: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, direção mobile-first e motion acessível.
+- Arte real da cozinha otimizada para WebP e registrada como ícone/imagem social do slug.
+- Funil individual `funnel-jkl-marcenaria` criado; contato resolvido server-side por `JKL_MARCENARIA_WHATSAPP_NUMBER`.
