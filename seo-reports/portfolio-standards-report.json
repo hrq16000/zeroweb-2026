@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-28T07:31:47.999Z",
+  "generatedAt": "2026-08-28T15:44:46.261Z",
   "configVersion": 1,
-  "total": 17,
-  "conformes": 17,
+  "total": 29,
+  "conformes": 29,
   "projetos": [
     {
       "clientKey": "dyzpromo",
@@ -153,6 +153,102 @@
     {
       "clientKey": "paulo-mestre-de-obras",
       "slug": "paulo-mestre-de-obras",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "ecommerce-on",
+      "slug": "ecommerce-on",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "no-brilho-higienizacao",
+      "slug": "no-brilho-higienizacao",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "salao-da-marcia",
+      "slug": "salao-da-marcia",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "espaco-cih-luh",
+      "slug": "espaco-cih-luh",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "diego-montador-moveis",
+      "slug": "diego-montador-moveis",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "aguia-sul-sinalizacao",
+      "slug": "aguia-sul-sinalizacao",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "eletrovale-eletromecanica",
+      "slug": "eletrovale-eletromecanica",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "eletro-solucoes-eficazes",
+      "slug": "eletro-solucoes-eficazes",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "eisenfer-tubos-acos",
+      "slug": "eisenfer-tubos-acos",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "mary-diarista",
+      "slug": "mary-diarista",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "acai-total-araucaria",
+      "slug": "acai-total-araucaria",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "standardShell": true,
+      "overrides": [],
+      "problems": []
+    },
+    {
+      "clientKey": "jkl-marcenaria",
+      "slug": "jkl-marcenaria",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "standardShell": true,
       "overrides": [],
