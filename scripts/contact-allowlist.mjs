@@ -30,8 +30,8 @@ export const CLIENT_CHUNK_PREFIXES = [
   "portfolio.dyzpromo",
 ];
 
-/** Telefone formatado de cliente autorizado. */
-export const CLIENT_ALLOWED_PHONE = /^(?:\+?55[- ]?\(?41\)?[- ]?(?:9604-?8639|9875-?5277))$/;
+/** Telefone formatado de cliente autorizado ou do contato comercial oficial. */
+export const CLIENT_ALLOWED_PHONE = /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277))$/;
 
 /** Chunks do painel autenticado (leaks viram warning, não erro). */
 export const ADMIN_CHUNK_PREFIXES = [
