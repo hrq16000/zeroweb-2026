@@ -60,8 +60,10 @@ for (const file of readdirSync(SITE_DIR).filter((f) => f.endsWith(".tsx"))) {
   }
   let value;
   try {
+    // Remove asserções TypeScript (`as const`, `as Foo`) antes de avaliar o literal.
+    const plain = literal.replace(/\s+as\s+(const|[A-Za-z_$][\w$.<>\[\]"']*)/g, "");
     // eslint-disable-next-line no-new-func
-    value = new Function(`return (${literal});`)();
+    value = new Function(`return (${plain});`)();
   } catch (err) {
     problems.push(`${file}: literal do funil inválido (${err.message})`);
     continue;
