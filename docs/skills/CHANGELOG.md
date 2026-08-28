@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Eletrovale Eletromecânica
+
+- Página industrial para manutenção e rebobinamento de bombas, motores, motoredutores e motofreios.
+- Skills: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- Foto real otimizada em WebP, funil individual, prova social, SEO local e canais oficiais.
+- Telefone protegido server-side em `ELETROVALE_ELETROMECANICA_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio Águia Sul Sinalização
 
 - **Tarefa:** criar presença B2B para pintura e sinalização horizontal em Curitiba e região.
