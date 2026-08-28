@@ -28,6 +28,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "lk-alvenaria", vertical: "prestadores-de-servicos", siteName: "LK Alvenaria · Construção e Acabamento", kind: "prototype", indexable: true },
   { slug: "lucas-arruma-maquina-lavar", vertical: "prestadores-de-servicos", siteName: "Lucas Arruma Máquina de Lavar · Assistência", kind: "prototype", indexable: true },
   { slug: "paulo-mestre-de-obras", vertical: "prestadores-de-servicos", siteName: "Paulo Mestre de Obras · Construção Civil", kind: "prototype", indexable: true },
+  { slug: "ecommerce-on", vertical: "comercios", siteName: "Ecommerce On · Agência Digital", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {
