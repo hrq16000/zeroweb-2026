@@ -149,6 +149,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
 
+## 2026-08-28 — novo portfolio Vila da Capivara
+
+- **Tarefa:** criar site independente para confeitaria, kits festa, bolos, brigadeiros gourmet e salgados em Campo Comprido, Curitiba.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, motion/responsivo e otimização mobile-first de imagens.
+- **Alterações:** slug `vila-da-capivara`, página exclusiva, catálogo, sitemap, SEO local, imagem social/ícone próprios, galeria de kits reais em WebP, funil individual, prova social e crédito 0WEB.
+- **Conteúdo:** kits para 10, 20, 50, 70 e 100 pessoas com preços fornecidos; domínio `viladacapivara.com` e Instagram oficial informados pelo cliente.
+- **Privacidade:** telefone não entra no bundle; produção requer secret server-side `VILA_DA_CAPIVARA_WHATSAPP_NUMBER`.
+- **Validação:** executar boundaries, meta, catálogo, assets, typecheck e diff antes do PR.
+
 ## 2026-08-28 — novo portfolio A&G Electrical Services
 
 - **Tarefa:** criar site independente de elétrica geral, infraestrutura de redes, cabeamento UTP, CFTV e organização de racks.

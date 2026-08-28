@@ -143,5 +143,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "vila-da-capivara",
+    "slug": "vila-da-capivara",
+    "siteName": "Vila da Capivara",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
+    "assetsDir": "public/images/vila-da-capivara",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
