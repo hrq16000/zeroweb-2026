@@ -149,6 +149,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
 
+## 2026-08-28 — novo portfolio Studio de Cílios
+
+- **Tarefa:** criar página independente para extensão de cílios com os serviços Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, motion/responsivo e otimização mobile-first de imagens.
+- **Alterações:** slug `studio-de-cilios`, página exclusiva, catálogo, sitemap, SEO, ícone/OG próprios, galeria real otimizada em WebP, CTA/funil individual, prova social e crédito 0WEB.
+- **Conteúdo:** preços reais das artes (R$ 130 e R$ 100), navegação por estilos, galeria de referências, processo de atendimento e agendamento.
+- **Privacidade:** telefone fornecido não entra no bundle; produção requer secret server-side `STUDIO_DE_CILIOS_WHATSAPP_NUMBER`. Nome comercial/cidade não foram inventados além do título neutro informado.
+- **Validação:** executar boundaries, meta, catálogo, assets, typecheck e diff antes do PR.
+
 ## 2026-08-28 — novo portfolio MP Festas e Eventos
 
 - **Tarefa:** criar site independente para decoração de festas em Araucária e região, com pacotes Festa na Mesa, Clássica e Premium.
