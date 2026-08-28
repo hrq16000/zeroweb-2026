@@ -107,6 +107,7 @@ import { Route as CidadeSlugRouteImport } from './routes/cidade.$slug'
 import { Route as EmpresaSlugRouteImport } from './routes/empresa.$slug'
 import { Route as EstadosStateRouteImport } from './routes/estados.$state'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
+import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.historico-jobs'
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
@@ -696,6 +697,11 @@ const EstadosStateRoute = EstadosStateRouteImport.update({
 const FSlugRoute = FSlugRouteImport.update({
   id: '/f/$slug',
   path: '/f/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelHistoricoJobsRoute = PainelHistoricoJobsRouteImport.update({
+  id: '/painel_/historico-jobs',
+  path: '/painel/historico-jobs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PedidoIdRoute = PedidoIdRouteImport.update({
@@ -1329,6 +1335,7 @@ export interface FileRoutesByFullPath {
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
+  '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
@@ -1523,6 +1530,7 @@ export interface FileRoutesByTo {
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
+  '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
@@ -1721,6 +1729,7 @@ export interface FileRoutesById {
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
+  '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
@@ -1919,6 +1928,7 @@ export interface FileRouteTypes {
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
+    | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
@@ -2113,6 +2123,7 @@ export interface FileRouteTypes {
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
+    | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
@@ -2310,6 +2321,7 @@ export interface FileRouteTypes {
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
+    | '/painel_/historico-jobs'
     | '/pedido/$id'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
@@ -2506,6 +2518,7 @@ export interface RootRouteChildren {
   CidadeSlugRoute: typeof CidadeSlugRoute
   EmpresaSlugRoute: typeof EmpresaSlugRoute
   FSlugRoute: typeof FSlugRoute
+  PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
@@ -3235,6 +3248,13 @@ declare module '@tanstack/react-router' {
       path: '/f/$slug'
       fullPath: '/f/$slug'
       preLoaderRoute: typeof FSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel_/historico-jobs': {
+      id: '/painel_/historico-jobs'
+      path: '/painel/historico-jobs'
+      fullPath: '/painel/historico-jobs'
+      preLoaderRoute: typeof PainelHistoricoJobsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pedido/$id': {
@@ -4255,6 +4275,7 @@ const rootRouteChildren: RootRouteChildren = {
   CidadeSlugRoute: CidadeSlugRoute,
   EmpresaSlugRoute: EmpresaSlugRoute,
   FSlugRoute: FSlugRoute,
+  PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,

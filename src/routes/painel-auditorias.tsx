@@ -321,6 +321,32 @@ function AuditPanel() {
                   className="w-16 rounded-lg border border-border bg-background px-2 py-1"
                 />
               </label>
+              <button
+                type="button"
+                disabled={testingAlert}
+                onClick={async () => {
+                  setTestingAlert(true);
+                  try {
+                    const res = await testAlert({ data: { threshold, windowHours } });
+                    if (res.ok) toast.success("Alerta de teste disparado com sucesso.");
+                    else toast.error(`Falha ao disparar alerta: ${res.error ?? "canal indisponível"}`);
+                  } catch (e) {
+                    toast.error(e instanceof Error ? e.message : "Não foi possível disparar o alerta.");
+                  } finally {
+                    setTestingAlert(false);
+                  }
+                }}
+                className="inline-flex items-center gap-1 rounded-lg border border-border px-2 py-1 hover:bg-muted disabled:opacity-50"
+              >
+                <Bell className="h-3.5 w-3.5" />
+                {testingAlert ? "Enviando…" : "Testar alerta agora"}
+              </button>
+              <Link
+                to="/painel_/historico-jobs"
+                className="rounded-lg border border-border px-2 py-1 hover:bg-muted"
+              >
+                Histórico de jobs
+              </Link>
             </div>
           </div>
 
