@@ -310,17 +310,17 @@ function PortfolioPage() {
         </div>
 
         {/* Hero Showcase */}
-        <section className="py-16 sm:py-20 px-4 bg-gradient-to-b from-muted/30 via-background to-background relative overflow-hidden">
-          <div className="container max-w-6xl mx-auto text-center space-y-6">
+        <section className="py-10 sm:py-14 px-4 bg-gradient-to-b from-muted/30 via-background to-background relative overflow-hidden">
+          <div className="container max-w-6xl mx-auto text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-semibold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" /> Vitrine Oficial 0WEB
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground max-w-4xl mx-auto leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground max-w-4xl mx-auto leading-tight">
               Do Zero à Web: Projetos que transformam <span className="text-primary underline decoration-primary/30 underline-offset-8">visitas em clientes reais.</span>
             </h1>
 
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto">
               Veja landing pages e portfólios desenvolvidos com design moderno, SEO de alta performance e integração direta para faturar no WhatsApp.
             </p>
 
@@ -364,7 +364,7 @@ function PortfolioPage() {
               <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">Atualizado</p><p className="mt-1 text-xs text-muted-foreground">mais recentes primeiro</p></div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
               <AnimatePresence>
                 {filteredItems.slice(0, visibleCount).map((item) => (
                   <motion.div
@@ -374,10 +374,10 @@ function PortfolioPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="group rounded-3xl bg-card border border-border/60 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+                    className="group rounded-2xl bg-card border border-border/60 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
                   >
                     {/* Card Media Preview */}
-                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block h-64 w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary sm:h-72" aria-label={`Abrir preview de ${item.title}`}>
+                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block h-36 w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary sm:h-44 lg:h-40" aria-label={`Abrir preview de ${item.title}`}>
                       <img 
                         src={item.image} 
                         alt={item.title}
@@ -389,55 +389,55 @@ function PortfolioPage() {
                         }}
                       />
                       
-                      <div className="absolute top-4 left-4 flex items-center gap-2">
-                        <span className="px-3 py-1 rounded-full bg-background/90 backdrop-blur-md text-foreground text-xs font-bold shadow-sm">
+                      <div className="absolute top-2 left-2 flex items-center gap-2">
+                        <span className="px-2 py-1 rounded-full bg-background/90 backdrop-blur-md text-foreground text-[10px] font-bold shadow-sm">
                           {item.badge}
                         </span>
                       </div>
 
-                      <div className="absolute bottom-4 right-4">
-                        <span className="px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-md">
+                      <div className="absolute bottom-2 right-2">
+                        <span className="px-2 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold shadow-md">
                           {item.metrics}
                         </span>
                       </div>
                     </button>
 
                     {/* Card Content */}
-                    <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-5">
-                      <div className="space-y-3">
+                    <div className="p-3 sm:p-4 flex-1 flex flex-col justify-between space-y-3">
+                      <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                          <span className="text-[10px] font-bold text-primary uppercase tracking-wider line-clamp-2">
                             {item.subtitle}
                           </span>
-                          <span className="text-xs text-muted-foreground">{item.location}</span>
+                          <span className="hidden text-[10px] text-muted-foreground sm:inline">{item.location}</span>
                         </div>
 
-                        <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="text-left text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="text-left text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                           {item.title}
                         </button>
 
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
                           {item.summary}
                         </p>
 
                         <div className="flex flex-wrap gap-2 pt-2">
                           {item.tags.map((tag, idx) => (
-                            <span key={idx} className="px-2.5 py-1 rounded-lg bg-muted text-muted-foreground text-xs font-medium">
+                          <span key={idx} className="px-2 py-1 rounded-lg bg-muted text-muted-foreground text-[10px] font-medium">
                               #{tag}
                             </span>
                           ))}
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-border/40 flex items-center justify-between">
+                      <div className="pt-3 border-t border-border/40 flex items-center justify-between gap-2">
                         <Link 
                           to={item.slug}
-                          className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
+                          className="inline-flex items-center gap-1 text-primary font-bold text-xs hover:underline"
                         >
                           Ver site <ExternalLink className="w-4 h-4" />
                         </Link>
 
-                        <FunnelCTAButton label="Pedir Igual" className="inline-flex items-center gap-2 rounded-full border border-primary/30 text-primary font-semibold px-4 py-2 text-sm hover:bg-primary/10 transition-colors" />
+                        <FunnelCTAButton label="Pedir igual" showArrow={false} className="inline-flex min-h-9 items-center rounded-full border border-primary/30 text-primary font-semibold px-2.5 py-1.5 text-[10px] hover:bg-primary/10 transition-colors" />
                       </div>
                     </div>
                   </motion.div>

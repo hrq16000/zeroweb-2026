@@ -159,3 +159,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Mensagens do WhatsApp agora começam com `Vim pela página da *<cliente>*...`, incluem URL completa e uma linha de contexto de experiência.
 - O handler server-side do funil de portfolio captura cidade/região por geolocalização aproximada do IP e inclui bairro somente quando o provedor fornece `district`, `suburb` ou `neighborhood`.
 - IP, user-agent e identificadores internos continuam fora da mensagem; o fallback permanece sem localização quando a consulta falhar.
+
+## 2026-08-28 — catálogo compacto e navegação mobile-first
+
+- A vitrine `/portfolio` foi compactada para grade responsiva (2 colunas mobile, 3 tablet, 4 desktop e até 6 em telas amplas), cards com resumo truncado e mídia menor.
+- Hero da vitrine teve espaçamento reduzido para acelerar descoberta e diminuir rolagem.
+- Gates de boundaries, meta, assets e diff passaram; a priorização geográfica por cidade/IP fica como etapa posterior, condicionada a consentimento e dados confiáveis.
