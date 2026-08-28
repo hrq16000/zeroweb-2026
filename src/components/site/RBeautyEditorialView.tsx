@@ -162,7 +162,8 @@ export function RBeautyEditorialView() {
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  onError={(e) = width={682} height={1024}> {
+                  width={682} height={1024}
+                  onError={(e) => {
                     (e.target as HTMLImageElement).src = "/images/r-beauty-cilios.jpg";
                   }}
                 />
