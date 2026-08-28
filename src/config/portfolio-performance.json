@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "budgets": {
+    "lcpMs": 2500,
+    "cls": 0.1,
+    "inpMs": 200,
+    "heroImageBytes": 450000,
+    "belowFoldImageBytes": 300000
+  },
+  "imagePolicy": {
+    "preferredFormats": ["avif", "webp"],
+    "preserveOriginals": true,
+    "maxRasterBytes": 450000,
+    "lazyBelowFold": true
+  },
+  "overlayPolicy": {
+    "deferTelemetry": true,
+    "deferHostPopup": true,
+    "hostPopupDelayMs": 10000
+  }
+}

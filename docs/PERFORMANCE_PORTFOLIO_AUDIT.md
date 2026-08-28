@@ -15,9 +15,9 @@ Data: 2026-08-28 · Escopo: `/portfolio/<slug>` em produção
 - Casca compartilhada com CTA/funil em camada superior, rodapé sem duplicação e botão universal de retorno ao topo.
 - CTAs e funis continuam com fallback navegável sem JavaScript e contatos resolvidos server-side.
 
-## Ciclo 2 engatilhado
+## Ciclo 2 — parametrizado e em execução
 
-1. Gerar variantes WebP/AVIF dos assets acima de 300 KB, preservando originais e substituindo apenas referências públicas.
+1. Gerar variantes WebP/AVIF dos assets acima de 300 KB, preservando originais e substituindo apenas referências públicas. Budgets e formatos vivem em `src/config/portfolio-performance.json`.
 2. Medir LCP/CLS/INP em 360/393/768/1440 px por slug e registrar budgets.
 3. Auditar waterfall de hidratação e adiar telemetria/overlays não críticos após interação ou idle.
 4. Exercitar CTA superior, CTA flutuante, social proof, popup 0WEB e voltar ao topo em cada cliente.
@@ -26,3 +26,10 @@ Data: 2026-08-28 · Escopo: `/portfolio/<slug>` em produção
 ## Meta
 
 Reduzir o payload visual inicial sem degradar SEO, acessibilidade, identidade do cliente ou estabilidade do LCP.
+
+## Parâmetros operacionais
+
+Os limites de LCP, CLS, INP, bytes por imagem e política de adiamento de
+telemetria/overlays são centralizados no JSON de performance. Novos clientes
+herdam esses valores; exceções precisam ser justificadas por slug e validadas
+no gate de performance.
