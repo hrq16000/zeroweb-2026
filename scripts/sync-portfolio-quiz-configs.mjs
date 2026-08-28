@@ -101,7 +101,7 @@ for (const file of readdirSync(SITE_DIR).filter((f) => f.endsWith(".tsx"))) {
     // eslint-disable-next-line no-new-func
     value = new Function(`return (${plain});`)();
   } catch (err) {
-    problems.push(`${file}: literal do funil inválido (${err.message})`);
+    problems.push(`${file}: literal do funil inválido (${err.message})\n${stripTypes(literal).slice(0, 300)}`);
     continue;
   }
   entries.set(clientKey, value);
