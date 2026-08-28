@@ -75,16 +75,25 @@ let timer: number | null = null;
 let listenersBound = false;
 
 /** Limite aceito pela policy de INSERT em analytics_events. */
-const MAX_EVENT_NAME = 64;
+const MAX_EVENT_NAME = 128;
+
+/** Nome usado quando o chamador não informou um evento válido. */
+export const FALLBACK_EVENT_NAME = "unknown_event";
 
 /**
  * Normaliza o nome do evento para o formato aceito pela RLS.
- * Retorna null quando o evento é inválido (deve ser descartado, não enfileirado).
+ * Nunca retorna vazio: nomes ausentes viram `unknown_event`, para que a
+ * telemetria continue auditável em vez de sumir silenciosamente.
  */
-export function sanitizeEventName(value: unknown): string | null {
-  if (typeof value !== "string") return null;
-  const name = value.trim().slice(0, MAX_EVENT_NAME);
-  return name.length > 0 ? name : null;
+export function sanitizeEventName(value: unknown): string {
+  const raw = typeof value === "string" ? value.trim() : "";
+  return (raw || FALLBACK_EVENT_NAME).slice(0, MAX_EVENT_NAME);
+}
+
+/** Log visível apenas em desenvolvimento — nunca quebra a UX. */
+function devWarn(message: string, detail?: unknown) {
+  const isDev = typeof import.meta !== "undefined" && Boolean(import.meta.env?.DEV);
+  if (isDev && typeof console !== "undefined") console.warn(`[analytics] ${message}`, detail);
 }
 
 /**
