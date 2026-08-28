@@ -189,6 +189,7 @@ import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authen
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
 import { Route as ApiPublicHooksAnomalyScanRouteImport } from './routes/api/public/hooks/anomaly-scan'
+import { Route as ApiPublicHooksDiscardsScanRouteImport } from './routes/api/public/hooks/discards-scan'
 import { Route as ApiPublicHooksGscIngestRouteImport } from './routes/api/public/hooks/gsc-ingest'
 import { Route as ApiPublicHooksIndexCoverageSnapshotRouteImport } from './routes/api/public/hooks/index-coverage-snapshot'
 import { Route as ApiPublicHooksIntegrationHealthcheckRouteImport } from './routes/api/public/hooks/integration-healthcheck'
@@ -196,6 +197,7 @@ import { Route as ApiPublicHooksLgpdMaintenanceRouteImport } from './routes/api/
 import { Route as ApiPublicHooksLhciIngestRouteImport } from './routes/api/public/hooks/lhci-ingest'
 import { Route as ApiPublicHooksLicenseUsageSnapshotRouteImport } from './routes/api/public/hooks/license-usage-snapshot'
 import { Route as ApiPublicHooksSeoMonitorRouteImport } from './routes/api/public/hooks/seo-monitor'
+import { Route as ApiPublicHooksSocialRegenLogRouteImport } from './routes/api/public/hooks/social-regen-log'
 import { Route as ApiPublicHooksStripeRouteImport } from './routes/api/public/hooks/stripe'
 import { Route as ApiPublicHooksVisitorsCleanupRouteImport } from './routes/api/public/hooks/visitors-cleanup'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -1146,6 +1148,12 @@ const ApiPublicHooksAnomalyScanRoute =
     path: '/api/public/hooks/anomaly-scan',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicHooksDiscardsScanRoute =
+  ApiPublicHooksDiscardsScanRouteImport.update({
+    id: '/api/public/hooks/discards-scan',
+    path: '/api/public/hooks/discards-scan',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicHooksGscIngestRoute = ApiPublicHooksGscIngestRouteImport.update({
   id: '/api/public/hooks/gsc-ingest',
   path: '/api/public/hooks/gsc-ingest',
@@ -1185,6 +1193,12 @@ const ApiPublicHooksSeoMonitorRoute =
   ApiPublicHooksSeoMonitorRouteImport.update({
     id: '/api/public/hooks/seo-monitor',
     path: '/api/public/hooks/seo-monitor',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicHooksSocialRegenLogRoute =
+  ApiPublicHooksSocialRegenLogRouteImport.update({
+    id: '/api/public/hooks/social-regen-log',
+    path: '/api/public/hooks/social-regen-log',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ApiPublicHooksStripeRoute = ApiPublicHooksStripeRouteImport.update({
@@ -1401,6 +1415,7 @@ export interface FileRoutesByFullPath {
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
   '/api/public/hooks/anomaly-scan': typeof ApiPublicHooksAnomalyScanRoute
+  '/api/public/hooks/discards-scan': typeof ApiPublicHooksDiscardsScanRoute
   '/api/public/hooks/gsc-ingest': typeof ApiPublicHooksGscIngestRoute
   '/api/public/hooks/index-coverage-snapshot': typeof ApiPublicHooksIndexCoverageSnapshotRoute
   '/api/public/hooks/integration-healthcheck': typeof ApiPublicHooksIntegrationHealthcheckRoute
@@ -1408,6 +1423,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/lhci-ingest': typeof ApiPublicHooksLhciIngestRoute
   '/api/public/hooks/license-usage-snapshot': typeof ApiPublicHooksLicenseUsageSnapshotRoute
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
+  '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1593,6 +1609,7 @@ export interface FileRoutesByTo {
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
   '/api/public/hooks/anomaly-scan': typeof ApiPublicHooksAnomalyScanRoute
+  '/api/public/hooks/discards-scan': typeof ApiPublicHooksDiscardsScanRoute
   '/api/public/hooks/gsc-ingest': typeof ApiPublicHooksGscIngestRoute
   '/api/public/hooks/index-coverage-snapshot': typeof ApiPublicHooksIndexCoverageSnapshotRoute
   '/api/public/hooks/integration-healthcheck': typeof ApiPublicHooksIntegrationHealthcheckRoute
@@ -1600,6 +1617,7 @@ export interface FileRoutesByTo {
   '/api/public/hooks/lhci-ingest': typeof ApiPublicHooksLhciIngestRoute
   '/api/public/hooks/license-usage-snapshot': typeof ApiPublicHooksLicenseUsageSnapshotRoute
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
+  '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1789,6 +1807,7 @@ export interface FileRoutesById {
   '/_authenticated/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/_authenticated/app/support/$id': typeof AuthenticatedAppSupportIdRoute
   '/api/public/hooks/anomaly-scan': typeof ApiPublicHooksAnomalyScanRoute
+  '/api/public/hooks/discards-scan': typeof ApiPublicHooksDiscardsScanRoute
   '/api/public/hooks/gsc-ingest': typeof ApiPublicHooksGscIngestRoute
   '/api/public/hooks/index-coverage-snapshot': typeof ApiPublicHooksIndexCoverageSnapshotRoute
   '/api/public/hooks/integration-healthcheck': typeof ApiPublicHooksIntegrationHealthcheckRoute
@@ -1796,6 +1815,7 @@ export interface FileRoutesById {
   '/api/public/hooks/lhci-ingest': typeof ApiPublicHooksLhciIngestRoute
   '/api/public/hooks/license-usage-snapshot': typeof ApiPublicHooksLicenseUsageSnapshotRoute
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
+  '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -1985,6 +2005,7 @@ export interface FileRouteTypes {
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
     | '/api/public/hooks/anomaly-scan'
+    | '/api/public/hooks/discards-scan'
     | '/api/public/hooks/gsc-ingest'
     | '/api/public/hooks/index-coverage-snapshot'
     | '/api/public/hooks/integration-healthcheck'
@@ -1992,6 +2013,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/lhci-ingest'
     | '/api/public/hooks/license-usage-snapshot'
     | '/api/public/hooks/seo-monitor'
+    | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
     | '/lovable/email/transactional/preview'
@@ -2177,6 +2199,7 @@ export interface FileRouteTypes {
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
     | '/api/public/hooks/anomaly-scan'
+    | '/api/public/hooks/discards-scan'
     | '/api/public/hooks/gsc-ingest'
     | '/api/public/hooks/index-coverage-snapshot'
     | '/api/public/hooks/integration-healthcheck'
@@ -2184,6 +2207,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/lhci-ingest'
     | '/api/public/hooks/license-usage-snapshot'
     | '/api/public/hooks/seo-monitor'
+    | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
     | '/lovable/email/transactional/preview'
@@ -2372,6 +2396,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/servicos/seo-diff'
     | '/_authenticated/app/support/$id'
     | '/api/public/hooks/anomaly-scan'
+    | '/api/public/hooks/discards-scan'
     | '/api/public/hooks/gsc-ingest'
     | '/api/public/hooks/index-coverage-snapshot'
     | '/api/public/hooks/integration-healthcheck'
@@ -2379,6 +2404,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/lhci-ingest'
     | '/api/public/hooks/license-usage-snapshot'
     | '/api/public/hooks/seo-monitor'
+    | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
     | '/lovable/email/transactional/preview'
@@ -2507,6 +2533,7 @@ export interface RootRouteChildren {
   PortfolioSegmentoBairroRoute: typeof PortfolioSegmentoBairroRoute
   RWhatsappTokenRoute: typeof RWhatsappTokenRoute
   ApiPublicHooksAnomalyScanRoute: typeof ApiPublicHooksAnomalyScanRoute
+  ApiPublicHooksDiscardsScanRoute: typeof ApiPublicHooksDiscardsScanRoute
   ApiPublicHooksGscIngestRoute: typeof ApiPublicHooksGscIngestRoute
   ApiPublicHooksIndexCoverageSnapshotRoute: typeof ApiPublicHooksIndexCoverageSnapshotRoute
   ApiPublicHooksIntegrationHealthcheckRoute: typeof ApiPublicHooksIntegrationHealthcheckRoute
@@ -2514,6 +2541,7 @@ export interface RootRouteChildren {
   ApiPublicHooksLhciIngestRoute: typeof ApiPublicHooksLhciIngestRoute
   ApiPublicHooksLicenseUsageSnapshotRoute: typeof ApiPublicHooksLicenseUsageSnapshotRoute
   ApiPublicHooksSeoMonitorRoute: typeof ApiPublicHooksSeoMonitorRoute
+  ApiPublicHooksSocialRegenLogRoute: typeof ApiPublicHooksSocialRegenLogRoute
   ApiPublicHooksStripeRoute: typeof ApiPublicHooksStripeRoute
   ApiPublicHooksVisitorsCleanupRoute: typeof ApiPublicHooksVisitorsCleanupRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -3783,6 +3811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksAnomalyScanRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/discards-scan': {
+      id: '/api/public/hooks/discards-scan'
+      path: '/api/public/hooks/discards-scan'
+      fullPath: '/api/public/hooks/discards-scan'
+      preLoaderRoute: typeof ApiPublicHooksDiscardsScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/gsc-ingest': {
       id: '/api/public/hooks/gsc-ingest'
       path: '/api/public/hooks/gsc-ingest'
@@ -3830,6 +3865,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/hooks/seo-monitor'
       fullPath: '/api/public/hooks/seo-monitor'
       preLoaderRoute: typeof ApiPublicHooksSeoMonitorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/hooks/social-regen-log': {
+      id: '/api/public/hooks/social-regen-log'
+      path: '/api/public/hooks/social-regen-log'
+      fullPath: '/api/public/hooks/social-regen-log'
+      preLoaderRoute: typeof ApiPublicHooksSocialRegenLogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/hooks/stripe': {
@@ -4240,6 +4282,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioSegmentoBairroRoute: PortfolioSegmentoBairroRoute,
   RWhatsappTokenRoute: RWhatsappTokenRoute,
   ApiPublicHooksAnomalyScanRoute: ApiPublicHooksAnomalyScanRoute,
+  ApiPublicHooksDiscardsScanRoute: ApiPublicHooksDiscardsScanRoute,
   ApiPublicHooksGscIngestRoute: ApiPublicHooksGscIngestRoute,
   ApiPublicHooksIndexCoverageSnapshotRoute:
     ApiPublicHooksIndexCoverageSnapshotRoute,
@@ -4250,6 +4293,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksLicenseUsageSnapshotRoute:
     ApiPublicHooksLicenseUsageSnapshotRoute,
   ApiPublicHooksSeoMonitorRoute: ApiPublicHooksSeoMonitorRoute,
+  ApiPublicHooksSocialRegenLogRoute: ApiPublicHooksSocialRegenLogRoute,
   ApiPublicHooksStripeRoute: ApiPublicHooksStripeRoute,
   ApiPublicHooksVisitorsCleanupRoute: ApiPublicHooksVisitorsCleanupRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
