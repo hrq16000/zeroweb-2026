@@ -3101,6 +3101,69 @@ export type Database = {
         }
         Relationships: []
       }
+      ops_job_control: {
+        Row: {
+          circuit_open_until: string | null
+          consecutive_failures: number
+          job: string
+          paused: boolean
+          running_since: string | null
+          updated_at: string
+        }
+        Insert: {
+          circuit_open_until?: string | null
+          consecutive_failures?: number
+          job: string
+          paused?: boolean
+          running_since?: string | null
+          updated_at?: string
+        }
+        Update: {
+          circuit_open_until?: string | null
+          consecutive_failures?: number
+          job?: string
+          paused?: boolean
+          running_since?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      ops_job_runs: {
+        Row: {
+          created_at: string
+          duration_ms: number | null
+          error: string | null
+          finished_at: string | null
+          id: string
+          job: string
+          metadata: Json
+          started_at: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          duration_ms?: number | null
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          job: string
+          metadata?: Json
+          started_at?: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          duration_ms?: number | null
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          job?: string
+          metadata?: Json
+          started_at?: string
+          status?: string
+        }
+        Relationships: []
+      }
       order_support_requests: {
         Row: {
           created_at: string
@@ -6073,6 +6136,25 @@ export type Database = {
         Returns: boolean
       }
       normalize_phone: { Args: { p: string }; Returns: string }
+      ops_job_finish: {
+        Args: {
+          _cooldown_seconds?: number
+          _error?: string
+          _failure_threshold?: number
+          _metadata?: Json
+          _run_id: string
+          _status: string
+        }
+        Returns: undefined
+      }
+      ops_job_try_start: {
+        Args: { _job: string; _stale_seconds?: number }
+        Returns: {
+          allowed: boolean
+          reason: string
+          run_id: string
+        }[]
+      }
       pgrst_reload_schema: { Args: never; Returns: undefined }
       purge_ip_blocklist: { Args: never; Returns: number }
       purge_rate_limit_buckets: { Args: never; Returns: number }

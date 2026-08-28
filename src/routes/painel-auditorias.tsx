@@ -5,6 +5,12 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
 import { fetchAnalyticsDiscards, DEFAULT_DISCARD_THRESHOLD, type DiscardSummary } from "@/lib/analytics-discards";
+import {
+  fetchOpsJobRuns,
+  fetchOpsJobControl,
+  type OpsJobRun,
+  type OpsJobControl,
+} from "@/lib/ops-jobs";
 
 export const Route = createFileRoute("/painel-auditorias")({
   head: () => ({
@@ -119,6 +125,8 @@ function AuditPanel() {
   const [windowHours, setWindowHours] = useState(24);
   const [threshold, setThreshold] = useState(DEFAULT_DISCARD_THRESHOLD);
   const [socialRuns, setSocialRuns] = useState<SocialRegenRun[]>([]);
+  const [jobRuns, setJobRuns] = useState<OpsJobRun[]>([]);
+  const [jobControl, setJobControl] = useState<OpsJobControl[]>([]);
 
   const load = async () => {
     setLoading(true);
@@ -137,6 +145,9 @@ function AuditPanel() {
       }
       setHistory(histRes.ok ? ((await histRes.json()) as HistoryEntry[]) : []);
       setSocialRuns(socialRes.ok ? ((await socialRes.json()) as SocialRegenRun[]) : []);
+      const [runs, control] = await Promise.all([fetchOpsJobRuns(25), fetchOpsJobControl()]);
+      setJobRuns(runs);
+      setJobControl(control);
     } catch {
       setMissing(true);
     } finally {
@@ -393,6 +404,67 @@ function AuditPanel() {
                       <td className="px-2 py-2 text-right tabular-nums">{run.totals.ok}</td>
                       <td className="px-2 py-2 text-right tabular-nums">{run.totals.failed}</td>
                       <td className="px-2 py-2 text-right tabular-nums">{run.totals.skipped}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-display text-lg font-semibold">Rotinas agendadas</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Execuções registradas no backend (lock de execução única, pausa manual e circuit breaker).
+          </p>
+          {jobControl.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {jobControl.map((c) => (
+                <span
+                  key={c.job}
+                  className="rounded-full border border-border px-3 py-1 text-xs"
+                  title={`falhas consecutivas: ${c.consecutive_failures}`}
+                >
+                  {c.job} ·{" "}
+                  {c.paused
+                    ? "pausada"
+                    : c.circuit_open_until && new Date(c.circuit_open_until) > new Date()
+                      ? "circuito aberto"
+                      : c.running_since
+                        ? "em execução"
+                        : "ativa"}
+                </span>
+              ))}
+            </div>
+          )}
+          {jobRuns.length === 0 ? (
+            <p className="mt-2 text-sm text-muted-foreground">Nenhuma execução registrada ainda.</p>
+          ) : (
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground">
+                    <th className="px-2 py-2">Quando</th>
+                    <th className="px-2 py-2">Rotina</th>
+                    <th className="px-2 py-2">Status</th>
+                    <th className="px-2 py-2 text-right">Duração</th>
+                    <th className="px-2 py-2">Detalhe</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {jobRuns.map((r) => (
+                    <tr key={r.id} className="border-t border-border">
+                      <td className="px-2 py-2 whitespace-nowrap">
+                        {new Date(r.started_at).toLocaleString("pt-BR")}
+                      </td>
+                      <td className="px-2 py-2 font-mono text-xs">{r.job}</td>
+                      <td className="px-2 py-2">{r.status}</td>
+                      <td className="px-2 py-2 text-right tabular-nums">
+                        {r.duration_ms != null ? `${r.duration_ms} ms` : "—"}
+                      </td>
+                      <td className="px-2 py-2 text-xs text-muted-foreground">
+                        {r.error ?? JSON.stringify(r.metadata ?? {}).slice(0, 120)}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

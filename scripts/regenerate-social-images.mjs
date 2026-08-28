@@ -90,5 +90,28 @@ history.unshift({
 });
 writeFileSync(historyFile, `${JSON.stringify(history.slice(0, MAX_HISTORY), null, 2)}\n`);
 
+// Espelha a execução no backend (`ops_job_runs`) quando as credenciais do
+// scheduler estão presentes — em produção o painel lê dessa fonte, já que o
+// JSON acima só existe no repositório/artefato de build.
+const hookBase = process.env.SOCIAL_REGEN_HOOK_URL;
+const cronSecret = process.env.CRON_SECRET;
+if (hookBase && cronSecret) {
+  try {
+    const res = await fetch(hookBase, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": cronSecret },
+      body: JSON.stringify({
+        actor,
+        scope: only.length ? only : "all",
+        totals: { ok, failed, skipped },
+        results,
+      }),
+    });
+    console.log(`[social-regen] histórico enviado ao painel (${res.status})`);
+  } catch (error) {
+    console.warn(`[social-regen] falha ao enviar histórico: ${error instanceof Error ? error.message : error}`);
+  }
+}
+
 console.log(`[social-regen] ${ok} ok · ${failed} falha(s) · ${skipped} pulado(s) — histórico em public/audit/social-regen-history.json`);
 if (failed > 0) process.exit(1);
