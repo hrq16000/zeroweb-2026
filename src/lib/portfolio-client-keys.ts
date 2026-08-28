@@ -1,6 +1,6 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-  "mp-festas-eventos","confeitaria-chyrley",
+  "studio-de-cilios","mp-festas-eventos","confeitaria-chyrley",
   "dyzpromo",
   "renata-beauty",
   "r-beauty",

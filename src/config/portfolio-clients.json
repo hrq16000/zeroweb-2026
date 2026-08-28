@@ -110,5 +110,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "studio-de-cilios",
+    "slug": "studio-de-cilios",
+    "siteName": "Studio de Cílios",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/StudioDeCiliosPage.tsx",
+    "assetsDir": "public/images/studio-de-cilios",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

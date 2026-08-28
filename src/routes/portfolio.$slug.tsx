@@ -32,6 +32,9 @@ const ConfeitariaChyrleyPage = lazy(() =>
 const MpFestasEventosPage = lazy(() =>
   import("@/components/site/MpFestasEventosPage").then((m) => ({ default: m.MpFestasEventosPage })),
 );
+const StudioDeCiliosPage = lazy(() =>
+  import("@/components/site/StudioDeCiliosPage").then((m) => ({ default: m.StudioDeCiliosPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -48,6 +51,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
     const isChyrley = loaderData?.slug === "confeitaria-chyrley";
     const isMpFestas = loaderData?.slug === "mp-festas-eventos";
+    const isStudioCilios = loaderData?.slug === "studio-de-cilios";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -56,6 +60,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
           ? "Bolos, kits festa, salgados, docinhos e Copo da Felicidade feitos por Chyrley em Rio Bonito, Paraná. Encomende para sua comemoração."
           : isMpFestas
             ? "Decoração de festas em Araucária e região: Festa na Mesa, decoração clássica e premium para aniversários, casamentos e eventos especiais."
+          : isStudioCilios
+            ? "Extensão de cílios com efeito personalizado: Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio com agendamento online."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -74,7 +80,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
               ? "/images/confeitaria-chyrley/capa.webp"
               : isMpFestas
                 ? "/images/mp-festas-eventos/capa.webp"
-              : "/images/mestre-dos-servicos-logo.jpg",
+                : isStudioCilios
+                  ? "/images/studio-de-cilios/portfolio-1.webp"
+                : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
     const vertical = loaderData?.vertical;
@@ -94,6 +102,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
               ? "confeitaria Rio Bonito, bolo personalizado, kit festa, salgados para festa, Copo da Felicidade, doces artesanais"
               : isMpFestas
                 ? "decoração de festas Araucária, Festa na Mesa, decoração clássica, decoração premium, festas infantis, eventos"
+                : isStudioCilios
+                  ? "extensão de cílios, fio a fio, Mega Brasileiro, Mega Egípcio, Fox Eyes, agendamento de cílios"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -183,6 +193,8 @@ function PortfolioPrototypePage() {
           <ConfeitariaChyrleyPage />
         ) : slug === "mp-festas-eventos" ? (
           <MpFestasEventosPage />
+        ) : slug === "studio-de-cilios" ? (
+          <StudioDeCiliosPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
