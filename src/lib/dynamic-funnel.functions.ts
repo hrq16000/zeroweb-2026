@@ -442,7 +442,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           studio_name: data.studioName,
           recipient_name: data.recipientName,
           mode: data.mode,
-          ...(data.orderContext ? { order_context: data.orderContext } : {}),
+          ...(hasOrderContext ? { order_context: orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
           ...(geo.city ? { city: geo.city } : {}),
