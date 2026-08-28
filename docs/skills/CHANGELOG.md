@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — documentação consolidada da parametrização global
+
+- **Tarefa:** documentar o contrato completo de `/portfolio/<slug>` e do CTA/funil.
+- **Skills:** `0web-skill-router`, `0web-ui-quality-gates`, design system, acessibilidade, responsivo e performance.
+- **Documentado:** shell compartilhado, isolamento de identidade, mensagem com nome/URL/elogio, geo-IP silencioso, resolução server-side, prova social, popup 0WEB, SEO, sitemap, assets, mídia, motion, performance, filtros e onboarding de novos clientes.
+- **Validação:** boundaries, meta, assets, Schema.org, canonicals, rotas e `git diff --check`.
+
+
 ## 2026-08-27 — Fundação skills-first
 
 **Task:** criar infraestrutura canônica de skills, registry, roteamento,
