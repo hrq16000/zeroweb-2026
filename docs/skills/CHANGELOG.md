@@ -117,3 +117,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - `LHCI_TARGET_URL` corrigido para o domínio real de produção; Lighthouse CI cobre todos os slugs registrados e publica relatórios JSON/HTML como artefatos.
 - Regressão visual estabilizada (espera por rede ociosa e imagens decodificadas) — 16 capturas em 0,00% de diferença.
 - Gates executados: catálogo, boundaries, meta, scaffold, performance, `bun test` (230), `bun run build`, a11y, E2E de popup e de funis, regressão visual.
+
+## 2026-08-28 — correção de CTA superior no funil
+
+- Task: corrigir funis abertos por CTAs no topo que ficavam atrás do cabeçalho/preview em alguns `/portfolio/<slug>`.
+- Skills: `0web-skill-router`, `0web-ui-quality-gates`, padrão oficial de clientes e revisão de acessibilidade Radix Dialog.
+- Finding: `FunnelModalWrapper` usava o mesmo nível `z-50` do shell de preview; em stacking contexts aninhados o overlay e o painel eram parcialmente encobertos.
+- Change: camada parametrizada do modal (`z-[100]`, conteúdo `z-[101]`, fechar `z-[102]`) com comentário de contrato, preservando fallback sem JavaScript e foco/ESC do Dialog.
