@@ -39,6 +39,11 @@ function readObjectLiteral(source, startIdx) {
   return null;
 }
 
+/** Remove asserções TypeScript (`as const`, `as Foo`) de um literal. */
+function stripTypes(code) {
+  return code.replace(/\s+as\s+(const|[A-Za-z_$][\w$.<>\[\]"']*)/g, "");
+}
+
 const entries = new Map();
 const problems = [];
 
@@ -51,13 +56,26 @@ for (const file of readdirSync(SITE_DIR).filter((f) => f.endsWith(".tsx"))) {
   if (uniqueKeys.length !== 1) continue;
   const clientKey = uniqueKeys[0];
 
-  const decl = source.match(/const (quiz|mestreQuiz|orderQuiz|quizConfig)(?::[^=]+)? = \{/);
+  // Somente declarações no topo do módulo: funis montados dentro de componentes
+  // dependem de estado em runtime e ficam em portfolio-quiz-overrides.ts.
+  const decl = source.match(/^const (quiz|mestreQuiz|quizConfig)(?::[^=]+)? = \{/m);
   if (!decl) continue;
   const literal = readObjectLiteral(source, source.indexOf("{", decl.index));
   if (!literal) {
     problems.push(`${file}: não foi possível ler o literal do funil`);
     continue;
   }
+  // Constantes de topo (ex.: `const services = [...]`) usadas dentro do funil.
+  const scope = {};
+  for (const m of source.matchAll(/^const ([A-Za-z_$][\w$]*) = (\[[\s\S]*?\n\])(?: as const)?;/gm)) {
+    try {
+      // eslint-disable-next-line no-new-func
+      scope[m[1]] = new Function(`return (${stripTypes(m[2])});`)();
+    } catch {
+      /* ignora constantes que dependem de imports (ícones, componentes) */
+    }
+  }
+
   let value;
   try {
     // Remove asserções TypeScript (`as const`, `as Foo`) antes de avaliar o literal.
