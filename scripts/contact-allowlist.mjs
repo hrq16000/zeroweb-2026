@@ -61,7 +61,8 @@ export function isAdminChunk(name) {
 }
 
 export function isAllowedWaDigits(digits) {
-  return Boolean(digits) && CLIENT_ALLOWED_DIGITS.has(digits);
+  if (!digits) return false;
+  return CLIENT_ALLOWED_DIGITS.has(digits) || BUSINESS_ALLOWED_DIGITS.has(digits);
 }
 
 /**
