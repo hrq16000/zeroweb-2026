@@ -275,5 +275,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "eisenfer-tubos-acos",
+    "slug": "eisenfer-tubos-acos",
+    "siteName": "Eisenfer Tubos e Aços",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
+    "assetsDir": "public/images/eisenfer-tubos-acos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

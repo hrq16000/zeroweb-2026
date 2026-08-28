@@ -36,6 +36,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "aguia-sul-sinalizacao", vertical: "prestadores-de-servicos", siteName: "Águia Sul Sinalização · Pintura e Segurança", kind: "prototype", indexable: true },
   { slug: "eletrovale-eletromecanica", vertical: "prestadores-de-servicos", siteName: "Eletrovale Eletromecânica · Curitiba", kind: "prototype", indexable: true },
   { slug: "eletro-solucoes-eficazes", vertical: "prestadores-de-servicos", siteName: "Eletro Soluções Eficazes · Pinhais", kind: "prototype", indexable: true },
+  { slug: "eisenfer-tubos-acos", vertical: "prestadores-de-servicos", siteName: "Eisenfer Tubos e Aços · São José dos Pinhais", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

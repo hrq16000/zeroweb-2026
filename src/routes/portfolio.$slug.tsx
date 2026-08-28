@@ -77,6 +77,9 @@ const EletrovaleEletromecanicaPage = lazy(() =>
 const EletroSolucoesEficazesPage = lazy(() =>
   import("@/components/site/EletroSolucoesEficazesPage").then((m) => ({ default: m.EletroSolucoesEficazesPage })),
 );
+const EisenferTubosAcosPage = lazy(() =>
+  import("@/components/site/EisenferTubosAcosPage").then((m) => ({ default: m.EisenferTubosAcosPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -108,6 +111,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAguia = loaderData?.slug === "aguia-sul-sinalizacao";
     const isEletrovale = loaderData?.slug === "eletrovale-eletromecanica";
     const isEletroSolucoes = loaderData?.slug === "eletro-solucoes-eficazes";
+    const isEisenfer = loaderData?.slug === "eisenfer-tubos-acos";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -146,6 +150,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Manutenção e rebobinamento de bombas, motores, motoredutores e motofreios com excelência técnica."
           : isEletroSolucoes
             ? "Instalações elétricas, manutenção, iluminação e automação residencial, predial e industrial em Pinhais e região."
+          : isEisenfer
+            ? "Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais em São José dos Pinhais."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -194,6 +200,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/eletrovale-eletromecanica/equipamentos.webp"
                 : isEletroSolucoes
                   ? "/images/eletro-solucoes-eficazes/servicos.webp"
+                : isEisenfer
+                  ? "/images/eisenfer-tubos-acos/telhas.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -244,6 +252,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Eletrovale Eletromecânica Curitiba, rebobinamento de motores, manutenção de bombas, motoredutores, motofreios, manutenção industrial"
                 : isEletroSolucoes
                   ? "Eletro Soluções Eficazes Pinhais, instalações elétricas, iluminação, automação residencial, predial e industrial, manutenção elétrica"
+                : isEisenfer
+                  ? "Eisenfer Tubos e Aços São José dos Pinhais, tubos de aço, perfis, chapas, telhas metálicas, telha sanduíche"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -363,6 +373,8 @@ function PortfolioPrototypePage() {
           <EletrovaleEletromecanicaPage />
         ) : slug === "eletro-solucoes-eficazes" ? (
           <EletroSolucoesEficazesPage />
+        ) : slug === "eisenfer-tubos-acos" ? (
+          <EisenferTubosAcosPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
