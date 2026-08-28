@@ -42,7 +42,7 @@ export async function runJob(
       _run_id: runId,
       _status: "ok",
       _metadata: result ?? {},
-      _error: null,
+      _error: undefined,
       _failure_threshold: opts.failureThreshold ?? 3,
       _cooldown_seconds: opts.cooldownSeconds ?? 3600,
     });
