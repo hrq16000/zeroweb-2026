@@ -149,6 +149,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 # 2026-08-28 — catálogo canônico, Web Vitals e gates (ciclo 4)
 
+## 2026-08-28 — novo portfolio LK Alvenaria
+
+- **Tarefa:** criar site independente para construção civil, fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, motion/responsivo e otimização mobile-first de imagens.
+- **Alterações:** slug `lk-alvenaria`, página exclusiva, catálogo, sitemap, SEO local, imagem social/ícone próprios, galeria real da obra em WebP, funil de orçamento individual, prova social e crédito 0WEB.
+- **Conteúdo:** contrato, emissão de nota fiscal, garantia, compromisso, transparência e orçamento personalizado conforme material fornecido.
+- **Privacidade:** telefone e e-mail não entram no bundle; produção requer secret server-side `LK_ALVENARIA_WHATSAPP_NUMBER`.
+- **Validação:** executar boundaries, meta, catálogo, assets, typecheck e diff antes do PR.
+
 ## 2026-08-28 — novo portfolio Vila da Capivara
 
 - **Tarefa:** criar site independente para confeitaria, kits festa, bolos, brigadeiros gourmet e salgados em Campo Comprido, Curitiba.

@@ -154,5 +154,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "lk-alvenaria",
+    "slug": "lk-alvenaria",
+    "siteName": "LK Alvenaria",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/LkAlvenariaPage.tsx",
+    "assetsDir": "public/images/lk-alvenaria",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
