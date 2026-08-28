@@ -41,6 +41,9 @@ const RefrigeracaoMaresiaPage = lazy(() =>
 const AgElectricalServicesPage = lazy(() =>
   import("@/components/site/AgElectricalServicesPage").then((m) => ({ default: m.AgElectricalServicesPage })),
 );
+const VilaDaCapivaraPage = lazy(() =>
+  import("@/components/site/VilaDaCapivaraPage").then((m) => ({ default: m.VilaDaCapivaraPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -60,6 +63,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isStudioCilios = loaderData?.slug === "studio-de-cilios";
     const isMaresia = loaderData?.slug === "refrigeracao-maresia";
     const isAgElectrical = loaderData?.slug === "ag-electrical-services";
+    const isVilaCapivara = loaderData?.slug === "vila-da-capivara";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -74,6 +78,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana. Recarga de gás, motor, sensor e manutenção preventiva ou corretiva."
           : isAgElectrical
             ? "Elétrica geral, infraestrutura para redes, cabeamento UTP, CFTV e organização de racks em Curitiba e Região Metropolitana."
+          : isVilaCapivara
+            ? "Bolos personalizados, brigadeiros gourmet, salgados e kits festa completos para aniversários e eventos em Campo Comprido, Curitiba."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -98,6 +104,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/refrigeracao-maresia/capa.webp"
                 : isAgElectrical
                   ? "/images/ag-electrical-services/intro.webp"
+                : isVilaCapivara
+                  ? "/images/vila-da-capivara/capa.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -124,6 +132,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "refrigeração Curitiba, conserto de geladeira, manutenção de freezer, recarga de gás, troca de motor, troca de sensor"
                 : isAgElectrical
                   ? "elétrica Curitiba, infraestrutura de redes, cabeamento UTP, CFTV, organização de rack, Laserway"
+                : isVilaCapivara
+                  ? "Vila da Capivara Curitiba, kit festa, bolo personalizado, brigadeiro gourmet, salgados, Campo Comprido"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -219,6 +229,8 @@ function PortfolioPrototypePage() {
           <RefrigeracaoMaresiaPage />
         ) : slug === "ag-electrical-services" ? (
           <AgElectricalServicesPage />
+        ) : slug === "vila-da-capivara" ? (
+          <VilaDaCapivaraPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
