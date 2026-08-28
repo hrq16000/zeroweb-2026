@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Eletro Soluções Eficazes
+
+- Página para instalações, iluminação, manutenção e automação elétrica em Pinhais e região.
+- Skills: `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- Arte fornecida otimizada em WebP, funil individual, prova social, SEO local e Instagram oficial.
+- Telefone protegido server-side em `ELETRO_SOLUCOES_EFICAZES_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio Eletrovale Eletromecânica
 
 - Página industrial para manutenção e rebobinamento de bombas, motores, motoredutores e motofreios.

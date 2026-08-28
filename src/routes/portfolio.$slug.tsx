@@ -74,6 +74,9 @@ const AguiaSulSinalizacaoPage = lazy(() =>
 const EletrovaleEletromecanicaPage = lazy(() =>
   import("@/components/site/EletrovaleEletromecanicaPage").then((m) => ({ default: m.EletrovaleEletromecanicaPage })),
 );
+const EletroSolucoesEficazesPage = lazy(() =>
+  import("@/components/site/EletroSolucoesEficazesPage").then((m) => ({ default: m.EletroSolucoesEficazesPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -104,6 +107,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isDiego = loaderData?.slug === "diego-montador-moveis";
     const isAguia = loaderData?.slug === "aguia-sul-sinalizacao";
     const isEletrovale = loaderData?.slug === "eletrovale-eletromecanica";
+    const isEletroSolucoes = loaderData?.slug === "eletro-solucoes-eficazes";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -140,6 +144,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Pintura e sinalização horizontal para estacionamentos, condomínios, comércios e indústrias em Curitiba e região."
           : isEletrovale
             ? "Manutenção e rebobinamento de bombas, motores, motoredutores e motofreios com excelência técnica."
+          : isEletroSolucoes
+            ? "Instalações elétricas, manutenção, iluminação e automação residencial, predial e industrial em Pinhais e região."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -186,6 +192,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/aguia-sul-sinalizacao/logo.webp"
                 : isEletrovale
                   ? "/images/eletrovale-eletromecanica/equipamentos.webp"
+                : isEletroSolucoes
+                  ? "/images/eletro-solucoes-eficazes/servicos.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -234,6 +242,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "sinalização horizontal Curitiba, pintura de estacionamento, demarcação de vagas, faixas de pedestres, pintura industrial, Águia Sul"
                 : isEletrovale
                   ? "Eletrovale Eletromecânica Curitiba, rebobinamento de motores, manutenção de bombas, motoredutores, motofreios, manutenção industrial"
+                : isEletroSolucoes
+                  ? "Eletro Soluções Eficazes Pinhais, instalações elétricas, iluminação, automação residencial, predial e industrial, manutenção elétrica"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -351,6 +361,8 @@ function PortfolioPrototypePage() {
           <AguiaSulSinalizacaoPage />
         ) : slug === "eletrovale-eletromecanica" ? (
           <EletrovaleEletromecanicaPage />
+        ) : slug === "eletro-solucoes-eficazes" ? (
+          <EletroSolucoesEficazesPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
