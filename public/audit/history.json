@@ -1,0 +1,20 @@
+[
+  {
+    "generatedAt": "2026-08-28T17:07:45.506Z",
+    "commit": null,
+    "runUrl": null,
+    "totals": {
+      "routes": 35,
+      "routesWithProblems": 1,
+      "problems": 1,
+      "lighthouseRuns": 59,
+      "sitemapUrls": 406
+    },
+    "lighthouseAverage": {
+      "performance": 0.841,
+      "seo": 1,
+      "accessibility": 0.956,
+      "bestPractices": 0.993
+    }
+  }
+]

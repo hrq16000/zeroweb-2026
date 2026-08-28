@@ -25,13 +25,16 @@ mkdirSync(outDir, { recursive: true });
 
 const clients = JSON.parse(readFileSync(resolve(process.cwd(), "src/config/portfolio-clients.json"), "utf8"));
 const routes = [
+  { path: "/", name: "home" },
   { path: "/portfolio", name: "portfolio-index" },
   ...clients.map((c) => ({ path: `/portfolio/${c.slug}`, name: c.slug })),
 ];
 const viewports = [
   { name: "desktop", width: 1280, height: 900 },
+  { name: "tablet", width: 834, height: 1112 },
   { name: "mobile", width: 393, height: 852 },
 ];
+
 
 const bundled = chromium.executablePath();
 const root = "/opt/ms-playwright";

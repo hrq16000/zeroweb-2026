@@ -70,6 +70,10 @@ jobs:
           bun run preview --port 8080 &
           for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:8080/ && break; sleep 2; done
 
+      - name: Snapshot de indexabilidade (produção = "antes")
+        continue-on-error: true
+        run: bun run audit:indexability -- --label=before https://0web.com.br
+
       - name: Pop-up único em /portfolio/$slug
         env:
           E2E_BASE_URL: http://localhost:8080
@@ -85,15 +89,30 @@ jobs:
           BASE_URL: http://localhost:8080
         run: bun run validate:link-previews
 
+      - name: Ícones do <head> (status, content-type, dimensões)
+        env:
+          BASE_URL: http://localhost:8080
+        run: bun run validate:head-icons
+
+      - name: Indexabilidade do build ("depois") e diff
+        env:
+          BASE_URL: http://localhost:8080
+        run: bun run audit:indexability -- --label=after
+
       - name: Acessibilidade (axe-core)
         env:
           E2E_BASE_URL: http://localhost:8080
         run: bun run audit:a11y
 
-      - name: Regressão visual
+      - name: Regressão visual (home + portfólios, 3 viewports)
         env:
           E2E_BASE_URL: http://localhost:8080
         run: bun run test:visual
+
+      - name: Relatório comparativo consolidado
+        if: always()
+        run: bun run audit:report
+
 
       - name: Upload evidências
         if: always()
@@ -106,5 +125,10 @@ jobs:
             seo-reports/visual
             seo-reports/popup-shots
             seo-reports/source-privacy-report.md
+            seo-reports/head-icons-report.json
+            seo-reports/indexability-*.json
+            seo-reports/indexability-diff.md
+            seo-reports/ci-audit-summary.md
+            public/audit
             seo-reports/client-privacy-report.json
           if-no-files-found: ignore

@@ -8,6 +8,7 @@ const DESC =
 const URL = "https://0web.com.br/portfolio/dyzpromo";
 const SOCIAL_IMAGE = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-og.jpg?v=1bb5971a";
 const ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo.webp";
+const TOUCH_ICON = "https://0web.com.br/images/dyzpromo/logo-dyz-promo-touch.png";
 
 export const Route = createFileRoute("/portfolio/dyzpromo")({
   head: () => ({
@@ -28,7 +29,7 @@ export const Route = createFileRoute("/portfolio/dyzpromo")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/png", href: ICON }, { rel: "apple-touch-icon", href: ICON }],
+    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: ICON }, { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: TOUCH_ICON }],
     scripts: [
       {
         type: "application/ld+json",
