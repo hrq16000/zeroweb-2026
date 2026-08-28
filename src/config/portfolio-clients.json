@@ -220,5 +220,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "espaco-cih-luh",
+    "slug": "espaco-cih-luh",
+    "siteName": "Espaço CIH & LUH",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
+    "assetsDir": "public/images/espaco-cih-luh",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

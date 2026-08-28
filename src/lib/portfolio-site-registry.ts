@@ -31,6 +31,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "ecommerce-on", vertical: "comercios", siteName: "Ecommerce On · Agência Digital", kind: "prototype", indexable: true },
   { slug: "no-brilho-higienizacao", vertical: "prestadores-de-servicos", siteName: "No Brilho Higienização · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "salao-da-marcia", vertical: "beleza", siteName: "Salão da Marcia · Cidade Jardim", kind: "prototype", indexable: true },
+  { slug: "espaco-cih-luh", vertical: "beleza", siteName: "Espaço CIH & LUH · O Casal das Unhas", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

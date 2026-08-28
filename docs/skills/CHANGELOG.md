@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Espaço CIH & LUH
+
+- **Tarefa:** criar site para o casal das unhas, com alongamento em gel, reconstruções, pedicure e cuidados podológicos.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- **Alterações:** oferta de 10% OFF para as 10 primeiras clientes, arte fornecida otimizada em WebP, CTA/funil próprio, prova social, SEO, sitemap e assets por cliente.
+- **Privacidade:** telefone não entra no bundle; destinatário será resolvido por secret server-side `ESPACO_CIH_LUH_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — atualização promocional Renata Beauty
 
 - **Tarefa:** atualizar oferta de extensão de cílios para Volume Brasileiro, Egípcio ou Fox Eyes por R$ 100,00.

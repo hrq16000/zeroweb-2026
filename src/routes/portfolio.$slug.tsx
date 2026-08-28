@@ -62,6 +62,9 @@ const NoBrilhoHigienizacaoPage = lazy(() =>
 const SalaoDaMarciaPage = lazy(() =>
   import("@/components/site/SalaoDaMarciaPage").then((m) => ({ default: m.SalaoDaMarciaPage })),
 );
+const EspacoCihLuhPage = lazy(() =>
+  import("@/components/site/EspacoCihLuhPage").then((m) => ({ default: m.EspacoCihLuhPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -88,6 +91,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEcommerceOn = loaderData?.slug === "ecommerce-on";
     const isNoBrilho = loaderData?.slug === "no-brilho-higienizacao";
     const isSalaoMarcia = loaderData?.slug === "salao-da-marcia";
+    const isCihLuh = loaderData?.slug === "espaco-cih-luh";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : loaderData?.slug === "emporio-lelecute"
@@ -116,6 +120,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes e bancos automotivos em São José dos Pinhais."
           : isSalaoMarcia
             ? "Salão da Marcia em Cidade Jardim, São José dos Pinhais: depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
+          : isCihLuh
+            ? "Espaço CIH & LUH, o casal das unhas: alongamento em gel, reconstruções, pedicure e cuidados podológicos."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -154,6 +160,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/no-brilho-higienizacao/capa.webp"
                 : isSalaoMarcia
                   ? "/images/salao-da-marcia/depilacao.webp"
+                : isCihLuh
+                  ? "/images/espaco-cih-luh/promocao.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     );
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -194,6 +202,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "higienização de estofados São José dos Pinhais, limpeza de sofá, higienização de colchão, limpeza a domicílio"
                 : isSalaoMarcia
                   ? "Salão da Marcia São José dos Pinhais, depilação com cera, progressiva, corte, hidratação, mechas, pé e mão"
+                : isCihLuh
+                  ? "Espaço CIH LUH Manaus, alongamento em gel, unhas, pedicure, podologia, reconstrução de unhas"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: `${title} · Portfólio 0WEB` },
@@ -303,6 +313,8 @@ function PortfolioPrototypePage() {
           <NoBrilhoHigienizacaoPage />
         ) : slug === "salao-da-marcia" ? (
           <SalaoDaMarciaPage />
+        ) : slug === "espaco-cih-luh" ? (
+          <EspacoCihLuhPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
