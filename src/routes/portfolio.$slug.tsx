@@ -144,7 +144,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 function PortfolioPrototypePage() {
   const { vertical, slug } = Route.useLoaderData();
   return (
-    <PortfolioStandardShell slug={slug}>
+    <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
         {slug === "marido-de-aluguel" ? (
           <MaridoDeAluguelPage />

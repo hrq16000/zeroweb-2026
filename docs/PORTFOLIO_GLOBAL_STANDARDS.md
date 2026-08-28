@@ -12,7 +12,8 @@ Todo projeto — atual ou futuro — recebe automaticamente, pela casca
 |---|---|---|
 | Botão de compartilhar | `PortfolioShareButton` | ativo, `top-right`, variante `light` |
 | Botão flutuante de contato | `PortfolioContactFloating` | ativo, `bottom-right`, abre o **modal do funil do próprio cliente** |
-| Rodapé padrão | `PortfolioStandardFooter` | ativo, com nome do cliente, ano e `PortfolioHostCredit` |
+| Rodapé da hospedagem | `PortfolioStandardFooter` (opt-in) ou rodapé do cliente | uma única faixa de rodapé; clientes com footer próprio não recebem faixa duplicada |
+| Voltar ao topo | `PortfolioBackToTop` | aparece após scroll, 44px+, respeita scroll suave e fica acima do CTA flutuante |
 | Pop-up de captação 0WEB | `PortfolioUpsellPopup` | ativo, instância única, silenciado só com `?0web_preview=1` |
 | SEO | contrato de `head()` da rota | canonical + imagem social obrigatórios |
 | Tracking | `page_type: portfolio_client` | eventos sempre identificados por `clientKey` |
@@ -20,6 +21,11 @@ Todo projeto — atual ou futuro — recebe automaticamente, pela casca
 O contato flutuante **nunca** expõe telefone, e-mail ou link de mensageiro no
 bundle. Ele abre o funil (`PortfolioCTAQuiz`) e o destinatário é resolvido no
 servidor por `clientKey`.
+
+Clientes com rodapé editorial próprio (o padrão atual dos portfolios) devem
+manter `includePlatformFooter={false}` na casca. O rodapé de plataforma só é
+ativado para uma rota que não possua footer próprio; isso evita duplicação de
+crédito, ano e marca ao final da página.
 
 ## 2. Configuração central
 

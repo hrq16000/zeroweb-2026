@@ -124,3 +124,4 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Skills: `0web-skill-router`, `0web-ui-quality-gates`, padrão oficial de clientes e revisão de acessibilidade Radix Dialog.
 - Finding: `FunnelModalWrapper` usava o mesmo nível `z-50` do shell de preview; em stacking contexts aninhados o overlay e o painel eram parcialmente encobertos.
 - Change: camada parametrizada do modal (`z-[100]`, conteúdo `z-[101]`, fechar `z-[102]`) com comentário de contrato, preservando fallback sem JavaScript e foco/ESC do Dialog.
+- Auditoria transversal: removida a duplicação de rodapé nos clientes que já possuem footer editorial e adicionado `PortfolioBackToTop` universal, com alvo de toque de 44px e posição acima do CTA flutuante.
