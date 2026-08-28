@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-08-28 — novo portfolio Salão da Marcia
+
+- **Tarefa:** criar site local de beleza em Cidade Jardim, São José dos Pinhais, com depilação, cabelos, pé e mão.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, performance mobile-first.
+- **Alterações:** componente exclusivo, três artes fornecidas otimizadas para WebP, CTA/funil próprio, prova social, SEO, sitemap e assets por cliente.
+- **Privacidade:** telefone não entra no bundle; destinatário será resolvido por secret server-side `SALAO_DA_MARCIA_WHATSAPP_NUMBER`.
+
 ## 2026-08-28 — novo portfolio No Brilho Higienização
 
 - **Tarefa:** criar site local para higienização profissional de estofados a domicílio em São José dos Pinhais.

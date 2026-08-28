@@ -30,6 +30,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "paulo-mestre-de-obras", vertical: "prestadores-de-servicos", siteName: "Paulo Mestre de Obras · Construção Civil", kind: "prototype", indexable: true },
   { slug: "ecommerce-on", vertical: "comercios", siteName: "Ecommerce On · Agência Digital", kind: "prototype", indexable: true },
   { slug: "no-brilho-higienizacao", vertical: "prestadores-de-servicos", siteName: "No Brilho Higienização · São José dos Pinhais", kind: "prototype", indexable: true },
+  { slug: "salao-da-marcia", vertical: "beleza", siteName: "Salão da Marcia · Cidade Jardim", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {
