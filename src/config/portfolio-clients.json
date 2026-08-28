@@ -264,5 +264,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "eletro-solucoes-eficazes",
+    "slug": "eletro-solucoes-eficazes",
+    "siteName": "Eletro Soluções Eficazes",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EletroSolucoesEficazesPage.tsx",
+    "assetsDir": "public/images/eletro-solucoes-eficazes",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
