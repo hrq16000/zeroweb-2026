@@ -151,6 +151,24 @@ export const VERTICALS: Record<string, VerticalConfig> = {
     ],
     keywords: "site para comércio, site pequeno negócio, presença digital comércio local",
   },
+  beleza: {
+    slug: "beleza",
+    name: "Beleza e Estética",
+    hero: "Site para profissionais de beleza que lota a agenda",
+    subheadline: "Apresente seus serviços de beleza, resultados e horários com uma página elegante, rápida e otimizada para buscas locais.",
+    painPoints: [
+      "Cliente não encontra seus serviços no Google",
+      "Instagram não explica preços, localização e agenda",
+      "Mensagens chegam sem contexto e dificultam o atendimento",
+      "Concorrentes parecem mais profissionais online",
+    ],
+    services: [
+      { title: "Site Express", desc: "Landing com serviços, resultados e agendamento.", to: "/servicos/site-express" },
+      { title: "Google Meu Negócio", desc: "Mais descobertas no mapa e nas buscas locais.", to: "/servicos/google-meu-negocio" },
+      { title: "Presença digital", desc: "Site, redes e conteúdo em uma experiência coerente.", to: "/servicos/presenca-digital" },
+    ],
+    keywords: "site para salão de beleza, site para esteticista, extensão de cílios Curitiba, agenda online beleza",
+  },
   "prestadores-de-servicos": {
     slug: "prestadores-de-servicos",
     name: "Prestadores de Serviços",
