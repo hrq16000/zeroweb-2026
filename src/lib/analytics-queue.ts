@@ -135,13 +135,11 @@ async function reportDiscard(row: Record<string, unknown>, reason: string) {
 }
 
 async function sendRow(id: string, row: Record<string, unknown>): Promise<boolean> {
-  const eventName = sanitizeEventName((row as { event_name?: unknown }).event_name);
-  if (!eventName) {
-    if (typeof console !== "undefined") {
-      console.warn("[analytics] evento descartado: event_name inválido", row);
-    }
+  const original = (row as { event_name?: unknown }).event_name;
+  const eventName = sanitizeEventName(original);
+  if (eventName === FALLBACK_EVENT_NAME && typeof original !== "string") {
+    devWarn("event_name ausente — enviado como unknown_event", row);
     void reportDiscard(row, "invalid_event_name");
-    return true; // inválido por definição: não reenfileirar
   }
   try {
     const { supabase } = await import("@/integrations/supabase/client");
@@ -151,8 +149,11 @@ async function sendRow(id: string, row: Record<string, unknown>): Promise<boolea
       .insert({ ...(row as any), id, event_name: eventName });
     if (!error) return true;
     // 23505 = chave duplicada → o evento já está persistido.
-    return error.code === "23505";
-  } catch {
+    if (error.code === "23505") return true;
+    devWarn(`insert rejeitado (${error.code ?? "?"}): ${error.message}`, { id, eventName });
+    return false;
+  } catch (e) {
+    devWarn("falha de rede ao gravar evento", e);
     return false;
   }
 }
