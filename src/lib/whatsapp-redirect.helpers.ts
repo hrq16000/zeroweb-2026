@@ -131,8 +131,10 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
   const brand = sanitizeText(ctx.brandName, 100);
   const recipient = sanitizeText(ctx.recipientName, 80);
   header.push(brand
-    ? `Olá${recipient ? `, ${recipient}` : ""}! Vim pela página da ${brand} e gostaria de atendimento.`
+    ? `Olá${recipient ? `, ${recipient}` : ""}! Vim pela página da *${brand}* e quero conversar sobre um atendimento.`
     : "Olá! Acabei de preencher uma solicitação na 0WEB.");
+  if (ctx.pageUrl) header.push(`🔗 URL completa: ${sanitizeText(ctx.pageUrl, 300)}`);
+  header.push("✨ A página é linda e encontrei exatamente o que procurava!");
   header.push("");
   push(header, `PROTOCOLO`);
   push(header, ctx.protocol);

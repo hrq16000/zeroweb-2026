@@ -153,3 +153,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 - Criado `validate:portfolio-assets` e incluído no `prebuild`.
 - O gate bloqueia clientes sem `icon`, `socialImage` ou `proof`, além de verificar a existência dos arquivos públicos referenciados.
+
+## 2026-08-28 — contexto global no handoff de portfolios
+
+- Mensagens do WhatsApp agora começam com `Vim pela página da *<cliente>*...`, incluem URL completa e uma linha de contexto de experiência.
+- O handler server-side do funil de portfolio captura cidade/região por geolocalização aproximada do IP e inclui bairro somente quando o provedor fornece `district`, `suburb` ou `neighborhood`.
+- IP, user-agent e identificadores internos continuam fora da mensagem; o fallback permanece sem localização quando a consulta falhar.
