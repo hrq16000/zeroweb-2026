@@ -213,7 +213,7 @@ export function LeadWidget() {
   };
 
   return (
-    <div className={`fixed ${FLOATING_SLOT.one} left-4 sm:left-5 ${FLOATING_Z.fab} print:hidden ${hideNearFooter(nearFooter)}`}>
+    <div className={`fixed ${FLOATING_SLOT.one} left-4 sm:left-5 ${FLOATING_Z.fab} print:hidden ${hideNearFooter(nearFooter && !open)}`}>
       <AnimatePresence>
         {!open && (
           <motion.button
