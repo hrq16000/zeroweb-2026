@@ -231,11 +231,13 @@ function MetadataAuditPanel() {
               type="button"
               onClick={() => void regenerate()}
               disabled={regenerating}
+              title="Confere se cada projeto tem imagem social, ícone e versão de cache publicados. A regeneração dos arquivos é feita pelo worker de imagens."
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-60"
             >
               <RefreshCcw className={`h-4 w-4 ${regenerating ? "animate-spin" : ""}`} aria-hidden="true" />
-              {regenerating ? "Regenerando…" : "Regenerar imagens sociais"}
+              {regenerating ? "Verificando…" : "Verificar imagens sociais"}
             </button>
+
           </div>
         </div>
 
