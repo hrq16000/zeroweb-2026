@@ -66,6 +66,11 @@ jobs:
         run: bun run build
 
       - name: Start production preview server
+        env:
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          # Necessária apenas para os gates de ESCRITA (funis/leads).
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         # O build usa o preset Cloudflare (dist/server/wrangler.json); `vite preview`
         # não serve esse artefato. `preview:prod` sobe o worker real.
         run: |
