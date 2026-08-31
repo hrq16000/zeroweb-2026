@@ -136,6 +136,7 @@ import { Route as SuportePedidoTokenRouteImport } from './routes/suporte-pedido.
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
 import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authenticated/app.campaigns'
+import { Route as AuthenticatedAppClientesRouteImport } from './routes/_authenticated/app.clientes'
 import { Route as AuthenticatedAppCroRouteImport } from './routes/_authenticated/app.cro'
 import { Route as AuthenticatedAppDocumentsRouteImport } from './routes/_authenticated/app.documents'
 import { Route as AuthenticatedAppEcosystemRouteImport } from './routes/_authenticated/app.ecosystem'
@@ -852,6 +853,12 @@ const AuthenticatedAppCampaignsRoute =
     path: '/campaigns',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppClientesRoute =
+  AuthenticatedAppClientesRouteImport.update({
+    id: '/clientes',
+    path: '/clientes',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppCroRoute = AuthenticatedAppCroRouteImport.update({
   id: '/cro',
   path: '/cro',
@@ -1396,6 +1403,7 @@ export interface FileRoutesByFullPath {
   '/sites/': typeof SitesIndexRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/app/clientes': typeof AuthenticatedAppClientesRoute
   '/app/cro': typeof AuthenticatedAppCroRoute
   '/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1595,6 +1603,7 @@ export interface FileRoutesByTo {
   '/sites': typeof SitesIndexRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/app/clientes': typeof AuthenticatedAppClientesRoute
   '/app/cro': typeof AuthenticatedAppCroRoute
   '/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1798,6 +1807,7 @@ export interface FileRoutesById {
   '/sites/': typeof SitesIndexRoute
   '/_authenticated/app/admin': typeof AuthenticatedAppAdminRoute
   '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/_authenticated/app/clientes': typeof AuthenticatedAppClientesRoute
   '/_authenticated/app/cro': typeof AuthenticatedAppCroRoute
   '/_authenticated/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/_authenticated/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -2001,6 +2011,7 @@ export interface FileRouteTypes {
     | '/sites/'
     | '/app/admin'
     | '/app/campaigns'
+    | '/app/clientes'
     | '/app/cro'
     | '/app/documents'
     | '/app/ecosystem'
@@ -2200,6 +2211,7 @@ export interface FileRouteTypes {
     | '/sites'
     | '/app/admin'
     | '/app/campaigns'
+    | '/app/clientes'
     | '/app/cro'
     | '/app/documents'
     | '/app/ecosystem'
@@ -2402,6 +2414,7 @@ export interface FileRouteTypes {
     | '/sites/'
     | '/_authenticated/app/admin'
     | '/_authenticated/app/campaigns'
+    | '/_authenticated/app/clientes'
     | '/_authenticated/app/cro'
     | '/_authenticated/app/documents'
     | '/_authenticated/app/ecosystem'
@@ -3505,6 +3518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppCampaignsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/clientes': {
+      id: '/_authenticated/app/clientes'
+      path: '/clientes'
+      fullPath: '/app/clientes'
+      preLoaderRoute: typeof AuthenticatedAppClientesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/cro': {
       id: '/_authenticated/app/cro'
       path: '/cro'
@@ -4117,6 +4137,7 @@ const AuthenticatedAppSupportRouteWithChildren =
 interface AuthenticatedAppRouteChildren {
   AuthenticatedAppAdminRoute: typeof AuthenticatedAppAdminRoute
   AuthenticatedAppCampaignsRoute: typeof AuthenticatedAppCampaignsRoute
+  AuthenticatedAppClientesRoute: typeof AuthenticatedAppClientesRoute
   AuthenticatedAppCroRoute: typeof AuthenticatedAppCroRoute
   AuthenticatedAppDocumentsRoute: typeof AuthenticatedAppDocumentsRoute
   AuthenticatedAppEcosystemRoute: typeof AuthenticatedAppEcosystemRoute
@@ -4163,6 +4184,7 @@ interface AuthenticatedAppRouteChildren {
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAdminRoute: AuthenticatedAppAdminRoute,
   AuthenticatedAppCampaignsRoute: AuthenticatedAppCampaignsRoute,
+  AuthenticatedAppClientesRoute: AuthenticatedAppClientesRoute,
   AuthenticatedAppCroRoute: AuthenticatedAppCroRoute,
   AuthenticatedAppDocumentsRoute: AuthenticatedAppDocumentsRoute,
   AuthenticatedAppEcosystemRoute: AuthenticatedAppEcosystemRoute,
