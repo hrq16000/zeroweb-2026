@@ -149,6 +149,7 @@ import { Route as AuthenticatedAppLeadsRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedAppLicensesRouteImport } from './routes/_authenticated/app.licenses'
 import { Route as AuthenticatedAppMarketplaceRouteImport } from './routes/_authenticated/app.marketplace'
 import { Route as AuthenticatedAppMasterRouteImport } from './routes/_authenticated/app.master'
+import { Route as AuthenticatedAppMetadadosRouteImport } from './routes/_authenticated/app.metadados'
 import { Route as AuthenticatedAppNotificationsRouteImport } from './routes/_authenticated/app.notifications'
 import { Route as AuthenticatedAppPagamentosRouteImport } from './routes/_authenticated/app.pagamentos'
 import { Route as AuthenticatedAppPaginasRouteImport } from './routes/_authenticated/app.paginas'
@@ -924,6 +925,12 @@ const AuthenticatedAppMasterRoute = AuthenticatedAppMasterRouteImport.update({
   path: '/master',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppMetadadosRoute =
+  AuthenticatedAppMetadadosRouteImport.update({
+    id: '/metadados',
+    path: '/metadados',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppNotificationsRoute =
   AuthenticatedAppNotificationsRouteImport.update({
     id: '/notifications',
@@ -1388,6 +1395,7 @@ export interface FileRoutesByFullPath {
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
   '/app/master': typeof AuthenticatedAppMasterRoute
+  '/app/metadados': typeof AuthenticatedAppMetadadosRoute
   '/app/notifications': typeof AuthenticatedAppNotificationsRoute
   '/app/pagamentos': typeof AuthenticatedAppPagamentosRoute
   '/app/paginas': typeof AuthenticatedAppPaginasRoute
@@ -1584,6 +1592,7 @@ export interface FileRoutesByTo {
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
   '/app/master': typeof AuthenticatedAppMasterRoute
+  '/app/metadados': typeof AuthenticatedAppMetadadosRoute
   '/app/notifications': typeof AuthenticatedAppNotificationsRoute
   '/app/pagamentos': typeof AuthenticatedAppPagamentosRoute
   '/app/paginas': typeof AuthenticatedAppPaginasRoute
@@ -1784,6 +1793,7 @@ export interface FileRoutesById {
   '/_authenticated/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/_authenticated/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
   '/_authenticated/app/master': typeof AuthenticatedAppMasterRoute
+  '/_authenticated/app/metadados': typeof AuthenticatedAppMetadadosRoute
   '/_authenticated/app/notifications': typeof AuthenticatedAppNotificationsRoute
   '/_authenticated/app/pagamentos': typeof AuthenticatedAppPagamentosRoute
   '/_authenticated/app/paginas': typeof AuthenticatedAppPaginasRoute
@@ -1984,6 +1994,7 @@ export interface FileRouteTypes {
     | '/app/licenses'
     | '/app/marketplace'
     | '/app/master'
+    | '/app/metadados'
     | '/app/notifications'
     | '/app/pagamentos'
     | '/app/paginas'
@@ -2180,6 +2191,7 @@ export interface FileRouteTypes {
     | '/app/licenses'
     | '/app/marketplace'
     | '/app/master'
+    | '/app/metadados'
     | '/app/notifications'
     | '/app/pagamentos'
     | '/app/paginas'
@@ -2379,6 +2391,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/licenses'
     | '/_authenticated/app/marketplace'
     | '/_authenticated/app/master'
+    | '/_authenticated/app/metadados'
     | '/_authenticated/app/notifications'
     | '/_authenticated/app/pagamentos'
     | '/_authenticated/app/paginas'
@@ -3557,6 +3570,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppMasterRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/metadados': {
+      id: '/_authenticated/app/metadados'
+      path: '/metadados'
+      fullPath: '/app/metadados'
+      preLoaderRoute: typeof AuthenticatedAppMetadadosRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/notifications': {
       id: '/_authenticated/app/notifications'
       path: '/notifications'
@@ -4070,6 +4090,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppLicensesRoute: typeof AuthenticatedAppLicensesRoute
   AuthenticatedAppMarketplaceRoute: typeof AuthenticatedAppMarketplaceRouteWithChildren
   AuthenticatedAppMasterRoute: typeof AuthenticatedAppMasterRoute
+  AuthenticatedAppMetadadosRoute: typeof AuthenticatedAppMetadadosRoute
   AuthenticatedAppNotificationsRoute: typeof AuthenticatedAppNotificationsRoute
   AuthenticatedAppPagamentosRoute: typeof AuthenticatedAppPagamentosRoute
   AuthenticatedAppPaginasRoute: typeof AuthenticatedAppPaginasRoute
@@ -4115,6 +4136,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppMarketplaceRoute:
     AuthenticatedAppMarketplaceRouteWithChildren,
   AuthenticatedAppMasterRoute: AuthenticatedAppMasterRoute,
+  AuthenticatedAppMetadadosRoute: AuthenticatedAppMetadadosRoute,
   AuthenticatedAppNotificationsRoute: AuthenticatedAppNotificationsRoute,
   AuthenticatedAppPagamentosRoute: AuthenticatedAppPagamentosRoute,
   AuthenticatedAppPaginasRoute: AuthenticatedAppPaginasRoute,
