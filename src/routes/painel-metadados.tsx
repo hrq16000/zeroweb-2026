@@ -172,15 +172,18 @@ function MetadataAuditPanel() {
       else if (!r.ok) setRegenMsg(`Falhou: ${r.error ?? "erro desconhecido"}`);
       else
         setRegenMsg(
-          `Regeneração concluída · ${r.checked ?? 0} projeto(s) revalidado(s)` +
-            (r.problems && r.problems.length > 0 ? ` · ${r.problems.length} pendência(s)` : ""),
+          `Verificação concluída · ${r.checked ?? 0} projeto(s) conferido(s)` +
+            (r.problems && r.problems.length > 0
+              ? ` · ${r.problems.length} pendência(s). A regeneração das imagens é feita pelo worker "node scripts/regenerate-social-images.mjs".`
+              : ". Nenhuma imagem foi reprocessada: esta ação apenas confere os assets publicados."),
         );
     } catch {
-      setRegenMsg("Falha ao solicitar a regeneração (é necessário estar logado como admin).");
+      setRegenMsg("Falha ao solicitar a verificação (é necessário estar logado como admin).");
     } finally {
       setRegenerating(false);
     }
   }, []);
+
 
   const run = useCallback(async () => {
     setRunning(true);
