@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import {
   Bell, FolderKanban, FileText, LifeBuoy, BarChart3, User, LogOut, Shield, Home, Globe,
   Layers, Target, BookOpen, Eye, KeyRound, Network, LayoutTemplate, Fingerprint, Plug,
-  Search, Briefcase, Menu, Activity, ShoppingCart, CreditCard, Users, ImageOff, Inbox,
+  Search, Briefcase, Menu, Activity, ShoppingCart, CreditCard, Users, ImageOff, Inbox, Phone, Gauge,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
@@ -51,6 +51,10 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/seo-google", icon: Search, label: "Search Console" },
   { to: "/app/seo-404s", icon: Search, label: "404s e Redirects" },
   { to: "/app/funis", icon: LayoutTemplate, label: "Funis dinâmicos" },
+  { to: "/app/funis/numeros", icon: Phone, label: "Números dos funis" },
+  { to: "/app/clientes", icon: Users, label: "Clientes do portfólio" },
+  { to: "/app/metadados", icon: FileText, label: "Metadados por cliente" },
+  { to: "/app/auditoria/vitais", icon: Gauge, label: "Web Vitals" },
 ];
 
 function NavLinks({

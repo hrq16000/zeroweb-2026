@@ -4118,6 +4118,90 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_client_settings: {
+        Row: {
+          canonical_url: string
+          client_key: string
+          created_at: string
+          display_name: string
+          funnel_enabled: boolean
+          funnel_recipient: string
+          id: string
+          published: boolean
+          seo_description: string
+          seo_keywords: string
+          seo_title: string
+          slug: string
+          social_image_url: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          canonical_url?: string
+          client_key: string
+          created_at?: string
+          display_name?: string
+          funnel_enabled?: boolean
+          funnel_recipient?: string
+          id?: string
+          published?: boolean
+          seo_description?: string
+          seo_keywords?: string
+          seo_title?: string
+          slug: string
+          social_image_url?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          canonical_url?: string
+          client_key?: string
+          created_at?: string
+          display_name?: string
+          funnel_enabled?: boolean
+          funnel_recipient?: string
+          id?: string
+          published?: boolean
+          seo_description?: string
+          seo_keywords?: string
+          seo_title?: string
+          slug?: string
+          social_image_url?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
+      portfolio_client_settings_history: {
+        Row: {
+          actor: string | null
+          client_key: string
+          created_at: string
+          field: string
+          id: string
+          new_value: string | null
+          old_value: string | null
+        }
+        Insert: {
+          actor?: string | null
+          client_key: string
+          created_at?: string
+          field: string
+          id?: string
+          new_value?: string | null
+          old_value?: string | null
+        }
+        Update: {
+          actor?: string | null
+          client_key?: string
+          created_at?: string
+          field?: string
+          id?: string
+          new_value?: string | null
+          old_value?: string | null
+        }
+        Relationships: []
+      }
       portfolio_web_vitals: {
         Row: {
           captured_at: string

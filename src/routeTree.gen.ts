@@ -136,6 +136,7 @@ import { Route as SuportePedidoTokenRouteImport } from './routes/suporte-pedido.
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
 import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authenticated/app.campaigns'
+import { Route as AuthenticatedAppClientesRouteImport } from './routes/_authenticated/app.clientes'
 import { Route as AuthenticatedAppCroRouteImport } from './routes/_authenticated/app.cro'
 import { Route as AuthenticatedAppDocumentsRouteImport } from './routes/_authenticated/app.documents'
 import { Route as AuthenticatedAppEcosystemRouteImport } from './routes/_authenticated/app.ecosystem'
@@ -149,6 +150,7 @@ import { Route as AuthenticatedAppLeadsRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedAppLicensesRouteImport } from './routes/_authenticated/app.licenses'
 import { Route as AuthenticatedAppMarketplaceRouteImport } from './routes/_authenticated/app.marketplace'
 import { Route as AuthenticatedAppMasterRouteImport } from './routes/_authenticated/app.master'
+import { Route as AuthenticatedAppMetadadosRouteImport } from './routes/_authenticated/app.metadados'
 import { Route as AuthenticatedAppNotificationsRouteImport } from './routes/_authenticated/app.notifications'
 import { Route as AuthenticatedAppPagamentosRouteImport } from './routes/_authenticated/app.pagamentos'
 import { Route as AuthenticatedAppPaginasRouteImport } from './routes/_authenticated/app.paginas'
@@ -178,11 +180,13 @@ import { Route as RWhatsappTokenRouteImport } from './routes/r.whatsapp.$token'
 import { Route as ServicosCategoriaSlugRouteImport } from './routes/servicos.categoria.$slug'
 import { Route as AuthenticatedAppAuditoriaAcessosRouteImport } from './routes/_authenticated/app.auditoria.acessos'
 import { Route as AuthenticatedAppAuditoriaIdentidadeRouteImport } from './routes/_authenticated/app.auditoria.identidade'
+import { Route as AuthenticatedAppAuditoriaVitaisRouteImport } from './routes/_authenticated/app.auditoria.vitais'
 import { Route as AuthenticatedAppEditorialSkyscraperRouteImport } from './routes/_authenticated/app.editorial.skyscraper'
 import { Route as AuthenticatedAppEditorialSkyscraperReviewRouteImport } from './routes/_authenticated/app.editorial.skyscraper-review'
 import { Route as AuthenticatedAppFunisIndexRouteImport } from './routes/_authenticated/app.funis.index'
 import { Route as AuthenticatedAppFunisIdRouteImport } from './routes/_authenticated/app.funis.$id'
 import { Route as AuthenticatedAppFunisLeadsRouteImport } from './routes/_authenticated/app.funis.leads'
+import { Route as AuthenticatedAppFunisNumerosRouteImport } from './routes/_authenticated/app.funis.numeros'
 import { Route as AuthenticatedAppIndexacaoUrlIdRouteImport } from './routes/_authenticated/app.indexacao.$urlId'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
@@ -849,6 +853,12 @@ const AuthenticatedAppCampaignsRoute =
     path: '/campaigns',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppClientesRoute =
+  AuthenticatedAppClientesRouteImport.update({
+    id: '/clientes',
+    path: '/clientes',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppCroRoute = AuthenticatedAppCroRouteImport.update({
   id: '/cro',
   path: '/cro',
@@ -924,6 +934,12 @@ const AuthenticatedAppMasterRoute = AuthenticatedAppMasterRouteImport.update({
   path: '/master',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppMetadadosRoute =
+  AuthenticatedAppMetadadosRouteImport.update({
+    id: '/metadados',
+    path: '/metadados',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppNotificationsRoute =
   AuthenticatedAppNotificationsRouteImport.update({
     id: '/notifications',
@@ -1084,6 +1100,12 @@ const AuthenticatedAppAuditoriaIdentidadeRoute =
     path: '/auditoria/identidade',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppAuditoriaVitaisRoute =
+  AuthenticatedAppAuditoriaVitaisRouteImport.update({
+    id: '/auditoria/vitais',
+    path: '/auditoria/vitais',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppEditorialSkyscraperRoute =
   AuthenticatedAppEditorialSkyscraperRouteImport.update({
     id: '/skyscraper',
@@ -1111,6 +1133,12 @@ const AuthenticatedAppFunisLeadsRoute =
   AuthenticatedAppFunisLeadsRouteImport.update({
     id: '/funis/leads',
     path: '/funis/leads',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppFunisNumerosRoute =
+  AuthenticatedAppFunisNumerosRouteImport.update({
+    id: '/funis/numeros',
+    path: '/funis/numeros',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppIndexacaoUrlIdRoute =
@@ -1375,6 +1403,7 @@ export interface FileRoutesByFullPath {
   '/sites/': typeof SitesIndexRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/app/clientes': typeof AuthenticatedAppClientesRoute
   '/app/cro': typeof AuthenticatedAppCroRoute
   '/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1388,6 +1417,7 @@ export interface FileRoutesByFullPath {
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
   '/app/master': typeof AuthenticatedAppMasterRoute
+  '/app/metadados': typeof AuthenticatedAppMetadadosRoute
   '/app/notifications': typeof AuthenticatedAppNotificationsRoute
   '/app/pagamentos': typeof AuthenticatedAppPagamentosRoute
   '/app/paginas': typeof AuthenticatedAppPaginasRoute
@@ -1418,10 +1448,12 @@ export interface FileRoutesByFullPath {
   '/app/': typeof AuthenticatedAppIndexRoute
   '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
+  '/app/auditoria/vitais': typeof AuthenticatedAppAuditoriaVitaisRoute
   '/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
+  '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -1571,6 +1603,7 @@ export interface FileRoutesByTo {
   '/sites': typeof SitesIndexRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/app/clientes': typeof AuthenticatedAppClientesRoute
   '/app/cro': typeof AuthenticatedAppCroRoute
   '/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1584,6 +1617,7 @@ export interface FileRoutesByTo {
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
   '/app/master': typeof AuthenticatedAppMasterRoute
+  '/app/metadados': typeof AuthenticatedAppMetadadosRoute
   '/app/notifications': typeof AuthenticatedAppNotificationsRoute
   '/app/pagamentos': typeof AuthenticatedAppPagamentosRoute
   '/app/paginas': typeof AuthenticatedAppPaginasRoute
@@ -1614,10 +1648,12 @@ export interface FileRoutesByTo {
   '/app': typeof AuthenticatedAppIndexRoute
   '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
+  '/app/auditoria/vitais': typeof AuthenticatedAppAuditoriaVitaisRoute
   '/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
+  '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -1771,6 +1807,7 @@ export interface FileRoutesById {
   '/sites/': typeof SitesIndexRoute
   '/_authenticated/app/admin': typeof AuthenticatedAppAdminRoute
   '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
+  '/_authenticated/app/clientes': typeof AuthenticatedAppClientesRoute
   '/_authenticated/app/cro': typeof AuthenticatedAppCroRoute
   '/_authenticated/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/_authenticated/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1784,6 +1821,7 @@ export interface FileRoutesById {
   '/_authenticated/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/_authenticated/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
   '/_authenticated/app/master': typeof AuthenticatedAppMasterRoute
+  '/_authenticated/app/metadados': typeof AuthenticatedAppMetadadosRoute
   '/_authenticated/app/notifications': typeof AuthenticatedAppNotificationsRoute
   '/_authenticated/app/pagamentos': typeof AuthenticatedAppPagamentosRoute
   '/_authenticated/app/paginas': typeof AuthenticatedAppPaginasRoute
@@ -1814,10 +1852,12 @@ export interface FileRoutesById {
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
   '/_authenticated/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/_authenticated/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
+  '/_authenticated/app/auditoria/vitais': typeof AuthenticatedAppAuditoriaVitaisRoute
   '/_authenticated/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/_authenticated/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/_authenticated/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/_authenticated/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
+  '/_authenticated/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/_authenticated/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -1971,6 +2011,7 @@ export interface FileRouteTypes {
     | '/sites/'
     | '/app/admin'
     | '/app/campaigns'
+    | '/app/clientes'
     | '/app/cro'
     | '/app/documents'
     | '/app/ecosystem'
@@ -1984,6 +2025,7 @@ export interface FileRouteTypes {
     | '/app/licenses'
     | '/app/marketplace'
     | '/app/master'
+    | '/app/metadados'
     | '/app/notifications'
     | '/app/pagamentos'
     | '/app/paginas'
@@ -2014,10 +2056,12 @@ export interface FileRouteTypes {
     | '/app/'
     | '/app/auditoria/acessos'
     | '/app/auditoria/identidade'
+    | '/app/auditoria/vitais'
     | '/app/editorial/skyscraper'
     | '/app/editorial/skyscraper-review'
     | '/app/funis/$id'
     | '/app/funis/leads'
+    | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
@@ -2167,6 +2211,7 @@ export interface FileRouteTypes {
     | '/sites'
     | '/app/admin'
     | '/app/campaigns'
+    | '/app/clientes'
     | '/app/cro'
     | '/app/documents'
     | '/app/ecosystem'
@@ -2180,6 +2225,7 @@ export interface FileRouteTypes {
     | '/app/licenses'
     | '/app/marketplace'
     | '/app/master'
+    | '/app/metadados'
     | '/app/notifications'
     | '/app/pagamentos'
     | '/app/paginas'
@@ -2210,10 +2256,12 @@ export interface FileRouteTypes {
     | '/app'
     | '/app/auditoria/acessos'
     | '/app/auditoria/identidade'
+    | '/app/auditoria/vitais'
     | '/app/editorial/skyscraper'
     | '/app/editorial/skyscraper-review'
     | '/app/funis/$id'
     | '/app/funis/leads'
+    | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
@@ -2366,6 +2414,7 @@ export interface FileRouteTypes {
     | '/sites/'
     | '/_authenticated/app/admin'
     | '/_authenticated/app/campaigns'
+    | '/_authenticated/app/clientes'
     | '/_authenticated/app/cro'
     | '/_authenticated/app/documents'
     | '/_authenticated/app/ecosystem'
@@ -2379,6 +2428,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/licenses'
     | '/_authenticated/app/marketplace'
     | '/_authenticated/app/master'
+    | '/_authenticated/app/metadados'
     | '/_authenticated/app/notifications'
     | '/_authenticated/app/pagamentos'
     | '/_authenticated/app/paginas'
@@ -2409,10 +2459,12 @@ export interface FileRouteTypes {
     | '/_authenticated/app/'
     | '/_authenticated/app/auditoria/acessos'
     | '/_authenticated/app/auditoria/identidade'
+    | '/_authenticated/app/auditoria/vitais'
     | '/_authenticated/app/editorial/skyscraper'
     | '/_authenticated/app/editorial/skyscraper-review'
     | '/_authenticated/app/funis/$id'
     | '/_authenticated/app/funis/leads'
+    | '/_authenticated/app/funis/numeros'
     | '/_authenticated/app/indexacao/$urlId'
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
@@ -3466,6 +3518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppCampaignsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/clientes': {
+      id: '/_authenticated/app/clientes'
+      path: '/clientes'
+      fullPath: '/app/clientes'
+      preLoaderRoute: typeof AuthenticatedAppClientesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/cro': {
       id: '/_authenticated/app/cro'
       path: '/cro'
@@ -3555,6 +3614,13 @@ declare module '@tanstack/react-router' {
       path: '/master'
       fullPath: '/app/master'
       preLoaderRoute: typeof AuthenticatedAppMasterRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/metadados': {
+      id: '/_authenticated/app/metadados'
+      path: '/metadados'
+      fullPath: '/app/metadados'
+      preLoaderRoute: typeof AuthenticatedAppMetadadosRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/notifications': {
@@ -3760,6 +3826,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppAuditoriaIdentidadeRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/auditoria/vitais': {
+      id: '/_authenticated/app/auditoria/vitais'
+      path: '/auditoria/vitais'
+      fullPath: '/app/auditoria/vitais'
+      preLoaderRoute: typeof AuthenticatedAppAuditoriaVitaisRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/editorial/skyscraper': {
       id: '/_authenticated/app/editorial/skyscraper'
       path: '/skyscraper'
@@ -3793,6 +3866,13 @@ declare module '@tanstack/react-router' {
       path: '/funis/leads'
       fullPath: '/app/funis/leads'
       preLoaderRoute: typeof AuthenticatedAppFunisLeadsRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/funis/numeros': {
+      id: '/_authenticated/app/funis/numeros'
+      path: '/funis/numeros'
+      fullPath: '/app/funis/numeros'
+      preLoaderRoute: typeof AuthenticatedAppFunisNumerosRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/indexacao/$urlId': {
@@ -4057,6 +4137,7 @@ const AuthenticatedAppSupportRouteWithChildren =
 interface AuthenticatedAppRouteChildren {
   AuthenticatedAppAdminRoute: typeof AuthenticatedAppAdminRoute
   AuthenticatedAppCampaignsRoute: typeof AuthenticatedAppCampaignsRoute
+  AuthenticatedAppClientesRoute: typeof AuthenticatedAppClientesRoute
   AuthenticatedAppCroRoute: typeof AuthenticatedAppCroRoute
   AuthenticatedAppDocumentsRoute: typeof AuthenticatedAppDocumentsRoute
   AuthenticatedAppEcosystemRoute: typeof AuthenticatedAppEcosystemRoute
@@ -4070,6 +4151,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppLicensesRoute: typeof AuthenticatedAppLicensesRoute
   AuthenticatedAppMarketplaceRoute: typeof AuthenticatedAppMarketplaceRouteWithChildren
   AuthenticatedAppMasterRoute: typeof AuthenticatedAppMasterRoute
+  AuthenticatedAppMetadadosRoute: typeof AuthenticatedAppMetadadosRoute
   AuthenticatedAppNotificationsRoute: typeof AuthenticatedAppNotificationsRoute
   AuthenticatedAppPagamentosRoute: typeof AuthenticatedAppPagamentosRoute
   AuthenticatedAppPaginasRoute: typeof AuthenticatedAppPaginasRoute
@@ -4091,8 +4173,10 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
   AuthenticatedAppAuditoriaAcessosRoute: typeof AuthenticatedAppAuditoriaAcessosRoute
   AuthenticatedAppAuditoriaIdentidadeRoute: typeof AuthenticatedAppAuditoriaIdentidadeRoute
+  AuthenticatedAppAuditoriaVitaisRoute: typeof AuthenticatedAppAuditoriaVitaisRoute
   AuthenticatedAppFunisIdRoute: typeof AuthenticatedAppFunisIdRoute
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
+  AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
 }
@@ -4100,6 +4184,7 @@ interface AuthenticatedAppRouteChildren {
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAdminRoute: AuthenticatedAppAdminRoute,
   AuthenticatedAppCampaignsRoute: AuthenticatedAppCampaignsRoute,
+  AuthenticatedAppClientesRoute: AuthenticatedAppClientesRoute,
   AuthenticatedAppCroRoute: AuthenticatedAppCroRoute,
   AuthenticatedAppDocumentsRoute: AuthenticatedAppDocumentsRoute,
   AuthenticatedAppEcosystemRoute: AuthenticatedAppEcosystemRoute,
@@ -4115,6 +4200,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppMarketplaceRoute:
     AuthenticatedAppMarketplaceRouteWithChildren,
   AuthenticatedAppMasterRoute: AuthenticatedAppMasterRoute,
+  AuthenticatedAppMetadadosRoute: AuthenticatedAppMetadadosRoute,
   AuthenticatedAppNotificationsRoute: AuthenticatedAppNotificationsRoute,
   AuthenticatedAppPagamentosRoute: AuthenticatedAppPagamentosRoute,
   AuthenticatedAppPaginasRoute: AuthenticatedAppPaginasRoute,
@@ -4137,8 +4223,10 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAuditoriaAcessosRoute: AuthenticatedAppAuditoriaAcessosRoute,
   AuthenticatedAppAuditoriaIdentidadeRoute:
     AuthenticatedAppAuditoriaIdentidadeRoute,
+  AuthenticatedAppAuditoriaVitaisRoute: AuthenticatedAppAuditoriaVitaisRoute,
   AuthenticatedAppFunisIdRoute: AuthenticatedAppFunisIdRoute,
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
+  AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
     AuthenticatedAppFunisPipelineRegrasRoute,
