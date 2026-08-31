@@ -65,7 +65,7 @@ export const listAccessAudit = createServerFn({ method: "POST" })
         entity_id: (r.entity_id as string | null) ?? null,
         kind: r.kind as "read" | "write",
         actor: r.actor_id ? (actors[r.actor_id as string] ?? String(r.actor_id).slice(0, 8)) : "sistema",
-        meta: (r.meta ?? {}) as Record<string, unknown>,
+        meta: JSON.stringify(r.meta ?? {}),
       })),
       total: list.length,
     };
