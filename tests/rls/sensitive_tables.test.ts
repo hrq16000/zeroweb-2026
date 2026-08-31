@@ -97,8 +97,21 @@ async function main() {
     catalogId = svc.id as string;
 
     const anonClient = createClient(URL!, ANON!, { auth: { persistSession: false } });
-    const userClient = await signedClient(userEmail, password);
-    const adminClient = await signedClient(adminEmail, password);
+    let userClient, adminClient;
+    try {
+      userClient = await signedClient(userEmail, password);
+      adminClient = await signedClient(adminEmail, password);
+    } catch (e) {
+      const msg = (e as Error).message;
+      if (/Email logins are disabled|email_provider_disabled/i.test(msg)) {
+        console.log(
+          "SKIP rls-sensitive — login por e-mail/senha está desabilitado neste projeto (auth Google-only). " +
+            "Habilite temporariamente o provedor de e-mail para executar este teste.",
+        );
+        return;
+      }
+      throw e;
+    }
 
     // --- anon ---
     const anonLead = await anonClient.from("lead_submissions").select("id").eq("id", leadId);
