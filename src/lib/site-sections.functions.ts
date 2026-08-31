@@ -2,6 +2,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
+import { getSupabasePublicServer } from "@/lib/supabase-public.server";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyClient = any;
@@ -32,7 +33,10 @@ export type SiteSectionRow = {
 export const getPageSections = createServerFn({ method: "GET" })
   .inputValidator((i) => z.object({ page: z.string().min(1).max(60) }).parse(i))
   .handler(async ({ data }) => {
-    const sb = await getAdmin();
+    // Leitura pública: usa a chave publicável (política `site_sections public read`).
+    // Não depende de service role, que não existe no runtime de preview/CI.
+    const sb = getSupabasePublicServer() as unknown as AnyClient;
+    if (!sb) return { map: {} as Record<string, boolean>, rows: [] };
     const { data: rows, error } = await sb
       .from("site_sections")
       .select("key,enabled,sort_order")

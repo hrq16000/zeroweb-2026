@@ -5,6 +5,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { SERVICES, type ServiceData, type ServiceCategory } from "@/lib/services-data";
 import { isServiceSolution } from "@/lib/is-solution";
+import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 
 type DbServiceRow = {
   slug: string;
@@ -261,6 +262,7 @@ function mapRow(
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function signImage(sb: any, path: string | null): Promise<string | null> {
   if (!path) return null;
+  if (!sb) return null;
   if (/^https?:\/\//i.test(path) || path.startsWith("/__l5e/")) return path;
   try {
     const { data } = await sb.storage
@@ -320,8 +322,10 @@ const fileFallback = (s: ServiceData): PublicServiceFull => ({
 
 export const listServicesPublic = createServerFn({ method: "GET" }).handler(async () => {
   try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data, error } = await supabaseAdmin
+    const sbPublic = getSupabasePublicServer();
+    if (!sbPublic) throw new Error("supabase public client indisponível");
+    const signer = await getSupabaseAdminOptional();
+    const { data, error } = await sbPublic
       .from("services")
       .select(COLS)
       .eq("is_active", true)
@@ -333,9 +337,9 @@ export const listServicesPublic = createServerFn({ method: "GET" }).handler(asyn
         const r = normalizePublicServiceRow(raw);
         return mapRow(
           r,
-          await signImage(supabaseAdmin, r.image_path),
-          await signGallery(supabaseAdmin, r.gallery),
-          await signImage(supabaseAdmin, r.og_image_path),
+          await signImage(signer, r.image_path),
+          await signGallery(signer, r.gallery),
+          await signImage(signer, r.og_image_path),
         );
       }),
     );
@@ -358,8 +362,10 @@ export const getServicePublic = createServerFn({ method: "GET" })
   .inputValidator((data: unknown) => z.object({ slug: z.string().min(1).max(120) }).parse(data))
   .handler(async ({ data }) => {
     try {
-      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const { data: row, error } = await supabaseAdmin
+      const sbPublic = getSupabasePublicServer();
+      if (!sbPublic) throw new Error("supabase public client indisponível");
+      const signer = await getSupabaseAdminOptional();
+      const { data: row, error } = await sbPublic
         .from("services")
         .select(COLS)
         .eq("slug", data.slug)
@@ -368,9 +374,9 @@ export const getServicePublic = createServerFn({ method: "GET" })
       if (error) throw error;
       if (row) {
         const r = normalizePublicServiceRow(row as unknown as DbServiceRow);
-        const imageUrl = await signImage(supabaseAdmin, r.image_path);
-        const gallery = await signGallery(supabaseAdmin, r.gallery);
-        const ogImageUrl = await signImage(supabaseAdmin, r.og_image_path);
+        const imageUrl = await signImage(signer, r.image_path);
+        const gallery = await signGallery(signer, r.gallery);
+        const ogImageUrl = await signImage(signer, r.og_image_path);
         return { service: mapRow(r, imageUrl, gallery, ogImageUrl), source: "db" as const };
       }
     } catch (err) {

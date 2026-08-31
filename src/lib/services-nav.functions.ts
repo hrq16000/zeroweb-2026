@@ -5,6 +5,7 @@
 // de serviços — vivem em /solucoes.
 import { createServerFn } from "@tanstack/react-start";
 import { isServiceSolution } from "@/lib/is-solution";
+import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 
 export type NavService = {
   slug: string;
@@ -33,8 +34,15 @@ type Row = {
 
 export const listServicesNav = createServerFn({ method: "GET" }).handler(async () => {
   try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data, error } = await supabaseAdmin
+    // Catálogo público: leitura via chave publicável, protegida pela política
+    // `services_public_read_active`. Sem dependência de service role.
+    const sbPublic = getSupabasePublicServer();
+    if (!sbPublic) throw new Error("supabase public client indisponível");
+    // A assinatura de imagens usa o bucket privado; quando a credencial não
+    // existe no runtime, a imagem degrada para null em vez de derrubar o menu.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const signer = (await getSupabaseAdminOptional()) as any;
+    const { data, error } = await sbPublic
       .from("services")
       .select(
         "slug,name,category,description,image_path,image_alt,show_in_menu,show_in_footer,show_in_home_featured,show_in_sitemap,is_solution,price,display_order",
@@ -60,7 +68,8 @@ export const listServicesNav = createServerFn({ method: "GET" }).handler(async (
         .map(async (r) => {
           let imageUrl: string | null = null;
           try {
-            const { data: sig } = await supabaseAdmin.storage
+            if (!signer) return [r.slug, null] as const;
+            const { data: sig } = await signer.storage
               .from("service-images")
               .createSignedUrl(r.image_path as string, 60 * 60 * 24 * 7);
             imageUrl = sig?.signedUrl ?? null;
