@@ -21,4 +21,5 @@ export interface TemplateEntry {
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'seo-alert': seoAlertTemplate,
+  'leads-digest': leadsDigestTemplate,
 }
