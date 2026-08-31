@@ -5,6 +5,8 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { posts, categories } from "@/lib/blog-data";
 import { coverForCategory } from "@/components/site/Blog";
+import { Picture } from "@/components/site/Picture";
+
 import { ArrowUpRight } from "lucide-react";
 
 const TITLE = "Blog 0WEB · Marketing, SEO, IA e Tecnologia para empresas";
@@ -128,7 +130,7 @@ function BlogIndex() {
           </div>
 
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filtered.map((p) => (
+            {filtered.map((p, i) => (
               <Link
                 key={p.slug}
                 to="/blog/$slug"
@@ -136,16 +138,16 @@ function BlogIndex() {
                 className="group rounded-3xl bg-card border border-border overflow-hidden hover:shadow-elegant transition"
               >
                 <div className="aspect-[16/10] relative overflow-hidden bg-muted">
-                  <img
+                  <Picture
                     src={p.cover || coverForCategory(p.category)}
                     alt={`Imagem ilustrativa: ${p.title}`}
                     width={1280}
                     height={800}
-                    loading="lazy"
-                    decoding="async"
+                    priority={i === 0}
                     sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
                   />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4 rounded-full glass text-xs font-medium px-3 py-1">
                     {p.category}

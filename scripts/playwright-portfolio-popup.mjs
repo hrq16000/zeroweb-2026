@@ -32,15 +32,30 @@ const installed = existsSync(root)
       .find((p) => existsSync(p))
   : undefined;
 
-const browser = await chromium.launch({
-  headless: true,
-  executablePath: existsSync(bundled) ? bundled : installed,
-});
+let browser = null;
+
+async function getBrowser() {
+  // Sessões longas (dezenas de slugs) podem derrubar o Chromium por consumo de
+  // memória. Relançar é obrigatório para não transformar crash de infraestrutura
+  // em falso negativo do gate.
+  if (browser && browser.isConnected()) return browser;
+  browser = await chromium.launch({
+    headless: true,
+    executablePath: existsSync(bundled) ? bundled : installed,
+  });
+  return browser;
+}
+
+function isInfraCrash(error) {
+  const msg = error instanceof Error ? error.message : String(error);
+  return /browser has been closed|Target closed|browserContext.*closed|Protocol error/i.test(msg);
+}
 
 const failures = [];
 
 async function countPopups(url, { expect = 1, waitMs = 20000 } = {}) {
-  const context = await browser.newContext({ viewport: { width: 1280, height: 1200 } });
+  const active = await getBrowser();
+  const context = await active.newContext({ viewport: { width: 1280, height: 1200 } });
   const page = await context.newPage();
   await page.goto(url, { waitUntil: "domcontentloaded" });
   if (expect > 0) {
@@ -58,50 +73,70 @@ async function countPopups(url, { expect = 1, waitMs = 20000 } = {}) {
   return { context, page, count };
 }
 
-for (const slug of slugs) {
+async function checkSlug(slug) {
   const url = `${baseUrl}/portfolio/${slug}`;
-  const before = failures.length;
-  try {
-    // Warm-up: primeira compilação da rota não deve contar como falha.
-    const warm = await countPopups(url, { waitMs: 25000 });
-    await warm.context.close();
-    const { context, page, count } = await countPopups(url);
-    if (count !== 1) {
-      failures.push(`/portfolio/${slug}: esperado 1 pop-up, encontrado ${count}`);
-    } else {
-      await page
-        .locator('[data-testid="portfolio-upsell"]')
-        .screenshot({ path: join(shotDir, `${slug}.png`) });
-      // Uma vez por sessão: recarregar não pode exibir de novo.
-      await page.reload({ waitUntil: "domcontentloaded" });
-      await page.waitForTimeout(15000);
-      const again = await page.locator('[data-testid="portfolio-upsell"]').count();
-      if (again !== 0) failures.push(`/portfolio/${slug}: pop-up reapareceu na mesma sessão`);
-    }
-    await context.close();
+  const local = [];
 
-    // Ambiente de preview externo (?preview=1) NÃO pode silenciar o pop-up.
-    const previewRun = await countPopups(`${url}?preview=1`);
-    if (previewRun.count !== 1) {
-      failures.push(`/portfolio/${slug}?preview=1: esperado 1 pop-up, encontrado ${previewRun.count}`);
-    }
-    await previewRun.context.close();
-
-    // Preview interno da 0WEB continua silencioso.
-    const internal = await countPopups(`${url}?0web_preview=1`, { expect: 0, waitMs: 13000 });
-    if (internal.count !== 0) {
-      failures.push(`/portfolio/${slug}?0web_preview=1: overlay deveria estar silenciado`);
-    }
-    await internal.context.close();
-
-    if (failures.length === before) console.log(`[popup] /portfolio/${slug} OK`);
-    else console.error(`[popup] /portfolio/${slug} FALHOU`);
-  } catch (error) {
-    failures.push(`/portfolio/${slug}: ${error instanceof Error ? error.message : String(error)}`);
+  // Warm-up: primeira compilação da rota não deve contar como falha.
+  const warm = await countPopups(url, { waitMs: 25000 });
+  await warm.context.close();
+  const { context, page, count } = await countPopups(url);
+  if (count !== 1) {
+    local.push(`/portfolio/${slug}: esperado 1 pop-up, encontrado ${count}`);
+  } else {
+    await page
+      .locator('[data-testid="portfolio-upsell"]')
+      .screenshot({ path: join(shotDir, `${slug}.png`) });
+    // Uma vez por sessão: recarregar não pode exibir de novo.
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(15000);
+    const again = await page.locator('[data-testid="portfolio-upsell"]').count();
+    if (again !== 0) local.push(`/portfolio/${slug}: pop-up reapareceu na mesma sessão`);
   }
+  await context.close();
+
+  // Ambiente de preview externo (?preview=1) NÃO pode silenciar o pop-up.
+  const previewRun = await countPopups(`${url}?preview=1`);
+  if (previewRun.count !== 1) {
+    local.push(`/portfolio/${slug}?preview=1: esperado 1 pop-up, encontrado ${previewRun.count}`);
+  }
+  await previewRun.context.close();
+
+  // Preview interno da 0WEB continua silencioso.
+  const internal = await countPopups(`${url}?0web_preview=1`, { expect: 0, waitMs: 13000 });
+  if (internal.count !== 0) {
+    local.push(`/portfolio/${slug}?0web_preview=1: overlay deveria estar silenciado`);
+  }
+  await internal.context.close();
+  return local;
 }
 
-await browser.close();
+for (const slug of slugs) {
+  let result = null;
+  for (let attempt = 1; attempt <= 2 && result === null; attempt += 1) {
+    try {
+      result = await checkSlug(slug);
+    } catch (error) {
+      if (isInfraCrash(error) && attempt === 1) {
+        // Chromium caiu: encerra a instância e repete o slug com browser novo.
+        try {
+          if (browser) await browser.close();
+        } catch {
+          /* já derrubado */
+        }
+        browser = null;
+        continue;
+      }
+      result = [`/portfolio/${slug}: ${error instanceof Error ? error.message : String(error)}`];
+    }
+  }
+  const local = result ?? [`/portfolio/${slug}: falha desconhecida`];
+  failures.push(...local);
+  if (local.length === 0) console.log(`[popup] /portfolio/${slug} OK`);
+  else console.error(`[popup] /portfolio/${slug} FALHOU`);
+}
+
+if (browser) await browser.close();
 
 if (failures.length) {
   console.error(`\n[popup] FAIL — ${failures.length} problema(s)`);

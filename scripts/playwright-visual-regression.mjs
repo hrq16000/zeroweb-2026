@@ -74,11 +74,23 @@ const FREEZE_CSS = `
 
 /** Camadas fixas (chatbot, cookies, CTAs flutuantes) são removidas do paint. */
 const HIDE_FIXED_LAYERS = `
-  for (const el of document.querySelectorAll('body *')) {
-    const pos = getComputedStyle(el).position;
-    if (pos === 'fixed' || pos === 'sticky') el.style.visibility = 'hidden';
-  }
+  (() => {
+    const hideAll = () => {
+      for (const el of document.querySelectorAll('body *')) {
+        const pos = getComputedStyle(el).position;
+        if (pos === 'fixed' || pos === 'sticky') el.style.visibility = 'hidden';
+      }
+    };
+    hideAll();
+    // Widgets flutuantes (prova social, upsell, chatbot) montam com atraso via
+    // framer-motion e reapareciam depois do hide, gerando diffs falsos.
+    if (!window.__0webHideObserver) {
+      window.__0webHideObserver = new MutationObserver(hideAll);
+      window.__0webHideObserver.observe(document.body, { childList: true, subtree: true });
+    }
+  })();
 `;
+
 
 
 const bundled = chromium.executablePath();

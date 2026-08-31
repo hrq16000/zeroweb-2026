@@ -315,14 +315,16 @@ export function RenataBeautyView() {
                 <img 
                   src="/images/renata-beauty-promo.webp"
                   alt="Espaço Renata Beauty Studio Inauguração" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   width={1024} height={1536}
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80";
+                    (e.target as HTMLImageElement).src = "/images/renata-beauty-promo.png";
                   }}
                 />
+
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0609] via-transparent to-transparent opacity-60 pointer-events-none" />
 
