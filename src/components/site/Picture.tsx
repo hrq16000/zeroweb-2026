@@ -28,6 +28,17 @@ function variant(src: string, ext: "webp" | "avif"): string {
   return src.replace(/\.(jpe?g|png)(\?.*)?$/i, `.${ext}$2`);
 }
 
+/**
+ * Só emitimos <source> quando o build realmente gera as variantes:
+ * scripts/optimize-blog-images.mjs cobre apenas `blog-*` e `og-*`
+ * servidos do próprio domínio. Qualquer outro caminho (CDN externo,
+ * asset arbitrário) cai no <img> puro para não gerar 404.
+ */
+function hasModernVariants(src: string): boolean {
+  if (/^https?:\/\//i.test(src)) return false;
+  return /(^|\/)(blog|og)-[^/]*\.(jpe?g|png)(\?.*)?$/i.test(src);
+}
+
 export function Picture({
   src,
   alt,
@@ -38,12 +49,14 @@ export function Picture({
   className,
   ...rest
 }: Props) {
+  const modern = hasModernVariants(src);
   const avif = variant(src, "avif");
   const webp = variant(src, "webp");
   return (
     <picture>
-      <source type="image/avif" srcSet={avif} sizes={sizes} />
-      <source type="image/webp" srcSet={webp} sizes={sizes} />
+      {modern && <source type="image/avif" srcSet={avif} sizes={sizes} />}
+      {modern && <source type="image/webp" srcSet={webp} sizes={sizes} />}
+
       <img
         src={src}
         alt={alt}
