@@ -251,7 +251,7 @@ export function runSkillPipeline(
   const ranked = rankCandidates(found.accepted);
   const reviewed = securityReview(ranked);
   const selected = selectStack(reviewed.accepted);
-  const cross = crossReview(selected.accepted);
+  const cross = crossReview(selected.accepted, task);
   const evidence = reviewEvidence(task.evidence ?? []);
   const ship = shipGate(cross, gates);
 
