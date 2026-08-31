@@ -125,7 +125,49 @@ function LeadsPage() {
             </option>
           ))}
         </select>
+        <input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Buscar por nome"
+          aria-label="Buscar leads por nome"
+          className="text-sm rounded-lg border border-border bg-background px-3 py-2"
+        />
+        <label className="text-xs text-muted-foreground flex items-center gap-2">
+          De
+          <input
+            type="date"
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+            className="text-sm rounded-lg border border-border bg-background px-3 py-2"
+          />
+        </label>
+        <label className="text-xs text-muted-foreground flex items-center gap-2">
+          Até
+          <input
+            type="date"
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+            className="text-sm rounded-lg border border-border bg-background px-3 py-2"
+          />
+        </label>
+        <button
+          type="button"
+          onClick={exportCsv}
+          disabled={leads.length === 0}
+          className="text-sm px-3 py-2 rounded-lg border border-border hover:bg-muted inline-flex items-center gap-2 disabled:opacity-50"
+        >
+          <Download className="w-4 h-4" /> CSV
+        </button>
+        <button
+          type="button"
+          onClick={emailReport}
+          className="text-sm px-3 py-2 rounded-lg border border-border hover:bg-muted inline-flex items-center gap-2"
+        >
+          <Mail className="w-4 h-4" /> Enviar por e-mail
+        </button>
+        {mailState && <span className="text-xs text-muted-foreground">{mailState}</span>}
       </div>
+
 
       <div className="rounded-2xl border border-border overflow-hidden bg-card">
         <table className="w-full text-sm">
