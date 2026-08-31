@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { template as seoAlertTemplate } from './seo-alert'
+import { template as leadsDigestTemplate } from './leads-digest'
 
 export interface TemplateEntry {
   component: ComponentType<any>
