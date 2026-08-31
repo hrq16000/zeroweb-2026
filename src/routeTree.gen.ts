@@ -184,6 +184,7 @@ import { Route as AuthenticatedAppEditorialSkyscraperReviewRouteImport } from '.
 import { Route as AuthenticatedAppFunisIndexRouteImport } from './routes/_authenticated/app.funis.index'
 import { Route as AuthenticatedAppFunisIdRouteImport } from './routes/_authenticated/app.funis.$id'
 import { Route as AuthenticatedAppFunisLeadsRouteImport } from './routes/_authenticated/app.funis.leads'
+import { Route as AuthenticatedAppFunisNumerosRouteImport } from './routes/_authenticated/app.funis.numeros'
 import { Route as AuthenticatedAppIndexacaoUrlIdRouteImport } from './routes/_authenticated/app.indexacao.$urlId'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
@@ -1120,6 +1121,12 @@ const AuthenticatedAppFunisLeadsRoute =
     path: '/funis/leads',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppFunisNumerosRoute =
+  AuthenticatedAppFunisNumerosRouteImport.update({
+    id: '/funis/numeros',
+    path: '/funis/numeros',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppIndexacaoUrlIdRoute =
   AuthenticatedAppIndexacaoUrlIdRouteImport.update({
     id: '/$urlId',
@@ -1430,6 +1437,7 @@ export interface FileRoutesByFullPath {
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
+  '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -1627,6 +1635,7 @@ export interface FileRoutesByTo {
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
+  '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -1828,6 +1837,7 @@ export interface FileRoutesById {
   '/_authenticated/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/_authenticated/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/_authenticated/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
+  '/_authenticated/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/_authenticated/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -2029,6 +2039,7 @@ export interface FileRouteTypes {
     | '/app/editorial/skyscraper-review'
     | '/app/funis/$id'
     | '/app/funis/leads'
+    | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
@@ -2226,6 +2237,7 @@ export interface FileRouteTypes {
     | '/app/editorial/skyscraper-review'
     | '/app/funis/$id'
     | '/app/funis/leads'
+    | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
@@ -2426,6 +2438,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/editorial/skyscraper-review'
     | '/_authenticated/app/funis/$id'
     | '/_authenticated/app/funis/leads'
+    | '/_authenticated/app/funis/numeros'
     | '/_authenticated/app/indexacao/$urlId'
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
@@ -3815,6 +3828,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppFunisLeadsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/funis/numeros': {
+      id: '/_authenticated/app/funis/numeros'
+      path: '/funis/numeros'
+      fullPath: '/app/funis/numeros'
+      preLoaderRoute: typeof AuthenticatedAppFunisNumerosRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/indexacao/$urlId': {
       id: '/_authenticated/app/indexacao/$urlId'
       path: '/$urlId'
@@ -4114,6 +4134,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppAuditoriaIdentidadeRoute: typeof AuthenticatedAppAuditoriaIdentidadeRoute
   AuthenticatedAppFunisIdRoute: typeof AuthenticatedAppFunisIdRoute
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
+  AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
 }
@@ -4161,6 +4182,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
     AuthenticatedAppAuditoriaIdentidadeRoute,
   AuthenticatedAppFunisIdRoute: AuthenticatedAppFunisIdRoute,
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
+  AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
     AuthenticatedAppFunisPipelineRegrasRoute,
