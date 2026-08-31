@@ -42,6 +42,10 @@ function bad(label: string, extra?: unknown) {
   failures++;
   console.error("✗", label, extra ?? "");
 }
+function check(cond: boolean, okLabel: string, badLabel: string, extra?: unknown) {
+  if (cond) ok(okLabel);
+  else bad(badLabel, extra);
+}
 
 async function signedClient(email: string, password: string) {
   const c = createClient(URL!, ANON!, { auth: { persistSession: false } });
@@ -115,54 +119,70 @@ async function main() {
 
     // --- anon ---
     const anonLead = await anonClient.from("lead_submissions").select("id").eq("id", leadId);
-    (anonLead.error || (anonLead.data ?? []).length === 0)
-      ? ok("anon NÃO lê lead_submissions")
-      : bad("anon leu lead_submissions", anonLead.data);
+    check(
+      anonLead.error || (anonLead.data ?? []).length === 0,
+      "anon NÃO lê lead_submissions",
+      "anon leu lead_submissions", anonLead.data,
+    );
 
     const anonSvc = await anonClient.from("service_catalog").select("id").eq("id", catalogId);
-    (anonSvc.error || (anonSvc.data ?? []).length === 0)
-      ? ok("anon NÃO lê service_catalog")
-      : bad("anon leu service_catalog", anonSvc.data);
+    check(
+      anonSvc.error || (anonSvc.data ?? []).length === 0,
+      "anon NÃO lê service_catalog",
+      "anon leu service_catalog", anonSvc.data,
+    );
 
     // --- usuário comum ---
     const userLead = await userClient.from("lead_submissions").select("id").eq("id", leadId);
-    (userLead.error || (userLead.data ?? []).length === 0)
-      ? ok("usuário comum NÃO lê lead_submissions")
-      : bad("usuário comum leu lead_submissions", userLead.data);
+    check(
+      userLead.error || (userLead.data ?? []).length === 0,
+      "usuário comum NÃO lê lead_submissions",
+      "usuário comum leu lead_submissions", userLead.data,
+    );
 
     const userSvc = await userClient.from("service_catalog").select("id").eq("id", catalogId);
-    (userSvc.error || (userSvc.data ?? []).length === 0)
-      ? ok("usuário comum NÃO lê service_catalog")
-      : bad("usuário comum leu service_catalog", userSvc.data);
+    check(
+      userSvc.error || (userSvc.data ?? []).length === 0,
+      "usuário comum NÃO lê service_catalog",
+      "usuário comum leu service_catalog", userSvc.data,
+    );
 
     const userWrite = await userClient
       .from("service_catalog")
       .update({ name: "hack" })
       .eq("id", catalogId)
       .select("id");
-    (userWrite.error || (userWrite.data ?? []).length === 0)
-      ? ok("usuário comum NÃO escreve em service_catalog")
-      : bad("usuário comum escreveu em service_catalog");
+    check(
+      userWrite.error || (userWrite.data ?? []).length === 0,
+      "usuário comum NÃO escreve em service_catalog",
+      "usuário comum escreveu em service_catalog",
+    );
 
     // --- admin ---
     const adminLead = await adminClient.from("lead_submissions").select("id").eq("id", leadId);
-    (!adminLead.error && (adminLead.data ?? []).length === 1)
-      ? ok("admin lê lead_submissions")
-      : bad("admin não leu lead_submissions", adminLead.error?.message);
+    check(
+      !adminLead.error && (adminLead.data ?? []).length === 1,
+      "admin lê lead_submissions",
+      "admin não leu lead_submissions", adminLead.error?.message,
+    );
 
     const adminSvc = await adminClient.from("service_catalog").select("id").eq("id", catalogId);
-    (!adminSvc.error && (adminSvc.data ?? []).length === 1)
-      ? ok("admin lê service_catalog")
-      : bad("admin não leu service_catalog", adminSvc.error?.message);
+    check(
+      !adminSvc.error && (adminSvc.data ?? []).length === 1,
+      "admin lê service_catalog",
+      "admin não leu service_catalog", adminSvc.error?.message,
+    );
 
     const adminLeadWrite = await adminClient
       .from("lead_submissions")
       .update({ status: "em_atendimento" })
       .eq("id", leadId)
       .select("id");
-    (!adminLeadWrite.error && (adminLeadWrite.data ?? []).length === 1)
-      ? ok("admin atualiza lead_submissions")
-      : bad("admin não atualizou lead_submissions", adminLeadWrite.error?.message);
+    check(
+      !adminLeadWrite.error && (adminLeadWrite.data ?? []).length === 1,
+      "admin atualiza lead_submissions",
+      "admin não atualizou lead_submissions", adminLeadWrite.error?.message,
+    );
   } finally {
     if (leadId) await admin.from("lead_submissions").delete().eq("id", leadId);
     if (catalogId) await admin.from("service_catalog").delete().eq("id", catalogId);
