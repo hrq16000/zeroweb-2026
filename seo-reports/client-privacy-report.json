@@ -1,12 +1,12 @@
 {
-  "correlationId": "bd69a247-fb75-4f0c-ae00-123ff7d70e25",
-  "generatedAt": "2026-08-31T06:13:21.664Z",
+  "correlationId": "82ed16b2-732f-41e1-aba3-292e59f5f35b",
+  "generatedAt": "2026-08-31T06:17:07.028Z",
   "scanned": 354,
   "errors": 0,
   "warns": 2,
   "findings": [
     {
-      "correlationId": "bd69a247-fb75-4f0c-ae00-123ff7d70e25",
+      "correlationId": "82ed16b2-732f-41e1-aba3-292e59f5f35b",
       "level": "warn",
       "chunk": "app.pedidos-DjkQtgV6.js",
       "file": "dist/client/assets/app.pedidos-DjkQtgV6.js",
@@ -23,7 +23,7 @@
       "totalHits": 1
     },
     {
-      "correlationId": "bd69a247-fb75-4f0c-ae00-123ff7d70e25",
+      "correlationId": "82ed16b2-732f-41e1-aba3-292e59f5f35b",
       "level": "warn",
       "chunk": "app.servicos-DKtoqT4O.js",
       "file": "dist/client/assets/app.servicos-DKtoqT4O.js",

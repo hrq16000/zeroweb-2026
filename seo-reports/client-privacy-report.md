@@ -1,7 +1,7 @@
 # Relatório de privacidade do bundle público
 
-- correlationId: `bd69a247-fb75-4f0c-ae00-123ff7d70e25`
-- gerado em: 2026-08-31T06:13:21.665Z
+- correlationId: `82ed16b2-732f-41e1-aba3-292e59f5f35b`
+- gerado em: 2026-08-31T06:17:07.030Z
 - chunks analisados: 354
 - erros (bloqueantes): 0
 - avisos (chunks admin): 2
