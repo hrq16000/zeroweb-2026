@@ -30,10 +30,10 @@ export const regenerateSocialAssets = createServerFn({ method: "POST" })
     const allowed = (roles ?? []).some((r) => r.role === "admin" || r.role === "super_admin");
     if (!allowed) throw new Error("forbidden");
 
-    const assets = (await import("@/config/portfolio-assets.json")).default as Record<
-      string,
-      Record<string, string>
-    >;
+    const assetsFile = (await import("@/config/portfolio-assets.json")).default as unknown as {
+      clients: Record<string, Record<string, unknown>>;
+    };
+    const assets = assetsFile.clients ?? {};
     const requested = (data.slugs ?? []).filter((s) => typeof s === "string").slice(0, 60);
     const slugs = requested.length > 0 ? requested : Object.keys(assets);
 
@@ -50,9 +50,8 @@ export const regenerateSocialAssets = createServerFn({ method: "POST" })
             continue;
           }
           checked += 1;
-          for (const key of ["ogImage", "twitterImage", "appleTouchIcon"]) {
-            const url = entry[key];
-            if (!url) problems.push(`${slug}: ${key} ausente`);
+          for (const key of ["socialImage", "touchIcon", "socialVersion"]) {
+            if (!entry[key]) problems.push(`${slug}: ${key} ausente`);
           }
         }
         return {
