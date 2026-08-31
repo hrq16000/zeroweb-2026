@@ -9,7 +9,9 @@
  * hidratação no CI. Aqui as variáveis públicas necessárias são repassadas
  * explicitamente via `--var`.
  *
- * Nunca repassa SUPABASE_SERVICE_ROLE_KEY: leitura pública usa RLS.
+ * Leitura pública NÃO usa service role (RLS + chave publicável). A chave de
+ * service role só é repassada quando explicitamente presente no ambiente —
+ * necessária apenas para os gates que exercitam escrita (funis/leads).
  */
 import { spawn } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
@@ -40,6 +42,11 @@ const PASSTHROUGH = {
     process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.VITE_SUPABASE_PUBLISHABLE_KEY,
   SUPABASE_PROJECT_ID: process.env.SUPABASE_PROJECT_ID ?? process.env.VITE_SUPABASE_PROJECT_ID,
 };
+
+// Opcional: só existe quando o ambiente realmente fornece a credencial.
+if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  PASSTHROUGH.SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+}
 
 const vars = [];
 for (const [key, value] of Object.entries(PASSTHROUGH)) {
