@@ -176,6 +176,7 @@ import { Route as BlogClusterClusterRouteImport } from './routes/blog.cluster.$c
 import { Route as PortfolioSegmentoBairroRouteImport } from './routes/portfolio.$segmento.$bairro'
 import { Route as RWhatsappTokenRouteImport } from './routes/r.whatsapp.$token'
 import { Route as ServicosCategoriaSlugRouteImport } from './routes/servicos.categoria.$slug'
+import { Route as AuthenticatedAppAuditoriaAcessosRouteImport } from './routes/_authenticated/app.auditoria.acessos'
 import { Route as AuthenticatedAppAuditoriaIdentidadeRouteImport } from './routes/_authenticated/app.auditoria.identidade'
 import { Route as AuthenticatedAppEditorialSkyscraperRouteImport } from './routes/_authenticated/app.editorial.skyscraper'
 import { Route as AuthenticatedAppEditorialSkyscraperReviewRouteImport } from './routes/_authenticated/app.editorial.skyscraper-review'
@@ -1071,6 +1072,12 @@ const ServicosCategoriaSlugRoute = ServicosCategoriaSlugRouteImport.update({
   path: '/categoria/$slug',
   getParentRoute: () => ServicosRoute,
 } as any)
+const AuthenticatedAppAuditoriaAcessosRoute =
+  AuthenticatedAppAuditoriaAcessosRouteImport.update({
+    id: '/auditoria/acessos',
+    path: '/auditoria/acessos',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppAuditoriaIdentidadeRoute =
   AuthenticatedAppAuditoriaIdentidadeRouteImport.update({
     id: '/auditoria/identidade',
@@ -1409,6 +1416,7 @@ export interface FileRoutesByFullPath {
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/app/': typeof AuthenticatedAppIndexRoute
+  '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
   '/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
@@ -1604,6 +1612,7 @@ export interface FileRoutesByTo {
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/app': typeof AuthenticatedAppIndexRoute
+  '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
   '/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
@@ -1803,6 +1812,7 @@ export interface FileRoutesById {
   '/r/whatsapp/$token': typeof RWhatsappTokenRoute
   '/servicos/categoria/$slug': typeof ServicosCategoriaSlugRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
+  '/_authenticated/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/_authenticated/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
   '/_authenticated/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/_authenticated/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
@@ -2002,6 +2012,7 @@ export interface FileRouteTypes {
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/app/'
+    | '/app/auditoria/acessos'
     | '/app/auditoria/identidade'
     | '/app/editorial/skyscraper'
     | '/app/editorial/skyscraper-review'
@@ -2197,6 +2208,7 @@ export interface FileRouteTypes {
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/app'
+    | '/app/auditoria/acessos'
     | '/app/auditoria/identidade'
     | '/app/editorial/skyscraper'
     | '/app/editorial/skyscraper-review'
@@ -2395,6 +2407,7 @@ export interface FileRouteTypes {
     | '/r/whatsapp/$token'
     | '/servicos/categoria/$slug'
     | '/_authenticated/app/'
+    | '/_authenticated/app/auditoria/acessos'
     | '/_authenticated/app/auditoria/identidade'
     | '/_authenticated/app/editorial/skyscraper'
     | '/_authenticated/app/editorial/skyscraper-review'
@@ -3733,6 +3746,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosCategoriaSlugRouteImport
       parentRoute: typeof ServicosRoute
     }
+    '/_authenticated/app/auditoria/acessos': {
+      id: '/_authenticated/app/auditoria/acessos'
+      path: '/auditoria/acessos'
+      fullPath: '/app/auditoria/acessos'
+      preLoaderRoute: typeof AuthenticatedAppAuditoriaAcessosRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/auditoria/identidade': {
       id: '/_authenticated/app/auditoria/identidade'
       path: '/auditoria/identidade'
@@ -4069,6 +4089,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppUsuariosRoute: typeof AuthenticatedAppUsuariosRoute
   AuthenticatedAppVisitantesRoute: typeof AuthenticatedAppVisitantesRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
+  AuthenticatedAppAuditoriaAcessosRoute: typeof AuthenticatedAppAuditoriaAcessosRoute
   AuthenticatedAppAuditoriaIdentidadeRoute: typeof AuthenticatedAppAuditoriaIdentidadeRoute
   AuthenticatedAppFunisIdRoute: typeof AuthenticatedAppFunisIdRoute
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
@@ -4113,6 +4134,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppUsuariosRoute: AuthenticatedAppUsuariosRoute,
   AuthenticatedAppVisitantesRoute: AuthenticatedAppVisitantesRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
+  AuthenticatedAppAuditoriaAcessosRoute: AuthenticatedAppAuditoriaAcessosRoute,
   AuthenticatedAppAuditoriaIdentidadeRoute:
     AuthenticatedAppAuditoriaIdentidadeRoute,
   AuthenticatedAppFunisIdRoute: AuthenticatedAppFunisIdRoute,

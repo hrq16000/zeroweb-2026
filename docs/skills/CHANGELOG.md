@@ -1,5 +1,25 @@
 # Skill changelog / usage log
 
+## 2026-08-31 — ciclo de Segurança e Governança de Dados
+
+- Skills: `0web-skill-router`, `0web-ui-quality-gates`, revisão de segurança/RLS.
+- `service_catalog`: `listServiceCatalog` passou a exigir sessão (`requireSupabaseAuth`) e consulta com o
+  token do usuário (RLS decide). Removido o uso de `supabaseAdmin` nessa leitura.
+- Trilha de auditoria: `src/lib/access-audit.server.ts` (helper com sanitização e bloqueio de PII),
+  `src/lib/access-audit.functions.ts` (listagem admin) e rota protegida `/app/auditoria/acessos`
+  (`noindex,nofollow`, estados de carregamento/vazio/erro, filtros, teclado e responsivo).
+- Auditoria operacional: leitura de lista/detalhe de leads, atualização de lead, criação de histórico,
+  leitura e criação/edição de `service_catalog`. Registrados apenas contagem, tipo de operação,
+  nomes de campos alterados e IDs técnicos — nunca PII, notas ou mensagens.
+- Teste de RLS sensível: `tests/rls/sensitive_tables.test.ts` + script `bun run test:rls-sensitive`,
+  cobrindo anon, usuário comum e admin, com limpeza em `finally` e skip explícito sem credenciais.
+- Riscos/limitações: o teste de RLS foi **pulado** neste ambiente porque o login por e-mail/senha está
+  desabilitado (auth Google-only); `bun run lint` continua com milhares de erros pré-existentes de
+  formatação em todo o repositório (arquivos novos deste ciclo estão limpos).
+- Validações: typecheck OK, 230 testes/826 assertions OK, build OK, `validate:portfolio-boundaries`,
+  `validate:portfolio-meta`, `scan:source-privacy` e `validate:client-privacy` OK
+  (2 avisos em chunks administrativos, pré-existentes).
+
 ## 2026-08-28 — novo portfolio Açaí Total Araucária
 
 - Página de delivery para copões e litrões de açaí em Araucária.

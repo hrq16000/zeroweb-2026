@@ -1,12 +1,18 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 
 const templateInput = z.object({
   id: z.string().uuid().optional(),
   portal_id: z.string().uuid().nullable().optional(),
   kind: z.enum(["landing_page", "funnel", "page", "email", "material", "config"]),
-  slug: z.string().min(2).max(120).regex(/^[a-z0-9-]+$/),
+  slug: z
+    .string()
+    .min(2)
+    .max(120)
+    .regex(/^[a-z0-9-]+$/),
   name: z.string().min(2).max(200),
   description: z.string().max(1000).nullable().optional(),
   is_global: z.boolean().default(false),
@@ -18,14 +24,25 @@ const templateInput = z.object({
 
 export const listTemplates = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((d) => z.object({ portal_id: z.string().uuid().nullable().optional(), kind: z.string().optional() }).parse(d))
+  .inputValidator((d) =>
+    z
+      .object({ portal_id: z.string().uuid().nullable().optional(), kind: z.string().optional() })
+      .parse(d),
+  )
   .handler(async ({ data, context }) => {
     const userId = (context as { userId: string }).userId;
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: isSuper } = await supabaseAdmin.rpc("is_super_admin", { _uid: userId });
     if (!isSuper) throw new Error("forbidden");
-    let q = supabaseAdmin.from("content_templates").select("*").order("updated_at", { ascending: false });
-    if (data.kind) q = q.eq("kind", data.kind as "landing_page" | "funnel" | "page" | "email" | "material" | "config");
+    let q = supabaseAdmin
+      .from("content_templates")
+      .select("*")
+      .order("updated_at", { ascending: false });
+    if (data.kind)
+      q = q.eq(
+        "kind",
+        data.kind as "landing_page" | "funnel" | "page" | "email" | "material" | "config",
+      );
     if (data.portal_id) q = q.or(`portal_id.eq.${data.portal_id},is_global.eq.true`);
     const { data: rows, error } = await q;
     if (error) throw new Error(error.message);
@@ -62,26 +79,43 @@ export const deleteTemplate = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
-/** Service catalog */
-export const listServiceCatalog = createServerFn({ method: "GET" }).handler(async () => {
-  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  const { data, error } = await supabaseAdmin.from("service_catalog").select("*").order("name");
-  if (error) throw new Error(error.message);
-  return { rows: data ?? [] };
-});
+/** Service catalog — leitura restrita a admin/super admin (RLS: sem acesso anônimo). */
+export const listServiceCatalog = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const userId = (context as { userId: string }).userId;
+    const supabase = (context as { supabase: SupabaseClient<Database> }).supabase;
+    // Consulta com o token do usuário: a RLS decide (anon e usuário comum não leem).
+    const { data, error } = await supabase.from("service_catalog").select("*").order("name");
+    if (error) throw new Error(error.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: userId,
+      action: "service_catalog.read",
+      entity: "service_catalog",
+      meta: { operation: "list", count: data?.length ?? 0 },
+    });
+    return { rows: data ?? [] };
+  });
 
 export const upsertServiceCatalog = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) =>
-    z.object({
-      id: z.string().uuid().optional(),
-      code: z.string().min(2).max(64).regex(/^[a-z0-9_-]+$/),
-      name: z.string().min(2).max(200),
-      description: z.string().max(1000).nullable().optional(),
-      category: z.string().max(80).nullable().optional(),
-      default_price: z.number().nullable().optional(),
-      active: z.boolean().default(true),
-    }).parse(d),
+    z
+      .object({
+        id: z.string().uuid().optional(),
+        code: z
+          .string()
+          .min(2)
+          .max(64)
+          .regex(/^[a-z0-9_-]+$/),
+        name: z.string().min(2).max(200),
+        description: z.string().max(1000).nullable().optional(),
+        category: z.string().max(80).nullable().optional(),
+        default_price: z.number().nullable().optional(),
+        active: z.boolean().default(true),
+      })
+      .parse(d),
   )
   .handler(async ({ data, context }) => {
     const userId = (context as { userId: string }).userId;
@@ -93,19 +127,32 @@ export const upsertServiceCatalog = createServerFn({ method: "POST" })
       ? await q.update(data).eq("id", data.id).select().single()
       : await q.insert(data).select().single();
     if (error) throw new Error(error.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: userId,
+      action: data.id ? "service_catalog.update" : "service_catalog.create",
+      entity: "service_catalog",
+      entityId: (row as { id?: string })?.id ?? data.id ?? null,
+      meta: {
+        operation: data.id ? "update" : "create",
+        fields: Object.keys(data).filter((k) => k !== "id"),
+      },
+    });
     return { row };
   });
 
 export const togglePortalService = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) =>
-    z.object({
-      portal_id: z.string().uuid(),
-      service_id: z.string().uuid(),
-      enabled: z.boolean(),
-      custom_price: z.number().nullable().optional(),
-      custom_name: z.string().max(200).nullable().optional(),
-    }).parse(d),
+    z
+      .object({
+        portal_id: z.string().uuid(),
+        service_id: z.string().uuid(),
+        enabled: z.boolean(),
+        custom_price: z.number().nullable().optional(),
+        custom_name: z.string().max(200).nullable().optional(),
+      })
+      .parse(d),
   )
   .handler(async ({ data, context }) => {
     const userId = (context as { userId: string }).userId;
@@ -114,7 +161,10 @@ export const togglePortalService = createServerFn({ method: "POST" })
     if (!isSuper) throw new Error("forbidden");
     const { error } = await supabaseAdmin
       .from("portal_services")
-      .upsert({ ...data, updated_at: new Date().toISOString() }, { onConflict: "portal_id,service_id" });
+      .upsert(
+        { ...data, updated_at: new Date().toISOString() },
+        { onConflict: "portal_id,service_id" },
+      );
     if (error) throw new Error(error.message);
     return { ok: true };
   });

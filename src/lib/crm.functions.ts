@@ -69,7 +69,7 @@ export const listLeads = createServerFn({ method: "POST" })
     let q = supabaseAdmin
       .from("lead_submissions")
       .select(
-        "id,created_at,name,email,phone,company,source,landing_page,utm_source,utm_medium,utm_campaign,hero_variant,cta_variant,status,assignee,notes,last_interaction,score,score_label,payload_json"
+        "id,created_at,name,email,phone,company,source,landing_page,utm_source,utm_medium,utm_campaign,hero_variant,cta_variant,status,assignee,notes,last_interaction,score,score_label,payload_json",
       )
       .gte("created_at", sinceIso)
       .order("created_at", { ascending: false })
@@ -93,7 +93,7 @@ export const listLeads = createServerFn({ method: "POST" })
           (r.name && (r.name as string).toLowerCase().includes(s)) ||
           (r.email && (r.email as string).toLowerCase().includes(s)) ||
           (r.phone && (r.phone as string).toLowerCase().includes(s)) ||
-          (r.company && (r.company as string).toLowerCase().includes(s))
+          (r.company && (r.company as string).toLowerCase().includes(s)),
       );
     }
     if (data.city) {
@@ -107,6 +107,19 @@ export const listLeads = createServerFn({ method: "POST" })
 
     const byStatus: Record<string, number> = Object.fromEntries(STATUSES.map((s) => [s, 0]));
     for (const r of out) byStatus[r.status as string]++;
+
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.list.read",
+      entity: "lead_submissions",
+      meta: {
+        operation: "list",
+        count: out.length,
+        filters: Object.keys(data ?? {}),
+        days: data.days ?? 90,
+      },
+    });
 
     return { rows: out, byStatus, total: out.length };
   });
@@ -129,6 +142,14 @@ export const getLeadDetail = createServerFn({ method: "POST" })
     if (e1) throw new Error(e1.message);
     if (e2) throw new Error(e2.message);
     if (!lead) throw new Error("Lead não encontrado");
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.detail.read",
+      entity: "lead_submissions",
+      entityId: data.id,
+      meta: { operation: "detail", history_count: (history ?? []).length },
+    });
     return {
       lead: { ...lead, status: normStatus(lead.status as string | null) },
       history: history ?? [],
@@ -161,6 +182,14 @@ export const updateLead = createServerFn({ method: "POST" })
     if (Object.keys(patch).length === 0) return { ok: true };
     const { error } = await supabaseAdmin.from("lead_submissions").update(patch).eq("id", data.id);
     if (error) throw new Error(error.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.update",
+      entity: "lead_submissions",
+      entityId: data.id,
+      meta: { operation: "update", changed_fields: Object.keys(patch) },
+    });
     return { ok: true };
   });
 
@@ -174,15 +203,18 @@ export const addLeadHistory = createServerFn({ method: "POST" })
         note: z.string().min(1).max(5000),
         actor: z.string().max(120).optional(),
       })
-      .parse(i)
+      .parse(i),
   )
   .handler(async ({ data, context }) => {
     await assertAdmin((context as { userId: string }).userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const [{ error: e1 }, { error: e2 }] = await Promise.all([
-      supabaseAdmin
-        .from("lead_history")
-        .insert({ lead_id: data.lead_id, kind: data.kind, note: data.note, actor: data.actor ?? "admin" }),
+      supabaseAdmin.from("lead_history").insert({
+        lead_id: data.lead_id,
+        kind: data.kind,
+        note: data.note,
+        actor: data.actor ?? "admin",
+      }),
       supabaseAdmin
         .from("lead_submissions")
         .update({ last_interaction: new Date().toISOString() })
@@ -190,6 +222,14 @@ export const addLeadHistory = createServerFn({ method: "POST" })
     ]);
     if (e1) throw new Error(e1.message);
     if (e2) throw new Error(e2.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.history.create",
+      entity: "lead_submissions",
+      entityId: data.lead_id,
+      meta: { operation: "history_append", kind: data.kind, note_length: data.note.length },
+    });
     return { ok: true };
   });
 
@@ -223,7 +263,7 @@ export const updateCrmSettings = createServerFn({ method: "POST" })
         assignees: z.array(z.string().min(1).max(120)).max(50),
         fixed_assignee: z.string().max(120).nullable().optional(),
       })
-      .parse(i)
+      .parse(i),
   )
   .handler(async ({ data, context }) => {
     await assertAdmin((context as { userId: string }).userId);
@@ -258,7 +298,9 @@ export const getCrmSummary = createServerFn({ method: "GET" })
     const novos = list.filter((r) => r.status === "novo").length;
     const semResp = list.filter((r) => !r.assignee).length;
     const parados = list.filter(
-      (r) => !["fechado", "perdido", "arquivado"].includes(r.status) && (r.last_interaction ?? r.created_at) < stale7
+      (r) =>
+        !["fechado", "perdido", "arquivado"].includes(r.status) &&
+        (r.last_interaction ?? r.created_at) < stale7,
     ).length;
     const fechados = list.filter((r) => r.status === "fechado").length;
     const perdidos = list.filter((r) => r.status === "perdido").length;

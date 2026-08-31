@@ -63,7 +63,8 @@
     "audit:indexability:before": "node scripts/audit-seo-indexability.mjs --label=before",
     "audit:indexability:after": "node scripts/audit-seo-indexability.mjs --label=after",
     "audit:report": "node scripts/ci-audit-report.mjs",
-    "social:regen": "node scripts/regenerate-social-images.mjs"
+    "social:regen": "node scripts/regenerate-social-images.mjs",
+    "test:rls-sensitive": "bun tests/rls/sensitive_tables.test.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
