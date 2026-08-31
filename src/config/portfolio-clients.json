@@ -8,7 +8,8 @@
     "assetsDir": "public/images/dyzpromo",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "renata-beauty",
@@ -20,7 +21,8 @@
     "legacySharedAssets": true,
     "ctaMode": "booking",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "r-beauty",
@@ -32,7 +34,8 @@
     "legacySharedAssets": true,
     "ctaMode": "booking",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "marido-de-aluguel",
@@ -43,7 +46,8 @@
     "assetsDir": "public/images/mestre-dos-servicos",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "emporio-lelecute",
@@ -54,7 +58,8 @@
     "assetsDir": "public/images/emporio-lelecute",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "paraiso-do-hot-dog",
@@ -65,7 +70,8 @@
     "assetsDir": "public/images/paraiso-do-hot-dog",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "rm-fretes",
@@ -76,7 +82,8 @@
     "assetsDir": "public/images/rm-fretes",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "rj-servicos-drywall",
@@ -87,7 +94,8 @@
     "assetsDir": "public/images/rj-servicos-drywall",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true
   },
   {
     "clientKey": "confeitaria-chyrley",
@@ -98,7 +106,8 @@
     "assetsDir": "public/images/confeitaria-chyrley",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "mp-festas-eventos",
@@ -109,7 +118,8 @@
     "assetsDir": "public/images/mp-festas-eventos",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "studio-de-cilios",
@@ -120,7 +130,8 @@
     "assetsDir": "public/images/studio-de-cilios",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "refrigeracao-maresia",
@@ -131,7 +142,8 @@
     "assetsDir": "public/images/refrigeracao-maresia",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "ag-electrical-services",
@@ -142,7 +154,8 @@
     "assetsDir": "public/images/ag-electrical-services",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "vila-da-capivara",
@@ -153,7 +166,8 @@
     "assetsDir": "public/images/vila-da-capivara",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "lk-alvenaria",
@@ -164,7 +178,8 @@
     "assetsDir": "public/images/lk-alvenaria",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "lucas-arruma-maquina-lavar",
@@ -175,7 +190,8 @@
     "assetsDir": "public/images/lucas-arruma-maquina-lavar",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "paulo-mestre-de-obras",
@@ -186,7 +202,8 @@
     "assetsDir": "public/images/paulo-mestre-de-obras",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "ecommerce-on",
@@ -197,7 +214,8 @@
     "assetsDir": "public/images/ecommerce-on",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "no-brilho-higienizacao",
@@ -208,7 +226,8 @@
     "assetsDir": "public/images/no-brilho-higienizacao",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "salao-da-marcia",
@@ -219,7 +238,8 @@
     "assetsDir": "public/images/salao-da-marcia",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "espaco-cih-luh",
@@ -230,7 +250,8 @@
     "assetsDir": "public/images/espaco-cih-luh",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "diego-montador-moveis",
@@ -241,7 +262,8 @@
     "assetsDir": "public/images/diego-montador-moveis",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "aguia-sul-sinalizacao",
@@ -252,7 +274,8 @@
     "assetsDir": "public/images/aguia-sul-sinalizacao",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "eletrovale-eletromecanica",
@@ -263,7 +286,8 @@
     "assetsDir": "public/images/eletrovale-eletromecanica",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "eletro-solucoes-eficazes",
@@ -274,7 +298,8 @@
     "assetsDir": "public/images/eletro-solucoes-eficazes",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "eisenfer-tubos-acos",
@@ -285,7 +310,8 @@
     "assetsDir": "public/images/eisenfer-tubos-acos",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "mary-diarista",
@@ -296,7 +322,8 @@
     "assetsDir": "public/images/mary-diarista",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "acai-total-araucaria",
@@ -307,7 +334,8 @@
     "assetsDir": "public/images/acai-total-araucaria",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "jkl-marcenaria",
@@ -318,6 +346,7 @@
     "assetsDir": "public/images/jkl-marcenaria",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
   }
 ]
