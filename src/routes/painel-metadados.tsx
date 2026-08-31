@@ -159,6 +159,28 @@ function MetadataAuditPanel() {
   }));
   const [rows, setRows] = useState<RowState[]>([]);
   const [running, setRunning] = useState(false);
+  const [regenerating, setRegenerating] = useState(false);
+  const [regenMsg, setRegenMsg] = useState<string | null>(null);
+
+  const regenerate = useCallback(async () => {
+    setRegenerating(true);
+    setRegenMsg(null);
+    try {
+      const { regenerateSocialAssets } = await import("@/lib/social-regeneration.functions");
+      const r = await regenerateSocialAssets({ data: {} });
+      if (r.skipped) setRegenMsg(`Execução ignorada (${r.skipped}).`);
+      else if (!r.ok) setRegenMsg(`Falhou: ${r.error ?? "erro desconhecido"}`);
+      else
+        setRegenMsg(
+          `Regeneração concluída · ${r.checked ?? 0} projeto(s) revalidado(s)` +
+            (r.problems && r.problems.length > 0 ? ` · ${r.problems.length} pendência(s)` : ""),
+        );
+    } catch {
+      setRegenMsg("Falha ao solicitar a regeneração (é necessário estar logado como admin).");
+    } finally {
+      setRegenerating(false);
+    }
+  }, []);
 
   const run = useCallback(async () => {
     setRunning(true);
