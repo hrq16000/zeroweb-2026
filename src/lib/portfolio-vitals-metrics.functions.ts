@@ -7,7 +7,7 @@ export type VitalMetric = "LCP" | "CLS" | "INP";
 export type VitalSlugMetrics = {
   slug: string;
   samples: number;
-  metrics: Record<VitalMetric, { p75: number | null; samples: number }>;
+  metrics: Record<VitalMetric, { p75: number | null; p90: number | null; p95: number | null; samples: number }>;
   alerts: Array<{ metric: VitalMetric; p75: number; budget: number; severity: "warning" | "critical" }>;
 };
 
@@ -28,11 +28,15 @@ const inputSchema = z
   .object({ days: z.number().int().min(1).max(90).default(7) })
   .default({ days: 7 });
 
-function p75(values: number[]) {
+function percentile(values: number[], q: number) {
   if (!values.length) return null;
   const sorted = [...values].sort((a, b) => a - b);
-  const index = Math.min(sorted.length - 1, Math.ceil(sorted.length * 0.75) - 1);
+  const index = Math.min(sorted.length - 1, Math.ceil(sorted.length * q) - 1);
   return sorted[Math.max(0, index)];
+}
+
+function p75(values: number[]) {
+  return percentile(values, 0.75);
 }
 
 async function assertAdmin(userId: string) {
@@ -75,7 +79,12 @@ export const getPortfolioWebVitals = createServerFn({ method: "GET" })
       let samples = 0;
       for (const metric of METRICS) {
         const value = p75(values[metric]);
-        metrics[metric] = { p75: value, samples: values[metric].length };
+        metrics[metric] = {
+          p75: value,
+          p90: percentile(values[metric], 0.9),
+          p95: percentile(values[metric], 0.95),
+          samples: values[metric].length,
+        };
         samples += values[metric].length;
         const budget = VITALS_BUDGETS[metric];
         if (value !== null && value > budget) {
