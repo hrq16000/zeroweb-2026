@@ -192,15 +192,26 @@ function MetadataAuditPanel() {
               <span className="font-mono"> /portfolio/&lt;slug&gt;</span>.
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => void run()}
-            disabled={running}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-5 text-sm font-semibold transition hover:bg-muted disabled:opacity-60"
-          >
-            <RefreshCcw className={`h-4 w-4 ${running ? "animate-spin" : ""}`} aria-hidden="true" />
-            {running ? "Auditando…" : "Reexecutar"}
-          </button>
+          <div className="flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => void run()}
+              disabled={running}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-5 text-sm font-semibold transition hover:bg-muted disabled:opacity-60"
+            >
+              <RefreshCcw className={`h-4 w-4 ${running ? "animate-spin" : ""}`} aria-hidden="true" />
+              {running ? "Auditando…" : "Reexecutar"}
+            </button>
+            <button
+              type="button"
+              onClick={() => void regenerate()}
+              disabled={regenerating}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-60"
+            >
+              <RefreshCcw className={`h-4 w-4 ${regenerating ? "animate-spin" : ""}`} aria-hidden="true" />
+              {regenerating ? "Regenerando…" : "Regenerar imagens sociais"}
+            </button>
+          </div>
         </div>
 
         <p className="mt-4 text-sm text-muted-foreground" role="status">
@@ -208,6 +219,13 @@ function MetadataAuditPanel() {
             ? `Analisando ${rows.filter((r) => r.status !== "loading").length}/${list.length} projetos…`
             : `${list.length} projetos analisados · ${withProblems} com pendências.`}
         </p>
+
+        {regenMsg && (
+          <p className="mt-2 text-sm text-muted-foreground" role="status">
+            {regenMsg} · histórico em <a className="underline" href="/painel/historico-jobs">/painel/historico-jobs</a>
+          </p>
+        )}
+
 
         <div className="mt-6 space-y-3">
           {rows.map((row) => (
