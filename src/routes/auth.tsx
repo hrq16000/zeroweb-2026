@@ -38,11 +38,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const navigate = useNavigate();
   const [err, setErr] = useState<string | null>(null);
-  const [info, setInfo] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
@@ -70,29 +66,6 @@ function AuthPage() {
     setBusy(false);
   };
 
-  const submitPassword = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setBusy(true);
-    setErr(null);
-    setInfo(null);
-    try {
-      if (mode === "signin") {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) setErr(error.message);
-      } else {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: window.location.origin + "/app" },
-        });
-        if (error) setErr(error.message);
-        else if (!data.session)
-          setInfo("Conta criada. Confirme o e-mail enviado para concluir o acesso.");
-      }
-    } finally {
-      setBusy(false);
-    }
-  };
 
 
   return (
