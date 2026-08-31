@@ -64,10 +64,34 @@ async function queryLeads(userId: string, raw: LeadFilters) {
   const { data: rows, error } = await q;
   if (error) throw error;
 
-  const list = (rows ?? []) as UnifiedLead[];
+  const list = ((rows ?? []) as UnifiedLead[]).map((row) => ({
+    ...row,
+    dados_extras: redactContacts(row.dados_extras),
+  }));
   const etapas = Array.from(new Set(list.map((r) => r.etapa_atual).filter(Boolean))).sort();
   return { leads: list, etapas, filters };
 }
+
+const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.-]+/g;
+const EMAIL_KEY_RE = /(mail|e_?mail)/i;
+
+/**
+ * Remove e-mails do payload exibido no portal: a tela de propostas mostra
+ * nome, etapa e histórico, nunca o e-mail do cliente.
+ */
+function redactContacts(value: unknown): any {
+  if (typeof value === "string") return value.replace(EMAIL_RE, "[e-mail oculto]");
+  if (Array.isArray(value)) return value.map(redactContacts);
+  if (value && typeof value === "object") {
+    const out: Record<string, any> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+      out[k] = EMAIL_KEY_RE.test(k) ? "[e-mail oculto]" : redactContacts(v);
+    }
+    return out;
+  }
+  return value;
+}
+
 
 export const listUnifiedLeads = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
