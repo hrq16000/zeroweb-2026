@@ -352,7 +352,9 @@ export function HomeChatbot() {
               "rounded-full bg-primary text-primary-foreground font-semibold",
               "pl-4 pr-5 py-3 shadow-xl shadow-primary/30 hover:scale-[1.03] transition",
               "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2",
-              pulse ? "animate-pulse" : "",
+              // Destaque sem animar opacidade: `animate-pulse` derrubava o
+              // contraste do texto para ~2:1 durante o ciclo (axe: serious).
+              pulse ? "ring-2 ring-primary/40 ring-offset-2 ring-offset-background" : "",
             ].join(" ")}
           >
             <span className="grid place-items-center w-7 h-7 rounded-full bg-primary-foreground/15">

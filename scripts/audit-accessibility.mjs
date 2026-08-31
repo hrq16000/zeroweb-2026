@@ -44,7 +44,20 @@ for (const route of routes) {
   const context = await browser.newContext({ viewport: { width: 1280, height: 1200 } });
   const page = await context.newPage();
   await page.goto(`${baseUrl}${route}?0web_preview=1`, { waitUntil: "domcontentloaded" });
+  // Widgets flutuantes entram com fade-in atrasado. Medir contraste no meio da
+  // transição gera falso positivo `color-contrast`, então esperamos as
+  // animações em curso terminarem antes de rodar o axe.
   await page.waitForTimeout(1500);
+  await page
+    .evaluate(
+      () =>
+        Promise.race([
+          Promise.allSettled(document.getAnimations().map((a) => a.finished)),
+          new Promise((resolve) => setTimeout(resolve, 6000)),
+        ]),
+    )
+    .catch(() => undefined);
+  await page.waitForTimeout(500);
   await page.addScriptTag({ content: axeSource });
   const results = await page.evaluate(async () => {
     // @ts-expect-error axe injetado em runtime

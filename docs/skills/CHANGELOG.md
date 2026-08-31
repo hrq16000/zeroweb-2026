@@ -1,5 +1,29 @@
 # Skill changelog / usage log
 
+## 2026-08-31 — ciclo de estabilização (SSR, pipeline de skills, a11y)
+
+- Skills usadas: `0web-skill-router` (roteamento da tarefa), `0web-ui-quality-gates` (gates de
+  a11y/estados/evidência). Nenhuma skill de terceiros foi baixada, instalada ou executada; portanto
+  `docs/skills/REGISTRY.md` não recebeu novas entradas (registro só admite skill realmente avaliada).
+- Validação SSR: o marcador `$_TSR.router` conferido no HTML real corresponde ao que o TanStack Router
+  gera — `scripts/validate-ssr-dehydrated.mjs` e `scripts/playwright-hydration.mjs` já estavam corretos.
+- Artefato de produção: `bun run preview` (vite preview) **não** serve este build — o preset do Nitro é
+  `cloudflare-module` e o vite preview procura `dist/server/server.js` (ERR_MODULE_NOT_FOUND). Foi
+  adicionado o script `preview:prod` (runtime real do worker) e `.github/workflows/e2e-hydration.yml`
+  passou a buildar em produção e validar contra esse artefato, nunca contra `bun run dev`.
+- `src/lib/skill-pipeline.ts`: cross-review agora deriva as perspectivas obrigatórias da classe da
+  tarefa (design/UI e QA/a11y/perf continuam exigidos quando aplicáveis) e `isRealEvidence` rejeita
+  evidência vazia, curta ou placeholder (`ok`, `n/a`, `todo`, `pass`…). `shipGate` distingue
+  "gate reprovado" de "gate sem evidência". Skills bloqueadas ou sem origem revisada continuam fora do
+  stack, com teste dedicado. Testes acrescentados, nenhum enfraquecido.
+- Acessibilidade: o pill do chatbot usava `animate-pulse`, derrubando a opacidade para ~0,42 e o
+  contraste do texto (axe: serious). Substituído por destaque com `ring`, sem animar opacidade. O
+  auditor `scripts/audit-accessibility.mjs` passou a esperar as animações em curso terminarem antes do
+  axe, eliminando falso positivo de medição no meio do fade-in.
+- Limitações: `bun run lint` segue com milhares de erros de formatação pré-existentes em todo o
+  repositório; `bun run test:rls-sensitive` continua pulado (auth Google-only); operações Git
+  (branch/commit/push/PR) não estão disponíveis nesta plataforma.
+
 ## 2026-08-31 — ciclo de Segurança e Governança de Dados
 
 - Skills: `0web-skill-router`, `0web-ui-quality-gates`, revisão de segurança/RLS.

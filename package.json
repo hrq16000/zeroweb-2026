@@ -26,6 +26,7 @@
     "validate:portfolio-catalog": "node scripts/validate-portfolio-catalog.mjs",
     "changelog:dyz": "node scripts/generate-dyz-changelog.mjs",
     "preview": "vite preview",
+    "preview:prod": "wrangler dev --config dist/server/wrangler.json --ip 127.0.0.1 --port 8080",
     "lhci": "lhci autorun --config=.lighthouserc.cjs",
     "seo:images": "node scripts/validate-seo-images.mjs",
     "img:optimize": "node scripts/optimize-blog-images.mjs",
