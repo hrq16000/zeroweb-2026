@@ -251,6 +251,10 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             contextLines,
             utmCampaign: session?.utm_campaign ?? null,
             cartSummary: cartLines,
+            requestKind:
+              meta.mode === "proposal"
+                ? meta.proposal_kind === "campaign" ? "campaign" : "service"
+                : "booking",
           });
         }
 

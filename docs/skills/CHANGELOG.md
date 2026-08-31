@@ -1,48 +1,25 @@
 # Skill changelog / usage log
 
-## 2026-08-31 — ciclo de estabilização (SSR, pipeline de skills, a11y)
+## 2026-08-30 — ciclo 1: segurança, RLS e governança de dados
 
-- Skills usadas: `0web-skill-router` (roteamento da tarefa), `0web-ui-quality-gates` (gates de
-  a11y/estados/evidência). Nenhuma skill de terceiros foi baixada, instalada ou executada; portanto
-  `docs/skills/REGISTRY.md` não recebeu novas entradas (registro só admite skill realmente avaliada).
-- Validação SSR: o marcador `$_TSR.router` conferido no HTML real corresponde ao que o TanStack Router
-  gera — `scripts/validate-ssr-dehydrated.mjs` e `scripts/playwright-hydration.mjs` já estavam corretos.
-- Artefato de produção: `bun run preview` (vite preview) **não** serve este build — o preset do Nitro é
-  `cloudflare-module` e o vite preview procura `dist/server/server.js` (ERR_MODULE_NOT_FOUND). Foi
-  adicionado o script `preview:prod` (runtime real do worker) e `.github/workflows/e2e-hydration.yml`
-  passou a buildar em produção e validar contra esse artefato, nunca contra `bun run dev`.
-- `src/lib/skill-pipeline.ts`: cross-review agora deriva as perspectivas obrigatórias da classe da
-  tarefa (design/UI e QA/a11y/perf continuam exigidos quando aplicáveis) e `isRealEvidence` rejeita
-  evidência vazia, curta ou placeholder (`ok`, `n/a`, `todo`, `pass`…). `shipGate` distingue
-  "gate reprovado" de "gate sem evidência". Skills bloqueadas ou sem origem revisada continuam fora do
-  stack, com teste dedicado. Testes acrescentados, nenhum enfraquecido.
-- Acessibilidade: o pill do chatbot usava `animate-pulse`, derrubando a opacidade para ~0,42 e o
-  contraste do texto (axe: serious). Substituído por destaque com `ring`, sem animar opacidade. O
-  auditor `scripts/audit-accessibility.mjs` passou a esperar as animações em curso terminarem antes do
-  axe, eliminando falso positivo de medição no meio do fade-in.
-- Limitações: `bun run lint` segue com milhares de erros de formatação pré-existentes em todo o
-  repositório; `bun run test:rls-sensitive` continua pulado (auth Google-only); operações Git
-  (branch/commit/push/PR) não estão disponíveis nesta plataforma.
+- **Classificação:** `backend/RLS`, `dashboard`, `bugfix`, `docs`.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`, `supabase` e `pdf`. Nenhuma skill externa foi instalada: o catálogo local cobre o escopo e fontes de marketplace não adicionariam controle verificável.
+- **Achado global:** `listServiceCatalog` usava cliente privilegiado de servidor sem middleware de sessão. Agora exige usuário autenticado e super administrador, preservando a RLS como defesa em profundidade.
+- **RLS:** importada a migration `20260830034105_06cdf2fa-f0ef-49c1-a8bc-e1d34a07cdec.sql`, que restringe leitura de `service_catalog` e consolida UPDATE autorizado em `lead_submissions`.
+- **Governança:** criada a rota protegida `/app/auditoria/acessos`; CRM e catálogo registram metadados de leitura/escrita em `audit_logs`, sem repetir PII ou conteúdo de notas.
+- **Teste:** adicionado `tests/rls/sensitive_data_access.test.ts` e `test:rls-sensitive`. Exige credenciais de ambiente de teste e faz limpeza em `finally`; sem service role retorna `SKIP`, nunca aprovação implícita.
+- **Reescaneamento:** `scan-source-privacy` aprovado; `validate-client-privacy` aprovou o bundle público, com dois avisos confinados a chunks administrativos. A auditoria de dependências ficou pendente porque este ambiente não dispõe de Bun/npm funcional e o projeto usa `bun.lock`.
+- **PDF:** `output/pdf/relatorio-seguranca-ciclo-1-2026-08-30.pdf` criado, renderizado e revisado visualmente em duas páginas.
 
-## 2026-08-31 — ciclo de Segurança e Governança de Dados
+## 2026-08-30 — ciclo de reconciliação Lovable e blindagem do portfólio
 
-- Skills: `0web-skill-router`, `0web-ui-quality-gates`, revisão de segurança/RLS.
-- `service_catalog`: `listServiceCatalog` passou a exigir sessão (`requireSupabaseAuth`) e consulta com o
-  token do usuário (RLS decide). Removido o uso de `supabaseAdmin` nessa leitura.
-- Trilha de auditoria: `src/lib/access-audit.server.ts` (helper com sanitização e bloqueio de PII),
-  `src/lib/access-audit.functions.ts` (listagem admin) e rota protegida `/app/auditoria/acessos`
-  (`noindex,nofollow`, estados de carregamento/vazio/erro, filtros, teclado e responsivo).
-- Auditoria operacional: leitura de lista/detalhe de leads, atualização de lead, criação de histórico,
-  leitura e criação/edição de `service_catalog`. Registrados apenas contagem, tipo de operação,
-  nomes de campos alterados e IDs técnicos — nunca PII, notas ou mensagens.
-- Teste de RLS sensível: `tests/rls/sensitive_tables.test.ts` + script `bun run test:rls-sensitive`,
-  cobrindo anon, usuário comum e admin, com limpeza em `finally` e skip explícito sem credenciais.
-- Riscos/limitações: o teste de RLS foi **pulado** neste ambiente porque o login por e-mail/senha está
-  desabilitado (auth Google-only); `bun run lint` continua com milhares de erros pré-existentes de
-  formatação em todo o repositório (arquivos novos deste ciclo estão limpos).
-- Validações: typecheck OK, 230 testes/826 assertions OK, build OK, `validate:portfolio-boundaries`,
-  `validate:portfolio-meta`, `scan:source-privacy` e `validate:client-privacy` OK
-  (2 avisos em chunks administrativos, pré-existentes).
+- **Tarefa:** reconciliar as alterações feitas pelo Lovable, impedir regressões globais e avançar o ciclo de performance, SEO e qualidade de `/portfolio`.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, Apple HIG/accessibility, React Best Practices e Browser QA.
+- **Reconciliação:** `santos-montador-de-moveis` confirmado nos contratos de cliente, catálogo e assets, com funil e prova social próprios; 30 sites independentes permanecem parametrizados.
+- **Correções:** busca SSR de `/portfolio` passou a usar search params validados pela rota, eliminando mismatch de hidratação; filtragem/ordenação foram memorizadas e diferidas; apenas a primeira imagem recebe prioridade; logo da Águia Sul passou pelo componente otimizado; favicons pesados de Renata Beauty foram trocados por WebP.
+- **Dependências:** `@tanstack/react-router-ssr-query` foi fixado em `1.167.1`, `@tanstack/query-core` foi declarado diretamente em `5.101.4` e o `package-lock.json` regenerado para ficar consistente com o `bun.lock`, evitando versões duplicadas ou incompatíveis no build SSR.
+- **Resiliência:** o scanner de privacidade ganhou fallback de leitura direta de `src/` quando o índice Git do OneDrive estiver indisponível.
+- **Validação:** TypeScript; build client/SSR; boundaries, catálogo, meta, scaffold, standards, performance, assets e privacidade; auditoria local de indexabilidade 30/30; QA visual mobile de catálogo, Santos e Chyrley sem overflow, funil cruzado ou sobreposição no crédito 0WEB.
 
 ## 2026-08-28 — novo portfolio Açaí Total Araucária
 
@@ -448,3 +425,28 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 - Adicionado o segmento `beleza` ao mapa de verticais compartilhado; `/portfolio/studio-de-cilios` deixa de cair em 404 e mantém seus metadados e componente exclusivos.
 - Validados boundaries, metadados, catálogo e TypeScript.
+## 2026-08-28 — ciclo 1/4: isolamento semântico global dos funis
+
+- **Tarefa:** eliminar a mistura de copy de panfletagem nos CTAs de `/portfolio/<slug>` e preservar URL, localidade aproximada e elogio à página no handoff.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, Apple Design/accessibility, `0web-ui-quality-gates` e regras de `PORTFOLIO_FUNNELS`.
+- **Descoberta/seleção:** o stack local cobre integralmente formulário, isolamento de cliente, acessibilidade e QA React; skills externas foram rejeitadas como redundantes para este bugfix e nenhuma dependência foi adicionada.
+- **Achado:** o componente distinguia serviço na lista de opções, mas quatro subtítulos, o título da mensagem e o “Próximo passo” ainda dependiam apenas de `mode="proposal"`; o servidor também não persistia o tipo semântico da solicitação.
+- **Alteração:** criada uma fonte única de copy para `booking`, `service` e `campaign`; serviço virou o fallback seguro, campanha exige `proposalKind="campaign"`; prévia, metadata do lead e handoff final agora preservam o mesmo tipo.
+- **Proteção contra regressão:** testes garantem que serviço nunca contenha “promotores/campanha/panfletagem” e que a D.Y.Z mantenha a linguagem própria de campanha.
+- **Validação:** 20 testes unitários, TypeScript, boundaries (29), meta (6), catálogo (32/29), scaffold (29), assets (29), build SSR, canonicals (194/0), privacidade do bundle e dist sem contato operacional. QA mobile a 393 px: Chyrley sem overflow e mensagem correta; D.Y.Z com opt-in de campanha; console sem erros/avisos.
+
+## 2026-08-28 — ciclo 2/4: indexabilidade e identidade SEO por cliente
+
+- **Tarefa:** auditar globalmente as rotas públicas de `/portfolio/<slug>` e impedir regressões de 404, canonical, robots, sitemap, imagem social, ícone e Schema.org.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, Apple Design/accessibility, `0web-ui-quality-gates` e padrões de cliente/SEO do portfólio.
+- **Achados:** `studio-de-cilios` já responde HTTP 200 e consta no sitemap publicado; 26 páginas da rota compartilhada ainda exibem “Portfólio 0WEB” no `<title>` público, contrariando a identidade independente do cliente; a descrição do Paraíso do Hot Dog excedia o budget recomendado.
+- **Alterações:** removida a marca 0WEB dos títulos, `og:title` e nome do `WebPage` dos clientes; criada descrição/keywords específicas para o Paraíso do Hot Dog; adicionada auditoria automática por slug em `scripts/audit-portfolio-indexability.mjs` e comando `audit:portfolio-indexability`.
+- **Proteção contra regressão:** a auditoria deriva os 29 clientes do cadastro canônico e exige HTTP 200 sem desvio, canonical/`og:url` próprios, robots indexável, title/description, Open Graph completo, ícone não global, JSON-LD válido e entrada no sitemap.
+- **Validação:** ambiente local/SSR aprovado em 29/29 rotas, sem falhas e sem avisos; relatório em `seo-reports/portfolio-indexability-latest.json`. A produção atual ainda reprova os 26 títulos antigos até receber este deploy.
+## 2026-08-28 — Santos Montador de Móveis
+
+- Tarefa: novo site independente em `/portfolio/santos-montador-de-moveis`, com funil, SEO local, imagem autoral e motion.
+- Stack: `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, Imagegen, Apple Design/acessibilidade, motion, Vercel React Best Practices e `0web-ui-quality-gates`.
+- Decisão: direção “oficina residencial premium”, identidade própria em azul-marinho, laranja e marfim; foto hero gerada sem texto ou contato; CTAs usam `clientKey` e resolução server-side.
+- Skills externas: nenhuma instalada; as referências locais cobriram direção, engenharia, acessibilidade, performance e QA sem introduzir dependências ou risco adicional.
+- Validação: registrada ao final da execução após boundaries, catálogo, metadados, testes, build e QA visual.

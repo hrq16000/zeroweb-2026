@@ -8,9 +8,14 @@ import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
 import { formatLocation, getGeoForLead } from "@/lib/geo-location";
+import {
+  buildPortfolioQuizPreviewMessage,
+  getPortfolioQuizSemanticCopy,
+  type PortfolioQuizAnswers,
+} from "@/lib/portfolio-quiz-copy";
 
 type Theme = "pink" | "gold" | "navy";
-type Answers = { service: string; experience: string; period: string; timing: string; note: string };
+type Answers = PortfolioQuizAnswers;
 
 export type PortfolioQuizConfig = {
   services?: string[];
@@ -20,7 +25,7 @@ export type PortfolioQuizConfig = {
   stepTitles?: Partial<Record<"service" | "experience" | "period" | "timing" | "note", string>>;
   stepSubtitles?: Partial<Record<"service" | "experience" | "period" | "timing" | "note", string>>;
   notePlaceholder?: string;
-  /** Ajusta a copy de propostas para prestadores de serviço; o padrão legado é campanha. */
+  /** Campanha exige opt-in explícito; propostas sem valor usam copy segura de serviço. */
   proposalKind?: "campaign" | "service";
 };
 
@@ -74,39 +79,6 @@ const EXPERIENCE = [
 ];
 const PERIODS = ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"];
 const TIMINGS = ["Hoje ou amanhã", "Ainda nesta semana", "Na próxima semana", "Quero a primeira vaga disponível"];
-
-function whatsappMessage(studioName: string, answers: Answers, recipientName: string, mode: Props["mode"], proposalKind: PortfolioQuizConfig["proposalKind"] = "service", pageUrl = "", location = "") {
-  const isProposal = mode === "proposal";
-  const isServiceProposal = isProposal && proposalKind === "service";
-  const lines = [
-    isProposal ? "*PEDIDO DE PROPOSTA*" : "*PEDIDO DE AGENDAMENTO*",
-    "",
-    `Olá, ${recipientName}! Tudo bem?`,
-    "",
-    `Vim pela página da *${studioName}* e quero conversar sobre ${isServiceProposal ? "um serviço" : isProposal ? "uma campanha" : "um atendimento"}.`,
-    ...(pageUrl ? [`🔗 URL completa: ${pageUrl}`] : []),
-    "✨ A página é linda, parabéns! Encontrei exatamente o que procurava.",
-    ...(location ? [`📍 Sou de ${location}.`] : []),
-    isProposal ? `Deixei ${isServiceProposal ? "os detalhes" : "o briefing"} abaixo para facilitar a proposta:` : "Deixei as preferências abaixo para facilitar o agendamento:",
-    "",
-    isProposal ? "*BRIEFING DA CAMPANHA*" : "*PREFERÊNCIAS DO ATENDIMENTO*",
-    (isProposal ? `• *${isServiceProposal ? "Serviço" : "Formato da ação"}:* ` : "• *Procedimento:* ") + (answers.service || "Quero orientação para escolher"),
-    (isProposal ? "• *Objetivo/momento:* " : "• *Momento:* ") + (answers.experience || (isProposal ? "Quero conversar sobre o objetivo" : "Quero conversar antes de decidir")),
-    (isProposal ? "• *Janela da ação:* " : "• *Melhor período:* ") + (answers.period || (isProposal ? "Ainda preciso de orientação" : "Tenho flexibilidade")),
-    (isProposal ? `• *${isServiceProposal ? "Prazo do serviço" : "Prazo da campanha"}:* ` : "• *Quando gostaria:* ") + (answers.timing || (isProposal ? "Estou planejando com antecedência" : "Quero a primeira vaga disponível")),
-  ];
-
-  if (answers.note.trim()) lines.push("", "*OBSERVAÇÃO*", answers.note.trim());
-
-  lines.push(
-    "",
-    "*PRÓXIMO PASSO*",
-    isProposal ? "Pode me orientar sobre equipe, locais, quantidade de promotores e investimento estimado, por favor?" : "Pode me enviar as próximas vagas disponíveis e confirmar o tempo estimado do atendimento, por favor?",
-    "",
-    "Aguardo seu retorno.",
-  );
-  return lines.join("\n");
-}
 
 /** Adia efeitos não visuais para depois da pintura, mantendo o clique instantâneo. */
 function queueTelemetry(task: () => void) {
@@ -175,6 +147,7 @@ export function BeautyBookingQuiz({
   );
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
+  const semanticCopy = getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName);
   const serviceOptions = quizConfig?.services ?? (isServiceProposal ? SERVICES : isProposal ? PROPOSAL_SERVICES : SERVICES);
   const experienceOptions = quizConfig?.experienceOptions ?? (isServiceProposal ? EXPERIENCE : isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
   const periodOptions = quizConfig?.periodOptions ?? (isServiceProposal ? PERIODS : isProposal ? PROPOSAL_PERIODS : PERIODS);
@@ -239,6 +212,7 @@ export function BeautyBookingQuiz({
         studioName,
         recipientName,
         mode: mode ?? "booking",
+        proposalKind: quizConfig?.proposalKind ?? "service",
         answers,
         pageUrl: window.location.href,
         orderContext,
@@ -251,13 +225,13 @@ export function BeautyBookingQuiz({
   };
 
   const question = step === 0
-    ? { label: "1 de 5", title: quizConfig?.stepTitles?.service ?? (isProposal ? "Qual ação você quer planejar?" : "Qual atendimento você quer agendar?"), subtitle: quizConfig?.stepSubtitles?.service ?? (isProposal ? `Assim ${recipientName} já entende o formato ideal para sua campanha.` : "Assim já preparamos a melhor orientação para você."), field: "service" as const, options: services }
+    ? { label: "1 de 5", title: quizConfig?.stepTitles?.service ?? semanticCopy.titles.service, subtitle: quizConfig?.stepSubtitles?.service ?? semanticCopy.subtitles.service, field: "service" as const, options: services }
     : step === 1
-      ? { label: "2 de 5", title: quizConfig?.stepTitles?.experience ?? (isProposal ? "Qual é o objetivo principal da ação?" : "Você já conhece esse procedimento?"), subtitle: quizConfig?.stepSubtitles?.experience ?? (isProposal ? "Essa resposta ajuda a montar uma equipe alinhada ao que você precisa divulgar." : "Isso ajuda a profissional a entender o seu momento."), field: "experience" as const, options: experienceOptions }
+      ? { label: "2 de 5", title: quizConfig?.stepTitles?.experience ?? semanticCopy.titles.experience, subtitle: quizConfig?.stepSubtitles?.experience ?? semanticCopy.subtitles.experience, field: "experience" as const, options: experienceOptions }
       : step === 2
-        ? { label: "3 de 5", title: quizConfig?.stepTitles?.period ?? (isProposal ? "Quando a ação deve acontecer?" : "Qual período costuma ser melhor para você?"), subtitle: quizConfig?.stepSubtitles?.period ?? (isProposal ? `Assim ${recipientName} consegue pensar em escala e pontos de maior movimento.` : "Vamos tentar encontrar a vaga mais confortável."), field: "period" as const, options: periodOptions }
+        ? { label: "3 de 5", title: quizConfig?.stepTitles?.period ?? semanticCopy.titles.period, subtitle: quizConfig?.stepSubtitles?.period ?? semanticCopy.subtitles.period, field: "period" as const, options: periodOptions }
         : step === 3
-          ? { label: "4 de 5", title: quizConfig?.stepTitles?.timing ?? (isProposal ? "Qual é o prazo da campanha?" : "Quando você gostaria de vir?"), subtitle: quizConfig?.stepSubtitles?.timing ?? (isProposal ? "Uma previsão de prazo deixa a proposta muito mais precisa." : "Escolha a opção mais próxima da sua necessidade."), field: "timing" as const, options: timingOptions }
+          ? { label: "4 de 5", title: quizConfig?.stepTitles?.timing ?? semanticCopy.titles.timing, subtitle: quizConfig?.stepSubtitles?.timing ?? semanticCopy.subtitles.timing, field: "timing" as const, options: timingOptions }
           : null;
   return (
     <>
@@ -274,7 +248,7 @@ export function BeautyBookingQuiz({
                   <Sparkles className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className={"text-xs font-bold uppercase tracking-[0.18em] " + accentText}>{mode === "proposal" ? "Proposta inteligente" : "Agendamento inteligente"}</p>
+                  <p className={"text-xs font-bold uppercase tracking-[0.18em] " + accentText}>{semanticCopy.eyebrow}</p>
                   <p className="text-sm text-gray-300">Leva menos de um minuto</p>
                 </div>
               </div>
@@ -303,10 +277,10 @@ export function BeautyBookingQuiz({
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <p className={"text-xs font-bold uppercase tracking-[0.2em] " + accentText}>5 de 5</p>
-                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{quizConfig?.stepTitles?.note ?? "Quer acrescentar algum detalhe?"}</h2>
-                    <p className="text-sm leading-relaxed text-gray-400">{quizConfig?.stepSubtitles?.note ?? (isProposal ? "É opcional. Conte sobre região, quantidade, material ou alguma necessidade especial." : "É opcional. Você pode contar se tem preferência de estilo, horário ou alguma dúvida.")}</p>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>{quizConfig?.stepTitles?.note ?? semanticCopy.titles.note}</h2>
+                    <p className="text-sm leading-relaxed text-gray-400">{quizConfig?.stepSubtitles?.note ?? semanticCopy.subtitles.note}</p>
                   </div>
-                  <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder={quizConfig?.notePlaceholder ?? (isProposal ? "Ex.: ação em dois bairros, com entrega de brindes e previsão para o próximo mês." : "Ex.: gosto de um efeito mais natural e consigo depois das 18h.")} className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
+                  <textarea value={answers.note} onChange={(event) => setAnswers((current) => ({ ...current, note: event.target.value.slice(0, 280) }))} maxLength={280} rows={4} placeholder={quizConfig?.notePlaceholder ?? semanticCopy.notePlaceholder} className="w-full resize-none rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40" />
                   <button type="button" onClick={showMessage} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
                     Ver minha mensagem pronta <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
@@ -319,15 +293,7 @@ export function BeautyBookingQuiz({
                     <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
-                    {whatsappMessage(
-                      studioName,
-                      answers,
-                      recipientName,
-                      mode,
-                      quizConfig?.proposalKind,
-                      typeof window !== "undefined" ? window.location.href : "",
-                      previewLocation,
-                    )}
+                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation })}
                   </div>
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />

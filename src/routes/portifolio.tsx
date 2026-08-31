@@ -4,6 +4,7 @@ export const Route = createFileRoute("/portifolio")({
   beforeLoad: () => {
     throw redirect({
       to: "/portfolio",
+      search: {},
       statusCode: 301,
     });
   },

@@ -196,7 +196,7 @@ export function RenataBeautyView() {
       <header className="border-b border-white/10 bg-[#0B0609]/85 backdrop-blur-xl sticky top-[38px] z-40">
         <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
           
-          <Link to="/portfolio" className="flex items-center gap-3 group">
+          <Link to="/portfolio" search={{}} className="flex items-center gap-3 group">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E6007A] to-[#8C0045] p-0.5 shadow-lg shadow-pink-600/30 group-hover:scale-105 transition-transform flex items-center justify-center">
               <div className="w-full h-full rounded-full bg-[#12080E] flex flex-col items-center justify-center">
                 <Crown className="w-4 h-4 text-yellow-300" />

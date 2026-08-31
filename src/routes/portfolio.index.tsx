@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -219,7 +219,22 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog
   .filter((item) => Boolean(item.image));
 
 
+type PortfolioSearch = {
+  segment?: string;
+  q?: string;
+  sort?: string;
+  type?: string;
+};
+
 export const Route = createFileRoute("/portfolio/")({
+  validateSearch: (search: Record<string, unknown>): PortfolioSearch => {
+    const parsed: PortfolioSearch = {};
+    if (typeof search.segment === "string") parsed.segment = search.segment;
+    if (typeof search.q === "string") parsed.q = search.q;
+    if (typeof search.sort === "string") parsed.sort = search.sort;
+    if (typeof search.type === "string") parsed.type = search.type;
+    return parsed;
+  },
   head: () => ({
     meta: [
       { title: TITLE },
@@ -267,14 +282,16 @@ export const Route = createFileRoute("/portfolio/")({
 });
 
 function PortfolioPage() {
-  const [activeCategory, setActiveCategory] = useState(() => typeof window === "undefined" ? "todos" : new URLSearchParams(window.location.search).get("segment") || "todos");
-  const [search, setSearch] = useState(() => typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("q") || "");
-  const [sort, setSort] = useState(() => typeof window === "undefined" ? "recent" : new URLSearchParams(window.location.search).get("sort") || "recent");
-  const [projectType, setProjectType] = useState(() => typeof window === "undefined" ? "todos" : new URLSearchParams(window.location.search).get("type") || "todos");
+  const routeSearch = Route.useSearch();
+  const [activeCategory, setActiveCategory] = useState(routeSearch.segment ?? "todos");
+  const [search, setSearch] = useState(routeSearch.q ?? "");
+  const [sort, setSort] = useState(routeSearch.sort ?? "recent");
+  const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visitorCity, setVisitorCity] = useState<string | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
+  const deferredSearch = useDeferredValue(search);
 
   useEffect(() => {
     let active = true;
@@ -284,15 +301,34 @@ function PortfolioPage() {
     return () => { active = false; };
   }, []);
 
-  const filteredItems = [...PORTFOLIO_ITEMS]
-    .filter(item => (activeCategory === "todos" || item.category === activeCategory) && (projectType === "todos" || item.projectType === projectType) && `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => {
+  const filteredItems = useMemo(() => {
+    const query = deferredSearch.trim().toLocaleLowerCase("pt-BR");
+    const city = visitorCity
+      ?.normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase("pt-BR");
+    const locationScore = (location?: string) =>
+      city &&
+      location
+        ?.normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("pt-BR")
+        .includes(city)
+        ? 1
+        : 0;
+
+    return PORTFOLIO_ITEMS.filter(
+      (item) =>
+        (activeCategory === "todos" || item.category === activeCategory) &&
+        (projectType === "todos" || item.projectType === projectType) &&
+        `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`
+          .toLocaleLowerCase("pt-BR")
+          .includes(query),
+    ).sort((a, b) => {
       if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
-      if (!visitorCity) return 0;
-      const city = visitorCity.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-      const score = (location?: string) => location?.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(city) ? 1 : 0;
-      return score(b.location) - score(a.location);
+      return locationScore(b.location) - locationScore(a.location);
     });
+  }, [activeCategory, deferredSearch, projectType, sort, visitorCity]);
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -413,9 +449,9 @@ function PortfolioPage() {
                       <img 
                         src={item.image} 
                         alt={item.title}
-                        loading={index < 2 ? "eager" : "lazy"}
+                        loading={index === 0 ? "eager" : "lazy"}
                         decoding="async"
-                        fetchPriority={index < 2 ? "high" : "auto"}
+                        fetchPriority={index === 0 ? "high" : "auto"}
                         sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, 16vw"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         onError={(e) => {

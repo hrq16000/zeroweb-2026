@@ -1,193 +1,179 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { RefreshCw, ShieldCheck } from "lucide-react";
-import { listAccessAudit } from "@/lib/access-audit.functions";
+import { Activity, RefreshCw, ShieldCheck } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { listSensitiveAuditTrail, type SensitiveAuditRow } from "@/lib/sensitive-audit.functions";
 
 export const Route = createFileRoute("/_authenticated/app/auditoria/acessos")({
   head: () => ({
     meta: [
-      { title: "Trilha de acessos · 0WEB Painel" },
+      { title: "Trilha de acessos sensíveis · 0WEB" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),
-  component: AccessAuditPage,
-  errorComponent: ({ error }) => (
-    <div className="p-6 text-sm text-destructive">Erro: {error.message}</div>
-  ),
-  notFoundComponent: () => <div className="p-6">Não encontrado.</div>,
+  component: SensitiveAccessAudit,
 });
 
-type Row = {
-  id: string;
-  created_at: string;
-  action: string;
-  entity: string;
-  entity_id: string | null;
-  kind: "read" | "write";
-  actor: string;
-  meta: string;
-};
+function labelFor(row: SensitiveAuditRow) {
+  if (row.entity === "lead_submissions") return "Leads";
+  return "Catálogo de serviços";
+}
 
-const ENTITY_LABEL: Record<string, string> = {
-  lead_submissions: "Leads",
-  service_catalog: "Catálogo de serviços",
-};
-
-function AccessAuditPage() {
-  const fetchRows = useServerFn(listAccessAudit);
-  const [rows, setRows] = useState<Row[]>([]);
-  const [entity, setEntity] = useState<"all" | "lead_submissions" | "service_catalog">("all");
-  const [kind, setKind] = useState<"all" | "read" | "write">("all");
+function SensitiveAccessAudit() {
+  const load = useServerFn(listSensitiveAuditTrail);
+  const [rows, setRows] = useState<SensitiveAuditRow[]>([]);
+  const [entity, setEntity] = useState<"" | "lead_submissions" | "service_catalog">("");
+  const [action, setAction] = useState<"" | "sensitive.read" | "sensitive.write">("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const load = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetchRows({ data: { entity, kind, limit: 200 } });
-      setRows(res.rows as Row[]);
-    } catch (e) {
-      setError((e as Error).message || "Falha ao carregar a trilha de acessos.");
-    } finally {
-      setLoading(false);
-    }
-  }, [fetchRows, entity, kind]);
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
-    void load();
-  }, [load]);
+    setLoading(true);
+    void load({ data: { entity: entity || undefined, action: action || undefined, limit: 200 } })
+      .then((result) => {
+        setRows(result.rows);
+        setError(null);
+      })
+      .catch((reason: Error) => setError(reason.message))
+      .finally(() => setLoading(false));
+  }, [action, entity, load, refresh]);
+
+  const stats = useMemo(
+    () => ({
+      reads: rows.filter((row) => row.action === "sensitive.read").length,
+      writes: rows.filter((row) => row.action === "sensitive.write").length,
+    }),
+    [rows],
+  );
 
   return (
-    <div className="p-4 sm:p-6 space-y-5">
-      <header className="flex flex-wrap items-center gap-3 justify-between">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-5 h-5 text-primary" aria-hidden="true" />
-          <h1 className="text-xl font-bold">Trilha de acessos</h1>
+    <main className="space-y-6">
+      <header className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
+            <ShieldCheck className="size-3.5" /> Governança de dados
+          </div>
+          <h1 className="text-2xl font-bold tracking-tight">Trilha de acessos sensíveis</h1>
+          <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+            Registra ações administrativas sobre leads e o catálogo. O histórico guarda contexto
+            técnico, nunca o conteúdo sensível acessado.
+          </p>
         </div>
         <button
           type="button"
-          onClick={() => void load()}
-          className="inline-flex items-center gap-2 min-h-11 px-4 rounded-lg border border-border bg-card text-sm font-medium hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          onClick={() => setRefresh((value) => value + 1)}
+          className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <RefreshCw className="w-4 h-4" aria-hidden="true" />
-          Atualizar
+          <RefreshCw className="size-4" /> Atualizar
         </button>
       </header>
 
-      <p className="text-sm text-muted-foreground max-w-2xl">
-        Registro de leituras e escritas em dados sensíveis. Por política de privacidade, o contexto
-        técnico não contém nomes, e-mails, telefones, notas ou mensagens.
-      </p>
+      <section className="grid gap-3 sm:grid-cols-3">
+        <div className="rounded-xl border border-border p-4">
+          <p className="text-xs text-muted-foreground">Eventos exibidos</p>
+          <p className="mt-1 text-2xl font-bold">{rows.length}</p>
+        </div>
+        <div className="rounded-xl border border-border p-4">
+          <p className="text-xs text-muted-foreground">Leituras</p>
+          <p className="mt-1 text-2xl font-bold">{stats.reads}</p>
+        </div>
+        <div className="rounded-xl border border-border p-4">
+          <p className="text-xs text-muted-foreground">Escritas</p>
+          <p className="mt-1 text-2xl font-bold">{stats.writes}</p>
+        </div>
+      </section>
 
-      <div className="flex flex-wrap gap-3">
-        <label className="text-sm">
-          <span className="block mb-1 text-muted-foreground">Recurso</span>
+      <section className="flex flex-wrap gap-3 rounded-xl border border-border p-4">
+        <label className="grid gap-1 text-xs">
+          <span className="text-muted-foreground">Dado</span>
           <select
             value={entity}
-            onChange={(e) => setEntity(e.target.value as typeof entity)}
-            className="min-h-11 rounded-lg border border-border bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            onChange={(event) => setEntity(event.target.value as typeof entity)}
+            className="min-h-11 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <option value="all">Todos</option>
+            <option value="">Todos</option>
             <option value="lead_submissions">Leads</option>
-            <option value="service_catalog">Catálogo de serviços</option>
+            <option value="service_catalog">Catálogo</option>
           </select>
         </label>
-        <label className="text-sm">
-          <span className="block mb-1 text-muted-foreground">Tipo de ação</span>
+        <label className="grid gap-1 text-xs">
+          <span className="text-muted-foreground">Ação</span>
           <select
-            value={kind}
-            onChange={(e) => setKind(e.target.value as typeof kind)}
-            className="min-h-11 rounded-lg border border-border bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            value={action}
+            onChange={(event) => setAction(event.target.value as typeof action)}
+            className="min-h-11 rounded-md border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <option value="all">Todas</option>
-            <option value="read">Leitura</option>
-            <option value="write">Escrita</option>
+            <option value="">Todas</option>
+            <option value="sensitive.read">Leitura</option>
+            <option value="sensitive.write">Escrita</option>
           </select>
         </label>
-      </div>
+      </section>
 
-      {loading && (
-        <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
-          Carregando trilha de acessos…
-        </div>
-      )}
-
-      {!loading && error && (
-        <div
-          role="alert"
-          className="rounded-xl border border-destructive/40 bg-destructive/10 p-6 text-sm text-destructive"
-        >
+      {error && (
+        <p className="rounded-lg border border-destructive/40 bg-destructive/5 p-4 text-sm text-destructive">
           {error}
-          <button type="button" onClick={() => void load()} className="ml-3 underline min-h-11">
-            Tentar novamente
-          </button>
-        </div>
+        </p>
       )}
-
-      {!loading && !error && rows.length === 0 && (
-        <div className="rounded-xl border border-border bg-card p-6 text-sm text-muted-foreground">
-          Nenhum registro de acesso para os filtros selecionados.
-        </div>
-      )}
-
-      {!loading && !error && rows.length > 0 && (
-        <div className="overflow-x-auto rounded-xl border border-border bg-card">
-          <table className="w-full text-sm">
-            <caption className="sr-only">Registros de leitura e escrita em dados sensíveis</caption>
-            <thead className="bg-muted/50 text-left">
+      <section className="overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-[680px] text-sm">
+          <thead className="bg-muted/40 text-left text-xs text-muted-foreground">
+            <tr>
+              <th className="p-3">Quando</th>
+              <th className="p-3">Ação</th>
+              <th className="p-3">Dado</th>
+              <th className="p-3">Responsável</th>
+              <th className="p-3">Contexto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {loading && (
               <tr>
-                <th scope="col" className="px-3 py-2 font-medium">
-                  Data/hora
-                </th>
-                <th scope="col" className="px-3 py-2 font-medium">
-                  Tipo
-                </th>
-                <th scope="col" className="px-3 py-2 font-medium">
-                  Recurso
-                </th>
-                <th scope="col" className="px-3 py-2 font-medium">
-                  Ação
-                </th>
-                <th scope="col" className="px-3 py-2 font-medium">
-                  Responsável
-                </th>
-                <th scope="col" className="px-3 py-2 font-medium">
-                  Contexto técnico
-                </th>
+                <td colSpan={5} className="p-8 text-center text-muted-foreground">
+                  Carregando trilha…
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.id} className="border-t border-border align-top">
-                  <td className="px-3 py-2 whitespace-nowrap">
-                    {new Date(r.created_at).toLocaleString("pt-BR")}
-                  </td>
-                  <td className="px-3 py-2">
-                    <span
-                      className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
-                        r.kind === "write"
-                          ? "bg-primary/10 text-primary"
-                          : "bg-muted text-muted-foreground"
-                      }`}
-                    >
-                      {r.kind === "write" ? "Escrita" : "Leitura"}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2">{ENTITY_LABEL[r.entity] ?? r.entity}</td>
-                  <td className="px-3 py-2 font-mono text-xs">{r.action}</td>
-                  <td className="px-3 py-2">{r.actor}</td>
-                  <td className="px-3 py-2 font-mono text-xs text-muted-foreground break-all max-w-md">
-                    {r.meta}
-                    {r.entity_id ? ` · id:${r.entity_id.slice(0, 8)}` : ""}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
+            )}
+            {!loading && rows.length === 0 && (
+              <tr>
+                <td colSpan={5} className="p-8 text-center text-muted-foreground">
+                  Nenhum acesso registrado para estes filtros.
+                </td>
+              </tr>
+            )}
+            {rows.map((row) => (
+              <tr key={row.id} className="border-t border-border align-top">
+                <td className="whitespace-nowrap p-3 text-xs text-muted-foreground">
+                  {new Date(row.created_at).toLocaleString("pt-BR")}
+                </td>
+                <td className="p-3">
+                  <span
+                    className={
+                      row.action === "sensitive.write"
+                        ? "rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
+                        : "rounded-full bg-muted px-2 py-1 text-xs font-medium text-foreground"
+                    }
+                  >
+                    {row.action === "sensitive.write" ? "Escrita" : "Leitura"}
+                  </span>
+                </td>
+                <td className="p-3 font-medium">{labelFor(row)}</td>
+                <td className="p-3 font-mono text-xs">
+                  {row.actor_id ? row.actor_id.slice(0, 12) + "…" : "Sistema"}
+                </td>
+                <td className="max-w-md p-3 text-xs text-muted-foreground">
+                  <code>{JSON.stringify(row.meta ?? {})}</code>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+      <p className="flex items-center gap-2 text-xs text-muted-foreground">
+        <Activity className="size-3.5" /> Retenção, exportação e alertas entram no próximo ciclo de
+        governança.
+      </p>
+    </main>
   );
 }

@@ -1,8 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Database } from "@/integrations/supabase/types";
+import { recordSensitiveAudit } from "@/lib/sensitive-audit.functions";
 
 const templateInput = z.object({
   id: z.string().uuid().optional(),
@@ -79,21 +78,21 @@ export const deleteTemplate = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
-/** Service catalog — leitura restrita a admin/super admin (RLS: sem acesso anônimo). */
+/** Service catalog */
 export const listServiceCatalog = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const userId = (context as { userId: string }).userId;
-    const supabase = (context as { supabase: SupabaseClient<Database> }).supabase;
-    // Consulta com o token do usuário: a RLS decide (anon e usuário comum não leem).
-    const { data, error } = await supabase.from("service_catalog").select("*").order("name");
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: isSuper } = await supabaseAdmin.rpc("is_super_admin", { _uid: userId });
+    if (!isSuper) throw new Error("forbidden");
+    const { data, error } = await supabaseAdmin.from("service_catalog").select("*").order("name");
     if (error) throw new Error(error.message);
-    const { recordAccessAudit } = await import("./access-audit.server");
-    await recordAccessAudit({
+    await recordSensitiveAudit({
       actorId: userId,
-      action: "service_catalog.read",
+      action: "sensitive.read",
       entity: "service_catalog",
-      meta: { operation: "list", count: data?.length ?? 0 },
+      meta: { scope: "list", result_count: data?.length ?? 0 },
     });
     return { rows: data ?? [] };
   });
@@ -127,15 +126,14 @@ export const upsertServiceCatalog = createServerFn({ method: "POST" })
       ? await q.update(data).eq("id", data.id).select().single()
       : await q.insert(data).select().single();
     if (error) throw new Error(error.message);
-    const { recordAccessAudit } = await import("./access-audit.server");
-    await recordAccessAudit({
+    await recordSensitiveAudit({
       actorId: userId,
-      action: data.id ? "service_catalog.update" : "service_catalog.create",
+      action: "sensitive.write",
       entity: "service_catalog",
-      entityId: (row as { id?: string })?.id ?? data.id ?? null,
+      entityId: row.id,
       meta: {
-        operation: data.id ? "update" : "create",
-        fields: Object.keys(data).filter((k) => k !== "id"),
+        operation: data.id ? "update" : "insert",
+        fields: Object.keys(data).filter((key) => key !== "description"),
       },
     });
     return { row };

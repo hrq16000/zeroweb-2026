@@ -40,6 +40,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "mary-diarista", vertical: "prestadores-de-servicos", siteName: "Mary Diarista · Curitiba", kind: "prototype", indexable: true },
   { slug: "acai-total-araucaria", vertical: "restaurantes", siteName: "Açaí Total · Araucária", kind: "prototype", indexable: true },
   { slug: "jkl-marcenaria", vertical: "prestadores-de-servicos", siteName: "JKL Marcenaria · Móveis sob medida", kind: "prototype", indexable: true },
+  { slug: "santos-montador-de-moveis", vertical: "prestadores-de-servicos", siteName: "Santos Montador de Móveis · Curitiba e Região", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {
