@@ -261,7 +261,7 @@ export function BeautyBookingQuiz({
           : null;
   return (
     <>
-      <button type="button" onClick={start} className={className} aria-label={ariaLabel}>
+      <button type="button" onClick={start} className={className} aria-label={ariaLabel} data-funnel-cta="portfolio" data-funnel-client={clientKey}>
         {children}
       </button>
 
