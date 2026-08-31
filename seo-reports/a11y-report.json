@@ -1,19 +1,9 @@
 {
-  "generatedAt": "2026-08-31T03:30:32.036Z",
+  "generatedAt": "2026-08-31T03:32:17.736Z",
   "report": [
     {
       "route": "/",
-      "violations": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "help": "Elements must meet minimum color contrast ratio thresholds",
-          "nodes": 1,
-          "targets": [
-            ".bottom-\\[calc\\(6rem\\+env\\(safe-area-inset-bottom\\)\\)\\] > .text-sm"
-          ]
-        }
-      ]
+      "violations": []
     },
     {
       "route": "/servicos",
