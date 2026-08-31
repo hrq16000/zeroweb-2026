@@ -52,7 +52,9 @@ export const listAccessAudit = createServerFn({ method: "POST" })
         .in("id", actorIds);
       for (const p of profiles ?? []) {
         actors[p.id as string] =
-          (p.user_ref as string | null) ?? (p.display_name as string | null) ?? String(p.id).slice(0, 8);
+          (p.user_ref as string | null) ??
+          (p.display_name as string | null) ??
+          String(p.id).slice(0, 8);
       }
     }
 
@@ -64,7 +66,9 @@ export const listAccessAudit = createServerFn({ method: "POST" })
         entity: r.entity as string,
         entity_id: (r.entity_id as string | null) ?? null,
         kind: r.kind as "read" | "write",
-        actor: r.actor_id ? (actors[r.actor_id as string] ?? String(r.actor_id).slice(0, 8)) : "sistema",
+        actor: r.actor_id
+          ? (actors[r.actor_id as string] ?? String(r.actor_id).slice(0, 8))
+          : "sistema",
         meta: JSON.stringify(r.meta ?? {}),
       })),
       total: list.length,

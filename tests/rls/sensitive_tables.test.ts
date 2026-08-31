@@ -19,7 +19,8 @@
 import { createClient } from "@supabase/supabase-js";
 
 const URL = process.env["SUPABASE_URL"] || process.env["VITE_SUPABASE_URL"];
-const ANON = process.env["SUPABASE_PUBLISHABLE_KEY"] || process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
+const ANON =
+  process.env["SUPABASE_PUBLISHABLE_KEY"] || process.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
 const SRK = process.env["SUPABASE_SERVICE_ROLE_KEY"];
 
 if (!URL || !ANON || !SRK) {
@@ -122,14 +123,16 @@ async function main() {
     check(
       anonLead.error || (anonLead.data ?? []).length === 0,
       "anon NÃO lê lead_submissions",
-      "anon leu lead_submissions", anonLead.data,
+      "anon leu lead_submissions",
+      anonLead.data,
     );
 
     const anonSvc = await anonClient.from("service_catalog").select("id").eq("id", catalogId);
     check(
       anonSvc.error || (anonSvc.data ?? []).length === 0,
       "anon NÃO lê service_catalog",
-      "anon leu service_catalog", anonSvc.data,
+      "anon leu service_catalog",
+      anonSvc.data,
     );
 
     // --- usuário comum ---
@@ -137,14 +140,16 @@ async function main() {
     check(
       userLead.error || (userLead.data ?? []).length === 0,
       "usuário comum NÃO lê lead_submissions",
-      "usuário comum leu lead_submissions", userLead.data,
+      "usuário comum leu lead_submissions",
+      userLead.data,
     );
 
     const userSvc = await userClient.from("service_catalog").select("id").eq("id", catalogId);
     check(
       userSvc.error || (userSvc.data ?? []).length === 0,
       "usuário comum NÃO lê service_catalog",
-      "usuário comum leu service_catalog", userSvc.data,
+      "usuário comum leu service_catalog",
+      userSvc.data,
     );
 
     const userWrite = await userClient
@@ -163,14 +168,16 @@ async function main() {
     check(
       !adminLead.error && (adminLead.data ?? []).length === 1,
       "admin lê lead_submissions",
-      "admin não leu lead_submissions", adminLead.error?.message,
+      "admin não leu lead_submissions",
+      adminLead.error?.message,
     );
 
     const adminSvc = await adminClient.from("service_catalog").select("id").eq("id", catalogId);
     check(
       !adminSvc.error && (adminSvc.data ?? []).length === 1,
       "admin lê service_catalog",
-      "admin não leu service_catalog", adminSvc.error?.message,
+      "admin não leu service_catalog",
+      adminSvc.error?.message,
     );
 
     const adminLeadWrite = await adminClient
@@ -181,7 +188,8 @@ async function main() {
     check(
       !adminLeadWrite.error && (adminLeadWrite.data ?? []).length === 1,
       "admin atualiza lead_submissions",
-      "admin não atualizou lead_submissions", adminLeadWrite.error?.message,
+      "admin não atualizou lead_submissions",
+      adminLeadWrite.error?.message,
     );
   } finally {
     if (leadId) await admin.from("lead_submissions").delete().eq("id", leadId);

@@ -120,11 +120,7 @@ function AccessAuditPage() {
           className="rounded-xl border border-destructive/40 bg-destructive/10 p-6 text-sm text-destructive"
         >
           {error}
-          <button
-            type="button"
-            onClick={() => void load()}
-            className="ml-3 underline min-h-11"
-          >
+          <button type="button" onClick={() => void load()} className="ml-3 underline min-h-11">
             Tentar novamente
           </button>
         </div>
@@ -142,12 +138,24 @@ function AccessAuditPage() {
             <caption className="sr-only">Registros de leitura e escrita em dados sensíveis</caption>
             <thead className="bg-muted/50 text-left">
               <tr>
-                <th scope="col" className="px-3 py-2 font-medium">Data/hora</th>
-                <th scope="col" className="px-3 py-2 font-medium">Tipo</th>
-                <th scope="col" className="px-3 py-2 font-medium">Recurso</th>
-                <th scope="col" className="px-3 py-2 font-medium">Ação</th>
-                <th scope="col" className="px-3 py-2 font-medium">Responsável</th>
-                <th scope="col" className="px-3 py-2 font-medium">Contexto técnico</th>
+                <th scope="col" className="px-3 py-2 font-medium">
+                  Data/hora
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium">
+                  Tipo
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium">
+                  Recurso
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium">
+                  Ação
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium">
+                  Responsável
+                </th>
+                <th scope="col" className="px-3 py-2 font-medium">
+                  Contexto técnico
+                </th>
               </tr>
             </thead>
             <tbody>

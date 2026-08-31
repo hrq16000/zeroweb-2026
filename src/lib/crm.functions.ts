@@ -69,7 +69,7 @@ export const listLeads = createServerFn({ method: "POST" })
     let q = supabaseAdmin
       .from("lead_submissions")
       .select(
-        "id,created_at,name,email,phone,company,source,landing_page,utm_source,utm_medium,utm_campaign,hero_variant,cta_variant,status,assignee,notes,last_interaction,score,score_label,payload_json"
+        "id,created_at,name,email,phone,company,source,landing_page,utm_source,utm_medium,utm_campaign,hero_variant,cta_variant,status,assignee,notes,last_interaction,score,score_label,payload_json",
       )
       .gte("created_at", sinceIso)
       .order("created_at", { ascending: false })
@@ -93,7 +93,7 @@ export const listLeads = createServerFn({ method: "POST" })
           (r.name && (r.name as string).toLowerCase().includes(s)) ||
           (r.email && (r.email as string).toLowerCase().includes(s)) ||
           (r.phone && (r.phone as string).toLowerCase().includes(s)) ||
-          (r.company && (r.company as string).toLowerCase().includes(s))
+          (r.company && (r.company as string).toLowerCase().includes(s)),
       );
     }
     if (data.city) {
@@ -203,15 +203,18 @@ export const addLeadHistory = createServerFn({ method: "POST" })
         note: z.string().min(1).max(5000),
         actor: z.string().max(120).optional(),
       })
-      .parse(i)
+      .parse(i),
   )
   .handler(async ({ data, context }) => {
     await assertAdmin((context as { userId: string }).userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const [{ error: e1 }, { error: e2 }] = await Promise.all([
-      supabaseAdmin
-        .from("lead_history")
-        .insert({ lead_id: data.lead_id, kind: data.kind, note: data.note, actor: data.actor ?? "admin" }),
+      supabaseAdmin.from("lead_history").insert({
+        lead_id: data.lead_id,
+        kind: data.kind,
+        note: data.note,
+        actor: data.actor ?? "admin",
+      }),
       supabaseAdmin
         .from("lead_submissions")
         .update({ last_interaction: new Date().toISOString() })
@@ -260,7 +263,7 @@ export const updateCrmSettings = createServerFn({ method: "POST" })
         assignees: z.array(z.string().min(1).max(120)).max(50),
         fixed_assignee: z.string().max(120).nullable().optional(),
       })
-      .parse(i)
+      .parse(i),
   )
   .handler(async ({ data, context }) => {
     await assertAdmin((context as { userId: string }).userId);
@@ -295,7 +298,9 @@ export const getCrmSummary = createServerFn({ method: "GET" })
     const novos = list.filter((r) => r.status === "novo").length;
     const semResp = list.filter((r) => !r.assignee).length;
     const parados = list.filter(
-      (r) => !["fechado", "perdido", "arquivado"].includes(r.status) && (r.last_interaction ?? r.created_at) < stale7
+      (r) =>
+        !["fechado", "perdido", "arquivado"].includes(r.status) &&
+        (r.last_interaction ?? r.created_at) < stale7,
     ).length;
     const fechados = list.filter((r) => r.status === "fechado").length;
     const perdidos = list.filter((r) => r.status === "perdido").length;
