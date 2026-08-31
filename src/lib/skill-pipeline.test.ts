@@ -3,9 +3,11 @@ import {
   BLOCKED_STATUSES,
   crossReview,
   evaluateGates,
+  isRealEvidence,
   findSkills,
   rankCandidates,
   renderPipelineMarkdown,
+  requiredPerspectives,
   reviewEvidence,
   runSkillPipeline,
   securityReview,
@@ -147,6 +149,57 @@ describe("pipeline integrado", () => {
     for (const id of report.stack) {
       const skill = SKILL_REGISTRY.find((s) => s.id === id)!;
       expect(skill.status === "QUARANTINED").toBe(false);
+    }
+  });
+});
+
+describe("cross-review contextual e evidência real", () => {
+  test("tarefa de docs não exige design/UI nem QA", () => {
+    const docsTask: PipelineTask = { id: "t-docs", title: "Docs", classes: ["docs"] };
+    expect(requiredPerspectives(docsTask)).toEqual([]);
+    expect(crossReview([], docsTask).ok).toBe(true);
+  });
+
+  test("tarefa de landing continua exigindo design/UI e QA", () => {
+    expect(requiredPerspectives(task)).toEqual(["design/UI", "QA/a11y/perf"]);
+    expect(crossReview([], task).missing).toContain("design/UI");
+  });
+
+  test("tarefa de acessibilidade exige perspectiva de QA", () => {
+    const a11yTask: PipelineTask = { id: "t-a11y", title: "A11y", classes: ["accessibility-fix"] };
+    expect(requiredPerspectives(a11yTask)).toContain("QA/a11y/perf");
+  });
+
+  test("sem tarefa mantém exigência padrão de design e QA", () => {
+    expect(requiredPerspectives()).toEqual(["design/UI", "QA/a11y/perf"]);
+  });
+
+  test("evidência placeholder não aprova gate", () => {
+    for (const evidence of ["ok", "—", "n/a", "TODO", "pass", "   "]) {
+      expect(isRealEvidence(evidence)).toBe(false);
+      expect(evaluateGates([{ name: "g", passed: true, evidence }]).passed).toBe(false);
+    }
+  });
+
+  test("evidência textual real aprova gate", () => {
+    expect(isRealEvidence("bun test: 230 pass / 0 fail")).toBe(true);
+  });
+
+  test("gate reprovado é distinguido de gate sem evidência", () => {
+    const blockers = shipGate({ ok: true }, [
+      { name: "build", passed: false, evidence: "vite build falhou no chunk X" },
+      { name: "visual", passed: true, evidence: "ok" },
+    ]).blockers;
+    expect(blockers).toContain("gate reprovado: build");
+    expect(blockers).toContain("gate sem evidência: visual");
+  });
+
+  test("skill bloqueada ou sem origem revisada nunca entra no stack", () => {
+    const report = runSkillPipeline(task);
+    for (const id of report.stack) {
+      const skill = SKILL_REGISTRY.find((s) => s.id === id)!;
+      expect(BLOCKED_STATUSES).not.toContain(skill.status);
+      expect(skill.originReviewed).toBe(true);
     }
   });
 });
