@@ -3,7 +3,6 @@ import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
-import { recordAccessAudit } from "./access-audit.server";
 
 const templateInput = z.object({
   id: z.string().uuid().optional(),
@@ -74,6 +73,7 @@ export const listServiceCatalog = createServerFn({ method: "GET" })
     // Consulta com o token do usuário: a RLS decide (anon e usuário comum não leem).
     const { data, error } = await supabase.from("service_catalog").select("*").order("name");
     if (error) throw new Error(error.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
     await recordAccessAudit({
       actorId: userId,
       action: "service_catalog.read",
@@ -106,6 +106,7 @@ export const upsertServiceCatalog = createServerFn({ method: "POST" })
       ? await q.update(data).eq("id", data.id).select().single()
       : await q.insert(data).select().single();
     if (error) throw new Error(error.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
     await recordAccessAudit({
       actorId: userId,
       action: data.id ? "service_catalog.update" : "service_catalog.create",

@@ -108,6 +108,19 @@ export const listLeads = createServerFn({ method: "POST" })
     const byStatus: Record<string, number> = Object.fromEntries(STATUSES.map((s) => [s, 0]));
     for (const r of out) byStatus[r.status as string]++;
 
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.list.read",
+      entity: "lead_submissions",
+      meta: {
+        operation: "list",
+        count: out.length,
+        filters: Object.keys(data ?? {}),
+        days: data.days ?? 90,
+      },
+    });
+
     return { rows: out, byStatus, total: out.length };
   });
 
@@ -129,6 +142,14 @@ export const getLeadDetail = createServerFn({ method: "POST" })
     if (e1) throw new Error(e1.message);
     if (e2) throw new Error(e2.message);
     if (!lead) throw new Error("Lead não encontrado");
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.detail.read",
+      entity: "lead_submissions",
+      entityId: data.id,
+      meta: { operation: "detail", history_count: (history ?? []).length },
+    });
     return {
       lead: { ...lead, status: normStatus(lead.status as string | null) },
       history: history ?? [],
@@ -161,6 +182,14 @@ export const updateLead = createServerFn({ method: "POST" })
     if (Object.keys(patch).length === 0) return { ok: true };
     const { error } = await supabaseAdmin.from("lead_submissions").update(patch).eq("id", data.id);
     if (error) throw new Error(error.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.update",
+      entity: "lead_submissions",
+      entityId: data.id,
+      meta: { operation: "update", changed_fields: Object.keys(patch) },
+    });
     return { ok: true };
   });
 
@@ -190,6 +219,14 @@ export const addLeadHistory = createServerFn({ method: "POST" })
     ]);
     if (e1) throw new Error(e1.message);
     if (e2) throw new Error(e2.message);
+    const { recordAccessAudit } = await import("./access-audit.server");
+    await recordAccessAudit({
+      actorId: (context as { userId: string }).userId,
+      action: "lead_submissions.history.create",
+      entity: "lead_submissions",
+      entityId: data.lead_id,
+      meta: { operation: "history_append", kind: data.kind, note_length: data.note.length },
+    });
     return { ok: true };
   });
 
