@@ -35,8 +35,16 @@ try {
     const pageErrors = [];
     const failedResponses = [];
 
+    // Só interessam erros originados na própria aplicação. Falhas de rede de
+    // terceiros (ex.: rate limit de um serviço externo de geolocalização) não
+    // são regressão de hidratação e não podem derrubar o gate.
+    const isThirdParty = (url) => Boolean(url) && !url.startsWith(baseUrl);
     page.on("console", (message) => {
-      if (message.type() === "error") consoleErrors.push(message.text());
+      if (message.type() !== "error") return;
+      const text = message.text();
+      const isResourceFailure = text.startsWith("Failed to load resource");
+      if (isResourceFailure && isThirdParty(message.location()?.url)) return;
+      consoleErrors.push(text);
     });
     page.on("pageerror", (error) => pageErrors.push(error.message));
     page.on("response", (resourceResponse) => {

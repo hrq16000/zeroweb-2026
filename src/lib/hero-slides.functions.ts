@@ -1,5 +1,6 @@
 // Server fn pública para ler hero_slides de uma página (ex.: 'servicos').
 import { createServerFn } from "@tanstack/react-start";
+import { getSupabasePublicServer } from "@/lib/supabase-public.server";
 import { z } from "zod";
 
 export type HeroSlide = {
@@ -39,8 +40,10 @@ export const listHeroSlides = createServerFn({ method: "GET" })
   )
   .handler(async ({ data }): Promise<{ slides: HeroSlide[] }> => {
     try {
-      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const { data: rows, error } = await supabaseAdmin
+      // Leitura pública (política `hero_slides public read`) — sem service role.
+      const supabasePublic = getSupabasePublicServer();
+      if (!supabasePublic) return { slides: [] };
+      const { data: rows, error } = await supabasePublic
         .from("hero_slides")
         .select(
           "id,page,eyebrow,title,subtitle,badge,image_path,image_url,bg_gradient,cta_label,cta_href,cta_secondary_label,cta_secondary_href",
@@ -55,7 +58,7 @@ export const listHeroSlides = createServerFn({ method: "GET" })
           let imageUrl = r.image_url;
           if (!imageUrl && r.image_path) {
             try {
-              const { data: signed } = await supabaseAdmin.storage
+              const { data: signed } = await supabasePublic.storage
                 .from("service-images")
                 .createSignedUrl(r.image_path, 60 * 60 * 24 * 7);
               imageUrl = signed?.signedUrl ?? null;

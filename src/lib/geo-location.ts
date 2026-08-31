@@ -35,7 +35,13 @@ export async function getIpGeo(): Promise<GeoInfo | null> {
   if (inflight) return inflight;
   inflight = (async () => {
     try {
-      const r = await fetch("https://ipwho.is/?fields=success,city,region,country,latitude,longitude,district,suburb,neighborhood", { cache: "force-cache" });
+      // Serviço de terceiros: pode devolver 429 (rate limit) ou cair.
+      // Nesse caso a geolocalização é apenas omitida — nunca bloqueia a página.
+      const r = await fetch(
+        "https://ipwho.is/?fields=success,city,region,country,latitude,longitude,district,suburb,neighborhood",
+        { cache: "force-cache", signal: AbortSignal.timeout(2500) },
+      );
+      if (!r.ok) return null;
       const j = await r.json();
       if (!j?.success) return null;
       const g: GeoInfo = {
