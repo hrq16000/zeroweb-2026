@@ -47,7 +47,7 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true,
-    "funnelRecipientConfigured": true
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "emporio-lelecute",
@@ -95,7 +95,7 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true,
-    "funnelRecipientConfigured": true
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "confeitaria-chyrley",
