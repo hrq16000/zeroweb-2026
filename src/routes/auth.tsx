@@ -102,10 +102,12 @@ function AuthPage() {
         <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-elegant text-center">
           <h1 className="text-2xl font-bold font-display">Entrar na 0WEB</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            O acesso é exclusivo via conta Google corporativa.
+            Acesse com Google ou com e-mail e senha.
           </p>
 
           {err && <p className="mt-4 text-sm text-destructive">{err}</p>}
+          {info && <p className="mt-4 text-sm text-muted-foreground">{info}</p>}
+
 
           <button
             type="button"
