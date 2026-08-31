@@ -172,15 +172,18 @@ function MetadataAuditPanel() {
       else if (!r.ok) setRegenMsg(`Falhou: ${r.error ?? "erro desconhecido"}`);
       else
         setRegenMsg(
-          `Regeneração concluída · ${r.checked ?? 0} projeto(s) revalidado(s)` +
-            (r.problems && r.problems.length > 0 ? ` · ${r.problems.length} pendência(s)` : ""),
+          `Verificação concluída · ${r.checked ?? 0} projeto(s) conferido(s)` +
+            (r.problems && r.problems.length > 0
+              ? ` · ${r.problems.length} pendência(s). A regeneração das imagens é feita pelo worker "node scripts/regenerate-social-images.mjs".`
+              : ". Nenhuma imagem foi reprocessada: esta ação apenas confere os assets publicados."),
         );
     } catch {
-      setRegenMsg("Falha ao solicitar a regeneração (é necessário estar logado como admin).");
+      setRegenMsg("Falha ao solicitar a verificação (é necessário estar logado como admin).");
     } finally {
       setRegenerating(false);
     }
   }, []);
+
 
   const run = useCallback(async () => {
     setRunning(true);
@@ -228,11 +231,13 @@ function MetadataAuditPanel() {
               type="button"
               onClick={() => void regenerate()}
               disabled={regenerating}
+              title="Confere se cada projeto tem imagem social, ícone e versão de cache publicados. A regeneração dos arquivos é feita pelo worker de imagens."
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-60"
             >
               <RefreshCcw className={`h-4 w-4 ${regenerating ? "animate-spin" : ""}`} aria-hidden="true" />
-              {regenerating ? "Regenerando…" : "Regenerar imagens sociais"}
+              {regenerating ? "Verificando…" : "Verificar imagens sociais"}
             </button>
+
           </div>
         </div>
 

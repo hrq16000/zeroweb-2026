@@ -38,11 +38,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const navigate = useNavigate();
   const [err, setErr] = useState<string | null>(null);
-  const [info, setInfo] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
@@ -70,29 +66,6 @@ function AuthPage() {
     setBusy(false);
   };
 
-  const submitPassword = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setBusy(true);
-    setErr(null);
-    setInfo(null);
-    try {
-      if (mode === "signin") {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) setErr(error.message);
-      } else {
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: window.location.origin + "/app" },
-        });
-        if (error) setErr(error.message);
-        else if (!data.session)
-          setInfo("Conta criada. Confirme o e-mail enviado para concluir o acesso.");
-      }
-    } finally {
-      setBusy(false);
-    }
-  };
 
 
   return (
@@ -102,12 +75,10 @@ function AuthPage() {
         <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-elegant text-center">
           <h1 className="text-2xl font-bold font-display">Entrar na 0WEB</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Acesse com Google ou com e-mail e senha.
+            Acesse com sua conta Google.
           </p>
 
           {err && <p className="mt-4 text-sm text-destructive">{err}</p>}
-          {info && <p className="mt-4 text-sm text-muted-foreground">{info}</p>}
-
 
           <button
             type="button"
@@ -127,56 +98,6 @@ function AuthPage() {
             {busy ? "Conectando..." : "Continuar com Google"}
           </button>
 
-          <div className="mt-6 flex items-center gap-3 text-xs text-muted-foreground">
-            <span className="h-px flex-1 bg-border" />
-            ou
-            <span className="h-px flex-1 bg-border" />
-          </div>
-
-          <form onSubmit={submitPassword} className="mt-4 space-y-3 text-left">
-            <label className="block text-xs font-medium text-muted-foreground">
-              E-mail
-              <input
-                type="email"
-                required
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
-              />
-            </label>
-            <label className="block text-xs font-medium text-muted-foreground">
-              Senha
-              <input
-                type="password"
-                required
-                minLength={8}
-                autoComplete={mode === "signin" ? "current-password" : "new-password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
-              />
-            </label>
-            <button
-              type="submit"
-              disabled={busy}
-              className="w-full py-3 rounded-xl border border-border font-medium disabled:opacity-50"
-            >
-              {busy ? "Processando..." : mode === "signin" ? "Entrar com e-mail" : "Criar conta"}
-            </button>
-          </form>
-
-          <button
-            type="button"
-            onClick={() => {
-              setMode(mode === "signin" ? "signup" : "signin");
-              setErr(null);
-              setInfo(null);
-            }}
-            className="mt-4 text-xs text-muted-foreground underline"
-          >
-            {mode === "signin" ? "Criar uma conta com e-mail e senha" : "Já tenho conta — entrar"}
-          </button>
 
         </div>
       </main>
