@@ -9,9 +9,9 @@ on:
 jobs:
   hydration:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
-      E2E_BASE_URL: http://localhost:8080
+      E2E_BASE_URL: http://127.0.0.1:8080
       VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
       VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
       VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
@@ -28,17 +28,20 @@ jobs:
       - name: Instalar Chromium (Playwright)
         run: bunx playwright install --with-deps chromium
 
-      - name: Build
+      - name: Build de produção
         run: bun run build
 
-      - name: Subir servidor de preview
+      # O preset do Nitro é `cloudflare-module`: `vite preview` procura
+      # dist/server/server.js (inexistente) e falha com ERR_MODULE_NOT_FOUND.
+      # O artefato publicado é servido pelo runtime real do worker.
+      - name: Subir artefato de produção (worker)
         run: |
-          bun run dev > /tmp/dev-server.log 2>&1 &
-          for i in $(seq 1 60); do
+          bun run preview:prod > /tmp/preview-server.log 2>&1 &
+          for i in $(seq 1 90); do
             curl -sf -o /dev/null "$E2E_BASE_URL/" && exit 0
             sleep 2
           done
-          echo "Servidor não respondeu"; cat /tmp/dev-server.log; exit 1
+          echo "Artefato de produção não respondeu"; cat /tmp/preview-server.log; exit 1
 
       - name: Gate — dehydrated state no HTML SSR
         run: bun run validate:ssr-payload
@@ -48,4 +51,4 @@ jobs:
 
       - name: Logs do servidor (em caso de falha)
         if: failure()
-        run: tail -n 200 /tmp/dev-server.log
+        run: tail -n 200 /tmp/preview-server.log
