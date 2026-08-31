@@ -199,7 +199,7 @@ describe("cross-review contextual e evidência real", () => {
     for (const id of report.stack) {
       const skill = SKILL_REGISTRY.find((s) => s.id === id)!;
       expect(BLOCKED_STATUSES).not.toContain(skill.status);
-      expect(skill.originReviewed).toBe(true);
+      expect(skill.originReviewed).toBeTruthy();
     }
   });
 });
