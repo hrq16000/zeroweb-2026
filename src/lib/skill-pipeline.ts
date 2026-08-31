@@ -166,19 +166,45 @@ export function selectStack(reviewed: RankedCandidate[], maxPerCategory = 2): St
   return { stage: "SELECT_STACK", accepted, rejected };
 }
 
+/** Perspectivas exigidas no cross-review, derivadas das classes da tarefa. */
+export function requiredPerspectives(task?: PipelineTask): SkillRecord["category"][] {
+  const base: SkillRecord["category"][] = ["design/UI", "QA/a11y/perf"];
+  if (!task) return base;
+  const wanted = new Set(task.classes.flatMap((c) => CATEGORY_BY_CLASS[c] ?? []));
+  const applicable = base.filter((c) => wanted.has(c));
+  // Acessibilidade é uma perspectiva de QA obrigatória quando a tarefa a cita.
+  if (wanted.has("acessibilidade") && !applicable.includes("QA/a11y/perf")) {
+    applicable.push("QA/a11y/perf");
+  }
+  return applicable;
+}
+
 /** 5. CROSS-REVIEW — exige perspectivas distintas de quem constrói. */
-export function crossReview(stack: RankedCandidate[]): { ok: boolean; missing: string[]; perspectives: string[] } {
+export function crossReview(
+  stack: RankedCandidate[],
+  task?: PipelineTask,
+): { ok: boolean; missing: string[]; perspectives: string[]; required: string[] } {
   const perspectives = [...new Set(stack.map((c) => c.skill.category))];
-  const required: SkillRecord["category"][] = ["design/UI", "QA/a11y/perf"];
+  const required = requiredPerspectives(task);
   const missing = required.filter((r) => !perspectives.includes(r));
-  return { ok: missing.length === 0, missing, perspectives };
+  return { ok: missing.length === 0, missing, perspectives, required };
 }
 
 export type GateResult = { name: string; passed: boolean; evidence: string };
 
+/** Evidência textual real: descreve comando/resultado, não um placeholder. */
+const PLACEHOLDER_EVIDENCE = /^(-+|—+|ok|okay|n\/?a|na|todo|tbd|pendente|sim|yes|true|pass(ed)?|\.+)$/i;
+
+export function isRealEvidence(evidence: string): boolean {
+  const text = evidence.trim();
+  if (text.length < 12) return false;
+  if (PLACEHOLDER_EVIDENCE.test(text)) return false;
+  return true;
+}
+
 /** 6/7. TEST e VISUAL QA — só passam com evidência real informada. */
 export function evaluateGates(gates: GateResult[]): { passed: boolean; blocking: GateResult[] } {
-  const blocking = gates.filter((g) => !g.passed || !g.evidence.trim());
+  const blocking = gates.filter((g) => !g.passed || !isRealEvidence(g.evidence));
   return { passed: blocking.length === 0, blocking };
 }
 
@@ -186,9 +212,14 @@ export function evaluateGates(gates: GateResult[]): { passed: boolean; blocking:
 export function shipGate(cross: { ok: boolean }, gates: GateResult[]): { canShip: boolean; blockers: string[] } {
   const blockers: string[] = [];
   if (!cross.ok) blockers.push("cross-review incompleta");
-  for (const g of evaluateGates(gates).blocking) blockers.push(`gate sem evidência: ${g.name}`);
+  for (const g of evaluateGates(gates).blocking) {
+    blockers.push(
+      g.passed ? `gate sem evidência: ${g.name}` : `gate reprovado: ${g.name}`,
+    );
+  }
   return { canShip: blockers.length === 0, blockers };
 }
+
 
 /** Evidências sem fonte auditável são rejeitadas (regra evidence-first). */
 export function reviewEvidence(items: EvidenceItem[]): StageResult<EvidenceItem> {
