@@ -2,32 +2,73 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import { listUnifiedLeads, type UnifiedLead } from "@/lib/unified-leads.functions";
+import {
+  listUnifiedLeads,
+  emailLeadsDigest,
+  type UnifiedLead,
+} from "@/lib/unified-leads.functions";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Inbox, Filter, ShoppingCart, ClipboardList } from "lucide-react";
+import { Inbox, Filter, ShoppingCart, ClipboardList, Download, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/app/leads")({
   component: LeadsPage,
 });
 
+function toCsv(rows: UnifiedLead[]) {
+  const esc = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const head = ["nome", "origem", "etapa_atual", "criado_em", "atualizado_em"];
+  const body = rows.map((l) =>
+    [l.nome, l.origem, l.etapa_atual, l.created_at, l.updated_at].map(esc).join(","),
+  );
+  return [head.join(","), ...body].join("\n");
+}
+
 function LeadsPage() {
   const fetchLeads = useServerFn(listUnifiedLeads);
+  const sendDigest = useServerFn(emailLeadsDigest);
   const [origem, setOrigem] = useState<"all" | "carrinho" | "funil">("all");
   const [etapa, setEtapa] = useState<string>("all");
+  const [q, setQ] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [mailState, setMailState] = useState<string | null>(null);
   const [open, setOpen] = useState<UnifiedLead | null>(null);
 
+  const filters = { origem, etapa, q: q || undefined, from: from || undefined, to: to || undefined };
+
   const { data, isLoading, refetch } = useQuery({
-    queryKey: ["unified-leads", origem, etapa],
-    queryFn: () => fetchLeads({ data: { origem, etapa } }),
+    queryKey: ["unified-leads", origem, etapa, q, from, to],
+    queryFn: () => fetchLeads({ data: filters }),
   });
 
   const leads = data?.leads ?? [];
   const etapas = data?.etapas ?? [];
+
+  const exportCsv = () => {
+    const blob = new Blob([toCsv(leads)], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `leads-0web-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const emailReport = async () => {
+    setMailState("Enviando…");
+    try {
+      const r = await sendDigest({ data: filters });
+      setMailState(r.sent ? `Enviado (${r.count} lead(s)) para o e-mail da sua conta.` : "Não enviado.");
+    } catch {
+      setMailState("Falha ao enviar o resumo.");
+    }
+  };
+
 
   const stats = useMemo(() => {
     const total = leads.length;
