@@ -24,6 +24,7 @@ Data: 2026-01 (rodada de alinhamento do catálogo escalável)
 | `src/components/site/Picture.tsx` | Só emite `<source>` AVIF/WebP quando as variantes existem de fato (`blog-*`/`og-*` locais); evita 404 em assets externos |
 | `src/routes/blog.index.tsx` | Cards do blog passam a usar `<Picture>` (AVIF/WebP) e o primeiro card recebe `priority` (LCP) |
 | `src/components/site/RenataBeautyView.tsx` | Imagem do hero deixa de ser `lazy`, ganha `fetchpriority="high"` e o fallback externo (Unsplash) foi trocado pelo asset local `renata-beauty-promo.png` |
+| `scripts/playwright-visual-regression.mjs` | `MutationObserver` mantém widgets flutuantes ocultos: eles montavam com atraso (framer-motion) depois do hide e geravam diffs falsos de até 9,86% |
 
 ## 4. Funcionalidades confirmadas
 
@@ -88,7 +89,7 @@ Principais causas identificadas nos relatórios coletados:
 | `bun run audit:a11y` | OK — `/` e `/servicos`, 0 violação serious/critical |
 | `bun run test:e2e:portfolio-popup` | OK — 29 sites com pop-up único e consistente (após correção do script) |
 | `bun run test:e2e:portfolio-funnels` | OK — 58 cenários (desktop+mobile), 0 falha; cenários sem secret de destinatário retornam 503 por contrato |
-| `bun run test:visual` | OK — 93 comparações dentro do limiar, 0 baseline nova |
+| `bun run test:visual` | OK — 93 comparações dentro do limiar, 0 baseline nova (após estabilizar os widgets flutuantes no script) |
 | `bun run lhci` | **FALHOU** — abortou por erro interno do LHCI após 8 URLs (ver seção 7) |
 
 ## 9. Budgets utilizados (`.lighthouserc.cjs`, inalterados)
@@ -130,6 +131,8 @@ Nenhuma policy legada foi alterada nesta rodada.
 - Antes: capas do blog em JPEG único e hero da Renata Beauty em `lazy`.
   Agora: AVIF/WebP com fallback seguro e hero priorizado para LCP.
 - Antes: fallback de imagem do hero apontava para CDN externa. Agora: asset local.
+- Antes: `test:visual` acusava 4 diffs falsos (home desktop/tablet, refrigeracao-maresia-tablet,
+  studio-de-cilios-tablet) por popups que montavam após o hide. Agora: 93/93 estáveis.
 - Catálogo, isolamento, funis, migrations e budgets permanecem inalterados.
 
 ## 13. Instruções para merge e deploy
