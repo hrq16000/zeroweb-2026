@@ -1,6 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
+import { recordAccessAudit } from "./access-audit.server";
 
 const templateInput = z.object({
   id: z.string().uuid().optional(),
@@ -62,13 +65,23 @@ export const deleteTemplate = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
-/** Service catalog */
-export const listServiceCatalog = createServerFn({ method: "GET" }).handler(async () => {
-  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  const { data, error } = await supabaseAdmin.from("service_catalog").select("*").order("name");
-  if (error) throw new Error(error.message);
-  return { rows: data ?? [] };
-});
+/** Service catalog — leitura restrita a admin/super admin (RLS: sem acesso anônimo). */
+export const listServiceCatalog = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const userId = (context as { userId: string }).userId;
+    const supabase = (context as { supabase: SupabaseClient<Database> }).supabase;
+    // Consulta com o token do usuário: a RLS decide (anon e usuário comum não leem).
+    const { data, error } = await supabase.from("service_catalog").select("*").order("name");
+    if (error) throw new Error(error.message);
+    await recordAccessAudit({
+      actorId: userId,
+      action: "service_catalog.read",
+      entity: "service_catalog",
+      meta: { operation: "list", count: data?.length ?? 0 },
+    });
+    return { rows: data ?? [] };
+  });
 
 export const upsertServiceCatalog = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
@@ -93,6 +106,16 @@ export const upsertServiceCatalog = createServerFn({ method: "POST" })
       ? await q.update(data).eq("id", data.id).select().single()
       : await q.insert(data).select().single();
     if (error) throw new Error(error.message);
+    await recordAccessAudit({
+      actorId: userId,
+      action: data.id ? "service_catalog.update" : "service_catalog.create",
+      entity: "service_catalog",
+      entityId: (row as { id?: string })?.id ?? data.id ?? null,
+      meta: {
+        operation: data.id ? "update" : "create",
+        fields: Object.keys(data).filter((k) => k !== "id"),
+      },
+    });
     return { row };
   });
 
