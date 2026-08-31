@@ -128,7 +128,7 @@ describe("pipeline integrado", () => {
   test("percorre todas as etapas e produz relatório", () => {
     const report = runSkillPipeline(
       { ...task, evidence: [{ kind: "gsc", claim: "impressões", source: "GSC" }] },
-      [{ name: "bun test", passed: true, evidence: "ok" }],
+      [{ name: "bun test", passed: true, evidence: "bun test: 230 pass / 0 fail" }],
     );
     expect(report.stages.map((s) => s.stage)).toEqual([
       "FIND",
