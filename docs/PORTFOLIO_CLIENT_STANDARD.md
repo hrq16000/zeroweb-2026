@@ -6,6 +6,8 @@ Responsável pela plataforma: 0WEB
 
 O contrato de divulgação, imagem social e amostras de papelaria está em
 `docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md` e é complementar a este padrão.
+O padrão de conversão, SEO e leitura por mecanismos/LLMs está em
+`docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md`.
 
 Checklist operacional de novos projetos: `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md`.
 O pop-up de captação da 0WEB é renderizado pela rota `/portfolio/$slug` para

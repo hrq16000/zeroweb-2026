@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — padrão de conversão e inteligência de portfólios
+
+- **Classificação:** `portfolio-client-site`, `funnel`, `content/SEO`, `accessibility-fix`, `docs`.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates` e revisão de referência em navegador.
+- **Alteração:** formalizada a sequência de conversão (benefício, dois CTAs, serviços, prova real, oferta confirmada e CTA final), leitura semântica por mecanismos/LLMs e a regra de que links sem URL pública real devem abrir o funil seguro do próprio cliente.
+
 ## 2026-09-01 — padrão de Kit de Presença
 
 - **Classificação:** `docs`, `portfolio-client-site`, `content/SEO`.
