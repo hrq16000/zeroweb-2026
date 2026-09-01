@@ -1,0 +1,11 @@
+{
+  "siteUrl": "",
+  "range": { "startDate": "", "endDate": "" },
+  "refreshedAt": null,
+  "status": "pending",
+  "note": "Arquivo gerado por `bun run gsc:export`. Enquanto o script diário não roda, o painel /app/seo mostra estado vazio — nenhum dado é inventado.",
+  "totals": null,
+  "queries": [],
+  "pages": [],
+  "days": []
+}

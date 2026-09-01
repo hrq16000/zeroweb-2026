@@ -2,13 +2,16 @@
  * Painel SEO (/app/seo).
  *
  * Lê o snapshot do Search Console gerado por `bun run gsc:export`
- * (`seo-reports/gsc-latest.json`), calcula priorização de otimizações e
- * alertas de queda. Nenhum dado é sintetizado: sem snapshot, o painel
- * responde `status: "pending"`.
+ * (`src/data/gsc-latest.json`, espelhado em `seo-reports/` para leitura
+ * humana), calcula priorização de otimizações e alertas de queda. Nenhum
+ * dado é sintetizado: sem snapshot, o painel responde `status: "pending"`.
+ *
+ * O snapshot precisa viver dentro de `src/` para ser empacotado pelo build
+ * do worker — arquivos fora da raiz do app não são resolvidos pelo bundler.
  */
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import snapshot from "../../seo-reports/gsc-latest.json";
+import snapshot from "@/data/gsc-latest.json";
 import { posts } from "./blog-data";
 
 export type GscRow = { keys: string[]; clicks: number; impressions: number; ctr: number; position: number };

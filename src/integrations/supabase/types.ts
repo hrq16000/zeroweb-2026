@@ -323,6 +323,36 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_seo_overrides: {
+        Row: {
+          created_at: string
+          description: string | null
+          schema_extra: Json | null
+          slug: string
+          title: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          schema_extra?: Json | null
+          slug: string
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          schema_extra?: Json | null
+          slug?: string
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       break_glass_grants: {
         Row: {
           expires_at: string

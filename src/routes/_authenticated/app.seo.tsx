@@ -1,9 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { AlertTriangle, BarChart3, RefreshCw, Search, FileText } from "lucide-react";
 import { getSeoDashboard } from "@/lib/seo-dashboard.functions";
+import {
+  listBlogSeoOverrides,
+  saveBlogSeoOverride,
+  type BlogSeoOverride,
+} from "@/lib/blog-seo.functions";
+import { posts } from "@/lib/blog-data";
 
 export const Route = createFileRoute("/_authenticated/app/seo")({
   component: SeoDashboard,
@@ -157,6 +163,7 @@ function SeoDashboard() {
               </Panel>
             </div>
           ) : (
+            <div className="space-y-6">
             <Panel title="Metadados e schema por post">
               <table className="w-full text-sm">
                 <thead className="text-xs uppercase text-muted-foreground">
@@ -200,6 +207,9 @@ function SeoDashboard() {
                 </tbody>
               </table>
             </Panel>
+
+            <BlogSeoEditor />
+            </div>
           )}
         </>
       )}
@@ -279,5 +289,162 @@ function TabButton({
       {icon}
       {children}
     </button>
+  );
+}
+
+/**
+ * Edição inline de title, description e schema JSON-LD por artigo do blog.
+ * Grava em `blog_seo_overrides`; o conteúdo do post continua versionado.
+ */
+function BlogSeoEditor() {
+  const list = useServerFn(listBlogSeoOverrides);
+  const save = useServerFn(saveBlogSeoOverride);
+  const queryClient = useQueryClient();
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
+
+  const { data: overrides = [], isLoading } = useQuery({
+    queryKey: ["blog-seo-overrides"],
+    queryFn: () => list(),
+  });
+
+  const bySlug = new Map(overrides.map((o) => [o.slug, o]));
+
+  return (
+    <Panel title="Ajustes de SEO por artigo (editável)">
+      {isLoading ? (
+        <p className="text-sm text-muted-foreground py-4">Carregando ajustes…</p>
+      ) : (
+        <ul className="divide-y divide-border">
+          {posts.map((post) => {
+            const override = bySlug.get(post.slug) ?? null;
+            const open = openSlug === post.slug;
+            return (
+              <li key={post.slug} className="py-3">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="font-medium truncate">{override?.title ?? post.title}</p>
+                    <p className="text-xs text-muted-foreground">/blog/{post.slug}</p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {override && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+                        ajustado
+                      </span>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setOpenSlug(open ? null : post.slug)}
+                      className="text-sm px-3 py-1.5 rounded-lg border border-border hover:bg-muted"
+                    >
+                      {open ? "Fechar" : "Editar"}
+                    </button>
+                  </div>
+                </div>
+                {open && (
+                  <BlogSeoForm
+                    slug={post.slug}
+                    fallbackTitle={post.title}
+                    fallbackDescription={post.excerpt}
+                    override={override}
+                    onSaved={() => {
+                      void queryClient.invalidateQueries({ queryKey: ["blog-seo-overrides"] });
+                      setOpenSlug(null);
+                    }}
+                    save={save}
+                  />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </Panel>
+  );
+}
+
+function BlogSeoForm({
+  slug,
+  fallbackTitle,
+  fallbackDescription,
+  override,
+  onSaved,
+  save,
+}: {
+  slug: string;
+  fallbackTitle: string;
+  fallbackDescription: string;
+  override: BlogSeoOverride | null;
+  onSaved: () => void;
+  save: (opts: { data: { slug: string; title: string; description: string; schemaExtra: string } }) => Promise<unknown>;
+}) {
+  const [title, setTitle] = useState(override?.title ?? "");
+  const [description, setDescription] = useState(override?.description ?? "");
+  const [schemaExtra, setSchemaExtra] = useState(
+    override?.schemaExtra ? JSON.stringify(override.schemaExtra, null, 2) : "",
+  );
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+
+  async function submit(event: React.FormEvent) {
+    event.preventDefault();
+    setSaving(true);
+    setError(null);
+    try {
+      await save({ data: { slug, title, description, schemaExtra } });
+      onSaved();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Falha ao salvar.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <form onSubmit={submit} className="mt-3 grid gap-3 rounded-xl border border-border bg-muted/30 p-3">
+      <label className="grid gap-1 text-xs">
+        <span className="font-medium">Title ({title.length}/120)</span>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder={fallbackTitle}
+          className="rounded-lg border border-border bg-background px-3 py-2 text-sm"
+        />
+      </label>
+      <label className="grid gap-1 text-xs">
+        <span className="font-medium">Meta description ({description.length}/320)</span>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder={fallbackDescription}
+          rows={3}
+          className="rounded-lg border border-border bg-background px-3 py-2 text-sm"
+        />
+      </label>
+      <label className="grid gap-1 text-xs">
+        <span className="font-medium">Schema JSON-LD adicional (opcional)</span>
+        <textarea
+          value={schemaExtra}
+          onChange={(e) => setSchemaExtra(e.target.value)}
+          rows={6}
+          spellCheck={false}
+          placeholder={'{\n  "@context": "https://schema.org",\n  "@type": "HowTo"\n}'}
+          className="rounded-lg border border-border bg-background px-3 py-2 font-mono text-xs"
+        />
+      </label>
+      <p className="text-xs text-muted-foreground">
+        Campos vazios voltam a usar o conteúdo versionado do artigo. Salvar tudo em branco remove o
+        ajuste.
+      </p>
+      {error && <p className="text-xs text-destructive">{error}</p>}
+      <div>
+        <button
+          type="submit"
+          disabled={saving}
+          className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold disabled:opacity-60"
+        >
+          {saving ? "Salvando…" : "Salvar ajuste"}
+        </button>
+      </div>
+    </form>
   );
 }

@@ -7,6 +7,7 @@ import { BlogPostFunnelCTA } from "@/components/funnel/BlogPostFunnelCTA";
 import { CTA } from "@/components/site/CTA";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { getPost, posts, inlineImages } from "@/lib/blog-data";
+import { getBlogSeoOverride } from "@/lib/blog-seo.functions";
 import { coverForCategory } from "@/components/site/Blog";
 import { Picture } from "@/components/site/Picture";
 import { AuthorBio } from "@/components/site/AuthorBio";
@@ -16,25 +17,30 @@ import { BlogContent } from "@/components/site/BlogContent";
 import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const post = getPost(params.slug);
     if (!post) throw notFound();
-    return { post };
+    // Ajuste editável em /app/seo. Leitura pública; falha vira null e a página
+    // continua servindo o conteúdo versionado.
+    const override = await getBlogSeoOverride({ data: { slug: params.slug } }).catch(() => null);
+    return { post, override };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Artigo não encontrado · 0WEB" }] };
-    const { post } = loaderData;
+    const { post, override } = loaderData;
+    const seoTitle = override?.title ?? post.title;
+    const seoDescription = override?.description ?? post.excerpt;
     const wordCount = post.content.split(/\s+/).filter(Boolean).length;
     const url = `https://0web.com.br/blog/${params.slug}`;
     const image = post.cover ? `https://0web.com.br${post.cover}` : "https://0web.com.br/og-default.jpg";
     return {
       meta: [
-        { title: `${post.title} · Blog 0WEB` },
-        { name: "description", content: post.excerpt },
+        { title: `${seoTitle} · Blog 0WEB` },
+        { name: "description", content: seoDescription },
         { name: "author", content: "0WEB" },
         { name: "news_keywords", content: post.category },
-        { property: "og:title", content: post.title },
-        { property: "og:description", content: post.excerpt },
+        { property: "og:title", content: seoTitle },
+        { property: "og:description", content: seoDescription },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
         { property: "og:image", content: image },
@@ -43,8 +49,8 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "article:modified_time", content: post.date },
         { property: "article:author", content: "0WEB" },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: post.title },
-        { name: "twitter:description", content: post.excerpt },
+        { name: "twitter:title", content: seoTitle },
+        { name: "twitter:description", content: seoDescription },
         { name: "twitter:image", content: image },
         { name: "robots", content: "max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       ],
@@ -55,9 +61,9 @@ export const Route = createFileRoute("/blog/$slug")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            headline: post.title.slice(0, 110),
-            name: post.title,
-            description: post.excerpt,
+            headline: seoTitle.slice(0, 110),
+            name: seoTitle,
+            description: seoDescription,
             datePublished: new Date(`${post.date}T09:00:00-03:00`).toISOString(),
             dateModified: new Date(
               `${post.updatedAt ?? post.date}T09:00:00-03:00`,
@@ -103,6 +109,10 @@ export const Route = createFileRoute("/blog/$slug")({
                 })),
               }),
             }]
+          : []),
+        // Schema adicional configurado em /app/seo (validado no servidor).
+        ...(override?.schemaExtra
+          ? [{ type: "application/ld+json", children: JSON.stringify(override.schemaExtra) }]
           : []),
       ],
     };

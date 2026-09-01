@@ -20,6 +20,11 @@ const GATEWAY = "https://connector-gateway.lovable.dev/google_search_console";
 const TARGET = argValue("--site") ?? "https://0web.com.br/";
 const DAYS = Number(argValue("--days") ?? 28);
 const OUT_DIR = path.resolve("seo-reports");
+/**
+ * O painel /app/seo importa o snapshot pelo bundler, então ele precisa estar
+ * dentro de `src/`. `seo-reports/` continua sendo a cópia legível por humanos.
+ */
+const APP_SNAPSHOT = path.resolve("src/data/gsc-latest.json");
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -126,7 +131,10 @@ async function main() {
   };
 
   await mkdir(OUT_DIR, { recursive: true });
-  await writeFile(path.join(OUT_DIR, "gsc-latest.json"), JSON.stringify(snapshot, null, 2));
+  const serialized = JSON.stringify(snapshot, null, 2);
+  await writeFile(path.join(OUT_DIR, "gsc-latest.json"), serialized);
+  await mkdir(path.dirname(APP_SNAPSHOT), { recursive: true });
+  await writeFile(APP_SNAPSHOT, serialized);
 
   const t = snapshot.totals;
   const md = `# Search Console — ${siteUrl}
