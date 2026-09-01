@@ -6,6 +6,7 @@
  */
 import { CWB_NEIGHBORHOODS, type CWBNeighborhood } from "@/lib/curitiba-neighborhoods";
 import { BH_NEIGHBORHOODS, type BHNeighborhood } from "@/lib/bh-neighborhoods";
+import portfolioCatalog from "@/config/portfolio-catalog.json";
 
 export type PortfolioSegment = {
   slug: string;
@@ -164,7 +165,15 @@ export function placesForSegment(segment: PortfolioSegment, limit = 12): Portfol
   }
   // sufixo determinístico por segmento para variar o conjunto entre segmentos
   const offset = PORTFOLIO_SEGMENTS.findIndex((s) => s.slug === segment.slug);
-  return interleaved.slice(0).concat(interleaved.slice(0, offset)).slice(0, limit);
+  const regional = interleaved.filter((place) => place.city === "São José dos Pinhais");
+  return regional.concat(interleaved.slice(0).concat(interleaved.slice(0, offset))).filter((place, index, all) => all.findIndex((p) => p.slug === place.slug) === index).slice(0, limit);
+}
+
+/** Projetos canônicos associados ao bairro/cidade, usados nos guias regionais. */
+export function portfolioProjectsAtPlace(place: PortfolioPlace) {
+  return (portfolioCatalog as Array<{ slug: string; title: string; city: string; state: string; location?: string; status?: string; segment?: string }>).filter(
+    (item) => item.city === place.city && item.state === place.state && item.location?.toLowerCase().includes(place.name.toLowerCase()),
+  );
 }
 
 /** Todas as combinações publicadas (usadas no sitemap programático). */

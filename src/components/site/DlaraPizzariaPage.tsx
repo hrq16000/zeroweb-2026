@@ -4,6 +4,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { LazySection } from "@/components/portfolio/LazySection";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 // Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
 // Ver docs/PORTFOLIO_PERFORMANCE.md
@@ -58,6 +59,7 @@ export function DlaraPizzariaPage() {
       */}
 
       <PortfolioSocialProofPopup clientKey="dlara-pizzaria" />
+      <PortfolioUpsellPopup pageName="portfolio-dlara-pizzaria" />
       <PortfolioHostCredit />
     </div>
   );

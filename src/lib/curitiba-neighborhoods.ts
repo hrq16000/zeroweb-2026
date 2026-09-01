@@ -12,6 +12,7 @@ export type CWBNeighborhood = {
 };
 
 export const CWB_NEIGHBORHOODS: CWBNeighborhood[] = [
+  { slug: "jardim-italia-sjp", name: "Jardim Itália", city: "São José dos Pinhais", region: "RMC", vibe: "bairro residencial com comércio de vizinhança e negócios da Rua Quirino Zagonel", typicalBusinesses: ["marmitarias", "pizzarias", "lanchonetes", "mercados", "materiais de construção"], geo: [-25.5372, -49.2082] },
   // ─────────── Curitiba ───────────
   { slug: "batel", name: "Batel", city: "Curitiba", region: "Centro-Sul", vibe: "polo financeiro e gastronômico premium de Curitiba", typicalBusinesses: ["restaurantes finos", "clínicas estéticas", "escritórios de advocacia", "boutiques de luxo"], geo: [-25.4434, -49.2872] },
   { slug: "agua-verde", name: "Água Verde", city: "Curitiba", region: "Sul", vibe: "bairro residencial nobre com forte comércio local e público AAA", typicalBusinesses: ["clínicas médicas", "academias", "restaurantes", "imobiliárias"], geo: [-25.4592, -49.2839] },

@@ -494,3 +494,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** componentes exclusivos, pastas próprias de assets, imagens conceituais sem texto/contato, funis individuais, chaves privadas, catálogo, registry, narrativas e divulgação por slug.
 - **Decisão:** os quatro registros entram como `draft` e `indexable: false` até confirmação comercial; nenhuma página publica preço, telefone, avaliação ou promessa não confirmada.
 - **Validação:** catálogo 38 itens/35 clientes, scaffold 35/35, performance 35/35 e assets 35/35 aprovados.
+
+## 2026-09-01 — guia comercial regional indexável
+
+- **Tarefa:** conectar projetos a bairro, cidade, estado e ramo para navegação regional e descoberta por proximidade.
+- **Alterações:** Jardim Itália (São José dos Pinhais) adicionado ao mapa de bairros; páginas `/portfolio/<segmento>/<bairro>` agora priorizam a região metropolitana e exibem projetos canônicos associados ao local.
+- **SEO:** a rota regional mantém canonical, robots indexável, geo metadata, BreadcrumbList, LocalBusiness/Service e ItemList; drafts continuam não indexáveis individualmente.
+- **Validação:** boundaries, catálogo e scaffold aprovados após a inclusão da camada regional.
