@@ -541,3 +541,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** Marmitaria Dom Diego, Beto Pastéis, Woodhouse, D’Lara e os quatro brechós passaram de `draft`/`noindex` para `published`/indexáveis; cada ficha mantém o selo **Amostra demonstrativa**.
 - **Transparência:** os projetos são conceitos demonstrativos, sem inventar contatos, preços, avaliações ou vínculo de contratação.
 - **Validação:** catálogo, boundaries, assets e guia regional executados após a publicação.
+
+## 2026-09-01 — prospecção Curitiba: pequenos negócios e prestadores
+
+- **Tarefa:** mapear novas referências públicas para futuras amostras comerciais em Curitiba.
+- **Alterações:** documentados oito perfis de oportunidade, distribuídos por bairros e categorias; cada perfil recebeu estrutura de página, regra de confirmação e conexão com o guia nacional.
+- **Proteção:** a prospecção não transforma diretórios em clientes e não inventa dados operacionais.
