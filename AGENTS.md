@@ -12,6 +12,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` |
 | Novo cliente em `/portfolio` | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` · `docs/PORTFOLIO_CLIENT_STANDARD.md` · `docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md` |
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
+| Narrativa e originalidade de conversão em `/portfolio` | `docs/PORTFOLIO_CONVERSION_NARRATIVE_STANDARD.md` |
 | Funis | `docs/PORTFOLIO_FUNNELS.md` |
 
 Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em

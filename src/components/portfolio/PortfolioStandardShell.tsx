@@ -13,6 +13,7 @@ import { PortfolioBackToTop } from "@/components/portfolio/PortfolioBackToTop";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { PortfolioPresenceKit } from "@/components/portfolio/PortfolioPresenceKit";
+import { PortfolioConversionNarrative } from "@/components/portfolio/PortfolioConversionNarrative";
 
 type Props = {
   slug: string;
@@ -52,6 +53,7 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
 
       {children}
 
+      <PortfolioConversionNarrative slug={slug} />
       <PortfolioPresenceKit slug={slug} />
 
       {clientKey && proof ? <PortfolioSocialProofPopup clientKey={clientKey} {...proof} /> : null}
