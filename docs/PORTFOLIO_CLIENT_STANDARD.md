@@ -64,6 +64,8 @@ com uma chave imutável (`clientKey`) e possuir:
 11. experiência responsiva, acessível e validada em mobile.
 12. crédito discreto no rodapé usando `PortfolioHostCredit`, com link para
     `https://0web.com.br`;
+13. uma logo/marca própria, usada como identidade visual e registrada no campo
+    `icon` de `src/config/portfolio-assets.json`;
 
 Os itens 8 e 12 são universais e não podem ser desativados por configuração do
 cliente. O script `npm run validate:portfolio-boundaries` falha se qualquer
@@ -72,6 +74,17 @@ portfolio registrado omitir o pop-up de captação ou o crédito com link.
 Novos clientes devem usar `PortfolioCTAQuiz` (alias genérico do mecanismo atual)
 e informar `clientKey` explicitamente. A configuração `quizConfig` permite
 definir opções, títulos, explicações e exemplos próprios para cada ramo.
+
+### Logo como requisito estrutural
+
+Cada projeto precisa ter uma marca própria antes de ser publicado. O campo
+`icon` é o ativo canônico da logo/brand mark do cliente (e não um placeholder
+genérico): o arquivo deve viver no diretório `/public/images/<slug>/`, ter
+relação visual com o ramo, nome e região do projeto e nunca ser reutilizado em
+outro slug. Quando o cliente ainda não possui uma marca aprovada, a plataforma
+pode gerar um conceito original; nesse caso, a página e os materiais devem
+identificá-lo como conceito até a aprovação. A logo é independente da imagem
+OG/social e dos mockups do Kit de Presença.
 
 ## 4. Isolamento obrigatório
 

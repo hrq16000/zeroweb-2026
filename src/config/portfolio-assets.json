@@ -34,7 +34,7 @@
       "socialVersion": "1bb5971a"
     },
     "renata-beauty": {
-      "icon": "/images/renata-beauty-icon.webp",
+      "icon": "/images/renata-beauty/logo.webp",
       "socialImage": "/images/renata-beauty-promo-og.jpg",
       "proof": {
         "eyebrow": "Renata Beauty",
@@ -46,7 +46,7 @@
       "socialVersion": "4268ed21"
     },
     "r-beauty": {
-      "icon": "/images/r-beauty-icon.webp",
+      "icon": "/images/r_beauty/logo.webp",
       "socialImage": "/images/r-beauty-icon-og.jpg",
       "proof": {
         "eyebrow": "R_Beauty",
@@ -58,7 +58,7 @@
       "socialVersion": "758635fe"
     },
     "marido-de-aluguel": {
-      "icon": "/images/mestre-dos-servicos-logo.jpg",
+      "icon": "/images/marido-de-aluguel/logo.jpg",
       "socialImage": "/images/mestre-dos-servicos-logo.jpg",
       "proof": {
         "eyebrow": "Mestre dos Serviços",
@@ -70,7 +70,7 @@
       "socialVersion": "fb7f7321"
     },
     "emporio-lelecute": {
-      "icon": "/images/emporio-lelecute-og.webp",
+      "icon": "/images/emporio-lelecute/logo.webp",
       "socialImage": "/images/emporio-lelecute-og-og.jpg",
       "proof": {
         "eyebrow": "Empório LeleCute",
@@ -82,7 +82,7 @@
       "socialVersion": "ceb6db94"
     },
     "paraiso-do-hot-dog": {
-      "icon": "/images/paraiso-hot-dog-cover.webp",
+      "icon": "/images/paraiso-do-hot-dog/logo.webp",
       "socialImage": "/images/paraiso-hot-dog-cover-og.jpg",
       "proof": {
         "eyebrow": "Paraíso do Hot Dog",
@@ -478,7 +478,7 @@
       "socialVersion": "e7cf199c"
     },
     "lolipa-arte-em-festas": {
-      "icon": "/images/lolipa-arte-em-festas/hero.png",
+      "icon": "/images/lolipa-arte-em-festas/logo.png",
       "socialImage": "/images/lolipa-arte-em-festas/og.png",
       "proof": {
         "eyebrow": "Lolipa Arte em Festas Decor",
@@ -490,7 +490,7 @@
       "socialVersion": "lolipa-v1"
     },
     "confeitaria-sabor-da-realeza": {
-      "icon": "/images/confeitaria-sabor-da-realeza/hero.png",
+      "icon": "/images/confeitaria-sabor-da-realeza/logo.png",
       "socialImage": "/images/confeitaria-sabor-da-realeza/hero.png",
       "proof": {"eyebrow":"Confeitaria Sabor da Realeza","title":"O sabor que faz você se sentir da realeza.","description":"Bolos, doces, salgados e encomendas para festas e eventos em Uberaba.","ctaLabel":"Fazer encomenda","ctaHref":"#sabores"},
       "socialVersion":"realeza-v1"

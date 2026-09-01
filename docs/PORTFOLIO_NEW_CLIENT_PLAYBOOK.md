@@ -53,7 +53,7 @@ ferramentas externas injetam esse parâmetro e o pop-up sumia em visitas reais.
    `ctaMode`, `socialProofRequired`, `hostCaptureRequired`).
 2. Adicionar a chave em `src/lib/portfolio-client-keys.ts`.
 3. Registrar em `src/lib/portfolio-site-registry.ts` (sitemap + SEO + card).
-4. Criar diretório exclusivo de imagens `public/images/<slug>/` (sem herdar de outro cliente).
+4. Criar diretório exclusivo de imagens `public/images/<slug>/` (sem herdar de outro cliente) e registrar uma logo/marca própria no campo `icon` de `portfolio-assets.json`.
 5. Criar o componente exclusivo em `src/components/site/<Cliente>Page.tsx`:
    sem `Header`/`Footer` da 0WEB, com `PortfolioHostCredit` no rodapé e
    `PortfolioSocialProofPopup` com conteúdo do próprio cliente.
@@ -67,6 +67,8 @@ ferramentas externas injetam esse parâmetro e o pop-up sumia em visitas reais.
 9. Cadastrar o secret privado `"<CLIENTE>_WHATSAPP_NUMBER"` no servidor.
    Nenhum telefone, `wa.me` ou e-mail pode existir no bundle público.
 10. Adicionar o card do cliente na grade `/portfolio`.
+11. Validar a identidade com `bun run validate:portfolio-logos`; a logo deve existir,
+    estar no diretório do slug e não pode ser compartilhada com outro projeto.
 
 ## 4. Portões automáticos (tudo precisa passar)
 

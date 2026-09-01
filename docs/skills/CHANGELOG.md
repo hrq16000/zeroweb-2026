@@ -578,3 +578,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** adicionada base bitmap gerada com `imagegen`, integrada ao mockup responsivo por slug; textos, segmento, cidade e serviços continuam derivados exclusivamente do catálogo canônico. O catálogo agora exibe o selo “Kit de Presença · cartão + panfleto”.
 - **Transparência:** toda peça exibe “Conceito de presença e papelaria” e não inclui contatos operacionais, preços, depoimentos ou métricas inventados.
 - **Gate:** criado `validate:portfolio-presence-kit`, incluído no `prebuild`, cobrindo os 50 projetos atuais e novos registros automaticamente.
+
+## 2026-09-01 — logo própria como requisito global
+
+- **Tarefa:** tornar a marca visual um requisito estrutural de todo `/portfolio/<slug>`.
+- **Alterações:** `portfolio-assets.json.icon` passou a ser o ativo canônico da logo; cada arquivo precisa viver em `public/images/<slug>/`, sem reutilização entre clientes. Criado o gate `validate:portfolio-logos` e incluído no `prebuild`.
+- **Identidades vinculadas:** as marcas fornecidas de Lolipa Arte em Festas Decor e Confeitaria Sabor da Realeza foram adicionadas aos diretórios corretos e exibidas nos cabeçalhos das respectivas páginas.
+- **Regra futura:** quando não houver marca aprovada, gerar um conceito original relacionado ao projeto e identificá-lo como conceito até aprovação; nunca usar logo genérica ou de outro cliente.
