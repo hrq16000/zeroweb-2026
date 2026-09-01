@@ -623,3 +623,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Auditoria:** revisados os projetos `/portfolio/<slug>` e a montagem do catálogo para detectar botões duplicados, colisões entre prova social, contato e retorno ao topo.
 - **Correções:** D.Y.Z Promo e Renata Beauty deixaram de montar CTAs flutuantes próprios em paralelo ao botão universal; todos os controles compartilhados agora usam slots únicos com `safe-area` e espaçamento vertical.
 - **Proteção:** a prova social sobe para o slot 3 e desaparece junto ao rodapé; o retorno ao topo usa o slot secundário da coluna direita. Isso evita sobreposição em telas estreitas sem alterar o CTA, a mensagem ou a identidade de cada cliente.
+## 2026-09-01 — sitemap dinâmico de portfólio e indexação automática
+
+- **Tarefa:** eliminar a edição manual do sitemap para lotes aprovados/publicados e conectar a atualização ao GSC e ao IndexNow.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`, SEO técnico do projeto e gates de privacidade/rotas.
+- **Implementação:** `sitemap-portfolio.xml` agora deriva os clientes do catálogo aprovado e dos overrides publicados de `portfolio_client_settings`, com deduplicação e remoção imediata de itens despublicados.
+- **Automação:** publicação/despublicação no painel dispara sincronização; o hook protegido `/api/public/hooks/portfolio-sitemap-sync` e o workflow horário/deploy reenviam o sitemap ao Search Console e as URLs alteradas ao IndexNow.
+- **Segurança:** hook exige `CRON_SECRET`, aceita apenas slugs validados e mantém contatos/segredos fora do bundle público.

@@ -150,6 +150,11 @@ export const upsertClientSettings = createServerFn({ method: "POST" })
     if (history.length) {
       await (admin as any).from("portfolio_client_settings_history").insert(history);
     }
+    const publicationChanged = data.published !== undefined && Boolean(saved.published) !== Boolean(existing?.published);
+    if (publicationChanged) {
+      const { syncPortfolioSitemapAndIndexing } = await import("@/lib/portfolio-sitemap.server");
+      await syncPortfolioSitemapAndIndexing(admin, Boolean(saved.published) ? [saved.slug] : []);
+    }
     return { row: toPublic(saved) };
   });
 

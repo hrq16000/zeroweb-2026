@@ -202,6 +202,7 @@ import { Route as ApiPublicHooksIntegrationHealthcheckRouteImport } from './rout
 import { Route as ApiPublicHooksLgpdMaintenanceRouteImport } from './routes/api/public/hooks/lgpd-maintenance'
 import { Route as ApiPublicHooksLhciIngestRouteImport } from './routes/api/public/hooks/lhci-ingest'
 import { Route as ApiPublicHooksLicenseUsageSnapshotRouteImport } from './routes/api/public/hooks/license-usage-snapshot'
+import { Route as ApiPublicHooksPortfolioSitemapSyncRouteImport } from './routes/api/public/hooks/portfolio-sitemap-sync'
 import { Route as ApiPublicHooksSeoMonitorRouteImport } from './routes/api/public/hooks/seo-monitor'
 import { Route as ApiPublicHooksSocialRegenLogRouteImport } from './routes/api/public/hooks/social-regen-log'
 import { Route as ApiPublicHooksStripeRouteImport } from './routes/api/public/hooks/stripe'
@@ -1230,6 +1231,12 @@ const ApiPublicHooksLicenseUsageSnapshotRoute =
     path: '/api/public/hooks/license-usage-snapshot',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicHooksPortfolioSitemapSyncRoute =
+  ApiPublicHooksPortfolioSitemapSyncRouteImport.update({
+    id: '/api/public/hooks/portfolio-sitemap-sync',
+    path: '/api/public/hooks/portfolio-sitemap-sync',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicHooksSeoMonitorRoute =
   ApiPublicHooksSeoMonitorRouteImport.update({
     id: '/api/public/hooks/seo-monitor',
@@ -1469,6 +1476,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/lgpd-maintenance': typeof ApiPublicHooksLgpdMaintenanceRoute
   '/api/public/hooks/lhci-ingest': typeof ApiPublicHooksLhciIngestRoute
   '/api/public/hooks/license-usage-snapshot': typeof ApiPublicHooksLicenseUsageSnapshotRoute
+  '/api/public/hooks/portfolio-sitemap-sync': typeof ApiPublicHooksPortfolioSitemapSyncRoute
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
@@ -1669,6 +1677,7 @@ export interface FileRoutesByTo {
   '/api/public/hooks/lgpd-maintenance': typeof ApiPublicHooksLgpdMaintenanceRoute
   '/api/public/hooks/lhci-ingest': typeof ApiPublicHooksLhciIngestRoute
   '/api/public/hooks/license-usage-snapshot': typeof ApiPublicHooksLicenseUsageSnapshotRoute
+  '/api/public/hooks/portfolio-sitemap-sync': typeof ApiPublicHooksPortfolioSitemapSyncRoute
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
@@ -1873,6 +1882,7 @@ export interface FileRoutesById {
   '/api/public/hooks/lgpd-maintenance': typeof ApiPublicHooksLgpdMaintenanceRoute
   '/api/public/hooks/lhci-ingest': typeof ApiPublicHooksLhciIngestRoute
   '/api/public/hooks/license-usage-snapshot': typeof ApiPublicHooksLicenseUsageSnapshotRoute
+  '/api/public/hooks/portfolio-sitemap-sync': typeof ApiPublicHooksPortfolioSitemapSyncRoute
   '/api/public/hooks/seo-monitor': typeof ApiPublicHooksSeoMonitorRoute
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
@@ -2077,6 +2087,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/lgpd-maintenance'
     | '/api/public/hooks/lhci-ingest'
     | '/api/public/hooks/license-usage-snapshot'
+    | '/api/public/hooks/portfolio-sitemap-sync'
     | '/api/public/hooks/seo-monitor'
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
@@ -2277,6 +2288,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/lgpd-maintenance'
     | '/api/public/hooks/lhci-ingest'
     | '/api/public/hooks/license-usage-snapshot'
+    | '/api/public/hooks/portfolio-sitemap-sync'
     | '/api/public/hooks/seo-monitor'
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
@@ -2480,6 +2492,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/lgpd-maintenance'
     | '/api/public/hooks/lhci-ingest'
     | '/api/public/hooks/license-usage-snapshot'
+    | '/api/public/hooks/portfolio-sitemap-sync'
     | '/api/public/hooks/seo-monitor'
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
@@ -2618,6 +2631,7 @@ export interface RootRouteChildren {
   ApiPublicHooksLgpdMaintenanceRoute: typeof ApiPublicHooksLgpdMaintenanceRoute
   ApiPublicHooksLhciIngestRoute: typeof ApiPublicHooksLhciIngestRoute
   ApiPublicHooksLicenseUsageSnapshotRoute: typeof ApiPublicHooksLicenseUsageSnapshotRoute
+  ApiPublicHooksPortfolioSitemapSyncRoute: typeof ApiPublicHooksPortfolioSitemapSyncRoute
   ApiPublicHooksSeoMonitorRoute: typeof ApiPublicHooksSeoMonitorRoute
   ApiPublicHooksSocialRegenLogRoute: typeof ApiPublicHooksSocialRegenLogRoute
   ApiPublicHooksStripeRoute: typeof ApiPublicHooksStripeRoute
@@ -3980,6 +3994,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksLicenseUsageSnapshotRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/portfolio-sitemap-sync': {
+      id: '/api/public/hooks/portfolio-sitemap-sync'
+      path: '/api/public/hooks/portfolio-sitemap-sync'
+      fullPath: '/api/public/hooks/portfolio-sitemap-sync'
+      preLoaderRoute: typeof ApiPublicHooksPortfolioSitemapSyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/seo-monitor': {
       id: '/api/public/hooks/seo-monitor'
       path: '/api/public/hooks/seo-monitor'
@@ -4423,6 +4444,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksLhciIngestRoute: ApiPublicHooksLhciIngestRoute,
   ApiPublicHooksLicenseUsageSnapshotRoute:
     ApiPublicHooksLicenseUsageSnapshotRoute,
+  ApiPublicHooksPortfolioSitemapSyncRoute:
+    ApiPublicHooksPortfolioSitemapSyncRoute,
   ApiPublicHooksSeoMonitorRoute: ApiPublicHooksSeoMonitorRoute,
   ApiPublicHooksSocialRegenLogRoute: ApiPublicHooksSocialRegenLogRoute,
   ApiPublicHooksStripeRoute: ApiPublicHooksStripeRoute,

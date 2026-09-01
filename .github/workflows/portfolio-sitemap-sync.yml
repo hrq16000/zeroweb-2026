@@ -1,0 +1,45 @@
+name: Portfolio sitemap · GSC + IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/config/portfolio-catalog.json"
+      - "src/lib/portfolio-site-registry.ts"
+      - "src/lib/portfolio-sitemap.server.ts"
+      - "src/routes/sitemap-portfolio[.]xml.ts"
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Atualizar sitemap dinâmico e enviar sinais de indexação
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          SYNC_URL: https://0web.com.br/api/public/hooks/portfolio-sitemap-sync
+          SITEMAP_URL: https://0web.com.br/sitemap-portfolio.xml
+        run: |
+          set -euo pipefail
+          if [ -z "${CRON_SECRET:-}" ]; then
+            echo "CRON_SECRET não configurado; sincronização será executada pelo evento de publicação do painel."
+            exit 0
+          fi
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent --show-error "$SITEMAP_URL" >/dev/null; then
+              break
+            fi
+            if [ "$attempt" -eq 20 ]; then
+              echo "Sitemap não respondeu após a publicação" >&2
+              exit 1
+            fi
+            sleep 15
+          done
+          curl --fail --silent --show-error \
+            -X POST "$SYNC_URL" \
+            -H "x-cron-secret: $CRON_SECRET" \
+            -H "content-type: application/json" \
+            --data '{"slugs":[]}'
