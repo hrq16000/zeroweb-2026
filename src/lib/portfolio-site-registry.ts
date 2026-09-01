@@ -11,6 +11,7 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
+  { slug: "sos-presentes-cosmeticos", vertical: "comercios", siteName: "SOS Presentes & Cosméticos · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "marido-de-aluguel", vertical: "prestadores-de-servicos", siteName: "Marido de Aluguel · Serviços Residenciais", kind: "prototype", indexable: true },
   { slug: "clinica-integrada", vertical: "clinicas", siteName: "Clínica Integrada de Saúde", kind: "prototype", indexable: true },
   { slug: "almeida-torres", vertical: "advocacia", siteName: "Almeida Torres Advocacia", kind: "prototype", indexable: true },

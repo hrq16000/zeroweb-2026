@@ -725,6 +725,82 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: comprimento do cabelo, região da depilação e preferência de horário."
   },
+  "santos-montador-de-moveis": {
+    "services": [
+      "Montagem ou desmontagem de móveis",
+      "Pintura interna",
+      "Reparo elétrico",
+      "Limpeza de caixa d'água",
+      "Instalação de cortina ou persiana",
+      "Outro reparo residencial"
+    ],
+    "experienceOptions": [
+      "Alphaville",
+      "Curitiba",
+      "Colombo",
+      "Outra região"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Tenho flexibilidade"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nesta semana",
+      "Estou planejando"
+    ],
+    "stepTitles": {
+      "service": "O que você precisa resolver?",
+      "experience": "Onde será o serviço?",
+      "period": "Qual período funciona melhor?",
+      "timing": "Quando você precisa?",
+      "note": "Conte os detalhes"
+    },
+    "stepSubtitles": {
+      "service": "Escolha a opção mais próxima.",
+      "experience": "A disponibilidade é confirmada no atendimento.",
+      "note": "Fotos, quantidades e medidas ajudam no orçamento."
+    },
+    "notePlaceholder": "Ex.: tipo de móvel, quantidade, medidas ou o reparo necessário",
+    "proposalKind": "service"
+  },
+  "sos-presentes-cosmeticos": {
+    "services": [
+      "Quero uma cesta pronta",
+      "Quero montar um presente",
+      "Caneca ou xícara personalizada",
+      "Cosméticos e acessórios",
+      "Quero ajuda para escolher"
+    ],
+    "experienceOptions": [
+      "É para aniversário",
+      "É para uma data especial",
+      "É para presentear alguém",
+      "Quero deixar disponível para retirada"
+    ],
+    "periodOptions": [
+      "Preciso para hoje",
+      "Para os próximos dias",
+      "Estou planejando com antecedência",
+      "Quero consultar a entrega"
+    ],
+    "timingOptions": [
+      "Quero falar sobre disponibilidade",
+      "Quero montar meu pedido",
+      "Quero personalizar uma caneca",
+      "Quero conhecer a loja"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você quer presentear?",
+      "experience": "Qual é a ocasião?",
+      "period": "Quando você precisa?",
+      "timing": "Como podemos ajudar?",
+      "note": "Conte os detalhes do presente"
+    },
+    "notePlaceholder": "Ex.: para quem é, cores, frase, tema, data e faixa de valor."
+  },
   "studio-de-cilios": {
     "services": [
       "Mega Brasileiro · R$ 130",

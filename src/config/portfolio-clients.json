@@ -1,5 +1,17 @@
 [
   {
+    "clientKey": "sos-presentes-cosmeticos",
+    "slug": "sos-presentes-cosmeticos",
+    "siteName": "SOS Presentes & Cosméticos",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/SosPresentesCosmeticosPage.tsx",
+    "assetsDir": "public/images/sos-presentes-cosmeticos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false
+  },
+  {
     "clientKey": "dyzpromo",
     "slug": "dyzpromo",
     "siteName": "D.Y.Z Promo",

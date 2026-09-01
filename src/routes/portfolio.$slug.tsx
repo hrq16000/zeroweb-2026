@@ -92,6 +92,9 @@ const JklMarcenariaPage = lazy(() =>
 const SantosMontadorDeMoveisPage = lazy(() =>
   import("@/components/site/SantosMontadorDeMoveisPage").then((m) => ({ default: m.SantosMontadorDeMoveisPage })),
 );
+const SosPresentesCosmeticosPage = lazy(() =>
+  import("@/components/site/SosPresentesCosmeticosPage").then((m) => ({ default: m.SosPresentesCosmeticosPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -129,7 +132,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAcai = loaderData?.slug === "acai-total-araucaria";
     const isJkl = loaderData?.slug === "jkl-marcenaria";
     const isSantos = loaderData?.slug === "santos-montador-de-moveis";
-    const description = isRjDrywall
+    const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
+    const description = isSosPresentes
+      ? "SOS Presentes & Cosméticos em São José dos Pinhais: cestas à pronta entrega, cosméticos, acessórios e canecas personalizadas para presentear."
+      : isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
       : isHotDog
         ? "Cardápio online do Paraíso do Hot Dog em São José dos Pinhais, com lanches, adicionais, retirada, entrega e pedido direto pelo atendimento."
@@ -382,7 +388,9 @@ function PortfolioPrototypePage() {
   return (
     <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
-        {slug === "marido-de-aluguel" ? (
+        {slug === "sos-presentes-cosmeticos" ? (
+          <SosPresentesCosmeticosPage />
+        ) : slug === "marido-de-aluguel" ? (
           <MaridoDeAluguelPage />
         ) : slug === "emporio-lelecute" ? (
           <EmporioLelecutePage />
