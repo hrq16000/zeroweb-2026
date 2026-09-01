@@ -485,3 +485,4 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Skills aplicadas:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system` e `0web-ui-quality-gates`.
 - **Decisão:** registrar 12 candidatos em documento oficial; 10 estão prontos para briefing e 2 dependem de confirmação do nome/atividade atual. Nenhum candidato foi publicado automaticamente com dados especulativos.
 - **Validação:** fontes públicas cruzadas por endereço e atividade; duplicidades do nº 1374 foram agrupadas como uma única oportunidade até confirmação.
+- **Expansão:** segunda varredura adicionou quatro pistas (Supermercado Itália, Mercado Sol Nascente, empresa de sinalização no nº 130 e organização no nº 257), elevando o universo bruto para 16 registros sem publicar duplicatas.

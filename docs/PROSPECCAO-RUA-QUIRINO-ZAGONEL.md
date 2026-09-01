@@ -13,6 +13,10 @@ segura deve começar pelos 10 nomes com atividade e endereço mais consistentes;
 2 ficam como candidatos condicionais até confirmação presencial ou do próprio
 comerciante.
 
+Uma segunda varredura encontrou mais **4 pistas comerciais/institucionais**.
+Assim, o universo de prospecção chega a **16 registros**, mas continua com
+duplicidades a resolver antes de transformar cada registro em um projeto.
+
 ## Candidatos prioritários
 
 | Prioridade | Negócio | Evidência pública | Estado 0WEB |
@@ -29,6 +33,15 @@ comerciante.
 | 10 | Mercado/Super Prime | registros nos números 1005–1374 | validar nome atual |
 | 11 | Aires Presentes | diretório de endereço da rua | validar atividade atual |
 | 12 | Neia Trajes | ponto de recarga municipal no nº 1279 | validar operação atual |
+
+## Achados adicionais da segunda varredura
+
+| Negócio/registro | Endereço | Tratamento |
+|---|---|---|
+| Supermercado Itália | nº 114 / também listado como nº 1140 | provável comércio distinto; confirmar número e nome |
+| Mercado Sol Nascente | nº 1005 | pode ser nome comercial do registro Super Prime; não duplicar sem confirmação |
+| Empresa de sinalização (registro cadastral) | nº 130 | oportunidade B2B; nome comercial precisa ser confirmado |
+| Laboratório/organização acreditada pelo Inmetro | nº 257 | não tratar automaticamente como comércio de rua; prospectar apenas se houver interesse institucional |
 
 ## Regras para transformar candidato em projeto
 
@@ -59,3 +72,7 @@ comerciante.
 - [Siromat — ListaTudo](https://listatudo.com.br/parana/curitiba-e-regiao/sao-jose-dos-pinhais/metal-mecanica-e-mineracao/metal-mecanica/conformacao-e-industrializacao/metalurgia/siromat-industria-metalurgica/)
 - [Ponto comercial e endereço da rua — Chaves na Mão](https://www.chavesnamao.com.br/ponto-comercial/pr-sao-jose-dos-pinhais/bairros/rua-quirino-zagonel/)
 - [Ponto de recarga municipal — Prefeitura de São José dos Pinhais](https://www.sjp.pr.gov.br/utilidade-publica-confira-os-pontos-de-recarga-do-cartao-vem/)
+- [Mercado Sol Nascente — Apontador](https://www.apontador.com.br/local/pr/sao_jose_dos_pinhais/alimentos_e_bebidas/000482619000180/mercado_sol_nascente.html)
+- [Supermercado Itália — GuiaFácil](https://guiafacil.com/site/supermercado-italia/sao-jose-dos-pinhais/pr/2337552)
+- [Super Prime — Solutudo](https://www.solutudo.com.br/empresas/pr/s-jose-pinhais/mercados/super-prime-comercial-ltda-6969569)
+- [Registro de organização no nº 257 — Inmetro](https://www.instron.com/pt-br/resources/literature/certificate-of-accreditation-brazil/)
