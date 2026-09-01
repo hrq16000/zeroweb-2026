@@ -486,3 +486,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Decisão:** registrar 12 candidatos em documento oficial; 10 estão prontos para briefing e 2 dependem de confirmação do nome/atividade atual. Nenhum candidato foi publicado automaticamente com dados especulativos.
 - **Validação:** fontes públicas cruzadas por endereço e atividade; duplicidades do nº 1374 foram agrupadas como uma única oportunidade até confirmação.
 - **Expansão:** segunda varredura adicionou quatro pistas (Supermercado Itália, Mercado Sol Nascente, empresa de sinalização no nº 130 e organização no nº 257), elevando o universo bruto para 16 registros sem publicar duplicatas.
+
+## 2026-09-01 — primeiro ciclo de projetos Quirino Zagonel
+
+- **Tarefa:** estruturar os quatro primeiros candidatos prioritários: Marmitaria Dom Diego, Beto Pastéis, Woodhouse Hambúrgueres e D’Lara.
+- **Skills aplicadas:** `sites-building`, `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, `0web-ui-quality-gates` e `imagegen`.
+- **Alterações:** componentes exclusivos, pastas próprias de assets, imagens conceituais sem texto/contato, funis individuais, chaves privadas, catálogo, registry, narrativas e divulgação por slug.
+- **Decisão:** os quatro registros entram como `draft` e `indexable: false` até confirmação comercial; nenhuma página publica preço, telefone, avaliação ou promessa não confirmada.
+- **Validação:** catálogo 38 itens/35 clientes, scaffold 35/35, performance 35/35 e assets 35/35 aprovados.

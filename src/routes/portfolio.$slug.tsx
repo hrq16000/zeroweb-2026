@@ -95,6 +95,10 @@ const SantosMontadorDeMoveisPage = lazy(() =>
 const SosPresentesCosmeticosPage = lazy(() =>
   import("@/components/site/SosPresentesCosmeticosPage").then((m) => ({ default: m.SosPresentesCosmeticosPage })),
 );
+const MarmitariaDomDiegoPage = lazy(() => import("@/components/site/MarmitariaDomDiegoPage").then((m) => ({ default: m.MarmitariaDomDiegoPage })));
+const BetoPasteisPage = lazy(() => import("@/components/site/BetoPasteisPage").then((m) => ({ default: m.BetoPasteisPage })));
+const WoodhouseHamburgueresPage = lazy(() => import("@/components/site/WoodhouseHamburgueresPage").then((m) => ({ default: m.WoodhouseHamburgueresPage })));
+const DlaraPizzariaPage = lazy(() => import("@/components/site/DlaraPizzariaPage").then((m) => ({ default: m.DlaraPizzariaPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -390,6 +394,14 @@ function PortfolioPrototypePage() {
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
         {slug === "sos-presentes-cosmeticos" ? (
           <SosPresentesCosmeticosPage />
+        ) : slug === "marmitaria-dom-diego" ? (
+          <MarmitariaDomDiegoPage />
+        ) : slug === "beto-pasteis" ? (
+          <BetoPasteisPage />
+        ) : slug === "woodhouse-hamburgueres" ? (
+          <WoodhouseHamburgueresPage />
+        ) : slug === "dlara-pizzaria" ? (
+          <DlaraPizzariaPage />
         ) : slug === "marido-de-aluguel" ? (
           <MaridoDeAluguelPage />
         ) : slug === "emporio-lelecute" ? (

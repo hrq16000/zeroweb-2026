@@ -42,6 +42,10 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "acai-total-araucaria", vertical: "restaurantes", siteName: "Açaí Total · Araucária", kind: "prototype", indexable: true },
   { slug: "jkl-marcenaria", vertical: "prestadores-de-servicos", siteName: "JKL Marcenaria · Móveis sob medida", kind: "prototype", indexable: true },
   { slug: "santos-montador-de-moveis", vertical: "prestadores-de-servicos", siteName: "Santos Montador de Móveis · Curitiba e Região", kind: "prototype", indexable: true },
+  { slug: "marmitaria-dom-diego", vertical: "restaurantes", siteName: "Marmitaria Dom Diego · Jardim Itália", kind: "prototype", indexable: false },
+  { slug: "beto-pasteis", vertical: "restaurantes", siteName: "Beto Pastéis · Jardim Itália", kind: "prototype", indexable: false },
+  { slug: "woodhouse-hamburgueres", vertical: "restaurantes", siteName: "Woodhouse Hambúrgueres · Jardim Itália", kind: "prototype", indexable: false },
+  { slug: "dlara-pizzaria", vertical: "restaurantes", siteName: "D’Lara Pizzaria, Esfiharia e Hamburgueria · Jardim Itália", kind: "prototype", indexable: false },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

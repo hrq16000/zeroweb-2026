@@ -40,6 +40,10 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "eisenfer-tubos-acos": { title: "Material certo dá estrutura a cada etapa da obra.", step: "Conte o projeto e os materiais que precisa cotar.", cta: "Solicitar cotação", theme: "gold" },
   "jkl-marcenaria": { title: "Móveis sob medida começam entendendo como você vive o espaço.", step: "Conte o ambiente, as medidas e a ideia que quer realizar.", cta: "Planejar móvel", theme: "gold" },
   "santos-montador-de-moveis": { title: "A casa funciona melhor quando cada detalhe fica no lugar.", step: "Conte o que precisa montar, instalar, pintar ou reparar.", cta: "Organizar serviço", theme: "navy" },
+  "marmitaria-dom-diego": { title: "Almoço gostoso começa com uma escolha simples.", step: "Conte o que procura no cardápio e como prefere fazer o pedido.", cta: "Conhecer cardápio", theme: "gold" },
+  "beto-pasteis": { title: "Um pastel bem escolhido muda o ritmo do dia.", step: "Escolha a ocasião e conte o que gostaria de encontrar no menu.", cta: "Conhecer sabores", theme: "gold" },
+  "woodhouse-hamburgueres": { title: "Uma noite especial começa no primeiro pedido.", step: "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.", cta: "Conhecer a Woodhouse", theme: "navy" },
+  "dlara-pizzaria": { title: "Seu próximo pedido merece um cardápio fácil de explorar.", step: "Escolha pizza, esfiha ou lanche e indique a ocasião do pedido.", cta: "Explorar opções", theme: "gold" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

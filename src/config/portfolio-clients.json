@@ -370,5 +370,49 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "marmitaria-dom-diego",
+    "slug": "marmitaria-dom-diego",
+    "siteName": "Marmitaria Dom Diego",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
+    "assetsDir": "public/images/marmitaria-dom-diego",
+    "ctaMode": "order",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "beto-pasteis",
+    "slug": "beto-pasteis",
+    "siteName": "Beto Pastéis",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/BetoPasteisPage.tsx",
+    "assetsDir": "public/images/beto-pasteis",
+    "ctaMode": "order",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "woodhouse-hamburgueres",
+    "slug": "woodhouse-hamburgueres",
+    "siteName": "Woodhouse Hambúrgueres",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
+    "assetsDir": "public/images/woodhouse-hamburgueres",
+    "ctaMode": "order",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "dlara-pizzaria",
+    "slug": "dlara-pizzaria",
+    "siteName": "D Lara Pizzaria Esfiharia e Hamburgueria",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/DlaraPizzariaPage.tsx",
+    "assetsDir": "public/images/dlara-pizzaria",
+    "ctaMode": "order",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
