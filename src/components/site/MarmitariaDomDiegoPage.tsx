@@ -3,7 +3,6 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { LazySection } from "@/components/portfolio/LazySection";
-import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 // Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
@@ -60,8 +59,8 @@ export function MarmitariaDomDiegoPage() {
         <Galeria />
       </LazySection>
       */}
-
-      <PortfolioSocialProofPopup clientKey="marmitaria-dom-diego" />
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="marmitaria-dom-diego" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-marmitaria-dom-diego" />
       <PortfolioHostCredit />
     </div>

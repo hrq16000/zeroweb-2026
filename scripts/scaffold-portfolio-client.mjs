@@ -68,7 +68,6 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { LazySection } from "@/components/portfolio/LazySection";
-import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 
 // Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
 // Ver docs/PORTFOLIO_PERFORMANCE.md
@@ -122,7 +121,8 @@ export function ${componentName}() {
       </LazySection>
       */}
 
-      <PortfolioSocialProofPopup clientKey="${clientKey}" />
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="${clientKey}" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioHostCredit />
     </div>
   );
