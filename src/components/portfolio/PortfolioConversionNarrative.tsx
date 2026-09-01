@@ -48,6 +48,14 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "reuse-house-brecho": { title: "Uma peça especial pode ganhar uma nova história.", step: "Escolha seu estilo e veja como a curadoria pode aparecer na vitrine.", cta: "Explorar o conceito", theme: "navy" },
   "brecho-sao-francisco": { title: "Roupas com história merecem uma descoberta cuidadosa.", step: "Conte o tipo de peça que procura e encontre seu próximo garimpo.", cta: "Conhecer o conceito", theme: "gold" },
   "angel-mix-brecho": { title: "Moda acessível começa com um garimpo que combina com você.", step: "Indique seu estilo e descubra como organizar as peças da vitrine.", cta: "Explorar o conceito", theme: "pink" },
+  "guaratuba-sabores-da-baia": { title: "Uma experiência caiçara começa pelo próximo sabor.", step: "Conte se procura almoço, frutos do mar ou uma ocasião para compartilhar.", cta: "Explorar o conceito", theme: "gold" },
+  "guaratuba-oficina-nautica": { title: "Cuidar da embarcação começa com diagnóstico organizado.", step: "Conte o tipo de embarcação e o cuidado náutico que deseja avaliar.", cta: "Avaliar o conceito", theme: "navy" },
+  "guaratuba-atelie-presentes": { title: "Um presente com identidade começa na escolha do detalhe.", step: "Conte a ocasião, o estilo e a lembrança que deseja criar.", cta: "Explorar o conceito", theme: "pink" },
+  "guaratuba-reparos-residenciais": { title: "Pequenos reparos ficam mais simples quando o escopo é claro.", step: "Descreva o ambiente e o reparo que precisa organizar.", cta: "Avaliar o conceito", theme: "navy" },
+  "mirassol-delicias-caseiras": { title: "Uma comemoração gostosa começa com a encomenda certa.", step: "Conte a data, o número de pessoas e o tipo de doce que procura.", cta: "Explorar o conceito", theme: "pink" },
+  "mirassol-conserta-celular": { title: "Tecnologia parada pede um diagnóstico fácil de entender.", step: "Informe o aparelho, o sintoma e quando o problema começou.", cta: "Avaliar o conceito", theme: "navy" },
+  "bh-barreiro-marmitas": { title: "Uma semana mais prática começa com almoço planejado.", step: "Conte sua rotina e o tipo de refeição que deseja encontrar.", cta: "Explorar o conceito", theme: "gold" },
+  "uberlandia-eletrica-residencial": { title: "Segurança elétrica começa com uma avaliação bem explicada.", step: "Descreva o ambiente e a instalação que precisa revisar.", cta: "Avaliar o conceito", theme: "navy" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

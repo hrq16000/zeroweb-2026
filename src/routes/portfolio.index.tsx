@@ -493,6 +493,10 @@ function PortfolioPage() {
                           {item.summary}
                         </p>
 
+                        <span className="inline-flex w-fit items-center rounded-full border border-border/70 bg-muted/50 px-2.5 py-1 text-[10px] font-semibold text-muted-foreground">
+                          Kit de Presença · cartão + panfleto
+                        </span>
+
                         <div className="flex flex-wrap gap-2 pt-2">
                           {item.tags.map((tag, idx) => (
                           <span key={idx} className="px-2 py-1 rounded-lg bg-muted text-muted-foreground text-[10px] font-medium">

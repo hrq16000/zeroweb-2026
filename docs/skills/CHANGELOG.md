@@ -560,3 +560,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** criada lista de oito empresas reais de Guaratuba, Mirassol, Belo Horizonte e Uberlândia, com contatos publicados e fontes verificáveis.
 - **Regra:** nenhuma marca, foto, depoimento ou dado de empresa real entra no portal sem autorização; as páginas conceituais permanecem explicitamente demonstrativas.
 - **Adição:** Lolipa Arte em Festas Decor foi incluída como prospecto real de Curitiba, usando o Linktree oficial como fonte de contato inicial.
+
+## 2026-09-01 — kit de presença visual em todos os projetos
+
+- **Tarefa:** garantir cartão de visita e panfleto digital visíveis em cada `/portfolio/<slug>`.
+- **Alterações:** adicionada base bitmap gerada com `imagegen`, integrada ao mockup responsivo por slug; textos, segmento, cidade e serviços continuam derivados exclusivamente do catálogo canônico. O catálogo agora exibe o selo “Kit de Presença · cartão + panfleto”.
+- **Transparência:** toda peça exibe “Conceito de presença e papelaria” e não inclui contatos operacionais, preços, depoimentos ou métricas inventados.
+- **Gate:** criado `validate:portfolio-presence-kit`, incluído no `prebuild`, cobrindo os 50 projetos atuais e novos registros automaticamente.
