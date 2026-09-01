@@ -111,6 +111,7 @@ const GalileuLocacaoBrinquedosPage = lazy(() => import("@/components/site/Galile
 const LjCleaningPage = lazy(() => import("@/components/site/LjCleaningPage").then((m) => ({ default: m.LjCleaningPage })));
 const ManuPasteisPage = lazy(() => import("@/components/site/ManuPasteisPage").then((m) => ({ default: m.ManuPasteisPage })));
 const LizMoraesNailDesignerPage = lazy(() => import("@/components/site/LizMoraesNailDesignerPage").then((m) => ({ default: m.LizMoraesNailDesignerPage })));
+const AssistenciaMicroondasSantosPage = lazy(() => import("@/components/site/AssistenciaMicroondasSantosPage").then((m) => ({ default: m.AssistenciaMicroondasSantosPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -157,10 +158,13 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isLjCleaning = loaderData?.slug === "lj-cleaning";
     const isManuPasteis = loaderData?.slug === "manu-pasteis";
     const isLizMoraes = loaderData?.slug === "liz-moraes-nail-designer";
+    const isAssistenciaMicroondas = loaderData?.slug === "assistencia-microondas-santos";
     const description = isManuPasteis
       ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
       : isLizMoraes
         ? "Liz Moraes Nail Designer no Centro de São José dos Pinhais: manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1 com agendamento pelo WhatsApp."
+      : isAssistenciaMicroondas
+        ? "Assistência Técnica Microondas Santos em São José dos Pinhais: conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
       : isLjCleaning
       ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
       : isGalileu
@@ -304,6 +308,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
               ? "Manu Pastéis, pastel recheado, pastel quentinho, cardápio online, delivery, São José dos Pinhais"
               : isLizMoraes
                 ? "Liz Moraes Nail Designer, manicure, pedicure, esmaltação em gel, alongamento molde F1, Centro, São José dos Pinhais"
+              : isAssistenciaMicroondas
+                ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, micro-ondas revisado, conserto a domicílio, São José dos Pinhais"
             : isLjCleaning
               ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
             : isGalileu
@@ -360,18 +366,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
                 : isJkl
                   ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
-                : isManuPasteis
-                  ? "/images/manu-pasteis/hero-og.jpg"
-                : isLjCleaning
-                  ? "/images/lj-cleaning/hero.png"
-                : isGalileu
-                  ? "/images/galileu-locacao-brinquedos/hero.png"
-                : isMiro
-                  ? "/images/miro-tech/hero.png"
-                : isPremium
-                  ? "/images/premium-envelopamentos/hero.png"
                 : isSantos
                   ? "montador de móveis Curitiba, montagem de móveis Colombo, desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água, instalação de cortinas, Alphaville Curitiba"
+                : isAssistenciaMicroondas
+                  ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, venda de micro-ondas revisados, atendimento a domicílio, São José dos Pinhais"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
         { property: "og:title", content: title },
@@ -472,6 +470,8 @@ function PortfolioPrototypePage() {
           <ManuPasteisPage />
         ) : slug === "liz-moraes-nail-designer" ? (
           <LizMoraesNailDesignerPage />
+        ) : slug === "assistencia-microondas-santos" ? (
+          <AssistenciaMicroondasSantosPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

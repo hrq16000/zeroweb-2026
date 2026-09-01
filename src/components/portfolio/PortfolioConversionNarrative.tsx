@@ -64,6 +64,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "lj-cleaning": { title: "Seu conforto merece um cuidado completo.", step: "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.", cta: "Solicitar orçamento", theme: "navy" },
   "manu-pasteis": { title: "Seu pastel da noite começa no cardápio certo.", step: "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.", cta: "Abrir cardápio", theme: "gold" },
   "liz-moraes-nail-designer": { title: "Seu momento de beleza começa com uma escolha feita para você.", step: "Indique o cuidado, acabamento ou molde F1 que deseja e escolha o melhor período para agendar.", cta: "Agendar meu horário", theme: "pink" },
+  "assistencia-microondas-santos": { title: "Um micro-ondas parado pede um diagnóstico direto.", step: "Informe o defeito, a ferrugem ou o modelo revisado que deseja avaliar com a equipe.", cta: "Solicitar avaliação", theme: "navy" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

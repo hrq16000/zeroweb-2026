@@ -637,3 +637,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Implementação:** `sitemap-portfolio.xml` agora deriva os clientes do catálogo aprovado e dos overrides publicados de `portfolio_client_settings`, com deduplicação e remoção imediata de itens despublicados.
 - **Automação:** publicação/despublicação no painel dispara sincronização; o hook protegido `/api/public/hooks/portfolio-sitemap-sync` e o workflow horário/deploy reenviam o sitemap ao Search Console e as URLs alteradas ao IndexNow.
 - **Segurança:** hook exige `CRON_SECRET`, aceita apenas slugs validados e mantém contatos/segredos fora do bundle público.
+
+## 2026-09-01 — Assistência Técnica Microondas Santos
+
+- **Adição:** projeto público `/portfolio/assistencia-microondas-santos` para conserto a domicílio, restauração contra ferrugem e venda de micro-ondas revisados.
+- **Identidade:** logo própria gerada com `imagegen`, imagem social horizontal exclusiva e flyer fornecido pela empresa vinculado somente ao slug correto.
+- **Conversão:** funil de avaliação parametrizado para defeito, restauração, compra e atendimento; contatos operacionais ficam somente no ambiente server-side.
+- **SEO/catálogo:** ramo, cidade (São José dos Pinhais/PR), serviços, narrativa de conversão e divulgação exclusiva adicionados às fontes canônicas.

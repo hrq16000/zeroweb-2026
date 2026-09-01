@@ -572,6 +572,18 @@
         "ctaHref": "#agendamento"
       },
       "socialVersion": "d4903e2a"
+    },
+    "assistencia-microondas-santos": {
+      "icon": "/images/assistencia-microondas-santos/logo.png",
+      "socialImage": "/images/assistencia-microondas-santos/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Assistência Técnica Microondas Santos",
+        "title": "Seu micro-ondas pode voltar a funcionar bem.",
+        "description": "Conserto, restauração contra ferrugem e modelos revisados para venda.",
+        "ctaLabel": "Solicitar avaliação",
+        "ctaHref": "#atendimento"
+      },
+      "socialVersion": "c5f6a283"
     }
   }
 }

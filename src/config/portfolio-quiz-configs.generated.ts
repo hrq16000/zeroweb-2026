@@ -102,6 +102,42 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma visita técnica"
     ]
   },
+  "assistencia-microondas-santos": {
+    "services": [
+      "Conserto de micro-ondas",
+      "Restauração contra ferrugem",
+      "Comprar micro-ondas revisado",
+      "Conserto a domicílio",
+      "Quero orientação para escolher"
+    ],
+    "experienceOptions": [
+      "Meu aparelho parou de funcionar",
+      "Meu micro-ondas está enferrujado",
+      "Quero comprar um modelo revisado",
+      "Preciso avaliar a melhor opção"
+    ],
+    "periodOptions": [
+      "Em casa",
+      "Na assistência",
+      "Quero combinar a entrega",
+      "Ainda preciso de orientação"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nesta semana",
+      "Estou pesquisando",
+      "Quero consultar disponibilidade"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você precisa resolver?",
+      "experience": "Como está o seu micro-ondas?",
+      "period": "Onde será o atendimento?",
+      "timing": "Quando você precisa?",
+      "note": "Conte os detalhes"
+    },
+    "notePlaceholder": "Ex.: marca, modelo, defeito percebido ou se procura um aparelho revisado."
+  },
   "confeitaria-chyrley": {
     "services": [
       "Bolo personalizado",

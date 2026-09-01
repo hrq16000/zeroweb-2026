@@ -546,5 +546,16 @@
     "ctaMode": "booking",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "assistencia-microondas-santos",
+    "slug": "assistencia-microondas-santos",
+    "siteName": "Assistência Técnica Microondas Santos",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AssistenciaMicroondasSantosPage.tsx",
+    "assetsDir": "public/images/assistencia-microondas-santos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
