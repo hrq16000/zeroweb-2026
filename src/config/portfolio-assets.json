@@ -620,6 +620,150 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "3b98f096"
+    },
+    "r_beauty": {
+      "icon": "/images/r_beauty/logo.svg",
+      "socialImage": "/images/r_beauty/hero-og.jpg",
+      "proof": {
+        "eyebrow": "R_Beauty Studio & Spa",
+        "title": "R_Beauty Studio & Spa com uma presença que explica o que faz.",
+        "description": "Studio e spa para estética e autocuidado, com uma experiência pensada para cada momento.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "6401b375"
+    },
+    "clinica-integrada": {
+      "icon": "/images/clinica-integrada/logo.svg",
+      "socialImage": "/images/clinica-integrada/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Clínica Integrada de Saúde",
+        "title": "Clínica Integrada de Saúde com uma presença que explica o que faz.",
+        "description": "Demonstração de presença digital para uma clínica integrada, com informações de especialidades e jornada de atendimento.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "d3cb9694"
+    },
+    "almeida-torres": {
+      "icon": "/images/almeida-torres/logo.svg",
+      "socialImage": "/images/almeida-torres/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Almeida Torres Advocacia",
+        "title": "Almeida Torres Advocacia com uma presença que explica o que faz.",
+        "description": "Demonstração de presença digital para advocacia, com áreas de atuação e orientação inicial apresentadas de forma clara.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "9289ff61"
+    },
+    "casa-nativa": {
+      "icon": "/images/casa-nativa/logo.svg",
+      "socialImage": "/images/casa-nativa/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Casa Nativa Bistrô",
+        "title": "Casa Nativa Bistrô com uma presença que explica o que faz.",
+        "description": "Demonstração de presença digital para bistrô, com ambiente, experiência gastronômica e reserva como próximos passos.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "82891afa"
+    },
+    "guaratuba-sabores-da-baia": {
+      "icon": "/images/guaratuba-sabores-da-baia/logo.svg",
+      "socialImage": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Sabores da Baía",
+        "title": "Sabores da Baía com uma presença que explica o que faz.",
+        "description": "Amostra pública de cardápio e presença digital para um pequeno restaurante de Guaratuba, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "a7ba680c"
+    },
+    "guaratuba-oficina-nautica": {
+      "icon": "/images/guaratuba-oficina-nautica/logo.svg",
+      "socialImage": "/images/guaratuba-oficina-nautica/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Oficina Náutica Guaratuba",
+        "title": "Oficina Náutica Guaratuba com uma presença que explica o que faz.",
+        "description": "Amostra pública de landing page para um prestador náutico local, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "ee1b975e"
+    },
+    "guaratuba-atelie-presentes": {
+      "icon": "/images/guaratuba-atelie-presentes/logo.svg",
+      "socialImage": "/images/guaratuba-atelie-presentes/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Ateliê Encanto da Baía",
+        "title": "Ateliê Encanto da Baía com uma presença que explica o que faz.",
+        "description": "Amostra pública de catálogo para presentes e artesanato de bairro em Guaratuba, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "085c1ad0"
+    },
+    "guaratuba-reparos-residenciais": {
+      "icon": "/images/guaratuba-reparos-residenciais/logo.svg",
+      "socialImage": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Reparos do Litoral",
+        "title": "Reparos do Litoral com uma presença que explica o que faz.",
+        "description": "Amostra pública de serviço local para reparos residenciais e comerciais em Guaratuba, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "0475b2dc"
+    },
+    "mirassol-delicias-caseiras": {
+      "icon": "/images/mirassol-delicias-caseiras/logo.svg",
+      "socialImage": "/images/mirassol-delicias-caseiras/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Delícias Caseiras Mirassol",
+        "title": "Delícias Caseiras Mirassol com uma presença que explica o que faz.",
+        "description": "Amostra pública de catálogo para uma produção caseira de bolos e salgados em Mirassol, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "f9b6faed"
+    },
+    "mirassol-conserta-celular": {
+      "icon": "/images/mirassol-conserta-celular/logo.svg",
+      "socialImage": "/images/mirassol-conserta-celular/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Conserta Mirassol",
+        "title": "Conserta Mirassol com uma presença que explica o que faz.",
+        "description": "Amostra pública de landing page para assistência técnica de bairro em Mirassol, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "0c2b1ed3"
+    },
+    "bh-barreiro-marmitas": {
+      "icon": "/images/bh-barreiro-marmitas/logo.svg",
+      "socialImage": "/images/bh-barreiro-marmitas/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Marmitas do Barreiro",
+        "title": "Marmitas do Barreiro com uma presença que explica o que faz.",
+        "description": "Amostra pública de cardápio para uma marmitaria de bairro em Belo Horizonte, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "f063fad1"
+    },
+    "uberlandia-eletrica-residencial": {
+      "icon": "/images/uberlandia-eletrica-residencial/logo.svg",
+      "socialImage": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Elétrica Bairro Brasil",
+        "title": "Elétrica Bairro Brasil com uma presença que explica o que faz.",
+        "description": "Amostra pública de página de serviço para eletricista de bairro em Uberlândia, criada como demonstração comercial.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "68e89c18"
     }
   }
 }

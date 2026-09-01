@@ -2,7 +2,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const clients = JSON.parse(readFileSync(resolve("src/config/portfolio-clients.json"), "utf8"));
+const clients = JSON.parse(readFileSync(resolve("src/config/portfolio-catalog.json"), "utf8"));
 const assets = JSON.parse(readFileSync(resolve("src/config/portfolio-assets.json"), "utf8"));
 const errors = [];
 for (const client of clients) {

@@ -686,3 +686,5 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Correção:** `PortfolioPresenceKit` passou a montar um cartão visual completo com a logo própria do slug e um panfleto preenchido com a imagem social OG própria, nome, segmento, serviços e região de cada projeto.
 - **Escopo:** a alteração é parametrizada para os 62 itens do catálogo e novos clientes que entrarem nas fontes canônicas; não copia identidade, imagem ou conteúdo entre negócios.
 - **Transparência:** as peças continuam identificadas como “Conceito de presença e papelaria” até aprovação do cliente, sem inventar contatos operacionais.
+- **Cobertura legada:** 12 itens do catálogo que não tinham assets próprios receberam logo conceitual e OG JPEG exclusivos por slug; o gerador `scripts/generate-portfolio-identity-assets.mjs` mantém a regra para novos registros.
+- **Gates fortalecidos:** assets, logos, ícones e presença agora conferem o catálogo canônico inteiro, evitando que um projeto publicado volte a renderizar um cartão ou panfleto vazio.

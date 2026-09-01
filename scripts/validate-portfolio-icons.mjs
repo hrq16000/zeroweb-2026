@@ -14,7 +14,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const clients = JSON.parse(readFileSync(resolve("src/config/portfolio-clients.json"), "utf8"));
+const clients = JSON.parse(readFileSync(resolve("src/config/portfolio-catalog.json"), "utf8"));
 const assets = JSON.parse(readFileSync(resolve("src/config/portfolio-assets.json"), "utf8"));
 
 const SOCIAL_OK = /\.(jpe?g|png)$/i;
@@ -39,7 +39,7 @@ for (const rel of ["/favicon.ico", "/favicon.svg", "/apple-touch-icon.png"]) {
 }
 
 for (const client of clients) {
-  const entry = assets.clients?.[client.clientKey];
+  const entry = assets.clients?.[client.slug] ?? assets.clients?.[client.clientKey];
   const label = `[${client.slug}]`;
   if (!entry) {
     errors.push(`${label} sem entrada em portfolio-assets.json`);
