@@ -565,7 +565,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 - **Adição:** projeto público `/portfolio/lolipa-arte-em-festas` com galeria exclusiva, serviços de decoração completa, criação sob medida, pegue e monte e mimos informados pela marca.
 - **Assets:** cinco imagens fornecidas pela cliente foram vinculadas exclusivamente ao slug; uma prévia social paisagem foi gerada por IA sem texto, contatos ou promessas inventadas.
-- **Governança:** dados de contato operacional permanecem fora do bundle público; CTAs usam o funil parametrizado e a página permanece identificada como amostra demonstrativa.
+- **Governança:** dados de contato operacional permanecem fora do bundle público; CTAs usam o funil parametrizado. O projeto é um negócio real; somente os mockups de papelaria são identificados como conceito até aprovação de impressão.
 
 ## 2026-09-01 — kit de presença visual em todos os projetos
 
