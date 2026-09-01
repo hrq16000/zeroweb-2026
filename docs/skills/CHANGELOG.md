@@ -470,3 +470,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Decisão: direção “oficina residencial premium”, identidade própria em azul-marinho, laranja e marfim; foto hero gerada sem texto ou contato; CTAs usam `clientKey` e resolução server-side.
 - Skills externas: nenhuma instalada; as referências locais cobriram direção, engenharia, acessibilidade, performance e QA sem introduzir dependências ou risco adicional.
 - Validação: registrada ao final da execução após boundaries, catálogo, metadados, testes, build e QA visual.
+## 2026-09-01 — ciclos finais de portfólio: presença, SEO e OG
+
+- **Tarefa:** concluir a parametrização transversal de presença, conteúdo e prévias sociais para os portfólios publicados.
+- **Skills aplicadas:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`, `0web-ui-quality-gates` e os padrões de cliente, presença e conversão/SEO.
+- **Decisão visual:** o Kit de Presença é gerado a partir de nome, segmento, cidade e serviços do próprio slug; cartão e panfleto são identificados como conceito, sem usar contato, preço ou identidade de outro cliente.
+- **SEO/OG:** a auditoria confirmou que a produção ainda não contém os commits novos (SOS responde 404 até o deploy). O conversor de OG deixou de depender de ImageMagick local e passa a usar `sharp`, dependência declarada do projeto, para gerar JPEG 1200×630 e cache-busting durante o prebuild.
+- **Skills externas:** nenhuma instalada. A camada local cobriu arquitetura, acessibilidade e QA; uma skill externa seria redundante e adicionaria superfície de segurança sem resolver a ausência de runtime de imagem nesta máquina.
+- **Validação:** catálogo, boundaries, scaffold, rota, privacidade e performance aprovados; a validação de OG local fica condicionada à instalação das dependências do projeto, que é executada no build de deploy.
