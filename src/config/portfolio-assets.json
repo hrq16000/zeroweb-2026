@@ -154,16 +154,16 @@
       "socialVersion": "7936dd39"
     },
     "refrigeracao-maresia": {
-      "icon": "/images/refrigeracao-maresia/capa.webp",
-      "socialImage": "/images/refrigeracao-maresia/capa-og.jpg",
+      "icon": "/images/refrigeracao-maresia/logo.png",
+      "socialImage": "/images/refrigeracao-maresia/hero-og.jpg",
       "proof": {
         "eyebrow": "Refrigeração Maresia",
-        "title": "Atendimento rápido para o seu equipamento voltar a gelar.",
-        "description": "Conte o sintoma e receba uma orientação para o próximo passo.",
-        "ctaLabel": "Ver serviços",
-        "ctaHref": "#servicos"
+        "title": "Geladeira parou de gelar?",
+        "description": "Peças originais, garantia de serviço e atendimento em toda a região.",
+        "ctaLabel": "Solicitar diagnóstico",
+        "ctaHref": "#atendimento"
       },
-      "socialVersion": "388fccb5"
+      "socialVersion": "fddad6b0"
     },
     "ag-electrical-services": {
       "icon": "/images/ag-electrical-services/logo.webp",

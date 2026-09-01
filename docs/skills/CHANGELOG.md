@@ -658,3 +658,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Identidade:** logo exclusiva gerada com `imagegen`, OG horizontal própria e material promocional real vinculado somente ao slug correto.
 - **Conversão:** funil próprio para mensagem, imagem, ocasião, quantidade e entrega; valores e disponibilidade aparecem como informados e podem ser confirmados no atendimento.
 - **SEO/catálogo:** segmento, localização regional, produtos, narrativa e texto de divulgação exclusivos adicionados às fontes canônicas; contato operacional permanece apenas no ambiente server-side.
+
+## 2026-09-01 — Refrigeração Maresia (atualização de material real)
+
+- **Atualização:** material promocional real recebido foi incorporado ao projeto público `/portfolio/refrigeracao-maresia`, sem criar duplicata ou variante.
+- **Identidade:** logo exclusiva e imagem social OG horizontal geradas com `imagegen`; flyer original vinculado somente ao slug da Maresia.
+- **Conversão:** hero, serviços e narrativa agora refletem resposta rápida no WhatsApp, peças originais, garantia de serviço e atendimento em toda a região; botão de orçamento usa o funil universal.
+- **Privacidade:** telefone operacional permanece apenas no ambiente server-side; nenhum contato foi adicionado ao bundle público.
