@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
+import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
+import { useNearFooter } from "@/hooks/useNearFooter";
 
 type Props = {
   clientKey: string;
@@ -32,6 +34,7 @@ export function PortfolioSocialProofPopup({
   accentClassName = "text-amber-300",
 }: Props) {
   const [open, setOpen] = useState(false);
+  const nearFooter = useNearFooter();
 
   useEffect(() => {
     if (shouldSuppressPortfolioHostOverlays()) return;
@@ -50,14 +53,14 @@ export function PortfolioSocialProofPopup({
     };
   }, [autoDismissMs, clientKey, delayMs]);
 
-  if (!open) return null;
+  if (!open || nearFooter) return null;
 
   return (
     <motion.aside
       initial={{ opacity: 0, y: 24, x: -12 }}
       animate={{ opacity: 1, y: 0, x: 0 }}
       exit={{ opacity: 0, y: 24 }}
-      className={`fixed bottom-5 left-5 z-40 w-[min(360px,calc(100vw-2.5rem))] rounded-2xl border p-4 shadow-2xl backdrop-blur ${className}`}
+      className={`fixed ${FLOATING_SLOT.three} left-4 sm:left-5 ${FLOATING_Z.fab} w-[min(360px,calc(100vw-2.5rem))] rounded-2xl border p-4 shadow-2xl backdrop-blur ${hideNearFooter(nearFooter)} ${className}`}
       aria-label={`Prova social de ${clientKey}`}
     >
       <button type="button" onClick={() => setOpen(false)} aria-label="Fechar prova social" className="absolute right-2 top-2 rounded-full p-1.5 opacity-70 transition hover:bg-white/10 hover:opacity-100">

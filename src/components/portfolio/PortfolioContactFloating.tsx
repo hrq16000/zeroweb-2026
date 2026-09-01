@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { PortfolioCTAQuiz, type PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 import { trackEvent } from "@/lib/analytics";
+import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import type { ContactMode, ContactTheme, FloatingPosition } from "@/lib/portfolio-global-config";
 
@@ -18,8 +19,8 @@ type Props = {
 };
 
 const POSITION: Record<FloatingPosition, string> = {
-  "bottom-right": "bottom-5 right-4",
-  "bottom-left": "bottom-5 left-4",
+  "bottom-right": `${FLOATING_SLOT.right} right-4 sm:right-6`,
+  "bottom-left": `${FLOATING_SLOT.one} left-4 sm:left-5`,
 };
 
 const THEME: Record<ContactTheme, string> = {
@@ -70,7 +71,7 @@ export function PortfolioContactFloating({
           page_type: "portfolio_client",
         })
       }
-      className={`fixed z-40 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg transition-[opacity,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${nearFooter ? "pointer-events-none translate-y-6 opacity-0" : "opacity-100"}`}
+      className={`fixed ${FLOATING_Z.fab} inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${POSITION[position]} ${THEME[theme]} ${hideNearFooter(nearFooter)}`}
       aria-hidden={nearFooter}
     >
       <MessageCircle className="h-4 w-4" aria-hidden="true" />

@@ -729,17 +729,6 @@ export function RenataBeautyView() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Widget */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
-        <div className="hidden sm:block bg-[#1A0C16]/95 backdrop-blur-md border border-pink-500/30 text-white px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-xl group-hover:block transition-all">
-          <span className="text-pink-400">Online agora</span> · Agende no WhatsApp ✨
-        </div>
-        <BeautyBookingQuiz studioName="Renata Beauty Studio" theme="pink" service="Sobrancelhas e Spa" className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white flex items-center justify-center shadow-2xl shadow-green-500/50 hover:scale-110 active:scale-95 transition-transform relative cursor-pointer" ariaLabel="Agendar no WhatsApp">
-          <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-pink-500 border-2 border-[#0E090C] flex items-center justify-center text-[9px] font-bold">1</span>
-          <MessageCircle className="w-7 h-7 fill-white" />
-        </BeautyBookingQuiz>
-      </div>
-
       <PortfolioSocialProofPopup clientKey="renata-beauty" eyebrow="Renata Beauty em destaque" title="Cílios, unhas e sobrancelhas com atendimento pensado em cada detalhe." description="Veja os procedimentos, conheça o espaço e envie suas preferências organizadas para a profissional." ctaLabel="Conhecer procedimentos" ctaHref="#procedimentos" delayMs={6500} className="border-pink-500/30 bg-[#160d13]/95 text-white" accentClassName="text-pink-300" />
       <PortfolioUpsellPopup pageName="renata-beauty" />
     </div>

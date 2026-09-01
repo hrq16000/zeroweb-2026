@@ -134,29 +134,6 @@ function DyzFooter() {
   return <footer className="border-t border-white/10 bg-[#061536] px-5 py-10 text-blue-100"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">D.Y.Z Promo</strong> · Divulgação e panfletagem em Curitiba e região.</p><PortfolioHostCredit className="text-xs text-blue-200/80" linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#f7c948] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f7c948]" /></div></footer>;
 }
 
-function DyzFloatingCTA() {
-  return (
-    <PortfolioCTAQuiz
-      clientKey="dyzpromo"
-      studioName="D.Y.Z Promo"
-      recipientName="Denis"
-      theme="navy"
-      mode="proposal"
-      quizConfig={{ proposalKind: "campaign" }}
-      service="Divulgação e panfletagem"
-      className="group fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition hover:scale-105 hover:bg-[#20ba5a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#061536] sm:pr-5"
-      ariaLabel="Falar com Denis pelo WhatsApp"
-    >
-      <span className="relative grid h-8 w-8 place-items-center rounded-full bg-white/20">
-        <span className="absolute inset-0 animate-ping rounded-full bg-white/20" aria-hidden="true" />
-        <MessageCircle className="relative h-5 w-5" aria-hidden="true" />
-      </span>
-      <span className="hidden sm:inline">Falar com o Denis</span>
-      <span className="sr-only sm:hidden">Falar com o Denis</span>
-    </PortfolioCTAQuiz>
-  );
-}
-
 export function DyzPromoPage() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   useEffect(() => {
@@ -412,7 +389,6 @@ export function DyzPromoPage() {
       {lightbox && <div className="fixed inset-0 z-[100] grid place-items-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Imagem ampliada" onClick={() => setLightbox(null)}><button type="button" onClick={() => setLightbox(null)} className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20" aria-label="Fechar imagem"><X className="h-6 w-6" /></button><img src={lightbox.src} alt={lightbox.alt} loading="lazy" decoding="async" className="max-h-[92vh] max-w-full object-contain" width={1200} height={800} onClick={(event) => event.stopPropagation()} /></div>}
       <PortfolioSocialProofPopup clientKey="dyzpromo" eyebrow="D.Y.Z em campo" title="Campanhas para restaurantes, varejo, imóveis, estética e tecnologia." description="Experiência prática em Curitiba e região, com equipe orientada para cada ação." ctaLabel="Ver marcas atendidas" ctaHref="#clientes" delayMs={5000} className="border-white/15 bg-[#071b49]/95 text-white" accentClassName="text-[#f7c948]" />
       <PortfolioUpsellPopup pageName="dyzpromo" />
-      <DyzFloatingCTA />
       <DyzFooter />
     </div>
   );

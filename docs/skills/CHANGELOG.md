@@ -617,3 +617,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Adição:** projeto oficial `/portfolio/manu-pasteis` para pastéis recheados e quentinhos.
 - **Operação:** cardápio real Brendi, horários e formas de pagamento informados pela loja.
 - **Conversão:** logo própria, funil, CTA e divulgação exclusivos; contato operacional mantido somente no servidor.
+
+## 2026-09-01 — inspeção da pilha de elementos flutuantes
+
+- **Auditoria:** revisados os projetos `/portfolio/<slug>` e a montagem do catálogo para detectar botões duplicados, colisões entre prova social, contato e retorno ao topo.
+- **Correções:** D.Y.Z Promo e Renata Beauty deixaram de montar CTAs flutuantes próprios em paralelo ao botão universal; todos os controles compartilhados agora usam slots únicos com `safe-area` e espaçamento vertical.
+- **Proteção:** a prova social sobe para o slot 3 e desaparece junto ao rodapé; o retorno ao topo usa o slot secundário da coluna direita. Isso evita sobreposição em telas estreitas sem alterar o CTA, a mensagem ou a identidade de cada cliente.

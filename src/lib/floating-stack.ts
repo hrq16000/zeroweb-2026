@@ -19,6 +19,8 @@ export const FLOATING_SLOT = {
   three: "bottom-[calc(10.75rem+env(safe-area-inset-bottom))]",
   /** Coluna direita (WhatsApp). */
   right: "bottom-[calc(5.5rem+env(safe-area-inset-bottom))]",
+  /** Controle secundário na coluna direita (ex.: voltar ao topo). */
+  rightTwo: "bottom-[calc(10.75rem+env(safe-area-inset-bottom))]",
 } as const;
 
 /** z-index contextual: FABs < painéis abertos < consentimento/modais. */
