@@ -1156,5 +1156,29 @@
     "fallbackImage": "/images/denise-gomes-psicologa/logo.png",
     "metrics": "Agendamento de avaliação",
     "summary": "Atendimento e avaliação psicológica com Denise Gomes, CRP 08/22352, para adultos em São José dos Pinhais, com acolhimento para questões como ansiedade, burnout e relacionamentos."
+  },
+  {
+    "slug": "ton-e-cor",
+    "clientKey": "ton-e-cor",
+    "title": "Ton & Cor · Pintura e Pequenas Reformas",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Região de Curitiba",
+    "state": "PR",
+    "tags": [
+      "pintura-em-geral",
+      "alvenaria",
+      "hidraulica",
+      "limpeza-de-telhado",
+      "reparos-em-geral"
+    ],
+    "subtitle": "Pintura, pequenos reparos e manutenção residencial",
+    "location": "Região de Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/ton-e-cor/hero-og.jpg",
+    "fallbackImage": "/images/ton-e-cor/logo.png",
+    "metrics": "Orçamento por demanda",
+    "summary": "Presença digital da Ton & Cor para pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral."
   }
 ]

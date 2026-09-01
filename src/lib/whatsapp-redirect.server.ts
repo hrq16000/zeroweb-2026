@@ -81,33 +81,38 @@ export function resolveOperationalWhatsAppContact(): OperationalWhatsAppContact 
  * Destinatário do site de um cliente. Sem fallback para o WhatsApp da 0WEB
  * e sem número no código-fonte: só a env do cliente.
  */
-export function resolvePortfolioWhatsAppContact(clientKey?: string | null): OperationalWhatsAppContact | null {
+export function resolvePortfolioWhatsAppContact(
+  clientKey?: string | null,
+): OperationalWhatsAppContact | null {
   if (!isPortfolioClientKey(clientKey)) return null;
-  const envName = clientKey === "dyzpromo"
-    ? "DYZ_PROMO_WHATSAPP_NUMBER"
-    : clientKey === "renata-beauty" || clientKey === "r-beauty"
-      ? "RENATA_BEAUTY_WHATSAPP_NUMBER"
-      : clientKey === "marido-de-aluguel"
-        ? "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER"
-        : clientKey === "emporio-lelecute"
-          ? "EMPORIO_LELECUTE_WHATSAPP_NUMBER"
-          : clientKey === "paraiso-do-hot-dog"
-            ? "PARAISO_HOT_DOG_WHATSAPP_NUMBER"
-            : clientKey === "rm-fretes"
-              ? "RM_FRETES_WHATSAPP_NUMBER"
-              : clientKey === "rj-servicos-drywall"
-                ? "RJ_SERVICOS_DRYWALL_WHATSAPP_NUMBER"
-                : clientKey === "assistencia-microondas-santos"
-                  ? "ASSISTENCIA_MICROONDAS_SANTOS_WHATSAPP_NUMBER"
-                : clientKey === "artesanatos-darleia-oliveira"
-                  ? "ARTESANATOS_DARLEIA_OLIVEIRA_WHATSAPP_NUMBER"
-                : clientKey === "thays-camilla"
-                  ? "THAYS_CAMILLA_WHATSAPP_NUMBER"
-                : clientKey === "fernanda-amaral-drywall"
-                  ? "FERNANDA_AMARAL_DRYWALL_WHATSAPP_NUMBER"
-                : clientKey === "refrigeracao-maresia"
-                  ? "REFRIGERACAO_MARESIA_WHATSAPP_NUMBER"
-                : null;
+  const envName =
+    clientKey === "dyzpromo"
+      ? "DYZ_PROMO_WHATSAPP_NUMBER"
+      : clientKey === "renata-beauty" || clientKey === "r-beauty"
+        ? "RENATA_BEAUTY_WHATSAPP_NUMBER"
+        : clientKey === "marido-de-aluguel"
+          ? "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER"
+          : clientKey === "emporio-lelecute"
+            ? "EMPORIO_LELECUTE_WHATSAPP_NUMBER"
+            : clientKey === "paraiso-do-hot-dog"
+              ? "PARAISO_HOT_DOG_WHATSAPP_NUMBER"
+              : clientKey === "rm-fretes"
+                ? "RM_FRETES_WHATSAPP_NUMBER"
+                : clientKey === "rj-servicos-drywall"
+                  ? "RJ_SERVICOS_DRYWALL_WHATSAPP_NUMBER"
+                  : clientKey === "assistencia-microondas-santos"
+                    ? "ASSISTENCIA_MICROONDAS_SANTOS_WHATSAPP_NUMBER"
+                    : clientKey === "artesanatos-darleia-oliveira"
+                      ? "ARTESANATOS_DARLEIA_OLIVEIRA_WHATSAPP_NUMBER"
+                      : clientKey === "thays-camilla"
+                        ? "THAYS_CAMILLA_WHATSAPP_NUMBER"
+                        : clientKey === "fernanda-amaral-drywall"
+                          ? "FERNANDA_AMARAL_DRYWALL_WHATSAPP_NUMBER"
+                          : clientKey === "refrigeracao-maresia"
+                            ? "REFRIGERACAO_MARESIA_WHATSAPP_NUMBER"
+                            : clientKey === "ton-e-cor"
+                              ? "TON_E_COR_WHATSAPP_NUMBER"
+                              : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");
   if (!digits || digits.length < 10 || digits.length > 15) return null;
@@ -126,7 +131,11 @@ export type CreateWhatsAppRedirectTokenInput = {
 
 export type CreateWhatsAppRedirectTokenResult =
   | { ok: true; redirectPath: string; expiresAt: string; reused: boolean }
-  | { ok: false; reason: "lead_not_found" | "session_mismatch" | "rate_limited" | "db_error"; message?: string };
+  | {
+      ok: false;
+      reason: "lead_not_found" | "session_mismatch" | "rate_limited" | "db_error";
+      message?: string;
+    };
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -182,16 +191,14 @@ export async function createWhatsAppRedirectToken(
   const expiresAt = new Date(now + WHATSAPP_TOKEN_TTL_MS).toISOString();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { error } = await (supabaseAdmin as any)
-    .from("whatsapp_redirect_tokens")
-    .insert({
-      token,
-      lead_id: input.leadId,
-      funnel_session_id: input.funnelSessionId ?? null,
-      expires_at: expiresAt,
-      ip_hash: input.ipHash ?? null,
-      // destination_digits and message intentionally NOT set (nullable).
-    });
+  const { error } = await (supabaseAdmin as any).from("whatsapp_redirect_tokens").insert({
+    token,
+    lead_id: input.leadId,
+    funnel_session_id: input.funnelSessionId ?? null,
+    expires_at: expiresAt,
+    ip_hash: input.ipHash ?? null,
+    // destination_digits and message intentionally NOT set (nullable).
+  });
 
   if (error) {
     console.error("[createWhatsAppRedirectToken] insert failed", error.message);
@@ -219,8 +226,7 @@ export type ResolvedTokenRow = {
 };
 
 export type ResolveTokenResult =
-  | { ok: true; row: ResolvedTokenRow }
-  | { ok: false; reason: "invalid_format" | "not_found" };
+  { ok: true; row: ResolvedTokenRow } | { ok: false; reason: "invalid_format" | "not_found" };
 
 export async function resolveWhatsAppRedirectToken(token: string): Promise<ResolveTokenResult> {
   if (!/^[a-f0-9]{16,64}$/.test(token)) return { ok: false, reason: "invalid_format" };
@@ -256,11 +262,7 @@ export async function resolveWhatsAppRedirectToken(token: string): Promise<Resol
 // ============================================================================
 
 export type ConsumeStatus =
-  | "ok_first"
-  | "ok_reuse"
-  | "expired"
-  | "used_out_of_window"
-  | "not_found";
+  "ok_first" | "ok_reuse" | "expired" | "used_out_of_window" | "not_found";
 
 export type ConsumeResult = {
   status: ConsumeStatus;
@@ -303,9 +305,7 @@ export async function consumeWhatsAppRedirectToken(token: string): Promise<Consu
 // (5) Server-side session status marker
 // ============================================================================
 
-export async function markVisitorFunnelRedirectedBySessionId(
-  sessionId: string,
-): Promise<boolean> {
+export async function markVisitorFunnelRedirectedBySessionId(sessionId: string): Promise<boolean> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data } = await (supabaseAdmin as any).rpc("mark_visitor_funnel_redirected", {

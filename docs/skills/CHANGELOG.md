@@ -742,6 +742,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Transparência:** as peças continuam identificadas como “Conceito de presença e papelaria” até aprovação do cliente, sem inventar contatos operacionais.
 - **Cobertura legada:** 12 itens do catálogo que não tinham assets próprios receberam logo conceitual e OG JPEG exclusivos por slug; o gerador `scripts/generate-portfolio-identity-assets.mjs` mantém a regra para novos registros.
 - **Gates fortalecidos:** assets, logos, ícones e presença agora conferem o catálogo canônico inteiro, evitando que um projeto publicado volte a renderizar um cartão ou panfleto vazio.
+
 # 2026-09-01 — Galeria parametrizada do portfólio
 
 - **Tarefa:** reorganizar `/portfolio/` como galeria comercial nacional, inspirada na arquitetura de descoberta de catálogos visuais, sem copiar identidade ou componentes externos.
@@ -750,3 +751,12 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Implementação:** cabeçalho editorial compacto, filtros parametrizados por segmento/tipo/região, busca nacional, ordenação, barra persistente, sidebar desktop, painel móvel, estado vazio, cards uniformes com imagens próprias e Kit de Presença, grade responsiva e carregamento em lotes de 12.
 - **Escopo global:** todos os registros atuais de `portfolio-catalog.json` recebem o padrão automaticamente; novos clientes entram na mesma galeria pelo cadastro canônico, sem edição manual do layout.
 - **Segurança:** mantido o GitHub oficial como única origem de publicação; nenhum contato operacional foi exposto e nenhuma identidade de cliente foi misturada.
+
+# 2026-09-01 — Ton & Cor · Pintura e Pequenas Reformas
+
+- **Tarefa:** cadastrar e publicar o projeto real `ton-e-cor` no padrão completo de `/portfolio/<slug>`.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates` e `imagegen`.
+- **Identidade:** marca original em azul-marinho e amarelo, sem reutilizar o personagem reconhecível do anúncio; imagem social própria e fotografia conceitual coerente com pintura e reparos.
+- **Conteúdo real:** pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral; nenhuma avaliação, preço, prazo ou garantia foi inventada.
+- **Conversão e privacidade:** funil exclusivo, mensagem de divulgação própria e destinatário preparado pela env server-side `TON_E_COR_WHATSAPP_NUMBER`; o número não entra no bundle público.
+- **Kit de Presença:** cartão e panfleto derivados automaticamente da marca, imagem social e dados exclusivos do slug, identificados como conceito de presença e papelaria.

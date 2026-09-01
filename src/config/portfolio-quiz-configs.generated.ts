@@ -1059,6 +1059,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: frase, imagem, cores, quantidade ou data do presente."
   },
+  "ton-e-cor": {
+    "proposalKind": "service",
+    "services": [
+      "Pintura em geral",
+      "Pequenos serviços de alvenaria",
+      "Pequenos serviços hidráulicos",
+      "Limpeza de telhado",
+      "Reparos em geral"
+    ],
+    "experienceOptions": [
+      "Casa",
+      "Apartamento",
+      "Comércio",
+      "Outro espaço"
+    ],
+    "periodOptions": [
+      "Tenho fotos do local",
+      "Posso explicar o reparo",
+      "Preciso de uma avaliação"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nos próximos dias",
+      "Ainda neste mês",
+      "Estou planejando"
+    ],
+    "stepTitles": {
+      "service": "Qual serviço você precisa?",
+      "experience": "Onde será o trabalho?",
+      "period": "Como podemos avaliar?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte quais ambientes ou reparos precisam de atenção."
+  },
   "vila-da-capivara": {
     "services": [
       "Kit Festa para 10 pessoas · R$ 259,90",

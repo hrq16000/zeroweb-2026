@@ -216,6 +216,9 @@ const DeniseGomesPsicologaPage = lazy(() =>
     default: m.DeniseGomesPsicologaPage,
   })),
 );
+const TonECorPage = lazy(() =>
+  import("@/components/site/TonECorPage").then((m) => ({ default: m.TonECorPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
@@ -267,88 +270,91 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isThaysCamilla = loaderData?.slug === "thays-camilla";
     const isFernandaAmaral = loaderData?.slug === "fernanda-amaral-drywall";
     const isDeniseGomes = loaderData?.slug === "denise-gomes-psicologa";
-    const description = isDeniseGomes
-      ? "Denise Gomes, psicóloga CRP 08/22352 em São José dos Pinhais: atendimento e avaliação psicológica para adultos, ansiedade, burnout e relacionamentos."
-      : isManuPasteis
-        ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
-        : isLizMoraes
-          ? "Liz Moraes Nail Designer no Centro de São José dos Pinhais: manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1 com agendamento pelo WhatsApp."
-          : isAssistenciaMicroondas
-            ? "Assistência Técnica Microondas Santos em São José dos Pinhais: conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
-            : isArtesanatosDarleia
-              ? "Artesanatos Darléia Oliveira: coadores de café 100% algodão, reutilizáveis e feitos à mão para um café mais puro e acolhedor."
-              : isThaysCamilla
-                ? "Thays Camilla: canecas e azulejos personalizados para presentear com carinho, incluindo kit promocional com azulejo 15x15 cm."
-                : isFernandaAmaral
-                  ? "Fernanda & Amaral Serviços: instalação de drywall, pinturas, reformas, móveis e madeira, corte de grama e pequenos fretes na região do Paraná."
-                  : isLjCleaning
-                    ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
-                    : isGalileu
-                      ? "Galileu Locação de Brinquedos em São José dos Pinhais: tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos."
-                      : isMiro
-                        ? "MIRO TECH em São José dos Pinhais: manutenção especializada de TVs, computadores, micro-ondas e recuperação de dados de HD."
-                        : isPremium
-                          ? "Premium Envelopamentos em Curitiba e região: plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
-                          : isRealeza
-                            ? "Confeitaria Sabor da Realeza em Uberaba: bolos, doces, salgados e encomendas para festas e eventos."
-                            : isLolipa
-                              ? "Lolipa Arte em Festas Decor em Curitiba: decorações personalizadas para aniversários, batizados, chás e comemorações especiais, com criação sob medida e opção pegue e monte."
-                              : isSosPresentes
-                                ? "SOS Presentes & Cosméticos em São José dos Pinhais: cestas à pronta entrega, cosméticos, acessórios e canecas personalizadas para presentear."
-                                : isRjDrywall
-                                  ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
-                                  : isHotDog
-                                    ? "Cardápio online do Paraíso do Hot Dog em São José dos Pinhais, com lanches, adicionais, retirada, entrega e pedido direto pelo atendimento."
-                                    : loaderData?.slug === "emporio-lelecute"
-                                      ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
-                                      : isChyrley
-                                        ? "Bolos, kits festa, salgados, docinhos e Copo da Felicidade feitos por Chyrley em Rio Bonito, Paraná. Encomende para sua comemoração."
-                                        : isMpFestas
-                                          ? "Decoração de festas em Araucária e região: Festa na Mesa, decoração clássica e premium para aniversários, casamentos e eventos especiais."
-                                          : isStudioCilios
-                                            ? "Extensão de cílios com efeito personalizado: Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio com agendamento online."
-                                            : isMaresia
-                                              ? "Manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana. Recarga de gás, motor, sensor e manutenção preventiva ou corretiva."
-                                              : isAgElectrical
-                                                ? "Elétrica geral, infraestrutura para redes, cabeamento UTP, CFTV e organização de racks em Curitiba e Região Metropolitana."
-                                                : isVilaCapivara
-                                                  ? "Bolos personalizados, brigadeiros gourmet, salgados e kits festa completos para aniversários e eventos em Campo Comprido, Curitiba."
-                                                  : isLkAlvenaria
-                                                    ? "Construção, fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas com contrato e garantia."
-                                                    : isLucasArruma
-                                                      ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
-                                                      : isPauloMestre
-                                                        ? "Serviços de pedreiro, azulejista e construção civil para fundação, alvenaria, revestimentos e reformas."
-                                                        : isEcommerceOn
-                                                          ? "Agência digital para SEO, e-commerce, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
-                                                          : isNoBrilho
-                                                            ? "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes e bancos automotivos em São José dos Pinhais."
-                                                            : isSalaoMarcia
-                                                              ? "Salão da Marcia em Cidade Jardim, São José dos Pinhais: depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
-                                                              : isCihLuh
-                                                                ? "Espaço CIH & LUH, o casal das unhas: alongamento em gel, reconstruções, pedicure e cuidados podológicos."
-                                                                : isDiego
-                                                                  ? "Montagem e desmontagem de móveis, consertos, adaptações e instalações residenciais no Sítio Cercado, Curitiba."
-                                                                  : isAguia
-                                                                    ? "Pintura e sinalização horizontal para estacionamentos, condomínios, comércios e indústrias em Curitiba e região."
-                                                                    : isEletrovale
-                                                                      ? "Manutenção e rebobinamento de bombas, motores, motoredutores e motofreios com excelência técnica."
-                                                                      : isEletroSolucoes
-                                                                        ? "Instalações elétricas, manutenção, iluminação e automação residencial, predial e industrial em Pinhais e região."
-                                                                        : isEisenfer
-                                                                          ? "Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais em São José dos Pinhais."
-                                                                          : isMary
-                                                                            ? "Mary Diarista oferece diárias, limpeza pós-obra e organização em Curitiba, com agenda semanal, quinzenal e esporádica."
-                                                                            : isAcai
-                                                                              ? "Açaí Total Araucária: copões e litrões de açaí com frutas, cremes e complementos, com entrega em casa."
-                                                                              : isJkl
-                                                                                ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
-                                                                                : isSantos
-                                                                                  ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
-                                                                                  : (loaderData
-                                                                                      ?.vertical
-                                                                                      ?.subheadline ??
-                                                                                    "Projeto de presença digital criado pela 0WEB.");
+    const isTonECor = loaderData?.slug === "ton-e-cor";
+    const description = isTonECor
+      ? "Ton & Cor: pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral na região do Paraná."
+      : isDeniseGomes
+        ? "Denise Gomes, psicóloga CRP 08/22352 em São José dos Pinhais: atendimento e avaliação psicológica para adultos, ansiedade, burnout e relacionamentos."
+        : isManuPasteis
+          ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
+          : isLizMoraes
+            ? "Liz Moraes Nail Designer no Centro de São José dos Pinhais: manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1 com agendamento pelo WhatsApp."
+            : isAssistenciaMicroondas
+              ? "Assistência Técnica Microondas Santos em São José dos Pinhais: conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
+              : isArtesanatosDarleia
+                ? "Artesanatos Darléia Oliveira: coadores de café 100% algodão, reutilizáveis e feitos à mão para um café mais puro e acolhedor."
+                : isThaysCamilla
+                  ? "Thays Camilla: canecas e azulejos personalizados para presentear com carinho, incluindo kit promocional com azulejo 15x15 cm."
+                  : isFernandaAmaral
+                    ? "Fernanda & Amaral Serviços: instalação de drywall, pinturas, reformas, móveis e madeira, corte de grama e pequenos fretes na região do Paraná."
+                    : isLjCleaning
+                      ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
+                      : isGalileu
+                        ? "Galileu Locação de Brinquedos em São José dos Pinhais: tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos."
+                        : isMiro
+                          ? "MIRO TECH em São José dos Pinhais: manutenção especializada de TVs, computadores, micro-ondas e recuperação de dados de HD."
+                          : isPremium
+                            ? "Premium Envelopamentos em Curitiba e região: plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
+                            : isRealeza
+                              ? "Confeitaria Sabor da Realeza em Uberaba: bolos, doces, salgados e encomendas para festas e eventos."
+                              : isLolipa
+                                ? "Lolipa Arte em Festas Decor em Curitiba: decorações personalizadas para aniversários, batizados, chás e comemorações especiais, com criação sob medida e opção pegue e monte."
+                                : isSosPresentes
+                                  ? "SOS Presentes & Cosméticos em São José dos Pinhais: cestas à pronta entrega, cosméticos, acessórios e canecas personalizadas para presentear."
+                                  : isRjDrywall
+                                    ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
+                                    : isHotDog
+                                      ? "Cardápio online do Paraíso do Hot Dog em São José dos Pinhais, com lanches, adicionais, retirada, entrega e pedido direto pelo atendimento."
+                                      : loaderData?.slug === "emporio-lelecute"
+                                        ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
+                                        : isChyrley
+                                          ? "Bolos, kits festa, salgados, docinhos e Copo da Felicidade feitos por Chyrley em Rio Bonito, Paraná. Encomende para sua comemoração."
+                                          : isMpFestas
+                                            ? "Decoração de festas em Araucária e região: Festa na Mesa, decoração clássica e premium para aniversários, casamentos e eventos especiais."
+                                            : isStudioCilios
+                                              ? "Extensão de cílios com efeito personalizado: Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio com agendamento online."
+                                              : isMaresia
+                                                ? "Manutenção e conserto de geladeiras e freezers em Curitiba e Região Metropolitana. Recarga de gás, motor, sensor e manutenção preventiva ou corretiva."
+                                                : isAgElectrical
+                                                  ? "Elétrica geral, infraestrutura para redes, cabeamento UTP, CFTV e organização de racks em Curitiba e Região Metropolitana."
+                                                  : isVilaCapivara
+                                                    ? "Bolos personalizados, brigadeiros gourmet, salgados e kits festa completos para aniversários e eventos em Campo Comprido, Curitiba."
+                                                    : isLkAlvenaria
+                                                      ? "Construção, fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas com contrato e garantia."
+                                                      : isLucasArruma
+                                                        ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
+                                                        : isPauloMestre
+                                                          ? "Serviços de pedreiro, azulejista e construção civil para fundação, alvenaria, revestimentos e reformas."
+                                                          : isEcommerceOn
+                                                            ? "Agência digital para SEO, e-commerce, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
+                                                            : isNoBrilho
+                                                              ? "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes e bancos automotivos em São José dos Pinhais."
+                                                              : isSalaoMarcia
+                                                                ? "Salão da Marcia em Cidade Jardim, São José dos Pinhais: depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
+                                                                : isCihLuh
+                                                                  ? "Espaço CIH & LUH, o casal das unhas: alongamento em gel, reconstruções, pedicure e cuidados podológicos."
+                                                                  : isDiego
+                                                                    ? "Montagem e desmontagem de móveis, consertos, adaptações e instalações residenciais no Sítio Cercado, Curitiba."
+                                                                    : isAguia
+                                                                      ? "Pintura e sinalização horizontal para estacionamentos, condomínios, comércios e indústrias em Curitiba e região."
+                                                                      : isEletrovale
+                                                                        ? "Manutenção e rebobinamento de bombas, motores, motoredutores e motofreios com excelência técnica."
+                                                                        : isEletroSolucoes
+                                                                          ? "Instalações elétricas, manutenção, iluminação e automação residencial, predial e industrial em Pinhais e região."
+                                                                          : isEisenfer
+                                                                            ? "Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais em São José dos Pinhais."
+                                                                            : isMary
+                                                                              ? "Mary Diarista oferece diárias, limpeza pós-obra e organização em Curitiba, com agenda semanal, quinzenal e esporádica."
+                                                                              : isAcai
+                                                                                ? "Açaí Total Araucária: copões e litrões de açaí com frutas, cremes e complementos, com entrega em casa."
+                                                                                : isJkl
+                                                                                  ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
+                                                                                  : isSantos
+                                                                                    ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
+                                                                                    : (loaderData
+                                                                                        ?.vertical
+                                                                                        ?.subheadline ??
+                                                                                      "Projeto de presença digital criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = withSocialVersion(
@@ -612,6 +618,8 @@ function PortfolioPrototypePage() {
           <FernandaAmaralDrywallPage />
         ) : slug === "denise-gomes-psicologa" ? (
           <DeniseGomesPsicologaPage />
+        ) : slug === "ton-e-cor" ? (
+          <TonECorPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

@@ -431,6 +431,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "ton-e-cor",
+    vertical: "prestadores-de-servicos",
+    siteName: "Ton & Cor · Pintura e Pequenas Reformas",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

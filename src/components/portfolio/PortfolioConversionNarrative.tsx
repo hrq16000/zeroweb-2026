@@ -395,6 +395,12 @@ const narrativeBySlug: Record<
     cta: "Agendar avaliação",
     theme: "pink",
   },
+  "ton-e-cor": {
+    title: "Pintura e pequenos reparos começam com uma avaliação clara do espaço.",
+    step: "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
+    cta: "Pedir orçamento",
+    theme: "navy",
+  },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

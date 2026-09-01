@@ -776,6 +776,18 @@
         "ctaHref": "#como-funciona"
       },
       "socialVersion": "7611b371"
+    },
+    "ton-e-cor": {
+      "icon": "/images/ton-e-cor/logo.png",
+      "socialImage": "/images/ton-e-cor/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Ton & Cor",
+        "title": "Pintura e pequenos reparos em uma presença clara.",
+        "description": "Conheça os serviços e organize os detalhes para solicitar um orçamento.",
+        "ctaLabel": "Ver serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "429bdcd1"
     }
   }
 }

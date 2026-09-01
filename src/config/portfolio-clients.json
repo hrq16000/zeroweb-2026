@@ -601,5 +601,16 @@
     "ctaMode": "booking",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "ton-e-cor",
+    "slug": "ton-e-cor",
+    "siteName": "Ton & Cor · Pintura e Pequenas Reformas",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/TonECorPage.tsx",
+    "assetsDir": "public/images/ton-e-cor",
+    "ctaMode": "quote",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
