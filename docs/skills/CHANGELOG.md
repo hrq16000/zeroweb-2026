@@ -553,3 +553,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Tarefa:** iniciar a dispersão do catálogo por novos estados e cidades brasileiras.
 - **Alterações:** oito amostras públicas foram cadastradas com ramo, bairro, cidade e estado próprios; quatro em Guaratuba/PR, duas em Mirassol/SP e duas em Minas Gerais.
 - **Proteção:** nomes e ofertas são conceitos demonstrativos; nenhum contato, preço, avaliação ou vínculo comercial foi inventado.
+
+## 2026-09-01 — separação entre amostras e prospecção real
+
+- **Tarefa:** corrigir a distinção entre projetos conceituais e empresas que podem ser contatadas.
+- **Alterações:** criada lista de oito empresas reais de Guaratuba, Mirassol, Belo Horizonte e Uberlândia, com contatos publicados e fontes verificáveis.
+- **Regra:** nenhuma marca, foto, depoimento ou dado de empresa real entra no portal sem autorização; as páginas conceituais permanecem explicitamente demonstrativas.
