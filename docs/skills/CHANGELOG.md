@@ -478,3 +478,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **SEO/OG:** a auditoria confirmou que a produção ainda não contém os commits novos (SOS responde 404 até o deploy). O conversor de OG deixou de depender de ImageMagick local e passa a usar `sharp`, dependência declarada do projeto, para gerar JPEG 1200×630 e cache-busting durante o prebuild.
 - **Skills externas:** nenhuma instalada. A camada local cobriu arquitetura, acessibilidade e QA; uma skill externa seria redundante e adicionaria superfície de segurança sem resolver a ausência de runtime de imagem nesta máquina.
 - **Validação:** catálogo, boundaries, scaffold, rota, privacidade e performance aprovados; a validação de OG local fica condicionada à instalação das dependências do projeto, que é executada no build de deploy.
+
+## 2026-09-01 — prospecção Rua Quirino Zagonel
+
+- **Tarefa:** mapear oportunidades de portfólio no Jardim Itália, São José dos Pinhais, para a próxima leva de projetos.
+- **Skills aplicadas:** `0web-skill-router`, `0web-skill-discovery`, `0web-design-system` e `0web-ui-quality-gates`.
+- **Decisão:** registrar 12 candidatos em documento oficial; 10 estão prontos para briefing e 2 dependem de confirmação do nome/atividade atual. Nenhum candidato foi publicado automaticamente com dados especulativos.
+- **Validação:** fontes públicas cruzadas por endereço e atividade; duplicidades do nº 1374 foram agrupadas como uma única oportunidade até confirmação.
