@@ -561,6 +561,12 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Regra:** nenhuma marca, foto, depoimento ou dado de empresa real entra no portal sem autorização; as páginas conceituais permanecem explicitamente demonstrativas.
 - **Adição:** Lolipa Arte em Festas Decor foi incluída como prospecto real de Curitiba, usando o Linktree oficial como fonte de contato inicial.
 
+## 2026-09-01 — projeto Lolipa Arte em Festas Decor
+
+- **Adição:** projeto público `/portfolio/lolipa-arte-em-festas` com galeria exclusiva, serviços de decoração completa, criação sob medida, pegue e monte e mimos informados pela marca.
+- **Assets:** cinco imagens fornecidas pela cliente foram vinculadas exclusivamente ao slug; uma prévia social paisagem foi gerada por IA sem texto, contatos ou promessas inventadas.
+- **Governança:** dados de contato operacional permanecem fora do bundle público; CTAs usam o funil parametrizado e a página permanece identificada como amostra demonstrativa.
+
 ## 2026-09-01 — kit de presença visual em todos os projetos
 
 - **Tarefa:** garantir cartão de visita e panfleto digital visíveis em cada `/portfolio/<slug>`.

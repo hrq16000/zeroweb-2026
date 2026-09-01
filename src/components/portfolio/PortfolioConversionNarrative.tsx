@@ -56,6 +56,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "mirassol-conserta-celular": { title: "Tecnologia parada pede um diagnóstico fácil de entender.", step: "Informe o aparelho, o sintoma e quando o problema começou.", cta: "Avaliar o conceito", theme: "navy" },
   "bh-barreiro-marmitas": { title: "Uma semana mais prática começa com almoço planejado.", step: "Conte sua rotina e o tipo de refeição que deseja encontrar.", cta: "Explorar o conceito", theme: "gold" },
   "uberlandia-eletrica-residencial": { title: "Segurança elétrica começa com uma avaliação bem explicada.", step: "Descreva o ambiente e a instalação que precisa revisar.", cta: "Avaliar o conceito", theme: "navy" },
+  "lolipa-arte-em-festas": { title: "A memória da festa começa no cenário que você imagina.", step: "Conte o tema, a ocasião e os detalhes que gostaria de transformar em decoração.", cta: "Planejar minha festa", theme: "pink" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

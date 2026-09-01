@@ -58,6 +58,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "mirassol-conserta-celular", vertical: "prestadores-de-servicos", siteName: "Conserta Mirassol · São Bernardo", kind: "prototype", indexable: true },
   { slug: "bh-barreiro-marmitas", vertical: "restaurantes", siteName: "Marmitas do Barreiro · Belo Horizonte", kind: "prototype", indexable: true },
   { slug: "uberlandia-eletrica-residencial", vertical: "prestadores-de-servicos", siteName: "Elétrica Bairro Brasil · Uberlândia", kind: "prototype", indexable: true },
+  { slug: "lolipa-arte-em-festas", vertical: "comercios", siteName: "Lolipa Arte em Festas Decor · Curitiba", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

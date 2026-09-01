@@ -458,5 +458,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "lolipa-arte-em-festas",
+    "slug": "lolipa-arte-em-festas",
+    "siteName": "Lolipa Arte em Festas Decor",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/LolipaArteEmFestasPage.tsx",
+    "assetsDir": "public/images/lolipa-arte-em-festas",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

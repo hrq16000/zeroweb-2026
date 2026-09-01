@@ -476,6 +476,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "e7cf199c"
+    },
+    "lolipa-arte-em-festas": {
+      "icon": "/images/lolipa-arte-em-festas/hero.png",
+      "socialImage": "/images/lolipa-arte-em-festas/og.png",
+      "proof": {
+        "eyebrow": "Lolipa Arte em Festas Decor",
+        "title": "Sua festa vira um momento inesquecível.",
+        "description": "Decorações personalizadas para aniversários, batizados, chás e comemorações especiais.",
+        "ctaLabel": "Planejar minha festa",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "lolipa-v1"
     }
   }
 }

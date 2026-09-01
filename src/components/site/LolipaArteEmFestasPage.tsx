@@ -1,0 +1,40 @@
+import { ArrowRight, CakeSlice, Check, Gift, Sparkles } from "lucide-react";
+import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
+const gallery = [
+  ["/images/lolipa-arte-em-festas/galeria-temas.png", "Decorações personalizadas para temas infantis e comemorações"],
+  ["/images/lolipa-arte-em-festas/decoracao-branca.png", "Decoração elegante em tons claros para celebrações especiais"],
+  ["/images/lolipa-arte-em-festas/decoracao-colorida.png", "Mesa temática colorida com composição sob medida"],
+  ["/images/lolipa-arte-em-festas/decoracao-infantil.png", "Decoração infantil com balões e elementos personalizados"],
+] as const;
+
+export function LolipaArteEmFestasPage() {
+  return (
+    <div className="min-h-dvh bg-[#fbf4f5] text-[#34272b]">
+      <header className="sticky top-0 z-20 border-b border-[#ead8dc] bg-[#fbf4f5]/90 px-5 py-4 backdrop-blur lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" className="font-display text-xl font-black tracking-tight text-[#9b6875]">lolipa</a>
+          <nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#mimos">Mimos</a></nav>
+          <FunnelCTAButton clientKey="lolipa-arte-em-festas" companySlug="lolipa-arte-em-festas" formSlug="funnel-lolipa-arte-em-festas" location="lolipa_hero" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#9b6875] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#9b6875]/20">Planejar minha festa <ArrowRight className="h-4 w-4" /></FunnelCTAButton>
+        </div>
+      </header>
+      <main>
+        <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[.9fr_1.1fr] lg:px-8 lg:py-24">
+          <div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#9b6875]">Arte em festas · Curitiba</p><h1 className="mt-5 max-w-xl font-display text-5xl font-black leading-[.98] sm:text-7xl">Sua festa vira um momento inesquecível.</h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#705c62]">Decorações personalizadas e encantadoras para aniversários, batizados, chás e comemorações especiais — com cada detalhe pensado para contar uma história.</p><div className="mt-8 flex flex-wrap gap-3"><FunnelCTAButton clientKey="lolipa-arte-em-festas" companySlug="lolipa-arte-em-festas" formSlug="funnel-lolipa-arte-em-festas" location="lolipa_hero_primary" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#9b6875] px-6 py-3 font-bold text-white">Receber orçamento <ArrowRight className="h-4 w-4" /></FunnelCTAButton><a href="#galeria" className="inline-flex min-h-12 items-center rounded-full border border-[#c9aab2] px-6 py-3 font-semibold text-[#795762]">Ver inspirações</a></div></div>
+          <PortfolioImage src="/images/lolipa-arte-em-festas/hero.png" alt="Decoração de festa Lolipa com balões e mesa personalizada" priority width={1200} height={900} className="w-full rounded-[2rem] object-cover shadow-2xl shadow-[#9b6875]/15" />
+        </section>
+        <section id="servicos" className="bg-[#ead8dc]/55 px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#9b6875]">Para cada celebração</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-black">Uma decoração que começa no seu sonho.</h2><div className="mt-10 grid gap-5 md:grid-cols-3">{[["Decoração completa", "Composição visual pensada para o espaço, tema e clima da sua comemoração."], ["Criação sob medida", "Cores, formas e detalhes personalizados para deixar a festa com a sua identidade."], ["Pegue e monte", "Uma alternativa prática para quem quer montar a própria celebração com orientação." ]].map(([title, text], index) => <article key={title} className="rounded-[1.6rem] border border-[#ead8dc] bg-white p-6 shadow-sm"><span className="text-sm font-bold text-[#9b6875]">0{index + 1}</span><h3 className="mt-8 font-display text-2xl font-black">{title}</h3><p className="mt-3 leading-7 text-[#705c62]">{text}</p></article>)}</div></div></section>
+        <section id="galeria" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#9b6875]">Galeria Lolipa</p><h2 className="mt-3 font-display text-4xl font-black">Temas que ganham vida em cada detalhe.</h2></div><CakeSlice className="h-10 w-10 text-[#9b6875]" /></div><div className="mt-10 grid gap-5 sm:grid-cols-2">{gallery.map(([src, alt]) => <figure key={src} className="overflow-hidden rounded-[1.6rem] bg-white shadow-sm"><PortfolioImage src={src} alt={alt} width={1100} height={800} className="aspect-[4/3] w-full object-cover transition duration-500 hover:scale-[1.02]" /><figcaption className="p-4 text-sm font-semibold text-[#705c62]">{alt}</figcaption></figure>)}</div></div></section>
+        <section id="mimos" className="bg-[#9b6875] px-5 py-20 text-white lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center"><div><Sparkles className="h-9 w-9 text-[#f9dce2]" /><p className="mt-6 text-sm font-bold uppercase tracking-[.2em] text-white/70">Mimos exclusivos</p><h2 className="mt-3 font-display text-4xl font-black">Mais carinho para a sua festa.</h2><p className="mt-5 text-lg leading-8 text-white/80">Em cada planejamento, a Lolipa pode incluir mimos pensados para completar a experiência da celebração.</p></div><div className="grid gap-4 sm:grid-cols-3">{["Projeto da festa", "Centrinhos de mesa", "Porta presentes"].map((item) => <article key={item} className="rounded-2xl border border-white/20 bg-white/10 p-5"><Gift className="h-6 w-6 text-[#f9dce2]" /><h3 className="mt-8 font-bold">{item}</h3><p className="mt-2 text-sm leading-6 text-white/70">Mimo sujeito ao alinhamento do projeto.</p></article>)}</div></div></section>
+        <section className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-5xl rounded-[2rem] bg-[#f1e1e4] px-7 py-12 text-center sm:px-12"><Check className="mx-auto h-9 w-9 text-[#9b6875]" /><h2 className="mt-5 font-display text-4xl font-black">Vamos planejar a festa que vai marcar memórias?</h2><p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-[#705c62]">Conte o tema, a ocasião e o que você imaginou. A proposta é construída com você.</p><div className="mt-8"><FunnelCTAButton clientKey="lolipa-arte-em-festas" companySlug="lolipa-arte-em-festas" formSlug="funnel-lolipa-arte-em-festas" location="lolipa_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#9b6875] px-7 py-3.5 font-bold text-white">Falar sobre minha festa <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></div></section>
+      </main>
+      <footer className="bg-[#34272b] px-5 py-8 text-sm text-[#f4dfe3] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">Lolipa Arte em Festas Decor</strong><br />Decorações personalizadas para comemorações especiais.</p><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" /></div></footer>
+      <PortfolioSocialProofPopup clientKey="lolipa-arte-em-festas" eyebrow="Lolipa Arte em Festas Decor" title="Sua festa merece uma composição feita com carinho." description="Veja inspirações e planeje uma decoração personalizada para a sua comemoração." ctaLabel="Ver inspirações" ctaHref="#galeria" delayMs={9000} className="border-[#9b6875]/35 bg-[#34272b]/95 text-white" accentClassName="text-[#f9dce2]" />
+      <PortfolioUpsellPopup pageName="portfolio-lolipa-arte-em-festas" />
+    </div>
+  );
+}
