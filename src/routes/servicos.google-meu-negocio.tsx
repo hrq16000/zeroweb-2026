@@ -25,6 +25,18 @@ const benefits = [
   { icon: Sparkles, t: "Atrair novos clientes diariamente", d: "Fluxo previsível de leads qualificados sem depender de anúncios." },
 ];
 
+/** Fonte única das perguntas — usada no JSON-LD (FAQPage) e no bloco visual. */
+const FAQ: { q: string; a: string }[] = [
+  { q: "Em quanto tempo minha empresa começa a aparecer no Google?", a: "Após a configuração e verificação do perfil, os primeiros resultados aparecem em 7 a 30 dias, com crescimento consistente nos meses seguintes." },
+  { q: "Preciso já ter um perfil no Google Meu Negócio?", a: "Não. A 0WEB cria, reivindica ou recupera perfis e faz toda a configuração técnica, fotos, categorias, áreas de atuação e integração com WhatsApp." },
+  { q: "Qual a diferença entre o Plano Único e o Plano PRO?", a: "O Plano Único (R$397) entrega configuração completa em uma única vez. O Plano PRO (R$247/mês por 3 meses) inclui otimização contínua, postagens, respostas a avaliações e relatórios mensais." },
+  { q: "Funciona para qualquer tipo de empresa?", a: "Sim, atende prestadores de serviço, comércios, escritórios, autoescolas, restaurantes, clínicas e qualquer empresa com atendimento local ou regional." },
+  { q: "Como o Google Meu Negócio ajuda a aparecer nas buscas do meu bairro?", a: "O perfil concentra os sinais que o Google usa na busca local: categoria principal, área de atuação, horário, fotos, avaliações e postagens recentes. Quando esses sinais estão completos e atualizados, a empresa passa a ser elegível para o pacote de mapas em pesquisas com intenção local, como “serviço perto de mim”." },
+  { q: "Preciso ter um site para usar o Google Meu Negócio?", a: "Não é obrigatório, mas ajuda. O perfil resolve a descoberta e o contato; o site sustenta a decisão, apresenta serviços em detalhe e mede a conversão. Perfil e site institucional trabalham juntos e reforçam a mesma autoridade local." },
+  { q: "O que é feito na otimização mensal do perfil?", a: "Revisão de categorias e serviços, publicação de novidades, inclusão de fotos, respostas às avaliações e perguntas, verificação de dados (NAP) e leitura das métricas do perfil para ajustar o que está gerando ligações e mensagens." },
+  { q: "Como funciona o diagnóstico gratuito?", a: "Você responde a um questionário curto sobre o seu negócio, objetivo, prazo e orçamento. Com isso montamos um plano de presença local sob medida e devolvemos as prioridades — sem compromisso de contratação." },
+];
+
 export const Route = createFileRoute("/servicos/google-meu-negocio")({
   head: () => ({
     meta: [
