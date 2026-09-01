@@ -470,5 +470,26 @@
     "socialProofRequired": true,
     "hostCaptureRequired": true
   },
-  {"clientKey":"confeitaria-sabor-da-realeza","slug":"confeitaria-sabor-da-realeza","siteName":"Confeitaria Sabor da Realeza","routeFile":"src/routes/portfolio.$slug.tsx","componentFile":"src/components/site/ConfeitariaSaborDaRealezaPage.tsx","assetsDir":"public/images/confeitaria-sabor-da-realeza","ctaMode":"proposal","socialProofRequired":true,"hostCaptureRequired":true}
+  {
+    "clientKey": "confeitaria-sabor-da-realeza",
+    "slug": "confeitaria-sabor-da-realeza",
+    "siteName": "Confeitaria Sabor da Realeza",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
+    "assetsDir": "public/images/confeitaria-sabor-da-realeza",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "premium-envelopamentos",
+    "slug": "premium-envelopamentos",
+    "siteName": "Premium Envelopamentos",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
+    "assetsDir": "public/images/premium-envelopamentos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  }
 ]

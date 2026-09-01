@@ -58,6 +58,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "uberlandia-eletrica-residencial": { title: "Segurança elétrica começa com uma avaliação bem explicada.", step: "Descreva o ambiente e a instalação que precisa revisar.", cta: "Avaliar o conceito", theme: "navy" },
   "lolipa-arte-em-festas": { title: "A memória da festa começa no cenário que você imagina.", step: "Conte o tema, a ocasião e os detalhes que gostaria de transformar em decoração.", cta: "Planejar minha festa", theme: "pink" },
   "confeitaria-sabor-da-realeza": { title: "Seu momento especial merece um sabor à altura.", step: "Conte a data, a ocasião e o que deseja encomendar para sua celebração.", cta: "Planejar encomenda", theme: "pink" },
+  "premium-envelopamentos": { title: "Seu ambiente pode ganhar outra leitura sem reforma.", step: "Conte qual móvel, geladeira ou superfície você quer transformar e qual estilo imagina.", cta: "Planejar transformação", theme: "navy" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

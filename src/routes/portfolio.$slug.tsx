@@ -105,6 +105,7 @@ const BrechoSaoFranciscoPage = lazy(() => import("@/components/site/BrechoSaoFra
 const AngelMixBrechoPage = lazy(() => import("@/components/site/AngelMixBrechoPage").then((m) => ({ default: m.AngelMixBrechoPage })));
 const LolipaArteEmFestasPage = lazy(() => import("@/components/site/LolipaArteEmFestasPage").then((m) => ({ default: m.LolipaArteEmFestasPage })));
 const ConfeitariaSaborDaRealezaPage = lazy(() => import("@/components/site/ConfeitariaSaborDaRealezaPage").then((m) => ({ default: m.ConfeitariaSaborDaRealezaPage })));
+const PremiumEnvelopamentosPage = lazy(() => import("@/components/site/PremiumEnvelopamentosPage").then((m) => ({ default: m.PremiumEnvelopamentosPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -145,7 +146,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
     const isLolipa = loaderData?.slug === "lolipa-arte-em-festas";
     const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
-    const description = isRealeza
+    const isPremium = loaderData?.slug === "premium-envelopamentos";
+    const description = isPremium
+      ? "Premium Envelopamentos em Curitiba e região: plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
+      : isRealeza
       ? "Confeitaria Sabor da Realeza em Uberaba: bolos, doces, salgados e encomendas para festas e eventos."
       : isLolipa
       ? "Lolipa Arte em Festas Decor em Curitiba: decorações personalizadas para aniversários, batizados, chás e comemorações especiais, com criação sob medida e opção pegue e monte."
@@ -276,6 +280,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : isPremium
+              ? "Premium Envelopamentos Curitiba, plotagem de móveis, envelopamento de geladeiras, adesivos, banners e comunicação visual"
             : isRealeza
               ? "Confeitaria Sabor da Realeza Uberaba, bolos, doces, salgados, encomendas para festas e eventos"
             : isLolipa
@@ -324,6 +330,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
                 : isJkl
                   ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
+                : isPremium
+                  ? "/images/premium-envelopamentos/hero.png"
                 : isSantos
                   ? "montador de móveis Curitiba, montagem de móveis Colombo, desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água, instalação de cortinas, Alphaville Curitiba"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
@@ -414,6 +422,8 @@ function PortfolioPrototypePage() {
           <LolipaArteEmFestasPage />
         ) : slug === "confeitaria-sabor-da-realeza" ? (
           <ConfeitariaSaborDaRealezaPage />
+        ) : slug === "premium-envelopamentos" ? (
+          <PremiumEnvelopamentosPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

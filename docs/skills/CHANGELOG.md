@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — Premium Envelopamentos
+
+- **Adição:** projeto oficial `/portfolio/premium-envelopamentos` para plotagem de móveis, envelopamento de geladeiras e comunicação visual em Curitiba e região.
+- **Identidade:** logo própria gerada com `imagegen`, hero fornecido pelo negócio e galeria complementar coerente com o serviço.
+- **Conversão:** CTA/funil exclusivo, narrativa própria, divulgação exclusiva e bloco do Instagram oficial `premiumenvelopamentos`.
+- **Proteção:** telefone operacional permanece somente no servidor; a página não inventa preço, avaliação, depoimento ou promessa além dos dados fornecidos.
+
 ## 2026-09-01 — padrão de conversão e inteligência de portfólios
 
 - **Classificação:** `portfolio-client-site`, `funnel`, `content/SEO`, `accessibility-fix`, `docs`.
