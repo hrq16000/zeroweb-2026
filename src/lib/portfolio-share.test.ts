@@ -6,5 +6,7 @@ test("cria divulgação pronta e canônica para um projeto", () => {
 
   expect(message).toContain("A&G Electrical Services está de site novo!");
   expect(message).toContain("https://0web.com.br/portfolio/ag-electrical-services");
-  expect(message).toContain("#SiteProfissional #0WEB");
+  // A copy passou a usar hashtags específicas do cliente; a assinatura da 0WEB
+  // permanece como última hashtag da mensagem.
+  expect(message.trimEnd().endsWith("#0WEB")).toBe(true);
 });
