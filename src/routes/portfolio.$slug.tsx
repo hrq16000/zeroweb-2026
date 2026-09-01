@@ -113,6 +113,7 @@ const ManuPasteisPage = lazy(() => import("@/components/site/ManuPasteisPage").t
 const LizMoraesNailDesignerPage = lazy(() => import("@/components/site/LizMoraesNailDesignerPage").then((m) => ({ default: m.LizMoraesNailDesignerPage })));
 const AssistenciaMicroondasSantosPage = lazy(() => import("@/components/site/AssistenciaMicroondasSantosPage").then((m) => ({ default: m.AssistenciaMicroondasSantosPage })));
 const ArtesanatosDarLeiaOliveiraPage = lazy(() => import("@/components/site/ArtesanatosDarLeiaOliveiraPage").then((m) => ({ default: m.ArtesanatosDarLeiaOliveiraPage })));
+const ThaysCamillaPage = lazy(() => import("@/components/site/ThaysCamillaPage").then((m) => ({ default: m.ThaysCamillaPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -161,6 +162,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isLizMoraes = loaderData?.slug === "liz-moraes-nail-designer";
     const isAssistenciaMicroondas = loaderData?.slug === "assistencia-microondas-santos";
     const isArtesanatosDarleia = loaderData?.slug === "artesanatos-darleia-oliveira";
+    const isThaysCamilla = loaderData?.slug === "thays-camilla";
     const description = isManuPasteis
       ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
       : isLizMoraes
@@ -169,6 +171,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
         ? "Assistência Técnica Microondas Santos em São José dos Pinhais: conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
       : isArtesanatosDarleia
         ? "Artesanatos Darléia Oliveira: coadores de café 100% algodão, reutilizáveis e feitos à mão para um café mais puro e acolhedor."
+      : isThaysCamilla
+        ? "Thays Camilla: canecas e azulejos personalizados para presentear com carinho, incluindo kit promocional com azulejo 15x15 cm."
       : isLjCleaning
       ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
       : isGalileu
@@ -316,6 +320,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, micro-ondas revisado, conserto a domicílio, São José dos Pinhais"
               : isArtesanatosDarleia
                 ? "Artesanatos Darléia Oliveira, coador de café 100% algodão, filtro reutilizável, artesanato feito à mão, café artesanal"
+              : isThaysCamilla
+                ? "Thays Camilla, caneca personalizada, azulejo personalizado 15x15, presentes artesanais, kit caneca e azulejo"
             : isLjCleaning
               ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
             : isGalileu
@@ -480,6 +486,8 @@ function PortfolioPrototypePage() {
           <AssistenciaMicroondasSantosPage />
         ) : slug === "artesanatos-darleia-oliveira" ? (
           <ArtesanatosDarLeiaOliveiraPage />
+        ) : slug === "thays-camilla" ? (
+          <ThaysCamillaPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

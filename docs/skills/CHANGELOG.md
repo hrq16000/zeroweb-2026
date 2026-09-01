@@ -651,3 +651,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Identidade:** logo e imagem social horizontal exclusivas geradas com `imagegen`, além do flyer real fornecido pela artesã, vinculados somente ao slug correto.
 - **Conversão:** CTA e funil próprios para estampa, ocasião, quantidade e forma de recebimento; Instagram oficial em bloco dedicado e contato operacional mantido somente no ambiente server-side.
 - **SEO/catálogo:** segmento, localização regional, serviços, narrativa de conversão e texto de divulgação exclusivos adicionados às fontes canônicas; o catálogo marca o projeto como publicado e real.
+
+## 2026-09-01 — Thays Camilla Personalizados
+
+- **Adição:** projeto público `/portfolio/thays-camilla` para canecas e azulejos personalizados, incluindo o kit promocional informado de caneca + azulejo 15x15 cm.
+- **Identidade:** logo exclusiva gerada com `imagegen`, OG horizontal própria e material promocional real vinculado somente ao slug correto.
+- **Conversão:** funil próprio para mensagem, imagem, ocasião, quantidade e entrega; valores e disponibilidade aparecem como informados e podem ser confirmados no atendimento.
+- **SEO/catálogo:** segmento, localização regional, produtos, narrativa e texto de divulgação exclusivos adicionados às fontes canônicas; contato operacional permanece apenas no ambiente server-side.

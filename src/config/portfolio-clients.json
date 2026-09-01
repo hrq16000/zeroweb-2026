@@ -568,5 +568,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "thays-camilla",
+    "slug": "thays-camilla",
+    "siteName": "Thays Camilla",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ThaysCamillaPage.tsx",
+    "assetsDir": "public/images/thays-camilla",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

@@ -944,6 +944,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: prefiro um efeito delicado, tenho uma referência ou preciso de manutenção."
   },
+  "thays-camilla": {
+    "services": [
+      "Kit promocional: caneca + azulejo",
+      "Caneca de cerâmica personalizada",
+      "Azulejo personalizado 15x15 cm",
+      "Quero conhecer outras opções"
+    ],
+    "experienceOptions": [
+      "Para presentear",
+      "Para minha casa",
+      "Para uma data especial",
+      "Ainda estou escolhendo"
+    ],
+    "periodOptions": [
+      "Quero combinar a entrega",
+      "Vou retirar",
+      "Preciso consultar",
+      "Ainda não sei"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nesta semana",
+      "Estou pesquisando",
+      "Quero combinar"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você gostaria de personalizar?",
+      "experience": "Qual é a ocasião?",
+      "period": "Como prefere receber?",
+      "timing": "Quando você precisa?",
+      "note": "Conte os detalhes"
+    },
+    "notePlaceholder": "Ex.: frase, imagem, cores, quantidade ou data do presente."
+  },
   "vila-da-capivara": {
     "services": [
       "Kit Festa para 10 pessoas · R$ 259,90",

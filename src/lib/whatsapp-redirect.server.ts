@@ -101,6 +101,8 @@ export function resolvePortfolioWhatsAppContact(clientKey?: string | null): Oper
                   ? "ASSISTENCIA_MICROONDAS_SANTOS_WHATSAPP_NUMBER"
                 : clientKey === "artesanatos-darleia-oliveira"
                   ? "ARTESANATOS_DARLEIA_OLIVEIRA_WHATSAPP_NUMBER"
+                : clientKey === "thays-camilla"
+                  ? "THAYS_CAMILLA_WHATSAPP_NUMBER"
                 : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");

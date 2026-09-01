@@ -596,6 +596,18 @@
         "ctaHref": "#produto"
       },
       "socialVersion": "8832f806"
+    },
+    "thays-camilla": {
+      "icon": "/images/thays-camilla/logo.png",
+      "socialImage": "/images/thays-camilla/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Thays Camilla Personalizados",
+        "title": "Personalize carinho em cada detalhe.",
+        "description": "Caneca e azulejo para presentear com uma história sua.",
+        "ctaLabel": "Ver o kit",
+        "ctaHref": "#kit"
+      },
+      "socialVersion": "6fdee062"
     }
   }
 }
