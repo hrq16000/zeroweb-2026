@@ -15,6 +15,8 @@ export type BlogPost = {
   relatedServiceSlug?: string;
   /** Lista de FAQs renderizadas no fim do post + JSON-LD FAQPage. */
   faq?: BlogFAQ[];
+  /** Link interno para uma landing page de conversão (cluster de conteúdo). */
+  landingLink?: { path: "/criacao-de-site-institucional"; label: string; description: string };
 };
 
 export const categories = [
@@ -1157,6 +1159,102 @@ Veja também:
       { q: "Quanto economizo fazendo no exterior (Fiverr, Upwork)?", a: "Em média 30-50%. Mas tem custos invisíveis: barreira de idioma, fuso horário, falta de SEO local em português, falta de suporte pós-entrega no Brasil. Para projeto crítico do negócio, não compensa." },
       { q: "Posso parcelar o pagamento?", a: "Sim. Na 0WEB aceitamos cartão em até 12x, Pix com desconto, ou divisão entrada (50%) + entrega (50%)." },
       { q: "Site precisa ser refeito de quanto em quanto tempo?", a: "Sites bem feitos duram 4-7 anos sem refazer (apenas atualizações de conteúdo). Sites em template ou plataforma fechada (Wix, antigas versões de WordPress) costumam virar obsoletos em 2-3 anos." },
+    ],
+  },
+  {
+    slug: "quanto-custa-criar-um-site-institucional",
+    title: "Quanto custa criar um site institucional? Faixas de preço e o que está incluído",
+    excerpt: "Descubra os custos para criar um site institucional em 2026, o que cada faixa de preço inclui e como montar um orçamento realista sem surpresas.",
+    category: "Sites",
+    date: "2026-08-24",
+    readTime: "8 min",
+    relatedServiceSlug: "criacao-de-sites",
+    landingLink: { path: "/criacao-de-site-institucional", label: "Criação de site institucional", description: "Landing com diagnóstico gratuito, escopo, prazos e formatos de projeto." },
+    content: "Pedir três orçamentos de site institucional e receber valores muito diferentes é comum. O que muda quase nunca é o número de páginas: é o que vem junto — estratégia, SEO técnico, funil de captação, hospedagem e suporte.\n\n## O que define o preço\n\n1. **Escopo real de páginas.** Home, serviços, sobre, provas e contato formam a base. Cada página adicional com conteúdo próprio soma trabalho de redação, layout e revisão.\n2. **Conteúdo.** Textos e fotos prontos reduzem prazo e custo. Produção de copy e imagens é linha de orçamento separada.\n3. **SEO técnico.** Estrutura semântica, dados estruturados, performance e sitemap não são \"extra\": são o que permite a página ser encontrada.\n4. **Captação.** Um site institucional que só exibe informação custa menos e rende menos. Com funil, formulário segmentado e rastreamento, o mesmo tráfego vira lead.\n5. **Sustentação.** Hospedagem, certificado, backup, atualização e suporte são custos recorrentes que precisam estar explícitos.\n\n## Faixas praticadas no Brasil em 2026\n\n- **Landing única de campanha:** projeto enxuto, uma oferta, prazo curto.\n- **Site institucional com funil:** conjunto de páginas, captação e base de SEO — o formato mais procurado por PMEs que precisam de fluxo constante de contatos.\n- **Plataforma personalizada:** integrações com ERP, CRM, pagamentos ou área logada, com escopo definido após diagnóstico técnico.\n\nEm vez de perguntar \"quanto custa um site\", pergunte \"quanto custa o formato certo para o meu objetivo\". A resposta muda o orçamento inteiro.\n\n## Como montar seu orçamento sem armadilha\n\n- Peça a lista de entregáveis por escrito, incluindo SEO, painel de edição e prazo de suporte.\n- Confirme quem é dono do domínio, do código e dos dados.\n- Separe investimento inicial de custo mensal.\n- Combine o critério de aceite: o que precisa estar funcionando no dia da publicação.\n\n## Referência de decisão\n\nSe um único cliente fechado pelo site cobre uma parte relevante do investimento, o projeto se paga rápido. Se o ticket médio é baixo, comece pelo formato menor e evolua.",
+    faq: [
+      { q: "Existe um preço fixo para site institucional?", a: "Não. O valor depende do número de páginas com conteúdo próprio, da produção de textos e imagens, do nível de SEO técnico e da existência de funil de captação. Por isso o diagnóstico de escopo vem antes do orçamento." },
+      { q: "O que deve estar incluído em qualquer proposta séria?", a: "Estrutura de páginas, redação ou revisão de conteúdo, SEO técnico, responsividade, painel ou processo de atualização, prazo, suporte pós-publicação e propriedade do domínio e do código." },
+      { q: "Vale começar por uma landing e evoluir depois?", a: "Sim, quando o objetivo é uma campanha única e o prazo é curto. A landing valida a oferta e o custo por lead antes do investimento no site completo." },
+    ],
+  },
+  {
+    slug: "como-medir-a-conversao-de-um-site-institucional",
+    title: "Como medir a conversão de um site institucional: KPIs essenciais",
+    excerpt: "Aprenda a medir a conversão do seu site institucional com indicadores práticos: taxa de conversão, custo por lead, qualificação e tempo até o contato.",
+    category: "Sites",
+    date: "2026-08-25",
+    readTime: "7 min",
+    relatedServiceSlug: "criacao-de-sites",
+    landingLink: { path: "/criacao-de-site-institucional", label: "Criação de site institucional", description: "Landing com diagnóstico gratuito, escopo, prazos e formatos de projeto." },
+    content: "Site institucional não se mede por visitas. Mede-se por quantas visitas viram conversa comercial e quantas conversas viram cliente.\n\n## Os KPIs que importam\n\n- **Taxa de conversão por página:** sessões que geraram um lead dividido pelo total de sessões daquela página. Compare páginas entre si, não com médias de mercado.\n- **Custo por lead (CPL):** investimento do período dividido pelo número de leads. Serve para decidir onde colocar mais verba.\n- **Qualificação:** percentual de leads que atendem ao perfil desejado. Um site pode aumentar volume e piorar qualidade — o indicador expõe isso.\n- **Tempo até o primeiro contato:** minutos entre o envio do formulário e a resposta. É o indicador com maior impacto direto no fechamento.\n- **Conversão por segmento:** leads separados por perfil (campanha, site com funil, plataforma) mostram onde a proposta comercial funciona melhor.\n\n## Como instrumentar sem inventar números\n\n1. Defina um evento único de conversão (envio do formulário ou conclusão do diagnóstico).\n2. Registre origem, página e segmento junto com o lead.\n3. Marque no CRM o estágio real: contato feito, proposta enviada, fechado ou perdido.\n4. Só compare períodos com a mesma definição de evento.\n\n## Leitura prática dos dados\n\nPágina com muito tráfego e conversão baixa costuma ter problema de oferta ou de clareza, não de design. Página com conversão alta e volume baixo pede distribuição: SEO, links internos ou campanha.\n\nRevise mensalmente. Ajuste um elemento por vez — título, prova, formulário — para saber o que causou a mudança.",
+    faq: [
+      { q: "Qual taxa de conversão é boa para site institucional?", a: "Depende do ticket e da origem do tráfego. Em vez de perseguir uma média de mercado, use o seu próprio histórico como linha de base e busque melhora consistente mês a mês." },
+      { q: "Preciso de ferramenta paga para medir?", a: "Não para começar. O essencial é um evento de conversão bem definido, registro da origem do lead e acompanhamento do estágio comercial." },
+      { q: "Por que o tempo de resposta entra como KPI do site?", a: "Porque o lead gerado pelo site tem intenção momentânea. Respostas rápidas aumentam a taxa de conversa efetiva, mesmo sem mudar nada na página." },
+    ],
+  },
+  {
+    slug: "10-erros-que-impedem-seu-site-de-converter",
+    title: "10 erros que impedem seu site de converter (e como corrigir cada um)",
+    excerpt: "Conheça os principais erros que prejudicam a conversão do seu site institucional e as correções práticas para cada um deles.",
+    category: "Sites",
+    date: "2026-08-26",
+    readTime: "9 min",
+    relatedServiceSlug: "criacao-de-sites",
+    landingLink: { path: "/criacao-de-site-institucional", label: "Criação de site institucional", description: "Landing com diagnóstico gratuito, escopo, prazos e formatos de projeto." },
+    content: "A maioria dos sites institucionais não converte por motivos simples e corrigíveis. Abaixo, os dez erros mais frequentes.\n\n1. **Proposta genérica.** \"Soluções em tecnologia\" não diz nada. Escreva o que você faz, para quem e qual resultado entrega.\n2. **CTA escondido.** Um único botão no rodapé não sustenta conversão. O próximo passo precisa aparecer no primeiro bloco e se repetir ao longo da página.\n3. **Formulário longo demais.** Cada campo extra reduz envios. Peça o mínimo para conseguir retornar.\n4. **Falta de prova.** Sem casos, contexto ou demonstração, o visitante não tem razão para confiar.\n5. **Página lenta.** Carregamento pesado no celular derruba conversão antes do conteúdo aparecer.\n6. **Conteúdo focado na empresa.** Blocos inteiros sobre história interna sem responder às dúvidas de quem compra.\n7. **Sem segmentação.** Todo visitante recebe a mesma mensagem, mesmo com objetivos e orçamentos diferentes.\n8. **Sem rastreamento.** Se não há evento de conversão registrado, não há como melhorar com base em dados.\n9. **Navegação confusa.** Menus com muitos itens dispersam a atenção do caminho principal.\n10. **Ausência de continuidade.** O lead envia o formulário e não recebe orientação sobre o que acontece a seguir.\n\n## Ordem de correção\n\nComece pelos erros 1, 2 e 8: clareza de oferta, CTA visível e medição. Sem esses três, qualquer outra melhoria é palpite. Depois trate performance, prova e segmentação.\n\nUm diagnóstico rápido ajuda a priorizar: mapeando objetivo, prazo, orçamento e integrações, fica claro se o problema é de formato de site, de oferta ou de distribuição.",
+    faq: [
+      { q: "Qual erro costuma ter maior impacto isolado?", a: "A falta de clareza na oferta. Sem entender em segundos o que é vendido e para quem, o visitante não avança, mesmo com design bem executado." },
+      { q: "Reduzir campos do formulário não piora a qualidade do lead?", a: "Pode aumentar o volume e reduzir a qualificação inicial. A saída é qualificar por perguntas de segmentação, não por barreira de dados de contato." },
+      { q: "Vale refazer o site inteiro para corrigir conversão?", a: "Nem sempre. Muitas correções são de conteúdo, hierarquia e medição. Refaça quando a base técnica limita performance, SEO ou captação." },
+    ],
+  },
+  {
+    slug: "site-institucional-ou-landing-page-qual-escolher",
+    title: "Site institucional ou landing page: qual escolher para o seu objetivo",
+    excerpt: "Entenda a diferença entre site institucional e landing page, quando cada formato faz sentido e como combinar os dois sem desperdiçar orçamento.",
+    category: "Sites",
+    date: "2026-08-27",
+    readTime: "6 min",
+    relatedServiceSlug: "criacao-de-sites",
+    landingLink: { path: "/criacao-de-site-institucional", label: "Criação de site institucional", description: "Landing com diagnóstico gratuito, escopo, prazos e formatos de projeto." },
+    content: "Os dois formatos resolvem problemas diferentes. Escolher errado custa tempo e verba.\n\n## Landing page\n\nPágina única, com uma oferta e um objetivo. Publicação rápida, mensagem concentrada e leitura direta do custo por lead. É o formato certo para campanha, lançamento ou teste de oferta.\n\nLimite: não sustenta presença orgânica ampla, porque cobre pouca variedade de intenções de busca.\n\n## Site institucional\n\nConjunto de páginas que apresenta a empresa, os serviços e as provas, com funil de captação e base de SEO. Cada serviço pode ter página própria, atendendo buscas diferentes e criando autoridade ao longo do tempo.\n\nLimite: exige mais conteúdo e prazo maior que uma landing.\n\n## Como decidir\n\n- Objetivo é uma campanha específica com prazo curto? Landing.\n- Objetivo é fluxo constante de contatos e presença no Google? Site institucional com funil.\n- Há integrações obrigatórias, área logada ou regra de negócio própria? Plataforma personalizada.\n\n## Combinando os dois\n\nO caminho mais eficiente costuma ser o site institucional como base permanente e landings dedicadas para campanhas pontuais. As landings capturam a demanda paga; o site sustenta a demanda orgânica e a credibilidade.",
+    faq: [
+      { q: "Landing page ranqueia no Google?", a: "Pode ranquear para um termo específico, mas cobre poucas intenções de busca. Presença orgânica ampla depende de várias páginas com conteúdo próprio." },
+      { q: "Posso transformar uma landing em site depois?", a: "Sim, desde que a base técnica permita crescer em páginas, navegação e SEO. Vale confirmar isso antes de contratar." },
+      { q: "Qual formato gera lead mais rápido?", a: "A landing, porque concentra a mensagem em uma oferta e costuma ser publicada em menos tempo. O site institucional entrega resultado mais duradouro." },
+    ],
+  },
+  {
+    slug: "prazo-para-criar-um-site-institucional",
+    title: "Prazo para criar um site institucional: o cronograma realista etapa por etapa",
+    excerpt: "Veja quanto tempo leva cada etapa de um site institucional — do briefing à publicação — e o que costuma atrasar o projeto.",
+    category: "Sites",
+    date: "2026-08-28",
+    readTime: "6 min",
+    relatedServiceSlug: "criacao-de-sites",
+    landingLink: { path: "/criacao-de-site-institucional", label: "Criação de site institucional", description: "Landing com diagnóstico gratuito, escopo, prazos e formatos de projeto." },
+    content: "Prazo de site raramente atrasa por causa de código. Atrasa por conteúdo, aprovação e escopo que cresce durante o projeto.\n\n## Etapas e o que acontece em cada uma\n\n1. **Diagnóstico e escopo.** Objetivo, público, serviços, referências e critérios de sucesso. É aqui que o prazo é definido de verdade.\n2. **Arquitetura de conteúdo.** Lista de páginas, hierarquia e mensagens principais de cada uma.\n3. **Redação.** A etapa mais subestimada. Sem texto aprovado, o layout não fecha.\n4. **Design e implementação.** Layout responsivo, componentes, acessibilidade e performance.\n5. **SEO técnico e medição.** Metadados, dados estruturados, sitemap e evento de conversão.\n6. **Revisão e publicação.** Testes em dispositivos, ajustes finais e go-live.\n\n## O que mais atrasa\n\n- Conteúdo e fotos pendentes do lado do cliente.\n- Aprovações sem responsável único definido.\n- Novas páginas pedidas depois do escopo fechado.\n- Falta de acesso a domínio e hospedagem.\n\n## Como encurtar o prazo com segurança\n\nFeche o escopo por escrito, defina um aprovador, entregue conteúdo e imagens antes do início do design e trate pedidos novos como uma segunda fase. Publicar uma versão sólida e evoluir depois é melhor do que adiar a publicação por meses.",
+    faq: [
+      { q: "Dá para publicar um site institucional em poucos dias?", a: "Uma landing enxuta sim. Um site institucional completo depende de conteúdo pronto e de aprovações rápidas; sem isso, o prazo se estende independentemente da equipe técnica." },
+      { q: "Quem escreve os textos?", a: "Pode ser o cliente, a agência ou os dois. Definir isso no início evita a causa mais comum de atraso." },
+      { q: "O que precisa estar pronto antes de começar?", a: "Objetivo do site, lista de serviços, textos ou material de referência, imagens reais e acesso ao domínio." },
+    ],
+  },
+  {
+    slug: "seo-para-site-institucional-checklist",
+    title: "SEO para site institucional: checklist técnico e de conteúdo para 2026",
+    excerpt: "Checklist prático de SEO para site institucional: estrutura de páginas, dados estruturados, performance, conteúdo e medição de resultados.",
+    category: "SEO",
+    date: "2026-08-29",
+    readTime: "8 min",
+    relatedServiceSlug: "criacao-de-sites",
+    landingLink: { path: "/criacao-de-site-institucional", label: "Criação de site institucional", description: "Landing com diagnóstico gratuito, escopo, prazos e formatos de projeto." },
+    content: "Site institucional só gera tráfego orgânico quando estrutura, conteúdo e medição andam juntos. Use este checklist antes e depois da publicação.\n\n## Estrutura\n\n- Uma página por intenção de busca relevante, com título e descrição próprios.\n- URLs legíveis e estáveis; redirecionamento permanente quando algo muda.\n- Um H1 por página e hierarquia coerente de subtítulos.\n- Links internos entre páginas de serviço, conteúdo e a página de conversão.\n\n## Técnico\n\n- Dados estruturados adequados ao tipo de página.\n- Sitemap atualizado e enviado ao Search Console.\n- Performance no celular: imagens otimizadas, carregamento diferido, poucos bloqueios de renderização.\n- Metadados sociais para pré-visualização de links.\n\n## Conteúdo\n\n- Responda dúvidas reais de compra: preço, prazo, escopo, suporte.\n- Evite texto genérico; use o vocabulário que o cliente usa na busca.\n- Mantenha as páginas atualizadas — conteúdo abandonado perde posição.\n\n## Medição\n\n- Search Console conectado, com acompanhamento de consultas e páginas.\n- Evento de conversão único e consistente.\n- Revisão mensal das consultas que trazem impressões sem cliques: normalmente é oportunidade de melhorar título e descrição.\n\nSEO em site institucional não é uma entrega única. É um ciclo curto de publicação, medição e ajuste.",
+    faq: [
+      { q: "Quanto tempo até aparecer resultado de SEO?", a: "Costuma haver sinais em algumas semanas para termos de baixa concorrência e alguns meses para termos disputados. O ritmo depende da autoridade do domínio e da consistência de publicação." },
+      { q: "Preciso de blog para ranquear?", a: "Não obrigatoriamente, mas conteúdo periódico cobre mais intenções de busca e alimenta links internos para as páginas comerciais." },
+      { q: "Dados estruturados garantem rich snippet?", a: "Não. Eles tornam a página elegível, mas a exibição é decisão do buscador." },
     ],
   },
 ];

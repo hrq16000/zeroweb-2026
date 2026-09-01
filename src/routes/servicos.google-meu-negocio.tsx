@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
@@ -10,6 +11,7 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { trackEvent, trackConversion } from "@/lib/analytics";
+import { InstitutionalDiagnosticQuizModal } from "@/components/site/InstitutionalDiagnosticQuiz";
 import cover from "@/assets/google-meu-negocio-capa.png.asset.json";
 
 const TITLE = "Google Meu Negócio para Empresas · 0WEB Marketing Digital";
@@ -23,6 +25,18 @@ const benefits = [
   { icon: MessageCircle, t: "Receber mensagens no WhatsApp", d: "Conexão direta entre o perfil e seu WhatsApp comercial." },
   { icon: ShieldCheck, t: "Transmitir mais confiança", d: "Fotos, avaliações reais e informações sempre atualizadas." },
   { icon: Sparkles, t: "Atrair novos clientes diariamente", d: "Fluxo previsível de leads qualificados sem depender de anúncios." },
+];
+
+/** Fonte única das perguntas — usada no JSON-LD (FAQPage) e no bloco visual. */
+const FAQ: { q: string; a: string }[] = [
+  { q: "Em quanto tempo minha empresa começa a aparecer no Google?", a: "Após a configuração e verificação do perfil, os primeiros resultados aparecem em 7 a 30 dias, com crescimento consistente nos meses seguintes." },
+  { q: "Preciso já ter um perfil no Google Meu Negócio?", a: "Não. A 0WEB cria, reivindica ou recupera perfis e faz toda a configuração técnica, fotos, categorias, áreas de atuação e integração com WhatsApp." },
+  { q: "Qual a diferença entre o Plano Único e o Plano PRO?", a: "O Plano Único (R$397) entrega configuração completa em uma única vez. O Plano PRO (R$247/mês por 3 meses) inclui otimização contínua, postagens, respostas a avaliações e relatórios mensais." },
+  { q: "Funciona para qualquer tipo de empresa?", a: "Sim, atende prestadores de serviço, comércios, escritórios, autoescolas, restaurantes, clínicas e qualquer empresa com atendimento local ou regional." },
+  { q: "Como o Google Meu Negócio ajuda a aparecer nas buscas do meu bairro?", a: "O perfil concentra os sinais que o Google usa na busca local: categoria principal, área de atuação, horário, fotos, avaliações e postagens recentes. Quando esses sinais estão completos e atualizados, a empresa passa a ser elegível para o pacote de mapas em pesquisas com intenção local, como “serviço perto de mim”." },
+  { q: "Preciso ter um site para usar o Google Meu Negócio?", a: "Não é obrigatório, mas ajuda. O perfil resolve a descoberta e o contato; o site sustenta a decisão, apresenta serviços em detalhe e mede a conversão. Perfil e site institucional trabalham juntos e reforçam a mesma autoridade local." },
+  { q: "O que é feito na otimização mensal do perfil?", a: "Revisão de categorias e serviços, publicação de novidades, inclusão de fotos, respostas às avaliações e perguntas, verificação de dados (NAP) e leitura das métricas do perfil para ajustar o que está gerando ligações e mensagens." },
+  { q: "Como funciona o diagnóstico gratuito?", a: "Você responde a um questionário curto sobre o seu negócio, objetivo, prazo e orçamento. Com isso montamos um plano de presença local sob medida e devolvemos as prioridades — sem compromisso de contratação." },
 ];
 
 export const Route = createFileRoute("/servicos/google-meu-negocio")({
@@ -86,11 +100,41 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: [
-            { "@type": "Question", name: "Em quanto tempo minha empresa começa a aparecer no Google?", acceptedAnswer: { "@type": "Answer", text: "Após a configuração e verificação do perfil, os primeiros resultados aparecem em 7 a 30 dias, com crescimento consistente nos meses seguintes." } },
-            { "@type": "Question", name: "Preciso já ter um perfil no Google Meu Negócio?", acceptedAnswer: { "@type": "Answer", text: "Não. A 0WEB cria, reivindica ou recupera perfis e faz toda a configuração técnica, fotos, categorias, áreas de atuação e integração com WhatsApp." } },
-            { "@type": "Question", name: "Qual a diferença entre o Plano Único e o Plano PRO?", acceptedAnswer: { "@type": "Answer", text: "O Plano Único (R$397) entrega configuração completa em uma única vez. O Plano PRO (R$247/mês por 3 meses) inclui otimização contínua, postagens semanais, respostas a avaliações e relatórios mensais." } },
+          mainEntity: FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+      {
+        // Perfil local da própria 0WEB. Sem telefone/endereço no bundle público:
+        // o contato acontece pelo funil, conforme a política do projeto.
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "@id": "https://0web.com.br/#localbusiness",
+          name: "0WEB Marketing Digital",
+          url: "https://0web.com.br",
+          image: cover.url,
+          description:
+            "Agência de presença digital especializada em Google Meu Negócio, sites institucionais e funis de captação para empresas locais.",
+          taxID: "41.723.708/0001-58",
+          priceRange: "$$",
+          address: { "@type": "PostalAddress", addressCountry: "BR", addressRegion: "PR" },
+          areaServed: [
+            { "@type": "Country", name: "Brasil" },
+            { "@type": "State", name: "Paraná" },
           ],
+          sameAs: ["https://www.instagram.com/0webbr"],
+          makesOffer: {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Configuração e otimização de Google Meu Negócio",
+            },
+          },
         }),
       },
     ],
@@ -99,6 +143,7 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
 });
 
 function GMBPage() {
+  const [quizOpen, setQuizOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -275,17 +320,45 @@ function GMBPage() {
         </div>
       </section>
 
+      {/* DIAGNÓSTICO GRATUITO */}
+      <section className="py-16">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+          <div className="rounded-3xl border border-primary/25 bg-gradient-to-r from-primary/10 via-card to-card p-8 lg:p-10 grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">Diagnóstico gratuito</p>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-bold">
+                Descubra o que falta na sua presença local
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Seis perguntas rápidas sobre o seu negócio, objetivo e prazo. Devolvemos as prioridades
+                do perfil no Google e o formato de site que sustenta essa presença — sem compromisso.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                trackConversion("diagnostic_open", { source: "gmb_page" });
+                setQuizOpen(true);
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-bold px-7 py-4 hover:scale-[1.02] transition"
+            >
+              Agende seu diagnóstico agora <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+      <InstitutionalDiagnosticQuizModal
+        open={quizOpen}
+        onClose={() => setQuizOpen(false)}
+        source="google-meu-negocio"
+      />
+
       {/* FAQ */}
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
           <h2 className="text-3xl font-bold text-center">Perguntas frequentes</h2>
           <div className="mt-8 space-y-3">
-            {[
-              { q: "Em quanto tempo minha empresa começa a aparecer no Google?", a: "Após a configuração e verificação do perfil, os primeiros resultados aparecem em 7 a 30 dias, com crescimento consistente nos meses seguintes." },
-              { q: "Preciso já ter um perfil no Google Meu Negócio?", a: "Não. A 0WEB cria, reivindica ou recupera perfis e faz toda a configuração técnica, fotos, categorias, áreas de atuação e integração com WhatsApp." },
-              { q: "Qual a diferença entre o Plano Único e o Plano PRO?", a: "O Plano Único (R$397) entrega configuração completa em uma única vez. O Plano PRO (R$247/mês por 3 meses) inclui otimização contínua, postagens, respostas a avaliações e relatórios mensais." },
-              { q: "Funciona para qualquer tipo de empresa?", a: "Sim, atende prestadores de serviço, comércios, escritórios, autoescolas, restaurantes, clínicas e qualquer empresa com atendimento local ou regional." },
-            ].map((f) => (
+            {FAQ.map((f) => (
               <details key={f.q} className="group rounded-2xl border border-border bg-card p-5">
                 <summary className="cursor-pointer font-semibold flex items-center justify-between">
                   {f.q}

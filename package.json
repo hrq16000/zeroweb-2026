@@ -4,6 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "gsc:export": "node scripts/gsc-daily-export.mjs",
     "dev": "vite dev",
     "test": "bun test",
     "prebuild": "node scripts/generate-social-jpg.mjs && node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-conversion-profiles.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/validate-portfolio-regional.mjs && node scripts/validate-portfolio-presence-kit.mjs && node scripts/validate-portfolio-logos.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs && node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check",
