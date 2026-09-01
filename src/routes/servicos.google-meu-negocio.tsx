@@ -98,11 +98,41 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: [
-            { "@type": "Question", name: "Em quanto tempo minha empresa começa a aparecer no Google?", acceptedAnswer: { "@type": "Answer", text: "Após a configuração e verificação do perfil, os primeiros resultados aparecem em 7 a 30 dias, com crescimento consistente nos meses seguintes." } },
-            { "@type": "Question", name: "Preciso já ter um perfil no Google Meu Negócio?", acceptedAnswer: { "@type": "Answer", text: "Não. A 0WEB cria, reivindica ou recupera perfis e faz toda a configuração técnica, fotos, categorias, áreas de atuação e integração com WhatsApp." } },
-            { "@type": "Question", name: "Qual a diferença entre o Plano Único e o Plano PRO?", acceptedAnswer: { "@type": "Answer", text: "O Plano Único (R$397) entrega configuração completa em uma única vez. O Plano PRO (R$247/mês por 3 meses) inclui otimização contínua, postagens semanais, respostas a avaliações e relatórios mensais." } },
+          mainEntity: FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+      {
+        // Perfil local da própria 0WEB. Sem telefone/endereço no bundle público:
+        // o contato acontece pelo funil, conforme a política do projeto.
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "@id": "https://0web.com.br/#localbusiness",
+          name: "0WEB Marketing Digital",
+          url: "https://0web.com.br",
+          image: cover.url,
+          description:
+            "Agência de presença digital especializada em Google Meu Negócio, sites institucionais e funis de captação para empresas locais.",
+          taxID: "41.723.708/0001-58",
+          priceRange: "$$",
+          address: { "@type": "PostalAddress", addressCountry: "BR", addressRegion: "PR" },
+          areaServed: [
+            { "@type": "Country", name: "Brasil" },
+            { "@type": "State", name: "Paraná" },
           ],
+          sameAs: ["https://www.instagram.com/0webbr"],
+          makesOffer: {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Configuração e otimização de Google Meu Negócio",
+            },
+          },
         }),
       },
     ],
