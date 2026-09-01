@@ -104,6 +104,7 @@ const ReuseHouseBrechoPage = lazy(() => import("@/components/site/ReuseHouseBrec
 const BrechoSaoFranciscoPage = lazy(() => import("@/components/site/BrechoSaoFranciscoPage").then((m) => ({ default: m.BrechoSaoFranciscoPage })));
 const AngelMixBrechoPage = lazy(() => import("@/components/site/AngelMixBrechoPage").then((m) => ({ default: m.AngelMixBrechoPage })));
 const LolipaArteEmFestasPage = lazy(() => import("@/components/site/LolipaArteEmFestasPage").then((m) => ({ default: m.LolipaArteEmFestasPage })));
+const ConfeitariaSaborDaRealezaPage = lazy(() => import("@/components/site/ConfeitariaSaborDaRealezaPage").then((m) => ({ default: m.ConfeitariaSaborDaRealezaPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -143,7 +144,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isSantos = loaderData?.slug === "santos-montador-de-moveis";
     const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
     const isLolipa = loaderData?.slug === "lolipa-arte-em-festas";
-    const description = isLolipa
+    const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
+    const description = isRealeza
+      ? "Confeitaria Sabor da Realeza em Uberaba: bolos, doces, salgados e encomendas para festas e eventos."
+      : isLolipa
       ? "Lolipa Arte em Festas Decor em Curitiba: decorações personalizadas para aniversários, batizados, chás e comemorações especiais, com criação sob medida e opção pegue e monte."
       : isSosPresentes
       ? "SOS Presentes & Cosméticos em São José dos Pinhais: cestas à pronta entrega, cosméticos, acessórios e canecas personalizadas para presentear."
@@ -272,6 +276,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : isRealeza
+              ? "Confeitaria Sabor da Realeza Uberaba, bolos, doces, salgados, encomendas para festas e eventos"
             : isLolipa
               ? "Lolipa Arte em Festas Decor Curitiba, decoração de festas, decoração personalizada, aniversários, batizados, chás, pegue e monte, mimos para festas"
             : isHotDog
@@ -406,6 +412,8 @@ function PortfolioPrototypePage() {
           <SosPresentesCosmeticosPage />
         ) : slug === "lolipa-arte-em-festas" ? (
           <LolipaArteEmFestasPage />
+        ) : slug === "confeitaria-sabor-da-realeza" ? (
+          <ConfeitariaSaborDaRealezaPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

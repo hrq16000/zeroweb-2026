@@ -488,6 +488,12 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "lolipa-v1"
+    },
+    "confeitaria-sabor-da-realeza": {
+      "icon": "/images/confeitaria-sabor-da-realeza/hero.png",
+      "socialImage": "/images/confeitaria-sabor-da-realeza/hero.png",
+      "proof": {"eyebrow":"Confeitaria Sabor da Realeza","title":"O sabor que faz você se sentir da realeza.","description":"Bolos, doces, salgados e encomendas para festas e eventos em Uberaba.","ctaLabel":"Fazer encomenda","ctaHref":"#sabores"},
+      "socialVersion":"realeza-v1"
     }
   }
 }

@@ -57,6 +57,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "bh-barreiro-marmitas": { title: "Uma semana mais prática começa com almoço planejado.", step: "Conte sua rotina e o tipo de refeição que deseja encontrar.", cta: "Explorar o conceito", theme: "gold" },
   "uberlandia-eletrica-residencial": { title: "Segurança elétrica começa com uma avaliação bem explicada.", step: "Descreva o ambiente e a instalação que precisa revisar.", cta: "Avaliar o conceito", theme: "navy" },
   "lolipa-arte-em-festas": { title: "A memória da festa começa no cenário que você imagina.", step: "Conte o tema, a ocasião e os detalhes que gostaria de transformar em decoração.", cta: "Planejar minha festa", theme: "pink" },
+  "confeitaria-sabor-da-realeza": { title: "Seu momento especial merece um sabor à altura.", step: "Conte a data, a ocasião e o que deseja encomendar para sua celebração.", cta: "Planejar encomenda", theme: "pink" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {
