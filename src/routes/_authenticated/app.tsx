@@ -18,6 +18,8 @@ import {
   KeyRound,
   Network,
   LayoutTemplate,
+  Phone,
+  Gauge,
   Fingerprint,
   Plug,
   ClipboardList,

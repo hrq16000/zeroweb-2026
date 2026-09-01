@@ -37,7 +37,7 @@ export async function recordSensitiveAudit(input: {
     action: input.action,
     entity: input.entity,
     entity_id: input.entityId ?? null,
-    meta: input.meta ?? {},
+    meta: (input.meta ?? {}) as never,
   });
   if (error) throw new Error(`Não foi possível registrar a auditoria: ${error.message}`);
 }
@@ -62,7 +62,7 @@ export type SensitiveAuditRow = {
 
 export const listSensitiveAuditTrail = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input) => filtersSchema.parse(input))
+  .inputValidator((input: unknown) => filtersSchema.parse(input ?? {}))
   .handler(async ({ data, context }) => {
     const userId = (context as { userId: string }).userId;
     await assertAuditAdmin(userId);

@@ -151,7 +151,7 @@ function ProgrammaticPortfolioPage() {
                   <ul className="mt-2 space-y-1.5 text-sm">
                     {localProjects.map((project) => (
                       <li key={project.slug}>
-                        <Link to={`/portfolio/${project.slug}`} className="text-primary font-medium hover:underline">
+                        <Link to="/portfolio/$slug" params={{ slug: project.slug }} className="text-primary font-medium hover:underline">
                           {project.title} · {project.status === "draft" ? "conceito em preparação" : "ver projeto"}
                         </Link>
                       </li>
