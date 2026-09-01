@@ -502,5 +502,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "galileu-locacao-brinquedos",
+    "slug": "galileu-locacao-brinquedos",
+    "siteName": "Galileu Locação de Brinquedos",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
+    "assetsDir": "public/images/galileu-locacao-brinquedos",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

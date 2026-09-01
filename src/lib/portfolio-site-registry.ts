@@ -62,6 +62,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "confeitaria-sabor-da-realeza", vertical: "restaurantes", siteName: "Confeitaria Sabor da Realeza · Uberaba", kind: "prototype", indexable: true },
   { slug: "premium-envelopamentos", vertical: "prestadores-de-servicos", siteName: "Premium Envelopamentos · Curitiba", kind: "prototype", indexable: true },
   { slug: "miro-tech", vertical: "prestadores-de-servicos", siteName: "MIRO TECH · São José dos Pinhais", kind: "prototype", indexable: true },
+  { slug: "galileu-locacao-brinquedos", vertical: "comercios", siteName: "Galileu Locação de Brinquedos · São José dos Pinhais", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

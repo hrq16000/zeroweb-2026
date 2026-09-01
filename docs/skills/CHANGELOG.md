@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — Galileu Locação de Brinquedos
+
+- **Adição:** projeto oficial `/portfolio/galileu-locacao-brinquedos` para locação de tobogã inflável, cama elástica, piscina de bolinhas e outras atrações para festas.
+- **Identidade:** logo própria gerada com `imagegen`, com paleta azul, amarela e multicolorida coerente com a arte fornecida.
+- **Conversão:** funil, narrativa, divulgação e CTA exclusivos; telefone operacional permanece somente no servidor.
+
 ## 2026-09-01 — MIRO TECH
 
 - **Adição:** projeto oficial `/portfolio/miro-tech` para manutenção de TVs, computadores, micro-ondas e recuperação de dados em São José dos Pinhais.

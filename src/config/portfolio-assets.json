@@ -506,6 +506,12 @@
       "socialImage": "/images/miro-tech/hero.png",
       "proof": {"eyebrow":"MIRO TECH","title":"Seu equipamento em boas mãos.","description":"Manutenção especializada em TVs, computadores, micro-ondas e recuperação de dados em São José dos Pinhais.","ctaLabel":"Solicitar atendimento","ctaHref":"#servicos"},
       "socialVersion":"miro-v1"
+    },
+    "galileu-locacao-brinquedos": {
+      "icon": "/images/galileu-locacao-brinquedos/logo.png",
+      "socialImage": "/images/galileu-locacao-brinquedos/hero.png",
+      "proof": {"eyebrow":"Galileu Locação de Brinquedos","title":"Diversão garantida para momentos inesquecíveis.","description":"Tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos.","ctaLabel":"Pedir orçamento","ctaHref":"#orcamento"},
+      "socialVersion":"galileu-v1"
     }
   }
 }

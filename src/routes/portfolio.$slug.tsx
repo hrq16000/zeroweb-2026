@@ -107,6 +107,7 @@ const LolipaArteEmFestasPage = lazy(() => import("@/components/site/LolipaArteEm
 const ConfeitariaSaborDaRealezaPage = lazy(() => import("@/components/site/ConfeitariaSaborDaRealezaPage").then((m) => ({ default: m.ConfeitariaSaborDaRealezaPage })));
 const PremiumEnvelopamentosPage = lazy(() => import("@/components/site/PremiumEnvelopamentosPage").then((m) => ({ default: m.PremiumEnvelopamentosPage })));
 const MiroTechPage = lazy(() => import("@/components/site/MiroTechPage").then((m) => ({ default: m.MiroTechPage })));
+const GalileuLocacaoBrinquedosPage = lazy(() => import("@/components/site/GalileuLocacaoBrinquedosPage").then((m) => ({ default: m.GalileuLocacaoBrinquedosPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -149,7 +150,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
     const isPremium = loaderData?.slug === "premium-envelopamentos";
     const isMiro = loaderData?.slug === "miro-tech";
-    const description = isMiro
+    const isGalileu = loaderData?.slug === "galileu-locacao-brinquedos";
+    const description = isGalileu
+      ? "Galileu Locação de Brinquedos em São José dos Pinhais: tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos."
+      : isMiro
       ? "MIRO TECH em São José dos Pinhais: manutenção especializada de TVs, computadores, micro-ondas e recuperação de dados de HD."
       : isPremium
       ? "Premium Envelopamentos em Curitiba e região: plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
@@ -284,6 +288,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : isGalileu
+              ? "Galileu Locação de Brinquedos São José dos Pinhais, tobogã inflável, cama elástica, piscina de bolinhas, festas e eventos"
             : isMiro
               ? "MIRO TECH São José dos Pinhais, assistência técnica TV, computador, micro-ondas, recuperação de dados de HD"
             : isPremium
@@ -336,6 +342,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
                 : isJkl
                   ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
+                : isGalileu
+                  ? "/images/galileu-locacao-brinquedos/hero.png"
                 : isMiro
                   ? "/images/miro-tech/hero.png"
                 : isPremium
@@ -434,6 +442,8 @@ function PortfolioPrototypePage() {
           <PremiumEnvelopamentosPage />
         ) : slug === "miro-tech" ? (
           <MiroTechPage />
+        ) : slug === "galileu-locacao-brinquedos" ? (
+          <GalileuLocacaoBrinquedosPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

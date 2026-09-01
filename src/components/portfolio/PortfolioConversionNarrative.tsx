@@ -60,6 +60,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "confeitaria-sabor-da-realeza": { title: "Seu momento especial merece um sabor à altura.", step: "Conte a data, a ocasião e o que deseja encomendar para sua celebração.", cta: "Planejar encomenda", theme: "pink" },
   "premium-envelopamentos": { title: "Seu ambiente pode ganhar outra leitura sem reforma.", step: "Conte qual móvel, geladeira ou superfície você quer transformar e qual estilo imagina.", cta: "Planejar transformação", theme: "navy" },
   "miro-tech": { title: "Seu equipamento em boas mãos começa com um diagnóstico claro.", step: "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.", cta: "Solicitar avaliação", theme: "navy" },
+  "galileu-locacao-brinquedos": { title: "A diversão da festa começa escolhendo as atrações certas.", step: "Conte a data, o local e o perfil da comemoração para montar seu pedido.", cta: "Planejar diversão", theme: "navy" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {
