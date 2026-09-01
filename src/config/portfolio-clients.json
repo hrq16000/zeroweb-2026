@@ -414,5 +414,49 @@
     "ctaMode": "order",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "toquinho-de-gente-brecho",
+    "slug": "toquinho-de-gente-brecho",
+    "siteName": "Toquinho de Gente Brechó Adulto e Infantil",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
+    "assetsDir": "public/images/toquinho-de-gente-brecho",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "reuse-house-brecho",
+    "slug": "reuse-house-brecho",
+    "siteName": "REuse House Brechó",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ReuseHouseBrechoPage.tsx",
+    "assetsDir": "public/images/reuse-house-brecho",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "brecho-sao-francisco",
+    "slug": "brecho-sao-francisco",
+    "siteName": "Brechó São Francisco",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
+    "assetsDir": "public/images/brecho-sao-francisco",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "angel-mix-brecho",
+    "slug": "angel-mix-brecho",
+    "siteName": "Angel Mix Brechó",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AngelMixBrechoPage.tsx",
+    "assetsDir": "public/images/angel-mix-brecho",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

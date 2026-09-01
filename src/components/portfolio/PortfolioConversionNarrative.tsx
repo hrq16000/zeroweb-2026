@@ -44,6 +44,10 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "beto-pasteis": { title: "Um pastel bem escolhido muda o ritmo do dia.", step: "Escolha a ocasião e conte o que gostaria de encontrar no menu.", cta: "Conhecer sabores", theme: "gold" },
   "woodhouse-hamburgueres": { title: "Uma noite especial começa no primeiro pedido.", step: "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.", cta: "Conhecer a Woodhouse", theme: "navy" },
   "dlara-pizzaria": { title: "Seu próximo pedido merece um cardápio fácil de explorar.", step: "Escolha pizza, esfiha ou lanche e indique a ocasião do pedido.", cta: "Explorar opções", theme: "gold" },
+  "toquinho-de-gente-brecho": { title: "Garimpar também pode ser uma forma de cuidar do planeta.", step: "Conte o que procura e descubra como organizar seu próximo garimpo.", cta: "Conhecer o conceito", theme: "pink" },
+  "reuse-house-brecho": { title: "Uma peça especial pode ganhar uma nova história.", step: "Escolha seu estilo e veja como a curadoria pode aparecer na vitrine.", cta: "Explorar o conceito", theme: "navy" },
+  "brecho-sao-francisco": { title: "Roupas com história merecem uma descoberta cuidadosa.", step: "Conte o tipo de peça que procura e encontre seu próximo garimpo.", cta: "Conhecer o conceito", theme: "gold" },
+  "angel-mix-brecho": { title: "Moda acessível começa com um garimpo que combina com você.", step: "Indique seu estilo e descubra como organizar as peças da vitrine.", cta: "Explorar o conceito", theme: "pink" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

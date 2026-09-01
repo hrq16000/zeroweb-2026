@@ -99,6 +99,10 @@ const MarmitariaDomDiegoPage = lazy(() => import("@/components/site/MarmitariaDo
 const BetoPasteisPage = lazy(() => import("@/components/site/BetoPasteisPage").then((m) => ({ default: m.BetoPasteisPage })));
 const WoodhouseHamburgueresPage = lazy(() => import("@/components/site/WoodhouseHamburgueresPage").then((m) => ({ default: m.WoodhouseHamburgueresPage })));
 const DlaraPizzariaPage = lazy(() => import("@/components/site/DlaraPizzariaPage").then((m) => ({ default: m.DlaraPizzariaPage })));
+const ToquinhoDeGenteBrechoPage = lazy(() => import("@/components/site/ToquinhoDeGenteBrechoPage").then((m) => ({ default: m.ToquinhoDeGenteBrechoPage })));
+const ReuseHouseBrechoPage = lazy(() => import("@/components/site/ReuseHouseBrechoPage").then((m) => ({ default: m.ReuseHouseBrechoPage })));
+const BrechoSaoFranciscoPage = lazy(() => import("@/components/site/BrechoSaoFranciscoPage").then((m) => ({ default: m.BrechoSaoFranciscoPage })));
+const AngelMixBrechoPage = lazy(() => import("@/components/site/AngelMixBrechoPage").then((m) => ({ default: m.AngelMixBrechoPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -402,6 +406,14 @@ function PortfolioPrototypePage() {
           <WoodhouseHamburgueresPage />
         ) : slug === "dlara-pizzaria" ? (
           <DlaraPizzariaPage />
+        ) : slug === "toquinho-de-gente-brecho" ? (
+          <ToquinhoDeGenteBrechoPage />
+        ) : slug === "reuse-house-brecho" ? (
+          <ReuseHouseBrechoPage />
+        ) : slug === "brecho-sao-francisco" ? (
+          <BrechoSaoFranciscoPage />
+        ) : slug === "angel-mix-brecho" ? (
+          <AngelMixBrechoPage />
         ) : slug === "marido-de-aluguel" ? (
           <MaridoDeAluguelPage />
         ) : slug === "emporio-lelecute" ? (

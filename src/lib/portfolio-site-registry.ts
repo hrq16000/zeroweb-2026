@@ -46,6 +46,10 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "beto-pasteis", vertical: "restaurantes", siteName: "Beto Pastéis · Jardim Itália", kind: "prototype", indexable: false },
   { slug: "woodhouse-hamburgueres", vertical: "restaurantes", siteName: "Woodhouse Hambúrgueres · Jardim Itália", kind: "prototype", indexable: false },
   { slug: "dlara-pizzaria", vertical: "restaurantes", siteName: "D’Lara Pizzaria, Esfiharia e Hamburgueria · Jardim Itália", kind: "prototype", indexable: false },
+  { slug: "toquinho-de-gente-brecho", vertical: "comercios", siteName: "Toquinho de Gente Brechó · Sítio Cercado", kind: "prototype", indexable: false },
+  { slug: "reuse-house-brecho", vertical: "comercios", siteName: "REuse House Brechó · Jardim das Américas", kind: "prototype", indexable: false },
+  { slug: "brecho-sao-francisco", vertical: "comercios", siteName: "Brechó São Francisco · Curitiba", kind: "prototype", indexable: false },
+  { slug: "angel-mix-brecho", vertical: "comercios", siteName: "Angel Mix Brechó · Novo Mundo", kind: "prototype", indexable: false },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

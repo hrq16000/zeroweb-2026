@@ -527,3 +527,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Tarefa:** impedir que novos projetos entrem sem contexto geográfico e comercial.
 - **Alterações:** criado `validate:portfolio-regional`, integrado ao `prebuild`, exigindo ramo, bairro/região, cidade e estado em todos os registros; cinco projetos legados tiveram a localização textual normalizada.
 - **Validação:** 38 projetos aprovados no guia regional e catálogo canônico íntegro.
+
+## 2026-09-01 — onda Curitiba: pequenos comércios e brechós
+
+- **Tarefa:** iniciar nova leva de projetos locais em Curitiba com foco em brechós e pequenos comércios.
+- **Projetos:** Toquinho de Gente (Sítio Cercado), REuse House (Jardim das Américas), Brechó São Francisco (São Francisco) e Angel Mix (Novo Mundo).
+- **Alterações:** componentes, imagens conceituais, assets, narrativas, divulgação, funis e localização regional próprios; todos entram como `draft` e `noindex` até confirmação.
+- **Validação:** catálogo 42 itens/39 clientes, boundaries 39/39, assets 39/39 e regional 42/42 aprovados.
