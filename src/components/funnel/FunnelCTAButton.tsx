@@ -11,6 +11,12 @@ type LegacyProps = {
   serviceFunnels?: Record<string, string>;
   /** Força um slug específico ignorando a resolução padrão. @deprecated use `intent`. */
   funnelSlug?: string;
+  /** Páginas de portfólio: chave do cliente. @deprecated use `intent.companySlug`. */
+  clientKey?: string;
+  /** Páginas de portfólio: slug da empresa. @deprecated use `intent.companySlug`. */
+  companySlug?: string;
+  /** Páginas de portfólio: slug do formulário. @deprecated use `intent`. */
+  formSlug?: string;
 };
 
 type Props = Partial<LegacyProps> & {
@@ -29,6 +35,8 @@ type Props = Partial<LegacyProps> & {
   prefill?: Record<string, string | string[]>;
   /** Contexto sintetizado da página/oferta de origem. */
   context?: Record<string, string>;
+  /** Rótulo como children (equivalente a `label`). */
+  children?: React.ReactNode;
 };
 
 /**
@@ -42,6 +50,10 @@ export function FunnelCTAButton({
   serviceSlug,
   serviceFunnels,
   funnelSlug: funnelSlugOverride,
+  clientKey,
+  companySlug,
+  formSlug,
+  children,
   intent,
   label = "Solicitar orçamento gratuito",
   className,
@@ -52,9 +64,10 @@ export function FunnelCTAButton({
 }: Props) {
   const resolvedPageType: FunnelPageType = pageType ?? "common";
   const currentPath = typeof window === "undefined" ? "/" : window.location.pathname;
-  const portfolioCompany = currentPath.includes("/portfolio/marido-de-aluguel")
-    ? "marido-de-aluguel"
-    : undefined;
+  const portfolioCompany =
+    companySlug ??
+    clientKey ??
+    (currentPath.includes("/portfolio/marido-de-aluguel") ? "marido-de-aluguel" : undefined);
   const effectiveIntent =
     intent ??
     (portfolioCompany
@@ -72,7 +85,7 @@ export function FunnelCTAButton({
     closeFunnel,
     funnelSlug: resolvedFunnelSlug,
   } = useFunnel(resolvedPageType, serviceSlug, serviceFunnels, effectiveIntent);
-  const funnelSlug = funnelSlugOverride ?? resolvedFunnelSlug;
+  const funnelSlug = funnelSlugOverride ?? formSlug ?? resolvedFunnelSlug;
 
   const clickingRef = useRef(false);
 
@@ -123,7 +136,7 @@ export function FunnelCTAButton({
           "inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary hover:opacity-95 transition-opacity"
         }
       >
-        {label}
+        {children ?? label}
         {showArrow && <ArrowRight className="w-4 h-4" />}
       </a>
       <FunnelModalWrapper

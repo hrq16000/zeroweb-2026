@@ -3,7 +3,6 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { LazySection } from "@/components/portfolio/LazySection";
-import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 // Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
@@ -57,8 +56,8 @@ export function ToquinhoDeGenteBrechoPage() {
         <Galeria />
       </LazySection>
       */}
-
-      <PortfolioSocialProofPopup clientKey="toquinho-de-gente-brecho" />
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="toquinho-de-gente-brecho" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-toquinho-de-gente-brecho" />
       <PortfolioHostCredit />
     </div>

@@ -3,7 +3,6 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { LazySection } from "@/components/portfolio/LazySection";
-import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 // Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
@@ -57,8 +56,8 @@ export function BrechoSaoFranciscoPage() {
         <Galeria />
       </LazySection>
       */}
-
-      <PortfolioSocialProofPopup clientKey="brecho-sao-francisco" />
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="brecho-sao-francisco" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-brecho-sao-francisco" />
       <PortfolioHostCredit />
     </div>

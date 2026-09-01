@@ -31,8 +31,8 @@ function SensitiveAccessAudit() {
   useEffect(() => {
     setLoading(true);
     void load({ data: { entity: entity || undefined, action: action || undefined, limit: 200 } })
-      .then((result) => {
-        setRows(result.rows);
+      .then((result: unknown) => {
+        setRows((result as { rows: typeof rows }).rows);
         setError(null);
       })
       .catch((reason: Error) => setError(reason.message))

@@ -115,9 +115,9 @@ export async function syncPortfolioSitemapAndIndexing(
 
   let gsc: { status: string; error?: string } = { status: "not_configured" };
   try {
-    const { resolveProperty, SITE_URL } = await import("@/lib/gsc-sync.server");
+    const { resolveProperty } = await import("@/lib/gsc-sync.server");
     const { submitSitemap } = await import("@/lib/gsc.server");
-    const property = await resolveProperty(SITE_URL);
+    const property = await resolveProperty();
     if (property.status === "selected") {
       await submitSitemap(property.siteUrl, PORTFOLIO_SITEMAP_URL);
       gsc = { status: "submitted" };

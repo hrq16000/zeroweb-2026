@@ -21,6 +21,7 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CidadesRouteImport } from './routes/cidades'
 import { Route as ConsultoriaRouteImport } from './routes/consultoria'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as CriacaoDeSiteInstitucionalRouteImport } from './routes/criacao-de-site-institucional'
 import { Route as CriacaoSitesRouteImport } from './routes/criacao-sites'
 import { Route as DesenvolvimentoRouteImport } from './routes/desenvolvimento'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
@@ -271,6 +272,12 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CriacaoDeSiteInstitucionalRoute =
+  CriacaoDeSiteInstitucionalRouteImport.update({
+    id: '/criacao-de-site-institucional',
+    path: '/criacao-de-site-institucional',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CriacaoSitesRoute = CriacaoSitesRouteImport.update({
   id: '/criacao-sites',
   path: '/criacao-sites',
@@ -1296,6 +1303,7 @@ export interface FileRoutesByFullPath {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1499,6 +1507,7 @@ export interface FileRoutesByTo {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1702,6 +1711,7 @@ export interface FileRoutesById {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1907,6 +1917,7 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
+    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2110,6 +2121,7 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
+    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2312,6 +2324,7 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
+    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2517,6 +2530,7 @@ export interface RootRouteChildren {
   CidadesRoute: typeof CidadesRoute
   ConsultoriaRoute: typeof ConsultoriaRoute
   ContatoRoute: typeof ContatoRoute
+  CriacaoDeSiteInstitucionalRoute: typeof CriacaoDeSiteInstitucionalRoute
   CriacaoSitesRoute: typeof CriacaoSitesRoute
   DesenvolvimentoRoute: typeof DesenvolvimentoRoute
   DesignSystemRoute: typeof DesignSystemRoute
@@ -2725,6 +2739,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/criacao-de-site-institucional': {
+      id: '/criacao-de-site-institucional'
+      path: '/criacao-de-site-institucional'
+      fullPath: '/criacao-de-site-institucional'
+      preLoaderRoute: typeof CriacaoDeSiteInstitucionalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/criacao-sites': {
@@ -4327,6 +4348,7 @@ const rootRouteChildren: RootRouteChildren = {
   CidadesRoute: CidadesRoute,
   ConsultoriaRoute: ConsultoriaRoute,
   ContatoRoute: ContatoRoute,
+  CriacaoDeSiteInstitucionalRoute: CriacaoDeSiteInstitucionalRoute,
   CriacaoSitesRoute: CriacaoSitesRoute,
   DesenvolvimentoRoute: DesenvolvimentoRoute,
   DesignSystemRoute: DesignSystemRoute,
