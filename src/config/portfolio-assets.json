@@ -560,6 +560,18 @@
         "ctaHref": "https://menu.brendi.com.br/manu-pasteis-ina"
       },
       "socialVersion": "51267cd7"
+    },
+    "liz-moraes-nail-designer": {
+      "icon": "/images/liz-moraes-nail-designer/logo.png",
+      "socialImage": "/images/liz-moraes-nail-designer/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Liz Moraes Nail Designer",
+        "title": "Suas unhas, sua melhor versão.",
+        "description": "Cuidados para mãos e pés, alongamento e esmaltação em gel no Centro de São José dos Pinhais.",
+        "ctaLabel": "Agendar horário",
+        "ctaHref": "#agendamento"
+      },
+      "socialVersion": "d4903e2a"
     }
   }
 }

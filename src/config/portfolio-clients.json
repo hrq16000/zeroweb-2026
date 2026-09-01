@@ -535,5 +535,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "liz-moraes-nail-designer",
+    "slug": "liz-moraes-nail-designer",
+    "siteName": "Liz Moraes Nail Designer",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/LizMoraesNailDesignerPage.tsx",
+    "assetsDir": "public/images/liz-moraes-nail-designer",
+    "ctaMode": "booking",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

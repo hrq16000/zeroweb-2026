@@ -369,6 +369,44 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma avaliação"
     ]
   },
+  "liz-moraes-nail-designer": {
+    "services": [
+      "Manicure tradicional · R$ 45,00",
+      "Pedicure tradicional · R$ 45,00",
+      "Spa dos pés · R$ 55,00",
+      "Esmaltação em gel · R$ 70,00",
+      "Banho de gel · R$ 90,00",
+      "Alongamento ou manutenção molde F1",
+      "Quero orientação para escolher"
+    ],
+    "experienceOptions": [
+      "Primeiro atendimento",
+      "Já faço unhas em gel",
+      "Quero manutenção",
+      "Quero conhecer as opções"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Noite",
+      "Tenho flexibilidade"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Ainda nesta semana",
+      "Na próxima semana",
+      "Estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual cuidado você deseja?",
+      "experience": "Como estão suas unhas hoje?",
+      "period": "Qual período combina com sua rotina?",
+      "timing": "Quando gostaria de agendar?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: data desejada, referência de cor ou dúvida sobre o molde F1."
+  },
   "lk-alvenaria": {
     "services": [
       "Alicerce e fundação",

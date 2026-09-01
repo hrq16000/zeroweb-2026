@@ -63,6 +63,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "galileu-locacao-brinquedos": { title: "A diversão da festa começa escolhendo as atrações certas.", step: "Conte a data, o local e o perfil da comemoração para montar seu pedido.", cta: "Planejar diversão", theme: "navy" },
   "lj-cleaning": { title: "Seu conforto merece um cuidado completo.", step: "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.", cta: "Solicitar orçamento", theme: "navy" },
   "manu-pasteis": { title: "Seu pastel da noite começa no cardápio certo.", step: "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.", cta: "Abrir cardápio", theme: "gold" },
+  "liz-moraes-nail-designer": { title: "Seu momento de beleza começa com uma escolha feita para você.", step: "Indique o cuidado, acabamento ou molde F1 que deseja e escolha o melhor período para agendar.", cta: "Agendar meu horário", theme: "pink" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

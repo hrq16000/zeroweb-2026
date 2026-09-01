@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — Liz Moraes Nail Designer
+
+- **Adição:** projeto oficial e público `/portfolio/liz-moraes-nail-designer` para manicure, pedicure, spa dos pés, esmaltação em gel e molde F1 no Centro de São José dos Pinhais.
+- **Identidade:** logo exclusiva e prévia social horizontal geradas com `imagegen`, além da arte de serviços fornecida pelo negócio; paleta preto, rosé e rose-gold coerente com a marca.
+- **Conversão:** quiz de agendamento próprio, CTAs por etapa, prova social e narrativa sem misturar segmentos; divulgação exclusiva do projeto.
+- **Proteção:** telefone operacional não é embutido no bundle público; preços e endereço exibidos são somente os dados fornecidos no material do cliente.
+
 ## 2026-09-01 — L&J Cleaning
 
 - **Adição:** projeto oficial `/portfolio/lj-cleaning` para higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs.

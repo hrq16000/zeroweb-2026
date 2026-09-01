@@ -65,6 +65,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "galileu-locacao-brinquedos", vertical: "comercios", siteName: "Galileu Locação de Brinquedos · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "lj-cleaning", vertical: "prestadores-de-servicos", siteName: "L&J Cleaning · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "manu-pasteis", vertical: "restaurantes", siteName: "Manu Pastéis", kind: "prototype", indexable: true },
+  { slug: "liz-moraes-nail-designer", vertical: "beleza", siteName: "Liz Moraes Nail Designer · São José dos Pinhais", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

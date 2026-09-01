@@ -110,6 +110,7 @@ const MiroTechPage = lazy(() => import("@/components/site/MiroTechPage").then((m
 const GalileuLocacaoBrinquedosPage = lazy(() => import("@/components/site/GalileuLocacaoBrinquedosPage").then((m) => ({ default: m.GalileuLocacaoBrinquedosPage })));
 const LjCleaningPage = lazy(() => import("@/components/site/LjCleaningPage").then((m) => ({ default: m.LjCleaningPage })));
 const ManuPasteisPage = lazy(() => import("@/components/site/ManuPasteisPage").then((m) => ({ default: m.ManuPasteisPage })));
+const LizMoraesNailDesignerPage = lazy(() => import("@/components/site/LizMoraesNailDesignerPage").then((m) => ({ default: m.LizMoraesNailDesignerPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -155,8 +156,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isGalileu = loaderData?.slug === "galileu-locacao-brinquedos";
     const isLjCleaning = loaderData?.slug === "lj-cleaning";
     const isManuPasteis = loaderData?.slug === "manu-pasteis";
+    const isLizMoraes = loaderData?.slug === "liz-moraes-nail-designer";
     const description = isManuPasteis
       ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
+      : isLizMoraes
+        ? "Liz Moraes Nail Designer no Centro de São José dos Pinhais: manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1 com agendamento pelo WhatsApp."
       : isLjCleaning
       ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
       : isGalileu
@@ -296,8 +300,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
-            : isManuPasteis
+              : isManuPasteis
               ? "Manu Pastéis, pastel recheado, pastel quentinho, cardápio online, delivery, São José dos Pinhais"
+              : isLizMoraes
+                ? "Liz Moraes Nail Designer, manicure, pedicure, esmaltação em gel, alongamento molde F1, Centro, São José dos Pinhais"
             : isLjCleaning
               ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
             : isGalileu
@@ -464,6 +470,8 @@ function PortfolioPrototypePage() {
           <LjCleaningPage />
         ) : slug === "manu-pasteis" ? (
           <ManuPasteisPage />
+        ) : slug === "liz-moraes-nail-designer" ? (
+          <LizMoraesNailDesignerPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (
