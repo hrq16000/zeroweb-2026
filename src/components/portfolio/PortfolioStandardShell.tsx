@@ -12,6 +12,7 @@ import { PortfolioVitals } from "@/lib/portfolio-vitals";
 import { PortfolioBackToTop } from "@/components/portfolio/PortfolioBackToTop";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
+import { PortfolioPresenceKit } from "@/components/portfolio/PortfolioPresenceKit";
 
 type Props = {
   slug: string;
@@ -50,6 +51,8 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
       ) : null}
 
       {children}
+
+      <PortfolioPresenceKit slug={slug} />
 
       {clientKey && proof ? <PortfolioSocialProofPopup clientKey={clientKey} {...proof} /> : null}
 
