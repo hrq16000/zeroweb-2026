@@ -56,7 +56,7 @@ export type SensitiveAuditRow = {
   action: "sensitive.read" | "sensitive.write";
   entity: AuditedEntity;
   entity_id: string | null;
-  meta: Record<string, unknown> | null;
+  meta: Record<string, string | number | boolean | null> | null;
   created_at: string;
 };
 
