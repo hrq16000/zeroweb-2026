@@ -63,6 +63,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "premium-envelopamentos", vertical: "prestadores-de-servicos", siteName: "Premium Envelopamentos · Curitiba", kind: "prototype", indexable: true },
   { slug: "miro-tech", vertical: "prestadores-de-servicos", siteName: "MIRO TECH · São José dos Pinhais", kind: "prototype", indexable: true },
   { slug: "galileu-locacao-brinquedos", vertical: "comercios", siteName: "Galileu Locação de Brinquedos · São José dos Pinhais", kind: "prototype", indexable: true },
+  { slug: "lj-cleaning", vertical: "prestadores-de-servicos", siteName: "L&J Cleaning · São José dos Pinhais", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

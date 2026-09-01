@@ -61,6 +61,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "premium-envelopamentos": { title: "Seu ambiente pode ganhar outra leitura sem reforma.", step: "Conte qual móvel, geladeira ou superfície você quer transformar e qual estilo imagina.", cta: "Planejar transformação", theme: "navy" },
   "miro-tech": { title: "Seu equipamento em boas mãos começa com um diagnóstico claro.", step: "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.", cta: "Solicitar avaliação", theme: "navy" },
   "galileu-locacao-brinquedos": { title: "A diversão da festa começa escolhendo as atrações certas.", step: "Conte a data, o local e o perfil da comemoração para montar seu pedido.", cta: "Planejar diversão", theme: "navy" },
+  "lj-cleaning": { title: "Seu conforto merece um cuidado completo.", step: "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.", cta: "Solicitar orçamento", theme: "navy" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

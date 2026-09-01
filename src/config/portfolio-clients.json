@@ -513,5 +513,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "lj-cleaning",
+    "slug": "lj-cleaning",
+    "siteName": "L&J Cleaning",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/LjCleaningPage.tsx",
+    "assetsDir": "public/images/lj-cleaning",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — L&J Cleaning
+
+- **Adição:** projeto oficial `/portfolio/lj-cleaning` para higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs.
+- **Identidade:** logo própria em azul e laranja, com a arte fornecida pelo negócio vinculada como imagem principal.
+- **Conversão:** funil, narrativa e divulgação exclusivos; telefone operacional permanece somente no servidor.
+
 ## 2026-09-01 — Galileu Locação de Brinquedos
 
 - **Adição:** projeto oficial `/portfolio/galileu-locacao-brinquedos` para locação de tobogã inflável, cama elástica, piscina de bolinhas e outras atrações para festas.

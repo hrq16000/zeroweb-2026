@@ -512,6 +512,12 @@
       "socialImage": "/images/galileu-locacao-brinquedos/hero.png",
       "proof": {"eyebrow":"Galileu Locação de Brinquedos","title":"Diversão garantida para momentos inesquecíveis.","description":"Tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos.","ctaLabel":"Pedir orçamento","ctaHref":"#orcamento"},
       "socialVersion":"galileu-v1"
+    },
+    "lj-cleaning": {
+      "icon": "/images/lj-cleaning/logo.png",
+      "socialImage": "/images/lj-cleaning/hero.png",
+      "proof": {"eyebrow":"L&J Cleaning","title":"Seu conforto merece um cuidado completo.","description":"Higienização de sofás, automotiva, colchões, tapetes e outros itens.","ctaLabel":"Solicitar orçamento","ctaHref":"#orcamento"},
+      "socialVersion":"lj-v1"
     }
   }
 }
