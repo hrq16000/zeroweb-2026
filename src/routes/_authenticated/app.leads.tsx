@@ -126,6 +126,46 @@ function LeadsPage() {
         <Stat label="Funis" value={stats.funil} icon={<ClipboardList className="w-4 h-4" />} />
       </div>
 
+      <div className="grid lg:grid-cols-2 gap-4 mb-6">
+        <section className="rounded-2xl border border-border bg-card p-4">
+          <h2 className="text-sm font-semibold mb-3">Segmentos do diagnóstico</h2>
+          {segments.length === 0 ? (
+            <p className="text-xs text-muted-foreground">Sem leads no recorte atual.</p>
+          ) : (
+            <ul className="space-y-2">
+              {segments.map(([seg, count]) => (
+                <li key={seg} className="flex items-center justify-between text-sm">
+                  <span className="capitalize">{seg}</span>
+                  <span className="font-semibold tabular-nums">{count}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
+        <section className="rounded-2xl border border-border bg-card p-4">
+          <h2 className="text-sm font-semibold mb-3">Funil de conversão por etapa</h2>
+          {funnelStages.length === 0 ? (
+            <p className="text-xs text-muted-foreground">Sem etapas registradas.</p>
+          ) : (
+            <ul className="space-y-2">
+              {funnelStages.map((s) => (
+                <li key={s.etapa}>
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span>{s.etapa}</span>
+                    <span className="font-semibold tabular-nums">{s.count}</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-muted overflow-hidden">
+                    <div className="h-full bg-primary" style={{ width: `${s.pct}%` }} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
+
+
       <div className="flex flex-wrap gap-3 mb-4 items-center">
         <Filter className="w-4 h-4 text-muted-foreground" />
         <select
