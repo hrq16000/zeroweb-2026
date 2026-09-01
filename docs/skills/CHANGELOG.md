@@ -567,6 +567,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Assets:** cinco imagens fornecidas pela cliente foram vinculadas exclusivamente ao slug; uma prévia social paisagem foi gerada por IA sem texto, contatos ou promessas inventadas.
 - **Governança:** dados de contato operacional permanecem fora do bundle público; CTAs usam o funil parametrizado. O projeto é um negócio real; somente os mockups de papelaria são identificados como conceito até aprovação de impressão.
 
+## 2026-09-01 — prospecção de novas categorias locais
+
+- **Pesquisa:** confirmadas fontes públicas para Ateliê da Lyka (costura, Cajuru), Praça dos Bichos (pet shop, Curitiba) e Mercado Maxbier (mercado de bairro, Abranches).
+- **Próxima leva:** as três empresas entram na fila de páginas oficiais com dados próprios, funil server-only e validação de assets antes da publicação.
+
 ## 2026-09-01 — kit de presença visual em todos os projetos
 
 - **Tarefa:** garantir cartão de visita e panfleto digital visíveis em cada `/portfolio/<slug>`.
