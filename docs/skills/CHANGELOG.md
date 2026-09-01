@@ -501,3 +501,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** Jardim Itália (São José dos Pinhais) adicionado ao mapa de bairros; páginas `/portfolio/<segmento>/<bairro>` agora priorizam a região metropolitana e exibem projetos canônicos associados ao local.
 - **SEO:** a rota regional mantém canonical, robots indexável, geo metadata, BreadcrumbList, LocalBusiness/Service e ItemList; drafts continuam não indexáveis individualmente.
 - **Validação:** boundaries, catálogo e scaffold aprovados após a inclusão da camada regional.
+
+## 2026-09-01 — descoberta regional na vitrine principal
+
+- **Tarefa:** permitir que o visitante encontre a região do Jardim Itália diretamente em `/portfolio/`.
+- **Alterações:** adicionada seção de guia comercial regional com link para o cluster indexável e cards dos projetos canônicos associados à Rua Quirino Zagonel.
+- **Validação:** catálogo, boundaries, metadados e rotas aprovados após a alteração.
