@@ -189,6 +189,22 @@ function PostPage() {
             </figure>
           )}
 
+          {post.landingLink && (
+            <aside className="mt-12 rounded-3xl border border-primary/25 bg-primary/5 p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                Próximo passo
+              </p>
+              <h2 className="mt-2 text-xl font-bold">{post.landingLink.label}</h2>
+              <p className="mt-2 text-muted-foreground">{post.landingLink.description}</p>
+              <Link
+                to={post.landingLink.path}
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground font-semibold px-6 py-3"
+              >
+                Ver a página e fazer o diagnóstico
+              </Link>
+            </aside>
+          )}
+
           <AuthorBio className="mt-12" />
 
           {post.faq && post.faq.length > 0 && (
