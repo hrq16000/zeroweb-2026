@@ -11,6 +11,7 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
         return renderSitemap(resolveBaseUrl(request), [
           { path: "/", changefreq: "weekly", priority: "1.0", lastmod: today },
           { path: "/servicos", changefreq: "weekly", priority: "0.95" },
+          { path: "/criacao-de-site-institucional", changefreq: "weekly", priority: "0.95" },
           { path: "/sobre", changefreq: "monthly", priority: "0.7" },
           { path: "/contato", changefreq: "monthly", priority: "0.8" },
           { path: "/solicitar-orcamento", changefreq: "monthly", priority: "0.85" },
