@@ -317,17 +317,45 @@ function GMBPage() {
         </div>
       </section>
 
+      {/* DIAGNÓSTICO GRATUITO */}
+      <section className="py-16">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+          <div className="rounded-3xl border border-primary/25 bg-gradient-to-r from-primary/10 via-card to-card p-8 lg:p-10 grid lg:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">Diagnóstico gratuito</p>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-bold">
+                Descubra o que falta na sua presença local
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Seis perguntas rápidas sobre o seu negócio, objetivo e prazo. Devolvemos as prioridades
+                do perfil no Google e o formato de site que sustenta essa presença — sem compromisso.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                trackConversion("diagnostic_open", { source: "gmb_page" });
+                setQuizOpen(true);
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-bold px-7 py-4 hover:scale-[1.02] transition"
+            >
+              Agende seu diagnóstico agora <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+      <InstitutionalDiagnosticQuizModal
+        open={quizOpen}
+        onClose={() => setQuizOpen(false)}
+        source="google-meu-negocio"
+      />
+
       {/* FAQ */}
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
           <h2 className="text-3xl font-bold text-center">Perguntas frequentes</h2>
           <div className="mt-8 space-y-3">
-            {[
-              { q: "Em quanto tempo minha empresa começa a aparecer no Google?", a: "Após a configuração e verificação do perfil, os primeiros resultados aparecem em 7 a 30 dias, com crescimento consistente nos meses seguintes." },
-              { q: "Preciso já ter um perfil no Google Meu Negócio?", a: "Não. A 0WEB cria, reivindica ou recupera perfis e faz toda a configuração técnica, fotos, categorias, áreas de atuação e integração com WhatsApp." },
-              { q: "Qual a diferença entre o Plano Único e o Plano PRO?", a: "O Plano Único (R$397) entrega configuração completa em uma única vez. O Plano PRO (R$247/mês por 3 meses) inclui otimização contínua, postagens, respostas a avaliações e relatórios mensais." },
-              { q: "Funciona para qualquer tipo de empresa?", a: "Sim, atende prestadores de serviço, comércios, escritórios, autoescolas, restaurantes, clínicas e qualquer empresa com atendimento local ou regional." },
-            ].map((f) => (
+            {FAQ.map((f) => (
               <details key={f.q} className="group rounded-2xl border border-border bg-card p-5">
                 <summary className="cursor-pointer font-semibold flex items-center justify-between">
                   {f.q}
