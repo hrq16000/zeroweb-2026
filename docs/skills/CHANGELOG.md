@@ -521,3 +521,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** a vitrine `/portfolio/` deixou de destacar uma única rua/região e passou a exibir uma grade equilibrada de bairros/cidades de PR e MG, com link para explorar todas as regiões.
 - **Regra:** regiões específicas permanecem acessíveis por clusters próprios, mas nenhuma é tratada como centro do catálogo nacional.
 - **Validação:** rotas, catálogo e boundaries aprovados.
+
+## 2026-09-01 — portão obrigatório de localização
+
+- **Tarefa:** impedir que novos projetos entrem sem contexto geográfico e comercial.
+- **Alterações:** criado `validate:portfolio-regional`, integrado ao `prebuild`, exigindo ramo, bairro/região, cidade e estado em todos os registros; cinco projetos legados tiveram a localização textual normalizada.
+- **Validação:** 38 projetos aprovados no guia regional e catálogo canônico íntegro.
