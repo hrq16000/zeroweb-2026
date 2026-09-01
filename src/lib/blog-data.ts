@@ -16,7 +16,7 @@ export type BlogPost = {
   /** Lista de FAQs renderizadas no fim do post + JSON-LD FAQPage. */
   faq?: BlogFAQ[];
   /** Link interno para uma landing page de conversão (cluster de conteúdo). */
-  landingLink?: { path: string; label: string; description: string };
+  landingLink?: { path: "/criacao-de-site-institucional"; label: string; description: string };
 };
 
 export const categories = [
