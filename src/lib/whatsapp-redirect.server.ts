@@ -99,6 +99,8 @@ export function resolvePortfolioWhatsAppContact(clientKey?: string | null): Oper
                 ? "RJ_SERVICOS_DRYWALL_WHATSAPP_NUMBER"
                 : clientKey === "assistencia-microondas-santos"
                   ? "ASSISTENCIA_MICROONDAS_SANTOS_WHATSAPP_NUMBER"
+                : clientKey === "artesanatos-darleia-oliveira"
+                  ? "ARTESANATOS_DARLEIA_OLIVEIRA_WHATSAPP_NUMBER"
                 : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");

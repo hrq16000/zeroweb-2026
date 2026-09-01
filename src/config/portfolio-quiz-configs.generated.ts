@@ -102,6 +102,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma visita técnica"
     ]
   },
+  "artesanatos-darleia-oliveira": {
+    "services": [
+      "Coador de café 100% algodão",
+      "Escolher uma estampa",
+      "Presente artesanal",
+      "Quero conhecer outros artesanatos"
+    ],
+    "experienceOptions": [
+      "Para minha casa",
+      "Para presentear",
+      "Quero encomendar",
+      "Ainda estou conhecendo"
+    ],
+    "periodOptions": [
+      "Quero combinar a entrega",
+      "Vou retirar",
+      "Preciso consultar",
+      "Ainda não sei"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nesta semana",
+      "Estou pesquisando",
+      "Quero combinar"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você gostaria de conhecer?",
+      "experience": "Como pretende usar?",
+      "period": "Como prefere receber?",
+      "timing": "Quando você precisa?",
+      "note": "Conte os detalhes"
+    },
+    "notePlaceholder": "Ex.: cor, estampa, quantidade ou ocasião do presente."
+  },
   "assistencia-microondas-santos": {
     "services": [
       "Conserto de micro-ondas",

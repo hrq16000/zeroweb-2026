@@ -584,6 +584,18 @@
         "ctaHref": "#atendimento"
       },
       "socialVersion": "c5f6a283"
+    },
+    "artesanatos-darleia-oliveira": {
+      "icon": "/images/artesanatos-darleia-oliveira/logo.png",
+      "socialImage": "/images/artesanatos-darleia-oliveira/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Artesanatos Darléia Oliveira",
+        "title": "Seu café merece o melhor filtro.",
+        "description": "Coador de café 100% algodão, reutilizável e feito à mão.",
+        "ctaLabel": "Conhecer os produtos",
+        "ctaHref": "#produto"
+      },
+      "socialVersion": "8832f806"
     }
   }
 }

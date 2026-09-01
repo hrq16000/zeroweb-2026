@@ -644,3 +644,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Identidade:** logo própria gerada com `imagegen`, imagem social horizontal exclusiva e flyer fornecido pela empresa vinculado somente ao slug correto.
 - **Conversão:** funil de avaliação parametrizado para defeito, restauração, compra e atendimento; contatos operacionais ficam somente no ambiente server-side.
 - **SEO/catálogo:** ramo, cidade (São José dos Pinhais/PR), serviços, narrativa de conversão e divulgação exclusiva adicionados às fontes canônicas.
+
+## 2026-09-01 — Artesanatos Darléia Oliveira
+
+- **Adição:** projeto público `/portfolio/artesanatos-darleia-oliveira` para coadores de café 100% algodão, reutilizáveis e feitos à mão.
+- **Identidade:** logo e imagem social horizontal exclusivas geradas com `imagegen`, além do flyer real fornecido pela artesã, vinculados somente ao slug correto.
+- **Conversão:** CTA e funil próprios para estampa, ocasião, quantidade e forma de recebimento; Instagram oficial em bloco dedicado e contato operacional mantido somente no ambiente server-side.
+- **SEO/catálogo:** segmento, localização regional, serviços, narrativa de conversão e texto de divulgação exclusivos adicionados às fontes canônicas; o catálogo marca o projeto como publicado e real.

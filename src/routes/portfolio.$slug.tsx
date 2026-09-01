@@ -112,6 +112,7 @@ const LjCleaningPage = lazy(() => import("@/components/site/LjCleaningPage").the
 const ManuPasteisPage = lazy(() => import("@/components/site/ManuPasteisPage").then((m) => ({ default: m.ManuPasteisPage })));
 const LizMoraesNailDesignerPage = lazy(() => import("@/components/site/LizMoraesNailDesignerPage").then((m) => ({ default: m.LizMoraesNailDesignerPage })));
 const AssistenciaMicroondasSantosPage = lazy(() => import("@/components/site/AssistenciaMicroondasSantosPage").then((m) => ({ default: m.AssistenciaMicroondasSantosPage })));
+const ArtesanatosDarLeiaOliveiraPage = lazy(() => import("@/components/site/ArtesanatosDarLeiaOliveiraPage").then((m) => ({ default: m.ArtesanatosDarLeiaOliveiraPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -159,12 +160,15 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isManuPasteis = loaderData?.slug === "manu-pasteis";
     const isLizMoraes = loaderData?.slug === "liz-moraes-nail-designer";
     const isAssistenciaMicroondas = loaderData?.slug === "assistencia-microondas-santos";
+    const isArtesanatosDarleia = loaderData?.slug === "artesanatos-darleia-oliveira";
     const description = isManuPasteis
       ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
       : isLizMoraes
         ? "Liz Moraes Nail Designer no Centro de São José dos Pinhais: manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1 com agendamento pelo WhatsApp."
       : isAssistenciaMicroondas
         ? "Assistência Técnica Microondas Santos em São José dos Pinhais: conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
+      : isArtesanatosDarleia
+        ? "Artesanatos Darléia Oliveira: coadores de café 100% algodão, reutilizáveis e feitos à mão para um café mais puro e acolhedor."
       : isLjCleaning
       ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
       : isGalileu
@@ -310,6 +314,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 ? "Liz Moraes Nail Designer, manicure, pedicure, esmaltação em gel, alongamento molde F1, Centro, São José dos Pinhais"
               : isAssistenciaMicroondas
                 ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, micro-ondas revisado, conserto a domicílio, São José dos Pinhais"
+              : isArtesanatosDarleia
+                ? "Artesanatos Darléia Oliveira, coador de café 100% algodão, filtro reutilizável, artesanato feito à mão, café artesanal"
             : isLjCleaning
               ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
             : isGalileu
@@ -472,6 +478,8 @@ function PortfolioPrototypePage() {
           <LizMoraesNailDesignerPage />
         ) : slug === "assistencia-microondas-santos" ? (
           <AssistenciaMicroondasSantosPage />
+        ) : slug === "artesanatos-darleia-oliveira" ? (
+          <ArtesanatosDarLeiaOliveiraPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

@@ -557,5 +557,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "artesanatos-darleia-oliveira",
+    "slug": "artesanatos-darleia-oliveira",
+    "siteName": "Artesanatos Darléia Oliveira",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
+    "assetsDir": "public/images/artesanatos-darleia-oliveira",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
