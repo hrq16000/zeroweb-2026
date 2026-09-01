@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — padrão de Kit de Presença
+
+- **Classificação:** `docs`, `portfolio-client-site`, `content/SEO`.
+- **Skills:** `0web-skill-router`, `0web-design-system` e `0web-ui-quality-gates`.
+- **Alteração:** formalizado o contrato para copy exclusiva, imagem social própria e mockups conceituais de cartão/panfleto por cliente, incluindo o cadastro mínimo para lotes de comércios sem presença digital.
+
 ## 2026-09-01 — compartilhamento promocional e galeria de portfólios
 
 - **Classificação:** `portfolio-client-site`, `component-refactor`, `content/SEO`, `accessibility-fix`.

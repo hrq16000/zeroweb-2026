@@ -4,6 +4,9 @@ Status: **obrigatório**
 Escopo: todas as rotas `/portfolio/<slug>`  
 Responsável pela plataforma: 0WEB
 
+O contrato de divulgação, imagem social e amostras de papelaria está em
+`docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md` e é complementar a este padrão.
+
 Checklist operacional de novos projetos: `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md`.
 O pop-up de captação da 0WEB é renderizado pela rota `/portfolio/$slug` para
 todo projeto novo; overlays só são silenciados com `?0web_preview=1`.
