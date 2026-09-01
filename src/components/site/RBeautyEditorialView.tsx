@@ -52,7 +52,7 @@ export function RBeautyEditorialView() {
       <header className="border-b border-white/10 bg-[#0C0A0B]/85 backdrop-blur-xl sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
           
-          <Link to="/portfolio" className="flex items-center gap-3 group">
+          <Link to="/portfolio" search={{}} className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-full border border-[#D4AF37]/40 flex items-center justify-center bg-white/[0.03]">
               <Crown className="w-4 h-4 text-[#D4AF37]" />
             </div>

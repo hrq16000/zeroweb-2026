@@ -63,6 +63,17 @@ describe("buildWhatsAppLeadMessage", () => {
     expect(msg).not.toMatch(/0WEB\.com\.br/i);
   });
 
+  it("preserva o tipo de solicitação no handoff final do portfolio", () => {
+    const serviceMsg = buildWhatsAppLeadMessage({ ...baseCtx, brandName: "Chyrley", requestKind: "service" });
+    expect(serviceMsg).toContain("conversar sobre um serviço");
+    expect(serviceMsg).toContain("disponibilidade, avaliação e investimento estimado");
+    expect(serviceMsg).not.toMatch(/promotores|campanha/i);
+
+    const campaignMsg = buildWhatsAppLeadMessage({ ...baseCtx, brandName: "D.Y.Z Promo", requestKind: "campaign" });
+    expect(campaignMsg).toContain("conversar sobre uma campanha");
+    expect(campaignMsg).toContain("quantidade de promotores");
+  });
+
   it("preserves visitor-provided phone and email answers", () => {
     const msg = buildWhatsAppLeadMessage(baseCtx);
     expect(msg).toContain("41999990000");

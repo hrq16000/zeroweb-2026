@@ -44,6 +44,7 @@ export type LeadMessageContext = {
   utmCampaign?: string | null;
   /** Linhas de contexto sintetizadas da página/CTA de origem. */
   contextLines?: string[] | null;
+  requestKind?: "booking" | "campaign" | "service" | null;
 };
 
 
@@ -130,8 +131,13 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
   const header: string[] = [];
   const brand = sanitizeText(ctx.brandName, 100);
   const recipient = sanitizeText(ctx.recipientName, 80);
+  const requestSubject = ctx.requestKind === "campaign"
+    ? "uma campanha"
+    : ctx.requestKind === "service"
+      ? "um serviço"
+      : "um atendimento";
   header.push(brand
-    ? `Olá${recipient ? `, ${recipient}` : ""}! Vim pela página da *${brand}* e quero conversar sobre um atendimento.`
+    ? `Olá${recipient ? `, ${recipient}` : ""}! Vim pela página da *${brand}* e quero conversar sobre ${requestSubject}.`
     : "Olá! Acabei de preencher uma solicitação na 0WEB.");
   if (ctx.pageUrl) header.push(`🔗 URL completa: ${sanitizeText(ctx.pageUrl, 300)}`);
   header.push("✨ A página é linda, parabéns! Encontrei exatamente o que procurava.");
@@ -186,6 +192,15 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
     { title: "CARRINHO", lines: cartLines, priority: 1 },
     { title: "ORIGEM", lines: origin, priority: 3 },
   ];
+
+  if (brand) {
+    const nextStep = ctx.requestKind === "campaign"
+      ? "Pode me orientar sobre equipe, locais, quantidade de promotores e investimento estimado, por favor?"
+      : ctx.requestKind === "service"
+        ? "Pode me orientar sobre disponibilidade, avaliação e investimento estimado, por favor?"
+        : "Pode me enviar as próximas opções disponíveis para o atendimento, por favor?";
+    sections.push({ title: "PRÓXIMO PASSO", lines: [nextStep], priority: 1 });
+  }
 
 
   const assemble = (secs: typeof sections): string => {

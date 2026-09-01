@@ -382,6 +382,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     studioName: z.string().min(1).max(100),
     recipientName: z.string().min(1).max(80),
     mode: z.enum(["booking", "proposal"]),
+    proposalKind: z.enum(["campaign", "service"]).default("service"),
     pageUrl: z.string().url().max(500).optional(),
     orderContext: z.object({
       order_items: softText(8000).optional(),
@@ -442,7 +443,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           studio_name: data.studioName,
           recipient_name: data.recipientName,
           mode: data.mode,
-          ...(hasOrderContext ? { order_context: orderContext } : {}),
+          proposal_kind: data.proposalKind,
+          ...(data.orderContext ? { order_context: data.orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
           ...(geo.city ? { city: geo.city } : {}),

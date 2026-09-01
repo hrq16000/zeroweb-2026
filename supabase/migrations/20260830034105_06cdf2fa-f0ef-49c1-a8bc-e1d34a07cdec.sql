@@ -1,3 +1,5 @@
+-- Sensitive-data RLS hardening: only administrators can read the global
+-- service catalog, while lead updates stay scoped to an authorized portal.
 DROP POLICY IF EXISTS "leads_admin_write" ON public.lead_submissions;
 CREATE POLICY "leads_admin_write" ON public.lead_submissions
 FOR UPDATE TO authenticated

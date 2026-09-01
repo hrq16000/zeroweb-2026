@@ -3,6 +3,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { recordSensitiveAudit } from "@/lib/sensitive-audit.functions";
 
 const STATUSES = [
   "novo",
@@ -63,7 +64,8 @@ export const listLeads = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((i) => FiltersSchema.parse(i ?? {}))
   .handler(async ({ data, context }) => {
-    await assertAdmin((context as { userId: string }).userId);
+    const userId = (context as { userId: string }).userId;
+    await assertAdmin(userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const sinceIso = new Date(Date.now() - (data.days ?? 90) * 86400_000).toISOString();
     let q = supabaseAdmin
@@ -108,17 +110,11 @@ export const listLeads = createServerFn({ method: "POST" })
     const byStatus: Record<string, number> = Object.fromEntries(STATUSES.map((s) => [s, 0]));
     for (const r of out) byStatus[r.status as string]++;
 
-    const { recordAccessAudit } = await import("./access-audit.server");
-    await recordAccessAudit({
-      actorId: (context as { userId: string }).userId,
-      action: "lead_submissions.list.read",
+    await recordSensitiveAudit({
+      actorId: userId,
+      action: "sensitive.read",
       entity: "lead_submissions",
-      meta: {
-        operation: "list",
-        count: out.length,
-        filters: Object.keys(data ?? {}),
-        days: data.days ?? 90,
-      },
+      meta: { scope: "list", result_count: out.length },
     });
 
     return { rows: out, byStatus, total: out.length };
@@ -128,7 +124,8 @@ export const getLeadDetail = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((i) => z.object({ id: z.string().uuid() }).parse(i))
   .handler(async ({ data, context }) => {
-    await assertAdmin((context as { userId: string }).userId);
+    const userId = (context as { userId: string }).userId;
+    await assertAdmin(userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const [{ data: lead, error: e1 }, { data: history, error: e2 }] = await Promise.all([
       supabaseAdmin.from("lead_submissions").select("*").eq("id", data.id).maybeSingle(),
@@ -142,13 +139,12 @@ export const getLeadDetail = createServerFn({ method: "POST" })
     if (e1) throw new Error(e1.message);
     if (e2) throw new Error(e2.message);
     if (!lead) throw new Error("Lead não encontrado");
-    const { recordAccessAudit } = await import("./access-audit.server");
-    await recordAccessAudit({
-      actorId: (context as { userId: string }).userId,
-      action: "lead_submissions.detail.read",
+    await recordSensitiveAudit({
+      actorId: userId,
+      action: "sensitive.read",
       entity: "lead_submissions",
       entityId: data.id,
-      meta: { operation: "detail", history_count: (history ?? []).length },
+      meta: { scope: "detail" },
     });
     return {
       lead: { ...lead, status: normStatus(lead.status as string | null) },
@@ -167,7 +163,8 @@ export const updateLead = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((i) => UpdateSchema.parse(i))
   .handler(async ({ data, context }) => {
-    await assertAdmin((context as { userId: string }).userId);
+    const userId = (context as { userId: string }).userId;
+    await assertAdmin(userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const patch: {
       status?: string;
@@ -182,13 +179,12 @@ export const updateLead = createServerFn({ method: "POST" })
     if (Object.keys(patch).length === 0) return { ok: true };
     const { error } = await supabaseAdmin.from("lead_submissions").update(patch).eq("id", data.id);
     if (error) throw new Error(error.message);
-    const { recordAccessAudit } = await import("./access-audit.server");
-    await recordAccessAudit({
-      actorId: (context as { userId: string }).userId,
-      action: "lead_submissions.update",
+    await recordSensitiveAudit({
+      actorId: userId,
+      action: "sensitive.write",
       entity: "lead_submissions",
       entityId: data.id,
-      meta: { operation: "update", changed_fields: Object.keys(patch) },
+      meta: { fields: Object.keys(patch) },
     });
     return { ok: true };
   });
@@ -206,7 +202,8 @@ export const addLeadHistory = createServerFn({ method: "POST" })
       .parse(i),
   )
   .handler(async ({ data, context }) => {
-    await assertAdmin((context as { userId: string }).userId);
+    const userId = (context as { userId: string }).userId;
+    await assertAdmin(userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const [{ error: e1 }, { error: e2 }] = await Promise.all([
       supabaseAdmin.from("lead_history").insert({
@@ -222,13 +219,12 @@ export const addLeadHistory = createServerFn({ method: "POST" })
     ]);
     if (e1) throw new Error(e1.message);
     if (e2) throw new Error(e2.message);
-    const { recordAccessAudit } = await import("./access-audit.server");
-    await recordAccessAudit({
-      actorId: (context as { userId: string }).userId,
-      action: "lead_submissions.history.create",
+    await recordSensitiveAudit({
+      actorId: userId,
+      action: "sensitive.write",
       entity: "lead_submissions",
       entityId: data.lead_id,
-      meta: { operation: "history_append", kind: data.kind, note_length: data.note.length },
+      meta: { operation: "history", kind: data.kind },
     });
     return { ok: true };
   });

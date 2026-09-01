@@ -89,6 +89,9 @@ const AcaiTotalAraucariaPage = lazy(() =>
 const JklMarcenariaPage = lazy(() =>
   import("@/components/site/JklMarcenariaPage").then((m) => ({ default: m.JklMarcenariaPage })),
 );
+const SantosMontadorDeMoveisPage = lazy(() =>
+  import("@/components/site/SantosMontadorDeMoveisPage").then((m) => ({ default: m.SantosMontadorDeMoveisPage })),
+);
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -102,6 +105,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
   head: ({ loaderData }) => {
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
     const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Demonstração de site";
+    const isHotDog = loaderData?.slug === "paraiso-do-hot-dog";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
     const isChyrley = loaderData?.slug === "confeitaria-chyrley";
     const isMpFestas = loaderData?.slug === "mp-festas-eventos";
@@ -124,8 +128,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isMary = loaderData?.slug === "mary-diarista";
     const isAcai = loaderData?.slug === "acai-total-araucaria";
     const isJkl = loaderData?.slug === "jkl-marcenaria";
+    const isSantos = loaderData?.slug === "santos-montador-de-moveis";
     const description = isRjDrywall
       ? "Instalação, manutenção e reparos em drywall em Curitiba e Região Metropolitana. Paredes, forros, sancas, nichos e acabamento fino."
+      : isHotDog
+        ? "Cardápio online do Paraíso do Hot Dog em São José dos Pinhais, com lanches, adicionais, retirada, entrega e pedido direto pelo atendimento."
       : loaderData?.slug === "emporio-lelecute"
         ? "Lembrancinhas artesanais personalizadas, sabonetes, velas e presentes do Empório LeleCute em São José dos Pinhais."
         : isChyrley
@@ -170,6 +177,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Açaí Total Araucária: copões e litrões de açaí com frutas, cremes e complementos, com entrega em casa."
           : isJkl
             ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
+          : isSantos
+            ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
           : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
@@ -226,6 +235,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/acai-total-araucaria/acai.webp"
                 : isJkl
                   ? "/images/jkl-marcenaria/cozinha.webp"
+                : isSantos
+                  ? "/images/santos-montador-de-moveis/hero.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     ), loaderData?.slug);
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
@@ -233,7 +244,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isMarido = loaderData?.slug === "marido-de-aluguel";
     return {
       meta: [
-        { title: `${title} · Portfólio 0WEB` },
+        { title },
         { name: "description", content: description },
         { name: "robots", content: "index,follow,max-image-preview:large" },
         {
@@ -242,6 +253,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : isHotDog
+              ? "hot dog São José dos Pinhais, cachorro-quente, lanche, cardápio online, entrega de hot dog, Paraíso do Hot Dog"
             : isChyrley
               ? "confeitaria Rio Bonito, bolo personalizado, kit festa, salgados para festa, Copo da Felicidade, doces artesanais"
               : isMpFestas
@@ -284,9 +297,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
                 : isJkl
                   ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
+                : isSantos
+                  ? "montador de móveis Curitiba, montagem de móveis Colombo, desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água, instalação de cortinas, Alphaville Curitiba"
               : (vertical?.keywords ?? "site profissional, criação de sites, SEO local"),
         },
-        { property: "og:title", content: `${title} · Portfólio 0WEB` },
+        { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:type", content: "website" },
@@ -315,7 +330,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   "@type": "WebPage",
                   "@id": url,
                   url,
-                  name: `${title} · Portfólio 0WEB`,
+                  name: title,
                   description,
                   inLanguage: "pt-BR",
                   isPartOf: { "@id": "https://0web.com.br/portfolio" },
@@ -418,6 +433,8 @@ function PortfolioPrototypePage() {
           <AcaiTotalAraucariaPage />
         ) : slug === "jkl-marcenaria" ? (
           <JklMarcenariaPage />
+        ) : slug === "santos-montador-de-moveis" ? (
+          <SantosMontadorDeMoveisPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}

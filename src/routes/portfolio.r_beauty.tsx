@@ -5,8 +5,8 @@ import { RBeautyEditorialView } from "@/components/site/RBeautyEditorialView";
 const TITLE = "R_Beauty Haute Studio · Cílios, unhas e sobrancelhas";
 const DESC = "Conheça os procedimentos de cílios, unhas, sobrancelhas e autocuidado do R_Beauty Haute Studio no Boneca do Iguaçu.";
 const URL = "https://0web.com.br/portfolio/r_beauty";
-const SOCIAL_IMAGE = "https://0web.com.br/images/r-beauty-icon-og.jpg?v=758635fe";
-const ICON = "https://0web.com.br/images/r-beauty-icon.png";
+const SOCIAL_IMAGE = "https://0web.com.br/images/r-beauty-cilios.jpg";
+const ICON = "https://0web.com.br/images/r-beauty-icon.webp";
 
 export const Route = createFileRoute("/portfolio/r_beauty")({
   head: () => ({
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/portfolio/r_beauty")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/png", href: ICON }, { rel: "apple-touch-icon", href: ICON }],
+    links: [{ rel: "canonical", href: URL }, { rel: "icon", type: "image/webp", href: ICON }],
     scripts: [{
       type: "application/ld+json",
       children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": URL, url: URL, name: TITLE, description: DESC, image: SOCIAL_IMAGE, inLanguage: "pt-BR", about: { "@type": "BeautySalon", name: "R_Beauty Studio" } }),

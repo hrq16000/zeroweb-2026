@@ -1,12 +1,279 @@
 import { motion } from "motion/react";
-import { ArrowRight, Check, HardHat, ParkingSquare, ShieldCheck, SprayCan, Waypoints } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  HardHat,
+  ParkingSquare,
+  ShieldCheck,
+  SprayCan,
+  Waypoints,
+} from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-const services = [["Estacionamentos organizados", "Pintura de vagas comuns, PCD e idosos com leitura clara e acabamento durável.", ParkingSquare], ["Sinalização horizontal", "Faixas de pedestres, setas, carga e descarga e demais demarcações de solo.", Waypoints], ["Pintura imobiliária", "Paredes internas e externas para valorizar condomínios, comércios e empresas.", SprayCan], ["Estruturas industriais", "Pintura de barracões, galpões e áreas operacionais com segurança e prazo.", HardHat]] as const;
-const quiz = { stepTitles: { service: "Qual sinalização você precisa?", experience: "Conte sobre o espaço", period: "Onde será o serviço?", timing: "Quando deseja realizar?", note: "Mais detalhes" }, services: ["Pintura de estacionamento", "Demarcação de vagas PCD e idosos", "Faixas e setas de direcionamento", "Áreas de carga e descarga", "Pintura de paredes", "Galpões e estruturas industriais"], experienceOptions: ["Condomínio", "Comércio ou estacionamento", "Indústria ou galpão", "Empresa ou imóvel"], periodOptions: ["Curitiba e região", "Região metropolitana", "Vou confirmar o endereço"], timingOptions: ["Preciso de orçamento em breve", "Estou planejando", "Quero uma visita técnica"] };
-function CTA({ children }: { children: React.ReactNode }) { return <PortfolioCTAQuiz clientKey="aguia-sul-sinalizacao" studioName="Águia Sul Sinalização" recipientName="Águia Sul" theme="gold" mode="proposal" quizConfig={quiz} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f5b51b] px-6 py-3.5 font-bold text-[#101010] shadow-lg shadow-[#f5b51b]/25 transition hover:-translate-y-1 hover:bg-[#ffd45c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5b51b]">{children}</PortfolioCTAQuiz>; }
-export function AguiaSulSinalizacaoPage() { return <div className="min-h-dvh overflow-hidden bg-[#090a0c] text-[#f7f4ec]"><header className="sticky top-0 z-30 border-b border-[#f5b51b]/20 bg-[#090a0c]/95 px-5 py-4 backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold"><img src="/images/aguia-sul-sinalizacao/logo.webp" alt="Águia Sul Sinalização" loading="lazy" decoding="async" width={40} height={40} className="h-10 w-10 rounded-full object-cover" /><span>ÁGUIA <span className="text-[#f5b51b]">SUL</span></span></a><nav className="hidden gap-6 text-sm font-semibold text-white/70 md:flex"><a href="#servicos">Serviços</a><a href="#diferenciais">Diferenciais</a><a href="#contato">Orçamento</a></nav><CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA></div></header><main><section id="inicio" className="relative overflow-hidden px-5 py-16 lg:px-8 lg:py-24"><div className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-[#f5b51b]/15 blur-3xl" /><div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_.95fr]"><div><motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">Sinalização viária · pintura profissional</motion.p><motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .08 }} className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl">Espaços mais seguros, <span className="text-[#f5b51b]">organizados e valorizados.</span></motion.h1><p className="mt-6 max-w-xl text-lg leading-8 text-white/70">A Águia Sul Sinalização entrega pintura e demarcação horizontal para condomínios, comércios, empresas, indústrias e estacionamentos.</p><div className="mt-8 flex flex-wrap gap-3"><CTA>Falar com a Águia Sul <ArrowRight className="h-4 w-4" /></CTA><a href="#servicos" className="inline-flex min-h-12 items-center rounded-full border border-white/25 px-6 py-3.5 font-semibold hover:bg-white/10">Conhecer serviços</a></div><div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-white/70"><span><Check className="mr-1 inline h-4 w-4 text-[#f5b51b]" />Equipe qualificada</span><span><Check className="mr-1 inline h-4 w-4 text-[#f5b51b]" />Prazo cumprido</span></div></div><motion.div initial={{ opacity: 0, x: 24, scale: .97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: .7 }}><PortfolioImage src="/images/aguia-sul-sinalizacao/logo.webp" alt="Logo dourada da Águia Sul Sinalização" priority width={1024} height={1024} className="mx-auto w-full max-w-[520px] rounded-[2rem] object-cover shadow-2xl ring-1 ring-[#f5b51b]/40" /></motion.div></div></section><section id="servicos" className="bg-[#f3f0e8] px-5 py-20 text-[#161616] lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#9b7200]">Soluções sob medida</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">Cada marca no chão tem uma função.</h2><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{services.map(([title, text, Icon], i) => <motion.article key={title} whileHover={{ y: -6 }} className="rounded-3xl border border-[#ded5be] bg-white p-6 shadow-sm"><span className="text-sm font-bold text-[#9b7200]">0{i + 1}</span><Icon className="mt-8 h-7 w-7 text-[#9b7200]" /><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-[#5a5d64]">{text}</p></motion.article>)}</div></div></section><section id="diferenciais" className="px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">Por que escolher</p><h2 className="mt-3 font-display text-4xl font-bold">Precisão que aparece. Segurança que permanece.</h2><p className="mt-5 leading-8 text-white/70">Materiais de alta qualidade, normas técnicas e execução responsável para entregar um resultado durável, legível e bonito.</p><div className="mt-8 flex items-start gap-4"><ShieldCheck className="mt-1 h-7 w-7 shrink-0 text-[#f5b51b]" /><div><p className="font-bold">Transparência do orçamento à entrega</p><p className="mt-1 text-sm text-white/60">Atendimento personalizado, planejamento e acompanhamento do prazo.</p></div></div></div><div className="grid gap-4 sm:grid-cols-2"><div className="rounded-3xl border border-[#f5b51b]/30 bg-[#121416] p-6"><p className="text-4xl font-bold text-[#f5b51b]">01</p><p className="mt-8 font-bold">Diagnóstico do local</p><p className="mt-2 text-sm text-white/60">Entendemos fluxo, medidas e objetivo da sinalização.</p></div><div className="rounded-3xl border border-[#f5b51b]/30 bg-[#121416] p-6"><p className="text-4xl font-bold text-[#f5b51b]">02</p><p className="mt-8 font-bold">Execução cuidadosa</p><p className="mt-2 text-sm text-white/60">Equipe preparada e acabamento revisado.</p></div></div></div></section><section id="contato" className="bg-[#f5b51b] px-5 py-16 text-[#111] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[#111315] p-8 text-white shadow-2xl md:flex-row md:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">Atendimento empresarial</p><h2 className="mt-3 font-display text-4xl font-bold">Pronto para transformar seu espaço?</h2><p className="mt-3 max-w-xl leading-7 text-white/65">Solicite um orçamento sem compromisso para sua empresa, condomínio, comércio ou indústria.</p></div><CTA>Solicitar proposta <ArrowRight className="h-4 w-4" /></CTA></div></section></main><footer className="bg-[#050607] px-5 py-8 text-sm text-white/60 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-bold text-white">Águia <span className="text-[#f5b51b]">Sul Sinalização</span></p><p className="mt-1">Pintura e sinalização horizontal com excelência.</p></div><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#f5b51b]" /></div></footer><PortfolioSocialProofPopup clientKey="aguia-sul-sinalizacao" eyebrow="Águia Sul · Sinalização" title="Organização, segurança e valorização para o seu espaço." description="Conte o desafio e receba um próximo passo profissional." ctaLabel="Conhecer soluções" ctaHref="#servicos" delayMs={9000} className="border-[#f5b51b]/40 bg-[#121416]/95 text-white" accentClassName="text-[#f5b51b]" /><PortfolioUpsellPopup pageName="portfolio-aguia-sul-sinalizacao" /></div>; }
+const services = [
+  [
+    "Estacionamentos organizados",
+    "Pintura de vagas comuns, PCD e idosos com leitura clara e acabamento durável.",
+    ParkingSquare,
+  ],
+  [
+    "Sinalização horizontal",
+    "Faixas de pedestres, setas, carga e descarga e demais demarcações de solo.",
+    Waypoints,
+  ],
+  [
+    "Pintura imobiliária",
+    "Paredes internas e externas para valorizar condomínios, comércios e empresas.",
+    SprayCan,
+  ],
+  [
+    "Estruturas industriais",
+    "Pintura de barracões, galpões e áreas operacionais com segurança e prazo.",
+    HardHat,
+  ],
+] as const;
+const quiz = {
+  stepTitles: {
+    service: "Qual sinalização você precisa?",
+    experience: "Conte sobre o espaço",
+    period: "Onde será o serviço?",
+    timing: "Quando deseja realizar?",
+    note: "Mais detalhes",
+  },
+  services: [
+    "Pintura de estacionamento",
+    "Demarcação de vagas PCD e idosos",
+    "Faixas e setas de direcionamento",
+    "Áreas de carga e descarga",
+    "Pintura de paredes",
+    "Galpões e estruturas industriais",
+  ],
+  experienceOptions: [
+    "Condomínio",
+    "Comércio ou estacionamento",
+    "Indústria ou galpão",
+    "Empresa ou imóvel",
+  ],
+  periodOptions: ["Curitiba e região", "Região metropolitana", "Vou confirmar o endereço"],
+  timingOptions: ["Preciso de orçamento em breve", "Estou planejando", "Quero uma visita técnica"],
+};
+function CTA({ children }: { children: React.ReactNode }) {
+  return (
+    <PortfolioCTAQuiz
+      clientKey="aguia-sul-sinalizacao"
+      studioName="Águia Sul Sinalização"
+      recipientName="Águia Sul"
+      theme="gold"
+      mode="proposal"
+      quizConfig={quiz}
+      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f5b51b] px-6 py-3.5 font-bold text-[#101010] shadow-lg shadow-[#f5b51b]/25 transition hover:-translate-y-1 hover:bg-[#ffd45c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5b51b]"
+    >
+      {children}
+    </PortfolioCTAQuiz>
+  );
+}
+export function AguiaSulSinalizacaoPage() {
+  return (
+    <div className="min-h-dvh overflow-hidden bg-[#090a0c] text-[#f7f4ec]">
+      <header className="sticky top-0 z-30 border-b border-[#f5b51b]/20 bg-[#090a0c]/95 px-5 py-4 backdrop-blur lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold">
+            <PortfolioImage
+              src="/images/aguia-sul-sinalizacao/logo.webp"
+              alt="Águia Sul Sinalização"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-full object-cover"
+            />
+            <span>
+              ÁGUIA <span className="text-[#f5b51b]">SUL</span>
+            </span>
+          </a>
+          <nav className="hidden gap-6 text-sm font-semibold text-white/70 md:flex">
+            <a href="#servicos">Serviços</a>
+            <a href="#diferenciais">Diferenciais</a>
+            <a href="#contato">Orçamento</a>
+          </nav>
+          <CTA>
+            Solicitar orçamento <ArrowRight className="h-4 w-4" />
+          </CTA>
+        </div>
+      </header>
+      <main>
+        <section id="inicio" className="relative overflow-hidden px-5 py-16 lg:px-8 lg:py-24">
+          <div className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-[#f5b51b]/15 blur-3xl" />
+          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]"
+              >
+                Sinalização viária · pintura profissional
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.08 }}
+                className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl"
+              >
+                Espaços mais seguros,{" "}
+                <span className="text-[#f5b51b]">organizados e valorizados.</span>
+              </motion.h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
+                A Águia Sul Sinalização entrega pintura e demarcação horizontal para condomínios,
+                comércios, empresas, indústrias e estacionamentos.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CTA>
+                  Falar com a Águia Sul <ArrowRight className="h-4 w-4" />
+                </CTA>
+                <a
+                  href="#servicos"
+                  className="inline-flex min-h-12 items-center rounded-full border border-white/25 px-6 py-3.5 font-semibold hover:bg-white/10"
+                >
+                  Conhecer serviços
+                </a>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-white/70">
+                <span>
+                  <Check className="mr-1 inline h-4 w-4 text-[#f5b51b]" />
+                  Equipe qualificada
+                </span>
+                <span>
+                  <Check className="mr-1 inline h-4 w-4 text-[#f5b51b]" />
+                  Prazo cumprido
+                </span>
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 24, scale: 0.97 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.7 }}
+            >
+              <PortfolioImage
+                src="/images/aguia-sul-sinalizacao/logo.webp"
+                alt="Logo dourada da Águia Sul Sinalização"
+                priority
+                width={1024}
+                height={1024}
+                className="mx-auto w-full max-w-[520px] rounded-[2rem] object-cover shadow-2xl ring-1 ring-[#f5b51b]/40"
+              />
+            </motion.div>
+          </div>
+        </section>
+        <section id="servicos" className="bg-[#f3f0e8] px-5 py-20 text-[#161616] lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-sm font-bold uppercase tracking-[.2em] text-[#9b7200]">
+              Soluções sob medida
+            </p>
+            <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">
+              Cada marca no chão tem uma função.
+            </h2>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map(([title, text, Icon], i) => (
+                <motion.article
+                  key={title}
+                  whileHover={{ y: -6 }}
+                  className="rounded-3xl border border-[#ded5be] bg-white p-6 shadow-sm"
+                >
+                  <span className="text-sm font-bold text-[#9b7200]">0{i + 1}</span>
+                  <Icon className="mt-8 h-7 w-7 text-[#9b7200]" />
+                  <h3 className="mt-5 text-xl font-bold">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5a5d64]">{text}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section id="diferenciais" className="px-5 py-20 lg:px-8">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">
+                Por que escolher
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-bold">
+                Precisão que aparece. Segurança que permanece.
+              </h2>
+              <p className="mt-5 leading-8 text-white/70">
+                Materiais de alta qualidade, normas técnicas e execução responsável para entregar um
+                resultado durável, legível e bonito.
+              </p>
+              <div className="mt-8 flex items-start gap-4">
+                <ShieldCheck className="mt-1 h-7 w-7 shrink-0 text-[#f5b51b]" />
+                <div>
+                  <p className="font-bold">Transparência do orçamento à entrega</p>
+                  <p className="mt-1 text-sm text-white/60">
+                    Atendimento personalizado, planejamento e acompanhamento do prazo.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-3xl border border-[#f5b51b]/30 bg-[#121416] p-6">
+                <p className="text-4xl font-bold text-[#f5b51b]">01</p>
+                <p className="mt-8 font-bold">Diagnóstico do local</p>
+                <p className="mt-2 text-sm text-white/60">
+                  Entendemos fluxo, medidas e objetivo da sinalização.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-[#f5b51b]/30 bg-[#121416] p-6">
+                <p className="text-4xl font-bold text-[#f5b51b]">02</p>
+                <p className="mt-8 font-bold">Execução cuidadosa</p>
+                <p className="mt-2 text-sm text-white/60">
+                  Equipe preparada e acabamento revisado.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="contato" className="bg-[#f5b51b] px-5 py-16 text-[#111] lg:px-8">
+          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-[#111315] p-8 text-white shadow-2xl md:flex-row md:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]">
+                Atendimento empresarial
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-bold">
+                Pronto para transformar seu espaço?
+              </h2>
+              <p className="mt-3 max-w-xl leading-7 text-white/65">
+                Solicite um orçamento sem compromisso para sua empresa, condomínio, comércio ou
+                indústria.
+              </p>
+            </div>
+            <CTA>
+              Solicitar proposta <ArrowRight className="h-4 w-4" />
+            </CTA>
+          </div>
+        </section>
+      </main>
+      <footer className="bg-[#050607] px-5 py-8 text-sm text-white/60 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-bold text-white">
+              Águia <span className="text-[#f5b51b]">Sul Sinalização</span>
+            </p>
+            <p className="mt-1">Pintura e sinalização horizontal com excelência.</p>
+          </div>
+          <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#f5b51b]" />
+        </div>
+      </footer>
+      <PortfolioSocialProofPopup
+        clientKey="aguia-sul-sinalizacao"
+        eyebrow="Águia Sul · Sinalização"
+        title="Organização, segurança e valorização para o seu espaço."
+        description="Conte o desafio e receba um próximo passo profissional."
+        ctaLabel="Conhecer soluções"
+        ctaHref="#servicos"
+        delayMs={9000}
+        className="border-[#f5b51b]/40 bg-[#121416]/95 text-white"
+        accentClassName="text-[#f5b51b]"
+      />
+      <PortfolioUpsellPopup pageName="portfolio-aguia-sul-sinalizacao" />
+    </div>
+  );
+}

@@ -346,7 +346,17 @@
     "assetsDir": "public/images/jkl-marcenaria",
     "ctaMode": "proposal",
     "socialProofRequired": true,
-    "hostCaptureRequired": true,
-    "funnelRecipientConfigured": false
+    "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "santos-montador-de-moveis",
+    "slug": "santos-montador-de-moveis",
+    "siteName": "Santos Montador de Móveis",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/SantosMontadorDeMoveisPage.tsx",
+    "assetsDir": "public/images/santos-montador-de-moveis",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

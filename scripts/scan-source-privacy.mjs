@@ -9,7 +9,7 @@
  *
  * Uso: node scripts/scan-source-privacy.mjs [--strict]
  */
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { resolve, relative } from "node:path";
 import { execFileSync } from "node:child_process";
 
@@ -43,8 +43,30 @@ const PATTERNS = [
 ];
 
 function listFiles() {
-  const out = execFileSync("git", ["ls-files", "src"], { encoding: "utf8" });
-  return out.split("\n").filter((f) => /\.(ts|tsx|json)$/.test(f));
+  try {
+    const out = execFileSync("git", ["ls-files", "src"], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    return out.split("\n").filter((f) => /\.(ts|tsx|json)$/.test(f));
+  } catch {
+    // Workspaces sincronizados (ex.: OneDrive) podem deixar o índice do Git
+    // temporariamente indisponível. O gate de privacidade não deve ser pulado:
+    // nesse caso, varremos o diretório de fonte diretamente.
+    const files = [];
+    const walk = (directory) => {
+      for (const entry of readdirSync(directory, { withFileTypes: true })) {
+        const absolute = resolve(directory, entry.name);
+        if (entry.isDirectory()) walk(absolute);
+        else if (/\.(ts|tsx|json)$/.test(entry.name)) {
+          files.push(relative(root, absolute).replaceAll("\\", "/"));
+        }
+      }
+    };
+    walk(resolve(root, "src"));
+    console.warn("[source-privacy] Git indisponível; usando varredura direta de src/");
+    return files;
+  }
 }
 
 const findings = [];
