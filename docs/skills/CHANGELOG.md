@@ -1,5 +1,23 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — Denise Gomes · Psicóloga
+
+- **Projeto real publicado:** nova rota canônica `/portfolio/denise-gomes-psicologa`
+  para atendimento e avaliação psicológica de adultos em São José dos Pinhais.
+- **Skills aplicadas:** `sites-building`, `imagegen`, `0web-skill-router`,
+  `0web-skill-discovery`, `0web-design-system` e `0web-ui-quality-gates`, com
+  revisão pelos padrões de cliente, presença, conversão, narrativa, funil,
+  acessibilidade, responsividade e motion.
+- **Identidade exclusiva:** marca própria em violeta, lavanda e verde-sálvia;
+  foto enviada foi recortada para remover o contato direto do bundle e recebeu
+  imagem OG horizontal 1200×630 exclusiva.
+- **Conversão e conteúdo:** hero orientado ao acolhimento, temas confirmados
+  (ansiedade, burnout e relacionamentos), fluxo de avaliação, Instagram real,
+  funil individual e divulgação exclusiva, sem preço, depoimento ou promessa
+  clínica inventada.
+- **Kit de presença:** cartão e panfleto são renderizados com a logo, a imagem
+  social, os serviços e a região do próprio slug.
+
 ## 2026-09-01 — capa do Galileu e prioridade visual do catálogo
 
 - **Galileu:** confirmada a arte oficial enviada como hero do projeto e definida
@@ -216,13 +234,11 @@
 - **Privacidade:** telefone não entra no bundle; destinatário será resolvido por secret server-side `CONFEITARIA_CHYRLEY_WHATSAPP_NUMBER`. Perfis sociais não foram inventados.
 - **Validação:** pendente executar após preencher a secret de produção e validar migration no ambiente Supabase.
 
-
 ## 2026-08-28 — pedidos extensos sem rejeição no funil
 
 - O contrato server-side de `answers.service` passou de 180 para 4000 caracteres, alinhado ao limite já aplicado ao `orderContext.order_items`.
 - Novos leads registram `metadata_json.funnel_slug = portfolio-<clientKey>`, além do `client_key` e contexto estruturado.
 - O painel prefere o slug persistido e mantém fallback compatível para leads anteriores.
-
 
 ## 2026-08-28 — paridade da prévia e mensagem final dos portfolios
 
@@ -231,13 +247,11 @@
 - Geo-IP silencioso passou a aceitar bairro (`district`/`suburb`/`neighborhood`) além de cidade e região; ausência de dado mantém fallback sem localização.
 - O gerador final server-side recebeu a mesma frase, evitando divergência entre prévia e mensagem enviada.
 
-
 ## 2026-08-28 — painel de leads com contexto de pedido e cliente
 
 - O funil de portfolio aceita `orderContext` estruturado e o Paraíso do Hot Dog envia itens, total, modalidade e observação em campos próprios.
 - O painel identifica leads pelo slug virtual `portfolio-<clientKey>` e pelo nome do cliente, preservando o mecanismo compartilhado sem agrupar tudo como `funnel-service`.
 - Filtros do painel aceitam os slugs virtuais sem alterar a consulta dos funis institucionais.
-
 
 ## 2026-08-28 — correção do pedido Paraíso do Hot Dog
 
@@ -245,14 +259,12 @@
 - A observação do carrinho (endereço, troco e instruções) passa a acompanhar o resumo enviado ao funil.
 - O quiz usa `proposalKind: service`, evitando classificar pedidos como campanha/funnel-service genérico.
 
-
 ## 2026-08-28 — documentação consolidada da parametrização global
 
 - **Tarefa:** documentar o contrato completo de `/portfolio/<slug>` e do CTA/funil.
 - **Skills:** `0web-skill-router`, `0web-ui-quality-gates`, design system, acessibilidade, responsivo e performance.
 - **Documentado:** shell compartilhado, isolamento de identidade, mensagem com nome/URL/elogio, geo-IP silencioso, resolução server-side, prova social, popup 0WEB, SEO, sitemap, assets, mídia, motion, performance, filtros e onboarding de novos clientes.
 - **Validação:** boundaries, meta, assets, Schema.org, canonicals, rotas e `git diff --check`.
-
 
 ## 2026-08-27 — Fundação skills-first
 
@@ -333,6 +345,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   `bun run scan:source-privacy` OK; `bun run test:e2e:portfolio-popup`
   7 sites OK; verificação visual dos painéis sem erros de console.
 - Relatório evidence-first: `docs/skills/evidence/popup-governanca.md`.
+
 # 2026-08-27 — monitoramento e Lighthouse de portfólios
 
 # 2026-08-27 — contrato canônico do catálogo
@@ -473,6 +486,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - A vitrine `/portfolio` foi compactada para grade responsiva (2 colunas mobile, 3 tablet, 4 desktop e até 6 em telas amplas), cards com resumo truncado e mídia menor.
 - Hero da vitrine teve espaçamento reduzido para acelerar descoberta e diminuir rolagem.
 - Gates de boundaries, meta, assets e diff passaram; a priorização geográfica por cidade/IP fica como etapa posterior, condicionada a consentimento e dados confiáveis.
+
 ## 2026-08-28 — priorização local silenciosa no catálogo
 
 - **Tarefa:** próximo ciclo do `/portfolio`, favorecendo projetos da cidade estimada do visitante.
@@ -481,6 +495,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alteração:** resolução IP em background, usando cache de sessão e falha silenciosa; quando a cidade coincide, os cards locais sobem apenas na ordenação padrão. Busca, filtros e ordem alfabética permanecem determinísticos.
 - **Privacidade:** não solicita GPS, não exibe o endereço estimado e não envia a cidade ao cliente; sem retorno do provedor, mantém a ordem original.
 - **Validação:** `validate:portfolio-boundaries`, `validate:portfolio-meta`, `validate:portfolio-assets` e `git diff --check`.
+
 ## 2026-08-28 — carregamento progressivo das imagens do catálogo
 
 - **Tarefa:** novo ciclo de performance para a vitrine `/portfolio`.
@@ -488,6 +503,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alteração:** somente os dois primeiros cards recebem prioridade alta; demais imagens usam lazy-loading, `decoding=async` e `sizes` coerentes com 2/3/4/6 colunas.
 - **Resultado esperado:** menor custo de rede e renderização inicial em mobile, sem remover conteúdo indexável.
 - **Validação:** gates de portfolios, metadados e assets aprovados; pre-commit com Schema.org, canonicals e rotas.
+
 ## 2026-08-28 — conteúdo rico do Mestre dos Serviços
 
 - Corrigido o nome público do cliente no catálogo para **Mestre dos Serviços**; “marido de aluguel” permanece como categoria/termo SEO.
@@ -512,6 +528,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 
 - Adicionado o segmento `beleza` ao mapa de verticais compartilhado; `/portfolio/studio-de-cilios` deixa de cair em 404 e mantém seus metadados e componente exclusivos.
 - Validados boundaries, metadados, catálogo e TypeScript.
+
 ## 2026-08-28 — ciclo 1/4: isolamento semântico global dos funis
 
 - **Tarefa:** eliminar a mistura de copy de panfletagem nos CTAs de `/portfolio/<slug>` e preservar URL, localidade aproximada e elogio à página no handoff.
@@ -530,6 +547,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** removida a marca 0WEB dos títulos, `og:title` e nome do `WebPage` dos clientes; criada descrição/keywords específicas para o Paraíso do Hot Dog; adicionada auditoria automática por slug em `scripts/audit-portfolio-indexability.mjs` e comando `audit:portfolio-indexability`.
 - **Proteção contra regressão:** a auditoria deriva os 29 clientes do cadastro canônico e exige HTTP 200 sem desvio, canonical/`og:url` próprios, robots indexável, title/description, Open Graph completo, ícone não global, JSON-LD válido e entrada no sitemap.
 - **Validação:** ambiente local/SSR aprovado em 29/29 rotas, sem falhas e sem avisos; relatório em `seo-reports/portfolio-indexability-latest.json`. A produção atual ainda reprova os 26 títulos antigos até receber este deploy.
+
 ## 2026-08-28 — Santos Montador de Móveis
 
 - Tarefa: novo site independente em `/portfolio/santos-montador-de-moveis`, com funil, SEO local, imagem autoral e motion.
@@ -537,6 +555,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Decisão: direção “oficina residencial premium”, identidade própria em azul-marinho, laranja e marfim; foto hero gerada sem texto ou contato; CTAs usam `clientKey` e resolução server-side.
 - Skills externas: nenhuma instalada; as referências locais cobriram direção, engenharia, acessibilidade, performance e QA sem introduzir dependências ou risco adicional.
 - Validação: registrada ao final da execução após boundaries, catálogo, metadados, testes, build e QA visual.
+
 ## 2026-09-01 — ciclos finais de portfólio: presença, SEO e OG
 
 - **Tarefa:** concluir a parametrização transversal de presença, conteúdo e prévias sociais para os portfólios publicados.
@@ -664,6 +683,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Auditoria:** revisados os projetos `/portfolio/<slug>` e a montagem do catálogo para detectar botões duplicados, colisões entre prova social, contato e retorno ao topo.
 - **Correções:** D.Y.Z Promo e Renata Beauty deixaram de montar CTAs flutuantes próprios em paralelo ao botão universal; todos os controles compartilhados agora usam slots únicos com `safe-area` e espaçamento vertical.
 - **Proteção:** a prova social sobe para o slot 3 e desaparece junto ao rodapé; o retorno ao topo usa o slot secundário da coluna direita. Isso evita sobreposição em telas estreitas sem alterar o CTA, a mensagem ou a identidade de cada cliente.
+
 ## 2026-09-01 — sitemap dinâmico de portfólio e indexação automática
 
 - **Tarefa:** eliminar a edição manual do sitemap para lotes aprovados/publicados e conectar a atualização ao GSC e ao IndexNow.

@@ -6,7 +6,11 @@ import { resolve } from "node:path";
 const catalog = JSON.parse(readFileSync(resolve("src/config/portfolio-catalog.json"), "utf8"));
 const source = readFileSync(resolve("src/components/portfolio/PortfolioConversionNarrative.tsx"), "utf8");
 const map = source.match(/const narrativeBySlug:[\s\S]*?= \{([\s\S]*?)\n\};/)?.[1] ?? "";
-const entries = [...map.matchAll(/"([a-z0-9_-]+)": \{ title: "([^"]+)", step: "([^"]+)", cta: "([^"]+)"/g)];
+const entries = [
+  ...map.matchAll(
+    /(?:"([a-z0-9_-]+)"|([a-z0-9_]+)):\s*\{\s*title:\s*"([^"]+)",\s*step:\s*"([^"]+)",\s*cta:\s*"([^"]+)"/g,
+  ),
+].map((entry) => [entry[0], entry[1] ?? entry[2], entry[3], entry[4], entry[5]]);
 const errors = [];
 const titles = new Set();
 const steps = new Set();

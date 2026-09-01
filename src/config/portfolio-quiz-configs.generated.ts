@@ -207,6 +207,49 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: bolo para 20 pessoas, tema Jurassic Park, salgados assados e endereço para Uber."
   },
+  "denise-gomes-psicologa": {
+    "services": [
+      "Avaliação psicológica",
+      "Ansiedade",
+      "Burnout e esgotamento",
+      "Relacionamentos",
+      "Quero conversar sobre outra questão"
+    ],
+    "experienceOptions": [
+      "É meu primeiro contato com psicologia",
+      "Já fiz acompanhamento antes",
+      "Estou buscando uma avaliação",
+      "Ainda quero entender como funciona"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Noite",
+      "Tenho flexibilidade"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nesta semana",
+      "Na próxima semana",
+      "Estou me organizando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que motivou sua busca neste momento?",
+      "experience": "Como você chega para esta conversa?",
+      "period": "Qual período facilita seu atendimento?",
+      "timing": "Quando gostaria de começar?",
+      "note": "Se desejar, conte um pouco mais"
+    },
+    "stepSubtitles": {
+      "service": "Escolha a opção que mais se aproxima da sua necessidade.",
+      "experience": "Essa informação ajuda a organizar o primeiro contato.",
+      "period": "A disponibilidade é confirmada diretamente no atendimento.",
+      "timing": "Sem compromisso: este passo serve para iniciar a conversa.",
+      "note": "Compartilhe somente o que se sentir confortável em registrar."
+    },
+    "notePlaceholder": "Ex.: o que tem sido mais difícil ou qual dúvida gostaria de esclarecer."
+  },
   "diego-montador-moveis": {
     "stepTitles": {
       "service": "Qual serviço você precisa?",

@@ -43,10 +43,31 @@
         "label": "Pedir proposta",
         "quizConfig": {
           "proposalKind": "campaign",
-          "services": ["Panfletagem e mão a mão", "Semáforo e cancela", "Bandeiras e faixas", "Entrega de brindes", "Ação personalizada"],
-          "experienceOptions": ["Campanha nova", "Reforçar campanha existente", "Inauguração ou nova unidade", "Ainda estou definindo"],
-          "periodOptions": ["Dias úteis", "Fim de semana", "Horário de pico", "Ainda preciso de orientação"],
-          "timingOptions": ["Nos próximos 7 dias", "Ainda neste mês", "No próximo mês", "Estou planejando"]
+          "services": [
+            "Panfletagem e mão a mão",
+            "Semáforo e cancela",
+            "Bandeiras e faixas",
+            "Entrega de brindes",
+            "Ação personalizada"
+          ],
+          "experienceOptions": [
+            "Campanha nova",
+            "Reforçar campanha existente",
+            "Inauguração ou nova unidade",
+            "Ainda estou definindo"
+          ],
+          "periodOptions": [
+            "Dias úteis",
+            "Fim de semana",
+            "Horário de pico",
+            "Ainda preciso de orientação"
+          ],
+          "timingOptions": [
+            "Nos próximos 7 dias",
+            "Ainda neste mês",
+            "No próximo mês",
+            "Estou planejando"
+          ]
         }
       },
       "footer": {
@@ -92,12 +113,7 @@
             "Manutenção preventiva",
             "Ainda estou avaliando"
           ],
-          "periodOptions": [
-            "Manhã",
-            "Tarde",
-            "Fim de semana",
-            "Tenho flexibilidade"
-          ],
+          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
           "timingOptions": [
             "É urgente",
             "Ainda nesta semana",
@@ -185,18 +201,8 @@
             "Quero indicação do que pedir",
             "Pedido para um grupo"
           ],
-          "periodOptions": [
-            "Agora",
-            "Mais tarde hoje",
-            "Amanhã",
-            "Ainda estou decidindo"
-          ],
-          "timingOptions": [
-            "O quanto antes",
-            "Em até 1 hora",
-            "Em horário marcado",
-            "Sem pressa"
-          ],
+          "periodOptions": ["Agora", "Mais tarde hoje", "Amanhã", "Ainda estou decidindo"],
+          "timingOptions": ["O quanto antes", "Em até 1 hora", "Em horário marcado", "Sem pressa"],
           "stepTitles": {
             "service": "Como você quer pedir?",
             "experience": "Como podemos te ajudar?",
@@ -226,12 +232,7 @@
             "Outro estado",
             "Ainda estou avaliando"
           ],
-          "periodOptions": [
-            "Manhã",
-            "Tarde",
-            "Fim de semana",
-            "Tenho flexibilidade"
-          ],
+          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
           "timingOptions": [
             "Nos próximos dias",
             "Ainda nesta semana",
@@ -255,10 +256,32 @@
         "label": "Pedir orçamento",
         "quizConfig": {
           "proposalKind": "service",
-          "services": ["Instalação de drywall", "Pinturas", "Reformas em geral", "Móveis e madeira", "Corte de grama", "Pequenos fretes"],
-          "experienceOptions": ["Minha casa", "Meu comércio", "Preciso de um reparo", "Ainda estou avaliando"],
-          "periodOptions": ["Quero combinar uma visita", "Tenho fotos e medidas", "Vou confirmar o endereço", "Ainda preciso de orientação"],
-          "timingOptions": ["O quanto antes", "Nos próximos dias", "Ainda neste mês", "Estou planejando"],
+          "services": [
+            "Instalação de drywall",
+            "Pinturas",
+            "Reformas em geral",
+            "Móveis e madeira",
+            "Corte de grama",
+            "Pequenos fretes"
+          ],
+          "experienceOptions": [
+            "Minha casa",
+            "Meu comércio",
+            "Preciso de um reparo",
+            "Ainda estou avaliando"
+          ],
+          "periodOptions": [
+            "Quero combinar uma visita",
+            "Tenho fotos e medidas",
+            "Vou confirmar o endereço",
+            "Ainda preciso de orientação"
+          ],
+          "timingOptions": [
+            "O quanto antes",
+            "Nos próximos dias",
+            "Ainda neste mês",
+            "Estou planejando"
+          ],
           "stepTitles": {
             "service": "Qual serviço você precisa?",
             "experience": "Onde será o trabalho?",
@@ -267,6 +290,16 @@
           },
           "notePlaceholder": "Ex.: ambiente, medidas aproximadas, acabamento desejado ou itens para transportar."
         }
+      }
+    },
+    "denise-gomes-psicologa": {
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "Denise Gomes",
+        "label": "Agendar avaliação"
+      },
+      "footer": {
+        "variant": "dark"
       }
     }
   }

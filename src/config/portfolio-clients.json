@@ -590,5 +590,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "denise-gomes-psicologa",
+    "slug": "denise-gomes-psicologa",
+    "siteName": "Denise Gomes · Psicóloga",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/DeniseGomesPsicologaPage.tsx",
+    "assetsDir": "public/images/denise-gomes-psicologa",
+    "ctaMode": "booking",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

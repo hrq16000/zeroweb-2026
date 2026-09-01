@@ -764,6 +764,18 @@
         "ctaHref": "#presenca"
       },
       "socialVersion": "664ba067"
+    },
+    "denise-gomes-psicologa": {
+      "icon": "/images/denise-gomes-psicologa/logo.png",
+      "socialImage": "/images/denise-gomes-psicologa/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Denise Gomes · Psicóloga",
+        "title": "Cuidar da sua saúde mental é um ato de coragem e autocuidado.",
+        "description": "Atendimento e avaliação psicológica para adultos em São José dos Pinhais.",
+        "ctaLabel": "Entender o atendimento",
+        "ctaHref": "#como-funciona"
+      },
+      "socialVersion": "7611b371"
     }
   }
 }

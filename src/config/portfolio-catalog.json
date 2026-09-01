@@ -8,12 +8,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "cestas",
-      "presentes",
-      "cosmeticos",
-      "canecas-personalizadas"
-    ],
+    "tags": ["cestas", "presentes", "cosmeticos", "canecas-personalizadas"],
     "live": true,
     "subtitle": "Cestas, presentes e personalizados",
     "location": "Afonso Pena · São José dos Pinhais — PR",
@@ -32,11 +27,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "reparos",
-      "manutencao",
-      "seo-local"
-    ],
+    "tags": ["reparos", "manutencao", "seo-local"],
     "subtitle": "Reparos, montagens e manutenção residencial",
     "location": "Curitiba — PR",
     "badge": "Projeto publicado",
@@ -54,10 +45,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "panfletagem",
-      "acoes-locais"
-    ],
+    "tags": ["panfletagem", "acoes-locais"],
     "subtitle": "Ações promocionais e equipes em campo",
     "location": "Curitiba — PR",
     "badge": "Ações locais",
@@ -75,10 +63,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "presentes",
-      "artesanal"
-    ],
+    "tags": ["presentes", "artesanal"],
     "subtitle": "Lembrancinhas e presentes artesanais",
     "location": "São José dos Pinhais — PR",
     "badge": "Feito para celebrar",
@@ -96,10 +81,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "fretes",
-      "mudancas"
-    ],
+    "tags": ["fretes", "mudancas"],
     "subtitle": "Fretes, carretos e mudanças organizadas",
     "location": "Curitiba — PR",
     "badge": "Trajeto sob consulta",
@@ -117,13 +99,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "drywall",
-      "gesso",
-      "forros",
-      "reformas",
-      "seo-local"
-    ],
+    "tags": ["drywall", "gesso", "forros", "reformas", "seo-local"],
     "live": true,
     "subtitle": "Divisórias, forros e reformas",
     "location": "Curitiba — PR",
@@ -142,10 +118,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "delivery",
-      "cardapio"
-    ],
+    "tags": ["delivery", "cardapio"],
     "subtitle": "Cardápio de hot dogs e combinações",
     "location": "São José dos Pinhais — PR",
     "badge": "Pedido pelo cardápio",
@@ -163,10 +136,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "cilios",
-      "unhas"
-    ],
+    "tags": ["cilios", "unhas"],
     "subtitle": "Cílios, unhas e cuidados de beleza",
     "location": "Curitiba — PR",
     "badge": "Atendimento com horário",
@@ -184,10 +154,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "estetica",
-      "spa"
-    ],
+    "tags": ["estetica", "spa"],
     "subtitle": "Estética, spa e autocuidado",
     "location": "Curitiba — PR",
     "badge": "Cuidado personalizado",
@@ -205,10 +172,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "odontologia",
-      "saude"
-    ],
+    "tags": ["odontologia", "saude"],
     "subtitle": "Atendimento integrado em saúde",
     "location": "Curitiba — PR",
     "badge": "Projeto real",
@@ -226,10 +190,7 @@
     "status": "published",
     "city": "São Paulo",
     "state": "SP",
-    "tags": [
-      "advocacia",
-      "consultoria"
-    ],
+    "tags": ["advocacia", "consultoria"],
     "subtitle": "Orientação jurídica e consultoria",
     "location": "São Paulo — SP",
     "badge": "Projeto real",
@@ -247,10 +208,7 @@
     "status": "published",
     "city": "Belo Horizonte",
     "state": "MG",
-    "tags": [
-      "restaurante",
-      "reservas"
-    ],
+    "tags": ["restaurante", "reservas"],
     "subtitle": "Experiência gastronômica e reservas",
     "location": "Belo Horizonte — MG",
     "badge": "Projeto real",
@@ -268,13 +226,7 @@
     "status": "published",
     "city": "Rio Bonito",
     "state": "PR",
-    "tags": [
-      "confeitaria",
-      "bolos",
-      "salgados",
-      "festa-na-caixa",
-      "doces"
-    ],
+    "tags": ["confeitaria", "bolos", "salgados", "festa-na-caixa", "doces"],
     "live": true,
     "subtitle": "Bolos, kits festa e doces artesanais",
     "location": "Rio Bonito — PR",
@@ -293,13 +245,7 @@
     "status": "published",
     "city": "Araucária",
     "state": "PR",
-    "tags": [
-      "decoracao",
-      "festas",
-      "eventos",
-      "festa-na-mesa",
-      "casamentos"
-    ],
+    "tags": ["decoracao", "festas", "eventos", "festa-na-mesa", "casamentos"],
     "live": true,
     "subtitle": "Decoração de festas infantis e eventos",
     "location": "Araucária — PR",
@@ -318,12 +264,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "extensao-de-cilios",
-      "fio-a-fio",
-      "fox-eyes",
-      "mega-volume"
-    ],
+    "tags": ["extensao-de-cilios", "fio-a-fio", "fox-eyes", "mega-volume"],
     "live": true,
     "subtitle": "Extensão de cílios com olhar personalizado",
     "location": "Curitiba — PR · atendimento sob agendamento",
@@ -342,12 +283,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "refrigeracao",
-      "geladeiras",
-      "freezers",
-      "manutencao"
-    ],
+    "tags": ["refrigeracao", "geladeiras", "freezers", "manutencao"],
     "live": true,
     "subtitle": "Conserto e manutenção de geladeiras e freezers",
     "location": "Curitiba e Região Metropolitana — PR",
@@ -366,13 +302,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "eletrica",
-      "infraestrutura",
-      "redes",
-      "cftv",
-      "laserway"
-    ],
+    "tags": ["eletrica", "infraestrutura", "redes", "cftv", "laserway"],
     "live": true,
     "subtitle": "Elétrica, infraestrutura e redes",
     "location": "Curitiba e Região Metropolitana — PR",
@@ -391,13 +321,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "confeitaria",
-      "kits-festa",
-      "bolos",
-      "brigadeiros",
-      "salgados"
-    ],
+    "tags": ["confeitaria", "kits-festa", "bolos", "brigadeiros", "salgados"],
     "live": true,
     "subtitle": "Confeitaria, doces e kits festa completos",
     "location": "Campo Comprido · Curitiba — PR",
@@ -416,13 +340,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "alvenaria",
-      "fundacao",
-      "construcao",
-      "reformas",
-      "acabamento"
-    ],
+    "tags": ["alvenaria", "fundacao", "construcao", "reformas", "acabamento"],
     "live": true,
     "subtitle": "Construção, reformas e acabamento em geral",
     "location": "Curitiba e região — PR · atendimento sob orçamento",
@@ -441,12 +359,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "maquina-de-lavar",
-      "assistencia-tecnica",
-      "eletrodomesticos",
-      "manutencao"
-    ],
+    "tags": ["maquina-de-lavar", "assistencia-tecnica", "eletrodomesticos", "manutencao"],
     "live": true,
     "subtitle": "Conserto e manutenção de máquinas de lavar",
     "location": "Curitiba — PR · atendimento sob agendamento",
@@ -465,13 +378,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "pedreiro",
-      "alvenaria",
-      "azulejista",
-      "reformas",
-      "construcao-civil"
-    ],
+    "tags": ["pedreiro", "alvenaria", "azulejista", "reformas", "construcao-civil"],
     "live": true,
     "subtitle": "Pedreiro, azulejista e construção civil",
     "location": "Curitiba — PR · atendimento sob orçamento",
@@ -516,13 +423,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "higienizacao",
-      "estofados",
-      "sofa",
-      "colchao",
-      "limpeza-domiciliar"
-    ],
+    "tags": ["higienizacao", "estofados", "sofa", "colchao", "limpeza-domiciliar"],
     "live": true,
     "subtitle": "Higienização profissional de estofados",
     "location": "Cristal · São José dos Pinhais — PR",
@@ -541,13 +442,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "depilacao",
-      "progressiva",
-      "cabelo",
-      "pe-e-mao",
-      "beleza"
-    ],
+    "tags": ["depilacao", "progressiva", "cabelo", "pe-e-mao", "beleza"],
     "live": true,
     "subtitle": "Depilação, cabelos e autocuidado",
     "location": "Cidade Jardim · São José dos Pinhais — PR",
@@ -566,13 +461,7 @@
     "status": "published",
     "city": "Manaus",
     "state": "AM",
-    "tags": [
-      "alongamento-em-gel",
-      "unhas",
-      "pedicure",
-      "podologia",
-      "beleza"
-    ],
+    "tags": ["alongamento-em-gel", "unhas", "pedicure", "podologia", "beleza"],
     "live": true,
     "subtitle": "O casal das unhas · mãos e pés",
     "location": "Manaus — AM",
@@ -591,12 +480,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "montagem-de-moveis",
-      "marido-de-aluguel",
-      "conserto-de-moveis",
-      "instalacoes"
-    ],
+    "tags": ["montagem-de-moveis", "marido-de-aluguel", "conserto-de-moveis", "instalacoes"],
     "live": true,
     "subtitle": "Montagem, desmontagem e reparos residenciais",
     "location": "Sítio Cercado · Curitiba — PR",
@@ -639,13 +523,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "rebobinamento",
-      "motores",
-      "bombas",
-      "eletromecanica",
-      "manutencao-industrial"
-    ],
+    "tags": ["rebobinamento", "motores", "bombas", "eletromecanica", "manutencao-industrial"],
     "live": true,
     "subtitle": "Manutenção e rebobinamento industrial",
     "location": "Curitiba e região — PR",
@@ -664,12 +542,7 @@
     "status": "published",
     "city": "Pinhais",
     "state": "PR",
-    "tags": [
-      "instalacoes-eletricas",
-      "iluminacao",
-      "automacao",
-      "manutencao-eletrica"
-    ],
+    "tags": ["instalacoes-eletricas", "iluminacao", "automacao", "manutencao-eletrica"],
     "live": true,
     "subtitle": "Soluções elétricas e automação",
     "location": "Pinhais — PR · atendimento regional",
@@ -688,13 +561,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "tubos-de-aco",
-      "perfis",
-      "chapas",
-      "telhas-metalicas",
-      "construcao"
-    ],
+    "tags": ["tubos-de-aco", "perfis", "chapas", "telhas-metalicas", "construcao"],
     "live": true,
     "subtitle": "Tubos, perfis, chapas e telhas metálicas",
     "location": "Três Marias · São José dos Pinhais — PR",
@@ -713,12 +580,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "diarista",
-      "limpeza-residencial",
-      "pos-obra",
-      "organizacao"
-    ],
+    "tags": ["diarista", "limpeza-residencial", "pos-obra", "organizacao"],
     "live": true,
     "subtitle": "Diárias, pós-obra e organização",
     "location": "Curitiba e região — PR",
@@ -737,12 +599,7 @@
     "status": "published",
     "city": "Araucária",
     "state": "PR",
-    "tags": [
-      "acai",
-      "delivery",
-      "sobremesas",
-      "lanches"
-    ],
+    "tags": ["acai", "delivery", "sobremesas", "lanches"],
     "live": true,
     "subtitle": "Copões, litrões e açaí delivery",
     "location": "Araucária — PR",
@@ -761,13 +618,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "moveis-planejados",
-      "marcenaria",
-      "mdf",
-      "cozinhas",
-      "nichos"
-    ],
+    "tags": ["moveis-planejados", "marcenaria", "mdf", "cozinhas", "nichos"],
     "live": true,
     "subtitle": "Móveis sob medida em MDF",
     "location": "Curitiba e região — PR",
@@ -811,11 +662,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "marmitas",
-      "almoco",
-      "delivery"
-    ],
+    "tags": ["marmitas", "almoco", "delivery"],
     "subtitle": "Marmitas e almoço para a rotina",
     "location": "Jardim Itália · São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -831,11 +678,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "pasteis",
-      "almoco",
-      "jantar"
-    ],
+    "tags": ["pasteis", "almoco", "jantar"],
     "subtitle": "Pastéis com tradição no bairro",
     "location": "Jardim Itália · São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -851,11 +694,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "hamburgueres",
-      "petiscos",
-      "jantar"
-    ],
+    "tags": ["hamburgueres", "petiscos", "jantar"],
     "subtitle": "Hambúrgueres grelhados e petiscos",
     "location": "Jardim Itália · São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -871,12 +710,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "pizzaria",
-      "esfiharia",
-      "hamburgueria",
-      "delivery"
-    ],
+    "tags": ["pizzaria", "esfiharia", "hamburgueria", "delivery"],
     "subtitle": "Pizzas, esfihas e lanches para pedir",
     "location": "Jardim Itália · São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -892,11 +726,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "brecho",
-      "moda-circular",
-      "infantil"
-    ],
+    "tags": ["brecho", "moda-circular", "infantil"],
     "subtitle": "Moda circular para adultos e crianças",
     "location": "Sítio Cercado · Curitiba — PR",
     "badge": "Projeto real",
@@ -912,11 +742,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "brecho",
-      "moda-sustentavel",
-      "garimpo"
-    ],
+    "tags": ["brecho", "moda-sustentavel", "garimpo"],
     "subtitle": "Garimpo consciente no Jardim das Américas",
     "location": "Jardim das Américas · Curitiba — PR",
     "badge": "Projeto real",
@@ -932,11 +758,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "brecho",
-      "roupas",
-      "acessorios"
-    ],
+    "tags": ["brecho", "roupas", "acessorios"],
     "subtitle": "Roupas e acessórios com história",
     "location": "São Francisco · Curitiba — PR",
     "badge": "Projeto real",
@@ -952,11 +774,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "brecho",
-      "moda-feminina",
-      "garimpo"
-    ],
+    "tags": ["brecho", "moda-feminina", "garimpo"],
     "subtitle": "Garimpo de moda no Novo Mundo",
     "location": "Novo Mundo · Curitiba — PR",
     "badge": "Projeto real",
@@ -972,11 +790,7 @@
     "status": "published",
     "city": "Guaratuba",
     "state": "PR",
-    "tags": [
-      "restaurante",
-      "frutos-do-mar",
-      "delivery"
-    ],
+    "tags": ["restaurante", "frutos-do-mar", "delivery"],
     "subtitle": "Cozinha caiçara para a rotina e a temporada",
     "location": "Centro · Guaratuba — PR",
     "badge": "Projeto real",
@@ -992,11 +806,7 @@
     "status": "published",
     "city": "Guaratuba",
     "state": "PR",
-    "tags": [
-      "nautica",
-      "manutencao",
-      "barcos"
-    ],
+    "tags": ["nautica", "manutencao", "barcos"],
     "subtitle": "Manutenção e cuidado para embarcações",
     "location": "Piçarras · Guaratuba — PR",
     "badge": "Projeto real",
@@ -1012,11 +822,7 @@
     "status": "published",
     "city": "Guaratuba",
     "state": "PR",
-    "tags": [
-      "artesanato",
-      "presentes",
-      "lembrancas"
-    ],
+    "tags": ["artesanato", "presentes", "lembrancas"],
     "subtitle": "Presentes artesanais com identidade local",
     "location": "Cohapar · Guaratuba — PR",
     "badge": "Projeto real",
@@ -1032,11 +838,7 @@
     "status": "published",
     "city": "Guaratuba",
     "state": "PR",
-    "tags": [
-      "reparos",
-      "eletrica",
-      "hidraulica"
-    ],
+    "tags": ["reparos", "eletrica", "hidraulica"],
     "subtitle": "Pequenos reparos para casas e comércios",
     "location": "Brejatuba · Guaratuba — PR",
     "badge": "Projeto real",
@@ -1052,11 +854,7 @@
     "status": "published",
     "city": "Mirassol",
     "state": "SP",
-    "tags": [
-      "bolos",
-      "salgados",
-      "encomendas"
-    ],
+    "tags": ["bolos", "salgados", "encomendas"],
     "subtitle": "Bolos e salgados para celebrar",
     "location": "Centro · Mirassol — SP",
     "badge": "Projeto real",
@@ -1072,11 +870,7 @@
     "status": "published",
     "city": "Mirassol",
     "state": "SP",
-    "tags": [
-      "assistencia-tecnica",
-      "celulares",
-      "eletronicos"
-    ],
+    "tags": ["assistencia-tecnica", "celulares", "eletronicos"],
     "subtitle": "Assistência técnica clara e próxima",
     "location": "São Bernardo · Mirassol — SP",
     "badge": "Projeto real",
@@ -1092,11 +886,7 @@
     "status": "published",
     "city": "Belo Horizonte",
     "state": "MG",
-    "tags": [
-      "marmitas",
-      "almoco",
-      "entrega"
-    ],
+    "tags": ["marmitas", "almoco", "entrega"],
     "subtitle": "Almoço caseiro para a semana",
     "location": "Barreiro · Belo Horizonte — MG",
     "badge": "Projeto real",
@@ -1112,11 +902,7 @@
     "status": "published",
     "city": "Uberlândia",
     "state": "MG",
-    "tags": [
-      "eletrica",
-      "instalacao",
-      "manutencao"
-    ],
+    "tags": ["eletrica", "instalacao", "manutencao"],
     "subtitle": "Instalações e manutenção elétrica",
     "location": "Bairro Brasil · Uberlândia — MG",
     "badge": "Projeto real",
@@ -1132,12 +918,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "decoracao-de-festas",
-      "aniversarios",
-      "batizados",
-      "pegue-e-monte"
-    ],
+    "tags": ["decoracao-de-festas", "aniversarios", "batizados", "pegue-e-monte"],
     "subtitle": "Decorações personalizadas e encantadoras",
     "location": "Curitiba — PR",
     "badge": "Projeto real",
@@ -1153,12 +934,7 @@
     "status": "published",
     "city": "Uberaba",
     "state": "MG",
-    "tags": [
-      "bolos",
-      "doces",
-      "salgados",
-      "encomendas"
-    ],
+    "tags": ["bolos", "doces", "salgados", "encomendas"],
     "subtitle": "Bolos, doces e salgados para momentos especiais",
     "location": "Uberaba — MG",
     "badge": "Projeto real",
@@ -1174,12 +950,7 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": [
-      "plotagem-de-moveis",
-      "envelopamento-de-geladeiras",
-      "comunicacao-visual",
-      "adesivos"
-    ],
+    "tags": ["plotagem-de-moveis", "envelopamento-de-geladeiras", "comunicacao-visual", "adesivos"],
     "subtitle": "Plotagem, envelopamento e comunicação visual premium",
     "location": "Curitiba e região — PR",
     "badge": "Projeto real",
@@ -1195,13 +966,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "assistencia-tecnica",
-      "tv",
-      "computadores",
-      "micro-ondas",
-      "recuperacao-de-dados"
-    ],
+    "tags": ["assistencia-tecnica", "tv", "computadores", "micro-ondas", "recuperacao-de-dados"],
     "subtitle": "Manutenção especializada em eletrônicos e dados",
     "location": "Bairro Academia · São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -1262,12 +1027,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "pasteis",
-      "lanches",
-      "delivery",
-      "cardapio-online"
-    ],
+    "tags": ["pasteis", "lanches", "delivery", "cardapio-online"],
     "subtitle": "Pastéis bem recheados e quentinhos",
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -1283,13 +1043,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "manicure",
-      "pedicure",
-      "spa-dos-pes",
-      "esmaltação-em-gel",
-      "alongamento-molde-f1"
-    ],
+    "tags": ["manicure", "pedicure", "spa-dos-pes", "esmaltação-em-gel", "alongamento-molde-f1"],
     "subtitle": "Suas unhas, sua melhor versão",
     "location": "Centro · São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -1349,12 +1103,7 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": [
-      "canecas-personalizadas",
-      "azulejos-personalizados",
-      "presentes",
-      "artesanato"
-    ],
+    "tags": ["canecas-personalizadas", "azulejos-personalizados", "presentes", "artesanato"],
     "subtitle": "Caneca + azulejo personalizados",
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
@@ -1383,5 +1132,29 @@
     "badge": "Projeto real",
     "metrics": "Orçamento por demanda",
     "summary": "Presença digital da Fernanda & Amaral para instalação de drywall, pinturas, reformas em geral, móveis e madeira, corte de grama e pequenos fretes."
+  },
+  {
+    "slug": "denise-gomes-psicologa",
+    "clientKey": "denise-gomes-psicologa",
+    "title": "Denise Gomes · Psicóloga",
+    "segment": "saude",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "avaliacao-psicologica",
+      "psicologia-para-adultos",
+      "ansiedade",
+      "burnout",
+      "relacionamentos"
+    ],
+    "subtitle": "Atendimento e avaliação psicológica para adultos",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/denise-gomes-psicologa/hero-og.jpg",
+    "fallbackImage": "/images/denise-gomes-psicologa/logo.png",
+    "metrics": "Agendamento de avaliação",
+    "summary": "Atendimento e avaliação psicológica com Denise Gomes, CRP 08/22352, para adultos em São José dos Pinhais, com acolhimento para questões como ansiedade, burnout e relacionamentos."
   }
 ]
