@@ -665,3 +665,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Identidade:** logo exclusiva e imagem social OG horizontal geradas com `imagegen`; flyer original vinculado somente ao slug da Maresia.
 - **Conversão:** hero, serviços e narrativa agora refletem resposta rápida no WhatsApp, peças originais, garantia de serviço e atendimento em toda a região; botão de orçamento usa o funil universal.
 - **Privacidade:** telefone operacional permanece apenas no ambiente server-side; nenhum contato foi adicionado ao bundle público.
+
+## 2026-09-01 — Catálogo público sem filtro por imagem
+
+- **Correção:** o índice `/portfolio/` deixou de ocultar projetos publicados que ainda não tinham imagem editorial no registro canônico.
+- **Fallback seguro:** cada slug usa seu ícone/imagem social própria quando disponível e `og-default.jpg` somente como último fallback visual; registros com `status: published` passam a ser tratados como públicos no catálogo.
+- **Resultado:** os 61 itens canônicos passam a aparecer no catálogo e no contador de projetos/sites publicados, mantendo a separação por slug e sem duplicar clientes.

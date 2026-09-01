@@ -28,6 +28,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
 import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
+import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { PORTFOLIO_SEGMENTS, PORTFOLIO_PLACES, portfolioClusterLinks, placesForSegment, portfolioComboPath } from "@/lib/portfolio-clusters";
 import {
   SITE_URL,
@@ -210,15 +211,18 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog
     const legacy = LEGACY_PORTFOLIO_ITEMS.find(
       (item) => item.slug === `/portfolio/${canonical.slug}`,
     ) as Partial<LegacyItem> | undefined;
+    const assetConfig = resolvePortfolioAssets(canonical.slug);
     return {
       ...(legacy ?? {}),
       ...canonical,
       id: canonical.slug,
       slug: `/portfolio/${canonical.slug}`,
       category: canonical.segment,
+      image: canonical.image ?? assetConfig?.icon ?? assetConfig?.socialImage ?? "/og-default.jpg",
+      fallbackImage: canonical.fallbackImage ?? assetConfig?.socialImage ?? assetConfig?.icon ?? "/og-default.jpg",
+      live: canonical.live ?? canonical.status === "published",
     } as PortfolioItem;
-  })
-  .filter((item) => Boolean(item.image));
+  });
 
 
 type PortfolioSearch = {
