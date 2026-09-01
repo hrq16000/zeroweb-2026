@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
@@ -10,6 +11,7 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { trackEvent, trackConversion } from "@/lib/analytics";
+import { InstitutionalDiagnosticQuizModal } from "@/components/site/InstitutionalDiagnosticQuiz";
 import cover from "@/assets/google-meu-negocio-capa.png.asset.json";
 
 const TITLE = "Google Meu Negócio para Empresas · 0WEB Marketing Digital";
@@ -141,6 +143,7 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
 });
 
 function GMBPage() {
+  const [quizOpen, setQuizOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Header />
