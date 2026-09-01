@@ -20,6 +20,17 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Evidências geradas localmente e pelo CI. Os workflows já as publicam como
+# artifacts; mantê-las no Git cria ruído e conflitos sem fazer parte do portal.
+.lighthouseci/
+lhci-reports/
+seo-reports/**/*.json
+seo-reports/**/*.md
+seo-reports/popup-shots/
+seo-reports/visual/
+!seo-reports/README.md
+!seo-reports/seo-diff.config.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,7 +1,0 @@
-{
-  "generatedAt": "2026-09-01T03:11:05.730Z",
-  "scanned": "src/**/*.{ts,tsx,json} (excluídos scripts, docs, server-only)",
-  "errors": 0,
-  "warnings": 0,
-  "findings": []
-}
