@@ -28,7 +28,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
 import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
-import { PORTFOLIO_SEGMENTS, portfolioClusterLinks, placesForSegment, portfolioComboPath, findPortfolioPlace, portfolioProjectsAtPlace } from "@/lib/portfolio-clusters";
+import { PORTFOLIO_SEGMENTS, PORTFOLIO_PLACES, portfolioClusterLinks, placesForSegment, portfolioComboPath } from "@/lib/portfolio-clusters";
 import {
   SITE_URL,
   breadcrumbNode,
@@ -43,8 +43,7 @@ const TITLE = "Portfólio & Vitrine de Sites · Projetos Reais Criados pela 0WEB
 const DESC =
   "Explore nossa galeria de sites, landing pages de alta conversão e sistemas desenvolvidos pela 0WEB para negócios locais, clínicas, beleza e serviços em todo o Brasil.";
 const URL = "https://0web.com.br/portfolio";
-const JARDIM_ITALIA = findPortfolioPlace("jardim-italia-sjp");
-const JARDIM_ITALIA_PROJECTS = JARDIM_ITALIA ? portfolioProjectsAtPlace(JARDIM_ITALIA) : [];
+const NATIONAL_GUIDE_PLACES = PORTFOLIO_PLACES.filter((place) => ["São José dos Pinhais", "Curitiba", "Araucária", "Belo Horizonte", "Pinhais"].includes(place.city)).slice(0, 12);
 
 const CATEGORIES = [
   { id: "todos", label: "Todos os Projetos" },
@@ -545,28 +544,28 @@ function PortfolioPage() {
             </div>
 
             {/* Silo programático: segmento × bairro */}
-            {JARDIM_ITALIA && (
+            {NATIONAL_GUIDE_PLACES.length > 0 && (
               <section aria-labelledby="regional-guide-title" className="rounded-3xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
                 <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
                   <div className="max-w-2xl">
                     <p className="text-xs font-semibold uppercase tracking-[.18em] text-primary">Guia comercial regional</p>
                     <h2 id="regional-guide-title" className="mt-2 text-2xl sm:text-3xl font-bold text-foreground">
-                      Negócios do Jardim Itália · São José dos Pinhais
+                      Guia comercial nacional por região
                     </h2>
                     <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                      Explore ramos, projetos e oportunidades da Rua Quirino Zagonel em um único ponto de descoberta.
+                      Explore ramos, cidades e bairros atendidos pela 0WEB. Cada região abre seu próprio catálogo de negócios e projetos próximos.
                     </p>
                   </div>
-                  <Link to={portfolioComboPath("servicos-locais", JARDIM_ITALIA.slug)} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
-                    Abrir guia da região <ArrowRight className="h-4 w-4" />
+                  <Link to="/areas-de-atendimento" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90">
+                    Explorar todas as regiões <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {JARDIM_ITALIA_PROJECTS.map((project) => (
-                    <Link key={project.slug} to={`/portfolio/${project.slug}`} className="rounded-2xl border border-border bg-card p-4 transition hover:border-primary/50 hover:shadow-soft">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-primary">{project.segment ?? "comércio local"}</span>
-                      <span className="mt-2 block font-semibold text-foreground">{project.title}</span>
-                      <span className="mt-1 block text-xs text-muted-foreground">Jardim Itália · SJP/PR</span>
+                  {NATIONAL_GUIDE_PLACES.map((place) => (
+                    <Link key={place.slug} to={portfolioComboPath("servicos-locais", place.slug)} className="rounded-2xl border border-border bg-card p-4 transition hover:border-primary/50 hover:shadow-soft">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-primary">{place.state} · {place.region}</span>
+                      <span className="mt-2 block font-semibold text-foreground">{place.name}</span>
+                      <span className="mt-1 block text-xs text-muted-foreground">{place.city} · guia por ramo</span>
                     </Link>
                   ))}
                 </div>

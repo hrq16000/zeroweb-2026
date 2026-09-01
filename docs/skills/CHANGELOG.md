@@ -514,3 +514,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** heróis, descrições, cards de serviço e CTA foram particularizados para Marmitaria Dom Diego, Beto Pastéis, Woodhouse e D’Lara; imagens foram alinhadas ao formato real `.png`.
 - **Proteção:** o texto continua declarando conceito demonstrativo e não cria preço, contato, avaliação ou promessa comercial.
 - **Validação:** performance, boundaries, catálogo e assets aprovados para 35 projetos.
+
+## 2026-09-01 — equilíbrio nacional do guia comercial
+
+- **Tarefa:** corrigir a apresentação do catálogo para representar o alcance nacional do guia comercial.
+- **Alterações:** a vitrine `/portfolio/` deixou de destacar uma única rua/região e passou a exibir uma grade equilibrada de bairros/cidades de PR e MG, com link para explorar todas as regiões.
+- **Regra:** regiões específicas permanecem acessíveis por clusters próprios, mas nenhuma é tratada como centro do catálogo nacional.
+- **Validação:** rotas, catálogo e boundaries aprovados.
