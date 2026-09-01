@@ -742,3 +742,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Transparência:** as peças continuam identificadas como “Conceito de presença e papelaria” até aprovação do cliente, sem inventar contatos operacionais.
 - **Cobertura legada:** 12 itens do catálogo que não tinham assets próprios receberam logo conceitual e OG JPEG exclusivos por slug; o gerador `scripts/generate-portfolio-identity-assets.mjs` mantém a regra para novos registros.
 - **Gates fortalecidos:** assets, logos, ícones e presença agora conferem o catálogo canônico inteiro, evitando que um projeto publicado volte a renderizar um cartão ou panfleto vazio.
+# 2026-09-01 — Galeria parametrizada do portfólio
+
+- **Tarefa:** reorganizar `/portfolio/` como galeria comercial nacional, inspirada na arquitetura de descoberta de catálogos visuais, sem copiar identidade ou componentes externos.
+- **Skills aplicadas:** `sites-building`, `0web-skill-router`, `0web-skill-discovery`, `0web-design-system` e `0web-ui-quality-gates`.
+- **Referência analisada:** Envato Elements — hierarquia editorial curta, chips de descoberta, busca, filtros, ordenação, grade visual densa e carregamento progressivo.
+- **Implementação:** cabeçalho editorial compacto, filtros parametrizados por segmento/tipo/região, busca nacional, ordenação, barra persistente, sidebar desktop, painel móvel, estado vazio, cards uniformes com imagens próprias e Kit de Presença, grade responsiva e carregamento em lotes de 12.
+- **Escopo global:** todos os registros atuais de `portfolio-catalog.json` recebem o padrão automaticamente; novos clientes entram na mesma galeria pelo cadastro canônico, sem edição manual do layout.
+- **Segurança:** mantido o GitHub oficial como única origem de publicação; nenhum contato operacional foi exposto e nenhuma identidade de cliente foi misturada.
