@@ -559,3 +559,4 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Tarefa:** corrigir a distinção entre projetos conceituais e empresas que podem ser contatadas.
 - **Alterações:** criada lista de oito empresas reais de Guaratuba, Mirassol, Belo Horizonte e Uberlândia, com contatos publicados e fontes verificáveis.
 - **Regra:** nenhuma marca, foto, depoimento ou dado de empresa real entra no portal sem autorização; as páginas conceituais permanecem explicitamente demonstrativas.
+- **Adição:** Lolipa Arte em Festas Decor foi incluída como prospecto real de Curitiba, usando o Linktree oficial como fonte de contato inicial.

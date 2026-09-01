@@ -6,6 +6,16 @@ publicado. Eles **não foram transformados automaticamente em páginas do
 portal**: uma página com nome, marca, fotos ou depoimentos de empresa real só
 deve ser publicada após autorização do responsável.
 
+## Referência adicional — Curitiba/PR
+
+| Empresa | Perfil público | Contato publicado | Fonte |
+|---|---|---|---|
+| Lolipa Arte em Festas Decor | perfil de decoração e arte em festas; oferece orçamento e reúne Instagram, Facebook, TikTok e WhatsApp | contato pelo botão de WhatsApp no Linktree | [Linktree oficial da Lolipa](https://linktr.ee/lolipa.arteemfestas) |
+
+Localização, responsável e demais dados devem ser confirmados no primeiro
+contato. A URL do Landingsite recebida foi tratada como referência de layout,
+não como prova de autorização ou propriedade do projeto.
+
 ## Guaratuba/PR
 
 | Empresa | Perfil público | Contato publicado | Fonte |
