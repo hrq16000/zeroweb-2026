@@ -547,3 +547,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Tarefa:** mapear novas referências públicas para futuras amostras comerciais em Curitiba.
 - **Alterações:** documentados oito perfis de oportunidade, distribuídos por bairros e categorias; cada perfil recebeu estrutura de página, regra de confirmação e conexão com o guia nacional.
 - **Proteção:** a prospecção não transforma diretórios em clientes e não inventa dados operacionais.
+
+## 2026-09-01 — expansão nacional: Guaratuba, Mirassol e Minas Gerais
+
+- **Tarefa:** iniciar a dispersão do catálogo por novos estados e cidades brasileiras.
+- **Alterações:** oito amostras públicas foram cadastradas com ramo, bairro, cidade e estado próprios; quatro em Guaratuba/PR, duas em Mirassol/SP e duas em Minas Gerais.
+- **Proteção:** nomes e ofertas são conceitos demonstrativos; nenhum contato, preço, avaliação ou vínculo comercial foi inventado.

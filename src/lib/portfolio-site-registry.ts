@@ -50,6 +50,14 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "reuse-house-brecho", vertical: "comercios", siteName: "REuse House Brechó · Jardim das Américas", kind: "prototype", indexable: true },
   { slug: "brecho-sao-francisco", vertical: "comercios", siteName: "Brechó São Francisco · Curitiba", kind: "prototype", indexable: true },
   { slug: "angel-mix-brecho", vertical: "comercios", siteName: "Angel Mix Brechó · Novo Mundo", kind: "prototype", indexable: true },
+  { slug: "guaratuba-sabores-da-baia", vertical: "restaurantes", siteName: "Sabores da Baía · Guaratuba", kind: "prototype", indexable: true },
+  { slug: "guaratuba-oficina-nautica", vertical: "prestadores-de-servicos", siteName: "Oficina Náutica Guaratuba · Piçarras", kind: "prototype", indexable: true },
+  { slug: "guaratuba-atelie-presentes", vertical: "comercios", siteName: "Ateliê Encanto da Baía · Guaratuba", kind: "prototype", indexable: true },
+  { slug: "guaratuba-reparos-residenciais", vertical: "prestadores-de-servicos", siteName: "Reparos do Litoral · Guaratuba", kind: "prototype", indexable: true },
+  { slug: "mirassol-delicias-caseiras", vertical: "restaurantes", siteName: "Delícias Caseiras Mirassol · Centro", kind: "prototype", indexable: true },
+  { slug: "mirassol-conserta-celular", vertical: "prestadores-de-servicos", siteName: "Conserta Mirassol · São Bernardo", kind: "prototype", indexable: true },
+  { slug: "bh-barreiro-marmitas", vertical: "restaurantes", siteName: "Marmitas do Barreiro · Belo Horizonte", kind: "prototype", indexable: true },
+  { slug: "uberlandia-eletrica-residencial", vertical: "prestadores-de-servicos", siteName: "Elétrica Bairro Brasil · Uberlândia", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {
