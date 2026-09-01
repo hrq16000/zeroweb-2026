@@ -679,3 +679,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Conversão/SEO:** narrativa, divulgação, localização regional e funil server-only adicionados às fontes canônicas; a página usa o shell universal, botão de copiar divulgação e Kit de Presença.
 - **Privacidade:** o telefone é referenciado somente pela chave de ambiente `FERNANDA_AMARAL_DRYWALL_WHATSAPP_NUMBER`; nenhum contato operacional é enviado ao bundle público.
 - **Validação:** gates de boundaries, catálogo, conversão, meta, scaffold, regional, presença, logos, assets, ícones, performance, quiz e privacidade aprovados; build Vite/Nitro de produção concluído.
+
+## 2026-09-01 — mockups reais no Kit de Presença (correção global)
+
+- **Problema encontrado:** a seção compartilhada ainda aplicava uma imagem-base translúcida e deixava cartão e panfleto com aspecto de espaço reservado.
+- **Correção:** `PortfolioPresenceKit` passou a montar um cartão visual completo com a logo própria do slug e um panfleto preenchido com a imagem social OG própria, nome, segmento, serviços e região de cada projeto.
+- **Escopo:** a alteração é parametrizada para os 62 itens do catálogo e novos clientes que entrarem nas fontes canônicas; não copia identidade, imagem ou conteúdo entre negócios.
+- **Transparência:** as peças continuam identificadas como “Conceito de presença e papelaria” até aprovação do cliente, sem inventar contatos operacionais.
