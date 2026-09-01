@@ -42,14 +42,14 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "acai-total-araucaria", vertical: "restaurantes", siteName: "Açaí Total · Araucária", kind: "prototype", indexable: true },
   { slug: "jkl-marcenaria", vertical: "prestadores-de-servicos", siteName: "JKL Marcenaria · Móveis sob medida", kind: "prototype", indexable: true },
   { slug: "santos-montador-de-moveis", vertical: "prestadores-de-servicos", siteName: "Santos Montador de Móveis · Curitiba e Região", kind: "prototype", indexable: true },
-  { slug: "marmitaria-dom-diego", vertical: "restaurantes", siteName: "Marmitaria Dom Diego · Jardim Itália", kind: "prototype", indexable: false },
-  { slug: "beto-pasteis", vertical: "restaurantes", siteName: "Beto Pastéis · Jardim Itália", kind: "prototype", indexable: false },
-  { slug: "woodhouse-hamburgueres", vertical: "restaurantes", siteName: "Woodhouse Hambúrgueres · Jardim Itália", kind: "prototype", indexable: false },
-  { slug: "dlara-pizzaria", vertical: "restaurantes", siteName: "D’Lara Pizzaria, Esfiharia e Hamburgueria · Jardim Itália", kind: "prototype", indexable: false },
-  { slug: "toquinho-de-gente-brecho", vertical: "comercios", siteName: "Toquinho de Gente Brechó · Sítio Cercado", kind: "prototype", indexable: false },
-  { slug: "reuse-house-brecho", vertical: "comercios", siteName: "REuse House Brechó · Jardim das Américas", kind: "prototype", indexable: false },
-  { slug: "brecho-sao-francisco", vertical: "comercios", siteName: "Brechó São Francisco · Curitiba", kind: "prototype", indexable: false },
-  { slug: "angel-mix-brecho", vertical: "comercios", siteName: "Angel Mix Brechó · Novo Mundo", kind: "prototype", indexable: false },
+  { slug: "marmitaria-dom-diego", vertical: "restaurantes", siteName: "Marmitaria Dom Diego · Jardim Itália", kind: "prototype", indexable: true },
+  { slug: "beto-pasteis", vertical: "restaurantes", siteName: "Beto Pastéis · Jardim Itália", kind: "prototype", indexable: true },
+  { slug: "woodhouse-hamburgueres", vertical: "restaurantes", siteName: "Woodhouse Hambúrgueres · Jardim Itália", kind: "prototype", indexable: true },
+  { slug: "dlara-pizzaria", vertical: "restaurantes", siteName: "D’Lara Pizzaria, Esfiharia e Hamburgueria · Jardim Itália", kind: "prototype", indexable: true },
+  { slug: "toquinho-de-gente-brecho", vertical: "comercios", siteName: "Toquinho de Gente Brechó · Sítio Cercado", kind: "prototype", indexable: true },
+  { slug: "reuse-house-brecho", vertical: "comercios", siteName: "REuse House Brechó · Jardim das Américas", kind: "prototype", indexable: true },
+  { slug: "brecho-sao-francisco", vertical: "comercios", siteName: "Brechó São Francisco · Curitiba", kind: "prototype", indexable: true },
+  { slug: "angel-mix-brecho", vertical: "comercios", siteName: "Angel Mix Brechó · Novo Mundo", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

@@ -534,3 +534,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Projetos:** Toquinho de Gente (Sítio Cercado), REuse House (Jardim das Américas), Brechó São Francisco (São Francisco) e Angel Mix (Novo Mundo).
 - **Alterações:** componentes, imagens conceituais, assets, narrativas, divulgação, funis e localização regional próprios; todos entram como `draft` e `noindex` até confirmação.
 - **Validação:** catálogo 42 itens/39 clientes, boundaries 39/39, assets 39/39 e regional 42/42 aprovados.
+
+## 2026-09-01 — amostras públicas para apresentação comercial
+
+- **Tarefa:** disponibilizar as oito amostras locais no catálogo público para demonstração e venda de soluções web.
+- **Alterações:** Marmitaria Dom Diego, Beto Pastéis, Woodhouse, D’Lara e os quatro brechós passaram de `draft`/`noindex` para `published`/indexáveis; cada ficha mantém o selo **Amostra demonstrativa**.
+- **Transparência:** os projetos são conceitos demonstrativos, sem inventar contatos, preços, avaliações ou vínculo de contratação.
+- **Validação:** catálogo, boundaries, assets e guia regional executados após a publicação.
