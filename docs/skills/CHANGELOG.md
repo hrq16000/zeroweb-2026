@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — compartilhamento promocional e galeria de portfólios
+
+- **Classificação:** `portfolio-client-site`, `component-refactor`, `content/SEO`, `accessibility-fix`.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates` e `imagegen`.
+- **Direção:** catálogo como galeria visual, com cards orientados pela imagem e ações secundárias compactas; em cada site, o botão universal permanece discreto para não competir com o CTA do cliente.
+- **Alterações:** uma fonte canônica gera a mensagem de divulgação com nome, resumo, tags e URL do cliente; o botão copia essa mensagem no site individual e no card do catálogo. A&G Electrical Services recebeu nova arte social editorial, substituindo o recorte de documento técnico.
+- **Validação:** `validate-portfolio-assets`, `validate-portfolio-boundaries`, `validate-portfolio-catalog` e `validate-portfolio-meta` aprovados. Não há Bun funcional neste ambiente para executar a suíte completa/build; o CI permanece responsável por esses gates.
+
 ## 2026-08-30 — ciclo 1: segurança, RLS e governança de dados
 
 - **Classificação:** `backend/RLS`, `dashboard`, `bugfix`, `docs`.

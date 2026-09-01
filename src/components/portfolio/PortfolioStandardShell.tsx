@@ -45,6 +45,7 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
           variant={standards.shareButton.variant}
           label={standards.shareButton.label}
           slug={slug}
+          siteName={siteName}
         />
       ) : null}
 

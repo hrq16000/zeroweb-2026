@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Check, Share2 } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { buildPortfolioShareMessage } from "@/lib/portfolio-share";
 
 type SharePosition = "top-right" | "top-left" | "bottom-right";
 type SurfaceVariant = "light" | "dark";
+type Placement = "floating" | "inline";
 
 const POSITION: Record<SharePosition, string> = {
   "top-right": "right-4 top-20",
@@ -17,49 +19,70 @@ const VARIANT: Record<SurfaceVariant, string> = {
   dark: "border-white/20 bg-black/70 text-white hover:border-white/50 hover:text-white",
 };
 
+async function copyText(text: string) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  if (!copied) throw new Error("Clipboard unavailable");
+}
+
 export function PortfolioShareButton({
   position = "top-right",
   variant = "light",
-  label = "Compartilhar",
+  label = "Copiar divulgação",
   slug,
+  siteName,
+  placement = "floating",
+  className = "",
 }: {
   position?: SharePosition;
   variant?: SurfaceVariant;
   label?: string;
   slug?: string;
+  siteName?: string;
+  placement?: Placement;
+  className?: string;
 } = {}) {
   const [copied, setCopied] = useState(false);
-  const share = async () => {
-    const data = {
-      title: document.title,
-      text: "Confira este projeto publicado pela 0WEB",
-      url: window.location.href,
-    };
+  const copyPromotion = async () => {
+    const text = buildPortfolioShareMessage(slug ?? "portfolio", siteName);
     trackEvent("portfolio_share_click", {
       portfolio_slug: slug ?? "unknown",
       page_type: "portfolio_client",
-      method: typeof navigator !== "undefined" && "share" in navigator ? "native" : "clipboard",
+      method: "clipboard",
     });
     try {
-      if (navigator.share) await navigator.share(data);
-      else {
-        await navigator.clipboard.writeText(data.url);
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 1800);
-      }
+      await copyText(text);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
     } catch {
-      /* usuário cancelou o compartilhamento */
+      // Clipboard pode estar indisponível em contextos não seguros.
     }
   };
+  const placementClass = placement === "floating" ? `fixed z-40 ${POSITION[position]}` : "";
+  const baseClass = placement === "floating"
+    ? "min-h-11 rounded-full border px-4 py-2 text-xs font-bold shadow-lg backdrop-blur transition hover:-translate-y-0.5"
+    : "min-h-10 rounded-xl px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
   return (
     <button
       type="button"
-      onClick={share}
-      aria-label="Compartilhar este projeto"
-      className={`fixed z-40 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold shadow-lg backdrop-blur transition hover:-translate-y-0.5 ${POSITION[position]} ${VARIANT[variant]}`}
+      onClick={copyPromotion}
+      aria-label={`Copiar divulgação de ${siteName ?? "este projeto"}`}
+      className={`inline-flex items-center justify-center gap-2 ${baseClass} ${placementClass} ${VARIANT[variant]} ${className}`}
     >
-      {copied ? <Check className="h-4 w-4 text-emerald-600" /> : <Share2 className="h-4 w-4" />}
-      {copied ? "Link copiado" : label}
+      {copied ? <Check className="h-4 w-4 text-emerald-600" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
+      {copied ? "Divulgação copiada" : label}
     </button>
   );
 }

@@ -23,6 +23,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
 import { getIpGeo } from "@/lib/geo-location";
@@ -432,7 +433,7 @@ function PortfolioPage() {
               <div className="rounded-2xl border border-border/60 bg-card p-4"><p className="text-2xl font-bold">Atualizado</p><p className="mt-1 text-xs text-muted-foreground">mais recentes primeiro</p></div>
             </div>
             
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               <AnimatePresence>
                 {filteredItems.slice(0, visibleCount).map((item, index) => (
                   <motion.div
@@ -442,17 +443,17 @@ function PortfolioPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="group rounded-2xl bg-card border border-border/60 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+                    className="group overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-shadow duration-300 hover:shadow-xl flex flex-col"
                   >
                     {/* Card Media Preview */}
-                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block h-36 w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary sm:h-44 lg:h-40" aria-label={`Abrir preview de ${item.title}`}>
+                    <button type="button" onClick={() => setSelectedIndex(filteredItems.findIndex((entry) => entry.id === item.id))} className="relative block aspect-[4/3] w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary" aria-label={`Abrir preview de ${item.title}`}>
                       <img 
                         src={item.image} 
                         alt={item.title}
                         loading={index === 0 ? "eager" : "lazy"}
                         decoding="async"
                         fetchPriority={index === 0 ? "high" : "auto"}
-                        sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, (max-width: 1279px) 25vw, 16vw"
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         onError={(e) => {
                           if (item.fallbackImage) {
@@ -467,10 +468,9 @@ function PortfolioPage() {
                         </span>
                       </div>
 
-                      <div className="absolute bottom-2 right-2">
-                        <span className="px-2 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold shadow-md">
-                          {item.metrics}
-                        </span>
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/80 via-foreground/25 to-transparent px-3 pb-3 pt-12 text-primary-foreground">
+                        <p className="text-sm font-bold leading-tight line-clamp-2">{item.title}</p>
+                        <p className="mt-1 text-[11px] font-medium text-primary-foreground/85 line-clamp-1">{item.metrics}</p>
                       </div>
                     </button>
 
@@ -501,15 +501,23 @@ function PortfolioPage() {
                         </div>
                       </div>
 
-                      <div className="pt-3 border-t border-border/40 flex items-center justify-between gap-2">
+                      <div className="pt-3 border-t border-border/40 flex flex-wrap items-center gap-2">
                         <Link 
                           to={item.slug}
-                          className="inline-flex items-center gap-1 text-primary font-bold text-xs hover:underline"
+                          className="inline-flex min-h-10 items-center gap-1 text-primary font-bold text-xs hover:underline"
                         >
                           Ver site <ExternalLink className="w-4 h-4" />
                         </Link>
 
-                        <FunnelCTAButton label="Pedir igual" showArrow={false} className="inline-flex min-h-9 items-center rounded-full border border-primary/30 text-primary font-semibold px-2.5 py-1.5 text-[10px] hover:bg-primary/10 transition-colors" />
+                        <PortfolioShareButton
+                          placement="inline"
+                          slug={item.id}
+                          siteName={item.title}
+                          label="Copiar divulgação"
+                          className="border border-border bg-muted text-muted-foreground hover:border-primary hover:text-primary"
+                        />
+
+                        <FunnelCTAButton label="Pedir igual" showArrow={false} className="ml-auto inline-flex min-h-10 items-center rounded-full border border-primary/30 text-primary font-semibold px-3 py-2 text-[10px] hover:bg-primary/10 transition-colors" />
                       </div>
                     </div>
                   </motion.div>

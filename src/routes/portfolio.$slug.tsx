@@ -239,6 +239,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "/images/santos-montador-de-moveis/hero.webp"
                 : "/images/mestre-dos-servicos-logo.jpg",
     ), loaderData?.slug);
+    const socialImageType = socialImage.includes(".png") ? "image/png" : "image/jpeg";
     const icon = absUrl(assetConfig?.icon ?? (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage));
     const vertical = loaderData?.vertical;
     const isMarido = loaderData?.slug === "marido-de-aluguel";
@@ -308,7 +309,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:site_name", content: title },
         { property: "og:image", content: socialImage },
         { property: "og:image:secure_url", content: socialImage },
-        { property: "og:image:type", content: "image/jpeg" },
+        { property: "og:image:type", content: socialImageType },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
         { property: "og:image:alt", content: title },
