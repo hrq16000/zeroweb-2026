@@ -671,3 +671,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Correção:** o índice `/portfolio/` deixou de ocultar projetos publicados que ainda não tinham imagem editorial no registro canônico.
 - **Fallback seguro:** cada slug usa seu ícone/imagem social própria quando disponível e `og-default.jpg` somente como último fallback visual; registros com `status: published` passam a ser tratados como públicos no catálogo.
 - **Resultado:** os 61 itens canônicos passam a aparecer no catálogo e no contador de projetos/sites publicados, mantendo a separação por slug e sem duplicar clientes.
+
+## 2026-09-01 — Fernanda & Amaral · Instalação de Drywall
+
+- **Adição:** projeto público `/portfolio/fernanda-amaral-drywall`, com identidade própria e serviços informados: drywall, pinturas, reformas, móveis e madeira, corte de grama e pequenos fretes.
+- **Assets:** logo, imagem social OG e imagens de serviços vinculadas exclusivamente ao slug; o material recebido foi otimizado sem inserir contatos no código público.
+- **Conversão/SEO:** narrativa, divulgação, localização regional e funil server-only adicionados às fontes canônicas; a página usa o shell universal, botão de copiar divulgação e Kit de Presença.
+- **Privacidade:** o telefone é referenciado somente pela chave de ambiente `FERNANDA_AMARAL_DRYWALL_WHATSAPP_NUMBER`; nenhum contato operacional é enviado ao bundle público.
+- **Validação:** gates de boundaries, catálogo, conversão, meta, scaffold, regional, presença, logos, assets, ícones, performance, quiz e privacidade aprovados; build Vite/Nitro de produção concluído.

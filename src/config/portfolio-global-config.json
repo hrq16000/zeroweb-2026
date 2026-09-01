@@ -247,6 +247,27 @@
           "notePlaceholder": "Ex.: apartamento no 3º andar sem elevador, com geladeira e sofá."
         }
       }
+    },
+    "fernanda-amaral-drywall": {
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "Fernanda e Amaral",
+        "label": "Pedir orçamento",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": ["Instalação de drywall", "Pinturas", "Reformas em geral", "Móveis e madeira", "Corte de grama", "Pequenos fretes"],
+          "experienceOptions": ["Minha casa", "Meu comércio", "Preciso de um reparo", "Ainda estou avaliando"],
+          "periodOptions": ["Quero combinar uma visita", "Tenho fotos e medidas", "Vou confirmar o endereço", "Ainda preciso de orientação"],
+          "timingOptions": ["O quanto antes", "Nos próximos dias", "Ainda neste mês", "Estou planejando"],
+          "stepTitles": {
+            "service": "Qual serviço você precisa?",
+            "experience": "Onde será o trabalho?",
+            "period": "Como podemos entender a demanda?",
+            "timing": "Quando você pretende começar?"
+          },
+          "notePlaceholder": "Ex.: ambiente, medidas aproximadas, acabamento desejado ou itens para transportar."
+        }
+      }
     }
   }
 }

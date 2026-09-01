@@ -69,6 +69,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "assistencia-microondas-santos", vertical: "prestadores-de-servicos", siteName: "Assistência Técnica Microondas Santos", kind: "prototype", indexable: true },
   { slug: "artesanatos-darleia-oliveira", vertical: "comercios", siteName: "Artesanatos Darléia Oliveira", kind: "prototype", indexable: true },
   { slug: "thays-camilla", vertical: "comercios", siteName: "Thays Camilla · Personalizados", kind: "prototype", indexable: true },
+  { slug: "fernanda-amaral-drywall", vertical: "prestadores-de-servicos", siteName: "Fernanda & Amaral · Instalação de Drywall", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

@@ -114,6 +114,7 @@ const LizMoraesNailDesignerPage = lazy(() => import("@/components/site/LizMoraes
 const AssistenciaMicroondasSantosPage = lazy(() => import("@/components/site/AssistenciaMicroondasSantosPage").then((m) => ({ default: m.AssistenciaMicroondasSantosPage })));
 const ArtesanatosDarLeiaOliveiraPage = lazy(() => import("@/components/site/ArtesanatosDarLeiaOliveiraPage").then((m) => ({ default: m.ArtesanatosDarLeiaOliveiraPage })));
 const ThaysCamillaPage = lazy(() => import("@/components/site/ThaysCamillaPage").then((m) => ({ default: m.ThaysCamillaPage })));
+const FernandaAmaralDrywallPage = lazy(() => import("@/components/site/FernandaAmaralDrywallPage").then((m) => ({ default: m.FernandaAmaralDrywallPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -163,6 +164,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAssistenciaMicroondas = loaderData?.slug === "assistencia-microondas-santos";
     const isArtesanatosDarleia = loaderData?.slug === "artesanatos-darleia-oliveira";
     const isThaysCamilla = loaderData?.slug === "thays-camilla";
+    const isFernandaAmaral = loaderData?.slug === "fernanda-amaral-drywall";
     const description = isManuPasteis
       ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
       : isLizMoraes
@@ -173,6 +175,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
         ? "Artesanatos Darléia Oliveira: coadores de café 100% algodão, reutilizáveis e feitos à mão para um café mais puro e acolhedor."
       : isThaysCamilla
         ? "Thays Camilla: canecas e azulejos personalizados para presentear com carinho, incluindo kit promocional com azulejo 15x15 cm."
+      : isFernandaAmaral
+        ? "Fernanda & Amaral Serviços: instalação de drywall, pinturas, reformas, móveis e madeira, corte de grama e pequenos fretes na região do Paraná."
       : isLjCleaning
       ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
       : isGalileu
@@ -322,6 +326,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 ? "Artesanatos Darléia Oliveira, coador de café 100% algodão, filtro reutilizável, artesanato feito à mão, café artesanal"
               : isThaysCamilla
                 ? "Thays Camilla, caneca personalizada, azulejo personalizado 15x15, presentes artesanais, kit caneca e azulejo"
+              : isFernandaAmaral
+                ? "Fernanda e Amaral, instalação de drywall, pinturas, reformas, móveis e madeira, corte de grama, pequenos fretes, serviços residenciais, Paraná"
             : isLjCleaning
               ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
             : isGalileu
@@ -488,6 +494,8 @@ function PortfolioPrototypePage() {
           <ArtesanatosDarLeiaOliveiraPage />
         ) : slug === "thays-camilla" ? (
           <ThaysCamillaPage />
+        ) : slug === "fernanda-amaral-drywall" ? (
+          <FernandaAmaralDrywallPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

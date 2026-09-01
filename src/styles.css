@@ -167,6 +167,9 @@
   :root:has(.portfolio-theme-santos) {
     --scrollbar-thumb: oklch(0.69 0.19 52); --scrollbar-thumb-hover: oklch(0.76 0.2 58); --scrollbar-track: oklch(0.19 0.055 252);
   }
+  :root:has(.portfolio-theme-fernanda) {
+    --scrollbar-thumb: oklch(0.79 0.17 86); --scrollbar-thumb-hover: oklch(0.86 0.18 88); --scrollbar-track: oklch(0.16 0.04 255);
+  }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
@@ -221,8 +224,19 @@
   --border: oklch(0.84 0.025 72); --ring: oklch(0.69 0.19 52);
 }
 
+.portfolio-theme-fernanda {
+  --background: oklch(0.97 0.008 90); --foreground: oklch(0.19 0.035 255);
+  --surface: oklch(0.94 0.012 88); --card: oklch(0.995 0.003 90); --card-foreground: oklch(0.19 0.035 255);
+  --primary: oklch(0.79 0.17 86); --primary-foreground: oklch(0.16 0.04 255);
+  --secondary: oklch(0.16 0.04 255); --secondary-foreground: oklch(0.97 0.008 90);
+  --accent: oklch(0.72 0.12 72); --accent-foreground: oklch(0.16 0.04 255);
+  --muted: oklch(0.92 0.015 88); --muted-foreground: oklch(0.43 0.03 255);
+  --border: oklch(0.84 0.02 88); --ring: oklch(0.79 0.17 86);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .portfolio-theme-santos section { animation: section-reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 24%; }
+  .portfolio-theme-fernanda section { animation: section-reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 24%; }
 }
 
 @keyframes section-reveal {

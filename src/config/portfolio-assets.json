@@ -608,6 +608,18 @@
         "ctaHref": "#kit"
       },
       "socialVersion": "6fdee062"
+    },
+    "fernanda-amaral-drywall": {
+      "icon": "/images/fernanda-amaral-drywall/logo.webp",
+      "socialImage": "/images/fernanda-amaral-drywall/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Fernanda & Amaral Serviços",
+        "title": "Sua casa muda. O acabamento fica.",
+        "description": "Instalação de drywall, pinturas, reformas e serviços práticos para sua casa.",
+        "ctaLabel": "Pedir orçamento",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "3b98f096"
     }
   }
 }

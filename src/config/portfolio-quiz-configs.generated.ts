@@ -410,6 +410,43 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: formato, comprimento, cor, sensibilidade ou horário ideal."
   },
+  "fernanda-amaral-drywall": {
+    "proposalKind": "service",
+    "services": [
+      "Instalação de drywall",
+      "Pinturas",
+      "Reformas em geral",
+      "Móveis e madeira",
+      "Corte de grama",
+      "Pequenos fretes"
+    ],
+    "experienceOptions": [
+      "Minha casa",
+      "Meu comércio",
+      "Preciso de um reparo",
+      "Ainda estou avaliando"
+    ],
+    "periodOptions": [
+      "Quero combinar uma visita",
+      "Tenho fotos e medidas",
+      "Vou confirmar o endereço",
+      "Ainda preciso de orientação"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nos próximos dias",
+      "Ainda neste mês",
+      "Estou planejando"
+    ],
+    "stepTitles": {
+      "service": "Qual serviço você precisa?",
+      "experience": "Onde será o trabalho?",
+      "period": "Como podemos entender a demanda?",
+      "timing": "Quando você pretende começar?",
+      "note": "Conte os detalhes"
+    },
+    "notePlaceholder": "Ex.: ambiente, medidas aproximadas, acabamento desejado ou itens para transportar."
+  },
   "jkl-marcenaria": {
     "stepTitles": {
       "service": "Qual ambiente você quer transformar?",

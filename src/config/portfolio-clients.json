@@ -579,5 +579,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "fernanda-amaral-drywall",
+    "slug": "fernanda-amaral-drywall",
+    "siteName": "Fernanda & Amaral — Instalação de Drywall",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/FernandaAmaralDrywallPage.tsx",
+    "assetsDir": "public/images/fernanda-amaral-drywall",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

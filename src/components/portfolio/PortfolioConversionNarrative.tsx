@@ -67,6 +67,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "assistencia-microondas-santos": { title: "Um micro-ondas parado pede um diagnóstico direto.", step: "Informe o defeito, a ferrugem ou o modelo revisado que deseja avaliar com a equipe.", cta: "Solicitar avaliação", theme: "navy" },
   "artesanatos-darleia-oliveira": { title: "Seu café merece um momento de aconchego.", step: "Conte a ocasião, a estampa ou a quantidade que deseja conhecer.", cta: "Conhecer os produtos", theme: "gold" },
   "thays-camilla": { title: "Um presente especial começa com uma ideia sua.", step: "Conte a mensagem, a imagem ou a ocasião que deseja personalizar.", cta: "Montar meu presente", theme: "pink" },
+  "fernanda-amaral-drywall": { title: "Sua casa muda quando o serviço certo encontra o espaço.", step: "Conte se precisa de drywall, pintura, reforma, montagem, jardim ou frete e indique a região.", cta: "Pedir orçamento", theme: "navy" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {
