@@ -106,6 +106,7 @@ const AngelMixBrechoPage = lazy(() => import("@/components/site/AngelMixBrechoPa
 const LolipaArteEmFestasPage = lazy(() => import("@/components/site/LolipaArteEmFestasPage").then((m) => ({ default: m.LolipaArteEmFestasPage })));
 const ConfeitariaSaborDaRealezaPage = lazy(() => import("@/components/site/ConfeitariaSaborDaRealezaPage").then((m) => ({ default: m.ConfeitariaSaborDaRealezaPage })));
 const PremiumEnvelopamentosPage = lazy(() => import("@/components/site/PremiumEnvelopamentosPage").then((m) => ({ default: m.PremiumEnvelopamentosPage })));
+const MiroTechPage = lazy(() => import("@/components/site/MiroTechPage").then((m) => ({ default: m.MiroTechPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -147,7 +148,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isLolipa = loaderData?.slug === "lolipa-arte-em-festas";
     const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
     const isPremium = loaderData?.slug === "premium-envelopamentos";
-    const description = isPremium
+    const isMiro = loaderData?.slug === "miro-tech";
+    const description = isMiro
+      ? "MIRO TECH em São José dos Pinhais: manutenção especializada de TVs, computadores, micro-ondas e recuperação de dados de HD."
+      : isPremium
       ? "Premium Envelopamentos em Curitiba e região: plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
       : isRealeza
       ? "Confeitaria Sabor da Realeza em Uberaba: bolos, doces, salgados e encomendas para festas e eventos."
@@ -280,6 +284,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : isMiro
+              ? "MIRO TECH São José dos Pinhais, assistência técnica TV, computador, micro-ondas, recuperação de dados de HD"
             : isPremium
               ? "Premium Envelopamentos Curitiba, plotagem de móveis, envelopamento de geladeiras, adesivos, banners e comunicação visual"
             : isRealeza
@@ -330,6 +336,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
                 : isJkl
                   ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
+                : isMiro
+                  ? "/images/miro-tech/hero.png"
                 : isPremium
                   ? "/images/premium-envelopamentos/hero.png"
                 : isSantos
@@ -424,6 +432,8 @@ function PortfolioPrototypePage() {
           <ConfeitariaSaborDaRealezaPage />
         ) : slug === "premium-envelopamentos" ? (
           <PremiumEnvelopamentosPage />
+        ) : slug === "miro-tech" ? (
+          <MiroTechPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

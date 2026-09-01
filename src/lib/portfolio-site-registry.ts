@@ -61,6 +61,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   { slug: "lolipa-arte-em-festas", vertical: "comercios", siteName: "Lolipa Arte em Festas Decor · Curitiba", kind: "prototype", indexable: true },
   { slug: "confeitaria-sabor-da-realeza", vertical: "restaurantes", siteName: "Confeitaria Sabor da Realeza · Uberaba", kind: "prototype", indexable: true },
   { slug: "premium-envelopamentos", vertical: "prestadores-de-servicos", siteName: "Premium Envelopamentos · Curitiba", kind: "prototype", indexable: true },
+  { slug: "miro-tech", vertical: "prestadores-de-servicos", siteName: "MIRO TECH · São José dos Pinhais", kind: "prototype", indexable: true },
 ]; 
 
 export function findPortfolioPrototype(slug: string) {

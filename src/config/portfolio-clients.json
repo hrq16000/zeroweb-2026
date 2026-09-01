@@ -491,5 +491,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "miro-tech",
+    "slug": "miro-tech",
+    "siteName": "MIRO TECH",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MiroTechPage.tsx",
+    "assetsDir": "public/images/miro-tech",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — MIRO TECH
+
+- **Adição:** projeto oficial `/portfolio/miro-tech` para manutenção de TVs, computadores, micro-ondas e recuperação de dados em São José dos Pinhais.
+- **Identidade:** logo própria em preto, branco e verde-limão, com arte fornecida pelo negócio como hero.
+- **Conversão:** funil, narrativa e divulgação exclusivos, com seção de presença digital preparada para futuras redes sociais oficiais.
+- **Proteção:** telefone operacional permanece somente no servidor; nenhum preço, avaliação, depoimento ou promessa adicional foi inventado.
+
 ## 2026-09-01 — Premium Envelopamentos
 
 - **Adição:** projeto oficial `/portfolio/premium-envelopamentos` para plotagem de móveis, envelopamento de geladeiras e comunicação visual em Curitiba e região.

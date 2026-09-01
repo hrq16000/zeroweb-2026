@@ -500,6 +500,12 @@
       "socialImage": "/images/premium-envelopamentos/hero.png",
       "proof": {"eyebrow":"Premium Envelopamentos","title":"Seu móvel muda de cara. Seu ambiente ganha presença.","description":"Plotagem de móveis, envelopamento de geladeiras e comunicação visual em Curitiba e região.","ctaLabel":"Solicitar orçamento","ctaHref":"#servicos"},
       "socialVersion":"premium-v1"
+    },
+    "miro-tech": {
+      "icon": "/images/miro-tech/logo.png",
+      "socialImage": "/images/miro-tech/hero.png",
+      "proof": {"eyebrow":"MIRO TECH","title":"Seu equipamento em boas mãos.","description":"Manutenção especializada em TVs, computadores, micro-ondas e recuperação de dados em São José dos Pinhais.","ctaLabel":"Solicitar atendimento","ctaHref":"#servicos"},
+      "socialVersion":"miro-v1"
     }
   }
 }
