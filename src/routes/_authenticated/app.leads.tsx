@@ -77,6 +77,30 @@ function LeadsPage() {
     return { total, carrinho, funil };
   }, [leads]);
 
+  /** Agrupamento por segmento do quiz de diagnóstico (audience_tag / payload.segment). */
+  const segments = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const l of leads) {
+      const extra = (l.dados_extras ?? {}) as Record<string, any>;
+      const seg =
+        extra.audience_tag ??
+        extra.segment ??
+        extra.payload?.segment ??
+        "não segmentado";
+      map.set(String(seg), (map.get(String(seg)) ?? 0) + 1);
+    }
+    return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+  }, [leads]);
+
+  /** Funil de conversão simples por etapa, ordenado por volume. */
+  const funnelStages = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const l of leads) map.set(l.etapa_atual, (map.get(l.etapa_atual) ?? 0) + 1);
+    const rows = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+    const max = rows[0]?.[1] ?? 1;
+    return rows.map(([etapa, count]) => ({ etapa, count, pct: Math.round((count / max) * 100) }));
+  }, [leads]);
+
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <header className="flex items-center justify-between mb-6">
