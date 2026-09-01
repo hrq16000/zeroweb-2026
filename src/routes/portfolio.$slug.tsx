@@ -109,6 +109,7 @@ const PremiumEnvelopamentosPage = lazy(() => import("@/components/site/PremiumEn
 const MiroTechPage = lazy(() => import("@/components/site/MiroTechPage").then((m) => ({ default: m.MiroTechPage })));
 const GalileuLocacaoBrinquedosPage = lazy(() => import("@/components/site/GalileuLocacaoBrinquedosPage").then((m) => ({ default: m.GalileuLocacaoBrinquedosPage })));
 const LjCleaningPage = lazy(() => import("@/components/site/LjCleaningPage").then((m) => ({ default: m.LjCleaningPage })));
+const ManuPasteisPage = lazy(() => import("@/components/site/ManuPasteisPage").then((m) => ({ default: m.ManuPasteisPage })));
 
 
 export const Route = createFileRoute("/portfolio/$slug")({
@@ -153,7 +154,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isMiro = loaderData?.slug === "miro-tech";
     const isGalileu = loaderData?.slug === "galileu-locacao-brinquedos";
     const isLjCleaning = loaderData?.slug === "lj-cleaning";
-    const description = isLjCleaning
+    const isManuPasteis = loaderData?.slug === "manu-pasteis";
+    const description = isManuPasteis
+      ? "Manu Pastéis: cardápio online de pastéis bem recheados e quentinhos, com horários e formas de pagamento para pedidos."
+      : isLjCleaning
       ? "L&J Cleaning: higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e outros itens."
       : isGalileu
       ? "Galileu Locação de Brinquedos em São José dos Pinhais: tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos."
@@ -292,6 +296,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
             ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
+            : isManuPasteis
+              ? "Manu Pastéis, pastel recheado, pastel quentinho, cardápio online, delivery, São José dos Pinhais"
             : isLjCleaning
               ? "L&J Cleaning, higienização de sofás, limpeza automotiva, colchões, tapetes, carpetes e puffs"
             : isGalileu
@@ -348,6 +354,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   ? "Açaí Total Araucária, açaí delivery, copão de açaí, litrão, frutas, cremes, cardápio digital"
                 : isJkl
                   ? "JKL Marcenaria Curitiba, móveis planejados MDF, cozinha sob medida, guarda-roupa planejado, nichos, marcenaria Curitiba"
+                : isManuPasteis
+                  ? "/images/manu-pasteis/hero-og.jpg"
                 : isLjCleaning
                   ? "/images/lj-cleaning/hero.png"
                 : isGalileu
@@ -454,6 +462,8 @@ function PortfolioPrototypePage() {
           <GalileuLocacaoBrinquedosPage />
         ) : slug === "lj-cleaning" ? (
           <LjCleaningPage />
+        ) : slug === "manu-pasteis" ? (
+          <ManuPasteisPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

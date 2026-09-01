@@ -11,8 +11,8 @@
   "clients": {
     "sos-presentes-cosmeticos": {
       "icon": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
-      "socialImage": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
-      "socialVersion": "c04123b6",
+      "socialImage": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario-og.jpg",
+      "socialVersion": "f760e5c6",
       "proof": {
         "eyebrow": "SOS Presentes & Cosméticos",
         "title": "Uma boa surpresa começa com uma escolha feita com carinho.",
@@ -167,7 +167,7 @@
     },
     "ag-electrical-services": {
       "icon": "/images/ag-electrical-services/logo.webp",
-      "socialImage": "/images/ag-electrical-services/social-2026.png",
+      "socialImage": "/images/ag-electrical-services/social-2026-og.jpg",
       "proof": {
         "eyebrow": "A&G Electrical Services",
         "title": "Sua infraestrutura merece organização e segurança.",
@@ -175,7 +175,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "27eb0172"
+      "socialVersion": "511e01b2"
     },
     "vila-da-capivara": {
       "icon": "/images/vila-da-capivara/editorial.webp",
@@ -371,7 +371,7 @@
     },
     "santos-montador-de-moveis": {
       "icon": "/images/santos-montador-de-moveis/hero.webp",
-      "socialImage": "/images/santos-montador-de-moveis/hero.png",
+      "socialImage": "/images/santos-montador-de-moveis/hero-og.jpg",
       "proof": {
         "eyebrow": "Santos · Serviços residenciais",
         "title": "Tem algo para montar, instalar ou reparar?",
@@ -379,11 +379,11 @@
         "ctaLabel": "Ver todos os serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "3a8935f0"
+      "socialVersion": "32d438f9"
     },
     "marmitaria-dom-diego": {
       "icon": "/images/marmitaria-dom-diego/capa.png",
-      "socialImage": "/images/marmitaria-dom-diego/capa.png",
+      "socialImage": "/images/marmitaria-dom-diego/capa-og.jpg",
       "proof": {
         "eyebrow": "Marmitaria Dom Diego",
         "title": "Almoço prático para a rotina do Jardim Itália.",
@@ -391,11 +391,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "aa604e18"
+      "socialVersion": "293db291"
     },
     "beto-pasteis": {
       "icon": "/images/beto-pasteis/capa.png",
-      "socialImage": "/images/beto-pasteis/capa.png",
+      "socialImage": "/images/beto-pasteis/capa-og.jpg",
       "proof": {
         "eyebrow": "Beto Pastéis",
         "title": "Pastéis para escolher com vontade.",
@@ -403,11 +403,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "a869dfec"
+      "socialVersion": "7cc4f1c5"
     },
     "woodhouse-hamburgueres": {
       "icon": "/images/woodhouse-hamburgueres/capa.png",
-      "socialImage": "/images/woodhouse-hamburgueres/capa.png",
+      "socialImage": "/images/woodhouse-hamburgueres/capa-og.jpg",
       "proof": {
         "eyebrow": "Woodhouse Hambúrgueres",
         "title": "Grelhados e petiscos para compartilhar.",
@@ -415,11 +415,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "1c43dd5d"
+      "socialVersion": "26b6f433"
     },
     "dlara-pizzaria": {
       "icon": "/images/dlara-pizzaria/capa.png",
-      "socialImage": "/images/dlara-pizzaria/capa.png",
+      "socialImage": "/images/dlara-pizzaria/capa-og.jpg",
       "proof": {
         "eyebrow": "D’Lara Pizzaria",
         "title": "Pizza, esfiha e lanche em uma só vitrine.",
@@ -427,11 +427,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "643f1be8"
+      "socialVersion": "2e3772f6"
     },
     "toquinho-de-gente-brecho": {
       "icon": "/images/toquinho-de-gente-brecho/capa.png",
-      "socialImage": "/images/toquinho-de-gente-brecho/capa.png",
+      "socialImage": "/images/toquinho-de-gente-brecho/capa-og.jpg",
       "proof": {
         "eyebrow": "Toquinho de Gente",
         "title": "Moda circular para todas as idades.",
@@ -439,11 +439,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "28bf3d4e"
+      "socialVersion": "94aebfad"
     },
     "reuse-house-brecho": {
       "icon": "/images/reuse-house-brecho/capa.png",
-      "socialImage": "/images/reuse-house-brecho/capa.png",
+      "socialImage": "/images/reuse-house-brecho/capa-og.jpg",
       "proof": {
         "eyebrow": "REuse House",
         "title": "Garimpo consciente no Jardim das Américas.",
@@ -451,11 +451,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "98b3f8f0"
+      "socialVersion": "d5b75340"
     },
     "brecho-sao-francisco": {
       "icon": "/images/brecho-sao-francisco/capa.png",
-      "socialImage": "/images/brecho-sao-francisco/capa.png",
+      "socialImage": "/images/brecho-sao-francisco/capa-og.jpg",
       "proof": {
         "eyebrow": "Brechó São Francisco",
         "title": "Peças com história em uma vitrine acolhedora.",
@@ -463,11 +463,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "4958eb96"
+      "socialVersion": "805279e7"
     },
     "angel-mix-brecho": {
       "icon": "/images/angel-mix-brecho/capa.png",
-      "socialImage": "/images/angel-mix-brecho/capa.png",
+      "socialImage": "/images/angel-mix-brecho/capa-og.jpg",
       "proof": {
         "eyebrow": "Angel Mix Brechó",
         "title": "Garimpo de moda no Novo Mundo.",
@@ -475,11 +475,11 @@
         "ctaLabel": "Conhecer conceito",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "e7cf199c"
+      "socialVersion": "1bcbcafe"
     },
     "lolipa-arte-em-festas": {
       "icon": "/images/lolipa-arte-em-festas/logo.png",
-      "socialImage": "/images/lolipa-arte-em-festas/og.png",
+      "socialImage": "/images/lolipa-arte-em-festas/og-og.jpg",
       "proof": {
         "eyebrow": "Lolipa Arte em Festas Decor",
         "title": "Sua festa vira um momento inesquecível.",
@@ -487,37 +487,79 @@
         "ctaLabel": "Planejar minha festa",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "lolipa-v1"
+      "socialVersion": "1974a2e8"
     },
     "confeitaria-sabor-da-realeza": {
       "icon": "/images/confeitaria-sabor-da-realeza/logo.png",
-      "socialImage": "/images/confeitaria-sabor-da-realeza/hero.png",
-      "proof": {"eyebrow":"Confeitaria Sabor da Realeza","title":"O sabor que faz você se sentir da realeza.","description":"Bolos, doces, salgados e encomendas para festas e eventos em Uberaba.","ctaLabel":"Fazer encomenda","ctaHref":"#sabores"},
-      "socialVersion":"realeza-v1"
+      "socialImage": "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Confeitaria Sabor da Realeza",
+        "title": "O sabor que faz você se sentir da realeza.",
+        "description": "Bolos, doces, salgados e encomendas para festas e eventos em Uberaba.",
+        "ctaLabel": "Fazer encomenda",
+        "ctaHref": "#sabores"
+      },
+      "socialVersion": "1f1e1e21"
     },
     "premium-envelopamentos": {
       "icon": "/images/premium-envelopamentos/logo.png",
-      "socialImage": "/images/premium-envelopamentos/hero.png",
-      "proof": {"eyebrow":"Premium Envelopamentos","title":"Seu móvel muda de cara. Seu ambiente ganha presença.","description":"Plotagem de móveis, envelopamento de geladeiras e comunicação visual em Curitiba e região.","ctaLabel":"Solicitar orçamento","ctaHref":"#servicos"},
-      "socialVersion":"premium-v1"
+      "socialImage": "/images/premium-envelopamentos/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Premium Envelopamentos",
+        "title": "Seu móvel muda de cara. Seu ambiente ganha presença.",
+        "description": "Plotagem de móveis, envelopamento de geladeiras e comunicação visual em Curitiba e região.",
+        "ctaLabel": "Solicitar orçamento",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "bf2e3181"
     },
     "miro-tech": {
       "icon": "/images/miro-tech/logo.png",
-      "socialImage": "/images/miro-tech/hero.png",
-      "proof": {"eyebrow":"MIRO TECH","title":"Seu equipamento em boas mãos.","description":"Manutenção especializada em TVs, computadores, micro-ondas e recuperação de dados em São José dos Pinhais.","ctaLabel":"Solicitar atendimento","ctaHref":"#servicos"},
-      "socialVersion":"miro-v1"
+      "socialImage": "/images/miro-tech/hero-og.jpg",
+      "proof": {
+        "eyebrow": "MIRO TECH",
+        "title": "Seu equipamento em boas mãos.",
+        "description": "Manutenção especializada em TVs, computadores, micro-ondas e recuperação de dados em São José dos Pinhais.",
+        "ctaLabel": "Solicitar atendimento",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "1f31957d"
     },
     "galileu-locacao-brinquedos": {
       "icon": "/images/galileu-locacao-brinquedos/logo.png",
-      "socialImage": "/images/galileu-locacao-brinquedos/hero.png",
-      "proof": {"eyebrow":"Galileu Locação de Brinquedos","title":"Diversão garantida para momentos inesquecíveis.","description":"Tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos.","ctaLabel":"Pedir orçamento","ctaHref":"#orcamento"},
-      "socialVersion":"galileu-v1"
+      "socialImage": "/images/galileu-locacao-brinquedos/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Galileu Locação de Brinquedos",
+        "title": "Diversão garantida para momentos inesquecíveis.",
+        "description": "Tobogã inflável, cama elástica, piscina de bolinhas e atrações para festas e eventos.",
+        "ctaLabel": "Pedir orçamento",
+        "ctaHref": "#orcamento"
+      },
+      "socialVersion": "01c1fdc0"
     },
     "lj-cleaning": {
       "icon": "/images/lj-cleaning/logo.png",
-      "socialImage": "/images/lj-cleaning/hero.png",
-      "proof": {"eyebrow":"L&J Cleaning","title":"Seu conforto merece um cuidado completo.","description":"Higienização de sofás, automotiva, colchões, tapetes e outros itens.","ctaLabel":"Solicitar orçamento","ctaHref":"#orcamento"},
-      "socialVersion":"lj-v1"
+      "socialImage": "/images/lj-cleaning/hero-og.jpg",
+      "proof": {
+        "eyebrow": "L&J Cleaning",
+        "title": "Seu conforto merece um cuidado completo.",
+        "description": "Higienização de sofás, automotiva, colchões, tapetes e outros itens.",
+        "ctaLabel": "Solicitar orçamento",
+        "ctaHref": "#orcamento"
+      },
+      "socialVersion": "9d3f6af9"
+    },
+    "manu-pasteis": {
+      "icon": "/images/manu-pasteis/logo.png",
+      "socialImage": "/images/manu-pasteis/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Manu Pastéis",
+        "title": "Pastelzinho bem recheado e quentinho.",
+        "description": "Consulte o cardápio online da Manu Pastéis e escolha seus sabores.",
+        "ctaLabel": "Abrir cardápio",
+        "ctaHref": "https://menu.brendi.com.br/manu-pasteis-ina"
+      },
+      "socialVersion": "51267cd7"
     }
   }
 }

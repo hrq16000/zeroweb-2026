@@ -180,7 +180,7 @@ import { Route as RWhatsappTokenRouteImport } from './routes/r.whatsapp.$token'
 import { Route as ServicosCategoriaSlugRouteImport } from './routes/servicos.categoria.$slug'
 import { Route as AuthenticatedAppAuditoriaAcessosRouteImport } from './routes/_authenticated/app.auditoria.acessos'
 import { Route as AuthenticatedAppAuditoriaIdentidadeRouteImport } from './routes/_authenticated/app.auditoria.identidade'
-import { Route as AuthenticatedAppAuditoriaAcessosRouteImport } from './routes/_authenticated/app.auditoria.acessos'
+import { Route as AuthenticatedAppAuditoriaVitaisRouteImport } from './routes/_authenticated/app.auditoria.vitais'
 import { Route as AuthenticatedAppEditorialSkyscraperRouteImport } from './routes/_authenticated/app.editorial.skyscraper'
 import { Route as AuthenticatedAppEditorialSkyscraperReviewRouteImport } from './routes/_authenticated/app.editorial.skyscraper-review'
 import { Route as AuthenticatedAppFunisIndexRouteImport } from './routes/_authenticated/app.funis.index'
@@ -1100,10 +1100,10 @@ const AuthenticatedAppAuditoriaIdentidadeRoute =
     path: '/auditoria/identidade',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
-const AuthenticatedAppAuditoriaAcessosRoute =
-  AuthenticatedAppAuditoriaAcessosRouteImport.update({
-    id: '/auditoria/acessos',
-    path: '/auditoria/acessos',
+const AuthenticatedAppAuditoriaVitaisRoute =
+  AuthenticatedAppAuditoriaVitaisRouteImport.update({
+    id: '/auditoria/vitais',
+    path: '/auditoria/vitais',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppEditorialSkyscraperRoute =
@@ -1448,7 +1448,7 @@ export interface FileRoutesByFullPath {
   '/app/': typeof AuthenticatedAppIndexRoute
   '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
-  '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
+  '/app/auditoria/vitais': typeof AuthenticatedAppAuditoriaVitaisRoute
   '/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
@@ -1648,7 +1648,7 @@ export interface FileRoutesByTo {
   '/app': typeof AuthenticatedAppIndexRoute
   '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
-  '/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
+  '/app/auditoria/vitais': typeof AuthenticatedAppAuditoriaVitaisRoute
   '/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
@@ -1852,7 +1852,7 @@ export interface FileRoutesById {
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
   '/_authenticated/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
   '/_authenticated/app/auditoria/identidade': typeof AuthenticatedAppAuditoriaIdentidadeRoute
-  '/_authenticated/app/auditoria/acessos': typeof AuthenticatedAppAuditoriaAcessosRoute
+  '/_authenticated/app/auditoria/vitais': typeof AuthenticatedAppAuditoriaVitaisRoute
   '/_authenticated/app/editorial/skyscraper': typeof AuthenticatedAppEditorialSkyscraperRoute
   '/_authenticated/app/editorial/skyscraper-review': typeof AuthenticatedAppEditorialSkyscraperReviewRoute
   '/_authenticated/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
@@ -2056,7 +2056,7 @@ export interface FileRouteTypes {
     | '/app/'
     | '/app/auditoria/acessos'
     | '/app/auditoria/identidade'
-    | '/app/auditoria/acessos'
+    | '/app/auditoria/vitais'
     | '/app/editorial/skyscraper'
     | '/app/editorial/skyscraper-review'
     | '/app/funis/$id'
@@ -2256,7 +2256,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/app/auditoria/acessos'
     | '/app/auditoria/identidade'
-    | '/app/auditoria/acessos'
+    | '/app/auditoria/vitais'
     | '/app/editorial/skyscraper'
     | '/app/editorial/skyscraper-review'
     | '/app/funis/$id'
@@ -2459,7 +2459,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/'
     | '/_authenticated/app/auditoria/acessos'
     | '/_authenticated/app/auditoria/identidade'
-    | '/_authenticated/app/auditoria/acessos'
+    | '/_authenticated/app/auditoria/vitais'
     | '/_authenticated/app/editorial/skyscraper'
     | '/_authenticated/app/editorial/skyscraper-review'
     | '/_authenticated/app/funis/$id'
@@ -3826,11 +3826,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppAuditoriaIdentidadeRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
-    '/_authenticated/app/auditoria/acessos': {
-      id: '/_authenticated/app/auditoria/acessos'
-      path: '/auditoria/acessos'
-      fullPath: '/app/auditoria/acessos'
-      preLoaderRoute: typeof AuthenticatedAppAuditoriaAcessosRouteImport
+    '/_authenticated/app/auditoria/vitais': {
+      id: '/_authenticated/app/auditoria/vitais'
+      path: '/auditoria/vitais'
+      fullPath: '/app/auditoria/vitais'
+      preLoaderRoute: typeof AuthenticatedAppAuditoriaVitaisRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/editorial/skyscraper': {
@@ -4173,7 +4173,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
   AuthenticatedAppAuditoriaAcessosRoute: typeof AuthenticatedAppAuditoriaAcessosRoute
   AuthenticatedAppAuditoriaIdentidadeRoute: typeof AuthenticatedAppAuditoriaIdentidadeRoute
-  AuthenticatedAppAuditoriaAcessosRoute: typeof AuthenticatedAppAuditoriaAcessosRoute
+  AuthenticatedAppAuditoriaVitaisRoute: typeof AuthenticatedAppAuditoriaVitaisRoute
   AuthenticatedAppFunisIdRoute: typeof AuthenticatedAppFunisIdRoute
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
   AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
@@ -4223,7 +4223,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAuditoriaAcessosRoute: AuthenticatedAppAuditoriaAcessosRoute,
   AuthenticatedAppAuditoriaIdentidadeRoute:
     AuthenticatedAppAuditoriaIdentidadeRoute,
-  AuthenticatedAppAuditoriaAcessosRoute: AuthenticatedAppAuditoriaAcessosRoute,
+  AuthenticatedAppAuditoriaVitaisRoute: AuthenticatedAppAuditoriaVitaisRoute,
   AuthenticatedAppFunisIdRoute: AuthenticatedAppFunisIdRoute,
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
   AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,

@@ -62,6 +62,7 @@ const narrativeBySlug: Record<string, { title: string; step: string; cta: string
   "miro-tech": { title: "Seu equipamento em boas mãos começa com um diagnóstico claro.", step: "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.", cta: "Solicitar avaliação", theme: "navy" },
   "galileu-locacao-brinquedos": { title: "A diversão da festa começa escolhendo as atrações certas.", step: "Conte a data, o local e o perfil da comemoração para montar seu pedido.", cta: "Planejar diversão", theme: "navy" },
   "lj-cleaning": { title: "Seu conforto merece um cuidado completo.", step: "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.", cta: "Solicitar orçamento", theme: "navy" },
+  "manu-pasteis": { title: "Seu pastel da noite começa no cardápio certo.", step: "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.", cta: "Abrir cardápio", theme: "gold" },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

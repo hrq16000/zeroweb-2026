@@ -611,3 +611,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** `portfolio-assets.json.icon` passou a ser o ativo canônico da logo; cada arquivo precisa viver em `public/images/<slug>/`, sem reutilização entre clientes. Criado o gate `validate:portfolio-logos` e incluído no `prebuild`.
 - **Identidades vinculadas:** as marcas fornecidas de Lolipa Arte em Festas Decor e Confeitaria Sabor da Realeza foram adicionadas aos diretórios corretos e exibidas nos cabeçalhos das respectivas páginas.
 - **Regra futura:** quando não houver marca aprovada, gerar um conceito original relacionado ao projeto e identificá-lo como conceito até aprovação; nunca usar logo genérica ou de outro cliente.
+
+## 2026-09-01 — Manu Pastéis
+
+- **Adição:** projeto oficial `/portfolio/manu-pasteis` para pastéis recheados e quentinhos.
+- **Operação:** cardápio real Brendi, horários e formas de pagamento informados pela loja.
+- **Conversão:** logo própria, funil, CTA e divulgação exclusivos; contato operacional mantido somente no servidor.

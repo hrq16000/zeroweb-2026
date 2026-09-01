@@ -524,5 +524,16 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "manu-pasteis",
+    "slug": "manu-pasteis",
+    "siteName": "Manu Pastéis",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ManuPasteisPage.tsx",
+    "assetsDir": "public/images/manu-pasteis",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

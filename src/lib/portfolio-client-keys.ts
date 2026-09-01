@@ -1,6 +1,6 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-  "lj-cleaning","galileu-locacao-brinquedos","miro-tech","premium-envelopamentos","angel-mix-brecho","brecho-sao-francisco","reuse-house-brecho","toquinho-de-gente-brecho","dlara-pizzaria","woodhouse-hamburgueres","beto-pasteis","marmitaria-dom-diego","sos-presentes-cosmeticos",
+  "manu-pasteis","lj-cleaning","galileu-locacao-brinquedos","miro-tech","premium-envelopamentos","angel-mix-brecho","brecho-sao-francisco","reuse-house-brecho","toquinho-de-gente-brecho","dlara-pizzaria","woodhouse-hamburgueres","beto-pasteis","marmitaria-dom-diego","sos-presentes-cosmeticos",
   "santos-montador-de-moveis","jkl-marcenaria","acai-total-araucaria","mary-diarista","eisenfer-tubos-acos","eletro-solucoes-eficazes","eletrovale-eletromecanica","aguia-sul-sinalizacao","diego-montador-moveis","espaco-cih-luh","salao-da-marcia","no-brilho-higienizacao","ecommerce-on","paulo-mestre-de-obras","lucas-arruma-maquina-lavar","lk-alvenaria","vila-da-capivara","ag-electrical-services","refrigeracao-maresia","studio-de-cilios","mp-festas-eventos","confeitaria-chyrley",
   "dyzpromo",
   "renata-beauty",
