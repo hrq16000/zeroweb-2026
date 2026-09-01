@@ -218,8 +218,8 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog
       id: canonical.slug,
       slug: `/portfolio/${canonical.slug}`,
       category: canonical.segment,
-      image: canonical.image ?? assetConfig?.icon ?? assetConfig?.socialImage ?? "/og-default.jpg",
-      fallbackImage: canonical.fallbackImage ?? assetConfig?.socialImage ?? assetConfig?.icon ?? "/og-default.jpg",
+      image: canonical.image ?? assetConfig?.socialImage ?? assetConfig?.icon ?? "/og-default.jpg",
+      fallbackImage: canonical.fallbackImage ?? assetConfig?.icon ?? assetConfig?.socialImage ?? "/og-default.jpg",
       live: canonical.live ?? canonical.status === "published",
     } as PortfolioItem;
   });

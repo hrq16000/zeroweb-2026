@@ -1,5 +1,15 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — capa do Galileu e prioridade visual do catálogo
+
+- **Galileu:** confirmada a arte oficial enviada como hero do projeto e definida
+  a imagem social horizontal própria como capa explícita do catálogo.
+- **Catálogo global:** projetos sem `image` explícita agora priorizam a imagem
+  social/OG do próprio slug; a logo fica como fallback, evitando capas cortadas
+  ou ampliadas como se fossem fotografias.
+- **Skill aplicada:** `sites-building`, preservando a arquitetura existente e a
+  publicação exclusiva pelo repositório oficial na `main`.
+
 ## 2026-09-01 — ordem do conteúdo, autenticidade e capas únicas do portfólio
 
 - **Correção estrutural:** `PortfolioStandardShell` agora apresenta o bloco

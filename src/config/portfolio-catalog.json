@@ -1227,6 +1227,8 @@
     "subtitle": "Brinquedos seguros, coloridos e divertidos para festas",
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
+    "image": "/images/galileu-locacao-brinquedos/hero-og.jpg",
+    "fallbackImage": "/images/galileu-locacao-brinquedos/logo.png",
     "metrics": "Orçamento para eventos",
     "summary": "Presença digital da Galileu Locação de Brinquedos para festas e eventos, com tobogã inflável, cama elástica, piscina de bolinhas e outras atrações."
   },
