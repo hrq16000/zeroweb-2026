@@ -87,10 +87,10 @@ export function ${componentName}() {
             ${siteName}
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de ${siteName}.
+            ${siteName}: uma presença digital clara para o seu público.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Conheça os serviços, a identidade e os próximos passos de ${siteName}.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

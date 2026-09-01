@@ -12,7 +12,7 @@ Todo projeto — atual ou futuro — recebe automaticamente, pela casca
 |---|---|---|
 | Botão de compartilhar | `PortfolioShareButton` | ativo, `top-right`, variante `light` |
 | Botão flutuante de contato | `PortfolioContactFloating` | ativo, `bottom-right`, abre o **modal do funil do próprio cliente** |
-| Rodapé da hospedagem | `PortfolioStandardFooter` (opt-in) ou rodapé do cliente | uma única faixa de rodapé; clientes com footer próprio não recebem faixa duplicada |
+| Rodapé da hospedagem | `PortfolioStandardFooter` (canônico) | uma única faixa, sempre depois do conteúdo do cliente e do Kit de Presença; rodapés legados são ocultados pela casca |
 | Voltar ao topo | `PortfolioBackToTop` | aparece após scroll, 44px+, respeita scroll suave e fica acima do CTA flutuante |
 | Pop-up de captação 0WEB | `PortfolioUpsellPopup` | ativo, instância única, silenciado só com `?0web_preview=1` |
 | SEO | contrato de `head()` da rota | canonical + imagem social obrigatórios |
@@ -22,10 +22,11 @@ O contato flutuante **nunca** expõe telefone, e-mail ou link de mensageiro no
 bundle. Ele abre o funil (`PortfolioCTAQuiz`) e o destinatário é resolvido no
 servidor por `clientKey`.
 
-Clientes com rodapé editorial próprio (o padrão atual dos portfolios) devem
-manter `includePlatformFooter={false}` na casca. O rodapé de plataforma só é
-ativado para uma rota que não possua footer próprio; isso evita duplicação de
-crédito, ano e marca ao final da página.
+O rodapé canônico pertence à casca e é renderizado uma única vez ao final da
+página. Componentes legados podem continuar contendo um `<footer>` interno,
+mas a fronteira `data-portfolio-client-content` o oculta para impedir que o
+rodapé apareça antes do bloco “Sobre o projeto” ou seja duplicado. A prop
+`includePlatformFooter` é mantida apenas por compatibilidade de rotas antigas.
 
 ## 2. Configuração central
 
@@ -123,9 +124,9 @@ com o status por projeto — use esse relatório na descrição do PR de migraç
 
 O script de auditoria aponta rotas sem `PortfolioStandardShell`. A correção é
 sempre a mesma e não remove funcionalidade existente: envolver o componente do
-cliente na casca e mover ajustes visuais para `overrides`. Rodapés e CTAs
-próprios do cliente permanecem — o rodapé padrão é uma faixa fina de
-hospedagem, complementar.
+cliente na casca e mover ajustes visuais para `overrides`. O conteúdo do cliente
+fica depois do bloco “Sobre o projeto”; o Kit de Presença vem em seguida e o
+rodapé canônico encerra a página sem colisões.
 
 O contato flutuante observa o rodapé e é ocultado quando a área de crédito
 entra na viewport, preservando a leitura do “Site desenvolvido por 0WEB”; o

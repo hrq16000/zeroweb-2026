@@ -26,7 +26,7 @@ export function MarmitariaDomDiegoPage() {
             Almoço prático para deixar o dia mais leve no Jardim Itália.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Um conceito de vitrine digital para apresentar marmitas, combinações e caminhos de pedido com clareza.
+            Vitrine digital para apresentar marmitas, combinações e caminhos de pedido com clareza.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

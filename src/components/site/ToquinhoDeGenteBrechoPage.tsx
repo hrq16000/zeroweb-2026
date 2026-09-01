@@ -23,10 +23,10 @@ export function ToquinhoDeGenteBrechoPage() {
             Toquinho de Gente Brechó Adulto e Infantil
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de Toquinho de Gente Brechó Adulto e Infantil.
+            Moda circular para todas as idades.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Presença digital de Toquinho de Gente Brechó Adulto e Infantil no Sítio Cercado.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

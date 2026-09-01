@@ -23,10 +23,10 @@ export function AngelMixBrechoPage() {
             Angel Mix Brechó
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de Angel Mix Brechó.
+            Garimpo de moda no Novo Mundo.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Presença digital de Angel Mix Brechó: vitrine para moda circular no Novo Mundo.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

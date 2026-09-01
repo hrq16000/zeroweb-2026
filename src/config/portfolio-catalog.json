@@ -1,64 +1,1385 @@
 [
-  {"slug":"sos-presentes-cosmeticos","clientKey":"sos-presentes-cosmeticos","title":"SOS Presentes & Cosméticos","segment":"comercios","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["cestas","presentes","cosmeticos","canecas-personalizadas"],"live":true,"subtitle":"Cestas, presentes e personalizados","location":"Afonso Pena · São José dos Pinhais — PR","badge":"Novo projeto","image":"/images/sos-presentes-cosmeticos/cesta-lilas.png","fallbackImage":"/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png","metrics":"Pronta entrega e personalizados","summary":"Cestas, presentes, cosméticos, acessórios e canecas personalizadas para datas especiais em São José dos Pinhais."},
-  {"slug":"marido-de-aluguel","clientKey":"marido-de-aluguel","title":"Mestre dos Serviços","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["reparos","manutencao","seo-local"],"subtitle":"Reparos, montagens e manutenção residencial","location":"Curitiba — PR","badge":"Projeto publicado","image":"/images/mestre-dos-servicos-logo.jpg","fallbackImage":"/images/mestre-dos-servicos-logo.jpg","metrics":"Atendimento sob avaliação","summary":"Reparos, montagens e manutenção residencial com orientação clara para começar cada solicitação."},
-  {"slug":"dyzpromo","clientKey":"dyzpromo","title":"D.Y.Z Promo","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["panfletagem","acoes-locais"],"subtitle":"Ações promocionais e equipes em campo","location":"Curitiba — PR","badge":"Ações locais","image":"/images/dyzpromo/acao-semaforo.jpeg","fallbackImage":"/images/dyzpromo/logo-dyz-promo.webp","metrics":"Planejamento por campanha","summary":"Ações promocionais presenciais com equipes, distribuição e planejamento para campanhas locais."},
-  {"slug":"emporio-lelecute","clientKey":"emporio-lelecute","title":"Empório LeleCute","segment":"servicos","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["presentes","artesanal"],"subtitle":"Lembrancinhas e presentes artesanais","location":"São José dos Pinhais — PR","badge":"Feito para celebrar","image":"/images/emporio-lelecute/capa.webp","fallbackImage":"/images/emporio-lelecute-og.webp","metrics":"Personalização por ocasião","summary":"Lembrancinhas artesanais e presentes personalizados para transformar celebrações em memórias."},
-  {"slug":"rm-fretes","clientKey":"rm-fretes","title":"RM Fretes","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["fretes","mudancas"],"subtitle":"Fretes, carretos e mudanças organizadas","location":"Curitiba — PR","badge":"Trajeto sob consulta","image":"/images/rm-fretes-hero.webp","fallbackImage":"/images/rm-fretes/anuncio-oficial.png","metrics":"Orçamento por trajeto","summary":"Fretes, carretos e mudanças com coleta de informações para organizar cada trajeto."},
-  {"slug":"rj-servicos-drywall","clientKey":"rj-servicos-drywall","title":"RJ Serviços de Drywall","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["drywall","gesso","forros","reformas","seo-local"],"live":true,"subtitle":"Divisórias, forros e reformas","location":"Curitiba — PR","badge":"Novo projeto","image":"/images/rj-servicos-drywall/acabamento-sala.webp","fallbackImage":"/images/rj-servicos-drywall/hero-drywall.webp","metrics":"Orçamento online","summary":"Site local para instalação, personalização e reparos em drywall, com funil de orçamento e experiência mobile-first."},
-  {"slug":"paraiso-do-hot-dog","clientKey":"paraiso-do-hot-dog","title":"Paraíso do Hot Dog","segment":"servicos","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["delivery","cardapio"],"subtitle":"Cardápio de hot dogs e combinações","location":"São José dos Pinhais — PR","badge":"Pedido pelo cardápio","image":"/images/paraiso-hot-dog-cover.webp","fallbackImage":"/images/paraiso-hot-dog-menu.webp","metrics":"Combinações e adicionais","summary":"Cardápio de hot dogs com combinações, adicionais e opções para pedir em São José dos Pinhais."},
-  {"slug":"renata-beauty","clientKey":"renata-beauty","title":"Renata Beauty Studio","segment":"beleza","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["cilios","unhas"],"subtitle":"Cílios, unhas e cuidados de beleza","location":"Curitiba — PR","badge":"Atendimento com horário","image":"/images/renata-beauty-promo.webp","fallbackImage":"/images/renata-beauty-icon.webp","metrics":"Procedimentos por agendamento","summary":"Studio de beleza para cílios, unhas e procedimentos de autocuidado com atendimento sob agendamento."},
-  {"slug":"r_beauty","clientKey":"r-beauty","title":"R_Beauty Studio & Spa","segment":"beleza","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["estetica","spa"],"subtitle":"Estética, spa e autocuidado","location":"Curitiba — PR","badge":"Cuidado personalizado","image":"/images/r-beauty-cilios.jpg","fallbackImage":"/images/r-beauty-icon.webp","metrics":"Atendimento sob agendamento","summary":"Studio e spa para estética e autocuidado, com uma experiência pensada para cada momento."},
-  {"slug":"clinica-integrada","clientKey":"clinica-integrada","title":"Clínica Integrada de Saúde","segment":"saude","projectType":"institutional","status":"published","city":"Curitiba","state":"PR","tags":["odontologia","saude"],"subtitle":"Atendimento integrado em saúde","location":"Curitiba — PR","badge":"Conceito demonstrativo","image":"/images/concepts/clinica-integrada-concept.png","fallbackImage":"/images/concepts/clinica-integrada-concept.png","metrics":"Imagem conceitual","summary":"Demonstração de presença digital para uma clínica integrada, com informações de especialidades e jornada de atendimento."},
-  {"slug":"almeida-torres","clientKey":"almeida-torres","title":"Almeida Torres Advocacia","segment":"juridico","projectType":"institutional","status":"published","city":"São Paulo","state":"SP","tags":["advocacia","consultoria"],"subtitle":"Orientação jurídica e consultoria","location":"São Paulo — SP","badge":"Conceito demonstrativo","image":"/images/concepts/almeida-torres-concept.png","fallbackImage":"/images/concepts/almeida-torres-concept.png","metrics":"Imagem conceitual","summary":"Demonstração de presença digital para advocacia, com áreas de atuação e orientação inicial apresentadas de forma clara."},
-  {"slug":"casa-nativa","clientKey":"casa-nativa","title":"Casa Nativa Bistrô","segment":"servicos","projectType":"catalog","status":"published","city":"Belo Horizonte","state":"MG","tags":["restaurante","reservas"],"subtitle":"Experiência gastronômica e reservas","location":"Belo Horizonte — MG","badge":"Conceito demonstrativo","image":"/images/concepts/casa-nativa-concept.png","fallbackImage":"/images/concepts/casa-nativa-concept.png","metrics":"Imagem conceitual","summary":"Demonstração de presença digital para bistrô, com ambiente, experiência gastronômica e reserva como próximos passos."},
-  {"slug":"confeitaria-chyrley","clientKey":"confeitaria-chyrley","title":"Chyrley Doces & Festas","segment":"servicos","projectType":"catalog","status":"published","city":"Rio Bonito","state":"PR","tags":["confeitaria","bolos","salgados","festa-na-caixa","doces"],"live":true,"subtitle":"Bolos, kits festa e doces artesanais","location":"Rio Bonito — PR","badge":"Novo projeto","image":"/images/confeitaria-chyrley/capa.webp","fallbackImage":"/images/confeitaria-chyrley/bolos.webp","metrics":"Encomendas","summary":"Confeitaria artesanal da Chyrley para bolos, salgados, kits festa, docinhos e Copo da Felicidade em Rio Bonito."}
-  ,{"slug":"mp-festas-eventos","clientKey":"mp-festas-eventos","title":"MP Festas e Eventos","segment":"servicos","projectType":"catalog","status":"published","city":"Araucária","state":"PR","tags":["decoracao","festas","eventos","festa-na-mesa","casamentos"],"live":true,"subtitle":"Decoração de festas infantis e eventos","location":"Araucária — PR","badge":"Novo projeto","image":"/images/mp-festas-eventos/capa.webp","fallbackImage":"/images/mp-festas-eventos/galeria.webp","metrics":"Agenda limitada","summary":"Decoração de festas na mesa, clássica e premium para aniversários, casamentos e eventos em Araucária e região."}
-  ,{"slug":"studio-de-cilios","clientKey":"studio-de-cilios","title":"Studio de Cílios","segment":"beleza","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["extensao-de-cilios","fio-a-fio","fox-eyes","mega-volume"],"live":true,"subtitle":"Extensão de cílios com olhar personalizado","location":"Curitiba — PR · atendimento sob agendamento","badge":"Novo projeto","image":"/images/studio-de-cilios/portfolio-1.webp","fallbackImage":"/images/studio-de-cilios/portfolio-2.webp","metrics":"Agendamento online","summary":"Studio especializado em Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio, com atendimento personalizado."}
-  ,{"slug":"refrigeracao-maresia","clientKey":"refrigeracao-maresia","title":"Refrigeração Maresia","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["refrigeracao","geladeiras","freezers","manutencao"],"live":true,"subtitle":"Conserto e manutenção de geladeiras e freezers","location":"Curitiba e Região Metropolitana — PR","badge":"Projeto publicado","image":"/images/refrigeracao-maresia/logo.png","fallbackImage":"/images/refrigeracao-maresia/hero.png","metrics":"Orçamento sob consulta","summary":"Presença digital da Refrigeração Maresia para atendimento de geladeiras e freezers, com peças originais, garantia de serviço e resposta rápida pelo WhatsApp."}
-  ,{"slug":"ag-electrical-services","clientKey":"ag-electrical-services","title":"A&G Electrical Services","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["eletrica","infraestrutura","redes","cftv","laserway"],"live":true,"subtitle":"Elétrica, infraestrutura e redes","location":"Curitiba e Região Metropolitana — PR","badge":"Novo projeto","image":"/images/ag-electrical-services/logo.webp","fallbackImage":"/images/ag-electrical-services/intro.webp","metrics":"Orçamento técnico","summary":"Soluções integradas em elétrica geral, cabeamento UTP, CFTV, implantação de redes e organização de racks."}
-  ,{"slug":"vila-da-capivara","clientKey":"vila-da-capivara","title":"Vila da Capivara","segment":"servicos","projectType":"catalog","status":"published","city":"Curitiba","state":"PR","tags":["confeitaria","kits-festa","bolos","brigadeiros","salgados"],"live":true,"subtitle":"Confeitaria, doces e kits festa completos","location":"Campo Comprido · Curitiba — PR","badge":"Novo projeto","image":"/images/vila-da-capivara/capa.webp","fallbackImage":"/images/vila-da-capivara/editorial.webp","metrics":"Kits para 10 a 100 pessoas","summary":"Bolos personalizados, brigadeiros gourmet, salgados e kits festa da Vila da Capivara em Campo Comprido, Curitiba."}
-  ,{"slug":"lk-alvenaria","clientKey":"lk-alvenaria","title":"LK Alvenaria","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["alvenaria","fundacao","construcao","reformas","acabamento"],"live":true,"subtitle":"Construção, reformas e acabamento em geral","location":"Curitiba e região — PR · atendimento sob orçamento","badge":"Novo projeto","image":"/images/lk-alvenaria/portfolio.webp","fallbackImage":"/images/lk-alvenaria/perfil.webp","metrics":"Contrato e garantia","summary":"Empreiteiro de obra civil para fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas."}
-  ,{"slug":"lucas-arruma-maquina-lavar","clientKey":"lucas-arruma-maquina-lavar","title":"Lucas Arruma Máquina de Lavar","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["maquina-de-lavar","assistencia-tecnica","eletrodomesticos","manutencao"],"live":true,"subtitle":"Conserto e manutenção de máquinas de lavar","location":"Curitiba — PR · atendimento sob agendamento","badge":"Novo projeto","image":"/images/lucas-arruma-maquina-lavar/capa.webp","fallbackImage":"/images/lucas-arruma-maquina-lavar/capa.webp","metrics":"Atendimento com garantia","summary":"Lucas resolve problemas de máquinas de lavar com diagnóstico, manutenção e atendimento com garantia."}
-  ,{"slug":"paulo-mestre-de-obras","clientKey":"paulo-mestre-de-obras","title":"Paulo Mestre de Obras","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["pedreiro","alvenaria","azulejista","reformas","construcao-civil"],"live":true,"subtitle":"Pedreiro, azulejista e construção civil","location":"Curitiba — PR · atendimento sob orçamento","badge":"Novo projeto","image":"/images/paulo-mestre-de-obras/capa.webp","fallbackImage":"/images/paulo-mestre-de-obras/capa.webp","metrics":"Orçamento personalizado","summary":"Serviços de pedreiro, azulejista, alvenaria, pisos, revestimentos, elétrica, hidráulica e reformas."}
-  ,{"slug":"ecommerce-on","clientKey":"ecommerce-on","title":"Ecommerce On","segment":"agencias","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["seo","ecommerce","trafego-pago","redes-sociais","marketing-digital","inteligencia-artificial"],"live":true,"subtitle":"SEO, e-commerce, mídia e criatividade","location":"Curitiba — PR · Joinville — SC","badge":"Novo projeto","image":"/images/ecommerce-on/servicos.webp","fallbackImage":"/images/ecommerce-on/logo.webp","metrics":"Estratégia desde 2015","summary":"Agência digital para SEO, lojas virtuais, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."}
-  ,{"slug":"no-brilho-higienizacao","clientKey":"no-brilho-higienizacao","title":"No Brilho Higienização","segment":"servicos","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["higienizacao","estofados","sofa","colchao","limpeza-domiciliar"],"live":true,"subtitle":"Higienização profissional de estofados","location":"Cristal · São José dos Pinhais — PR","badge":"Novo projeto","image":"/images/no-brilho-higienizacao/capa.webp","fallbackImage":"/images/no-brilho-higienizacao/capa.webp","metrics":"Atendimento a domicílio","summary":"Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes, carpetes e bancos automotivos."}
-  ,{"slug":"salao-da-marcia","clientKey":"salao-da-marcia","title":"Salão da Marcia","segment":"beleza","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["depilacao","progressiva","cabelo","pe-e-mao","beleza"],"live":true,"subtitle":"Depilação, cabelos e autocuidado","location":"Cidade Jardim · São José dos Pinhais — PR","badge":"Novo projeto","image":"/images/salao-da-marcia/depilacao.webp","fallbackImage":"/images/salao-da-marcia/progressiva.webp","metrics":"Agendamento de horários","summary":"Salão da Marcia com depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."}
-  ,{"slug":"espaco-cih-luh","clientKey":"espaco-cih-luh","title":"Espaço CIH & LUH","segment":"beleza","projectType":"landing","status":"published","city":"Manaus","state":"AM","tags":["alongamento-em-gel","unhas","pedicure","podologia","beleza"],"live":true,"subtitle":"O casal das unhas · mãos e pés","location":"Manaus — AM","badge":"Oferta especial","image":"/images/espaco-cih-luh/promocao.webp","fallbackImage":"/images/espaco-cih-luh/promocao.webp","metrics":"10% OFF nas 10 primeiras vagas","summary":"Espaço CIH & LUH com alongamento em gel, reconstruções, pedicure tradicional, pedicure em gel e cuidados podológicos."}
-  ,{"slug":"diego-montador-moveis","clientKey":"diego-montador-moveis","title":"Diego Montador de Móveis","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["montagem-de-moveis","marido-de-aluguel","conserto-de-moveis","instalacoes"],"live":true,"subtitle":"Montagem, desmontagem e reparos residenciais","location":"Sítio Cercado · Curitiba — PR","badge":"Novo projeto","image":"/images/diego-montador-moveis/capa.webp","fallbackImage":"/images/diego-montador-moveis/capa.webp","metrics":"Atendimento sob agendamento","summary":"Montagem e desmontagem de móveis, consertos, adaptações, instalações de TV, persianas, varões, tomadas, chuveiros e torneiras."}
-  ,{"slug":"aguia-sul-sinalizacao","clientKey":"aguia-sul-sinalizacao","title":"Águia Sul Sinalização","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["sinalizacao-horizontal","pintura-de-estacionamento","pintura-imobiliaria","seguranca"],"live":true,"subtitle":"Pintura e sinalização horizontal profissional","location":"Curitiba e Região Metropolitana — PR","badge":"Novo projeto","image":"/images/aguia-sul-sinalizacao/logo.webp","fallbackImage":"/images/aguia-sul-sinalizacao/logo.webp","metrics":"Orçamento sem compromisso","summary":"Pintura de estacionamentos, demarcação de vagas, faixas, setas, carga e descarga, pintura imobiliária e estruturas industriais."}
-  ,{"slug":"eletrovale-eletromecanica","clientKey":"eletrovale-eletromecanica","title":"Eletrovale Eletromecânica","segment":"servicos","projectType":"institutional","status":"published","city":"Curitiba","state":"PR","tags":["rebobinamento","motores","bombas","eletromecanica","manutencao-industrial"],"live":true,"subtitle":"Manutenção e rebobinamento industrial","location":"Curitiba e região — PR","badge":"Novo projeto","image":"/images/eletrovale-eletromecanica/equipamentos.webp","fallbackImage":"/images/eletrovale-eletromecanica/equipamentos.webp","metrics":"Atendimento técnico","summary":"Manutenção e rebobinamento de bombas, motores, motoredutores, motofreios e equipamentos eletromecânicos."}
-  ,{"slug":"eletro-solucoes-eficazes","clientKey":"eletro-solucoes-eficazes","title":"Eletro Soluções Eficazes","segment":"servicos","projectType":"landing","status":"published","city":"Pinhais","state":"PR","tags":["instalacoes-eletricas","iluminacao","automacao","manutencao-eletrica"],"live":true,"subtitle":"Soluções elétricas e automação","location":"Pinhais — PR · atendimento regional","badge":"Novo projeto","image":"/images/eletro-solucoes-eficazes/servicos.webp","fallbackImage":"/images/eletro-solucoes-eficazes/servicos.webp","metrics":"Atendimento rápido","summary":"Instalações, iluminação, manutenção elétrica, automação residencial, predial e industrial, consultoria e projetos."}
-  ,{"slug":"eisenfer-tubos-acos","clientKey":"eisenfer-tubos-acos","title":"Eisenfer Tubos e Aços","segment":"construcao","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["tubos-de-aco","perfis","chapas","telhas-metalicas","construcao"],"live":true,"subtitle":"Tubos, perfis, chapas e telhas metálicas","location":"Três Marias · São José dos Pinhais — PR","badge":"Novo projeto","image":"/images/eisenfer-tubos-acos/telhas.webp","fallbackImage":"/images/eisenfer-tubos-acos/tubos.webp","metrics":"Cotação especializada","summary":"Venda de tubos quadrados, retangulares, redondos, perfis, chapas lisas e frisadas e telhas TP40 simples e sanduíche."}
-  ,{"slug":"mary-diarista","clientKey":"mary-diarista","title":"Mary Diarista","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["diarista","limpeza-residencial","pos-obra","organizacao"],"live":true,"subtitle":"Diárias, pós-obra e organização","location":"Curitiba e região — PR","badge":"Agenda aberta","image":"/images/mary-diarista/servicos.webp","fallbackImage":"/images/mary-diarista/servicos.webp","metrics":"Quintas-feiras disponíveis","summary":"Diárias de até 4, 6 ou 8 horas, pós-obra, pós-mudança e personal organizer com agenda semanal, quinzenal ou esporádica."}
-  ,{"slug":"acai-total-araucaria","clientKey":"acai-total-araucaria","title":"Açaí Total","segment":"restaurantes","projectType":"catalog","status":"published","city":"Araucária","state":"PR","tags":["acai","delivery","sobremesas","lanches"],"live":true,"subtitle":"Copões, litrões e açaí delivery","location":"Araucária — PR","badge":"Pedido aberto","image":"/images/acai-total-araucaria/acai.webp","fallbackImage":"/images/acai-total-araucaria/logo.webp","metrics":"Cardápio digital","summary":"Açaí caprichado com frutas, cremes e complementos para pedir agora e receber no conforto de casa."}
-  ,{"slug":"jkl-marcenaria","clientKey":"jkl-marcenaria","title":"JKL Marcenaria","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["moveis-planejados","marcenaria","mdf","cozinhas","nichos"],"live":true,"subtitle":"Móveis sob medida em MDF","location":"Curitiba e região — PR","badge":"Novo projeto","image":"/images/jkl-marcenaria/cozinha.webp","fallbackImage":"/images/jkl-marcenaria/cozinha.webp","metrics":"Entrega em até 20 dias","summary":"Móveis sob medida em MDF para cozinhas, dormitórios, cozinhas infantis, nichos, porta-tempero, banheiros e ambientes em geral."}
-  ,{"slug":"santos-montador-de-moveis","clientKey":"santos-montador-de-moveis","title":"Santos Montador de Móveis","segment":"servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["montagem-de-moveis","reparos-residenciais","pintura-interna","eletrica","cortinas-e-persianas"],"live":true,"subtitle":"Montagem, pintura e reparos residenciais","location":"Curitiba · Colombo · Alphaville — PR","badge":"Novo projeto","image":"/images/santos-montador-de-moveis/hero.webp","fallbackImage":"/images/santos-montador-de-moveis/hero.webp","metrics":"Orçamento sem compromisso","summary":"Montagem e desmontagem de móveis, pintura interna, pequenos reparos elétricos, limpeza de caixa d'água e instalação de cortinas e persianas."}
-  ,{"slug":"marmitaria-dom-diego","clientKey":"marmitaria-dom-diego","title":"Marmitaria Dom Diego","segment":"restaurantes","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["marmitas","almoco","delivery"],"subtitle":"Marmitas e almoço para a rotina","location":"Jardim Itália · São José dos Pinhais — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de presença digital para a Marmitaria Dom Diego, com cardápio e pedido organizados como demonstração comercial."}
-  ,{"slug":"beto-pasteis","clientKey":"beto-pasteis","title":"Beto Pastéis","segment":"restaurantes","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["pasteis","almoco","jantar"],"subtitle":"Pastéis com tradição no bairro","location":"Jardim Itália · São José dos Pinhais — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de presença digital para o Beto Pastéis, com sabores, horários e pedido organizados como demonstração comercial."}
-  ,{"slug":"woodhouse-hamburgueres","clientKey":"woodhouse-hamburgueres","title":"Woodhouse Hambúrgueres","segment":"restaurantes","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["hamburgueres","petiscos","jantar"],"subtitle":"Hambúrgueres grelhados e petiscos","location":"Jardim Itália · São José dos Pinhais — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de presença digital para a Woodhouse, com menu e experiência do restaurante organizados como demonstração comercial."}
-  ,{"slug":"dlara-pizzaria","clientKey":"dlara-pizzaria","title":"D’Lara Pizzaria, Esfiharia e Hamburgueria","segment":"restaurantes","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["pizzaria","esfiharia","hamburgueria","delivery"],"subtitle":"Pizzas, esfihas e lanches para pedir","location":"Jardim Itália · São José dos Pinhais — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de presença digital para a D’Lara, com cardápio e pedido organizados como demonstração comercial."}
-  ,{"slug":"toquinho-de-gente-brecho","clientKey":"toquinho-de-gente-brecho","title":"Toquinho de Gente Brechó Adulto e Infantil","segment":"comercios","projectType":"catalog","status":"published","city":"Curitiba","state":"PR","tags":["brecho","moda-circular","infantil"],"subtitle":"Moda circular para adultos e crianças","location":"Sítio Cercado · Curitiba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de vitrine digital para moda circular adulta e infantil no Sítio Cercado, criada como demonstração comercial."}
-  ,{"slug":"reuse-house-brecho","clientKey":"reuse-house-brecho","title":"REuse House Brechó","segment":"comercios","projectType":"catalog","status":"published","city":"Curitiba","state":"PR","tags":["brecho","moda-sustentavel","garimpo"],"subtitle":"Garimpo consciente no Jardim das Américas","location":"Jardim das Américas · Curitiba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de presença digital para brechó de moda sustentável no Jardim das Américas, criada como demonstração comercial."}
-  ,{"slug":"brecho-sao-francisco","clientKey":"brecho-sao-francisco","title":"Brechó São Francisco","segment":"comercios","projectType":"catalog","status":"published","city":"Curitiba","state":"PR","tags":["brecho","roupas","acessorios"],"subtitle":"Roupas e acessórios com história","location":"São Francisco · Curitiba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de catálogo digital para roupas, acessórios e peças de segunda mão no bairro São Francisco, criada como demonstração comercial."}
-  ,{"slug":"angel-mix-brecho","clientKey":"angel-mix-brecho","title":"Angel Mix Brechó","segment":"comercios","projectType":"catalog","status":"published","city":"Curitiba","state":"PR","tags":["brecho","moda-feminina","garimpo"],"subtitle":"Garimpo de moda no Novo Mundo","location":"Novo Mundo · Curitiba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de vitrine digital para um pequeno brechó de moda no Novo Mundo, criada como demonstração comercial."}
-  ,{"slug":"guaratuba-sabores-da-baia","clientKey":"guaratuba-sabores-da-baia","title":"Sabores da Baía","segment":"restaurantes","projectType":"catalog","status":"published","city":"Guaratuba","state":"PR","tags":["restaurante","frutos-do-mar","delivery"],"subtitle":"Cozinha caiçara para a rotina e a temporada","location":"Centro · Guaratuba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de cardápio e presença digital para um pequeno restaurante de Guaratuba, criada como demonstração comercial."}
-  ,{"slug":"guaratuba-oficina-nautica","clientKey":"guaratuba-oficina-nautica","title":"Oficina Náutica Guaratuba","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"Guaratuba","state":"PR","tags":["nautica","manutencao","barcos"],"subtitle":"Manutenção e cuidado para embarcações","location":"Piçarras · Guaratuba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de landing page para um prestador náutico local, criada como demonstração comercial."}
-  ,{"slug":"guaratuba-atelie-presentes","clientKey":"guaratuba-atelie-presentes","title":"Ateliê Encanto da Baía","segment":"comercios","projectType":"catalog","status":"published","city":"Guaratuba","state":"PR","tags":["artesanato","presentes","lembrancas"],"subtitle":"Presentes artesanais com identidade local","location":"Cohapar · Guaratuba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de catálogo para presentes e artesanato de bairro em Guaratuba, criada como demonstração comercial."}
-  ,{"slug":"guaratuba-reparos-residenciais","clientKey":"guaratuba-reparos-residenciais","title":"Reparos do Litoral","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"Guaratuba","state":"PR","tags":["reparos","eletrica","hidraulica"],"subtitle":"Pequenos reparos para casas e comércios","location":"Brejatuba · Guaratuba — PR","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de serviço local para reparos residenciais e comerciais em Guaratuba, criada como demonstração comercial."}
-  ,{"slug":"mirassol-delicias-caseiras","clientKey":"mirassol-delicias-caseiras","title":"Delícias Caseiras Mirassol","segment":"restaurantes","projectType":"catalog","status":"published","city":"Mirassol","state":"SP","tags":["bolos","salgados","encomendas"],"subtitle":"Bolos e salgados para celebrar","location":"Centro · Mirassol — SP","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de catálogo para uma produção caseira de bolos e salgados em Mirassol, criada como demonstração comercial."}
-  ,{"slug":"mirassol-conserta-celular","clientKey":"mirassol-conserta-celular","title":"Conserta Mirassol","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"Mirassol","state":"SP","tags":["assistencia-tecnica","celulares","eletronicos"],"subtitle":"Assistência técnica clara e próxima","location":"São Bernardo · Mirassol — SP","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de landing page para assistência técnica de bairro em Mirassol, criada como demonstração comercial."}
-  ,{"slug":"bh-barreiro-marmitas","clientKey":"bh-barreiro-marmitas","title":"Marmitas do Barreiro","segment":"restaurantes","projectType":"catalog","status":"published","city":"Belo Horizonte","state":"MG","tags":["marmitas","almoco","entrega"],"subtitle":"Almoço caseiro para a semana","location":"Barreiro · Belo Horizonte — MG","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de cardápio para uma marmitaria de bairro em Belo Horizonte, criada como demonstração comercial."}
-  ,{"slug":"uberlandia-eletrica-residencial","clientKey":"uberlandia-eletrica-residencial","title":"Elétrica Bairro Brasil","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"Uberlândia","state":"MG","tags":["eletrica","instalacao","manutencao"],"subtitle":"Instalações e manutenção elétrica","location":"Bairro Brasil · Uberlândia — MG","badge":"Amostra demonstrativa","metrics":"Conceito demonstrativo","summary":"Amostra pública de página de serviço para eletricista de bairro em Uberlândia, criada como demonstração comercial."}
-  ,{"slug":"lolipa-arte-em-festas","clientKey":"lolipa-arte-em-festas","title":"Lolipa Arte em Festas Decor","segment":"comercios","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["decoracao-de-festas","aniversarios","batizados","pegue-e-monte"],"subtitle":"Decorações personalizadas e encantadoras","location":"Curitiba — PR","badge":"Projeto real","metrics":"Portfólio da marca","summary":"Presença digital da Lolipa Arte em Festas Decor, com galeria de decorações, serviços sob medida e mimos exclusivos informados pela marca."}
-  ,{"slug":"confeitaria-sabor-da-realeza","clientKey":"confeitaria-sabor-da-realeza","title":"Confeitaria Sabor da Realeza","segment":"restaurantes","projectType":"catalog","status":"published","city":"Uberaba","state":"MG","tags":["bolos","doces","salgados","encomendas"],"subtitle":"Bolos, doces e salgados para momentos especiais","location":"Uberaba — MG","badge":"Projeto real","metrics":"Encomendas para festas e eventos","summary":"Presença digital da Confeitaria Sabor da Realeza, com bolos, doces, salgados e encomendas para festas e eventos."}
-  ,{"slug":"premium-envelopamentos","clientKey":"premium-envelopamentos","title":"Premium Envelopamentos","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["plotagem-de-moveis","envelopamento-de-geladeiras","comunicacao-visual","adesivos"],"subtitle":"Plotagem, envelopamento e comunicação visual premium","location":"Curitiba e região — PR","badge":"Projeto real","metrics":"Orçamento sob medida","summary":"Presença digital da Premium Envelopamentos para plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual em Curitiba e região."}
-  ,{"slug":"miro-tech","clientKey":"miro-tech","title":"MIRO TECH","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["assistencia-tecnica","tv","computadores","micro-ondas","recuperacao-de-dados"],"subtitle":"Manutenção especializada em eletrônicos e dados","location":"Bairro Academia · São José dos Pinhais — PR","badge":"Projeto real","metrics":"Atendimento sob medida","summary":"Presença digital da MIRO TECH para manutenção de TVs, computadores, micro-ondas e recuperação de dados de HD em São José dos Pinhais."}
-  ,{"slug":"galileu-locacao-brinquedos","clientKey":"galileu-locacao-brinquedos","title":"Galileu Locação de Brinquedos","segment":"comercios","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["locacao-de-brinquedos","toboga-inflavel","cama-elastica","piscina-de-bolinhas","festas-e-eventos"],"subtitle":"Brinquedos seguros, coloridos e divertidos para festas","location":"São José dos Pinhais — PR","badge":"Projeto real","metrics":"Orçamento para eventos","summary":"Presença digital da Galileu Locação de Brinquedos para festas e eventos, com tobogã inflável, cama elástica, piscina de bolinhas e outras atrações."}
-  ,{"slug":"lj-cleaning","clientKey":"lj-cleaning","title":"L&J Cleaning","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["higienizacao-de-sofas","limpeza-automotiva","higienizacao-de-colchoes","limpeza-de-tapetes"],"subtitle":"Higienização residencial e automotiva","location":"São José dos Pinhais — PR","badge":"Projeto real","metrics":"Orçamento sob medida","summary":"Presença digital da L&J Cleaning para higienização de sofás, cadeiras, colchões, tapetes, carpetes, puffs e interiores automotivos."}
-  ,{"slug":"manu-pasteis","clientKey":"manu-pasteis","title":"Manu Pastéis","segment":"restaurantes","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["pasteis","lanches","delivery","cardapio-online"],"subtitle":"Pastéis bem recheados e quentinhos","location":"São José dos Pinhais — PR","badge":"Projeto real","metrics":"Cardápio online","summary":"Presença digital da Manu Pastéis, com cardápio online, horários de funcionamento e formas de pagamento para pedidos de pastéis."}
-  ,{"slug":"liz-moraes-nail-designer","clientKey":"liz-moraes-nail-designer","title":"Liz Moraes Nail Designer","segment":"beleza","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["manicure","pedicure","spa-dos-pes","esmaltação-em-gel","alongamento-molde-f1"],"subtitle":"Suas unhas, sua melhor versão","location":"Centro · São José dos Pinhais — PR","badge":"Projeto real","metrics":"Agendamento pelo WhatsApp","summary":"Presença digital da Liz Moraes Nail Designer no Centro de São José dos Pinhais, com manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1."}
-  ,{"slug":"assistencia-microondas-santos","clientKey":"assistencia-microondas-santos","title":"Assistência Técnica Microondas Santos","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"São José dos Pinhais","state":"PR","tags":["assistencia-tecnica","micro-ondas","restauracao","venda-de-eletrodomesticos","conserto-a-domicilio"],"subtitle":"Conserto, restauração e venda de micro-ondas","location":"São José dos Pinhais — PR","badge":"Projeto real","metrics":"Atendimento sob avaliação","summary":"Presença digital da Assistência Técnica Microondas Santos para conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."}
-  ,{"slug":"artesanatos-darleia-oliveira","clientKey":"artesanatos-darleia-oliveira","title":"Artesanatos Darléia Oliveira","segment":"comercios","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["artesanato","coador-de-cafe","algodao","presentes-artesanais","produtos-reutilizaveis"],"subtitle":"Coador de café 100% algodão feito à mão","location":"São José dos Pinhais — PR","badge":"Projeto real","metrics":"Pedidos sob consulta","summary":"Presença digital da Artesanatos Darléia Oliveira para coadores de café 100% algodão, reutilizáveis e feitos à mão."}
-  ,{"slug":"thays-camilla","clientKey":"thays-camilla","title":"Thays Camilla","segment":"comercios","projectType":"catalog","status":"published","city":"São José dos Pinhais","state":"PR","tags":["canecas-personalizadas","azulejos-personalizados","presentes","artesanato"],"subtitle":"Caneca + azulejo personalizados","location":"São José dos Pinhais — PR","badge":"Projeto real","metrics":"Kit promocional R$ 59,90","summary":"Presença digital da Thays Camilla para canecas e azulejos personalizados, com kit promocional de caneca + azulejo 15x15 cm."}
-  ,{"slug":"fernanda-amaral-drywall","clientKey":"fernanda-amaral-drywall","title":"Fernanda & Amaral — Instalação de Drywall","segment":"prestadores-de-servicos","projectType":"landing","status":"published","city":"Curitiba","state":"PR","tags":["instalacao-de-drywall","pinturas","reformas","moveis-e-madeira","corte-de-grama","pequenos-fretes"],"subtitle":"Drywall, reformas e serviços para sua casa","location":"Curitiba e região — PR","badge":"Projeto real","metrics":"Orçamento por demanda","summary":"Presença digital da Fernanda & Amaral para instalação de drywall, pinturas, reformas em geral, móveis e madeira, corte de grama e pequenos fretes."}
+  {
+    "slug": "sos-presentes-cosmeticos",
+    "clientKey": "sos-presentes-cosmeticos",
+    "title": "SOS Presentes & Cosméticos",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "cestas",
+      "presentes",
+      "cosmeticos",
+      "canecas-personalizadas"
+    ],
+    "live": true,
+    "subtitle": "Cestas, presentes e personalizados",
+    "location": "Afonso Pena · São José dos Pinhais — PR",
+    "badge": "Novo projeto",
+    "image": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
+    "fallbackImage": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
+    "metrics": "Pronta entrega e personalizados",
+    "summary": "Cestas, presentes, cosméticos, acessórios e canecas personalizadas para datas especiais em São José dos Pinhais."
+  },
+  {
+    "slug": "marido-de-aluguel",
+    "clientKey": "marido-de-aluguel",
+    "title": "Mestre dos Serviços",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "reparos",
+      "manutencao",
+      "seo-local"
+    ],
+    "subtitle": "Reparos, montagens e manutenção residencial",
+    "location": "Curitiba — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/mestre-dos-servicos-logo.jpg",
+    "fallbackImage": "/images/mestre-dos-servicos-logo.jpg",
+    "metrics": "Atendimento sob avaliação",
+    "summary": "Reparos, montagens e manutenção residencial com orientação clara para começar cada solicitação."
+  },
+  {
+    "slug": "dyzpromo",
+    "clientKey": "dyzpromo",
+    "title": "D.Y.Z Promo",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "panfletagem",
+      "acoes-locais"
+    ],
+    "subtitle": "Ações promocionais e equipes em campo",
+    "location": "Curitiba — PR",
+    "badge": "Ações locais",
+    "image": "/images/dyzpromo/acao-semaforo.jpeg",
+    "fallbackImage": "/images/dyzpromo/logo-dyz-promo.webp",
+    "metrics": "Planejamento por campanha",
+    "summary": "Ações promocionais presenciais com equipes, distribuição e planejamento para campanhas locais."
+  },
+  {
+    "slug": "emporio-lelecute",
+    "clientKey": "emporio-lelecute",
+    "title": "Empório LeleCute",
+    "segment": "servicos",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "presentes",
+      "artesanal"
+    ],
+    "subtitle": "Lembrancinhas e presentes artesanais",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Feito para celebrar",
+    "image": "/images/emporio-lelecute/capa.webp",
+    "fallbackImage": "/images/emporio-lelecute-og.webp",
+    "metrics": "Personalização por ocasião",
+    "summary": "Lembrancinhas artesanais e presentes personalizados para transformar celebrações em memórias."
+  },
+  {
+    "slug": "rm-fretes",
+    "clientKey": "rm-fretes",
+    "title": "RM Fretes",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "fretes",
+      "mudancas"
+    ],
+    "subtitle": "Fretes, carretos e mudanças organizadas",
+    "location": "Curitiba — PR",
+    "badge": "Trajeto sob consulta",
+    "image": "/images/rm-fretes-hero.webp",
+    "fallbackImage": "/images/rm-fretes/anuncio-oficial.png",
+    "metrics": "Orçamento por trajeto",
+    "summary": "Fretes, carretos e mudanças com coleta de informações para organizar cada trajeto."
+  },
+  {
+    "slug": "rj-servicos-drywall",
+    "clientKey": "rj-servicos-drywall",
+    "title": "RJ Serviços de Drywall",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "drywall",
+      "gesso",
+      "forros",
+      "reformas",
+      "seo-local"
+    ],
+    "live": true,
+    "subtitle": "Divisórias, forros e reformas",
+    "location": "Curitiba — PR",
+    "badge": "Novo projeto",
+    "image": "/images/rj-servicos-drywall/acabamento-sala.webp",
+    "fallbackImage": "/images/rj-servicos-drywall/hero-drywall.webp",
+    "metrics": "Orçamento online",
+    "summary": "Site local para instalação, personalização e reparos em drywall, com funil de orçamento e experiência mobile-first."
+  },
+  {
+    "slug": "paraiso-do-hot-dog",
+    "clientKey": "paraiso-do-hot-dog",
+    "title": "Paraíso do Hot Dog",
+    "segment": "servicos",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "delivery",
+      "cardapio"
+    ],
+    "subtitle": "Cardápio de hot dogs e combinações",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Pedido pelo cardápio",
+    "image": "/images/paraiso-hot-dog-cover.webp",
+    "fallbackImage": "/images/paraiso-hot-dog-menu.webp",
+    "metrics": "Combinações e adicionais",
+    "summary": "Cardápio de hot dogs com combinações, adicionais e opções para pedir em São José dos Pinhais."
+  },
+  {
+    "slug": "renata-beauty",
+    "clientKey": "renata-beauty",
+    "title": "Renata Beauty Studio",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "cilios",
+      "unhas"
+    ],
+    "subtitle": "Cílios, unhas e cuidados de beleza",
+    "location": "Curitiba — PR",
+    "badge": "Atendimento com horário",
+    "image": "/images/renata-beauty-promo.webp",
+    "fallbackImage": "/images/renata-beauty-icon.webp",
+    "metrics": "Procedimentos por agendamento",
+    "summary": "Studio de beleza para cílios, unhas e procedimentos de autocuidado com atendimento sob agendamento."
+  },
+  {
+    "slug": "r_beauty",
+    "clientKey": "r-beauty",
+    "title": "R_Beauty Studio & Spa",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "estetica",
+      "spa"
+    ],
+    "subtitle": "Estética, spa e autocuidado",
+    "location": "Curitiba — PR",
+    "badge": "Cuidado personalizado",
+    "image": "/images/r-beauty-cilios.jpg",
+    "fallbackImage": "/images/r-beauty-icon.webp",
+    "metrics": "Atendimento sob agendamento",
+    "summary": "Studio e spa para estética e autocuidado, com uma experiência pensada para cada momento."
+  },
+  {
+    "slug": "clinica-integrada",
+    "clientKey": "clinica-integrada",
+    "title": "Clínica Integrada de Saúde",
+    "segment": "saude",
+    "projectType": "institutional",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "odontologia",
+      "saude"
+    ],
+    "subtitle": "Atendimento integrado em saúde",
+    "location": "Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/clinica-integrada/hero-og.jpg",
+    "fallbackImage": "/images/clinica-integrada/logo.svg",
+    "metrics": "Atendimento integrado em saúde",
+    "summary": "Presença digital de Clínica Integrada de Saúde: uma clínica integrada, com informações de especialidades e jornada de atendimento."
+  },
+  {
+    "slug": "almeida-torres",
+    "clientKey": "almeida-torres",
+    "title": "Almeida Torres Advocacia",
+    "segment": "juridico",
+    "projectType": "institutional",
+    "status": "published",
+    "city": "São Paulo",
+    "state": "SP",
+    "tags": [
+      "advocacia",
+      "consultoria"
+    ],
+    "subtitle": "Orientação jurídica e consultoria",
+    "location": "São Paulo — SP",
+    "badge": "Projeto real",
+    "image": "/images/almeida-torres/hero-og.jpg",
+    "fallbackImage": "/images/almeida-torres/logo.svg",
+    "metrics": "Orientação jurídica e consultoria",
+    "summary": "Presença digital de Almeida Torres Advocacia: advocacia, com áreas de atuação e orientação inicial apresentadas de forma clara."
+  },
+  {
+    "slug": "casa-nativa",
+    "clientKey": "casa-nativa",
+    "title": "Casa Nativa Bistrô",
+    "segment": "servicos",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Belo Horizonte",
+    "state": "MG",
+    "tags": [
+      "restaurante",
+      "reservas"
+    ],
+    "subtitle": "Experiência gastronômica e reservas",
+    "location": "Belo Horizonte — MG",
+    "badge": "Projeto real",
+    "image": "/images/casa-nativa/hero-og.jpg",
+    "fallbackImage": "/images/casa-nativa/logo.svg",
+    "metrics": "Experiência gastronômica e reservas",
+    "summary": "Presença digital de Casa Nativa Bistrô: bistrô, com ambiente, experiência gastronômica e reserva como próximos passos."
+  },
+  {
+    "slug": "confeitaria-chyrley",
+    "clientKey": "confeitaria-chyrley",
+    "title": "Chyrley Doces & Festas",
+    "segment": "servicos",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Rio Bonito",
+    "state": "PR",
+    "tags": [
+      "confeitaria",
+      "bolos",
+      "salgados",
+      "festa-na-caixa",
+      "doces"
+    ],
+    "live": true,
+    "subtitle": "Bolos, kits festa e doces artesanais",
+    "location": "Rio Bonito — PR",
+    "badge": "Novo projeto",
+    "image": "/images/confeitaria-chyrley/capa.webp",
+    "fallbackImage": "/images/confeitaria-chyrley/bolos.webp",
+    "metrics": "Encomendas",
+    "summary": "Confeitaria artesanal da Chyrley para bolos, salgados, kits festa, docinhos e Copo da Felicidade em Rio Bonito."
+  },
+  {
+    "slug": "mp-festas-eventos",
+    "clientKey": "mp-festas-eventos",
+    "title": "MP Festas e Eventos",
+    "segment": "servicos",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Araucária",
+    "state": "PR",
+    "tags": [
+      "decoracao",
+      "festas",
+      "eventos",
+      "festa-na-mesa",
+      "casamentos"
+    ],
+    "live": true,
+    "subtitle": "Decoração de festas infantis e eventos",
+    "location": "Araucária — PR",
+    "badge": "Novo projeto",
+    "image": "/images/mp-festas-eventos/capa.webp",
+    "fallbackImage": "/images/mp-festas-eventos/galeria.webp",
+    "metrics": "Agenda limitada",
+    "summary": "Decoração de festas na mesa, clássica e premium para aniversários, casamentos e eventos em Araucária e região."
+  },
+  {
+    "slug": "studio-de-cilios",
+    "clientKey": "studio-de-cilios",
+    "title": "Studio de Cílios",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "extensao-de-cilios",
+      "fio-a-fio",
+      "fox-eyes",
+      "mega-volume"
+    ],
+    "live": true,
+    "subtitle": "Extensão de cílios com olhar personalizado",
+    "location": "Curitiba — PR · atendimento sob agendamento",
+    "badge": "Novo projeto",
+    "image": "/images/studio-de-cilios/portfolio-1.webp",
+    "fallbackImage": "/images/studio-de-cilios/portfolio-2.webp",
+    "metrics": "Agendamento online",
+    "summary": "Studio especializado em Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio, com atendimento personalizado."
+  },
+  {
+    "slug": "refrigeracao-maresia",
+    "clientKey": "refrigeracao-maresia",
+    "title": "Refrigeração Maresia",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "refrigeracao",
+      "geladeiras",
+      "freezers",
+      "manutencao"
+    ],
+    "live": true,
+    "subtitle": "Conserto e manutenção de geladeiras e freezers",
+    "location": "Curitiba e Região Metropolitana — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/refrigeracao-maresia/logo.png",
+    "fallbackImage": "/images/refrigeracao-maresia/hero.png",
+    "metrics": "Orçamento sob consulta",
+    "summary": "Presença digital da Refrigeração Maresia para atendimento de geladeiras e freezers, com peças originais, garantia de serviço e resposta rápida pelo WhatsApp."
+  },
+  {
+    "slug": "ag-electrical-services",
+    "clientKey": "ag-electrical-services",
+    "title": "A&G Electrical Services",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "eletrica",
+      "infraestrutura",
+      "redes",
+      "cftv",
+      "laserway"
+    ],
+    "live": true,
+    "subtitle": "Elétrica, infraestrutura e redes",
+    "location": "Curitiba e Região Metropolitana — PR",
+    "badge": "Novo projeto",
+    "image": "/images/ag-electrical-services/logo.webp",
+    "fallbackImage": "/images/ag-electrical-services/intro.webp",
+    "metrics": "Orçamento técnico",
+    "summary": "Soluções integradas em elétrica geral, cabeamento UTP, CFTV, implantação de redes e organização de racks."
+  },
+  {
+    "slug": "vila-da-capivara",
+    "clientKey": "vila-da-capivara",
+    "title": "Vila da Capivara",
+    "segment": "servicos",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "confeitaria",
+      "kits-festa",
+      "bolos",
+      "brigadeiros",
+      "salgados"
+    ],
+    "live": true,
+    "subtitle": "Confeitaria, doces e kits festa completos",
+    "location": "Campo Comprido · Curitiba — PR",
+    "badge": "Novo projeto",
+    "image": "/images/vila-da-capivara/capa.webp",
+    "fallbackImage": "/images/vila-da-capivara/editorial.webp",
+    "metrics": "Kits para 10 a 100 pessoas",
+    "summary": "Bolos personalizados, brigadeiros gourmet, salgados e kits festa da Vila da Capivara em Campo Comprido, Curitiba."
+  },
+  {
+    "slug": "lk-alvenaria",
+    "clientKey": "lk-alvenaria",
+    "title": "LK Alvenaria",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "alvenaria",
+      "fundacao",
+      "construcao",
+      "reformas",
+      "acabamento"
+    ],
+    "live": true,
+    "subtitle": "Construção, reformas e acabamento em geral",
+    "location": "Curitiba e região — PR · atendimento sob orçamento",
+    "badge": "Novo projeto",
+    "image": "/images/lk-alvenaria/portfolio.webp",
+    "fallbackImage": "/images/lk-alvenaria/perfil.webp",
+    "metrics": "Contrato e garantia",
+    "summary": "Empreiteiro de obra civil para fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas."
+  },
+  {
+    "slug": "lucas-arruma-maquina-lavar",
+    "clientKey": "lucas-arruma-maquina-lavar",
+    "title": "Lucas Arruma Máquina de Lavar",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "maquina-de-lavar",
+      "assistencia-tecnica",
+      "eletrodomesticos",
+      "manutencao"
+    ],
+    "live": true,
+    "subtitle": "Conserto e manutenção de máquinas de lavar",
+    "location": "Curitiba — PR · atendimento sob agendamento",
+    "badge": "Novo projeto",
+    "image": "/images/lucas-arruma-maquina-lavar/capa.webp",
+    "fallbackImage": "/images/lucas-arruma-maquina-lavar/capa.webp",
+    "metrics": "Atendimento com garantia",
+    "summary": "Lucas resolve problemas de máquinas de lavar com diagnóstico, manutenção e atendimento com garantia."
+  },
+  {
+    "slug": "paulo-mestre-de-obras",
+    "clientKey": "paulo-mestre-de-obras",
+    "title": "Paulo Mestre de Obras",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "pedreiro",
+      "alvenaria",
+      "azulejista",
+      "reformas",
+      "construcao-civil"
+    ],
+    "live": true,
+    "subtitle": "Pedreiro, azulejista e construção civil",
+    "location": "Curitiba — PR · atendimento sob orçamento",
+    "badge": "Novo projeto",
+    "image": "/images/paulo-mestre-de-obras/capa.webp",
+    "fallbackImage": "/images/paulo-mestre-de-obras/capa.webp",
+    "metrics": "Orçamento personalizado",
+    "summary": "Serviços de pedreiro, azulejista, alvenaria, pisos, revestimentos, elétrica, hidráulica e reformas."
+  },
+  {
+    "slug": "ecommerce-on",
+    "clientKey": "ecommerce-on",
+    "title": "Ecommerce On",
+    "segment": "agencias",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "seo",
+      "ecommerce",
+      "trafego-pago",
+      "redes-sociais",
+      "marketing-digital",
+      "inteligencia-artificial"
+    ],
+    "live": true,
+    "subtitle": "SEO, e-commerce, mídia e criatividade",
+    "location": "Curitiba — PR · Joinville — SC",
+    "badge": "Novo projeto",
+    "image": "/images/ecommerce-on/servicos.webp",
+    "fallbackImage": "/images/ecommerce-on/logo.webp",
+    "metrics": "Estratégia desde 2015",
+    "summary": "Agência digital para SEO, lojas virtuais, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
+  },
+  {
+    "slug": "no-brilho-higienizacao",
+    "clientKey": "no-brilho-higienizacao",
+    "title": "No Brilho Higienização",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "higienizacao",
+      "estofados",
+      "sofa",
+      "colchao",
+      "limpeza-domiciliar"
+    ],
+    "live": true,
+    "subtitle": "Higienização profissional de estofados",
+    "location": "Cristal · São José dos Pinhais — PR",
+    "badge": "Novo projeto",
+    "image": "/images/no-brilho-higienizacao/capa.webp",
+    "fallbackImage": "/images/no-brilho-higienizacao/capa.webp",
+    "metrics": "Atendimento a domicílio",
+    "summary": "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes, carpetes e bancos automotivos."
+  },
+  {
+    "slug": "salao-da-marcia",
+    "clientKey": "salao-da-marcia",
+    "title": "Salão da Marcia",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "depilacao",
+      "progressiva",
+      "cabelo",
+      "pe-e-mao",
+      "beleza"
+    ],
+    "live": true,
+    "subtitle": "Depilação, cabelos e autocuidado",
+    "location": "Cidade Jardim · São José dos Pinhais — PR",
+    "badge": "Novo projeto",
+    "image": "/images/salao-da-marcia/depilacao.webp",
+    "fallbackImage": "/images/salao-da-marcia/progressiva.webp",
+    "metrics": "Agendamento de horários",
+    "summary": "Salão da Marcia com depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
+  },
+  {
+    "slug": "espaco-cih-luh",
+    "clientKey": "espaco-cih-luh",
+    "title": "Espaço CIH & LUH",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Manaus",
+    "state": "AM",
+    "tags": [
+      "alongamento-em-gel",
+      "unhas",
+      "pedicure",
+      "podologia",
+      "beleza"
+    ],
+    "live": true,
+    "subtitle": "O casal das unhas · mãos e pés",
+    "location": "Manaus — AM",
+    "badge": "Oferta especial",
+    "image": "/images/espaco-cih-luh/promocao.webp",
+    "fallbackImage": "/images/espaco-cih-luh/promocao.webp",
+    "metrics": "10% OFF nas 10 primeiras vagas",
+    "summary": "Espaço CIH & LUH com alongamento em gel, reconstruções, pedicure tradicional, pedicure em gel e cuidados podológicos."
+  },
+  {
+    "slug": "diego-montador-moveis",
+    "clientKey": "diego-montador-moveis",
+    "title": "Diego Montador de Móveis",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "montagem-de-moveis",
+      "marido-de-aluguel",
+      "conserto-de-moveis",
+      "instalacoes"
+    ],
+    "live": true,
+    "subtitle": "Montagem, desmontagem e reparos residenciais",
+    "location": "Sítio Cercado · Curitiba — PR",
+    "badge": "Novo projeto",
+    "image": "/images/diego-montador-moveis/capa.webp",
+    "fallbackImage": "/images/diego-montador-moveis/capa.webp",
+    "metrics": "Atendimento sob agendamento",
+    "summary": "Montagem e desmontagem de móveis, consertos, adaptações, instalações de TV, persianas, varões, tomadas, chuveiros e torneiras."
+  },
+  {
+    "slug": "aguia-sul-sinalizacao",
+    "clientKey": "aguia-sul-sinalizacao",
+    "title": "Águia Sul Sinalização",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "sinalizacao-horizontal",
+      "pintura-de-estacionamento",
+      "pintura-imobiliaria",
+      "seguranca"
+    ],
+    "live": true,
+    "subtitle": "Pintura e sinalização horizontal profissional",
+    "location": "Curitiba e Região Metropolitana — PR",
+    "badge": "Novo projeto",
+    "image": "/images/aguia-sul-sinalizacao/logo.webp",
+    "fallbackImage": "/images/aguia-sul-sinalizacao/logo.webp",
+    "metrics": "Orçamento sem compromisso",
+    "summary": "Pintura de estacionamentos, demarcação de vagas, faixas, setas, carga e descarga, pintura imobiliária e estruturas industriais."
+  },
+  {
+    "slug": "eletrovale-eletromecanica",
+    "clientKey": "eletrovale-eletromecanica",
+    "title": "Eletrovale Eletromecânica",
+    "segment": "servicos",
+    "projectType": "institutional",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "rebobinamento",
+      "motores",
+      "bombas",
+      "eletromecanica",
+      "manutencao-industrial"
+    ],
+    "live": true,
+    "subtitle": "Manutenção e rebobinamento industrial",
+    "location": "Curitiba e região — PR",
+    "badge": "Novo projeto",
+    "image": "/images/eletrovale-eletromecanica/equipamentos.webp",
+    "fallbackImage": "/images/eletrovale-eletromecanica/equipamentos.webp",
+    "metrics": "Atendimento técnico",
+    "summary": "Manutenção e rebobinamento de bombas, motores, motoredutores, motofreios e equipamentos eletromecânicos."
+  },
+  {
+    "slug": "eletro-solucoes-eficazes",
+    "clientKey": "eletro-solucoes-eficazes",
+    "title": "Eletro Soluções Eficazes",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Pinhais",
+    "state": "PR",
+    "tags": [
+      "instalacoes-eletricas",
+      "iluminacao",
+      "automacao",
+      "manutencao-eletrica"
+    ],
+    "live": true,
+    "subtitle": "Soluções elétricas e automação",
+    "location": "Pinhais — PR · atendimento regional",
+    "badge": "Novo projeto",
+    "image": "/images/eletro-solucoes-eficazes/servicos.webp",
+    "fallbackImage": "/images/eletro-solucoes-eficazes/servicos.webp",
+    "metrics": "Atendimento rápido",
+    "summary": "Instalações, iluminação, manutenção elétrica, automação residencial, predial e industrial, consultoria e projetos."
+  },
+  {
+    "slug": "eisenfer-tubos-acos",
+    "clientKey": "eisenfer-tubos-acos",
+    "title": "Eisenfer Tubos e Aços",
+    "segment": "construcao",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "tubos-de-aco",
+      "perfis",
+      "chapas",
+      "telhas-metalicas",
+      "construcao"
+    ],
+    "live": true,
+    "subtitle": "Tubos, perfis, chapas e telhas metálicas",
+    "location": "Três Marias · São José dos Pinhais — PR",
+    "badge": "Novo projeto",
+    "image": "/images/eisenfer-tubos-acos/telhas.webp",
+    "fallbackImage": "/images/eisenfer-tubos-acos/tubos.webp",
+    "metrics": "Cotação especializada",
+    "summary": "Venda de tubos quadrados, retangulares, redondos, perfis, chapas lisas e frisadas e telhas TP40 simples e sanduíche."
+  },
+  {
+    "slug": "mary-diarista",
+    "clientKey": "mary-diarista",
+    "title": "Mary Diarista",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "diarista",
+      "limpeza-residencial",
+      "pos-obra",
+      "organizacao"
+    ],
+    "live": true,
+    "subtitle": "Diárias, pós-obra e organização",
+    "location": "Curitiba e região — PR",
+    "badge": "Agenda aberta",
+    "image": "/images/mary-diarista/servicos.webp",
+    "fallbackImage": "/images/mary-diarista/servicos.webp",
+    "metrics": "Quintas-feiras disponíveis",
+    "summary": "Diárias de até 4, 6 ou 8 horas, pós-obra, pós-mudança e personal organizer com agenda semanal, quinzenal ou esporádica."
+  },
+  {
+    "slug": "acai-total-araucaria",
+    "clientKey": "acai-total-araucaria",
+    "title": "Açaí Total",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Araucária",
+    "state": "PR",
+    "tags": [
+      "acai",
+      "delivery",
+      "sobremesas",
+      "lanches"
+    ],
+    "live": true,
+    "subtitle": "Copões, litrões e açaí delivery",
+    "location": "Araucária — PR",
+    "badge": "Pedido aberto",
+    "image": "/images/acai-total-araucaria/acai.webp",
+    "fallbackImage": "/images/acai-total-araucaria/logo.webp",
+    "metrics": "Cardápio digital",
+    "summary": "Açaí caprichado com frutas, cremes e complementos para pedir agora e receber no conforto de casa."
+  },
+  {
+    "slug": "jkl-marcenaria",
+    "clientKey": "jkl-marcenaria",
+    "title": "JKL Marcenaria",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "moveis-planejados",
+      "marcenaria",
+      "mdf",
+      "cozinhas",
+      "nichos"
+    ],
+    "live": true,
+    "subtitle": "Móveis sob medida em MDF",
+    "location": "Curitiba e região — PR",
+    "badge": "Novo projeto",
+    "image": "/images/jkl-marcenaria/cozinha.webp",
+    "fallbackImage": "/images/jkl-marcenaria/cozinha.webp",
+    "metrics": "Entrega em até 20 dias",
+    "summary": "Móveis sob medida em MDF para cozinhas, dormitórios, cozinhas infantis, nichos, porta-tempero, banheiros e ambientes em geral."
+  },
+  {
+    "slug": "santos-montador-de-moveis",
+    "clientKey": "santos-montador-de-moveis",
+    "title": "Santos Montador de Móveis",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "montagem-de-moveis",
+      "reparos-residenciais",
+      "pintura-interna",
+      "eletrica",
+      "cortinas-e-persianas"
+    ],
+    "live": true,
+    "subtitle": "Montagem, pintura e reparos residenciais",
+    "location": "Curitiba · Colombo · Alphaville — PR",
+    "badge": "Novo projeto",
+    "image": "/images/santos-montador-de-moveis/hero.webp",
+    "fallbackImage": "/images/santos-montador-de-moveis/hero.webp",
+    "metrics": "Orçamento sem compromisso",
+    "summary": "Montagem e desmontagem de móveis, pintura interna, pequenos reparos elétricos, limpeza de caixa d'água e instalação de cortinas e persianas."
+  },
+  {
+    "slug": "marmitaria-dom-diego",
+    "clientKey": "marmitaria-dom-diego",
+    "title": "Marmitaria Dom Diego",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "marmitas",
+      "almoco",
+      "delivery"
+    ],
+    "subtitle": "Marmitas e almoço para a rotina",
+    "location": "Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Marmitas e almoço para a rotina",
+    "summary": "Presença digital de Marmitaria Dom Diego: Marmitas e almoço para a rotina."
+  },
+  {
+    "slug": "beto-pasteis",
+    "clientKey": "beto-pasteis",
+    "title": "Beto Pastéis",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "pasteis",
+      "almoco",
+      "jantar"
+    ],
+    "subtitle": "Pastéis com tradição no bairro",
+    "location": "Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Pastéis com tradição no bairro",
+    "summary": "Presença digital de Beto Pastéis: Pastéis com tradição no bairro."
+  },
+  {
+    "slug": "woodhouse-hamburgueres",
+    "clientKey": "woodhouse-hamburgueres",
+    "title": "Woodhouse Hambúrgueres",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "hamburgueres",
+      "petiscos",
+      "jantar"
+    ],
+    "subtitle": "Hambúrgueres grelhados e petiscos",
+    "location": "Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Hambúrgueres grelhados e petiscos",
+    "summary": "Presença digital de Woodhouse Hambúrgueres: Hambúrgueres grelhados e petiscos."
+  },
+  {
+    "slug": "dlara-pizzaria",
+    "clientKey": "dlara-pizzaria",
+    "title": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "pizzaria",
+      "esfiharia",
+      "hamburgueria",
+      "delivery"
+    ],
+    "subtitle": "Pizzas, esfihas e lanches para pedir",
+    "location": "Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Pizzas, esfihas e lanches para pedir",
+    "summary": "Presença digital de D’Lara Pizzaria, Esfiharia e Hamburgueria: Pizzas, esfihas e lanches para pedir."
+  },
+  {
+    "slug": "toquinho-de-gente-brecho",
+    "clientKey": "toquinho-de-gente-brecho",
+    "title": "Toquinho de Gente Brechó Adulto e Infantil",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "brecho",
+      "moda-circular",
+      "infantil"
+    ],
+    "subtitle": "Moda circular para adultos e crianças",
+    "location": "Sítio Cercado · Curitiba — PR",
+    "badge": "Projeto real",
+    "metrics": "Moda circular para adultos e crianças",
+    "summary": "Presença digital de Toquinho de Gente Brechó Adulto e Infantil: vitrine digital para moda circular adulta e infantil no Sítio Cercado."
+  },
+  {
+    "slug": "reuse-house-brecho",
+    "clientKey": "reuse-house-brecho",
+    "title": "REuse House Brechó",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "brecho",
+      "moda-sustentavel",
+      "garimpo"
+    ],
+    "subtitle": "Garimpo consciente no Jardim das Américas",
+    "location": "Jardim das Américas · Curitiba — PR",
+    "badge": "Projeto real",
+    "metrics": "Garimpo consciente no Jardim das Américas",
+    "summary": "Presença digital de REuse House Brechó: presença digital para brechó de moda sustentável no Jardim das Américas."
+  },
+  {
+    "slug": "brecho-sao-francisco",
+    "clientKey": "brecho-sao-francisco",
+    "title": "Brechó São Francisco",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "brecho",
+      "roupas",
+      "acessorios"
+    ],
+    "subtitle": "Roupas e acessórios com história",
+    "location": "São Francisco · Curitiba — PR",
+    "badge": "Projeto real",
+    "metrics": "Roupas e acessórios com história",
+    "summary": "Presença digital de Brechó São Francisco: catálogo digital para roupas, acessórios e peças de segunda mão no bairro São Francisco."
+  },
+  {
+    "slug": "angel-mix-brecho",
+    "clientKey": "angel-mix-brecho",
+    "title": "Angel Mix Brechó",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "brecho",
+      "moda-feminina",
+      "garimpo"
+    ],
+    "subtitle": "Garimpo de moda no Novo Mundo",
+    "location": "Novo Mundo · Curitiba — PR",
+    "badge": "Projeto real",
+    "metrics": "Garimpo de moda no Novo Mundo",
+    "summary": "Presença digital de Angel Mix Brechó: vitrine digital para um pequeno brechó de moda no Novo Mundo."
+  },
+  {
+    "slug": "guaratuba-sabores-da-baia",
+    "clientKey": "guaratuba-sabores-da-baia",
+    "title": "Sabores da Baía",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Guaratuba",
+    "state": "PR",
+    "tags": [
+      "restaurante",
+      "frutos-do-mar",
+      "delivery"
+    ],
+    "subtitle": "Cozinha caiçara para a rotina e a temporada",
+    "location": "Centro · Guaratuba — PR",
+    "badge": "Projeto real",
+    "metrics": "Cozinha caiçara para a rotina e a temporada",
+    "summary": "Presença digital de Sabores da Baía: cardápio e presença digital para um pequeno restaurante de Guaratuba."
+  },
+  {
+    "slug": "guaratuba-oficina-nautica",
+    "clientKey": "guaratuba-oficina-nautica",
+    "title": "Oficina Náutica Guaratuba",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Guaratuba",
+    "state": "PR",
+    "tags": [
+      "nautica",
+      "manutencao",
+      "barcos"
+    ],
+    "subtitle": "Manutenção e cuidado para embarcações",
+    "location": "Piçarras · Guaratuba — PR",
+    "badge": "Projeto real",
+    "metrics": "Manutenção e cuidado para embarcações",
+    "summary": "Presença digital de Oficina Náutica Guaratuba: landing page para um prestador náutico local."
+  },
+  {
+    "slug": "guaratuba-atelie-presentes",
+    "clientKey": "guaratuba-atelie-presentes",
+    "title": "Ateliê Encanto da Baía",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Guaratuba",
+    "state": "PR",
+    "tags": [
+      "artesanato",
+      "presentes",
+      "lembrancas"
+    ],
+    "subtitle": "Presentes artesanais com identidade local",
+    "location": "Cohapar · Guaratuba — PR",
+    "badge": "Projeto real",
+    "metrics": "Presentes artesanais com identidade local",
+    "summary": "Presença digital de Ateliê Encanto da Baía: catálogo para presentes e artesanato de bairro em Guaratuba."
+  },
+  {
+    "slug": "guaratuba-reparos-residenciais",
+    "clientKey": "guaratuba-reparos-residenciais",
+    "title": "Reparos do Litoral",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Guaratuba",
+    "state": "PR",
+    "tags": [
+      "reparos",
+      "eletrica",
+      "hidraulica"
+    ],
+    "subtitle": "Pequenos reparos para casas e comércios",
+    "location": "Brejatuba · Guaratuba — PR",
+    "badge": "Projeto real",
+    "metrics": "Pequenos reparos para casas e comércios",
+    "summary": "Presença digital de Reparos do Litoral: serviço local para reparos residenciais e comerciais em Guaratuba."
+  },
+  {
+    "slug": "mirassol-delicias-caseiras",
+    "clientKey": "mirassol-delicias-caseiras",
+    "title": "Delícias Caseiras Mirassol",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Mirassol",
+    "state": "SP",
+    "tags": [
+      "bolos",
+      "salgados",
+      "encomendas"
+    ],
+    "subtitle": "Bolos e salgados para celebrar",
+    "location": "Centro · Mirassol — SP",
+    "badge": "Projeto real",
+    "metrics": "Bolos e salgados para celebrar",
+    "summary": "Presença digital de Delícias Caseiras Mirassol: catálogo para uma produção caseira de bolos e salgados em Mirassol."
+  },
+  {
+    "slug": "mirassol-conserta-celular",
+    "clientKey": "mirassol-conserta-celular",
+    "title": "Conserta Mirassol",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Mirassol",
+    "state": "SP",
+    "tags": [
+      "assistencia-tecnica",
+      "celulares",
+      "eletronicos"
+    ],
+    "subtitle": "Assistência técnica clara e próxima",
+    "location": "São Bernardo · Mirassol — SP",
+    "badge": "Projeto real",
+    "metrics": "Assistência técnica clara e próxima",
+    "summary": "Presença digital de Conserta Mirassol: landing page para assistência técnica de bairro em Mirassol."
+  },
+  {
+    "slug": "bh-barreiro-marmitas",
+    "clientKey": "bh-barreiro-marmitas",
+    "title": "Marmitas do Barreiro",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Belo Horizonte",
+    "state": "MG",
+    "tags": [
+      "marmitas",
+      "almoco",
+      "entrega"
+    ],
+    "subtitle": "Almoço caseiro para a semana",
+    "location": "Barreiro · Belo Horizonte — MG",
+    "badge": "Projeto real",
+    "metrics": "Almoço caseiro para a semana",
+    "summary": "Presença digital de Marmitas do Barreiro: cardápio para uma marmitaria de bairro em Belo Horizonte."
+  },
+  {
+    "slug": "uberlandia-eletrica-residencial",
+    "clientKey": "uberlandia-eletrica-residencial",
+    "title": "Elétrica Bairro Brasil",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Uberlândia",
+    "state": "MG",
+    "tags": [
+      "eletrica",
+      "instalacao",
+      "manutencao"
+    ],
+    "subtitle": "Instalações e manutenção elétrica",
+    "location": "Bairro Brasil · Uberlândia — MG",
+    "badge": "Projeto real",
+    "metrics": "Instalações e manutenção elétrica",
+    "summary": "Presença digital de Elétrica Bairro Brasil: página de serviço para eletricista de bairro em Uberlândia."
+  },
+  {
+    "slug": "lolipa-arte-em-festas",
+    "clientKey": "lolipa-arte-em-festas",
+    "title": "Lolipa Arte em Festas Decor",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "decoracao-de-festas",
+      "aniversarios",
+      "batizados",
+      "pegue-e-monte"
+    ],
+    "subtitle": "Decorações personalizadas e encantadoras",
+    "location": "Curitiba — PR",
+    "badge": "Projeto real",
+    "metrics": "Portfólio da marca",
+    "summary": "Presença digital da Lolipa Arte em Festas Decor, com galeria de decorações, serviços sob medida e mimos exclusivos informados pela marca."
+  },
+  {
+    "slug": "confeitaria-sabor-da-realeza",
+    "clientKey": "confeitaria-sabor-da-realeza",
+    "title": "Confeitaria Sabor da Realeza",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "Uberaba",
+    "state": "MG",
+    "tags": [
+      "bolos",
+      "doces",
+      "salgados",
+      "encomendas"
+    ],
+    "subtitle": "Bolos, doces e salgados para momentos especiais",
+    "location": "Uberaba — MG",
+    "badge": "Projeto real",
+    "metrics": "Encomendas para festas e eventos",
+    "summary": "Presença digital da Confeitaria Sabor da Realeza, com bolos, doces, salgados e encomendas para festas e eventos."
+  },
+  {
+    "slug": "premium-envelopamentos",
+    "clientKey": "premium-envelopamentos",
+    "title": "Premium Envelopamentos",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "plotagem-de-moveis",
+      "envelopamento-de-geladeiras",
+      "comunicacao-visual",
+      "adesivos"
+    ],
+    "subtitle": "Plotagem, envelopamento e comunicação visual premium",
+    "location": "Curitiba e região — PR",
+    "badge": "Projeto real",
+    "metrics": "Orçamento sob medida",
+    "summary": "Presença digital da Premium Envelopamentos para plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual em Curitiba e região."
+  },
+  {
+    "slug": "miro-tech",
+    "clientKey": "miro-tech",
+    "title": "MIRO TECH",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "assistencia-tecnica",
+      "tv",
+      "computadores",
+      "micro-ondas",
+      "recuperacao-de-dados"
+    ],
+    "subtitle": "Manutenção especializada em eletrônicos e dados",
+    "location": "Bairro Academia · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Atendimento sob medida",
+    "summary": "Presença digital da MIRO TECH para manutenção de TVs, computadores, micro-ondas e recuperação de dados de HD em São José dos Pinhais."
+  },
+  {
+    "slug": "galileu-locacao-brinquedos",
+    "clientKey": "galileu-locacao-brinquedos",
+    "title": "Galileu Locação de Brinquedos",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "locacao-de-brinquedos",
+      "toboga-inflavel",
+      "cama-elastica",
+      "piscina-de-bolinhas",
+      "festas-e-eventos"
+    ],
+    "subtitle": "Brinquedos seguros, coloridos e divertidos para festas",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Orçamento para eventos",
+    "summary": "Presença digital da Galileu Locação de Brinquedos para festas e eventos, com tobogã inflável, cama elástica, piscina de bolinhas e outras atrações."
+  },
+  {
+    "slug": "lj-cleaning",
+    "clientKey": "lj-cleaning",
+    "title": "L&J Cleaning",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "higienizacao-de-sofas",
+      "limpeza-automotiva",
+      "higienizacao-de-colchoes",
+      "limpeza-de-tapetes"
+    ],
+    "subtitle": "Higienização residencial e automotiva",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Orçamento sob medida",
+    "summary": "Presença digital da L&J Cleaning para higienização de sofás, cadeiras, colchões, tapetes, carpetes, puffs e interiores automotivos."
+  },
+  {
+    "slug": "manu-pasteis",
+    "clientKey": "manu-pasteis",
+    "title": "Manu Pastéis",
+    "segment": "restaurantes",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "pasteis",
+      "lanches",
+      "delivery",
+      "cardapio-online"
+    ],
+    "subtitle": "Pastéis bem recheados e quentinhos",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Cardápio online",
+    "summary": "Presença digital da Manu Pastéis, com cardápio online, horários de funcionamento e formas de pagamento para pedidos de pastéis."
+  },
+  {
+    "slug": "liz-moraes-nail-designer",
+    "clientKey": "liz-moraes-nail-designer",
+    "title": "Liz Moraes Nail Designer",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "manicure",
+      "pedicure",
+      "spa-dos-pes",
+      "esmaltação-em-gel",
+      "alongamento-molde-f1"
+    ],
+    "subtitle": "Suas unhas, sua melhor versão",
+    "location": "Centro · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Agendamento pelo WhatsApp",
+    "summary": "Presença digital da Liz Moraes Nail Designer no Centro de São José dos Pinhais, com manicure, pedicure, spa dos pés, esmaltação em gel e alongamento molde F1."
+  },
+  {
+    "slug": "assistencia-microondas-santos",
+    "clientKey": "assistencia-microondas-santos",
+    "title": "Assistência Técnica Microondas Santos",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "assistencia-tecnica",
+      "micro-ondas",
+      "restauracao",
+      "venda-de-eletrodomesticos",
+      "conserto-a-domicilio"
+    ],
+    "subtitle": "Conserto, restauração e venda de micro-ondas",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Atendimento sob avaliação",
+    "summary": "Presença digital da Assistência Técnica Microondas Santos para conserto a domicílio, restauração contra ferrugem e venda de modelos revisados de micro-ondas."
+  },
+  {
+    "slug": "artesanatos-darleia-oliveira",
+    "clientKey": "artesanatos-darleia-oliveira",
+    "title": "Artesanatos Darléia Oliveira",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "artesanato",
+      "coador-de-cafe",
+      "algodao",
+      "presentes-artesanais",
+      "produtos-reutilizaveis"
+    ],
+    "subtitle": "Coador de café 100% algodão feito à mão",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Pedidos sob consulta",
+    "summary": "Presença digital da Artesanatos Darléia Oliveira para coadores de café 100% algodão, reutilizáveis e feitos à mão."
+  },
+  {
+    "slug": "thays-camilla",
+    "clientKey": "thays-camilla",
+    "title": "Thays Camilla",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "canecas-personalizadas",
+      "azulejos-personalizados",
+      "presentes",
+      "artesanato"
+    ],
+    "subtitle": "Caneca + azulejo personalizados",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "metrics": "Kit promocional R$ 59,90",
+    "summary": "Presença digital da Thays Camilla para canecas e azulejos personalizados, com kit promocional de caneca + azulejo 15x15 cm."
+  },
+  {
+    "slug": "fernanda-amaral-drywall",
+    "clientKey": "fernanda-amaral-drywall",
+    "title": "Fernanda & Amaral — Instalação de Drywall",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "instalacao-de-drywall",
+      "pinturas",
+      "reformas",
+      "moveis-e-madeira",
+      "corte-de-grama",
+      "pequenos-fretes"
+    ],
+    "subtitle": "Drywall, reformas e serviços para sua casa",
+    "location": "Curitiba e região — PR",
+    "badge": "Projeto real",
+    "metrics": "Orçamento por demanda",
+    "summary": "Presença digital da Fernanda & Amaral para instalação de drywall, pinturas, reformas em geral, móveis e madeira, corte de grama e pequenos fretes."
+  }
 ]

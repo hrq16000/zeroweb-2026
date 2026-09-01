@@ -387,8 +387,8 @@
       "proof": {
         "eyebrow": "Marmitaria Dom Diego",
         "title": "Almoço prático para a rotina do Jardim Itália.",
-        "description": "Conceito demonstrativo; cardápio e pedidos serão confirmados pelo estabelecimento.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de Marmitaria Dom Diego: Marmitas e almoço para a rotina.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "293db291"
@@ -399,8 +399,8 @@
       "proof": {
         "eyebrow": "Beto Pastéis",
         "title": "Pastéis para escolher com vontade.",
-        "description": "Conceito demonstrativo; sabores e horários serão confirmados pelo estabelecimento.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de Beto Pastéis: Pastéis com tradição no bairro.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "7cc4f1c5"
@@ -411,8 +411,8 @@
       "proof": {
         "eyebrow": "Woodhouse Hambúrgueres",
         "title": "Grelhados e petiscos para compartilhar.",
-        "description": "Conceito demonstrativo; menu e horários serão confirmados pelo estabelecimento.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de Woodhouse Hambúrgueres: Hambúrgueres grelhados e petiscos.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "26b6f433"
@@ -423,8 +423,8 @@
       "proof": {
         "eyebrow": "D’Lara Pizzaria",
         "title": "Pizza, esfiha e lanche em uma só vitrine.",
-        "description": "Conceito demonstrativo; cardápio e canais de pedido serão confirmados pelo estabelecimento.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de D’Lara Pizzaria, Esfiharia e Hamburgueria: Pizzas, esfihas e lanches para pedir.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "2e3772f6"
@@ -435,8 +435,8 @@
       "proof": {
         "eyebrow": "Toquinho de Gente",
         "title": "Moda circular para todas as idades.",
-        "description": "Conceito demonstrativo; peças e horários serão confirmados pela loja.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de Toquinho de Gente Brechó Adulto e Infantil: vitrine digital para moda circular adulta e infantil no Sítio Cercado.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "94aebfad"
@@ -447,8 +447,8 @@
       "proof": {
         "eyebrow": "REuse House",
         "title": "Garimpo consciente no Jardim das Américas.",
-        "description": "Conceito demonstrativo; curadoria e canais de atendimento serão confirmados pela loja.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de REuse House Brechó: presença digital para brechó de moda sustentável no Jardim das Américas.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "d5b75340"
@@ -459,8 +459,8 @@
       "proof": {
         "eyebrow": "Brechó São Francisco",
         "title": "Peças com história em uma vitrine acolhedora.",
-        "description": "Conceito demonstrativo; acervo e horários serão confirmados pela loja.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de Brechó São Francisco: catálogo digital para roupas, acessórios e peças de segunda mão no bairro São Francisco.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "805279e7"
@@ -471,8 +471,8 @@
       "proof": {
         "eyebrow": "Angel Mix Brechó",
         "title": "Garimpo de moda no Novo Mundo.",
-        "description": "Conceito demonstrativo; peças e atendimento serão confirmados pela loja.",
-        "ctaLabel": "Conhecer conceito",
+        "description": "Presença digital de Angel Mix Brechó: vitrine digital para um pequeno brechó de moda no Novo Mundo.",
+        "ctaLabel": "Conhecer o projeto",
         "ctaHref": "#servicos"
       },
       "socialVersion": "1bcbcafe"
@@ -631,7 +631,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "6401b375"
+      "socialVersion": "4c03d575"
     },
     "clinica-integrada": {
       "icon": "/images/clinica-integrada/logo.svg",
@@ -639,11 +639,11 @@
       "proof": {
         "eyebrow": "Clínica Integrada de Saúde",
         "title": "Clínica Integrada de Saúde com uma presença que explica o que faz.",
-        "description": "Demonstração de presença digital para uma clínica integrada, com informações de especialidades e jornada de atendimento.",
+        "description": "Presença digital de Clínica Integrada de Saúde: uma clínica integrada, com informações de especialidades e jornada de atendimento.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "d3cb9694"
+      "socialVersion": "5d201989"
     },
     "almeida-torres": {
       "icon": "/images/almeida-torres/logo.svg",
@@ -651,11 +651,11 @@
       "proof": {
         "eyebrow": "Almeida Torres Advocacia",
         "title": "Almeida Torres Advocacia com uma presença que explica o que faz.",
-        "description": "Demonstração de presença digital para advocacia, com áreas de atuação e orientação inicial apresentadas de forma clara.",
+        "description": "Presença digital de Almeida Torres Advocacia: advocacia, com áreas de atuação e orientação inicial apresentadas de forma clara.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "9289ff61"
+      "socialVersion": "e3b90d52"
     },
     "casa-nativa": {
       "icon": "/images/casa-nativa/logo.svg",
@@ -663,11 +663,11 @@
       "proof": {
         "eyebrow": "Casa Nativa Bistrô",
         "title": "Casa Nativa Bistrô com uma presença que explica o que faz.",
-        "description": "Demonstração de presença digital para bistrô, com ambiente, experiência gastronômica e reserva como próximos passos.",
+        "description": "Presença digital de Casa Nativa Bistrô: bistrô, com ambiente, experiência gastronômica e reserva como próximos passos.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "82891afa"
+      "socialVersion": "1fc562b5"
     },
     "guaratuba-sabores-da-baia": {
       "icon": "/images/guaratuba-sabores-da-baia/logo.svg",
@@ -675,11 +675,11 @@
       "proof": {
         "eyebrow": "Sabores da Baía",
         "title": "Sabores da Baía com uma presença que explica o que faz.",
-        "description": "Amostra pública de cardápio e presença digital para um pequeno restaurante de Guaratuba, criada como demonstração comercial.",
+        "description": "Presença digital de Sabores da Baía: cardápio e presença digital para um pequeno restaurante de Guaratuba.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "a7ba680c"
+      "socialVersion": "b0b15835"
     },
     "guaratuba-oficina-nautica": {
       "icon": "/images/guaratuba-oficina-nautica/logo.svg",
@@ -687,11 +687,11 @@
       "proof": {
         "eyebrow": "Oficina Náutica Guaratuba",
         "title": "Oficina Náutica Guaratuba com uma presença que explica o que faz.",
-        "description": "Amostra pública de landing page para um prestador náutico local, criada como demonstração comercial.",
+        "description": "Presença digital de Oficina Náutica Guaratuba: landing page para um prestador náutico local.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "ee1b975e"
+      "socialVersion": "ef585739"
     },
     "guaratuba-atelie-presentes": {
       "icon": "/images/guaratuba-atelie-presentes/logo.svg",
@@ -699,11 +699,11 @@
       "proof": {
         "eyebrow": "Ateliê Encanto da Baía",
         "title": "Ateliê Encanto da Baía com uma presença que explica o que faz.",
-        "description": "Amostra pública de catálogo para presentes e artesanato de bairro em Guaratuba, criada como demonstração comercial.",
+        "description": "Presença digital de Ateliê Encanto da Baía: catálogo para presentes e artesanato de bairro em Guaratuba.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "085c1ad0"
+      "socialVersion": "d8f6fba3"
     },
     "guaratuba-reparos-residenciais": {
       "icon": "/images/guaratuba-reparos-residenciais/logo.svg",
@@ -711,11 +711,11 @@
       "proof": {
         "eyebrow": "Reparos do Litoral",
         "title": "Reparos do Litoral com uma presença que explica o que faz.",
-        "description": "Amostra pública de serviço local para reparos residenciais e comerciais em Guaratuba, criada como demonstração comercial.",
+        "description": "Presença digital de Reparos do Litoral: serviço local para reparos residenciais e comerciais em Guaratuba.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "0475b2dc"
+      "socialVersion": "f02a0d87"
     },
     "mirassol-delicias-caseiras": {
       "icon": "/images/mirassol-delicias-caseiras/logo.svg",
@@ -723,11 +723,11 @@
       "proof": {
         "eyebrow": "Delícias Caseiras Mirassol",
         "title": "Delícias Caseiras Mirassol com uma presença que explica o que faz.",
-        "description": "Amostra pública de catálogo para uma produção caseira de bolos e salgados em Mirassol, criada como demonstração comercial.",
+        "description": "Presença digital de Delícias Caseiras Mirassol: catálogo para uma produção caseira de bolos e salgados em Mirassol.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "f9b6faed"
+      "socialVersion": "74e3c878"
     },
     "mirassol-conserta-celular": {
       "icon": "/images/mirassol-conserta-celular/logo.svg",
@@ -735,11 +735,11 @@
       "proof": {
         "eyebrow": "Conserta Mirassol",
         "title": "Conserta Mirassol com uma presença que explica o que faz.",
-        "description": "Amostra pública de landing page para assistência técnica de bairro em Mirassol, criada como demonstração comercial.",
+        "description": "Presença digital de Conserta Mirassol: landing page para assistência técnica de bairro em Mirassol.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "0c2b1ed3"
+      "socialVersion": "1b41217b"
     },
     "bh-barreiro-marmitas": {
       "icon": "/images/bh-barreiro-marmitas/logo.svg",
@@ -747,11 +747,11 @@
       "proof": {
         "eyebrow": "Marmitas do Barreiro",
         "title": "Marmitas do Barreiro com uma presença que explica o que faz.",
-        "description": "Amostra pública de cardápio para uma marmitaria de bairro em Belo Horizonte, criada como demonstração comercial.",
+        "description": "Presença digital de Marmitas do Barreiro: cardápio para uma marmitaria de bairro em Belo Horizonte.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "f063fad1"
+      "socialVersion": "93d1bd0a"
     },
     "uberlandia-eletrica-residencial": {
       "icon": "/images/uberlandia-eletrica-residencial/logo.svg",
@@ -759,11 +759,11 @@
       "proof": {
         "eyebrow": "Elétrica Bairro Brasil",
         "title": "Elétrica Bairro Brasil com uma presença que explica o que faz.",
-        "description": "Amostra pública de página de serviço para eletricista de bairro em Uberlândia, criada como demonstração comercial.",
+        "description": "Presença digital de Elétrica Bairro Brasil: página de serviço para eletricista de bairro em Uberlândia.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "68e89c18"
+      "socialVersion": "664ba067"
     }
   }
 }

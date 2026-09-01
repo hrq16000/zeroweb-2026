@@ -19,7 +19,10 @@ export function useNearFooter(): boolean {
       // Projetos de cliente usam rodapés editoriais com paleta própria, sem
       // a classe `bg-foreground` do rodapé institucional. O fallback mantém
       // o comportamento universal sem deixar FABs sobre esses rodapés.
-      const footer = document.querySelector("footer.bg-foreground") ?? document.querySelector("footer");
+      const footer =
+        document.querySelector("[data-portfolio-canonical-footer]") ??
+        document.querySelector("footer.bg-foreground") ??
+        document.querySelector("footer");
       if (!footer) return false;
       observer = new IntersectionObserver(([entry]) => setNearFooter(entry.isIntersecting), {
         threshold: 0.05,

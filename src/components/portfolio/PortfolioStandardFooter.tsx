@@ -9,14 +9,15 @@ type Props = {
 };
 
 /**
- * Rodapé padrão da hospedagem, aplicado a todo projeto `/portfolio/:slug`.
+ * Rodapé canônico aplicado a todo projeto `/portfolio/:slug`.
  * É neutro de identidade: nome do cliente + crédito discreto da 0WEB.
- * Não substitui o rodapé editorial do cliente — complementa-o.
+ * O shell garante que ele seja a última seção de conteúdo da página.
  */
 export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredit }: Props) {
   const dark = variant === "dark";
   return (
     <footer
+      data-portfolio-canonical-footer
       className={
         "border-t px-5 py-6 text-xs " +
         (dark ? "border-white/10 bg-[#0b0b0f] text-slate-300" : "border-slate-200 bg-slate-50 text-slate-600")

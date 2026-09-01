@@ -127,7 +127,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
   },
   head: ({ loaderData }) => {
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
-    const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Demonstração de site";
+    const title = prototype?.siteName ?? loaderData?.vertical?.name ?? "Projeto de presença digital";
     const isHotDog = loaderData?.slug === "paraiso-do-hot-dog";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
     const isChyrley = loaderData?.slug === "confeitaria-chyrley";
@@ -241,7 +241,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "JKL Marcenaria em Curitiba: móveis planejados sob medida em MDF para cozinhas, dormitórios, nichos e banheiros."
           : isSantos
             ? "Montagem e desmontagem de móveis, pintura interna, reparos elétricos, limpeza de caixa d'água e instalação de cortinas em Curitiba, Colombo e Alphaville."
-          : (loaderData?.vertical?.subheadline ?? "Demonstração de site criado pela 0WEB.");
+          : (loaderData?.vertical?.subheadline ?? "Projeto de presença digital criado pela 0WEB.");
     const url = absUrl(`/portfolio/${loaderData?.slug ?? ""}`);
     const assetConfig = loaderData?.slug ? resolvePortfolioAssets(loaderData.slug) : undefined;
     const socialImage = withSocialVersion(absUrl(

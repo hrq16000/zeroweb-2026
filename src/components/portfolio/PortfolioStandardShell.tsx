@@ -18,7 +18,10 @@ import { PortfolioConversionNarrative } from "@/components/portfolio/PortfolioCo
 type Props = {
   slug: string;
   children: ReactNode;
-  /** Dedicated client pages already own their editorial footer. */
+  /**
+   * Kept for route compatibility. The shell now owns the only canonical
+   * footer, so legacy client footers are hidden inside the client region.
+   */
   includePlatformFooter?: boolean;
 };
 
@@ -32,6 +35,9 @@ type Props = {
  * Overrides por cliente ficam em `src/config/portfolio-global-config.json`.
  */
 export function PortfolioStandardShell({ slug, children, includePlatformFooter = false }: Props) {
+  // Older dedicated routes still pass this flag. Footer ownership is now
+  // centralized so the client footer can never appear above the About block.
+  void includePlatformFooter;
   const standards = resolvePortfolioStandards(slug);
   const client = findPortfolioClient(slug);
   const clientKey = resolvePortfolioClientKey(slug);
@@ -39,7 +45,7 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
   const proof = resolvePortfolioAssets(slug)?.proof;
 
   return (
-    <>
+    <div className="portfolio-standard-shell">
       <PortfolioVitals slug={slug} />
       {standards.shareButton.enabled ? (
         <PortfolioShareButton
@@ -51,14 +57,26 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
         />
       ) : null}
 
-      {children}
-
       <PortfolioConversionNarrative slug={slug} />
+
+      {/*
+       * Dedicated pages historically rendered their own footer/host credit.
+       * Keep their editorial content intact but suppress those legacy footer
+       * nodes inside this boundary. The canonical footer below is always the
+       * last content section after About and the presence kit.
+       */}
+      <div
+        data-portfolio-client-content
+        className="[&_footer]:hidden [&_[data-portfolio-host-credit]]:hidden"
+      >
+        {children}
+      </div>
+
       <PortfolioPresenceKit slug={slug} />
 
       {clientKey && proof ? <PortfolioSocialProofPopup clientKey={clientKey} {...proof} /> : null}
 
-      {includePlatformFooter && standards.footer.enabled ? (
+      {standards.footer.enabled ? (
         <PortfolioStandardFooter
           siteName={siteName}
           variant={standards.footer.variant}
@@ -85,6 +103,6 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
 
       {/* Camada externa da hospedagem: obrigatória, com guard de instância única. */}
       <PortfolioUpsellPopup pageName={`portfolio-${slug}`} />
-    </>
+    </div>
   );
 }

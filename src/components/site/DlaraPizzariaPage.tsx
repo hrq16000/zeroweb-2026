@@ -26,7 +26,7 @@ export function DlaraPizzariaPage() {
             Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Um conceito de presença digital para organizar opções, ocasiões e próximos passos do pedido.
+            Presença digital para organizar opções, ocasiões e próximos passos do pedido.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

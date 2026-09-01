@@ -64,12 +64,10 @@ export function getPortfolioPresenceKit(slug: string) {
     },
     printMockup: {
       kind: "business-card-and-digital-flyer",
-      status: "concept" as const,
+      status: "published" as const,
       source: assets.socialImage,
-      alt: `Panfleto digital conceitual de ${item.title}`,
+      alt: `Panfleto digital de ${item.title}`,
     },
-    disclosure:
-      "Conceito de presença e papelaria — amostra digital para avaliação; não representa material impresso aprovado.",
   };
 }
 
@@ -92,7 +90,7 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
           className="text-xs font-bold uppercase tracking-[.22em]"
           style={{ color: palette.accent }}
         >
-          Conceito de presença e papelaria
+          Kit de presença e papelaria
         </p>
         <div className="mt-3 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
@@ -103,7 +101,7 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
               Uma marca completa também se reconhece no papel.
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 opacity-80">
-              Veja uma aplicação visual realista, construída com a logo e a imagem social de{" "}
+              Veja as peças de presença preparadas, construídas com a logo e a imagem social de{" "}
               {kit.brandBrief.name}. O cartão e o panfleto mantêm o mesmo segmento, linguagem e
               região do projeto.
             </p>
@@ -112,7 +110,7 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
             className="rounded-full border px-4 py-2 text-xs font-bold"
             style={{ borderColor: palette.accent, color: palette.accent }}
           >
-            Amostra conceitual
+            Cartão + panfleto
           </span>
         </div>
 
@@ -122,7 +120,7 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
               className="mb-3 text-xs font-bold uppercase tracking-[.18em]"
               style={{ color: palette.accent }}
             >
-              Cartão de visitas · conceito
+              Cartão de visitas
             </p>
             <figure
               className="relative mx-auto aspect-[1.72] w-full max-w-[560px] overflow-hidden rounded-[1.5rem] p-6 text-white shadow-2xl sm:p-8"
@@ -162,7 +160,7 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
                 </div>
               </div>
               <figcaption className="sr-only">
-                Mockup de cartão de visitas conceitual de {kit.brandBrief.name}
+                Ilustração do cartão de visitas de {kit.brandBrief.name}
               </figcaption>
             </figure>
           </div>
@@ -172,7 +170,7 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
               className="mb-3 text-xs font-bold uppercase tracking-[.18em]"
               style={{ color: palette.accent }}
             >
-              Panfleto digital · conceito
+              Panfleto digital
             </p>
             <figure className="relative mx-auto aspect-[1.91/1] w-full max-w-[760px] overflow-hidden rounded-[1.5rem] bg-black shadow-2xl ring-1 ring-black/10">
               <PortfolioImage
@@ -215,13 +213,12 @@ export function PortfolioPresenceKit({ slug }: { slug: string }) {
                 </div>
               </div>
               <figcaption className="sr-only">
-                Mockup de panfleto digital conceitual de {kit.brandBrief.name}
+                Ilustração do panfleto digital de {kit.brandBrief.name}
               </figcaption>
             </figure>
           </div>
         </div>
 
-        <p className="mt-6 max-w-3xl text-xs leading-5 opacity-70">{kit.disclosure}</p>
       </div>
     </section>
   );

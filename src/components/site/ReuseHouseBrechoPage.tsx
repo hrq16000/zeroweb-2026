@@ -23,10 +23,10 @@ export function ReuseHouseBrechoPage() {
             REuse House Brechó
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de REuse House Brechó.
+            Uma peça especial pode ganhar uma nova história.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Presença digital de REuse House Brechó: curadoria de moda sustentável no Jardim das Américas.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

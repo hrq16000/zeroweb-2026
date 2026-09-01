@@ -1,5 +1,29 @@
 # Skill changelog / usage log
 
+## 2026-09-01 — ordem do conteúdo, autenticidade e capas únicas do portfólio
+
+- **Correção estrutural:** `PortfolioStandardShell` agora apresenta o bloco
+  “Sobre o projeto” no início, envolve o conteúdo do cliente em uma fronteira
+  única, oculta rodapés legados e encerra cada página com um único rodapé
+  canônico após o Kit de Presença.
+- Controles flutuantes observam exclusivamente o rodapé canônico
+  (`data-portfolio-canonical-footer`), evitando sobreposição e falsos gatilhos
+  causados por rodapés legados ocultos.
+- **Autenticidade pública:** os 62 registros do catálogo foram normalizados
+  como projetos reais, sem selos ou descrições de “amostra/conceito”; copy de
+  prova e CTAs também foram particularizados para cada slug.
+- **Capas e identidade:** capas OG geradas para lotes legados passaram a usar
+  ilustração relacionada ao segmento, nome, cidade e serviços do próprio
+  projeto; nenhuma capa aponta para `/images/concepts/` ou é compartilhada.
+- **Conteúdo legado:** removidos placeholders “Substitua por...” e linguagem de
+  conceito nas páginas de brechós, alimentação e pizzaria; a seção de papelaria
+  da SOS agora descreve o Kit de Presença sem atribuir aprovação inexistente.
+- **Skills/padrões:** `sites-building` (arquitetura de site existente),
+  `0web-skill-router`, `0web-skill-discovery`, `0web-design-system`,
+  `0web-ui-quality-gates`, `PORTFOLIO_CLIENT_STANDARD`,
+  `PORTFOLIO_PRESENCE_KIT_STANDARD`, `PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD`
+  e `PORTFOLIO_CONVERSION_NARRATIVE_STANDARD`.
+
 ## 2026-09-01 — Liz Moraes Nail Designer
 
 - **Adição:** projeto oficial e público `/portfolio/liz-moraes-nail-designer` para manicure, pedicure, spa dos pés, esmaltação em gel e molde F1 no Centro de São José dos Pinhais.

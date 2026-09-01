@@ -26,7 +26,7 @@ export function BetoPasteisPage() {
             O pastel que combina com a pausa, o almoço e a vontade do bairro.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Um conceito de presença digital para reunir sabores, horários e pedido em uma experiência simples.
+            Presença digital para reunir sabores, horários e pedido em uma experiência simples.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

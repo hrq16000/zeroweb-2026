@@ -23,10 +23,10 @@ export function BrechoSaoFranciscoPage() {
             Brechó São Francisco
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de Brechó São Francisco.
+            Peças com história em uma vitrine acolhedora.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Presença digital de Brechó São Francisco: roupas, acessórios e peças de segunda mão no bairro São Francisco.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

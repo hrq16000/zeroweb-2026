@@ -48,7 +48,7 @@ export function PortfolioContactFloating({
   const [nearFooter, setNearFooter] = useState(false);
 
   useEffect(() => {
-    const footer = document.querySelector("footer");
+    const footer = document.querySelector("[data-portfolio-canonical-footer]") ?? document.querySelector("footer");
     if (!footer || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(([entry]) => setNearFooter(entry.isIntersecting), { threshold: 0.05 });
     observer.observe(footer);

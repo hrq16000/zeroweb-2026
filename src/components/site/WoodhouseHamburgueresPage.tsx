@@ -26,7 +26,7 @@ export function WoodhouseHamburgueresPage() {
             Grelhados e petiscos para transformar qualquer noite em encontro.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Um conceito de site para apresentar a experiência da Woodhouse no Jardim Itália com personalidade.
+            Presença digital para apresentar a experiência da Woodhouse no Jardim Itália com personalidade.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage

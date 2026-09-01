@@ -6,7 +6,7 @@ type PortfolioHostCreditProps = {
 /** Crédito compartilhado da hospedagem, separado da identidade de cada cliente. */
 export function PortfolioHostCredit({ className, linkClassName }: PortfolioHostCreditProps) {
   return (
-    <p className={className}>
+    <p className={className} data-portfolio-host-credit>
       Site desenvolvido por{" "}
       <a
         href="https://0web.com.br"

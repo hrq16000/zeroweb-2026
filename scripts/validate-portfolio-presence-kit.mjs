@@ -7,7 +7,7 @@ const catalog = JSON.parse(readFileSync(resolve(root, "src/config/portfolio-cata
 const assets = JSON.parse(readFileSync(resolve(root, "src/config/portfolio-assets.json"), "utf8"));
 const kitSource = readFileSync(resolve(root, "src/components/portfolio/PortfolioPresenceKit.tsx"), "utf8");
 const errors = [];
-const requiredTokens = ["brandBrief", "printMockup", "Conceito de presença e papelaria", "Cartão de visitas", "Panfleto digital"];
+const requiredTokens = ["brandBrief", "printMockup", "Kit de presença e papelaria", "Cartão de visitas", "Panfleto digital"];
 for (const token of requiredTokens) if (!kitSource.includes(token)) errors.push(`kit: contrato ausente (${token})`);
 const sourcePath = resolve(root, "public/images/portfolio-kit/stationery-base.png");
 if (!existsSync(sourcePath)) errors.push("kit: base bitmap ausente (public/images/portfolio-kit/stationery-base.png)");
@@ -27,4 +27,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(` - ${error}`));
   process.exit(1);
 }
-console.log(`[portfolio-presence-kit] OK — ${catalog.length} projetos com cartão e panfleto conceituais vinculados`);
+console.log(`[portfolio-presence-kit] OK — ${catalog.length} projetos com cartão e panfleto oficiais vinculados`);
