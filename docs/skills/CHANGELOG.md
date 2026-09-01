@@ -507,3 +507,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Tarefa:** permitir que o visitante encontre a região do Jardim Itália diretamente em `/portfolio/`.
 - **Alterações:** adicionada seção de guia comercial regional com link para o cluster indexável e cards dos projetos canônicos associados à Rua Quirino Zagonel.
 - **Validação:** catálogo, boundaries, metadados e rotas aprovados após a alteração.
+
+## 2026-09-01 — refinamento dos quatro drafts regionais
+
+- **Tarefa:** retirar placeholders genéricos dos quatro projetos da Rua Quirino Zagonel.
+- **Alterações:** heróis, descrições, cards de serviço e CTA foram particularizados para Marmitaria Dom Diego, Beto Pastéis, Woodhouse e D’Lara; imagens foram alinhadas ao formato real `.png`.
+- **Proteção:** o texto continua declarando conceito demonstrativo e não cria preço, contato, avaliação ou promessa comercial.
+- **Validação:** performance, boundaries, catálogo e assets aprovados para 35 projetos.

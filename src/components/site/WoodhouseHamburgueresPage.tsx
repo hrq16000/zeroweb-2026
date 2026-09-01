@@ -24,14 +24,14 @@ export function WoodhouseHamburgueresPage() {
             Woodhouse Hambúrgueres
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de Woodhouse Hambúrgueres.
+            Grelhados e petiscos para transformar qualquer noite em encontro.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Um conceito de site para apresentar a experiência da Woodhouse no Jardim Itália com personalidade.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
-            src="/images/woodhouse-hamburgueres/capa.webp"
+            src="/images/woodhouse-hamburgueres/capa.png"
             alt="Woodhouse Hambúrgueres"
             priority
             width={1200}
@@ -48,6 +48,9 @@ export function WoodhouseHamburgueresPage() {
             >
               Falar com a equipe
             </FunnelCTAButton>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[['Hambúrgueres grelhados','Espaço para destacar ingredientes e combinações reais.'],['Petiscos','Uma seção para compartilhar a experiência da casa.'],['Clima da noite','Conteúdo visual que convida a conhecer o ambiente.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </section>
       </main>

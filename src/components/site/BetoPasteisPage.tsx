@@ -24,14 +24,14 @@ export function BetoPasteisPage() {
             Beto Pastéis
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de Beto Pastéis.
+            O pastel que combina com a pausa, o almoço e a vontade do bairro.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Um conceito de presença digital para reunir sabores, horários e pedido em uma experiência simples.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
-            src="/images/beto-pasteis/capa.webp"
+            src="/images/beto-pasteis/capa.png"
             alt="Beto Pastéis"
             priority
             width={1200}
@@ -48,6 +48,9 @@ export function BetoPasteisPage() {
             >
               Falar com a equipe
             </FunnelCTAButton>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[['Sabores','Organização visual para apresentar o cardápio confirmado.'],['Tradição local','Uma vitrine que valoriza a história e o jeito da casa.'],['Pedido direto','Caminho claro para consultar e pedir quando estiver pronto.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </section>
       </main>

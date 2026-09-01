@@ -24,14 +24,14 @@ export function DlaraPizzariaPage() {
             D Lara Pizzaria Esfiharia e Hamburgueria
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Substitua por uma promessa concreta de D Lara Pizzaria Esfiharia e Hamburgueria.
+            Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite.
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Substitua por uma descrição real do negócio, sem métricas inventadas.
+            Um conceito de presença digital para organizar opções, ocasiões e próximos passos do pedido.
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
-            src="/images/dlara-pizzaria/capa.webp"
+            src="/images/dlara-pizzaria/capa.png"
             alt="D Lara Pizzaria Esfiharia e Hamburgueria"
             priority
             width={1200}
@@ -48,6 +48,9 @@ export function DlaraPizzariaPage() {
             >
               Falar com a equipe
             </FunnelCTAButton>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[['Pizzas','Destaque para sabores e tamanhos confirmados pela casa.'],['Esfihas','Organização para facilitar a escolha e a comparação.'],['Lanches','Um caminho único para consultar o menu e pedir.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </section>
       </main>
