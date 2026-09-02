@@ -16,7 +16,7 @@ const STATUSES = ["pendente", "aprovado", "suspenso", "bloqueado"] as const;
 // Papéis privilegiados: aprovação de parceiros e atribuição manual de vendas
 // só podem ser executadas por administradores.
 async function assertAdmin(
-  supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
+  supabase: { rpc: (fn: "is_admin_or_super", args: { _uid: string }) => PromiseLike<{ data: unknown }> },
   userId: string,
 ): Promise<void> {
   const { data } = await supabase.rpc("is_admin_or_super", { _uid: userId });
