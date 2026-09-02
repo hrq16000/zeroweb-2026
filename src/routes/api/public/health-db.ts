@@ -16,11 +16,19 @@ export const Route = createFileRoute('/api/public/health-db')({
       GET: async ({ request }) => {
         const { supabaseAdmin } = await import('@/integrations/supabase/client.server');
         const url = new URL(request.url);
-        const reload = url.searchParams.get('reload') === '1';
+        const wantsReload = url.searchParams.get('reload') === '1';
 
-        if (reload) {
+        // O reload do cache de schema é privilegiado: exige o mesmo segredo
+        // usado pelos hooks de manutenção. Sem ele, apenas o health-check roda.
+        let reload = false;
+        if (wantsReload) {
+          const { requireCronSecret } = await import('./hooks/_cron-auth');
+          const unauth = requireCronSecret(request);
+          if (unauth) return unauth;
+          reload = true;
           await supabaseAdmin.rpc('pgrst_reload_schema' as never);
         }
+
 
         const { data, error } = await supabaseAdmin.rpc(
           'db_required_tables_check' as never,
