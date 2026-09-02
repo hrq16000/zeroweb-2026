@@ -66,6 +66,7 @@ import { Route as SitemapCitiesDotxmlRouteImport } from './routes/sitemap-cities
 import { Route as SitemapCityServicesDotxmlRouteImport } from './routes/sitemap-city-services[.]xml'
 import { Route as SitemapCwbNeighborhoodsDotxmlRouteImport } from './routes/sitemap-cwb-neighborhoods[.]xml'
 import { Route as SitemapEditorialDotxmlRouteImport } from './routes/sitemap-editorial[.]xml'
+import { Route as SitemapInstitucionalDotxmlRouteImport } from './routes/sitemap-institucional[.]xml'
 import { Route as SitemapMarketplaceDotxmlRouteImport } from './routes/sitemap-marketplace[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapPortfolioDotxmlRouteImport } from './routes/sitemap-portfolio[.]xml'
@@ -105,6 +106,8 @@ import { Route as CasesIndexRouteImport } from './routes/cases.index'
 import { Route as CasesSlugRouteImport } from './routes/cases.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CidadeSlugRouteImport } from './routes/cidade.$slug'
+import { Route as CriacaoDeSiteInstitucionalIndexRouteImport } from './routes/criacao-de-site-institucional.index'
+import { Route as CriacaoDeSiteInstitucionalCidadeRouteImport } from './routes/criacao-de-site-institucional.$cidade'
 import { Route as EmpresaSlugRouteImport } from './routes/empresa.$slug'
 import { Route as EstadosStateRouteImport } from './routes/estados.$state'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
@@ -505,6 +508,12 @@ const SitemapEditorialDotxmlRoute = SitemapEditorialDotxmlRouteImport.update({
   path: '/sitemap-editorial.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapInstitucionalDotxmlRoute =
+  SitemapInstitucionalDotxmlRouteImport.update({
+    id: '/sitemap-institucional.xml',
+    path: '/sitemap-institucional.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SitemapMarketplaceDotxmlRoute =
   SitemapMarketplaceDotxmlRouteImport.update({
     id: '/sitemap-marketplace.xml',
@@ -701,6 +710,18 @@ const CidadeSlugRoute = CidadeSlugRouteImport.update({
   path: '/cidade/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CriacaoDeSiteInstitucionalIndexRoute =
+  CriacaoDeSiteInstitucionalIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => CriacaoDeSiteInstitucionalRoute,
+  } as any)
+const CriacaoDeSiteInstitucionalCidadeRoute =
+  CriacaoDeSiteInstitucionalCidadeRouteImport.update({
+    id: '/$cidade',
+    path: '/$cidade',
+    getParentRoute: () => CriacaoDeSiteInstitucionalRoute,
+  } as any)
 const EmpresaSlugRoute = EmpresaSlugRouteImport.update({
   id: '/empresa/$slug',
   path: '/empresa/$slug',
@@ -1330,7 +1351,7 @@ export interface FileRoutesByFullPath {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
-  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRouteWithChildren
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1375,6 +1396,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-city-services.xml': typeof SitemapCityServicesDotxmlRoute
   '/sitemap-cwb-neighborhoods.xml': typeof SitemapCwbNeighborhoodsDotxmlRoute
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
+  '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
@@ -1409,6 +1431,7 @@ export interface FileRoutesByFullPath {
   '/cases/$slug': typeof CasesSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/cidade/$slug': typeof CidadeSlugRoute
+  '/criacao-de-site-institucional/$cidade': typeof CriacaoDeSiteInstitucionalCidadeRoute
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
@@ -1439,6 +1462,7 @@ export interface FileRoutesByFullPath {
   '/blog-skyscraper/': typeof BlogSkyscraperIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
+  '/criacao-de-site-institucional/': typeof CriacaoDeSiteInstitucionalIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
@@ -1538,7 +1562,6 @@ export interface FileRoutesByTo {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
-  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1582,6 +1605,7 @@ export interface FileRoutesByTo {
   '/sitemap-city-services.xml': typeof SitemapCityServicesDotxmlRoute
   '/sitemap-cwb-neighborhoods.xml': typeof SitemapCwbNeighborhoodsDotxmlRoute
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
+  '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
@@ -1615,6 +1639,7 @@ export interface FileRoutesByTo {
   '/cases/$slug': typeof CasesSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/cidade/$slug': typeof CidadeSlugRoute
+  '/criacao-de-site-institucional/$cidade': typeof CriacaoDeSiteInstitucionalCidadeRoute
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
@@ -1645,6 +1670,7 @@ export interface FileRoutesByTo {
   '/blog-skyscraper': typeof BlogSkyscraperIndexRoute
   '/blog': typeof BlogIndexRoute
   '/cases': typeof CasesIndexRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalIndexRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/servicos': typeof ServicosIndexRoute
   '/sites-robustos': typeof SitesRobustosIndexRoute
@@ -1746,7 +1772,7 @@ export interface FileRoutesById {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
-  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRouteWithChildren
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1791,6 +1817,7 @@ export interface FileRoutesById {
   '/sitemap-city-services.xml': typeof SitemapCityServicesDotxmlRoute
   '/sitemap-cwb-neighborhoods.xml': typeof SitemapCwbNeighborhoodsDotxmlRoute
   '/sitemap-editorial.xml': typeof SitemapEditorialDotxmlRoute
+  '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
@@ -1825,6 +1852,7 @@ export interface FileRoutesById {
   '/cases/$slug': typeof CasesSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
   '/cidade/$slug': typeof CidadeSlugRoute
+  '/criacao-de-site-institucional/$cidade': typeof CriacaoDeSiteInstitucionalCidadeRoute
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
@@ -1855,6 +1883,7 @@ export interface FileRoutesById {
   '/blog-skyscraper/': typeof BlogSkyscraperIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
+  '/criacao-de-site-institucional/': typeof CriacaoDeSiteInstitucionalIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
@@ -2001,6 +2030,7 @@ export interface FileRouteTypes {
     | '/sitemap-city-services.xml'
     | '/sitemap-cwb-neighborhoods.xml'
     | '/sitemap-editorial.xml'
+    | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
     | '/sitemap-portfolio.xml'
@@ -2035,6 +2065,7 @@ export interface FileRouteTypes {
     | '/cases/$slug'
     | '/categoria/$slug'
     | '/cidade/$slug'
+    | '/criacao-de-site-institucional/$cidade'
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
@@ -2065,6 +2096,7 @@ export interface FileRouteTypes {
     | '/blog-skyscraper/'
     | '/blog/'
     | '/cases/'
+    | '/criacao-de-site-institucional/'
     | '/portfolio/'
     | '/servicos/'
     | '/sites-robustos/'
@@ -2164,7 +2196,6 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
-    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2208,6 +2239,7 @@ export interface FileRouteTypes {
     | '/sitemap-city-services.xml'
     | '/sitemap-cwb-neighborhoods.xml'
     | '/sitemap-editorial.xml'
+    | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
     | '/sitemap-portfolio.xml'
@@ -2241,6 +2273,7 @@ export interface FileRouteTypes {
     | '/cases/$slug'
     | '/categoria/$slug'
     | '/cidade/$slug'
+    | '/criacao-de-site-institucional/$cidade'
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
@@ -2271,6 +2304,7 @@ export interface FileRouteTypes {
     | '/blog-skyscraper'
     | '/blog'
     | '/cases'
+    | '/criacao-de-site-institucional'
     | '/portfolio'
     | '/servicos'
     | '/sites-robustos'
@@ -2416,6 +2450,7 @@ export interface FileRouteTypes {
     | '/sitemap-city-services.xml'
     | '/sitemap-cwb-neighborhoods.xml'
     | '/sitemap-editorial.xml'
+    | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
     | '/sitemap-portfolio.xml'
@@ -2450,6 +2485,7 @@ export interface FileRouteTypes {
     | '/cases/$slug'
     | '/categoria/$slug'
     | '/cidade/$slug'
+    | '/criacao-de-site-institucional/$cidade'
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
@@ -2480,6 +2516,7 @@ export interface FileRouteTypes {
     | '/blog-skyscraper/'
     | '/blog/'
     | '/cases/'
+    | '/criacao-de-site-institucional/'
     | '/portfolio/'
     | '/servicos/'
     | '/sites-robustos/'
@@ -2581,7 +2618,7 @@ export interface RootRouteChildren {
   CidadesRoute: typeof CidadesRoute
   ConsultoriaRoute: typeof ConsultoriaRoute
   ContatoRoute: typeof ContatoRoute
-  CriacaoDeSiteInstitucionalRoute: typeof CriacaoDeSiteInstitucionalRoute
+  CriacaoDeSiteInstitucionalRoute: typeof CriacaoDeSiteInstitucionalRouteWithChildren
   CriacaoSitesRoute: typeof CriacaoSitesRoute
   DesenvolvimentoRoute: typeof DesenvolvimentoRoute
   DesignSystemRoute: typeof DesignSystemRoute
@@ -2626,6 +2663,7 @@ export interface RootRouteChildren {
   SitemapCityServicesDotxmlRoute: typeof SitemapCityServicesDotxmlRoute
   SitemapCwbNeighborhoodsDotxmlRoute: typeof SitemapCwbNeighborhoodsDotxmlRoute
   SitemapEditorialDotxmlRoute: typeof SitemapEditorialDotxmlRoute
+  SitemapInstitucionalDotxmlRoute: typeof SitemapInstitucionalDotxmlRoute
   SitemapMarketplaceDotxmlRoute: typeof SitemapMarketplaceDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapPortfolioDotxmlRoute: typeof SitemapPortfolioDotxmlRoute
@@ -3107,6 +3145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapEditorialDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap-institucional.xml': {
+      id: '/sitemap-institucional.xml'
+      path: '/sitemap-institucional.xml'
+      fullPath: '/sitemap-institucional.xml'
+      preLoaderRoute: typeof SitemapInstitucionalDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap-marketplace.xml': {
       id: '/sitemap-marketplace.xml'
       path: '/sitemap-marketplace.xml'
@@ -3379,6 +3424,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/cidade/$slug'
       preLoaderRoute: typeof CidadeSlugRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/criacao-de-site-institucional/': {
+      id: '/criacao-de-site-institucional/'
+      path: '/'
+      fullPath: '/criacao-de-site-institucional/'
+      preLoaderRoute: typeof CriacaoDeSiteInstitucionalIndexRouteImport
+      parentRoute: typeof CriacaoDeSiteInstitucionalRoute
+    }
+    '/criacao-de-site-institucional/$cidade': {
+      id: '/criacao-de-site-institucional/$cidade'
+      path: '/$cidade'
+      fullPath: '/criacao-de-site-institucional/$cidade'
+      preLoaderRoute: typeof CriacaoDeSiteInstitucionalCidadeRouteImport
+      parentRoute: typeof CriacaoDeSiteInstitucionalRoute
     }
     '/empresa/$slug': {
       id: '/empresa/$slug'
@@ -4375,6 +4434,23 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface CriacaoDeSiteInstitucionalRouteChildren {
+  CriacaoDeSiteInstitucionalCidadeRoute: typeof CriacaoDeSiteInstitucionalCidadeRoute
+  CriacaoDeSiteInstitucionalIndexRoute: typeof CriacaoDeSiteInstitucionalIndexRoute
+}
+
+const CriacaoDeSiteInstitucionalRouteChildren: CriacaoDeSiteInstitucionalRouteChildren =
+  {
+    CriacaoDeSiteInstitucionalCidadeRoute:
+      CriacaoDeSiteInstitucionalCidadeRoute,
+    CriacaoDeSiteInstitucionalIndexRoute: CriacaoDeSiteInstitucionalIndexRoute,
+  }
+
+const CriacaoDeSiteInstitucionalRouteWithChildren =
+  CriacaoDeSiteInstitucionalRoute._addFileChildren(
+    CriacaoDeSiteInstitucionalRouteChildren,
+  )
+
 interface EstadosRouteChildren {
   EstadosStateRoute: typeof EstadosStateRoute
 }
@@ -4435,7 +4511,7 @@ const rootRouteChildren: RootRouteChildren = {
   CidadesRoute: CidadesRoute,
   ConsultoriaRoute: ConsultoriaRoute,
   ContatoRoute: ContatoRoute,
-  CriacaoDeSiteInstitucionalRoute: CriacaoDeSiteInstitucionalRoute,
+  CriacaoDeSiteInstitucionalRoute: CriacaoDeSiteInstitucionalRouteWithChildren,
   CriacaoSitesRoute: CriacaoSitesRoute,
   DesenvolvimentoRoute: DesenvolvimentoRoute,
   DesignSystemRoute: DesignSystemRoute,
@@ -4480,6 +4556,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapCityServicesDotxmlRoute: SitemapCityServicesDotxmlRoute,
   SitemapCwbNeighborhoodsDotxmlRoute: SitemapCwbNeighborhoodsDotxmlRoute,
   SitemapEditorialDotxmlRoute: SitemapEditorialDotxmlRoute,
+  SitemapInstitucionalDotxmlRoute: SitemapInstitucionalDotxmlRoute,
   SitemapMarketplaceDotxmlRoute: SitemapMarketplaceDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapPortfolioDotxmlRoute: SitemapPortfolioDotxmlRoute,
