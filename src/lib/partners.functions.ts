@@ -13,6 +13,16 @@ async function hashIp(ip: string): Promise<string> {
 const KINDS = ["afiliado", "representante", "parceiro_comercial", "agencia", "franqueado"] as const;
 const STATUSES = ["pendente", "aprovado", "suspenso", "bloqueado"] as const;
 
+// Papéis privilegiados: aprovação de parceiros e atribuição manual de vendas
+// só podem ser executadas por administradores.
+async function assertAdmin(
+  supabase: { rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown }> },
+  userId: string,
+): Promise<void> {
+  const { data } = await supabase.rpc("is_admin_or_super", { _uid: userId });
+  if (data !== true) throw new Error("Acesso restrito a administradores");
+}
+
 // Inscrição pública
 export const applyAsPartner = createServerFn({ method: "POST" })
   .inputValidator((input) =>
