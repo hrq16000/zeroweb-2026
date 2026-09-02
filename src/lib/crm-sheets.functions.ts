@@ -25,8 +25,8 @@ const HEADERS = [
   "Telefone",
   "E-mail",
   "Origem",
-  "Serviço",
-  "Cidade",
+  "Oferta",
+  "Empresa",
   "Status",
   "Responsável",
   "Observação",
@@ -137,8 +137,8 @@ type LeadRow = {
   phone: string | null;
   email: string | null;
   source: string | null;
-  service: string | null;
-  city: string | null;
+  offer_slug: string | null;
+  company: string | null;
   status: string | null;
   assignee: string | null;
   notes: string | null;
@@ -153,8 +153,8 @@ function toRow(lead: LeadRow): string[] {
     lead.phone ?? "",
     lead.email ?? "",
     lead.source ?? "",
-    lead.service ?? "",
-    lead.city ?? "",
+    lead.offer_slug ?? "",
+    lead.company ?? "",
     lead.status ?? "novo",
     lead.assignee ?? "",
     lead.notes ?? "",
@@ -190,11 +190,11 @@ export const syncCrmSheet = createServerFn({ method: "POST" })
 
     const { data: dbRows } = await supabaseAdmin
       .from("lead_submissions")
-      .select("id, created_at, name, phone, email, source, service, city, status, assignee, notes")
+      .select("id, created_at, name, phone, email, source, offer_slug, company, status, assignee, notes")
       .gte("created_at", since)
       .order("created_at", { ascending: false })
       .limit(5000);
-    const leads = (dbRows ?? []) as LeadRow[];
+    const leads = (dbRows ?? []) as unknown as LeadRow[];
     const byId = new Map(leads.map((l) => [l.id, l]));
 
     for (const row of sheetRows) {
@@ -206,12 +206,12 @@ export const syncCrmSheet = createServerFn({ method: "POST" })
       const assignee = (row[9] ?? "").trim();
       const notes = (row[10] ?? "").trim();
 
-      const patch: Record<string, string | null> = {};
+      const patch: { status?: string; assignee?: string | null; notes?: string | null } = {};
       if (status && (CRM_STATUSES as readonly string[]).includes(status) && status !== (lead.status ?? "novo")) {
-        patch["status"] = status;
+        patch.status = status;
       }
-      if (assignee !== (lead.assignee ?? "")) patch["assignee"] = assignee || null;
-      if (notes !== (lead.notes ?? "")) patch["notes"] = notes || null;
+      if (assignee !== (lead.assignee ?? "")) patch.assignee = assignee || null;
+      if (notes !== (lead.notes ?? "")) patch.notes = notes || null;
       if (Object.keys(patch).length === 0) continue;
 
       const { error } = await supabaseAdmin.from("lead_submissions").update(patch).eq("id", id);
