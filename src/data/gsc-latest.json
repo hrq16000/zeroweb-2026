@@ -1,9 +1,10 @@
 {
-  "siteUrl": "",
-  "range": { "startDate": "", "endDate": "" },
-  "refreshedAt": null,
-  "status": "pending",
-  "note": "Arquivo gerado por `bun run gsc:export`. Enquanto o script diário não roda, o painel /app/seo mostra estado vazio — nenhum dado é inventado.",
+  "siteUrl": "https://0web.com.br/",
+  "range": {
+    "startDate": "2026-08-03",
+    "endDate": "2026-08-31"
+  },
+  "refreshedAt": "2026-09-02T02:11:00.557Z",
   "totals": null,
   "queries": [],
   "pages": [],
