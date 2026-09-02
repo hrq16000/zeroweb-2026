@@ -94,10 +94,34 @@ export const setLicenseStatus = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
+/**
+ * Autoriza leitura de dados de uma licença: super admin OU membro do portal
+ * dono da licença. Espelha a checagem das demais funções deste arquivo.
+ */
+async function authorizeLicenseRead(userId: string, licenseId: string) {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  const { data: isSuper } = await supabaseAdmin.rpc("is_super_admin", { _uid: userId });
+  if (isSuper) return;
+  const { data: lic } = await supabaseAdmin
+    .from("licenses")
+    .select("portal_id")
+    .eq("id", licenseId)
+    .maybeSingle();
+  if (!lic?.portal_id) throw new Error("forbidden");
+  const { data: member } = await supabaseAdmin
+    .from("portal_members")
+    .select("portal_id")
+    .eq("user_id", userId)
+    .eq("portal_id", lic.portal_id)
+    .maybeSingle();
+  if (!member) throw new Error("forbidden");
+}
+
 export const getLicenseAudit = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) => z.object({ license_id: z.string().uuid(), limit: z.number().min(1).max(500).default(100) }).parse(d))
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    await authorizeLicenseRead((context as { userId: string }).userId, data.license_id);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: rows, error } = await supabaseAdmin
       .from("license_audit_log")
@@ -112,7 +136,8 @@ export const getLicenseAudit = createServerFn({ method: "GET" })
 export const getLicenseUsage = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) => z.object({ license_id: z.string().uuid(), days: z.number().min(1).max(365).default(30) }).parse(d))
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    await authorizeLicenseRead((context as { userId: string }).userId, data.license_id);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const since = new Date(Date.now() - data.days * 86400000).toISOString().slice(0, 10);
     const { data: rows, error } = await supabaseAdmin
@@ -124,6 +149,7 @@ export const getLicenseUsage = createServerFn({ method: "GET" })
     if (error) throw new Error(error.message);
     return { rows: rows ?? [] };
   });
+
 
 /** Snapshot current license usage. */
 export const snapshotLicenseUsage = createServerFn({ method: "POST" })
