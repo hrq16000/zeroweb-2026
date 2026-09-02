@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { Phone, Filter, PhoneCall, Users, MousePointerClick } from "lucide-react";
-import { listPhoneLeads, type PhoneLead } from "@/lib/phone-leads.functions";
+import { Phone, Filter, PhoneCall, Users, MousePointerClick, MessageCircle } from "lucide-react";
+import { listPhoneLeads, startLeadConversation, type PhoneLead } from "@/lib/phone-leads.functions";
 
 export const Route = createFileRoute("/_authenticated/app/leads-telefone")({
   component: PhoneLeadsPage,
@@ -11,6 +11,24 @@ export const Route = createFileRoute("/_authenticated/app/leads-telefone")({
 
 function PhoneLeadsPage() {
   const fetchLeads = useServerFn(listPhoneLeads);
+  const openConversation = useServerFn(startLeadConversation);
+  const [conversando, setConversando] = useState<string | null>(null);
+  const [erroConversa, setErroConversa] = useState<string | null>(null);
+
+  async function iniciarConversa(leadId: string) {
+    setErroConversa(null);
+    setConversando(leadId);
+    try {
+      const res = await openConversation({ data: { leadId } });
+      if (res.ok) window.open(res.url, "_blank", "noopener,noreferrer");
+      else setErroConversa(res.reason === "sem_telefone" ? "Lead sem telefone." : "Telefone inválido.");
+    } catch {
+      setErroConversa("Não foi possível abrir a conversa.");
+    } finally {
+      setConversando(null);
+    }
+  }
+
   const [segmento, setSegmento] = useState("all");
   const [etapa, setEtapa] = useState("all");
   const [somenteContatados, setSomenteContatados] = useState(false);
@@ -159,6 +177,10 @@ function PhoneLeadsPage() {
         </label>
       </div>
 
+      {erroConversa && (
+        <p className="mb-3 text-xs text-destructive">{erroConversa}</p>
+      )}
+
       <div className="rounded-2xl border border-border overflow-hidden bg-card">
         <table className="w-full text-sm">
           <thead className="bg-muted/40 text-xs uppercase tracking-wider text-muted-foreground">
@@ -168,19 +190,20 @@ function PhoneLeadsPage() {
               <th className="text-left px-4 py-3">Segmento</th>
               <th className="text-left px-4 py-3 hidden md:table-cell">Etapa</th>
               <th className="text-left px-4 py-3">Contato</th>
+              <th className="text-right px-4 py-3">Conversa</th>
             </tr>
           </thead>
           <tbody>
             {isLoading && (
               <tr>
-                <td colSpan={5} className="text-center py-10 text-muted-foreground">
+                <td colSpan={6} className="text-center py-10 text-muted-foreground">
                   Carregando…
                 </td>
               </tr>
             )}
             {!isLoading && leads.length === 0 && (
               <tr>
-                <td colSpan={5} className="text-center py-10 text-muted-foreground">
+                <td colSpan={6} className="text-center py-10 text-muted-foreground">
                   Nenhum lead com telefone no recorte atual.
                 </td>
               </tr>
@@ -203,6 +226,17 @@ function PhoneLeadsPage() {
                   ) : (
                     <span className="text-xs text-muted-foreground">sem contato</span>
                   )}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  <button
+                    type="button"
+                    onClick={() => iniciarConversa(l.id)}
+                    disabled={conversando === l.id}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 disabled:opacity-60"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" aria-hidden="true" />
+                    {conversando === l.id ? "Abrindo…" : "Abrir conversa"}
+                  </button>
                 </td>
               </tr>
             ))}

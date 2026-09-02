@@ -14,6 +14,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Inbox, Filter, ShoppingCart, ClipboardList, Download, Mail } from "lucide-react";
+import { QuizConversionCharts } from "@/components/app/QuizConversionCharts";
 
 export const Route = createFileRoute("/_authenticated/app/leads")({
   component: LeadsPage,
@@ -125,6 +126,10 @@ function LeadsPage() {
         <Stat label="Carrinho" value={stats.carrinho} icon={<ShoppingCart className="w-4 h-4" />} />
         <Stat label="Funis" value={stats.funil} icon={<ClipboardList className="w-4 h-4" />} />
       </div>
+
+      <QuizConversionCharts />
+
+
 
       <div className="grid lg:grid-cols-2 gap-4 mb-6">
         <section className="rounded-2xl border border-border bg-card p-4">
