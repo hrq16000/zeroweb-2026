@@ -149,9 +149,32 @@ export function InstitutionalDiagnosticQuiz({
   const progress = Math.round(((done ? total : index) / total) * 100);
   const segment = useMemo(() => computeSegment(answers), [answers]);
 
+  // Pixel próprio: view do quiz, view de cada etapa e abandono ao sair sem enviar.
+  const enviado = useRef(false);
+  useEffect(() => {
+    trackQuiz({ quizKey: QUIZ_KEY, eventType: "quiz_view" });
+    return () => {
+      if (!enviado.current) {
+        trackQuiz({ quizKey: QUIZ_KEY, eventType: "abandon", stepIndex: indexRef.current, stepKey: stepKeyRef.current });
+      }
+    };
+  }, []);
+
+  const indexRef = useRef(0);
+  const stepKeyRef = useRef<string>(QUESTIONS[0]?.key ?? "contato");
+  useEffect(() => {
+    indexRef.current = index;
+    stepKeyRef.current = (QUESTIONS[index]?.key as string) ?? "contato";
+    if (!done) {
+      trackQuiz({ quizKey: QUIZ_KEY, eventType: "step_view", stepIndex: index, stepKey: stepKeyRef.current });
+    }
+  }, [index, done]);
+
   const pick = (key: keyof Answers, value: string) => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
     trackEvent("quiz_step", { source, step: key, value });
+    trackQuiz({ quizKey: QUIZ_KEY, eventType: "answer_click", stepIndex: index, stepKey: String(key), answerLabel: value });
+    trackQuiz({ quizKey: QUIZ_KEY, eventType: "step_complete", stepIndex: index, stepKey: String(key) });
     setIndex((i) => Math.min(i + 1, QUESTIONS.length));
   };
 
@@ -174,6 +197,8 @@ export function InstitutionalDiagnosticQuiz({
         payload: { segment, answers, quiz: "diagnostico-institucional" } as never,
       });
       trackConversion("quiz_complete", { source, segment });
+      enviado.current = true;
+      trackQuiz({ quizKey: QUIZ_KEY, eventType: "submit", stepIndex: QUESTIONS.length, stepKey: "contato", answerLabel: segment });
       setDone(segment);
     } catch {
       setError("Não foi possível enviar agora. Tente novamente em instantes.");
@@ -181,6 +206,7 @@ export function InstitutionalDiagnosticQuiz({
       setSending(false);
     }
   };
+
 
   if (done) {
     const s = QUIZ_SEGMENTS[done];
