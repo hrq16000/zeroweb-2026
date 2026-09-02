@@ -57,13 +57,16 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
         />
       ) : null}
 
-      <PortfolioConversionNarrative slug={slug} />
-
       {/*
        * Dedicated pages historically rendered their own footer/host credit.
        * Keep their editorial content intact but suppress those legacy footer
        * nodes inside this boundary. The canonical footer below is always the
        * last content section after About and the presence kit.
+       *
+       * The client's own content always renders FIRST — visitors arriving
+       * from search or shared links must see the business hero/CTA above the
+       * fold. The 0WEB "Sobre o projeto" narrative belongs after the client
+       * content, right before the presence kit.
        */}
       <div
         data-portfolio-client-content
@@ -71,6 +74,8 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
       >
         {children}
       </div>
+
+      <PortfolioConversionNarrative slug={slug} />
 
       <PortfolioPresenceKit slug={slug} />
 
