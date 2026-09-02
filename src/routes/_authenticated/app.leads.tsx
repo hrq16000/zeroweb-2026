@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { Inbox, Filter, ShoppingCart, ClipboardList, Download, Mail } from "lucide-react";
 import { QuizConversionCharts } from "@/components/app/QuizConversionCharts";
+import { QuizPixelPanel } from "@/components/app/QuizPixelPanel";
 
 export const Route = createFileRoute("/_authenticated/app/leads")({
   component: LeadsPage,
@@ -127,7 +128,10 @@ function LeadsPage() {
         <Stat label="Funis" value={stats.funil} icon={<ClipboardList className="w-4 h-4" />} />
       </div>
 
+      <QuizPixelPanel />
+
       <QuizConversionCharts />
+
 
 
 
