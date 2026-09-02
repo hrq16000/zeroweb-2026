@@ -1,9 +1,14 @@
 // Quiz de diagnóstico rápido — segmenta o lead em 3 perfis e grava em /app/leads.
 // Sem contatos públicos: o retorno é feito pelo time via os dados enviados.
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, Sparkles, X } from "lucide-react";
 import { trackConversion, trackEvent } from "@/lib/analytics";
+import { trackQuiz } from "@/lib/quiz-pixel";
 import { persistLead } from "@/lib/persistence";
+
+/** Identificador do quiz no pixel próprio (tela /app/leads). */
+const QUIZ_KEY = "diagnostico-institucional";
+
 
 export type QuizSegmentKey = "landing-rapida" | "site-institucional-funil" | "plataforma-personalizada";
 
