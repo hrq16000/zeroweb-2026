@@ -114,6 +114,31 @@ function SeoDashboard() {
             </section>
           )}
 
+          <section className="mb-6 rounded-2xl border border-border bg-card p-4">
+            <h2 className="mb-1 text-sm font-semibold text-foreground">Palavras-chave monitoradas</h2>
+            <p className="mb-3 text-xs text-muted-foreground">
+              Posição, impressões e CTR reais do Search Console para os termos prioritários do portal.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {data.watched.map((w) => (
+                <div key={w.keyword} className="rounded-lg bg-muted/30 p-3">
+                  <p className="text-sm font-medium text-foreground">{w.keyword}</p>
+                  {w.found ? (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      Posição {w.position?.toFixed(1)} · {w.impressions} impressões · CTR {pct(w.ctr)} · {w.clicks} cliques
+                    </p>
+                  ) : (
+                    <p className="mt-1 text-xs text-muted-foreground">Sem dados no período — ainda não aparece nas buscas.</p>
+                  )}
+                  <span className="mt-2 inline-block rounded-full bg-background px-2 py-0.5 text-[11px] text-muted-foreground">
+                    {w.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+
           <div className="flex gap-2 mb-4">
             <TabButton active={tab === "search"} onClick={() => setTab("search")} icon={<Search className="w-4 h-4" />}>
               Search Console
