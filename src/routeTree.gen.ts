@@ -148,6 +148,7 @@ import { Route as AuthenticatedAppIndexacaoPortfolioRouteImport } from './routes
 import { Route as AuthenticatedAppIntegracoesRouteImport } from './routes/_authenticated/app.integracoes'
 import { Route as AuthenticatedAppLandingOverridesRouteImport } from './routes/_authenticated/app.landing-overrides'
 import { Route as AuthenticatedAppLeadsRouteImport } from './routes/_authenticated/app.leads'
+import { Route as AuthenticatedAppLeadsClientesRouteImport } from './routes/_authenticated/app.leads-clientes'
 import { Route as AuthenticatedAppLeadsTelefoneRouteImport } from './routes/_authenticated/app.leads-telefone'
 import { Route as AuthenticatedAppLicensesRouteImport } from './routes/_authenticated/app.licenses'
 import { Route as AuthenticatedAppMarketplaceRouteImport } from './routes/_authenticated/app.marketplace'
@@ -927,6 +928,12 @@ const AuthenticatedAppLeadsRoute = AuthenticatedAppLeadsRouteImport.update({
   path: '/leads',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppLeadsClientesRoute =
+  AuthenticatedAppLeadsClientesRouteImport.update({
+    id: '/leads-clientes',
+    path: '/leads-clientes',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppLeadsTelefoneRoute =
   AuthenticatedAppLeadsTelefoneRouteImport.update({
     id: '/leads-telefone',
@@ -1442,6 +1449,7 @@ export interface FileRoutesByFullPath {
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/app/leads': typeof AuthenticatedAppLeadsRoute
+  '/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
@@ -1646,6 +1654,7 @@ export interface FileRoutesByTo {
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/app/leads': typeof AuthenticatedAppLeadsRoute
+  '/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
@@ -1854,6 +1863,7 @@ export interface FileRoutesById {
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/_authenticated/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
   '/_authenticated/app/leads': typeof AuthenticatedAppLeadsRoute
+  '/_authenticated/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/_authenticated/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/_authenticated/app/licenses': typeof AuthenticatedAppLicensesRoute
   '/_authenticated/app/marketplace': typeof AuthenticatedAppMarketplaceRouteWithChildren
@@ -2062,6 +2072,7 @@ export interface FileRouteTypes {
     | '/app/integracoes'
     | '/app/landing-overrides'
     | '/app/leads'
+    | '/app/leads-clientes'
     | '/app/leads-telefone'
     | '/app/licenses'
     | '/app/marketplace'
@@ -2266,6 +2277,7 @@ export interface FileRouteTypes {
     | '/app/integracoes'
     | '/app/landing-overrides'
     | '/app/leads'
+    | '/app/leads-clientes'
     | '/app/leads-telefone'
     | '/app/licenses'
     | '/app/marketplace'
@@ -2473,6 +2485,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/integracoes'
     | '/_authenticated/app/landing-overrides'
     | '/_authenticated/app/leads'
+    | '/_authenticated/app/leads-clientes'
     | '/_authenticated/app/leads-telefone'
     | '/_authenticated/app/licenses'
     | '/_authenticated/app/marketplace'
@@ -3655,6 +3668,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppLeadsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/leads-clientes': {
+      id: '/_authenticated/app/leads-clientes'
+      path: '/leads-clientes'
+      fullPath: '/app/leads-clientes'
+      preLoaderRoute: typeof AuthenticatedAppLeadsClientesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/leads-telefone': {
       id: '/_authenticated/app/leads-telefone'
       path: '/leads-telefone'
@@ -4229,6 +4249,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
   AuthenticatedAppLandingOverridesRoute: typeof AuthenticatedAppLandingOverridesRoute
   AuthenticatedAppLeadsRoute: typeof AuthenticatedAppLeadsRoute
+  AuthenticatedAppLeadsClientesRoute: typeof AuthenticatedAppLeadsClientesRoute
   AuthenticatedAppLeadsTelefoneRoute: typeof AuthenticatedAppLeadsTelefoneRoute
   AuthenticatedAppLicensesRoute: typeof AuthenticatedAppLicensesRoute
   AuthenticatedAppMarketplaceRoute: typeof AuthenticatedAppMarketplaceRouteWithChildren
@@ -4279,6 +4300,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppIntegracoesRoute: AuthenticatedAppIntegracoesRoute,
   AuthenticatedAppLandingOverridesRoute: AuthenticatedAppLandingOverridesRoute,
   AuthenticatedAppLeadsRoute: AuthenticatedAppLeadsRoute,
+  AuthenticatedAppLeadsClientesRoute: AuthenticatedAppLeadsClientesRoute,
   AuthenticatedAppLeadsTelefoneRoute: AuthenticatedAppLeadsTelefoneRoute,
   AuthenticatedAppLicensesRoute: AuthenticatedAppLicensesRoute,
   AuthenticatedAppMarketplaceRoute:

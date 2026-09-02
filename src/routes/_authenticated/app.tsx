@@ -65,6 +65,7 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/usuarios", icon: Users, label: "Usuários" },
   { to: "/app/leads", icon: Inbox, label: "Leads unificados" },
   { to: "/app/leads-telefone", icon: Inbox, label: "Leads por telefone" },
+  { to: "/app/leads-clientes", icon: Inbox, label: "Leads de clientes" },
   { to: "/app/seo", icon: BarChart3, label: "Painel SEO" },
 
   { to: "/app/servicos", icon: Briefcase, label: "Serviços" },
