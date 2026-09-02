@@ -265,7 +265,37 @@ function InstitutionalSitePage() {
           </div>
         </section>
 
+        {/* Capitais atendidas */}
+        <section className="mx-auto max-w-6xl px-5 lg:px-8 mt-24">
+          <h2 className="text-3xl sm:text-4xl font-bold font-display">Atendimento por capital</h2>
+          <p className="mt-3 text-muted-foreground max-w-[65ch]">
+            Atendimento remoto em todo o Brasil. Cada capital tem uma página com contexto local, SEO regional e o
+            mesmo diagnóstico gratuito.
+          </p>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {capitaisPorRegiao().map((g) => (
+              <div key={g.region}>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">{g.region}</h3>
+                <ul className="mt-3 flex flex-wrap gap-2 text-sm">
+                  {g.cidades.map((c) => (
+                    <li key={c.slug}>
+                      <Link
+                        to="/criacao-de-site-institucional/$cidade"
+                        params={{ cidade: c.slug }}
+                        className="inline-flex rounded-full border border-border px-3.5 py-1.5 hover:border-primary/50 transition"
+                      >
+                        {c.name} · {c.uf}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Conteúdo relacionado */}
+
         <section className="mx-auto max-w-6xl px-5 lg:px-8 mt-24">
           <h2 className="text-2xl font-bold font-display">Leituras que ajudam na decisão</h2>
           <ul className="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
