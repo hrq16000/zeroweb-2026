@@ -66,7 +66,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   comercios: "Comércios",
   construcao: "Construção & reforma",
   juridico: "Jurídico",
-  prestadores-de-servicos: "Prestadores de serviços",
+  "prestadores-de-servicos": "Prestadores de serviços",
   restaurantes: "Alimentação",
   saude: "Saúde",
   servicos: "Serviços",

@@ -13,6 +13,16 @@ async function hashIp(ip: string): Promise<string> {
 const KINDS = ["afiliado", "representante", "parceiro_comercial", "agencia", "franqueado"] as const;
 const STATUSES = ["pendente", "aprovado", "suspenso", "bloqueado"] as const;
 
+// Papéis privilegiados: aprovação de parceiros e atribuição manual de vendas
+// só podem ser executadas por administradores.
+async function assertAdmin(
+  supabase: { rpc: (fn: "is_admin_or_super", args: { _uid: string }) => PromiseLike<{ data: unknown }> },
+  userId: string,
+): Promise<void> {
+  const { data } = await supabase.rpc("is_admin_or_super", { _uid: userId });
+  if (data !== true) throw new Error("Acesso restrito a administradores");
+}
+
 // Inscrição pública
 export const applyAsPartner = createServerFn({ method: "POST" })
   .inputValidator((input) =>
@@ -152,6 +162,7 @@ export const setPartnerStatus = createServerFn({ method: "POST" })
   .inputValidator((input) => z.object({ id: z.string().uuid(), status: z.enum(STATUSES) }).parse(input))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
+    await assertAdmin(supabase, userId);
     const patch: { status: typeof data.status; approved_at?: string; approved_by?: string } = { status: data.status };
     if (data.status === "aprovado") {
       patch.approved_at = new Date().toISOString();
@@ -205,7 +216,8 @@ export const attachAttributionToLead = createServerFn({ method: "POST" })
       })
       .parse(input),
   )
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context.supabase, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: link } = await supabaseAdmin
       .from("partner_links")
