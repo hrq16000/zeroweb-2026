@@ -60,12 +60,25 @@ const NATIONAL_GUIDE_PLACES = PORTFOLIO_PLACES.filter((place) =>
   ),
 ).slice(0, 12);
 
+const SEGMENT_LABELS: Record<string, string> = {
+  agencias: "Agências",
+  beleza: "Beleza & estética",
+  comercios: "Comércios",
+  construcao: "Construção & reforma",
+  juridico: "Jurídico",
+  prestadores-de-servicos: "Prestadores de serviços",
+  restaurantes: "Alimentação",
+  saude: "Saúde",
+  servicos: "Serviços",
+};
+
+// A navegação nasce exclusivamente dos segmentos efetivamente cadastrados no
+// catálogo canônico; nenhum ramo aparece apenas como hipótese editorial.
 const CATEGORIES = [
   { id: "todos", label: "Todos os Projetos" },
-  { id: "beleza", label: "Beleza & Estética" },
-  { id: "saude", label: "Saúde & Clínicas" },
-  { id: "servicos", label: "Serviços & Negócios Locais" },
-  { id: "juridico", label: "Advocacia & Consultoria" },
+  ...Array.from(new Set(portfolioCatalog.map((item) => item.segment)))
+    .sort((a, b) => (SEGMENT_LABELS[a] ?? a).localeCompare(SEGMENT_LABELS[b] ?? b, "pt-BR"))
+    .map((id) => ({ id, label: SEGMENT_LABELS[id] ?? id.replace(/-/g, " ") })),
 ];
 
 const LEGACY_PORTFOLIO_ITEMS = [
@@ -253,6 +266,7 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
 
 type PortfolioSearch = {
   segment?: string;
+  ramo?: string;
   q?: string;
   sort?: string;
   type?: string;
@@ -262,6 +276,7 @@ export const Route = createFileRoute("/portfolio/")({
   validateSearch: (search: Record<string, unknown>): PortfolioSearch => {
     const parsed: PortfolioSearch = {};
     if (typeof search.segment === "string") parsed.segment = search.segment;
+    if (typeof search.ramo === "string") parsed.ramo = search.ramo;
     if (typeof search.q === "string") parsed.q = search.q;
     if (typeof search.sort === "string") parsed.sort = search.sort;
     if (typeof search.type === "string") parsed.type = search.type;
@@ -316,6 +331,7 @@ export const Route = createFileRoute("/portfolio/")({
 function PortfolioPage() {
   const routeSearch = Route.useSearch();
   const [activeCategory, setActiveCategory] = useState(routeSearch.segment ?? "todos");
+  const [activeBranch, setActiveBranch] = useState(routeSearch.ramo ?? "todos");
   const [search, setSearch] = useState(routeSearch.q ?? "");
   const [sort, setSort] = useState(routeSearch.sort ?? "recent");
   const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
@@ -334,6 +350,13 @@ function PortfolioPage() {
           ),
         ),
       ).sort((a, b) => a.localeCompare(b, "pt-BR")),
+    [],
+  );
+  const availableBranches = useMemo(
+    () =>
+      Array.from(new Set(PORTFOLIO_ITEMS.flatMap((item) => item.tags)))
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, "pt-BR")),
     [],
   );
 
@@ -366,6 +389,7 @@ function PortfolioPage() {
     return PORTFOLIO_ITEMS.filter(
       (item) =>
         (activeCategory === "todos" || item.category === activeCategory) &&
+        (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
         (projectType === "todos" || item.projectType === projectType) &&
         (region === "todas" || item.location === region) &&
         `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`
@@ -375,11 +399,12 @@ function PortfolioPage() {
       if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
       return locationScore(b.location) - locationScore(a.location);
     });
-  }, [activeCategory, deferredSearch, projectType, region, sort, visitorCity]);
+  }, [activeBranch, activeCategory, deferredSearch, projectType, region, sort, visitorCity]);
 
   useEffect(() => {
     const params = new URLSearchParams();
     if (activeCategory !== "todos") params.set("segment", activeCategory);
+    if (activeBranch !== "todos") params.set("ramo", activeBranch);
     if (search) params.set("q", search);
     if (sort !== "recent") params.set("sort", sort);
     if (projectType !== "todos") params.set("type", projectType);
@@ -389,7 +414,7 @@ function PortfolioPage() {
       `${window.location.pathname}${params.toString() ? `?${params}` : ""}`,
     );
     setVisibleCount(12);
-  }, [activeCategory, search, sort, projectType, region]);
+  }, [activeBranch, activeCategory, search, sort, projectType, region]);
 
   useEffect(() => {
     const target = loadMoreRef.current;
@@ -516,6 +541,19 @@ function PortfolioPage() {
                   ))}
                 </select>
                 <select
+                  aria-label="Filtrar por ramo"
+                  value={activeBranch}
+                  onChange={(e) => setActiveBranch(e.target.value)}
+                  className="h-12 min-w-48 rounded-xl border border-border bg-background px-4 text-sm text-foreground"
+                >
+                  <option value="todos">Todos os ramos cadastrados</option>
+                  {availableBranches.map((branch) => (
+                    <option key={branch} value={branch}>
+                      {branch}
+                    </option>
+                  ))}
+                </select>
+                <select
                   aria-label="Ordenar projetos"
                   value={sort}
                   onChange={(e) => setSort(e.target.value)}
@@ -618,6 +656,7 @@ function PortfolioPage() {
                           setSearch("");
                           setRegion("todas");
                           setActiveCategory("todos");
+                          setActiveBranch("todos");
                           setProjectType("todos");
                         }}
                         className="mt-5 min-h-11 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground"

@@ -1,5 +1,10 @@
 # Skill changelog / usage log
 
+## 2026-09-02 — catálogo por segmentos e ramos existentes
+
+- A navegação de `/portfolio/` passou a derivar todos os segmentos diretamente do catálogo canônico.
+- Incluído filtro de ramos, alimentado apenas pelas tags já cadastradas em cada projeto; não há categorias ou negócios inventados.
+
 ## 2026-09-02 — HBK Iluminação LED Atacadão
 
 - Publicado o projeto real `/portfolio/hbk-iluminacao-led` com marca, capa social e Kit de Presença exclusivos.
