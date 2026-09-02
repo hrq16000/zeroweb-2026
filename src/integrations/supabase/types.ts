@@ -4562,6 +4562,45 @@ export type Database = {
         }
         Relationships: []
       }
+      quiz_pixel_events: {
+        Row: {
+          answer_label: string | null
+          created_at: string
+          event_type: string
+          id: string
+          lead_id: string | null
+          page_path: string | null
+          quiz_key: string
+          session_key: string
+          step_index: number
+          step_key: string
+        }
+        Insert: {
+          answer_label?: string | null
+          created_at?: string
+          event_type: string
+          id?: string
+          lead_id?: string | null
+          page_path?: string | null
+          quiz_key: string
+          session_key: string
+          step_index?: number
+          step_key?: string
+        }
+        Update: {
+          answer_label?: string | null
+          created_at?: string
+          event_type?: string
+          id?: string
+          lead_id?: string | null
+          page_path?: string | null
+          quiz_key?: string
+          session_key?: string
+          step_index?: number
+          step_key?: string
+        }
+        Relationships: []
+      }
       rate_limit_buckets: {
         Row: {
           created_at: string
