@@ -21,7 +21,6 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CidadesRouteImport } from './routes/cidades'
 import { Route as ConsultoriaRouteImport } from './routes/consultoria'
 import { Route as ContatoRouteImport } from './routes/contato'
-import { Route as CriacaoDeSiteInstitucionalRouteImport } from './routes/criacao-de-site-institucional'
 import { Route as CriacaoSitesRouteImport } from './routes/criacao-sites'
 import { Route as DesenvolvimentoRouteImport } from './routes/desenvolvimento'
 import { Route as DesignSystemRouteImport } from './routes/design-system'
@@ -105,6 +104,7 @@ import { Route as CasesIndexRouteImport } from './routes/cases.index'
 import { Route as CasesSlugRouteImport } from './routes/cases.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 import { Route as CidadeSlugRouteImport } from './routes/cidade.$slug'
+import { Route as CriacaoDeSiteInstitucionalIndexRouteImport } from './routes/criacao-de-site-institucional.index'
 import { Route as EmpresaSlugRouteImport } from './routes/empresa.$slug'
 import { Route as EstadosStateRouteImport } from './routes/estados.$state'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
@@ -276,12 +276,6 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CriacaoDeSiteInstitucionalRoute =
-  CriacaoDeSiteInstitucionalRouteImport.update({
-    id: '/criacao-de-site-institucional',
-    path: '/criacao-de-site-institucional',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const CriacaoSitesRoute = CriacaoSitesRouteImport.update({
   id: '/criacao-sites',
   path: '/criacao-sites',
@@ -701,6 +695,12 @@ const CidadeSlugRoute = CidadeSlugRouteImport.update({
   path: '/cidade/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CriacaoDeSiteInstitucionalIndexRoute =
+  CriacaoDeSiteInstitucionalIndexRouteImport.update({
+    id: '/criacao-de-site-institucional/',
+    path: '/criacao-de-site-institucional/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EmpresaSlugRoute = EmpresaSlugRouteImport.update({
   id: '/empresa/$slug',
   path: '/empresa/$slug',
@@ -1330,7 +1330,6 @@ export interface FileRoutesByFullPath {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
-  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1439,6 +1438,7 @@ export interface FileRoutesByFullPath {
   '/blog-skyscraper/': typeof BlogSkyscraperIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
+  '/criacao-de-site-institucional/': typeof CriacaoDeSiteInstitucionalIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
@@ -1538,7 +1538,6 @@ export interface FileRoutesByTo {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
-  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1645,6 +1644,7 @@ export interface FileRoutesByTo {
   '/blog-skyscraper': typeof BlogSkyscraperIndexRoute
   '/blog': typeof BlogIndexRoute
   '/cases': typeof CasesIndexRoute
+  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalIndexRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/servicos': typeof ServicosIndexRoute
   '/sites-robustos': typeof SitesRobustosIndexRoute
@@ -1746,7 +1746,6 @@ export interface FileRoutesById {
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
   '/contato': typeof ContatoRoute
-  '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalRoute
   '/criacao-sites': typeof CriacaoSitesRoute
   '/desenvolvimento': typeof DesenvolvimentoRoute
   '/design-system': typeof DesignSystemRoute
@@ -1855,6 +1854,7 @@ export interface FileRoutesById {
   '/blog-skyscraper/': typeof BlogSkyscraperIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
+  '/criacao-de-site-institucional/': typeof CriacaoDeSiteInstitucionalIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
@@ -1956,7 +1956,6 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
-    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2065,6 +2064,7 @@ export interface FileRouteTypes {
     | '/blog-skyscraper/'
     | '/blog/'
     | '/cases/'
+    | '/criacao-de-site-institucional/'
     | '/portfolio/'
     | '/servicos/'
     | '/sites-robustos/'
@@ -2164,7 +2164,6 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
-    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2271,6 +2270,7 @@ export interface FileRouteTypes {
     | '/blog-skyscraper'
     | '/blog'
     | '/cases'
+    | '/criacao-de-site-institucional'
     | '/portfolio'
     | '/servicos'
     | '/sites-robustos'
@@ -2371,7 +2371,6 @@ export interface FileRouteTypes {
     | '/cidades'
     | '/consultoria'
     | '/contato'
-    | '/criacao-de-site-institucional'
     | '/criacao-sites'
     | '/desenvolvimento'
     | '/design-system'
@@ -2480,6 +2479,7 @@ export interface FileRouteTypes {
     | '/blog-skyscraper/'
     | '/blog/'
     | '/cases/'
+    | '/criacao-de-site-institucional/'
     | '/portfolio/'
     | '/servicos/'
     | '/sites-robustos/'
@@ -2581,7 +2581,6 @@ export interface RootRouteChildren {
   CidadesRoute: typeof CidadesRoute
   ConsultoriaRoute: typeof ConsultoriaRoute
   ContatoRoute: typeof ContatoRoute
-  CriacaoDeSiteInstitucionalRoute: typeof CriacaoDeSiteInstitucionalRoute
   CriacaoSitesRoute: typeof CriacaoSitesRoute
   DesenvolvimentoRoute: typeof DesenvolvimentoRoute
   DesignSystemRoute: typeof DesignSystemRoute
@@ -2677,6 +2676,7 @@ export interface RootRouteChildren {
   BlogSkyscraperIndexRoute: typeof BlogSkyscraperIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   CasesIndexRoute: typeof CasesIndexRoute
+  CriacaoDeSiteInstitucionalIndexRoute: typeof CriacaoDeSiteInstitucionalIndexRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   SitesRobustosIndexRoute: typeof SitesRobustosIndexRoute
   SitesIndexRoute: typeof SitesIndexRoute
@@ -2790,13 +2790,6 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/criacao-de-site-institucional': {
-      id: '/criacao-de-site-institucional'
-      path: '/criacao-de-site-institucional'
-      fullPath: '/criacao-de-site-institucional'
-      preLoaderRoute: typeof CriacaoDeSiteInstitucionalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/criacao-sites': {
@@ -3378,6 +3371,13 @@ declare module '@tanstack/react-router' {
       path: '/cidade/$slug'
       fullPath: '/cidade/$slug'
       preLoaderRoute: typeof CidadeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/criacao-de-site-institucional/': {
+      id: '/criacao-de-site-institucional/'
+      path: '/criacao-de-site-institucional'
+      fullPath: '/criacao-de-site-institucional/'
+      preLoaderRoute: typeof CriacaoDeSiteInstitucionalIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/empresa/$slug': {
@@ -4435,7 +4435,6 @@ const rootRouteChildren: RootRouteChildren = {
   CidadesRoute: CidadesRoute,
   ConsultoriaRoute: ConsultoriaRoute,
   ContatoRoute: ContatoRoute,
-  CriacaoDeSiteInstitucionalRoute: CriacaoDeSiteInstitucionalRoute,
   CriacaoSitesRoute: CriacaoSitesRoute,
   DesenvolvimentoRoute: DesenvolvimentoRoute,
   DesignSystemRoute: DesignSystemRoute,
@@ -4531,6 +4530,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSkyscraperIndexRoute: BlogSkyscraperIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   CasesIndexRoute: CasesIndexRoute,
+  CriacaoDeSiteInstitucionalIndexRoute: CriacaoDeSiteInstitucionalIndexRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
   SitesRobustosIndexRoute: SitesRobustosIndexRoute,
   SitesIndexRoute: SitesIndexRoute,
