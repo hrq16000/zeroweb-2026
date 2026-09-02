@@ -64,7 +64,7 @@ const PROOF: { slug: string; label: string; segment: string }[] = [
   { slug: "marido-de-aluguel", label: "Marido de Aluguel", segment: "Serviços residenciais" },
 ];
 
-export const Route = createFileRoute("/criacao-de-site-institucional")({
+export const Route = createFileRoute("/criacao-de-site-institucional/")({
   head: () => ({
     meta: [
       { title: TITLE },
