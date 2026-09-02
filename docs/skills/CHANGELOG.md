@@ -1,5 +1,10 @@
 # Skill changelog / usage log
 
+## 2026-09-02 — JC Revestimentos
+
+- Publicado o projeto real `/portfolio/jc-revestimentos` com marca, imagem social e Kit de Presença exclusivos.
+- Aplicados os padrões de catálogo, privacidade, conversão, narrativa, funil e SEO regional para Uberaba, Curitiba.
+
 ## 2026-09-01 — Denise Gomes · Psicóloga
 
 - **Projeto real publicado:** nova rota canônica `/portfolio/denise-gomes-psicologa`

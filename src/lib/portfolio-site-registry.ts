@@ -445,6 +445,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "jc-revestimentos",
+    vertical: "prestadores-de-servicos",
+    siteName: "JC Revestimentos",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

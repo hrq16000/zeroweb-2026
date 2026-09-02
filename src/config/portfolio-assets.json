@@ -800,6 +800,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "7b4a3f2c"
+    },
+    "jc-revestimentos": {
+      "icon": "/images/jc-revestimentos/logo.png",
+      "socialImage": "/images/jc-revestimentos/hero-og.jpg",
+      "proof": {
+        "eyebrow": "JC Revestimentos",
+        "title": "O acabamento certo começa com o material adequado.",
+        "description": "Conheça a linha de revestimentos e organize os detalhes para solicitar um orçamento.",
+        "ctaLabel": "Ver produtos",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "85b6554c"
     }
   }
 }

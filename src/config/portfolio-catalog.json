@@ -1190,7 +1190,16 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["construcao", "engenharia", "reformas", "impermeabilizacao", "hidraulica", "eletrica", "demolicao", "pintura"],
+    "tags": [
+      "construcao",
+      "engenharia",
+      "reformas",
+      "impermeabilizacao",
+      "hidraulica",
+      "eletrica",
+      "demolicao",
+      "pintura"
+    ],
     "subtitle": "Construção, engenharia e reformas do projeto ao acabamento",
     "location": "Curitiba, região e litoral — PR",
     "badge": "Projeto real",
@@ -1198,5 +1207,31 @@
     "fallbackImage": "/images/raphael-construcoes/logo.png",
     "metrics": "Orçamento por demanda",
     "summary": "Raphael Construções apresenta soluções para construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos."
+  },
+  {
+    "slug": "jc-revestimentos",
+    "clientKey": "jc-revestimentos",
+    "title": "JC Revestimentos",
+    "segment": "construcao",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "revestimentos",
+      "textura-projetada",
+      "grafiato",
+      "textura-lisa",
+      "massa-corrida",
+      "massa-acrilica",
+      "massa-niveladora"
+    ],
+    "subtitle": "Revestimentos para pintura direto da fábrica",
+    "location": "Uberaba, Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/jc-revestimentos/hero-og.jpg",
+    "fallbackImage": "/images/jc-revestimentos/logo.png",
+    "metrics": "Orçamento por demanda",
+    "summary": "JC Revestimentos fornece textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora em Uberaba, Curitiba."
   }
 ]

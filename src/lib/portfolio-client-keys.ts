@@ -2,7 +2,8 @@
 export const PORTFOLIO_CLIENT_KEYS = [
 
 
-  "raphael-construcoes","ton-e-cor","denise-gomes-psicologa",
+
+  "jc-revestimentos","raphael-construcoes","ton-e-cor","denise-gomes-psicologa",
   "fernanda-amaral-drywall",
   "manu-pasteis",
   "lj-cleaning",

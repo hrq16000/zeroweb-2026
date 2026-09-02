@@ -407,6 +407,12 @@ const narrativeBySlug: Record<
     cta: "Solicitar avaliação",
     theme: "gold",
   },
+  "jc-revestimentos": {
+    title: "O acabamento certo começa com o revestimento adequado ao seu ambiente.",
+    step: "Informe o produto, o ambiente e a metragem para organizar a orientação e o orçamento.",
+    cta: "Solicitar orçamento",
+    theme: "navy",
+  },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

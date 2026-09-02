@@ -363,8 +363,17 @@
           "Engenharia e acompanhamento"
         ],
         "experienceOptions": ["Casa", "Apartamento", "Comércio", "Condomínio", "Outro imóvel"],
-        "periodOptions": ["Tenho projeto ou medidas", "Tenho fotos do local", "Preciso de uma avaliação"],
-        "timingOptions": ["O quanto antes", "Nos próximos meses", "Ainda neste ano", "Estou planejando"],
+        "periodOptions": [
+          "Tenho projeto ou medidas",
+          "Tenho fotos do local",
+          "Preciso de uma avaliação"
+        ],
+        "timingOptions": [
+          "O quanto antes",
+          "Nos próximos meses",
+          "Ainda neste ano",
+          "Estou planejando"
+        ],
         "stepTitles": {
           "service": "Qual etapa da obra você precisa?",
           "experience": "Onde será o serviço?",
@@ -372,6 +381,42 @@
           "timing": "Quando pretende começar?"
         },
         "notePlaceholder": "Conte o tipo de obra, a região e os principais detalhes."
+      }
+    },
+    "jc-revestimentos": {
+      "contactFloating": { "theme": "navy", "recipientName": "JC", "label": "Solicitar orçamento" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": [
+          "Textura projetada",
+          "Grafiato",
+          "Textura lisa",
+          "Massa corrida",
+          "Massa acrílica",
+          "Massa niveladora"
+        ],
+        "experienceOptions": [
+          "Residência",
+          "Condomínio",
+          "Comércio",
+          "Obra em andamento",
+          "Outro projeto"
+        ],
+        "periodOptions": ["Sei a metragem", "Tenho fotos do ambiente", "Preciso de orientação"],
+        "timingOptions": [
+          "O quanto antes",
+          "Nos próximos dias",
+          "Ainda neste mês",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual revestimento procura?",
+          "experience": "Onde será aplicado?",
+          "period": "Como podemos orientar?",
+          "timing": "Quando pretende começar?"
+        },
+        "notePlaceholder": "Conte a metragem, ambiente e acabamento desejado."
       }
     }
   }

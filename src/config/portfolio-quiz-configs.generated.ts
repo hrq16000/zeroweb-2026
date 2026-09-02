@@ -490,6 +490,42 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: ambiente, medidas aproximadas, acabamento desejado ou itens para transportar."
   },
+  "jc-revestimentos": {
+    "proposalKind": "service",
+    "services": [
+      "Textura projetada",
+      "Grafiato",
+      "Textura lisa",
+      "Massa corrida",
+      "Massa acrílica",
+      "Massa niveladora"
+    ],
+    "experienceOptions": [
+      "Residência",
+      "Condomínio",
+      "Comércio",
+      "Obra em andamento",
+      "Outro projeto"
+    ],
+    "periodOptions": [
+      "Sei a metragem",
+      "Tenho fotos do ambiente",
+      "Preciso de orientação"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nos próximos dias",
+      "Ainda neste mês",
+      "Estou planejando"
+    ],
+    "stepTitles": {
+      "service": "Qual revestimento procura?",
+      "experience": "Onde será aplicado?",
+      "period": "Como podemos orientar?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte a metragem, ambiente e acabamento desejado."
+  },
   "jkl-marcenaria": {
     "stepTitles": {
       "service": "Qual ambiente você quer transformar?",

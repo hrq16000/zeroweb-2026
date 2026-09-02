@@ -224,6 +224,9 @@ const RaphaelConstrucoesPage = lazy(() =>
     default: m.RaphaelConstrucoesPage,
   })),
 );
+const JcRevestimentosPage = lazy(() =>
+  import("@/components/site/JcRevestimentosPage").then((m) => ({ default: m.JcRevestimentosPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
@@ -277,7 +280,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isDeniseGomes = loaderData?.slug === "denise-gomes-psicologa";
     const isTonECor = loaderData?.slug === "ton-e-cor";
     const isRaphaelConstrucoes = loaderData?.slug === "raphael-construcoes";
-    const description = isRaphaelConstrucoes
+    const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
+    const description = isJcRevestimentos
+      ? "JC Revestimentos em Uberaba, Curitiba: textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora."
+      : isRaphaelConstrucoes
       ? "Raphael Construções: construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos em Curitiba, região e litoral."
       : isTonECor
       ? "Ton & Cor: pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral na região do Paraná."
@@ -630,6 +636,8 @@ function PortfolioPrototypePage() {
           <TonECorPage />
         ) : slug === "raphael-construcoes" ? (
           <RaphaelConstrucoesPage />
+        ) : slug === "jc-revestimentos" ? (
+          <JcRevestimentosPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

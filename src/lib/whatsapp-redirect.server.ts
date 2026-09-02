@@ -114,7 +114,9 @@ export function resolvePortfolioWhatsAppContact(
                               ? "TON_E_COR_WHATSAPP_NUMBER"
                               : clientKey === "raphael-construcoes"
                                 ? "RAPHAEL_CONSTRUCOES_WHATSAPP_NUMBER"
-                                : null;
+                                : clientKey === "jc-revestimentos"
+                                  ? "JC_REVESTIMENTOS_WHATSAPP_NUMBER"
+                                  : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");
   if (!digits || digits.length < 10 || digits.length > 15) return null;
