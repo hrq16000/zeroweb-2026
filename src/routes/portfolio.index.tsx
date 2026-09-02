@@ -458,10 +458,10 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-primary-foreground">
       <Header />
 
-      <main className="flex-1 pt-16 lg:pt-20">
+      <main className="flex-1 pt-16">
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
-          <div className="container max-w-6xl mx-auto px-4 py-3">
+          <div className="container mx-auto max-w-6xl px-4 py-2">
             <Breadcrumbs items={[{ name: "Portfólio", path: "/portfolio" }]} />
           </div>
         </div>
@@ -704,10 +704,22 @@ function PortfolioPage() {
                               }}
                             />
 
+                            {/* A imagem contextual nunca atua sozinha como capa: cada card
+                                recebe identificação editorial legível do próprio projeto. */}
+                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/12 to-transparent" />
+
                             <div className="absolute top-2 left-2 flex items-center gap-2">
                               <span className="px-2 py-1 rounded-full bg-background/90 backdrop-blur-md text-foreground text-[10px] font-bold shadow-sm">
                                 {item.badge}
                               </span>
+                            </div>
+                            <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+                              <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-white/80 line-clamp-1">
+                                {item.category.replace(/-/g, " ")}
+                              </span>
+                              <strong className="mt-1 block text-sm leading-tight drop-shadow-sm line-clamp-2">
+                                {item.title}
+                              </strong>
                             </div>
                           </button>
 
