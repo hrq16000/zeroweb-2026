@@ -138,6 +138,7 @@ import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
 import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authenticated/app.campaigns'
 import { Route as AuthenticatedAppClientesRouteImport } from './routes/_authenticated/app.clientes'
+import { Route as AuthenticatedAppCrmPlanilhaRouteImport } from './routes/_authenticated/app.crm-planilha'
 import { Route as AuthenticatedAppCroRouteImport } from './routes/_authenticated/app.cro'
 import { Route as AuthenticatedAppDocumentsRouteImport } from './routes/_authenticated/app.documents'
 import { Route as AuthenticatedAppEcosystemRouteImport } from './routes/_authenticated/app.ecosystem'
@@ -870,6 +871,12 @@ const AuthenticatedAppClientesRoute =
     path: '/clientes',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppCrmPlanilhaRoute =
+  AuthenticatedAppCrmPlanilhaRouteImport.update({
+    id: '/crm-planilha',
+    path: '/crm-planilha',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppCroRoute = AuthenticatedAppCroRouteImport.update({
   id: '/cro',
   path: '/cro',
@@ -1439,6 +1446,7 @@ export interface FileRoutesByFullPath {
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/app/clientes': typeof AuthenticatedAppClientesRoute
+  '/app/crm-planilha': typeof AuthenticatedAppCrmPlanilhaRoute
   '/app/cro': typeof AuthenticatedAppCroRoute
   '/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1644,6 +1652,7 @@ export interface FileRoutesByTo {
   '/app/admin': typeof AuthenticatedAppAdminRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/app/clientes': typeof AuthenticatedAppClientesRoute
+  '/app/crm-planilha': typeof AuthenticatedAppCrmPlanilhaRoute
   '/app/cro': typeof AuthenticatedAppCroRoute
   '/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -1853,6 +1862,7 @@ export interface FileRoutesById {
   '/_authenticated/app/admin': typeof AuthenticatedAppAdminRoute
   '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/_authenticated/app/clientes': typeof AuthenticatedAppClientesRoute
+  '/_authenticated/app/crm-planilha': typeof AuthenticatedAppCrmPlanilhaRoute
   '/_authenticated/app/cro': typeof AuthenticatedAppCroRoute
   '/_authenticated/app/documents': typeof AuthenticatedAppDocumentsRoute
   '/_authenticated/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
@@ -2062,6 +2072,7 @@ export interface FileRouteTypes {
     | '/app/admin'
     | '/app/campaigns'
     | '/app/clientes'
+    | '/app/crm-planilha'
     | '/app/cro'
     | '/app/documents'
     | '/app/ecosystem'
@@ -2267,6 +2278,7 @@ export interface FileRouteTypes {
     | '/app/admin'
     | '/app/campaigns'
     | '/app/clientes'
+    | '/app/crm-planilha'
     | '/app/cro'
     | '/app/documents'
     | '/app/ecosystem'
@@ -2475,6 +2487,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/admin'
     | '/_authenticated/app/campaigns'
     | '/_authenticated/app/clientes'
+    | '/_authenticated/app/crm-planilha'
     | '/_authenticated/app/cro'
     | '/_authenticated/app/documents'
     | '/_authenticated/app/ecosystem'
@@ -3598,6 +3611,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppClientesRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/crm-planilha': {
+      id: '/_authenticated/app/crm-planilha'
+      path: '/crm-planilha'
+      fullPath: '/app/crm-planilha'
+      preLoaderRoute: typeof AuthenticatedAppCrmPlanilhaRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/cro': {
       id: '/_authenticated/app/cro'
       path: '/cro'
@@ -4239,6 +4259,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppAdminRoute: typeof AuthenticatedAppAdminRoute
   AuthenticatedAppCampaignsRoute: typeof AuthenticatedAppCampaignsRoute
   AuthenticatedAppClientesRoute: typeof AuthenticatedAppClientesRoute
+  AuthenticatedAppCrmPlanilhaRoute: typeof AuthenticatedAppCrmPlanilhaRoute
   AuthenticatedAppCroRoute: typeof AuthenticatedAppCroRoute
   AuthenticatedAppDocumentsRoute: typeof AuthenticatedAppDocumentsRoute
   AuthenticatedAppEcosystemRoute: typeof AuthenticatedAppEcosystemRoute
@@ -4289,6 +4310,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAdminRoute: AuthenticatedAppAdminRoute,
   AuthenticatedAppCampaignsRoute: AuthenticatedAppCampaignsRoute,
   AuthenticatedAppClientesRoute: AuthenticatedAppClientesRoute,
+  AuthenticatedAppCrmPlanilhaRoute: AuthenticatedAppCrmPlanilhaRoute,
   AuthenticatedAppCroRoute: AuthenticatedAppCroRoute,
   AuthenticatedAppDocumentsRoute: AuthenticatedAppDocumentsRoute,
   AuthenticatedAppEcosystemRoute: AuthenticatedAppEcosystemRoute,
