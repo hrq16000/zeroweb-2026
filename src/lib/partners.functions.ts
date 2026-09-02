@@ -216,7 +216,8 @@ export const attachAttributionToLead = createServerFn({ method: "POST" })
       })
       .parse(input),
   )
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context.supabase, context.userId);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: link } = await supabaseAdmin
       .from("partner_links")
