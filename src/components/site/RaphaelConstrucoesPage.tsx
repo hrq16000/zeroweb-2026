@@ -1,0 +1,258 @@
+import type { CSSProperties } from "react";
+import {
+  ArrowRight,
+  BrickWall,
+  Building2,
+  Droplets,
+  PaintRoller,
+  PlugZap,
+  ShieldCheck,
+} from "lucide-react";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
+const quizConfig = {
+  proposalKind: "service" as const,
+  services: [
+    "Construção",
+    "Reforma",
+    "Impermeabilização",
+    "Hidráulica",
+    "Elétrica",
+    "Demolição",
+    "Pintura e acabamentos",
+    "Engenharia e acompanhamento",
+  ],
+  experienceOptions: ["Casa", "Apartamento", "Comércio", "Condomínio", "Outro imóvel"],
+  periodOptions: ["Tenho projeto ou medidas", "Tenho fotos do local", "Preciso de uma avaliação"],
+  timingOptions: ["O quanto antes", "Nos próximos meses", "Ainda neste ano", "Estou planejando"],
+  stepTitles: {
+    service: "Qual etapa da obra você precisa?",
+    experience: "Onde será o serviço?",
+    period: "O que já está disponível?",
+    timing: "Quando pretende começar?",
+  },
+  notePlaceholder: "Conte o tipo de obra, a região e os principais detalhes.",
+};
+
+const services = [
+  {
+    icon: Building2,
+    title: "Construção e engenharia",
+    text: "Planejamento, acompanhamento e execução do alicerce ao acabamento.",
+  },
+  {
+    icon: Droplets,
+    title: "Impermeabilização",
+    text: "Soluções voltadas à proteção e à durabilidade da construção.",
+  },
+  {
+    icon: BrickWall,
+    title: "Reformas e demolição",
+    text: "Transformação de ambientes, remoções e preparação para novas etapas.",
+  },
+  {
+    icon: PlugZap,
+    title: "Instalações e acabamentos",
+    text: "Hidráulica, elétrica, pintura e acabamentos integrados à obra.",
+  },
+];
+
+const theme = {
+  "--background": "42 30% 97%",
+  "--foreground": "158 75% 7%",
+  "--card": "0 0% 100%",
+  "--muted": "42 24% 91%",
+  "--muted-foreground": "213 18% 38%",
+  "--primary": "42 83% 48%",
+  "--primary-foreground": "158 75% 7%",
+  "--border": "213 18% 82%",
+  "--ring": "42 100% 48%",
+} as CSSProperties;
+
+export function RaphaelConstrucoesPage() {
+  return (
+    <div className="min-h-dvh bg-background text-foreground" style={theme}>
+      <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
+        <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" aria-label="Raphael Construções — início">
+            <PortfolioImage
+              src="/images/raphael-construcoes/logo.png"
+              alt="Raphael Construções"
+              width={420}
+              height={190}
+              className="h-14 w-auto object-contain"
+            />
+          </a>
+          <nav
+            aria-label="Navegação principal"
+            className="hidden items-center gap-6 text-sm font-semibold md:flex"
+          >
+            <a href="#servicos" className="hover:text-primary">
+              Serviços
+            </a>
+            <a href="#como-funciona" className="hover:text-primary">
+              Como funciona
+            </a>
+          </nav>
+          <PortfolioCTAQuiz
+            clientKey="raphael-construcoes"
+            studioName="Raphael Construções"
+            recipientName="Raphael"
+            theme="navy"
+            mode="proposal"
+            quizConfig={quizConfig}
+            className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground hover:opacity-90"
+          >
+            Solicitar orçamento
+          </PortfolioCTAQuiz>
+        </div>
+      </header>
+
+      <main id="inicio">
+        <section className="overflow-hidden bg-foreground px-5 py-16 text-background md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+                Construção, engenharia e reformas
+              </p>
+              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+                Do projeto à realização, cada etapa da obra em uma visão completa.
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
+                Construção, reformas, impermeabilização, instalações e acabamentos para imóveis em
+                Curitiba, região e litoral.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <PortfolioCTAQuiz
+                  clientKey="raphael-construcoes"
+                  studioName="Raphael Construções"
+                  recipientName="Raphael"
+                  theme="navy"
+                  mode="proposal"
+                  quizConfig={quizConfig}
+                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground hover:opacity-90"
+                >
+                  Organizar meu orçamento <ArrowRight className="h-4 w-4" />
+                </PortfolioCTAQuiz>
+                <a
+                  href="#servicos"
+                  className="inline-flex min-h-12 items-center rounded-full border border-background/30 px-6 font-semibold text-background hover:border-primary hover:text-primary"
+                >
+                  Conhecer serviços
+                </a>
+              </div>
+              <div className="mt-8 flex items-center gap-3 text-sm text-background/75">
+                <ShieldCheck className="h-5 w-5 text-primary" /> Compromisso com qualidade e prazos,
+                conforme informado pela empresa.
+              </div>
+            </div>
+            <PortfolioImage
+              src="/images/raphael-construcoes/servicos.webp"
+              alt="Construção residencial mostrando estrutura e acabamento final"
+              priority
+              width={1440}
+              height={900}
+              className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
+            />
+          </div>
+        </section>
+
+        <section id="servicos" className="px-5 py-16 md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+              Soluções para a obra
+            </p>
+            <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <h2 className="max-w-2xl font-display text-3xl font-bold md:text-5xl">
+                Do alicerce ao acabamento.
+              </h2>
+              <p className="max-w-md text-sm leading-6 text-muted-foreground">
+                Frentes de trabalho apresentadas com clareza para iniciar a avaliação correta.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="rounded-2xl border border-border bg-card p-6">
+                  <Icon className="h-7 w-7 text-primary" />
+                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="como-funciona" className="bg-muted px-5 py-16 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
+            <PortfolioImage
+              src="/images/raphael-construcoes/hero.webp"
+              alt="Evolução visual de uma construção residencial"
+              width={1440}
+              height={900}
+              className="aspect-[8/5] w-full rounded-3xl object-cover"
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+                Como começar
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
+                Apresente a obra e organize a primeira avaliação.
+              </h2>
+              <ol className="mt-8 space-y-5">
+                {[
+                  "Escolha a principal necessidade da obra.",
+                  "Informe o imóvel, a região e o que já está disponível.",
+                  "Envie os detalhes para alinhar avaliação e orçamento.",
+                ].map((item, index) => (
+                  <li key={item} className="flex gap-4">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
+                      {index + 1}
+                    </span>
+                    <span className="pt-2 font-semibold">{item}</span>
+                  </li>
+                ))}
+              </ol>
+              <PortfolioCTAQuiz
+                clientKey="raphael-construcoes"
+                studioName="Raphael Construções"
+                recipientName="Raphael"
+                theme="navy"
+                mode="proposal"
+                quizConfig={quizConfig}
+                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-6 font-bold text-background hover:opacity-90"
+              >
+                Começar avaliação
+              </PortfolioCTAQuiz>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-foreground px-5 py-8 text-background">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <strong>Raphael Construções</strong>
+            <p className="mt-1 text-sm text-background/70">Construção, engenharia e reformas.</p>
+          </div>
+          <PortfolioHostCredit
+            className="text-sm text-background/70"
+            linkClassName="font-semibold text-primary"
+          />
+        </div>
+      </footer>
+      <PortfolioSocialProofPopup
+        clientKey="raphael-construcoes"
+        eyebrow="Raphael Construções"
+        title="Uma visão completa para sua obra."
+        description="Conheça as frentes de serviço e organize os detalhes para solicitar uma avaliação."
+        ctaLabel="Ver serviços"
+        ctaHref="#servicos"
+      />
+      <PortfolioUpsellPopup pageName="portfolio-raphael-construcoes" />
+    </div>
+  );
+}

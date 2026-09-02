@@ -1,7 +1,8 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
 
-  "ton-e-cor","denise-gomes-psicologa",
+
+  "raphael-construcoes","ton-e-cor","denise-gomes-psicologa",
   "fernanda-amaral-drywall",
   "manu-pasteis",
   "lj-cleaning",

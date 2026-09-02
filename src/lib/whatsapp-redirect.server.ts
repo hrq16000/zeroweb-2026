@@ -112,7 +112,9 @@ export function resolvePortfolioWhatsAppContact(
                             ? "REFRIGERACAO_MARESIA_WHATSAPP_NUMBER"
                             : clientKey === "ton-e-cor"
                               ? "TON_E_COR_WHATSAPP_NUMBER"
-                              : null;
+                              : clientKey === "raphael-construcoes"
+                                ? "RAPHAEL_CONSTRUCOES_WHATSAPP_NUMBER"
+                                : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");
   if (!digits || digits.length < 10 || digits.length > 15) return null;

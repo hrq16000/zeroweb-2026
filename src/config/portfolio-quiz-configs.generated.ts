@@ -801,6 +801,44 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: metragem, etapa atual, acabamento desejado e prazo."
   },
+  "raphael-construcoes": {
+    "proposalKind": "service",
+    "services": [
+      "Construção",
+      "Reforma",
+      "Impermeabilização",
+      "Hidráulica",
+      "Elétrica",
+      "Demolição",
+      "Pintura e acabamentos",
+      "Engenharia e acompanhamento"
+    ],
+    "experienceOptions": [
+      "Casa",
+      "Apartamento",
+      "Comércio",
+      "Condomínio",
+      "Outro imóvel"
+    ],
+    "periodOptions": [
+      "Tenho projeto ou medidas",
+      "Tenho fotos do local",
+      "Preciso de uma avaliação"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nos próximos meses",
+      "Ainda neste ano",
+      "Estou planejando"
+    ],
+    "stepTitles": {
+      "service": "Qual etapa da obra você precisa?",
+      "experience": "Onde será o serviço?",
+      "period": "O que já está disponível?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte o tipo de obra, a região e os principais detalhes."
+  },
   "refrigeracao-maresia": {
     "services": [
       "Recarga de gás",

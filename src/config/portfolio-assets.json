@@ -788,6 +788,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "429bdcd1"
+    },
+    "raphael-construcoes": {
+      "icon": "/images/raphael-construcoes/logo.png",
+      "socialImage": "/images/raphael-construcoes/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Raphael Construções",
+        "title": "Uma visão completa para sua obra.",
+        "description": "Conheça as frentes de serviço e organize os detalhes para solicitar uma avaliação.",
+        "ctaLabel": "Ver serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "7b4a3f2c"
     }
   }
 }

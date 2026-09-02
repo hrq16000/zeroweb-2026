@@ -612,5 +612,16 @@
     "ctaMode": "quote",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "raphael-construcoes",
+    "slug": "raphael-construcoes",
+    "siteName": "Raphael Construções",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
+    "assetsDir": "public/images/raphael-construcoes",
+    "ctaMode": "quote",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

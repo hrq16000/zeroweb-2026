@@ -401,6 +401,12 @@ const narrativeBySlug: Record<
     cta: "Pedir orçamento",
     theme: "navy",
   },
+  "raphael-construcoes": {
+    title: "Uma obra bem encaminhada começa com escopo, local e etapa definidos.",
+    step: "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
+    cta: "Solicitar avaliação",
+    theme: "gold",
+  },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

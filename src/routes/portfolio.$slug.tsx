@@ -219,6 +219,11 @@ const DeniseGomesPsicologaPage = lazy(() =>
 const TonECorPage = lazy(() =>
   import("@/components/site/TonECorPage").then((m) => ({ default: m.TonECorPage })),
 );
+const RaphaelConstrucoesPage = lazy(() =>
+  import("@/components/site/RaphaelConstrucoesPage").then((m) => ({
+    default: m.RaphaelConstrucoesPage,
+  })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
@@ -271,7 +276,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isFernandaAmaral = loaderData?.slug === "fernanda-amaral-drywall";
     const isDeniseGomes = loaderData?.slug === "denise-gomes-psicologa";
     const isTonECor = loaderData?.slug === "ton-e-cor";
-    const description = isTonECor
+    const isRaphaelConstrucoes = loaderData?.slug === "raphael-construcoes";
+    const description = isRaphaelConstrucoes
+      ? "Raphael Construções: construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos em Curitiba, região e litoral."
+      : isTonECor
       ? "Ton & Cor: pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral na região do Paraná."
       : isDeniseGomes
         ? "Denise Gomes, psicóloga CRP 08/22352 em São José dos Pinhais: atendimento e avaliação psicológica para adultos, ansiedade, burnout e relacionamentos."
@@ -620,6 +628,8 @@ function PortfolioPrototypePage() {
           <DeniseGomesPsicologaPage />
         ) : slug === "ton-e-cor" ? (
           <TonECorPage />
+        ) : slug === "raphael-construcoes" ? (
+          <RaphaelConstrucoesPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

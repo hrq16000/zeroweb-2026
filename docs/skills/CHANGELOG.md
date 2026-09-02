@@ -760,3 +760,8 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Conteúdo real:** pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral; nenhuma avaliação, preço, prazo ou garantia foi inventada.
 - **Conversão e privacidade:** funil exclusivo, mensagem de divulgação própria e destinatário preparado pela env server-side `TON_E_COR_WHATSAPP_NUMBER`; o número não entra no bundle público.
 - **Kit de Presença:** cartão e panfleto derivados automaticamente da marca, imagem social e dados exclusivos do slug, identificados como conceito de presença e papelaria.
+## 2026-09-01 — Raphael Construções
+
+- Publicado o projeto real `/portfolio/raphael-construcoes` com identidade exclusiva em verde profundo e dourado.
+- Criados logo, capa social/OG e imagens próprias, sem reutilização de contatos no bundle público.
+- Parametrizados catálogo, guia regional, mensagem de divulgação, Kit de Presença, funil e redirecionamento privado.

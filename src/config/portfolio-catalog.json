@@ -1180,5 +1180,23 @@
     "fallbackImage": "/images/ton-e-cor/logo.png",
     "metrics": "Orçamento por demanda",
     "summary": "Presença digital da Ton & Cor para pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral."
+  },
+  {
+    "slug": "raphael-construcoes",
+    "clientKey": "raphael-construcoes",
+    "title": "Raphael Construções",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["construcao", "engenharia", "reformas", "impermeabilizacao", "hidraulica", "eletrica", "demolicao", "pintura"],
+    "subtitle": "Construção, engenharia e reformas do projeto ao acabamento",
+    "location": "Curitiba, região e litoral — PR",
+    "badge": "Projeto real",
+    "image": "/images/raphael-construcoes/hero-og.jpg",
+    "fallbackImage": "/images/raphael-construcoes/logo.png",
+    "metrics": "Orçamento por demanda",
+    "summary": "Raphael Construções apresenta soluções para construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos."
   }
 ]
