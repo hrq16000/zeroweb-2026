@@ -189,9 +189,9 @@ export function InstitutionalDiagnosticQuiz({
         <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
           <CheckCircle2 className="w-4 h-4" /> Diagnóstico enviado
         </p>
-        <h3 className="mt-3 text-2xl font-bold font-display">
+        <h2 className="mt-3 text-2xl font-bold font-display">
           Perfil recomendado: <span className="text-gradient">{s.title}</span>
-        </h3>
+        </h2>
         <p className="mt-3 text-muted-foreground">{s.summary}</p>
         <ul className="mt-4 space-y-2 text-sm">
           {s.fit.map((f) => (
@@ -225,9 +225,9 @@ export function InstitutionalDiagnosticQuiz({
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
             <Sparkles className="w-3.5 h-3.5" aria-hidden="true" /> Diagnóstico gratuito
           </p>
-          <h3 className="mt-2 text-xl lg:text-2xl font-bold font-display">
+          <h2 className="mt-2 text-xl lg:text-2xl font-bold font-display">
             6 perguntas rápidas para indicar o formato certo
-          </h3>
+          </h2>
         </div>
         {onClose && (
           <button type="button" onClick={onClose} aria-label="Fechar diagnóstico" className="p-2 rounded-full hover:bg-muted">

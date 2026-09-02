@@ -145,3 +145,131 @@ export const listPhoneLeads = createServerFn({ method: "POST" })
 
     return { leads, segmentos, etapas, funil };
   });
+
+// ============================================================================
+// Conversa real com o lead (admin) — abre o WhatsApp DO LEAD, nunca expõe o
+// número operacional da 0WEB. A URL é montada no servidor e o acesso fica
+// registrado em `audit_logs`.
+// ============================================================================
+
+function toWhatsAppDigits(raw: string): string | null {
+  const digits = String(raw ?? "").replace(/\D/g, "");
+  if (digits.length < 10 || digits.length > 15) return null;
+  if (digits.length <= 11) return `55${digits}`;
+  return digits;
+}
+
+export const startLeadConversation = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: { leadId: string }) => {
+    const id = String(data?.leadId ?? "");
+    if (!/^[0-9a-f-]{36}$/i.test(id)) throw new Error("invalid_lead");
+    return { leadId: id };
+  })
+  .handler(async ({ data, context }) => {
+    const supabaseAdmin = await assertAdmin(context.userId);
+
+    const { data: lead, error } = await supabaseAdmin
+      .from("dynamic_form_leads")
+      .select("id, contact_name, contact_phone, metadata_json, answers_json")
+      .eq("id", data.leadId)
+      .maybeSingle();
+    if (error) throw error;
+    if (!lead?.contact_phone) return { ok: false as const, reason: "sem_telefone" };
+
+    const digits = toWhatsAppDigits(lead.contact_phone);
+    if (!digits) return { ok: false as const, reason: "telefone_invalido" };
+
+    const nome = lead.contact_name?.trim()?.split(/\s+/)[0] ?? "";
+    const segmento = readSegment(lead.metadata_json, lead.answers_json);
+    const texto =
+      `Olá${nome ? ` ${nome}` : ""}! Aqui é da 0WEB. Recebemos seu diagnóstico` +
+      `${segmento && segmento !== "não segmentado" ? ` sobre ${segmento}` : ""}` +
+      ` e preparei os próximos passos. Posso te explicar por aqui?`;
+
+    await supabaseAdmin.from("audit_logs").insert({
+      actor_id: context.userId,
+      action: "lead.conversation_started",
+      entity: "dynamic_form_leads",
+      entity_id: lead.id,
+      meta: { view: "app/leads-telefone", segmento } as never,
+    });
+
+    return {
+      ok: true as const,
+      url: `https://wa.me/${digits}?text=${encodeURIComponent(texto)}`,
+    };
+  });
+
+// ============================================================================
+// Conversão do quiz até o contato real — por segmento e por período.
+// ============================================================================
+
+export type QuizConversionPoint = { chave: string; leads: number; intencao: number; contato: number };
+export type QuizConversionStats = {
+  total: { leads: number; intencao: number; contato: number };
+  porSegmento: QuizConversionPoint[];
+  porPeriodo: QuizConversionPoint[];
+};
+
+export const quizConversionStats = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: PhoneLeadFilters = {}) => data)
+  .handler(async ({ data, context }): Promise<QuizConversionStats> => {
+    const filters = sanitize({ ...data, limit: 500 });
+    const supabaseAdmin = await assertAdmin(context.userId);
+
+    let q = supabaseAdmin
+      .from("dynamic_form_leads")
+      .select("id, created_at, metadata_json, answers_json")
+      .order("created_at", { ascending: false })
+      .limit(500);
+    if (filters.from) q = q.gte("created_at", `${filters.from}T00:00:00.000Z`);
+    if (filters.to) q = q.lte("created_at", `${filters.to}T23:59:59.999Z`);
+
+    const { data: rows, error } = await q;
+    if (error) throw error;
+
+    const ids = (rows ?? []).map((r) => r.id);
+    const intencao = new Set<string>();
+    const contato = new Set<string>();
+    if (ids.length) {
+      const { data: tokens } = await supabaseAdmin
+        .from("whatsapp_redirect_tokens")
+        .select("lead_id, used_at, use_count")
+        .in("lead_id", ids);
+      for (const t of tokens ?? []) {
+        if (!t.lead_id) continue;
+        intencao.add(t.lead_id);
+        if (t.used_at || (t.use_count ?? 0) > 0) contato.add(t.lead_id);
+      }
+    }
+
+    const bump = (map: Map<string, QuizConversionPoint>, chave: string, id: string) => {
+      const cur = map.get(chave) ?? { chave, leads: 0, intencao: 0, contato: 0 };
+      cur.leads += 1;
+      if (intencao.has(id)) cur.intencao += 1;
+      if (contato.has(id)) cur.contato += 1;
+      map.set(chave, cur);
+    };
+
+    const seg = new Map<string, QuizConversionPoint>();
+    const per = new Map<string, QuizConversionPoint>();
+    for (const r of rows ?? []) {
+      const segmento = readSegment(r.metadata_json, r.answers_json);
+      if (filters.segmento && segmento !== filters.segmento) continue;
+      bump(seg, segmento, r.id);
+      bump(per, String(r.created_at).slice(0, 10), r.id);
+    }
+
+    const consideradas = Array.from(seg.values());
+    return {
+      total: {
+        leads: consideradas.reduce((a, b) => a + b.leads, 0),
+        intencao: consideradas.reduce((a, b) => a + b.intencao, 0),
+        contato: consideradas.reduce((a, b) => a + b.contato, 0),
+      },
+      porSegmento: consideradas.sort((a, b) => b.leads - a.leads).slice(0, 12),
+      porPeriodo: Array.from(per.values()).sort((a, b) => a.chave.localeCompare(b.chave)),
+    };
+  });

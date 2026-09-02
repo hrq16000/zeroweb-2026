@@ -25,7 +25,6 @@ import { Footer } from "../components/site/Footer";
 import { Toaster } from "../components/ui/sonner";
 import { SpacingDebugOverlay } from "../components/site/SpacingDebugOverlay";
 import { logNotFound } from "../lib/route-404.functions";
-import { primeGeoSilently } from "@/lib/geo-location";
 import { HYDRATION_GUARD_SCRIPT } from "@/lib/hydration-guard";
 
 const NOT_FOUND_SERVICES: Array<{ slug: string; name: string; desc: string; Icon: typeof Globe }> = [
@@ -298,11 +297,11 @@ function ScrollToTop() {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  // Estimativa de localidade por IP, em background e silenciosa. Sem prompt
-  // de GPS, sem exibição ao visitante e sem impacto se falhar.
-  useEffect(() => {
-    primeGeoSilently();
-  }, []);
+  // A estimativa de localidade por IP passou a ser resolvida sob demanda
+  // (no início do funil), evitando uma chamada de terceiros no carregamento
+  // de todas as páginas — o serviço responde 429 com frequência e sujava o
+  // console/Best Practices sem benefício algum na primeira renderização.
+
 
 
   return (

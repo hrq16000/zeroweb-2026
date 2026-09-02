@@ -86,7 +86,7 @@ export function Footer() {
 
           {/* Col 2 — Serviços */}
           <div className="lg:col-span-3 sm:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/75">Serviços</h4>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-background/75">Serviços</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               {servicosCol.map((l) => (
                 <li key={l.slug}>
@@ -109,7 +109,7 @@ export function Footer() {
 
           {/* Col 3 — Empresa */}
           <div className="lg:col-span-2 sm:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/75">Empresa</h4>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-background/75">Empresa</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               {empresaCol.map((l) => (
                 <li key={l.label}>
@@ -123,7 +123,7 @@ export function Footer() {
 
           {/* Col 4 — Suporte */}
           <div className="lg:col-span-3 sm:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-background/75">Suporte</h4>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-background/75">Suporte</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               {suporteCol.map((l) => (
                 <li key={l.label}>
