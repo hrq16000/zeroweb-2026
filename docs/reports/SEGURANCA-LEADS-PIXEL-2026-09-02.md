@@ -58,3 +58,20 @@
 ## Manutenção
 - Para reload do schema: `curl -H "x-cron-secret: $CRON_SECRET" ".../api/public/health-db?reload=1"`.
 - Retenção sugerida do pixel: expurgar `quiz_pixel_events` com mais de 180 dias.
+
+## 6. Adenda 2026-09-02 (turno de publicação)
+
+- **Licenças:** nova varredura de segurança não retorna mais o finding de
+  `license_audit`/`license_usage` — correção confirmada.
+- **Adulteração de preço:** triggers `guard_orders_customer_update` e
+  `guard_cart_funnel_amount_update` bloqueiam alteração de `items`, `total`,
+  `total_amount` e `payment_status` por usuários finais; apenas `service_role`
+  e super admin podem alterá-los.
+- **Search Console:** consulta real à propriedade verificada
+  `https://0web.com.br/` (04/08–31/08) retornou zero linhas — o site ainda não
+  acumulou impressões. O snapshot registra data/período reais; nenhum número é
+  inventado. Painel `/app/seo` ganhou o bloco "Palavras-chave monitoradas"
+  (inclui "criação de site institucional") e mantém alertas de queda de
+  cliques/impressões/posição com limiar configurável.
+- **Build:** o import de `gsc-latest.json` já usa `@/data/...` (dentro de `src/`,
+  empacotável pelo worker); `bun run build` conclui sem erros.

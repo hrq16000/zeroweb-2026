@@ -112,7 +112,69 @@ function buildAlerts(days: GscRow[], thresholdPct: number): SeoAlert[] {
   return alerts;
 }
 
+/** Palavras-chave monitoradas de perto (ranking alvo do portal). */
+const WATCHED_KEYWORDS = [
+  "criação de site institucional",
+  "criacao de site institucional",
+  "site institucional",
+  "google meu negócio",
+  "criação de sites",
+];
+
+export type WatchedKeyword = {
+  keyword: string;
+  found: boolean;
+  clicks: number;
+  impressions: number;
+  ctr: number;
+  position: number | null;
+  status: "top3" | "primeira-pagina" | "segunda-pagina" | "fora" | "sem-dados";
+};
+
+function normalize(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+/** Cruza as consultas do Search Console com as palavras-chave monitoradas. */
+function watchedKeywords(queries: GscRow[]): WatchedKeyword[] {
+  const seen = new Set<string>();
+  const out: WatchedKeyword[] = [];
+  for (const keyword of WATCHED_KEYWORDS) {
+    const key = normalize(keyword);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const match = queries.find((r) => normalize(r.keys[0] ?? "") === key);
+    if (!match) {
+      out.push({ keyword, found: false, clicks: 0, impressions: 0, ctr: 0, position: null, status: "sem-dados" });
+      continue;
+    }
+    const status: WatchedKeyword["status"] =
+      match.position <= 3
+        ? "top3"
+        : match.position <= 10
+          ? "primeira-pagina"
+          : match.position <= 20
+            ? "segunda-pagina"
+            : "fora";
+    out.push({
+      keyword,
+      found: true,
+      clicks: match.clicks,
+      impressions: match.impressions,
+      ctr: match.ctr,
+      position: match.position,
+      status,
+    });
+  }
+  return out;
+}
+
 /** Auditoria estática dos metadados do cluster de conteúdo. */
+
 function contentRows(): ContentSeoRow[] {
   return posts.map((p) => {
     const issues: string[] = [];
@@ -159,6 +221,7 @@ export const getSeoDashboard = createServerFn({ method: "GET" })
       queries: (snap.queries ?? []).slice(0, 50),
       pages: (snap.pages ?? []).slice(0, 50),
       priorities: prioritize(snap.queries ?? []),
+      watched: watchedKeywords(snap.queries ?? []),
       alerts: buildAlerts(snap.days ?? [], data.alertThresholdPct),
       alertThresholdPct: data.alertThresholdPct,
       content: contentRows(),
