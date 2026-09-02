@@ -221,6 +221,7 @@ export const getSeoDashboard = createServerFn({ method: "GET" })
       queries: (snap.queries ?? []).slice(0, 50),
       pages: (snap.pages ?? []).slice(0, 50),
       priorities: prioritize(snap.queries ?? []),
+      watched: watchedKeywords(snap.queries ?? []),
       alerts: buildAlerts(snap.days ?? [], data.alertThresholdPct),
       alertThresholdPct: data.alertThresholdPct,
       content: contentRows(),
