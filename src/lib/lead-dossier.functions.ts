@@ -63,7 +63,7 @@ export const getLeadDossier = createServerFn({ method: "POST" })
     const { data: lead, error } = await supabaseAdmin
       .from("dynamic_form_leads")
       .select(
-        "id, created_at, contact_name, contact_phone, metadata_json, answers_json, pipeline_stage, intent_level, score, source",
+        "id, created_at, contact_name, contact_phone, metadata_json, answers_json, pipeline_stage, intent_level, score",
       )
       .eq("id", data.leadId)
       .maybeSingle();
@@ -156,7 +156,7 @@ export const getLeadDossier = createServerFn({ method: "POST" })
       etapa: lead.pipeline_stage ?? "novo",
       intent: lead.intent_level ?? "—",
       score: lead.score ?? 0,
-      origem: (lead as { source?: string }).source ?? "site",
+      origem: "site",
       createdAt: lead.created_at,
       respostas,
       interacoes: interacoes.sort((a, b) => String(a.at).localeCompare(String(b.at))),
