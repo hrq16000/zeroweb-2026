@@ -9,6 +9,7 @@ import {
   InstitutionalDiagnosticQuizModal,
 } from "@/components/site/InstitutionalDiagnosticQuiz";
 import { trackEvent } from "@/lib/analytics";
+import { capitaisPorRegiao } from "@/lib/capitais";
 
 const CANONICAL = "https://0web.com.br/criacao-de-site-institucional";
 const TITLE = "Criação de Site Institucional que Gera Contatos | 0WEB";
