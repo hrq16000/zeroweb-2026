@@ -1,5 +1,10 @@
 # Skill changelog / usage log
 
+## 2026-09-02 — HBK Iluminação LED Atacadão
+
+- Publicado o projeto real `/portfolio/hbk-iluminacao-led` com marca, capa social e Kit de Presença exclusivos.
+- Aplicados catálogo, conversão, narrativa, funil, privacidade e SEO regional para soluções LED voltadas a obras e reformas.
+
 ## 2026-09-02 — JC Revestimentos
 
 - Publicado o projeto real `/portfolio/jc-revestimentos` com marca, imagem social e Kit de Presença exclusivos.

@@ -413,6 +413,12 @@ const narrativeBySlug: Record<
     cta: "Solicitar orçamento",
     theme: "navy",
   },
+  "hbk-iluminacao-led": {
+    title: "A iluminação certa começa com uma escolha bem orientada.",
+    step: "Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação.",
+    cta: "Solicitar cotação",
+    theme: "navy",
+  },
 };
 
 export function PortfolioConversionNarrative({ slug }: { slug: string }) {

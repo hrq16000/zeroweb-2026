@@ -524,7 +524,7 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "period": "Como podemos orientar?",
       "timing": "Quando pretende começar?"
     },
-    "notePlaceholder": "Conte a metragem, ambiente e acabamento desejado."
+    "notePlaceholder": "Conte os ambientes, a metragem e o que deseja iluminar."
   },
   "jc-revestimentos": {
     "proposalKind": "service",

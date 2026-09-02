@@ -1,10 +1,9 @@
 import type { CSSProperties } from "react";
 import {
   ArrowRight,
-  BrickWall,
   Building2,
-  Droplets,
-  PaintRoller,
+  Lightbulb,
+  LampDesk,
   PlugZap,
   ShieldCheck,
 } from "lucide-react";
@@ -33,29 +32,29 @@ const quizConfig = {
     period: "Como podemos orientar?",
     timing: "Quando pretende começar?",
   },
-  notePlaceholder: "Conte a metragem, ambiente e acabamento desejado.",
+  notePlaceholder: "Conte os ambientes, a metragem e o que deseja iluminar.",
 };
 
 const services = [
   {
-    icon: PaintRoller,
-    title: "Iluminação LED residencial",
-    text: "Acabamento texturizado para compor fachadas e superfícies.",
+    icon: Lightbulb,
+    title: "Lâmpadas e luminárias LED",
+    text: "Opções para dar mais clareza e eficiência aos ambientes.",
   },
   {
-    icon: BrickWall,
-    title: "Iluminação LED comercial e textura lisa",
-    text: "Opções de textura para diferentes propostas de acabamento.",
+    icon: LampDesk,
+    title: "Spots, perfis e fitas LED",
+    text: "Soluções para destacar pontos de luz, móveis e acabamentos.",
   },
   {
     icon: Building2,
-    title: "Produtos e projetos LED",
-    text: "Spots e perfis LED, acrílica e niveladora para preparar superfícies.",
+    title: "Iluminação para obras e reformas",
+    text: "Produtos LED para projetos residenciais e comerciais.",
   },
   {
-    icon: Droplets,
-    title: "Linha de iluminação LEDs",
-    text: "Materiais de iluminação LED direto da fábrica para sua obra.",
+    icon: PlugZap,
+    title: "Orientação técnica",
+    text: "Equipe preparada para ajudar a escolher a solução mais adequada.",
   },
 ];
 
@@ -121,8 +120,8 @@ export function HbkIluminacaoLedPage() {
                 Soluções LED para construir, reformar e iluminar melhor.
               </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-                Iluminação LED residencial, grafiato, textura lisa, produto LED corrida, produto LED acrílica e produto LED
-                niveladora para projetos em Curitiba.
+                Produtos LED e orientação para obras, reformas, residências e comércios. Conte o que precisa iluminar e organize
+                sua cotação com a equipe.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PortfolioCTAQuiz
@@ -150,7 +149,7 @@ export function HbkIluminacaoLedPage() {
             </div>
             <PortfolioImage
               src="/images/hbk-iluminacao-led/servicos.webp"
-              alt="Amostras de iluminação LED e textura em fachada residencial"
+              alt="Ambiente com soluções de iluminação LED"
               priority
               width={1440}
               height={900}
@@ -188,7 +187,7 @@ export function HbkIluminacaoLedPage() {
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
             <PortfolioImage
               src="/images/hbk-iluminacao-led/hero.webp"
-              alt="Texturas e iluminação LEDs para acabamento de parede"
+              alt="Produtos de iluminação LED para projetos e reformas"
               width={1440}
               height={900}
               className="aspect-[8/5] w-full rounded-3xl object-cover"
@@ -198,11 +197,11 @@ export function HbkIluminacaoLedPage() {
                 Como começar
               </p>
               <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
-                Conte o ambiente e encontre o iluminação LED ideal.
+                Conte o ambiente e encontre a solução LED ideal.
               </h2>
               <ol className="mt-8 space-y-5">
                 {[
-                  "Escolha o tipo de textura ou produto LED que procura.",
+                  "Escolha o tipo de iluminação LED que procura.",
                   "Informe o ambiente, a metragem ou envie os detalhes.",
                   "Alinhe o material e solicite seu orçamento.",
                 ].map((item, index) => (
@@ -248,7 +247,7 @@ export function HbkIluminacaoLedPage() {
         clientKey="hbk-iluminacao-led"
         eyebrow="HBK Iluminação LED Atacadão"
         title="Iluminando seus projetos com inteligência."
-        description="Conheça a linha de iluminação LEDs e organize os detalhes para solicitar um orçamento."
+        description="Conheça as soluções de iluminação LED e organize os detalhes para solicitar uma cotação."
         ctaLabel="Ver serviços"
         ctaHref="#servicos"
       />
