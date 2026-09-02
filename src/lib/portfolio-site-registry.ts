@@ -452,6 +452,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  { slug: "hbk-iluminacao-led", vertical: "prestadores-de-servicos", siteName: "HBK Iluminação LED Atacadão", kind: "prototype", indexable: true },
 ];
 
 export function findPortfolioPrototype(slug: string) {

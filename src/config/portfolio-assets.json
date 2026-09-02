@@ -812,6 +812,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "85b6554c"
+    },
+    "hbk-iluminacao-led": {
+      "icon": "/images/hbk-iluminacao-led/logo.png",
+      "socialImage": "/images/hbk-iluminacao-led/hero-og.jpg",
+      "proof": {
+        "eyebrow": "HBK Iluminação LED Atacadão",
+        "title": "Iluminando seus projetos com inteligência.",
+        "description": "Conheça as soluções LED e organize uma cotação para seu projeto.",
+        "ctaLabel": "Ver soluções",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "4d802208"
     }
   }
 }

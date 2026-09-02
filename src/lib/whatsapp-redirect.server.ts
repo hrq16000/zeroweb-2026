@@ -116,7 +116,9 @@ export function resolvePortfolioWhatsAppContact(
                                 ? "RAPHAEL_CONSTRUCOES_WHATSAPP_NUMBER"
                                 : clientKey === "jc-revestimentos"
                                   ? "JC_REVESTIMENTOS_WHATSAPP_NUMBER"
-                                  : null;
+                                  : clientKey === "hbk-iluminacao-led"
+                                    ? "HBK_ILUMINACAO_LED_WHATSAPP_NUMBER"
+                                    : null;
   if (!envName) return null;
   const digits = (process.env[envName] ?? "").replace(/\D/g, "");
   if (!digits || digits.length < 10 || digits.length > 15) return null;

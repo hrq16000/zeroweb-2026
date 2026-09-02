@@ -227,6 +227,9 @@ const RaphaelConstrucoesPage = lazy(() =>
 const JcRevestimentosPage = lazy(() =>
   import("@/components/site/JcRevestimentosPage").then((m) => ({ default: m.JcRevestimentosPage })),
 );
+const HbkIluminacaoLedPage = lazy(() =>
+  import("@/components/site/HbkIluminacaoLedPage").then((m) => ({ default: m.HbkIluminacaoLedPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
@@ -281,7 +284,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isTonECor = loaderData?.slug === "ton-e-cor";
     const isRaphaelConstrucoes = loaderData?.slug === "raphael-construcoes";
     const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
-    const description = isJcRevestimentos
+    const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
+    const description = isHbkIluminacaoLed
+      ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
+      : isJcRevestimentos
       ? "JC Revestimentos em Uberaba, Curitiba: textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora."
       : isRaphaelConstrucoes
       ? "Raphael Construções: construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos em Curitiba, região e litoral."
@@ -638,6 +644,8 @@ function PortfolioPrototypePage() {
           <RaphaelConstrucoesPage />
         ) : slug === "jc-revestimentos" ? (
           <JcRevestimentosPage />
+        ) : slug === "hbk-iluminacao-led" ? (
+          <HbkIluminacaoLedPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

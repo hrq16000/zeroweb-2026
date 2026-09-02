@@ -634,5 +634,16 @@
     "ctaMode": "quote",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "hbk-iluminacao-led",
+    "slug": "hbk-iluminacao-led",
+    "siteName": "HBK Iluminação LED Atacadão",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
+    "assetsDir": "public/images/hbk-iluminacao-led",
+    "ctaMode": "quote",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]

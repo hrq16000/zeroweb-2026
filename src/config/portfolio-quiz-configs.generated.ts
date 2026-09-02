@@ -490,6 +490,42 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: ambiente, medidas aproximadas, acabamento desejado ou itens para transportar."
   },
+  "hbk-iluminacao-led": {
+    "proposalKind": "service",
+    "services": [
+      "Iluminação LED residencial",
+      "Iluminação LED comercial",
+      "Lâmpadas e luminárias LED",
+      "Spots e perfis LED",
+      "Projetos de iluminação",
+      "Orientação técnica"
+    ],
+    "experienceOptions": [
+      "Residência",
+      "Condomínio",
+      "Comércio",
+      "Obra em andamento",
+      "Outro projeto"
+    ],
+    "periodOptions": [
+      "Sei a metragem",
+      "Tenho fotos do ambiente",
+      "Preciso de orientação"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nos próximos dias",
+      "Ainda neste mês",
+      "Estou planejando"
+    ],
+    "stepTitles": {
+      "service": "Qual iluminação LED procura?",
+      "experience": "Onde será aplicado?",
+      "period": "Como podemos orientar?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte a metragem, ambiente e acabamento desejado."
+  },
   "jc-revestimentos": {
     "proposalKind": "service",
     "services": [

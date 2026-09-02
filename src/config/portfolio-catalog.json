@@ -1233,5 +1233,23 @@
     "fallbackImage": "/images/jc-revestimentos/logo.png",
     "metrics": "Orçamento por demanda",
     "summary": "JC Revestimentos fornece textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora em Uberaba, Curitiba."
+  },
+  {
+    "slug": "hbk-iluminacao-led",
+    "clientKey": "hbk-iluminacao-led",
+    "title": "HBK Iluminação LED Atacadão",
+    "segment": "construcao",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["iluminacao-led", "lampadas-led", "luminarias", "spots-led", "projetos-de-iluminacao"],
+    "subtitle": "Iluminação LED para construir, reformar e economizar",
+    "location": "Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/hbk-iluminacao-led/hero-og.jpg",
+    "fallbackImage": "/images/hbk-iluminacao-led/logo.png",
+    "metrics": "Orçamento por demanda",
+    "summary": "HBK Iluminação LED Atacadão oferece produtos LED, orientação técnica e condições especiais para clientes finais em construção e reforma."
   }
 ]

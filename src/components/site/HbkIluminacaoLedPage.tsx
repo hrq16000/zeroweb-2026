@@ -1,0 +1,260 @@
+import type { CSSProperties } from "react";
+import {
+  ArrowRight,
+  BrickWall,
+  Building2,
+  Droplets,
+  PaintRoller,
+  PlugZap,
+  ShieldCheck,
+} from "lucide-react";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
+const quizConfig = {
+  proposalKind: "service" as const,
+  services: [
+    "Iluminação LED residencial",
+    "Iluminação LED comercial",
+    "Lâmpadas e luminárias LED",
+    "Spots e perfis LED",
+    "Projetos de iluminação",
+    "Orientação técnica",
+  ],
+  experienceOptions: ["Residência", "Condomínio", "Comércio", "Obra em andamento", "Outro projeto"],
+  periodOptions: ["Sei a metragem", "Tenho fotos do ambiente", "Preciso de orientação"],
+  timingOptions: ["O quanto antes", "Nos próximos dias", "Ainda neste mês", "Estou planejando"],
+  stepTitles: {
+    service: "Qual iluminação LED procura?",
+    experience: "Onde será aplicado?",
+    period: "Como podemos orientar?",
+    timing: "Quando pretende começar?",
+  },
+  notePlaceholder: "Conte a metragem, ambiente e acabamento desejado.",
+};
+
+const services = [
+  {
+    icon: PaintRoller,
+    title: "Iluminação LED residencial",
+    text: "Acabamento texturizado para compor fachadas e superfícies.",
+  },
+  {
+    icon: BrickWall,
+    title: "Iluminação LED comercial e textura lisa",
+    text: "Opções de textura para diferentes propostas de acabamento.",
+  },
+  {
+    icon: Building2,
+    title: "Produtos e projetos LED",
+    text: "Spots e perfis LED, acrílica e niveladora para preparar superfícies.",
+  },
+  {
+    icon: Droplets,
+    title: "Linha de iluminação LEDs",
+    text: "Materiais de iluminação LED direto da fábrica para sua obra.",
+  },
+];
+
+const theme = {
+  "--background": "42 30% 97%",
+  "--foreground": "158 75% 7%",
+  "--card": "0 0% 100%",
+  "--muted": "42 24% 91%",
+  "--muted-foreground": "213 18% 38%",
+  "--primary": "42 83% 48%",
+  "--primary-foreground": "158 75% 7%",
+  "--border": "213 18% 82%",
+  "--ring": "42 100% 48%",
+} as CSSProperties;
+
+export function HbkIluminacaoLedPage() {
+  return (
+    <div className="min-h-dvh bg-background text-foreground" style={theme}>
+      <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
+        <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" aria-label="HBK Iluminação LED Atacadão — início">
+            <PortfolioImage
+              src="/images/hbk-iluminacao-led/logo.png"
+              alt="HBK Iluminação LED Atacadão"
+              width={420}
+              height={190}
+              className="h-14 w-auto object-contain"
+            />
+          </a>
+          <nav
+            aria-label="Navegação principal"
+            className="hidden items-center gap-6 text-sm font-semibold md:flex"
+          >
+            <a href="#servicos" className="hover:text-primary">
+              Serviços
+            </a>
+            <a href="#como-funciona" className="hover:text-primary">
+              Como funciona
+            </a>
+          </nav>
+          <PortfolioCTAQuiz
+            clientKey="hbk-iluminacao-led"
+            studioName="HBK Iluminação LED Atacadão"
+            recipientName="HBK"
+            theme="navy"
+            mode="proposal"
+            quizConfig={quizConfig}
+            className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground hover:opacity-90"
+          >
+            Solicitar orçamento
+          </PortfolioCTAQuiz>
+        </div>
+      </header>
+
+      <main id="inicio">
+        <section className="overflow-hidden bg-foreground px-5 py-16 text-background md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+                Iluminação LED com inteligência
+              </p>
+              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+                Soluções LED para construir, reformar e iluminar melhor.
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
+                Iluminação LED residencial, grafiato, textura lisa, produto LED corrida, produto LED acrílica e produto LED
+                niveladora para projetos em Curitiba.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <PortfolioCTAQuiz
+                  clientKey="hbk-iluminacao-led"
+                  studioName="HBK Iluminação LED Atacadão"
+                  recipientName="HBK"
+                  theme="navy"
+                  mode="proposal"
+                  quizConfig={quizConfig}
+                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground hover:opacity-90"
+                >
+                  Solicitar orçamento <ArrowRight className="h-4 w-4" />
+                </PortfolioCTAQuiz>
+                <a
+                  href="#servicos"
+                  className="inline-flex min-h-12 items-center rounded-full border border-background/30 px-6 font-semibold text-background hover:border-primary hover:text-primary"
+                >
+                  Conhecer serviços
+                </a>
+              </div>
+              <div className="mt-8 flex items-center gap-3 text-sm text-background/75">
+                <ShieldCheck className="h-5 w-5 text-primary" /> Materiais de ótima qualidade e
+                preço acessível, conforme informado pela empresa.
+              </div>
+            </div>
+            <PortfolioImage
+              src="/images/hbk-iluminacao-led/servicos.webp"
+              alt="Amostras de iluminação LED e textura em fachada residencial"
+              priority
+              width={1440}
+              height={900}
+              className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
+            />
+          </div>
+        </section>
+
+        <section id="servicos" className="px-5 py-16 md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+              Soluções em LED
+            </p>
+            <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <h2 className="max-w-2xl font-display text-3xl font-bold md:text-5xl">
+                Iluminação planejada para cada projeto.
+              </h2>
+              <p className="max-w-md text-sm leading-6 text-muted-foreground">
+                Conheça as soluções LED para residências, obras, comércios e reformas.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="rounded-2xl border border-border bg-card p-6">
+                  <Icon className="h-7 w-7 text-primary" />
+                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="como-funciona" className="bg-muted px-5 py-16 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
+            <PortfolioImage
+              src="/images/hbk-iluminacao-led/hero.webp"
+              alt="Texturas e iluminação LEDs para acabamento de parede"
+              width={1440}
+              height={900}
+              className="aspect-[8/5] w-full rounded-3xl object-cover"
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+                Como começar
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
+                Conte o ambiente e encontre o iluminação LED ideal.
+              </h2>
+              <ol className="mt-8 space-y-5">
+                {[
+                  "Escolha o tipo de textura ou produto LED que procura.",
+                  "Informe o ambiente, a metragem ou envie os detalhes.",
+                  "Alinhe o material e solicite seu orçamento.",
+                ].map((item, index) => (
+                  <li key={item} className="flex gap-4">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
+                      {index + 1}
+                    </span>
+                    <span className="pt-2 font-semibold">{item}</span>
+                  </li>
+                ))}
+              </ol>
+              <PortfolioCTAQuiz
+                clientKey="hbk-iluminacao-led"
+                studioName="HBK Iluminação LED Atacadão"
+                recipientName="HBK"
+                theme="navy"
+                mode="proposal"
+                quizConfig={quizConfig}
+                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-6 font-bold text-background hover:opacity-90"
+              >
+                Começar orçamento
+              </PortfolioCTAQuiz>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-foreground px-5 py-8 text-background">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <strong>HBK Iluminação LED Atacadão</strong>
+            <p className="mt-1 text-sm text-background/70">
+              Iluminação LED para projetos e reformas.
+            </p>
+          </div>
+          <PortfolioHostCredit
+            className="text-sm text-background/70"
+            linkClassName="font-semibold text-primary"
+          />
+        </div>
+      </footer>
+      <PortfolioSocialProofPopup
+        clientKey="hbk-iluminacao-led"
+        eyebrow="HBK Iluminação LED Atacadão"
+        title="Iluminando seus projetos com inteligência."
+        description="Conheça a linha de iluminação LEDs e organize os detalhes para solicitar um orçamento."
+        ctaLabel="Ver serviços"
+        ctaHref="#servicos"
+      />
+      <PortfolioUpsellPopup pageName="portfolio-hbk-iluminacao-led" />
+    </div>
+  );
+}
+
+
