@@ -1,0 +1,34 @@
+name: gsc-daily
+
+# Atualiza diariamente o snapshot do Search Console consumido por /app/seo.
+# Credenciais vêm do conector Google Search Console da Lovable (secrets do repo).
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # 06h BRT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - run: bun install --frozen-lockfile
+      - name: Exportar Search Console
+        run: bun run gsc:export
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          GOOGLE_SEARCH_CONSOLE_API_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_KEY }}
+      - name: Commitar snapshot
+        run: |
+          git config user.name "0web-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add seo-reports/gsc-latest.json seo-reports/gsc-latest.md src/data/gsc-latest.json
+          git commit -m "chore(seo): snapshot diário do Search Console" || echo "sem mudanças"
+          git push
