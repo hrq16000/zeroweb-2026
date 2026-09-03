@@ -15,6 +15,7 @@
 import globalConfig from "@/config/portfolio-global-config.json";
 import clients from "@/config/portfolio-clients.json";
 import { resolvePortfolioQuizConfig } from "@/config/portfolio-quiz-configs.generated";
+import { resolveCatalogFunnelConfig } from "@/lib/portfolio-funnel-defaults";
 import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 
 type ClientRecord = { clientKey: string; slug: string };
@@ -36,7 +37,14 @@ function overrideQuizConfig(clientKey: string): PortfolioQuizConfig | undefined 
 /** Funil canônico do cliente (sem ajustes locais de chamada). */
 export function resolvePortfolioFunnelConfig(slugOrKey: string): PortfolioQuizConfig | undefined {
   const key = toClientKey(slugOrKey);
-  return overrideQuizConfig(key) ?? resolvePortfolioQuizConfig(key);
+  return (
+    overrideQuizConfig(key) ??
+    resolvePortfolioQuizConfig(key) ??
+    // Padrão derivado do catálogo: projetos novos herdam perguntas do próprio
+    // segmento sem precisar de ajuste manual individual.
+    resolveCatalogFunnelConfig(slugOrKey) ??
+    resolveCatalogFunnelConfig(key)
+  );
 }
 
 /** Funil canônico + ajustes locais da chamada (os locais prevalecem campo a campo). */
