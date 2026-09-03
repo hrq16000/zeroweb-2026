@@ -273,8 +273,8 @@ export const startLeadConversation = createServerFn({ method: "POST" })
     await supabaseAdmin.from("audit_logs").insert({
       actor_id: context.userId,
       action: "lead.conversation_started",
-      entity: "dynamic_form_leads",
-      entity_id: lead.id,
+      entity: lead ? "dynamic_form_leads" : "lead_submissions",
+      entity_id: data.leadId,
       meta: { view: "app/leads-telefone", segmento } as never,
     });
 
