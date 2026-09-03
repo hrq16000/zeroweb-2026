@@ -313,7 +313,22 @@ export const quizConversionStats = createServerFn({ method: "POST" })
     const { data: rows, error } = await q;
     if (error) throw error;
 
-    const ids = (rows ?? []).map((r) => r.id);
+    const quizRows = await fetchQuizLeadRows(supabaseAdmin, { ...filters, etapa: undefined }, 500);
+
+    const normalizadas = [
+      ...(rows ?? []).map((r) => ({
+        id: r.id,
+        created_at: r.created_at,
+        segmento: readSegment(r.metadata_json, r.answers_json),
+      })),
+      ...quizRows.map((r) => ({
+        id: r.id,
+        created_at: r.created_at,
+        segmento: readSegment({ audience_tag: r.audience_tag }, r.payload_json),
+      })),
+    ];
+
+    const ids = normalizadas.map((r) => r.id);
     const intencao = new Set<string>();
     const contato = new Set<string>();
     if (ids.length) {
