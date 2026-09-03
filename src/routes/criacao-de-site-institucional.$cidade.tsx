@@ -185,7 +185,11 @@ function CapitalPage() {
             </div>
 
             <div id="diagnostico-local" className="rounded-3xl border border-border bg-card shadow-elegant overflow-hidden scroll-mt-24">
-              <InstitutionalDiagnosticQuiz source={`institucional-${c.slug}`} />
+              <InstitutionalDiagnosticQuiz
+                source={`institucional-${c.slug}`}
+                quizKey={`institucional-${c.slug}`}
+                city={`${c.name}/${c.uf}`}
+              />
             </div>
           </div>
         </section>
@@ -277,10 +281,28 @@ function CapitalPage() {
         </section>
       </main>
 
+      {/* CTA fixo da cidade — visitante local nunca fica sem caminho de contato. */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 backdrop-blur px-4 py-3 lg:hidden">
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-xs text-muted-foreground">
+            Atendemos {c.name} · {c.uf}
+          </p>
+          <button
+            type="button"
+            onClick={openModal}
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold px-5 py-2.5"
+          >
+            Falar com a 0WEB <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
       <InstitutionalDiagnosticQuizModal
         open={modal}
         onClose={() => setModal(false)}
         source={`institucional-${c.slug}-modal`}
+        quizKey={`institucional-${c.slug}`}
+        city={`${c.name}/${c.uf}`}
       />
       <Footer />
     </div>
