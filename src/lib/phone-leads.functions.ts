@@ -241,13 +241,30 @@ export const startLeadConversation = createServerFn({ method: "POST" })
       .eq("id", data.leadId)
       .maybeSingle();
     if (error) throw error;
-    if (!lead?.contact_phone) return { ok: false as const, reason: "sem_telefone" };
 
-    const digits = toWhatsAppDigits(lead.contact_phone);
+    let telefone = lead?.contact_phone ?? null;
+    let nomeCompleto = lead?.contact_name ?? null;
+    let segmento = lead ? readSegment(lead.metadata_json, lead.answers_json) : "não segmentado";
+
+    if (!lead) {
+      const { data: quizLead, error: quizError } = await supabaseAdmin
+        .from("lead_submissions")
+        .select("id, name, phone, audience_tag, payload_json")
+        .eq("id", data.leadId)
+        .maybeSingle();
+      if (quizError) throw quizError;
+      if (!quizLead) return { ok: false as const, reason: "sem_telefone" };
+      telefone = quizLead.phone;
+      nomeCompleto = quizLead.name;
+      segmento = readSegment({ audience_tag: quizLead.audience_tag }, quizLead.payload_json);
+    }
+
+    if (!telefone) return { ok: false as const, reason: "sem_telefone" };
+
+    const digits = toWhatsAppDigits(telefone);
     if (!digits) return { ok: false as const, reason: "telefone_invalido" };
 
-    const nome = lead.contact_name?.trim()?.split(/\s+/)[0] ?? "";
-    const segmento = readSegment(lead.metadata_json, lead.answers_json);
+    const nome = nomeCompleto?.trim()?.split(/\s+/)[0] ?? "";
     const texto =
       `Olá${nome ? ` ${nome}` : ""}! Aqui é da 0WEB. Recebemos seu diagnóstico` +
       `${segmento && segmento !== "não segmentado" ? ` sobre ${segmento}` : ""}` +
