@@ -32,6 +32,7 @@ import {
   Users,
   ImageOff,
   Inbox,
+  MapPin,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
