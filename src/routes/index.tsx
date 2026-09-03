@@ -23,6 +23,7 @@ const AISection = lazy(() => import("@/components/site/AISection").then((m) => (
 const DiagnosticForm = lazy(() => import("@/components/site/DiagnosticForm").then((m) => ({ default: m.DiagnosticForm })));
 const Differentials = lazy(() => import("@/components/site/Differentials").then((m) => ({ default: m.Differentials })));
 const Cases = lazy(() => import("@/components/site/Cases").then((m) => ({ default: m.Cases })));
+const ProjetosNoAr = lazy(() => import("@/components/site/ProjetosNoAr").then((m) => ({ default: m.ProjetosNoAr })));
 const Plans = lazy(() => import("@/components/site/Plans").then((m) => ({ default: m.Plans })));
 const Process = lazy(() => import("@/components/site/ProcessTimeline").then((m) => ({ default: m.ProcessTimeline })));
 const StatsStrip = lazy(() => import("@/components/site/StatsStrip").then((m) => ({ default: m.StatsStrip })));
@@ -184,6 +185,8 @@ function Index() {
         {on("diagnostic_form") && <Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense>}
         {on("differentials") && <Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense>}
         {on("cases") && <Suspense key="cases" fallback={<Skel />}><Cases /></Suspense>}
+        <Suspense key="projetos_no_ar" fallback={<Skel />}><ProjetosNoAr /></Suspense>
+
         <Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense>
         {on("plans") && <Suspense key="plans" fallback={<Skel />}><Plans /></Suspense>}
         {on("process") && <Suspense key="process" fallback={<Skel />}><Process /></Suspense>}

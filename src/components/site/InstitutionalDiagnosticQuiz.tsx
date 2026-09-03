@@ -208,6 +208,19 @@ export function InstitutionalDiagnosticQuiz({
         audience_tag: segment,
         payload: { segment, answers, quiz: qk, city: city ?? null } as never,
       });
+      // Despacho para o CRM (planilha da equipe) + notificação interna.
+      // Best-effort: falha aqui não pode impedir a confirmação ao visitante.
+      try {
+        const { dispatchCrmLead } = await import("@/lib/crm-intake.functions");
+        void dispatchCrmLead({
+          data: {
+            phone: contact.whatsapp.trim(),
+            email: contact.email.trim(),
+            source: `quiz:${source}`,
+          },
+        }).catch(() => { /* noop */ });
+      } catch { /* noop */ }
+
       trackConversion("quiz_complete", { source, segment });
       enviado.current = true;
       trackQuiz({ quizKey: qk, eventType: "submit", stepIndex: QUESTIONS.length, stepKey: "contato", answerLabel: segment });
