@@ -353,8 +353,8 @@ export const quizConversionStats = createServerFn({ method: "POST" })
 
     const seg = new Map<string, QuizConversionPoint>();
     const per = new Map<string, QuizConversionPoint>();
-    for (const r of rows ?? []) {
-      const segmento = readSegment(r.metadata_json, r.answers_json);
+    for (const r of normalizadas) {
+      const segmento = r.segmento;
       if (filters.segmento && segmento !== filters.segmento) continue;
       bump(seg, segmento, r.id);
       bump(per, String(r.created_at).slice(0, 10), r.id);
