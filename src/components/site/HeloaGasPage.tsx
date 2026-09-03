@@ -52,16 +52,18 @@ const catalogo = [
 ];
 
 const theme = {
-  "--background": "150 30% 97%",
-  "--foreground": "158 60% 10%",
-  "--card": "0 0% 100%",
-  "--muted": "150 22% 92%",
-  "--muted-foreground": "158 14% 34%",
-  "--primary": "24 92% 50%",
-  "--primary-foreground": "0 0% 100%",
-  "--border": "150 16% 82%",
-  "--ring": "24 92% 50%",
+  "--background": "oklch(0.985 0.008 150)",
+  "--foreground": "oklch(0.24 0.05 165)",
+  "--card": "oklch(1 0 0)",
+  "--card-foreground": "oklch(0.24 0.05 165)",
+  "--muted": "oklch(0.94 0.015 155)",
+  "--muted-foreground": "oklch(0.48 0.03 165)",
+  "--primary": "oklch(0.7 0.19 44)",
+  "--primary-foreground": "oklch(1 0 0)",
+  "--border": "oklch(0.89 0.015 155)",
+  "--ring": "oklch(0.7 0.19 44)",
 } as CSSProperties;
+
 
 export function HeloaGasPage() {
   return (
