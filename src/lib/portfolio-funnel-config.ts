@@ -15,6 +15,7 @@
 import globalConfig from "@/config/portfolio-global-config.json";
 import clients from "@/config/portfolio-clients.json";
 import { resolvePortfolioQuizConfig } from "@/config/portfolio-quiz-configs.generated";
+import { resolveCatalogFunnelConfig } from "@/lib/portfolio-funnel-defaults";
 import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 
 type ClientRecord = { clientKey: string; slug: string };
