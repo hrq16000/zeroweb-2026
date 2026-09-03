@@ -288,7 +288,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isRaphaelConstrucoes = loaderData?.slug === "raphael-construcoes";
     const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
     const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
-    const description = isHbkIluminacaoLed
+    const isHeloaGas = loaderData?.slug === "heloa-gas";
+    const description = isHeloaGas
+      ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
+      : isHbkIluminacaoLed
       ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
       : isJcRevestimentos
       ? "JC Revestimentos em Uberaba, Curitiba: textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora."
@@ -649,6 +652,8 @@ function PortfolioPrototypePage() {
           <JcRevestimentosPage />
         ) : slug === "hbk-iluminacao-led" ? (
           <HbkIluminacaoLedPage />
+        ) : slug === "heloa-gas" ? (
+          <HeloaGasPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

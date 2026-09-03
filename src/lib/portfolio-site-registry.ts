@@ -453,6 +453,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     indexable: true,
   },
   { slug: "hbk-iluminacao-led", vertical: "prestadores-de-servicos", siteName: "HBK Iluminação LED Atacadão", kind: "prototype", indexable: true },
+  { slug: "heloa-gas", vertical: "comercios", siteName: "Heloá Gás · Piraquara — PR", kind: "prototype", indexable: true },
 ];
 
 export function findPortfolioPrototype(slug: string) {

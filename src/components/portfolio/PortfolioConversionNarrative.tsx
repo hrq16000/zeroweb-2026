@@ -413,6 +413,12 @@ const narrativeBySlug: Record<
     cta: "Solicitar orçamento",
     theme: "navy",
   },
+  "heloa-gas": {
+    title: "Gás acabou? O pedido começa aqui.",
+    step: "Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega.",
+    cta: "Fazer pedido",
+    theme: "navy",
+  },
   "hbk-iluminacao-led": {
     title: "A iluminação certa começa com uma escolha bem orientada.",
     step: "Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação.",

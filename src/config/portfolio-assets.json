@@ -824,6 +824,17 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "4d802208"
+    },
+    "heloa-gas": {
+      "icon": "/images/heloa-gas/logo.png",
+      "socialImage": "/images/heloa-gas/hero.jpg",
+      "proof": {
+        "eyebrow": "Heloá Gás",
+        "title": "Gás e água entregues no seu endereço.",
+        "description": "Peça botijão de gás 13kg ou água mineral de 20 litros em Piraquara e região.",
+        "ctaLabel": "Ver produtos",
+        "ctaHref": "#produtos"
+      }
     }
   }
 }
