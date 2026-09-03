@@ -137,11 +137,18 @@ const EMPTY: Answers = { business: "", goal: "", budget: "", deadline: "", integ
 
 export function InstitutionalDiagnosticQuiz({
   source = "criacao-site-institucional",
+  quizKey,
+  city,
   onClose,
 }: {
   source?: string;
+  /** Chave do pixel — permite medir cada capital separadamente. */
+  quizKey?: string;
+  /** Cidade de origem do visitante (ex.: "Curitiba/PR"), gravada no lead. */
+  city?: string;
   onClose?: () => void;
 }) {
+  const qk = quizKey?.slice(0, 64) || QUIZ_KEY;
   const baseId = useId();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>(EMPTY);
@@ -157,10 +164,10 @@ export function InstitutionalDiagnosticQuiz({
   // Pixel próprio: view do quiz, view de cada etapa e abandono ao sair sem enviar.
   const enviado = useRef(false);
   useEffect(() => {
-    trackQuiz({ quizKey: QUIZ_KEY, eventType: "quiz_view" });
+    trackQuiz({ quizKey: qk, eventType: "quiz_view" });
     return () => {
       if (!enviado.current) {
-        trackQuiz({ quizKey: QUIZ_KEY, eventType: "abandon", stepIndex: indexRef.current, stepKey: stepKeyRef.current });
+        trackQuiz({ quizKey: qk, eventType: "abandon", stepIndex: indexRef.current, stepKey: stepKeyRef.current });
       }
     };
   }, []);
@@ -171,15 +178,15 @@ export function InstitutionalDiagnosticQuiz({
     indexRef.current = index;
     stepKeyRef.current = (QUESTIONS[index]?.key as string) ?? "contato";
     if (!done) {
-      trackQuiz({ quizKey: QUIZ_KEY, eventType: "step_view", stepIndex: index, stepKey: stepKeyRef.current });
+      trackQuiz({ quizKey: qk, eventType: "step_view", stepIndex: index, stepKey: stepKeyRef.current });
     }
   }, [index, done]);
 
   const pick = (key: keyof Answers, value: string) => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
     trackEvent("quiz_step", { source, step: key, value });
-    trackQuiz({ quizKey: QUIZ_KEY, eventType: "answer_click", stepIndex: index, stepKey: String(key), answerLabel: value });
-    trackQuiz({ quizKey: QUIZ_KEY, eventType: "step_complete", stepIndex: index, stepKey: String(key) });
+    trackQuiz({ quizKey: qk, eventType: "answer_click", stepIndex: index, stepKey: String(key), answerLabel: value });
+    trackQuiz({ quizKey: qk, eventType: "step_complete", stepIndex: index, stepKey: String(key) });
     setIndex((i) => Math.min(i + 1, QUESTIONS.length));
   };
 
@@ -199,11 +206,11 @@ export function InstitutionalDiagnosticQuiz({
         source: `quiz:${source}`,
         offer_slug: "criacao-de-site-institucional",
         audience_tag: segment,
-        payload: { segment, answers, quiz: "diagnostico-institucional" } as never,
+        payload: { segment, answers, quiz: qk, city: city ?? null } as never,
       });
       trackConversion("quiz_complete", { source, segment });
       enviado.current = true;
-      trackQuiz({ quizKey: QUIZ_KEY, eventType: "submit", stepIndex: QUESTIONS.length, stepKey: "contato", answerLabel: segment });
+      trackQuiz({ quizKey: qk, eventType: "submit", stepIndex: QUESTIONS.length, stepKey: "contato", answerLabel: segment });
       setDone(segment);
     } catch {
       setError("Não foi possível enviar agora. Tente novamente em instantes.");
@@ -372,10 +379,14 @@ export function InstitutionalDiagnosticQuizModal({
   open,
   onClose,
   source,
+  quizKey,
+  city,
 }: {
   open: boolean;
   onClose: () => void;
   source?: string;
+  quizKey?: string;
+  city?: string;
 }) {
   if (!open) return null;
   return (
@@ -387,7 +398,7 @@ export function InstitutionalDiagnosticQuizModal({
         aria-label="Diagnóstico gratuito"
         className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-border bg-card shadow-elegant"
       >
-        <InstitutionalDiagnosticQuiz source={source} onClose={onClose} />
+        <InstitutionalDiagnosticQuiz source={source} quizKey={quizKey} city={city} onClose={onClose} />
       </div>
     </div>
   );
