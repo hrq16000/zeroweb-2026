@@ -526,6 +526,42 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Conte os ambientes, a metragem e o que deseja iluminar."
   },
+  "heloa-gas": {
+    "proposalKind": "service",
+    "services": [
+      "Botijão de gás 13kg",
+      "Troca de botijão",
+      "Água mineral 20L (galão)",
+      "Gás + água no mesmo pedido",
+      "Pedido para comércio",
+      "Outro pedido"
+    ],
+    "experienceOptions": [
+      "Casa",
+      "Apartamento",
+      "Condomínio (portaria)",
+      "Comércio",
+      "Outro local"
+    ],
+    "periodOptions": [
+      "Já tenho o vasilhame",
+      "Preciso do vasilhame",
+      "Não sei informar"
+    ],
+    "timingOptions": [
+      "Agora",
+      "Ainda hoje",
+      "Amanhã",
+      "Estou só consultando"
+    ],
+    "stepTitles": {
+      "service": "O que você precisa hoje?",
+      "experience": "Para qual tipo de endereço?",
+      "period": "Você já tem o vasilhame?",
+      "timing": "Para quando é a entrega?"
+    },
+    "notePlaceholder": "Informe bairro, ponto de referência e quantidade desejada."
+  },
   "jc-revestimentos": {
     "proposalKind": "service",
     "services": [
