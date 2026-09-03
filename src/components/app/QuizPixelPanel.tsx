@@ -10,6 +10,7 @@ import { quizPixelStats } from "@/lib/quiz-pixel.functions";
 export function QuizPixelPanel() {
   const fetchStats = useServerFn(quizPixelStats);
   const [days, setDays] = useState(30);
+  const [origem, setOrigem] = useState("all");
 
   const { data, isLoading } = useQuery({
     queryKey: ["quiz-pixel-stats", days],
@@ -69,6 +70,59 @@ export function QuizPixelPanel() {
           </div>
         ))}
       </div>
+
+      {(data?.porQuiz.length ?? 0) > 0 && (
+        <div className="mb-4">
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-sm font-medium text-foreground">Origem do quiz (páginas por capital)</h3>
+            <label className="text-xs">
+              <span className="mr-2 text-muted-foreground">Origem</span>
+              <select
+                value={origem}
+                onChange={(e) => setOrigem(e.target.value)}
+                className="rounded-md border border-border bg-background px-2 py-1 text-foreground"
+              >
+                <option value="all">Todas</option>
+                {data!.porQuiz.map((r) => (
+                  <option key={r.quizKey} value={r.quizKey}>
+                    {r.quizKey}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs text-muted-foreground">
+                  <th className="py-1 pr-3">Origem</th>
+                  <th className="py-1 pr-3">Sessões</th>
+                  <th className="py-1 pr-3">Cliques</th>
+                  <th className="py-1 pr-3">Abandonos</th>
+                  <th className="py-1 pr-3">Diagnósticos</th>
+                  <th className="py-1 pr-3">WhatsApp</th>
+                  <th className="py-1">Conversão</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data!.porQuiz
+                  .filter((r) => origem === "all" || r.quizKey === origem)
+                  .map((r) => (
+                    <tr key={r.quizKey} className="border-t border-border/60">
+                      <td className="py-1.5 pr-3 text-foreground">{r.quizKey}</td>
+                      <td className="py-1.5 pr-3">{r.sessoes}</td>
+                      <td className="py-1.5 pr-3">{r.cliques}</td>
+                      <td className="py-1.5 pr-3">{r.abandonos}</td>
+                      <td className="py-1.5 pr-3">{r.submissoes}</td>
+                      <td className="py-1.5 pr-3">{r.whatsapp}</td>
+                      <td className="py-1.5">{r.taxaConversao}%</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {isLoading && <p className="text-sm text-muted-foreground">Carregando eventos…</p>}
 
