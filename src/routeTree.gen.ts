@@ -152,7 +152,6 @@ import { Route as AuthenticatedAppIndexacaoRouteImport } from './routes/_authent
 import { Route as AuthenticatedAppIndexacaoPortfolioRouteImport } from './routes/_authenticated/app.indexacao-portfolio'
 import { Route as AuthenticatedAppIntegracoesRouteImport } from './routes/_authenticated/app.integracoes'
 import { Route as AuthenticatedAppLandingOverridesRouteImport } from './routes/_authenticated/app.landing-overrides'
-import { Route as AuthenticatedAppLeadsRouteImport } from './routes/_authenticated/app.leads'
 import { Route as AuthenticatedAppLeadsClientesRouteImport } from './routes/_authenticated/app.leads-clientes'
 import { Route as AuthenticatedAppLeadsTelefoneRouteImport } from './routes/_authenticated/app.leads-telefone'
 import { Route as AuthenticatedAppLicensesRouteImport } from './routes/_authenticated/app.licenses'
@@ -198,6 +197,7 @@ import { Route as AuthenticatedAppFunisIdRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAppFunisLeadsRouteImport } from './routes/_authenticated/app.funis.leads'
 import { Route as AuthenticatedAppFunisNumerosRouteImport } from './routes/_authenticated/app.funis.numeros'
 import { Route as AuthenticatedAppIndexacaoUrlIdRouteImport } from './routes/_authenticated/app.indexacao.$urlId'
+import { Route as AuthenticatedAppLeadsIndexRouteImport } from './routes/_authenticated/app.leads.index'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
@@ -959,11 +959,6 @@ const AuthenticatedAppLandingOverridesRoute =
     path: '/landing-overrides',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
-const AuthenticatedAppLeadsRoute = AuthenticatedAppLeadsRouteImport.update({
-  id: '/leads',
-  path: '/leads',
-  getParentRoute: () => AuthenticatedAppRoute,
-} as any)
 const AuthenticatedAppLeadsClientesRoute =
   AuthenticatedAppLeadsClientesRouteImport.update({
     id: '/leads-clientes',
@@ -1216,6 +1211,12 @@ const AuthenticatedAppIndexacaoUrlIdRoute =
     id: '/$urlId',
     path: '/$urlId',
     getParentRoute: () => AuthenticatedAppIndexacaoRoute,
+  } as any)
+const AuthenticatedAppLeadsIndexRoute =
+  AuthenticatedAppLeadsIndexRouteImport.update({
+    id: '/leads/',
+    path: '/leads/',
+    getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppMarketplaceAdminRoute =
   AuthenticatedAppMarketplaceAdminRouteImport.update({
@@ -1495,7 +1496,6 @@ export interface FileRoutesByFullPath {
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
-  '/app/leads': typeof AuthenticatedAppLeadsRoute
   '/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
@@ -1563,6 +1563,7 @@ export interface FileRoutesByFullPath {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
+  '/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1705,7 +1706,6 @@ export interface FileRoutesByTo {
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
-  '/app/leads': typeof AuthenticatedAppLeadsRoute
   '/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
@@ -1773,6 +1773,7 @@ export interface FileRoutesByTo {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
+  '/app/leads': typeof AuthenticatedAppLeadsIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1920,7 +1921,6 @@ export interface FileRoutesById {
   '/_authenticated/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/_authenticated/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
-  '/_authenticated/app/leads': typeof AuthenticatedAppLeadsRoute
   '/_authenticated/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/_authenticated/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/_authenticated/app/licenses': typeof AuthenticatedAppLicensesRoute
@@ -1988,6 +1988,7 @@ export interface FileRoutesById {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
+  '/_authenticated/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
   '/_authenticated/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2135,7 +2136,6 @@ export interface FileRouteTypes {
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
-    | '/app/leads'
     | '/app/leads-clientes'
     | '/app/leads-telefone'
     | '/app/licenses'
@@ -2203,6 +2203,7 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis/'
+    | '/app/leads/'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -2345,7 +2346,6 @@ export interface FileRouteTypes {
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
-    | '/app/leads'
     | '/app/leads-clientes'
     | '/app/leads-telefone'
     | '/app/licenses'
@@ -2413,6 +2413,7 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis'
+    | '/app/leads'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   id:
@@ -2559,7 +2560,6 @@ export interface FileRouteTypes {
     | '/_authenticated/app/indexacao-portfolio'
     | '/_authenticated/app/integracoes'
     | '/_authenticated/app/landing-overrides'
-    | '/_authenticated/app/leads'
     | '/_authenticated/app/leads-clientes'
     | '/_authenticated/app/leads-telefone'
     | '/_authenticated/app/licenses'
@@ -2627,6 +2627,7 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/_authenticated/app/funis/'
+    | '/_authenticated/app/leads/'
     | '/_authenticated/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesById: FileRoutesById
@@ -3773,13 +3774,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppLandingOverridesRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
-    '/_authenticated/app/leads': {
-      id: '/_authenticated/app/leads'
-      path: '/leads'
-      fullPath: '/app/leads'
-      preLoaderRoute: typeof AuthenticatedAppLeadsRouteImport
-      parentRoute: typeof AuthenticatedAppRoute
-    }
     '/_authenticated/app/leads-clientes': {
       id: '/_authenticated/app/leads-clientes'
       path: '/leads-clientes'
@@ -4095,6 +4089,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppIndexacaoUrlIdRouteImport
       parentRoute: typeof AuthenticatedAppIndexacaoRoute
     }
+    '/_authenticated/app/leads/': {
+      id: '/_authenticated/app/leads/'
+      path: '/leads'
+      fullPath: '/app/leads/'
+      preLoaderRoute: typeof AuthenticatedAppLeadsIndexRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/marketplace/admin': {
       id: '/_authenticated/app/marketplace/admin'
       path: '/admin'
@@ -4369,7 +4370,6 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppIndexacaoPortfolioRoute: typeof AuthenticatedAppIndexacaoPortfolioRoute
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
   AuthenticatedAppLandingOverridesRoute: typeof AuthenticatedAppLandingOverridesRoute
-  AuthenticatedAppLeadsRoute: typeof AuthenticatedAppLeadsRoute
   AuthenticatedAppLeadsClientesRoute: typeof AuthenticatedAppLeadsClientesRoute
   AuthenticatedAppLeadsTelefoneRoute: typeof AuthenticatedAppLeadsTelefoneRoute
   AuthenticatedAppLicensesRoute: typeof AuthenticatedAppLicensesRoute
@@ -4404,6 +4404,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
   AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
+  AuthenticatedAppLeadsIndexRoute: typeof AuthenticatedAppLeadsIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
 }
 
@@ -4423,7 +4424,6 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
     AuthenticatedAppIndexacaoPortfolioRoute,
   AuthenticatedAppIntegracoesRoute: AuthenticatedAppIntegracoesRoute,
   AuthenticatedAppLandingOverridesRoute: AuthenticatedAppLandingOverridesRoute,
-  AuthenticatedAppLeadsRoute: AuthenticatedAppLeadsRoute,
   AuthenticatedAppLeadsClientesRoute: AuthenticatedAppLeadsClientesRoute,
   AuthenticatedAppLeadsTelefoneRoute: AuthenticatedAppLeadsTelefoneRoute,
   AuthenticatedAppLicensesRoute: AuthenticatedAppLicensesRoute,
@@ -4460,6 +4460,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
   AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
+  AuthenticatedAppLeadsIndexRoute: AuthenticatedAppLeadsIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
     AuthenticatedAppFunisPipelineRegrasRoute,
 }
