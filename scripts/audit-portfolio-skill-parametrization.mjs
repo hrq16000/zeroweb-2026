@@ -27,16 +27,24 @@ const quizSource = fs.readFileSync(
 );
 
 const clientByKey = new Map(clients.map((c) => [c.clientKey, c]));
+const clientBySlug = new Map(clients.map((c) => [c.slug, c]));
 const assetsByKey = assets.clients ?? {};
 const overrides = globalConfig.overrides ?? {};
 const quizKeys = new Set(
   [...quizSource.matchAll(/^\s{2}"([a-z0-9-]+)":\s*\{/gm)].map((m) => m[1]),
 );
+const registrySlugs = new Set(
+  [
+    ...fs
+      .readFileSync(path.join(root, "src/lib/portfolio-site-registry.ts"), "utf8")
+      .matchAll(/slug:\s*"([a-z0-9-]+)"/g),
+  ].map((m) => m[1]),
+);
 
 /** Categorias obrigatórias -> verificação objetiva sobre a configuração canônica. */
 function auditItem(item) {
   const key = item.clientKey ?? item.slug;
-  const client = clientByKey.get(key);
+  const client = clientByKey.get(key) ?? clientBySlug.get(item.slug);
   const asset = assetsByKey[key] ?? {};
   const override = overrides[key] ?? {};
   const issues = [];
@@ -50,11 +58,18 @@ function auditItem(item) {
     issues.push("business-marketing: faltam segment/projectType/subtitle/summary no catálogo");
 
   // 2. Lead Capture / CRM — funil individual do cliente, sem funil universal.
-  const hasFunnel = Boolean(client) && quizKeys.has(key);
-  skills["lead-capture-crm"] = hasFunnel;
-  if (!client) issues.push("lead-capture-crm: cliente ausente em portfolio-clients.json");
-  else if (!quizKeys.has(key))
-    issues.push("lead-capture-crm: sem funil próprio em portfolio-quiz-configs.generated.ts");
+  //    Resolução: override > registro gerado > padrão por segmento do catálogo
+  //    (src/lib/portfolio-funnel-defaults.ts). Sem segmento não há funil coerente.
+  const hasExplicitFunnel = quizKeys.has(key) || Boolean(override?.contactFloating?.quizConfig);
+  const hasSegmentFunnel = Boolean(item.segment);
+  skills["lead-capture-crm"] = hasSegmentFunnel;
+  skills["lead-capture-crm-explicit"] = hasExplicitFunnel;
+  if (!hasSegmentFunnel)
+    issues.push("lead-capture-crm: item sem segment — funil não pode ser derivado");
+  const isRegistered = Boolean(client) || registrySlugs.has(item.slug);
+  if (!isRegistered)
+    issues.push("lead-capture-crm: projeto ausente em portfolio-clients.json e no site-registry");
+
 
   // 3. Design / UI Automation — casca padrão + capa resolvível.
   const hasCover = Boolean(item.image || item.fallbackImage || asset.socialImage || asset.icon);
