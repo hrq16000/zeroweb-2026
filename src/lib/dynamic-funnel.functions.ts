@@ -412,14 +412,19 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     // Funil do cliente quando existir (portfolio-<clientKey>); o funil
     // genérico de serviço permanece apenas como fallback.
     const clientFunnelSlug = `portfolio-${data.clientKey}`;
+    // Alguns funis de cliente foram criados com o prefixo `funnel-` no banco.
+    // Aceitamos os dois formatos para o pedido cair no funil do próprio
+    // cliente em vez de escorregar para o funil genérico de serviço.
+    const clientFunnelSlugAlt = `funnel-${data.clientKey}`;
     const { data: forms, error: formError } = await supabaseAdmin
       .from("dynamic_forms")
       .select("id, slug")
-      .in("slug", [clientFunnelSlug, "funnel-service"])
+      .in("slug", [clientFunnelSlug, clientFunnelSlugAlt, "funnel-service"])
       .eq("status", "published");
     if (formError) throw new Error("Funil de atendimento indisponível");
     const form =
       (forms ?? []).find((f) => f.slug === clientFunnelSlug) ??
+      (forms ?? []).find((f) => f.slug === clientFunnelSlugAlt) ??
       (forms ?? []).find((f) => f.slug === "funnel-service");
     if (!form) throw new Error("Funil de atendimento indisponível");
 

@@ -168,6 +168,7 @@ import { Route as AuthenticatedAppPedidosRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAppPortalsRouteImport } from './routes/_authenticated/app.portals'
 import { Route as AuthenticatedAppProfileRouteImport } from './routes/_authenticated/app.profile'
 import { Route as AuthenticatedAppProjectsRouteImport } from './routes/_authenticated/app.projects'
+import { Route as AuthenticatedAppRankingLocalRouteImport } from './routes/_authenticated/app.ranking-local'
 import { Route as AuthenticatedAppReportsRouteImport } from './routes/_authenticated/app.reports'
 import { Route as AuthenticatedAppSeoRouteImport } from './routes/_authenticated/app.seo'
 import { Route as AuthenticatedAppSeo404sRouteImport } from './routes/_authenticated/app.seo-404s'
@@ -198,6 +199,8 @@ import { Route as AuthenticatedAppFunisIdRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAppFunisLeadsRouteImport } from './routes/_authenticated/app.funis.leads'
 import { Route as AuthenticatedAppFunisNumerosRouteImport } from './routes/_authenticated/app.funis.numeros'
 import { Route as AuthenticatedAppIndexacaoUrlIdRouteImport } from './routes/_authenticated/app.indexacao.$urlId'
+import { Route as AuthenticatedAppLeadsIndexRouteImport } from './routes/_authenticated/app.leads.index'
+import { Route as AuthenticatedAppLeadsHeloaGasRouteImport } from './routes/_authenticated/app.leads.heloa-gas'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
@@ -1049,6 +1052,12 @@ const AuthenticatedAppProjectsRoute =
     path: '/projects',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppRankingLocalRoute =
+  AuthenticatedAppRankingLocalRouteImport.update({
+    id: '/ranking-local',
+    path: '/ranking-local',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppReportsRoute = AuthenticatedAppReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
@@ -1216,6 +1225,18 @@ const AuthenticatedAppIndexacaoUrlIdRoute =
     id: '/$urlId',
     path: '/$urlId',
     getParentRoute: () => AuthenticatedAppIndexacaoRoute,
+  } as any)
+const AuthenticatedAppLeadsIndexRoute =
+  AuthenticatedAppLeadsIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedAppLeadsRoute,
+  } as any)
+const AuthenticatedAppLeadsHeloaGasRoute =
+  AuthenticatedAppLeadsHeloaGasRouteImport.update({
+    id: '/heloa-gas',
+    path: '/heloa-gas',
+    getParentRoute: () => AuthenticatedAppLeadsRoute,
   } as any)
 const AuthenticatedAppMarketplaceAdminRoute =
   AuthenticatedAppMarketplaceAdminRouteImport.update({
@@ -1495,7 +1516,7 @@ export interface FileRoutesByFullPath {
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
-  '/app/leads': typeof AuthenticatedAppLeadsRoute
+  '/app/leads': typeof AuthenticatedAppLeadsRouteWithChildren
   '/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
@@ -1511,6 +1532,7 @@ export interface FileRoutesByFullPath {
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/seo': typeof AuthenticatedAppSeoRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
@@ -1541,6 +1563,7 @@ export interface FileRoutesByFullPath {
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
   '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
+  '/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -1563,6 +1586,7 @@ export interface FileRoutesByFullPath {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
+  '/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1705,7 +1729,6 @@ export interface FileRoutesByTo {
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
-  '/app/leads': typeof AuthenticatedAppLeadsRoute
   '/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/app/licenses': typeof AuthenticatedAppLicensesRoute
@@ -1721,6 +1744,7 @@ export interface FileRoutesByTo {
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/seo': typeof AuthenticatedAppSeoRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
@@ -1751,6 +1775,7 @@ export interface FileRoutesByTo {
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
   '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
+  '/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -1773,6 +1798,7 @@ export interface FileRoutesByTo {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
+  '/app/leads': typeof AuthenticatedAppLeadsIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1920,7 +1946,7 @@ export interface FileRoutesById {
   '/_authenticated/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
   '/_authenticated/app/landing-overrides': typeof AuthenticatedAppLandingOverridesRoute
-  '/_authenticated/app/leads': typeof AuthenticatedAppLeadsRoute
+  '/_authenticated/app/leads': typeof AuthenticatedAppLeadsRouteWithChildren
   '/_authenticated/app/leads-clientes': typeof AuthenticatedAppLeadsClientesRoute
   '/_authenticated/app/leads-telefone': typeof AuthenticatedAppLeadsTelefoneRoute
   '/_authenticated/app/licenses': typeof AuthenticatedAppLicensesRoute
@@ -1936,6 +1962,7 @@ export interface FileRoutesById {
   '/_authenticated/app/portals': typeof AuthenticatedAppPortalsRoute
   '/_authenticated/app/profile': typeof AuthenticatedAppProfileRoute
   '/_authenticated/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/_authenticated/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/_authenticated/app/reports': typeof AuthenticatedAppReportsRoute
   '/_authenticated/app/seo': typeof AuthenticatedAppSeoRoute
   '/_authenticated/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
@@ -1966,6 +1993,7 @@ export interface FileRoutesById {
   '/_authenticated/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
   '/_authenticated/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/_authenticated/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
+  '/_authenticated/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -1988,6 +2016,7 @@ export interface FileRoutesById {
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
+  '/_authenticated/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
   '/_authenticated/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2151,6 +2180,7 @@ export interface FileRouteTypes {
     | '/app/portals'
     | '/app/profile'
     | '/app/projects'
+    | '/app/ranking-local'
     | '/app/reports'
     | '/app/seo'
     | '/app/seo-404s'
@@ -2181,6 +2211,7 @@ export interface FileRouteTypes {
     | '/app/funis/leads'
     | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
+    | '/app/leads/heloa-gas'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2203,6 +2234,7 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis/'
+    | '/app/leads/'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -2345,7 +2377,6 @@ export interface FileRouteTypes {
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
     | '/app/landing-overrides'
-    | '/app/leads'
     | '/app/leads-clientes'
     | '/app/leads-telefone'
     | '/app/licenses'
@@ -2361,6 +2392,7 @@ export interface FileRouteTypes {
     | '/app/portals'
     | '/app/profile'
     | '/app/projects'
+    | '/app/ranking-local'
     | '/app/reports'
     | '/app/seo'
     | '/app/seo-404s'
@@ -2391,6 +2423,7 @@ export interface FileRouteTypes {
     | '/app/funis/leads'
     | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
+    | '/app/leads/heloa-gas'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2413,6 +2446,7 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis'
+    | '/app/leads'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   id:
@@ -2575,6 +2609,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/portals'
     | '/_authenticated/app/profile'
     | '/_authenticated/app/projects'
+    | '/_authenticated/app/ranking-local'
     | '/_authenticated/app/reports'
     | '/_authenticated/app/seo'
     | '/_authenticated/app/seo-404s'
@@ -2605,6 +2640,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/funis/leads'
     | '/_authenticated/app/funis/numeros'
     | '/_authenticated/app/indexacao/$urlId'
+    | '/_authenticated/app/leads/heloa-gas'
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
@@ -2627,6 +2663,7 @@ export interface FileRouteTypes {
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/_authenticated/app/funis/'
+    | '/_authenticated/app/leads/'
     | '/_authenticated/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesById: FileRoutesById
@@ -3885,6 +3922,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppProjectsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/ranking-local': {
+      id: '/_authenticated/app/ranking-local'
+      path: '/ranking-local'
+      fullPath: '/app/ranking-local'
+      preLoaderRoute: typeof AuthenticatedAppRankingLocalRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/reports': {
       id: '/_authenticated/app/reports'
       path: '/reports'
@@ -4095,6 +4139,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppIndexacaoUrlIdRouteImport
       parentRoute: typeof AuthenticatedAppIndexacaoRoute
     }
+    '/_authenticated/app/leads/': {
+      id: '/_authenticated/app/leads/'
+      path: '/'
+      fullPath: '/app/leads/'
+      preLoaderRoute: typeof AuthenticatedAppLeadsIndexRouteImport
+      parentRoute: typeof AuthenticatedAppLeadsRoute
+    }
+    '/_authenticated/app/leads/heloa-gas': {
+      id: '/_authenticated/app/leads/heloa-gas'
+      path: '/heloa-gas'
+      fullPath: '/app/leads/heloa-gas'
+      preLoaderRoute: typeof AuthenticatedAppLeadsHeloaGasRouteImport
+      parentRoute: typeof AuthenticatedAppLeadsRoute
+    }
     '/_authenticated/app/marketplace/admin': {
       id: '/_authenticated/app/marketplace/admin'
       path: '/admin'
@@ -4291,6 +4349,21 @@ const AuthenticatedAppIndexacaoRouteWithChildren =
     AuthenticatedAppIndexacaoRouteChildren,
   )
 
+interface AuthenticatedAppLeadsRouteChildren {
+  AuthenticatedAppLeadsHeloaGasRoute: typeof AuthenticatedAppLeadsHeloaGasRoute
+  AuthenticatedAppLeadsIndexRoute: typeof AuthenticatedAppLeadsIndexRoute
+}
+
+const AuthenticatedAppLeadsRouteChildren: AuthenticatedAppLeadsRouteChildren = {
+  AuthenticatedAppLeadsHeloaGasRoute: AuthenticatedAppLeadsHeloaGasRoute,
+  AuthenticatedAppLeadsIndexRoute: AuthenticatedAppLeadsIndexRoute,
+}
+
+const AuthenticatedAppLeadsRouteWithChildren =
+  AuthenticatedAppLeadsRoute._addFileChildren(
+    AuthenticatedAppLeadsRouteChildren,
+  )
+
 interface AuthenticatedAppMarketplaceRouteChildren {
   AuthenticatedAppMarketplaceAdminRoute: typeof AuthenticatedAppMarketplaceAdminRoute
   AuthenticatedAppMarketplaceCompanyRoute: typeof AuthenticatedAppMarketplaceCompanyRoute
@@ -4369,7 +4442,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppIndexacaoPortfolioRoute: typeof AuthenticatedAppIndexacaoPortfolioRoute
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
   AuthenticatedAppLandingOverridesRoute: typeof AuthenticatedAppLandingOverridesRoute
-  AuthenticatedAppLeadsRoute: typeof AuthenticatedAppLeadsRoute
+  AuthenticatedAppLeadsRoute: typeof AuthenticatedAppLeadsRouteWithChildren
   AuthenticatedAppLeadsClientesRoute: typeof AuthenticatedAppLeadsClientesRoute
   AuthenticatedAppLeadsTelefoneRoute: typeof AuthenticatedAppLeadsTelefoneRoute
   AuthenticatedAppLicensesRoute: typeof AuthenticatedAppLicensesRoute
@@ -4385,6 +4458,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPortalsRoute: typeof AuthenticatedAppPortalsRoute
   AuthenticatedAppProfileRoute: typeof AuthenticatedAppProfileRoute
   AuthenticatedAppProjectsRoute: typeof AuthenticatedAppProjectsRouteWithChildren
+  AuthenticatedAppRankingLocalRoute: typeof AuthenticatedAppRankingLocalRoute
   AuthenticatedAppReportsRoute: typeof AuthenticatedAppReportsRoute
   AuthenticatedAppSeoRoute: typeof AuthenticatedAppSeoRoute
   AuthenticatedAppSeo404sRoute: typeof AuthenticatedAppSeo404sRoute
@@ -4423,7 +4497,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
     AuthenticatedAppIndexacaoPortfolioRoute,
   AuthenticatedAppIntegracoesRoute: AuthenticatedAppIntegracoesRoute,
   AuthenticatedAppLandingOverridesRoute: AuthenticatedAppLandingOverridesRoute,
-  AuthenticatedAppLeadsRoute: AuthenticatedAppLeadsRoute,
+  AuthenticatedAppLeadsRoute: AuthenticatedAppLeadsRouteWithChildren,
   AuthenticatedAppLeadsClientesRoute: AuthenticatedAppLeadsClientesRoute,
   AuthenticatedAppLeadsTelefoneRoute: AuthenticatedAppLeadsTelefoneRoute,
   AuthenticatedAppLicensesRoute: AuthenticatedAppLicensesRoute,
@@ -4440,6 +4514,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppPortalsRoute: AuthenticatedAppPortalsRoute,
   AuthenticatedAppProfileRoute: AuthenticatedAppProfileRoute,
   AuthenticatedAppProjectsRoute: AuthenticatedAppProjectsRouteWithChildren,
+  AuthenticatedAppRankingLocalRoute: AuthenticatedAppRankingLocalRoute,
   AuthenticatedAppReportsRoute: AuthenticatedAppReportsRoute,
   AuthenticatedAppSeoRoute: AuthenticatedAppSeoRoute,
   AuthenticatedAppSeo404sRoute: AuthenticatedAppSeo404sRoute,
