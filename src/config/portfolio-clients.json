@@ -645,5 +645,16 @@
     "ctaMode": "quote",
     "socialProofRequired": true,
     "hostCaptureRequired": true
+  },
+  {
+    "clientKey": "heloa-gas",
+    "slug": "heloa-gas",
+    "siteName": "Heloá Gás",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/HeloaGasPage.tsx",
+    "assetsDir": "public/images/heloa-gas",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true
   }
 ]
