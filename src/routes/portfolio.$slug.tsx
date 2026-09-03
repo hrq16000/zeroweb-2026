@@ -230,6 +230,9 @@ const JcRevestimentosPage = lazy(() =>
 const HbkIluminacaoLedPage = lazy(() =>
   import("@/components/site/HbkIluminacaoLedPage").then((m) => ({ default: m.HbkIluminacaoLedPage })),
 );
+const HeloaGasPage = lazy(() =>
+  import("@/components/site/HeloaGasPage").then((m) => ({ default: m.HeloaGasPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
