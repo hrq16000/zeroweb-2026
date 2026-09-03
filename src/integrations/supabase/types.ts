@@ -2932,6 +2932,60 @@ export type Database = {
           },
         ]
       }
+      local_pages: {
+        Row: {
+          body: string | null
+          city: string
+          created_at: string
+          created_by: string | null
+          ddd: string
+          id: string
+          intro: string | null
+          meta_description: string | null
+          meta_title: string | null
+          published: boolean
+          region: string
+          slug: string
+          state: string
+          uf: string
+          updated_at: string
+        }
+        Insert: {
+          body?: string | null
+          city: string
+          created_at?: string
+          created_by?: string | null
+          ddd?: string
+          id?: string
+          intro?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean
+          region?: string
+          slug: string
+          state?: string
+          uf: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string | null
+          city?: string
+          created_at?: string
+          created_by?: string | null
+          ddd?: string
+          id?: string
+          intro?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean
+          region?: string
+          slug?: string
+          state?: string
+          uf?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       marketplace_settings: {
         Row: {
           auto_distribute_limit: number
@@ -5812,6 +5866,104 @@ export type Database = {
         }
         Relationships: []
       }
+      wa_dispatch_batches: {
+        Row: {
+          channel: string
+          created_at: string
+          created_by: string | null
+          failed_count: number
+          id: string
+          notes: string | null
+          sent_count: number
+          skipped_count: number
+          status: string
+          template_name: string | null
+          total_count: number
+          updated_at: string
+        }
+        Insert: {
+          channel?: string
+          created_at?: string
+          created_by?: string | null
+          failed_count?: number
+          id?: string
+          notes?: string | null
+          sent_count?: number
+          skipped_count?: number
+          status?: string
+          template_name?: string | null
+          total_count?: number
+          updated_at?: string
+        }
+        Update: {
+          channel?: string
+          created_at?: string
+          created_by?: string | null
+          failed_count?: number
+          id?: string
+          notes?: string | null
+          sent_count?: number
+          skipped_count?: number
+          status?: string
+          template_name?: string | null
+          total_count?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      wa_dispatch_messages: {
+        Row: {
+          batch_id: string
+          created_at: string
+          error_message: string | null
+          id: string
+          lead_id: string | null
+          lead_source: string | null
+          message_preview: string | null
+          phone_e164: string
+          provider_message_id: string | null
+          sent_at: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          batch_id: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          lead_id?: string | null
+          lead_source?: string | null
+          message_preview?: string | null
+          phone_e164: string
+          provider_message_id?: string | null
+          sent_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          batch_id?: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          lead_id?: string | null
+          lead_source?: string | null
+          message_preview?: string | null
+          phone_e164?: string
+          provider_message_id?: string | null
+          sent_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "wa_dispatch_messages_batch_id_fkey"
+            columns: ["batch_id"]
+            isOneToOne: false
+            referencedRelation: "wa_dispatch_batches"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       wa_funnel_sessions: {
         Row: {
           answers_json: Json | null
@@ -5917,6 +6069,30 @@ export type Database = {
           session_id?: string
           session_row_id?: string
           success?: boolean
+        }
+        Relationships: []
+      }
+      wa_optouts: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          phone_e164: string
+          reason: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          phone_e164: string
+          reason?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          phone_e164?: string
+          reason?: string | null
         }
         Relationships: []
       }

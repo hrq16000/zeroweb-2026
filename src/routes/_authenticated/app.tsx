@@ -32,6 +32,7 @@ import {
   Users,
   ImageOff,
   Inbox,
+  MapPin,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
@@ -68,6 +69,7 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/leads-clientes", icon: Inbox, label: "Leads de clientes" },
   { to: "/app/atendimento", icon: Inbox, label: "Atendimento por cidade" },
   { to: "/app/crm-planilha", icon: Inbox, label: "CRM na planilha" },
+  { to: "/app/paginas-locais", icon: MapPin, label: "Páginas locais" },
   { to: "/app/seo", icon: BarChart3, label: "Painel SEO" },
 
   { to: "/app/servicos", icon: Briefcase, label: "Serviços" },
