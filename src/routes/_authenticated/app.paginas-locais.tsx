@@ -28,7 +28,7 @@ function PaginasLocaisPage() {
 
   const { data, isLoading } = useQuery({
     queryKey: ["local-pages"],
-    queryFn: () => fetchPages({ data: {} }),
+    queryFn: () => fetchPages(),
   });
 
   const pages = data ?? [];
