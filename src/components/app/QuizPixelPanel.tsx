@@ -16,12 +16,24 @@ export function QuizPixelPanel() {
     queryFn: () => fetchStats({ data: { days } }),
   });
 
+  // O quiz institucional termina com retorno da equipe (não há etapa de
+  // WhatsApp). Só exibimos os indicadores de WhatsApp quando existirem
+  // eventos reais, para não mostrar 0% como se fosse queda de conversão.
+  const temWhatsapp = (data?.intencaoWhatsapp ?? 0) > 0 || (data?.aberturaWhatsapp ?? 0) > 0;
+
   const kpis = [
     { label: "Sessões no quiz", value: data?.sessoes ?? 0 },
     { label: "Diagnósticos enviados", value: data?.submissoes ?? 0 },
-    { label: "Intenção de WhatsApp", value: data?.intencaoWhatsapp ?? 0 },
-    { label: "WhatsApp aberto", value: data?.aberturaWhatsapp ?? 0 },
-    { label: "Conversão", value: `${data?.taxaConversao ?? 0}%` },
+    {
+      label: "Conversão do quiz",
+      value: `${data?.sessoes ? Math.round(((data.submissoes ?? 0) / data.sessoes) * 1000) / 10 : 0}%`,
+    },
+    ...(temWhatsapp
+      ? [
+          { label: "Intenção de WhatsApp", value: data?.intencaoWhatsapp ?? 0 },
+          { label: "WhatsApp aberto", value: data?.aberturaWhatsapp ?? 0 },
+        ]
+      : []),
   ];
 
   return (
@@ -30,7 +42,9 @@ export function QuizPixelPanel() {
         <div>
           <h2 className="text-lg font-semibold text-foreground">Pixel do quiz</h2>
           <p className="text-xs text-muted-foreground">
-            Cliques, abandono por etapa e conversão até o WhatsApp — sem dados pessoais.
+            {temWhatsapp
+              ? "Cliques, abandono por etapa e conversão até o WhatsApp — sem dados pessoais."
+              : "Cliques, abandono por etapa e envio do diagnóstico — sem dados pessoais. Este quiz não tem etapa de WhatsApp."}
           </p>
         </div>
         <label className="text-sm">

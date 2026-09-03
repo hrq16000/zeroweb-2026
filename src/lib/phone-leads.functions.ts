@@ -64,6 +64,44 @@ function readSegment(metadata: unknown, answers: unknown): string {
   return value || "não segmentado";
 }
 
+/**
+ * Leads do quiz institucional e demais formulários do site ficam em
+ * `lead_submissions`. Eles precisam aparecer nas mesmas telas dos leads dos
+ * funis dinâmicos (`dynamic_form_leads`), por isso são normalizados aqui.
+ */
+type QuizLeadRow = {
+  id: string;
+  created_at: string;
+  name: string | null;
+  phone: string | null;
+  audience_tag: string | null;
+  payload_json: unknown;
+  status: string | null;
+  temperature: string | null;
+  score: number | null;
+  source: string | null;
+};
+
+async function fetchQuizLeadRows(
+  supabaseAdmin: any,
+  filters: ReturnType<typeof sanitize>,
+  limit: number,
+): Promise<QuizLeadRow[]> {
+  let q = supabaseAdmin
+    .from("lead_submissions")
+    .select("id, created_at, name, phone, audience_tag, payload_json, status, temperature, score, source")
+    .not("phone", "is", null)
+    .neq("phone", "")
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (filters.etapa) q = q.eq("status", filters.etapa);
+  if (filters.from) q = q.gte("created_at", `${filters.from}T00:00:00.000Z`);
+  if (filters.to) q = q.lte("created_at", `${filters.to}T23:59:59.999Z`);
+  const { data, error } = await q;
+  if (error) throw error;
+  return (data ?? []) as QuizLeadRow[];
+}
+
 export const listPhoneLeads = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: PhoneLeadFilters = {}) => data)
@@ -87,7 +125,9 @@ export const listPhoneLeads = createServerFn({ method: "POST" })
     const { data: rows, error } = await q;
     if (error) throw error;
 
-    const ids = (rows ?? []).map((r) => r.id);
+    const quizRows = await fetchQuizLeadRows(supabaseAdmin, filters, filters.limit);
+
+    const ids = [...(rows ?? []).map((r) => r.id), ...quizRows.map((r) => r.id)];
     const tokensByLead = new Map<string, { used: boolean; usedAt: string | null }>();
     if (ids.length) {
       const { data: tokens } = await supabaseAdmin
@@ -122,11 +162,37 @@ export const listPhoneLeads = createServerFn({ method: "POST" })
       };
     });
 
+    const quizLeads: PhoneLead[] = quizRows.map((r) => {
+      const token = tokensByLead.get(r.id);
+      return {
+        id: r.id,
+        nome: r.name?.trim() || `Lead ${r.id.slice(0, 6)}`,
+        telefone: String(r.phone),
+        segmento: readSegment({ audience_tag: r.audience_tag }, r.payload_json),
+        etapa: r.status ?? "novo",
+        intent: r.temperature ?? "—",
+        score: r.score ?? 0,
+        contato_gerado: Boolean(token),
+        contato_realizado: Boolean(token?.used),
+        contato_em: token?.usedAt ?? null,
+        created_at: r.created_at,
+      };
+    });
+
+    leads = [...leads, ...quizLeads]
+      .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)))
+      .slice(0, filters.limit);
+
     if (filters.segmento) leads = leads.filter((l) => l.segmento === filters.segmento);
     if (filters.somenteContatados) leads = leads.filter((l) => l.contato_realizado);
 
     const segmentos = Array.from(new Set(leads.map((l) => l.segmento))).sort();
-    const etapas = Array.from(new Set((rows ?? []).map((r) => r.pipeline_stage ?? "novo"))).sort();
+    const etapas = Array.from(
+      new Set([
+        ...(rows ?? []).map((r) => r.pipeline_stage ?? "novo"),
+        ...quizRows.map((r) => r.status ?? "novo"),
+      ]),
+    ).sort();
 
     const funil = {
       leads: leads.length,
@@ -175,13 +241,30 @@ export const startLeadConversation = createServerFn({ method: "POST" })
       .eq("id", data.leadId)
       .maybeSingle();
     if (error) throw error;
-    if (!lead?.contact_phone) return { ok: false as const, reason: "sem_telefone" };
 
-    const digits = toWhatsAppDigits(lead.contact_phone);
+    let telefone = lead?.contact_phone ?? null;
+    let nomeCompleto = lead?.contact_name ?? null;
+    let segmento = lead ? readSegment(lead.metadata_json, lead.answers_json) : "não segmentado";
+
+    if (!lead) {
+      const { data: quizLead, error: quizError } = await supabaseAdmin
+        .from("lead_submissions")
+        .select("id, name, phone, audience_tag, payload_json")
+        .eq("id", data.leadId)
+        .maybeSingle();
+      if (quizError) throw quizError;
+      if (!quizLead) return { ok: false as const, reason: "sem_telefone" };
+      telefone = quizLead.phone;
+      nomeCompleto = quizLead.name;
+      segmento = readSegment({ audience_tag: quizLead.audience_tag }, quizLead.payload_json);
+    }
+
+    if (!telefone) return { ok: false as const, reason: "sem_telefone" };
+
+    const digits = toWhatsAppDigits(telefone);
     if (!digits) return { ok: false as const, reason: "telefone_invalido" };
 
-    const nome = lead.contact_name?.trim()?.split(/\s+/)[0] ?? "";
-    const segmento = readSegment(lead.metadata_json, lead.answers_json);
+    const nome = nomeCompleto?.trim()?.split(/\s+/)[0] ?? "";
     const texto =
       `Olá${nome ? ` ${nome}` : ""}! Aqui é da 0WEB. Recebemos seu diagnóstico` +
       `${segmento && segmento !== "não segmentado" ? ` sobre ${segmento}` : ""}` +
@@ -190,8 +273,8 @@ export const startLeadConversation = createServerFn({ method: "POST" })
     await supabaseAdmin.from("audit_logs").insert({
       actor_id: context.userId,
       action: "lead.conversation_started",
-      entity: "dynamic_form_leads",
-      entity_id: lead.id,
+      entity: lead ? "dynamic_form_leads" : "lead_submissions",
+      entity_id: data.leadId,
       meta: { view: "app/leads-telefone", segmento } as never,
     });
 
@@ -230,7 +313,22 @@ export const quizConversionStats = createServerFn({ method: "POST" })
     const { data: rows, error } = await q;
     if (error) throw error;
 
-    const ids = (rows ?? []).map((r) => r.id);
+    const quizRows = await fetchQuizLeadRows(supabaseAdmin, { ...filters, etapa: undefined }, 500);
+
+    const normalizadas = [
+      ...(rows ?? []).map((r) => ({
+        id: r.id,
+        created_at: r.created_at,
+        segmento: readSegment(r.metadata_json, r.answers_json),
+      })),
+      ...quizRows.map((r) => ({
+        id: r.id,
+        created_at: r.created_at,
+        segmento: readSegment({ audience_tag: r.audience_tag }, r.payload_json),
+      })),
+    ];
+
+    const ids = normalizadas.map((r) => r.id);
     const intencao = new Set<string>();
     const contato = new Set<string>();
     if (ids.length) {
@@ -255,8 +353,8 @@ export const quizConversionStats = createServerFn({ method: "POST" })
 
     const seg = new Map<string, QuizConversionPoint>();
     const per = new Map<string, QuizConversionPoint>();
-    for (const r of rows ?? []) {
-      const segmento = readSegment(r.metadata_json, r.answers_json);
+    for (const r of normalizadas) {
+      const segmento = r.segmento;
       if (filters.segmento && segmento !== filters.segmento) continue;
       bump(seg, segmento, r.id);
       bump(per, String(r.created_at).slice(0, 10), r.id);
