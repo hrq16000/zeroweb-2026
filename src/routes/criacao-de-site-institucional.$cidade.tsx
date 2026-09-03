@@ -10,6 +10,7 @@ import {
 } from "@/components/site/InstitutionalDiagnosticQuiz";
 import { trackEvent } from "@/lib/analytics";
 import { getCapital, relatedCapitais, type Capital } from "@/lib/capitais";
+import { getLocalPageOverride, type LocalPageOverride } from "@/lib/local-pages.functions";
 
 const BASE = "https://0web.com.br/criacao-de-site-institucional";
 
@@ -39,19 +40,29 @@ function faqFor(c: Capital) {
 }
 
 export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const capital = getCapital(params.cidade);
     if (!capital) throw notFound();
-    return { capital, related: relatedCapitais(capital.slug) };
+    let override: LocalPageOverride | null = null;
+    try {
+      override = await getLocalPageOverride({ data: { slug: capital.slug } });
+    } catch {
+      override = null;
+    }
+    return { capital, related: relatedCapitais(capital.slug), override };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Cidade não encontrada | 0WEB" }, { name: "robots", content: "noindex" }] };
     }
     const c = loaderData.capital;
+    const o = loaderData.override;
     const url = `${BASE}/${c.slug}`;
-    const title = `Criação de Site Institucional em ${c.name} (${c.uf}) | 0WEB`;
-    const description = `Criação de site institucional em ${c.name} com estrutura de conversão, SEO local e funil de captura. Diagnóstico gratuito para empresas de ${c.name} e região.`;
+    const title =
+      o?.metaTitle ?? `Criação de Site Institucional em ${c.name} (${c.uf}) | 0WEB`;
+    const description =
+      o?.metaDescription ??
+      `Criação de site institucional em ${c.name} com estrutura de conversão, SEO local e funil de captura. Diagnóstico gratuito para empresas de ${c.name} e região.`;
     const faq = faqFor(c);
     return {
       meta: [
@@ -139,7 +150,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
 });
 
 function CapitalPage() {
-  const { capital: c, related } = Route.useLoaderData();
+  const { capital: c, related, override } = Route.useLoaderData();
   const [modal, setModal] = useState(false);
   const faq = faqFor(c);
 
@@ -184,9 +195,8 @@ function CapitalPage() {
                 <span className="text-gradient">{c.name}</span>
               </h1>
               <p className="mt-5 text-lg text-muted-foreground max-w-[60ch]">
-                Sites institucionais para empresas de {c.name} e região metropolitana, com estrutura de conversão,
-                SEO local e funil de captura ligado ao painel de leads. Atendimento remoto, escopo e prazo por
-                escrito.
+                {override?.intro ??
+                  `Sites institucionais para empresas de ${c.name} e região metropolitana, com estrutura de conversão, SEO local e funil de captura ligado ao painel de leads. Atendimento remoto, escopo e prazo por escrito.`}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
@@ -214,6 +224,18 @@ function CapitalPage() {
             </div>
           </div>
         </section>
+
+        {override?.body && (
+          <section className="mx-auto max-w-4xl px-5 lg:px-8 mt-20">
+            <div className="rounded-2xl border border-border bg-card p-6 lg:p-8 space-y-4">
+              {override.body.split(/\n{2,}/).map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="text-muted-foreground leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="mx-auto max-w-6xl px-5 lg:px-8 mt-24">
           <h2 className="text-3xl sm:text-4xl font-bold font-display">
