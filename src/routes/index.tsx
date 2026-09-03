@@ -185,6 +185,8 @@ function Index() {
         {on("diagnostic_form") && <Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense>}
         {on("differentials") && <Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense>}
         {on("cases") && <Suspense key="cases" fallback={<Skel />}><Cases /></Suspense>}
+        <Suspense key="projetos_no_ar" fallback={<Skel />}><ProjetosNoAr /></Suspense>
+
         <Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense>
         {on("plans") && <Suspense key="plans" fallback={<Skel />}><Plans /></Suspense>}
         {on("process") && <Suspense key="process" fallback={<Skel />}><Process /></Suspense>}
