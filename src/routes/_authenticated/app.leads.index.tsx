@@ -17,7 +17,7 @@ import { Inbox, Filter, ShoppingCart, ClipboardList, Download, Mail } from "luci
 import { QuizConversionCharts } from "@/components/app/QuizConversionCharts";
 import { QuizPixelPanel } from "@/components/app/QuizPixelPanel";
 
-export const Route = createFileRoute("/_authenticated/app/leads")({
+export const Route = createFileRoute("/_authenticated/app/leads/")({
   component: LeadsPage,
 });
 
