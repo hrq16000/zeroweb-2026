@@ -60,7 +60,7 @@ export const getLeadDossier = createServerFn({ method: "POST" })
   .handler(async ({ data, context }): Promise<LeadDossier | null> => {
     const supabaseAdmin = await assertAdmin(context.userId);
 
-    const { data: lead, error } = await supabaseAdmin
+    const { data: dynamicLead, error } = await supabaseAdmin
       .from("dynamic_form_leads")
       .select(
         "id, created_at, contact_name, contact_phone, metadata_json, answers_json, pipeline_stage, intent_level, score",
@@ -68,7 +68,46 @@ export const getLeadDossier = createServerFn({ method: "POST" })
       .eq("id", data.leadId)
       .maybeSingle();
     if (error) throw error;
-    if (!lead) return null;
+
+    // Leads do quiz institucional e dos formulários do site ficam em
+    // `lead_submissions`; normalizamos para a mesma ficha.
+    let lead = dynamicLead as null | {
+      id: string;
+      created_at: string;
+      contact_name: string | null;
+      contact_phone: string | null;
+      metadata_json: unknown;
+      answers_json: unknown;
+      pipeline_stage: string | null;
+      intent_level: string | null;
+      score: number | null;
+    };
+    let origem = "funil";
+
+    if (!lead) {
+      const { data: quizLead, error: quizError } = await supabaseAdmin
+        .from("lead_submissions")
+        .select("id, created_at, name, phone, audience_tag, payload_json, status, temperature, score, source")
+        .eq("id", data.leadId)
+        .maybeSingle();
+      if (quizError) throw quizError;
+      if (!quizLead) return null;
+      origem = quizLead.source?.trim() || "site";
+      lead = {
+        id: quizLead.id,
+        created_at: quizLead.created_at,
+        contact_name: quizLead.name,
+        contact_phone: quizLead.phone,
+        metadata_json: { audience_tag: quizLead.audience_tag },
+        answers_json:
+          quizLead.payload_json && typeof quizLead.payload_json === "object"
+            ? ((quizLead.payload_json as Record<string, unknown>).answers ?? quizLead.payload_json)
+            : {},
+        pipeline_stage: quizLead.status,
+        intent_level: quizLead.temperature,
+        score: quizLead.score,
+      };
+    }
 
     const interacoes: LeadInteraction[] = [];
 
