@@ -95,7 +95,7 @@ export function HeloaGasPage() {
             clientKey="heloa-gas"
             studioName="Heloá Gás"
             recipientName="Heloá Gás"
-            theme="emerald"
+            theme="navy"
             mode="proposal"
             quizConfig={quizConfig}
             className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground hover:opacity-90"
@@ -124,7 +124,7 @@ export function HeloaGasPage() {
                   clientKey="heloa-gas"
                   studioName="Heloá Gás"
                   recipientName="Heloá Gás"
-                  theme="emerald"
+                  theme="navy"
                   mode="proposal"
                   quizConfig={quizConfig}
                   className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground hover:opacity-90"
@@ -221,7 +221,7 @@ export function HeloaGasPage() {
                 clientKey="heloa-gas"
                 studioName="Heloá Gás"
                 recipientName="Heloá Gás"
-                theme="emerald"
+                theme="navy"
                 mode="proposal"
                 quizConfig={quizConfig}
                 className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-6 font-bold text-background hover:opacity-90"
