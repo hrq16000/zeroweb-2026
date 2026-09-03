@@ -73,7 +73,7 @@ export function QuizConversionCharts() {
         <>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
             {[
-              { label: "Leads do quiz", value: total.leads },
+              { label: "Leads captados", value: total.leads },
               { label: "Intenção de contato", value: total.intencao },
               { label: "Contato real", value: total.contato },
               { label: "Taxa de conversão", value: `${taxa}%` },
