@@ -69,6 +69,16 @@ export type QuizStepStat = {
   taxaAbandono: number;
 };
 
+export type QuizKeyStat = {
+  quizKey: string;
+  sessoes: number;
+  cliques: number;
+  abandonos: number;
+  submissoes: number;
+  whatsapp: number;
+  taxaConversao: number;
+};
+
 export type QuizPixelStats = {
   sessoes: number;
   submissoes: number;
@@ -77,6 +87,8 @@ export type QuizPixelStats = {
   taxaConversao: number;
   etapas: QuizStepStat[];
   respostas: { label: string; cliques: number }[];
+  /** Um bloco por origem do quiz (ex.: cada capital). */
+  porQuiz: QuizKeyStat[];
   atualizadoEm: string;
 };
 
@@ -103,6 +115,7 @@ export const quizPixelStats = createServerFn({ method: "POST" })
 
     const events = (rows ?? []) as Array<{
       session_key: string;
+      quiz_key: string;
       step_key: string | null;
       step_index: number | null;
       event_type: string;
@@ -114,6 +127,7 @@ export const quizPixelStats = createServerFn({ method: "POST" })
     const intencao = new Set<string>();
     const abertura = new Set<string>();
     const steps = new Map<number, QuizStepStat>();
+    const porQuizMap = new Map<string, { sessoes: Set<string>; cliques: number; abandonos: number; submissoes: Set<string>; whatsapp: Set<string> }>();
     const respostas = new Map<string, number>();
 
     const step = (idx: number, key: string) => {
@@ -127,6 +141,16 @@ export const quizPixelStats = createServerFn({ method: "POST" })
 
     for (const e of events) {
       sessoes.add(e.session_key);
+      const qk = e.quiz_key || "desconhecido";
+      const agg =
+        porQuizMap.get(qk) ??
+        { sessoes: new Set<string>(), cliques: 0, abandonos: 0, submissoes: new Set<string>(), whatsapp: new Set<string>() };
+      porQuizMap.set(qk, agg);
+      agg.sessoes.add(e.session_key);
+      if (e.event_type === "answer_click") agg.cliques += 1;
+      if (e.event_type === "abandon") agg.abandonos += 1;
+      if (e.event_type === "submit") agg.submissoes.add(e.session_key);
+      if (e.event_type === "whatsapp_open" || e.event_type === "whatsapp_intent") agg.whatsapp.add(e.session_key);
       const idx = e.step_index ?? 0;
       const key = e.step_key ?? "";
       switch (e.event_type) {
@@ -173,6 +197,18 @@ export const quizPixelStats = createServerFn({ method: "POST" })
       aberturaWhatsapp: abertura.size,
       taxaConversao: sessoes.size ? Math.round((abertura.size / sessoes.size) * 1000) / 10 : 0,
       etapas,
+      porQuiz: Array.from(porQuizMap.entries())
+        .map(([quizKey, a]) => ({
+          quizKey,
+          sessoes: a.sessoes.size,
+          cliques: a.cliques,
+          abandonos: a.abandonos,
+          submissoes: a.submissoes.size,
+          whatsapp: a.whatsapp.size,
+          taxaConversao: a.sessoes.size ? Math.round((a.submissoes.size / a.sessoes.size) * 1000) / 10 : 0,
+        }))
+        .sort((x, y) => y.sessoes - x.sessoes)
+        .slice(0, 40),
       respostas: Array.from(respostas.entries())
         .map(([label, cliques]) => ({ label, cliques }))
         .sort((a, b) => b.cliques - a.cliques)
