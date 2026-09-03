@@ -162,11 +162,37 @@ export const listPhoneLeads = createServerFn({ method: "POST" })
       };
     });
 
+    const quizLeads: PhoneLead[] = quizRows.map((r) => {
+      const token = tokensByLead.get(r.id);
+      return {
+        id: r.id,
+        nome: r.name?.trim() || `Lead ${r.id.slice(0, 6)}`,
+        telefone: String(r.phone),
+        segmento: readSegment({ audience_tag: r.audience_tag }, r.payload_json),
+        etapa: r.status ?? "novo",
+        intent: r.temperature ?? "—",
+        score: r.score ?? 0,
+        contato_gerado: Boolean(token),
+        contato_realizado: Boolean(token?.used),
+        contato_em: token?.usedAt ?? null,
+        created_at: r.created_at,
+      };
+    });
+
+    leads = [...leads, ...quizLeads]
+      .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)))
+      .slice(0, filters.limit);
+
     if (filters.segmento) leads = leads.filter((l) => l.segmento === filters.segmento);
     if (filters.somenteContatados) leads = leads.filter((l) => l.contato_realizado);
 
     const segmentos = Array.from(new Set(leads.map((l) => l.segmento))).sort();
-    const etapas = Array.from(new Set((rows ?? []).map((r) => r.pipeline_stage ?? "novo"))).sort();
+    const etapas = Array.from(
+      new Set([
+        ...(rows ?? []).map((r) => r.pipeline_stage ?? "novo"),
+        ...quizRows.map((r) => r.status ?? "novo"),
+      ]),
+    ).sort();
 
     const funil = {
       leads: leads.length,
