@@ -19,6 +19,22 @@ export function withSocialVersion(url: string, slug?: string): string {
   return url.includes("?") ? `${url}&v=${version}` : `${url}?v=${version}`;
 }
 
+/**
+ * Lista ordenada de candidatos a capa de um projeto do portfólio.
+ * Usada pelo componente PortfolioCover para nunca renderizar card sem imagem.
+ */
+export function resolvePortfolioCoverCandidates(input: {
+  clientKey: string;
+  image?: string;
+  fallbackImage?: string;
+}): string[] {
+  const entry = resolvePortfolioAssets(input.clientKey) as
+    | { icon?: string; socialImage?: string }
+    | undefined;
+  const list = [input.image, entry?.socialImage, entry?.icon, input.fallbackImage];
+  return Array.from(new Set(list.filter((v): v is string => typeof v === "string" && v.length > 0)));
+}
+
 export function portfolioAssetsIndex() {
   return assets.clients as Record<string, PortfolioAssetConfig>;
 }
