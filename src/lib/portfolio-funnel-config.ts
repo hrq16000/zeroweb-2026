@@ -36,7 +36,14 @@ function overrideQuizConfig(clientKey: string): PortfolioQuizConfig | undefined 
 /** Funil canônico do cliente (sem ajustes locais de chamada). */
 export function resolvePortfolioFunnelConfig(slugOrKey: string): PortfolioQuizConfig | undefined {
   const key = toClientKey(slugOrKey);
-  return overrideQuizConfig(key) ?? resolvePortfolioQuizConfig(key);
+  return (
+    overrideQuizConfig(key) ??
+    resolvePortfolioQuizConfig(key) ??
+    // Padrão derivado do catálogo: projetos novos herdam perguntas do próprio
+    // segmento sem precisar de ajuste manual individual.
+    resolveCatalogFunnelConfig(slugOrKey) ??
+    resolveCatalogFunnelConfig(key)
+  );
 }
 
 /** Funil canônico + ajustes locais da chamada (os locais prevalecem campo a campo). */
