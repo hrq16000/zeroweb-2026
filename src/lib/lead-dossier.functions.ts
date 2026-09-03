@@ -182,7 +182,7 @@ export const getLeadDossier = createServerFn({ method: "POST" })
     await supabaseAdmin.from("audit_logs").insert({
       actor_id: context.userId,
       action: "sensitive.read",
-      entity: "dynamic_form_leads",
+      entity: dynamicLead ? "dynamic_form_leads" : "lead_submissions",
       entity_id: lead.id,
       meta: { view: "app/leads-clientes", detail: true } as never,
     });
