@@ -91,6 +91,27 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "@id": `${url}#localbusiness`,
+            name: `0WEB — Criação de Sites em ${c.name}`,
+            url,
+            description,
+            priceRange: "$$",
+            areaServed: { "@type": "City", name: c.name },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: c.name,
+              addressRegion: c.uf,
+              addressCountry: "BR",
+            },
+            parentOrganization: { "@type": "Organization", name: "0WEB", url: "https://0web.com.br" },
+            availableLanguage: ["pt-BR"],
+          }),
+        },
+
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: faq.map((f) => ({
               "@type": "Question",
