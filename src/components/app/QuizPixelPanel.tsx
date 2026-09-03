@@ -42,7 +42,9 @@ export function QuizPixelPanel() {
         <div>
           <h2 className="text-lg font-semibold text-foreground">Pixel do quiz</h2>
           <p className="text-xs text-muted-foreground">
-            Cliques, abandono por etapa e conversão até o WhatsApp — sem dados pessoais.
+            {temWhatsapp
+              ? "Cliques, abandono por etapa e conversão até o WhatsApp — sem dados pessoais."
+              : "Cliques, abandono por etapa e envio do diagnóstico — sem dados pessoais. Este quiz não tem etapa de WhatsApp."}
           </p>
         </div>
         <label className="text-sm">
