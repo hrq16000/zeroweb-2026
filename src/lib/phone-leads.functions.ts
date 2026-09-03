@@ -64,6 +64,44 @@ function readSegment(metadata: unknown, answers: unknown): string {
   return value || "não segmentado";
 }
 
+/**
+ * Leads do quiz institucional e demais formulários do site ficam em
+ * `lead_submissions`. Eles precisam aparecer nas mesmas telas dos leads dos
+ * funis dinâmicos (`dynamic_form_leads`), por isso são normalizados aqui.
+ */
+type QuizLeadRow = {
+  id: string;
+  created_at: string;
+  name: string | null;
+  phone: string | null;
+  audience_tag: string | null;
+  payload_json: unknown;
+  status: string | null;
+  temperature: string | null;
+  score: number | null;
+  source: string | null;
+};
+
+async function fetchQuizLeadRows(
+  supabaseAdmin: any,
+  filters: ReturnType<typeof sanitize>,
+  limit: number,
+): Promise<QuizLeadRow[]> {
+  let q = supabaseAdmin
+    .from("lead_submissions")
+    .select("id, created_at, name, phone, audience_tag, payload_json, status, temperature, score, source")
+    .not("phone", "is", null)
+    .neq("phone", "")
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (filters.etapa) q = q.eq("status", filters.etapa);
+  if (filters.from) q = q.gte("created_at", `${filters.from}T00:00:00.000Z`);
+  if (filters.to) q = q.lte("created_at", `${filters.to}T23:59:59.999Z`);
+  const { data, error } = await q;
+  if (error) throw error;
+  return (data ?? []) as QuizLeadRow[];
+}
+
 export const listPhoneLeads = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: PhoneLeadFilters = {}) => data)
