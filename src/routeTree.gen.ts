@@ -139,6 +139,7 @@ import { Route as SitesVerticalRouteImport } from './routes/sites.$vertical'
 import { Route as SuportePedidoTokenRouteImport } from './routes/suporte-pedido.$token'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppAdminRouteImport } from './routes/_authenticated/app.admin'
+import { Route as AuthenticatedAppAtendimentoRouteImport } from './routes/_authenticated/app.atendimento'
 import { Route as AuthenticatedAppCampaignsRouteImport } from './routes/_authenticated/app.campaigns'
 import { Route as AuthenticatedAppClientesRouteImport } from './routes/_authenticated/app.clientes'
 import { Route as AuthenticatedAppCrmPlanilhaRouteImport } from './routes/_authenticated/app.crm-planilha'
@@ -880,6 +881,12 @@ const AuthenticatedAppAdminRoute = AuthenticatedAppAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppAtendimentoRoute =
+  AuthenticatedAppAtendimentoRouteImport.update({
+    id: '/atendimento',
+    path: '/atendimento',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppCampaignsRoute =
   AuthenticatedAppCampaignsRouteImport.update({
     id: '/campaigns',
@@ -1468,6 +1475,7 @@ export interface FileRoutesByFullPath {
   '/sites-robustos/': typeof SitesRobustosIndexRoute
   '/sites/': typeof SitesIndexRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
+  '/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/app/clientes': typeof AuthenticatedAppClientesRoute
   '/app/crm-planilha': typeof AuthenticatedAppCrmPlanilhaRoute
@@ -1676,6 +1684,7 @@ export interface FileRoutesByTo {
   '/sites-robustos': typeof SitesRobustosIndexRoute
   '/sites': typeof SitesIndexRoute
   '/app/admin': typeof AuthenticatedAppAdminRoute
+  '/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/app/clientes': typeof AuthenticatedAppClientesRoute
   '/app/crm-planilha': typeof AuthenticatedAppCrmPlanilhaRoute
@@ -1889,6 +1898,7 @@ export interface FileRoutesById {
   '/sites-robustos/': typeof SitesRobustosIndexRoute
   '/sites/': typeof SitesIndexRoute
   '/_authenticated/app/admin': typeof AuthenticatedAppAdminRoute
+  '/_authenticated/app/atendimento': typeof AuthenticatedAppAtendimentoRoute
   '/_authenticated/app/campaigns': typeof AuthenticatedAppCampaignsRoute
   '/_authenticated/app/clientes': typeof AuthenticatedAppClientesRoute
   '/_authenticated/app/crm-planilha': typeof AuthenticatedAppCrmPlanilhaRoute
@@ -2102,6 +2112,7 @@ export interface FileRouteTypes {
     | '/sites-robustos/'
     | '/sites/'
     | '/app/admin'
+    | '/app/atendimento'
     | '/app/campaigns'
     | '/app/clientes'
     | '/app/crm-planilha'
@@ -2310,6 +2321,7 @@ export interface FileRouteTypes {
     | '/sites-robustos'
     | '/sites'
     | '/app/admin'
+    | '/app/atendimento'
     | '/app/campaigns'
     | '/app/clientes'
     | '/app/crm-planilha'
@@ -2522,6 +2534,7 @@ export interface FileRouteTypes {
     | '/sites-robustos/'
     | '/sites/'
     | '/_authenticated/app/admin'
+    | '/_authenticated/app/atendimento'
     | '/_authenticated/app/campaigns'
     | '/_authenticated/app/clientes'
     | '/_authenticated/app/crm-planilha'
@@ -3656,6 +3669,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppAdminRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/atendimento': {
+      id: '/_authenticated/app/atendimento'
+      path: '/atendimento'
+      fullPath: '/app/atendimento'
+      preLoaderRoute: typeof AuthenticatedAppAtendimentoRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/campaigns': {
       id: '/_authenticated/app/campaigns'
       path: '/campaigns'
@@ -4316,6 +4336,7 @@ const AuthenticatedAppSupportRouteWithChildren =
 
 interface AuthenticatedAppRouteChildren {
   AuthenticatedAppAdminRoute: typeof AuthenticatedAppAdminRoute
+  AuthenticatedAppAtendimentoRoute: typeof AuthenticatedAppAtendimentoRoute
   AuthenticatedAppCampaignsRoute: typeof AuthenticatedAppCampaignsRoute
   AuthenticatedAppClientesRoute: typeof AuthenticatedAppClientesRoute
   AuthenticatedAppCrmPlanilhaRoute: typeof AuthenticatedAppCrmPlanilhaRoute
@@ -4367,6 +4388,7 @@ interface AuthenticatedAppRouteChildren {
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppAdminRoute: AuthenticatedAppAdminRoute,
+  AuthenticatedAppAtendimentoRoute: AuthenticatedAppAtendimentoRoute,
   AuthenticatedAppCampaignsRoute: AuthenticatedAppCampaignsRoute,
   AuthenticatedAppClientesRoute: AuthenticatedAppClientesRoute,
   AuthenticatedAppCrmPlanilhaRoute: AuthenticatedAppCrmPlanilhaRoute,
