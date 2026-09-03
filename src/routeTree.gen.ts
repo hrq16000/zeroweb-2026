@@ -168,6 +168,7 @@ import { Route as AuthenticatedAppPedidosRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAppPortalsRouteImport } from './routes/_authenticated/app.portals'
 import { Route as AuthenticatedAppProfileRouteImport } from './routes/_authenticated/app.profile'
 import { Route as AuthenticatedAppProjectsRouteImport } from './routes/_authenticated/app.projects'
+import { Route as AuthenticatedAppRankingLocalRouteImport } from './routes/_authenticated/app.ranking-local'
 import { Route as AuthenticatedAppReportsRouteImport } from './routes/_authenticated/app.reports'
 import { Route as AuthenticatedAppSeoRouteImport } from './routes/_authenticated/app.seo'
 import { Route as AuthenticatedAppSeo404sRouteImport } from './routes/_authenticated/app.seo-404s'
@@ -1051,6 +1052,12 @@ const AuthenticatedAppProjectsRoute =
     path: '/projects',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppRankingLocalRoute =
+  AuthenticatedAppRankingLocalRouteImport.update({
+    id: '/ranking-local',
+    path: '/ranking-local',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppReportsRoute = AuthenticatedAppReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
@@ -1525,6 +1532,7 @@ export interface FileRoutesByFullPath {
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/seo': typeof AuthenticatedAppSeoRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
@@ -1736,6 +1744,7 @@ export interface FileRoutesByTo {
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
   '/app/seo': typeof AuthenticatedAppSeoRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
@@ -1953,6 +1962,7 @@ export interface FileRoutesById {
   '/_authenticated/app/portals': typeof AuthenticatedAppPortalsRoute
   '/_authenticated/app/profile': typeof AuthenticatedAppProfileRoute
   '/_authenticated/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
+  '/_authenticated/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/_authenticated/app/reports': typeof AuthenticatedAppReportsRoute
   '/_authenticated/app/seo': typeof AuthenticatedAppSeoRoute
   '/_authenticated/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
@@ -2170,6 +2180,7 @@ export interface FileRouteTypes {
     | '/app/portals'
     | '/app/profile'
     | '/app/projects'
+    | '/app/ranking-local'
     | '/app/reports'
     | '/app/seo'
     | '/app/seo-404s'
@@ -2381,6 +2392,7 @@ export interface FileRouteTypes {
     | '/app/portals'
     | '/app/profile'
     | '/app/projects'
+    | '/app/ranking-local'
     | '/app/reports'
     | '/app/seo'
     | '/app/seo-404s'
@@ -2597,6 +2609,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/portals'
     | '/_authenticated/app/profile'
     | '/_authenticated/app/projects'
+    | '/_authenticated/app/ranking-local'
     | '/_authenticated/app/reports'
     | '/_authenticated/app/seo'
     | '/_authenticated/app/seo-404s'
@@ -3909,6 +3922,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppProjectsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/ranking-local': {
+      id: '/_authenticated/app/ranking-local'
+      path: '/ranking-local'
+      fullPath: '/app/ranking-local'
+      preLoaderRoute: typeof AuthenticatedAppRankingLocalRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/reports': {
       id: '/_authenticated/app/reports'
       path: '/reports'
@@ -4438,6 +4458,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPortalsRoute: typeof AuthenticatedAppPortalsRoute
   AuthenticatedAppProfileRoute: typeof AuthenticatedAppProfileRoute
   AuthenticatedAppProjectsRoute: typeof AuthenticatedAppProjectsRouteWithChildren
+  AuthenticatedAppRankingLocalRoute: typeof AuthenticatedAppRankingLocalRoute
   AuthenticatedAppReportsRoute: typeof AuthenticatedAppReportsRoute
   AuthenticatedAppSeoRoute: typeof AuthenticatedAppSeoRoute
   AuthenticatedAppSeo404sRoute: typeof AuthenticatedAppSeo404sRoute
@@ -4493,6 +4514,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppPortalsRoute: AuthenticatedAppPortalsRoute,
   AuthenticatedAppProfileRoute: AuthenticatedAppProfileRoute,
   AuthenticatedAppProjectsRoute: AuthenticatedAppProjectsRouteWithChildren,
+  AuthenticatedAppRankingLocalRoute: AuthenticatedAppRankingLocalRoute,
   AuthenticatedAppReportsRoute: AuthenticatedAppReportsRoute,
   AuthenticatedAppSeoRoute: AuthenticatedAppSeoRoute,
   AuthenticatedAppSeo404sRoute: AuthenticatedAppSeo404sRoute,

@@ -11,8 +11,6 @@ export const Route = createFileRoute("/_authenticated/app/ranking-local")({
 
 type SortKey = "clicks" | "impressions" | "position" | "visits" | "leads" | "conversion" | "city";
 
-export default function noop() {}
-
 function LocalRankingPage() {
   const fetchRanking = useServerFn(listLocalRanking);
   const [days, setDays] = useState(28);
