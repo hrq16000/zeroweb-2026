@@ -108,7 +108,7 @@ export const Route = createFileRoute("/criacao-de-site-institucional/$cidade")({
             availableLanguage: ["pt-BR"],
           }),
         },
-
+        {
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
