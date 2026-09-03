@@ -9,9 +9,11 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
+import { PortfolioCover } from "@/components/portfolio/PortfolioCover";
 
 type CatalogItem = {
   slug: string;
+  clientKey?: string;
   title: string;
   subtitle?: string;
   segment?: string;
