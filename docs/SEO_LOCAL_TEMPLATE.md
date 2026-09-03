@@ -49,3 +49,31 @@ O template já gera dinamicamente:
 Depoimentos permanecem omitidos por decisão editorial: só podem ser publicados
 com fonte auditável e consentimento (ver AGENTS.md — credibilidade editorial).
 Quando houver material real, insira no bloco de conteúdo regional do template.
+
+## 3. Gestão das páginas locais no painel
+
+Tela: `/app/paginas-locais` (admin/super_admin).
+Tabela: `local_pages` · funções: `src/lib/local-pages.functions.ts`.
+
+- Campos editáveis por capital: meta title, meta description, texto de abertura
+  e conteúdo regional adicional (parágrafos separados por linha em branco).
+- Campos vazios fazem fallback para o texto padrão do template — nunca ficam
+  em branco na página pública.
+- "Restaurar padrão" remove o override; "Publicada" desmarcada remove a URL de
+  `sitemap-institucional.xml` sem apagar o conteúdo.
+- Toda alteração fica registrada em `audit_logs`.
+
+## 4. WhatsApp Business (disparo em lote)
+
+Tela: `/app/atendimento` · funções: `src/lib/wa-dispatch.functions.ts` ·
+adaptador: `src/lib/whatsapp-business.server.ts`.
+
+Sem credenciais o lote roda em **modo simulado**: nada é enviado, e as
+mensagens são gravadas com status `simulated`. Para ativar o envio real,
+configure os secrets `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID` e,
+opcionalmente, `WHATSAPP_TEMPLATE_NAME` / `WHATSAPP_TEMPLATE_LANG`.
+
+Regras aplicadas: no máximo 50 destinatários por lote, pausa entre mensagens,
+deduplicação por telefone, exclusão automática dos números em `wa_optouts`
+(LGPD) e log por mensagem em `wa_dispatch_messages`. A interface exibe apenas
+os quatro últimos dígitos do telefone.
