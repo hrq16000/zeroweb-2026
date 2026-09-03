@@ -195,7 +195,7 @@ export const getLeadDossier = createServerFn({ method: "POST" })
       etapa: lead.pipeline_stage ?? "novo",
       intent: lead.intent_level ?? "—",
       score: lead.score ?? 0,
-      origem: "site",
+      origem,
       createdAt: lead.created_at,
       respostas,
       interacoes: interacoes.sort((a, b) => String(a.at).localeCompare(String(b.at))),
