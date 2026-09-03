@@ -78,17 +78,15 @@ export function ProjetosNoAr() {
                 params={{ slug: item.slug }}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary"
               >
-                {item.image ? (
-                  <img
-                    src={item.image}
-                    alt={`Prévia do site ${item.title}`}
-                    loading="lazy"
-                    decoding="async"
-                    width={640}
-                    height={360}
-                    className="h-40 w-full object-cover"
-                  />
-                ) : null}
+                <PortfolioCover
+                  clientKey={item.clientKey}
+                  slug={item.slug}
+                  title={item.title}
+                  image={item.image}
+                  fallbackImage={item.fallbackImage}
+                  sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
+                  className="h-40 w-full object-cover"
+                />
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-semibold">{item.title}</h3>
                   {item.subtitle ? (
