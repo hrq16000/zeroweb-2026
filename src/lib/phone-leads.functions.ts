@@ -125,7 +125,9 @@ export const listPhoneLeads = createServerFn({ method: "POST" })
     const { data: rows, error } = await q;
     if (error) throw error;
 
-    const ids = (rows ?? []).map((r) => r.id);
+    const quizRows = await fetchQuizLeadRows(supabaseAdmin, filters, filters.limit);
+
+    const ids = [...(rows ?? []).map((r) => r.id), ...quizRows.map((r) => r.id)];
     const tokensByLead = new Map<string, { used: boolean; usedAt: string | null }>();
     if (ids.length) {
       const { data: tokens } = await supabaseAdmin
