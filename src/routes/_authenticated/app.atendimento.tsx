@@ -5,6 +5,11 @@ import { useState } from "react";
 import { MapPin, MessageCircle, Send, Loader2 } from "lucide-react";
 import { listCityLeads } from "@/lib/city-leads.functions";
 import { startLeadConversation } from "@/lib/phone-leads.functions";
+import {
+  getWhatsAppBusinessStatus,
+  dispatchWhatsAppBatch,
+  listWhatsAppBatches,
+} from "@/lib/wa-dispatch.functions";
 
 export const Route = createFileRoute("/_authenticated/app/atendimento")({
   component: AtendimentoPage,
@@ -17,6 +22,14 @@ function AtendimentoPage() {
   const [days, setDays] = useState(90);
   const [enviando, setEnviando] = useState(false);
   const [aviso, setAviso] = useState<string | null>(null);
+  const waStatus = useServerFn(getWhatsAppBusinessStatus);
+  const dispatchBatch = useServerFn(dispatchWhatsAppBatch);
+  const fetchBatches = useServerFn(listWhatsAppBatches);
+  const [mensagem, setMensagem] = useState(
+    "Olá! Aqui é da 0WEB. Recebemos seu pedido de diagnóstico do site e podemos seguir por aqui quando for melhor para você.",
+  );
+  const [disparando, setDisparando] = useState(false);
+  const [resultado, setResultado] = useState<string | null>(null);
 
   const { data, isLoading } = useQuery({
     queryKey: ["city-leads", cidade, days],
@@ -24,6 +37,29 @@ function AtendimentoPage() {
   });
 
   const leads = data?.leads ?? [];
+
+  const { data: waInfo } = useQuery({ queryKey: ["wa-status"], queryFn: () => waStatus() });
+  const { data: lotes, refetch: refetchLotes } = useQuery({
+    queryKey: ["wa-batches"],
+    queryFn: () => fetchBatches(),
+  });
+
+  async function dispararLote() {
+    setResultado(null);
+    setDisparando(true);
+    try {
+      const alvos = leads.filter((l) => !l.contato_realizado).slice(0, waInfo?.maxPerBatch ?? 50);
+      const res = await dispatchBatch({ data: { leadIds: alvos.map((l) => l.id), message: mensagem } });
+      setResultado(
+        `${res.sent} mensagem(ns) ${res.mode === "simulated" ? "simuladas (sem credenciais)" : "enviadas"} · ${res.failed} falha(s) · ${res.skipped} em opt-out.`,
+      );
+      await refetchLotes();
+    } catch (error) {
+      setResultado(error instanceof Error ? error.message : "Falha no disparo.");
+    } finally {
+      setDisparando(false);
+    }
+  }
 
   async function abrir(leadId: string) {
     setAviso(null);
@@ -106,6 +142,50 @@ function AtendimentoPage() {
       </div>
 
       {aviso && <p className="mb-4 text-sm text-muted-foreground">{aviso}</p>}
+
+      <section className="mb-8 rounded-xl border border-border p-4">
+        <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+          <h2 className="text-base font-semibold text-foreground">Disparo em lote (WhatsApp Business)</h2>
+          <span className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground">
+            {waInfo?.mode === "cloud_api" ? "API conectada" : "modo simulado — sem credenciais"}
+          </span>
+        </div>
+        <p className="mb-3 text-sm text-muted-foreground">
+          Envia para até {waInfo?.maxPerBatch ?? 50} leads pendentes do filtro atual. Telefones em opt-out são
+          ignorados automaticamente. Sem credenciais configuradas, o lote é registrado como simulado e nenhuma
+          mensagem sai.
+        </p>
+        <label className="block text-sm">
+          <span className="text-muted-foreground">Mensagem</span>
+          <textarea
+            value={mensagem}
+            onChange={(e) => setMensagem(e.target.value)}
+            rows={3}
+            maxLength={900}
+            className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-foreground"
+          />
+        </label>
+        <button
+          type="button"
+          onClick={dispararLote}
+          disabled={disparando || leads.length === 0}
+          className="mt-3 inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-semibold disabled:opacity-60"
+        >
+          {disparando ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+          Disparar lote
+        </button>
+        {resultado && <p className="mt-3 text-sm text-muted-foreground">{resultado}</p>}
+        {!!lotes?.length && (
+          <ul className="mt-4 space-y-1 text-xs text-muted-foreground">
+            {lotes.slice(0, 5).map((b) => (
+              <li key={b.id}>
+                {new Date(b.createdAt).toLocaleString("pt-BR")} · {b.channel} · {b.sent} enviadas · {b.failed} falhas ·{" "}
+                {b.skipped} opt-out
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {(data?.cidades ?? []).slice(0, 8).map((c) => (
