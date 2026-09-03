@@ -1,64 +1,290 @@
-import { lazy } from "react";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import type { CSSProperties } from "react";
+import { ArrowRight, Clock, Droplets, Flame, MapPin, ShieldCheck, Truck } from "lucide-react";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { LazySection } from "@/components/portfolio/LazySection";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-// Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
-// Ver docs/PORTFOLIO_PERFORMANCE.md
-// const Galeria = lazy(() => import("./HeloaGasGaleria"));
+const quizConfig = {
+  proposalKind: "service" as const,
+  services: [
+    "Botijão de gás 13kg",
+    "Troca de botijão",
+    "Água mineral 20L (galão)",
+    "Gás + água no mesmo pedido",
+    "Pedido para comércio",
+    "Outro pedido",
+  ],
+  experienceOptions: ["Casa", "Apartamento", "Condomínio (portaria)", "Comércio", "Outro local"],
+  periodOptions: ["Já tenho o vasilhame", "Preciso do vasilhame", "Não sei informar"],
+  timingOptions: ["Agora", "Ainda hoje", "Amanhã", "Estou só consultando"],
+  stepTitles: {
+    service: "O que você precisa hoje?",
+    experience: "Para qual tipo de endereço?",
+    period: "Você já tem o vasilhame?",
+    timing: "Para quando é a entrega?",
+  },
+  notePlaceholder: "Informe bairro, ponto de referência e quantidade desejada.",
+};
 
-/**
- * Site exclusivo de Heloá Gás (/portfolio/heloa-gas).
- * Identidade do cliente é soberana: nada de Header/Footer/copy da 0WEB.
- * Contato é resolvido no servidor pelo clientKey — nunca no bundle público.
- */
+const catalogo = [
+  {
+    icon: Flame,
+    title: "Botijão de gás 13kg",
+    text: "Troca de botijão para o dia a dia da cozinha, com entrega no seu endereço.",
+  },
+  {
+    icon: Droplets,
+    title: "Água mineral 20L",
+    text: "Galão de água mineral entregue junto com o gás, sem precisar sair de casa.",
+  },
+  {
+    icon: Truck,
+    title: "Entrega em Piraquara e região",
+    text: "Atendimento em Vila Vicente Macedo e bairros vizinhos, direto na sua porta.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Produto lacrado e conferido",
+    text: "Botijões e galões entregues lacrados e conferidos na hora da entrega.",
+  },
+];
+
+const theme = {
+  "--background": "150 30% 97%",
+  "--foreground": "158 60% 10%",
+  "--card": "0 0% 100%",
+  "--muted": "150 22% 92%",
+  "--muted-foreground": "158 14% 34%",
+  "--primary": "24 92% 50%",
+  "--primary-foreground": "0 0% 100%",
+  "--border": "150 16% 82%",
+  "--ring": "24 92% 50%",
+} as CSSProperties;
+
 export function HeloaGasPage() {
   return (
-    <div className="min-h-dvh bg-background text-foreground">
-      <main>
-        <section className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Heloá Gás
-          </p>
-          <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Heloá Gás: uma presença digital clara para o seu público.
-          </h1>
-          <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Conheça os serviços, a identidade e os próximos passos de Heloá Gás.
-          </p>
-          {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
-          <PortfolioImage
-            src="/images/heloa-gas/capa.webp"
-            alt="Heloá Gás"
-            priority
-            width={1200}
-            height={800}
-            className="mt-8 w-full rounded-3xl object-cover"
-          />
+    <div className="min-h-dvh bg-background text-foreground" style={theme}>
+      <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
+        <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" aria-label="Heloá Gás — início">
+            <PortfolioImage
+              src="/images/heloa-gas/logo.png"
+              alt="Heloá Gás"
+              width={1152}
+              height={576}
+              className="h-12 w-auto object-contain"
+            />
+          </a>
+          <nav
+            aria-label="Navegação principal"
+            className="hidden items-center gap-6 text-sm font-semibold md:flex"
+          >
+            <a href="#produtos" className="hover:text-primary">
+              Produtos
+            </a>
+            <a href="#entrega" className="hover:text-primary">
+              Entrega
+            </a>
+            <a href="#atendimento" className="hover:text-primary">
+              Atendimento
+            </a>
+          </nav>
+          <PortfolioCTAQuiz
+            clientKey="heloa-gas"
+            studioName="Heloá Gás"
+            recipientName="Heloá Gás"
+            theme="emerald"
+            mode="proposal"
+            quizConfig={quizConfig}
+            className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground hover:opacity-90"
+          >
+            Fazer pedido
+          </PortfolioCTAQuiz>
+        </div>
+      </header>
 
-          <div className="mt-8">
-            <FunnelCTAButton
-              clientKey="heloa-gas"
-              companySlug="heloa-gas"
-              formSlug="funnel-heloa-gas"
-              location="heloa-gas_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+      <main id="inicio">
+        <section className="overflow-hidden bg-foreground px-5 py-16 text-background md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+                Gás e água em Piraquara — PR
+              </p>
+              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+                Seu gás acabou? Peça e receba em casa.
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
+                Botijão de gás 13kg e água mineral de 20 litros entregues em Vila Vicente Macedo e
+                região. Faça o pedido em poucos toques e combine a entrega com a equipe.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <PortfolioCTAQuiz
+                  clientKey="heloa-gas"
+                  studioName="Heloá Gás"
+                  recipientName="Heloá Gás"
+                  theme="emerald"
+                  mode="proposal"
+                  quizConfig={quizConfig}
+                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground hover:opacity-90"
+                >
+                  Pedir gás ou água <ArrowRight className="h-4 w-4" />
+                </PortfolioCTAQuiz>
+                <a
+                  href="#produtos"
+                  className="inline-flex min-h-12 items-center rounded-full border border-background/30 px-6 font-semibold text-background hover:border-primary hover:text-primary"
+                >
+                  Ver produtos
+                </a>
+              </div>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-background/75">
+                <span className="inline-flex items-center gap-2">
+                  <Flame className="h-5 w-5 text-primary" /> Gás de cozinha
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Droplets className="h-5 w-5 text-primary" /> Água mineral 20L
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Truck className="h-5 w-5 text-primary" /> Entrega no endereço
+                </span>
+              </div>
+            </div>
+            <PortfolioImage
+              src="/images/heloa-gas/hero.jpg"
+              alt="Botijão de gás 13kg e galão de água mineral entregues na porta de casa"
+              priority
+              width={1440}
+              height={900}
+              className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
+            />
+          </div>
+        </section>
+
+        <section id="produtos" className="px-5 py-16 md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+              O que entregamos
+            </p>
+            <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <h2 className="max-w-2xl font-display text-3xl font-bold md:text-5xl">
+                Gás e água na porta da sua casa.
+              </h2>
+              <p className="max-w-md text-sm leading-6 text-muted-foreground">
+                Escolha o que precisa, informe o endereço e combine a entrega diretamente com a
+                equipe da Heloá Gás.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {catalogo.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="rounded-2xl border border-border bg-card p-6">
+                  <Icon className="h-7 w-7 text-primary" />
+                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="entrega" className="bg-muted px-5 py-16 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
+            <PortfolioImage
+              src="/images/heloa-gas/entrega.jpg"
+              alt="Entregador levando botijão de gás até a residência do cliente"
+              width={1440}
+              height={900}
+              className="aspect-[8/5] w-full rounded-3xl object-cover"
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
+                Como pedir
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
+                Pediu, chegou. Simples assim.
+              </h2>
+              <ol className="mt-8 space-y-5">
+                {[
+                  "Escolha entre botijão de gás, água mineral ou os dois.",
+                  "Informe o endereço, o bairro e um ponto de referência.",
+                  "Combine a entrega e o pagamento com a equipe.",
+                ].map((item, index) => (
+                  <li key={item} className="flex gap-4">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
+                      {index + 1}
+                    </span>
+                    <span className="pt-2 font-semibold">{item}</span>
+                  </li>
+                ))}
+              </ol>
+              <PortfolioCTAQuiz
+                clientKey="heloa-gas"
+                studioName="Heloá Gás"
+                recipientName="Heloá Gás"
+                theme="emerald"
+                mode="proposal"
+                quizConfig={quizConfig}
+                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-6 font-bold text-background hover:opacity-90"
+              >
+                Iniciar pedido
+              </PortfolioCTAQuiz>
+            </div>
+          </div>
+        </section>
+
+        <section id="atendimento" className="px-5 py-16 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <MapPin className="h-7 w-7 text-primary" />
+              <h3 className="mt-5 text-lg font-bold">Onde estamos</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Rua Belo Horizonte, 340 — Vila Vicente Macedo, Piraquara — PR, 83303-130.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <Truck className="h-7 w-7 text-primary" />
+              <h3 className="mt-5 text-lg font-bold">Área de entrega</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Vila Vicente Macedo e bairros próximos de Piraquara. Confirme a disponibilidade do
+                seu endereço ao fazer o pedido.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-border bg-card p-6">
+              <Clock className="h-7 w-7 text-primary" />
+              <h3 className="mt-5 text-lg font-bold">Atendimento</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Pedidos pelo formulário: você conta o que precisa e a equipe responde para combinar
+                horário e pagamento.
+              </p>
+            </article>
           </div>
         </section>
       </main>
 
-      {/* Exemplo de seção sob demanda:
-      <LazySection minHeight={320} fallback={<div className="h-80 animate-pulse rounded-2xl bg-muted" />}>
-        <Galeria />
-      </LazySection>
-      */}
+      <footer className="bg-foreground px-5 py-8 text-background">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <strong>Heloá Gás</strong>
+            <p className="mt-1 text-sm text-background/70">
+              Gás de cozinha e água mineral com entrega em Piraquara — PR.
+            </p>
+          </div>
+          <PortfolioHostCredit
+            className="text-sm text-background/70"
+            linkClassName="font-semibold text-primary"
+          />
+        </div>
+      </footer>
 
-      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
-      <PortfolioSocialProofPopup clientKey="heloa-gas" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
-      <PortfolioHostCredit />
+      <PortfolioSocialProofPopup
+        clientKey="heloa-gas"
+        eyebrow="Heloá Gás"
+        title="Gás acabou no meio do preparo?"
+        description="Peça botijão de gás ou água mineral e combine a entrega no seu endereço."
+        ctaLabel="Ver produtos"
+        ctaHref="#produtos"
+      />
+      <PortfolioUpsellPopup pageName="portfolio-heloa-gas" />
     </div>
   );
 }
