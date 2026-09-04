@@ -24,6 +24,8 @@ export const REASONS = {
   COLOR_ONLY_VARIATION: "COLOR_ONLY_VARIATION",
   ICON_ONLY_VARIATION: "ICON_ONLY_VARIATION",
   SHARED_VERTICAL_FALLBACK: "SHARED_VERTICAL_FALLBACK",
+  EXCESSIVE_COPY_SIMILARITY: "EXCESSIVE_COPY_SIMILARITY",
+  VISUAL_COMPOSITION_CLONE: "VISUAL_COMPOSITION_CLONE",
   SAME_FAMILY: "SAME_FAMILY",
   DISTINCT: "DISTINCT",
 };
@@ -42,7 +44,23 @@ export const SIGNALS = {
   LOGO_SHARED: "LOGO_SHARED",
   LOGO_OUTSIDE_ASSETS_DIR: "LOGO_OUTSIDE_ASSETS_DIR",
   LOGO_NO_CONTRAST_VARIANT: "LOGO_NO_CONTRAST_VARIANT",
+  ASSET_EXPECTED_SHARED: "ASSET_EXPECTED_SHARED",
+  ASSET_SUSPICIOUS_SHARED: "ASSET_SUSPICIOUS_SHARED",
+  ASSET_INVALID_CROSS_CLIENT: "ASSET_INVALID_CROSS_CLIENT",
 };
+
+/**
+ * Assets cuja repetição entre projetos é esperada (design system / 0WEB).
+ * Tudo que é foto, logo, capa ou social image de cliente NÃO entra aqui.
+ */
+export const EXPECTED_SHARED_ASSETS = [
+  /^\/images\/0web\//,
+  /^\/images\/system\//,
+  /^\/images\/shared\//,
+  /^\/favicon/,
+  /^\/og-default/,
+  /^\/placeholder\./,
+];
 
 export const STATUS = {
   ORIGINAL: "ORIGINAL",
@@ -55,13 +73,30 @@ export const STATUS = {
 
 /** Pesos da fórmula (soma = 1). Estrutura pesa mais que cor/copy. */
 export const WEIGHTS = {
-  structure: 0.3,
-  sectionOrder: 0.25,
-  component: 0.2,
-  style: 0.15,
-  assetPattern: 0.07,
+  structure: 0.28,
+  sectionOrder: 0.22,
+  component: 0.18,
+  style: 0.13,
+  copy: 0.12,
+  assetPattern: 0.04,
   identity: 0.03,
 };
+
+/**
+ * Copy compartilhada por contrato (popup 0WEB, crédito de hospedagem, avisos,
+ * labels técnicos, navegação). Não é sinal de clone e sai do cálculo editorial.
+ */
+export const COPY_BOILERPLATE = [
+  /0web/i,
+  /pol[ií]tica de privacidade/i,
+  /termos de uso/i,
+  /todos os direitos/i,
+  /hospedagem|presen[çc]a digital/i,
+  /whats?app/i,
+  /falar (com|no)/i,
+  /enviar|abrir|fechar|voltar|carregando|menu|copiar divulga/i,
+  /^(sim|n[ãa]o|ok)$/i,
+];
 
 /** Limiares de status pelo maior score par-a-par. */
 export const THRESHOLDS = { acceptable: 21, attention: 41, high: 61, clone: 81 };
@@ -179,6 +214,21 @@ export function fingerprintSource(source, { label = "" } = {}) {
     }
   }
 
+  // 4b. copy específica do cliente (boilerplate compartilhado excluído)
+  const copy = new Set();
+  const pushCopy = (raw) => {
+    const text = String(raw)
+      .replace(/\\u[0-9a-fA-F]{4}/g, (m) => String.fromCharCode(parseInt(m.slice(2), 16)))
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+    if (text.length < 12) return;
+    if (COPY_BOILERPLATE.some((re) => re.test(text))) return;
+    for (const gram of ngrams(text.split(" "), 3)) copy.add(gram);
+  };
+  for (const m of src.matchAll(/>([^<>{}]{12,})</g)) pushCopy(m[1]);
+  for (const m of src.matchAll(/fallback=\{?"((?:\\.|[^"])+)"/g)) pushCopy(m[1]);
+
   // 5. identidade cosmética (peso muito baixo): hex, ícones, texto
   const colors = new Set([...src.matchAll(/#[0-9a-fA-F]{6}\b/g)].map((m) => m[0].toLowerCase()));
   const icons = new Set(
@@ -205,6 +255,7 @@ export function fingerprintSource(source, { label = "" } = {}) {
     sectionNgrams: [...ngrams(sectionOrder, 2)],
     sectionCount: sectionOrder.length,
     components: [...components].sort(),
+    copy: [...copy].sort(),
     style: [...style].sort(),
     colors: [...colors].sort(),
     icons: [...icons].sort(),
@@ -222,6 +273,7 @@ export function compareFingerprints(a, b) {
     SECTION_ORDER_SIMILARITY: jaccard(set(a.sectionNgrams), set(b.sectionNgrams)),
     COMPONENT_SIMILARITY: jaccard(set(a.components), set(b.components)),
     STYLE_SIMILARITY: jaccard(set(a.style), set(b.style)),
+    COPY_SIMILARITY: jaccard(set(a.copy ?? []), set(b.copy ?? [])),
     ASSET_PATTERN_SIMILARITY: jaccard(set(a.assetPattern ?? []), set(b.assetPattern ?? [])),
     IDENTITY_SIMILARITY: jaccard(set([...a.colors, ...a.icons]), set([...b.colors, ...b.icons])),
   };
@@ -230,6 +282,7 @@ export function compareFingerprints(a, b) {
     dims.SECTION_ORDER_SIMILARITY * WEIGHTS.sectionOrder +
     dims.COMPONENT_SIMILARITY * WEIGHTS.component +
     dims.STYLE_SIMILARITY * WEIGHTS.style +
+    dims.COPY_SIMILARITY * WEIGHTS.copy +
     dims.ASSET_PATTERN_SIMILARITY * WEIGHTS.assetPattern +
     dims.IDENTITY_SIMILARITY * WEIGHTS.identity;
 
@@ -254,6 +307,14 @@ export function pairReason(a, b, cmp) {
     return REASONS.IDENTICAL_COMPONENT_STRUCTURE;
   }
   if (a.structureHash === b.structureHash) return REASONS.IDENTICAL_COMPONENT_STRUCTURE;
+  if (cmp.dimensions.COPY_SIMILARITY >= 60) return REASONS.EXCESSIVE_COPY_SIMILARITY;
+  if (
+    cmp.score >= THRESHOLDS.high
+    && cmp.dimensions.STRUCTURE_SIMILARITY >= 80
+    && cmp.dimensions.SECTION_ORDER_SIMILARITY >= 80
+  ) {
+    return REASONS.VISUAL_COMPOSITION_CLONE;
+  }
   if (cmp.score >= THRESHOLDS.clone) return REASONS.NEAR_DUPLICATE_LAYOUT;
   if (cmp.score >= THRESHOLDS.high) return REASONS.NEAR_DUPLICATE_LAYOUT;
   if (cmp.score >= THRESHOLDS.attention) return REASONS.SAME_FAMILY;
@@ -352,6 +413,33 @@ export function analyzePortfolio(root) {
     bump(a?.socialImage, item.slug);
   }
 
+  /* ---- hash de conteúdo dos assets percebidos (marca, capa, social) ---- */
+  const fileHash = (file) => {
+    try {
+      return crypto.createHash("sha1").update(fs.readFileSync(file)).digest("hex").slice(0, 16);
+    } catch {
+      return null;
+    }
+  };
+  const isExpectedShared = (p) => EXPECTED_SHARED_ASSETS.some((re) => re.test(String(p ?? "")));
+  const assetHashOwners = new Map(); // hash -> [{slug, kind, path}]
+  const perSlugAssets = new Map();
+  for (const item of catalog) {
+    const a = assetsCfg.clients?.[item.slug] ?? {};
+    const entries = [
+      ["BRAND", a.icon],
+      ["COVER", item.image],
+      ["SOCIAL_IMAGE", a.socialImage],
+    ].filter(([, v]) => v);
+    perSlugAssets.set(item.slug, entries);
+    for (const [kind, rel] of entries) {
+      const h = fileHash(publicPath(rel));
+      if (!h) continue;
+      if (!assetHashOwners.has(h)) assetHashOwners.set(h, []);
+      assetHashOwners.get(h).push({ slug: item.slug, kind, path: rel });
+    }
+  }
+
   const projects = [];
   for (const item of catalog) {
     const slug = item.slug;
@@ -413,8 +501,29 @@ export function analyzePortfolio(root) {
       if (variants.length < 2) logo.push(SIGNALS.LOGO_NO_CONTRAST_VARIANT);
     }
 
+    /* ---- compartilhamento de assets entre clientes ---- */
+    const assetSharing = [];
+    for (const [kind, rel] of perSlugAssets.get(slug) ?? []) {
+      const h = fileHash(publicPath(rel));
+      const owners = h ? (assetHashOwners.get(h) ?? []) : [];
+      const others = owners.filter((o) => o.slug !== slug);
+      if (!others.length) continue;
+      const classification = isExpectedShared(rel)
+        ? SIGNALS.ASSET_EXPECTED_SHARED
+        : kind === "BRAND"
+          ? SIGNALS.ASSET_INVALID_CROSS_CLIENT
+          : SIGNALS.ASSET_SUSPICIOUS_SHARED;
+      assetSharing.push({
+        kind,
+        path: rel,
+        classification,
+        sharedWith: [...new Set(others.map((o) => o.slug))].sort(),
+      });
+    }
+
     projects.push({
       slug,
+      assetSharing,
       title: item.title ?? slug,
       segment: item.segment ?? "",
       componentFile: hasOwnComponent ? componentFile : "src/routes/sites.$vertical.tsx",
@@ -505,6 +614,10 @@ export function analyzePortfolio(root) {
     coversAsSocialImage: count((p) => p.coverSignals.includes(SIGNALS.COVER_IS_SOCIAL_IMAGE)),
     sharedCovers: count((p) => p.coverSignals.includes(SIGNALS.COVER_SHARED_ASSET)),
     severeCrop: count((p) => p.coverSignals.includes(SIGNALS.COVER_SEVERE_CROP)),
+    invalidCrossClientAssets: count((p) =>
+      (p.assetSharing ?? []).some((x) => x.classification === SIGNALS.ASSET_INVALID_CROSS_CLIENT)),
+    suspiciousSharedAssets: count((p) =>
+      (p.assetSharing ?? []).some((x) => x.classification === SIGNALS.ASSET_SUSPICIOUS_SHARED)),
   };
 
   return {
@@ -527,6 +640,7 @@ export function analyzePortfolio(root) {
       coverSignals: p.coverSignals,
       coverRatio: p.coverRatio,
       logoSignals: p.logoSignals,
+      assetSharing: p.assetSharing ?? [],
       fingerprint: {
         skeletonHash: p.fingerprint.skeletonHash,
         structureHash: p.fingerprint.structureHash,
@@ -536,6 +650,20 @@ export function analyzePortfolio(root) {
     })),
     clusters,
     topPairs: [...pairs].sort((a, b) => b.score - a.score).slice(0, 25),
+    pairMatrix: {
+      threshold: THRESHOLDS,
+      totalPairs: pairs.length,
+      nearest: Object.fromEntries(
+        projects.map((p) => {
+          const mine = pairs
+            .filter((x) => x.a === p.slug || x.b === p.slug)
+            .sort((x, y) => y.score - x.score)
+            .slice(0, 3)
+            .map((x) => ({ slug: x.a === p.slug ? x.b : x.a, score: x.score, reason: x.reason }));
+          return [p.slug, mine];
+        }),
+      ),
+    },
   };
 }
 
