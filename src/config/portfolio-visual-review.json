@@ -223,7 +223,7 @@
       "x": 0.5,
       "y": 0.4
     },
-    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, @, wa.me ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   },
   "aguia-sul-sinalizacao": {
     "coverReview": "NEEDS_REVIEW",
@@ -243,7 +243,7 @@
       "x": 0.5,
       "y": 0.4
     },
-    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, @, wa.me ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada. Modo frame: colagem antes/depois preservada inteira."
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada. Modo frame: colagem antes/depois preservada inteira."
   },
   "bh-barreiro-marmitas": {
     "coverReview": "NEEDS_REVIEW",
@@ -258,7 +258,7 @@
       "x": 0.5,
       "y": 0.4
     },
-    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, @, wa.me ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   },
   "confeitaria-sabor-da-realeza": {
     "coverReview": "NEEDS_REVIEW",
@@ -328,7 +328,7 @@
       "x": 0.5,
       "y": 0.4
     },
-    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, @, wa.me ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   },
   "marido-de-aluguel": {
     "coverReview": "NEEDS_REVIEW",
@@ -383,6 +383,6 @@
       "x": 0.5,
       "y": 0.4
     },
-    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, @, wa.me ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   }
 }
