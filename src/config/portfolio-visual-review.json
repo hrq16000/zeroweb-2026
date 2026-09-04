@@ -1,0 +1,3 @@
+{
+  "_readme": "Julgamento humano da qualidade visual. Ver docs/PORTFOLIO_VISUAL_QUALITY_STANDARD.md. Chaves: coverReview, originalityReview, charm, visualOverride, notes. Override sem notes é dívida de governança."
+}
