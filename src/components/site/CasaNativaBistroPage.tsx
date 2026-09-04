@@ -67,10 +67,9 @@ export function CasaNativaBistroPage() {
               Cozinha de raiz,
               <span className="mt-2 block italic text-[#c98a4b]">servida devagar.</span></ManagedRich>
           </h1>
-            <p className="mx-auto mt-8 max-w-lg text-base leading-8 text-[#b3a894]">
+            <p className="mx-auto mt-8 max-w-lg text-base leading-8 text-[#b3a894]"><ManagedRich field="heroSubheadline">
               Um bistrô pequeno em Belo Horizonte, com menu curto que muda conforme a feira e um salão pensado para
-              conversas longas.
-            </p>
+              conversas longas.</ManagedRich></p>
           </div>
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
             <span className="text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">Menu em quatro tempos</span>

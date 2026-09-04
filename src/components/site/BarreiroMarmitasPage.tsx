@@ -74,10 +74,9 @@ export function BarreiroMarmitasPage() {
               <br />
               <span className="text-[#1f3a26]">já está no quadro.</span></ManagedRich>
           </h1>
-            <p className="mt-5 max-w-lg text-lg leading-8 text-[#4a4234]">
+            <p className="mt-5 max-w-lg text-lg leading-8 text-[#4a4234]"><ManagedRich field="heroSubheadline">
               Comida caseira feita todo dia de manhã, marmita fechada na hora e cardápio fixo para você programar a
-              semana sem pensar duas vezes.
-            </p>
+              semana sem pensar duas vezes.</ManagedRich></p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <Pedido>Pedir marmita de hoje</Pedido>
               <a href="#cardapio" className="text-base font-bold underline underline-offset-4">

@@ -81,10 +81,9 @@ export function RMFretesPage() {
             <ManagedRich field="heroHeadline">
               Seu frete em movimento. <span className="text-[#ffd000]">Rápido.</span></ManagedRich>
           </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300"><ManagedRich field="heroSubheadline">
               Fretes, carretos e pequenas mudanças com cuidado na carga, rota organizada e pagamento
-              facilitado.
-            </p>
+              facilitado.</ManagedRich></p>
             <div className="mt-8 flex flex-wrap gap-3">
               <button
                 type="button"

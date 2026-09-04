@@ -71,10 +71,9 @@ export function AlmeidaTorresAdvocaciaPage() {
             Orientação jurídica <span className="italic text-[#3a5a49]">antes</span> da decisão difícil.</ManagedRich>
           </h1>
           <hr className="mx-auto my-8 w-28 border-t border-[#22201c]/40" />
-          <p className="mx-auto max-w-xl text-[1.02rem] leading-8 text-[#4a463f]">
+          <p className="mx-auto max-w-xl text-[1.02rem] leading-8 text-[#4a463f]"><ManagedRich field="heroSubheadline">
             Um escritório de atuação contida: analisamos documentos, explicamos os caminhos possíveis e só então
-            propomos a estratégia. Sem promessa de resultado, com clareza sobre riscos e prazos.
-          </p>
+            propomos a estratégia. Sem promessa de resultado, com clareza sobre riscos e prazos.</ManagedRich></p>
           <div className="mt-10">
             <Consulta>Solicitar orientação inicial</Consulta>
           </div>

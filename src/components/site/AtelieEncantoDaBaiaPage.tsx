@@ -78,10 +78,9 @@ export function AtelieEncantoDaBaiaPage() {
                 para gente daqui.</ManagedRich>
           </h1>
               <div className="rotate-1 rounded-3xl border-2 border-[#2f2418] bg-white p-6 shadow-[8px_8px_0_#e8c3b0]">
-                <p className="text-[0.95rem] leading-7">
+                <p className="text-[0.95rem] leading-7"><ManagedRich field="heroSubheadline">
                   Lembrancinhas, caixas montadas e peças de casa produzidas no ateliê, uma a uma — com amostra aprovada
-                  antes de qualquer produção grande.
-                </p>
+                  antes de qualquer produção grande.</ManagedRich></p>
                 <div className="mt-5">
                   <Encomenda>Pedir orçamento</Encomenda>
                 </div>
