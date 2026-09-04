@@ -12,6 +12,39 @@ import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-asset
 // Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
 // próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
 // renderizando o conteúdo (React resolve o lazy no stream), preservando SEO.
+const AlmeidaTorresAdvocaciaPage = lazy(() =>
+  import("@/components/site/AlmeidaTorresAdvocaciaPage").then((m) => ({ default: m.AlmeidaTorresAdvocaciaPage })),
+);
+const BarreiroMarmitasPage = lazy(() =>
+  import("@/components/site/BarreiroMarmitasPage").then((m) => ({ default: m.BarreiroMarmitasPage })),
+);
+const CasaNativaBistroPage = lazy(() =>
+  import("@/components/site/CasaNativaBistroPage").then((m) => ({ default: m.CasaNativaBistroPage })),
+);
+const ClinicaIntegradaSaudePage = lazy(() =>
+  import("@/components/site/ClinicaIntegradaSaudePage").then((m) => ({ default: m.ClinicaIntegradaSaudePage })),
+);
+const AtelieEncantoDaBaiaPage = lazy(() =>
+  import("@/components/site/AtelieEncantoDaBaiaPage").then((m) => ({ default: m.AtelieEncantoDaBaiaPage })),
+);
+const OficinaNauticaGuaratubaPage = lazy(() =>
+  import("@/components/site/OficinaNauticaGuaratubaPage").then((m) => ({ default: m.OficinaNauticaGuaratubaPage })),
+);
+const ReparosDoLitoralPage = lazy(() =>
+  import("@/components/site/ReparosDoLitoralPage").then((m) => ({ default: m.ReparosDoLitoralPage })),
+);
+const SaboresDaBaiaPage = lazy(() =>
+  import("@/components/site/SaboresDaBaiaPage").then((m) => ({ default: m.SaboresDaBaiaPage })),
+);
+const ConsertaMirassolPage = lazy(() =>
+  import("@/components/site/ConsertaMirassolPage").then((m) => ({ default: m.ConsertaMirassolPage })),
+);
+const DeliciasCaseirasMirassolPage = lazy(() =>
+  import("@/components/site/DeliciasCaseirasMirassolPage").then((m) => ({ default: m.DeliciasCaseirasMirassolPage })),
+);
+const UberlandiaEletricaResidencialPage = lazy(() =>
+  import("@/components/site/UberlandiaEletricaResidencialPage").then((m) => ({ default: m.UberlandiaEletricaResidencialPage })),
+);
 const MaridoDeAluguelPage = lazy(() =>
   import("@/components/site/MaridoDeAluguelPage").then((m) => ({ default: m.MaridoDeAluguelPage })),
 );
@@ -819,6 +852,28 @@ function PortfolioPrototypePage() {
           <JklMarcenariaPage />
         ) : slug === "santos-montador-de-moveis" ? (
           <SantosMontadorDeMoveisPage />
+        ) : slug === "almeida-torres" ? (
+          <AlmeidaTorresAdvocaciaPage />
+        ) : slug === "bh-barreiro-marmitas" ? (
+          <BarreiroMarmitasPage />
+        ) : slug === "casa-nativa" ? (
+          <CasaNativaBistroPage />
+        ) : slug === "clinica-integrada" ? (
+          <ClinicaIntegradaSaudePage />
+        ) : slug === "guaratuba-atelie-presentes" ? (
+          <AtelieEncantoDaBaiaPage />
+        ) : slug === "guaratuba-oficina-nautica" ? (
+          <OficinaNauticaGuaratubaPage />
+        ) : slug === "guaratuba-reparos-residenciais" ? (
+          <ReparosDoLitoralPage />
+        ) : slug === "guaratuba-sabores-da-baia" ? (
+          <SaboresDaBaiaPage />
+        ) : slug === "mirassol-conserta-celular" ? (
+          <ConsertaMirassolPage />
+        ) : slug === "mirassol-delicias-caseiras" ? (
+          <DeliciasCaseirasMirassolPage />
+        ) : slug === "uberlandia-eletrica-residencial" ? (
+          <UberlandiaEletricaResidencialPage />
         ) : (
           <PrototypeSite vertical={vertical} />
         )}
