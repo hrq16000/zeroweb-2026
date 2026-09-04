@@ -85,12 +85,24 @@ export const RESERVED_SLUGS = new Set([
   "painel",
 ]);
 
+/**
+ * Contato operacional em texto livre (telefone, e-mail, link de WhatsApp).
+ * Projetos Managed nunca publicam contato: o funil resolve o destinatário no
+ * servidor, então qualquer número/e-mail digitado no painel é descartado.
+ */
+export function hasOperationalContact(value: string): boolean {
+  if (containsPublicContact(value)) return true;
+  if (/[\w.+-]+@[\w-]+\.[a-z]{2,}/i.test(value)) return true;
+  const digits = value.replace(/\D/g, "");
+  return digits.length >= 10 && /\d[\d\s().-]{8,}\d/.test(value);
+}
+
 export function text(value: unknown, max: number): string {
   if (typeof value !== "string") return "";
   const v = value.trim().replace(/\s+/g, " ");
   if (!v || v.length > max) return "";
   if (/[<>]/.test(v)) return "";
-  if (containsPublicContact(v)) return "";
+  if (hasOperationalContact(v)) return "";
   return v;
 }
 
@@ -236,7 +248,7 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
       typeof row.share_copy === "string" &&
       row.share_copy.trim().length > 0 &&
       row.share_copy.trim().length <= 2000 &&
-      !containsPublicContact(row.share_copy) &&
+      !hasOperationalContact(row.share_copy) &&
       !/[<>]/.test(row.share_copy)
         ? row.share_copy.trim()
         : "",
