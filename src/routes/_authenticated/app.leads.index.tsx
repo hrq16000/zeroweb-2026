@@ -130,6 +130,7 @@ function LeadsPage() {
       </div>
 
       <QuizPixelPanel />
+      <CityPixelPanel />
 
       <QuizConversionCharts />
 
