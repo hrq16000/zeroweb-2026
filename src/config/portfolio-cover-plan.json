@@ -1,0 +1,189 @@
+{
+  "_readme": "Plano curado de capas do catalogo /portfolio. source = asset proprio do cliente; focal = ponto de interesse (0-1) aplicado no recorte 16:10 (capa-card.jpg) e no object-position do card. Gerado por scripts/build-portfolio-covers.mjs. Ver docs/PORTFOLIO_COVER_STANDARD.md.",
+  "projects": {
+    "angel-mix-brecho": {
+      "source": "public/images/angel-mix-brecho/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "brecho-sao-francisco": {
+      "source": "public/images/brecho-sao-francisco/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "reuse-house-brecho": {
+      "source": "public/images/reuse-house-brecho/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "toquinho-de-gente-brecho": {
+      "source": "public/images/toquinho-de-gente-brecho/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "diego-montador-moveis": {
+      "source": "public/images/diego-montador-moveis/capa.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_SEVERE_CROP",
+        "COVER_IS_LOGO"
+      ]
+    },
+    "jkl-marcenaria": {
+      "source": "public/images/jkl-marcenaria/cozinha.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_SEVERE_CROP",
+        "COVER_IS_LOGO"
+      ]
+    },
+    "beto-pasteis": {
+      "source": "public/images/beto-pasteis/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "dlara-pizzaria": {
+      "source": "public/images/dlara-pizzaria/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "marmitaria-dom-diego": {
+      "source": "public/images/marmitaria-dom-diego/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "woodhouse-hamburgueres": {
+      "source": "public/images/woodhouse-hamburgueres/capa.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "sos-presentes-cosmeticos": {
+      "source": "public/images/sos-presentes-cosmeticos/caneca-eu-te-protejo.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_SEVERE_CROP",
+        "COVER_IS_LOGO"
+      ]
+    },
+    "eletrovale-eletromecanica": {
+      "source": "public/images/eletrovale-eletromecanica/equipamentos.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_IS_LOGO"
+      ]
+    },
+    "acai-total-araucaria": {
+      "source": "public/images/acai-total-araucaria/acai.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_SEVERE_CROP"
+      ]
+    },
+    "rj-servicos-drywall": {
+      "source": "public/images/rj-servicos-drywall/hero-drywall.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_IS_LOGO"
+      ]
+    },
+    "santos-montador-de-moveis": {
+      "source": "public/images/santos-montador-de-moveis/hero.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_IS_LOGO"
+      ]
+    },
+    "lolipa-arte-em-festas": {
+      "source": "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "premium-envelopamentos": {
+      "source": "public/images/premium-envelopamentos/galeria-oficina.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "dyzpromo": {
+      "source": "public/images/dyzpromo/faixa-equipe.jpeg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_SEVERE_CROP",
+        "COVER_LOW_RES"
+      ]
+    }
+  }
+}

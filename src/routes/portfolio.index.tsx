@@ -32,6 +32,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
 import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
+import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
@@ -246,7 +247,28 @@ const LEGACY_PORTFOLIO_ITEMS = [
 type LegacyItem = (typeof LEGACY_PORTFOLIO_ITEMS)[number];
 type CatalogItem = (typeof portfolioCatalog)[number];
 type PortfolioItem = Partial<LegacyItem> &
-  CatalogItem & { id: string; slug: string; category: string; image?: string };
+  CatalogItem & {
+    id: string;
+    slug: string;
+    category: string;
+    image?: string;
+    objectPosition?: string;
+  };
+
+// Capas curadas: recorte 16:10 gerado do asset do próprio cliente, com focal point.
+const COVER_PLAN = (portfolioCoverPlan as {
+  projects: Record<string, { focal?: { x: number; y: number } }>;
+}).projects;
+
+function coverFor(slug: string) {
+  const planned = COVER_PLAN[slug];
+  if (!planned) return null;
+  const focal = planned.focal ?? { x: 0.5, y: 0.5 };
+  return {
+    image: `/images/${slug}/capa-card.jpg`,
+    objectPosition: `${Math.round(focal.x * 100)}% ${Math.round(focal.y * 100)}%`,
+  };
+}
 
 const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
   const legacy = LEGACY_PORTFOLIO_ITEMS.find(
@@ -259,7 +281,13 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
     id: canonical.slug,
     slug: `/portfolio/${canonical.slug}`,
     category: canonical.segment,
-    image: canonical.image ?? assetConfig?.socialImage ?? assetConfig?.icon ?? "/og-default.jpg",
+    image:
+      coverFor(canonical.slug)?.image ??
+      canonical.image ??
+      assetConfig?.socialImage ??
+      assetConfig?.icon ??
+      "/og-default.jpg",
+    objectPosition: coverFor(canonical.slug)?.objectPosition,
     fallbackImage:
       canonical.fallbackImage ?? assetConfig?.icon ?? assetConfig?.socialImage ?? "/og-default.jpg",
     live: canonical.live ?? canonical.status === "published",
@@ -732,6 +760,11 @@ function PortfolioPage() {
                               decoding="async"
                               fetchPriority={index === 0 ? "high" : "auto"}
                               sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
+                              style={
+                                item.objectPosition
+                                  ? { objectPosition: item.objectPosition }
+                                  : undefined
+                              }
                               className="h-full w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.03]"
                               onError={(e) => {
                                 if (item.fallbackImage) {

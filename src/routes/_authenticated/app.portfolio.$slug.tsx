@@ -15,6 +15,8 @@ import {
   SEVERITY_STYLE,
   VISUAL_BADGE_STYLE,
 } from "@/lib/portfolio-visual-quality";
+import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
+import portfolioVisualReview from "@/config/portfolio-visual-review.json";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/$slug")({
   component: PortfolioAdminDetail,
@@ -512,8 +514,108 @@ function PortfolioAdminDetail() {
         )}
       </div>
 
+      <CoverReviewPanel slug={project.slug} name={project.displayName} />
+
       <VisualQualityPanel slug={project.slug} />
     </div>
+  );
+}
+
+const COVER_PLAN = (portfolioCoverPlan as {
+  projects: Record<
+    string,
+    { source: string; focal?: { x: number; y: number }; mode?: string; issues?: string[] }
+  >;
+}).projects;
+
+const COVER_REVIEW = portfolioVisualReview as Record<
+  string,
+  { coverReview?: string; coverDecision?: string; notes?: string }
+>;
+
+/**
+ * Revisão de capa: mostra exatamente o que o catálogo /portfolio renderiza
+ * (card desktop e card mobile, proporção 16:10 com focal point) ao lado do
+ * asset original do cliente, mais a decisão registrada em governança.
+ */
+function CoverReviewPanel({ slug, name }: { slug: string; name: string }) {
+  const planned = COVER_PLAN[slug];
+  const review = COVER_REVIEW[slug] ?? {};
+  const vq = getVisualQuality(slug);
+  const focal = planned?.focal ?? { x: 0.5, y: 0.5 };
+  const objectPosition = `${Math.round(focal.x * 100)}% ${Math.round(focal.y * 100)}%`;
+  const cover = planned ? `/images/${slug}/capa-card.jpg` : null;
+  const original = planned ? `/${planned.source.replace(/^public\//, "")}` : null;
+  const state = review.coverReview ?? vq?.coverReview ?? "UNREVIEWED";
+
+  return (
+    <section aria-labelledby="cover-review" className="mt-6 rounded-xl border border-border bg-card p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="cover-review" className="font-display text-lg font-semibold">
+          Revisão de capa
+        </h2>
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+          <span className="rounded bg-muted px-2 py-1">{state}</span>
+          {review.coverDecision && (
+            <span className="rounded bg-muted px-2 py-1">{review.coverDecision}</span>
+          )}
+        </div>
+      </div>
+
+      {cover ? (
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Card desktop
+            </figcaption>
+            <div className="aspect-[16/10] overflow-hidden rounded-lg border border-border bg-muted">
+              <img
+                src={cover}
+                alt={`Capa do card de ${name} no catálogo`}
+                style={{ objectPosition }}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </figure>
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Card mobile (390px)
+            </figcaption>
+            <div className="mx-auto aspect-[16/10] w-[280px] overflow-hidden rounded-lg border border-border bg-muted">
+              <img
+                src={cover}
+                alt={`Capa do card de ${name} em telas pequenas`}
+                style={{ objectPosition }}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </figure>
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Asset original
+            </figcaption>
+            <div className="overflow-hidden rounded-lg border border-border bg-muted">
+              {original && (
+                <img src={original} alt={`Asset original de ${name}`} className="h-full w-full object-contain" />
+              )}
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground">
+              Focal point {objectPosition} · fonte {planned?.source}
+            </p>
+          </figure>
+        </div>
+      ) : (
+        <p className="mt-3 text-sm text-muted-foreground">
+          Sem capa dedicada gerada. O card usa o fallback do catálogo.
+        </p>
+      )}
+
+      {review.notes && <p className="mt-3 text-xs text-muted-foreground">{review.notes}</p>}
+      <p className="mt-3 text-xs text-muted-foreground">
+        Decisões ficam em <code>src/config/portfolio-visual-review.json</code>; as capas são geradas
+        por <code>bun scripts/build-portfolio-covers.mjs</code> a partir de assets do próprio cliente.
+      </p>
+    </section>
   );
 }
 
