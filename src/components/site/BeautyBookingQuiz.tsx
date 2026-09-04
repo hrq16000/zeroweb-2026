@@ -7,8 +7,10 @@ import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } f
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
+import { resolvePortfolioFunnelContext } from "@/lib/portfolio-funnel-context";
 import { formatLocation, getGeoForLead } from "@/lib/geo-location";
 import {
+  applyPortfolioFunnelIntentCopy,
   buildPortfolioQuizPreviewMessage,
   getPortfolioQuizSemanticCopy,
   type PortfolioQuizAnswers,
@@ -147,7 +149,13 @@ export function BeautyBookingQuiz({
   );
   const isProposal = mode === "proposal";
   const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
-  const semanticCopy = getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName);
+  // Coerência semântica: o contrato do projeto define a intenção comercial e,
+  // com ela, título da mensagem, assunto e próximo passo enviados ao cliente.
+  const intentContext = useMemo(() => resolvePortfolioFunnelContext(clientKey), [clientKey]);
+  const semanticCopy = applyPortfolioFunnelIntentCopy(
+    getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName),
+    intentContext,
+  );
   const serviceOptions = quizConfig?.services ?? (isServiceProposal ? SERVICES : isProposal ? PROPOSAL_SERVICES : SERVICES);
   const experienceOptions = quizConfig?.experienceOptions ?? (isServiceProposal ? EXPERIENCE : isProposal ? PROPOSAL_EXPERIENCE : EXPERIENCE);
   const periodOptions = quizConfig?.periodOptions ?? (isServiceProposal ? PERIODS : isProposal ? PROPOSAL_PERIODS : PERIODS);
@@ -293,7 +301,7 @@ export function BeautyBookingQuiz({
                     <p className="text-sm leading-relaxed text-gray-400">{recipientName} receberá seus dados organizados e já poderá preparar o próximo passo.</p>
                   </div>
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
-                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation })}
+                    {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, funnelContext: intentContext })}
                   </div>
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />

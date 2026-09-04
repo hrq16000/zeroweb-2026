@@ -1,4 +1,11 @@
+import {
+  resolvePortfolioFunnelContext,
+  type PortfolioFunnelContext,
+  type PortfolioFunnelIntent,
+} from "@/lib/portfolio-funnel-context";
+
 export type PortfolioQuizMode = "booking" | "proposal";
+
 export type PortfolioProposalKind = "campaign" | "service";
 
 export type PortfolioQuizAnswers = {
@@ -99,6 +106,47 @@ export function getPortfolioQuizSemanticCopy(
   };
 }
 
+const INTENT_MESSAGE_TITLE: Record<PortfolioFunnelIntent, string> = {
+  orcamento: "*PEDIDO DE ORÇAMENTO*",
+  agendamento: "*PEDIDO DE AGENDAMENTO*",
+  pedido: "*PEDIDO*",
+  avaliacao: "*PEDIDO DE AVALIAÇÃO*",
+  visita: "*PEDIDO DE VISITA*",
+  contato: "*CONTATO PELA PÁGINA*",
+  reserva: "*PEDIDO DE RESERVA*",
+  diagnostico: "*PEDIDO DE DIAGNÓSTICO*",
+  solicitacao: "*SOLICITAÇÃO*",
+};
+
+/**
+ * Ajusta a copy do funil à intenção comercial do projeto — mesma estrutura,
+ * mensagem própria. Sem contexto, a copy padrão do modo é preservada.
+ */
+export function applyPortfolioFunnelIntentCopy(
+  copy: PortfolioQuizSemanticCopy,
+  context?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">,
+): PortfolioQuizSemanticCopy {
+  if (!context) return copy;
+  return {
+    ...copy,
+    messageTitle: INTENT_MESSAGE_TITLE[context.intent],
+    subject: context.whatsappSubject,
+    nextStep: context.whatsappPrompt,
+  };
+}
+
+/** Copy do funil já resolvida pelo contrato do projeto (slug ou clientKey). */
+export function getPortfolioQuizCopyForClient(
+  slugOrKey: string,
+  recipientName: string,
+  mode?: PortfolioQuizMode,
+  proposalKind?: PortfolioProposalKind,
+): PortfolioQuizSemanticCopy {
+  const context = resolvePortfolioFunnelContext(slugOrKey);
+  const base = getPortfolioQuizSemanticCopy(mode ?? context.quizMode, proposalKind ?? context.proposalKind, recipientName);
+  return applyPortfolioFunnelIntentCopy(base, context);
+}
+
 export function buildPortfolioQuizPreviewMessage({
   studioName,
   answers,
@@ -107,6 +155,7 @@ export function buildPortfolioQuizPreviewMessage({
   proposalKind = "service",
   pageUrl = "",
   location = "",
+  funnelContext,
 }: {
   studioName: string;
   answers: PortfolioQuizAnswers;
@@ -115,8 +164,13 @@ export function buildPortfolioQuizPreviewMessage({
   proposalKind?: PortfolioProposalKind;
   pageUrl?: string;
   location?: string;
+  funnelContext?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">;
 }): string {
-  const copy = getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName);
+  const copy = applyPortfolioFunnelIntentCopy(
+    getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName),
+    funnelContext,
+  );
+
   const lines = [
     copy.messageTitle,
     "",
