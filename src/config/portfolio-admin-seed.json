@@ -38,7 +38,7 @@
       "assetsDir": "public/images/acai-total-araucaria",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/acai-total-araucaria/acai-og.jpg",
@@ -69,7 +69,7 @@
       "assetsDir": "public/images/ag-electrical-services",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/ag-electrical-services/intro-og.jpg",
@@ -114,7 +114,7 @@
       "assetsDir": "public/images/aguia-sul-sinalizacao",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/aguia-sul-sinalizacao/logo-og.jpg",
@@ -205,7 +205,7 @@
       "assetsDir": "public/images/artesanatos-darleia-oliveira",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/artesanatos-darleia-oliveira/hero-og.jpg",
@@ -237,7 +237,7 @@
       "assetsDir": "public/images/assistencia-microondas-santos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/assistencia-microondas-santos/flyer.png",
@@ -423,7 +423,7 @@
       "assetsDir": "public/images/confeitaria-chyrley",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/confeitaria-chyrley/bolos.png",
@@ -458,7 +458,7 @@
       "assetsDir": "public/images/confeitaria-sabor-da-realeza",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
@@ -489,7 +489,7 @@
       "assetsDir": "public/images/denise-gomes-psicologa",
       "ctaMode": "booking",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/denise-gomes-psicologa/hero-og.jpg",
@@ -520,7 +520,7 @@
       "assetsDir": "public/images/diego-montador-moveis",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/diego-montador-moveis/capa-og.jpg",
@@ -620,7 +620,7 @@
       "assetsDir": "public/images/ecommerce-on",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/ecommerce-on/logo.png",
@@ -655,7 +655,7 @@
       "assetsDir": "public/images/eisenfer-tubos-acos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/eisenfer-tubos-acos/telhas-og.jpg",
@@ -686,7 +686,7 @@
       "assetsDir": "public/images/eletro-solucoes-eficazes",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/eletro-solucoes-eficazes/servicos-og.jpg",
@@ -716,7 +716,7 @@
       "assetsDir": "public/images/eletrovale-eletromecanica",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/eletrovale-eletromecanica/equipamentos-og.jpg",
@@ -776,7 +776,7 @@
       "assetsDir": "public/images/espaco-cih-luh",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/espaco-cih-luh/promocao-og.jpg",
@@ -807,7 +807,7 @@
       "assetsDir": "public/images/fernanda-amaral-drywall",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/fernanda-amaral-drywall/hero-og.jpg",
@@ -840,7 +840,7 @@
       "assetsDir": "public/images/galileu-locacao-brinquedos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/galileu-locacao-brinquedos/hero-og.jpg",
@@ -995,7 +995,7 @@
       "assetsDir": "public/images/hbk-iluminacao-led",
       "ctaMode": "quote",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/hbk-iluminacao-led/hero-og.jpg",
@@ -1027,7 +1027,7 @@
       "assetsDir": "public/images/heloa-gas",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/heloa-gas/entrega.jpg",
@@ -1058,7 +1058,7 @@
       "assetsDir": "public/images/jc-revestimentos",
       "ctaMode": "quote",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/jc-revestimentos/hero-og.jpg",
@@ -1090,7 +1090,7 @@
       "assetsDir": "public/images/jkl-marcenaria",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/jkl-marcenaria/cozinha-og.jpg",
@@ -1120,7 +1120,7 @@
       "assetsDir": "public/images/liz-moraes-nail-designer",
       "ctaMode": "booking",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/liz-moraes-nail-designer/hero-og.jpg",
@@ -1151,7 +1151,7 @@
       "assetsDir": "public/images/lj-cleaning",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/lj-cleaning/hero-og.jpg",
@@ -1182,7 +1182,7 @@
       "assetsDir": "public/images/lk-alvenaria",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/lk-alvenaria/perfil.png",
@@ -1215,7 +1215,7 @@
       "assetsDir": "public/images/lolipa-arte-em-festas",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/lolipa-arte-em-festas/decoracao-branca.png",
@@ -1251,7 +1251,7 @@
       "assetsDir": "public/images/lucas-arruma-maquina-lavar",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/lucas-arruma-maquina-lavar/capa-og.jpg",
@@ -1282,7 +1282,7 @@
       "assetsDir": "public/images/manu-pasteis",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/manu-pasteis/hero-og.jpg",
@@ -1313,7 +1313,7 @@
       "assetsDir": "public/images/mestre-dos-servicos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/marido-de-aluguel/logo.jpg",
@@ -1373,7 +1373,7 @@
       "assetsDir": "public/images/mary-diarista",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/mary-diarista/servicos-og.jpg",
@@ -1465,7 +1465,7 @@
       "assetsDir": "public/images/miro-tech",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/miro-tech/hero-og.jpg",
@@ -1496,7 +1496,7 @@
       "assetsDir": "public/images/mp-festas-eventos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/mp-festas-eventos/capa-og.jpg",
@@ -1529,7 +1529,7 @@
       "assetsDir": "public/images/no-brilho-higienizacao",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/no-brilho-higienizacao/capa-og.jpg",
@@ -1560,7 +1560,7 @@
       "assetsDir": "public/images/paraiso-do-hot-dog",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/paraiso-do-hot-dog/capa.png",
@@ -1591,7 +1591,7 @@
       "assetsDir": "public/images/paulo-mestre-de-obras",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/paulo-mestre-de-obras/acabamento.webp",
@@ -1626,7 +1626,7 @@
       "assetsDir": "public/images/premium-envelopamentos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/premium-envelopamentos/galeria-oficina.png",
@@ -1690,7 +1690,7 @@
       "assetsDir": "public/images/raphael-construcoes",
       "ctaMode": "quote",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/raphael-construcoes/hero-og.jpg",
@@ -1722,7 +1722,7 @@
       "assetsDir": "public/images/refrigeracao-maresia",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/refrigeracao-maresia/capa-og.jpg",
@@ -1819,7 +1819,7 @@
       "assetsDir": "public/images/rj-servicos-drywall",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/rj-servicos-drywall/acabamento-sala-og.jpg",
@@ -1881,7 +1881,7 @@
       "assetsDir": "public/images/salao-da-marcia",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/salao-da-marcia/depilacao-og.jpg",
@@ -1916,7 +1916,7 @@
       "assetsDir": "public/images/santos-montador-de-moveis",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/santos-montador-de-moveis/hero-og.jpg",
@@ -1947,7 +1947,7 @@
       "assetsDir": "public/images/sos-presentes-cosmeticos",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/sos-presentes-cosmeticos/caneca-eu-te-protejo.png",
@@ -1982,7 +1982,7 @@
       "assetsDir": "public/images/studio-de-cilios",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/studio-de-cilios/portfolio-1-og.jpg",
@@ -2015,7 +2015,7 @@
       "assetsDir": "public/images/thays-camilla",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/thays-camilla/hero-og.jpg",
@@ -2047,7 +2047,7 @@
       "assetsDir": "public/images/ton-e-cor",
       "ctaMode": "quote",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/ton-e-cor/hero-og.jpg",
@@ -2140,7 +2140,7 @@
       "assetsDir": "public/images/vila-da-capivara",
       "ctaMode": "proposal",
       "hasCta": true,
-      "hasOwnDescription": true,
+      "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
         "/images/vila-da-capivara/capa-og.jpg",
