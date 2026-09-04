@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X, Sparkles, CheckCircle2 } from "lucide-react";
-import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
+import { PortfolioHostLeadDialog } from "@/components/site/PortfolioHostLeadDialog";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
