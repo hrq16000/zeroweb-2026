@@ -135,13 +135,15 @@ describe("análise do portfólio real", () => {
     const fallbacks = report.projects.filter(
       (p: { originalityStatus: string }) => p.originalityStatus === STATUS.SHARED_FALLBACK,
     );
-    expect(fallbacks.length).toBeGreaterThan(0);
+    // Meta do CLUSTER_01: nenhum projeto deve depender da landing genérica da vertical.
+    expect(fallbacks.length).toBe(0);
     for (const p of fallbacks) {
       expect(p.reasons).toContain(REASONS.SHARED_VERTICAL_FALLBACK);
       expect(p.fallbackVertical).toBeTruthy();
       expect(p.componentFile).toContain("sites.$vertical.tsx");
     }
   });
+
 
   it("sinaliza capa herdada da imagem social e capas ausentes", () => {
     const socialAsCover = report.projects.filter((p: { coverSignals: string[] }) =>
