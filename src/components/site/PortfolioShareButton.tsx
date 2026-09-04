@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { buildPortfolioShareMessage } from "@/lib/portfolio-share";
+import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
 
 type SharePosition = "top-right" | "top-left" | "bottom-right";
 type SurfaceVariant = "light" | "dark";
