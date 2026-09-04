@@ -1,0 +1,633 @@
+{
+  "generatedBy": "check:portfolio-originality --write-baseline",
+  "summary": {
+    "total": 68,
+    "original": 0,
+    "acceptable": 3,
+    "attention": 10,
+    "highSimilarity": 25,
+    "clone": 19,
+    "sharedFallback": 11,
+    "clusters": 5,
+    "placeholderLogos": 11,
+    "missingLogos": 0,
+    "missingCovers": 27,
+    "coversAsSocialImage": 11,
+    "sharedCovers": 0,
+    "severeCrop": 22
+  },
+  "projects": {
+    "acai-total-araucaria": {
+      "score": 68,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "ag-electrical-services": {
+      "score": 71,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "aguia-sul-sinalizacao": {
+      "score": 82,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "almeida-torres": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "angel-mix-brecho": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "artesanatos-darleia-oliveira": {
+      "score": 72,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "assistencia-microondas-santos": {
+      "score": 65,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "beto-pasteis": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "bh-barreiro-marmitas": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "brecho-sao-francisco": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "casa-nativa": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "clinica-integrada": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "confeitaria-chyrley": {
+      "score": 62,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "confeitaria-sabor-da-realeza": {
+      "score": 67,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "denise-gomes-psicologa": {
+      "score": 65,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "diego-montador-moveis": {
+      "score": 72,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "dlara-pizzaria": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "dyzpromo": {
+      "score": 27,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "ecommerce-on": {
+      "score": 62,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "eisenfer-tubos-acos": {
+      "score": 87,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "eletro-solucoes-eficazes": {
+      "score": 86,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "eletrovale-eletromecanica": {
+      "score": 87,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "emporio-lelecute": {
+      "score": 32,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "espaco-cih-luh": {
+      "score": 84,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "fernanda-amaral-drywall": {
+      "score": 53,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "galileu-locacao-brinquedos": {
+      "score": 75,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "guaratuba-atelie-presentes": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "guaratuba-oficina-nautica": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "guaratuba-reparos-residenciais": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "guaratuba-sabores-da-baia": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "hbk-iluminacao-led": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "heloa-gas": {
+      "score": 57,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "jc-revestimentos": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "jkl-marcenaria": {
+      "score": 83,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "liz-moraes-nail-designer": {
+      "score": 66,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "lj-cleaning": {
+      "score": 75,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "lk-alvenaria": {
+      "score": 74,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "lolipa-arte-em-festas": {
+      "score": 69,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "lucas-arruma-maquina-lavar": {
+      "score": 78,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "manu-pasteis": {
+      "score": 52,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "marido-de-aluguel": {
+      "score": 44,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "marmitaria-dom-diego": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "mary-diarista": {
+      "score": 76,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "mirassol-conserta-celular": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "mirassol-delicias-caseiras": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "miro-tech": {
+      "score": 70,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "mp-festas-eventos": {
+      "score": 64,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "no-brilho-higienizacao": {
+      "score": 74,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "paraiso-do-hot-dog": {
+      "score": 29,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "paulo-mestre-de-obras": {
+      "score": 65,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "premium-envelopamentos": {
+      "score": 69,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "r_beauty": {
+      "score": 57,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "raphael-construcoes": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "refrigeracao-maresia": {
+      "score": 61,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "renata-beauty": {
+      "score": 57,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "reuse-house-brecho": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "rj-servicos-drywall": {
+      "score": 53,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "rm-fretes": {
+      "score": 42,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "salao-da-marcia": {
+      "score": 84,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "santos-montador-de-moveis": {
+      "score": 55,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "sos-presentes-cosmeticos": {
+      "score": 61,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "studio-de-cilios": {
+      "score": 64,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "thays-camilla": {
+      "score": 72,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "ton-e-cor": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "toquinho-de-gente-brecho": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "uberlandia-eletrica-residencial": {
+      "score": 100,
+      "status": "SHARED_FALLBACK",
+      "fallback": true,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    },
+    "vila-da-capivara": {
+      "score": 60,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "woodhouse-hamburgueres": {
+      "score": 100,
+      "status": "CLONE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": true,
+      "sharedCover": false
+    }
+  }
+}
