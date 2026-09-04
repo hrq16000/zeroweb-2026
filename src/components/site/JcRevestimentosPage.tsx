@@ -38,6 +38,31 @@ const quizConfig = {
 };
 
 /** Linha de produtos apresentada como especificação, não como card de serviço. */
+function SpecRow({
+  icon: Icon,
+  produto,
+  aplicacao,
+  acabamento,
+}: {
+  icon: typeof PaintRoller;
+  produto: string;
+  aplicacao: string;
+  acabamento: string;
+}) {
+  return (
+    <li className="grid gap-1 border-b border-border py-5 md:grid-cols-[1.2fr_1.4fr_.8fr] md:items-center md:gap-6">
+      <h3 className="flex items-center gap-3 text-lg font-bold">
+        <Icon aria-hidden className="h-5 w-5 text-primary" />
+        {produto}
+      </h3>
+      <p className="text-sm text-muted-foreground">{aplicacao}</p>
+      <span className="w-fit rounded-sm bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-[.16em] md:justify-self-end">
+        {acabamento}
+      </span>
+    </li>
+  );
+}
+
 const linha = [
   {
     icon: PaintRoller,
@@ -94,7 +119,7 @@ export function JcRevestimentosPage() {
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <main id="inicio">
         {/* HERO de imagem plena com sobreposição e logo dentro da composição. */}
-        <section className="relative isolate min-h-[86svh] overflow-hidden">
+        <section aria-label="Apresentação principal" className="relative isolate min-h-[86svh] overflow-hidden">
           <PortfolioImage
             src="/images/jc-revestimentos/hero.webp"
             alt="Amostras de revestimento e textura em fachada residencial"
@@ -156,27 +181,15 @@ export function JcRevestimentosPage() {
             </div>
 
             <ul className="mt-2">
-              {linha.map(({ icon: Icon, produto, aplicacao, acabamento }) => (
-                <li
-                  key={produto}
-                  className="grid gap-1 border-b border-border py-5 md:grid-cols-[1.2fr_1.4fr_.8fr] md:items-center md:gap-6"
-                >
-                  <h3 className="flex items-center gap-3 text-lg font-bold">
-                    <Icon aria-hidden className="h-5 w-5 text-primary" />
-                    {produto}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{aplicacao}</p>
-                  <span className="w-fit rounded-sm bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-[.16em] md:justify-self-end">
-                    {acabamento}
-                  </span>
-                </li>
+              {linha.map((item) => (
+                <SpecRow key={item.produto} {...item} />
               ))}
             </ul>
           </div>
         </section>
 
         {/* Faixa de aplicação: imagem larga + texto curto lateral. */}
-        <section className="border-y border-border bg-card px-5 py-16">
+        <section aria-label="Preparo de superfície" className="border-y border-border bg-card px-5 py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.6fr_1fr] lg:items-center">
             <PortfolioImage
               src="/images/jc-revestimentos/servicos.webp"
@@ -198,7 +211,7 @@ export function JcRevestimentosPage() {
         </section>
 
         {/* CTA em barra horizontal compacta. */}
-        <section className="px-5 py-14">
+        <section aria-label="Pedir orçamento" className="px-5 py-14">
           <div className="mx-auto flex max-w-6xl flex-col gap-5 border-l-4 border-primary bg-card px-6 py-8 md:flex-row md:items-center md:justify-between">
             <p className="max-w-xl font-display text-xl font-bold md:text-2xl">
               Diga a metragem e o ambiente: indicamos o material certo.

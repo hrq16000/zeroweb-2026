@@ -38,6 +38,30 @@ const quizConfig = {
 };
 
 /** Bento assimétrico: cada tile ocupa uma área diferente. */
+function LedTile({
+  icon: Icon,
+  title,
+  text,
+  span,
+}: {
+  icon: typeof Lightbulb;
+  title: string;
+  text: string;
+  span: string;
+}) {
+  return (
+    <article
+      className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 ${span}`}
+    >
+      <Icon aria-hidden className="h-8 w-8 text-primary" />
+      <div className="mt-8">
+        <h3 className="text-lg font-bold">{title}</h3>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+      </div>
+    </article>
+  );
+}
+
 const tiles = [
   {
     icon: Lightbulb,
@@ -91,7 +115,7 @@ export function HbkIluminacaoLedPage() {
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <main id="inicio">
         {/* HERO centrado com halo radial — assinatura de luz. */}
-        <section className="relative isolate overflow-hidden px-5 pb-16 pt-10 text-center">
+        <section aria-label="Apresentação principal" className="relative isolate overflow-hidden px-5 pb-16 pt-10 text-center">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-[-18rem] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
@@ -157,24 +181,15 @@ export function HbkIluminacaoLedPage() {
           <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-3xl font-bold md:text-4xl">Soluções LED</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-6">
-              {tiles.map(({ icon: Icon, title, text, span }) => (
-                <article
-                  key={title}
-                  className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 ${span}`}
-                >
-                  <Icon aria-hidden className="h-8 w-8 text-primary" />
-                  <div className="mt-8">
-                    <h3 className="text-lg font-bold">{title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
-                  </div>
-                </article>
+              {tiles.map((tile) => (
+                <LedTile key={tile.title} {...tile} />
               ))}
             </div>
           </div>
         </section>
 
         {/* Aplicações em pílulas + imagem de produto. */}
-        <section className="px-5 py-12">
+        <section aria-label="Onde aplicar a iluminação" className="px-5 py-12">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
             <div>
               <h2 className="font-display text-2xl font-bold md:text-3xl">
@@ -202,7 +217,7 @@ export function HbkIluminacaoLedPage() {
         </section>
 
         {/* CTA em cartão compacto centralizado. */}
-        <section className="px-5 pb-20 pt-8">
+        <section aria-label="Montar cotação" className="px-5 pb-20 pt-8">
           <div className="mx-auto max-w-xl rounded-[2rem] border border-primary/40 bg-card p-8 text-center">
             <h2 className="font-display text-2xl font-bold">Monte sua cotação de iluminação</h2>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">

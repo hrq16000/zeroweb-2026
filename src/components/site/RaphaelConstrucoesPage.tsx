@@ -41,6 +41,18 @@ const quizConfig = {
 };
 
 /** Assinatura: fases da obra em trilho vertical. */
+function PhaseStep({ index, fase, text }: { index: number; fase: string; text: string }) {
+  return (
+    <li className="relative pb-10 last:pb-0">
+      <span className="absolute -left-[2.65rem] grid h-8 w-8 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+        {index + 1}
+      </span>
+      <h3 className="text-lg font-bold">{fase}</h3>
+      <p className="mt-2 text-sm leading-7 text-muted-foreground">{text}</p>
+    </li>
+  );
+}
+
 const fases = [
   {
     fase: "Avaliação",
@@ -118,7 +130,7 @@ export function RaphaelConstrucoesPage() {
 
       <main id="inicio">
         {/* HERO empilhado, centrado, com barra de fases logo abaixo. */}
-        <section className="px-5 pb-0 pt-14 text-center md:pt-20">
+        <section aria-label="Apresentação principal" className="px-5 pb-0 pt-14 text-center md:pt-20">
           <div className="mx-auto max-w-3xl">
             <p className="text-[11px] font-bold uppercase tracking-[.34em] text-primary">
               Construção · engenharia · reformas
@@ -163,7 +175,7 @@ export function RaphaelConstrucoesPage() {
         </section>
 
         {/* Imagem larga de obra logo após a barra de fases. */}
-        <section className="px-5">
+        <section aria-label="Imagem da obra" className="px-5">
           <PortfolioImage
             src="/images/raphael-construcoes/hero.webp"
             alt="Construção residencial mostrando estrutura e acabamento final"
@@ -176,18 +188,12 @@ export function RaphaelConstrucoesPage() {
         </section>
 
         {/* Assinatura: trilho vertical numerado das fases. */}
-        <section className="px-5 py-16 md:py-24">
+        <section id="etapas" aria-label="Etapas da execução" className="px-5 py-16 md:py-24">
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display text-3xl font-bold md:text-4xl">Como a obra caminha</h2>
             <ol className="mt-10 border-l-2 border-primary/30 pl-8">
-              {fases.map(({ fase, text }, index) => (
-                <li key={fase} className="relative pb-10 last:pb-0">
-                  <span className="absolute -left-[2.65rem] grid h-8 w-8 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                    {index + 1}
-                  </span>
-                  <h3 className="text-lg font-bold">{fase}</h3>
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">{text}</p>
-                </li>
+              {fases.map((item, index) => (
+                <PhaseStep key={item.fase} index={index} fase={item.fase} text={item.text} />
               ))}
             </ol>
           </div>
@@ -212,7 +218,7 @@ export function RaphaelConstrucoesPage() {
         </section>
 
         {/* CTA como bloco escuro de "abrir chamado" com imagem de apoio. */}
-        <section className="px-5 py-16">
+        <section aria-label="Abrir avaliação" className="px-5 py-16">
           <div className="mx-auto grid max-w-6xl items-stretch gap-0 overflow-hidden rounded-xl md:grid-cols-2">
             <PortfolioImage
               src="/images/raphael-construcoes/servicos.webp"

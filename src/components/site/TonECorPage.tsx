@@ -38,6 +38,14 @@ const quizConfig = {
 };
 
 /** Cartela cromática — elemento assinatura da marca. */
+function ColorSwatch({ name, value }: { name: string; value: string }) {
+  return (
+    <li className="flex h-20 flex-1 items-end p-2 md:h-28" style={{ backgroundColor: `hsl(${value})` }}>
+      <span className="sr-only">{name}</span>
+    </li>
+  );
+}
+
 const swatches = [
   { name: "Areia", value: "38 42% 86%" },
   { name: "Terracota", value: "18 62% 52%" },
@@ -112,7 +120,7 @@ export function TonECorPage() {
 
       <main id="inicio">
         {/* HERO tipográfico — sem imagem, a cor é o protagonista. */}
-        <section className="px-5 pb-4 pt-12 md:pt-20">
+        <section id="apresentacao" aria-label="Apresentação principal" className="px-5 pb-4 pt-12 md:pt-20">
           <div className="mx-auto max-w-5xl">
             <p className="font-display text-[11px] font-bold uppercase tracking-[.42em] text-primary">
               Pintura · pequenas reformas
@@ -138,13 +146,7 @@ export function TonECorPage() {
         <section aria-label="Cartela de acabamentos" className="mt-10 px-5">
           <ul className="mx-auto flex max-w-5xl overflow-hidden rounded-2xl border border-border">
             {swatches.map((swatch) => (
-              <li
-                key={swatch.name}
-                className="flex h-20 flex-1 items-end p-2 md:h-28"
-                style={{ backgroundColor: `hsl(${swatch.value})` }}
-              >
-                <span className="sr-only">{swatch.name}</span>
-              </li>
+              <ColorSwatch key={swatch.name} name={swatch.name} value={swatch.value} />
             ))}
           </ul>
           <p className="mx-auto mt-3 max-w-5xl text-xs uppercase tracking-[.2em] text-muted-foreground">
@@ -184,7 +186,7 @@ export function TonECorPage() {
         </section>
 
         {/* Faixa de imagem plena com legenda deslocada. */}
-        <section className="px-5">
+        <section aria-label="Galeria de trabalhos" className="px-5">
           <figure className="mx-auto max-w-6xl">
             <PortfolioImage
               src="/images/ton-e-cor/servicos.webp"
@@ -201,7 +203,7 @@ export function TonECorPage() {
           </figure>
         </section>
 
-        <section className="px-5 py-16 md:py-24">
+        <section aria-label="Avaliação do serviço" className="px-5 py-16 md:py-24">
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-[1fr_1fr] md:items-start">
             <div>
               <h2 className="font-display text-2xl font-bold md:text-3xl">
@@ -234,7 +236,7 @@ export function TonECorPage() {
         </section>
 
         {/* CTA em bloco cromático — não é banner escuro. */}
-        <section className="px-5 pb-20">
+        <section aria-label="Solicitar orçamento" className="px-5 pb-20">
           <div className="mx-auto max-w-5xl rounded-[2rem] bg-primary px-6 py-12 text-primary-foreground md:px-12">
             <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight md:text-5xl">
               Escolha a cor. Nós cuidamos do resto.
