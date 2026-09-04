@@ -84,6 +84,8 @@ function PortfolioOriginalityView() {
           ["Capas ausentes", s.missingCovers],
           ["Capa = imagem social", s.coversAsSocialImage],
           ["Crop severo", s.severeCrop],
+          ["Marca cruzada", (s as Record<string, number>).invalidCrossClientAssets ?? 0],
+          ["Asset suspeito", (s as Record<string, number>).suspiciousSharedAssets ?? 0],
         ].map(([label, value]) => (
           <div key={String(label)} className="rounded-lg border border-border bg-card p-4">
             <dt className="text-xs uppercase tracking-wide text-muted-foreground">{label}</dt>
@@ -108,6 +110,39 @@ function PortfolioOriginalityView() {
           </div>
         ))}
       </div>
+
+      <h2 className="mt-10 font-display text-xl font-bold">Assets percebidos compartilhados</h2>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Marca, capa e imagem social comparadas por conteúdo entre clientes. Infraestrutura
+        compartilhada não entra aqui — apenas material que o visitante percebe como identidade.
+      </p>
+      <ul className="mt-3 space-y-2 text-sm">
+        {projects.flatMap((p) =>
+          ((p as unknown as { assetSharing?: { kind: string; path: string; classification: string; sharedWith: string[] }[] }).assetSharing ?? []).map(
+            (x) => (
+              <li key={`${p.slug}-${x.kind}`} className="rounded-lg border border-border bg-card p-3">
+                <strong>{p.slug}</strong> · {x.kind} · {x.classification} —{" "}
+                <code>{x.path}</code> também em {x.sharedWith.join(", ")}
+              </li>
+            ),
+          ),
+        ).length === 0 ? (
+          <li className="rounded-lg border border-border bg-card p-3 text-muted-foreground">
+            Nenhum asset de identidade compartilhado entre clientes.
+          </li>
+        ) : (
+          projects.flatMap((p) =>
+            ((p as unknown as { assetSharing?: { kind: string; path: string; classification: string; sharedWith: string[] }[] }).assetSharing ?? []).map(
+              (x) => (
+                <li key={`${p.slug}-${x.kind}`} className="rounded-lg border border-border bg-card p-3">
+                  <strong>{p.slug}</strong> · {x.kind} · {x.classification} —{" "}
+                  <code>{x.path}</code> também em {x.sharedWith.join(", ")}
+                </li>
+              ),
+            ),
+          )
+        )}
+      </ul>
 
       <h2 className="mt-10 font-display text-xl font-bold">Projetos</h2>
       <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -153,6 +188,7 @@ function PortfolioOriginalityView() {
               <th scope="col" className="px-3 py-2">Status</th>
               <th scope="col" className="px-3 py-2">Mais parecido</th>
               <th scope="col" className="px-3 py-2">Motivo</th>
+              <th scope="col" className="px-3 py-2">Dimensões</th>
               <th scope="col" className="px-3 py-2">Capa</th>
               <th scope="col" className="px-3 py-2">Logo</th>
               <th scope="col" className="px-3 py-2">Ação sugerida</th>
@@ -184,6 +220,13 @@ function PortfolioOriginalityView() {
                 <td className="px-3 py-2 text-[11px] text-muted-foreground">
                   {p.reasons[0] ?? "DISTINCT"}
                   {p.fallbackVertical ? ` · ${p.fallbackVertical}` : ""}
+                </td>
+                <td className="px-3 py-2 text-[11px] text-muted-foreground">
+                  {Object.entries((p.dimensions ?? {}) as Record<string, number>)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 4)
+                    .map(([k, v]) => `${k.replace("_SIMILARITY", "")} ${v}`)
+                    .join(" · ") || "—"}
                 </td>
                 <td className="px-3 py-2 text-[11px] text-muted-foreground">
                   {p.coverSignals.length ? p.coverSignals.join(", ") : "—"}
