@@ -65,6 +65,7 @@
     "audit:portfolio-indexability": "node scripts/audit-portfolio-indexability.mjs",
     "check:portfolio-projects": "node scripts/check-portfolio-projects.mjs",
     "check:portfolio-runtime-overrides": "node scripts/check-portfolio-runtime-overrides.mjs",
+    "e2e:managed-lifecycle": "bun scripts/e2e-managed-lifecycle.mjs",
     "build:portfolio-admin-seed": "node scripts/build-portfolio-admin-seed.mjs",
     "validate:portfolio-admin-seed": "node scripts/build-portfolio-admin-seed.mjs --check",
     "check:portfolio-originality": "node scripts/check-portfolio-originality.mjs --report",
