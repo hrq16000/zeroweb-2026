@@ -597,6 +597,48 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       },
                     ]
                   : []),
+                ...(isHeloaGas
+                  ? [
+                      {
+                        "@type": "LocalBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "Heloá Gás",
+                        description,
+                        url,
+                        image: socialImage,
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Belo Horizonte, 340 — Vila Vicente Macedo",
+                          addressLocality: "Piraquara",
+                          addressRegion: "PR",
+                          postalCode: "83303-130",
+                          addressCountry: "BR",
+                        },
+                        geo: { "@type": "GeoCoordinates", latitude: -25.4422, longitude: -49.0633 },
+                        areaServed: [
+                          { "@type": "City", name: "Piraquara" },
+                          { "@type": "Neighborhood", name: "Vila Vicente Macedo" },
+                        ],
+                        openingHoursSpecification: {
+                          "@type": "OpeningHoursSpecification",
+                          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                          opens: "08:00",
+                          closes: "19:00",
+                        },
+                        makesOffer: [
+                          {
+                            "@type": "Offer",
+                            itemOffered: { "@type": "Product", name: "Botijão de gás 13kg" },
+                          },
+                          {
+                            "@type": "Offer",
+                            itemOffered: { "@type": "Product", name: "Água mineral 20 litros" },
+                          },
+                        ],
+                      },
+                    ]
+                  : []),
                 breadcrumbNode([
                   { name: "Início", path: "/" },
                   { name: "Portfólio", path: "/portfolio" },
