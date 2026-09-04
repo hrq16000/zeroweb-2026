@@ -16,6 +16,7 @@ import {
 import { Inbox, Filter, ShoppingCart, ClipboardList, Download, Mail } from "lucide-react";
 import { QuizConversionCharts } from "@/components/app/QuizConversionCharts";
 import { QuizPixelPanel } from "@/components/app/QuizPixelPanel";
+import { CityPixelPanel } from "@/components/app/CityPixelPanel";
 
 export const Route = createFileRoute("/_authenticated/app/leads/")({
   component: LeadsPage,
