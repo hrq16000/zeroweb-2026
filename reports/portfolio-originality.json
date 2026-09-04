@@ -1177,16 +1177,16 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 58,
+      "score": 59,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 58,
+      "nearestMatchScore": 59,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 67.4,
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 92.3,
-        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "ASSET_PATTERN_SIMILARITY": 33.3,
         "IDENTITY_SIMILARITY": 25
       },
       "reasons": [
@@ -1195,9 +1195,10 @@
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT"
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
       ],
-      "coverRatio": null,
+      "coverRatio": 1.9,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
