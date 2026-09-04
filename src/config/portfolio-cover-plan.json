@@ -203,7 +203,8 @@
       },
       "issues": [
         "COVER_NOT_DEDICATED"
-      ]
+      ],
+      "mode": "frame"
     },
     "confeitaria-chyrley": {
       "source": "public/images/confeitaria-chyrley/bolos.webp",

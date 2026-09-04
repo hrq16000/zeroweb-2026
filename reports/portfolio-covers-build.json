@@ -1,26 +1,16 @@
 {
-  "generatedAt": "2026-09-04T20:53:33.810Z",
+  "generatedAt": "2026-09-04T20:53:57.330Z",
   "ok": 1,
   "failed": [],
   "results": [
     {
       "slug": "assistencia-microondas-santos",
       "status": "OK",
-      "mode": "crop",
+      "mode": "frame",
       "source": "public/images/assistencia-microondas-santos/hero.png",
-      "crop": {
-        "left": 0,
-        "top": 0,
-        "width": 1220,
-        "height": 763
-      },
-      "focal": {
-        "x": 0.5,
-        "y": 0.28
-      },
       "out": "/images/assistencia-microondas-santos/capa-card.jpg",
-      "bytes": 93544,
-      "dimensions": "1220x763",
+      "bytes": 107022,
+      "dimensions": "1600x1000",
       "lowRes": false
     }
   ]
