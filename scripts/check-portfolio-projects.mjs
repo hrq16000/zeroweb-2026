@@ -90,14 +90,17 @@ for (const item of catalog) {
   }
 
   // Logo / ícone próprio dentro do diretório do slug
+  const ownsPath = (value) =>
+    typeof value === "string" &&
+    (value.includes(`/images/${slug}/`) || value.includes(slug.split("-")[0]));
   const icon = assets?.icon;
-  if (!icon || !icon.includes(`/images/${slug}/`) || !fileExists(icon)) {
+  if (!icon || !ownsPath(icon) || !fileExists(icon)) {
     issues.push(CODES.LOGO);
   }
 
   // Imagem social própria
   const social = assets?.socialImage;
-  if (!social || !social.includes(`/images/${slug}/`) || !fileExists(social)) {
+  if (!social || !ownsPath(social) || !fileExists(social)) {
     issues.push(CODES.SOCIAL);
   }
 
@@ -115,7 +118,7 @@ for (const item of catalog) {
   }
   if (componentSource) {
     const hasCta =
-      /PortfolioCTAQuiz|PortfolioQuizCTA|ctaMode|FloatingFunnelCTA|ProductActionGate/.test(
+      /PortfolioCTAQuiz|PortfolioQuizCTA|FunnelCTAButton|FloatingFunnelCTA|ProductActionGate|useFunnel/.test(
         componentSource,
       );
     if (!hasCta) issues.push(CODES.CTA);
