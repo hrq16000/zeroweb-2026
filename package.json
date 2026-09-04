@@ -7,7 +7,7 @@
     "gsc:export": "node scripts/gsc-daily-export.mjs",
     "dev": "vite dev",
     "test": "bun test",
-    "prebuild": "node scripts/generate-portfolio-identity-assets.mjs && node scripts/generate-social-jpg.mjs && node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-conversion-profiles.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/validate-portfolio-regional.mjs && node scripts/validate-portfolio-presence-kit.mjs && node scripts/validate-portfolio-logos.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs && node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check && node scripts/audit-portfolio-skill-parametrization.mjs && node scripts/build-portfolio-admin-seed.mjs --check && node scripts/check-portfolio-projects.mjs && node scripts/check-portfolio-runtime-overrides.mjs && bun run check:portfolio-originality",
+    "prebuild": "node scripts/generate-portfolio-identity-assets.mjs && node scripts/generate-social-jpg.mjs && node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-conversion-profiles.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/validate-portfolio-regional.mjs && node scripts/validate-portfolio-presence-kit.mjs && node scripts/validate-portfolio-logos.mjs && node scripts/scan-source-privacy.mjs && node scripts/audit-portfolio-standards.mjs && node scripts/validate-portfolio-performance.mjs && node scripts/validate-portfolio-assets.mjs && node scripts/validate-portfolio-icons.mjs && node scripts/sync-portfolio-quiz-configs.mjs --check && node scripts/audit-portfolio-skill-parametrization.mjs && node scripts/build-portfolio-admin-seed.mjs --check && node scripts/check-portfolio-projects.mjs && node scripts/check-portfolio-runtime-overrides.mjs && bun run check:portfolio-originality && bun run check:portfolio-visual-quality:enforce",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",
@@ -70,6 +70,9 @@
     "validate:portfolio-admin-seed": "node scripts/build-portfolio-admin-seed.mjs --check",
     "check:portfolio-originality": "node scripts/check-portfolio-originality.mjs --report",
     "check:portfolio-originality:baseline": "node scripts/check-portfolio-originality.mjs --report --write-baseline",
+    "audit:portfolio-visual-runtime": "node scripts/audit-portfolio-visual-runtime.mjs",
+    "check:portfolio-visual-quality": "node scripts/check-portfolio-visual-quality.mjs",
+    "check:portfolio-visual-quality:enforce": "node scripts/check-portfolio-visual-quality.mjs --check --enforce",
     "check:portfolio-originality:enforce": "node scripts/check-portfolio-originality.mjs --report --enforce"
   },
   "dependencies": {
