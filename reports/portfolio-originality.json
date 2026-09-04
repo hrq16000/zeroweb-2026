@@ -23,7 +23,7 @@
     "clone": 15,
     "sharedFallback": 0,
     "clusters": 3,
-    "placeholderLogos": 11,
+    "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 27,
     "coversAsSocialImage": 11,
@@ -165,8 +165,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "f3f815b739120ab9",
@@ -351,8 +350,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "ea9704f1ed8484cc",
@@ -426,8 +424,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "8821b7dea698b98d",
@@ -464,8 +461,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "585275952d528d16",
@@ -1015,8 +1011,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "f6434fea0f10a6b8",
@@ -1053,8 +1048,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "936ce6a42b9052f9",
@@ -1089,8 +1083,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "f9f851712e936f87",
@@ -1125,8 +1118,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "e960d88aef043031",
@@ -1647,8 +1639,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "73795d7aa17cd3da",
@@ -1685,8 +1676,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "09b56274d946c2ac",
@@ -2458,8 +2448,7 @@
       ],
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
         "skeletonHash": "e050ad7e45a13b77",
@@ -2966,7 +2955,7 @@
       "clone": 15,
       "sharedFallback": 0,
       "clusters": 3,
-      "placeholderLogos": 11,
+      "placeholderLogos": 0,
       "missingLogos": 0,
       "missingCovers": 27,
       "coversAsSocialImage": 11,
@@ -2989,6 +2978,13 @@
         "label": "clones",
         "before": 19,
         "after": 15
+      },
+      {
+        "kind": "COUNTER",
+        "key": "placeholderLogos",
+        "label": "logos placeholder",
+        "before": 11,
+        "after": 0
       },
       {
         "kind": "MODIFIED_PROJECT",

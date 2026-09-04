@@ -23,7 +23,7 @@
     "clone": 15,
     "sharedFallback": 0,
     "clusters": 3,
-    "placeholderLogos": 11,
+    "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 27,
     "coversAsSocialImage": 11,
@@ -174,8 +174,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -310,8 +309,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -365,8 +363,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -393,8 +390,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -794,8 +790,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -822,8 +817,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -848,8 +842,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -874,8 +867,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -1256,8 +1248,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -1284,8 +1275,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
@@ -1847,8 +1837,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fallbackVertical": null
     },
