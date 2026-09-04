@@ -57,9 +57,9 @@ for (const [slug, entry] of Object.entries(review.projects ?? {})) {
   <rect x="0" y="0" width="1200" height="14" fill="${esc(accent)}"/>
   <circle cx="1120" cy="96" r="220" fill="${esc(accent)}" opacity="${dark ? ".16" : ".22"}"/>
   <circle cx="1040" cy="600" r="150" fill="${esc(soft ?? accent)}" opacity="${dark ? ".12" : ".18"}"/>
-  <text x="80" y="392" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="${ink}">${esc(item.title)}</text>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="${inkSoft}" opacity=".92">${esc(segmentLabel(item.segment))}</text>
-  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="${ink}" opacity=".72">${esc(`${item.city} — ${item.state}`)}</text>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="${ink}">${esc(item.title)}</text>
+  <text x="80" y="502" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="${inkSoft}" opacity=".92">${esc(segmentLabel(item.segment))}</text>
+  <text x="80" y="568" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="${ink}" opacity=".72">${esc(`${item.city} — ${item.state}`)}</text>
 </svg>`);
 
   const out = resolve("public", `images/${slug}/hero-og.jpg`);
