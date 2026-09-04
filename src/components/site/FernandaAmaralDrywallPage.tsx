@@ -115,8 +115,8 @@ export function FernandaAmaralDrywallPage() {
               alt="Fernanda e Amaral — Instalação de Drywall"
               width={1262}
               height={1262}
-              loading="eager"
-              fetchPriority="high"
+             
+             
               decoding="async"
               className="h-12 w-12 rounded-full object-cover"
             />

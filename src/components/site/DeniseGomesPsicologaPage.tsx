@@ -113,9 +113,9 @@ export function DeniseGomesPsicologaPage() {
               alt="Denise Gomes · Psicóloga"
               width={1672}
               height={941}
-              loading="eager"
+             
               decoding="async"
-              fetchPriority="high"
+             
               className="h-14 w-auto max-w-[190px] object-contain object-left sm:max-w-[245px]"
             />
           </a>

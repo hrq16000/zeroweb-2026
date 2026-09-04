@@ -18,7 +18,7 @@ export function LolipaArteEmFestasPage() {
     <div className="min-h-dvh bg-[#fbf4f5] text-[#34272b]">
       <header className="sticky top-0 z-20 border-b border-[#ead8dc] bg-[#fbf4f5]/90 px-5 py-4 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-          <a href="#inicio" aria-label="Lolipa Arte em Festas Decor" className="shrink-0"><img src="/images/lolipa-arte-em-festas/logo.png" alt="Lolipa Arte em Festas Decor" width={768} height={256} fetchPriority="high" loading="eager" decoding="async" className="h-10 w-auto" /></a>
+          <a href="#inicio" aria-label="Lolipa Arte em Festas Decor" className="shrink-0"><PortfolioImage managedField="logoUrl" priority src="/images/lolipa-arte-em-festas/logo.png" alt="Lolipa Arte em Festas Decor" width={768} height={256} decoding="async" className="h-10 w-auto" /></a>
           <nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#mimos">Mimos</a></nav>
           <FunnelCTAButton clientKey="lolipa-arte-em-festas" companySlug="lolipa-arte-em-festas" formSlug="funnel-lolipa-arte-em-festas" location="lolipa_hero" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#9b6875] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#9b6875]/20">Planejar minha festa <ArrowRight className="h-4 w-4" /></FunnelCTAButton>
         </div>

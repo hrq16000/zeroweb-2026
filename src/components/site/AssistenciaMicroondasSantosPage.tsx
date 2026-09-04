@@ -64,7 +64,7 @@ export function AssistenciaMicroondasSantosPage() {
       <header className="sticky top-0 z-20 border-b border-white/10 bg-[#111315]/95 px-5 py-4 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Assistência Técnica Microondas Santos" className="shrink-0">
-            <img src="/images/assistencia-microondas-santos/logo.png" alt="Assistência Técnica Microondas Santos" width={1768} height={890} loading="eager" fetchPriority="high" decoding="async" className="h-11 w-auto max-w-[235px] object-contain" />
+            <PortfolioImage managedField="logoUrl" priority src="/images/assistencia-microondas-santos/logo.png" alt="Assistência Técnica Microondas Santos" width={1768} height={890} decoding="async" className="h-11 w-auto max-w-[235px] object-contain" />
           </a>
           <nav className="hidden gap-6 text-sm font-semibold text-white/70 md:flex"><a href="#servicos" className="hover:text-white">Serviços</a><a href="#como-funciona" className="hover:text-white">Como funciona</a><a href="#instagram" className="hover:text-white">Instagram</a></nav>
           <CTA location="santos_microondas_header">Solicitar atendimento <ArrowRight className="h-4 w-4" /></CTA>

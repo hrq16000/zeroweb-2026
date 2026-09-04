@@ -56,7 +56,7 @@ export function ArtesanatosDarLeiaOliveiraPage() {
       <header className="sticky top-0 z-20 border-b border-[#ead6c5] bg-[#fff8ef]/95 px-5 py-4 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Artesanatos Darléia Oliveira" className="shrink-0">
-            <img src="/images/artesanatos-darleia-oliveira/logo.png" alt="Artesanatos Darléia Oliveira" width={1280} height={1280} loading="eager" fetchPriority="high" decoding="async" className="h-12 w-auto max-w-[190px] object-contain" />
+            <PortfolioImage managedField="logoUrl" priority src="/images/artesanatos-darleia-oliveira/logo.png" alt="Artesanatos Darléia Oliveira" width={1280} height={1280} decoding="async" className="h-12 w-auto max-w-[190px] object-contain" />
           </a>
           <nav className="hidden gap-6 text-sm font-semibold text-[#6d4a3e] md:flex"><a href="#produto" className="hover:text-[#bd355d]">O coador</a><a href="#detalhes" className="hover:text-[#bd355d]">Detalhes</a><a href="#instagram" className="hover:text-[#bd355d]">Instagram</a></nav>
           <CTA>Conhecer os produtos <ArrowRight className="h-4 w-4" /></CTA>

@@ -64,7 +64,7 @@ export function LizMoraesNailDesignerPage() {
       <header className="sticky top-0 z-20 border-b border-[#d79b93]/20 bg-[#100c0d]/90 px-5 py-4 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Liz Moraes Nail Designer" className="shrink-0">
-            <img src="/images/liz-moraes-nail-designer/logo.png" alt="Liz Moraes Nail Designer" width={1536} height={1024} loading="eager" decoding="async" fetchPriority="high" className="h-12 w-auto max-w-[180px] object-contain" />
+            <PortfolioImage managedField="logoUrl" priority src="/images/liz-moraes-nail-designer/logo.png" alt="Liz Moraes Nail Designer" width={1536} height={1024} decoding="async" className="h-12 w-auto max-w-[180px] object-contain" />
           </a>
           <nav className="hidden gap-6 text-sm font-semibold text-white/70 md:flex"><a href="#servicos" className="hover:text-[#efbbb2]">Serviços</a><a href="#cuidado" className="hover:text-[#efbbb2]">Cuidado</a><a href="#localizacao" className="hover:text-[#efbbb2]">Localização</a></nav>
           <CTA location="liz_header">Agendar horário <ArrowRight className="h-4 w-4" /></CTA>
