@@ -921,15 +921,15 @@
       "title": "Espaço CIH & LUH",
       "segment": "beleza",
       "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
-      "score": 43,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "salao-da-marcia",
-      "nearestMatchScore": 43,
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.2,
+        "STRUCTURE_SIMILARITY": 13.4,
         "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 80,
-        "STYLE_SIMILARITY": 38,
+        "STYLE_SIMILARITY": 39.6,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 8.7
@@ -950,10 +950,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "56e3e2b3fb2166ad",
-        "structureHash": "cdb62fff70a00f15",
+        "skeletonHash": "8458ec433c6726e9",
+        "structureHash": "079a65f350572b3e",
         "sectionCount": 6,
-        "lines": 186
+        "lines": 181
       }
     },
     {
@@ -3432,7 +3432,7 @@
       "espaco-cih-luh": [
         {
           "slug": "salao-da-marcia",
-          "score": 43,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3442,7 +3442,7 @@
         },
         {
           "slug": "diego-montador-moveis",
-          "score": 39,
+          "score": 38,
           "reason": "DISTINCT"
         }
       ],
@@ -4031,12 +4031,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 43,
+          "slug": "diego-montador-moveis",
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
+          "slug": "espaco-cih-luh",
           "score": 42,
           "reason": "SAME_FAMILY"
         }
