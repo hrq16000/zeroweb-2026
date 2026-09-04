@@ -77,7 +77,7 @@ for (const r of rows) {
 
 // Regressão de cobertura: o número de componentes com núcleo administrável
 // nunca pode cair abaixo da linha de base registrada aqui.
-const BASELINE_MANAGED = 61;
+const BASELINE_MANAGED = 66;
 
 const lines = [
   "# Matriz de cobertura runtime por componente",
