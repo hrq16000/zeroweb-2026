@@ -198,7 +198,7 @@ export function TonECorPage() {
               className="aspect-[21/9] w-full rounded-3xl object-cover"
               managedField="heroImageUrl"
             />
-            <figcaption className="mx-auto -mt-8 w-fit rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-lg">
+            <figcaption className="mx-auto mt-4 w-fit rounded-full bg-card px-5 py-3 text-center text-sm font-semibold shadow-lg md:-mt-8">
               Trabalho de acabamento, feito no ritmo da sua casa.
             </figcaption>
           </figure>
