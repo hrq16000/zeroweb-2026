@@ -201,6 +201,7 @@ import { Route as AuthenticatedAppFunisNumerosRouteImport } from './routes/_auth
 import { Route as AuthenticatedAppIndexacaoUrlIdRouteImport } from './routes/_authenticated/app.indexacao.$urlId'
 import { Route as AuthenticatedAppLeadsIndexRouteImport } from './routes/_authenticated/app.leads.index'
 import { Route as AuthenticatedAppLeadsHeloaGasRouteImport } from './routes/_authenticated/app.leads.heloa-gas'
+import { Route as AuthenticatedAppLeadsPortfolioRouteImport } from './routes/_authenticated/app.leads.portfolio'
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
@@ -1238,6 +1239,12 @@ const AuthenticatedAppLeadsHeloaGasRoute =
     path: '/heloa-gas',
     getParentRoute: () => AuthenticatedAppLeadsRoute,
   } as any)
+const AuthenticatedAppLeadsPortfolioRoute =
+  AuthenticatedAppLeadsPortfolioRouteImport.update({
+    id: '/portfolio',
+    path: '/portfolio',
+    getParentRoute: () => AuthenticatedAppLeadsRoute,
+  } as any)
 const AuthenticatedAppMarketplaceAdminRoute =
   AuthenticatedAppMarketplaceAdminRouteImport.update({
     id: '/admin',
@@ -1564,6 +1571,7 @@ export interface FileRoutesByFullPath {
   '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
+  '/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -1776,6 +1784,7 @@ export interface FileRoutesByTo {
   '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
+  '/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -1994,6 +2003,7 @@ export interface FileRoutesById {
   '/_authenticated/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
   '/_authenticated/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/_authenticated/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
+  '/_authenticated/app/leads/portfolio': typeof AuthenticatedAppLeadsPortfolioRoute
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
@@ -2212,6 +2222,7 @@ export interface FileRouteTypes {
     | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
     | '/app/leads/heloa-gas'
+    | '/app/leads/portfolio'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2424,6 +2435,7 @@ export interface FileRouteTypes {
     | '/app/funis/numeros'
     | '/app/indexacao/$urlId'
     | '/app/leads/heloa-gas'
+    | '/app/leads/portfolio'
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
@@ -2641,6 +2653,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/funis/numeros'
     | '/_authenticated/app/indexacao/$urlId'
     | '/_authenticated/app/leads/heloa-gas'
+    | '/_authenticated/app/leads/portfolio'
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
@@ -4153,6 +4166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppLeadsHeloaGasRouteImport
       parentRoute: typeof AuthenticatedAppLeadsRoute
     }
+    '/_authenticated/app/leads/portfolio': {
+      id: '/_authenticated/app/leads/portfolio'
+      path: '/portfolio'
+      fullPath: '/app/leads/portfolio'
+      preLoaderRoute: typeof AuthenticatedAppLeadsPortfolioRouteImport
+      parentRoute: typeof AuthenticatedAppLeadsRoute
+    }
     '/_authenticated/app/marketplace/admin': {
       id: '/_authenticated/app/marketplace/admin'
       path: '/admin'
@@ -4351,11 +4371,13 @@ const AuthenticatedAppIndexacaoRouteWithChildren =
 
 interface AuthenticatedAppLeadsRouteChildren {
   AuthenticatedAppLeadsHeloaGasRoute: typeof AuthenticatedAppLeadsHeloaGasRoute
+  AuthenticatedAppLeadsPortfolioRoute: typeof AuthenticatedAppLeadsPortfolioRoute
   AuthenticatedAppLeadsIndexRoute: typeof AuthenticatedAppLeadsIndexRoute
 }
 
 const AuthenticatedAppLeadsRouteChildren: AuthenticatedAppLeadsRouteChildren = {
   AuthenticatedAppLeadsHeloaGasRoute: AuthenticatedAppLeadsHeloaGasRoute,
+  AuthenticatedAppLeadsPortfolioRoute: AuthenticatedAppLeadsPortfolioRoute,
   AuthenticatedAppLeadsIndexRoute: AuthenticatedAppLeadsIndexRoute,
 }
 

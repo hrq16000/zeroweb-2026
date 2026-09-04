@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X, Sparkles, CheckCircle2 } from "lucide-react";
-import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
+import { PortfolioHostLeadDialog } from "@/components/site/PortfolioHostLeadDialog";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
@@ -211,20 +211,17 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     };
   }, [funnelOpen, trackingBase]);
 
+  // Captação estruturada da 0WEB: nome + WhatsApp + cidade gravados como lead
+  // com atribuição de origem, e só então o redirect opaco para o WhatsApp.
   const funnelModal = (
-    <FunnelModalWrapper
+    <PortfolioHostLeadDialog
       open={funnelOpen}
       onClose={() => setFunnelOpen(false)}
-      funnelSlug={cfg.funnelSlug}
-      intent={{
-        purpose: "diagnosis",
-        source: `portfolio_upsell_${pageName}`,
-        pagePath: routePath,
-        placement: "section",
-      }}
-      context={{ popup: "portfolio_upsell", popup_route: routePath, popup_trigger: triggerRef.current }}
+      slug={slug}
+      businessName={cfg.highlight ?? null}
     />
   );
+
 
   if (!visible) return funnelModal;
 
