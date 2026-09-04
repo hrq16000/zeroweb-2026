@@ -184,6 +184,56 @@
         "COVER_SEVERE_CROP",
         "COVER_LOW_RES"
       ]
+    },
+    "ag-electrical-services": {
+      "source": "public/images/ag-electrical-services/laserway-2.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "assistencia-microondas-santos": {
+      "source": "public/images/assistencia-microondas-santos/hero.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.28
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "confeitaria-chyrley": {
+      "source": "public/images/confeitaria-chyrley/bolos.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "manu-pasteis": {
+      "source": "public/images/manu-pasteis/hero.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "vila-da-capivara": {
+      "source": "public/images/vila-da-capivara/capa.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
     }
   }
 }
