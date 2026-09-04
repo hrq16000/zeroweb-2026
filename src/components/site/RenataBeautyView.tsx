@@ -313,7 +313,7 @@ export function RenataBeautyView() {
               
               <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                 <img 
-                  src="/images/renata-beauty-promo.webp"
+                  src="/images/renata-beauty/hero.webp"
                   alt="Espaço Renata Beauty Studio Inauguração" 
                   loading="eager"
                   fetchPriority="high"
