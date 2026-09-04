@@ -19,10 +19,10 @@
     "original": 0,
     "acceptable": 7,
     "attention": 16,
-    "highSimilarity": 26,
-    "clone": 19,
+    "highSimilarity": 30,
+    "clone": 15,
     "sharedFallback": 0,
-    "clusters": 4,
+    "clusters": 3,
     "placeholderLogos": 11,
     "missingLogos": 0,
     "missingCovers": 27,
@@ -1140,20 +1140,20 @@
       "title": "HBK Iluminação LED Atacadão",
       "segment": "construcao",
       "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "score": 100,
-      "originalityStatus": "CLONE",
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 100,
+      "nearestMatchScore": 68,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 23.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 38.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -1166,10 +1166,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "a3c123d82a8cd6f0",
-        "structureHash": "5a947e099e3cd647",
+        "skeletonHash": "5760b389b30302b2",
+        "structureHash": "e5203af530d53815",
         "sectionCount": 6,
-        "lines": 261
+        "lines": 250
       }
     },
     {
@@ -1177,17 +1177,17 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 59,
+      "score": 47,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 59,
+      "nearestMatch": "lj-cleaning",
+      "nearestMatchScore": 47,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 67.4,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 92.3,
-        "ASSET_PATTERN_SIMILARITY": 33.3,
-        "IDENTITY_SIMILARITY": 25
+        "STRUCTURE_SIMILARITY": 54.9,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 36.4,
+        "STYLE_SIMILARITY": 48.8,
+        "ASSET_PATTERN_SIMILARITY": 40,
+        "IDENTITY_SIMILARITY": 10
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1214,20 +1214,20 @@
       "title": "JC Revestimentos",
       "segment": "construcao",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 100,
-      "originalityStatus": "CLONE",
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 100,
+      "nearestMatchScore": 68,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 23.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 38.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -1240,10 +1240,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "ee7279e0a94f980d",
-        "structureHash": "5a947e099e3cd647",
+        "skeletonHash": "dcdea373a79c6936",
+        "structureHash": "2c5581f9fd6d1e84",
         "sectionCount": 6,
-        "lines": 260
+        "lines": 247
       }
     },
     {
@@ -1954,20 +1954,20 @@
       "title": "Raphael Construções",
       "segment": "servicos",
       "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
-      "score": 100,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 100,
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "ton-e-cor",
+      "nearestMatchScore": 68,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 37,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 40.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -1980,10 +1980,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "a90b1d7bceeb99d1",
-        "structureHash": "5a947e099e3cd647",
-        "sectionCount": 6,
-        "lines": 260
+        "skeletonHash": "9caf202f1e145537",
+        "structureHash": "2504a69cf37f1018",
+        "sectionCount": 8,
+        "lines": 277
       }
     },
     {
@@ -2361,20 +2361,20 @@
       "title": "Ton & Cor · Pintura e Pequenas Reformas",
       "segment": "servicos",
       "componentFile": "src/components/site/TonECorPage.tsx",
-      "score": 100,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 100,
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "raphael-construcoes",
+      "nearestMatchScore": 68,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 37,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 40.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -2387,10 +2387,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "7be1c0ec74a52a5e",
-        "structureHash": "5a947e099e3cd647",
-        "sectionCount": 6,
-        "lines": 247
+        "skeletonHash": "77551d67e2316804",
+        "structureHash": "fcaf2d4b8a479a76",
+        "sectionCount": 9,
+        "lines": 284
       }
     },
     {
@@ -2435,16 +2435,16 @@
       "title": "Elétrica Bairro Brasil",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 45,
+      "score": 49,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 45,
+      "nearestMatch": "hbk-iluminacao-led",
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.5,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 25,
-        "STYLE_SIMILARITY": 48.5,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 30,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 37.8,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -2577,19 +2577,6 @@
     },
     {
       "id": "CLUSTER_03",
-      "members": [
-        "hbk-iluminacao-led",
-        "jc-revestimentos",
-        "raphael-construcoes",
-        "ton-e-cor"
-      ],
-      "averageScore": 100,
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE",
-      "baseComponent": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "risk": "ALTO"
-    },
-    {
-      "id": "CLUSTER_04",
       "members": [
         "espaco-cih-luh",
         "salao-da-marcia"
@@ -2742,92 +2729,8 @@
       "reason": "IDENTICAL_COMPONENT_STRUCTURE"
     },
     {
-      "a": "hbk-iluminacao-led",
-      "b": "jc-revestimentos",
-      "score": 100,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "hbk-iluminacao-led",
-      "b": "raphael-construcoes",
-      "score": 100,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "hbk-iluminacao-led",
-      "b": "ton-e-cor",
-      "score": 100,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "jc-revestimentos",
-      "b": "raphael-construcoes",
-      "score": 100,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "jc-revestimentos",
-      "b": "ton-e-cor",
-      "score": 100,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
       "a": "marmitaria-dom-diego",
       "b": "woodhouse-hamburgueres",
-      "score": 100,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "raphael-construcoes",
-      "b": "ton-e-cor",
       "score": 100,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 100,
@@ -2950,6 +2853,90 @@
         "IDENTITY_SIMILARITY": 100
       },
       "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "beto-pasteis",
+      "b": "reuse-house-brecho",
+      "score": 84,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 71.4,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "beto-pasteis",
+      "b": "toquinho-de-gente-brecho",
+      "score": 84,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 71.4,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "brecho-sao-francisco",
+      "b": "dlara-pizzaria",
+      "score": 84,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 71.4,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "brecho-sao-francisco",
+      "b": "marmitaria-dom-diego",
+      "score": 84,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 71.4,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "brecho-sao-francisco",
+      "b": "woodhouse-hamburgueres",
+      "score": 84,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 71.4,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "dlara-pizzaria",
+      "b": "reuse-house-brecho",
+      "score": 84,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 71.4,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
     }
   ],
   "regression": {
@@ -2975,10 +2962,10 @@
       "original": 0,
       "acceptable": 7,
       "attention": 16,
-      "highSimilarity": 26,
-      "clone": 19,
+      "highSimilarity": 30,
+      "clone": 15,
       "sharedFallback": 0,
-      "clusters": 4,
+      "clusters": 3,
       "placeholderLogos": 11,
       "missingLogos": 0,
       "missingCovers": 27,
@@ -2986,8 +2973,48 @@
       "sharedCovers": 0,
       "severeCrop": 22
     },
-    "verdict": "PASS",
-    "regressions": [],
-    "improvements": []
+    "verdict": "FAIL",
+    "regressions": [
+      {
+        "kind": "COUNTER",
+        "key": "highSimilarity",
+        "label": "projetos HIGH_SIMILARITY",
+        "before": 26,
+        "after": 30
+      }
+    ],
+    "improvements": [
+      {
+        "kind": "COUNTER",
+        "key": "clone",
+        "label": "clones",
+        "before": 19,
+        "after": 15
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "hbk-iluminacao-led",
+        "before": "CLONE",
+        "after": "HIGH_SIMILARITY"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "jc-revestimentos",
+        "before": "CLONE",
+        "after": "HIGH_SIMILARITY"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "raphael-construcoes",
+        "before": "CLONE",
+        "after": "HIGH_SIMILARITY"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "ton-e-cor",
+        "before": "CLONE",
+        "after": "HIGH_SIMILARITY"
+      }
+    ]
   }
 }

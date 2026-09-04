@@ -1,18 +1,19 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
-import {
-  ArrowRight,
-  Building2,
-  Lightbulb,
-  LampDesk,
-  PlugZap,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, Building2, LampDesk, Lightbulb, PlugZap } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
+/**
+ * HBK Iluminação LED — direção PRODUTO / BENTO LUMINOSO.
+ *
+ * Hero centrado sobre fundo escuro com halo radial, catálogo em bento grid
+ * assimétrico (tiles de tamanhos diferentes), faixa de aplicação em pílulas e
+ * CTA em cartão compacto flutuante. Assinatura: halo de luz + bento.
+ */
 
 const quizConfig = {
   proposalKind: "service" as const,
@@ -36,184 +37,90 @@ const quizConfig = {
   notePlaceholder: "Conte os ambientes, a metragem e o que deseja iluminar.",
 };
 
-const services = [
+/** Bento assimétrico: cada tile ocupa uma área diferente. */
+const tiles = [
   {
     icon: Lightbulb,
     title: "Lâmpadas e luminárias LED",
     text: "Opções para dar mais clareza e eficiência aos ambientes.",
+    span: "md:col-span-3 md:row-span-2",
   },
   {
     icon: LampDesk,
     title: "Spots, perfis e fitas LED",
     text: "Soluções para destacar pontos de luz, móveis e acabamentos.",
+    span: "md:col-span-3",
   },
   {
     icon: Building2,
-    title: "Iluminação para obras e reformas",
+    title: "Obras e reformas",
     text: "Produtos LED para projetos residenciais e comerciais.",
+    span: "md:col-span-2",
   },
   {
     icon: PlugZap,
     title: "Orientação técnica",
     text: "Equipe preparada para ajudar a escolher a solução mais adequada.",
+    span: "md:col-span-1",
   },
 ];
 
+const aplicacoes = [
+  "Sala e cozinha",
+  "Fachada",
+  "Comércio",
+  "Área externa",
+  "Móveis planejados",
+  "Obra nova",
+];
+
 const theme = {
-  "--background": "42 30% 97%",
-  "--foreground": "158 75% 7%",
-  "--card": "0 0% 100%",
-  "--muted": "42 24% 91%",
-  "--muted-foreground": "213 18% 38%",
-  "--primary": "42 83% 48%",
-  "--primary-foreground": "158 75% 7%",
-  "--border": "213 18% 82%",
-  "--ring": "42 100% 48%",
+  "--background": "228 34% 8%",
+  "--foreground": "210 40% 97%",
+  "--card": "228 28% 13%",
+  "--muted": "228 22% 18%",
+  "--muted-foreground": "215 20% 74%",
+  "--primary": "48 96% 60%",
+  "--primary-foreground": "228 34% 8%",
+  "--border": "228 20% 24%",
+  "--ring": "48 96% 60%",
 } as CSSProperties;
 
 export function HbkIluminacaoLedPage() {
   return (
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
-      <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
-        <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
-          <a href="#inicio" aria-label="HBK Iluminação LED Atacadão — início">
+      <main id="inicio">
+        {/* HERO centrado com halo radial — assinatura de luz. */}
+        <section className="relative isolate overflow-hidden px-5 pb-16 pt-10 text-center">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-[-18rem] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
+            style={{ background: "radial-gradient(circle, hsl(48 96% 60%) 0%, transparent 68%)" }}
+          />
+          <div className="relative mx-auto max-w-3xl">
             <PortfolioImage
               src="/images/hbk-iluminacao-led/logo.png"
               alt="HBK Iluminação LED Atacadão"
               width={420}
               height={190}
-              className="h-14 w-auto object-contain"
-             managedField="logoUrl" />
-          </a>
-          <nav
-            aria-label="Navegação principal"
-            className="hidden items-center gap-6 text-sm font-semibold md:flex"
-          >
-            <a href="#servicos" className="hover:text-primary">
-              Serviços
-            </a>
-            <a href="#como-funciona" className="hover:text-primary">
-              Como funciona
-            </a>
-          </nav>
-          <PortfolioCTAQuiz
-            clientKey="hbk-iluminacao-led"
-            studioName="HBK Iluminação LED Atacadão"
-            recipientName="HBK"
-            theme="navy"
-            mode="proposal"
-            quizConfig={quizConfig}
-            className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground hover:opacity-90"
-          >
-            Solicitar orçamento
-          </PortfolioCTAQuiz>
-        </div>
-      </header>
-
-      <main id="inicio">
-        <section className="overflow-hidden bg-foreground px-5 py-16 text-background md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
-                Iluminação LED com inteligência
-              </p>
-              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-            <ManagedText field="heroHeadline" fallback={"Solu\u00e7\u00f5es LED para construir, reformar e iluminar melhor."} />
-          </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-            <ManagedText field="heroSubheadline" fallback={"Produtos LED e orienta\u00e7\u00e3o para obras, reformas, resid\u00eancias e com\u00e9rcios. Conte o que precisa iluminar e organize sua cota\u00e7\u00e3o com a equipe."} />
-          </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <PortfolioCTAQuiz
-                  clientKey="hbk-iluminacao-led"
-                  studioName="HBK Iluminação LED Atacadão"
-                  recipientName="HBK"
-                  theme="navy"
-                  mode="proposal"
-                  quizConfig={quizConfig}
-                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground hover:opacity-90"
-                >
-                  Solicitar orçamento <ArrowRight className="h-4 w-4" />
-                </PortfolioCTAQuiz>
-                <a
-                  href="#servicos"
-                  className="inline-flex min-h-12 items-center rounded-full border border-background/30 px-6 font-semibold text-background hover:border-primary hover:text-primary"
-                >
-                  Conhecer serviços
-                </a>
-              </div>
-              <div className="mt-8 flex items-center gap-3 text-sm text-background/75">
-                <ShieldCheck className="h-5 w-5 text-primary" /> Materiais de ótima qualidade e
-                preço acessível, conforme informado pela empresa.
-              </div>
-            </div>
-            <PortfolioImage
-              src="/images/hbk-iluminacao-led/servicos.webp"
-              alt="Ambiente com soluções de iluminação LED"
-              priority
-              width={1440}
-              height={900}
-              className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            managedField="heroImageUrl"
-          />
-          </div>
-        </section>
-
-        <section id="servicos" className="px-5 py-16 md:py-24">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
-              Soluções em LED
-            </p>
-            <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <h2 className="max-w-2xl font-display text-3xl font-bold md:text-5xl">
-                Iluminação planejada para cada projeto.
-              </h2>
-              <p className="max-w-md text-sm leading-6 text-muted-foreground">
-                Conheça as soluções LED para residências, obras, comércios e reformas.
-              </p>
-            </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {services.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="rounded-2xl border border-border bg-card p-6">
-                  <Icon className="h-7 w-7 text-primary" />
-                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="como-funciona" className="bg-muted px-5 py-16 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
-            <PortfolioImage
-              src="/images/hbk-iluminacao-led/hero.webp"
-              alt="Produtos de iluminação LED para projetos e reformas"
-              width={1440}
-              height={900}
-              className="aspect-[8/5] w-full rounded-3xl object-cover"
+              className="mx-auto h-16 w-auto object-contain"
+              managedField="logoUrl"
             />
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
-                Como começar
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
-                Conte o ambiente e encontre a solução LED ideal.
-              </h2>
-              <ol className="mt-8 space-y-5">
-                {[
-                  "Escolha o tipo de iluminação LED que procura.",
-                  "Informe o ambiente, a metragem ou envie os detalhes.",
-                  "Alinhe o material e solicite seu orçamento.",
-                ].map((item, index) => (
-                  <li key={item} className="flex gap-4">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <span className="pt-2 font-semibold">{item}</span>
-                  </li>
-                ))}
-              </ol>
+            <h1 className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
+              <ManagedText
+                field="heroHeadline"
+                fallback={"Iluminando seus projetos com intelig\u00eancia."}
+              />
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-muted-foreground">
+              <ManagedText
+                field="heroSubheadline"
+                fallback={
+                  "Produtos LED, orienta\u00e7\u00e3o t\u00e9cnica e condi\u00e7\u00f5es especiais para quem est\u00e1 construindo ou reformando."
+                }
+              />
+            </p>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
               <PortfolioCTAQuiz
                 clientKey="hbk-iluminacao-led"
                 studioName="HBK Iluminação LED Atacadão"
@@ -221,25 +128,109 @@ export function HbkIluminacaoLedPage() {
                 theme="navy"
                 mode="proposal"
                 quizConfig={quizConfig}
-                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-6 font-bold text-background hover:opacity-90"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-7 font-bold text-primary-foreground hover:opacity-90"
               >
-                Começar orçamento
+                Cotar iluminação <ArrowRight aria-hidden className="h-4 w-4" />
               </PortfolioCTAQuiz>
+              <a
+                href="#servicos"
+                className="inline-flex min-h-12 items-center rounded-full border border-border px-6 font-semibold hover:border-primary hover:text-primary"
+              >
+                Ver soluções
+              </a>
             </div>
+          </div>
+
+          <PortfolioImage
+            src="/images/hbk-iluminacao-led/hero.webp"
+            alt="Ambiente com soluções de iluminação LED"
+            priority
+            width={1600}
+            height={900}
+            className="relative mx-auto mt-12 aspect-[16/9] w-full max-w-4xl rounded-[2rem] border border-border object-cover"
+            managedField="heroImageUrl"
+          />
+        </section>
+
+        {/* Bento assimétrico de produtos. */}
+        <section id="servicos" className="px-5 py-8 md:py-16">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-display text-3xl font-bold md:text-4xl">Soluções LED</h2>
+            <div className="mt-8 grid gap-4 md:grid-cols-6">
+              {tiles.map(({ icon: Icon, title, text, span }) => (
+                <article
+                  key={title}
+                  className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 ${span}`}
+                >
+                  <Icon aria-hidden className="h-8 w-8 text-primary" />
+                  <div className="mt-8">
+                    <h3 className="text-lg font-bold">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Aplicações em pílulas + imagem de produto. */}
+        <section className="px-5 py-12">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+            <div>
+              <h2 className="font-display text-2xl font-bold md:text-3xl">
+                Onde a luz certa faz diferença
+              </h2>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {aplicacoes.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-muted-foreground"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <PortfolioImage
+              src="/images/hbk-iluminacao-led/servicos.webp"
+              alt="Produtos de iluminação LED para projetos e reformas"
+              width={1400}
+              height={900}
+              className="aspect-[3/2] w-full rounded-[2rem] object-cover"
+            />
+          </div>
+        </section>
+
+        {/* CTA em cartão compacto centralizado. */}
+        <section className="px-5 pb-20 pt-8">
+          <div className="mx-auto max-w-xl rounded-[2rem] border border-primary/40 bg-card p-8 text-center">
+            <h2 className="font-display text-2xl font-bold">Monte sua cotação de iluminação</h2>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">
+              Informe os ambientes e a metragem para receber a indicação de produtos.
+            </p>
+            <PortfolioCTAQuiz
+              clientKey="hbk-iluminacao-led"
+              studioName="HBK Iluminação LED Atacadão"
+              recipientName="HBK"
+              theme="navy"
+              mode="proposal"
+              quizConfig={quizConfig}
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-7 font-bold text-primary-foreground hover:opacity-90"
+            >
+              Começar cotação
+            </PortfolioCTAQuiz>
           </div>
         </section>
       </main>
 
-      <footer className="bg-foreground px-5 py-8 text-background">
+      <footer className="border-t border-border px-5 py-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <strong>HBK Iluminação LED Atacadão</strong>
-            <p className="mt-1 text-sm text-background/70">
-              Iluminação LED para projetos e reformas.
-            </p>
+            <p className="mt-1 text-sm text-muted-foreground">Iluminação LED — Curitiba, PR.</p>
           </div>
           <PortfolioHostCredit
-            className="text-sm text-background/70"
+            className="text-sm text-muted-foreground"
             linkClassName="font-semibold text-primary"
           />
         </div>
@@ -248,13 +239,11 @@ export function HbkIluminacaoLedPage() {
         clientKey="hbk-iluminacao-led"
         eyebrow="HBK Iluminação LED Atacadão"
         title="Iluminando seus projetos com inteligência."
-        description="Conheça as soluções de iluminação LED e organize os detalhes para solicitar uma cotação."
-        ctaLabel="Ver serviços"
+        description="Conheça as soluções LED e organize uma cotação para seu projeto."
+        ctaLabel="Ver soluções"
         ctaHref="#servicos"
       />
       <PortfolioUpsellPopup pageName="portfolio-hbk-iluminacao-led" />
     </div>
   );
 }
-
-

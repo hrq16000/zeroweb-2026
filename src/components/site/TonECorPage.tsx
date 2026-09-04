@@ -1,11 +1,20 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
-import { ArrowRight, Brush, Droplets, House, PaintRoller, ShieldCheck } from "lucide-react";
+import { ArrowRight, Brush, Droplets, House, PaintRoller } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+
+/**
+ * Ton & Cor — direção ARTESANAL / CROMÁTICA.
+ *
+ * Hero tipográfico claro (sem split com foto), cartela de cor como elemento
+ * assinatura, serviços em linhas numeradas largas (não cards), faixa de imagem
+ * plena e CTA em bloco cromático. Composição própria: não compartilha hero,
+ * grid, ritmo de seções nem apresentação de serviços com os demais projetos.
+ */
 
 const quizConfig = {
   proposalKind: "service" as const,
@@ -28,206 +37,234 @@ const quizConfig = {
   notePlaceholder: "Conte quais ambientes ou reparos precisam de atenção.",
 };
 
-const services = [
+/** Cartela cromática — elemento assinatura da marca. */
+const swatches = [
+  { name: "Areia", value: "38 42% 86%" },
+  { name: "Terracota", value: "18 62% 52%" },
+  { name: "Oliva", value: "78 24% 42%" },
+  { name: "Grafite", value: "220 12% 24%" },
+  { name: "Nuvem", value: "210 22% 92%" },
+  { name: "Índigo", value: "224 46% 34%" },
+];
+
+const jobs = [
   {
     icon: PaintRoller,
     title: "Pintura em geral",
     text: "Renovação de paredes e ambientes com atenção ao acabamento.",
+    tag: "Interna e externa",
   },
   {
     icon: House,
     title: "Alvenaria",
     text: "Pequenas reformas e correções para organizar o espaço.",
+    tag: "Pequenos reparos",
   },
   {
     icon: Droplets,
     title: "Hidráulica",
     text: "Pequenos serviços hidráulicos integrados aos reparos necessários.",
+    tag: "Manutenção",
   },
   {
     icon: Brush,
     title: "Telhados e reparos",
     text: "Limpeza de telhado e soluções para reparos em geral.",
+    tag: "Conservação",
   },
 ];
 
 const theme = {
-  "--background": "42 38% 97%",
-  "--foreground": "213 73% 13%",
-  "--card": "0 0% 100%",
-  "--muted": "42 24% 91%",
-  "--muted-foreground": "213 18% 38%",
-  "--primary": "42 100% 48%",
-  "--primary-foreground": "213 73% 13%",
-  "--border": "213 18% 82%",
-  "--ring": "42 100% 48%",
+  "--background": "36 44% 96%",
+  "--foreground": "22 28% 16%",
+  "--card": "34 50% 99%",
+  "--muted": "34 30% 90%",
+  "--muted-foreground": "22 14% 38%",
+  "--primary": "18 62% 48%",
+  "--primary-foreground": "36 44% 97%",
+  "--border": "28 22% 82%",
+  "--ring": "18 62% 48%",
 } as CSSProperties;
 
 export function TonECorPage() {
   return (
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
-      <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
-        <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
+      <header className="px-5 pt-6">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Ton & Cor — início">
             <PortfolioImage
               src="/images/ton-e-cor/logo.png"
               alt="Ton & Cor"
               width={420}
               height={190}
-              className="h-14 w-auto object-contain"
-             managedField="logoUrl" />
+              className="h-12 w-auto object-contain"
+              managedField="logoUrl"
+            />
           </a>
-          <nav
-            aria-label="Navegação principal"
-            className="hidden items-center gap-6 text-sm font-semibold md:flex"
+          <a
+            href="#servicos"
+            className="text-sm font-semibold underline decoration-primary decoration-2 underline-offset-8 hover:text-primary"
           >
-            <a href="#servicos" className="hover:text-primary">
-              Serviços
-            </a>
-            <a href="#como-funciona" className="hover:text-primary">
-              Como funciona
-            </a>
-          </nav>
-          <PortfolioCTAQuiz
-            clientKey="ton-e-cor"
-            studioName="Ton & Cor"
-            recipientName="Gelton"
-            theme="navy"
-            mode="proposal"
-            quizConfig={quizConfig}
-            className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground hover:opacity-90"
-          >
-            Pedir orçamento
-          </PortfolioCTAQuiz>
+            Serviços
+          </a>
         </div>
       </header>
 
       <main id="inicio">
-        <section className="overflow-hidden bg-foreground px-5 py-16 text-background md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
-                Pintura e pequenas reformas
-              </p>
-              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-            <ManagedText field="heroHeadline" fallback={"Sua casa renovada, com os reparos organizados em um s\u00f3 atendimento."} />
-          </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-            <ManagedText field="heroSubheadline" fallback={"Pintura em geral, pequenos servi\u00e7os de alvenaria e hidr\u00e1ulica, limpeza de telhado e reparos para cuidar do seu espa\u00e7o."} />
+        {/* HERO tipográfico — sem imagem, a cor é o protagonista. */}
+        <section className="px-5 pb-4 pt-12 md:pt-20">
+          <div className="mx-auto max-w-5xl">
+            <p className="font-display text-[11px] font-bold uppercase tracking-[.42em] text-primary">
+              Pintura · pequenas reformas
+            </p>
+            <h1 className="mt-6 max-w-4xl font-display text-[2.6rem] font-bold leading-[.98] tracking-tight md:text-[5.5rem]">
+              <ManagedText
+                field="heroHeadline"
+                fallback={"Sua casa renovada, com os reparos organizados em um s\u00f3 atendimento."}
+              />
+            </h1>
+            <p className="mt-8 max-w-lg border-l-4 border-primary pl-5 text-base leading-7 text-muted-foreground">
+              <ManagedText
+                field="heroSubheadline"
+                fallback={
+                  "Pintura em geral, pequenos servi\u00e7os de alvenaria e hidr\u00e1ulica, limpeza de telhado e reparos para cuidar do seu espa\u00e7o."
+                }
+              />
+            </p>
+          </div>
+        </section>
+
+        {/* Assinatura visual: cartela de cor de largura total. */}
+        <section aria-label="Cartela de acabamentos" className="mt-10 px-5">
+          <ul className="mx-auto flex max-w-5xl overflow-hidden rounded-2xl border border-border">
+            {swatches.map((swatch) => (
+              <li
+                key={swatch.name}
+                className="flex h-20 flex-1 items-end p-2 md:h-28"
+                style={{ backgroundColor: `hsl(${swatch.value})` }}
+              >
+                <span className="sr-only">{swatch.name}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-3 max-w-5xl text-xs uppercase tracking-[.2em] text-muted-foreground">
+            {swatches.map((s) => s.name).join(" · ")}
           </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <PortfolioCTAQuiz
-                  clientKey="ton-e-cor"
-                  studioName="Ton & Cor"
-                  recipientName="Gelton"
-                  theme="navy"
-                  mode="proposal"
-                  quizConfig={quizConfig}
-                  className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground hover:opacity-90"
+        </section>
+
+        {/* Serviços em linhas largas numeradas — não são cards. */}
+        <section id="servicos" className="px-5 py-16 md:py-24">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="font-display text-3xl font-bold md:text-4xl">
+              Da pintura ao pequeno reparo que faltava.
+            </h2>
+            <ul className="mt-10 border-t border-border">
+              {jobs.map(({ icon: Icon, title, text, tag }, index) => (
+                <li
+                  key={title}
+                  className="grid grid-cols-[auto_1fr] items-start gap-x-5 gap-y-2 border-b border-border py-7 md:grid-cols-[3.5rem_1fr_11rem] md:items-center"
                 >
-                  Solicitar orçamento <ArrowRight className="h-4 w-4" />
-                </PortfolioCTAQuiz>
-                <a
-                  href="#servicos"
-                  className="inline-flex min-h-12 items-center rounded-full border border-background/30 px-6 font-semibold text-background hover:border-primary hover:text-primary"
-                >
-                  Ver serviços
-                </a>
-              </div>
-              <div className="mt-8 flex items-center gap-3 text-sm text-background/75">
-                <ShieldCheck className="h-5 w-5 text-primary" /> Orçamento sem compromisso, conforme
-                informado pelo profissional.
-              </div>
-            </div>
+                  <span className="font-display text-2xl font-bold text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="flex items-center gap-3 text-xl font-bold md:text-2xl">
+                      <Icon aria-hidden className="h-5 w-5 text-primary" />
+                      {title}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">{text}</p>
+                  </div>
+                  <span className="col-start-2 w-fit rounded-full bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-muted-foreground md:col-start-3 md:justify-self-end">
+                    {tag}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Faixa de imagem plena com legenda deslocada. */}
+        <section className="px-5">
+          <figure className="mx-auto max-w-6xl">
             <PortfolioImage
               src="/images/ton-e-cor/servicos.webp"
               alt="Materiais de pintura e pequenas reformas organizados em ambiente residencial"
               priority
               width={1440}
-              height={900}
-              className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            managedField="heroImageUrl"
-          />
-          </div>
-        </section>
-
-        <section id="servicos" className="px-5 py-16 md:py-24">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">Serviços</p>
-            <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <h2 className="max-w-2xl font-display text-3xl font-bold md:text-5xl">
-                Da pintura ao pequeno reparo que faltava.
-              </h2>
-              <p className="max-w-md text-sm leading-6 text-muted-foreground">
-                Serviços apresentados com clareza para facilitar a avaliação do trabalho necessário.
-              </p>
-            </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {services.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="rounded-2xl border border-border bg-card p-6">
-                  <Icon className="h-7 w-7 text-primary" />
-                  <h3 className="mt-5 text-lg font-bold">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="como-funciona" className="bg-muted px-5 py-16 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
-            <PortfolioImage
-              src="/images/ton-e-cor/hero.webp"
-              alt="Apresentação dos serviços reais da Ton & Cor"
-              width={1440}
-              height={900}
-              className="aspect-[8/5] w-full rounded-3xl object-cover"
+              height={640}
+              className="aspect-[21/9] w-full rounded-3xl object-cover"
+              managedField="heroImageUrl"
             />
+            <figcaption className="mx-auto -mt-8 w-fit rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-lg">
+              Trabalho de acabamento, feito no ritmo da sua casa.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className="px-5 py-16 md:py-24">
+          <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-[1fr_1fr] md:items-start">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
-                Como começar
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
+              <h2 className="font-display text-2xl font-bold md:text-3xl">
                 Explique o que precisa e organize a avaliação.
               </h2>
-              <ol className="mt-8 space-y-5">
-                {[
-                  "Escolha o serviço principal.",
-                  "Informe o tipo de imóvel e os detalhes do local.",
-                  "Combine a avaliação e receba o orçamento.",
-                ].map((item, index) => (
-                  <li key={item} className="flex gap-4">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
-                      {index + 1}
-                    </span>
-                    <span className="pt-2 font-semibold">{item}</span>
-                  </li>
-                ))}
-              </ol>
-              <PortfolioCTAQuiz
-                clientKey="ton-e-cor"
-                studioName="Ton & Cor"
-                recipientName="Gelton"
-                theme="navy"
-                mode="proposal"
-                quizConfig={quizConfig}
-                className="mt-8 inline-flex min-h-12 items-center rounded-full bg-foreground px-6 font-bold text-background hover:opacity-90"
-              >
-                Começar meu orçamento
-              </PortfolioCTAQuiz>
+              <PortfolioImage
+                src="/images/ton-e-cor/hero.webp"
+                alt="Apresentação dos serviços reais da Ton & Cor"
+                width={1200}
+                height={900}
+                className="mt-6 aspect-[4/3] w-full rounded-2xl object-cover"
+              />
             </div>
+            <ol className="space-y-4">
+              {[
+                "Escolha o serviço principal.",
+                "Informe o tipo de imóvel e os detalhes do local.",
+                "Combine a avaliação e receba o orçamento.",
+              ].map((item, index) => (
+                <li
+                  key={item}
+                  className="rounded-2xl border border-border bg-card px-5 py-4 text-sm font-semibold"
+                >
+                  <span className="mr-3 text-primary">{String(index + 1).padStart(2, "0")}</span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* CTA em bloco cromático — não é banner escuro. */}
+        <section className="px-5 pb-20">
+          <div className="mx-auto max-w-5xl rounded-[2rem] bg-primary px-6 py-12 text-primary-foreground md:px-12">
+            <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight md:text-5xl">
+              Escolha a cor. Nós cuidamos do resto.
+            </h2>
+            <PortfolioCTAQuiz
+              clientKey="ton-e-cor"
+              studioName="Ton & Cor"
+              recipientName="Gelton"
+              theme="navy"
+              mode="proposal"
+              quizConfig={quizConfig}
+              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-foreground px-7 font-bold text-background hover:opacity-90"
+            >
+              Solicitar orçamento <ArrowRight aria-hidden className="h-4 w-4" />
+            </PortfolioCTAQuiz>
+            <p className="mt-5 text-sm opacity-80">
+              Orçamento sem compromisso, conforme informado pelo profissional.
+            </p>
           </div>
         </section>
       </main>
 
-      <footer className="bg-foreground px-5 py-8 text-background">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="border-t border-border px-5 py-8">
+        <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <strong>Ton & Cor</strong>
-            <p className="mt-1 text-sm text-background/70">Pintura e pequenas reformas.</p>
+            <strong>Ton &amp; Cor</strong>
+            <p className="mt-1 text-sm text-muted-foreground">Pintura e pequenas reformas.</p>
           </div>
           <PortfolioHostCredit
-            className="text-sm text-background/70"
+            className="text-sm text-muted-foreground"
             linkClassName="font-semibold text-primary"
           />
         </div>

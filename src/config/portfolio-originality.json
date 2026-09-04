@@ -19,10 +19,10 @@
     "original": 0,
     "acceptable": 7,
     "attention": 16,
-    "highSimilarity": 26,
-    "clone": 19,
+    "highSimilarity": 30,
+    "clone": 15,
     "sharedFallback": 0,
-    "clusters": 4,
+    "clusters": 3,
     "placeholderLogos": 11,
     "missingLogos": 0,
     "missingCovers": 27,
@@ -64,19 +64,6 @@
     },
     {
       "id": "CLUSTER_03",
-      "members": [
-        "hbk-iluminacao-led",
-        "jc-revestimentos",
-        "raphael-construcoes",
-        "ton-e-cor"
-      ],
-      "averageScore": 100,
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE",
-      "baseComponent": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "risk": "ALTO"
-    },
-    {
-      "id": "CLUSTER_04",
       "members": [
         "espaco-cih-luh",
         "salao-da-marcia"
@@ -894,18 +881,18 @@
     },
     {
       "slug": "hbk-iluminacao-led",
-      "score": 100,
-      "originalityStatus": "CLONE",
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 100,
+      "nearestMatchScore": 68,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 23.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 38.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -921,20 +908,20 @@
     },
     {
       "slug": "heloa-gas",
-      "score": 59,
+      "score": 47,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 59,
+      "nearestMatch": "lj-cleaning",
+      "nearestMatchScore": 47,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 67.4,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 92.3,
-        "ASSET_PATTERN_SIMILARITY": 33.3,
-        "IDENTITY_SIMILARITY": 25
+        "STRUCTURE_SIMILARITY": 54.9,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 36.4,
+        "STYLE_SIMILARITY": 48.8,
+        "ASSET_PATTERN_SIMILARITY": 40,
+        "IDENTITY_SIMILARITY": 10
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -948,18 +935,18 @@
     },
     {
       "slug": "jc-revestimentos",
-      "score": 100,
-      "originalityStatus": "CLONE",
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 100,
+      "nearestMatchScore": 68,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 23.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 38.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1488,18 +1475,18 @@
     },
     {
       "slug": "raphael-construcoes",
-      "score": 100,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 100,
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "ton-e-cor",
+      "nearestMatchScore": 68,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 37,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 40.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1785,18 +1772,18 @@
     },
     {
       "slug": "ton-e-cor",
-      "score": 100,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 100,
+      "score": 68,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "raphael-construcoes",
+      "nearestMatchScore": 68,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 37,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 40.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1839,19 +1826,19 @@
     },
     {
       "slug": "uberlandia-eletrica-residencial",
-      "score": 45,
+      "score": 49,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 45,
+      "nearestMatch": "hbk-iluminacao-led",
+      "nearestMatchScore": 49,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.5,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 25,
-        "STYLE_SIMILARITY": 48.5,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 30,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 37.8,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
