@@ -35,6 +35,8 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           CONSUME_TOKEN_RATE_MAX,
         } = await import("@/lib/whatsapp-redirect.server");
 
+        const { resolvePortfolioFunnelContext } = await import("@/lib/portfolio-funnel-context");
+
         const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -229,6 +231,12 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
                 .join("\n")
             : null;
 
+          // Contrato de funil do projeto: assunto e próximo passo coerentes com
+          // o negócio do cliente (nunca com o funil comercial da 0WEB).
+          const portfolioFunnel =
+            typeof meta.client_key === "string" && meta.client_key
+              ? resolvePortfolioFunnelContext(meta.client_key)
+              : null;
           finalMessage = buildWhatsAppLeadMessage({
             protocol: session?.protocol ?? makeProtocol(),
             brandName:
@@ -251,6 +259,8 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             contextLines,
             utmCampaign: session?.utm_campaign ?? null,
             cartSummary: cartLines,
+            requestSubject: portfolioFunnel?.whatsappSubject ?? null,
+            nextStepPrompt: portfolioFunnel?.whatsappPrompt ?? null,
             requestKind:
               meta.mode === "proposal"
                 ? meta.proposal_kind === "campaign" ? "campaign" : "service"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T06:28:08.324Z",
+  "generatedAt": "2026-09-04T06:47:00.900Z",
   "runtimeGeneratedAt": "2026-09-04T05:13:44.185Z",
   "thresholds": {
     "PREMIUM": 85,
@@ -4118,7 +4118,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 72,
+      "originalityScore": 71,
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -4186,7 +4186,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "72 vs lucas-arruma-maquina-lavar"
+          "detail": "71 vs lucas-arruma-maquina-lavar"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -4960,8 +4960,8 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 66,
-      "originalityNearest": "premium-envelopamentos",
+      "originalityScore": 65,
+      "originalityNearest": "artesanatos-darleia-oliveira",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -5035,7 +5035,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs premium-envelopamentos"
+          "detail": "65 vs artesanatos-darleia-oliveira"
         }
       ]
     },
@@ -6318,7 +6318,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 68,
+      "originalityScore": 69,
       "originalityNearest": "eletrovale-eletromecanica",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -6372,7 +6372,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "68 vs eletrovale-eletromecanica"
+          "detail": "69 vs eletrovale-eletromecanica"
         }
       ]
     },
@@ -6397,7 +6397,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 70,
+      "originalityScore": 71,
       "originalityNearest": "premium-envelopamentos",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -6451,7 +6451,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "70 vs premium-envelopamentos"
+          "detail": "71 vs premium-envelopamentos"
         }
       ]
     },
@@ -6476,7 +6476,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 70,
+      "originalityScore": 71,
       "originalityNearest": "lolipa-arte-em-festas",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -6530,7 +6530,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "70 vs lolipa-arte-em-festas"
+          "detail": "71 vs lolipa-arte-em-festas"
         }
       ]
     },

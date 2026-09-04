@@ -74,6 +74,8 @@ export const ISSUES = {
   HEADING_STRUCTURE: { severity: "P3", group: "mobile", penalty: 1, label: "Estrutura de headings irregular (h1)" },
   IMAGE_ALT_MISSING: { severity: "P3", group: "mobile", penalty: 1, label: "Imagens sem atributo alt" },
   CONTENT_SHORT_SERVICES: { severity: "P3", group: "content", penalty: 2, label: "Serviços pouco explicados" },
+  FUNNEL_CONTEXT_MISMATCH: { severity: "P1", group: "content", penalty: 8, label: "Funil/CTA com intenção incompatível com o negócio" },
+  FUNNEL_CONTEXT_FALLBACK: { severity: "P2", group: "content", penalty: 4, label: "Funil sem contrato próprio (fallback neutro)" },
   COVER_NO_FOCAL_POINT: { severity: "P3", group: "cover", penalty: 1, label: "Capa sem focal point definido" },
 };
 
@@ -157,6 +159,7 @@ export async function buildVisualQuality(root, opts = {}) {
   const catalog = readJson("src/config/portfolio-catalog.json", []);
   const assetsCfg = readJson("src/config/portfolio-assets.json", { clients: {} });
   const originality = readJson("reports/portfolio-originality.json", { projects: [] });
+  const funnelAudit = readJson("reports/portfolio-funnel-context.json", { projects: [] });
   const runtime = readJson("reports/portfolio-visual-runtime.json", { projects: {} });
   const review = readJson("src/config/portfolio-visual-review.json", {});
   // Capas curadas e aprovadas (16:10 geradas de assets do próprio cliente).
@@ -165,6 +168,7 @@ export async function buildVisualQuality(root, opts = {}) {
 
   const catalogBySlug = new Map(catalog.map((c) => [c.slug, c]));
   const originBySlug = new Map((originality.projects ?? []).map((p) => [p.slug, p]));
+  const funnelBySlug = new Map((funnelAudit.projects ?? []).map((p) => [p.slug, p]));
 
   // ---------- assets: hash + dimensões ----------
   const assetIndex = new Map(); // publicPath → meta
@@ -393,6 +397,18 @@ export async function buildVisualQuality(root, opts = {}) {
       if (serviceish < 3) add("CONTENT_SHORT_SERVICES", `${serviceish} menções`);
     }
 
+    // --- coerência do funil (próximo passo / CTA / mensagem) ---
+    const funnel = funnelBySlug.get(slug) ?? null;
+    if (funnel) {
+      for (const issue of funnel.issues ?? []) {
+        if (issue.code === "PORTFOLIO_FUNNEL_CONTEXT_MISMATCH" || issue.code === "PORTFOLIO_FUNNEL_GENERIC_CTA") {
+          add("FUNNEL_CONTEXT_MISMATCH", issue.detail);
+        } else if (issue.code === "PORTFOLIO_FUNNEL_FALLBACK") {
+          add("FUNNEL_CONTEXT_FALLBACK", issue.detail);
+        }
+      }
+    }
+
     // --- originalidade ---
     const origScore = orig?.score ?? null;
     let originalityStatus = "UNREVIEWED";
@@ -444,6 +460,7 @@ export async function buildVisualQuality(root, opts = {}) {
     if (severities.P1 > 0) premiumBlockers.push("issue P1");
     if (originalityStatus === "FAIL") premiumBlockers.push("originalidade FAIL");
     if (coverReview === "REJECTED") premiumBlockers.push("capa REJECTED");
+    if (funnel && funnel.status === "FAIL") premiumBlockers.push("funil incoerente");
     if (!rt) premiumBlockers.push("sem inspeção visual");
 
     let visual;
@@ -477,6 +494,11 @@ export async function buildVisualQuality(root, opts = {}) {
       contentSimilarity: contentMatch,
       charm,
       coverReview,
+      funnelIntent: funnel?.intent ?? null,
+      funnelStatus: funnel?.status ?? "UNREVIEWED",
+      funnelSource: funnel?.source ?? null,
+      funnelNextStep: funnel?.nextStepBody ?? null,
+      funnelCta: funnel?.primaryCtaLabel ?? null,
       visuallyReviewed: Boolean(rt),
       assets: {
         logo: logoPath ? { path: logoPath, ...logo, svg: undefined } : null,

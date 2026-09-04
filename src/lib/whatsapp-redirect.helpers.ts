@@ -45,6 +45,9 @@ export type LeadMessageContext = {
   /** Linhas de contexto sintetizadas da página/CTA de origem. */
   contextLines?: string[] | null;
   requestKind?: "booking" | "campaign" | "service" | null;
+  /** Assunto e próximo passo derivados do contrato de funil do projeto. */
+  requestSubject?: string | null;
+  nextStepPrompt?: string | null;
 };
 
 
@@ -131,7 +134,9 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
   const header: string[] = [];
   const brand = sanitizeText(ctx.brandName, 100);
   const recipient = sanitizeText(ctx.recipientName, 80);
-  const requestSubject = ctx.requestKind === "campaign"
+  const requestSubject = ctx.requestSubject?.trim()
+    ? sanitizeText(ctx.requestSubject, 60)
+    : ctx.requestKind === "campaign"
     ? "uma campanha"
     : ctx.requestKind === "service"
       ? "um serviço"
@@ -194,7 +199,9 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
   ];
 
   if (brand) {
-    const nextStep = ctx.requestKind === "campaign"
+    const nextStep = ctx.nextStepPrompt?.trim()
+      ? sanitizeText(ctx.nextStepPrompt, 240)
+      : ctx.requestKind === "campaign"
       ? "Pode me orientar sobre equipe, locais, quantidade de promotores e investimento estimado, por favor?"
       : ctx.requestKind === "service"
         ? "Pode me orientar sobre disponibilidade, avaliação e investimento estimado, por favor?"

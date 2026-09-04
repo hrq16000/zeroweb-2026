@@ -1,6 +1,6 @@
 # Qualidade visual do /portfolio
 
-Gerado em 2026-09-04T06:28:08.324Z
+Gerado em 2026-09-04T06:47:00.900Z
 Runtime inspecionado em 2026-09-04T05:13:44.185Z
 
 Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
@@ -101,7 +101,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | clinica-integrada | Clínica Integrada de Saúde | saude | COMPLETE | STANDARD | 78 | WARNING (49) | LOGO_PLACEHOLDER, COVER_REUSES_SOCIAL, HERO_NO_IMAGE | P2 |
 | refrigeracao-maresia | Refrigeração Maresia | servicos | COMPLETE | STANDARD | 78 | FAIL (61) | COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO | P2 |
 | confeitaria-sabor-da-realeza | Confeitaria Sabor da Realeza | restaurantes | COMPLETE | STANDARD | 79 | FAIL (66) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
-| diego-montador-moveis | Diego Montador de Móveis | servicos | COMPLETE | STANDARD | 79 | FAIL (72) | ORIGINALITY_FAIL, LOGO_NOT_DEDICATED, FEW_IMAGES | P2 |
+| diego-montador-moveis | Diego Montador de Móveis | servicos | COMPLETE | STANDARD | 79 | FAIL (71) | ORIGINALITY_FAIL, LOGO_NOT_DEDICATED, FEW_IMAGES | P2 |
 | eletrovale-eletromecanica | Eletrovale Eletromecânica | servicos | COMPLETE | STANDARD | 79 | FAIL (87) | ORIGINALITY_FAIL, LOGO_NOT_DEDICATED, FEW_IMAGES | P2 |
 | jkl-marcenaria | JKL Marcenaria | servicos | COMPLETE | STANDARD | 79 | FAIL (83) | ORIGINALITY_FAIL, LOGO_NOT_DEDICATED, FEW_IMAGES | P2 |
 | lj-cleaning | L&J Cleaning | prestadores-de-servicos | COMPLETE | STANDARD | 79 | FAIL (76) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
@@ -109,7 +109,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | almeida-torres | Almeida Torres Advocacia | juridico | COMPLETE | STANDARD | 80 | PASS (34) | LOGO_PLACEHOLDER, COVER_REUSES_SOCIAL, HERO_NO_IMAGE | P2 |
 | manu-pasteis | Manu Pastéis | restaurantes | COMPLETE | STANDARD | 80 | WARNING (53) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, FEW_IMAGES | P2 |
 | artesanatos-darleia-oliveira | Artesanatos Darléia Oliveira | comercios | COMPLETE | STANDARD | 83 | FAIL (73) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
-| assistencia-microondas-santos | Assistência Técnica Microondas Santos | prestadores-de-servicos | COMPLETE | STANDARD | 83 | FAIL (66) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
+| assistencia-microondas-santos | Assistência Técnica Microondas Santos | prestadores-de-servicos | COMPLETE | STANDARD | 83 | FAIL (65) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
 | ecommerce-on | Ecommerce On | agencias | COMPLETE | STANDARD | 83 | FAIL (62) | COVER_SEVERE_CROP, ORIGINALITY_FAIL | P2 |
 | sos-presentes-cosmeticos | SOS Presentes & Cosméticos | comercios | COMPLETE | STANDARD | 83 | FAIL (62) | ORIGINALITY_FAIL, LOGO_NOT_DEDICATED, IDENTITY_WEAK | P2 |
 | thays-camilla | Thays Camilla | comercios | COMPLETE | STANDARD | 83 | FAIL (73) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
@@ -123,9 +123,9 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | paraiso-do-hot-dog | Paraíso do Hot Dog | servicos | COMPLETE | STANDARD | 89 | PASS (29) | MOBILE_OVERFLOW, FEW_IMAGES | P2 |
 | paulo-mestre-de-obras | Paulo Mestre de Obras | servicos | COMPLETE | STANDARD | 89 | FAIL (65) | ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
 | heloa-gas | Heloá Gás | comercios | COMPLETE | STANDARD | 92 | WARNING (47) | SOCIAL_WRONG_RATIO, ORIGINALITY_WARNING | P2 |
-| acai-total-araucaria | Açaí Total | restaurantes | COMPLETE | STANDARD | 93 | FAIL (68) | ORIGINALITY_FAIL | P2 |
-| lolipa-arte-em-festas | Lolipa Arte em Festas Decor | comercios | COMPLETE | STANDARD | 93 | FAIL (70) | ORIGINALITY_FAIL | P2 |
-| premium-envelopamentos | Premium Envelopamentos | prestadores-de-servicos | COMPLETE | STANDARD | 93 | FAIL (70) | ORIGINALITY_FAIL | P2 |
+| acai-total-araucaria | Açaí Total | restaurantes | COMPLETE | STANDARD | 93 | FAIL (69) | ORIGINALITY_FAIL | P2 |
+| lolipa-arte-em-festas | Lolipa Arte em Festas Decor | comercios | COMPLETE | STANDARD | 93 | FAIL (71) | ORIGINALITY_FAIL | P2 |
+| premium-envelopamentos | Premium Envelopamentos | prestadores-de-servicos | COMPLETE | STANDARD | 93 | FAIL (71) | ORIGINALITY_FAIL | P2 |
 | rm-fretes | RM Fretes | servicos | COMPLETE | PREMIUM | 91 | PASS (40) | LOGO_NOT_DEDICATED, FEW_IMAGES | P3 |
 | hbk-iluminacao-led | HBK Iluminação LED Atacadão | construcao | COMPLETE | PREMIUM | 92 | WARNING (42) | COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P3 |
 | jc-revestimentos | JC Revestimentos | construcao | COMPLETE | PREMIUM | 92 | WARNING (42) | COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P3 |

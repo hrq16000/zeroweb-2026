@@ -16,6 +16,11 @@ import {
   VISUAL_BADGE_STYLE,
 } from "@/lib/portfolio-visual-quality";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
+import {
+  auditPortfolioFunnelContext,
+  resolvePortfolioFunnelContext,
+} from "@/lib/portfolio-funnel-context";
+import { buildPortfolioQuizPreviewMessage } from "@/lib/portfolio-quiz-copy";
 import portfolioVisualReview from "@/config/portfolio-visual-review.json";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/$slug")({
@@ -516,6 +521,8 @@ function PortfolioAdminDetail() {
 
       <CoverReviewPanel slug={project.slug} name={project.displayName} />
 
+      <FunnelContextPanel slug={project.slug} name={project.displayName} />
+
       <VisualQualityPanel slug={project.slug} />
     </div>
   );
@@ -538,6 +545,95 @@ const COVER_REVIEW = portfolioVisualReview as Record<
  * (card desktop e card mobile, proporção 16:10 com focal point) ao lado do
  * asset original do cliente, mais a decisão registrada em governança.
  */
+/**
+ * Funil / próximo passo: mostra a intenção comercial resolvida para o projeto,
+ * o texto exibido na página, o CTA e a mensagem que chega ao WhatsApp do
+ * cliente — sem expor número, sempre com a origem do contrato.
+ */
+function FunnelContextPanel({ slug, name }: { slug: string; name: string }) {
+  const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
+  const context = resolvePortfolioFunnelContext(slug);
+  const audit = auditPortfolioFunnelContext(slug);
+  const message = buildPortfolioQuizPreviewMessage({
+    studioName: name,
+    recipientName: name,
+    answers: { service: "", experience: "", period: "", timing: "", note: "" },
+    mode: context.quizMode,
+    proposalKind: context.proposalKind,
+    funnelContext: context,
+  });
+
+  return (
+    <section aria-labelledby="funnel-context" className="mt-6 rounded-xl border border-border bg-card p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="funnel-context" className="font-display text-lg font-semibold">
+          Funil / Próximo passo
+        </h2>
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+          <span className="rounded bg-muted px-2 py-1">{context.intent}</span>
+          <span className="rounded bg-muted px-2 py-1">{context.source}</span>
+          <span className="rounded bg-muted px-2 py-1">{audit.status}</span>
+        </div>
+      </div>
+
+      <dl className="mt-4 grid gap-3 text-sm md:grid-cols-2">
+        <div>
+          <dt className="text-xs uppercase text-muted-foreground">Título exibido</dt>
+          <dd className="mt-1">{context.nextStepTitle}</dd>
+        </div>
+        <div>
+          <dt className="text-xs uppercase text-muted-foreground">Descrição</dt>
+          <dd className="mt-1">{context.nextStepBody}</dd>
+        </div>
+        <div>
+          <dt className="text-xs uppercase text-muted-foreground">CTA</dt>
+          <dd className="mt-1">{context.primaryCtaLabel}</dd>
+        </div>
+        <div>
+          <dt className="text-xs uppercase text-muted-foreground">Modo do funil</dt>
+          <dd className="mt-1">{context.quizMode}</dd>
+        </div>
+      </dl>
+
+      <div className="mt-4 flex items-center gap-2">
+        {(["desktop", "mobile"] as const).map((value) => (
+          <button
+            key={value}
+            type="button"
+            onClick={() => setDevice(value)}
+            className={`rounded border px-3 py-1 text-xs font-semibold ${device === value ? "border-primary bg-primary/10" : "border-border"}`}
+          >
+            {value === "desktop" ? "Desktop" : "Mobile"}
+          </button>
+        ))}
+      </div>
+
+      <div className={`mt-3 rounded-lg border border-border bg-muted/40 p-4 ${device === "mobile" ? "max-w-[390px]" : ""}`}>
+        <p className="font-display text-base font-semibold">{context.nextStepTitle}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{context.nextStepBody}</p>
+        <span className="mt-3 inline-block rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground">
+          {context.primaryCtaLabel}
+        </span>
+      </div>
+
+      <div className="mt-4">
+        <p className="text-xs uppercase text-muted-foreground">Mensagem enviada ao cliente</p>
+        <pre className="mt-2 whitespace-pre-wrap rounded-lg border border-border bg-background p-3 text-xs">{message}</pre>
+      </div>
+
+      {audit.issues.length > 0 && (
+        <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-destructive">
+          {audit.issues.map((issue) => (
+            <li key={issue.code}>
+              {issue.code}: {issue.detail}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
+
 function CoverReviewPanel({ slug, name }: { slug: string; name: string }) {
   const planned = COVER_PLAN[slug];
   const review = COVER_REVIEW[slug] ?? {};

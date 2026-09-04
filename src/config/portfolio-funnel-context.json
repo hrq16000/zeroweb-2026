@@ -1,0 +1,478 @@
+{
+  "acai-total-araucaria": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu açaí, do jeito que o dia pede.",
+    "nextStepBody": "Escolha o tamanho, os cremes e os complementos que mais gosta.",
+    "primaryCtaLabel": "Escolher meu açaí",
+    "theme": "gold"
+  },
+  "ag-electrical-services": {
+    "intent": "orcamento",
+    "nextStepTitle": "Infraestrutura clara antes de qualquer instalação.",
+    "nextStepBody": "Descreva o ambiente e a solução técnica que precisa avaliar.",
+    "primaryCtaLabel": "Solicitar avaliação",
+    "theme": "navy"
+  },
+  "aguia-sul-sinalizacao": {
+    "intent": "orcamento",
+    "nextStepTitle": "Segurança também se constrói com sinalização bem feita.",
+    "nextStepBody": "Descreva o espaço, a demarcação e o objetivo do projeto.",
+    "primaryCtaLabel": "Avaliar sinalização",
+    "theme": "gold"
+  },
+  "almeida-torres": {
+    "intent": "contato",
+    "nextStepTitle": "Decisões jurídicas pedem orientação bem apresentada.",
+    "nextStepBody": "Descreva o assunto para entender a melhor forma de iniciar.",
+    "primaryCtaLabel": "Solicitar orientação",
+    "theme": "navy"
+  },
+  "angel-mix-brecho": {
+    "intent": "contato",
+    "nextStepTitle": "Moda acessível começa com um garimpo que combina com você.",
+    "nextStepBody": "Indique seu estilo, tamanho e o tipo de peça que procura.",
+    "primaryCtaLabel": "Falar sobre uma peça",
+    "theme": "pink"
+  },
+  "artesanatos-darleia-oliveira": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu café merece um momento de aconchego.",
+    "nextStepBody": "Conte a ocasião, a estampa ou a quantidade que deseja conhecer.",
+    "primaryCtaLabel": "Conhecer os produtos",
+    "theme": "gold"
+  },
+  "assistencia-microondas-santos": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Um micro-ondas parado pede um diagnóstico direto.",
+    "nextStepBody": "Informe o defeito, a ferrugem ou o modelo revisado que deseja avaliar com a equipe.",
+    "primaryCtaLabel": "Solicitar avaliação",
+    "theme": "navy"
+  },
+  "beto-pasteis": {
+    "intent": "pedido",
+    "nextStepTitle": "Um pastel bem escolhido muda o ritmo do dia.",
+    "nextStepBody": "Escolha a ocasião e conte o que gostaria de encontrar no menu.",
+    "primaryCtaLabel": "Conhecer sabores",
+    "theme": "gold"
+  },
+  "bh-barreiro-marmitas": {
+    "intent": "pedido",
+    "nextStepTitle": "Uma semana mais prática começa com almoço planejado.",
+    "nextStepBody": "Conte sua rotina e o tipo de refeição que deseja receber no dia a dia.",
+    "primaryCtaLabel": "Ver marmitas do dia",
+    "theme": "gold"
+  },
+  "brecho-sao-francisco": {
+    "intent": "contato",
+    "nextStepTitle": "Roupas com história merecem uma descoberta cuidadosa.",
+    "nextStepBody": "Conte o tipo de peça, o tamanho e o estilo que procura.",
+    "primaryCtaLabel": "Consultar peças",
+    "theme": "gold"
+  },
+  "casa-nativa": {
+    "intent": "reserva",
+    "nextStepTitle": "Uma boa experiência à mesa começa antes da reserva.",
+    "nextStepBody": "Conte a data, o número de pessoas e o horário que pretende visitar o bistrô.",
+    "primaryCtaLabel": "Planejar minha visita",
+    "theme": "gold"
+  },
+  "clinica-integrada": {
+    "intent": "agendamento",
+    "nextStepTitle": "Cuidado em saúde começa com informação clara.",
+    "nextStepBody": "Indique a especialidade ou a orientação que procura para o atendimento.",
+    "primaryCtaLabel": "Agendar atendimento",
+    "theme": "navy"
+  },
+  "confeitaria-chyrley": {
+    "intent": "pedido",
+    "nextStepTitle": "Sua celebração começa na encomenda certa.",
+    "nextStepBody": "Conte a data, o tipo de comemoração e o que imagina servir.",
+    "primaryCtaLabel": "Planejar minha festa",
+    "theme": "pink"
+  },
+  "confeitaria-sabor-da-realeza": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu momento especial merece um sabor à altura.",
+    "nextStepBody": "Conte a data, a ocasião e o que deseja encomendar para sua celebração.",
+    "primaryCtaLabel": "Planejar encomenda",
+    "theme": "pink"
+  },
+  "denise-gomes-psicologa": {
+    "intent": "agendamento",
+    "nextStepTitle": "Cuidar da mente pode começar com uma conversa acolhedora.",
+    "nextStepBody": "Conte o que motivou sua busca e escolha o melhor período para iniciar uma avaliação.",
+    "primaryCtaLabel": "Agendar avaliação",
+    "theme": "pink"
+  },
+  "diego-montador-moveis": {
+    "intent": "orcamento",
+    "nextStepTitle": "Móvel bem montado deixa a casa pronta para viver.",
+    "nextStepBody": "Conte o móvel, a instalação ou o reparo que precisa realizar.",
+    "primaryCtaLabel": "Organizar montagem",
+    "theme": "navy"
+  },
+  "dlara-pizzaria": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu próximo pedido merece um cardápio fácil de explorar.",
+    "nextStepBody": "Escolha pizza, esfiha ou lanche e indique a ocasião do pedido.",
+    "primaryCtaLabel": "Explorar opções",
+    "theme": "gold"
+  },
+  "dyzpromo": {
+    "intent": "solicitacao",
+    "nextStepTitle": "Uma ação em campo começa com planejamento que aparece.",
+    "nextStepBody": "Conte o objetivo, a região e o momento da sua campanha.",
+    "primaryCtaLabel": "Planejar uma ação",
+    "theme": "gold"
+  },
+  "ecommerce-on": {
+    "intent": "contato",
+    "nextStepTitle": "Crescimento digital começa com uma estratégia que cabe no negócio.",
+    "nextStepBody": "Conte o desafio de marca, conteúdo ou vendas que quer resolver.",
+    "primaryCtaLabel": "Conversar sobre estratégia",
+    "theme": "navy"
+  },
+  "eisenfer-tubos-acos": {
+    "intent": "orcamento",
+    "nextStepTitle": "Material certo dá estrutura a cada etapa da obra.",
+    "nextStepBody": "Conte o projeto e os materiais que precisa cotar.",
+    "primaryCtaLabel": "Solicitar cotação",
+    "theme": "gold"
+  },
+  "eletro-solucoes-eficazes": {
+    "intent": "orcamento",
+    "nextStepTitle": "Energia e automação começam em uma solução bem dimensionada.",
+    "nextStepBody": "Conte o ambiente, a instalação e o resultado que procura.",
+    "primaryCtaLabel": "Avaliar solução elétrica",
+    "theme": "navy"
+  },
+  "eletrovale-eletromecanica": {
+    "intent": "orcamento",
+    "nextStepTitle": "Operação parada pede uma avaliação técnica cuidadosa.",
+    "nextStepBody": "Informe o equipamento e o tipo de manutenção necessária.",
+    "primaryCtaLabel": "Solicitar suporte técnico",
+    "theme": "navy"
+  },
+  "emporio-lelecute": {
+    "intent": "pedido",
+    "nextStepTitle": "Pequenos detalhes podem guardar grandes memórias.",
+    "nextStepBody": "Conte a ocasião, o estilo e a lembrança que quer criar.",
+    "primaryCtaLabel": "Escolher lembrancinha",
+    "theme": "pink"
+  },
+  "espaco-cih-luh": {
+    "intent": "agendamento",
+    "nextStepTitle": "Mãos e pés bem cuidados começam com a escolha do tratamento.",
+    "nextStepBody": "Indique o cuidado que procura e a preferência de horário.",
+    "primaryCtaLabel": "Escolher atendimento",
+    "theme": "pink"
+  },
+  "fernanda-amaral-drywall": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua casa muda quando o serviço certo encontra o espaço.",
+    "nextStepBody": "Conte se precisa de drywall, pintura, reforma, montagem, jardim ou frete e indique a região.",
+    "primaryCtaLabel": "Pedir orçamento",
+    "theme": "navy"
+  },
+  "galileu-locacao-brinquedos": {
+    "intent": "reserva",
+    "nextStepTitle": "A diversão da festa começa escolhendo as atrações certas.",
+    "nextStepBody": "Conte a data, o local e o perfil da comemoração para montar seu pedido.",
+    "primaryCtaLabel": "Planejar diversão",
+    "theme": "navy"
+  },
+  "guaratuba-atelie-presentes": {
+    "intent": "pedido",
+    "nextStepTitle": "Um presente com identidade começa na escolha do detalhe.",
+    "nextStepBody": "Conte a ocasião, o estilo e a lembrança que deseja encomendar.",
+    "primaryCtaLabel": "Escolher meu presente",
+    "theme": "pink"
+  },
+  "guaratuba-oficina-nautica": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Cuidar da embarcação começa com diagnóstico organizado.",
+    "nextStepBody": "Conte o tipo de embarcação e o cuidado náutico que precisa avaliar.",
+    "primaryCtaLabel": "Descrever minha embarcação",
+    "theme": "navy"
+  },
+  "guaratuba-reparos-residenciais": {
+    "intent": "orcamento",
+    "nextStepTitle": "Pequenos reparos ficam mais simples quando o escopo é claro.",
+    "nextStepBody": "Descreva o ambiente e o reparo que precisa organizar.",
+    "primaryCtaLabel": "Descrever o reparo",
+    "theme": "navy"
+  },
+  "guaratuba-sabores-da-baia": {
+    "intent": "pedido",
+    "nextStepTitle": "Uma experiência caiçara começa pelo próximo sabor.",
+    "nextStepBody": "Conte se procura almoço, frutos do mar ou uma ocasião para compartilhar.",
+    "primaryCtaLabel": "Ver o cardápio",
+    "theme": "gold"
+  },
+  "hbk-iluminacao-led": {
+    "intent": "orcamento",
+    "nextStepTitle": "A iluminação certa começa com uma escolha bem orientada.",
+    "nextStepBody": "Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação.",
+    "primaryCtaLabel": "Solicitar cotação",
+    "theme": "navy"
+  },
+  "heloa-gas": {
+    "intent": "pedido",
+    "nextStepTitle": "Gás acabou? O pedido começa aqui.",
+    "nextStepBody": "Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega.",
+    "primaryCtaLabel": "Fazer pedido",
+    "theme": "navy"
+  },
+  "jc-revestimentos": {
+    "intent": "orcamento",
+    "nextStepTitle": "O acabamento certo começa com o revestimento adequado ao seu ambiente.",
+    "nextStepBody": "Informe o produto, o ambiente e a metragem para organizar a orientação e o orçamento.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "navy"
+  },
+  "jkl-marcenaria": {
+    "intent": "orcamento",
+    "nextStepTitle": "Móveis sob medida começam entendendo como você vive o espaço.",
+    "nextStepBody": "Conte o ambiente, as medidas e a ideia que quer realizar.",
+    "primaryCtaLabel": "Planejar móvel",
+    "theme": "gold"
+  },
+  "liz-moraes-nail-designer": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu momento de beleza começa com uma escolha feita para você.",
+    "nextStepBody": "Indique o cuidado, acabamento ou molde F1 que deseja e escolha o melhor período para agendar.",
+    "primaryCtaLabel": "Agendar meu horário",
+    "theme": "pink"
+  },
+  "lj-cleaning": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu conforto merece um cuidado completo.",
+    "nextStepBody": "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "navy"
+  },
+  "lk-alvenaria": {
+    "intent": "orcamento",
+    "nextStepTitle": "Cada etapa de obra pede um combinado bem feito.",
+    "nextStepBody": "Conte a fase da construção ou reforma que quer avaliar.",
+    "primaryCtaLabel": "Avaliar minha obra",
+    "theme": "gold"
+  },
+  "lolipa-arte-em-festas": {
+    "intent": "reserva",
+    "nextStepTitle": "A memória da festa começa no cenário que você imagina.",
+    "nextStepBody": "Conte o tema, a ocasião e os detalhes que gostaria de transformar em decoração.",
+    "primaryCtaLabel": "Planejar minha festa",
+    "theme": "pink"
+  },
+  "lucas-arruma-maquina-lavar": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Uma lavadora com problema pede diagnóstico antes de qualquer solução.",
+    "nextStepBody": "Informe o modelo, o sintoma e quando o problema começou.",
+    "primaryCtaLabel": "Pedir diagnóstico",
+    "theme": "navy"
+  },
+  "manu-pasteis": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu pastel da noite começa no cardápio certo.",
+    "nextStepBody": "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.",
+    "primaryCtaLabel": "Abrir cardápio",
+    "theme": "gold"
+  },
+  "marido-de-aluguel": {
+    "intent": "orcamento",
+    "nextStepTitle": "Resolver a casa não precisa virar uma lista sem fim.",
+    "nextStepBody": "Explique o reparo, a montagem ou a instalação que precisa fazer.",
+    "primaryCtaLabel": "Descrever o serviço",
+    "theme": "navy"
+  },
+  "marmitaria-dom-diego": {
+    "intent": "pedido",
+    "nextStepTitle": "Almoço gostoso começa com uma escolha simples.",
+    "nextStepBody": "Conte o que procura no cardápio e como prefere fazer o pedido.",
+    "primaryCtaLabel": "Conhecer cardápio",
+    "theme": "gold"
+  },
+  "mary-diarista": {
+    "intent": "agendamento",
+    "nextStepTitle": "Uma rotina mais leve começa com a agenda certa.",
+    "nextStepBody": "Conte o tipo de limpeza, a frequência e o melhor dia para você.",
+    "primaryCtaLabel": "Consultar agenda",
+    "theme": "pink"
+  },
+  "mirassol-conserta-celular": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Tecnologia parada pede um diagnóstico fácil de entender.",
+    "nextStepBody": "Informe o aparelho, o sintoma e quando o problema começou.",
+    "primaryCtaLabel": "Descrever meu aparelho",
+    "theme": "navy"
+  },
+  "mirassol-delicias-caseiras": {
+    "intent": "pedido",
+    "nextStepTitle": "Uma comemoração gostosa começa com a encomenda certa.",
+    "nextStepBody": "Conte a data, o número de pessoas e o tipo de doce que procura.",
+    "primaryCtaLabel": "Planejar minha encomenda",
+    "theme": "pink"
+  },
+  "miro-tech": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Seu equipamento em boas mãos começa com um diagnóstico claro.",
+    "nextStepBody": "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.",
+    "primaryCtaLabel": "Solicitar avaliação",
+    "theme": "navy"
+  },
+  "mp-festas-eventos": {
+    "intent": "reserva",
+    "nextStepTitle": "A memória da festa começa no cenário.",
+    "nextStepBody": "Conte o tema, a data e o formato que combina com sua celebração.",
+    "primaryCtaLabel": "Planejar decoração",
+    "theme": "pink"
+  },
+  "no-brilho-higienizacao": {
+    "intent": "agendamento",
+    "nextStepTitle": "Cuidado profissional para o que acompanha sua rotina.",
+    "nextStepBody": "Informe a peça, a necessidade e a região do atendimento.",
+    "primaryCtaLabel": "Agendar higienização",
+    "theme": "navy"
+  },
+  "paraiso-do-hot-dog": {
+    "intent": "pedido",
+    "nextStepTitle": "Escolher o próximo lanche pode ser simples.",
+    "nextStepBody": "Veja as combinações e monte um pedido de acordo com sua fome.",
+    "primaryCtaLabel": "Montar pedido",
+    "theme": "gold"
+  },
+  "paulo-mestre-de-obras": {
+    "intent": "orcamento",
+    "nextStepTitle": "Da fundação ao acabamento, a obra começa no planejamento.",
+    "nextStepBody": "Conte o que deseja construir, reformar ou reparar.",
+    "primaryCtaLabel": "Planejar minha obra",
+    "theme": "gold"
+  },
+  "premium-envelopamentos": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu ambiente pode ganhar outra leitura sem reforma.",
+    "nextStepBody": "Conte qual móvel, geladeira ou superfície você quer transformar e qual estilo imagina.",
+    "primaryCtaLabel": "Planejar transformação",
+    "theme": "navy"
+  },
+  "r_beauty": {
+    "intent": "agendamento",
+    "nextStepTitle": "Autocuidado também pode ser uma pausa bem escolhida.",
+    "nextStepBody": "Conte o cuidado que deseja e a preferência de horário para o atendimento.",
+    "primaryCtaLabel": "Conhecer cuidados",
+    "theme": "pink"
+  },
+  "raphael-construcoes": {
+    "intent": "orcamento",
+    "nextStepTitle": "Uma obra bem encaminhada começa com escopo, local e etapa definidos.",
+    "nextStepBody": "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
+    "primaryCtaLabel": "Solicitar avaliação",
+    "theme": "gold"
+  },
+  "refrigeracao-maresia": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Quando o equipamento para, o diagnóstico precisa ser objetivo.",
+    "nextStepBody": "Informe o equipamento, o sintoma e o momento mais adequado.",
+    "primaryCtaLabel": "Relatar o problema",
+    "theme": "navy"
+  },
+  "renata-beauty": {
+    "intent": "agendamento",
+    "nextStepTitle": "Um momento de beleza começa com cuidado na escolha.",
+    "nextStepBody": "Veja os procedimentos e indique o cuidado que procura para o seu horário.",
+    "primaryCtaLabel": "Ver procedimentos",
+    "theme": "pink"
+  },
+  "reuse-house-brecho": {
+    "intent": "contato",
+    "nextStepTitle": "Uma peça especial pode ganhar uma nova história.",
+    "nextStepBody": "Conte o estilo e a peça que procura para receber as opções disponíveis.",
+    "primaryCtaLabel": "Consultar peças",
+    "theme": "navy"
+  },
+  "rj-servicos-drywall": {
+    "intent": "orcamento",
+    "nextStepTitle": "Um ambiente novo começa com uma boa estrutura.",
+    "nextStepBody": "Conte o espaço, o acabamento desejado e a etapa da obra.",
+    "primaryCtaLabel": "Avaliar ambiente",
+    "theme": "navy"
+  },
+  "rm-fretes": {
+    "intent": "orcamento",
+    "nextStepTitle": "Um bom transporte começa com um trajeto bem explicado.",
+    "nextStepBody": "Informe origem, destino, itens e a data que precisa atender.",
+    "primaryCtaLabel": "Organizar meu frete",
+    "theme": "navy"
+  },
+  "salao-da-marcia": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu tempo de autocuidado merece um horário bem escolhido.",
+    "nextStepBody": "Conte o serviço de cabelo, depilação ou beleza que procura.",
+    "primaryCtaLabel": "Reservar horário",
+    "theme": "pink"
+  },
+  "santos-montador-de-moveis": {
+    "intent": "orcamento",
+    "nextStepTitle": "A casa funciona melhor quando cada detalhe fica no lugar.",
+    "nextStepBody": "Conte o que precisa montar, instalar, pintar ou reparar.",
+    "primaryCtaLabel": "Organizar serviço",
+    "theme": "navy"
+  },
+  "sos-presentes-cosmeticos": {
+    "intent": "pedido",
+    "nextStepTitle": "Uma surpresa começa por uma escolha com significado.",
+    "nextStepBody": "Conte a ocasião, a ideia e quando você precisa do presente.",
+    "primaryCtaLabel": "Montar um presente",
+    "theme": "pink"
+  },
+  "studio-de-cilios": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu olhar pode ter um acabamento pensado para você.",
+    "nextStepBody": "Escolha um estilo ou conte o efeito que deseja alcançar.",
+    "primaryCtaLabel": "Escolher estilo",
+    "theme": "pink"
+  },
+  "thays-camilla": {
+    "intent": "pedido",
+    "nextStepTitle": "Um presente especial começa com uma ideia sua.",
+    "nextStepBody": "Conte a mensagem, a imagem ou a ocasião que deseja personalizar.",
+    "primaryCtaLabel": "Montar meu presente",
+    "theme": "pink"
+  },
+  "ton-e-cor": {
+    "intent": "orcamento",
+    "nextStepTitle": "Pintura e pequenos reparos começam com uma avaliação clara do espaço.",
+    "nextStepBody": "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
+    "primaryCtaLabel": "Pedir orçamento",
+    "theme": "navy"
+  },
+  "toquinho-de-gente-brecho": {
+    "intent": "contato",
+    "nextStepTitle": "Garimpar também pode ser uma forma de cuidar do planeta.",
+    "nextStepBody": "Conte se procura peças adultas ou infantis e o tamanho que precisa.",
+    "primaryCtaLabel": "Consultar peças",
+    "theme": "pink"
+  },
+  "uberlandia-eletrica-residencial": {
+    "intent": "orcamento",
+    "nextStepTitle": "Segurança elétrica começa com uma avaliação bem explicada.",
+    "nextStepBody": "Descreva o ambiente e a instalação elétrica que precisa revisar.",
+    "primaryCtaLabel": "Descrever o serviço elétrico",
+    "theme": "navy"
+  },
+  "vila-da-capivara": {
+    "intent": "pedido",
+    "nextStepTitle": "Festa boa tem sabor, afeto e organização.",
+    "nextStepBody": "Escolha a ocasião e conte quantas pessoas quer receber.",
+    "primaryCtaLabel": "Montar meu kit",
+    "theme": "pink"
+  },
+  "woodhouse-hamburgueres": {
+    "intent": "pedido",
+    "nextStepTitle": "Uma noite especial começa no primeiro pedido.",
+    "nextStepBody": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
+    "primaryCtaLabel": "Fazer meu pedido",
+    "theme": "navy"
+  }
+}

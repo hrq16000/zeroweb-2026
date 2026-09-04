@@ -1,0 +1,573 @@
+{
+  "summary": {
+    "audited": 68,
+    "fail": 42,
+    "pass": 26
+  },
+  "projects": [
+    {
+      "slug": "sos-presentes-cosmeticos",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Montar um presente"
+    },
+    {
+      "slug": "ag-electrical-services",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar avaliação"
+    },
+    {
+      "slug": "confeitaria-chyrley",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Planejar minha festa"
+    },
+    {
+      "slug": "mp-festas-eventos",
+      "intent": "reserva",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Planejar decoração"
+    },
+    {
+      "slug": "vila-da-capivara",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Montar meu kit"
+    },
+    {
+      "slug": "paraiso-do-hot-dog",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Montar pedido"
+    },
+    {
+      "slug": "acai-total-araucaria",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Escolher meu açaí"
+    },
+    {
+      "slug": "mary-diarista",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Consultar agenda"
+    },
+    {
+      "slug": "no-brilho-higienizacao",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Agendar higienização"
+    },
+    {
+      "slug": "salao-da-marcia",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Reservar horário"
+    },
+    {
+      "slug": "studio-de-cilios",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Escolher estilo"
+    },
+    {
+      "slug": "renata-beauty",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Ver procedimentos"
+    },
+    {
+      "slug": "r_beauty",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer cuidados"
+    },
+    {
+      "slug": "marido-de-aluguel",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Descrever o serviço"
+    },
+    {
+      "slug": "dyzpromo",
+      "intent": "solicitacao",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Planejar uma ação"
+    },
+    {
+      "slug": "emporio-lelecute",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Escolher lembrancinha"
+    },
+    {
+      "slug": "rm-fretes",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Organizar meu frete"
+    },
+    {
+      "slug": "rj-servicos-drywall",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Avaliar ambiente"
+    },
+    {
+      "slug": "clinica-integrada",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer atendimento"
+    },
+    {
+      "slug": "almeida-torres",
+      "intent": "contato",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar orientação"
+    },
+    {
+      "slug": "casa-nativa",
+      "intent": "reserva",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer o bistrô"
+    },
+    {
+      "slug": "refrigeracao-maresia",
+      "intent": "diagnostico",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Relatar o problema"
+    },
+    {
+      "slug": "lk-alvenaria",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Avaliar minha obra"
+    },
+    {
+      "slug": "lucas-arruma-maquina-lavar",
+      "intent": "diagnostico",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Pedir diagnóstico"
+    },
+    {
+      "slug": "paulo-mestre-de-obras",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Planejar minha obra"
+    },
+    {
+      "slug": "ecommerce-on",
+      "intent": "contato",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Conversar sobre estratégia"
+    },
+    {
+      "slug": "espaco-cih-luh",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Escolher atendimento"
+    },
+    {
+      "slug": "diego-montador-moveis",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Organizar montagem"
+    },
+    {
+      "slug": "aguia-sul-sinalizacao",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Avaliar sinalização"
+    },
+    {
+      "slug": "eletrovale-eletromecanica",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar suporte técnico"
+    },
+    {
+      "slug": "eletro-solucoes-eficazes",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Avaliar solução elétrica"
+    },
+    {
+      "slug": "eisenfer-tubos-acos",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar cotação"
+    },
+    {
+      "slug": "jkl-marcenaria",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Planejar móvel"
+    },
+    {
+      "slug": "santos-montador-de-moveis",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Organizar serviço"
+    },
+    {
+      "slug": "marmitaria-dom-diego",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer cardápio"
+    },
+    {
+      "slug": "beto-pasteis",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer sabores"
+    },
+    {
+      "slug": "woodhouse-hamburgueres",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer a Woodhouse"
+    },
+    {
+      "slug": "dlara-pizzaria",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Explorar opções"
+    },
+    {
+      "slug": "toquinho-de-gente-brecho",
+      "intent": "contato",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Conhecer o projeto"
+    },
+    {
+      "slug": "reuse-house-brecho",
+      "intent": "contato",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Explorar o projeto"
+    },
+    {
+      "slug": "brecho-sao-francisco",
+      "intent": "contato",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Conhecer o projeto"
+    },
+    {
+      "slug": "angel-mix-brecho",
+      "intent": "contato",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Explorar o projeto"
+    },
+    {
+      "slug": "guaratuba-sabores-da-baia",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA",
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Explorar o projeto"
+    },
+    {
+      "slug": "guaratuba-oficina-nautica",
+      "intent": "diagnostico",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Avaliar o projeto"
+    },
+    {
+      "slug": "guaratuba-atelie-presentes",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA",
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Explorar o projeto"
+    },
+    {
+      "slug": "guaratuba-reparos-residenciais",
+      "intent": "orcamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Avaliar o projeto"
+    },
+    {
+      "slug": "mirassol-delicias-caseiras",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA",
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Explorar o projeto"
+    },
+    {
+      "slug": "mirassol-conserta-celular",
+      "intent": "diagnostico",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Avaliar o projeto"
+    },
+    {
+      "slug": "bh-barreiro-marmitas",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA",
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Explorar o projeto"
+    },
+    {
+      "slug": "uberlandia-eletrica-residencial",
+      "intent": "orcamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_GENERIC_CTA"
+      ],
+      "cta": "Avaliar o projeto"
+    },
+    {
+      "slug": "lolipa-arte-em-festas",
+      "intent": "reserva",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Planejar minha festa"
+    },
+    {
+      "slug": "confeitaria-sabor-da-realeza",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Planejar encomenda"
+    },
+    {
+      "slug": "premium-envelopamentos",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Planejar transformação"
+    },
+    {
+      "slug": "miro-tech",
+      "intent": "diagnostico",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar avaliação"
+    },
+    {
+      "slug": "galileu-locacao-brinquedos",
+      "intent": "reserva",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Planejar diversão"
+    },
+    {
+      "slug": "lj-cleaning",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Solicitar orçamento"
+    },
+    {
+      "slug": "manu-pasteis",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Abrir cardápio"
+    },
+    {
+      "slug": "liz-moraes-nail-designer",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Agendar meu horário"
+    },
+    {
+      "slug": "assistencia-microondas-santos",
+      "intent": "diagnostico",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar avaliação"
+    },
+    {
+      "slug": "artesanatos-darleia-oliveira",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Conhecer os produtos"
+    },
+    {
+      "slug": "thays-camilla",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Montar meu presente"
+    },
+    {
+      "slug": "fernanda-amaral-drywall",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Pedir orçamento"
+    },
+    {
+      "slug": "denise-gomes-psicologa",
+      "intent": "agendamento",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Agendar avaliação"
+    },
+    {
+      "slug": "ton-e-cor",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Pedir orçamento"
+    },
+    {
+      "slug": "raphael-construcoes",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar avaliação"
+    },
+    {
+      "slug": "jc-revestimentos",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar orçamento"
+    },
+    {
+      "slug": "heloa-gas",
+      "intent": "pedido",
+      "status": "FAIL",
+      "codes": [
+        "PORTFOLIO_FUNNEL_INTENT_MODE_MISMATCH"
+      ],
+      "cta": "Fazer pedido"
+    },
+    {
+      "slug": "hbk-iluminacao-led",
+      "intent": "orcamento",
+      "status": "PASS",
+      "codes": [],
+      "cta": "Solicitar cotação"
+    }
+  ]
+}
