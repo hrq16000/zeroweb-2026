@@ -198,7 +198,7 @@
         "STRUCTURE_SIMILARITY": 16.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 20,
+        "STYLE_SIMILARITY": 24,
         "COPY_SIMILARITY": 2.5,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -383,15 +383,15 @@
       "title": "Brechó São Francisco",
       "segment": "comercios",
       "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
-      "score": 59,
+      "score": 60,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 59,
+      "nearestMatchScore": 60,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 25.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 36.2,
+        "STYLE_SIMILARITY": 40.7,
         "COPY_SIMILARITY": 2.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -2163,7 +2163,7 @@
         "STRUCTURE_SIMILARITY": 19.4,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 31.5,
+        "STYLE_SIMILARITY": 33.8,
         "COPY_SIMILARITY": 1.3,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -2503,15 +2503,15 @@
       "title": "Toquinho de Gente Brechó Adulto e Infantil",
       "segment": "comercios",
       "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
-      "score": 59,
+      "score": 60,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "brecho-sao-francisco",
-      "nearestMatchScore": 59,
+      "nearestMatchScore": 60,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 25.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 36.2,
+        "STYLE_SIMILARITY": 40.7,
         "COPY_SIMILARITY": 2.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -3129,12 +3129,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "reuse-house-brecho",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "toquinho-de-gente-brecho",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "toquinho-de-gente-brecho",
+          "slug": "reuse-house-brecho",
           "score": 40,
           "reason": "DISTINCT"
         }
@@ -3210,12 +3210,12 @@
       "brecho-sao-francisco": [
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 59,
+          "score": 60,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "reuse-house-brecho",
-          "score": 45,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3997,7 +3997,7 @@
         },
         {
           "slug": "brecho-sao-francisco",
-          "score": 45,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4145,7 +4145,7 @@
       "toquinho-de-gente-brecho": [
         {
           "slug": "brecho-sao-francisco",
-          "score": 59,
+          "score": 60,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4155,8 +4155,8 @@
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 40,
-          "reason": "DISTINCT"
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "uberlandia-eletrica-residencial": [
@@ -4217,18 +4217,20 @@
     "baseline": {
       "total": 68,
       "original": 0,
-      "acceptable": 7,
-      "attention": 16,
-      "highSimilarity": 26,
-      "clone": 19,
+      "acceptable": 16,
+      "attention": 27,
+      "highSimilarity": 21,
+      "clone": 4,
       "sharedFallback": 0,
-      "clusters": 4,
-      "placeholderLogos": 11,
+      "clusters": 1,
+      "placeholderLogos": 0,
       "missingLogos": 0,
       "missingCovers": 27,
       "coversAsSocialImage": 11,
       "sharedCovers": 0,
-      "severeCrop": 22
+      "severeCrop": 22,
+      "invalidCrossClientAssets": 0,
+      "suspiciousSharedAssets": 0
     },
     "current": {
       "total": 68,
@@ -4250,220 +4252,6 @@
     },
     "verdict": "PASS",
     "regressions": [],
-    "improvements": [
-      {
-        "kind": "COUNTER",
-        "key": "highSimilarity",
-        "label": "projetos HIGH_SIMILARITY",
-        "before": 26,
-        "after": 21
-      },
-      {
-        "kind": "COUNTER",
-        "key": "clone",
-        "label": "clones",
-        "before": 19,
-        "after": 4
-      },
-      {
-        "kind": "COUNTER",
-        "key": "placeholderLogos",
-        "label": "logos placeholder",
-        "before": 11,
-        "after": 0
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "aguia-sul-sinalizacao",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "angel-mix-brecho",
-        "before": "CLONE",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "assistencia-microondas-santos",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "bh-barreiro-marmitas",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "brecho-sao-francisco",
-        "before": "CLONE",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "casa-nativa",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "confeitaria-chyrley",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "confeitaria-sabor-da-realeza",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "denise-gomes-psicologa",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "ecommerce-on",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "eisenfer-tubos-acos",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "eletro-solucoes-eficazes",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "eletrovale-eletromecanica",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "espaco-cih-luh",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "guaratuba-oficina-nautica",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "hbk-iluminacao-led",
-        "before": "CLONE",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "jc-revestimentos",
-        "before": "CLONE",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "jkl-marcenaria",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "liz-moraes-nail-designer",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "marido-de-aluguel",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "mp-festas-eventos",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "paulo-mestre-de-obras",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "raphael-construcoes",
-        "before": "CLONE",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "refrigeracao-maresia",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "reuse-house-brecho",
-        "before": "CLONE",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "salao-da-marcia",
-        "before": "CLONE",
-        "after": "HIGH_SIMILARITY"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "sos-presentes-cosmeticos",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "studio-de-cilios",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "ton-e-cor",
-        "before": "CLONE",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "toquinho-de-gente-brecho",
-        "before": "CLONE",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "uberlandia-eletrica-residencial",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "vila-da-capivara",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      }
-    ]
+    "improvements": []
   }
 }

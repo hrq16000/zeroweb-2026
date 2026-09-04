@@ -99,12 +99,12 @@ Nenhum asset percebido compartilhado entre clientes.
 | thays-camilla | 63 | HIGH_SIMILARITY | artesanatos-darleia-oliveira (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | acai-total-araucaria | 62 | HIGH_SIMILARITY | eletrovale-eletromecanica (62) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | miro-tech | 61 | HIGH_SIMILARITY | lj-cleaning (61) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| brecho-sao-francisco | 60 | ATTENTION | toquinho-de-gente-brecho (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | liz-moraes-nail-designer | 60 | ATTENTION | salao-da-marcia (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| brecho-sao-francisco | 59 | ATTENTION | toquinho-de-gente-brecho (59) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| toquinho-de-gente-brecho | 60 | ATTENTION | brecho-sao-francisco (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-sabor-da-realeza | 59 | ATTENTION | lolipa-arte-em-festas (59) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mp-festas-eventos | 59 | ATTENTION | studio-de-cilios (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | studio-de-cilios | 59 | ATTENTION | mp-festas-eventos (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| toquinho-de-gente-brecho | 59 | ATTENTION | brecho-sao-francisco (59) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | assistencia-microondas-santos | 58 | ATTENTION | premium-envelopamentos (58) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | paulo-mestre-de-obras | 58 | ATTENTION | lucas-arruma-maquina-lavar (58) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
@@ -149,39 +149,4 @@ Veredito: **PASS**
 
 Nenhuma regressão em relação à baseline.
 
-Melhorias:
-- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":26,"after":21}
-- {"kind":"COUNTER","key":"clone","label":"clones","before":19,"after":4}
-- {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":11,"after":0}
-- {"kind":"MODIFIED_PROJECT","slug":"aguia-sul-sinalizacao","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"angel-mix-brecho","before":"CLONE","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"assistencia-microondas-santos","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"bh-barreiro-marmitas","before":"ATTENTION","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"brecho-sao-francisco","before":"CLONE","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"casa-nativa","before":"ATTENTION","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"confeitaria-chyrley","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"confeitaria-sabor-da-realeza","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"denise-gomes-psicologa","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"ecommerce-on","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"eisenfer-tubos-acos","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"eletro-solucoes-eficazes","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"eletrovale-eletromecanica","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"espaco-cih-luh","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-oficina-nautica","before":"ATTENTION","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"hbk-iluminacao-led","before":"CLONE","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"jc-revestimentos","before":"CLONE","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"jkl-marcenaria","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"liz-moraes-nail-designer","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"marido-de-aluguel","before":"ATTENTION","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"mp-festas-eventos","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"paulo-mestre-de-obras","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"raphael-construcoes","before":"CLONE","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"refrigeracao-maresia","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"reuse-house-brecho","before":"CLONE","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"salao-da-marcia","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"sos-presentes-cosmeticos","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"studio-de-cilios","before":"HIGH_SIMILARITY","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"ton-e-cor","before":"CLONE","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"toquinho-de-gente-brecho","before":"CLONE","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"uberlandia-eletrica-residencial","before":"ATTENTION","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"vila-da-capivara","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+
