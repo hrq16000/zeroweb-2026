@@ -79,8 +79,15 @@ const COLLECT = `(() => {
     if (r.height < 40 || r.width < 40) smallTargets++;
   }
 
-  // hero: primeira seção/header visível
-  const hero = doc.querySelector("section, header, main > div");
+  // hero: bloco do primeiro h1 (ou primeira seção alta), ignorando navegação
+  let hero = null;
+  const firstH1 = doc.querySelector("h1");
+  if (firstH1) hero = firstH1.closest("section, header, div[class*=hero], main > div") || firstH1.parentElement;
+  if (!hero) {
+    hero = Array.from(doc.querySelectorAll("section, header, main > div")).find(
+      (el) => el.getBoundingClientRect().height > 280,
+    ) || doc.querySelector("section, header, main > div");
+  }
   let heroInfo = null;
   if (hero) {
     const r = hero.getBoundingClientRect();
