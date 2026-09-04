@@ -4207,26 +4207,35 @@ export type Database = {
           archived_at: string | null
           brand_colors: Json
           canonical_url: string
+          catalog_cover_url: string
           city: string
           client_key: string
+          content_blocks: Json
           content_version: number
+          cover_focal: Json
           created_at: string
           cta_label: string
           display_name: string
           funnel_enabled: boolean
           funnel_recipient: string
           gallery: Json
+          gallery_items: Json
+          hero_focal: Json
           hero_headline: string
           hero_image_url: string
           hero_subheadline: string
           id: string
           lifecycle_status: string
           logo_url: string
+          preset: string
+          project_kind: string
           published: boolean
+          ready_at: string | null
           segment: string
           seo_description: string
           seo_keywords: string
           seo_title: string
+          services: Json
           share_copy: string
           slug: string
           social_image_url: string
@@ -4241,26 +4250,35 @@ export type Database = {
           archived_at?: string | null
           brand_colors?: Json
           canonical_url?: string
+          catalog_cover_url?: string
           city?: string
           client_key: string
+          content_blocks?: Json
           content_version?: number
+          cover_focal?: Json
           created_at?: string
           cta_label?: string
           display_name?: string
           funnel_enabled?: boolean
           funnel_recipient?: string
           gallery?: Json
+          gallery_items?: Json
+          hero_focal?: Json
           hero_headline?: string
           hero_image_url?: string
           hero_subheadline?: string
           id?: string
           lifecycle_status?: string
           logo_url?: string
+          preset?: string
+          project_kind?: string
           published?: boolean
+          ready_at?: string | null
           segment?: string
           seo_description?: string
           seo_keywords?: string
           seo_title?: string
+          services?: Json
           share_copy?: string
           slug: string
           social_image_url?: string
@@ -4275,26 +4293,35 @@ export type Database = {
           archived_at?: string | null
           brand_colors?: Json
           canonical_url?: string
+          catalog_cover_url?: string
           city?: string
           client_key?: string
+          content_blocks?: Json
           content_version?: number
+          cover_focal?: Json
           created_at?: string
           cta_label?: string
           display_name?: string
           funnel_enabled?: boolean
           funnel_recipient?: string
           gallery?: Json
+          gallery_items?: Json
+          hero_focal?: Json
           hero_headline?: string
           hero_image_url?: string
           hero_subheadline?: string
           id?: string
           lifecycle_status?: string
           logo_url?: string
+          preset?: string
+          project_kind?: string
           published?: boolean
+          ready_at?: string | null
           segment?: string
           seo_description?: string
           seo_keywords?: string
           seo_title?: string
+          services?: Json
           share_copy?: string
           slug?: string
           social_image_url?: string

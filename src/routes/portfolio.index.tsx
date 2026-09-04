@@ -32,6 +32,8 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
 import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
+import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions";
+import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import {
   PORTFOLIO_SEGMENTS,
@@ -273,6 +275,15 @@ type PortfolioSearch = {
 };
 
 export const Route = createFileRoute("/portfolio/")({
+  // Projetos criados pelo painel entram no catálogo sem edição de JSON.
+  loader: async () => {
+    try {
+      const managed = await listPublishedManagedProjects();
+      return { managed };
+    } catch {
+      return { managed: [] as ManagedProject[] };
+    }
+  },
   validateSearch: (search: Record<string, unknown>): PortfolioSearch => {
     const parsed: PortfolioSearch = {};
     if (typeof search.segment === "string") parsed.segment = search.segment;
@@ -333,6 +344,31 @@ function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState(routeSearch.segment ?? "todos");
   const [activeBranch, setActiveBranch] = useState(routeSearch.ramo ?? "todos");
   const [search, setSearch] = useState(routeSearch.q ?? "");
+  const { managed } = Route.useLoaderData();
+  const catalogItems = useMemo<PortfolioItem[]>(
+    () => [
+      ...PORTFOLIO_ITEMS,
+      ...managed.map((project) => ({
+        slug: `/portfolio/${project.slug}`,
+        clientKey: project.clientKey,
+        title: project.displayName,
+        segment: project.segment || "servicos",
+        projectType: "site",
+        status: "published",
+        city: project.city,
+        state: project.state,
+        tags: [] as string[],
+        live: true,
+        subtitle: project.summary,
+        location: [project.city, project.state].filter(Boolean).join(" — "),
+        image: project.catalogCoverUrl || project.socialImage || "/og-default.jpg",
+        fallbackImage: project.socialImage || "/og-default.jpg",
+        id: project.slug,
+        category: project.segment || "servicos",
+      })) as unknown as PortfolioItem[],
+    ],
+    [managed],
+  );
   const [sort, setSort] = useState(routeSearch.sort ?? "recent");
   const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
   const [region, setRegion] = useState("todas");
@@ -345,7 +381,7 @@ function PortfolioPage() {
     () =>
       Array.from(
         new Set(
-          PORTFOLIO_ITEMS.map((item) => item.location?.trim()).filter(
+          catalogItems.map((item) => item.location?.trim()).filter(
             (location): location is string => Boolean(location),
           ),
         ),
@@ -354,7 +390,7 @@ function PortfolioPage() {
   );
   const availableBranches = useMemo(
     () =>
-      Array.from(new Set(PORTFOLIO_ITEMS.flatMap((item) => item.tags)))
+      Array.from(new Set(catalogItems.flatMap((item) => item.tags)))
         .filter(Boolean)
         .sort((a, b) => a.localeCompare(b, "pt-BR")),
     [],
@@ -386,7 +422,7 @@ function PortfolioPage() {
         ? 1
         : 0;
 
-    return PORTFOLIO_ITEMS.filter(
+    return catalogItems.filter(
       (item) =>
         (activeCategory === "todos" || item.category === activeCategory) &&
         (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
@@ -605,7 +641,7 @@ function PortfolioPage() {
                   </fieldset>
                   <div className="space-y-3 border-t border-border pt-5 text-sm text-muted-foreground">
                     <p className="flex items-center gap-2">
-                      <LayoutGrid className="h-4 w-4 text-primary" /> {PORTFOLIO_ITEMS.length}{" "}
+                      <LayoutGrid className="h-4 w-4 text-primary" /> {catalogItems.length}{" "}
                       projetos publicados
                     </p>
                     <p className="flex items-center gap-2">
