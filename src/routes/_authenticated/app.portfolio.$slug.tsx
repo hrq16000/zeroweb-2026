@@ -10,6 +10,11 @@ import {
   uploadPortfolioAdminAsset,
 } from "@/lib/portfolio-admin.functions";
 import type { MergedProject } from "@/lib/portfolio-admin";
+import {
+  getVisualQuality,
+  SEVERITY_STYLE,
+  VISUAL_BADGE_STYLE,
+} from "@/lib/portfolio-visual-quality";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/$slug")({
   component: PortfolioAdminDetail,
@@ -506,6 +511,78 @@ function PortfolioAdminDetail() {
           </div>
         )}
       </div>
+
+      <VisualQualityPanel slug={project.slug} />
     </div>
+  );
+}
+
+function VisualQualityPanel({ slug }: { slug: string }) {
+  const vq = getVisualQuality(slug);
+  if (!vq) {
+    return (
+      <section className="mt-6 rounded-xl border border-dashed border-border p-6 text-sm text-muted-foreground">
+        Sem auditoria de qualidade visual para este projeto. Rode{" "}
+        <code>bun run check:portfolio-visual-quality</code>.
+      </section>
+    );
+  }
+  return (
+    <section aria-labelledby="vq-detail" className="mt-6 rounded-xl border border-border bg-card p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="vq-detail" className="font-display text-lg font-semibold">
+          Qualidade visual
+        </h2>
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+          <span className={`rounded px-2 py-1 ${VISUAL_BADGE_STYLE[vq.visual]}`}>
+            {vq.visual} · {vq.score}/100
+          </span>
+          <span className="rounded bg-muted px-2 py-1">Originalidade {vq.originalityStatus}</span>
+          <span className="rounded bg-muted px-2 py-1">Encanto {vq.charm}</span>
+          <span className="rounded bg-muted px-2 py-1">
+            {vq.visuallyReviewed ? "Render real inspecionado" : "Sem render real"}
+          </span>
+        </div>
+      </div>
+
+      <p className="mt-2 text-xs text-muted-foreground">
+        Camada independente da conformidade técnica ({vq.technical}). Só issues P0 bloqueiam o gate;
+        o restante é fila de melhoria.
+      </p>
+
+      <dl className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-5">
+        {Object.entries(vq.groupScores).map(([group, value]) => (
+          <div key={group} className="rounded-lg border border-border p-3">
+            <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{group}</dt>
+            <dd className="mt-1 text-sm font-semibold">{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <ul className="mt-4 space-y-2">
+        {vq.issues.map((issue) => (
+          <li
+            key={`${issue.code}-${issue.detail ?? ""}`}
+            className="flex flex-wrap items-start gap-2 rounded-md border border-border p-3 text-sm"
+          >
+            <span className={`rounded px-2 py-0.5 text-[11px] font-semibold ${SEVERITY_STYLE[issue.severity]}`}>
+              {issue.severity}
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="font-medium">{issue.label}</span>
+              {issue.detail ? (
+                <span className="block text-xs text-muted-foreground">{issue.detail}</span>
+              ) : null}
+            </span>
+            <code className="text-[11px] text-muted-foreground">{issue.code}</code>
+          </li>
+        ))}
+        {vq.issues.length === 0 && (
+          <li className="rounded-md border border-dashed border-border p-4 text-sm text-muted-foreground">
+            Nenhuma issue registrada nesta auditoria.
+          </li>
+        )}
+      </ul>
+    </section>
   );
 }
