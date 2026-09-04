@@ -45,6 +45,7 @@ export const ISSUES = {
   IMAGE_BROKEN_RUNTIME: { severity: "P0", group: "mobile", penalty: 10, label: "Imagem quebrada na renderização real" },
   PAGE_ERROR: { severity: "P0", group: "mobile", penalty: 10, label: "Página não renderizou (erro ou status != 200)" },
 
+  COVER_NOT_DEDICATED: { severity: "P1", group: "cover", penalty: 6, label: "Sem capa dedicada no catálogo (card cai no fallback social/logo)" },
   COVER_SEVERE_CROP: { severity: "P1", group: "cover", penalty: 7, label: "Capa com proporção incompatível com o card (corte severo)" },
   COVER_IS_LOGO: { severity: "P1", group: "cover", penalty: 6, label: "Capa do catálogo é a própria logo" },
   COVER_LOW_RES: { severity: "P1", group: "cover", penalty: 5, label: "Capa com resolução insuficiente para o card" },
@@ -208,7 +209,13 @@ export async function buildVisualQuality(root, opts = {}) {
     }
   }
 
-  const slugOfPath = (p) => p.match(/^\/images\/([^/]+)\//)?.[1] ?? null;
+  const knownSlugs = new Set(records.map((r) => r.slug));
+  /** Dono do arquivo: só quando ele vive no diretório de um projeto conhecido. */
+  const slugOfPath = (p) => {
+    const s = p.match(/^\/images\/([^/]+)\//)?.[1] ?? null;
+    return s && knownSlugs.has(s) ? s : null;
+  };
+  const ownersOf = (paths) => new Set((paths ?? []).map(slugOfPath).filter(Boolean));
 
   // ---------- boilerplate compartilhado (para similaridade editorial justa) ----------
   const runtimeText = new Map();
@@ -253,7 +260,7 @@ export async function buildVisualQuality(root, opts = {}) {
   // ---------- assets cruzados ----------
   const crossAssets = [];
   for (const [hash, paths] of hashToPaths) {
-    const slugs = [...new Set(paths.map(slugOfPath).filter(Boolean))];
+    const slugs = [...ownersOf(paths)];
     if (slugs.length < 2) continue;
     const usage = paths.map((p) => {
       const s = slugOfPath(p);
@@ -308,11 +315,14 @@ export async function buildVisualQuality(root, opts = {}) {
       const side = Math.min(logo.width ?? 0, logo.height ?? 0);
       if (side && side < 128 && !/\.svg$/i.test(logoPath)) add("LOGO_LOW_RES", `${logo.width}x${logo.height}`);
       const shared = hashToPaths.get(logo.hash) ?? [];
-      if (new Set(shared.map(slugOfPath)).size > 1) add("ASSET_CROSS_CLIENT", `logo: ${shared.join(", ")}`);
+      if (ownersOf(shared).size > 1) add("ASSET_CROSS_CLIENT", `logo: ${shared.join(", ")}`);
     }
 
     // --- capa ---
-    const coverPath = cat.image ?? "";
+    // Precedência real do card em /portfolio: catalog.image → social → logo → default.
+    const dedicatedCover = typeof cat.image === "string" && cat.image ? cat.image : null;
+    const coverPath = dedicatedCover ?? rec.socialImage ?? rec.icon ?? "";
+    if (!dedicatedCover) add("COVER_NOT_DEDICATED", coverPath || "/og-default.jpg");
     const cover = coverPath ? assetIndex.get(coverPath) ?? { missing: true } : { missing: true };
     if (!coverPath || cover.missing) add("COVER_BROKEN", coverPath || null);
     else {
@@ -322,7 +332,7 @@ export async function buildVisualQuality(root, opts = {}) {
       if (coverPath === logoPath) add("COVER_IS_LOGO", coverPath);
       if (coverPath === rec.socialImage) add("COVER_REUSES_SOCIAL", coverPath);
       const shared = hashToPaths.get(cover.hash) ?? [];
-      if (new Set(shared.map(slugOfPath)).size > 1) add("COVER_CROSS_CLIENT", shared.join(", "));
+      if (ownersOf(shared).size > 1) add("COVER_CROSS_CLIENT", shared.join(", "));
       if (!cat.imageFocalPoint && !cat.focalPoint) add("COVER_NO_FOCAL_POINT");
     }
 
@@ -334,7 +344,7 @@ export async function buildVisualQuality(root, opts = {}) {
         add("SOCIAL_WRONG_RATIO", `${social.width}x${social.height}`);
       }
       const shared = hashToPaths.get(social.hash) ?? [];
-      if (new Set(shared.map(slugOfPath)).size > 1) add("SOCIAL_CROSS_CLIENT", shared.join(", "));
+      if (ownersOf(shared).size > 1) add("SOCIAL_CROSS_CLIENT", shared.join(", "));
     }
 
     // --- runtime / hero / mobile ---
@@ -362,8 +372,7 @@ export async function buildVisualQuality(root, opts = {}) {
     if (gallery.length >= 4 && distinctHashes.size < gallery.length - 1) add("IMAGES_LOW_DIVERSITY");
     for (const g of gallery) {
       const shared = hashToPaths.get(g.hash) ?? [];
-      const slugs = new Set(shared.map(slugOfPath).filter(Boolean));
-      if (slugs.size > 1) add("ASSET_CROSS_CLIENT", shared.join(", "));
+      if (ownersOf(shared).size > 1) add("ASSET_CROSS_CLIENT", shared.join(", "));
     }
 
     // --- conteúdo ---
