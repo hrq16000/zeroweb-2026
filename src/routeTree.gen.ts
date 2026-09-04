@@ -205,6 +205,8 @@ import { Route as AuthenticatedAppLeadsPortfolioRouteImport } from './routes/_au
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
+import { Route as AuthenticatedAppPortfolioIndexRouteImport } from './routes/_authenticated/app.portfolio.index'
+import { Route as AuthenticatedAppPortfolioSlugRouteImport } from './routes/_authenticated/app.portfolio.$slug'
 import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authenticated/app.projects.$id'
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
@@ -221,6 +223,7 @@ import { Route as ApiPublicHooksSeoMonitorRouteImport } from './routes/api/publi
 import { Route as ApiPublicHooksSocialRegenLogRouteImport } from './routes/api/public/hooks/social-regen-log'
 import { Route as ApiPublicHooksStripeRouteImport } from './routes/api/public/hooks/stripe'
 import { Route as ApiPublicHooksVisitorsCleanupRouteImport } from './routes/api/public/hooks/visitors-cleanup'
+import { Route as ApiPublicPortfolioAssetSplatRouteImport } from './routes/api/public/portfolio-asset.$'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as RWhatsappReissueTokenRouteImport } from './routes/r.whatsapp.reissue.$token'
 import { Route as AuthenticatedAppFunisPipelineRegrasRouteImport } from './routes/_authenticated/app.funis.pipeline.regras'
@@ -1263,6 +1266,18 @@ const AuthenticatedAppMarketplaceProviderRoute =
     path: '/provider',
     getParentRoute: () => AuthenticatedAppMarketplaceRoute,
   } as any)
+const AuthenticatedAppPortfolioIndexRoute =
+  AuthenticatedAppPortfolioIndexRouteImport.update({
+    id: '/portfolio/',
+    path: '/portfolio/',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppPortfolioSlugRoute =
+  AuthenticatedAppPortfolioSlugRouteImport.update({
+    id: '/portfolio/$slug',
+    path: '/portfolio/$slug',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppProjectsIdRoute =
   AuthenticatedAppProjectsIdRouteImport.update({
     id: '/$id',
@@ -1355,6 +1370,12 @@ const ApiPublicHooksVisitorsCleanupRoute =
   ApiPublicHooksVisitorsCleanupRouteImport.update({
     id: '/api/public/hooks/visitors-cleanup',
     path: '/api/public/hooks/visitors-cleanup',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPortfolioAssetSplatRoute =
+  ApiPublicPortfolioAssetSplatRouteImport.update({
+    id: '/api/public/portfolio-asset/$',
+    path: '/api/public/portfolio-asset/$',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LovableEmailTransactionalPreviewRoute =
@@ -1575,6 +1596,7 @@ export interface FileRoutesByFullPath {
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
+  '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -1591,10 +1613,12 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/api/public/portfolio-asset/$': typeof ApiPublicPortfolioAssetSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
+  '/app/portfolio/': typeof AuthenticatedAppPortfolioIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1788,6 +1812,7 @@ export interface FileRoutesByTo {
   '/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
+  '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -1804,10 +1829,12 @@ export interface FileRoutesByTo {
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/api/public/portfolio-asset/$': typeof ApiPublicPortfolioAssetSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
   '/app/leads': typeof AuthenticatedAppLeadsIndexRoute
+  '/app/portfolio': typeof AuthenticatedAppPortfolioIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2007,6 +2034,7 @@ export interface FileRoutesById {
   '/_authenticated/app/marketplace/admin': typeof AuthenticatedAppMarketplaceAdminRoute
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
+  '/_authenticated/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
   '/_authenticated/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/_authenticated/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/_authenticated/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2023,10 +2051,12 @@ export interface FileRoutesById {
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/api/public/portfolio-asset/$': typeof ApiPublicPortfolioAssetSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/_authenticated/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
+  '/_authenticated/app/portfolio/': typeof AuthenticatedAppPortfolioIndexRoute
   '/_authenticated/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2226,6 +2256,7 @@ export interface FileRouteTypes {
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
+    | '/app/portfolio/$slug'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2242,10 +2273,12 @@ export interface FileRouteTypes {
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/api/public/portfolio-asset/$'
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis/'
     | '/app/leads/'
+    | '/app/portfolio/'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -2439,6 +2472,7 @@ export interface FileRouteTypes {
     | '/app/marketplace/admin'
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
+    | '/app/portfolio/$slug'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2455,10 +2489,12 @@ export interface FileRouteTypes {
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/api/public/portfolio-asset/$'
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis'
     | '/app/leads'
+    | '/app/portfolio'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   id:
@@ -2657,6 +2693,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/marketplace/admin'
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
+    | '/_authenticated/app/portfolio/$slug'
     | '/_authenticated/app/projects/$id'
     | '/_authenticated/app/servicos/seo-diff'
     | '/_authenticated/app/support/$id'
@@ -2673,10 +2710,12 @@ export interface FileRouteTypes {
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/api/public/portfolio-asset/$'
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/_authenticated/app/funis/'
     | '/_authenticated/app/leads/'
+    | '/_authenticated/app/portfolio/'
     | '/_authenticated/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesById: FileRoutesById
@@ -2815,6 +2854,7 @@ export interface RootRouteChildren {
   ApiPublicHooksSocialRegenLogRoute: typeof ApiPublicHooksSocialRegenLogRoute
   ApiPublicHooksStripeRoute: typeof ApiPublicHooksStripeRoute
   ApiPublicHooksVisitorsCleanupRoute: typeof ApiPublicHooksVisitorsCleanupRoute
+  ApiPublicPortfolioAssetSplatRoute: typeof ApiPublicPortfolioAssetSplatRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
   RWhatsappReissueTokenRoute: typeof RWhatsappReissueTokenRoute
   ApiPublicLandingImagePageFileRoute: typeof ApiPublicLandingImagePageFileRoute
@@ -4194,6 +4234,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppMarketplaceProviderRouteImport
       parentRoute: typeof AuthenticatedAppMarketplaceRoute
     }
+    '/_authenticated/app/portfolio/': {
+      id: '/_authenticated/app/portfolio/'
+      path: '/portfolio'
+      fullPath: '/app/portfolio/'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioIndexRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/portfolio/$slug': {
+      id: '/_authenticated/app/portfolio/$slug'
+      path: '/portfolio/$slug'
+      fullPath: '/app/portfolio/$slug'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioSlugRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/projects/$id': {
       id: '/_authenticated/app/projects/$id'
       path: '/$id'
@@ -4304,6 +4358,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/hooks/visitors-cleanup'
       fullPath: '/api/public/hooks/visitors-cleanup'
       preLoaderRoute: typeof ApiPublicHooksVisitorsCleanupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/portfolio-asset/$': {
+      id: '/api/public/portfolio-asset/$'
+      path: '/api/public/portfolio-asset/$'
+      fullPath: '/api/public/portfolio-asset/$'
+      preLoaderRoute: typeof ApiPublicPortfolioAssetSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/transactional/preview': {
@@ -4499,7 +4560,9 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisIdRoute: typeof AuthenticatedAppFunisIdRoute
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
   AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
+  AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
+  AuthenticatedAppPortfolioIndexRoute: typeof AuthenticatedAppPortfolioIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
 }
 
@@ -4556,7 +4619,9 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisIdRoute: AuthenticatedAppFunisIdRoute,
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
   AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
+  AuthenticatedAppPortfolioSlugRoute: AuthenticatedAppPortfolioSlugRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
+  AuthenticatedAppPortfolioIndexRoute: AuthenticatedAppPortfolioIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
     AuthenticatedAppFunisPipelineRegrasRoute,
 }
@@ -4777,6 +4842,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksSocialRegenLogRoute: ApiPublicHooksSocialRegenLogRoute,
   ApiPublicHooksStripeRoute: ApiPublicHooksStripeRoute,
   ApiPublicHooksVisitorsCleanupRoute: ApiPublicHooksVisitorsCleanupRoute,
+  ApiPublicPortfolioAssetSplatRoute: ApiPublicPortfolioAssetSplatRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
   RWhatsappReissueTokenRoute: RWhatsappReissueTokenRoute,
   ApiPublicLandingImagePageFileRoute: ApiPublicLandingImagePageFileRoute,
