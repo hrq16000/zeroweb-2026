@@ -83,15 +83,16 @@ const jobs = [
 ];
 
 const theme = {
-  "--background": "36 44% 96%",
-  "--foreground": "22 28% 16%",
-  "--card": "34 50% 99%",
-  "--muted": "34 30% 90%",
-  "--muted-foreground": "22 14% 38%",
-  "--primary": "18 62% 48%",
-  "--primary-foreground": "36 44% 97%",
-  "--border": "28 22% 82%",
-  "--ring": "18 62% 48%",
+  "--background": "oklch(0.974 0.008 78.3)",
+  "--foreground": "oklch(0.282 0.027 51.4)",
+  "--card": "oklch(0.993 0.002 74.9)",
+  "--card-foreground": "oklch(0.282 0.027 51.4)",
+  "--muted": "oklch(0.929 0.014 74.9)",
+  "--muted-foreground": "oklch(0.493 0.027 51.9)",
+  "--primary": "oklch(0.599 0.148 42.1)",
+  "--primary-foreground": "oklch(0.980 0.006 78.3)",
+  "--border": "oklch(0.865 0.018 63.8)",
+  "--ring": "oklch(0.599 0.148 42.1)",
 } as CSSProperties;
 
 export function TonECorPage() {

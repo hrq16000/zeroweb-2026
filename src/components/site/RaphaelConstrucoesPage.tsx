@@ -96,15 +96,16 @@ const frentes = [
 ];
 
 const theme = {
-  "--background": "216 30% 96%",
-  "--foreground": "215 45% 15%",
-  "--card": "0 0% 100%",
-  "--muted": "216 24% 89%",
-  "--muted-foreground": "215 18% 40%",
-  "--primary": "215 62% 28%",
-  "--primary-foreground": "216 30% 97%",
-  "--border": "215 18% 80%",
-  "--ring": "215 62% 28%",
+  "--background": "oklch(0.967 0.006 258.3)",
+  "--foreground": "oklch(0.256 0.043 256.9)",
+  "--card": "oklch(1.000 0.000 89.9)",
+  "--card-foreground": "oklch(0.256 0.043 256.9)",
+  "--muted": "oklch(0.910 0.012 258.3)",
+  "--muted-foreground": "oklch(0.495 0.039 256.8)",
+  "--primary": "oklch(0.374 0.098 257.4)",
+  "--primary-foreground": "oklch(0.975 0.004 258.3)",
+  "--border": "oklch(0.838 0.017 256.7)",
+  "--ring": "oklch(0.374 0.098 257.4)",
 } as CSSProperties;
 
 export function RaphaelConstrucoesPage() {

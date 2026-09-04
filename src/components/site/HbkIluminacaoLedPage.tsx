@@ -99,15 +99,16 @@ const aplicacoes = [
 ];
 
 const theme = {
-  "--background": "228 34% 8%",
-  "--foreground": "210 40% 97%",
-  "--card": "228 28% 13%",
-  "--muted": "228 22% 18%",
-  "--muted-foreground": "215 20% 74%",
-  "--primary": "48 96% 60%",
-  "--primary-foreground": "228 34% 8%",
-  "--border": "228 20% 24%",
-  "--ring": "48 96% 60%",
+  "--background": "oklch(0.177 0.023 273.0)",
+  "--foreground": "oklch(0.976 0.005 247.9)",
+  "--card": "oklch(0.228 0.029 273.1)",
+  "--card-foreground": "oklch(0.976 0.005 247.9)",
+  "--muted": "oklch(0.280 0.030 273.4)",
+  "--muted-foreground": "oklch(0.787 0.025 256.8)",
+  "--primary": "oklch(0.878 0.166 94.0)",
+  "--primary-foreground": "oklch(0.177 0.023 273.0)",
+  "--border": "oklch(0.336 0.035 273.5)",
+  "--ring": "oklch(0.878 0.166 94.0)",
 } as CSSProperties;
 
 export function HbkIluminacaoLedPage() {
@@ -119,7 +120,7 @@ export function HbkIluminacaoLedPage() {
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-[-18rem] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, hsl(48 96% 60%) 0%, transparent 68%)" }}
+            style={{ background: "radial-gradient(circle, oklch(0.878 0.166 94.0) 0%, transparent 68%)" }}
           />
           <div className="relative mx-auto max-w-3xl">
             <PortfolioImage

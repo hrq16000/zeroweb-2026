@@ -103,15 +103,16 @@ const linha = [
 ];
 
 const theme = {
-  "--background": "210 20% 12%",
-  "--foreground": "40 26% 94%",
-  "--card": "210 18% 17%",
-  "--muted": "210 16% 22%",
-  "--muted-foreground": "40 12% 72%",
-  "--primary": "28 78% 58%",
-  "--primary-foreground": "210 20% 12%",
-  "--border": "210 14% 28%",
-  "--ring": "28 78% 58%",
+  "--background": "oklch(0.234 0.015 248.5)",
+  "--foreground": "oklch(0.959 0.008 84.6)",
+  "--card": "oklch(0.286 0.018 248.5)",
+  "--card-foreground": "oklch(0.959 0.008 84.6)",
+  "--muted": "oklch(0.336 0.020 248.4)",
+  "--muted-foreground": "oklch(0.792 0.017 84.6)",
+  "--primary": "oklch(0.727 0.141 58.6)",
+  "--primary-foreground": "oklch(0.234 0.015 248.5)",
+  "--border": "oklch(0.394 0.021 248.4)",
+  "--ring": "oklch(0.727 0.141 58.6)",
 } as CSSProperties;
 
 export function JcRevestimentosPage() {
