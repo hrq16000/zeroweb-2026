@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T06:47:00.900Z",
+  "generatedAt": "2026-09-04T20:54:25.503Z",
   "runtimeGeneratedAt": "2026-09-04T05:13:44.185Z",
   "thresholds": {
     "PREMIUM": 85,
@@ -26,8 +26,8 @@
     },
     "visual": {
       "PREMIUM": 8,
-      "STANDARD": 50,
-      "NEEDS_UPGRADE": 10
+      "STANDARD": 51,
+      "NEEDS_UPGRADE": 9
     },
     "originality": {
       "PASS": 7,
@@ -37,11 +37,11 @@
     },
     "issues": {
       "P0": 0,
-      "P1": 110,
-      "P2": 154,
-      "P3": 65
+      "P1": 106,
+      "P2": 151,
+      "P3": 60
     },
-    "averageScore": 79
+    "averageScore": 80
   },
   "projects": [
     {
@@ -774,127 +774,6 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "74 vs lucas-arruma-maquina-lavar"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "confeitaria-chyrley",
-      "businessName": "Chyrley Doces & Festas",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "NEEDS_UPGRADE",
-      "score": 68,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 0,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 63,
-      "originalityNearest": "studio-de-cilios",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 4,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/confeitaria-chyrley/capa.webp",
-          "hash": "0eaa5d74a0b0079aa7930a8ac27b8ff19694cf27",
-          "bytes": 79894,
-          "width": 899,
-          "height": 1599
-        },
-        "cover": {
-          "path": "/images/confeitaria-chyrley/capa.webp",
-          "hash": "0eaa5d74a0b0079aa7930a8ac27b8ff19694cf27",
-          "bytes": 79894,
-          "width": 899,
-          "height": 1599
-        },
-        "social": {
-          "path": "/images/confeitaria-chyrley/capa-og.jpg",
-          "hash": "68cf6ddd13ee43cf399a03878afc7208d557cba8",
-          "bytes": 88635,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Sua comemoração merece ser inesquecível.",
-        "heroHeight": 1377,
-        "editorialChars": 2566,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/confeitaria-chyrley/capa.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.56"
-        },
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "899x1599"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/confeitaria-chyrley/capa.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs studio-de-cilios"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -2551,113 +2430,6 @@
       ]
     },
     {
-      "slug": "vila-da-capivara",
-      "businessName": "Vila da Capivara",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 75,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 7,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 61,
-      "originalityNearest": "mp-festas-eventos",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/vila-da-capivara/editorial.webp",
-          "hash": "80f56ff992081251288c1ef0754874c4f505ffb0",
-          "bytes": 208404,
-          "width": 1024,
-          "height": 1536
-        },
-        "cover": {
-          "path": "/images/vila-da-capivara/capa.webp",
-          "hash": "78f52d27372e48999e2b77332c8851e5a69062f7",
-          "bytes": 254762,
-          "width": 1220,
-          "height": 1097
-        },
-        "social": {
-          "path": "/images/vila-da-capivara/capa-og.jpg",
-          "hash": "658d1ec90eb17a48c7d175c9e700499652d8fe41",
-          "bytes": 208257,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 17
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Mais que sabores, criamos experiências.",
-        "heroHeight": 1105,
-        "editorialChars": 2748,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/vila-da-capivara/editorial.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 1.11"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "61 vs mp-festas-eventos"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
       "slug": "casa-nativa",
       "businessName": "Casa Nativa Bistrô",
       "segment": "servicos",
@@ -3884,6 +3656,106 @@
       ]
     },
     {
+      "slug": "confeitaria-chyrley",
+      "businessName": "Chyrley Doces & Festas",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 9,
+        "logo": 6,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "FAIL",
+      "originalityScore": 63,
+      "originalityNearest": "studio-de-cilios",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 2,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/confeitaria-chyrley/capa.webp",
+          "hash": "0eaa5d74a0b0079aa7930a8ac27b8ff19694cf27",
+          "bytes": 79894,
+          "width": 899,
+          "height": 1599
+        },
+        "cover": {
+          "path": "/images/confeitaria-chyrley/capa-card.jpg",
+          "hash": "fe53a842111301fab816544d9e6e8f2c4e18ab56",
+          "bytes": 87414,
+          "width": 899,
+          "height": 562
+        },
+        "social": {
+          "path": "/images/confeitaria-chyrley/capa-og.jpg",
+          "hash": "68cf6ddd13ee43cf399a03878afc7208d557cba8",
+          "bytes": 88635,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 8
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Sua comemoração merece ser inesquecível.",
+        "heroHeight": 1377,
+        "editorialChars": 2566,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/confeitaria-chyrley/capa.webp"
+        },
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "899x562"
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "63 vs studio-de-cilios"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+        }
+      ]
+    },
+    {
       "slug": "refrigeracao-maresia",
       "businessName": "Refrigeração Maresia",
       "segment": "servicos",
@@ -4726,120 +4598,6 @@
       ]
     },
     {
-      "slug": "manu-pasteis",
-      "businessName": "Manu Pastéis",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 80,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 53,
-      "originalityNearest": "miro-tech",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 2
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/manu-pasteis/logo.png",
-          "hash": "d486c052f38ca8e8d6c869776b535cadcbe7a115",
-          "bytes": 1401484,
-          "width": 1672,
-          "height": 941
-        },
-        "cover": {
-          "path": "/images/manu-pasteis/hero-og.jpg",
-          "hash": "51267cd780b2e37eb1cc4bab1ec9411c2e3188a3",
-          "bytes": 113348,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/manu-pasteis/hero-og.jpg",
-          "hash": "51267cd780b2e37eb1cc4bab1ec9411c2e3188a3",
-          "bytes": 113348,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Terçooou, minha gente. Bora comer pastel?",
-        "heroHeight": 1364,
-        "editorialChars": 1930,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/manu-pasteis/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/manu-pasteis/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "53 vs miro-tech"
-        }
-      ]
-    },
-    {
       "slug": "artesanatos-darleia-oliveira",
       "businessName": "Artesanatos Darléia Oliveira",
       "segment": "comercios",
@@ -4936,106 +4694,6 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "73 vs thays-camilla"
-        }
-      ]
-    },
-    {
-      "slug": "assistencia-microondas-santos",
-      "businessName": "Assistência Técnica Microondas Santos",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 83,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 65,
-      "originalityNearest": "artesanatos-darleia-oliveira",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 1,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/assistencia-microondas-santos/logo.png",
-          "hash": "f75e8492ff2d76ca94fede3d9a305cefbdca2a8f",
-          "bytes": 1130417,
-          "width": 1768,
-          "height": 890
-        },
-        "cover": {
-          "path": "/images/assistencia-microondas-santos/hero-og.jpg",
-          "hash": "c5f6a2839ffb0368c8121175e9ae29a9a44b3d55",
-          "bytes": 119243,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/assistencia-microondas-santos/hero-og.jpg",
-          "hash": "c5f6a2839ffb0368c8121175e9ae29a9a44b3d55",
-          "bytes": 119243,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 8,
-        "desktopImages": 8,
-        "heroHeadline": "Seu micro-ondas pode voltar a funcionar bem.",
-        "heroHeight": 1134,
-        "editorialChars": 3008,
-        "smallTargets": 5,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/assistencia-microondas-santos/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/assistencia-microondas-santos/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "65 vs artesanatos-darleia-oliveira"
         }
       ]
     },
@@ -5329,6 +4987,99 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "73 vs artesanatos-darleia-oliveira"
+        }
+      ]
+    },
+    {
+      "slug": "vila-da-capivara",
+      "businessName": "Vila da Capivara",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 83,
+      "groupScores": {
+        "identity": 9,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "FAIL",
+      "originalityScore": 61,
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/vila-da-capivara/editorial.webp",
+          "hash": "80f56ff992081251288c1ef0754874c4f505ffb0",
+          "bytes": 208404,
+          "width": 1024,
+          "height": 1536
+        },
+        "cover": {
+          "path": "/images/vila-da-capivara/capa-card.jpg",
+          "hash": "3f29ad52c4d78ecec16c8b639717e66c714281ad",
+          "bytes": 250623,
+          "width": 1220,
+          "height": 763
+        },
+        "social": {
+          "path": "/images/vila-da-capivara/capa-og.jpg",
+          "hash": "658d1ec90eb17a48c7d175c9e700499652d8fe41",
+          "bytes": 208257,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 18
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Mais que sabores, criamos experiências.",
+        "heroHeight": 1105,
+        "editorialChars": 2748,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/vila-da-capivara/editorial.webp"
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "61 vs mp-festas-eventos"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
         }
       ]
     },
@@ -5633,99 +5384,6 @@
       ]
     },
     {
-      "slug": "ag-electrical-services",
-      "businessName": "A&G Electrical Services",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 86,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 8,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 71,
-      "originalityNearest": "lk-alvenaria",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 0,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/ag-electrical-services/logo.webp",
-          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
-          "bytes": 38280,
-          "width": 1050,
-          "height": 600
-        },
-        "cover": {
-          "path": "/images/ag-electrical-services/logo.webp",
-          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
-          "bytes": 38280,
-          "width": 1050,
-          "height": 600
-        },
-        "social": {
-          "path": "/images/ag-electrical-services/social-2026-og.jpg",
-          "hash": "511e01b25f487a81c040bffda7fafc562d73ffe6",
-          "bytes": 75761,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 17
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 9,
-        "desktopImages": 9,
-        "heroHeadline": "Energia e conectividade para sua operação.",
-        "heroHeight": 1022,
-        "editorialChars": 2541,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/ag-electrical-services/logo.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "71 vs lk-alvenaria"
-        }
-      ]
-    },
-    {
       "slug": "fernanda-amaral-drywall",
       "businessName": "Fernanda & Amaral — Instalação de Drywall",
       "segment": "prestadores-de-servicos",
@@ -5926,6 +5584,92 @@
       ]
     },
     {
+      "slug": "ag-electrical-services",
+      "businessName": "A&G Electrical Services",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 88,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "FAIL",
+      "originalityScore": 71,
+      "originalityNearest": "lk-alvenaria",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 0,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/ag-electrical-services/logo.webp",
+          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
+          "bytes": 38280,
+          "width": 1050,
+          "height": 600
+        },
+        "cover": {
+          "path": "/images/ag-electrical-services/capa-card.jpg",
+          "hash": "10efb23b3fb06d07d365c6dac42dd88a1024b3e3",
+          "bytes": 39879,
+          "width": 720,
+          "height": 450
+        },
+        "social": {
+          "path": "/images/ag-electrical-services/social-2026-og.jpg",
+          "hash": "511e01b25f487a81c040bffda7fafc562d73ffe6",
+          "bytes": 75761,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 18
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 9,
+        "desktopImages": 9,
+        "heroHeadline": "Energia e conectividade para sua operação.",
+        "heroHeight": 1022,
+        "editorialChars": 2541,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "720x450"
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "71 vs lk-alvenaria"
+        }
+      ]
+    },
+    {
       "slug": "renata-beauty",
       "businessName": "Renata Beauty Studio",
       "segment": "beleza",
@@ -6015,6 +5759,99 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "57 vs r_beauty"
+        }
+      ]
+    },
+    {
+      "slug": "manu-pasteis",
+      "businessName": "Manu Pastéis",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 89,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 53,
+      "originalityNearest": "miro-tech",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/manu-pasteis/logo.png",
+          "hash": "d486c052f38ca8e8d6c869776b535cadcbe7a115",
+          "bytes": 1401484,
+          "width": 1672,
+          "height": 941
+        },
+        "cover": {
+          "path": "/images/manu-pasteis/capa-card.jpg",
+          "hash": "86ebfaf0f2b51bfa34b9fb1df65085d385efd363",
+          "bytes": 64777,
+          "width": 720,
+          "height": 450
+        },
+        "social": {
+          "path": "/images/manu-pasteis/hero-og.jpg",
+          "hash": "51267cd780b2e37eb1cc4bab1ec9411c2e3188a3",
+          "bytes": 113348,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Terçooou, minha gente. Bora comer pastel?",
+        "heroHeight": 1364,
+        "editorialChars": 1930,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "720x450"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "53 vs miro-tech"
         }
       ]
     },
@@ -6373,6 +6210,85 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "69 vs eletrovale-eletromecanica"
+        }
+      ]
+    },
+    {
+      "slug": "assistencia-microondas-santos",
+      "businessName": "Assistência Técnica Microondas Santos",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 93,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "FAIL",
+      "originalityScore": 65,
+      "originalityNearest": "artesanatos-darleia-oliveira",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/assistencia-microondas-santos/logo.png",
+          "hash": "f75e8492ff2d76ca94fede3d9a305cefbdca2a8f",
+          "bytes": 1130417,
+          "width": 1768,
+          "height": 890
+        },
+        "cover": {
+          "path": "/images/assistencia-microondas-santos/capa-card.jpg",
+          "hash": "19bdad5333814c7f3b010b268b5ecc7fceeba60f",
+          "bytes": 107022,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/assistencia-microondas-santos/hero-og.jpg",
+          "hash": "c5f6a2839ffb0368c8121175e9ae29a9a44b3d55",
+          "bytes": 119243,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 8,
+        "desktopImages": 8,
+        "heroHeadline": "Seu micro-ondas pode voltar a funcionar bem.",
+        "heroHeight": 1134,
+        "editorialChars": 3008,
+        "smallTargets": 5,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "65 vs artesanatos-darleia-oliveira"
         }
       ]
     },
