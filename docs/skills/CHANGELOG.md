@@ -780,3 +780,13 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Publicado o projeto real `/portfolio/raphael-construcoes` com identidade exclusiva em verde profundo e dourado.
 - Criados logo, capa social/OG e imagens próprias, sem reutilização de contatos no bundle público.
 - Parametrizados catálogo, guia regional, mensagem de divulgação, Kit de Presença, funil e redirecionamento privado.
+
+## 2026-09-04 — Paulo Mestre de Obras (parametrização)
+
+- **Tarefa:** alinhar `/portfolio/paulo-mestre-de-obras` ao padrão dos demais projetos (logo, imagens, imagem social, conteúdo e SEO local).
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`, `imagegen`.
+- **Identidade:** logo própria (`logo.webp`, capacete + prumo em azul-noite/âmbar) substituindo o uso da foto de capa como ícone; imagem social 1200x630 exclusiva (`social.jpg`) com nova `socialVersion` para cache-busting das prévias.
+- **Conteúdo:** página reescrita em formato legível com hero, serviços por etapa, galeria de obras, bloco de qualidade, "como funciona" em 4 passos, FAQ e CTA final — sem depoimentos, notas, prazos ou métricas inventadas.
+- **SEO local:** nó JSON-LD `HomeAndConstructionBusiness` + `FAQPage` no slug, descrição com Curitiba e região metropolitana.
+- **Pop-up 0WEB:** verificado em Playwright (desktop 1280 e mobile 390) — já funcionava; a captação aparece após scroll/tempo, igual a Águia Sul.
+- **Validação:** logos, assets, ícones, catálogo, boundaries, meta, kit de presença, privacidade de bundle, `bun test` (245/1109) e `bun run build`.
