@@ -17,12 +17,12 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 3,
-    "attention": 10,
+    "acceptable": 6,
+    "attention": 18,
     "highSimilarity": 25,
     "clone": 19,
-    "sharedFallback": 11,
-    "clusters": 5,
+    "sharedFallback": 0,
+    "clusters": 4,
     "placeholderLogos": 11,
     "missingLogos": 0,
     "missingCovers": 27,
@@ -33,26 +33,6 @@
   "clusters": [
     {
       "id": "CLUSTER_01",
-      "members": [
-        "almeida-torres",
-        "bh-barreiro-marmitas",
-        "casa-nativa",
-        "clinica-integrada",
-        "guaratuba-atelie-presentes",
-        "guaratuba-oficina-nautica",
-        "guaratuba-reparos-residenciais",
-        "guaratuba-sabores-da-baia",
-        "mirassol-conserta-celular",
-        "mirassol-delicias-caseiras",
-        "uberlandia-eletrica-residencial"
-      ],
-      "averageScore": 100,
-      "reason": "COPY_ONLY_VARIATION",
-      "baseComponent": "src/routes/sites.$vertical.tsx",
-      "risk": "ALTO"
-    },
-    {
-      "id": "CLUSTER_02",
       "members": [
         "angel-mix-brecho",
         "beto-pasteis",
@@ -69,7 +49,7 @@
       "risk": "ALTO"
     },
     {
-      "id": "CLUSTER_03",
+      "id": "CLUSTER_02",
       "members": [
         "aguia-sul-sinalizacao",
         "eisenfer-tubos-acos",
@@ -83,7 +63,7 @@
       "risk": "ALTO"
     },
     {
-      "id": "CLUSTER_04",
+      "id": "CLUSTER_03",
       "members": [
         "hbk-iluminacao-led",
         "jc-revestimentos",
@@ -96,7 +76,7 @@
       "risk": "ALTO"
     },
     {
-      "id": "CLUSTER_05",
+      "id": "CLUSTER_04",
       "members": [
         "espaco-cih-luh",
         "salao-da-marcia"
@@ -188,21 +168,18 @@
     },
     {
       "slug": "almeida-torres",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 100,
-      "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
-      ],
+      "score": 34,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "guaratuba-atelie-presentes",
+      "nearestMatchScore": 34,
+      "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 18.2,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 24.7,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -213,7 +190,7 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "juridico"
+      "fallbackVertical": null
     },
     {
       "slug": "angel-mix-brecho",
@@ -325,21 +302,20 @@
     },
     {
       "slug": "bh-barreiro-marmitas",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "uberlandia-eletrica-residencial",
+      "nearestMatchScore": 47,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 17.5,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 48.5,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -350,7 +326,7 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "restaurantes"
+      "fallbackVertical": null
     },
     {
       "slug": "brecho-sao-francisco",
@@ -381,21 +357,20 @@
     },
     {
       "slug": "casa-nativa",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 50,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "guaratuba-oficina-nautica",
+      "nearestMatchScore": 50,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 22,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 29.9,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -406,25 +381,24 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "services"
+      "fallbackVertical": null
     },
     {
       "slug": "clinica-integrada",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "confeitaria-sabor-da-realeza",
+      "nearestMatchScore": 47,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 36.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "COMPONENT_SIMILARITY": 12.5,
+        "STYLE_SIMILARITY": 44.7,
+        "ASSET_PATTERN_SIMILARITY": 20,
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -435,7 +409,7 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "saude"
+      "fallbackVertical": null
     },
     {
       "slug": "confeitaria-chyrley",
@@ -812,21 +786,20 @@
     },
     {
       "slug": "guaratuba-atelie-presentes",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 53,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "mirassol-delicias-caseiras",
+      "nearestMatchScore": 53,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 28,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 37.7,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -837,25 +810,24 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "comercios"
+      "fallbackVertical": null
     },
     {
       "slug": "guaratuba-oficina-nautica",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 50,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "casa-nativa",
+      "nearestMatchScore": 50,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 22,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 29.9,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -866,25 +838,22 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "services"
+      "fallbackVertical": null
     },
     {
       "slug": "guaratuba-reparos-residenciais",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
-      "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
-      ],
+      "score": 37,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatchScore": 37,
+      "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 14,
+        "SECTION_ORDER_SIMILARITY": 44.4,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 50.8,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -895,25 +864,22 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "services"
+      "fallbackVertical": null
     },
     {
       "slug": "guaratuba-sabores-da-baia",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
-      "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
-      ],
+      "score": 33,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "uberlandia-eletrica-residencial",
+      "nearestMatchScore": 33,
+      "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 17.5,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 25,
+        "STYLE_SIMILARITY": 33.8,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -924,7 +890,7 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "restaurantes"
+      "fallbackVertical": null
     },
     {
       "slug": "hbk-iluminacao-led",
@@ -1281,21 +1247,20 @@
     },
     {
       "slug": "mirassol-conserta-celular",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 45,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "guaratuba-atelie-presentes",
+      "nearestMatchScore": 45,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 32.7,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 31.1,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -1306,25 +1271,24 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "services"
+      "fallbackVertical": null
     },
     {
       "slug": "mirassol-delicias-caseiras",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 53,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "guaratuba-atelie-presentes",
+      "nearestMatchScore": 53,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 28,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 37.7,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -1335,7 +1299,7 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "restaurantes"
+      "fallbackVertical": null
     },
     {
       "slug": "miro-tech",
@@ -1876,21 +1840,20 @@
     },
     {
       "slug": "uberlandia-eletrica-residencial",
-      "score": 100,
-      "originalityStatus": "SHARED_FALLBACK",
-      "nearestMatch": "almeida-torres",
-      "nearestMatchScore": 100,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatchScore": 47,
       "reasons": [
-        "SHARED_VERTICAL_FALLBACK",
-        "COPY_ONLY_VARIATION"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 17.5,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 48.5,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -1901,7 +1864,7 @@
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
       ],
-      "fallbackVertical": "services"
+      "fallbackVertical": null
     },
     {
       "slug": "vila-da-capivara",
