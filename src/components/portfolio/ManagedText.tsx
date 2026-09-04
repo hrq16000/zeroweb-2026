@@ -16,3 +16,21 @@ export function ManagedText({ field, fallback }: { field: TextField; fallback: s
   const text = typeof value === "string" && value.trim() ? value : fallback;
   return <>{text}</>;
 }
+
+/**
+ * Versão rica: o fallback é o JSX autoral do componente (com destaques,
+ * quebras e spans). Quando existe override administrável válido, o texto do
+ * admin substitui o bloco; sem override, o design original é preservado.
+ */
+export function ManagedRich({
+  field,
+  children,
+}: {
+  field: TextField;
+  children: React.ReactNode;
+}) {
+  const runtime = usePortfolioRuntime();
+  const value = runtime?.[field as keyof PortfolioRuntimeEffective];
+  if (typeof value === "string" && value.trim()) return <>{value}</>;
+  return <>{children}</>;
+}
