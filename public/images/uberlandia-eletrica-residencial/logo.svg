@@ -3,6 +3,6 @@
   <path d="M74 154L162 76l88 78" fill="none" stroke="#ffd400" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
   <path d="M100 160v66h124v-66" fill="none" stroke="#7f92c4" stroke-width="10"/>
   <path d="M170 150l-32 46h26l-8 38 36-52h-26z" fill="#ffd400"/>
-  <text x="300" y="142" font-family="Verdana,Geneva,sans-serif" font-size="52" font-weight="700" fill="#ffffff">Eletrica</text>
+  <text x="300" y="142" font-family="Verdana,Geneva,sans-serif" font-size="52" font-weight="700" fill="#ffffff">Elétrica</text>
   <text x="300" y="200" font-family="Verdana,Geneva,sans-serif" font-size="38" letter-spacing="6" fill="#ffd400">BAIRRO BRASIL</text>
 </svg>

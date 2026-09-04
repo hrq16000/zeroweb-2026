@@ -3,7 +3,7 @@
   <path d="M70 210a90 90 0 0 1 180 0z" fill="#ffd9a0"/>
   <circle cx="160" cy="146" r="30" fill="#ff8a3d"/>
   <path d="M72 232c22-16 44-16 66 0s44 16 66 0 44-16 46-2" stroke="#ffd9a0" stroke-width="9" fill="none" stroke-linecap="round"/>
-  <path d="M300 118h34" stroke="#ffd9a0" stroke-width="6"/>
+  <path d="M300 96h34" stroke="#ffd9a0" stroke-width="6"/>
   <text x="300" y="152" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="62" letter-spacing="2" fill="#ffffff">Sabores</text>
-  <text x="300" y="212" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="46" letter-spacing="16" fill="#ffd9a0">DA BAIA</text>
+  <text x="300" y="212" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="46" letter-spacing="16" fill="#ffd9a0">DA BAÍA</text>
 </svg>

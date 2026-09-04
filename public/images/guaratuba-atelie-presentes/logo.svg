@@ -4,6 +4,6 @@
   <path d="M160 150c40-40 86-24 86 8s-46 44-86 12z" fill="#e08a5a"/>
   <path d="M150 150h20l24 88-34-30-34 30z" fill="#c25a37"/>
   <circle cx="160" cy="152" r="16" fill="#f0d9b5" stroke="#2f2418" stroke-width="6"/>
-  <text x="300" y="136" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="58" font-weight="700" fill="#2f2418">Atelie Encanto</text>
-  <text x="302" y="194" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="40" letter-spacing="10" fill="#c25a37">DA BAIA</text>
+  <text x="300" y="136" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="58" font-weight="700" fill="#2f2418">Ateliê Encanto</text>
+  <text x="302" y="194" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="40" letter-spacing="10" fill="#c25a37">DA BAÍA</text>
 </svg>
