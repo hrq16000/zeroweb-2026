@@ -71,7 +71,7 @@ function MetadataPage() {
     setStatus(null);
     setError(null);
     try {
-      await save({ data: { ...form, slug: form.slug || form.client_key } });
+      await save({ data: { ...form, slug: form.slug || form.client_key, published } });
       setStatus(`Metadados de ${form.client_key} salvos.`);
       await refresh();
     } catch (err) {
@@ -143,10 +143,26 @@ function MetadataPage() {
       <form onSubmit={submit} className="mt-6 grid gap-4 rounded-lg border border-border p-4 md:grid-cols-2">
         {field("client_key", "clientKey", { hint: "Identificador único, minúsculo (ex.: rm-fretes)." })}
         {field("slug", "Slug da rota", { hint: "Usado em /portfolio/<slug>." })}
+        {field("display_name", "Nome do projeto")}
         {field("seo_title", "Título (title)")}
         {field("canonical_url", "Canonical")}
+        {field("social_image_url", "Capa / imagem social (URL)", { hint: "Usada em og:image e twitter:image." })}
         <div className="md:col-span-2">{field("seo_description", "Descrição", { textarea: true })}</div>
         <div className="md:col-span-2">{field("seo_keywords", "Palavras-chave", { hint: "Separadas por vírgula." })}</div>
+        <label className="md:col-span-2 flex items-start gap-3 rounded-md border border-border p-3 text-sm">
+          <input
+            type="checkbox"
+            checked={published}
+            onChange={(e) => setPublished(e.target.checked)}
+            className="mt-1 h-4 w-4"
+          />
+          <span>
+            Publicado no sitemap
+            <span className="mt-1 block text-xs text-muted-foreground">
+              Ao salvar, o projeto entra (ou sai) do sitemap.xml e da fila de indexação automaticamente.
+            </span>
+          </span>
+        </label>
         <div className="md:col-span-2">
           <button
             type="submit"
