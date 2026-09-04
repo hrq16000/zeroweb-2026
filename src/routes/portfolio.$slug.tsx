@@ -918,5 +918,6 @@ function PortfolioPrototypePage() {
         )}
       </Suspense>
     </PortfolioStandardShell>
+    </PortfolioRuntimeProvider>
   );
 }
