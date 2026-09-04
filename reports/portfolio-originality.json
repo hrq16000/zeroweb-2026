@@ -2956,12 +2956,12 @@
     "baseline": {
       "total": 68,
       "original": 0,
-      "acceptable": 3,
-      "attention": 10,
-      "highSimilarity": 25,
+      "acceptable": 7,
+      "attention": 16,
+      "highSimilarity": 26,
       "clone": 19,
-      "sharedFallback": 11,
-      "clusters": 5,
+      "sharedFallback": 0,
+      "clusters": 4,
       "placeholderLogos": 11,
       "missingLogos": 0,
       "missingCovers": 27,
@@ -2985,104 +2985,8 @@
       "sharedCovers": 0,
       "severeCrop": 22
     },
-    "verdict": "FAIL",
-    "regressions": [
-      {
-        "kind": "COUNTER",
-        "key": "highSimilarity",
-        "label": "projetos HIGH_SIMILARITY",
-        "before": 25,
-        "after": 26
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "vila-da-capivara",
-        "before": "ATTENTION",
-        "after": "HIGH_SIMILARITY",
-        "beforeScore": 60,
-        "afterScore": 61
-      }
-    ],
-    "improvements": [
-      {
-        "kind": "COUNTER",
-        "key": "sharedFallback",
-        "label": "fallbacks compartilhados",
-        "before": 11,
-        "after": 0
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "almeida-torres",
-        "before": "SHARED_FALLBACK",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "bh-barreiro-marmitas",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "casa-nativa",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "clinica-integrada",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "guaratuba-atelie-presentes",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "guaratuba-oficina-nautica",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "guaratuba-reparos-residenciais",
-        "before": "SHARED_FALLBACK",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "guaratuba-sabores-da-baia",
-        "before": "SHARED_FALLBACK",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "mirassol-conserta-celular",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "mirassol-delicias-caseiras",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "rm-fretes",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "uberlandia-eletrica-residencial",
-        "before": "SHARED_FALLBACK",
-        "after": "ATTENTION"
-      }
-    ]
+    "verdict": "PASS",
+    "regressions": [],
+    "improvements": []
   }
 }

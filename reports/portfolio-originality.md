@@ -126,22 +126,8 @@ Membros: espaco-cih-luh, salao-da-marcia
 
 ## Regressão
 
-Veredito: **FAIL**
+Veredito: **PASS**
 
-- COUNTER: {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":25,"after":26}
-- MODIFIED_PROJECT: {"kind":"MODIFIED_PROJECT","slug":"vila-da-capivara","before":"ATTENTION","after":"HIGH_SIMILARITY","beforeScore":60,"afterScore":61}
+Nenhuma regressão em relação à baseline.
 
-Melhorias:
-- {"kind":"COUNTER","key":"sharedFallback","label":"fallbacks compartilhados","before":11,"after":0}
-- {"kind":"MODIFIED_PROJECT","slug":"almeida-torres","before":"SHARED_FALLBACK","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"bh-barreiro-marmitas","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"casa-nativa","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"clinica-integrada","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-atelie-presentes","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-oficina-nautica","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-reparos-residenciais","before":"SHARED_FALLBACK","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-sabores-da-baia","before":"SHARED_FALLBACK","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"mirassol-conserta-celular","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"mirassol-delicias-caseiras","before":"SHARED_FALLBACK","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"rm-fretes","before":"ATTENTION","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"uberlandia-eletrica-residencial","before":"SHARED_FALLBACK","after":"ATTENTION"}
+
