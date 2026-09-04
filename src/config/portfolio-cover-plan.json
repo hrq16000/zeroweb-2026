@@ -235,6 +235,31 @@
       "issues": [
         "COVER_NOT_DEDICATED"
       ]
+    },
+    "lucas-arruma-maquina-lavar": {
+      "source": "public/images/lucas-arruma-maquina-lavar/vitrine.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_IS_LOGO",
+        "COVER_SEVERE_CROP",
+        "COVER_LOW_RES"
+      ],
+      "notes": "Capa grafica autoral 16:10 (tipografia + tambor). Sem fotografia inventada e sem PII."
+    },
+    "no-brilho-higienizacao": {
+      "source": "public/images/no-brilho-higienizacao/vitrine.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_IS_LOGO",
+        "COVER_SEVERE_CROP"
+      ],
+      "notes": "Capa grafica autoral 16:10 (tipografia + amostras de tecido). Sem fotografia inventada e sem PII."
     }
   }
 }

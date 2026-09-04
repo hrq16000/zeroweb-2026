@@ -1,14 +1,222 @@
-import { motion } from "motion/react";
-import { ArrowRight, Check, Droplets, Home, ShieldCheck, Sparkles, Sofa } from "lucide-react";
+import { ArrowRight, Home } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-const quiz = { services: ["Sofá", "Colchão", "Cadeiras e poltronas", "Banco automotivo", "Tapete ou carpete", "Higienização completa"], experienceOptions: ["Residência", "Escritório ou comércio", "Veículo", "Outro ambiente"], periodOptions: ["São José dos Pinhais", "Curitiba e região", "Vou confirmar o endereço"], timingOptions: ["Quero agendar em breve", "Estou planejando", "Quero uma avaliação primeiro"], proposalKind: "service" as const, stepTitles: { service: "O que você quer higienizar?", experience: "Onde será o atendimento?", period: "Qual região?", timing: "Quando prefere agendar?", note: "Conte os detalhes" }, notePlaceholder: "Ex.: tamanho, manchas, odores ou ácaros que deseja remover." };
-function CTA({ children }: { children: React.ReactNode }) { return <PortfolioCTAQuiz clientKey="no-brilho-higienizacao" studioName="No Brilho Higienização" recipientName="No Brilho" theme="navy" mode="proposal" quizConfig={quiz} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#ffd34e] px-6 py-3.5 font-bold text-[#0c355e] shadow-lg shadow-[#ffd34e]/25 transition hover:-translate-y-1 hover:bg-[#ffe486] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd34e]">{children}</PortfolioCTAQuiz>; }
-const items = [["Sofás e poltronas", "Remoção de sujeira, manchas, odores e ácaros com cuidado para cada tecido."], ["Colchões e cadeiras", "Higienização profunda para renovar o conforto e a aparência do ambiente."], ["Bancos automotivos", "Limpeza profissional para deixar o interior do carro mais agradável."], ["Tapetes e carpetes", "Atendimento sob medida para recuperar a sensação de limpeza."]];
-export function NoBrilhoHigienizacaoPage() { return <div className="min-h-dvh overflow-hidden bg-[#effcff] text-[#0c355e]"><header className="sticky top-0 z-30 border-b border-white/15 bg-[#0c355e]/95 px-5 py-4 text-white backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold"><span className="grid h-10 w-10 place-items-center rounded-xl bg-[#58d8d8] text-[#0c355e]"><Droplets className="h-5 w-5" /></span><span>No <span className="text-[#58d8d8]">Brilho</span></span></a><nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#servicos">Serviços</a><a href="#processo">Como funciona</a><a href="#regiao">Região</a></nav><CTA>Agendar higienização <ArrowRight className="h-4 w-4" /></CTA></div></header><main><section id="inicio" className="relative overflow-hidden bg-[#58d8d8] px-5 py-14 lg:px-8 lg:py-24"><div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/30 blur-3xl" /><div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[.95fr_1.05fr]"><div><motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-bold uppercase tracking-[.2em] text-[#0c355e]">Higienização profissional a domicílio</motion.p><motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .08 }} className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl">Mais limpeza. <span className="text-white">Mais brilho.</span></motion.h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#174b71]">Sofás, colchões, cadeiras, poltronas e bancos automotivos renovados com atendimento profissional e agendamento prévio.</p><div className="mt-8 flex flex-wrap gap-3"><CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA><a href="#servicos" className="inline-flex min-h-12 items-center rounded-full border border-[#0c355e]/40 px-6 py-3.5 font-semibold text-[#0c355e] hover:bg-white/20">Conhecer serviços</a></div><div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-[#174b71]"><span><Check className="mr-1 inline h-4 w-4" />Atendimento domiciliar</span><span><ShieldCheck className="mr-1 inline h-4 w-4" />Qualidade e cuidado</span></div></div><motion.div initial={{ opacity: 0, x: 24, scale: .97 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: .7 }}><PortfolioImage src="/images/no-brilho-higienizacao/capa.webp" alt="Profissional realizando higienização de estofados" priority width={1200} height={1200} className="mx-auto max-h-[620px] w-full rounded-[2rem] object-cover object-center shadow-2xl ring-4 ring-white/40"
-            managedField="heroImageUrl"
-          /></motion.div></div></section><section id="servicos" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#078fa3]">O que higienizamos</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">Um cuidado profundo para o que faz parte da sua rotina.</h2><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{items.map(([title, text], i) => <motion.article key={title} whileHover={{ y: -6 }} className="rounded-3xl border border-[#cde9ec] bg-white p-6 shadow-sm"><span className="text-sm font-bold text-[#078fa3]">0{i + 1}</span><Sofa className="mt-8 h-7 w-7 text-[#078fa3]" /><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-[#537087]">{text}</p></motion.article>)}</div></div></section><section id="processo" className="bg-[#0c355e] px-5 py-20 text-white lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#58d8d8]">Como funciona</p><h2 className="mt-3 font-display text-4xl font-bold">Você escolhe o estofado. A gente cuida do resto.</h2><p className="mt-5 leading-8 text-[#d7eff2]">Conte o tipo de peça, a região e o melhor momento. O orçamento guiado organiza tudo para um atendimento mais rápido.</p><div className="mt-8 grid gap-4 sm:grid-cols-3"><div className="rounded-2xl border border-white/10 bg-white/5 p-5"><Sparkles className="h-6 w-6 text-[#58d8d8]" /><p className="mt-4 font-bold">1. Avaliamos</p><p className="mt-1 text-sm text-[#b9d9e0]">Entendemos tecido e necessidade.</p></div><div className="rounded-2xl border border-white/10 bg-white/5 p-5"><Home className="h-6 w-6 text-[#58d8d8]" /><p className="mt-4 font-bold">2. Vamos até você</p><p className="mt-1 text-sm text-[#b9d9e0]">Atendimento domiciliar agendado.</p></div><div className="rounded-2xl border border-white/10 bg-white/5 p-5"><ShieldCheck className="h-6 w-6 text-[#58d8d8]" /><p className="mt-4 font-bold">3. Renovamos</p><p className="mt-1 text-sm text-[#b9d9e0]">Limpeza com cuidado profissional.</p></div></div></div><PortfolioImage src="/images/no-brilho-higienizacao/capa.webp" alt="Equipamento profissional para higienização de estofados" width={1200} height={1200} className="mx-auto max-h-[520px] w-full rounded-[2rem] object-cover object-center shadow-xl" /></div></section><section id="regiao" className="bg-[#ffd34e] px-5 py-20 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-white p-8 shadow-2xl md:flex-row md:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#078fa3]">São José dos Pinhais e região</p><h2 className="mt-3 font-display text-4xl font-bold">Seu estofado pode voltar a brilhar.</h2><p className="mt-3 max-w-xl leading-7 text-[#537087]">Agende uma avaliação e receba um orçamento sem compromisso.</p></div><CTA>Agendar agora <ArrowRight className="h-4 w-4" /></CTA></div></section></main><footer className="bg-[#082946] px-5 py-8 text-sm text-[#b9d9e0] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-bold text-white">No <span className="text-[#58d8d8]">Brilho Higienização</span></p><p className="mt-1">Higienização profissional de estofados a domicílio.</p></div><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#58d8d8]" /></div></footer><PortfolioSocialProofPopup clientKey="no-brilho-higienizacao" eyebrow="No Brilho · São José dos Pinhais" title="Seu estofado merece cuidado profissional e aparência renovada." description="Conte o que deseja higienizar e receba um próximo passo claro." ctaLabel="Agendar higienização" ctaHref="#servicos" delayMs={9000} className="border-[#58d8d8]/40 bg-[#0c355e]/95 text-white" accentClassName="text-[#58d8d8]" /><PortfolioUpsellPopup pageName="portfolio-no-brilho-higienizacao" /></div>; }
+/**
+ * Direção autoral — "amostras de tecido".
+ * Bandas horizontais empilhadas, título centralizado e uma cartela de amostras
+ * (chips) para cada superfície higienizada. Verde eucalipto + cobre + areia:
+ * fora do repertório de salão/beleza (CIH & LUH, Salão da Márcia, Renata
+ * Beauty) e sem dourado, glitter ou gradiente brilhante.
+ */
+
+const quiz = {
+  services: ["Sofá", "Colchão", "Cadeiras e poltronas", "Banco automotivo", "Tapete ou carpete", "Higienização completa"],
+  experienceOptions: ["Residência", "Escritório ou comércio", "Veículo", "Outro ambiente"],
+  periodOptions: ["São José dos Pinhais", "Curitiba e região", "Vou confirmar o endereço"],
+  timingOptions: ["Quero agendar em breve", "Estou planejando", "Quero uma avaliação primeiro"],
+  proposalKind: "service" as const,
+  stepTitles: {
+    service: "O que você quer higienizar?",
+    experience: "Onde será o atendimento?",
+    period: "Qual região?",
+    timing: "Quando prefere agendar?",
+    note: "Conte os detalhes",
+  },
+  notePlaceholder: "Ex.: tamanho, manchas, odores ou ácaros que deseja remover.",
+};
+
+function CTA({ children, tone = "copper" }: { children: React.ReactNode; tone?: "copper" | "sand" }) {
+  return (
+    <PortfolioCTAQuiz
+      clientKey="no-brilho-higienizacao"
+      studioName="No Brilho Higienização"
+      recipientName="No Brilho"
+      theme="navy"
+      mode="proposal"
+      quizConfig={quiz}
+      className={
+        tone === "copper"
+          ? "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#b4703f] px-7 py-3.5 text-sm font-bold text-[#fdf9f3] transition hover:bg-[#9a5c31] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#24443a]"
+          : "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#efe9df] px-7 py-3.5 text-sm font-bold text-[#24443a] transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b4703f]"
+      }
+    >
+      {children}
+    </PortfolioCTAQuiz>
+  );
+}
+
+const amostras: Array<[string, string, string]> = [
+  ["Sofás e poltronas", "Remoção de sujeira, manchas, odores e ácaros com cuidado para cada tecido.", "bg-[#2f5a4b]"],
+  ["Colchões e cadeiras", "Higienização profunda para renovar o conforto e a aparência do ambiente.", "bg-[#b4703f]"],
+  ["Bancos automotivos", "Limpeza profissional para deixar o interior do carro mais agradável.", "bg-[#3d6a58]"],
+  ["Tapetes e carpetes", "Atendimento sob medida para recuperar a sensação de limpeza.", "bg-[#8d6a4c]"],
+];
+
+const etapas: Array<[string, string]> = [
+  ["Avaliamos", "Entendemos o tecido, o tamanho da peça e a necessidade real."],
+  ["Vamos até você", "Atendimento domiciliar agendado em São José dos Pinhais e região."],
+  ["Renovamos", "Higienização com cuidado profissional e acabamento cuidadoso."],
+];
+
+export function NoBrilhoHigienizacaoPage() {
+  return (
+    <div className="min-h-dvh bg-[#efe9df] font-sans text-[#24443a]">
+      <header className="bg-[#24443a] text-[#efe9df]">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4">
+          <a href="#inicio" className="flex items-center gap-3">
+            <PortfolioImage
+              src="/images/no-brilho-higienizacao/logo.svg"
+              alt="Marca No Brilho Higienização"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-xl"
+            managedField="logoUrl"
+              />
+            <span className="font-display text-base font-bold leading-tight">
+              No Brilho
+              <span className="block text-xs font-medium uppercase tracking-[.18em] text-[#c9a888]">Higienização</span>
+            </span>
+          </a>
+          <nav className="hidden gap-7 text-sm font-semibold md:flex">
+            <a href="#amostras" className="hover:text-[#c9a888]">Serviços</a>
+            <a href="#etapas" className="hover:text-[#c9a888]">Como funciona</a>
+            <a href="#regiao" className="hover:text-[#c9a888]">Região</a>
+          </nav>
+          <CTA tone="sand">Agendar</CTA>
+        </div>
+      </header>
+
+      <main>
+        {/* Banda 1 — declaração centralizada, sem hero dividido. */}
+        <section id="inicio" className="bg-[#24443a] pb-16 text-[#efe9df]">
+          <div className="mx-auto max-w-3xl px-5 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#c9a888]">
+              Higienização profissional a domicílio
+            </p>
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
+              Mais limpeza. <span className="text-[#c9a888]">Mais brilho.</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-[#cfded6]">
+              Sofás, colchões, cadeiras, poltronas e bancos automotivos renovados com atendimento profissional e
+              agendamento prévio.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <CTA>
+                Solicitar orçamento <ArrowRight className="h-4 w-4" />
+              </CTA>
+              <a
+                href="#amostras"
+                className="inline-flex min-h-12 items-center rounded-full border border-[#efe9df]/40 px-7 py-3.5 text-sm font-semibold hover:bg-white/10"
+              >
+                Conhecer serviços
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Banda 2 — arte real do cliente contida, encaixada entre as duas bandas. */}
+        <section className="bg-gradient-to-b from-[#24443a] via-[#24443a] to-[#efe9df]">
+          <div className="mx-auto max-w-3xl px-5">
+            <div className="rounded-3xl bg-[#efe9df] p-3 shadow-xl">
+              <PortfolioImage
+                src="/images/no-brilho-higienizacao/vitrine.png"
+                alt="Identidade visual da No Brilho Higienização"
+                priority
+                width={1200}
+                height={1200}
+                className="mx-auto max-h-[30rem] w-full rounded-2xl object-contain"
+                managedField="heroImageUrl"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Banda 3 — cartela de amostras. */}
+        <section id="amostras" className="bg-[#efe9df]">
+          <div className="mx-auto max-w-5xl px-5 py-16">
+            <h2 className="mx-auto max-w-xl text-center font-display text-3xl font-bold leading-tight sm:text-4xl">
+              Um cuidado profundo para o que faz parte da sua rotina.
+            </h2>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {amostras.map(([title, text, chip]) => (
+                <article key={title} className="flex gap-5 rounded-2xl bg-white/70 p-5">
+                  <span className={`h-20 w-14 shrink-0 rounded-xl ${chip}`} aria-hidden="true" />
+                  <div>
+                    <h3 className="font-display text-lg font-bold">{title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-[#4c6459]">{text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Banda 4 — etapas em faixa contínua. */}
+        <section id="etapas" className="bg-[#dfd6c7]">
+          <div className="mx-auto max-w-5xl px-5 py-16">
+            <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#8d6a4c]">Como funciona</p>
+            <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold leading-tight sm:text-4xl">
+              Você escolhe o estofado. A gente cuida do resto.
+            </h2>
+            <div className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-[#24443a]/15 sm:grid-cols-3">
+              {etapas.map(([title, text], i) => (
+                <div key={title} className="bg-[#dfd6c7] p-6">
+                  <span className="font-display text-3xl font-bold text-[#b4703f]">{i + 1}</span>
+                  <h3 className="mt-3 font-display text-lg font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-[#4c6459]">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Banda 5 — região e chamada final. */}
+        <section id="regiao" className="bg-[#efe9df]">
+          <div className="mx-auto max-w-5xl px-5 py-16">
+            <div className="flex flex-col gap-6 rounded-3xl border border-[#24443a]/20 p-8 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[.24em] text-[#8d6a4c]">
+                  <Home className="h-4 w-4" /> São José dos Pinhais e região
+                </p>
+                <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Seu estofado pode voltar a brilhar.</h2>
+                <p className="mt-3 max-w-xl leading-7 text-[#4c6459]">
+                  Agende uma avaliação e receba um orçamento sem compromisso.
+                </p>
+              </div>
+              <CTA>
+                Agendar agora <ArrowRight className="h-4 w-4" />
+              </CTA>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#24443a] text-[#cfded6]">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 px-5 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-display font-bold text-[#efe9df]">No Brilho Higienização</p>
+            <p className="mt-1">Higienização profissional de estofados a domicílio.</p>
+          </div>
+          <PortfolioHostCredit linkClassName="font-semibold text-[#efe9df] underline underline-offset-4 hover:text-[#c9a888]" />
+        </div>
+      </footer>
+
+      <PortfolioSocialProofPopup
+        clientKey="no-brilho-higienizacao"
+        eyebrow="No Brilho · São José dos Pinhais"
+        title="Seu estofado merece cuidado profissional e aparência renovada."
+        description="Conte o que deseja higienizar e receba um próximo passo claro."
+        ctaLabel="Agendar higienização"
+        ctaHref="#amostras"
+        delayMs={9000}
+        className="border-[#b4703f]/40 bg-[#24443a]/95 text-[#efe9df]"
+        accentClassName="text-[#c9a888]"
+      />
+      <PortfolioUpsellPopup pageName="portfolio-no-brilho-higienizacao" />
+    </div>
+  );
+}

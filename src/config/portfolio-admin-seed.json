@@ -1256,8 +1256,8 @@
       "state": "PR",
       "summary": "Lucas resolve problemas de máquinas de lavar com diagnóstico, manutenção e atendimento com garantia.",
       "subtitle": "Conserto e manutenção de máquinas de lavar",
-      "image": "/images/lucas-arruma-maquina-lavar/capa.webp",
-      "icon": "/images/lucas-arruma-maquina-lavar/capa.webp",
+      "image": "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
+      "icon": "/images/lucas-arruma-maquina-lavar/logo.svg",
       "socialImage": "/images/lucas-arruma-maquina-lavar/capa-og.jpg",
       "socialVersion": "3be42c1c",
       "componentFile": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
@@ -1268,9 +1268,12 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
         "/images/lucas-arruma-maquina-lavar/capa-og.jpg",
         "/images/lucas-arruma-maquina-lavar/capa.png",
-        "/images/lucas-arruma-maquina-lavar/capa.webp"
+        "/images/lucas-arruma-maquina-lavar/capa.webp",
+        "/images/lucas-arruma-maquina-lavar/logo.svg",
+        "/images/lucas-arruma-maquina-lavar/vitrine.png"
       ],
       "shareCopy": "🧺 Lucas Arruma Máquina de Lavar está com uma nova presença digital.\n\nQuando a lavadora apresenta problema, ficou mais fácil entender os serviços e iniciar um diagnóstico.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/lucas-arruma-maquina-lavar\n\n#LucasArrumaMaquinaDeLavar #MaquinaDeLavar #AssistenciaTecnica #0WEB",
       "published": true,
@@ -1536,8 +1539,8 @@
       "state": "PR",
       "summary": "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes, carpetes e bancos automotivos.",
       "subtitle": "Higienização profissional de estofados",
-      "image": "/images/no-brilho-higienizacao/capa.webp",
-      "icon": "/images/no-brilho-higienizacao/capa.webp",
+      "image": "/images/no-brilho-higienizacao/capa-card.jpg",
+      "icon": "/images/no-brilho-higienizacao/logo.svg",
       "socialImage": "/images/no-brilho-higienizacao/capa-og.jpg",
       "socialVersion": "275de007",
       "componentFile": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
@@ -1548,9 +1551,12 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/no-brilho-higienizacao/capa-card.jpg",
         "/images/no-brilho-higienizacao/capa-og.jpg",
         "/images/no-brilho-higienizacao/capa.png",
-        "/images/no-brilho-higienizacao/capa.webp"
+        "/images/no-brilho-higienizacao/capa.webp",
+        "/images/no-brilho-higienizacao/logo.svg",
+        "/images/no-brilho-higienizacao/vitrine.png"
       ],
       "shareCopy": "🛋️ A No Brilho Higienização ganhou um site para mostrar como cuidado profissional pode renovar estofados e ambientes.\n\nSofás, colchões, tapetes e bancos automotivos agora têm uma vitrine de serviços clara.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/no-brilho-higienizacao\n\n#NoBrilhoHigienizacao #LimpezaDeEstofados #SJP #0WEB",
       "published": true,

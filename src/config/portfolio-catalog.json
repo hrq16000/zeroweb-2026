@@ -451,8 +451,8 @@
     "subtitle": "Conserto e manutenção de máquinas de lavar",
     "location": "Curitiba — PR · atendimento sob agendamento",
     "badge": "Novo projeto",
-    "image": "/images/lucas-arruma-maquina-lavar/capa.webp",
-    "fallbackImage": "/images/lucas-arruma-maquina-lavar/capa.webp",
+    "image": "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
+    "fallbackImage": "/images/lucas-arruma-maquina-lavar/vitrine.png",
     "metrics": "Atendimento com garantia",
     "summary": "Lucas resolve problemas de máquinas de lavar com diagnóstico, manutenção e atendimento com garantia."
   },
@@ -527,8 +527,8 @@
     "subtitle": "Higienização profissional de estofados",
     "location": "Cristal · São José dos Pinhais — PR",
     "badge": "Novo projeto",
-    "image": "/images/no-brilho-higienizacao/capa.webp",
-    "fallbackImage": "/images/no-brilho-higienizacao/capa.webp",
+    "image": "/images/no-brilho-higienizacao/capa-card.jpg",
+    "fallbackImage": "/images/no-brilho-higienizacao/vitrine.png",
     "metrics": "Atendimento a domicílio",
     "summary": "Higienização profissional de sofás, colchões, cadeiras, poltronas, tapetes, carpetes e bancos automotivos."
   },
