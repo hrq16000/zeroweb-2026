@@ -133,10 +133,10 @@
       "coverRatio": 1,
       "logoSignals": [],
       "fingerprint": {
-        "skeletonHash": "988bf94da92d873a",
+        "skeletonHash": "4fd2213988a39c19",
         "structureHash": "d90de62821271198",
         "sectionCount": 7,
-        "lines": 280
+        "lines": 282
       }
     },
     {
@@ -1202,10 +1202,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "37689ca7b30fff77",
+        "skeletonHash": "a4863ce9034f8539",
         "structureHash": "39cc311bc993921e",
         "sectionCount": 7,
-        "lines": 293
+        "lines": 296
       }
     },
     {
@@ -1872,10 +1872,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "d71d4a7c5b3cf8e8",
+        "skeletonHash": "dfdec945dd16cc75",
         "structureHash": "95afbc06b5a86590",
         "sectionCount": 10,
-        "lines": 449
+        "lines": 452
       }
     },
     {

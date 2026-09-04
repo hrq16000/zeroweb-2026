@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { buildPortfolioShareMessage } from "@/lib/portfolio-share";
+import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
 
 type SharePosition = "top-right" | "top-left" | "bottom-right";
 type SurfaceVariant = "light" | "dark";
@@ -55,8 +56,12 @@ export function PortfolioShareButton({
   className?: string;
 } = {}) {
   const [copied, setCopied] = useState(false);
+  const runtime = usePortfolioRuntime();
   const copyPromotion = async () => {
-    const text = buildPortfolioShareMessage(slug ?? "portfolio", siteName);
+    // Isolamento por projeto: o override só vale quando é do MESMO slug.
+    const override =
+      runtime && runtime.slug === (slug ?? "") && runtime.shareCopy ? runtime.shareCopy : undefined;
+    const text = override ?? buildPortfolioShareMessage(slug ?? "portfolio", siteName);
     trackEvent("portfolio_share_click", {
       portfolio_slug: slug ?? "unknown",
       page_type: "portfolio_client",

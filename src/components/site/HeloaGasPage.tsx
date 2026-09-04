@@ -1,3 +1,4 @@
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import type { CSSProperties } from "react";
 import { ArrowRight, Clock, Droplets, Flame, MapPin, ShieldCheck, Truck } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -66,13 +67,15 @@ const theme = {
 
 
 export function HeloaGasPage() {
+  const logo = useManagedValue("logoUrl", "/images/heloa-gas/logo.png");
+  const hero = useManagedValue("heroImageUrl", "/images/heloa-gas/hero.jpg");
   return (
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
         <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Heloá Gás — início">
             <PortfolioImage
-              src="/images/heloa-gas/logo.png"
+              src={logo}
               alt="Heloá Gás"
               width={1152}
               height={576}
@@ -153,7 +156,7 @@ export function HeloaGasPage() {
               </div>
             </div>
             <PortfolioImage
-              src="/images/heloa-gas/hero.jpg"
+              src={hero}
               alt="Botijão de gás 13kg e galão de água mineral entregues na porta de casa"
               priority
               width={1440}

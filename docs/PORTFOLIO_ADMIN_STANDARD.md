@@ -86,3 +86,36 @@ próprio continuam renderizando o conteúdo definido em código. O consumo dessa
 edições nas páginas públicas (SEO/OG primeiro, depois herói e galeria) é a
 próxima etapa e deve ser feita rota a rota, com validação de SSR e prévia
 social — não por atalho global.
+
+## Runtime público (Rodada 3/4)
+
+Fluxo comprovado: **ADMIN → `portfolio_client_settings` → resolver único → `/portfolio/:slug` (SSR)**.
+
+- Resolver único: `src/lib/portfolio-runtime.ts`
+  - `sanitizePortfolioRuntimeRow(slug, row)` — descarta contato operacional, HTML,
+    URL externa e canonical arbitrária.
+  - `applyPortfolioRuntime(base, overrides)` — política central
+    `override_válido ?? registry`. Campo vazio no banco = rollback automático.
+- Leitura pública sem sessão: `src/lib/portfolio-runtime.functions.ts`
+  (`getPortfolioRuntimeOverrides`), tolerante a falha (`null` → página intacta).
+- Consumo na rota `src/routes/portfolio.$slug.tsx`: `title`, `description`,
+  `robots`, `keywords`, `og:*`, `twitter:*`, `canonical` e ícone.
+- Componentes próprios: contexto `PortfolioRuntimeProvider` +
+  `useManagedValue(campo, fallback)` — **custom component + managed data**.
+  Nenhum componente perde imagem quando o banco está vazio.
+- Social image administrada é servida pela rota pública controlada
+  `/api/public/portfolio-asset/*` (bucket privado, MIME verificado, sem listagem);
+  `social_version` entra como `?v=` para invalidar cache de crawler.
+- Estados: `imported`/`published` = indexável; `draft`/`archived` =
+  `noindex,nofollow` e fora do `sitemap-portfolio.xml`.
+- Gate: `bun run check:portfolio-runtime-overrides` (também no prebuild) valida
+  o contrato da rota e gera `reports/portfolio-runtime-matrix.md`.
+
+### Evidência de SSR real (2026-09-04, preview)
+
+| Passo | Resultado |
+| --- | --- |
+| baseline | `<title>Paulo Mestre de Obras</title>`, `robots index,follow` |
+| override `seo_title` no banco | `<title>TESTE RUNTIME 0WEB — Paulo Mestre de Obras</title>` e `og:title` idêntico |
+| `lifecycle_status = draft` | `robots noindex,nofollow` e URL fora do `sitemap-portfolio.xml` |
+| limpar override + `published` | volta ao registry e ao sitemap |

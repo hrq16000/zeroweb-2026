@@ -1,3 +1,4 @@
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import { motion } from "motion/react";
 import {
   ArrowRight,
@@ -77,13 +78,14 @@ function CTA({ children }: { children: React.ReactNode }) {
   );
 }
 export function AguiaSulSinalizacaoPage() {
+  const logo = useManagedValue("logoUrl", "/images/aguia-sul-sinalizacao/logo.webp");
   return (
     <div className="min-h-dvh overflow-hidden bg-[#090a0c] text-[#f7f4ec]">
       <header className="sticky top-0 z-30 border-b border-[#f5b51b]/20 bg-[#090a0c]/95 px-5 py-4 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold">
             <PortfolioImage
-              src="/images/aguia-sul-sinalizacao/logo.webp"
+              src={logo}
               alt="Águia Sul Sinalização"
               width={40}
               height={40}
@@ -156,7 +158,7 @@ export function AguiaSulSinalizacaoPage() {
               transition={{ duration: 0.7 }}
             >
               <PortfolioImage
-                src="/images/aguia-sul-sinalizacao/logo.webp"
+                src={logo}
                 alt="Logo dourada da Águia Sul Sinalização"
                 priority
                 width={1024}

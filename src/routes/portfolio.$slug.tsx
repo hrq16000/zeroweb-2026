@@ -8,6 +8,12 @@ import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-assets";
+import {
+  applyPortfolioRuntime,
+  type PortfolioRuntimeOverrides,
+} from "@/lib/portfolio-runtime";
+import { getPortfolioRuntimeOverrides } from "@/lib/portfolio-runtime.functions";
+import { PortfolioRuntimeProvider } from "@/components/portfolio/PortfolioRuntimeContext";
 
 // Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
 // próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
@@ -269,12 +275,20 @@ const HeloaGasPage = lazy(() =>
 );
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const site = findPortfolioPrototype(params.slug);
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) throw notFound();
-    return { vertical, slug: params.slug };
+    // Overrides administráveis (admin → banco → runtime). Falha vira null:
+    // a página do cliente nunca depende do banco para renderizar.
+    let overrides: PortfolioRuntimeOverrides | null = null;
+    try {
+      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug } });
+    } catch {
+      overrides = null;
+    }
+    return { vertical, slug: params.slug, overrides };
   },
   head: ({ loaderData }) => {
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
@@ -484,14 +498,32 @@ export const Route = createFileRoute("/portfolio/$slug")({
     );
     const vertical = loaderData?.vertical;
     const isMarido = loaderData?.slug === "marido-de-aluguel";
+    // Resolver único: BANCO (admin) > REGISTRY/rota. Sem linha no banco, nada muda.
+    const eff = applyPortfolioRuntime(
+      {
+        slug: loaderData?.slug ?? "",
+        title,
+        description,
+        canonicalUrl: url,
+        socialImage,
+        logoUrl: icon,
+      },
+      loaderData?.overrides ?? null,
+    );
+    const effSocial = eff.socialImage.startsWith("http") ? eff.socialImage : absUrl(eff.socialImage);
+    const effIcon = eff.logoUrl
+      ? eff.logoUrl.startsWith("http")
+        ? eff.logoUrl
+        : absUrl(eff.logoUrl)
+      : icon;
     return {
       meta: [
-        { title },
-        { name: "description", content: description },
-        { name: "robots", content: "index,follow,max-image-preview:large" },
+        { title: eff.title },
+        { name: "description", content: eff.description },
+        { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: isRjDrywall
+          content: eff.keywords ?? (isRjDrywall
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
               ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
@@ -568,26 +600,28 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                                                     : isAssistenciaMicroondas
                                                                                       ? "Assistência Técnica Microondas Santos, conserto de micro-ondas, restauração contra ferrugem, venda de micro-ondas revisados, atendimento a domicílio, São José dos Pinhais"
                                                                                       : (vertical?.keywords ??
-                                                                                        "site profissional, criação de sites, SEO local"),
+                                                                                        "site profissional, criação de sites, SEO local")),
         },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:url", content: url },
+        { property: "og:title", content: eff.title },
+        { property: "og:description", content: eff.description },
+        { property: "og:url", content: eff.canonicalUrl },
         { property: "og:type", content: "website" },
-        { property: "og:site_name", content: title },
-        { property: "og:image", content: socialImage },
-        { property: "og:image:secure_url", content: socialImage },
-        { property: "og:image:type", content: socialImageType },
+        { property: "og:site_name", content: eff.title },
+        { property: "og:image", content: effSocial },
+        { property: "og:image:secure_url", content: effSocial },
+        { property: "og:image:type", content: effSocial.includes(".png") ? "image/png" : socialImageType },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: title },
+        { property: "og:image:alt", content: eff.title },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: socialImage },
+        { name: "twitter:title", content: eff.title },
+        { name: "twitter:description", content: eff.description },
+        { name: "twitter:image", content: effSocial },
       ],
       links: [
-        { rel: "canonical", href: url },
-        { rel: "icon", href: icon },
-        { rel: "apple-touch-icon", href: icon },
+        { rel: "canonical", href: eff.canonicalUrl },
+        { rel: "icon", href: effIcon },
+        { rel: "apple-touch-icon", href: effIcon },
       ],
       scripts: vertical
         ? [
@@ -740,8 +774,13 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function PortfolioPrototypePage() {
-  const { vertical, slug } = Route.useLoaderData();
+  const { vertical, slug, overrides } = Route.useLoaderData();
+  const effective = applyPortfolioRuntime(
+    { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
+    overrides,
+  );
   return (
+    <PortfolioRuntimeProvider value={effective}>
     <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
         {slug === "sos-presentes-cosmeticos" ? (
@@ -879,5 +918,6 @@ function PortfolioPrototypePage() {
         )}
       </Suspense>
     </PortfolioStandardShell>
+    </PortfolioRuntimeProvider>
   );
 }
