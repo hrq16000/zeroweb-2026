@@ -81,7 +81,6 @@ export function LucasArrumaMaquinaLavarPage() {
               width={44}
               height={44}
               className="h-11 w-11"
-              managedField="logoUrl"
             />
             <span className="font-display text-base font-bold leading-tight">
               Lucas Arruma
@@ -201,8 +200,8 @@ export function LucasArrumaMaquinaLavarPage() {
               </div>
               <div className="border-2 border-[#23282e] bg-[#e8e3d9] p-3">
                 <PortfolioImage
-                  src="/images/lucas-arruma-maquina-lavar/capa.webp"
-                  alt="Material de divulgação da assistência de máquinas de lavar do Lucas"
+                  src="/images/lucas-arruma-maquina-lavar/vitrine.png"
+                  alt="Identidade visual da assistência técnica de máquinas de lavar do Lucas"
                   priority
                   width={1200}
                   height={1600}

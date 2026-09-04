@@ -74,7 +74,6 @@ export function NoBrilhoHigienizacaoPage() {
               width={44}
               height={44}
               className="h-11 w-11 rounded-xl"
-              managedField="logoUrl"
             />
             <span className="font-display text-base font-bold leading-tight">
               No Brilho
@@ -123,8 +122,8 @@ export function NoBrilhoHigienizacaoPage() {
           <div className="mx-auto max-w-3xl px-5">
             <div className="rounded-3xl bg-[#efe9df] p-3 shadow-xl">
               <PortfolioImage
-                src="/images/no-brilho-higienizacao/capa.webp"
-                alt="Material de divulgação da No Brilho Higienização"
+                src="/images/no-brilho-higienizacao/vitrine.png"
+                alt="Identidade visual da No Brilho Higienização"
                 priority
                 width={1200}
                 height={1200}
