@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24122f"/><stop offset="1" stop-color="#e879f9"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#g)"/><circle cx="1020" cy="90" r="250" fill="#fff" opacity=".08"/><circle cx="180" cy="610" r="330" fill="#fff" opacity=".06"/>
-  <path d="M760 0h440v630H720c76-84 112-193 112-315S836 84 760 0Z" fill="#000" opacity=".12"/><g transform="translate(910 170)" fill="none" stroke="#e879f9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".92"><path d="m28 102 72-64 72 64v82H28v-82Zm48 82v-54h48v54M142 74l28-28 24 24-28 28-24-24Z"/><path d="m152 48 20-20m-2 40 20-20"/></g>
-  <rect x="70" y="68" width="108" height="108" rx="28" fill="#fff" opacity=".96"/><text x="124" y="141" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#24122f">ONG</text>
-  <text x="70" y="258" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#fff" opacity=".8">PRESENÇA DIGITAL</text>
-  <text x="70" y="350" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#fff">Oficina Náutica Guaratuba</text>
-  <text x="70" y="414" font-family="Arial,sans-serif" font-size="25" fill="#fff" opacity=".92">nautica · manutencao · barcos</text>
-  <text x="70" y="470" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#fff" opacity=".7">PRESTADORES DE SERVICOS</text>
-  <text x="70" y="530" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#fff" opacity=".8">Guaratuba — PR</text>
-  </svg>
+<!-- gerado por scripts/build-portfolio-brand-social.mjs a partir da marca autoral -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <rect width="1200" height="630" fill="#10243d"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#ff7a1a"/>
+  <circle cx="1120" cy="96" r="220" fill="#ff7a1a" opacity=".16"/>
+  <circle cx="1040" cy="600" r="150" fill="#8fb6d8" opacity=".12"/>
+  <text x="80" y="392" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Oficina Náutica Guaratuba</text>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">prestadores de servicos</text>
+  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ff7a1a">Guaratuba — PR</text>
+</svg>

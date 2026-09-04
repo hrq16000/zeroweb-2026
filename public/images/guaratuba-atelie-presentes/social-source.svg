@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#20204a"/><stop offset="1" stop-color="#facc15"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#g)"/><circle cx="1020" cy="90" r="250" fill="#fff" opacity=".08"/><circle cx="180" cy="610" r="330" fill="#fff" opacity=".06"/>
-  <path d="M760 0h440v630H720c76-84 112-193 112-315S836 84 760 0Z" fill="#000" opacity=".12"/><g transform="translate(920 170)" fill="none" stroke="#facc15" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".92"><path d="M38 76h124l-10 110H48L38 76Zm0 0 18-42h88l18 42M72 76v110m56-110v110M80 34v-16m40 16v-16"/><path d="M68 116h64"/></g>
-  <rect x="70" y="68" width="108" height="108" rx="28" fill="#fff" opacity=".96"/><text x="124" y="141" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#20204a">AED</text>
-  <text x="70" y="258" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#fff" opacity=".8">PRESENÇA DIGITAL</text>
-  <text x="70" y="350" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#fff">Ateliê Encanto da Baía</text>
-  <text x="70" y="414" font-family="Arial,sans-serif" font-size="25" fill="#fff" opacity=".92">artesanato · presentes · lembrancas</text>
-  <text x="70" y="470" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#fff" opacity=".7">COMERCIOS</text>
-  <text x="70" y="530" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#fff" opacity=".8">Guaratuba — PR</text>
-  </svg>
+<!-- gerado por scripts/build-portfolio-brand-social.mjs a partir da marca autoral -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <rect width="1200" height="630" fill="#c25a37"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#f0d9b5"/>
+  <circle cx="1120" cy="96" r="220" fill="#f0d9b5" opacity=".16"/>
+  <circle cx="1040" cy="600" r="150" fill="#2f2418" opacity=".12"/>
+  <text x="80" y="392" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Ateliê Encanto da Baía</text>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">comercios</text>
+  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#f0d9b5">Guaratuba — PR</text>
+</svg>
