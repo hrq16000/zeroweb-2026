@@ -7,6 +7,11 @@ import {
   listPortfolioAdminProjects,
 } from "@/lib/portfolio-admin.functions";
 import type { MergedProject } from "@/lib/portfolio-admin";
+import {
+  getVisualQuality,
+  VISUAL_BADGE_STYLE,
+  visualQuality,
+} from "@/lib/portfolio-visual-quality";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/")({
   component: PortfolioAdminList,
@@ -19,6 +24,7 @@ const STATUS_STYLE: Record<string, string> = {
   PARTIAL: "bg-muted text-foreground",
   LEGACY: "bg-destructive/10 text-destructive",
 };
+
 
 function PortfolioAdminList() {
   const load = useServerFn(listPortfolioAdminProjects);
