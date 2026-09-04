@@ -456,7 +456,7 @@ export function analyzePortfolio(root) {
   const parent = new Map(projects.map((p) => [p.slug, p.slug]));
   const find = (x) => (parent.get(x) === x ? x : (parent.set(x, find(parent.get(x))), parent.get(x)));
   for (const pair of pairs) {
-    if (pair.score < THRESHOLDS.high) continue;
+    if (pair.score < THRESHOLDS.clone) continue;
     const ra = find(pair.a);
     const rb = find(pair.b);
     if (ra !== rb) parent.set(ra, rb);
