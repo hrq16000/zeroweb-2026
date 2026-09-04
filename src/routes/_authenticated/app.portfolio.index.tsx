@@ -34,6 +34,7 @@ function PortfolioAdminList() {
   const [summary, setSummary] = useState<Record<string, number> | null>(null);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("all");
+  const [visual, setVisual] = useState("all");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -60,6 +61,12 @@ function PortfolioAdminList() {
     () =>
       rows.filter((r) => {
         if (status !== "all" && r.conformance.status !== status) return false;
+        if (visual !== "all") {
+          const vq = getVisualQuality(r.slug);
+          if (visual === "P0P1") {
+            if (!vq || vq.severities.P0 + vq.severities.P1 === 0) return false;
+          } else if ((vq?.visual ?? "NEEDS_UPGRADE") !== visual) return false;
+        }
         if (!query.trim()) return true;
         const q = query.trim().toLowerCase();
         return (
@@ -69,7 +76,7 @@ function PortfolioAdminList() {
           r.city.toLowerCase().includes(q)
         );
       }),
-    [rows, query, status],
+    [rows, query, status, visual],
   );
 
   const onImport = async () => {
@@ -129,6 +136,18 @@ function PortfolioAdminList() {
           <option value="PARTIAL">PARTIAL</option>
           <option value="LEGACY">LEGACY</option>
         </select>
+        <select
+          aria-label="Filtrar por qualidade visual"
+          value={visual}
+          onChange={(e) => setVisual(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todas as qualidades</option>
+          <option value="PREMIUM">PREMIUM</option>
+          <option value="STANDARD">STANDARD</option>
+          <option value="NEEDS_UPGRADE">NEEDS_UPGRADE</option>
+          <option value="P0P1">Com issue P0/P1</option>
+        </select>
         <button
           type="button"
           onClick={() => void fetchData()}
@@ -168,6 +187,35 @@ function PortfolioAdminList() {
         </dl>
       )}
 
+      <section aria-labelledby="vq-title" className="mt-6 rounded-xl border border-border bg-card p-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="vq-title" className="font-display text-lg font-semibold">
+            Qualidade visual
+          </h2>
+          <p className="text-xs text-muted-foreground">
+            Camada separada da conformidade técnica · score médio {visualQuality.summary.averageScore} ·
+            auditoria de {new Date(visualQuality.generatedAt).toLocaleDateString("pt-BR")}
+          </p>
+        </div>
+        <dl className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {[
+            ["PREMIUM", visualQuality.summary.visual.PREMIUM],
+            ["STANDARD", visualQuality.summary.visual.STANDARD],
+            ["NEEDS_UPGRADE", visualQuality.summary.visual.NEEDS_UPGRADE],
+            ["Issues P0+P1", visualQuality.summary.issues.P0 + visualQuality.summary.issues.P1],
+          ].map(([label, value]) => (
+            <div key={String(label)} className="rounded-lg border border-border p-3">
+              <dt className="text-xs uppercase tracking-wide text-muted-foreground">{label}</dt>
+              <dd className="mt-1 text-xl font-bold">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-3 text-xs text-muted-foreground">
+          COMPLETE + NEEDS_UPGRADE é um estado válido: tecnicamente correto, visualmente abaixo do
+          padrão. Só issues P0 bloqueiam o gate.
+        </p>
+      </section>
+
       {message && (
         <p className="mt-4 rounded-md border border-border bg-muted/40 p-3 text-sm">{message}</p>
       )}
@@ -203,6 +251,18 @@ function PortfolioAdminList() {
                 <span className={`rounded px-2 py-1 text-[11px] font-semibold ${STATUS_STYLE[p.conformance.status]}`}>
                   {p.conformance.status}
                 </span>
+                {(() => {
+                  const vq = getVisualQuality(p.slug);
+                  if (!vq) return null;
+                  return (
+                    <span
+                      className={`rounded px-2 py-1 text-[11px] font-semibold ${VISUAL_BADGE_STYLE[vq.visual]}`}
+                      title={`Score visual ${vq.score}/100`}
+                    >
+                      {vq.visual} {vq.score}
+                    </span>
+                  );
+                })()}
                 <span className="inline-flex items-center gap-1 rounded bg-muted px-2 py-1 text-[11px]">
                   {p.published ? (
                     <CheckCircle2 className="h-3 w-3 text-primary" aria-hidden="true" />
