@@ -145,6 +145,7 @@ export function buildRecords(root) {
       assetsDir: client?.assetsDir ?? `public/images/${slug}`,
       ctaMode: client?.ctaMode ?? "",
       hasCta,
+      hasOwnDescription,
       gallery: imageFiles.map((f) => `/images/${slug}/${f}`),
       shareCopy: shareCopy[slug] ?? "",
       published,
