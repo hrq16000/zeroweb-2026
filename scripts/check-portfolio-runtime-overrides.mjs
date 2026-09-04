@@ -53,7 +53,7 @@ for (const file of files) {
     logo:
       has(/managedField="logoUrl"/) || has(/useManagedValue\("logoUrl"/)
         ? "MANAGED"
-        : /logo/i.test(src)
+        : /\blogo\b/i.test(src) // "catálogo" não é logo
           ? "MISSING"
           : "NOT_APPLICABLE",
     hero:
