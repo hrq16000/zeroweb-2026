@@ -57,6 +57,17 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "assistencia-microondas-santos",
   "artesanatos-darleia-oliveira",
   "thays-camilla",
+  "almeida-torres",
+  "bh-barreiro-marmitas",
+  "casa-nativa",
+  "clinica-integrada",
+  "guaratuba-atelie-presentes",
+  "guaratuba-oficina-nautica",
+  "guaratuba-reparos-residenciais",
+  "guaratuba-sabores-da-baia",
+  "mirassol-conserta-celular",
+  "mirassol-delicias-caseiras",
+  "uberlandia-eletrica-residencial",
 ] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 

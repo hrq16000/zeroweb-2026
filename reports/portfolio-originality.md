@@ -20,12 +20,12 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 |---|---|
 | Total | 68 |
 | ORIGINAL | 0 |
-| ACCEPTABLE | 3 |
-| ATTENTION | 10 |
+| ACCEPTABLE | 6 |
+| ATTENTION | 18 |
 | HIGH_SIMILARITY | 25 |
 | CLONE | 19 |
-| SHARED_FALLBACK | 11 |
-| Clusters | 5 |
+| SHARED_FALLBACK | 0 |
+| Clusters | 4 |
 | Logos placeholder | 11 |
 | Logos ausentes | 0 |
 | Capas ausentes | 27 |
@@ -35,23 +35,19 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 ## Clusters
 
-### CLUSTER_01 — COPY_ONLY_VARIATION (média 100, risco ALTO)
-Base: `src/routes/sites.$vertical.tsx`
-Membros: almeida-torres, bh-barreiro-marmitas, casa-nativa, clinica-integrada, guaratuba-atelie-presentes, guaratuba-oficina-nautica, guaratuba-reparos-residenciais, guaratuba-sabores-da-baia, mirassol-conserta-celular, mirassol-delicias-caseiras, uberlandia-eletrica-residencial
-
-### CLUSTER_02 — NEAR_DUPLICATE_LAYOUT (média 91, risco ALTO)
+### CLUSTER_01 — NEAR_DUPLICATE_LAYOUT (média 91, risco ALTO)
 Base: `src/components/site/AngelMixBrechoPage.tsx`
 Membros: angel-mix-brecho, beto-pasteis, brecho-sao-francisco, dlara-pizzaria, marmitaria-dom-diego, reuse-house-brecho, toquinho-de-gente-brecho, woodhouse-hamburgueres
 
-### CLUSTER_03 — NEAR_DUPLICATE_LAYOUT (média 82, risco ALTO)
+### CLUSTER_02 — NEAR_DUPLICATE_LAYOUT (média 82, risco ALTO)
 Base: `src/components/site/AguiaSulSinalizacaoPage.tsx`
 Membros: aguia-sul-sinalizacao, eisenfer-tubos-acos, eletro-solucoes-eficazes, eletrovale-eletromecanica, jkl-marcenaria
 
-### CLUSTER_04 — IDENTICAL_COMPONENT_STRUCTURE (média 100, risco ALTO)
+### CLUSTER_03 — IDENTICAL_COMPONENT_STRUCTURE (média 100, risco ALTO)
 Base: `src/components/site/HbkIluminacaoLedPage.tsx`
 Membros: hbk-iluminacao-led, jc-revestimentos, raphael-construcoes, ton-e-cor
 
-### CLUSTER_05 — NEAR_DUPLICATE_LAYOUT (média 84, risco ALTO)
+### CLUSTER_04 — NEAR_DUPLICATE_LAYOUT (média 84, risco ALTO)
 Base: `src/components/site/EspacoCihLuhPage.tsx`
 Membros: espaco-cih-luh, salao-da-marcia
 
@@ -59,28 +55,17 @@ Membros: espaco-cih-luh, salao-da-marcia
 
 | Projeto | Score | Status | Mais parecido | Motivo | Capa | Logo | Fallback |
 |---|---|---|---|---|---|---|---|
-| almeida-torres | 100 | SHARED_FALLBACK | bh-barreiro-marmitas (100) | SHARED_VERTICAL_FALLBACK | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | juridico |
 | angel-mix-brecho | 100 | CLONE | brecho-sao-francisco (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | beto-pasteis | 100 | CLONE | dlara-pizzaria (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| bh-barreiro-marmitas | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | restaurantes |
 | brecho-sao-francisco | 100 | CLONE | angel-mix-brecho (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| casa-nativa | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | services |
-| clinica-integrada | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | saude |
 | dlara-pizzaria | 100 | CLONE | beto-pasteis (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| guaratuba-atelie-presentes | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | comercios |
-| guaratuba-oficina-nautica | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | services |
-| guaratuba-reparos-residenciais | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | services |
-| guaratuba-sabores-da-baia | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | restaurantes |
 | hbk-iluminacao-led | 100 | CLONE | jc-revestimentos (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | jc-revestimentos | 100 | CLONE | hbk-iluminacao-led (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | marmitaria-dom-diego | 100 | CLONE | beto-pasteis (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| mirassol-conserta-celular | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | services |
-| mirassol-delicias-caseiras | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | restaurantes |
 | raphael-construcoes | 100 | CLONE | hbk-iluminacao-led (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | reuse-house-brecho | 100 | CLONE | angel-mix-brecho (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | ton-e-cor | 100 | CLONE | hbk-iluminacao-led (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | toquinho-de-gente-brecho | 100 | CLONE | angel-mix-brecho (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| uberlandia-eletrica-residencial | 100 | SHARED_FALLBACK | almeida-torres (100) | SHARED_VERTICAL_FALLBACK | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | services |
 | woodhouse-hamburgueres | 100 | CLONE | beto-pasteis (100) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | eisenfer-tubos-acos | 87 | CLONE | eletrovale-eletromecanica (87) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | eletrovale-eletromecanica | 87 | CLONE | eisenfer-tubos-acos (87) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -120,10 +105,21 @@ Membros: espaco-cih-luh, salao-da-marcia
 | renata-beauty | 57 | ATTENTION | r_beauty (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | santos-montador-de-moveis | 55 | ATTENTION | no-brilho-higienizacao (55) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | fernanda-amaral-drywall | 53 | ATTENTION | rj-servicos-drywall (53) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
+| guaratuba-atelie-presentes | 53 | ATTENTION | mirassol-delicias-caseiras (53) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| mirassol-delicias-caseiras | 53 | ATTENTION | guaratuba-atelie-presentes (53) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | rj-servicos-drywall | 53 | ATTENTION | fernanda-amaral-drywall (53) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | manu-pasteis | 52 | ATTENTION | miro-tech (52) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| casa-nativa | 50 | ATTENTION | guaratuba-oficina-nautica (50) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| guaratuba-oficina-nautica | 50 | ATTENTION | casa-nativa (50) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| bh-barreiro-marmitas | 47 | ATTENTION | uberlandia-eletrica-residencial (47) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| clinica-integrada | 47 | ATTENTION | confeitaria-sabor-da-realeza (47) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| uberlandia-eletrica-residencial | 47 | ATTENTION | bh-barreiro-marmitas (47) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| mirassol-conserta-celular | 45 | ATTENTION | guaratuba-atelie-presentes (45) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | marido-de-aluguel | 44 | ATTENTION | lucas-arruma-maquina-lavar (44) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | rm-fretes | 42 | ATTENTION | marido-de-aluguel (42) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| guaratuba-reparos-residenciais | 37 | ACCEPTABLE | bh-barreiro-marmitas (37) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| almeida-torres | 34 | ACCEPTABLE | guaratuba-atelie-presentes (34) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| guaratuba-sabores-da-baia | 33 | ACCEPTABLE | uberlandia-eletrica-residencial (33) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | emporio-lelecute | 32 | ACCEPTABLE | mp-festas-eventos (32) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | paraiso-do-hot-dog | 29 | ACCEPTABLE | lucas-arruma-maquina-lavar (29) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dyzpromo | 27 | ACCEPTABLE | paulo-mestre-de-obras (27) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
@@ -134,4 +130,16 @@ Veredito: **PASS**
 
 Nenhuma regressão em relação à baseline.
 
-
+Melhorias:
+- {"kind":"COUNTER","key":"sharedFallback","label":"fallbacks compartilhados","before":11,"after":0}
+- {"kind":"MODIFIED_PROJECT","slug":"almeida-torres","before":"SHARED_FALLBACK","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"bh-barreiro-marmitas","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"casa-nativa","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"clinica-integrada","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-atelie-presentes","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-oficina-nautica","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-reparos-residenciais","before":"SHARED_FALLBACK","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"guaratuba-sabores-da-baia","before":"SHARED_FALLBACK","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"mirassol-conserta-celular","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"mirassol-delicias-caseiras","before":"SHARED_FALLBACK","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"uberlandia-eletrica-residencial","before":"SHARED_FALLBACK","after":"ATTENTION"}
