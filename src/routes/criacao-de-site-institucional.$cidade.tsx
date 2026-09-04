@@ -9,6 +9,7 @@ import {
   InstitutionalDiagnosticQuizModal,
 } from "@/components/site/InstitutionalDiagnosticQuiz";
 import { trackEvent } from "@/lib/analytics";
+import { LocalPagePixel, trackLocalCta } from "@/components/site/LocalPagePixel";
 import { getCapital, relatedCapitais, type Capital } from "@/lib/capitais";
 import { getLocalPageOverride, type LocalPageOverride } from "@/lib/local-pages.functions";
 
@@ -156,6 +157,7 @@ function CapitalPage() {
 
   const openModal = () => {
     trackEvent("contact_cta_click", { location: `institucional_${c.slug}`, label: "diagnostico" });
+    trackLocalCta(`institucional-${c.slug}`, "diagnostico");
     setModal(true);
   };
 
@@ -175,6 +177,7 @@ function CapitalPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <LocalPagePixel quizKey={`institucional-${c.slug}`} />
       <Header />
       <Breadcrumbs
         items={[
