@@ -130,7 +130,7 @@ Membros: espaco-cih-luh, salao-da-marcia
 
 ## Regressão
 
-Veredito: **NO_BASELINE**
+Veredito: **PASS**
 
 Nenhuma regressão em relação à baseline.
 
