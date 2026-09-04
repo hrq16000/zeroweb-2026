@@ -790,3 +790,18 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **SEO local:** nó JSON-LD `HomeAndConstructionBusiness` + `FAQPage` no slug, descrição com Curitiba e região metropolitana.
 - **Pop-up 0WEB:** verificado em Playwright (desktop 1280 e mobile 390) — já funcionava; a captação aparece após scroll/tempo, igual a Águia Sul.
 - **Validação:** logos, assets, ícones, catálogo, boundaries, meta, kit de presença, privacidade de bundle, `bun test` (245/1109) e `bun run build`.
+
+## Rodada 2/4 — Admin do portfólio sem código
+
+- Tarefa: administrar os 68 projetos de `/portfolio/:slug` sem editar arquivos.
+- Skills aplicadas: 0web-skill-router (roteamento), 0web-design-system (tokens
+  semânticos nas telas administrativas), 0web-ui-quality-gates (alvos ≥44px,
+  labels associados, estados de carregamento/erro).
+- Decisão de fonte de verdade: camada híbrida versionada — registries para
+  estrutura, `portfolio_client_settings` para conteúdo administrável,
+  precedência banco > seed (`docs/PORTFOLIO_ADMIN_STANDARD.md`).
+- Contrato de conformidade unificado em `scripts/portfolio-conformance.mjs`,
+  consumido pelo gate, pelo seed e pelo runtime.
+- Validação: 68/68 importados sem divergência, salvamento e histórico
+  verificados em banco real, bloqueio de contato operacional confirmado,
+  276 testes, build verde, scanner de privacidade limpo.
