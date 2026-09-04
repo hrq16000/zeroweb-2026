@@ -77,10 +77,10 @@
   "projects": [
     {
       "slug": "acai-total-araucaria",
-      "score": 68,
+      "score": 69,
       "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "eletrovale-eletromecanica",
-      "nearestMatchScore": 68,
+      "nearestMatchScore": 69,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
@@ -89,7 +89,7 @@
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 83.3,
         "STYLE_SIMILARITY": 88.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
         "IDENTITY_SIMILARITY": 12.5
       },
       "coverSignals": [
@@ -235,20 +235,20 @@
     },
     {
       "slug": "assistencia-microondas-santos",
-      "score": 66,
+      "score": 65,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "premium-envelopamentos",
-      "nearestMatchScore": 66,
+      "nearestMatch": "artesanatos-darleia-oliveira",
+      "nearestMatchScore": 65,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 54.5,
-        "STYLE_SIMILARITY": 67.8,
-        "ASSET_PATTERN_SIMILARITY": 50,
-        "IDENTITY_SIMILARITY": 12.9
+        "STRUCTURE_SIMILARITY": 60.7,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 61.5,
+        "STYLE_SIMILARITY": 85.4,
+        "ASSET_PATTERN_SIMILARITY": 80,
+        "IDENTITY_SIMILARITY": 13.2
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -440,7 +440,7 @@
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 77.9,
-        "ASSET_PATTERN_SIMILARITY": 22.2,
+        "ASSET_PATTERN_SIMILARITY": 20,
         "IDENTITY_SIMILARITY": 20
       },
       "coverSignals": [
@@ -482,10 +482,10 @@
     },
     {
       "slug": "diego-montador-moveis",
-      "score": 72,
+      "score": 71,
       "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "lucas-arruma-maquina-lavar",
-      "nearestMatchScore": 72,
+      "nearestMatchScore": 71,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
@@ -494,7 +494,7 @@
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 45.5,
         "STYLE_SIMILARITY": 75,
-        "ASSET_PATTERN_SIMILARITY": 66.7,
+        "ASSET_PATTERN_SIMILARITY": 50,
         "IDENTITY_SIMILARITY": 9.1
       },
       "coverSignals": [
@@ -1070,10 +1070,10 @@
     },
     {
       "slug": "lolipa-arte-em-festas",
-      "score": 70,
+      "score": 71,
       "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "premium-envelopamentos",
-      "nearestMatchScore": 70,
+      "nearestMatchScore": 71,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
@@ -1082,7 +1082,7 @@
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 62.5,
         "STYLE_SIMILARITY": 79.7,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 27.3,
         "IDENTITY_SIMILARITY": 10.3
       },
       "coverSignals": [
@@ -1425,10 +1425,10 @@
     },
     {
       "slug": "premium-envelopamentos",
-      "score": 70,
+      "score": 71,
       "originalityStatus": "HIGH_SIMILARITY",
       "nearestMatch": "lolipa-arte-em-festas",
-      "nearestMatchScore": 70,
+      "nearestMatchScore": 71,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
@@ -1437,7 +1437,7 @@
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 62.5,
         "STYLE_SIMILARITY": 79.7,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 27.3,
         "IDENTITY_SIMILARITY": 10.3
       },
       "coverSignals": [

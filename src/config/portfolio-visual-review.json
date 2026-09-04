@@ -1,3 +1,363 @@
 {
-  "_readme": "Julgamento humano da qualidade visual. Ver docs/PORTFOLIO_VISUAL_QUALITY_STANDARD.md. Chaves: coverReview, originalityReview, charm, visualOverride, notes. Override sem notes é dívida de governança."
+  "_readme": "Julgamento humano da qualidade visual. Ver docs/PORTFOLIO_VISUAL_QUALITY_STANDARD.md. Chaves: coverReview, originalityReview, charm, visualOverride, notes. Override sem notes é dívida de governança.",
+  "acai-total-araucaria": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/acai-total-araucaria/acai.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "angel-mix-brecho": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/angel-mix-brecho/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "beto-pasteis": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/beto-pasteis/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "brecho-sao-francisco": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/brecho-sao-francisco/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "diego-montador-moveis": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/diego-montador-moveis/capa.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "dlara-pizzaria": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/dlara-pizzaria/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "dyzpromo": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/dyzpromo/faixa-equipe.jpeg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "eletrovale-eletromecanica": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/eletrovale-eletromecanica/equipamentos.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "jkl-marcenaria": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/jkl-marcenaria/cozinha.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "lolipa-arte-em-festas": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "marmitaria-dom-diego": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/marmitaria-dom-diego/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "premium-envelopamentos": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/premium-envelopamentos/galeria-oficina.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "reuse-house-brecho": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/reuse-house-brecho/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "rj-servicos-drywall": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/rj-servicos-drywall/hero-drywall.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "santos-montador-de-moveis": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/santos-montador-de-moveis/hero.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "sos-presentes-cosmeticos": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/sos-presentes-cosmeticos/caneca-eu-te-protejo.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "toquinho-de-gente-brecho": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/toquinho-de-gente-brecho/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "woodhouse-hamburgueres": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/woodhouse-hamburgueres/capa.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Capa 16:10 gerada do asset proprio do cliente (scripts/build-portfolio-covers.mjs) e revisada visualmente em 390px e 1440px. Sem contato operacional na imagem."
+  },
+  "lk-alvenaria": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: arte disponivel exibe telefone operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "salao-da-marcia": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: todas as artes exibem telefone operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "studio-de-cilios": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: todas as artes exibem telefone operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "eletro-solucoes-eficazes": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: arte unica exibe telefone operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "miro-tech": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: arte unica exibe telefone operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "liz-moraes-nail-designer": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: arte unica exibe telefone e perfil operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "mp-festas-eventos": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Bloqueado por privacidade: artes exibem telefone operacional. Aguardando material fotografico proprio sem contato."
+  },
+  "ag-electrical-services": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "aguia-sul-sinalizacao": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "artesanatos-darleia-oliveira": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "assistencia-microondas-santos": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "bh-barreiro-marmitas": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "confeitaria-chyrley": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "confeitaria-sabor-da-realeza": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "ecommerce-on": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "eisenfer-tubos-acos": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "emporio-lelecute": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "espaco-cih-luh": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "fernanda-amaral-drywall": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "guaratuba-atelie-presentes": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "guaratuba-oficina-nautica": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "guaratuba-reparos-residenciais": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "guaratuba-sabores-da-baia": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "lj-cleaning": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "lucas-arruma-maquina-lavar": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "manu-pasteis": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "marido-de-aluguel": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "mary-diarista": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "mirassol-conserta-celular": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "mirassol-delicias-caseiras": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "no-brilho-higienizacao": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "refrigeracao-maresia": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "renata-beauty": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "thays-camilla": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "uberlandia-eletrica-residencial": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  },
+  "vila-da-capivara": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+  }
 }

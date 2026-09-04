@@ -159,6 +159,9 @@ export async function buildVisualQuality(root, opts = {}) {
   const originality = readJson("reports/portfolio-originality.json", { projects: [] });
   const runtime = readJson("reports/portfolio-visual-runtime.json", { projects: {} });
   const review = readJson("src/config/portfolio-visual-review.json", {});
+  // Capas curadas e aprovadas (16:10 geradas de assets do próprio cliente).
+  const coverPlan = readJson("src/config/portfolio-cover-plan.json", { projects: {} }).projects ?? {};
+
 
   const catalogBySlug = new Map(catalog.map((c) => [c.slug, c]));
   const originBySlug = new Map((originality.projects ?? []).map((p) => [p.slug, p]));
@@ -319,8 +322,12 @@ export async function buildVisualQuality(root, opts = {}) {
     }
 
     // --- capa ---
-    // Precedência real do card em /portfolio: catalog.image → social → logo → default.
-    const dedicatedCover = typeof cat.image === "string" && cat.image ? cat.image : null;
+    // Precedência real do card em /portfolio:
+    // capa curada (portfolio-cover-plan.json) → catalog.image → social → logo → default.
+    const planned = coverPlan[slug] ?? null;
+    const plannedCover = planned ? `/images/${slug}/capa-card.jpg` : null;
+    const dedicatedCover =
+      plannedCover ?? (typeof cat.image === "string" && cat.image ? cat.image : null);
     const coverPath = dedicatedCover ?? rec.socialImage ?? rec.icon ?? "";
     if (!dedicatedCover) add("COVER_NOT_DEDICATED", coverPath || "/og-default.jpg");
     const cover = coverPath ? assetIndex.get(coverPath) ?? { missing: true } : { missing: true };
@@ -333,8 +340,10 @@ export async function buildVisualQuality(root, opts = {}) {
       if (coverPath === rec.socialImage) add("COVER_REUSES_SOCIAL", coverPath);
       const shared = hashToPaths.get(cover.hash) ?? [];
       if (ownersOf(shared).size > 1) add("COVER_CROSS_CLIENT", shared.join(", "));
-      if (!cat.imageFocalPoint && !cat.focalPoint) add("COVER_NO_FOCAL_POINT");
+      const focal = planned?.focal ?? manual.coverFocal ?? cat.imageFocalPoint ?? cat.focalPoint;
+      if (!focal) add("COVER_NO_FOCAL_POINT");
     }
+
 
     // --- social ---
     const socialPath = rec.socialImage;

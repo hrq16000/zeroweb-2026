@@ -35,6 +35,7 @@ function PortfolioAdminList() {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("all");
   const [visual, setVisual] = useState("all");
+  const [cover, setCover] = useState("all");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -67,6 +68,10 @@ function PortfolioAdminList() {
             if (!vq || vq.severities.P0 + vq.severities.P1 === 0) return false;
           } else if ((vq?.visual ?? "NEEDS_UPGRADE") !== visual) return false;
         }
+        if (cover !== "all") {
+          const vq = getVisualQuality(r.slug);
+          if ((vq?.coverReview ?? "UNREVIEWED") !== cover) return false;
+        }
         if (!query.trim()) return true;
         const q = query.trim().toLowerCase();
         return (
@@ -76,7 +81,7 @@ function PortfolioAdminList() {
           r.city.toLowerCase().includes(q)
         );
       }),
-    [rows, query, status, visual],
+    [rows, query, status, visual, cover],
   );
 
   const onImport = async () => {
@@ -147,6 +152,18 @@ function PortfolioAdminList() {
           <option value="STANDARD">STANDARD</option>
           <option value="NEEDS_UPGRADE">NEEDS_UPGRADE</option>
           <option value="P0P1">Com issue P0/P1</option>
+        </select>
+        <select
+          aria-label="Filtrar por revisão de capa"
+          value={cover}
+          onChange={(e) => setCover(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todas as capas</option>
+          <option value="APPROVED">Capa aprovada</option>
+          <option value="NEEDS_REVIEW">Capa em revisão</option>
+          <option value="UNREVIEWED">Capa não revisada</option>
+          <option value="REJECTED">Capa rejeitada</option>
         </select>
         <button
           type="button"

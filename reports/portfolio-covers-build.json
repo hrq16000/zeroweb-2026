@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-09-04T06:14:44.960Z",
+  "ok": 1,
+  "failed": [],
+  "results": [
+    {
+      "slug": "vila-da-capivara",
+      "status": "OK",
+      "mode": "frame",
+      "source": "public/images/vila-da-capivara/revenda.png",
+      "out": "/images/vila-da-capivara/capa-card.jpg",
+      "bytes": 195666,
+      "dimensions": "1600x1000",
+      "lowRes": false
+    }
+  ]
+}
