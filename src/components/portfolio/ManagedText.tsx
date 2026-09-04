@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
 import type { PortfolioRuntimeEffective } from "@/lib/portfolio-runtime";
 
@@ -27,7 +28,7 @@ export function ManagedRich({
   children,
 }: {
   field: TextField;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const runtime = usePortfolioRuntime();
   const value = runtime?.[field as keyof PortfolioRuntimeEffective];
