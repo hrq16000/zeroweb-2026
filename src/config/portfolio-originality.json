@@ -19,8 +19,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 17,
-    "attention": 39,
-    "highSimilarity": 12,
+    "attention": 42,
+    "highSimilarity": 9,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -29,7 +29,7 @@
     "missingCovers": 27,
     "coversAsSocialImage": 11,
     "sharedCovers": 0,
-    "severeCrop": 22,
+    "severeCrop": 20,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -113,13 +113,13 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 56,
+          "slug": "refrigeracao-maresia",
+          "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "refrigeracao-maresia",
-          "score": 55,
+          "slug": "diego-montador-moveis",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -569,8 +569,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "guaratuba-oficina-nautica",
-          "score": 39,
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 40,
           "reason": "DISTINCT"
         }
       ],
@@ -717,21 +717,21 @@
     },
     {
       "slug": "diego-montador-moveis",
-      "score": 63,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "lucas-arruma-maquina-lavar",
-      "nearestMatchScore": 63,
+      "score": 59,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "aguia-sul-sinalizacao",
+      "nearestMatchScore": 59,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 74,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 75,
-        "COPY_SIMILARITY": 2.1,
-        "ASSET_PATTERN_SIMILARITY": 50,
-        "IDENTITY_SIMILARITY": 9.1
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 85.7,
+        "STYLE_SIMILARITY": 85.9,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 23.1
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -745,17 +745,17 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 63,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
           "slug": "aguia-sul-sinalizacao",
           "score": 59,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "lk-alvenaria",
+          "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "paulo-mestre-de-obras",
           "score": 56,
           "reason": "SAME_FAMILY"
         }
@@ -852,21 +852,21 @@
     },
     {
       "slug": "ecommerce-on",
-      "score": 55,
+      "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "lucas-arruma-maquina-lavar",
-      "nearestMatchScore": 55,
+      "nearestMatch": "acai-total-araucaria",
+      "nearestMatchScore": 54,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 85.2,
+        "STRUCTURE_SIMILARITY": 73.5,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 75,
+        "STYLE_SIMILARITY": 77.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7
+        "ASSET_PATTERN_SIMILARITY": 10,
+        "IDENTITY_SIMILARITY": 11.8
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -877,11 +877,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 55,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "acai-total-araucaria",
           "score": 54,
           "reason": "SAME_FAMILY"
@@ -889,6 +884,11 @@
         {
           "slug": "aguia-sul-sinalizacao",
           "score": 53,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 48,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -929,13 +929,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 34,
-          "reason": "DISTINCT"
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 34,
+          "slug": "no-brilho-higienizacao",
+          "score": 39,
           "reason": "DISTINCT"
         }
       ],
@@ -1613,7 +1613,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
+          "slug": "miro-tech",
           "score": 54,
           "reason": "SAME_FAMILY"
         }
@@ -1668,21 +1668,21 @@
     },
     {
       "slug": "lk-alvenaria",
-      "score": 66,
+      "score": 64,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "lucas-arruma-maquina-lavar",
-      "nearestMatchScore": 66,
+      "nearestMatch": "ag-electrical-services",
+      "nearestMatchScore": 64,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.4,
+        "STRUCTURE_SIMILARITY": 74.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 53.8,
-        "STYLE_SIMILARITY": 89.9,
-        "COPY_SIMILARITY": 2,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 83.1,
+        "COPY_SIMILARITY": 1,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.6
+        "IDENTITY_SIMILARITY": 11.4
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1694,11 +1694,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 66,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
           "slug": "ag-electrical-services",
           "score": 64,
           "reason": "NEAR_DUPLICATE_LAYOUT"
@@ -1706,6 +1701,11 @@
         {
           "slug": "diego-montador-moveis",
           "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "paulo-mestre-de-obras",
+          "score": 55,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1759,27 +1759,24 @@
     },
     {
       "slug": "lucas-arruma-maquina-lavar",
-      "score": 66,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 66,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "no-brilho-higienizacao",
+      "nearestMatchScore": 47,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 53.8,
-        "STYLE_SIMILARITY": 89.9,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.6
+        "STRUCTURE_SIMILARITY": 52.3,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 60,
+        "STYLE_SIMILARITY": 48.3,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 4
       },
       "coverSignals": [
-        "COVER_IS_LOGO",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
@@ -1787,19 +1784,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lk-alvenaria",
-          "score": 66,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
           "slug": "no-brilho-higienizacao",
-          "score": 65,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "score": 47,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 63,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "denise-gomes-psicologa",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mp-festas-eventos",
+          "score": 43,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -1883,13 +1880,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
+          "slug": "paulo-mestre-de-obras",
           "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "paulo-mestre-de-obras",
-          "score": 39,
+          "slug": "ag-electrical-services",
+          "score": 37,
           "reason": "DISTINCT"
         }
       ],
@@ -2175,27 +2172,24 @@
     },
     {
       "slug": "no-brilho-higienizacao",
-      "score": 65,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 47,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "lucas-arruma-maquina-lavar",
-      "nearestMatchScore": 65,
+      "nearestMatchScore": 47,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 52.3,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 94.7,
-        "COPY_SIMILARITY": 1.5,
+        "COMPONENT_SIMILARITY": 60,
+        "STYLE_SIMILARITY": 48.3,
+        "COPY_SIMILARITY": 0.5,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 11.1
+        "IDENTITY_SIMILARITY": 4
       },
       "coverSignals": [
-        "COVER_IS_LOGO",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
@@ -2204,18 +2198,18 @@
       "nearest": [
         {
           "slug": "lucas-arruma-maquina-lavar",
-          "score": 65,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-        },
-        {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 58,
+          "score": 47,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 53,
-          "reason": "SAME_FAMILY"
+          "slug": "eisenfer-tubos-acos",
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "jkl-marcenaria",
+          "score": 38,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -2224,17 +2218,17 @@
       "slug": "paraiso-do-hot-dog",
       "score": 25,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "lucas-arruma-maquina-lavar",
+      "nearestMatch": "refrigeracao-maresia",
       "nearestMatchScore": 25,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 13.1,
-        "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 17.6,
-        "STYLE_SIMILARITY": 47.3,
+        "STRUCTURE_SIMILARITY": 10.6,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 25,
+        "STYLE_SIMILARITY": 39.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 50,
-        "IDENTITY_SIMILARITY": 5
+        "ASSET_PATTERN_SIMILARITY": 25,
+        "IDENTITY_SIMILARITY": 4.9
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -2246,11 +2240,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 25,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "refrigeracao-maresia",
           "score": 25,
           "reason": "DISTINCT"
@@ -2259,27 +2248,32 @@
           "slug": "artesanatos-darleia-oliveira",
           "score": 24,
           "reason": "DISTINCT"
+        },
+        {
+          "slug": "emporio-lelecute",
+          "score": 24,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
     },
     {
       "slug": "paulo-mestre-de-obras",
-      "score": 58,
+      "score": 56,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "lucas-arruma-maquina-lavar",
-      "nearestMatchScore": 58,
+      "nearestMatch": "diego-montador-moveis",
+      "nearestMatchScore": 56,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 83,
+        "STRUCTURE_SIMILARITY": 62.7,
         "SECTION_ORDER_SIMILARITY": 75,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 78.2,
-        "COPY_SIMILARITY": 1.2,
+        "COMPONENT_SIMILARITY": 60,
+        "STYLE_SIMILARITY": 70.9,
+        "COPY_SIMILARITY": 3,
         "ASSET_PATTERN_SIMILARITY": 25,
-        "IDENTITY_SIMILARITY": 7.5
+        "IDENTITY_SIMILARITY": 15.6
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -2292,11 +2286,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 58,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "diego-montador-moveis",
           "score": 56,
           "reason": "SAME_FAMILY"
@@ -2304,6 +2293,11 @@
         {
           "slug": "lk-alvenaria",
           "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2718,20 +2712,20 @@
     },
     {
       "slug": "santos-montador-de-moveis",
-      "score": 49,
+      "score": 42,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "no-brilho-higienizacao",
-      "nearestMatchScore": 49,
+      "nearestMatch": "diego-montador-moveis",
+      "nearestMatchScore": 42,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 41.6,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "STRUCTURE_SIMILARITY": 45.8,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 63.6,
+        "STYLE_SIMILARITY": 42.1,
+        "COPY_SIMILARITY": 3.9,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -2744,11 +2738,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "no-brilho-higienizacao",
-          "score": 49,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "diego-montador-moveis",
           "score": 42,
           "reason": "SAME_FAMILY"
@@ -2756,6 +2745,11 @@
         {
           "slug": "aguia-sul-sinalizacao",
           "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "lk-alvenaria",
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
