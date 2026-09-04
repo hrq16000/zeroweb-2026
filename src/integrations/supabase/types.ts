@@ -4204,53 +4204,104 @@ export type Database = {
       }
       portfolio_client_settings: {
         Row: {
+          archived_at: string | null
+          brand_colors: Json
           canonical_url: string
+          city: string
           client_key: string
+          content_version: number
           created_at: string
+          cta_label: string
           display_name: string
           funnel_enabled: boolean
           funnel_recipient: string
+          gallery: Json
+          hero_headline: string
+          hero_image_url: string
+          hero_subheadline: string
           id: string
+          lifecycle_status: string
+          logo_url: string
           published: boolean
+          segment: string
           seo_description: string
           seo_keywords: string
           seo_title: string
+          share_copy: string
           slug: string
           social_image_url: string
+          social_version: string
+          source_snapshot: Json
+          state: string
+          summary: string
           updated_at: string
           updated_by: string | null
         }
         Insert: {
+          archived_at?: string | null
+          brand_colors?: Json
           canonical_url?: string
+          city?: string
           client_key: string
+          content_version?: number
           created_at?: string
+          cta_label?: string
           display_name?: string
           funnel_enabled?: boolean
           funnel_recipient?: string
+          gallery?: Json
+          hero_headline?: string
+          hero_image_url?: string
+          hero_subheadline?: string
           id?: string
+          lifecycle_status?: string
+          logo_url?: string
           published?: boolean
+          segment?: string
           seo_description?: string
           seo_keywords?: string
           seo_title?: string
+          share_copy?: string
           slug: string
           social_image_url?: string
+          social_version?: string
+          source_snapshot?: Json
+          state?: string
+          summary?: string
           updated_at?: string
           updated_by?: string | null
         }
         Update: {
+          archived_at?: string | null
+          brand_colors?: Json
           canonical_url?: string
+          city?: string
           client_key?: string
+          content_version?: number
           created_at?: string
+          cta_label?: string
           display_name?: string
           funnel_enabled?: boolean
           funnel_recipient?: string
+          gallery?: Json
+          hero_headline?: string
+          hero_image_url?: string
+          hero_subheadline?: string
           id?: string
+          lifecycle_status?: string
+          logo_url?: string
           published?: boolean
+          segment?: string
           seo_description?: string
           seo_keywords?: string
           seo_title?: string
+          share_copy?: string
           slug?: string
           social_image_url?: string
+          social_version?: string
+          source_snapshot?: Json
+          state?: string
+          summary?: string
           updated_at?: string
           updated_by?: string | null
         }
