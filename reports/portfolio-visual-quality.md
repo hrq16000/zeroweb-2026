@@ -1,6 +1,6 @@
 # Qualidade visual do /portfolio
 
-Gerado em 2026-09-04T22:15:25.012Z
+Gerado em 2026-09-04T22:29:05.236Z
 Runtime inspecionado em 2026-09-04T05:13:44.185Z
 
 Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
@@ -12,10 +12,10 @@ Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
 - PORTFOLIO REAL: **68**
 - VISUALMENTE INSPECIONADO: **68**
 - TECHNICAL: COMPLETE 68 · PARTIAL 0 · LEGACY 0
-- VISUAL: PREMIUM 23 · STANDARD 41 · NEEDS_UPGRADE 4
-- ORIGINALITY: PASS 17 · WARNING 37 · FAIL 14 · UNREVIEWED 0
-- ISSUES: P0 0 · P1 67 · P2 150 · P3 60
-- Score médio: **84/100**
+- VISUAL: PREMIUM 23 · STANDARD 43 · NEEDS_UPGRADE 2
+- ORIGINALITY: PASS 17 · WARNING 39 · FAIL 12 · UNREVIEWED 0
+- ISSUES: P0 0 · P1 65 · P2 150 · P3 60
+- Score médio: **85/100**
 
 ## Pesos
 
@@ -52,35 +52,35 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | Slug | Score | Visual | Principais problemas |
 | --- | --- | --- | --- |
 | lucas-arruma-maquina-lavar | 64 | NEEDS_UPGRADE | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO |
-| espaco-cih-luh | 65 | NEEDS_UPGRADE | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
 | no-brilho-higienizacao | 65 | NEEDS_UPGRADE | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
-| salao-da-marcia | 69 | NEEDS_UPGRADE | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
 | mary-diarista | 73 | STANDARD | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO |
 | eisenfer-tubos-acos | 74 | STANDARD | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
 | eletro-solucoes-eficazes | 74 | STANDARD | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
+| espaco-cih-luh | 74 | STANDARD | LOGO_NOT_DEDICATED, COVER_SEVERE_CROP, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
 | lk-alvenaria | 76 | STANDARD | LOGO_NOT_DEDICATED, COVER_IS_LOGO, COVER_NO_FOCAL_POINT, ORIGINALITY_FAIL |
 | mirassol-delicias-caseiras | 76 | STANDARD | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, COVER_NO_FOCAL_POINT, HERO_NO_IMAGE |
 | aguia-sul-sinalizacao | 77 | STANDARD | COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO, COVER_NO_FOCAL_POINT |
+| guaratuba-atelie-presentes | 78 | STANDARD | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, COVER_NO_FOCAL_POINT, HERO_NO_IMAGE |
 
 ## Todos os projetos
 
 | Slug | Empresa | Segmento | Technical | Visual | Score | Originality | Top issues | Priority |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| lucas-arruma-maquina-lavar | Lucas Arruma Máquina de Lavar | servicos | COMPLETE | NEEDS_UPGRADE | 64 | FAIL (70) | COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO | P2 |
-| espaco-cih-luh | Espaço CIH & LUH | beleza | COMPLETE | NEEDS_UPGRADE | 65 | FAIL (76) | COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL | P2 |
+| lucas-arruma-maquina-lavar | Lucas Arruma Máquina de Lavar | servicos | COMPLETE | NEEDS_UPGRADE | 64 | FAIL (66) | COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO | P2 |
 | no-brilho-higienizacao | No Brilho Higienização | servicos | COMPLETE | NEEDS_UPGRADE | 65 | FAIL (65) | COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL | P2 |
-| salao-da-marcia | Salão da Marcia | beleza | COMPLETE | NEEDS_UPGRADE | 69 | FAIL (76) | COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL | P2 |
 | mary-diarista | Mary Diarista | servicos | COMPLETE | STANDARD | 73 | WARNING (58) | COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO | P2 |
 | eisenfer-tubos-acos | Eisenfer Tubos e Aços | construcao | COMPLETE | STANDARD | 74 | WARNING (45) | COVER_SEVERE_CROP, COVER_IS_LOGO, LOGO_NOT_DEDICATED | P2 |
 | eletro-solucoes-eficazes | Eletro Soluções Eficazes | servicos | COMPLETE | STANDARD | 74 | WARNING (50) | COVER_SEVERE_CROP, COVER_IS_LOGO, LOGO_NOT_DEDICATED | P2 |
+| espaco-cih-luh | Espaço CIH & LUH | beleza | COMPLETE | STANDARD | 74 | WARNING (43) | COVER_SEVERE_CROP, COVER_IS_LOGO, LOGO_NOT_DEDICATED | P2 |
 | lk-alvenaria | LK Alvenaria | servicos | COMPLETE | STANDARD | 76 | FAIL (66) | COVER_IS_LOGO, ORIGINALITY_FAIL, LOGO_NOT_DEDICATED | P2 |
 | mirassol-delicias-caseiras | Delícias Caseiras Mirassol | restaurantes | COMPLETE | STANDARD | 76 | WARNING (42) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, HERO_NO_IMAGE | P2 |
 | aguia-sul-sinalizacao | Águia Sul Sinalização | servicos | COMPLETE | STANDARD | 77 | WARNING (59) | COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO | P2 |
 | guaratuba-atelie-presentes | Ateliê Encanto da Baía | comercios | COMPLETE | STANDARD | 78 | WARNING (42) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, HERO_NO_IMAGE | P2 |
 | mp-festas-eventos | MP Festas e Eventos | servicos | COMPLETE | STANDARD | 78 | WARNING (59) | COVER_SEVERE_CROP, COVER_IS_LOGO, LOGO_NOT_DEDICATED | P2 |
+| salao-da-marcia | Salão da Marcia | beleza | COMPLETE | STANDARD | 78 | WARNING (47) | COVER_SEVERE_CROP, COVER_IS_LOGO, LOGO_NOT_DEDICATED | P2 |
 | studio-de-cilios | Studio de Cílios | beleza | COMPLETE | STANDARD | 78 | WARNING (59) | COVER_SEVERE_CROP, COVER_IS_LOGO, LOGO_NOT_DEDICATED | P2 |
 | diego-montador-moveis | Diego Montador de Móveis | servicos | COMPLETE | STANDARD | 79 | FAIL (63) | ORIGINALITY_FAIL, LOGO_NOT_DEDICATED, FEW_IMAGES | P2 |
-| liz-moraes-nail-designer | Liz Moraes Nail Designer | beleza | COMPLETE | STANDARD | 79 | WARNING (60) | COVER_NOT_DEDICATED, SOCIAL_WRONG_RATIO, COVER_REUSES_SOCIAL | P2 |
+| liz-moraes-nail-designer | Liz Moraes Nail Designer | beleza | COMPLETE | STANDARD | 79 | WARNING (55) | COVER_NOT_DEDICATED, SOCIAL_WRONG_RATIO, COVER_REUSES_SOCIAL | P2 |
 | lj-cleaning | L&J Cleaning | prestadores-de-servicos | COMPLETE | STANDARD | 79 | FAIL (66) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
 | miro-tech | MIRO TECH | prestadores-de-servicos | COMPLETE | STANDARD | 79 | FAIL (61) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
 | guaratuba-sabores-da-baia | Sabores da Baía | restaurantes | COMPLETE | STANDARD | 80 | PASS (31) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, HERO_NO_IMAGE | P2 |
@@ -96,7 +96,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | thays-camilla | Thays Camilla | comercios | COMPLETE | STANDARD | 83 | FAIL (63) | COVER_NOT_DEDICATED, ORIGINALITY_FAIL, COVER_REUSES_SOCIAL | P2 |
 | emporio-lelecute | Empório LeleCute | servicos | COMPLETE | STANDARD | 84 | PASS (29) | COVER_SEVERE_CROP, HERO_NO_IMAGE, FEW_IMAGES | P2 |
 | galileu-locacao-brinquedos | Galileu Locação de Brinquedos | comercios | COMPLETE | STANDARD | 85 | FAIL (66) | ORIGINALITY_FAIL, COVER_REUSES_SOCIAL, FEW_IMAGES | P2 |
-| ecommerce-on | Ecommerce On | agencias | COMPLETE | STANDARD | 86 | WARNING (56) | COVER_SEVERE_CROP, ORIGINALITY_WARNING | P2 |
+| ecommerce-on | Ecommerce On | agencias | COMPLETE | STANDARD | 86 | WARNING (55) | COVER_SEVERE_CROP, ORIGINALITY_WARNING | P2 |
 | fernanda-amaral-drywall | Fernanda & Amaral — Instalação de Drywall | prestadores-de-servicos | COMPLETE | STANDARD | 86 | WARNING (49) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P2 |
 | confeitaria-chyrley | Chyrley Doces & Festas | servicos | COMPLETE | STANDARD | 87 | WARNING (56) | COVER_LOW_RES, LOGO_NOT_DEDICATED, ORIGINALITY_WARNING | P2 |
 | ag-electrical-services | A&G Electrical Services | servicos | COMPLETE | STANDARD | 88 | FAIL (64) | COVER_LOW_RES, ORIGINALITY_FAIL | P2 |
@@ -141,17 +141,17 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | --- | --- | --- | --- |
 | COVER_SEVERE_CROP | P1 | 15 | Capa com proporção incompatível com o card (corte severo) |
 | COVER_NOT_DEDICATED | P1 | 15 | Sem capa dedicada no catálogo (card cai no fallback social/logo) |
-| ORIGINALITY_FAIL | P1 | 14 | Similaridade estrutural em nível de clone |
 | COVER_IS_LOGO | P1 | 12 | Capa do catálogo é a própria logo |
+| ORIGINALITY_FAIL | P1 | 12 | Similaridade estrutural em nível de clone |
 | COVER_LOW_RES | P1 | 7 | Capa com resolução insuficiente para o card |
 | SOCIAL_WRONG_RATIO | P1 | 3 | Imagem social fora de 1200x630 |
 | MOBILE_OVERFLOW | P1 | 1 | Overflow horizontal em 390px |
 | FEW_IMAGES | P2 | 39 | Poucas imagens próprias do cliente |
-| ORIGINALITY_WARNING | P2 | 37 | Similaridade estrutural alta com outro projeto |
+| ORIGINALITY_WARNING | P2 | 39 | Similaridade estrutural alta com outro projeto |
 | LOGO_NOT_DEDICATED | P2 | 27 | Logo é uma foto/asset genérico, não uma marca dedicada |
 | COVER_REUSES_SOCIAL | P2 | 25 | Capa reaproveita a imagem social |
 | HERO_NO_IMAGE | P2 | 12 | Hero sem imagem própria |
-| IDENTITY_WEAK | P2 | 6 | Identidade pouco distinguível de outros projetos |
+| IDENTITY_WEAK | P2 | 4 | Identidade pouco distinguível de outros projetos |
 | CONTENT_PLACEHOLDER | P2 | 4 | Conteúdo com linguagem de placeholder |
 | COVER_NO_FOCAL_POINT | P3 | 45 | Capa sem focal point definido |
 | CONTENT_SHORT_SERVICES | P3 | 15 | Serviços pouco explicados |
@@ -167,17 +167,17 @@ Nenhum par acima do limiar de 35%.
 ## Fila priorizada de intervenção
 
 1. **lucas-arruma-maquina-lavar** — prioridade 2 · score 64 · NEEDS_UPGRADE · COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO, ORIGINALITY_FAIL
-2. **espaco-cih-luh** — prioridade 2 · score 65 · NEEDS_UPGRADE · COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL
-3. **no-brilho-higienizacao** — prioridade 2 · score 65 · NEEDS_UPGRADE · COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL
-4. **salao-da-marcia** — prioridade 2 · score 69 · NEEDS_UPGRADE · COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL
-5. **mary-diarista** — prioridade 2 · score 73 · STANDARD · COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO
-6. **eisenfer-tubos-acos** — prioridade 2 · score 74 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
-7. **eletro-solucoes-eficazes** — prioridade 2 · score 74 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
-8. **lk-alvenaria** — prioridade 2 · score 76 · STANDARD · COVER_IS_LOGO, ORIGINALITY_FAIL
-9. **mirassol-delicias-caseiras** — prioridade 2 · score 76 · STANDARD · COVER_NOT_DEDICATED
-10. **aguia-sul-sinalizacao** — prioridade 2 · score 77 · STANDARD · COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO
-11. **guaratuba-atelie-presentes** — prioridade 2 · score 78 · STANDARD · COVER_NOT_DEDICATED
-12. **mp-festas-eventos** — prioridade 2 · score 78 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
+2. **no-brilho-higienizacao** — prioridade 2 · score 65 · NEEDS_UPGRADE · COVER_SEVERE_CROP, COVER_IS_LOGO, ORIGINALITY_FAIL
+3. **mary-diarista** — prioridade 2 · score 73 · STANDARD · COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO
+4. **eisenfer-tubos-acos** — prioridade 2 · score 74 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
+5. **eletro-solucoes-eficazes** — prioridade 2 · score 74 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
+6. **espaco-cih-luh** — prioridade 2 · score 74 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
+7. **lk-alvenaria** — prioridade 2 · score 76 · STANDARD · COVER_IS_LOGO, ORIGINALITY_FAIL
+8. **mirassol-delicias-caseiras** — prioridade 2 · score 76 · STANDARD · COVER_NOT_DEDICATED
+9. **aguia-sul-sinalizacao** — prioridade 2 · score 77 · STANDARD · COVER_SEVERE_CROP, COVER_LOW_RES, COVER_IS_LOGO
+10. **guaratuba-atelie-presentes** — prioridade 2 · score 78 · STANDARD · COVER_NOT_DEDICATED
+11. **mp-festas-eventos** — prioridade 2 · score 78 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
+12. **salao-da-marcia** — prioridade 2 · score 78 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
 13. **studio-de-cilios** — prioridade 2 · score 78 · STANDARD · COVER_SEVERE_CROP, COVER_IS_LOGO
 14. **diego-montador-moveis** — prioridade 2 · score 79 · STANDARD · ORIGINALITY_FAIL
 15. **liz-moraes-nail-designer** — prioridade 2 · score 79 · STANDARD · COVER_NOT_DEDICATED, SOCIAL_WRONG_RATIO

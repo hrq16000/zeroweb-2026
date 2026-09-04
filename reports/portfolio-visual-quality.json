@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T22:15:25.012Z",
+  "generatedAt": "2026-09-04T22:29:05.236Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -26,22 +26,22 @@
     },
     "visual": {
       "PREMIUM": 23,
-      "STANDARD": 41,
-      "NEEDS_UPGRADE": 4
+      "STANDARD": 43,
+      "NEEDS_UPGRADE": 2
     },
     "originality": {
       "PASS": 17,
-      "WARNING": 37,
-      "FAIL": 14,
+      "WARNING": 39,
+      "FAIL": 12,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 67,
+      "P1": 65,
       "P2": 150,
       "P3": 60
     },
-    "averageScore": 84
+    "averageScore": 85
   },
   "projects": [
     {
@@ -67,9 +67,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 70,
+      "originalityScore": 66,
       "originalityStatus": "FAIL",
-      "originalityNearest": "espaco-cih-luh",
+      "originalityNearest": "lk-alvenaria",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -168,136 +168,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "70 vs espaco-cih-luh"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "espaco-cih-luh",
-      "businessName": "Espaço CIH & LUH",
-      "segment": "beleza",
-      "city": "Manaus",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "NEEDS_UPGRADE",
-      "score": 65,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 1,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 76,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "salao-da-marcia",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
-      "funnelCta": "Escolher atendimento",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/espaco-cih-luh/promocao.webp",
-          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
-          "bytes": 88810,
-          "width": 1122,
-          "height": 1402
-        },
-        "cover": {
-          "path": "/images/espaco-cih-luh/promocao.webp",
-          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
-          "bytes": 88810,
-          "width": 1122,
-          "height": 1402
-        },
-        "social": {
-          "path": "/images/espaco-cih-luh/promocao-og.jpg",
-          "hash": "096aff4bc6ec49cb4592cc5428e991e5e39290c5",
-          "bytes": 81042,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Mãos que transformam. Pés que sustentam.",
-        "heroHeight": 1227,
-        "editorialChars": 2284,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 3,
-        "P2": 3,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/espaco-cih-luh/promocao.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.80"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/espaco-cih-luh/promocao.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "76 vs salao-da-marcia"
+          "detail": "66 vs lk-alvenaria"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -427,128 +298,6 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "65 vs lucas-arruma-maquina-lavar"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "salao-da-marcia",
-      "businessName": "Salão da Marcia",
-      "segment": "beleza",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/SalaoDaMarciaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "NEEDS_UPGRADE",
-      "score": 69,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 1,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 76,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "espaco-cih-luh",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o serviço de cabelo, depilação ou beleza que procura.",
-      "funnelCta": "Reservar horário",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/salao-da-marcia/depilacao.webp",
-          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
-          "bytes": 143960,
-          "width": 1024,
-          "height": 1536
-        },
-        "cover": {
-          "path": "/images/salao-da-marcia/depilacao.webp",
-          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
-          "bytes": 143960,
-          "width": 1024,
-          "height": 1536
-        },
-        "social": {
-          "path": "/images/salao-da-marcia/depilacao-og.jpg",
-          "hash": "11b452187da1796cff09f026f0202fdc56c95448",
-          "bytes": 101457,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu momento de se cuidar.",
-        "heroHeight": 1169,
-        "editorialChars": 2204,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 3,
-        "P2": 2,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/salao-da-marcia/depilacao.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.67"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/salao-da-marcia/depilacao.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "76 vs espaco-cih-luh"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -929,6 +678,128 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "50 vs eletrovale-eletromecanica"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "espaco-cih-luh",
+      "businessName": "Espaço CIH & LUH",
+      "segment": "beleza",
+      "city": "Manaus",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 74,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 1,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 43,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "salao-da-marcia",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
+      "funnelCta": "Escolher atendimento",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/espaco-cih-luh/promocao.webp",
+          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
+          "bytes": 88810,
+          "width": 1122,
+          "height": 1402
+        },
+        "cover": {
+          "path": "/images/espaco-cih-luh/promocao.webp",
+          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
+          "bytes": 88810,
+          "width": 1122,
+          "height": 1402
+        },
+        "social": {
+          "path": "/images/espaco-cih-luh/promocao-og.jpg",
+          "hash": "096aff4bc6ec49cb4592cc5428e991e5e39290c5",
+          "bytes": 81042,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Mãos que transformam. Pés que sustentam.",
+        "heroHeight": 1227,
+        "editorialChars": 2284,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 3,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/espaco-cih-luh/promocao.webp"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.80"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/espaco-cih-luh/promocao.webp"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "43 vs salao-da-marcia"
         }
       ],
       "priority": 2
@@ -1537,6 +1408,121 @@
       "priority": 2
     },
     {
+      "slug": "salao-da-marcia",
+      "businessName": "Salão da Marcia",
+      "segment": "beleza",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/SalaoDaMarciaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 1,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 47,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "liz-moraes-nail-designer",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o serviço de cabelo, depilação ou beleza que procura.",
+      "funnelCta": "Reservar horário",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/salao-da-marcia/depilacao.webp",
+          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
+          "bytes": 143960,
+          "width": 1024,
+          "height": 1536
+        },
+        "cover": {
+          "path": "/images/salao-da-marcia/depilacao.webp",
+          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
+          "bytes": 143960,
+          "width": 1024,
+          "height": 1536
+        },
+        "social": {
+          "path": "/images/salao-da-marcia/depilacao-og.jpg",
+          "hash": "11b452187da1796cff09f026f0202fdc56c95448",
+          "bytes": 101457,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 7
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu momento de se cuidar.",
+        "heroHeight": 1169,
+        "editorialChars": 2204,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/salao-da-marcia/depilacao.webp"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.67"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/salao-da-marcia/depilacao.webp"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs liz-moraes-nail-designer"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "studio-de-cilios",
       "businessName": "Studio de Cílios",
       "segment": "beleza",
@@ -1782,9 +1768,9 @@
         "mobile": 10,
         "social": 2
       },
-      "originalityScore": 60,
+      "originalityScore": 55,
       "originalityStatus": "WARNING",
-      "originalityNearest": "salao-da-marcia",
+      "originalityNearest": "artesanatos-darleia-oliveira",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -1876,7 +1862,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs salao-da-marcia"
+          "detail": "55 vs artesanatos-darleia-oliveira"
         }
       ],
       "priority": 2
@@ -3608,9 +3594,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 56,
+      "originalityScore": 55,
       "originalityStatus": "WARNING",
-      "originalityNearest": "espaco-cih-luh",
+      "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -3688,7 +3674,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "56 vs espaco-cih-luh"
+          "detail": "55 vs lucas-arruma-maquina-lavar"
         }
       ],
       "priority": 2

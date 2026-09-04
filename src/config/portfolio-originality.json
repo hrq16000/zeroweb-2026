@@ -19,8 +19,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 17,
-    "attention": 37,
-    "highSimilarity": 14,
+    "attention": 39,
+    "highSimilarity": 12,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -755,8 +755,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 59,
+          "slug": "lk-alvenaria",
+          "score": 56,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -852,21 +852,21 @@
     },
     {
       "slug": "ecommerce-on",
-      "score": 56,
+      "score": 55,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "espaco-cih-luh",
-      "nearestMatchScore": 56,
+      "nearestMatch": "lucas-arruma-maquina-lavar",
+      "nearestMatchScore": 55,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 100,
         "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 86.4,
+        "COMPONENT_SIMILARITY": 41.7,
+        "STYLE_SIMILARITY": 85.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 6.8
+        "IDENTITY_SIMILARITY": 7
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -877,18 +877,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "espaco-cih-luh",
-          "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "salao-da-marcia",
-          "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "lucas-arruma-maquina-lavar",
           "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1080,21 +1080,21 @@
     },
     {
       "slug": "espaco-cih-luh",
-      "score": 76,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 43,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "salao-da-marcia",
-      "nearestMatchScore": 76,
+      "nearestMatchScore": 43,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 97.3,
+        "STRUCTURE_SIMILARITY": 17.2,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 38,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.5
+        "IDENTITY_SIMILARITY": 8.7
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1109,18 +1109,18 @@
       "nearest": [
         {
           "slug": "salao-da-marcia",
-          "score": 76,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 43,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 70,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "slug": "liz-moraes-nail-designer",
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 62,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "diego-montador-moveis",
+          "score": 39,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -1576,21 +1576,21 @@
     },
     {
       "slug": "liz-moraes-nail-designer",
-      "score": 60,
+      "score": 55,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "salao-da-marcia",
-      "nearestMatchScore": 60,
+      "nearestMatch": "artesanatos-darleia-oliveira",
+      "nearestMatchScore": 55,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.2,
+        "STRUCTURE_SIMILARITY": 41.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 70.9,
-        "COPY_SIMILARITY": 3.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.8
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 85.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 75,
+        "IDENTITY_SIMILARITY": 7
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -1603,18 +1603,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "salao-da-marcia",
-          "score": 60,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "espaco-cih-luh",
-          "score": 57,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "artesanatos-darleia-oliveira",
           "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "denise-gomes-psicologa",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1704,9 +1704,9 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 62,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "diego-montador-moveis",
+          "score": 56,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -1759,21 +1759,21 @@
     },
     {
       "slug": "lucas-arruma-maquina-lavar",
-      "score": 70,
+      "score": 66,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "espaco-cih-luh",
-      "nearestMatchScore": 70,
+      "nearestMatch": "lk-alvenaria",
+      "nearestMatchScore": 66,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 78.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 96.1,
-        "COPY_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 53.8,
+        "STYLE_SIMILARITY": 89.9,
+        "COPY_SIMILARITY": 2,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.5
+        "IDENTITY_SIMILARITY": 11.6
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1787,18 +1787,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "espaco-cih-luh",
-          "score": 70,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
-          "slug": "salao-da-marcia",
-          "score": 69,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
           "slug": "lk-alvenaria",
           "score": 66,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "no-brilho-higienizacao",
+          "score": 65,
+          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 63,
           "reason": "NEAR_DUPLICATE_LAYOUT"
         }
       ],
@@ -2208,13 +2208,13 @@
           "reason": "IDENTICAL_COMPONENT_STRUCTURE"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 59,
+          "slug": "aguia-sul-sinalizacao",
+          "score": 58,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "salao-da-marcia",
-          "score": 59,
+          "slug": "diego-montador-moveis",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2302,8 +2302,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 56,
+          "slug": "lk-alvenaria",
+          "score": 55,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2671,21 +2671,21 @@
     },
     {
       "slug": "salao-da-marcia",
-      "score": 76,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "espaco-cih-luh",
-      "nearestMatchScore": 76,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 47,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 27.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 97.3,
-        "COPY_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 40.2,
+        "COPY_SIMILARITY": 2.8,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.5
+        "IDENTITY_SIMILARITY": 9.4
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -2699,19 +2699,19 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "liz-moraes-nail-designer",
+          "score": 47,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "espaco-cih-luh",
-          "score": 76,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 43,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 69,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
-          "slug": "lk-alvenaria",
-          "score": 61,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "diego-montador-moveis",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
