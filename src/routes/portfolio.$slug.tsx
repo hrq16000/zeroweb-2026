@@ -8,6 +8,12 @@ import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
 import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-assets";
+import {
+  applyPortfolioRuntime,
+  type PortfolioRuntimeOverrides,
+} from "@/lib/portfolio-runtime";
+import { getPortfolioRuntimeOverrides } from "@/lib/portfolio-runtime.functions";
+import { PortfolioRuntimeProvider } from "@/components/portfolio/PortfolioRuntimeContext";
 
 // Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
 // próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
