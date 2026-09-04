@@ -115,9 +115,14 @@ describe("fingerprint e score", () => {
 
 describe("sinais de identidade", () => {
   it("detecta logo placeholder gerada por script", () => {
-    const svg = path.join(root, "public/images/casa-nativa/logo.svg");
-    if (fs.existsSync(svg)) expect(isPlaceholderLogo(svg)).toBe(true);
+    const fixture = path.join(root, "tests/portfolio/fixtures/placeholder-logo.svg");
+    expect(isPlaceholderLogo(fixture)).toBe(true);
     expect(isPlaceholderLogo(path.join(root, "package.json"))).toBe(false);
+  });
+
+  it("marca autoral não é confundida com placeholder", () => {
+    const svg = path.join(root, "public/images/casa-nativa/logo.svg");
+    if (fs.existsSync(svg)) expect(isPlaceholderLogo(svg)).toBe(false);
   });
 });
 
@@ -155,8 +160,8 @@ describe("análise do portfólio real", () => {
     expect(socialAsCover.length + missing.length).toBeGreaterThan(0);
   });
 
-  it("sinaliza logos placeholder", () => {
-    expect(report.summary.placeholderLogos).toBeGreaterThan(0);
+  it("não há mais logos placeholder no portfólio (meta Q2)", () => {
+    expect(report.summary.placeholderLogos).toBe(0);
   });
 
   it("é determinístico", () => {

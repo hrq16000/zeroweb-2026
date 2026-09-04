@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
-  <rect width="900" height="300" rx="52" fill="#24122f"/><circle cx="150" cy="150" r="94" fill="#e879f9"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#24122f">ONG</text>
-  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Oficina Náutica Guaratuba</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#e879f9">PRESTADORES DE SERVICOS</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Oficina Nautica Guaratuba">
+  <rect width="900" height="300" fill="#10243d"/>
+  <g transform="translate(158,150)">
+    <path d="M0 0c-8-46 6-76 26-76s28 34 6 62z" fill="#ff7a1a"/>
+    <path d="M0 0c40-24 74-20 84-2s-24 40-58 26z" fill="#ff7a1a" opacity=".9"/>
+    <path d="M0 0c-32 34-32 68-14 78s42-14 40-52z" fill="#ff7a1a" opacity=".8"/>
+    <circle cx="0" cy="0" r="16" fill="#10243d" stroke="#ffffff" stroke-width="8"/>
+  </g>
+  <path d="M300 92v116" stroke="#ff7a1a" stroke-width="6"/>
+  <text x="326" y="140" font-family="Arial Narrow,Arial,sans-serif" font-size="58" font-weight="700" letter-spacing="6" fill="#ffffff">OFICINA</text>
+  <text x="326" y="200" font-family="Arial Narrow,Arial,sans-serif" font-size="58" font-weight="700" letter-spacing="6" fill="#8fb6d8">NÁUTICA</text>
+</svg>

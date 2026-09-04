@@ -22,6 +22,8 @@ import {
 } from "@/lib/portfolio-funnel-context";
 import { buildPortfolioQuizPreviewMessage } from "@/lib/portfolio-quiz-copy";
 import portfolioVisualReview from "@/config/portfolio-visual-review.json";
+import portfolioBrandReview from "@/config/portfolio-brand-review.json";
+import portfolioAssets from "@/config/portfolio-assets.json";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/$slug")({
   component: PortfolioAdminDetail,
@@ -520,6 +522,7 @@ function PortfolioAdminDetail() {
       </div>
 
       <CoverReviewPanel slug={project.slug} name={project.displayName} />
+      <BrandReviewPanel slug={project.slug} name={project.displayName} />
 
       <FunnelContextPanel slug={project.slug} name={project.displayName} />
 
@@ -710,6 +713,140 @@ function CoverReviewPanel({ slug, name }: { slug: string; name: string }) {
       <p className="mt-3 text-xs text-muted-foreground">
         Decisões ficam em <code>src/config/portfolio-visual-review.json</code>; as capas são geradas
         por <code>bun scripts/build-portfolio-covers.mjs</code> a partir de assets do próprio cliente.
+      </p>
+    </section>
+  );
+}
+
+const BRAND_REVIEW = (portfolioBrandReview as {
+  projects: Record<
+    string,
+    {
+      brandOrigin?: string;
+      brandReview?: string;
+      classification?: string;
+      logo?: string;
+      notes?: string;
+      direction?: {
+        concept?: string;
+        personality?: string;
+        shapeLanguage?: string;
+        typography?: string;
+        colors?: string[];
+      };
+    }
+  >;
+}).projects;
+
+const BRAND_ASSETS = (portfolioAssets as {
+  clients: Record<string, { icon?: string; socialImage?: string }>;
+}).clients;
+
+/**
+ * Revisão de marca: mostra a logo aplicada (fundo claro e escuro, desktop e
+ * mobile), a prévia social e a origem/estado declarados em governança.
+ */
+function BrandReviewPanel({ slug, name }: { slug: string; name: string }) {
+  const review = BRAND_REVIEW[slug] ?? {};
+  const asset = BRAND_ASSETS[slug] ?? {};
+  const logo = review.logo ?? asset.icon ?? null;
+  const social = asset.socialImage ?? null;
+  const origin = review.brandOrigin ?? "UNKNOWN";
+  const state = review.brandReview ?? "UNREVIEWED";
+
+  return (
+    <section aria-labelledby="brand-review" className="mt-6 rounded-xl border border-border bg-card p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="brand-review" className="font-display text-lg font-semibold">
+          Revisão de marca
+        </h2>
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+          <span className="rounded bg-muted px-2 py-1">{state}</span>
+          <span className="rounded bg-muted px-2 py-1">{origin}</span>
+          {review.classification && (
+            <span className="rounded bg-muted px-2 py-1">{review.classification}</span>
+          )}
+        </div>
+      </div>
+
+      {logo ? (
+        <div className="mt-4 grid gap-4 md:grid-cols-4">
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Fundo claro
+            </figcaption>
+            <div className="flex h-28 items-center justify-center rounded-lg border border-border bg-white p-3">
+              <img src={logo} alt={`Logo de ${name} sobre fundo claro`} className="max-h-full max-w-full object-contain" />
+            </div>
+          </figure>
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Fundo escuro
+            </figcaption>
+            <div className="flex h-28 items-center justify-center rounded-lg border border-border bg-neutral-900 p-3">
+              <img src={logo} alt={`Logo de ${name} sobre fundo escuro`} className="max-h-full max-w-full object-contain" />
+            </div>
+          </figure>
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Mobile (140px)
+            </figcaption>
+            <div className="flex h-28 items-center justify-center rounded-lg border border-border bg-white p-3">
+              <img src={logo} alt={`Logo de ${name} em tela pequena`} className="max-h-full w-[140px] object-contain" />
+            </div>
+          </figure>
+          <figure>
+            <figcaption className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              Prévia social
+            </figcaption>
+            <div className="aspect-[1200/630] overflow-hidden rounded-lg border border-border bg-muted">
+              {social && <img src={social} alt={`Prévia social de ${name}`} className="h-full w-full object-cover" />}
+            </div>
+          </figure>
+        </div>
+      ) : (
+        <p className="mt-3 text-sm text-muted-foreground">Sem logo registrada para este projeto.</p>
+      )}
+
+      {review.direction && (
+        <dl className="mt-4 grid gap-3 text-sm md:grid-cols-2">
+          <div>
+            <dt className="text-xs uppercase text-muted-foreground">Conceito</dt>
+            <dd className="mt-1">{review.direction.concept}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase text-muted-foreground">Personalidade</dt>
+            <dd className="mt-1">{review.direction.personality}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase text-muted-foreground">Formas</dt>
+            <dd className="mt-1">{review.direction.shapeLanguage}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase text-muted-foreground">Tipografia</dt>
+            <dd className="mt-1">{review.direction.typography}</dd>
+          </div>
+          <div className="md:col-span-2 flex flex-wrap items-center gap-2">
+            {(review.direction.colors ?? []).map((color) => (
+              <span key={color} className="flex items-center gap-2 rounded border border-border px-2 py-1 text-[11px]">
+                <span className="h-4 w-4 rounded" style={{ backgroundColor: color }} aria-hidden />
+                {color}
+              </span>
+            ))}
+          </div>
+        </dl>
+      )}
+
+      {review.notes && <p className="mt-3 text-xs text-muted-foreground">{review.notes}</p>}
+      {origin === "DEMO_CREATED_BY_0WEB" && (
+        <p className="mt-3 rounded-lg border border-dashed border-border p-3 text-xs text-muted-foreground">
+          Identidade demonstrativa criada pela 0WEB para este projeto de exemplo. Se o cliente
+          enviar a marca oficial, substitua o arquivo e mude a origem para CLIENT_PROVIDED.
+        </p>
+      )}
+      <p className="mt-3 text-xs text-muted-foreground">
+        Decisões ficam em <code>src/config/portfolio-brand-review.json</code>; marcas com{" "}
+        <code>authored</code> nunca são sobrescritas por geradores automáticos.
       </p>
     </section>
   );

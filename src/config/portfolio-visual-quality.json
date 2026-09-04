@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T21:00:10.000Z",
+  "generatedAt": "2026-09-04T21:04:46.643Z",
   "runtimeGeneratedAt": "2026-09-04T05:13:44.185Z",
   "thresholds": {
     "PREMIUM": 85,
@@ -25,8 +25,8 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 9,
-      "STANDARD": 50,
+      "PREMIUM": 11,
+      "STANDARD": 48,
       "NEEDS_UPGRADE": 9
     },
     "originality": {
@@ -37,11 +37,11 @@
     },
     "issues": {
       "P0": 0,
-      "P1": 105,
+      "P1": 93,
       "P2": 151,
       "P3": 60
     },
-    "averageScore": 80
+    "averageScore": 81
   },
   "projects": [
     {
@@ -1127,618 +1127,6 @@
       ]
     },
     {
-      "slug": "mirassol-delicias-caseiras",
-      "businessName": "Delícias Caseiras Mirassol",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 70,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 50,
-      "originalityNearest": "guaratuba-atelie-presentes",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 4,
-        "P3": 2
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/mirassol-delicias-caseiras/logo.svg",
-          "hash": "5dccc9108e8061625a92e8e85df3e51fbdc018b7",
-          "bytes": 609,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/mirassol-delicias-caseiras/hero-og.jpg",
-          "hash": "9c13225275e81e69c44d7b64d2c36f5feebc4381",
-          "bytes": 40969,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/mirassol-delicias-caseiras/hero-og.jpg",
-          "hash": "9c13225275e81e69c44d7b64d2c36f5feebc4381",
-          "bytes": 40969,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Bolos e salgados para os dias que merecem mesa posta.",
-        "heroHeight": 694,
-        "editorialChars": 2064,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/mirassol-delicias-caseiras/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/mirassol-delicias-caseiras/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/mirassol-delicias-caseiras/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs guaratuba-atelie-presentes"
-        }
-      ]
-    },
-    {
-      "slug": "bh-barreiro-marmitas",
-      "businessName": "Marmitas do Barreiro",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 72,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "uberlandia-eletrica-residencial",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/bh-barreiro-marmitas/logo.svg",
-          "hash": "715aff0123d980a011b773104f5d3374faccd5a2",
-          "bytes": 602,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "ca4f7eae7f3498a42542d501e8e6ac13f65ff59a",
-          "bytes": 39699,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "ca4f7eae7f3498a42542d501e8e6ac13f65ff59a",
-          "bytes": 39699,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "O almoço da semanajá está no quadro.",
-        "heroHeight": 807,
-        "editorialChars": 2062,
-        "smallTargets": 3,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/bh-barreiro-marmitas/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs uberlandia-eletrica-residencial"
-        }
-      ]
-    },
-    {
-      "slug": "guaratuba-atelie-presentes",
-      "businessName": "Ateliê Encanto da Baía",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 72,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 50,
-      "originalityNearest": "mirassol-delicias-caseiras",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/guaratuba-atelie-presentes/logo.svg",
-          "hash": "b3d9b08731e330bff2cdc40681c26497bd7c0701",
-          "bytes": 603,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/guaratuba-atelie-presentes/hero-og.jpg",
-          "hash": "91375bf24fb4f8bd4029fe0d15ab80365c023324",
-          "bytes": 39738,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/guaratuba-atelie-presentes/hero-og.jpg",
-          "hash": "91375bf24fb4f8bd4029fe0d15ab80365c023324",
-          "bytes": 39738,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Presente feitoà mãopara gente daqui.",
-        "heroHeight": 672,
-        "editorialChars": 2077,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/guaratuba-atelie-presentes/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/guaratuba-atelie-presentes/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/guaratuba-atelie-presentes/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs mirassol-delicias-caseiras"
-        }
-      ]
-    },
-    {
-      "slug": "guaratuba-oficina-nautica",
-      "businessName": "Oficina Náutica Guaratuba",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 72,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 47,
-      "originalityNearest": "casa-nativa",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/guaratuba-oficina-nautica/logo.svg",
-          "hash": "c4d77172fb92c38c619440c8ee195ce18e13b18a",
-          "bytes": 619,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
-          "hash": "fa394834b57dbf0a63a71dc067cd23a0c7bd80f6",
-          "bytes": 40284,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
-          "hash": "fa394834b57dbf0a63a71dc067cd23a0c7bd80f6",
-          "bytes": 40284,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "A embarcação sai da oficina pronta para a temporada inteira.",
-        "heroHeight": 781,
-        "editorialChars": 2180,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/guaratuba-oficina-nautica/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs casa-nativa"
-        }
-      ]
-    },
-    {
-      "slug": "uberlandia-eletrica-residencial",
-      "businessName": "Elétrica Bairro Brasil",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 72,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 45,
-      "originalityNearest": "guaratuba-oficina-nautica",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
-          "hash": "bb22f7f30ce868ac7bb414698299b5b89bd16684",
-          "bytes": 616,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "b1cdca5f8c59a0edc67df025bc868aa5618099aa",
-          "bytes": 38642,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "b1cdca5f8c59a0edc67df025bc868aa5618099aa",
-          "bytes": 38642,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
-        "heroHeight": 996,
-        "editorialChars": 2534,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/uberlandia-eletrica-residencial/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs guaratuba-oficina-nautica"
-        }
-      ]
-    },
-    {
       "slug": "angel-mix-brecho",
       "businessName": "Angel Mix Brechó",
       "segment": "comercios",
@@ -2309,362 +1697,6 @@
       ]
     },
     {
-      "slug": "guaratuba-sabores-da-baia",
-      "businessName": "Sabores da Baía",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 74,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 8,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "PASS",
-      "originalityScore": 36,
-      "originalityNearest": "uberlandia-eletrica-residencial",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 3,
-        "P3": 2
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/guaratuba-sabores-da-baia/logo.svg",
-          "hash": "b8abea136692625d3df3ea5ed39f7b7b9ad4440f",
-          "bytes": 598,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
-          "hash": "f3643d9d562ac60d3803d0f7f49a5d45adf667ff",
-          "bytes": 37965,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
-          "hash": "f3643d9d562ac60d3803d0f7f49a5d45adf667ff",
-          "bytes": 37965,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Peixe fresco no almoço de semana e na mesa cheia de domingo.",
-        "heroHeight": 641,
-        "editorialChars": 2005,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/guaratuba-sabores-da-baia/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/guaratuba-sabores-da-baia/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/guaratuba-sabores-da-baia/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        }
-      ]
-    },
-    {
-      "slug": "casa-nativa",
-      "businessName": "Casa Nativa Bistrô",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 76,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 11,
-        "hero": 11,
-        "images": 6,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 47,
-      "originalityNearest": "guaratuba-oficina-nautica",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 2
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/casa-nativa/logo.svg",
-          "hash": "e31777120144892ef46ff6b8d357f029a34f5eab",
-          "bytes": 597,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/casa-nativa/hero-og.jpg",
-          "hash": "9480902193bc61f421d1ae3cfe2a2455e8a01e2a",
-          "bytes": 35490,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/casa-nativa/hero-og.jpg",
-          "hash": "9480902193bc61f421d1ae3cfe2a2455e8a01e2a",
-          "bytes": 35490,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Cozinha de raiz,servida devagar.",
-        "heroHeight": 692,
-        "editorialChars": 1952,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/casa-nativa/logo.svg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/casa-nativa/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs guaratuba-oficina-nautica"
-        }
-      ]
-    },
-    {
-      "slug": "guaratuba-reparos-residenciais",
-      "businessName": "Reparos do Litoral",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 76,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "PASS",
-      "originalityScore": 37,
-      "originalityNearest": "uberlandia-eletrica-residencial",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/guaratuba-reparos-residenciais/logo.svg",
-          "hash": "20d335fb3a79b529577b30a7c7f10b5edb445b8f",
-          "bytes": 611,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
-          "hash": "4d241356c0a2aa053611e2f5ec19ac1d99cd5439",
-          "bytes": 36272,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
-          "hash": "4d241356c0a2aa053611e2f5ec19ac1d99cd5439",
-          "bytes": 36272,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Aquele conserto que você adia há semanas leva menos de uma tarde.",
-        "heroHeight": 598,
-        "editorialChars": 2235,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/guaratuba-reparos-residenciais/logo.svg"
-        },
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/guaratuba-reparos-residenciais/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/guaratuba-reparos-residenciais/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        }
-      ]
-    },
-    {
       "slug": "liz-moraes-nail-designer",
       "businessName": "Liz Moraes Nail Designer",
       "segment": "beleza",
@@ -2886,9 +1918,9 @@
       ]
     },
     {
-      "slug": "mirassol-conserta-celular",
-      "businessName": "Conserta Mirassol",
-      "segment": "prestadores-de-servicos",
+      "slug": "mirassol-delicias-caseiras",
+      "businessName": "Delícias Caseiras Mirassol",
+      "segment": "restaurantes",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
@@ -2896,18 +1928,18 @@
       "score": 76,
       "groupScores": {
         "identity": 15,
-        "logo": 4,
+        "logo": 10,
         "cover": 5,
-        "hero": 15,
+        "hero": 11,
         "images": 6,
-        "content": 10,
+        "content": 8,
         "originality": 6,
         "mobile": 10,
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 49,
-      "originalityNearest": "mirassol-delicias-caseiras",
+      "originalityScore": 50,
+      "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -2915,29 +1947,29 @@
       "priority": 2,
       "severities": {
         "P0": 0,
-        "P1": 2,
-        "P2": 3,
-        "P3": 1
+        "P1": 1,
+        "P2": 4,
+        "P3": 2
       },
       "assets": {
         "logo": {
-          "path": "/images/mirassol-conserta-celular/logo.svg",
-          "hash": "50791186728abc1325d19043cbd84e881dd99df9",
-          "bytes": 609,
+          "path": "/images/mirassol-delicias-caseiras/logo.svg",
+          "hash": "0451937facbb48fb4977c922fc9c80b769260a5e",
+          "bytes": 1035,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
-          "hash": "4b367ecefffbccdb0d48175646f702c8e259a6e1",
-          "bytes": 37707,
+          "path": "/images/mirassol-delicias-caseiras/hero-og.jpg",
+          "hash": "9c13225275e81e69c44d7b64d2c36f5feebc4381",
+          "bytes": 40969,
           "width": 1200,
           "height": 630
         },
         "social": {
-          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
-          "hash": "4b367ecefffbccdb0d48175646f702c8e259a6e1",
-          "bytes": 37707,
+          "path": "/images/mirassol-delicias-caseiras/hero-og.jpg",
+          "hash": "9c13225275e81e69c44d7b64d2c36f5feebc4381",
+          "bytes": 40969,
           "width": 1200,
           "height": 630
         },
@@ -2948,39 +1980,39 @@
         "mobileOverflow": 0,
         "mobileImages": 4,
         "desktopImages": 4,
-        "heroHeadline": "Orçamento com laudo. Só depois a chave de fenda encosta no aparelho.",
-        "heroHeight": 644,
-        "editorialChars": 2393,
+        "heroHeadline": "Bolos e salgados para os dias que merecem mesa posta.",
+        "heroHeight": 694,
+        "editorialChars": 2064,
         "smallTargets": 2,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/mirassol-conserta-celular/logo.svg"
-        },
-        {
           "code": "COVER_NOT_DEDICATED",
           "severity": "P1",
           "group": "cover",
           "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
+          "detail": "/images/mirassol-delicias-caseiras/hero-og.jpg"
         },
         {
           "code": "COVER_REUSES_SOCIAL",
           "severity": "P2",
           "group": "cover",
           "label": "Capa reaproveita a imagem social",
-          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
+          "detail": "/images/mirassol-delicias-caseiras/hero-og.jpg"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
           "severity": "P3",
           "group": "cover",
           "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
           "detail": null
         },
         {
@@ -2991,11 +2023,18 @@
           "detail": "3 arquivo(s)"
         },
         {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        },
+        {
           "code": "ORIGINALITY_WARNING",
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs mirassol-delicias-caseiras"
+          "detail": "50 vs guaratuba-atelie-presentes"
         }
       ]
     },
@@ -3542,9 +2581,9 @@
       ]
     },
     {
-      "slug": "clinica-integrada",
-      "businessName": "Clínica Integrada de Saúde",
-      "segment": "saude",
+      "slug": "bh-barreiro-marmitas",
+      "businessName": "Marmitas do Barreiro",
+      "segment": "restaurantes",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
@@ -3552,8 +2591,8 @@
       "score": 78,
       "groupScores": {
         "identity": 15,
-        "logo": 4,
-        "cover": 11,
+        "logo": 10,
+        "cover": 5,
         "hero": 11,
         "images": 6,
         "content": 10,
@@ -3562,11 +2601,11 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 49,
-      "originalityNearest": "confeitaria-sabor-da-realeza",
+      "originalityScore": 44,
+      "originalityNearest": "uberlandia-eletrica-residencial",
       "contentSimilarity": null,
       "charm": "LOW",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 2,
       "severities": {
@@ -3577,23 +2616,23 @@
       },
       "assets": {
         "logo": {
-          "path": "/images/clinica-integrada/logo.svg",
-          "hash": "2f15c2ae91bf6051e35f31170158a366455e6492",
-          "bytes": 603,
+          "path": "/images/bh-barreiro-marmitas/logo.svg",
+          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
+          "bytes": 841,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/clinica-integrada/hero-og.jpg",
-          "hash": "2967fc546fff191b5da77f8cff02cdc0b0c9b402",
-          "bytes": 37831,
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "ca4f7eae7f3498a42542d501e8e6ac13f65ff59a",
+          "bytes": 39699,
           "width": 1200,
           "height": 630
         },
         "social": {
-          "path": "/images/clinica-integrada/hero-og.jpg",
-          "hash": "2967fc546fff191b5da77f8cff02cdc0b0c9b402",
-          "bytes": 37831,
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "ca4f7eae7f3498a42542d501e8e6ac13f65ff59a",
+          "bytes": 39699,
           "width": 1200,
           "height": 630
         },
@@ -3604,26 +2643,26 @@
         "mobileOverflow": 0,
         "mobileImages": 4,
         "desktopImages": 4,
-        "heroHeadline": "Várias especialidades, um único prontuário.",
-        "heroHeight": 905,
-        "editorialChars": 2745,
-        "smallTargets": 2,
+        "heroHeadline": "O almoço da semanajá está no quadro.",
+        "heroHeight": 807,
+        "editorialChars": 2062,
+        "smallTargets": 3,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "LOGO_PLACEHOLDER",
+          "code": "COVER_NOT_DEDICATED",
           "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/clinica-integrada/logo.svg"
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
         },
         {
           "code": "COVER_REUSES_SOCIAL",
           "severity": "P2",
           "group": "cover",
           "label": "Capa reaproveita a imagem social",
-          "detail": "/images/clinica-integrada/hero-og.jpg"
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -3651,7 +2690,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs confeitaria-sabor-da-realeza"
+          "detail": "44 vs uberlandia-eletrica-residencial"
         }
       ]
     },
@@ -3752,6 +2791,234 @@
           "group": "identity",
           "label": "Identidade pouco distinguível de outros projetos",
           "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+        }
+      ]
+    },
+    {
+      "slug": "guaratuba-atelie-presentes",
+      "businessName": "Ateliê Encanto da Baía",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 50,
+      "originalityNearest": "mirassol-delicias-caseiras",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/guaratuba-atelie-presentes/logo.svg",
+          "hash": "d3402bb94c71210965cf421b269fb4143aba6d16",
+          "bytes": 761,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/guaratuba-atelie-presentes/hero-og.jpg",
+          "hash": "91375bf24fb4f8bd4029fe0d15ab80365c023324",
+          "bytes": 39738,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/guaratuba-atelie-presentes/hero-og.jpg",
+          "hash": "91375bf24fb4f8bd4029fe0d15ab80365c023324",
+          "bytes": 39738,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Presente feitoà mãopara gente daqui.",
+        "heroHeight": 672,
+        "editorialChars": 2077,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/guaratuba-atelie-presentes/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/guaratuba-atelie-presentes/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "50 vs mirassol-delicias-caseiras"
+        }
+      ]
+    },
+    {
+      "slug": "guaratuba-oficina-nautica",
+      "businessName": "Oficina Náutica Guaratuba",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 47,
+      "originalityNearest": "casa-nativa",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/guaratuba-oficina-nautica/logo.svg",
+          "hash": "e98ae387291d63d2f4b2fda341977d1b704e4565",
+          "bytes": 910,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
+          "hash": "fa394834b57dbf0a63a71dc067cd23a0c7bd80f6",
+          "bytes": 40284,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
+          "hash": "fa394834b57dbf0a63a71dc067cd23a0c7bd80f6",
+          "bytes": 40284,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "A embarcação sai da oficina pronta para a temporada inteira.",
+        "heroHeight": 781,
+        "editorialChars": 2180,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs casa-nativa"
         }
       ]
     },
@@ -3859,6 +3126,120 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "61 vs ag-electrical-services"
+        }
+      ]
+    },
+    {
+      "slug": "uberlandia-eletrica-residencial",
+      "businessName": "Elétrica Bairro Brasil",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 45,
+      "originalityNearest": "guaratuba-oficina-nautica",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
+          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
+          "bytes": 730,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "b1cdca5f8c59a0edc67df025bc868aa5618099aa",
+          "bytes": 38642,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "b1cdca5f8c59a0edc67df025bc868aa5618099aa",
+          "bytes": 38642,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
+        "heroHeight": 996,
+        "editorialChars": 2534,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "45 vs guaratuba-oficina-nautica"
         }
       ]
     },
@@ -4484,9 +3865,9 @@
       ]
     },
     {
-      "slug": "almeida-torres",
-      "businessName": "Almeida Torres Advocacia",
-      "segment": "juridico",
+      "slug": "guaratuba-sabores-da-baia",
+      "businessName": "Sabores da Baía",
+      "segment": "restaurantes",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
@@ -4494,8 +3875,8 @@
       "score": 80,
       "groupScores": {
         "identity": 15,
-        "logo": 4,
-        "cover": 11,
+        "logo": 10,
+        "cover": 5,
         "hero": 11,
         "images": 6,
         "content": 8,
@@ -4504,11 +3885,11 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 37,
-      "originalityNearest": "guaratuba-atelie-presentes",
+      "originalityScore": 36,
+      "originalityNearest": "uberlandia-eletrica-residencial",
       "contentSimilarity": null,
       "charm": "MEDIUM",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 2,
       "severities": {
@@ -4519,23 +3900,23 @@
       },
       "assets": {
         "logo": {
-          "path": "/images/almeida-torres/logo.svg",
-          "hash": "94250d7859b08ef7b60e3c2a3370f46051f8187c",
-          "bytes": 602,
+          "path": "/images/guaratuba-sabores-da-baia/logo.svg",
+          "hash": "eb588c7c6c8abda18de396cc6c6fe1010b331d3a",
+          "bytes": 701,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/almeida-torres/hero-og.jpg",
-          "hash": "4ffa8fa88e16f45666d75d67190292393c523cc1",
-          "bytes": 38897,
+          "path": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
+          "hash": "f3643d9d562ac60d3803d0f7f49a5d45adf667ff",
+          "bytes": 37965,
           "width": 1200,
           "height": 630
         },
         "social": {
-          "path": "/images/almeida-torres/hero-og.jpg",
-          "hash": "4ffa8fa88e16f45666d75d67190292393c523cc1",
-          "bytes": 38897,
+          "path": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
+          "hash": "f3643d9d562ac60d3803d0f7f49a5d45adf667ff",
+          "bytes": 37965,
           "width": 1200,
           "height": 630
         },
@@ -4546,26 +3927,26 @@
         "mobileOverflow": 0,
         "mobileImages": 4,
         "desktopImages": 4,
-        "heroHeadline": "Orientação jurídica antes da decisão difícil.",
-        "heroHeight": 554,
-        "editorialChars": 2228,
+        "heroHeadline": "Peixe fresco no almoço de semana e na mesa cheia de domingo.",
+        "heroHeight": 641,
+        "editorialChars": 2005,
         "smallTargets": 2,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "LOGO_PLACEHOLDER",
+          "code": "COVER_NOT_DEDICATED",
           "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/almeida-torres/logo.svg"
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/guaratuba-sabores-da-baia/hero-og.jpg"
         },
         {
           "code": "COVER_REUSES_SOCIAL",
           "severity": "P2",
           "group": "cover",
           "label": "Capa reaproveita a imagem social",
-          "detail": "/images/almeida-torres/hero-og.jpg"
+          "detail": "/images/guaratuba-sabores-da-baia/hero-og.jpg"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -4594,6 +3975,220 @@
           "group": "content",
           "label": "Serviços pouco explicados",
           "detail": "1 menções"
+        }
+      ]
+    },
+    {
+      "slug": "guaratuba-reparos-residenciais",
+      "businessName": "Reparos do Litoral",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 37,
+      "originalityNearest": "uberlandia-eletrica-residencial",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/guaratuba-reparos-residenciais/logo.svg",
+          "hash": "078b609dfe3081387804a710f3462c926b3fa362",
+          "bytes": 903,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
+          "hash": "4d241356c0a2aa053611e2f5ec19ac1d99cd5439",
+          "bytes": 36272,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
+          "hash": "4d241356c0a2aa053611e2f5ec19ac1d99cd5439",
+          "bytes": 36272,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Aquele conserto que você adia há semanas leva menos de uma tarde.",
+        "heroHeight": 598,
+        "editorialChars": 2235,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/guaratuba-reparos-residenciais/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/guaratuba-reparos-residenciais/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        }
+      ]
+    },
+    {
+      "slug": "mirassol-conserta-celular",
+      "businessName": "Conserta Mirassol",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 49,
+      "originalityNearest": "mirassol-delicias-caseiras",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/mirassol-conserta-celular/logo.svg",
+          "hash": "19dac205b4de585b1a169ee7efdb6d0975fc7dfb",
+          "bytes": 811,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
+          "hash": "4b367ecefffbccdb0d48175646f702c8e259a6e1",
+          "bytes": 37707,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
+          "hash": "4b367ecefffbccdb0d48175646f702c8e259a6e1",
+          "bytes": 37707,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Orçamento com laudo. Só depois a chave de fenda encosta no aparelho.",
+        "heroHeight": 644,
+        "editorialChars": 2393,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "49 vs mirassol-delicias-caseiras"
         }
       ]
     },
@@ -5387,106 +4982,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "55 vs rj-servicos-drywall"
-        }
-      ]
-    },
-    {
-      "slug": "r_beauty",
-      "businessName": "R_Beauty Studio & Spa",
-      "segment": "beleza",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 87,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 57,
-      "originalityNearest": "renata-beauty",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 2
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/r_beauty/logo.svg",
-          "hash": "dce759e2b7bd3fd77719759e07b349bd3b511ff1",
-          "bytes": 605,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/r-beauty-cilios.jpg",
-          "hash": "4893bccf1eec9c894ae033fbb42c7b7c862822a4",
-          "bytes": 115528,
-          "width": 1200,
-          "height": 800
-        },
-        "social": {
-          "path": "/images/r_beauty/hero-og.jpg",
-          "hash": "69d0fd70a1defe8e5b25d2b8ccc5e06bd8ca9f86",
-          "bytes": 39017,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "A alta costura do olhar em cada detalhe milimétrico.",
-        "heroHeight": 1367,
-        "editorialChars": 2730,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/r_beauty/logo.svg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "57 vs renata-beauty"
         }
       ]
     },
@@ -6358,6 +5853,334 @@
       ]
     },
     {
+      "slug": "casa-nativa",
+      "businessName": "Casa Nativa Bistrô",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 11,
+        "images": 6,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 47,
+      "originalityNearest": "guaratuba-oficina-nautica",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 2
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/casa-nativa/logo.svg",
+          "hash": "2fbf41b1fdcdd80e8149cbccdd01f453e18438c4",
+          "bytes": 771,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/casa-nativa/hero-og.jpg",
+          "hash": "9480902193bc61f421d1ae3cfe2a2455e8a01e2a",
+          "bytes": 35490,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/casa-nativa/hero-og.jpg",
+          "hash": "9480902193bc61f421d1ae3cfe2a2455e8a01e2a",
+          "bytes": 35490,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Cozinha de raiz,servida devagar.",
+        "heroHeight": 692,
+        "editorialChars": 1952,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/casa-nativa/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs guaratuba-oficina-nautica"
+        }
+      ]
+    },
+    {
+      "slug": "clinica-integrada",
+      "businessName": "Clínica Integrada de Saúde",
+      "segment": "saude",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 84,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 49,
+      "originalityNearest": "confeitaria-sabor-da-realeza",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/clinica-integrada/logo.svg",
+          "hash": "5dc7ef8283b86e4b43c73eba6fad45796ca40671",
+          "bytes": 870,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/clinica-integrada/hero-og.jpg",
+          "hash": "2967fc546fff191b5da77f8cff02cdc0b0c9b402",
+          "bytes": 37831,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/clinica-integrada/hero-og.jpg",
+          "hash": "2967fc546fff191b5da77f8cff02cdc0b0c9b402",
+          "bytes": 37831,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Várias especialidades, um único prontuário.",
+        "heroHeight": 905,
+        "editorialChars": 2745,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/clinica-integrada/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "49 vs confeitaria-sabor-da-realeza"
+        }
+      ]
+    },
+    {
+      "slug": "almeida-torres",
+      "businessName": "Almeida Torres Advocacia",
+      "segment": "juridico",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 11,
+        "images": 6,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 37,
+      "originalityNearest": "guaratuba-atelie-presentes",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 2
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/almeida-torres/logo.svg",
+          "hash": "d87cfcf7a60adfb06bfcbbac70720612e8908811",
+          "bytes": 728,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/almeida-torres/hero-og.jpg",
+          "hash": "4ffa8fa88e16f45666d75d67190292393c523cc1",
+          "bytes": 38897,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/almeida-torres/hero-og.jpg",
+          "hash": "4ffa8fa88e16f45666d75d67190292393c523cc1",
+          "bytes": 38897,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Orientação jurídica antes da decisão difícil.",
+        "heroHeight": 554,
+        "editorialChars": 2228,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/almeida-torres/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        }
+      ]
+    },
+    {
       "slug": "rm-fretes",
       "businessName": "RM Fretes",
       "segment": "servicos",
@@ -7077,6 +6900,99 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "60 vs mp-festas-eventos"
+        }
+      ]
+    },
+    {
+      "slug": "r_beauty",
+      "businessName": "R_Beauty Studio & Spa",
+      "segment": "beleza",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 93,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 14,
+        "hero": 15,
+        "images": 10,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 57,
+      "originalityNearest": "renata-beauty",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 2
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/r_beauty/logo.webp",
+          "hash": "521b4535ffed5b25bc987538ccb440232d1c2b20",
+          "bytes": 327600,
+          "width": 1254,
+          "height": 1254
+        },
+        "cover": {
+          "path": "/images/r-beauty-cilios.jpg",
+          "hash": "4893bccf1eec9c894ae033fbb42c7b7c862822a4",
+          "bytes": 115528,
+          "width": 1200,
+          "height": 800
+        },
+        "social": {
+          "path": "/images/r_beauty/hero-og.jpg",
+          "hash": "69d0fd70a1defe8e5b25d2b8ccc5e06bd8ca9f86",
+          "bytes": 39017,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "A alta costura do olhar em cada detalhe milimétrico.",
+        "heroHeight": 1367,
+        "editorialChars": 2730,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "57 vs renata-beauty"
         }
       ]
     },

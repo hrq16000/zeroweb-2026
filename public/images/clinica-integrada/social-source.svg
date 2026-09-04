@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24122f"/><stop offset="1" stop-color="#e879f9"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#g)"/><circle cx="1020" cy="90" r="250" fill="#fff" opacity=".08"/><circle cx="180" cy="610" r="330" fill="#fff" opacity=".06"/>
-  <path d="M760 0h440v630H720c76-84 112-193 112-315S836 84 760 0Z" fill="#000" opacity=".12"/><g transform="translate(930 188)" fill="none" stroke="#e879f9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".92"><circle cx="90" cy="90" r="78"/><path d="M90 42v96M42 90h96"/></g>
-  <rect x="70" y="68" width="108" height="108" rx="28" fill="#fff" opacity=".96"/><text x="124" y="141" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#24122f">CID</text>
-  <text x="70" y="258" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#fff" opacity=".8">PRESENÇA DIGITAL</text>
-  <text x="70" y="350" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#fff">Clínica Integrada de Saúde</text>
-  <text x="70" y="414" font-family="Arial,sans-serif" font-size="25" fill="#fff" opacity=".92">odontologia · saude</text>
-  <text x="70" y="470" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#fff" opacity=".7">SAUDE</text>
-  <text x="70" y="530" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#fff" opacity=".8">Curitiba — PR</text>
-  </svg>
+<!-- gerado por scripts/build-portfolio-brand-social.mjs a partir da marca autoral -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0f5b6b"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#3ba39a"/>
+  <circle cx="1120" cy="96" r="220" fill="#3ba39a" opacity=".16"/>
+  <circle cx="1040" cy="600" r="150" fill="#7fd1c1" opacity=".12"/>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Clínica Integrada de Saúde</text>
+  <text x="80" y="502" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">Saúde</text>
+  <text x="80" y="568" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ffffff" opacity=".72">Curitiba — PR</text>
+</svg>

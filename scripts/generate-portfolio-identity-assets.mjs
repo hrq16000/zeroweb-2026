@@ -13,6 +13,13 @@ const catalogPath = resolve("src/config/portfolio-catalog.json");
 const assetsPath = resolve("src/config/portfolio-assets.json");
 const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const assets = JSON.parse(await readFile(assetsPath, "utf8"));
+// Marcas autorais (Q2) nunca podem ser sobrescritas pelo gerador genérico.
+const brandReview = JSON.parse(await readFile(resolve("src/config/portfolio-brand-review.json"), "utf8"));
+const authoredBrands = new Set(
+  Object.entries(brandReview.projects ?? {})
+    .filter(([, v]) => v?.authored)
+    .map(([slug]) => slug),
+);
 
 const palettes = [
   ["#0f172a", "#38bdf8"],
@@ -82,6 +89,7 @@ function logoSvg(item, dark, accent) {
 }
 
 for (const item of catalog) {
+  if (authoredBrands.has(item.slug)) continue;
   const existing = assets.clients?.[item.slug] ?? assets.clients?.[item.clientKey];
   const generatedIdentity = existing?.icon?.endsWith(`/${item.slug}/logo.svg`) && existing?.socialImage?.endsWith(`/${item.slug}/hero-og.jpg`);
   if (existing?.icon && existing?.socialImage && !generatedIdentity) continue;

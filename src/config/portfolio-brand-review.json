@@ -1,0 +1,167 @@
+{
+  "_readme": "Estado de revisão de marca por projeto (Q2). brandOrigin: CLIENT_PROVIDED | EXISTING_PROJECT_ASSET | DEMO_CREATED_BY_0WEB | UNKNOWN. brandReview: UNREVIEWED | APPROVED | NEEDS_REVIEW | REJECTED. authored=true protege a marca contra regeneração automática por scripts/generate-portfolio-identity-assets.mjs. Direção (concept/personality/shape/typography/colors) documenta a decisão criativa. Ver docs/PORTFOLIO_BRAND_STANDARD.md.",
+  "projects": {
+    "r_beauty": {
+      "brandOrigin": "CLIENT_PROVIDED",
+      "brandReview": "APPROVED",
+      "classification": "REAL_BRAND_VALID",
+      "authored": true,
+      "logo": "/images/r_beauty/logo.webp",
+      "notes": "Marca real do cliente (monograma R-B em ouro rosé). O registro apontava para um placeholder gerado; a aplicação foi corrigida para o arquivo oficial. Símbolo preservado sem alteração."
+    },
+    "mirassol-delicias-caseiras": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/mirassol-delicias-caseiras/logo.svg",
+      "direction": {
+        "concept": "panela de casa com vapor — comida feita hoje",
+        "personality": "acolhedora, caseira, sem verniz",
+        "shapeLanguage": "curvas cheias, traço arredondado",
+        "typography": "serif humanista com linha secundária em itálico",
+        "colors": ["#b2452e", "#f6ead6", "#2f1d15"]
+      }
+    },
+    "bh-barreiro-marmitas": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/bh-barreiro-marmitas/logo.svg",
+      "direction": {
+        "concept": "marmita de alumínio vista de cima + quadro do cardápio",
+        "personality": "prática, direta, de bairro",
+        "shapeLanguage": "retângulos retos e compartimentados",
+        "typography": "sans condensada em caixa alta",
+        "colors": ["#1f3a26", "#f2c744", "#f7f2e7"]
+      }
+    },
+    "guaratuba-sabores-da-baia": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/guaratuba-sabores-da-baia/logo.svg",
+      "direction": {
+        "concept": "enseada ao entardecer — sol descendo sobre a água",
+        "personality": "litorânea, tranquila, luminosa",
+        "shapeLanguage": "arco e ondas horizontais",
+        "typography": "sans leve com subtítulo muito espaçado",
+        "colors": ["#0e5c73", "#ffd9a0", "#ff8a3d"]
+      }
+    },
+    "guaratuba-oficina-nautica": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/guaratuba-oficina-nautica/logo.svg",
+      "direction": {
+        "concept": "hélice de popa em movimento",
+        "personality": "técnica, oficial de bordo, confiável",
+        "shapeLanguage": "pás em rotação, filete vertical de separação",
+        "typography": "sans condensada em dois níveis",
+        "colors": ["#10243d", "#ff7a1a", "#8fb6d8"]
+      }
+    },
+    "uberlandia-eletrica-residencial": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/uberlandia-eletrica-residencial/logo.svg",
+      "direction": {
+        "concept": "telhado com energia dentro de casa",
+        "personality": "segura, de plantão, residencial",
+        "shapeLanguage": "chevron do telhado + raio recortado",
+        "typography": "sans geométrica com subtítulo espaçado",
+        "colors": ["#12224a", "#ffd400", "#7f92c4"]
+      }
+    },
+    "guaratuba-reparos-residenciais": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/guaratuba-reparos-residenciais/logo.svg",
+      "direction": {
+        "concept": "casa do litoral resolvida — telhado sobre a maré, chave em diagonal",
+        "personality": "resolutiva, de vizinhança",
+        "shapeLanguage": "linha contínua clara sobre fundo claro",
+        "typography": "sans humanista, título em peso alto",
+        "colors": ["#14655a", "#ff6b57", "#f2f7f5"]
+      }
+    },
+    "mirassol-conserta-celular": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/mirassol-conserta-celular/logo.svg",
+      "direction": {
+        "concept": "tela resolvida — aparelho com o conserto confirmado",
+        "personality": "rápida, técnica, sem rodeio",
+        "shapeLanguage": "retângulo de tela e losango de diagnóstico",
+        "typography": "monoespaçada em caixa baixa",
+        "colors": ["#21252b", "#22d3a8", "#ffffff"]
+      }
+    },
+    "casa-nativa": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/casa-nativa/logo.svg",
+      "direction": {
+        "concept": "broto sob o arco da casa — cozinha de raiz",
+        "personality": "sóbria, lenta, editorial",
+        "shapeLanguage": "arco fino e folhas assimétricas",
+        "typography": "serif espaçada com linha em itálico",
+        "colors": ["#1b1814", "#c98a4b", "#f4ece0"]
+      }
+    },
+    "almeida-torres": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/almeida-torres/logo.svg",
+      "direction": {
+        "concept": "colunata e filete — leitura antes da decisão",
+        "personality": "contida, formal, sem grandiloquência",
+        "shapeLanguage": "verticais paralelas e réguas horizontais",
+        "typography": "serif clássica com entreletra ampla",
+        "colors": ["#ece7db", "#22201c", "#3a5a49"]
+      }
+    },
+    "clinica-integrada": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/clinica-integrada/logo.svg",
+      "direction": {
+        "concept": "três arcos concêntricos — especialidades que se integram",
+        "personality": "clara, cuidadosa, sem dramatização",
+        "shapeLanguage": "arcos abertos e cruz leve",
+        "typography": "sans neutra de alta legibilidade",
+        "colors": ["#0f5b6b", "#3ba39a", "#7fd1c1"]
+      }
+    },
+    "guaratuba-atelie-presentes": {
+      "brandOrigin": "DEMO_CREATED_BY_0WEB",
+      "brandReview": "APPROVED",
+      "classification": "PLACEHOLDER",
+      "authored": true,
+      "logo": "/images/guaratuba-atelie-presentes/logo.svg",
+      "direction": {
+        "concept": "laço feito à mão sobre a lembrança",
+        "personality": "afetiva, artesanal, colorida",
+        "shapeLanguage": "fitas assimétricas com nó central",
+        "typography": "sans arredondada com subtítulo espaçado",
+        "colors": ["#c25a37", "#f0d9b5", "#2f2418"]
+      }
+    }
+  }
+}
