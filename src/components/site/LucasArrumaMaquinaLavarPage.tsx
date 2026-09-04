@@ -81,7 +81,8 @@ export function LucasArrumaMaquinaLavarPage() {
               width={44}
               height={44}
               className="h-11 w-11"
-            />
+            managedField="logoUrl"
+              />
             <span className="font-display text-base font-bold leading-tight">
               Lucas Arruma
               <span className="block text-xs font-semibold uppercase tracking-[.18em] text-[#c2452d]">

@@ -74,7 +74,8 @@ export function NoBrilhoHigienizacaoPage() {
               width={44}
               height={44}
               className="h-11 w-11 rounded-xl"
-            />
+            managedField="logoUrl"
+              />
             <span className="font-display text-base font-bold leading-tight">
               No Brilho
               <span className="block text-xs font-medium uppercase tracking-[.18em] text-[#c9a888]">Higienização</span>
