@@ -102,6 +102,38 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma visita técnica"
     ]
   },
+  "almeida-torres": {
+    "stepTitles": {
+      "service": "Qual é a natureza do caso?",
+      "experience": "Em que estágio ele está?",
+      "period": "Onde tramita ou tramitaria?",
+      "timing": "Qual a urgência?",
+      "note": "Resumo do caso"
+    },
+    "services": [
+      "Família e sucessões",
+      "Trabalhista",
+      "Consumidor",
+      "Civil e contratos",
+      "Consultoria preventiva"
+    ],
+    "experienceOptions": [
+      "Ainda não há processo",
+      "Fui notificado",
+      "Processo em andamento",
+      "Preciso revisar um contrato"
+    ],
+    "periodOptions": [
+      "São Paulo — capital",
+      "Grande São Paulo",
+      "Outra comarca"
+    ],
+    "timingOptions": [
+      "Há prazo correndo",
+      "Nas próximas semanas",
+      "Sem urgência definida"
+    ]
+  },
   "artesanatos-darleia-oliveira": {
     "services": [
       "Coador de café 100% algodão",
@@ -172,6 +204,102 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "note": "Conte os detalhes"
     },
     "notePlaceholder": "Ex.: marca, modelo, defeito percebido ou se procura um aparelho revisado."
+  },
+  "bh-barreiro-marmitas": {
+    "stepTitles": {
+      "service": "Qual marmita você quer?",
+      "experience": "Para quantas pessoas?",
+      "period": "Como prefere receber?",
+      "timing": "Qual frequência?",
+      "note": "Alguma restrição alimentar?"
+    },
+    "services": [
+      "Marmita P",
+      "Marmita M",
+      "Marmita G",
+      "Combo semanal",
+      "Marmita fitness sem fritura"
+    ],
+    "experienceOptions": [
+      "Só para mim",
+      "Duas pessoas",
+      "Família",
+      "Equipe de trabalho"
+    ],
+    "periodOptions": [
+      "Retirada no Barreiro",
+      "Entrega no bairro",
+      "Entrega na empresa"
+    ],
+    "timingOptions": [
+      "Só hoje",
+      "De segunda a sexta",
+      "Semana inteira"
+    ]
+  },
+  "casa-nativa": {
+    "stepTitles": {
+      "service": "Que experiência procura?",
+      "experience": "Quantos lugares?",
+      "period": "Qual salão prefere?",
+      "timing": "Para quando?",
+      "note": "Restrições ou celebração"
+    },
+    "services": [
+      "Jantar à la carte",
+      "Menu em quatro tempos",
+      "Almoço de domingo",
+      "Evento privado"
+    ],
+    "experienceOptions": [
+      "Mesa para 2",
+      "Mesa para 4",
+      "Grupo de 6 a 10",
+      "Mais de 10 pessoas"
+    ],
+    "periodOptions": [
+      "Salão interno",
+      "Terraço",
+      "Tanto faz"
+    ],
+    "timingOptions": [
+      "Esta semana",
+      "Fim de semana",
+      "Data comemorativa"
+    ]
+  },
+  "clinica-integrada": {
+    "stepTitles": {
+      "service": "Qual especialidade você procura?",
+      "experience": "É primeira consulta?",
+      "period": "Melhor turno para você?",
+      "timing": "Qual a urgência?",
+      "note": "Observações sobre o atendimento"
+    },
+    "services": [
+      "Odontologia",
+      "Clínica médica",
+      "Cardiologia",
+      "Fisioterapia",
+      "Exames de rotina",
+      "Check-up integrado"
+    ],
+    "experienceOptions": [
+      "Primeira consulta",
+      "Retorno",
+      "Acompanhamento contínuo",
+      "Segunda opinião"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Sábado"
+    ],
+    "timingOptions": [
+      "Esta semana",
+      "Próximas duas semanas",
+      "Sem pressa"
+    ]
   },
   "confeitaria-chyrley": {
     "services": [
@@ -490,6 +618,138 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: ambiente, medidas aproximadas, acabamento desejado ou itens para transportar."
   },
+  "guaratuba-atelie-presentes": {
+    "stepTitles": {
+      "service": "O que você quer encomendar?",
+      "experience": "Para qual ocasião?",
+      "period": "Quantidade aproximada",
+      "timing": "Para quando precisa?",
+      "note": "Cores, tema e detalhes"
+    },
+    "services": [
+      "Lembrancinhas de festa",
+      "Caixa de presente",
+      "Peça para casa",
+      "Presente pronto",
+      "Ainda não sei"
+    ],
+    "experienceOptions": [
+      "Aniversário",
+      "Casamento ou chá",
+      "Data comemorativa",
+      "Presente pessoal",
+      "Empresa"
+    ],
+    "periodOptions": [
+      "Até 20 peças",
+      "De 20 a 60 peças",
+      "Mais de 60 peças",
+      "Peça única"
+    ],
+    "timingOptions": [
+      "Nesta semana",
+      "Neste mês",
+      "Ainda estou planejando"
+    ]
+  },
+  "guaratuba-oficina-nautica": {
+    "stepTitles": {
+      "service": "Qual serviço a embarcação precisa?",
+      "experience": "Tipo de embarcação",
+      "period": "Onde ela está agora?",
+      "timing": "Prazo desejado",
+      "note": "Descreva o sintoma ou o serviço"
+    },
+    "services": [
+      "Revisão de motor",
+      "Reparo de casco",
+      "Elétrica de bordo",
+      "Preparação de temporada",
+      "Carreta"
+    ],
+    "experienceOptions": [
+      "Lancha",
+      "Barco de pesca",
+      "Jet ski",
+      "Bote inflável"
+    ],
+    "periodOptions": [
+      "Na garagem",
+      "Na marina",
+      "Na água, parada",
+      "Em outra cidade"
+    ],
+    "timingOptions": [
+      "Urgente",
+      "Antes da temporada",
+      "Sem pressa"
+    ]
+  },
+  "guaratuba-reparos-residenciais": {
+    "stepTitles": {
+      "service": "Qual reparo você precisa?",
+      "experience": "É casa ou comércio?",
+      "period": "Em qual bairro?",
+      "timing": "Para quando?",
+      "note": "Descreva o problema"
+    },
+    "services": [
+      "Elétrica pequena",
+      "Hidráulica pequena",
+      "Montagem e fixação",
+      "Acabamento e vedação",
+      "Vários itens de uma vez"
+    ],
+    "experienceOptions": [
+      "Casa",
+      "Apartamento",
+      "Comércio",
+      "Casa de temporada"
+    ],
+    "periodOptions": [
+      "Brejatuba",
+      "Centro",
+      "Outro bairro de Guaratuba",
+      "Fora da cidade"
+    ],
+    "timingOptions": [
+      "Hoje ou amanhã",
+      "Nesta semana",
+      "Posso agendar"
+    ]
+  },
+  "guaratuba-sabores-da-baia": {
+    "stepTitles": {
+      "service": "O que você quer pedir?",
+      "experience": "Como prefere comer?",
+      "period": "Para quantas pessoas?",
+      "timing": "Para quando?",
+      "note": "Observações do pedido"
+    },
+    "services": [
+      "Prato da maré",
+      "Executivo do dia",
+      "Porção para dividir",
+      "Barreado",
+      "Reserva de mesa"
+    ],
+    "experienceOptions": [
+      "Comer no salão",
+      "Retirar no balcão",
+      "Delivery",
+      "Encomenda para grupo"
+    ],
+    "periodOptions": [
+      "1 a 2 pessoas",
+      "3 a 4 pessoas",
+      "Grupo maior"
+    ],
+    "timingOptions": [
+      "Hoje",
+      "Fim de semana",
+      "Na temporada"
+    ]
+  },
   "hbk-iluminacao-led": {
     "proposalKind": "service",
     "services": [
@@ -803,6 +1063,73 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quintas-feiras semanais",
       "Quintas-feiras quinzenais",
       "Atendimento esporádico"
+    ]
+  },
+  "mirassol-conserta-celular": {
+    "stepTitles": {
+      "service": "Qual é o problema do aparelho?",
+      "experience": "Qual aparelho?",
+      "period": "Como prefere resolver?",
+      "timing": "Qual a urgência?",
+      "note": "Detalhe o que aconteceu"
+    },
+    "services": [
+      "Tela quebrada",
+      "Bateria viciada",
+      "Não carrega",
+      "Molhou",
+      "Não liga",
+      "Outro problema"
+    ],
+    "experienceOptions": [
+      "Celular Android",
+      "iPhone",
+      "Tablet",
+      "Notebook"
+    ],
+    "periodOptions": [
+      "Levo na loja",
+      "Prefiro combinar retirada",
+      "Só quero orçamento"
+    ],
+    "timingOptions": [
+      "Hoje",
+      "Esta semana",
+      "Sem pressa"
+    ]
+  },
+  "mirassol-delicias-caseiras": {
+    "stepTitles": {
+      "service": "O que você quer encomendar?",
+      "experience": "Para qual ocasião?",
+      "period": "Quantas pessoas?",
+      "timing": "Para qual data?",
+      "note": "Sabores e observações"
+    },
+    "services": [
+      "Bolo de festa",
+      "Bolo caseiro",
+      "Salgados",
+      "Docinhos",
+      "Torta gelada",
+      "Kit completo"
+    ],
+    "experienceOptions": [
+      "Aniversário",
+      "Chá ou confraternização",
+      "Casamento",
+      "Evento de empresa",
+      "Só pra casa mesmo"
+    ],
+    "periodOptions": [
+      "Até 20 pessoas",
+      "20 a 50 pessoas",
+      "Mais de 50 pessoas"
+    ],
+    "timingOptions": [
+      "Nos próximos dias",
+      "Neste mês",
+      "Data comemorativa"
     ]
   },
   "mp-festas-eventos": {
@@ -1238,6 +1565,39 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "timing": "Quando pretende começar?"
     },
     "notePlaceholder": "Conte quais ambientes ou reparos precisam de atenção."
+  },
+  "uberlandia-eletrica-residencial": {
+    "stepTitles": {
+      "service": "Qual serviço elétrico você precisa?",
+      "experience": "Onde será o serviço?",
+      "period": "Qual a situação atual?",
+      "timing": "Quando pode ser feito?",
+      "note": "Descreva o problema elétrico"
+    },
+    "services": [
+      "Quadro de distribuição",
+      "Chuveiro ou ducha",
+      "Aterramento e DR",
+      "Novos pontos",
+      "Curto ou queda de energia"
+    ],
+    "experienceOptions": [
+      "Casa",
+      "Apartamento",
+      "Comércio",
+      "Obra em andamento"
+    ],
+    "periodOptions": [
+      "Está sem energia agora",
+      "Funciona, mas com falhas",
+      "Instalação nova",
+      "Quero laudo preventivo"
+    ],
+    "timingOptions": [
+      "Emergência hoje",
+      "Nesta semana",
+      "Posso agendar"
+    ]
   },
   "vila-da-capivara": {
     "services": [
