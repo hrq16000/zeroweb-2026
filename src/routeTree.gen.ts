@@ -221,6 +221,7 @@ import { Route as ApiPublicHooksSeoMonitorRouteImport } from './routes/api/publi
 import { Route as ApiPublicHooksSocialRegenLogRouteImport } from './routes/api/public/hooks/social-regen-log'
 import { Route as ApiPublicHooksStripeRouteImport } from './routes/api/public/hooks/stripe'
 import { Route as ApiPublicHooksVisitorsCleanupRouteImport } from './routes/api/public/hooks/visitors-cleanup'
+import { Route as ApiPublicPortfolioAssetSplatRouteImport } from './routes/api/public/portfolio-asset.$'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as RWhatsappReissueTokenRouteImport } from './routes/r.whatsapp.reissue.$token'
 import { Route as AuthenticatedAppFunisPipelineRegrasRouteImport } from './routes/_authenticated/app.funis.pipeline.regras'
@@ -1357,6 +1358,12 @@ const ApiPublicHooksVisitorsCleanupRoute =
     path: '/api/public/hooks/visitors-cleanup',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicPortfolioAssetSplatRoute =
+  ApiPublicPortfolioAssetSplatRouteImport.update({
+    id: '/api/public/portfolio-asset/$',
+    path: '/api/public/portfolio-asset/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LovableEmailTransactionalPreviewRoute =
   LovableEmailTransactionalPreviewRouteImport.update({
     id: '/lovable/email/transactional/preview',
@@ -1591,6 +1598,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/api/public/portfolio-asset/$': typeof ApiPublicPortfolioAssetSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
@@ -1804,6 +1812,7 @@ export interface FileRoutesByTo {
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/api/public/portfolio-asset/$': typeof ApiPublicPortfolioAssetSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
@@ -2023,6 +2032,7 @@ export interface FileRoutesById {
   '/api/public/hooks/social-regen-log': typeof ApiPublicHooksSocialRegenLogRoute
   '/api/public/hooks/stripe': typeof ApiPublicHooksStripeRoute
   '/api/public/hooks/visitors-cleanup': typeof ApiPublicHooksVisitorsCleanupRoute
+  '/api/public/portfolio-asset/$': typeof ApiPublicPortfolioAssetSplatRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
@@ -2242,6 +2252,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/api/public/portfolio-asset/$'
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis/'
@@ -2455,6 +2466,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/api/public/portfolio-asset/$'
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/app/funis'
@@ -2673,6 +2685,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/social-regen-log'
     | '/api/public/hooks/stripe'
     | '/api/public/hooks/visitors-cleanup'
+    | '/api/public/portfolio-asset/$'
     | '/lovable/email/transactional/preview'
     | '/r/whatsapp/reissue/$token'
     | '/_authenticated/app/funis/'
@@ -2815,6 +2828,7 @@ export interface RootRouteChildren {
   ApiPublicHooksSocialRegenLogRoute: typeof ApiPublicHooksSocialRegenLogRoute
   ApiPublicHooksStripeRoute: typeof ApiPublicHooksStripeRoute
   ApiPublicHooksVisitorsCleanupRoute: typeof ApiPublicHooksVisitorsCleanupRoute
+  ApiPublicPortfolioAssetSplatRoute: typeof ApiPublicPortfolioAssetSplatRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
   RWhatsappReissueTokenRoute: typeof RWhatsappReissueTokenRoute
   ApiPublicLandingImagePageFileRoute: typeof ApiPublicLandingImagePageFileRoute
@@ -4306,6 +4320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksVisitorsCleanupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/portfolio-asset/$': {
+      id: '/api/public/portfolio-asset/$'
+      path: '/api/public/portfolio-asset/$'
+      fullPath: '/api/public/portfolio-asset/$'
+      preLoaderRoute: typeof ApiPublicPortfolioAssetSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/transactional/preview': {
       id: '/lovable/email/transactional/preview'
       path: '/lovable/email/transactional/preview'
@@ -4777,6 +4798,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksSocialRegenLogRoute: ApiPublicHooksSocialRegenLogRoute,
   ApiPublicHooksStripeRoute: ApiPublicHooksStripeRoute,
   ApiPublicHooksVisitorsCleanupRoute: ApiPublicHooksVisitorsCleanupRoute,
+  ApiPublicPortfolioAssetSplatRoute: ApiPublicPortfolioAssetSplatRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
   RWhatsappReissueTokenRoute: RWhatsappReissueTokenRoute,
   ApiPublicLandingImagePageFileRoute: ApiPublicLandingImagePageFileRoute,
