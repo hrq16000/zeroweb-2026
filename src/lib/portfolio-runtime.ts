@@ -194,6 +194,12 @@ export function applyPortfolioRuntime(
     socialImage = `${socialImage}${socialImage.includes("?") ? "&" : "?"}v=${socialVersion}`;
   }
 
+  if (overrides?.heroHeadline) overridden.push("heroHeadline");
+  if (overrides?.heroSubheadline) overridden.push("heroSubheadline");
+  if (overrides?.gallery?.length) overridden.push("gallery");
+  if (overrides?.ctaLabel) overridden.push("ctaLabel");
+  if (overrides?.brandColors) overridden.push("brandColors");
+
   return {
     slug: base.slug,
     title: take("title", overrides?.seoTitle ?? overrides?.displayName, base.title),
