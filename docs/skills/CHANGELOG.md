@@ -805,3 +805,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Validação: 68/68 importados sem divergência, salvamento e histórico
   verificados em banco real, bloqueio de contato operacional confirmado,
   276 testes, build verde, scanner de privacidade limpo.
+
+## Rodada 2 — Gate de originalidade do portfólio
+
+- Tarefa: separar conformidade (presença) de originalidade (composição exclusiva).
+- Skills: 0web-skill-router, 0web-design-system (identidade x infraestrutura), 0web-ui-quality-gates.
+- Achados: 19 CLONE, 25 HIGH_SIMILARITY, 11 SHARED_FALLBACK, 5 clusters, 11 logos placeholder, 27 capas ausentes.
+- Validação: typecheck limpo, 294 testes/1373 expectations, build verde, gate em REPORT_ONLY com baseline versionada.
+- Contrato: scripts/portfolio-originality.mjs · docs/PORTFOLIO_ORIGINALITY_GATE.md.
