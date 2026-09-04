@@ -93,6 +93,7 @@ function PortfolioAdminList() {
         </div>
         <Link
           to="/app/portfolio/novo"
+          search={{ slug: undefined }}
           className="min-h-11 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
         >
           Novo projeto
