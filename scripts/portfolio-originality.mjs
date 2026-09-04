@@ -191,6 +191,7 @@ export function fingerprintSource(source, { label = "" } = {}) {
   const skeleton = src
     .replace(/(["'`])(?:\\.|(?!\1)[\s\S])*\1/g, '""')
     .replace(/#[0-9a-fA-F]{3,8}\b/g, "#")
+    .replace(/>[^<>{}]+</g, "><")
     .replace(/\s+/g, " ")
     .trim();
 
