@@ -813,3 +813,14 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Achados: 19 CLONE, 25 HIGH_SIMILARITY, 11 SHARED_FALLBACK, 5 clusters, 11 logos placeholder, 27 capas ausentes.
 - Validação: typecheck limpo, 294 testes/1373 expectations, build verde, gate em REPORT_ONLY com baseline versionada.
 - Contrato: scripts/portfolio-originality.mjs · docs/PORTFOLIO_ORIGINALITY_GATE.md.
+
+## Rodada 3 — Dissolução do CLUSTER_01 (fallback compartilhado)
+- Skills: 0web-skill-router, 0web-design-system, 0web-ui-quality-gates.
+- 11 projetos que renderizavam `sites.$vertical.tsx` ganharam componente autoral próprio,
+  registrados em `portfolio-clients.json` e na rota `portfolio.$slug.tsx`.
+- Contratos individuais em `src/config/portfolio-identity-contracts.json` (logo/capa
+  permanecem `LOGO_PENDING` enquanto não houver material oficial do cliente).
+- Gate de originalidade: SHARED_FALLBACK 11 -> 0; nearest-match dos 11 entre 33 e 53.
+- Validação: conformidade 68/68 COMPLETE, tsgo limpo, 294 testes, build verde,
+  scanner de privacidade sem contatos no bundle público, QA 390px/1280px sem
+  overflow e sem erros de console.
