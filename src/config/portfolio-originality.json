@@ -18,8 +18,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 7,
-    "attention": 20,
-    "highSimilarity": 26,
+    "attention": 21,
+    "highSimilarity": 25,
     "clone": 15,
     "sharedFallback": 0,
     "clusters": 3,
@@ -155,15 +155,15 @@
     },
     {
       "slug": "almeida-torres",
-      "score": 34,
+      "score": 37,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 34,
+      "nearestMatchScore": 37,
       "reasons": [],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 18.2,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 24.7,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -235,20 +235,20 @@
     },
     {
       "slug": "assistencia-microondas-santos",
-      "score": 65,
+      "score": 66,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "artesanatos-darleia-oliveira",
-      "nearestMatchScore": 65,
+      "nearestMatch": "premium-envelopamentos",
+      "nearestMatchScore": 66,
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 60.7,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 61.5,
-        "STYLE_SIMILARITY": 85.4,
-        "ASSET_PATTERN_SIMILARITY": 80,
-        "IDENTITY_SIMILARITY": 13.2
+        "STRUCTURE_SIMILARITY": 52.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 54.5,
+        "STYLE_SIMILARITY": 67.8,
+        "ASSET_PATTERN_SIMILARITY": 57.1,
+        "IDENTITY_SIMILARITY": 12.9
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -289,17 +289,17 @@
     },
     {
       "slug": "bh-barreiro-marmitas",
-      "score": 45,
+      "score": 44,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "uberlandia-eletrica-residencial",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 44,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 17.5,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 20,
         "STYLE_SIMILARITY": 48.5,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -344,17 +344,17 @@
     },
     {
       "slug": "casa-nativa",
-      "score": 48,
+      "score": 47,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "guaratuba-oficina-nautica",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 47,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 22,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 20,
         "STYLE_SIMILARITY": 29.9,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -773,17 +773,17 @@
     },
     {
       "slug": "guaratuba-atelie-presentes",
-      "score": 51,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "mirassol-delicias-caseiras",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 50,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 28,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 20,
         "STYLE_SIMILARITY": 37.7,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -801,17 +801,17 @@
     },
     {
       "slug": "guaratuba-oficina-nautica",
-      "score": 48,
+      "score": 47,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "casa-nativa",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 47,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 22,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 20,
         "STYLE_SIMILARITY": 29.9,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -1125,10 +1125,10 @@
     },
     {
       "slug": "manu-pasteis",
-      "score": 53,
+      "score": 51,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 53,
+      "nearestMatchScore": 51,
       "reasons": [
         "SAME_FAMILY"
       ],
@@ -1137,7 +1137,7 @@
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 36.4,
         "STYLE_SIMILARITY": 78.4,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 75,
         "IDENTITY_SIMILARITY": 8.7
       },
       "coverSignals": [
@@ -1263,17 +1263,17 @@
     },
     {
       "slug": "mirassol-delicias-caseiras",
-      "score": 51,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 50,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 28,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 20,
         "STYLE_SIMILARITY": 37.7,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -1514,7 +1514,7 @@
         "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 75,
-        "ASSET_PATTERN_SIMILARITY": 5.3,
+        "ASSET_PATTERN_SIMILARITY": 5,
         "IDENTITY_SIMILARITY": 7.3
       },
       "coverSignals": [
@@ -1619,7 +1619,7 @@
       "dimensions": {
         "STRUCTURE_SIMILARITY": 36.1,
         "SECTION_ORDER_SIMILARITY": 55.6,
-        "COMPONENT_SIMILARITY": 26.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 66.3,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 14.3
@@ -1828,16 +1828,16 @@
       "slug": "uberlandia-eletrica-residencial",
       "score": 45,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatch": "guaratuba-oficina-nautica",
       "nearestMatchScore": 45,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.5,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 25,
-        "STYLE_SIMILARITY": 48.5,
+        "STRUCTURE_SIMILARITY": 17.9,
+        "SECTION_ORDER_SIMILARITY": 60,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 50.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
@@ -1854,19 +1854,19 @@
     },
     {
       "slug": "vila-da-capivara",
-      "score": 61,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 60,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "mp-festas-eventos",
-      "nearestMatchScore": 61,
+      "nearestMatchScore": 60,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 67.6,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 88.6,
-        "ASSET_PATTERN_SIMILARITY": 27.3,
+        "ASSET_PATTERN_SIMILARITY": 25,
         "IDENTITY_SIMILARITY": 10.9
       },
       "coverSignals": [

@@ -2,6 +2,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { ManagedRich } from "@/components/portfolio/ManagedText";
 
 const SEMANA = [
   ["SEG", "Frango grelhado", "Arroz, feijão, purê e salada de repolho"],
@@ -68,14 +69,14 @@ export function BarreiroMarmitasPage() {
           <div>
             <p className="inline-block bg-[#f2c744] px-3 py-1 text-sm font-extrabold uppercase">Barreiro · Belo Horizonte</p>
             <h1 className="mt-5 text-4xl font-extrabold uppercase leading-[1.02] sm:text-6xl">
+            <ManagedRich field="heroHeadline">
               O almoço da semana
               <br />
-              <span className="text-[#1f3a26]">já está no quadro.</span>
-            </h1>
-            <p className="mt-5 max-w-lg text-lg leading-8 text-[#4a4234]">
+              <span className="text-[#1f3a26]">já está no quadro.</span></ManagedRich>
+          </h1>
+            <p className="mt-5 max-w-lg text-lg leading-8 text-[#4a4234]"><ManagedRich field="heroSubheadline">
               Comida caseira feita todo dia de manhã, marmita fechada na hora e cardápio fixo para você programar a
-              semana sem pensar duas vezes.
-            </p>
+              semana sem pensar duas vezes.</ManagedRich></p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <Pedido>Pedir marmita de hoje</Pedido>
               <a href="#cardapio" className="text-base font-bold underline underline-offset-4">

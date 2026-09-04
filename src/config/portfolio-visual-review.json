@@ -183,181 +183,206 @@
   "lk-alvenaria": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: arte disponivel exibe telefone operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — perfil.png, perfil.webp, portfolio.png, portfolio.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "salao-da-marcia": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: todas as artes exibem telefone operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — depilacao.png, depilacao.webp, servicos.png. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "studio-de-cilios": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: todas as artes exibem telefone operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — portfolio-1.png, portfolio-1.webp, portfolio-2.png, portfolio-2.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "eletro-solucoes-eficazes": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: arte unica exibe telefone operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "miro-tech": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: arte unica exibe telefone operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — hero.png. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "liz-moraes-nail-designer": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: arte unica exibe telefone e perfil operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — hero.png. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "mp-festas-eventos": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Bloqueado por privacidade: artes exibem telefone operacional. Aguardando material fotografico proprio sem contato."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — capa.png, capa.webp, galeria.png, galeria.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "ag-electrical-services": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/ag-electrical-services/laserway-2.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   },
   "aguia-sul-sinalizacao": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "artesanatos-darleia-oliveira": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "assistencia-microondas-santos": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/assistencia-microondas-santos/hero.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada. Modo frame: colagem antes/depois preservada inteira."
   },
   "bh-barreiro-marmitas": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "confeitaria-chyrley": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/confeitaria-chyrley/bolos.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   },
   "confeitaria-sabor-da-realeza": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "ecommerce-on": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — perfil.png, perfil.webp, servicos.png, servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "eisenfer-tubos-acos": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — telhas.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "emporio-lelecute": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "espaco-cih-luh": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — promocao.png, promocao.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "fernanda-amaral-drywall": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — servicos-source.png, servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "guaratuba-atelie-presentes": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "guaratuba-oficina-nautica": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "guaratuba-reparos-residenciais": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "guaratuba-sabores-da-baia": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "lj-cleaning": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "lucas-arruma-maquina-lavar": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — capa.png, capa.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "manu-pasteis": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/manu-pasteis/hero.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   },
   "marido-de-aluguel": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "mary-diarista": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "mirassol-conserta-celular": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "mirassol-delicias-caseiras": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "no-brilho-higienizacao": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "refrigeracao-maresia": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — hero-og.png, hero.png. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "renata-beauty": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverDecision": "NEEDS_REPLACEMENT",
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — hero.webp. Publicacao bloqueada ate material fotografico proprio sem contato."
   },
   "thays-camilla": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "uberlandia-eletrica-residencial": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada."
   },
   "vila-da-capivara": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Sem asset fotografico proprio adequado para capa dedicada. Aguardando material real do cliente."
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/vila-da-capivara/capa.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.4
+    },
+    "notes": "Revisao 2026-09-04: OCR + inspecao visual do asset proprio nao encontraram telefone, e-mail, perfil, link de mensagem ou endereco. Capa 16:10 gerada por scripts/build-portfolio-covers.mjs. Sem imagem inventada."
   }
 }

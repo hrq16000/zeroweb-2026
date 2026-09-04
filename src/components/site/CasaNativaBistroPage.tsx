@@ -2,6 +2,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { ManagedRich } from "@/components/portfolio/ManagedText";
 
 const TEMPOS = [
   ["01", "Entrada", "Pão de fermentação natural, manteiga de ervas do cerrado e conserva da casa."],
@@ -62,13 +63,13 @@ export function CasaNativaBistroPage() {
           </div>
           <div className="mx-auto w-full max-w-4xl py-16 text-center">
             <h1 className="text-balance text-5xl leading-[1.02] sm:text-8xl">
+            <ManagedRich field="heroHeadline">
               Cozinha de raiz,
-              <span className="mt-2 block italic text-[#c98a4b]">servida devagar.</span>
-            </h1>
-            <p className="mx-auto mt-8 max-w-lg text-base leading-8 text-[#b3a894]">
+              <span className="mt-2 block italic text-[#c98a4b]">servida devagar.</span></ManagedRich>
+          </h1>
+            <p className="mx-auto mt-8 max-w-lg text-base leading-8 text-[#b3a894]"><ManagedRich field="heroSubheadline">
               Um bistrô pequeno em Belo Horizonte, com menu curto que muda conforme a feira e um salão pensado para
-              conversas longas.
-            </p>
+              conversas longas.</ManagedRich></p>
           </div>
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
             <span className="text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">Menu em quatro tempos</span>

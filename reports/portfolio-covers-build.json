@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-04T06:14:44.960Z",
+  "generatedAt": "2026-09-04T20:53:57.330Z",
   "ok": 1,
   "failed": [],
   "results": [
     {
-      "slug": "vila-da-capivara",
+      "slug": "assistencia-microondas-santos",
       "status": "OK",
       "mode": "frame",
-      "source": "public/images/vila-da-capivara/revenda.png",
-      "out": "/images/vila-da-capivara/capa-card.jpg",
-      "bytes": 195666,
+      "source": "public/images/assistencia-microondas-santos/hero.png",
+      "out": "/images/assistencia-microondas-santos/capa-card.jpg",
+      "bytes": 107022,
       "dimensions": "1600x1000",
       "lowRes": false
     }
