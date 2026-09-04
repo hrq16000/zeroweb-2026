@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="No Brilho Higienização">
+<rect width="320" height="320" rx="52" fill="#efe9df"/>
+<path d="M64 196c0-44 26-72 96-72s96 28 96 72v26a18 18 0 0 1-18 18H82a18 18 0 0 1-18-18z" fill="#24443a"/>
+<path d="M92 196c0-30 20-46 68-46s68 16 68 46" fill="none" stroke="#efe9df" stroke-width="10"/>
+<path d="M160 44c16 30 26 46 26 58a26 26 0 0 1-52 0c0-12 10-28 26-58z" fill="#b4703f"/>
+<circle cx="112" cy="98" r="9" fill="#24443a"/><circle cx="212" cy="86" r="6" fill="#24443a"/>
+</svg>
