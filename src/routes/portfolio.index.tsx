@@ -435,7 +435,7 @@ function PortfolioPage() {
       if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
       return locationScore(b.location) - locationScore(a.location);
     });
-  }, [activeBranch, activeCategory, deferredSearch, projectType, region, sort, visitorCity]);
+  }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, sort, visitorCity]);
 
   useEffect(() => {
     const params = new URLSearchParams();
