@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T20:54:25.503Z",
+  "generatedAt": "2026-09-04T21:00:10.000Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -25,19 +25,19 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 8,
-      "STANDARD": 51,
+      "PREMIUM": 9,
+      "STANDARD": 50,
       "NEEDS_UPGRADE": 9
     },
     "originality": {
       "PASS": 7,
-      "WARNING": 20,
-      "FAIL": 41,
+      "WARNING": 21,
+      "FAIL": 40,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 106,
+      "P1": 105,
       "P2": 151,
       "P3": 60
     },
@@ -1221,7 +1221,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 51,
+      "originalityScore": 50,
       "originalityStatus": "WARNING",
       "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
@@ -1329,7 +1329,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs guaratuba-atelie-presentes"
+          "detail": "50 vs guaratuba-atelie-presentes"
         }
       ],
       "priority": 2
@@ -1357,7 +1357,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 45,
+      "originalityScore": 44,
       "originalityStatus": "WARNING",
       "originalityNearest": "uberlandia-eletrica-residencial",
       "contentSimilarity": null,
@@ -1458,7 +1458,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs uberlandia-eletrica-residencial"
+          "detail": "44 vs uberlandia-eletrica-residencial"
         }
       ],
       "priority": 2
@@ -1486,7 +1486,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 51,
+      "originalityScore": 50,
       "originalityStatus": "WARNING",
       "originalityNearest": "mirassol-delicias-caseiras",
       "contentSimilarity": null,
@@ -1587,7 +1587,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs mirassol-delicias-caseiras"
+          "detail": "50 vs mirassol-delicias-caseiras"
         }
       ],
       "priority": 2
@@ -1615,7 +1615,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 48,
+      "originalityScore": 47,
       "originalityStatus": "WARNING",
       "originalityNearest": "casa-nativa",
       "contentSimilarity": null,
@@ -1716,7 +1716,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs casa-nativa"
+          "detail": "47 vs casa-nativa"
         }
       ],
       "priority": 2
@@ -1746,7 +1746,7 @@
       },
       "originalityScore": 45,
       "originalityStatus": "WARNING",
-      "originalityNearest": "bh-barreiro-marmitas",
+      "originalityNearest": "guaratuba-oficina-nautica",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -1845,7 +1845,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs bh-barreiro-marmitas"
+          "detail": "45 vs guaratuba-oficina-nautica"
         }
       ],
       "priority": 2
@@ -2612,7 +2612,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 48,
+      "originalityScore": 47,
       "originalityStatus": "WARNING",
       "originalityNearest": "guaratuba-oficina-nautica",
       "contentSimilarity": null,
@@ -2713,7 +2713,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs guaratuba-oficina-nautica"
+          "detail": "47 vs guaratuba-oficina-nautica"
         }
       ],
       "priority": 2
@@ -4818,7 +4818,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 34,
+      "originalityScore": 37,
       "originalityStatus": "PASS",
       "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
@@ -5338,107 +5338,6 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "73 vs artesanatos-darleia-oliveira"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "vila-da-capivara",
-      "businessName": "Vila da Capivara",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 83,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 61,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "mp-festas-eventos",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Escolha a ocasião e conte quantas pessoas quer receber.",
-      "funnelCta": "Montar meu kit",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/vila-da-capivara/editorial.webp",
-          "hash": "80f56ff992081251288c1ef0754874c4f505ffb0",
-          "bytes": 208404,
-          "width": 1024,
-          "height": 1536
-        },
-        "cover": {
-          "path": "/images/vila-da-capivara/capa-card.jpg",
-          "hash": "3f29ad52c4d78ecec16c8b639717e66c714281ad",
-          "bytes": 250623,
-          "width": 1220,
-          "height": 763
-        },
-        "social": {
-          "path": "/images/vila-da-capivara/capa-og.jpg",
-          "hash": "658d1ec90eb17a48c7d175c9e700499652d8fe41",
-          "bytes": 208257,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 18
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Mais que sabores, criamos experiências.",
-        "heroHeight": 1105,
-        "editorialChars": 2748,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 2,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/vila-da-capivara/editorial.webp"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "61 vs mp-festas-eventos"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
         }
       ],
       "priority": 2
@@ -6201,7 +6100,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 53,
+      "originalityScore": 51,
       "originalityStatus": "WARNING",
       "originalityNearest": "miro-tech",
       "contentSimilarity": null,
@@ -6274,7 +6173,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "53 vs miro-tech"
+          "detail": "51 vs miro-tech"
         }
       ],
       "priority": 2
@@ -6692,9 +6591,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 65,
+      "originalityScore": 66,
       "originalityStatus": "FAIL",
-      "originalityNearest": "artesanatos-darleia-oliveira",
+      "originalityNearest": "premium-envelopamentos",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
@@ -6751,7 +6650,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "65 vs artesanatos-darleia-oliveira"
+          "detail": "66 vs premium-envelopamentos"
         }
       ],
       "priority": 2
@@ -7619,6 +7518,100 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "44 vs raphael-construcoes"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "vila-da-capivara",
+      "businessName": "Vila da Capivara",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 92,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 60,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha a ocasião e conte quantas pessoas quer receber.",
+      "funnelCta": "Montar meu kit",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/vila-da-capivara/editorial.webp",
+          "hash": "80f56ff992081251288c1ef0754874c4f505ffb0",
+          "bytes": 208404,
+          "width": 1024,
+          "height": 1536
+        },
+        "cover": {
+          "path": "/images/vila-da-capivara/capa-card.jpg",
+          "hash": "3f29ad52c4d78ecec16c8b639717e66c714281ad",
+          "bytes": 250623,
+          "width": 1220,
+          "height": 763
+        },
+        "social": {
+          "path": "/images/vila-da-capivara/capa-og.jpg",
+          "hash": "658d1ec90eb17a48c7d175c9e700499652d8fe41",
+          "bytes": 208257,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 18
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Mais que sabores, criamos experiências.",
+        "heroHeight": 1105,
+        "editorialChars": 2748,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/vila-da-capivara/editorial.webp"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "60 vs mp-festas-eventos"
         }
       ],
       "priority": 3
