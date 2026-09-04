@@ -269,12 +269,20 @@ const HeloaGasPage = lazy(() =>
 );
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const site = findPortfolioPrototype(params.slug);
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
     if (!vertical) throw notFound();
-    return { vertical, slug: params.slug };
+    // Overrides administráveis (admin → banco → runtime). Falha vira null:
+    // a página do cliente nunca depende do banco para renderizar.
+    let overrides: PortfolioRuntimeOverrides | null = null;
+    try {
+      overrides = await getPortfolioRuntimeOverrides({ data: { slug: params.slug } });
+    } catch {
+      overrides = null;
+    }
+    return { vertical, slug: params.slug, overrides };
   },
   head: ({ loaderData }) => {
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
