@@ -120,7 +120,7 @@ export function JcRevestimentosPage() {
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <main id="inicio">
         {/* HERO de imagem plena com sobreposição e logo dentro da composição. */}
-        <section aria-label="Apresentação principal" className="relative isolate min-h-[86svh] overflow-hidden">
+        <section aria-label="Apresentação principal" className="relative isolate min-h-[78svh] overflow-hidden">
           <PortfolioImage
             src="/images/jc-revestimentos/hero.webp"
             alt="Amostras de revestimento e textura em fachada residencial"
@@ -132,9 +132,9 @@ export function JcRevestimentosPage() {
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30"
+            className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40 md:bg-gradient-to-r md:to-background/30"
           />
-          <div className="relative mx-auto flex min-h-[86svh] max-w-6xl flex-col justify-between px-5 py-8">
+          <div className="relative mx-auto flex min-h-[78svh] max-w-6xl flex-col justify-between px-5 py-8">
             <PortfolioImage
               src="/images/jc-revestimentos/logo.png"
               alt="JC Revestimentos"
