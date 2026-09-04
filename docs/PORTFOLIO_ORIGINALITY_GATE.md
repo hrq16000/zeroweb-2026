@@ -190,3 +190,65 @@ em 0. Os quatro caíram para 45–50 (`ATTENTION`, `SAME_FAMILY`) e
 Aprendizado adicional: quando SECTION_ORDER está em 100 entre vários projetos,
 o ganho maior vem de mudar o **eixo do layout** (coluna fixa, tabela, painel)
 antes de mexer em cor ou tipografia.
+
+## Q3D — revisão perceptual e encerramento da frente
+
+### Par máximo revisado
+
+`espaco-cih-luh` × `salao-da-marcia`, score 76, `VISUAL_COMPOSITION_CLONE`.
+Dimensões: STRUCTURE 100 · SECTION_ORDER 100 · COMPONENT 70 · STYLE 97,3 ·
+COPY 0 · ASSET 0 · IDENTITY 12,5.
+
+`PERCEPTUAL_CLONE = YES`. Em 390 e 1440 as duas páginas tinham o mesmo cabeçalho,
+o mesmo hero dividido texto/imagem, o mesmo rótulo "Menu de cuidados", os mesmos
+quatro cards numerados com ícone e a mesma seção de experiência com imagem à
+esquerda. Só a paleta mudava.
+
+Ação: dois registros novos, sem tocar em texto, endereço, SEO, funil, CTA,
+WhatsApp, capa ou imagem social.
+
+- `espaco-cih-luh` — coluna de marca fixa à esquerda e cartela de esmaltes:
+  cada cuidado é uma faixa horizontal com amostra de cor; oferta em bilhete
+  tracejado.
+- `salao-da-marcia` — caderno editorial centrado: capa com título ao centro,
+  serviços em colunas com filete, citação editorial e mosaico de imagens.
+
+Resultado: par 76 → 43/47 (`ATTENTION`, `SAME_FAMILY`); MAX_PAIR global
+76 → 66; HIGH_SIMILARITY 14 → 12; CLONES 0; GROUPS 0.
+
+### Reclassificação dos casos restantes de alta semelhança
+
+| Projeto | Score | Vizinho | Estado |
+|---|---|---|---|
+| galileu-locacao-brinquedos | 66 | lj-cleaning | `REQUIRES_REDESIGN` |
+| lj-cleaning | 66 | galileu-locacao-brinquedos | `REQUIRES_REDESIGN` |
+| lucas-arruma-maquina-lavar | 66 | lk-alvenaria | `REQUIRES_REDESIGN` |
+| no-brilho-higienizacao | 65 | lucas-arruma-maquina-lavar | `REQUIRES_REDESIGN` |
+| lk-alvenaria | 66 | lucas-arruma-maquina-lavar | `ACCEPTED_SHARED_FAMILY` |
+| ag-electrical-services | 64 | lk-alvenaria | `ACCEPTED_SHARED_FAMILY` |
+| diego-montador-moveis | 63 | lucas-arruma-maquina-lavar | `ACCEPTED_SHARED_FAMILY` |
+| miro-tech | 61 | lj-cleaning | `ACCEPTED_SHARED_FAMILY` |
+| lolipa-arte-em-festas | 63 | premium-envelopamentos | `ACCEPTED_SHARED_FAMILY` |
+| premium-envelopamentos | 63 | lolipa-arte-em-festas | `ACCEPTED_SHARED_FAMILY` |
+| artesanatos-darleia-oliveira | 63 | thays-camilla | `FALSE_POSITIVE` |
+| thays-camilla | 63 | artesanatos-darleia-oliveira | `FALSE_POSITIVE` |
+
+`NEEDS_HUMAN_REVIEW`: nenhum. Todos os 12 têm interpretação registrada.
+
+`FALSE_POSITIVE` no par de artesanato: ASSET_PATTERN 100 vem apenas da convenção
+de nomes de arquivo (`capa`, `og`), não de arte compartilhada; tipografia,
+paleta e ritmo editorial são distintos na revisão em 1440.
+
+`ACCEPTED_SHARED_FAMILY` = engenharia compartilhada legítima (shell, quiz,
+popup, primitivos) somada a marca, copy, fotos e paleta próprias, com leitura
+distinguível por uma pessoa.
+
+### Encerramento
+
+`CLONES = 0` · `GROUPS = 0` · `MAX_PAIR = 66` · nenhum caso sem interpretação.
+
+**A frente de redesign por originalidade fica ENCERRADA.** Os quatro
+`REQUIRES_REDESIGN` seguem para a fila de qualidade — dois deles
+(`lucas-arruma-maquina-lavar`, `no-brilho-higienizacao`) são exatamente os
+`NEEDS_UPGRADE` restantes. Score de similaridade deixa de ser meta: novos
+projetos continuam medidos pelo gate em modo report-only e pela baseline.

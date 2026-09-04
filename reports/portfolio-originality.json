@@ -19,8 +19,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 17,
-    "attention": 37,
-    "highSimilarity": 14,
+    "attention": 39,
+    "highSimilarity": 12,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -728,18 +728,18 @@
       "title": "Ecommerce On",
       "segment": "agencias",
       "componentFile": "src/components/site/EcommerceOnPage.tsx",
-      "score": 56,
+      "score": 55,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "espaco-cih-luh",
-      "nearestMatchScore": 56,
+      "nearestMatch": "lucas-arruma-maquina-lavar",
+      "nearestMatchScore": 55,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 100,
         "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 86.4,
+        "COMPONENT_SIMILARITY": 41.7,
+        "STYLE_SIMILARITY": 85.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 6.8
+        "IDENTITY_SIMILARITY": 7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -921,21 +921,21 @@
       "title": "Espaço CIH & LUH",
       "segment": "beleza",
       "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
-      "score": 76,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 42,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "salao-da-marcia",
-      "nearestMatchScore": 76,
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 97.3,
+        "STRUCTURE_SIMILARITY": 13.4,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 39.6,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.5
+        "IDENTITY_SIMILARITY": 8.7
       },
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -950,10 +950,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "75c02a9c9f8ff009",
-        "structureHash": "d225b57c650e4db7",
-        "sectionCount": 7,
-        "lines": 15
+        "skeletonHash": "8458ec433c6726e9",
+        "structureHash": "079a65f350572b3e",
+        "sectionCount": 6,
+        "lines": 181
       }
     },
     {
@@ -1340,18 +1340,18 @@
       "title": "Liz Moraes Nail Designer",
       "segment": "beleza",
       "componentFile": "src/components/site/LizMoraesNailDesignerPage.tsx",
-      "score": 60,
+      "score": 55,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "salao-da-marcia",
-      "nearestMatchScore": 60,
+      "nearestMatch": "artesanatos-darleia-oliveira",
+      "nearestMatchScore": 55,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.2,
+        "STRUCTURE_SIMILARITY": 41.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 70.9,
-        "COPY_SIMILARITY": 3.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.8
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 85.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 75,
+        "IDENTITY_SIMILARITY": 7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1495,21 +1495,21 @@
       "title": "Lucas Arruma Máquina de Lavar",
       "segment": "servicos",
       "componentFile": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
-      "score": 70,
+      "score": 66,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "espaco-cih-luh",
-      "nearestMatchScore": 70,
+      "nearestMatch": "lk-alvenaria",
+      "nearestMatchScore": 66,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 78.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 96.1,
-        "COPY_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 53.8,
+        "STYLE_SIMILARITY": 89.9,
+        "COPY_SIMILARITY": 2,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.5
+        "IDENTITY_SIMILARITY": 11.6
       },
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -2267,21 +2267,21 @@
       "title": "Salão da Marcia",
       "segment": "beleza",
       "componentFile": "src/components/site/SalaoDaMarciaPage.tsx",
-      "score": 76,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "espaco-cih-luh",
-      "nearestMatchScore": 76,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 47,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 27.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 97.3,
-        "COPY_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 40.2,
+        "COPY_SIMILARITY": 2.8,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.5
+        "IDENTITY_SIMILARITY": 9.4
       },
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -2296,10 +2296,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "45124c4e448f0af9",
-        "structureHash": "935964a3c9c2af72",
+        "skeletonHash": "0bae02fd00e49af2",
+        "structureHash": "e1e43575f74bccb3",
         "sectionCount": 7,
-        "lines": 15
+        "lines": 173
       }
     },
     {
@@ -2654,51 +2654,6 @@
   "clusters": [],
   "topPairs": [
     {
-      "a": "espaco-cih-luh",
-      "b": "salao-da-marcia",
-      "score": 76,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 97.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.5
-      },
-      "reason": "VISUAL_COMPOSITION_CLONE"
-    },
-    {
-      "a": "espaco-cih-luh",
-      "b": "lucas-arruma-maquina-lavar",
-      "score": 70,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 96.1,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.5
-      },
-      "reason": "VISUAL_COMPOSITION_CLONE"
-    },
-    {
-      "a": "lucas-arruma-maquina-lavar",
-      "b": "salao-da-marcia",
-      "score": 69,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 93.4,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.3
-      },
-      "reason": "VISUAL_COMPOSITION_CLONE"
-    },
-    {
       "a": "galileu-locacao-brinquedos",
       "b": "lj-cleaning",
       "score": 66,
@@ -2804,21 +2759,6 @@
       "reason": "NEAR_DUPLICATE_LAYOUT"
     },
     {
-      "a": "espaco-cih-luh",
-      "b": "lk-alvenaria",
-      "score": 62,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 35.7,
-        "STYLE_SIMILARITY": 88.8,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 6.5
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
       "a": "lj-cleaning",
       "b": "miro-tech",
       "score": 61,
@@ -2834,21 +2774,6 @@
       "reason": "NEAR_DUPLICATE_LAYOUT"
     },
     {
-      "a": "lk-alvenaria",
-      "b": "salao-da-marcia",
-      "score": 61,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 86.3,
-        "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 6.4
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
       "a": "brecho-sao-francisco",
       "b": "toquinho-de-gente-brecho",
       "score": 60,
@@ -2860,21 +2785,6 @@
         "COPY_SIMILARITY": 2.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "liz-moraes-nail-designer",
-      "b": "salao-da-marcia",
-      "score": 60,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.2,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 70,
-        "STYLE_SIMILARITY": 70.9,
-        "COPY_SIMILARITY": 3.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.8
       },
       "reason": "SAME_FAMILY"
     },
@@ -2939,51 +2849,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "diego-montador-moveis",
-      "b": "espaco-cih-luh",
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 74,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 36.4,
-        "STYLE_SIMILARITY": 76.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 5.7
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "diego-montador-moveis",
-      "b": "salao-da-marcia",
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 74,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 78.2,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 5.6
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "espaco-cih-luh",
-      "b": "no-brilho-higienizacao",
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 96.1,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.9
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "mp-festas-eventos",
       "b": "studio-de-cilios",
       "score": 59,
@@ -2999,21 +2864,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "no-brilho-higienizacao",
-      "b": "salao-da-marcia",
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 98.6,
-        "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.7
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "aguia-sul-sinalizacao",
       "b": "mary-diarista",
       "score": 58,
@@ -3025,6 +2875,156 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 9.4
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "no-brilho-higienizacao",
+      "score": 58,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 95.6,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 81.8,
+        "COPY_SIMILARITY": 1.8,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 9.1
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "assistencia-microondas-santos",
+      "b": "premium-envelopamentos",
+      "score": 58,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 52.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 54.5,
+        "STYLE_SIMILARITY": 67.8,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 57.1,
+        "IDENTITY_SIMILARITY": 12.9
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "brecho-sao-francisco",
+      "b": "marmitaria-dom-diego",
+      "score": 58,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 21.2,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 35.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "lucas-arruma-maquina-lavar",
+      "b": "paulo-mestre-de-obras",
+      "score": 58,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 83,
+        "SECTION_ORDER_SIMILARITY": 75,
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 78.2,
+        "COPY_SIMILARITY": 1.2,
+        "ASSET_PATTERN_SIMILARITY": 25,
+        "IDENTITY_SIMILARITY": 7.5
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "lucas-arruma-maquina-lavar",
+      "score": 57,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 95.6,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 77.2,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 8.6
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "ag-electrical-services",
+      "b": "lucas-arruma-maquina-lavar",
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 56.9,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 76.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "artesanatos-darleia-oliveira",
+      "b": "assistencia-microondas-santos",
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60.7,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 61.5,
+        "STYLE_SIMILARITY": 85.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 66.7,
+        "IDENTITY_SIMILARITY": 13.2
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "brecho-sao-francisco",
+      "b": "woodhouse-hamburgueres",
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 20,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 28.6,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "confeitaria-chyrley",
+      "b": "studio-de-cilios",
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 53.8,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 86.5,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 6.8
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "diego-montador-moveis",
+      "b": "lk-alvenaria",
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 71.1,
+        "COPY_SIMILARITY": 2.1,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 7.7
       },
       "reason": "SAME_FAMILY"
     }
@@ -3305,8 +3305,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 59,
+          "slug": "lk-alvenaria",
+          "score": 56,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3346,18 +3346,18 @@
       ],
       "ecommerce-on": [
         {
-          "slug": "espaco-cih-luh",
-          "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "salao-da-marcia",
-          "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "lucas-arruma-maquina-lavar",
           "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3432,18 +3432,18 @@
       "espaco-cih-luh": [
         {
           "slug": "salao-da-marcia",
-          "score": 76,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 42,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 70,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "slug": "liz-moraes-nail-designer",
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 62,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "diego-montador-moveis",
+          "score": 38,
+          "reason": "DISTINCT"
         }
       ],
       "fernanda-amaral-drywall": [
@@ -3618,18 +3618,18 @@
       ],
       "liz-moraes-nail-designer": [
         {
-          "slug": "salao-da-marcia",
-          "score": 60,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "espaco-cih-luh",
-          "score": 57,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "artesanatos-darleia-oliveira",
           "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "denise-gomes-psicologa",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3662,9 +3662,9 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 62,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "diego-montador-moveis",
+          "score": 56,
+          "reason": "SAME_FAMILY"
         }
       ],
       "lolipa-arte-em-festas": [
@@ -3686,18 +3686,18 @@
       ],
       "lucas-arruma-maquina-lavar": [
         {
-          "slug": "espaco-cih-luh",
-          "score": 70,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
-          "slug": "salao-da-marcia",
-          "score": 69,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
           "slug": "lk-alvenaria",
           "score": 66,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "no-brilho-higienizacao",
+          "score": 65,
+          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 63,
           "reason": "NEAR_DUPLICATE_LAYOUT"
         }
       ],
@@ -3844,13 +3844,13 @@
           "reason": "IDENTICAL_COMPONENT_STRUCTURE"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 59,
+          "slug": "aguia-sul-sinalizacao",
+          "score": 58,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "salao-da-marcia",
-          "score": 59,
+          "slug": "diego-montador-moveis",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3883,8 +3883,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 56,
+          "slug": "lk-alvenaria",
+          "score": 55,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4026,19 +4026,19 @@
       ],
       "salao-da-marcia": [
         {
+          "slug": "liz-moraes-nail-designer",
+          "score": 47,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 42,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "espaco-cih-luh",
-          "score": 76,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 69,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
-          "slug": "lk-alvenaria",
-          "score": 61,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "santos-montador-de-moveis": [
@@ -4202,8 +4202,8 @@
       "total": 68,
       "original": 0,
       "acceptable": 17,
-      "attention": 30,
-      "highSimilarity": 21,
+      "attention": 37,
+      "highSimilarity": 14,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
@@ -4220,8 +4220,8 @@
       "total": 68,
       "original": 0,
       "acceptable": 17,
-      "attention": 37,
-      "highSimilarity": 14,
+      "attention": 39,
+      "highSimilarity": 12,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
@@ -4241,48 +4241,18 @@
         "kind": "COUNTER",
         "key": "highSimilarity",
         "label": "projetos HIGH_SIMILARITY",
-        "before": 21,
-        "after": 14
+        "before": 14,
+        "after": 12
       },
       {
         "kind": "MODIFIED_PROJECT",
-        "slug": "acai-total-araucaria",
+        "slug": "espaco-cih-luh",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       },
       {
         "kind": "MODIFIED_PROJECT",
-        "slug": "aguia-sul-sinalizacao",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "eisenfer-tubos-acos",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "eletro-solucoes-eficazes",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "eletrovale-eletromecanica",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "jkl-marcenaria",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "mary-diarista",
+        "slug": "salao-da-marcia",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       }
