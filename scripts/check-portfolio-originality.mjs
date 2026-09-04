@@ -81,12 +81,24 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Capas usando imagem social | ${s.coversAsSocialImage} |
 | Capas compartilhadas | ${s.sharedCovers} |
 | Crop severo | ${s.severeCrop} |
+| Assets de marca cruzados (inválidos) | ${s.invalidCrossClientAssets ?? 0} |
+| Assets compartilhados suspeitos | ${s.suspiciousSharedAssets ?? 0} |
 
 ## Clusters
 
 ${r.clusters.map((c) => `### ${c.id} — ${c.reason} (média ${c.averageScore}, risco ${c.risk})
 Base: \`${c.baseComponent}\`
 Membros: ${c.members.join(", ")}`).join("\n\n") || "Nenhum cluster acima do limiar."}
+
+## Matriz de pares — top 20
+
+| A | B | Score | Motivo | STRUCTURE | SECTION_ORDER | COMPONENT | STYLE | COPY | ASSET | IDENTITY |
+|---|---|---|---|---|---|---|---|---|---|---|
+${r.topPairs.slice(0, 20).map((x) => `| ${x.a} | ${x.b} | ${x.score} | ${x.reason} | ${x.dimensions.STRUCTURE_SIMILARITY} | ${x.dimensions.SECTION_ORDER_SIMILARITY} | ${x.dimensions.COMPONENT_SIMILARITY} | ${x.dimensions.STYLE_SIMILARITY} | ${x.dimensions.COPY_SIMILARITY} | ${x.dimensions.ASSET_PATTERN_SIMILARITY} | ${x.dimensions.IDENTITY_SIMILARITY} |`).join("\n")}
+
+## Compartilhamento de assets entre clientes
+
+${r.projects.flatMap((p) => (p.assetSharing ?? []).map((x) => `- ${p.slug} · ${x.kind} · ${x.classification} · \`${x.path}\` · também em: ${x.sharedWith.join(", ")}`)).join("\n") || "Nenhum asset percebido compartilhado entre clientes."}
 
 ## Projetos
 
@@ -128,6 +140,8 @@ if (writeReport) {
           dimensions: p.dimensions,
           coverSignals: p.coverSignals,
           logoSignals: p.logoSignals,
+          assetSharing: p.assetSharing ?? [],
+          nearest: report.pairMatrix.nearest[p.slug] ?? [],
           fallbackVertical: p.fallbackVertical,
         })),
       },

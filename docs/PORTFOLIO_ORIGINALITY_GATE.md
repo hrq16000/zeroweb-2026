@@ -100,3 +100,44 @@ Não há tabela nova no banco.
 
 `existing debt != new regression`. Reduzir qualquer contador é melhoria e passa.
 Regravar a baseline é um ato deliberado e versionado.
+
+## Q3A — dimensões, copy e assets (atualização)
+
+### Dimensões medidas
+
+`STRUCTURE_SIMILARITY`, `SECTION_ORDER_SIMILARITY`, `COMPONENT_SIMILARITY`,
+`STYLE_SIMILARITY`, `COPY_SIMILARITY`, `ASSET_PATTERN_SIMILARITY`,
+`IDENTITY_SIMILARITY`. Nenhuma é condensada em score opaco: todas aparecem no
+relatório, na matriz de pares e no admin.
+
+Pesos atuais: estrutura 0.28 · ordem de seções 0.22 · componentes 0.18 ·
+estilo 0.13 · copy 0.12 · padrão de assets 0.04 · identidade 0.03.
+
+### Copy: boilerplate excluído
+
+`COPY_BOILERPLATE` remove do cálculo editorial o popup da 0WEB, crédito de
+hospedagem, avisos legais, rótulos técnicos e CTAs institucionais comuns.
+Só a copy específica do cliente é comparada (trigramas de palavras).
+
+### Infraestrutura compartilhada
+
+`SHARED_INFRA` continua fora do fingerprint: shell, popup, quiz, botões,
+imagem, seções lazy e primitivos de UI não geram similaridade.
+
+### Assets percebidos
+
+Marca, capa e imagem social são comparadas por hash de conteúdo entre clientes:
+
+- `ASSET_EXPECTED_SHARED` — arte compartilhada por contrato (0WEB/system).
+- `ASSET_SUSPICIOUS_SHARED` — capa ou imagem social repetida entre clientes.
+- `ASSET_INVALID_CROSS_CLIENT` — logo de um cliente aparecendo em outro (bloqueante).
+
+### Novos reason codes
+
+`EXCESSIVE_COPY_SIMILARITY` e `VISUAL_COMPOSITION_CLONE`.
+
+### Matriz de pares
+
+`reports/portfolio-originality.md` traz o top 20 de pares com todas as
+dimensões, e `reports/portfolio-originality.json` inclui `pairMatrix.nearest`
+com os três vizinhos mais próximos de cada projeto.
