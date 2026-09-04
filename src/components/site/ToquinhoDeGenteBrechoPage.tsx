@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function ToquinhoDeGenteBrechoPage() {
             Toquinho de Gente Brechó Adulto e Infantil
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Moda circular para todas as idades.
+            <ManagedText field="heroHeadline" fallback={"Moda circular para todas as idades."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Presença digital de Toquinho de Gente Brechó Adulto e Infantil no Sítio Cercado.
+            <ManagedText field="heroSubheadline" fallback={"Presen\u00e7a digital de Toquinho de Gente Brech\u00f3 Adulto e Infantil no S\u00edtio Cercado."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function ToquinhoDeGenteBrechoPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function ToquinhoDeGenteBrechoPage() {
               companySlug="toquinho-de-gente-brecho"
               formSlug="funnel-toquinho-de-gente-brecho"
               location="toquinho-de-gente-brecho_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

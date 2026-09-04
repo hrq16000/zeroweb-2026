@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
 import {
   ArrowRight,
@@ -85,7 +86,9 @@ export function RaphaelConstrucoesPage() {
               width={420}
               height={190}
               className="h-14 w-auto object-contain"
-            />
+            /
+            managedField="logoUrl"
+          >
           </a>
           <nav
             aria-label="Navegação principal"
@@ -120,12 +123,11 @@ export function RaphaelConstrucoesPage() {
                 Construção, engenharia e reformas
               </p>
               <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-                Do projeto à realização, cada etapa da obra em uma visão completa.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Do projeto \u00e0 realiza\u00e7\u00e3o, cada etapa da obra em uma vis\u00e3o completa."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-                Construção, reformas, impermeabilização, instalações e acabamentos para imóveis em
-                Curitiba, região e litoral.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Constru\u00e7\u00e3o, reformas, impermeabiliza\u00e7\u00e3o, instala\u00e7\u00f5es e acabamentos para im\u00f3veis em Curitiba, regi\u00e3o e litoral."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PortfolioCTAQuiz
                   clientKey="raphael-construcoes"
@@ -157,7 +159,8 @@ export function RaphaelConstrucoesPage() {
               width={1440}
               height={900}
               className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            />
+            managedField="heroImageUrl"
+          />
           </div>
         </section>
 

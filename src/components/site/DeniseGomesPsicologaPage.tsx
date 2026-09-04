@@ -186,7 +186,8 @@ export function DeniseGomesPsicologaPage() {
                 width={1024}
                 height={1120}
                 className="relative aspect-[.91/1] w-full rounded-[2rem] object-cover object-top shadow-2xl shadow-[var(--denise-primary)]/15"
-              />
+            managedField="heroImageUrl"
+          />
               <figcaption className="relative mt-3 text-sm text-[var(--denise-muted)]">
                 Atendimento psicológico para adultos em São José dos Pinhais.
               </figcaption>

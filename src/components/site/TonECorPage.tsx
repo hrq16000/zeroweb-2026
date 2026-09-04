@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
 import { ArrowRight, Brush, Droplets, House, PaintRoller, ShieldCheck } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -74,7 +75,9 @@ export function TonECorPage() {
               width={420}
               height={190}
               className="h-14 w-auto object-contain"
-            />
+            /
+            managedField="logoUrl"
+          >
           </a>
           <nav
             aria-label="Navegação principal"
@@ -109,12 +112,11 @@ export function TonECorPage() {
                 Pintura e pequenas reformas
               </p>
               <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-                Sua casa renovada, com os reparos organizados em um só atendimento.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Sua casa renovada, com os reparos organizados em um s\u00f3 atendimento."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-                Pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e
-                reparos para cuidar do seu espaço.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Pintura em geral, pequenos servi\u00e7os de alvenaria e hidr\u00e1ulica, limpeza de telhado e reparos para cuidar do seu espa\u00e7o."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PortfolioCTAQuiz
                   clientKey="ton-e-cor"
@@ -146,7 +148,8 @@ export function TonECorPage() {
               width={1440}
               height={900}
               className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            />
+            managedField="heroImageUrl"
+          />
           </div>
         </section>
 

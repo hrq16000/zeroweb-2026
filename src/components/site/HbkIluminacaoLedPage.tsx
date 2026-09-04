@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
 import {
   ArrowRight,
@@ -82,7 +83,9 @@ export function HbkIluminacaoLedPage() {
               width={420}
               height={190}
               className="h-14 w-auto object-contain"
-            />
+            /
+            managedField="logoUrl"
+          >
           </a>
           <nav
             aria-label="Navegação principal"
@@ -117,12 +120,11 @@ export function HbkIluminacaoLedPage() {
                 Iluminação LED com inteligência
               </p>
               <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-                Soluções LED para construir, reformar e iluminar melhor.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Solu\u00e7\u00f5es LED para construir, reformar e iluminar melhor."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-                Produtos LED e orientação para obras, reformas, residências e comércios. Conte o que precisa iluminar e organize
-                sua cotação com a equipe.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Produtos LED e orienta\u00e7\u00e3o para obras, reformas, resid\u00eancias e com\u00e9rcios. Conte o que precisa iluminar e organize sua cota\u00e7\u00e3o com a equipe."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PortfolioCTAQuiz
                   clientKey="hbk-iluminacao-led"
@@ -154,7 +156,8 @@ export function HbkIluminacaoLedPage() {
               width={1440}
               height={900}
               className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            />
+            managedField="heroImageUrl"
+          />
           </div>
         </section>
 

@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import {
   ArrowRight,
   ExternalLink,
@@ -37,12 +38,11 @@ export function EmporioLelecutePage() {
               <Sparkles className="h-4 w-4" /> Feito à mão em São José dos Pinhais
             </span>
             <h1 className="max-w-3xl font-serif text-5xl font-semibold leading-[.98] tracking-tight sm:text-7xl">
-              Lembranças que perfumam a memória.
-            </h1>
+            <ManagedText field="heroHeadline" fallback={"Lembran\u00e7as que perfumam a mem\u00f3ria."} />
+          </h1>
             <p className="max-w-xl text-lg leading-relaxed text-[#f6dfca]">
-              No Empório LeleCute, sabonetes, velas e presentes personalizados ganham forma para
-              tornar sua celebração inesquecível.
-            </p>
+            <ManagedText field="heroSubheadline" fallback={"No Emp\u00f3rio LeleCute, sabonetes, velas e presentes personalizados ganham forma para tornar sua celebra\u00e7\u00e3o inesquec\u00edvel."} />
+          </p>
             <div className="flex flex-wrap gap-3">
               <PortfolioCTAQuiz
                 clientKey="emporio-lelecute"

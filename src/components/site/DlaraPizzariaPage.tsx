@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function DlaraPizzariaPage() {
             D Lara Pizzaria Esfiharia e Hamburgueria
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite.
+            <ManagedText field="heroHeadline" fallback={"Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Presença digital para organizar opções, ocasiões e próximos passos do pedido.
+            <ManagedText field="heroSubheadline" fallback={"Presen\u00e7a digital para organizar op\u00e7\u00f5es, ocasi\u00f5es e pr\u00f3ximos passos do pedido."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function DlaraPizzariaPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function DlaraPizzariaPage() {
               companySlug="dlara-pizzaria"
               formSlug="funnel-dlara-pizzaria"
               location="dlara-pizzaria_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Pizzas','Destaque para sabores e tamanhos confirmados pela casa.'],['Esfihas','Organização para facilitar a escolha e a comparação.'],['Lanches','Um caminho único para consultar o menu e pedir.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}

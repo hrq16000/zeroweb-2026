@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function AngelMixBrechoPage() {
             Angel Mix Brechó
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Garimpo de moda no Novo Mundo.
+            <ManagedText field="heroHeadline" fallback={"Garimpo de moda no Novo Mundo."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Presença digital de Angel Mix Brechó: vitrine para moda circular no Novo Mundo.
+            <ManagedText field="heroSubheadline" fallback={"Presen\u00e7a digital de Angel Mix Brech\u00f3: vitrine para moda circular no Novo Mundo."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function AngelMixBrechoPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function AngelMixBrechoPage() {
               companySlug="angel-mix-brecho"
               formSlug="funnel-angel-mix-brecho"
               location="angel-mix-brecho_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

@@ -158,7 +158,8 @@ export function FernandaAmaralDrywallPage() {
           width={1086}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover object-center opacity-35"
-        />
+            managedField="heroImageUrl"
+          />
         <div className="absolute inset-0 bg-secondary/90" />
         <div className="relative mx-auto flex min-h-[632px] max-w-7xl items-center px-5 py-16">
           <div className="max-w-3xl">

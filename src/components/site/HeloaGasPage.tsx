@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import type { CSSProperties } from "react";
 import { ArrowRight, Clock, Droplets, Flame, MapPin, ShieldCheck, Truck } from "lucide-react";
@@ -118,12 +119,11 @@ export function HeloaGasPage() {
                 Gás e água em Piraquara — PR
               </p>
               <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-                Seu gás acabou? Peça e receba em casa.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Seu g\u00e1s acabou? Pe\u00e7a e receba em casa."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-                Botijão de gás 13kg e água mineral de 20 litros entregues em Vila Vicente Macedo e
-                região. Faça o pedido em poucos toques e combine a entrega com a equipe.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Botij\u00e3o de g\u00e1s 13kg e \u00e1gua mineral de 20 litros entregues em Vila Vicente Macedo e regi\u00e3o. Fa\u00e7a o pedido em poucos toques e combine a entrega com a equipe."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PortfolioCTAQuiz
                   clientKey="heloa-gas"
@@ -162,7 +162,8 @@ export function HeloaGasPage() {
               width={1440}
               height={900}
               className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            />
+            managedField="heroImageUrl"
+          />
           </div>
         </section>
 

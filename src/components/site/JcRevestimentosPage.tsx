@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
 import {
   ArrowRight,
@@ -83,7 +84,9 @@ export function JcRevestimentosPage() {
               width={420}
               height={190}
               className="h-14 w-auto object-contain"
-            />
+            /
+            managedField="logoUrl"
+          >
           </a>
           <nav
             aria-label="Navegação principal"
@@ -118,12 +121,11 @@ export function JcRevestimentosPage() {
                 Revestimentos direto da fábrica
               </p>
               <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
-                Texturas e massas para transformar o acabamento da sua obra.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Texturas e massas para transformar o acabamento da sua obra."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
-                Textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa
-                niveladora para projetos em Curitiba.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Textura projetada, grafiato, textura lisa, massa corrida, massa acr\u00edlica e massa niveladora para projetos em Curitiba."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <PortfolioCTAQuiz
                   clientKey="jc-revestimentos"
@@ -155,7 +157,8 @@ export function JcRevestimentosPage() {
               width={1440}
               height={900}
               className="aspect-[8/5] w-full rounded-3xl border border-background/15 object-cover shadow-2xl"
-            />
+            managedField="heroImageUrl"
+          />
           </div>
         </section>
 

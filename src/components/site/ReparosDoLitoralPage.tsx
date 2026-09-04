@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -74,12 +75,11 @@ export function ReparosDoLitoralPage() {
         <section id="inicio" className="px-5 py-10 lg:px-8">
           <div className="mx-auto max-w-5xl rounded-3xl bg-white p-7 shadow-sm sm:p-10">
             <h1 className="max-w-2xl text-3xl font-extrabold leading-[1.12] sm:text-5xl">
-              Aquele conserto que você adia há semanas leva menos de uma tarde.
-            </h1>
+            <ManagedText field="heroHeadline" fallback={"Aquele conserto que voc\u00ea adia h\u00e1 semanas leva menos de uma tarde."} />
+          </h1>
             <p className="mt-5 max-w-xl text-base leading-8 text-[#4c5b70]">
-              Reparos elétricos e hidráulicos pequenos, montagem, vedação e acabamento em casas, apartamentos e casas de
-              temporada em Guaratuba.
-            </p>
+            <ManagedText field="heroSubheadline" fallback={"Reparos el\u00e9tricos e hidr\u00e1ulicos pequenos, montagem, veda\u00e7\u00e3o e acabamento em casas, apartamentos e casas de temporada em Guaratuba."} />
+          </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-[auto_1fr] sm:items-center">
               <Chamar big>Descrever meu problema</Chamar>
               <p className="text-sm leading-6 text-[#5b6b82]">

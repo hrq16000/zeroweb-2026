@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function WoodhouseHamburgueresPage() {
             Woodhouse Hambúrgueres
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Grelhados e petiscos para transformar qualquer noite em encontro.
+            <ManagedText field="heroHeadline" fallback={"Grelhados e petiscos para transformar qualquer noite em encontro."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Presença digital para apresentar a experiência da Woodhouse no Jardim Itália com personalidade.
+            <ManagedText field="heroSubheadline" fallback={"Presen\u00e7a digital para apresentar a experi\u00eancia da Woodhouse no Jardim It\u00e1lia com personalidade."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function WoodhouseHamburgueresPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function WoodhouseHamburgueresPage() {
               companySlug="woodhouse-hamburgueres"
               formSlug="funnel-woodhouse-hamburgueres"
               location="woodhouse-hamburgueres_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Hambúrgueres grelhados','Espaço para destacar ingredientes e combinações reais.'],['Petiscos','Uma seção para compartilhar a experiência da casa.'],['Clima da noite','Conteúdo visual que convida a conhecer o ambiente.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}

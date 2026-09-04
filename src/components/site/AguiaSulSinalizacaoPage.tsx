@@ -164,7 +164,8 @@ export function AguiaSulSinalizacaoPage() {
                 width={1024}
                 height={1024}
                 className="mx-auto w-full max-w-[520px] rounded-[2rem] object-cover shadow-2xl ring-1 ring-[#f5b51b]/40"
-              />
+            managedField="heroImageUrl"
+          />
             </motion.div>
           </div>
         </section>

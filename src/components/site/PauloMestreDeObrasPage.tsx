@@ -157,7 +157,8 @@ export function PauloMestreDeObrasPage() {
               width={640}
               height={640}
               className="h-11 w-11 rounded-xl object-cover ring-1 ring-[#f5b51b]/50"
-            />
+            managedField="heroImageUrl"
+          />
             <span className="font-display text-lg font-bold leading-tight">
               Paulo <span className="text-[#f5b51b]">Mestre de Obras</span>
               <span className="block text-[11px] font-semibold uppercase tracking-[.18em] text-[#8fa1ba]">
