@@ -774,8 +774,13 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function PortfolioPrototypePage() {
-  const { vertical, slug } = Route.useLoaderData();
+  const { vertical, slug, overrides } = Route.useLoaderData();
+  const effective = applyPortfolioRuntime(
+    { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
+    overrides,
+  );
   return (
+    <PortfolioRuntimeProvider value={effective}>
     <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
         {slug === "sos-presentes-cosmeticos" ? (
