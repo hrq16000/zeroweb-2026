@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
-  <rect width="900" height="300" rx="52" fill="#173b35"/><circle cx="150" cy="150" r="94" fill="#a3e635"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#173b35">DCM</text>
-  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Delícias Caseiras Mirassol</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#a3e635">RESTAURANTES</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Delicias Caseiras Mirassol">
+  <rect width="900" height="300" fill="#f6ead6"/>
+  <g stroke="#b2452e" stroke-width="9" fill="none" stroke-linecap="round">
+    <path d="M112 96c0-16 8-30 20-38"/>
+    <path d="M150 88c0-14 6-26 16-33"/>
+    <path d="M188 96c0-16-8-30-20-38"/>
+  </g>
+  <path d="M84 122h132v54c0 30-24 54-54 54h-24c-30 0-54-24-54-54v-54z" fill="#b2452e"/>
+  <path d="M74 122h152" stroke="#8f3520" stroke-width="14" stroke-linecap="round"/>
+  <path d="M226 140c22 0 30 34 4 42" stroke="#b2452e" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M74 140c-22 0-30 34-4 42" stroke="#b2452e" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <text x="272" y="146" font-family="Georgia,'Times New Roman',serif" font-size="58" fill="#2f1d15">Delicias Caseiras</text>
+  <text x="274" y="196" font-family="Georgia,serif" font-style="italic" font-size="36" fill="#b2452e">de Mirassol</text>
+</svg>

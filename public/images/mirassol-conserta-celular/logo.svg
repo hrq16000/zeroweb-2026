@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
-  <rect width="900" height="300" rx="52" fill="#24122f"/><circle cx="150" cy="150" r="94" fill="#e879f9"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#24122f">CM</text>
-  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Conserta Mirassol</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#e879f9">PRESTADORES DE SERVICOS</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Conserta Mirassol">
+  <rect width="900" height="300" fill="#21252b"/>
+  <rect x="96" y="60" width="122" height="180" rx="20" fill="none" stroke="#22d3a8" stroke-width="10"/>
+  <path d="M140 78h34" stroke="#22d3a8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M124 168l24 24 50-58" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M238 96l30-30 26 26-30 30z" fill="#22d3a8"/>
+  <text x="300" y="146" font-family="'Courier New',monospace" font-size="60" font-weight="700" fill="#ffffff">conserta</text>
+  <text x="302" y="200" font-family="'Courier New',monospace" font-size="40" letter-spacing="8" fill="#22d3a8">mirassol</text>
+</svg>

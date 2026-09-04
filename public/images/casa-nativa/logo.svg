@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
-  <rect width="900" height="300" rx="52" fill="#24122f"/><circle cx="150" cy="150" r="94" fill="#e879f9"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#24122f">CNB</text>
-  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Casa Nativa Bistrô</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#e879f9">SERVICOS</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Casa Nativa Bistro">
+  <rect width="900" height="300" fill="#1b1814"/>
+  <path d="M96 232V150a64 64 0 0 1 128 0v82" fill="none" stroke="#c98a4b" stroke-width="6"/>
+  <path d="M160 220V118" stroke="#c98a4b" stroke-width="5"/>
+  <path d="M160 150c-28-4-42-22-42-42 26-2 42 14 42 42z" fill="#c98a4b"/>
+  <path d="M160 176c28-4 42-22 42-42-26-2-42 14-42 42z" fill="#8a6a3f"/>
+  <text x="292" y="140" font-family="Georgia,'Times New Roman',serif" font-size="62" letter-spacing="8" fill="#f4ece0">CASA NATIVA</text>
+  <text x="294" y="196" font-family="Georgia,serif" font-style="italic" font-size="36" letter-spacing="6" fill="#c98a4b">bistro de raiz</text>
+</svg>

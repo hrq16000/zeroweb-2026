@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
-  <rect width="900" height="300" rx="52" fill="#20204a"/><circle cx="150" cy="150" r="94" fill="#facc15"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#20204a">AED</text>
-  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Ateliê Encanto da Baía</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#facc15">COMERCIOS</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Atelie Encanto da Baia">
+  <rect width="900" height="300" fill="#fdf6ec"/>
+  <path d="M160 150c-40-40-86-24-86 8s46 44 86 12z" fill="#c25a37"/>
+  <path d="M160 150c40-40 86-24 86 8s-46 44-86 12z" fill="#e08a5a"/>
+  <path d="M150 150h20l24 88-34-30-34 30z" fill="#c25a37"/>
+  <circle cx="160" cy="152" r="16" fill="#f0d9b5" stroke="#2f2418" stroke-width="6"/>
+  <text x="300" y="136" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="58" font-weight="700" fill="#2f2418">Atelie Encanto</text>
+  <text x="302" y="194" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="40" letter-spacing="10" fill="#c25a37">DA BAIA</text>
+</svg>
