@@ -247,7 +247,9 @@ export function diffAgainstSeed(seed: SeedProject, merged: MergedProject): strin
   return diffs;
 }
 
-const SAFE_ASSET = /^\/(images|storage)\/[A-Za-z0-9/_.-]+$/;
+export const UPLOAD_PUBLIC_PREFIX = "/api/public/portfolio-asset";
+
+const SAFE_ASSET = /^\/(images|api\/public\/portfolio-asset)\/[A-Za-z0-9/_.-]+$/;
 
 /** Aceita apenas caminhos internos de asset — bloqueia URL externa e javascript:. */
 export function isSafeAssetPath(value: string): boolean {
