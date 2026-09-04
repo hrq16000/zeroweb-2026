@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, Car, Sofa } from "lucide-react";
+import { Car, Sofa } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
@@ -30,7 +30,7 @@ export function LjCleaningPage() {
             <a href="#orcamento" className="hover:text-[#f2621f]">Orçamento</a>
           </nav>
           <FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0a2d5c] px-5 py-2.5 text-sm font-bold text-white">
-            Solicitar orçamento <ArrowRight className="h-4 w-4" />
+            Solicitar orçamento
           </FunnelCTAButton>
         </div>
       </header>
@@ -48,7 +48,7 @@ export function LjCleaningPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f2621f] px-6 py-3 font-bold text-white">
-                  Quero higienizar <ArrowRight className="h-4 w-4" />
+                  Quero higienizar
                 </FunnelCTAButton>
                 <a href="#superficies" className="inline-flex min-h-12 items-center rounded-full border border-[#9dbbd8] px-6 py-3 font-semibold text-[#0a2d5c]">Ver o que higienizamos</a>
               </div>
@@ -113,7 +113,7 @@ export function LjCleaningPage() {
               <p className="mt-3 max-w-xl leading-7 text-white/80">Conte qual sofá, colchão, tapete ou interior automotivo precisa de cuidado.</p>
             </div>
             <FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f2621f] px-7 py-3 font-bold text-white">
-              Falar com a L&J <ArrowRight className="h-4 w-4" />
+              Falar com a L&J
             </FunnelCTAButton>
           </div>
         </section>

@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, CalendarDays, MapPin, PartyPopper, Users } from "lucide-react";
+import { CalendarDays, MapPin, PartyPopper, Users } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
@@ -33,7 +33,7 @@ export function GalileuLocacaoBrinquedosPage() {
             <a href="#orcamento" className="hover:text-[#f3ae00]">Orçamento</a>
           </nav>
           <FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#f3ae00] px-5 py-2.5 text-sm font-black text-[#09265b]">
-            Pedir orçamento <ArrowRight className="h-4 w-4" />
+            Pedir orçamento
           </FunnelCTAButton>
         </div>
       </header>
@@ -50,7 +50,7 @@ export function GalileuLocacaoBrinquedosPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f3ae00] px-6 py-3 font-black text-[#09265b]">
-                Garantir diversão <ArrowRight className="h-4 w-4" />
+                Garantir diversão
               </FunnelCTAButton>
               <a href="#atracoes" className="inline-flex min-h-12 items-center rounded-full border border-white/30 px-6 py-3 font-bold text-white">Ver atrações</a>
             </div>
@@ -121,7 +121,7 @@ export function GalileuLocacaoBrinquedosPage() {
               <p className="mt-3 max-w-xl leading-7 text-[#09265b]/75">Conte os detalhes do evento e receba orientação para escolher as atrações.</p>
             </div>
             <FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#09265b] px-7 py-3 font-black text-white">
-              Solicitar orçamento <ArrowRight className="h-4 w-4" />
+              Solicitar orçamento
             </FunnelCTAButton>
           </div>
         </section>
