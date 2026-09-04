@@ -42,6 +42,8 @@ function MetadataPage() {
   const [rows, setRows] = useState<ClientSettings[]>([]);
   const [history, setHistory] = useState<SettingsHistoryRow[]>([]);
   const [form, setForm] = useState({ ...EMPTY });
+  /** Publicado = entra no sitemap e na indexação (sincronizados no servidor). */
+  const [published, setPublished] = useState(false);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -77,15 +79,19 @@ function MetadataPage() {
     }
   };
 
-  const edit = (row: ClientSettings) =>
+  const edit = (row: ClientSettings) => {
     setForm({
       client_key: row.client_key,
       slug: row.slug,
+      display_name: row.display_name,
       seo_title: row.seo_title,
       seo_description: row.seo_description,
       seo_keywords: row.seo_keywords,
       canonical_url: row.canonical_url,
+      social_image_url: row.social_image_url,
     });
+    setPublished(row.published);
+  };
 
   const field = (key: keyof typeof EMPTY, label: string, extra?: { textarea?: boolean; hint?: string }) => (
     <label className="block text-sm">
