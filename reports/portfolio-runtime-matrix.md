@@ -8,7 +8,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 
 - Componentes de portfólio auditados: 66
 - Componentes com núcleo administrável: 66
-- Conexões faltando (MISSING): 0
+- Conexões faltando (MISSING): 1
 
 | Componente | Logo | Hero | Headline | Subheadline | CTA |
 | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 | AtelieEncantoDaBaiaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | BarreiroMarmitasPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | BetoPasteisPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
-| BrechoSaoFranciscoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| BrechoSaoFranciscoPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | MANAGED |
 | CasaNativaBistroPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | ClinicaIntegradaSaudePage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | ConfeitariaChyrleyPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |

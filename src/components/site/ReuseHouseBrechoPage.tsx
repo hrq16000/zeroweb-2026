@@ -136,6 +136,8 @@ export function ReuseHouseBrechoPage() {
         </div>
       </main>
 
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="reuse-house-brecho" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-reuse-house-brecho" />
       <PortfolioHostCredit />
     </div>

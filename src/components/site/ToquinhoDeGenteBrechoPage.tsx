@@ -137,6 +137,8 @@ export function ToquinhoDeGenteBrechoPage() {
         </section>
       </main>
 
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="toquinho-de-gente-brecho" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-toquinho-de-gente-brecho" />
       <PortfolioHostCredit />
     </div>

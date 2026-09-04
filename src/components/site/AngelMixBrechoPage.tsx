@@ -153,6 +153,8 @@ export function AngelMixBrechoPage() {
         </div>
       </main>
 
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="angel-mix-brecho" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-angel-mix-brecho" />
       <PortfolioHostCredit />
     </div>

@@ -145,6 +145,8 @@ export function BrechoSaoFranciscoPage() {
         </section>
       </main>
 
+      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
+      <PortfolioSocialProofPopup clientKey="brecho-sao-francisco" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioUpsellPopup pageName="portfolio-brecho-sao-francisco" />
       <PortfolioHostCredit />
     </div>
