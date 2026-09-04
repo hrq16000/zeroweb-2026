@@ -16,6 +16,11 @@ import {
   VISUAL_BADGE_STYLE,
 } from "@/lib/portfolio-visual-quality";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
+import {
+  auditPortfolioFunnelContext,
+  resolvePortfolioFunnelContext,
+} from "@/lib/portfolio-funnel-context";
+import { buildPortfolioQuizPreviewMessage } from "@/lib/portfolio-quiz-copy";
 import portfolioVisualReview from "@/config/portfolio-visual-review.json";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/$slug")({
