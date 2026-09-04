@@ -386,14 +386,14 @@ function PortfolioPage() {
           ),
         ),
       ).sort((a, b) => a.localeCompare(b, "pt-BR")),
-    [],
+    [catalogItems],
   );
   const availableBranches = useMemo(
     () =>
       Array.from(new Set(catalogItems.flatMap((item) => item.tags)))
         .filter(Boolean)
         .sort((a, b) => a.localeCompare(b, "pt-BR")),
-    [],
+    [catalogItems],
   );
 
   useEffect(() => {
