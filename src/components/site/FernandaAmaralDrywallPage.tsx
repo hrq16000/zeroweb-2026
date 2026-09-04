@@ -110,7 +110,7 @@ export function FernandaAmaralDrywallPage() {
             className="flex min-h-11 items-center gap-3 rounded-md font-display font-black tracking-tight focus-visible:ring-4 focus-visible:ring-ring/40"
             aria-label="Fernanda e Amaral — início"
           >
-            <img
+            <PortfolioImage managedField="logoUrl"
               src="/images/fernanda-amaral-drywall/logo.webp"
               alt="Fernanda e Amaral — Instalação de Drywall"
               width={1262}

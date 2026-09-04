@@ -59,7 +59,7 @@ for (const file of files) {
     hero:
       has(/managedField="heroImageUrl"/) || has(/useManagedValue\("heroImageUrl"/)
         ? "MANAGED"
-        : has(/<PortfolioImage[\s\S]*?priority/)
+        : has(/<PortfolioImage(?![^>]*managedField)[^>]*priority/)
           ? "MISSING"
           : "NOT_APPLICABLE",
     headline: has(/field="heroHeadline"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",

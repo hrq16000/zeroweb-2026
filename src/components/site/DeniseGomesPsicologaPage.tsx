@@ -108,7 +108,7 @@ export function DeniseGomesPsicologaPage() {
       <header className="sticky top-0 z-20 border-b border-[var(--denise-primary)]/10 bg-[var(--denise-bg)]/95 px-5 py-3 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Denise Gomes · Psicóloga" className="shrink-0">
-            <img
+            <PortfolioImage managedField="logoUrl"
               src="/images/denise-gomes-psicologa/logo.png"
               alt="Denise Gomes · Psicóloga"
               width={1672}

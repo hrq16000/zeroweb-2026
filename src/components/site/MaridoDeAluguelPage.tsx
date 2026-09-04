@@ -113,7 +113,7 @@ export function MaridoDeAluguelPage() {
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,#f6c45355,transparent_36%)]" />
             <div className="relative flex min-h-36 items-center gap-5 p-5 sm:p-7">
-              <img
+              <PortfolioImage managedField="logoUrl"
                 src="/images/mestre-dos-servicos-logo.jpg"
                 alt="Mestre dos Serviços"
                 className="h-24 w-24 rounded-2xl object-cover shadow-lg ring-2 ring-amber-300/60 transition duration-500 group-hover:rotate-2 group-hover:scale-105"
