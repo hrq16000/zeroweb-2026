@@ -58,7 +58,12 @@ describe("conformidade reavaliada no admin", () => {
     gallery: ["/images/x/1.webp", "/images/x/2.webp"],
     shareCopy: "b".repeat(140),
     seoDescription: "c".repeat(120),
-    structure: { hasCta: true, hasCustomComponent: true },
+    structure: {
+      hasCta: true,
+      hasCustomComponent: true,
+      hasOwnDescription: false,
+      requiresComponent: true,
+    },
   };
 
   it("aprova um projeto completo", () => {

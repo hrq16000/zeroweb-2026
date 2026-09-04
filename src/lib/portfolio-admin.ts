@@ -44,6 +44,7 @@ export type SeedProject = {
   ctaMode: string;
   hasCta: boolean;
   hasOwnDescription: boolean;
+  hasClientEntry: boolean;
   gallery: string[];
   shareCopy: string;
   published: boolean;
@@ -101,6 +102,7 @@ export type MergedProject = {
     hasCta: boolean;
     hasCustomComponent: boolean;
     hasOwnDescription: boolean;
+    requiresComponent: boolean;
   };
   displayName: string;
   segment: string;
@@ -160,7 +162,12 @@ export function evaluateConformance(project: {
   gallery: string[];
   shareCopy: string;
   seoDescription: string;
-  structure: { hasCta: boolean; hasCustomComponent: boolean; hasOwnDescription: boolean };
+  structure: {
+    hasCta: boolean;
+    hasCustomComponent: boolean;
+    hasOwnDescription: boolean;
+    requiresComponent: boolean;
+  };
 }): { status: ConformanceStatus; issues: ConformanceCode[]; blocking: ConformanceCode[] } {
   const issues: ConformanceCode[] = [];
   if (!project.displayName || !project.segment || !project.summary) {
@@ -169,8 +176,11 @@ export function evaluateConformance(project: {
   if (!project.logoUrl) issues.push("PORTFOLIO_LOGO_MISSING");
   if (!project.socialImageUrl) issues.push("PORTFOLIO_SOCIAL_IMAGE_MISSING");
   if (project.gallery.length < 2) issues.push("PORTFOLIO_HERO_MISSING");
-  if (!project.structure.hasCustomComponent) issues.push("PORTFOLIO_COMPONENT_MISSING");
-  else if (!project.structure.hasCta) issues.push("PORTFOLIO_CTA_MISSING");
+  if (project.structure.requiresComponent && !project.structure.hasCustomComponent) {
+    issues.push("PORTFOLIO_COMPONENT_MISSING");
+  } else if (project.structure.hasCustomComponent && !project.structure.hasCta) {
+    issues.push("PORTFOLIO_CTA_MISSING");
+  }
   if (
     !project.structure.hasOwnDescription &&
     (project.seoDescription || project.summary).trim().length < 80
@@ -207,6 +217,7 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
       hasCta: seed.hasCta,
       hasCustomComponent: Boolean(seed.componentFile),
       hasOwnDescription: Boolean(seed.hasOwnDescription),
+      requiresComponent: Boolean(seed.hasClientEntry),
     },
     displayName: pick(db?.display_name, seed.title),
     segment: pick(db?.segment, seed.segment),
