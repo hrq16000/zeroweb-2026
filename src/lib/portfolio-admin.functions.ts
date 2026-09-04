@@ -267,7 +267,10 @@ export const savePortfolioAdminProject = createServerFn({ method: "POST" })
       await admin.from("portfolio_client_settings_history").insert(history);
     }
 
-    return { project: mergeProject(seed, saved), savedFields: history.map((h) => h.field) };
+    return {
+      project: mergeProject(seed, saved),
+      savedFields: history.map((h) => String(h.field)),
+    };
   });
 
 /** Publica / despublica. Ação separada do salvar, com sincronização de sitemap. */
