@@ -86,9 +86,7 @@ export function RaphaelConstrucoesPage() {
               width={420}
               height={190}
               className="h-14 w-auto object-contain"
-            /
-            managedField="logoUrl"
-          >
+             managedField="logoUrl" />
           </a>
           <nav
             aria-label="Navegação principal"
