@@ -46,7 +46,7 @@ export function BrechoSaoFranciscoPage() {
               companySlug="brecho-sao-francisco"
               formSlug="funnel-brecho-sao-francisco"
               location="brecho-sao-francisco_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

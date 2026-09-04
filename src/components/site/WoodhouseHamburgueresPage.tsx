@@ -46,7 +46,7 @@ export function WoodhouseHamburgueresPage() {
               companySlug="woodhouse-hamburgueres"
               formSlug="funnel-woodhouse-hamburgueres"
               location="woodhouse-hamburgueres_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Hambúrgueres grelhados','Espaço para destacar ingredientes e combinações reais.'],['Petiscos','Uma seção para compartilhar a experiência da casa.'],['Clima da noite','Conteúdo visual que convida a conhecer o ambiente.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}

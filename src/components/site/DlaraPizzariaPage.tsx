@@ -46,7 +46,7 @@ export function DlaraPizzariaPage() {
               companySlug="dlara-pizzaria"
               formSlug="funnel-dlara-pizzaria"
               location="dlara-pizzaria_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Pizzas','Destaque para sabores e tamanhos confirmados pela casa.'],['Esfihas','Organização para facilitar a escolha e a comparação.'],['Lanches','Um caminho único para consultar o menu e pedir.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}

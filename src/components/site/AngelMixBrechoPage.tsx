@@ -46,7 +46,7 @@ export function AngelMixBrechoPage() {
               companySlug="angel-mix-brecho"
               formSlug="funnel-angel-mix-brecho"
               location="angel-mix-brecho_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

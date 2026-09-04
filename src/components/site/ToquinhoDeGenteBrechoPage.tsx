@@ -46,7 +46,7 @@ export function ToquinhoDeGenteBrechoPage() {
               companySlug="toquinho-de-gente-brecho"
               formSlug="funnel-toquinho-de-gente-brecho"
               location="toquinho-de-gente-brecho_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

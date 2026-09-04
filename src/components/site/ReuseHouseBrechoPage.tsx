@@ -46,7 +46,7 @@ export function ReuseHouseBrechoPage() {
               companySlug="reuse-house-brecho"
               formSlug="funnel-reuse-house-brecho"
               location="reuse-house-brecho_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

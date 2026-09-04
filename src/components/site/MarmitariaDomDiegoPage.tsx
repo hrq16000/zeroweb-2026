@@ -46,7 +46,7 @@ export function MarmitariaDomDiegoPage() {
               companySlug="marmitaria-dom-diego"
               formSlug="funnel-marmitaria-dom-diego"
               location="marmitaria-dom-diego_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Almoço do dia','Informações organizadas para escolher sem perder tempo.'],['Combinações','Espaço para destacar opções e acompanhamentos confirmados.'],['Pedido simples','Próximo passo direto para consultar disponibilidade.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}

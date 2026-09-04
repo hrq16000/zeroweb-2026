@@ -46,7 +46,7 @@ export function BetoPasteisPage() {
               companySlug="beto-pasteis"
               formSlug="funnel-beto-pasteis"
               location="beto-pasteis_hero"
-            ><ManagedText field="ctaLabel" fallback={\"Falar com a equipe\"} /></FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Sabores','Organização visual para apresentar o cardápio confirmado.'],['Tradição local','Uma vitrine que valoriza a história e o jeito da casa.'],['Pedido direto','Caminho claro para consultar e pedir quando estiver pronto.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
