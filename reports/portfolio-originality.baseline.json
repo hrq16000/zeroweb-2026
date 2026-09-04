@@ -4,8 +4,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 17,
-    "attention": 30,
-    "highSimilarity": 21,
+    "attention": 37,
+    "highSimilarity": 14,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -20,8 +20,8 @@
   },
   "projects": {
     "acai-total-araucaria": {
-      "score": 62,
-      "status": "HIGH_SIMILARITY",
+      "score": 59,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -38,8 +38,8 @@
       "sharedCover": false
     },
     "aguia-sul-sinalizacao": {
-      "score": 73,
-      "status": "HIGH_SIMILARITY",
+      "score": 59,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -191,8 +191,8 @@
       "sharedCover": false
     },
     "eisenfer-tubos-acos": {
-      "score": 78,
-      "status": "HIGH_SIMILARITY",
+      "score": 45,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -200,8 +200,8 @@
       "sharedCover": false
     },
     "eletro-solucoes-eficazes": {
-      "score": 78,
-      "status": "HIGH_SIMILARITY",
+      "score": 50,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -209,8 +209,8 @@
       "sharedCover": false
     },
     "eletrovale-eletromecanica": {
-      "score": 78,
-      "status": "HIGH_SIMILARITY",
+      "score": 50,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -317,8 +317,8 @@
       "sharedCover": false
     },
     "jkl-marcenaria": {
-      "score": 75,
-      "status": "HIGH_SIMILARITY",
+      "score": 48,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -398,8 +398,8 @@
       "sharedCover": false
     },
     "mary-diarista": {
-      "score": 66,
-      "status": "HIGH_SIMILARITY",
+      "score": 58,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,

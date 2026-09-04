@@ -19,6 +19,18 @@ export const Route = createFileRoute("/_authenticated/app/portfolio/originalidad
 
 type Project = (typeof originality.projects)[number];
 
+type Cluster = {
+  id: string;
+  reason: string;
+  averageScore: number;
+  risk: string;
+  baseComponent: string;
+  members: string[];
+};
+
+// A lista pode ficar vazia quando não há cluster; mantemos o tipo explícito.
+const clusters = originality.clusters as unknown as Cluster[];
+
 const STATUS_STYLE: Record<string, string> = {
   ORIGINAL: "bg-primary/10 text-primary",
   ACCEPTABLE: "bg-primary/5 text-primary",
@@ -96,7 +108,7 @@ function PortfolioOriginalityView() {
 
       <h2 className="mt-10 font-display text-xl font-bold">Clusters de similaridade</h2>
       <div className="mt-3 space-y-3">
-        {originality.clusters.map((c) => (
+        {clusters.map((c) => (
           <div key={c.id} className="rounded-xl border border-border bg-card p-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="font-medium">

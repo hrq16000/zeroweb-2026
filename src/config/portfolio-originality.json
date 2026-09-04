@@ -19,8 +19,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 17,
-    "attention": 30,
-    "highSimilarity": 21,
+    "attention": 37,
+    "highSimilarity": 14,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -37,21 +37,21 @@
   "projects": [
     {
       "slug": "acai-total-araucaria",
-      "score": 62,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eletrovale-eletromecanica",
-      "nearestMatchScore": 62,
+      "score": 59,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "aguia-sul-sinalizacao",
+      "nearestMatchScore": 59,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.3,
+        "STRUCTURE_SIMILARITY": 73.5,
         "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 88.7,
+        "COMPONENT_SIMILARITY": 71.4,
+        "STYLE_SIMILARITY": 91.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 16.7,
-        "IDENTITY_SIMILARITY": 12.5
+        "ASSET_PATTERN_SIMILARITY": 20,
+        "IDENTITY_SIMILARITY": 11.1
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -64,18 +64,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eletrovale-eletromecanica",
-          "score": 62,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "eisenfer-tubos-acos",
-          "score": 60,
+          "slug": "aguia-sul-sinalizacao",
+          "score": 59,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 59,
+          "slug": "mary-diarista",
+          "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "ecommerce-on",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -127,21 +127,21 @@
     },
     {
       "slug": "aguia-sul-sinalizacao",
-      "score": 73,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eletrovale-eletromecanica",
-      "nearestMatchScore": 73,
+      "score": 59,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "acai-total-araucaria",
+      "nearestMatchScore": 59,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 84.8,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 94.2,
-        "COPY_SIMILARITY": 1.3,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 10.7
+        "STRUCTURE_SIMILARITY": 73.5,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 71.4,
+        "STYLE_SIMILARITY": 91.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 20,
+        "IDENTITY_SIMILARITY": 11.1
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -153,19 +153,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eletrovale-eletromecanica",
-          "score": 73,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "slug": "acai-total-araucaria",
+          "score": 59,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eisenfer-tubos-acos",
-          "score": 72,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "slug": "diego-montador-moveis",
+          "score": 59,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 70,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "slug": "mary-diarista",
+          "score": 58,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -896,21 +896,21 @@
     },
     {
       "slug": "eisenfer-tubos-acos",
-      "score": 78,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eletro-solucoes-eficazes",
-      "nearestMatchScore": 78,
+      "score": 45,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "jkl-marcenaria",
+      "nearestMatchScore": 45,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 95.6,
-        "COPY_SIMILARITY": 1.5,
+        "STRUCTURE_SIMILARITY": 42.1,
+        "SECTION_ORDER_SIMILARITY": 37.5,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 49.3,
+        "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.5
+        "IDENTITY_SIMILARITY": 5
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -924,40 +924,40 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 78,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-        },
-        {
-          "slug": "eletrovale-eletromecanica",
-          "score": 78,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
           "slug": "jkl-marcenaria",
-          "score": 75,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "denise-gomes-psicologa",
+          "score": 34,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 34,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
     },
     {
       "slug": "eletro-solucoes-eficazes",
-      "score": 78,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eisenfer-tubos-acos",
-      "nearestMatchScore": 78,
+      "score": 50,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "eletrovale-eletromecanica",
+      "nearestMatchScore": 50,
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 26.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 95.6,
-        "COPY_SIMILARITY": 1.5,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 44.2,
+        "COPY_SIMILARITY": 0.8,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.5
+        "IDENTITY_SIMILARITY": 10.5
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -971,40 +971,40 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eisenfer-tubos-acos",
-          "score": 78,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "eletrovale-eletromecanica",
+          "score": 50,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletrovale-eletromecanica",
-          "score": 75,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "slug": "acai-total-araucaria",
+          "score": 48,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "jkl-marcenaria",
-          "score": 73,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 47,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
     },
     {
       "slug": "eletrovale-eletromecanica",
-      "score": 78,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eisenfer-tubos-acos",
-      "nearestMatchScore": 78,
+      "score": 50,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "eletro-solucoes-eficazes",
+      "nearestMatchScore": 50,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 90.5,
+        "STRUCTURE_SIMILARITY": 26.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 95.6,
-        "COPY_SIMILARITY": 0.7,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 44.2,
+        "COPY_SIMILARITY": 0.8,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.5
+        "IDENTITY_SIMILARITY": 10.5
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1017,19 +1017,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eisenfer-tubos-acos",
-          "score": 78,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
           "slug": "eletro-solucoes-eficazes",
-          "score": 75,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 50,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "jkl-marcenaria",
-          "score": 74,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 48,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 47,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -1529,21 +1529,21 @@
     },
     {
       "slug": "jkl-marcenaria",
-      "score": 75,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eisenfer-tubos-acos",
-      "nearestMatchScore": 75,
+      "score": 48,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "eletrovale-eletromecanica",
+      "nearestMatchScore": 48,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 90.5,
+        "STRUCTURE_SIMILARITY": 19.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 95.5,
-        "COPY_SIMILARITY": 1.2,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.5
+        "COMPONENT_SIMILARITY": 75,
+        "STYLE_SIMILARITY": 43.6,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 20,
+        "IDENTITY_SIMILARITY": 5.6
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1557,19 +1557,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eisenfer-tubos-acos",
-          "score": 75,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
           "slug": "eletrovale-eletromecanica",
-          "score": 74,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 48,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "eletro-solucoes-eficazes",
-          "score": 73,
-          "reason": "VISUAL_COMPOSITION_CLONE"
+          "score": 47,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 46,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -1659,8 +1659,8 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "eisenfer-tubos-acos",
-          "score": 53,
+          "slug": "premium-envelopamentos",
+          "score": 52,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1943,21 +1943,21 @@
     },
     {
       "slug": "mary-diarista",
-      "score": 66,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "eletro-solucoes-eficazes",
-      "nearestMatchScore": 66,
+      "score": 58,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "aguia-sul-sinalizacao",
+      "nearestMatchScore": 58,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 92.7,
+        "STRUCTURE_SIMILARITY": 78.7,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 71.4,
-        "STYLE_SIMILARITY": 92.6,
-        "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 10.3
+        "STYLE_SIMILARITY": 92.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 9.4
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1971,19 +1971,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 66,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "aguia-sul-sinalizacao",
+          "score": 58,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eisenfer-tubos-acos",
-          "score": 64,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "acai-total-araucaria",
+          "score": 55,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "jkl-marcenaria",
-          "score": 64,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "diego-montador-moveis",
+          "score": 52,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
