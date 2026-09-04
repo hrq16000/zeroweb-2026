@@ -157,6 +157,7 @@ function CapitalPage() {
 
   const openModal = () => {
     trackEvent("contact_cta_click", { location: `institucional_${c.slug}`, label: "diagnostico" });
+    trackLocalCta(`institucional-${c.slug}`, "diagnostico");
     setModal(true);
   };
 
@@ -176,6 +177,7 @@ function CapitalPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <LocalPagePixel quizKey={`institucional-${c.slug}`} />
       <Header />
       <Breadcrumbs
         items={[

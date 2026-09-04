@@ -26,10 +26,12 @@ export const Route = createFileRoute("/_authenticated/app/metadados")({
 const EMPTY = {
   client_key: "",
   slug: "",
+  display_name: "",
   seo_title: "",
   seo_description: "",
   seo_keywords: "",
   canonical_url: "",
+  social_image_url: "",
 };
 
 function MetadataPage() {
