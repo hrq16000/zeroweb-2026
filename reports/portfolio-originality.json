@@ -1166,10 +1166,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "c140fa925e0d518b",
+        "skeletonHash": "a7038f4405eb94cd",
         "structureHash": "370c42f662e63db6",
         "sectionCount": 6,
-        "lines": 265
+        "lines": 266
       }
     },
     {
@@ -1240,10 +1240,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "05ed384faca0a6fe",
+        "skeletonHash": "953da0a29117c226",
         "structureHash": "b1373fe9e0cc47cd",
         "sectionCount": 6,
-        "lines": 260
+        "lines": 261
       }
     },
     {
@@ -1962,7 +1962,7 @@
         "STRUCTURE_SIMILARITY": 25.4,
         "SECTION_ORDER_SIMILARITY": 36.4,
         "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 40.8,
+        "STYLE_SIMILARITY": 40.4,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1980,10 +1980,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "61682df9be885182",
+        "skeletonHash": "2a3c29fb93f73728",
         "structureHash": "4fdaeab6211c47e2",
         "sectionCount": 8,
-        "lines": 283
+        "lines": 284
       }
     },
     {
@@ -2369,7 +2369,7 @@
         "STRUCTURE_SIMILARITY": 25.4,
         "SECTION_ORDER_SIMILARITY": 36.4,
         "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 40.8,
+        "STYLE_SIMILARITY": 40.4,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -2387,10 +2387,10 @@
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "fingerprint": {
-        "skeletonHash": "d149838ca6e63f84",
+        "skeletonHash": "23e53bbbb0211f58",
         "structureHash": "bae5d3d99f88277e",
         "sectionCount": 9,
-        "lines": 286
+        "lines": 287
       }
     },
     {
