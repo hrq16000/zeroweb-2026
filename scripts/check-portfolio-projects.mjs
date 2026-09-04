@@ -118,7 +118,7 @@ for (const item of catalog) {
   }
   if (componentSource) {
     const hasCta =
-      /PortfolioCTAQuiz|PortfolioQuizCTA|FunnelCTAButton|FloatingFunnelCTA|ProductActionGate|useFunnel/.test(
+      /PortfolioCTAQuiz|PortfolioQuizCTA|FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA|ProductActionGate|useFunnel/.test(
         componentSource,
       );
     if (!hasCta) issues.push(CODES.CTA);

@@ -59,7 +59,7 @@
     },
     "marido-de-aluguel": {
       "icon": "/images/marido-de-aluguel/logo.jpg",
-      "socialImage": "/images/mestre-dos-servicos-logo.jpg",
+      "socialImage": "/images/marido-de-aluguel/social.jpg",
       "proof": {
         "eyebrow": "Mestre dos Serviços",
         "title": "Reparos residenciais com orientação clara do início ao fim.",
@@ -67,7 +67,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "fb7f7321"
+      "socialVersion": "a24f4dca"
     },
     "emporio-lelecute": {
       "icon": "/images/emporio-lelecute/logo.webp",
