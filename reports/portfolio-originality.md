@@ -20,12 +20,12 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 |---|---|
 | Total | 68 |
 | ORIGINAL | 0 |
-| ACCEPTABLE | 16 |
-| ATTENTION | 27 |
+| ACCEPTABLE | 17 |
+| ATTENTION | 30 |
 | HIGH_SIMILARITY | 21 |
-| CLONE | 4 |
+| CLONE | 0 |
 | SHARED_FALLBACK | 0 |
-| Clusters | 1 |
+| Clusters | 0 |
 | Logos placeholder | 0 |
 | Logos ausentes | 0 |
 | Capas ausentes | 27 |
@@ -37,20 +37,12 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 ## Clusters
 
-### CLUSTER_01 — IDENTICAL_COMPONENT_STRUCTURE (média 88, risco ALTO)
-Base: `src/components/site/BetoPasteisPage.tsx`
-Membros: beto-pasteis, dlara-pizzaria, marmitaria-dom-diego, woodhouse-hamburgueres
+Nenhum cluster acima do limiar.
 
 ## Matriz de pares — top 20
 
 | A | B | Score | Motivo | STRUCTURE | SECTION_ORDER | COMPONENT | STYLE | COPY | ASSET | IDENTITY |
 |---|---|---|---|---|---|---|---|---|---|---|
-| beto-pasteis | dlara-pizzaria | 88 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 100 | 100 | 0 | 100 | 100 |
-| beto-pasteis | marmitaria-dom-diego | 88 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 100 | 100 | 0 | 100 | 100 |
-| beto-pasteis | woodhouse-hamburgueres | 88 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 100 | 100 | 0 | 100 | 100 |
-| dlara-pizzaria | marmitaria-dom-diego | 88 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 100 | 100 | 0 | 100 | 100 |
-| dlara-pizzaria | woodhouse-hamburgueres | 88 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 100 | 100 | 0 | 100 | 100 |
-| marmitaria-dom-diego | woodhouse-hamburgueres | 88 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 100 | 100 | 0 | 100 | 100 |
 | eisenfer-tubos-acos | eletro-solucoes-eficazes | 78 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 83.3 | 95.6 | 1.5 | 0 | 11.5 |
 | eisenfer-tubos-acos | eletrovale-eletromecanica | 78 | VISUAL_COMPOSITION_CLONE | 90.5 | 100 | 100 | 95.6 | 0.7 | 0 | 11.5 |
 | espaco-cih-luh | salao-da-marcia | 76 | VISUAL_COMPOSITION_CLONE | 100 | 100 | 70 | 97.3 | 0 | 0 | 12.5 |
@@ -65,6 +57,12 @@ Membros: beto-pasteis, dlara-pizzaria, marmitaria-dom-diego, woodhouse-hamburgue
 | espaco-cih-luh | lucas-arruma-maquina-lavar | 70 | VISUAL_COMPOSITION_CLONE | 100 | 100 | 41.7 | 96.1 | 0 | 0 | 7.5 |
 | lucas-arruma-maquina-lavar | salao-da-marcia | 69 | VISUAL_COMPOSITION_CLONE | 100 | 100 | 38.5 | 93.4 | 0.7 | 0 | 7.3 |
 | eletro-solucoes-eficazes | mary-diarista | 66 | NEAR_DUPLICATE_LAYOUT | 92.7 | 50 | 71.4 | 92.6 | 2.3 | 100 | 10.3 |
+| galileu-locacao-brinquedos | lj-cleaning | 66 | NEAR_DUPLICATE_LAYOUT | 94.7 | 57.1 | 55.6 | 96.8 | 1.9 | 100 | 10.7 |
+| lk-alvenaria | lucas-arruma-maquina-lavar | 66 | NEAR_DUPLICATE_LAYOUT | 78.4 | 100 | 53.8 | 89.9 | 2 | 0 | 11.6 |
+| lucas-arruma-maquina-lavar | no-brilho-higienizacao | 65 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 50 | 50 | 94.7 | 1.5 | 100 | 11.1 |
+| ag-electrical-services | lk-alvenaria | 64 | NEAR_DUPLICATE_LAYOUT | 74.1 | 100 | 57.1 | 83.1 | 1 | 0 | 11.4 |
+| eisenfer-tubos-acos | mary-diarista | 64 | NEAR_DUPLICATE_LAYOUT | 92.7 | 50 | 83.3 | 93.9 | 0 | 0 | 10 |
+| jkl-marcenaria | mary-diarista | 64 | NEAR_DUPLICATE_LAYOUT | 97.6 | 50 | 71.4 | 95.4 | 1.3 | 0 | 10.3 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -74,10 +72,6 @@ Nenhum asset percebido compartilhado entre clientes.
 
 | Projeto | Score | Status | Mais parecido | Motivo | Capa | Logo | Fallback |
 |---|---|---|---|---|---|---|---|
-| beto-pasteis | 88 | CLONE | dlara-pizzaria (88) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| dlara-pizzaria | 88 | CLONE | beto-pasteis (88) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| marmitaria-dom-diego | 88 | CLONE | beto-pasteis (88) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| woodhouse-hamburgueres | 88 | CLONE | beto-pasteis (88) | IDENTICAL_COMPONENT_STRUCTURE | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | eisenfer-tubos-acos | 78 | HIGH_SIMILARITY | eletro-solucoes-eficazes (78) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | eletro-solucoes-eficazes | 78 | HIGH_SIMILARITY | eisenfer-tubos-acos (78) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | eletrovale-eletromecanica | 78 | HIGH_SIMILARITY | eisenfer-tubos-acos (78) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -106,9 +100,11 @@ Nenhum asset percebido compartilhado entre clientes.
 | mp-festas-eventos | 59 | ATTENTION | studio-de-cilios (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | studio-de-cilios | 59 | ATTENTION | mp-festas-eventos (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | assistencia-microondas-santos | 58 | ATTENTION | premium-envelopamentos (58) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| marmitaria-dom-diego | 58 | ATTENTION | brecho-sao-francisco (58) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | paulo-mestre-de-obras | 58 | ATTENTION | lucas-arruma-maquina-lavar (58) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | ecommerce-on | 56 | ATTENTION | espaco-cih-luh (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
+| woodhouse-hamburgueres | 56 | ATTENTION | brecho-sao-francisco (56) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | denise-gomes-psicologa | 55 | ATTENTION | thays-camilla (55) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | refrigeracao-maresia | 55 | ATTENTION | ag-electrical-services (55) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | sos-presentes-cosmeticos | 55 | ATTENTION | confeitaria-sabor-da-realeza (55) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
@@ -119,6 +115,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | rj-servicos-drywall | 49 | ATTENTION | fernanda-amaral-drywall (49) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | santos-montador-de-moveis | 49 | ATTENTION | no-brilho-higienizacao (49) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | reuse-house-brecho | 48 | ATTENTION | toquinho-de-gente-brecho (48) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| dlara-pizzaria | 44 | ATTENTION | marmitaria-dom-diego (44) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | manu-pasteis | 44 | ATTENTION | miro-tech (44) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | clinica-integrada | 43 | ATTENTION | confeitaria-sabor-da-realeza (43) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-atelie-presentes | 42 | ATTENTION | mirassol-delicias-caseiras (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -142,6 +139,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | emporio-lelecute | 29 | ACCEPTABLE | assistencia-microondas-santos (29) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | dyzpromo | 25 | ACCEPTABLE | marido-de-aluguel (25) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
 | paraiso-do-hot-dog | 25 | ACCEPTABLE | lucas-arruma-maquina-lavar (25) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| beto-pasteis | 24 | ACCEPTABLE | brecho-sao-francisco (24) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 
 ## Regressão
 
@@ -149,4 +147,9 @@ Veredito: **PASS**
 
 Nenhuma regressão em relação à baseline.
 
-
+Melhorias:
+- {"kind":"COUNTER","key":"clone","label":"clones","before":4,"after":0}
+- {"kind":"MODIFIED_PROJECT","slug":"beto-pasteis","before":"CLONE","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"dlara-pizzaria","before":"CLONE","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"marmitaria-dom-diego","before":"CLONE","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"woodhouse-hamburgueres","before":"CLONE","after":"ATTENTION"}

@@ -18,12 +18,12 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 16,
-    "attention": 27,
+    "acceptable": 17,
+    "attention": 30,
     "highSimilarity": 21,
-    "clone": 4,
+    "clone": 0,
     "sharedFallback": 0,
-    "clusters": 1,
+    "clusters": 0,
     "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 27,
@@ -307,22 +307,20 @@
       "title": "Beto Pastéis",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BetoPasteisPage.tsx",
-      "score": 88,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "dlara-pizzaria",
-      "nearestMatchScore": 88,
+      "score": 24,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "brecho-sao-francisco",
+      "nearestMatchScore": 24,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 11.4,
+        "SECTION_ORDER_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 28.1,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -335,10 +333,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "f6f46670555a49c4",
-        "structureHash": "0c4ec4a113353b4d",
-        "sectionCount": 2,
-        "lines": 69
+        "skeletonHash": "5579e8e1604d0451",
+        "structureHash": "0bea3ac1ca97a8a7",
+        "sectionCount": 4,
+        "lines": 170
       }
     },
     {
@@ -656,21 +654,21 @@
       "title": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
       "segment": "restaurantes",
       "componentFile": "src/components/site/DlaraPizzariaPage.tsx",
-      "score": 88,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "beto-pasteis",
-      "nearestMatchScore": 88,
+      "score": 44,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "marmitaria-dom-diego",
+      "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 9.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 26.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -684,10 +682,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "82954c9fe87e209f",
-        "structureHash": "0c4ec4a113353b4d",
-        "sectionCount": 2,
-        "lines": 69
+        "skeletonHash": "f80ab72ba71c5592",
+        "structureHash": "9724990940d8bb90",
+        "sectionCount": 4,
+        "lines": 138
       }
     },
     {
@@ -1614,21 +1612,21 @@
       "title": "Marmitaria Dom Diego",
       "segment": "restaurantes",
       "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
-      "score": 88,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "beto-pasteis",
-      "nearestMatchScore": 88,
+      "score": 58,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "brecho-sao-francisco",
+      "nearestMatchScore": 58,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 21.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 35.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -1642,10 +1640,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "c84ccbd5a1eb374e",
-        "structureHash": "0c4ec4a113353b4d",
-        "sectionCount": 2,
-        "lines": 69
+        "skeletonHash": "6c56f22967c238d7",
+        "structureHash": "d558da94522035ba",
+        "sectionCount": 3,
+        "lines": 160
       }
     },
     {
@@ -2618,21 +2616,21 @@
       "title": "Woodhouse Hambúrgueres",
       "segment": "restaurantes",
       "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
-      "score": 88,
-      "originalityStatus": "CLONE",
-      "nearestMatch": "beto-pasteis",
-      "nearestMatchScore": 88,
+      "score": 56,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "brecho-sao-francisco",
+      "nearestMatchScore": 56,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 28.6,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
-        "IDENTICAL_COMPONENT_STRUCTURE"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -2646,119 +2644,15 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "fc4ae6487681b51e",
-        "structureHash": "0c4ec4a113353b4d",
-        "sectionCount": 2,
-        "lines": 69
+        "skeletonHash": "16515dce54be0688",
+        "structureHash": "57a206bcfe17f0c4",
+        "sectionCount": 4,
+        "lines": 148
       }
     }
   ],
-  "clusters": [
-    {
-      "id": "CLUSTER_01",
-      "members": [
-        "beto-pasteis",
-        "dlara-pizzaria",
-        "marmitaria-dom-diego",
-        "woodhouse-hamburgueres"
-      ],
-      "averageScore": 88,
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE",
-      "baseComponent": "src/components/site/BetoPasteisPage.tsx",
-      "risk": "ALTO"
-    }
-  ],
+  "clusters": [],
   "topPairs": [
-    {
-      "a": "beto-pasteis",
-      "b": "dlara-pizzaria",
-      "score": 88,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "beto-pasteis",
-      "b": "marmitaria-dom-diego",
-      "score": 88,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "beto-pasteis",
-      "b": "woodhouse-hamburgueres",
-      "score": 88,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "dlara-pizzaria",
-      "b": "marmitaria-dom-diego",
-      "score": 88,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "dlara-pizzaria",
-      "b": "woodhouse-hamburgueres",
-      "score": 88,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
-    {
-      "a": "marmitaria-dom-diego",
-      "b": "woodhouse-hamburgueres",
-      "score": 88,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 100,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 100,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-    },
     {
       "a": "eisenfer-tubos-acos",
       "b": "eletro-solucoes-eficazes",
@@ -3043,6 +2937,96 @@
         "IDENTITY_SIMILARITY": 10
       },
       "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "jkl-marcenaria",
+      "b": "mary-diarista",
+      "score": 64,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 97.6,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 71.4,
+        "STYLE_SIMILARITY": 95.4,
+        "COPY_SIMILARITY": 1.3,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "artesanatos-darleia-oliveira",
+      "b": "thays-camilla",
+      "score": 63,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 80.4,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 97.4,
+        "COPY_SIMILARITY": 2.8,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 8.9
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "diego-montador-moveis",
+      "b": "lucas-arruma-maquina-lavar",
+      "score": 63,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 74,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 45.5,
+        "STYLE_SIMILARITY": 75,
+        "COPY_SIMILARITY": 2.1,
+        "ASSET_PATTERN_SIMILARITY": 50,
+        "IDENTITY_SIMILARITY": 9.1
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "lolipa-arte-em-festas",
+      "b": "premium-envelopamentos",
+      "score": 63,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 62.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 79.7,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 27.3,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "acai-total-araucaria",
+      "b": "eletrovale-eletromecanica",
+      "score": 62,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 78.3,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 83.3,
+        "STYLE_SIMILARITY": 88.7,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "IDENTITY_SIMILARITY": 12.5
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "eletrovale-eletromecanica",
+      "b": "mary-diarista",
+      "score": 62,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 84.1,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 83.3,
+        "STYLE_SIMILARITY": 89.9,
+        "COPY_SIMILARITY": 1.5,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "reason": "NEAR_DUPLICATE_LAYOUT"
     }
   ],
   "pairMatrix": {
@@ -3134,7 +3118,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "reuse-house-brecho",
+          "slug": "marmitaria-dom-diego",
           "score": 40,
           "reason": "DISTINCT"
         }
@@ -3175,19 +3159,19 @@
       ],
       "beto-pasteis": [
         {
-          "slug": "dlara-pizzaria",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "brecho-sao-francisco",
+          "score": 24,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "toquinho-de-gente-brecho",
+          "score": 24,
+          "reason": "DISTINCT"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "score": 23,
+          "reason": "DISTINCT"
         }
       ],
       "bh-barreiro-marmitas": [
@@ -3214,13 +3198,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "reuse-house-brecho",
-          "score": 46,
+          "slug": "marmitaria-dom-diego",
+          "score": 58,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "angel-mix-brecho",
-          "score": 41,
+          "slug": "woodhouse-hamburgueres",
+          "score": 56,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3328,19 +3312,19 @@
       ],
       "dlara-pizzaria": [
         {
-          "slug": "beto-pasteis",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "marmitaria-dom-diego",
+          "score": 44,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "toquinho-de-gente-brecho",
+          "score": 44,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "score": 44,
+          "reason": "SAME_FAMILY"
         }
       ],
       "dyzpromo": [
@@ -3753,19 +3737,19 @@
       ],
       "marmitaria-dom-diego": [
         {
-          "slug": "beto-pasteis",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
-        },
-        {
-          "slug": "dlara-pizzaria",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "brecho-sao-francisco",
+          "score": 58,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "toquinho-de-gente-brecho",
+          "score": 53,
+          "reason": "SAME_FAMILY"
         }
       ],
       "mary-diarista": [
@@ -3996,14 +3980,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "brecho-sao-francisco",
-          "score": 46,
+          "slug": "woodhouse-hamburgueres",
+          "score": 47,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "angel-mix-brecho",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "brecho-sao-francisco",
+          "score": 46,
+          "reason": "SAME_FAMILY"
         }
       ],
       "rj-servicos-drywall": [
@@ -4149,13 +4133,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "reuse-house-brecho",
-          "score": 48,
+          "slug": "woodhouse-hamburgueres",
+          "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "angel-mix-brecho",
-          "score": 41,
+          "slug": "marmitaria-dom-diego",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4195,19 +4179,19 @@
       ],
       "woodhouse-hamburgueres": [
         {
-          "slug": "beto-pasteis",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "brecho-sao-francisco",
+          "score": 56,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "dlara-pizzaria",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "slug": "toquinho-de-gente-brecho",
+          "score": 55,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 88,
-          "reason": "IDENTICAL_COMPONENT_STRUCTURE"
+          "score": 54,
+          "reason": "SAME_FAMILY"
         }
       ]
     }
@@ -4235,12 +4219,12 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 16,
-      "attention": 27,
+      "acceptable": 17,
+      "attention": 30,
       "highSimilarity": 21,
-      "clone": 4,
+      "clone": 0,
       "sharedFallback": 0,
-      "clusters": 1,
+      "clusters": 0,
       "placeholderLogos": 0,
       "missingLogos": 0,
       "missingCovers": 27,
@@ -4252,6 +4236,38 @@
     },
     "verdict": "PASS",
     "regressions": [],
-    "improvements": []
+    "improvements": [
+      {
+        "kind": "COUNTER",
+        "key": "clone",
+        "label": "clones",
+        "before": 4,
+        "after": 0
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "beto-pasteis",
+        "before": "CLONE",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "dlara-pizzaria",
+        "before": "CLONE",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "marmitaria-dom-diego",
+        "before": "CLONE",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "woodhouse-hamburgueres",
+        "before": "CLONE",
+        "after": "ATTENTION"
+      }
+    ]
   }
 }
