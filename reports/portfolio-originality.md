@@ -21,8 +21,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Total | 68 |
 | ORIGINAL | 0 |
 | ACCEPTABLE | 17 |
-| ATTENTION | 30 |
-| HIGH_SIMILARITY | 21 |
+| ATTENTION | 37 |
+| HIGH_SIMILARITY | 14 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
 | Clusters | 0 |
@@ -43,26 +43,26 @@ Nenhum cluster acima do limiar.
 
 | A | B | Score | Motivo | STRUCTURE | SECTION_ORDER | COMPONENT | STYLE | COPY | ASSET | IDENTITY |
 |---|---|---|---|---|---|---|---|---|---|---|
-| eisenfer-tubos-acos | eletro-solucoes-eficazes | 78 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 100 | 83.3 | 95.6 | 1.5 | 0 | 11.5 |
-| eisenfer-tubos-acos | eletrovale-eletromecanica | 78 | VISUAL_COMPOSITION_CLONE | 90.5 | 100 | 100 | 95.6 | 0.7 | 0 | 11.5 |
 | espaco-cih-luh | salao-da-marcia | 76 | VISUAL_COMPOSITION_CLONE | 100 | 100 | 70 | 97.3 | 0 | 0 | 12.5 |
-| eisenfer-tubos-acos | jkl-marcenaria | 75 | VISUAL_COMPOSITION_CLONE | 90.5 | 100 | 83.3 | 95.5 | 1.2 | 0 | 11.5 |
-| eletro-solucoes-eficazes | eletrovale-eletromecanica | 75 | VISUAL_COMPOSITION_CLONE | 90.5 | 100 | 83.3 | 91.5 | 2.4 | 0 | 12 |
-| eletrovale-eletromecanica | jkl-marcenaria | 74 | VISUAL_COMPOSITION_CLONE | 86.4 | 100 | 83.3 | 91.3 | 1.9 | 20 | 12 |
-| aguia-sul-sinalizacao | eletrovale-eletromecanica | 73 | VISUAL_COMPOSITION_CLONE | 84.8 | 100 | 83.3 | 94.2 | 1.3 | 0 | 10.7 |
-| eletro-solucoes-eficazes | jkl-marcenaria | 73 | VISUAL_COMPOSITION_CLONE | 90.5 | 100 | 71.4 | 94.1 | 3.9 | 0 | 12 |
-| aguia-sul-sinalizacao | eisenfer-tubos-acos | 72 | VISUAL_COMPOSITION_CLONE | 80.4 | 100 | 83.3 | 92.6 | 1.3 | 0 | 18.5 |
-| aguia-sul-sinalizacao | eletro-solucoes-eficazes | 70 | VISUAL_COMPOSITION_CLONE | 80.4 | 100 | 71.4 | 91.4 | 2.7 | 0 | 10.7 |
-| aguia-sul-sinalizacao | jkl-marcenaria | 70 | NEAR_DUPLICATE_LAYOUT | 77.1 | 100 | 71.4 | 97 | 1.7 | 0 | 10.7 |
 | espaco-cih-luh | lucas-arruma-maquina-lavar | 70 | VISUAL_COMPOSITION_CLONE | 100 | 100 | 41.7 | 96.1 | 0 | 0 | 7.5 |
 | lucas-arruma-maquina-lavar | salao-da-marcia | 69 | VISUAL_COMPOSITION_CLONE | 100 | 100 | 38.5 | 93.4 | 0.7 | 0 | 7.3 |
-| eletro-solucoes-eficazes | mary-diarista | 66 | NEAR_DUPLICATE_LAYOUT | 92.7 | 50 | 71.4 | 92.6 | 2.3 | 100 | 10.3 |
 | galileu-locacao-brinquedos | lj-cleaning | 66 | NEAR_DUPLICATE_LAYOUT | 94.7 | 57.1 | 55.6 | 96.8 | 1.9 | 100 | 10.7 |
 | lk-alvenaria | lucas-arruma-maquina-lavar | 66 | NEAR_DUPLICATE_LAYOUT | 78.4 | 100 | 53.8 | 89.9 | 2 | 0 | 11.6 |
 | lucas-arruma-maquina-lavar | no-brilho-higienizacao | 65 | IDENTICAL_COMPONENT_STRUCTURE | 100 | 50 | 50 | 94.7 | 1.5 | 100 | 11.1 |
 | ag-electrical-services | lk-alvenaria | 64 | NEAR_DUPLICATE_LAYOUT | 74.1 | 100 | 57.1 | 83.1 | 1 | 0 | 11.4 |
-| eisenfer-tubos-acos | mary-diarista | 64 | NEAR_DUPLICATE_LAYOUT | 92.7 | 50 | 83.3 | 93.9 | 0 | 0 | 10 |
-| jkl-marcenaria | mary-diarista | 64 | NEAR_DUPLICATE_LAYOUT | 97.6 | 50 | 71.4 | 95.4 | 1.3 | 0 | 10.3 |
+| artesanatos-darleia-oliveira | thays-camilla | 63 | NEAR_DUPLICATE_LAYOUT | 80.4 | 66.7 | 50 | 97.4 | 2.8 | 100 | 8.9 |
+| diego-montador-moveis | lucas-arruma-maquina-lavar | 63 | NEAR_DUPLICATE_LAYOUT | 74 | 100 | 45.5 | 75 | 2.1 | 50 | 9.1 |
+| lolipa-arte-em-festas | premium-envelopamentos | 63 | NEAR_DUPLICATE_LAYOUT | 62.7 | 100 | 62.5 | 79.7 | 0 | 27.3 | 10.3 |
+| espaco-cih-luh | lk-alvenaria | 62 | NEAR_DUPLICATE_LAYOUT | 78.4 | 100 | 35.7 | 88.8 | 0 | 0 | 6.5 |
+| lj-cleaning | miro-tech | 61 | NEAR_DUPLICATE_LAYOUT | 71.1 | 50 | 85.7 | 78.4 | 0.6 | 100 | 20 |
+| lk-alvenaria | salao-da-marcia | 61 | NEAR_DUPLICATE_LAYOUT | 78.4 | 100 | 33.3 | 86.3 | 1.1 | 0 | 6.4 |
+| brecho-sao-francisco | toquinho-de-gente-brecho | 60 | SAME_FAMILY | 25.8 | 100 | 100 | 40.7 | 2.2 | 100 | 100 |
+| liz-moraes-nail-designer | salao-da-marcia | 60 | SAME_FAMILY | 54.2 | 100 | 70 | 70.9 | 3.8 | 0 | 12.8 |
+| miro-tech | premium-envelopamentos | 60 | SAME_FAMILY | 62.7 | 62.5 | 85.7 | 78.8 | 0.6 | 60 | 18.2 |
+| acai-total-araucaria | aguia-sul-sinalizacao | 59 | SAME_FAMILY | 73.5 | 57.1 | 71.4 | 91.3 | 0 | 20 | 11.1 |
+| aguia-sul-sinalizacao | diego-montador-moveis | 59 | SAME_FAMILY | 74 | 50 | 85.7 | 85.9 | 1.1 | 0 | 23.1 |
+| confeitaria-sabor-da-realeza | lolipa-arte-em-festas | 59 | SAME_FAMILY | 61.2 | 57.1 | 100 | 77.9 | 2 | 20 | 20 |
+| diego-montador-moveis | espaco-cih-luh | 59 | SAME_FAMILY | 74 | 100 | 36.4 | 76.3 | 0 | 0 | 5.7 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -72,18 +72,12 @@ Nenhum asset percebido compartilhado entre clientes.
 
 | Projeto | Score | Status | Mais parecido | Motivo | Capa | Logo | Fallback |
 |---|---|---|---|---|---|---|---|
-| eisenfer-tubos-acos | 78 | HIGH_SIMILARITY | eletro-solucoes-eficazes (78) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| eletro-solucoes-eficazes | 78 | HIGH_SIMILARITY | eisenfer-tubos-acos (78) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| eletrovale-eletromecanica | 78 | HIGH_SIMILARITY | eisenfer-tubos-acos (78) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | espaco-cih-luh | 76 | HIGH_SIMILARITY | salao-da-marcia (76) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | salao-da-marcia | 76 | HIGH_SIMILARITY | espaco-cih-luh (76) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| jkl-marcenaria | 75 | HIGH_SIMILARITY | eisenfer-tubos-acos (75) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| aguia-sul-sinalizacao | 73 | HIGH_SIMILARITY | eletrovale-eletromecanica (73) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
 | lucas-arruma-maquina-lavar | 70 | HIGH_SIMILARITY | espaco-cih-luh (70) | VISUAL_COMPOSITION_CLONE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | galileu-locacao-brinquedos | 66 | HIGH_SIMILARITY | lj-cleaning (66) | NEAR_DUPLICATE_LAYOUT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | lj-cleaning | 66 | HIGH_SIMILARITY | galileu-locacao-brinquedos (66) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | lk-alvenaria | 66 | HIGH_SIMILARITY | lucas-arruma-maquina-lavar (66) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| mary-diarista | 66 | HIGH_SIMILARITY | eletro-solucoes-eficazes (66) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | no-brilho-higienizacao | 65 | HIGH_SIMILARITY | lucas-arruma-maquina-lavar (65) | IDENTICAL_COMPONENT_STRUCTURE | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | ag-electrical-services | 64 | HIGH_SIMILARITY | lk-alvenaria (64) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
 | artesanatos-darleia-oliveira | 63 | HIGH_SIMILARITY | thays-camilla (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -91,16 +85,18 @@ Nenhum asset percebido compartilhado entre clientes.
 | lolipa-arte-em-festas | 63 | HIGH_SIMILARITY | premium-envelopamentos (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | premium-envelopamentos | 63 | HIGH_SIMILARITY | lolipa-arte-em-festas (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | thays-camilla | 63 | HIGH_SIMILARITY | artesanatos-darleia-oliveira (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| acai-total-araucaria | 62 | HIGH_SIMILARITY | eletrovale-eletromecanica (62) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | miro-tech | 61 | HIGH_SIMILARITY | lj-cleaning (61) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | brecho-sao-francisco | 60 | ATTENTION | toquinho-de-gente-brecho (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | liz-moraes-nail-designer | 60 | ATTENTION | salao-da-marcia (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | toquinho-de-gente-brecho | 60 | ATTENTION | brecho-sao-francisco (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| acai-total-araucaria | 59 | ATTENTION | aguia-sul-sinalizacao (59) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| aguia-sul-sinalizacao | 59 | ATTENTION | acai-total-araucaria (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
 | confeitaria-sabor-da-realeza | 59 | ATTENTION | lolipa-arte-em-festas (59) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mp-festas-eventos | 59 | ATTENTION | studio-de-cilios (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | studio-de-cilios | 59 | ATTENTION | mp-festas-eventos (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | assistencia-microondas-santos | 58 | ATTENTION | premium-envelopamentos (58) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | marmitaria-dom-diego | 58 | ATTENTION | brecho-sao-francisco (58) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| mary-diarista | 58 | ATTENTION | aguia-sul-sinalizacao (58) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | paulo-mestre-de-obras | 58 | ATTENTION | lucas-arruma-maquina-lavar (58) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | ecommerce-on | 56 | ATTENTION | espaco-cih-luh (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
@@ -111,10 +107,14 @@ Nenhum asset percebido compartilhado entre clientes.
 | vila-da-capivara | 54 | ATTENTION | mp-festas-eventos (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | r_beauty | 51 | ATTENTION | renata-beauty (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT | — | — |
 | renata-beauty | 51 | ATTENTION | r_beauty (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| eletro-solucoes-eficazes | 50 | ATTENTION | eletrovale-eletromecanica (50) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| eletrovale-eletromecanica | 50 | ATTENTION | eletro-solucoes-eficazes (50) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | fernanda-amaral-drywall | 49 | ATTENTION | rj-servicos-drywall (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
 | rj-servicos-drywall | 49 | ATTENTION | fernanda-amaral-drywall (49) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | santos-montador-de-moveis | 49 | ATTENTION | no-brilho-higienizacao (49) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| jkl-marcenaria | 48 | ATTENTION | eletrovale-eletromecanica (48) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | reuse-house-brecho | 48 | ATTENTION | toquinho-de-gente-brecho (48) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| eisenfer-tubos-acos | 45 | ATTENTION | jkl-marcenaria (45) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | dlara-pizzaria | 44 | ATTENTION | marmitaria-dom-diego (44) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | manu-pasteis | 44 | ATTENTION | miro-tech (44) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | clinica-integrada | 43 | ATTENTION | confeitaria-sabor-da-realeza (43) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -148,8 +148,11 @@ Veredito: **PASS**
 Nenhuma regressão em relação à baseline.
 
 Melhorias:
-- {"kind":"COUNTER","key":"clone","label":"clones","before":4,"after":0}
-- {"kind":"MODIFIED_PROJECT","slug":"beto-pasteis","before":"CLONE","after":"ACCEPTABLE"}
-- {"kind":"MODIFIED_PROJECT","slug":"dlara-pizzaria","before":"CLONE","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"marmitaria-dom-diego","before":"CLONE","after":"ATTENTION"}
-- {"kind":"MODIFIED_PROJECT","slug":"woodhouse-hamburgueres","before":"CLONE","after":"ATTENTION"}
+- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":21,"after":14}
+- {"kind":"MODIFIED_PROJECT","slug":"acai-total-araucaria","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"aguia-sul-sinalizacao","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"eisenfer-tubos-acos","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"eletro-solucoes-eficazes","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"eletrovale-eletromecanica","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"jkl-marcenaria","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"mary-diarista","before":"HIGH_SIMILARITY","after":"ATTENTION"}
