@@ -99,14 +99,14 @@ export function ToquinhoDeGenteBrechoPage() {
 
         <section className="bg-[var(--tq-mint)] py-14 md:py-20">
           <div className="mx-auto grid w-[min(92%,66rem)] gap-6 md:grid-cols-2">
-            <article className="inline-flex items-center gap-2 rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
+            <article className="rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
               <h2 className="font-display text-2xl font-black">Para adultos</h2>
               <p className="mt-3 leading-relaxed text-[var(--tq-ink)]/75">
                 Peças do dia a dia e achados de garimpo, conferidos antes de
                 entrar na vitrine.
               </p>
             </article>
-            <article className="inline-flex items-center gap-2 rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
+            <article className="rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
               <h2 className="font-display text-2xl font-black">Para crianças</h2>
               <p className="mt-3 leading-relaxed text-[var(--tq-ink)]/75">
                 Roupas infantis que duram pouco em casa e podem seguir servindo
