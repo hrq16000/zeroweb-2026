@@ -1,15 +1,45 @@
 {
-  "generatedAt": "2026-09-04T20:53:57.330Z",
-  "ok": 1,
+  "generatedAt": "2026-09-04T22:42:31.514Z",
+  "ok": 2,
   "failed": [],
   "results": [
     {
-      "slug": "assistencia-microondas-santos",
+      "slug": "lucas-arruma-maquina-lavar",
       "status": "OK",
-      "mode": "frame",
-      "source": "public/images/assistencia-microondas-santos/hero.png",
-      "out": "/images/assistencia-microondas-santos/capa-card.jpg",
-      "bytes": 107022,
+      "mode": "crop",
+      "source": "public/images/lucas-arruma-maquina-lavar/vitrine.png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1600,
+        "height": 1000
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "out": "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
+      "bytes": 66214,
+      "dimensions": "1600x1000",
+      "lowRes": false
+    },
+    {
+      "slug": "no-brilho-higienizacao",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/no-brilho-higienizacao/vitrine.png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1600,
+        "height": 1000
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "out": "/images/no-brilho-higienizacao/capa-card.jpg",
+      "bytes": 48400,
       "dimensions": "1600x1000",
       "lowRes": false
     }
