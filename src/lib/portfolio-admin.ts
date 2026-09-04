@@ -43,6 +43,7 @@ export type SeedProject = {
   assetsDir: string;
   ctaMode: string;
   hasCta: boolean;
+  hasOwnDescription: boolean;
   gallery: string[];
   shareCopy: string;
   published: boolean;
@@ -99,6 +100,7 @@ export type MergedProject = {
     ctaMode: string;
     hasCta: boolean;
     hasCustomComponent: boolean;
+    hasOwnDescription: boolean;
   };
   displayName: string;
   segment: string;
@@ -158,7 +160,7 @@ export function evaluateConformance(project: {
   gallery: string[];
   shareCopy: string;
   seoDescription: string;
-  structure: { hasCta: boolean; hasCustomComponent: boolean };
+  structure: { hasCta: boolean; hasCustomComponent: boolean; hasOwnDescription: boolean };
 }): { status: ConformanceStatus; issues: ConformanceCode[]; blocking: ConformanceCode[] } {
   const issues: ConformanceCode[] = [];
   if (!project.displayName || !project.segment || !project.summary) {
@@ -169,10 +171,13 @@ export function evaluateConformance(project: {
   if (project.gallery.length < 2) issues.push("PORTFOLIO_HERO_MISSING");
   if (!project.structure.hasCustomComponent) issues.push("PORTFOLIO_COMPONENT_MISSING");
   else if (!project.structure.hasCta) issues.push("PORTFOLIO_CTA_MISSING");
-  if ((project.seoDescription || project.summary).trim().length < 80) {
+  if (
+    !project.structure.hasOwnDescription &&
+    (project.seoDescription || project.summary).trim().length < 80
+  ) {
     issues.push("PORTFOLIO_SEO_MISSING");
   }
-  if (!project.shareCopy || project.shareCopy.trim().length < 120) {
+  if (!project.shareCopy.trim()) {
     issues.push("PORTFOLIO_SHARE_COPY_MISSING");
   }
   const blocking = issues.filter((code) => SEED_BLOCKING.has(code));
@@ -201,6 +206,7 @@ export function mergeProject(seed: SeedProject, db?: AdminOverrides | null): Mer
       ctaMode: seed.ctaMode,
       hasCta: seed.hasCta,
       hasCustomComponent: Boolean(seed.componentFile),
+      hasOwnDescription: Boolean(seed.hasOwnDescription),
     },
     displayName: pick(db?.display_name, seed.title),
     segment: pick(db?.segment, seed.segment),

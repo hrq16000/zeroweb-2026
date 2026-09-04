@@ -38,6 +38,7 @@
       "assetsDir": "public/images/acai-total-araucaria",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/acai-total-araucaria/acai-og.jpg",
         "/images/acai-total-araucaria/acai.webp",
@@ -67,6 +68,7 @@
       "assetsDir": "public/images/ag-electrical-services",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/ag-electrical-services/intro-og.jpg",
         "/images/ag-electrical-services/intro.png",
@@ -110,6 +112,7 @@
       "assetsDir": "public/images/aguia-sul-sinalizacao",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/aguia-sul-sinalizacao/logo-og.jpg",
         "/images/aguia-sul-sinalizacao/logo.webp"
@@ -138,6 +141,7 @@
       "assetsDir": "public/images/almeida-torres",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/almeida-torres/hero-og.jpg",
         "/images/almeida-torres/logo.svg",
@@ -167,6 +171,7 @@
       "assetsDir": "public/images/angel-mix-brecho",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/angel-mix-brecho/capa-og.jpg",
         "/images/angel-mix-brecho/capa.png"
@@ -195,6 +200,7 @@
       "assetsDir": "public/images/artesanatos-darleia-oliveira",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/artesanatos-darleia-oliveira/hero-og.jpg",
         "/images/artesanatos-darleia-oliveira/hero-og.png",
@@ -225,6 +231,7 @@
       "assetsDir": "public/images/assistencia-microondas-santos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/assistencia-microondas-santos/flyer.png",
         "/images/assistencia-microondas-santos/hero-og.jpg",
@@ -256,6 +263,7 @@
       "assetsDir": "public/images/beto-pasteis",
       "ctaMode": "order",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/beto-pasteis/capa-og.jpg",
         "/images/beto-pasteis/capa.png"
@@ -284,6 +292,7 @@
       "assetsDir": "public/images/bh-barreiro-marmitas",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/bh-barreiro-marmitas/hero-og.jpg",
         "/images/bh-barreiro-marmitas/logo.svg",
@@ -313,6 +322,7 @@
       "assetsDir": "public/images/brecho-sao-francisco",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/brecho-sao-francisco/capa-og.jpg",
         "/images/brecho-sao-francisco/capa.png"
@@ -341,6 +351,7 @@
       "assetsDir": "public/images/casa-nativa",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/casa-nativa/hero-og.jpg",
         "/images/casa-nativa/logo.svg",
@@ -370,6 +381,7 @@
       "assetsDir": "public/images/clinica-integrada",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/clinica-integrada/hero-og.jpg",
         "/images/clinica-integrada/logo.svg",
@@ -399,6 +411,7 @@
       "assetsDir": "public/images/confeitaria-chyrley",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/confeitaria-chyrley/bolos.png",
         "/images/confeitaria-chyrley/bolos.webp",
@@ -432,6 +445,7 @@
       "assetsDir": "public/images/confeitaria-sabor-da-realeza",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
         "/images/confeitaria-sabor-da-realeza/hero.png",
@@ -461,6 +475,7 @@
       "assetsDir": "public/images/denise-gomes-psicologa",
       "ctaMode": "booking",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/denise-gomes-psicologa/hero-og.jpg",
         "/images/denise-gomes-psicologa/hero.png",
@@ -490,6 +505,7 @@
       "assetsDir": "public/images/diego-montador-moveis",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/diego-montador-moveis/capa-og.jpg",
         "/images/diego-montador-moveis/capa.webp"
@@ -518,6 +534,7 @@
       "assetsDir": "public/images/dlara-pizzaria",
       "ctaMode": "order",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/dlara-pizzaria/capa-og.jpg",
         "/images/dlara-pizzaria/capa.png"
@@ -546,6 +563,7 @@
       "assetsDir": "public/images/dyzpromo",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/dyzpromo/acao-semaforo.jpeg",
         "/images/dyzpromo/bandeira-centro.jpeg",
@@ -584,6 +602,7 @@
       "assetsDir": "public/images/ecommerce-on",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/ecommerce-on/logo.png",
         "/images/ecommerce-on/logo.webp",
@@ -617,6 +636,7 @@
       "assetsDir": "public/images/eisenfer-tubos-acos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/eisenfer-tubos-acos/telhas-og.jpg",
         "/images/eisenfer-tubos-acos/telhas.webp",
@@ -646,6 +666,7 @@
       "assetsDir": "public/images/eletro-solucoes-eficazes",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/eletro-solucoes-eficazes/servicos-og.jpg",
         "/images/eletro-solucoes-eficazes/servicos.webp"
@@ -674,6 +695,7 @@
       "assetsDir": "public/images/eletrovale-eletromecanica",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/eletrovale-eletromecanica/equipamentos-og.jpg",
         "/images/eletrovale-eletromecanica/equipamentos.webp"
@@ -702,6 +724,7 @@
       "assetsDir": "public/images/emporio-lelecute",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/emporio-lelecute/capa.webp",
         "/images/emporio-lelecute/logo.webp"
@@ -730,6 +753,7 @@
       "assetsDir": "public/images/espaco-cih-luh",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/espaco-cih-luh/promocao-og.jpg",
         "/images/espaco-cih-luh/promocao.png",
@@ -759,6 +783,7 @@
       "assetsDir": "public/images/fernanda-amaral-drywall",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/fernanda-amaral-drywall/hero-og.jpg",
         "/images/fernanda-amaral-drywall/logo-source.png",
@@ -790,6 +815,7 @@
       "assetsDir": "public/images/galileu-locacao-brinquedos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/galileu-locacao-brinquedos/hero-og.jpg",
         "/images/galileu-locacao-brinquedos/hero.png",
@@ -819,6 +845,7 @@
       "assetsDir": "public/images/guaratuba-atelie-presentes",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/guaratuba-atelie-presentes/hero-og.jpg",
         "/images/guaratuba-atelie-presentes/logo.svg",
@@ -848,6 +875,7 @@
       "assetsDir": "public/images/guaratuba-oficina-nautica",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/guaratuba-oficina-nautica/hero-og.jpg",
         "/images/guaratuba-oficina-nautica/logo.svg",
@@ -877,6 +905,7 @@
       "assetsDir": "public/images/guaratuba-reparos-residenciais",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/guaratuba-reparos-residenciais/hero-og.jpg",
         "/images/guaratuba-reparos-residenciais/logo.svg",
@@ -906,6 +935,7 @@
       "assetsDir": "public/images/guaratuba-sabores-da-baia",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/guaratuba-sabores-da-baia/hero-og.jpg",
         "/images/guaratuba-sabores-da-baia/logo.svg",
@@ -935,6 +965,7 @@
       "assetsDir": "public/images/hbk-iluminacao-led",
       "ctaMode": "quote",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/hbk-iluminacao-led/hero-og.jpg",
         "/images/hbk-iluminacao-led/hero.webp",
@@ -965,6 +996,7 @@
       "assetsDir": "public/images/heloa-gas",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/heloa-gas/entrega.jpg",
         "/images/heloa-gas/hero.jpg",
@@ -994,6 +1026,7 @@
       "assetsDir": "public/images/jc-revestimentos",
       "ctaMode": "quote",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/jc-revestimentos/hero-og.jpg",
         "/images/jc-revestimentos/hero.webp",
@@ -1024,6 +1057,7 @@
       "assetsDir": "public/images/jkl-marcenaria",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/jkl-marcenaria/cozinha-og.jpg",
         "/images/jkl-marcenaria/cozinha.webp"
@@ -1052,6 +1086,7 @@
       "assetsDir": "public/images/liz-moraes-nail-designer",
       "ctaMode": "booking",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/liz-moraes-nail-designer/hero-og.jpg",
         "/images/liz-moraes-nail-designer/hero.png",
@@ -1081,6 +1116,7 @@
       "assetsDir": "public/images/lj-cleaning",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/lj-cleaning/hero-og.jpg",
         "/images/lj-cleaning/hero.png",
@@ -1110,6 +1146,7 @@
       "assetsDir": "public/images/lk-alvenaria",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/lk-alvenaria/perfil.png",
         "/images/lk-alvenaria/perfil.webp",
@@ -1141,6 +1178,7 @@
       "assetsDir": "public/images/lolipa-arte-em-festas",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/lolipa-arte-em-festas/decoracao-branca.png",
         "/images/lolipa-arte-em-festas/decoracao-colorida.png",
@@ -1175,6 +1213,7 @@
       "assetsDir": "public/images/lucas-arruma-maquina-lavar",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/lucas-arruma-maquina-lavar/capa-og.jpg",
         "/images/lucas-arruma-maquina-lavar/capa.png",
@@ -1204,6 +1243,7 @@
       "assetsDir": "public/images/manu-pasteis",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/manu-pasteis/hero-og.jpg",
         "/images/manu-pasteis/hero.png",
@@ -1233,6 +1273,7 @@
       "assetsDir": "public/images/mestre-dos-servicos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/marido-de-aluguel/logo.jpg",
         "/images/marido-de-aluguel/social.jpg"
@@ -1261,6 +1302,7 @@
       "assetsDir": "public/images/marmitaria-dom-diego",
       "ctaMode": "order",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/marmitaria-dom-diego/capa-og.jpg",
         "/images/marmitaria-dom-diego/capa.png"
@@ -1289,6 +1331,7 @@
       "assetsDir": "public/images/mary-diarista",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/mary-diarista/servicos-og.jpg",
         "/images/mary-diarista/servicos.webp"
@@ -1317,6 +1360,7 @@
       "assetsDir": "public/images/mirassol-conserta-celular",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/mirassol-conserta-celular/hero-og.jpg",
         "/images/mirassol-conserta-celular/logo.svg",
@@ -1346,6 +1390,7 @@
       "assetsDir": "public/images/mirassol-delicias-caseiras",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/mirassol-delicias-caseiras/hero-og.jpg",
         "/images/mirassol-delicias-caseiras/logo.svg",
@@ -1375,6 +1420,7 @@
       "assetsDir": "public/images/miro-tech",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/miro-tech/hero-og.jpg",
         "/images/miro-tech/hero.png",
@@ -1404,6 +1450,7 @@
       "assetsDir": "public/images/mp-festas-eventos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/mp-festas-eventos/capa-og.jpg",
         "/images/mp-festas-eventos/capa.png",
@@ -1435,6 +1482,7 @@
       "assetsDir": "public/images/no-brilho-higienizacao",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/no-brilho-higienizacao/capa-og.jpg",
         "/images/no-brilho-higienizacao/capa.png",
@@ -1464,6 +1512,7 @@
       "assetsDir": "public/images/paraiso-do-hot-dog",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/paraiso-do-hot-dog/capa.png",
         "/images/paraiso-do-hot-dog/capa.webp",
@@ -1493,6 +1542,7 @@
       "assetsDir": "public/images/paulo-mestre-de-obras",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/paulo-mestre-de-obras/acabamento.webp",
         "/images/paulo-mestre-de-obras/alvenaria.webp",
@@ -1526,6 +1576,7 @@
       "assetsDir": "public/images/premium-envelopamentos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/premium-envelopamentos/galeria-oficina.png",
         "/images/premium-envelopamentos/hero-og.jpg",
@@ -1556,6 +1607,7 @@
       "assetsDir": "public/images",
       "ctaMode": "booking",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/r_beauty/hero-og.jpg",
         "/images/r_beauty/logo.svg",
@@ -1586,6 +1638,7 @@
       "assetsDir": "public/images/raphael-construcoes",
       "ctaMode": "quote",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/raphael-construcoes/hero-og.jpg",
         "/images/raphael-construcoes/hero.webp",
@@ -1616,6 +1669,7 @@
       "assetsDir": "public/images/refrigeracao-maresia",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/refrigeracao-maresia/capa-og.jpg",
         "/images/refrigeracao-maresia/capa.png",
@@ -1649,6 +1703,7 @@
       "assetsDir": "public/images",
       "ctaMode": "booking",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/renata-beauty/flyer.jpg",
         "/images/renata-beauty/hero.webp",
@@ -1679,6 +1734,7 @@
       "assetsDir": "public/images/reuse-house-brecho",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/reuse-house-brecho/capa-og.jpg",
         "/images/reuse-house-brecho/capa.png"
@@ -1707,6 +1763,7 @@
       "assetsDir": "public/images/rj-servicos-drywall",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/rj-servicos-drywall/acabamento-sala-og.jpg",
         "/images/rj-servicos-drywall/acabamento-sala.webp",
@@ -1736,6 +1793,7 @@
       "assetsDir": "public/images/rm-fretes",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/rm-fretes/anuncio-oficial.png",
         "/images/rm-fretes/carroceria-carga.png",
@@ -1765,6 +1823,7 @@
       "assetsDir": "public/images/salao-da-marcia",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/salao-da-marcia/depilacao-og.jpg",
         "/images/salao-da-marcia/depilacao.png",
@@ -1798,6 +1857,7 @@
       "assetsDir": "public/images/santos-montador-de-moveis",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/santos-montador-de-moveis/hero-og.jpg",
         "/images/santos-montador-de-moveis/hero.png",
@@ -1827,6 +1887,7 @@
       "assetsDir": "public/images/sos-presentes-cosmeticos",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/sos-presentes-cosmeticos/caneca-eu-te-protejo.png",
         "/images/sos-presentes-cosmeticos/canecas-combo.png",
@@ -1860,6 +1921,7 @@
       "assetsDir": "public/images/studio-de-cilios",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/studio-de-cilios/portfolio-1-og.jpg",
         "/images/studio-de-cilios/portfolio-1.png",
@@ -1891,6 +1953,7 @@
       "assetsDir": "public/images/thays-camilla",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/thays-camilla/hero-og.jpg",
         "/images/thays-camilla/hero-og.png",
@@ -1921,6 +1984,7 @@
       "assetsDir": "public/images/ton-e-cor",
       "ctaMode": "quote",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/ton-e-cor/hero-og.jpg",
         "/images/ton-e-cor/hero.webp",
@@ -1951,6 +2015,7 @@
       "assetsDir": "public/images/toquinho-de-gente-brecho",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/toquinho-de-gente-brecho/capa-og.jpg",
         "/images/toquinho-de-gente-brecho/capa.png"
@@ -1979,6 +2044,7 @@
       "assetsDir": "public/images/uberlandia-eletrica-residencial",
       "ctaMode": "",
       "hasCta": false,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/uberlandia-eletrica-residencial/hero-og.jpg",
         "/images/uberlandia-eletrica-residencial/logo.svg",
@@ -2008,6 +2074,7 @@
       "assetsDir": "public/images/vila-da-capivara",
       "ctaMode": "proposal",
       "hasCta": true,
+      "hasOwnDescription": true,
       "gallery": [
         "/images/vila-da-capivara/capa-og.jpg",
         "/images/vila-da-capivara/capa.png",
@@ -2051,6 +2118,7 @@
       "assetsDir": "public/images/woodhouse-hamburgueres",
       "ctaMode": "order",
       "hasCta": true,
+      "hasOwnDescription": false,
       "gallery": [
         "/images/woodhouse-hamburgueres/capa-og.jpg",
         "/images/woodhouse-hamburgueres/capa.png"
