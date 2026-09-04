@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T06:28:08.324Z",
+  "generatedAt": "2026-09-04T06:47:00.900Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -73,6 +73,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o modelo, o sintoma e quando o problema começou.",
+      "funnelCta": "Pedir diagnóstico",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -204,6 +209,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tipo de limpeza, a frequência e o melhor dia para você.",
+      "funnelCta": "Consultar agenda",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -335,6 +345,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o projeto e os materiais que precisa cotar.",
+      "funnelCta": "Solicitar cotação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -459,6 +474,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, a instalação e o resultado que procura.",
+      "funnelCta": "Avaliar solução elétrica",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -583,6 +603,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
+      "funnelCta": "Escolher atendimento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -707,6 +732,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe a peça, a necessidade e a região do atendimento.",
+      "funnelCta": "Agendar higienização",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -831,6 +861,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a data, o tipo de comemoração e o que imagina servir.",
+      "funnelCta": "Planejar minha festa",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -955,6 +990,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "reserva",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tema, a data e o formato que combina com sua celebração.",
+      "funnelCta": "Planejar decoração",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1072,6 +1112,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o serviço de cabelo, depilação ou beleza que procura.",
+      "funnelCta": "Reservar horário",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1189,6 +1234,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha um estilo ou conte o efeito que deseja alcançar.",
+      "funnelCta": "Escolher estilo",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1306,6 +1356,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a data, o número de pessoas e o tipo de doce que procura.",
+      "funnelCta": "Planejar minha encomenda",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1437,6 +1492,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte sua rotina e o tipo de refeição que deseja receber no dia a dia.",
+      "funnelCta": "Ver marmitas do dia",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1561,6 +1621,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a ocasião, o estilo e a lembrança que deseja encomendar.",
+      "funnelCta": "Escolher meu presente",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1685,6 +1750,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tipo de embarcação e o cuidado náutico que precisa avaliar.",
+      "funnelCta": "Descrever minha embarcação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1809,6 +1879,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o ambiente e a instalação elétrica que precisa revisar.",
+      "funnelCta": "Descrever o serviço elétrico",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -1933,6 +2008,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Indique seu estilo, tamanho e o tipo de peça que procura.",
+      "funnelCta": "Falar sobre uma peça",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2050,6 +2130,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tipo de peça, o tamanho e o estilo que procura.",
+      "funnelCta": "Consultar peças",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2167,6 +2252,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o estilo e a peça que procura para receber as opções disponíveis.",
+      "funnelCta": "Consultar peças",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2284,6 +2374,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte se procura peças adultas ou infantis e o tamanho que precisa.",
+      "funnelCta": "Consultar peças",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2401,6 +2496,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o espaço, a demarcação e o objetivo do projeto.",
+      "funnelCta": "Avaliar sinalização",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2518,6 +2618,11 @@
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte se procura almoço, frutos do mar ou uma ocasião para compartilhar.",
+      "funnelCta": "Ver o cardápio",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2642,6 +2747,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha a ocasião e conte quantas pessoas quer receber.",
+      "funnelCta": "Montar meu kit",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2752,6 +2862,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "reserva",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a data, o número de pessoas e o horário que pretende visitar o bistrô.",
+      "funnelCta": "Planejar minha visita",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2876,6 +2991,11 @@
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o ambiente e o reparo que precisa organizar.",
+      "funnelCta": "Descrever o reparo",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -2993,6 +3113,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Indique o cuidado, acabamento ou molde F1 que deseja e escolha o melhor período para agendar.",
+      "funnelCta": "Agendar meu horário",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3110,6 +3235,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a fase da construção ou reforma que quer avaliar.",
+      "funnelCta": "Avaliar minha obra",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3220,6 +3350,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o aparelho, o sintoma e quando o problema começou.",
+      "funnelCta": "Descrever meu aparelho",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3337,6 +3472,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha a ocasião e conte o que gostaria de encontrar no menu.",
+      "funnelCta": "Conhecer sabores",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3447,6 +3587,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha pizza, esfiha ou lanche e indique a ocasião do pedido.",
+      "funnelCta": "Explorar opções",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3557,6 +3702,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Explique o reparo, a montagem ou a instalação que precisa fazer.",
+      "funnelCta": "Descrever o serviço",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3674,6 +3824,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que procura no cardápio e como prefere fazer o pedido.",
+      "funnelCta": "Conhecer cardápio",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3784,6 +3939,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
+      "funnelCta": "Fazer meu pedido",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -3894,6 +4054,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Indique a especialidade ou a orientação que procura para o atendimento.",
+      "funnelCta": "Agendar atendimento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4011,6 +4176,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o equipamento, o sintoma e o momento mais adequado.",
+      "funnelCta": "Relatar o problema",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4121,6 +4291,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a data, a ocasião e o que deseja encomendar para sua celebração.",
+      "funnelCta": "Planejar encomenda",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4225,12 +4400,17 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 72,
+      "originalityScore": 71,
       "originalityStatus": "FAIL",
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o móvel, a instalação ou o reparo que precisa realizar.",
+      "funnelCta": "Organizar montagem",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4293,7 +4473,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "72 vs lucas-arruma-maquina-lavar"
+          "detail": "71 vs lucas-arruma-maquina-lavar"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -4334,6 +4514,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o equipamento e o tipo de manutenção necessária.",
+      "funnelCta": "Solicitar suporte técnico",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4437,6 +4622,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, as medidas e a ideia que quer realizar.",
+      "funnelCta": "Planejar móvel",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4540,6 +4730,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.",
+      "funnelCta": "Solicitar orçamento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4650,6 +4845,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.",
+      "funnelCta": "Solicitar avaliação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4760,6 +4960,11 @@
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o assunto para entender a melhor forma de iniciar.",
+      "funnelCta": "Solicitar orientação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4877,6 +5082,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.",
+      "funnelCta": "Abrir cardápio",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -4994,6 +5204,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a ocasião, a estampa ou a quantidade que deseja conhecer.",
+      "funnelCta": "Conhecer os produtos",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5091,12 +5306,17 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 66,
+      "originalityScore": 65,
       "originalityStatus": "FAIL",
-      "originalityNearest": "premium-envelopamentos",
+      "originalityNearest": "artesanatos-darleia-oliveira",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o defeito, a ferrugem ou o modelo revisado que deseja avaliar com a equipe.",
+      "funnelCta": "Solicitar avaliação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5166,7 +5386,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs premium-envelopamentos"
+          "detail": "65 vs artesanatos-darleia-oliveira"
         }
       ],
       "priority": 2
@@ -5200,6 +5420,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o desafio de marca, conteúdo ou vendas que quer resolver.",
+      "funnelCta": "Conversar sobre estratégia",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5303,6 +5528,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a ocasião, a ideia e quando você precisa do presente.",
+      "funnelCta": "Montar um presente",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5399,6 +5629,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a mensagem, a imagem ou a ocasião que deseja personalizar.",
+      "funnelCta": "Montar meu presente",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5502,6 +5737,11 @@
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a ocasião, o estilo e a lembrança que quer criar.",
+      "funnelCta": "Escolher lembrancinha",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5605,6 +5845,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que motivou sua busca e escolha o melhor período para iniciar uma avaliação.",
+      "funnelCta": "Agendar avaliação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5708,6 +5953,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "reserva",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a data, o local e o perfil da comemoração para montar seu pedido.",
+      "funnelCta": "Planejar diversão",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5811,6 +6061,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o ambiente e a solução técnica que precisa avaliar.",
+      "funnelCta": "Solicitar avaliação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -5907,6 +6162,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte se precisa de drywall, pintura, reforma, montagem, jardim ou frete e indique a região.",
+      "funnelCta": "Pedir orçamento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6010,6 +6270,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o cuidado que deseja e a preferência de horário para o atendimento.",
+      "funnelCta": "Conhecer cuidados",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6113,6 +6378,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Veja os procedimentos e indique o cuidado que procura para o seu horário.",
+      "funnelCta": "Ver procedimentos",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6209,6 +6479,11 @@
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Veja as combinações e monte um pedido de acordo com sua fome.",
+      "funnelCta": "Montar pedido",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6305,6 +6580,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que deseja construir, reformar ou reparar.",
+      "funnelCta": "Planejar minha obra",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6401,6 +6681,11 @@
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega.",
+      "funnelCta": "Fazer pedido",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6491,12 +6776,17 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 68,
+      "originalityScore": 69,
       "originalityStatus": "FAIL",
       "originalityNearest": "eletrovale-eletromecanica",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha o tamanho, os cremes e os complementos que mais gosta.",
+      "funnelCta": "Escolher meu açaí",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6545,7 +6835,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "68 vs eletrovale-eletromecanica"
+          "detail": "69 vs eletrovale-eletromecanica"
         }
       ],
       "priority": 2
@@ -6573,12 +6863,17 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 70,
+      "originalityScore": 71,
       "originalityStatus": "FAIL",
       "originalityNearest": "premium-envelopamentos",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "reserva",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tema, a ocasião e os detalhes que gostaria de transformar em decoração.",
+      "funnelCta": "Planejar minha festa",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6627,7 +6922,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "70 vs premium-envelopamentos"
+          "detail": "71 vs premium-envelopamentos"
         }
       ],
       "priority": 2
@@ -6655,12 +6950,17 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 70,
+      "originalityScore": 71,
       "originalityStatus": "FAIL",
       "originalityNearest": "lolipa-arte-em-festas",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte qual móvel, geladeira ou superfície você quer transformar e qual estilo imagina.",
+      "funnelCta": "Planejar transformação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6709,7 +7009,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "70 vs lolipa-arte-em-festas"
+          "detail": "71 vs lolipa-arte-em-festas"
         }
       ],
       "priority": 2
@@ -6743,6 +7043,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe origem, destino, itens e a data que precisa atender.",
+      "funnelCta": "Organizar meu frete",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6839,6 +7144,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação.",
+      "funnelCta": "Solicitar cotação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -6935,6 +7245,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o produto, o ambiente e a metragem para organizar a orientação e o orçamento.",
+      "funnelCta": "Solicitar orçamento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -7031,6 +7346,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
+      "funnelCta": "Solicitar avaliação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -7127,6 +7447,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o espaço, o acabamento desejado e a etapa da obra.",
+      "funnelCta": "Avaliar ambiente",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -7216,6 +7541,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que precisa montar, instalar, pintar ou reparar.",
+      "funnelCta": "Organizar serviço",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -7305,6 +7635,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
+      "funnelCta": "Pedir orçamento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
@@ -7401,6 +7736,11 @@
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
+      "funnelIntent": "solicitacao",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o objetivo, a região e o momento da sua campanha.",
+      "funnelCta": "Planejar uma ação",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
