@@ -207,6 +207,7 @@ import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
 import { Route as AuthenticatedAppPortfolioIndexRouteImport } from './routes/_authenticated/app.portfolio.index'
 import { Route as AuthenticatedAppPortfolioSlugRouteImport } from './routes/_authenticated/app.portfolio.$slug'
+import { Route as AuthenticatedAppPortfolioOriginalidadeRouteImport } from './routes/_authenticated/app.portfolio.originalidade'
 import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authenticated/app.projects.$id'
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
@@ -1278,6 +1279,12 @@ const AuthenticatedAppPortfolioSlugRoute =
     path: '/portfolio/$slug',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPortfolioOriginalidadeRoute =
+  AuthenticatedAppPortfolioOriginalidadeRouteImport.update({
+    id: '/portfolio/originalidade',
+    path: '/portfolio/originalidade',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppProjectsIdRoute =
   AuthenticatedAppProjectsIdRouteImport.update({
     id: '/$id',
@@ -1597,6 +1604,7 @@ export interface FileRoutesByFullPath {
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
   '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
+  '/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -1813,6 +1821,7 @@ export interface FileRoutesByTo {
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
   '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
+  '/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2035,6 +2044,7 @@ export interface FileRoutesById {
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
   '/_authenticated/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
+  '/_authenticated/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
   '/_authenticated/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/_authenticated/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/_authenticated/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2257,6 +2267,7 @@ export interface FileRouteTypes {
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
     | '/app/portfolio/$slug'
+    | '/app/portfolio/originalidade'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2473,6 +2484,7 @@ export interface FileRouteTypes {
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
     | '/app/portfolio/$slug'
+    | '/app/portfolio/originalidade'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2694,6 +2706,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
     | '/_authenticated/app/portfolio/$slug'
+    | '/_authenticated/app/portfolio/originalidade'
     | '/_authenticated/app/projects/$id'
     | '/_authenticated/app/servicos/seo-diff'
     | '/_authenticated/app/support/$id'
@@ -4248,6 +4261,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppPortfolioSlugRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/portfolio/originalidade': {
+      id: '/_authenticated/app/portfolio/originalidade'
+      path: '/portfolio/originalidade'
+      fullPath: '/app/portfolio/originalidade'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioOriginalidadeRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/projects/$id': {
       id: '/_authenticated/app/projects/$id'
       path: '/$id'
@@ -4561,6 +4581,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
   AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
   AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
+  AuthenticatedAppPortfolioOriginalidadeRoute: typeof AuthenticatedAppPortfolioOriginalidadeRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
   AuthenticatedAppPortfolioIndexRoute: typeof AuthenticatedAppPortfolioIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
@@ -4620,6 +4641,8 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
   AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
   AuthenticatedAppPortfolioSlugRoute: AuthenticatedAppPortfolioSlugRoute,
+  AuthenticatedAppPortfolioOriginalidadeRoute:
+    AuthenticatedAppPortfolioOriginalidadeRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
   AuthenticatedAppPortfolioIndexRoute: AuthenticatedAppPortfolioIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:

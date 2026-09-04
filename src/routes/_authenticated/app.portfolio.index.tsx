@@ -125,6 +125,12 @@ function PortfolioAdminList() {
         >
           <Download className="h-4 w-4" aria-hidden="true" /> Importar registries
         </button>
+        <Link
+          to="/app/portfolio/originalidade"
+          className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium"
+        >
+          Originalidade
+        </Link>
       </div>
 
       {summary && (
