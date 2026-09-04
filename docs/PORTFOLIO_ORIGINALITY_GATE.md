@@ -141,3 +141,25 @@ Marca, capa e imagem social são comparadas por hash de conteúdo entre clientes
 `reports/portfolio-originality.md` traz o top 20 de pares com todas as
 dimensões, e `reports/portfolio-originality.json` inclui `pairMatrix.nearest`
 com os três vizinhos mais próximos de cada projeto.
+
+## Q3B — aprendizados do cluster de comida
+
+Cluster confirmado: `CLUSTER_01` (`beto-pasteis`, `dlara-pizzaria`,
+`marmitaria-dom-diego`, `woodhouse-hamburgueres`), par 88,
+`IDENTICAL_COMPONENT_STRUCTURE`, com STRUCTURE/ORDER/COMPONENT/STYLE/ASSET/
+IDENTITY todos em 100 e COPY em 0.
+
+Leituras confirmadas em duas rodadas:
+
+- **Copy diferente não salva página clonada.** COPY_SIMILARITY 0 e ainda assim
+  score 88: as dimensões estruturais dominam o clone percebido.
+- **O que mais move o número** é, nesta ordem: esqueleto de blocos, ordem das
+  seções, conjunto de componentes próprios e vocabulário de classes.
+- **Trocar cor, capa ou logo não dissolve cluster.** Só muda IDENTITY, peso 0.03.
+- **O que dissolveu bem** (brechós e comida): mudar o eixo de leitura (coluna
+  lateral, disco central, imagem sangrada, caderno), trocar o elemento que
+  apresenta a oferta (lista com fio pontilhado, colunas divididas, lista
+  numerada, blocos em escada) e variar a posição do CTA na narrativa.
+- **Segmento não é estilo.** Quatro negócios de comida receberam registros
+  distintos: balcão de bairro, forno noturno, caderno de cozinha e casa
+  noturna urbana.
