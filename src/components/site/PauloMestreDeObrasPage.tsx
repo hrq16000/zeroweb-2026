@@ -1,3 +1,4 @@
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import {
@@ -142,13 +143,15 @@ const gallery = [
 ];
 
 export function PauloMestreDeObrasPage() {
+  const logo = useManagedValue("logoUrl", LOGO);
+  const capa = useManagedValue("heroImageUrl", "/images/paulo-mestre-de-obras/capa.webp");
   return (
     <div className="min-h-dvh overflow-hidden bg-[#f7f5ef] text-[#14243e]">
       <header className="sticky top-0 z-30 border-b border-white/15 bg-[#101d35]/95 px-5 py-3 text-white backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-3">
             <PortfolioImage
-              src={LOGO}
+              src={logo}
               alt="Logo Paulo Mestre de Obras"
               priority
               width={640}
@@ -242,7 +245,7 @@ export function PauloMestreDeObrasPage() {
               transition={{ duration: 0.7 }}
             >
               <PortfolioImage
-                src="/images/paulo-mestre-de-obras/capa.webp"
+                src={capa}
                 alt="Serviços de pedreiro e azulejista de Paulo Mestre de Obras"
                 priority
                 width={1084}
