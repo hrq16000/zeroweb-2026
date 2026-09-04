@@ -5,6 +5,6 @@
   <circle cx="1120" cy="96" r="220" fill="#22201c" opacity=".22"/>
   <circle cx="1040" cy="600" r="150" fill="#3a5a49" opacity=".18"/>
   <text x="80" y="392" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#1a1a1a">Almeida Torres Advocacia</text>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#3a3a3a" opacity=".92">juridico</text>
-  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#22201c">São Paulo — SP</text>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#3a3a3a" opacity=".92">Jurídico</text>
+  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#1a1a1a" opacity=".72">São Paulo — SP</text>
 </svg>

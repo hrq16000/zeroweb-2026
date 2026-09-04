@@ -37,6 +37,20 @@ for (const [slug, entry] of Object.entries(review.projects ?? {})) {
   const inkSoft = dark ? "#ffffff" : "#3a3a3a";
 
   const logo = await sharp(logoPath).resize({ width: 620 }).png().toBuffer();
+  // Marcas desenhadas sobre fundo claro ganham um cartão branco arredondado,
+  // para a aplicação parecer intencional em vez de um retângulo colado.
+  const meta = await sharp(logo).metadata();
+  const corner = await sharp(logo).extract({ left: 2, top: 2, width: 6, height: 6 }).stats();
+  const lightPlate = corner.channels.slice(0, 3).every((ch) => ch.mean > 200);
+  const card = lightPlate
+    ? await sharp(
+        Buffer.from(
+          `<svg xmlns="http://www.w3.org/2000/svg" width="${meta.width + 56}" height="${meta.height + 56}"><rect width="${meta.width + 56}" height="${meta.height + 56}" rx="34" fill="#ffffff"/></svg>`,
+        ),
+      )
+        .png()
+        .toBuffer()
+    : null;
 
   const bg = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <rect width="1200" height="630" fill="${esc(base)}"/>
@@ -44,13 +58,16 @@ for (const [slug, entry] of Object.entries(review.projects ?? {})) {
   <circle cx="1120" cy="96" r="220" fill="${esc(accent)}" opacity="${dark ? ".16" : ".22"}"/>
   <circle cx="1040" cy="600" r="150" fill="${esc(soft ?? accent)}" opacity="${dark ? ".12" : ".18"}"/>
   <text x="80" y="392" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="${ink}">${esc(item.title)}</text>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="${inkSoft}" opacity=".92">${esc(item.segment.replace(/-/g, " "))}</text>
-  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="${esc(accent)}">${esc(`${item.city} — ${item.state}`)}</text>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="${inkSoft}" opacity=".92">${esc(segmentLabel(item.segment))}</text>
+  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="${ink}" opacity=".72">${esc(`${item.city} — ${item.state}`)}</text>
 </svg>`);
 
   const out = resolve("public", `images/${slug}/hero-og.jpg`);
   const jpg = await sharp(bg)
-    .composite([{ input: logo, top: 120, left: 80 }])
+    .composite([
+      ...(card ? [{ input: card, top: 92, left: 52 }] : []),
+      { input: logo, top: 120, left: 80 },
+    ])
     .jpeg({ quality: 86, progressive: true })
     .toBuffer();
   await writeFile(out, jpg);
@@ -70,6 +87,20 @@ for (const [slug, entry] of Object.entries(review.projects ?? {})) {
 
 await writeFile(assetsPath, `${JSON.stringify(assets, null, 2)}\n`);
 console.log(`[brand-social] ${done} imagem(ns) social(is) regenerada(s) a partir da marca autoral.`);
+
+function segmentLabel(segment) {
+  const labels = {
+    restaurantes: "Restaurante",
+    saude: "Saúde",
+    juridico: "Jurídico",
+    beleza: "Beleza",
+    comercios: "Comércio",
+    servicos: "Serviços",
+    construcao: "Construção",
+    "prestadores-de-servicos": "Prestador de serviços",
+  };
+  return labels[segment] ?? segment.replace(/-/g, " ");
+}
 
 function isDark(hex) {
   const n = hex.replace("#", "");

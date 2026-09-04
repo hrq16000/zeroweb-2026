@@ -5,6 +5,6 @@
   <circle cx="1120" cy="96" r="220" fill="#ff7a1a" opacity=".16"/>
   <circle cx="1040" cy="600" r="150" fill="#8fb6d8" opacity=".12"/>
   <text x="80" y="392" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Oficina Náutica Guaratuba</text>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">prestadores de servicos</text>
-  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ff7a1a">Guaratuba — PR</text>
+  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">Prestador de serviços</text>
+  <text x="80" y="530" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ffffff" opacity=".72">Guaratuba — PR</text>
 </svg>
