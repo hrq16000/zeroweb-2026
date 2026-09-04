@@ -824,3 +824,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Validação: conformidade 68/68 COMPLETE, tsgo limpo, 294 testes, build verde,
   scanner de privacidade sem contatos no bundle público, QA 390px/1280px sem
   overflow e sem erros de console.
+
+## 2026-09-04 — Rodada 3/4 (parte 1): admin → runtime público
+- Skills: 0web-skill-router, 0web-design-system, 0web-ui-quality-gates.
+- Resolver único `portfolio-runtime` + leitura pública sanitizada + contexto managed.
+- SEO/OG/social image/canonical/robots do admin chegam ao SSR; draft/archived saem do índice e do sitemap.
+- Gate `check:portfolio-runtime-overrides` no prebuild + matriz por componente.
+- Validação: SSR real com override e rollback, 302 testes, build e privacidade verdes.
+- Pendente: wizard de novo projeto e componente managed (Frentes K–Q).
