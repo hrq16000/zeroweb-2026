@@ -18,8 +18,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 7,
-    "attention": 16,
-    "highSimilarity": 30,
+    "attention": 20,
+    "highSimilarity": 26,
     "clone": 15,
     "sharedFallback": 0,
     "clusters": 3,
@@ -881,17 +881,17 @@
     },
     {
       "slug": "hbk-iluminacao-led",
-      "score": 68,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 42,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 68,
+      "nearestMatchScore": 42,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 23.8,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 20.9,
+        "SECTION_ORDER_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 38.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -935,17 +935,17 @@
     },
     {
       "slug": "jc-revestimentos",
-      "score": 68,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 42,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 68,
+      "nearestMatchScore": 42,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 23.8,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 20.9,
+        "SECTION_ORDER_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 38.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -1475,17 +1475,17 @@
     },
     {
       "slug": "raphael-construcoes",
-      "score": 68,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 44,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "ton-e-cor",
-      "nearestMatchScore": 68,
+      "nearestMatchScore": 44,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 37,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 80,
+        "STRUCTURE_SIMILARITY": 25.4,
+        "SECTION_ORDER_SIMILARITY": 36.4,
+        "COMPONENT_SIMILARITY": 57.1,
         "STYLE_SIMILARITY": 40.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -1772,17 +1772,17 @@
     },
     {
       "slug": "ton-e-cor",
-      "score": 68,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 44,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "raphael-construcoes",
-      "nearestMatchScore": 68,
+      "nearestMatchScore": 44,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 37,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 80,
+        "STRUCTURE_SIMILARITY": 25.4,
+        "SECTION_ORDER_SIMILARITY": 36.4,
+        "COMPONENT_SIMILARITY": 57.1,
         "STYLE_SIMILARITY": 40.8,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -1826,19 +1826,19 @@
     },
     {
       "slug": "uberlandia-eletrica-residencial",
-      "score": 49,
+      "score": 45,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 49,
+      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatchScore": 45,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 30,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 37.8,
-        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "STRUCTURE_SIMILARITY": 17.5,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 25,
+        "STYLE_SIMILARITY": 48.5,
+        "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [

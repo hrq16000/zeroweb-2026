@@ -21,8 +21,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Total | 68 |
 | ORIGINAL | 0 |
 | ACCEPTABLE | 7 |
-| ATTENTION | 16 |
-| HIGH_SIMILARITY | 30 |
+| ATTENTION | 20 |
+| HIGH_SIMILARITY | 26 |
 | CLONE | 15 |
 | SHARED_FALLBACK | 0 |
 | Clusters | 3 |
@@ -80,10 +80,6 @@ Membros: espaco-cih-luh, salao-da-marcia
 | miro-tech | 70 | HIGH_SIMILARITY | lj-cleaning (70) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | premium-envelopamentos | 70 | HIGH_SIMILARITY | lolipa-arte-em-festas (70) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | acai-total-araucaria | 68 | HIGH_SIMILARITY | eletrovale-eletromecanica (68) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| hbk-iluminacao-led | 68 | HIGH_SIMILARITY | jc-revestimentos (68) | NEAR_DUPLICATE_LAYOUT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| jc-revestimentos | 68 | HIGH_SIMILARITY | hbk-iluminacao-led (68) | NEAR_DUPLICATE_LAYOUT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| raphael-construcoes | 68 | HIGH_SIMILARITY | ton-e-cor (68) | NEAR_DUPLICATE_LAYOUT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| ton-e-cor | 68 | HIGH_SIMILARITY | raphael-construcoes (68) | NEAR_DUPLICATE_LAYOUT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | assistencia-microondas-santos | 66 | HIGH_SIMILARITY | premium-envelopamentos (66) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-sabor-da-realeza | 66 | HIGH_SIMILARITY | lolipa-arte-em-festas (66) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | liz-moraes-nail-designer | 66 | HIGH_SIMILARITY | salao-da-marcia (66) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -106,12 +102,16 @@ Membros: espaco-cih-luh, salao-da-marcia
 | mirassol-delicias-caseiras | 51 | ATTENTION | guaratuba-atelie-presentes (51) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | clinica-integrada | 49 | ATTENTION | confeitaria-sabor-da-realeza (49) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | mirassol-conserta-celular | 49 | ATTENTION | mirassol-delicias-caseiras (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| uberlandia-eletrica-residencial | 49 | ATTENTION | hbk-iluminacao-led (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | casa-nativa | 48 | ATTENTION | guaratuba-oficina-nautica (48) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | guaratuba-oficina-nautica | 48 | ATTENTION | casa-nativa (48) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | heloa-gas | 47 | ATTENTION | lj-cleaning (47) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | bh-barreiro-marmitas | 45 | ATTENTION | uberlandia-eletrica-residencial (45) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| uberlandia-eletrica-residencial | 45 | ATTENTION | bh-barreiro-marmitas (45) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | marido-de-aluguel | 44 | ATTENTION | lk-alvenaria (44) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| raphael-construcoes | 44 | ATTENTION | ton-e-cor (44) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| ton-e-cor | 44 | ATTENTION | raphael-construcoes (44) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| hbk-iluminacao-led | 42 | ATTENTION | jc-revestimentos (42) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| jc-revestimentos | 42 | ATTENTION | hbk-iluminacao-led (42) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | rm-fretes | 40 | ACCEPTABLE | marido-de-aluguel (40) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-reparos-residenciais | 37 | ACCEPTABLE | uberlandia-eletrica-residencial (37) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | guaratuba-sabores-da-baia | 36 | ACCEPTABLE | uberlandia-eletrica-residencial (36) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
@@ -122,13 +122,13 @@ Membros: espaco-cih-luh, salao-da-marcia
 
 ## Regressão
 
-Veredito: **FAIL**
+Veredito: **PASS**
 
-- COUNTER: {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":26,"after":30}
+Nenhuma regressão em relação à baseline.
 
 Melhorias:
 - {"kind":"COUNTER","key":"clone","label":"clones","before":19,"after":15}
-- {"kind":"MODIFIED_PROJECT","slug":"hbk-iluminacao-led","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"jc-revestimentos","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"raphael-construcoes","before":"CLONE","after":"HIGH_SIMILARITY"}
-- {"kind":"MODIFIED_PROJECT","slug":"ton-e-cor","before":"CLONE","after":"HIGH_SIMILARITY"}
+- {"kind":"MODIFIED_PROJECT","slug":"hbk-iluminacao-led","before":"CLONE","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"jc-revestimentos","before":"CLONE","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"raphael-construcoes","before":"CLONE","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"ton-e-cor","before":"CLONE","after":"ATTENTION"}
