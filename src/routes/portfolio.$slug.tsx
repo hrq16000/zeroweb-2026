@@ -14,6 +14,110 @@ import {
 } from "@/lib/portfolio-runtime";
 import { getPortfolioRuntimeOverrides } from "@/lib/portfolio-runtime.functions";
 import { PortfolioRuntimeProvider } from "@/components/portfolio/PortfolioRuntimeContext";
+import { getManagedProject } from "@/lib/portfolio-managed.functions";
+import type { ManagedProject } from "@/lib/portfolio-managed";
+import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
+
+/** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
+function managedHead(project: ManagedProject) {
+  const url = project.canonicalUrl;
+  const social = project.socialImage
+    ? project.socialImage.startsWith("http")
+      ? project.socialImage
+      : absUrl(project.socialImage)
+    : absUrl("/og-default.jpg");
+  const icon = project.logoUrl ? absUrl(project.logoUrl) : social;
+  return {
+    meta: [
+      { title: project.seoTitle },
+      { name: "description", content: project.seoDescription },
+      { name: "robots", content: project.robots },
+      ...(project.seoKeywords ? [{ name: "keywords", content: project.seoKeywords }] : []),
+      { property: "og:title", content: project.seoTitle },
+      { property: "og:description", content: project.seoDescription },
+      { property: "og:url", content: url },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: project.displayName },
+      { property: "og:image", content: social },
+      { property: "og:image:secure_url", content: social },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: project.displayName },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: project.seoTitle },
+      { name: "twitter:description", content: project.seoDescription },
+      { name: "twitter:image", content: social },
+    ],
+    links: [
+      { rel: "canonical", href: url },
+      { rel: "icon", href: icon },
+      { rel: "apple-touch-icon", href: icon },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: graph([
+          organizationNode(),
+          {
+            "@type": "WebPage",
+            "@id": url,
+            url,
+            name: project.seoTitle,
+            description: project.seoDescription,
+            inLanguage: "pt-BR",
+            isPartOf: { "@id": "https://0web.com.br/portfolio" },
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": `${url}#localbusiness`,
+            name: project.displayName,
+            description: project.seoDescription,
+            url,
+            image: social,
+            ...(project.logoUrl ? { logo: absUrl(project.logoUrl) } : {}),
+            ...(project.city
+              ? {
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: project.city,
+                    addressRegion: project.state || "BR",
+                    addressCountry: "BR",
+                  },
+                }
+              : {}),
+            ...(project.services.length
+              ? {
+                  makesOffer: project.services.map((service) => ({
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: service.title },
+                  })),
+                }
+              : {}),
+          },
+          ...(project.content.faq.length
+            ? [
+                {
+                  "@type": "FAQPage",
+                  "@id": `${url}#faq`,
+                  mainEntity: project.content.faq.map((faq) => ({
+                    "@type": "Question",
+                    name: faq.q,
+                    acceptedAnswer: { "@type": "Answer", text: faq.a },
+                  })),
+                },
+              ]
+            : []),
+          breadcrumbNode([
+            { name: "Início", path: "/" },
+            { name: "Portfólio", path: "/portfolio" },
+            { name: project.displayName, path: `/portfolio/${project.slug}` },
+          ]),
+        ]),
+      },
+    ],
+  };
+}
+
 
 // Code splitting por cliente: cada site de `/portfolio/:slug` vira um chunk
 // próprio, então o visitante baixa apenas o projeto que abriu. O SSR continua
@@ -279,7 +383,18 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const site = findPortfolioPrototype(params.slug);
     const verticalSlug = site?.vertical;
     const vertical = verticalSlug ? VERTICALS[verticalSlug] : undefined;
-    if (!vertical) throw notFound();
+    if (!vertical) {
+      // Projeto criado pelo painel (Managed): não existe arquivo React nem
+      // entrada no registry. Só é público quando está PUBLISHED.
+      let managed: ManagedProject | null = null;
+      try {
+        managed = await getManagedProject({ data: { slug: params.slug } });
+      } catch {
+        managed = null;
+      }
+      if (!managed) throw notFound();
+      return { vertical: undefined, slug: params.slug, overrides: null, managed };
+    }
     // Overrides administráveis (admin → banco → runtime). Falha vira null:
     // a página do cliente nunca depende do banco para renderizar.
     let overrides: PortfolioRuntimeOverrides | null = null;
@@ -288,12 +403,15 @@ export const Route = createFileRoute("/portfolio/$slug")({
     } catch {
       overrides = null;
     }
-    return { vertical, slug: params.slug, overrides };
+    return { vertical, slug: params.slug, overrides, managed: null };
   },
   head: ({ loaderData }) => {
+    const managedProject = loaderData?.managed ?? null;
+    if (managedProject) return managedHead(managedProject);
     const prototype = loaderData?.slug ? findPortfolioPrototype(loaderData.slug) : undefined;
     const title =
       prototype?.siteName ?? loaderData?.vertical?.name ?? "Projeto de presença digital";
+
     const isHotDog = loaderData?.slug === "paraiso-do-hot-dog";
     const isRjDrywall = loaderData?.slug === "rj-servicos-drywall";
     const isChyrley = loaderData?.slug === "confeitaria-chyrley";
@@ -774,15 +892,24 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function PortfolioPrototypePage() {
-  const { vertical, slug, overrides } = Route.useLoaderData();
+  const { vertical, slug, overrides, managed } = Route.useLoaderData();
   const effective = applyPortfolioRuntime(
     { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
     overrides,
   );
+  // Projeto criado pelo painel: mesma casca comercial, conteúdo 100% do cliente.
+  if (managed) {
+    return (
+      <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
+        <PortfolioManagedView project={managed} />
+      </PortfolioStandardShell>
+    );
+  }
   return (
     <PortfolioRuntimeProvider value={effective}>
     <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+
         {slug === "sos-presentes-cosmeticos" ? (
           <SosPresentesCosmeticosPage />
         ) : slug === "lolipa-arte-em-festas" ? (
@@ -913,9 +1040,11 @@ function PortfolioPrototypePage() {
           <DeliciasCaseirasMirassolPage />
         ) : slug === "uberlandia-eletrica-residencial" ? (
           <UberlandiaEletricaResidencialPage />
-        ) : (
+        ) : vertical ? (
           <PrototypeSite vertical={vertical} />
-        )}
+        ) : null}
+
+
       </Suspense>
     </PortfolioStandardShell>
     </PortfolioRuntimeProvider>

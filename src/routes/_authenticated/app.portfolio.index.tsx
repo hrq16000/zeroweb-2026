@@ -82,12 +82,24 @@ function PortfolioAdminList() {
 
   return (
     <div className="max-w-6xl">
-      <h1 className="font-display text-3xl font-bold">Projetos do portfólio</h1>
-      <p className="mt-1 max-w-[70ch] text-sm text-muted-foreground">
-        Administração dos {rows.length || 68} projetos de <code>/portfolio/:slug</code>. Estrutura
-        (slug, componente, rota) vem dos registries versionados; conteúdo, SEO, assets e publicação
-        são editáveis aqui. Contatos de clientes continuam apenas no funil, no servidor.
-      </p>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="font-display text-3xl font-bold">Projetos do portfólio</h1>
+          <p className="mt-1 max-w-[70ch] text-sm text-muted-foreground">
+            Administração dos {rows.length || 68} projetos de <code>/portfolio/:slug</code>. Estrutura
+            (slug, componente, rota) vem dos registries versionados; conteúdo, SEO, assets e publicação
+            são editáveis aqui. Contatos de clientes continuam apenas no funil, no servidor.
+          </p>
+        </div>
+        <Link
+          to="/app/portfolio/novo"
+          search={{ slug: undefined }}
+          className="min-h-11 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+        >
+          Novo projeto
+        </Link>
+      </div>
+
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <div className="relative">

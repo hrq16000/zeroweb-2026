@@ -14,6 +14,8 @@ export type PortfolioSitemapOverride = {
   slug: string;
   published: boolean;
   updated_at?: string | null;
+  /** "managed" = projeto criado pelo painel, sem entrada no catálogo versionado. */
+  project_kind?: string | null;
 };
 
 type CatalogItem = {
@@ -36,13 +38,20 @@ export function buildApprovedPortfolioEntries(
   const catalog = new Map((portfolioCatalog as CatalogItem[]).map((item) => [item.slug, item]));
   const runtime = new Map(overrides.map((item) => [item.slug, item]));
 
-  const slugs = [...knownSlugs].filter((slug) => {
+  // Projetos criados pelo painel não existem no catálogo versionado: entram no
+  // sitemap apenas enquanto estiverem publicados, e saem ao serem arquivados.
+  const managedSlugs = overrides
+    .filter((item) => (item as { project_kind?: string }).project_kind === "managed" && item.published)
+    .map((item) => item.slug);
+
+  const slugs = [...new Set([...knownSlugs, ...managedSlugs])].filter((slug) => {
     const item = catalog.get(slug);
     const site = PORTFOLIO_PROTOTYPES.find((candidate) => candidate.slug === slug);
+    const override = runtime.get(slug);
+    if (!item && !site) return Boolean(override?.published);
     const approved = item
       ? APPROVED_STATUSES.has(item.status ?? "") && item.live !== false
       : Boolean(site?.indexable);
-    const override = runtime.get(slug);
     return approved && (!override || override.published);
   });
 
@@ -58,6 +67,7 @@ export function buildApprovedPortfolioEntries(
       };
     }),
   ];
+
 }
 
 /** Lê somente estados publicados do painel; falhas preservam o catálogo. */
@@ -66,10 +76,15 @@ export async function getPublishedPortfolioOverrides(): Promise<PortfolioSitemap
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data, error } = await (supabaseAdmin as any)
       .from("portfolio_client_settings")
-      .select("slug,published,updated_at")
+      .select("slug,published,updated_at,project_kind,lifecycle_status")
       .limit(1000);
     if (error) throw new Error(error.message);
-    return (data ?? []) as PortfolioSitemapOverride[];
+    return ((data ?? []) as Array<PortfolioSitemapOverride & { lifecycle_status?: string }>).map(
+      (row) => ({
+        ...row,
+        published: Boolean(row.published) && row.lifecycle_status !== "archived",
+      }),
+    );
   } catch (error) {
     console.warn("[portfolio-sitemap] runtime overrides unavailable; using catalog", error);
     return [];
@@ -94,7 +109,7 @@ export async function syncPortfolioSitemapAndIndexing(
 ) {
   const entries = await getApprovedPortfolioSitemapEntries();
   const approvedUrls = entries.map((entry) => `https://0web.com.br${entry.path}`);
-  const requested = new Set(changedSlugs.filter((slug) => knownSlugs.has(slug)));
+  const requested = new Set(changedSlugs);
   const changedUrls = requested.size
     ? approvedUrls.filter((url) =>
         [...requested].some((slug) => url.endsWith(`/portfolio/${slug}`)),
