@@ -18,16 +18,16 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 17,
-    "attention": 42,
-    "highSimilarity": 9,
+    "acceptable": 18,
+    "attention": 44,
+    "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
     "placeholderLogos": 0,
     "missingLogos": 0,
-    "missingCovers": 27,
-    "coversAsSocialImage": 11,
+    "missingCovers": 26,
+    "coversAsSocialImage": 10,
     "sharedCovers": 0,
     "severeCrop": 20,
     "invalidCrossClientAssets": 0,
@@ -998,38 +998,36 @@
       "title": "Galileu Locação de Brinquedos",
       "segment": "comercios",
       "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "score": 66,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "lj-cleaning",
-      "nearestMatchScore": 66,
+      "score": 47,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "eletro-solucoes-eficazes",
+      "nearestMatchScore": 47,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 94.7,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 96.8,
-        "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 10.7
+        "STRUCTURE_SIMILARITY": 39,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 47.2,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 9.5
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "coverRatio": 1.9,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "6d7ef679371f5b2b",
-        "structureHash": "941c3195fa90b5df",
+        "skeletonHash": "d287a23351a224fc",
+        "structureHash": "ea0bc730bb453820",
         "sectionCount": 7,
-        "lines": 25
+        "lines": 142
       }
     },
     {
@@ -1224,22 +1222,20 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "lj-cleaning",
-      "nearestMatchScore": 41,
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "miro-tech",
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.9,
+        "STRUCTURE_SIMILARITY": 51.9,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 36.4,
-        "STYLE_SIMILARITY": 48.8,
-        "COPY_SIMILARITY": 0.5,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 48.4,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 40,
-        "IDENTITY_SIMILARITY": 10
+        "IDENTITY_SIMILARITY": 14.3
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -1379,38 +1375,36 @@
       "title": "L&J Cleaning",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/LjCleaningPage.tsx",
-      "score": 66,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 45,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "galileu-locacao-brinquedos",
-      "nearestMatchScore": 66,
+      "nearestMatchScore": 45,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 94.7,
+        "STRUCTURE_SIMILARITY": 39.7,
         "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 96.8,
-        "COPY_SIMILARITY": 1.9,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 70.7,
+        "COPY_SIMILARITY": 4.8,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 10.7
+        "IDENTITY_SIMILARITY": 4
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_MISSING",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "coverRatio": 1.9,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "5c67b490142dfa80",
-        "structureHash": "37caeb8a7951708b",
+        "skeletonHash": "7425139e4e4a4757",
+        "structureHash": "e1157f707fd34167",
         "sectionCount": 7,
-        "lines": 25
+        "lines": 134
       }
     },
     {
@@ -1766,21 +1760,21 @@
       "title": "MIRO TECH",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/MiroTechPage.tsx",
-      "score": 61,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "lj-cleaning",
-      "nearestMatchScore": 61,
+      "score": 60,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "premium-envelopamentos",
+      "nearestMatchScore": 60,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 71.1,
-        "SECTION_ORDER_SIMILARITY": 50,
+        "STRUCTURE_SIMILARITY": 62.7,
+        "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 85.7,
-        "STYLE_SIMILARITY": 78.4,
+        "STYLE_SIMILARITY": 78.8,
         "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 20
+        "ASSET_PATTERN_SIMILARITY": 60,
+        "IDENTITY_SIMILARITY": 18.2
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -2648,21 +2642,6 @@
   "clusters": [],
   "topPairs": [
     {
-      "a": "galileu-locacao-brinquedos",
-      "b": "lj-cleaning",
-      "score": 66,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 94.7,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 96.8,
-        "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 10.7
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
       "a": "ag-electrical-services",
       "b": "lk-alvenaria",
       "score": 64,
@@ -2704,21 +2683,6 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 27.3,
         "IDENTITY_SIMILARITY": 10.3
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
-      "a": "lj-cleaning",
-      "b": "miro-tech",
-      "score": 61,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 71.1,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 85.7,
-        "STYLE_SIMILARITY": 78.4,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 20
       },
       "reason": "NEAR_DUPLICATE_LAYOUT"
     },
@@ -3017,6 +2981,36 @@
         "COMPONENT_SIMILARITY": 60,
         "STYLE_SIMILARITY": 72,
         "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 11.4
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "denise-gomes-psicologa",
+      "b": "thays-camilla",
+      "score": 55,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 44.1,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 46.7,
+        "STYLE_SIMILARITY": 70.2,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 75,
+        "IDENTITY_SIMILARITY": 13.5
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "lk-alvenaria",
+      "b": "paulo-mestre-de-obras",
+      "score": 55,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 66.7,
+        "SECTION_ORDER_SIMILARITY": 75,
+        "COMPONENT_SIMILARITY": 53.8,
+        "STYLE_SIMILARITY": 74.4,
+        "COPY_SIMILARITY": 3,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 11.4
       },
@@ -3384,7 +3378,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "jkl-marcenaria",
+          "slug": "galileu-locacao-brinquedos",
           "score": 47,
           "reason": "SAME_FAMILY"
         }
@@ -3459,18 +3453,18 @@
       ],
       "galileu-locacao-brinquedos": [
         {
-          "slug": "lj-cleaning",
-          "score": 66,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "miro-tech",
-          "score": 52,
+          "slug": "eletro-solucoes-eficazes",
+          "score": 47,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 51,
+          "slug": "acai-total-araucaria",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "lj-cleaning",
+          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3515,13 +3509,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lj-cleaning",
+          "slug": "mirassol-conserta-celular",
           "score": 29,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-conserta-celular",
-          "score": 29,
+          "slug": "bh-barreiro-marmitas",
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -3561,11 +3555,6 @@
       ],
       "heloa-gas": [
         {
-          "slug": "lj-cleaning",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "miro-tech",
           "score": 40,
           "reason": "DISTINCT"
@@ -3573,6 +3562,11 @@
         {
           "slug": "artesanatos-darleia-oliveira",
           "score": 38,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "refrigeracao-maresia",
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
@@ -3630,18 +3624,18 @@
       "lj-cleaning": [
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 66,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "score": 45,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
-          "score": 61,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 35,
+          "reason": "DISTINCT"
         },
         {
           "slug": "premium-envelopamentos",
-          "score": 52,
-          "reason": "SAME_FAMILY"
+          "score": 35,
+          "reason": "DISTINCT"
         }
       ],
       "lk-alvenaria": [
@@ -3707,9 +3701,9 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lj-cleaning",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "slug": "assistencia-microondas-santos",
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "marido-de-aluguel": [
@@ -3799,17 +3793,17 @@
       ],
       "miro-tech": [
         {
-          "slug": "lj-cleaning",
-          "score": 61,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
           "slug": "premium-envelopamentos",
           "score": 60,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "artesanatos-darleia-oliveira",
+          "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "confeitaria-sabor-da-realeza",
           "score": 55,
           "reason": "SAME_FAMILY"
         }
@@ -4213,16 +4207,16 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 17,
-      "attention": 42,
-      "highSimilarity": 9,
+      "acceptable": 18,
+      "attention": 44,
+      "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
       "placeholderLogos": 0,
       "missingLogos": 0,
-      "missingCovers": 27,
-      "coversAsSocialImage": 11,
+      "missingCovers": 26,
+      "coversAsSocialImage": 10,
       "sharedCovers": 0,
       "severeCrop": 20,
       "invalidCrossClientAssets": 0,
@@ -4236,7 +4230,14 @@
         "key": "highSimilarity",
         "label": "projetos HIGH_SIMILARITY",
         "before": 14,
-        "after": 9
+        "after": 6
+      },
+      {
+        "kind": "COUNTER",
+        "key": "missingCovers",
+        "label": "capas ausentes",
+        "before": 27,
+        "after": 26
       },
       {
         "kind": "MODIFIED_PROJECT",
@@ -4252,7 +4253,31 @@
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "galileu-locacao-brinquedos",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "heloa-gas",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "lj-cleaning",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "lucas-arruma-maquina-lavar",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "miro-tech",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       },

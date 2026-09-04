@@ -1,24 +1,133 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, Check, Droplets, Home, Sparkles, Truck } from "lucide-react";
+import { ArrowRight, Car, Sofa } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-const services = [["Sofás e cadeiras", "Higienização cuidadosa para renovar estofados do dia a dia.", Home], ["Automotiva", "Limpeza de bancos e interiores para cuidar do seu carro.", Truck], ["Colchões e tapetes", "Higienização de colchões, tapetes, carpetes, puffs e outros itens.", Droplets]] as const;
+const surfaces = [
+  { item: "Sofá", detail: "Tecido e couro, dos assentos às laterais.", group: "Residencial" },
+  { item: "Colchão", detail: "Solteiro, casal e camas infantis.", group: "Residencial" },
+  { item: "Cadeira", detail: "Poltronas de sala e cadeiras de escritório.", group: "Residencial" },
+  { item: "Tapete e carpete", detail: "Peças soltas e áreas maiores da casa.", group: "Residencial" },
+  { item: "Puff e divã", detail: "Estofados menores que acumulam uso diário.", group: "Residencial" },
+  { item: "Interior automotivo", detail: "Bancos, forro e demais superfícies do carro.", group: "Automotiva" },
+] as const;
 
 export function LjCleaningPage() {
-  return <div className="min-h-dvh bg-[#f3f8ff] text-[#103d70]"><header className="sticky top-0 z-20 border-b border-[#cfe0f2] bg-[#f3f8ff]/95 px-5 py-4 backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" aria-label="L&J Cleaning" className="shrink-0"><PortfolioImage managedField="logoUrl" priority src="/images/lj-cleaning/logo.png" alt="L&J Cleaning" width={768} height={256} decoding="async" className="h-10 w-auto" /></a><nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#servicos">Serviços</a><a href="#processo">Processo</a><a href="#orcamento">Orçamento</a></nav><FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0d5eb7] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#0d5eb7]/20">Solicitar orçamento <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></header><main>
-    <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[.9fr_1.1fr] lg:px-8 lg:py-24"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f05a24]">Higienização residencial e automotiva</p><h1 className="mt-5 max-w-xl text-5xl font-black leading-[.98] tracking-tight sm:text-7xl">
-            <ManagedText field="heroHeadline" fallback={"Limpamos, higienizamos e cuidamos do seu conforto."} />
-          </h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#52749a]">
-            <ManagedText field="heroSubheadline" fallback={"Higieniza\u00e7\u00e3o de sof\u00e1s, cadeiras, colch\u00f5es, tapetes, carpetes, puffs e interiores automotivos, com atendimento sob medida."} />
-          </p><div className="mt-8 flex flex-wrap gap-3"><FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f05a24] px-6 py-3 font-bold text-white">Quero higienizar <ArrowRight className="h-4 w-4" /></FunnelCTAButton><a href="#servicos" className="inline-flex min-h-12 items-center rounded-full border border-[#85aed2] px-6 py-3 font-semibold text-[#0d5eb7]">Ver serviços</a></div><div className="mt-7 flex flex-wrap gap-4 text-sm font-semibold text-[#52749a]"><span><Check className="mr-1 inline h-4 w-4 text-[#0d8ad1]" />Limpeza especializada</span><span><Check className="mr-1 inline h-4 w-4 text-[#0d8ad1]" />Residencial e automotiva</span></div></div><PortfolioImage src="/images/lj-cleaning/hero.png" alt="Serviços de higienização L&J Cleaning" priority width={1080} height={1080} className="w-full rounded-[2rem] shadow-2xl shadow-[#0d5eb7]/20"
-            managedField="heroImageUrl"
-          /></section>
-    <section id="servicos" className="bg-[#0d5eb7] px-5 py-20 text-white lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#9fe7ff]">O que higienizamos</p><h2 className="mt-3 max-w-2xl text-4xl font-black">Cuidado completo para a casa e o carro.</h2><div className="mt-10 grid gap-5 md:grid-cols-3">{services.map(([title, text, Icon]) => <article key={title} className="rounded-2xl border border-white/15 bg-white/10 p-6"><Icon className="h-8 w-8 text-[#ff9a6d]" /><h3 className="mt-8 text-2xl font-black">{title}</h3><p className="mt-3 leading-7 text-white/75">{text}</p></article>)}</div></div></section>
-    <section id="processo" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f05a24]">Como começar</p><h2 className="mt-3 text-4xl font-black">Seu item limpo começa com uma conversa.</h2><div className="mt-10 grid gap-5 md:grid-cols-3"><article className="rounded-2xl border border-[#cfe0f2] bg-white p-6"><span className="text-3xl font-black text-[#0d5eb7]">01</span><h3 className="mt-6 text-xl font-black">Conte o que precisa</h3><p className="mt-2 leading-7 text-[#52749a]">Informe o item, o tamanho e o tipo de limpeza que deseja avaliar.</p></article><article className="rounded-2xl border border-[#cfe0f2] bg-white p-6"><span className="text-3xl font-black text-[#0d5eb7]">02</span><h3 className="mt-6 text-xl font-black">Receba orientação</h3><p className="mt-2 leading-7 text-[#52749a]">A equipe organiza o atendimento conforme sua necessidade.</p></article><article className="rounded-2xl border border-[#cfe0f2] bg-white p-6"><span className="text-3xl font-black text-[#0d5eb7]">03</span><h3 className="mt-6 text-xl font-black">Combine o serviço</h3><p className="mt-2 leading-7 text-[#52749a]">Defina os próximos passos diretamente pelo canal de atendimento.</p></article></div></div></section>
-    <section id="orcamento" className="bg-[#f05a24] px-5 py-16 text-white lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><Sparkles className="h-8 w-8" /><p className="mt-4 text-sm font-bold uppercase tracking-[.2em]">Seu conforto de volta</p><h2 className="mt-2 text-3xl font-black">Solicite um orçamento.</h2><p className="mt-3 max-w-xl leading-7 text-white/85">Conte qual sofá, colchão, tapete ou interior automotivo precisa de cuidado.</p></div><FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#103d70] px-7 py-3 font-bold text-white">Falar com a L&J <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></section>
-  </main><footer className="bg-[#103d70] px-5 py-8 text-sm text-[#cfe5fb] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">L&J Cleaning</strong><br />Higienização residencial e automotiva.</p><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" /></div></footer><PortfolioSocialProofPopup clientKey="lj-cleaning" eyebrow="L&J Cleaning" title="Seu conforto merece um cuidado completo." description="Higienização de sofás, automotiva, colchões, tapetes e outros itens." ctaLabel="Ver serviços" ctaHref="#servicos" delayMs={9000} className="border-[#0d8ad1]/35 bg-[#103d70]/95 text-white" accentClassName="text-[#9fe7ff]" /><PortfolioUpsellPopup pageName="portfolio-lj-cleaning" /></div>;
+  return (
+    <div className="min-h-dvh bg-[#f6f9fc] text-[#0a2d5c]">
+      <div className="h-1.5 w-full bg-[#f2621f]" />
+      <header className="sticky top-0 z-20 border-b border-[#d7e3f0] bg-[#f6f9fc]/95 px-5 py-4 backdrop-blur lg:px-8">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
+          <a href="#inicio" aria-label="L&J Cleaning" className="shrink-0">
+            <PortfolioImage managedField="logoUrl" priority src="/images/lj-cleaning/logo.png" alt="L&J Cleaning" width={768} height={256} decoding="async" className="h-11 w-auto" />
+          </a>
+          <nav className="hidden gap-6 text-sm font-semibold md:flex">
+            <a href="#superficies" className="hover:text-[#f2621f]">O que higienizamos</a>
+            <a href="#atendimento" className="hover:text-[#f2621f]">Atendimento</a>
+            <a href="#orcamento" className="hover:text-[#f2621f]">Orçamento</a>
+          </nav>
+          <FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0a2d5c] px-5 py-2.5 text-sm font-bold text-white">
+            Solicitar orçamento <ArrowRight className="h-4 w-4" />
+          </FunnelCTAButton>
+        </div>
+      </header>
+
+      <main>
+        <section id="inicio" className="mx-auto max-w-5xl px-5 py-14 lg:px-8 lg:py-20">
+          <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f2621f]">Higienização residencial e automotiva</p>
+          <div className="mt-6 grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
+            <div>
+              <h1 className="max-w-2xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
+                <ManagedText field="heroHeadline" fallback={"Limpamos, higienizamos e cuidamos do seu conforto."} />
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[#5b7899]">
+                <ManagedText field="heroSubheadline" fallback={"Higieniza\u00e7\u00e3o de sof\u00e1s, cadeiras, colch\u00f5es, tapetes, carpetes, puffs e interiores automotivos, com atendimento sob medida."} />
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f2621f] px-6 py-3 font-bold text-white">
+                  Quero higienizar <ArrowRight className="h-4 w-4" />
+                </FunnelCTAButton>
+                <a href="#superficies" className="inline-flex min-h-12 items-center rounded-full border border-[#9dbbd8] px-6 py-3 font-semibold text-[#0a2d5c]">Ver o que higienizamos</a>
+              </div>
+            </div>
+            <PortfolioImage
+              src="/images/lj-cleaning/cena.png"
+              alt="Matriz de superfícies higienizadas pela L&J Cleaning: sofá, colchão, cadeira, tapete, puff e interior automotivo"
+              priority
+              width={1200}
+              height={1200}
+              className="w-full rounded-2xl border border-[#d7e3f0]"
+              managedField="heroImageUrl"
+            />
+          </div>
+        </section>
+
+        <section id="superficies" className="border-y border-[#d7e3f0] bg-white px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f2621f]">Matriz de superfícies</p>
+                <h2 className="mt-3 text-3xl font-black sm:text-4xl">Item por item, com o cuidado que cada superfície pede.</h2>
+              </div>
+              <div className="flex gap-3 text-sm font-semibold text-[#5b7899]">
+                <span className="inline-flex items-center gap-2"><Sofa className="h-4 w-4 text-[#0a2d5c]" aria-hidden="true" />Residencial</span>
+                <span className="inline-flex items-center gap-2"><Car className="h-4 w-4 text-[#0a2d5c]" aria-hidden="true" />Automotiva</span>
+              </div>
+            </div>
+            <ul className="mt-10 divide-y divide-[#e2eaf2] border-y border-[#e2eaf2]">
+              {surfaces.map(({ item, detail, group }) => (
+                <li key={item} className="grid gap-2 py-6 sm:grid-cols-[minmax(0,14rem)_1fr_auto] sm:items-baseline sm:gap-6">
+                  <span className="text-xl font-black">{item}</span>
+                  <span className="leading-7 text-[#5b7899]">{detail}</span>
+                  <span className="justify-self-start rounded-full bg-[#eef4fa] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0a2d5c] sm:justify-self-end">{group}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section id="atendimento" className="px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f2621f]">Atendimento</p>
+            <h2 className="mt-3 text-3xl font-black sm:text-4xl">Um pedido claro rende um orçamento certo.</h2>
+            <ol className="mt-10 grid gap-4 md:grid-cols-3">
+              {[["Descreva o item", "Informe qual superfície precisa de higienização e o tamanho dela."], ["Receba orientação", "A equipe organiza o atendimento conforme a sua necessidade."], ["Combine o serviço", "Defina os próximos passos pelo canal de atendimento."]].map(([title, text], index) => (
+                <li key={title} className="rounded-2xl border border-[#d7e3f0] bg-white p-6">
+                  <span className="text-sm font-black uppercase tracking-widest text-[#f2621f]">Passo {index + 1}</span>
+                  <h3 className="mt-4 text-xl font-black">{title}</h3>
+                  <p className="mt-2 leading-7 text-[#5b7899]">{text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="orcamento" className="bg-[#0a2d5c] px-5 py-16 text-white lg:px-8">
+          <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ff9a6d]">Seu conforto de volta</p>
+              <h2 className="mt-3 text-3xl font-black">Solicite um orçamento.</h2>
+              <p className="mt-3 max-w-xl leading-7 text-white/80">Conte qual sofá, colchão, tapete ou interior automotivo precisa de cuidado.</p>
+            </div>
+            <FunnelCTAButton clientKey="lj-cleaning" companySlug="lj-cleaning" formSlug="funnel-lj-cleaning" location="lj_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f2621f] px-7 py-3 font-bold text-white">
+              Falar com a L&J <ArrowRight className="h-4 w-4" />
+            </FunnelCTAButton>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#06203f] px-5 py-8 text-sm text-[#c2d8ee] lg:px-8">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p><strong className="text-white">L&J Cleaning</strong><br />Higienização residencial e automotiva · São José dos Pinhais — PR</p>
+          <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" />
+        </div>
+      </footer>
+
+      <PortfolioSocialProofPopup clientKey="lj-cleaning" eyebrow="L&J Cleaning" title="Seu conforto merece um cuidado completo." description="Higienização de sofás, automotiva, colchões, tapetes e outros itens." ctaLabel="Ver serviços" ctaHref="#superficies" delayMs={9000} className="border-[#f2621f]/35 bg-[#06203f]/95 text-white" accentClassName="text-[#ff9a6d]" />
+      <PortfolioUpsellPopup pageName="portfolio-lj-cleaning" />
+    </div>
+  );
 }

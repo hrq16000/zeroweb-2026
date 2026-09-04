@@ -260,6 +260,31 @@
         "COVER_SEVERE_CROP"
       ],
       "notes": "Capa grafica autoral 16:10 (tipografia + amostras de tecido). Sem fotografia inventada e sem PII."
+    },
+    "galileu-locacao-brinquedos": {
+      "source": "public/images/galileu-locacao-brinquedos/vitrine.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_REUSES_SOCIAL",
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "notes": "Capa grafica autoral 16:10 (cartela de atracoes). Sem fotografia inventada e sem PII."
+    },
+    "lj-cleaning": {
+      "source": "public/images/lj-cleaning/vitrine.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED",
+        "COVER_REUSES_SOCIAL",
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "notes": "Capa grafica autoral 16:10 (matriz de superficies). Sem fotografia inventada e sem PII."
     }
   }
 }

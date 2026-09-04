@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T22:48:27.637Z",
+  "generatedAt": "2026-09-04T23:45:11.398Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -15,7 +15,7 @@
     "PREMIUM": 85,
     "STANDARD": 70
   },
-  "runtimeGeneratedAt": "2026-09-04T05:13:44.185Z",
+  "runtimeGeneratedAt": "2026-09-04T23:44:41.419Z",
   "summary": {
     "total": 68,
     "visuallyReviewed": 68,
@@ -25,21 +25,21 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 23,
-      "STANDARD": 45,
+      "PREMIUM": 25,
+      "STANDARD": 43,
       "NEEDS_UPGRADE": 0
     },
     "originality": {
-      "PASS": 17,
-      "WARNING": 39,
-      "FAIL": 12,
+      "PASS": 18,
+      "WARNING": 44,
+      "FAIL": 6,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 60,
-      "P2": 144,
-      "P3": 58
+      "P1": 56,
+      "P2": 149,
+      "P3": 55
     },
     "averageScore": 86
   },
@@ -237,9 +237,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Estrutura forte começa com material certo.",
-        "heroHeight": 1216,
-        "editorialChars": 2238,
+        "heroHeadline": "Aço cortado na medidada sua obra.",
+        "heroHeight": 796,
+        "editorialChars": 2223,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -359,9 +359,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Energia para viver melhor. Tecnologia para evoluir.",
-        "heroHeight": 1068,
-        "editorialChars": 2342,
+        "heroHeadline": "Energia para viver melhor.Tecnologia para evoluir.",
+        "heroHeight": 843,
+        "editorialChars": 2328,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -479,11 +479,11 @@
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
+        "mobileImages": 5,
+        "desktopImages": 5,
         "heroHeadline": "Mãos que transformam. Pés que sustentam.",
-        "heroHeight": 1227,
-        "editorialChars": 2284,
+        "heroHeight": 885,
+        "editorialChars": 2268,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -562,9 +562,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 66,
+      "originalityScore": 64,
       "originalityStatus": "FAIL",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
+      "originalityNearest": "ag-electrical-services",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -642,7 +642,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs lucas-arruma-maquina-lavar"
+          "detail": "64 vs ag-electrical-services"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -720,7 +720,7 @@
         "desktopImages": 4,
         "heroHeadline": "Bolos e salgados para os dias que merecem mesa posta.",
         "heroHeight": 694,
-        "editorialChars": 2064,
+        "editorialChars": 2070,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -971,7 +971,7 @@
         "desktopImages": 4,
         "heroHeadline": "Presente feitoà mãopara gente daqui.",
         "heroHeight": 672,
-        "editorialChars": 2077,
+        "editorialChars": 2085,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -1204,12 +1204,12 @@
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
+        "mobileImages": 7,
+        "desktopImages": 7,
         "heroHeadline": "Seu momento de se cuidar.",
-        "heroHeight": 1169,
-        "editorialChars": 2204,
-        "smallTargets": 1,
+        "heroHeight": 865,
+        "editorialChars": 2018,
+        "smallTargets": 5,
         "consoleErrors": 0
       },
       "severities": {
@@ -1373,114 +1373,6 @@
       "priority": 2
     },
     {
-      "slug": "diego-montador-moveis",
-      "businessName": "Diego Montador de Móveis",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/DiegoMontadorMoveisPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 79,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 63,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o móvel, a instalação ou o reparo que precisa realizar.",
-      "funnelCta": "Organizar montagem",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/diego-montador-moveis/capa.webp",
-          "hash": "dc72ae2d90448a799bf0c5ef88419fcb78b0fc54",
-          "bytes": 116614,
-          "width": 1122,
-          "height": 1402
-        },
-        "cover": {
-          "path": "/images/diego-montador-moveis/capa-card.jpg",
-          "hash": "7abb446d56624e66d982ceef2cc5677d3f8017a8",
-          "bytes": 70323,
-          "width": 1122,
-          "height": 701
-        },
-        "social": {
-          "path": "/images/diego-montador-moveis/capa-og.jpg",
-          "hash": "6c69769764c40d36ecad7649014e6acf5c89a1ec",
-          "bytes": 69089,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Seu móvel no lugar. Sua casa em ordem.",
-        "heroHeight": 1092,
-        "editorialChars": 2618,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/diego-montador-moveis/capa.webp"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs lucas-arruma-maquina-lavar"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "liz-moraes-nail-designer",
       "businessName": "Liz Moraes Nail Designer",
       "segment": "beleza",
@@ -1603,59 +1495,59 @@
       "priority": 2
     },
     {
-      "slug": "lj-cleaning",
-      "businessName": "L&J Cleaning",
-      "segment": "prestadores-de-servicos",
+      "slug": "beto-pasteis",
+      "businessName": "Beto Pastéis",
+      "segment": "restaurantes",
       "city": "São José dos Pinhais",
       "componentType": "custom",
-      "componentFile": "src/components/site/LjCleaningPage.tsx",
+      "componentFile": "src/components/site/BetoPasteisPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
       "visual": "STANDARD",
-      "score": 79,
+      "score": 80,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 5,
         "images": 6,
-        "content": 10,
-        "originality": 3,
+        "content": 8,
+        "originality": 10,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 66,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "galileu-locacao-brinquedos",
+      "originalityScore": 24,
+      "originalityStatus": "PASS",
+      "originalityNearest": "brecho-sao-francisco",
       "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
+      "charm": "MEDIUM",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.",
-      "funnelCta": "Solicitar orçamento",
+      "funnelNextStep": "Escolha a ocasião e conte o que gostaria de encontrar no menu.",
+      "funnelCta": "Conhecer sabores",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/lj-cleaning/logo.png",
-          "hash": "ee9ad3441941e13fd62f3725807b9923feee645e",
-          "bytes": 980309,
-          "width": 1774,
-          "height": 887
+          "path": "/images/beto-pasteis/capa.png",
+          "hash": "a869dfecd31195056ce94af45bdfe8ce1d4078f2",
+          "bytes": 2201587,
+          "width": 1730,
+          "height": 909
         },
         "cover": {
-          "path": "/images/lj-cleaning/hero-og.jpg",
-          "hash": "9d3f6af9f4a0bcc75dad79d5b638bffd2cb92ccf",
-          "bytes": 88854,
-          "width": 1200,
-          "height": 630
+          "path": "/images/beto-pasteis/capa-card.jpg",
+          "hash": "0fecca9eb5c5e66d333d39e04f9733f1a876af7a",
+          "bytes": 201663,
+          "width": 1454,
+          "height": 909
         },
         "social": {
-          "path": "/images/lj-cleaning/hero-og.jpg",
-          "hash": "9d3f6af9f4a0bcc75dad79d5b638bffd2cb92ccf",
-          "bytes": 88854,
+          "path": "/images/beto-pasteis/capa-og.jpg",
+          "hash": "7cc4f1c5dd9c606616894706b862089e33219e3b",
+          "bytes": 134118,
           "width": 1200,
           "height": 630
         },
@@ -1664,40 +1556,40 @@
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Limpamos, higienizamos e cuidamos do seu conforto.",
-        "heroHeight": 1128,
-        "editorialChars": 2238,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "O pastel que combina com a pausa, o almoço e a vontade do bairro.",
+        "heroHeight": 267,
+        "editorialChars": 1811,
         "smallTargets": 1,
         "consoleErrors": 0
       },
       "severities": {
         "P0": 0,
-        "P1": 2,
-        "P2": 2,
+        "P1": 1,
+        "P2": 3,
         "P3": 1
       },
       "issues": [
         {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/lj-cleaning/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
+          "code": "LOGO_NOT_DEDICATED",
           "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/lj-cleaning/hero-og.jpg"
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/beto-pasteis/capa.png"
         },
         {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
+          "code": "HERO_NO_CTA",
+          "severity": "P1",
+          "group": "hero",
+          "label": "Hero sem CTA visível",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
           "detail": null
         },
         {
@@ -1708,126 +1600,11 @@
           "detail": "3 arquivo(s)"
         },
         {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs galileu-locacao-brinquedos"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "miro-tech",
-      "businessName": "MIRO TECH",
-      "segment": "prestadores-de-servicos",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/MiroTechPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 79,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 61,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "lj-cleaning",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "diagnostico",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.",
-      "funnelCta": "Solicitar avaliação",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/miro-tech/logo.png",
-          "hash": "a89928c23d5cf513a0237816743af769d0afe656",
-          "bytes": 569929,
-          "width": 1983,
-          "height": 793
-        },
-        "cover": {
-          "path": "/images/miro-tech/hero-og.jpg",
-          "hash": "1f31957d86057f964fc9539b0e337c588ba644cb",
-          "bytes": 118154,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/miro-tech/hero-og.jpg",
-          "hash": "1f31957d86057f964fc9539b0e337c588ba644cb",
-          "bytes": 118154,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu equipamento em boas mãos.",
-        "heroHeight": 1287,
-        "editorialChars": 2258,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 2,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/miro-tech/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/miro-tech/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
+          "code": "CONTENT_SHORT_SERVICES",
           "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "61 vs lj-cleaning"
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
         }
       ],
       "priority": 2
@@ -1898,7 +1675,7 @@
         "desktopImages": 4,
         "heroHeadline": "Peixe fresco no almoço de semana e na mesa cheia de domingo.",
         "heroHeight": 641,
-        "editorialChars": 2005,
+        "editorialChars": 2001,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -2250,7 +2027,7 @@
         "desktopImages": 4,
         "heroHeadline": "O almoço da semanajá está no quadro.",
         "heroHeight": 807,
-        "editorialChars": 2062,
+        "editorialChars": 2074,
         "smallTargets": 3,
         "consoleErrors": 0
       },
@@ -2480,7 +2257,7 @@
         "desktopImages": 4,
         "heroHeadline": "A embarcação sai da oficina pronta para a temporada inteira.",
         "heroHeight": 781,
-        "editorialChars": 2180,
+        "editorialChars": 2190,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -2595,7 +2372,7 @@
         "desktopImages": 4,
         "heroHeadline": "Aquele conserto que você adia há semanas leva menos de uma tarde.",
         "heroHeight": 598,
-        "editorialChars": 2235,
+        "editorialChars": 2236,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -2710,7 +2487,7 @@
         "desktopImages": 4,
         "heroHeadline": "Orçamento com laudo. Só depois a chave de fenda encosta no aparelho.",
         "heroHeight": 644,
-        "editorialChars": 2393,
+        "editorialChars": 2398,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -2755,6 +2532,121 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "41 vs mirassol-delicias-caseiras"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "miro-tech",
+      "businessName": "MIRO TECH",
+      "segment": "prestadores-de-servicos",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/MiroTechPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 60,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "premium-envelopamentos",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe qual equipamento apresentou problema e o tipo de atendimento que deseja avaliar.",
+      "funnelCta": "Solicitar avaliação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/miro-tech/logo.png",
+          "hash": "a89928c23d5cf513a0237816743af769d0afe656",
+          "bytes": 569929,
+          "width": 1983,
+          "height": 793
+        },
+        "cover": {
+          "path": "/images/miro-tech/hero-og.jpg",
+          "hash": "1f31957d86057f964fc9539b0e337c588ba644cb",
+          "bytes": 118154,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/miro-tech/hero-og.jpg",
+          "hash": "1f31957d86057f964fc9539b0e337c588ba644cb",
+          "bytes": 118154,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu equipamento em boas mãos.",
+        "heroHeight": 1287,
+        "editorialChars": 2258,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/miro-tech/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/miro-tech/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "60 vs premium-envelopamentos"
         }
       ],
       "priority": 2
@@ -2825,7 +2717,7 @@
         "desktopImages": 4,
         "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
         "heroHeight": 996,
-        "editorialChars": 2534,
+        "editorialChars": 2554,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -2870,6 +2762,114 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "woodhouse-hamburgueres",
+      "businessName": "Woodhouse Hambúrgueres",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 9,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 56,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "brecho-sao-francisco",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
+      "funnelCta": "Fazer meu pedido",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/woodhouse-hamburgueres/capa.png",
+          "hash": "1c43dd5d7c2a7821a999031fa27c76b749b9abbf",
+          "bytes": 1821198,
+          "width": 1729,
+          "height": 910
+        },
+        "cover": {
+          "path": "/images/woodhouse-hamburgueres/capa-card.jpg",
+          "hash": "36e5cd66cbae1cbe75e720aa321b8aad65e34441",
+          "bytes": 134173,
+          "width": 1456,
+          "height": 910
+        },
+        "social": {
+          "path": "/images/woodhouse-hamburgueres/capa-og.jpg",
+          "hash": "26b6f43332cec722761ed29619ce5de4f95d40da",
+          "bytes": 98220,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Hambúrgueres grelhados e petiscos para a noite.",
+        "heroHeight": 490,
+        "editorialChars": 1785,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/woodhouse-hamburgueres/capa.png"
+        },
+        {
+          "code": "HERO_NO_CTA",
+          "severity": "P1",
+          "group": "hero",
+          "label": "Hero sem CTA visível",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "56 vs brecho-sao-francisco"
         }
       ],
       "priority": 2
@@ -3199,114 +3199,6 @@
       "priority": 2
     },
     {
-      "slug": "galileu-locacao-brinquedos",
-      "businessName": "Galileu Locação de Brinquedos",
-      "segment": "comercios",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 85,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 66,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "lj-cleaning",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "reserva",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte a data, o local e o perfil da comemoração para montar seu pedido.",
-      "funnelCta": "Planejar diversão",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/galileu-locacao-brinquedos/logo.png",
-          "hash": "358134e0fa451a12f3eb0fd776d40b3d01f9ffe9",
-          "bytes": 1649003,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/galileu-locacao-brinquedos/hero-og.jpg",
-          "hash": "01c1fdc06a45546f4123af927bf241ef012be5c2",
-          "bytes": 176697,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/galileu-locacao-brinquedos/hero-og.jpg",
-          "hash": "01c1fdc06a45546f4123af927bf241ef012be5c2",
-          "bytes": 176697,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Diversão garantida para momentos inesquecíveis.",
-        "heroHeight": 926,
-        "editorialChars": 2365,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 2,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/galileu-locacao-brinquedos/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs lj-cleaning"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "ecommerce-on",
       "businessName": "Ecommerce On",
       "segment": "agencias",
@@ -3329,9 +3221,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 55,
+      "originalityScore": 54,
       "originalityStatus": "WARNING",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
+      "originalityNearest": "acai-total-araucaria",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -3409,7 +3301,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs lucas-arruma-maquina-lavar"
+          "detail": "54 vs acai-total-araucaria"
         }
       ],
       "priority": 2
@@ -3518,6 +3410,114 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "49 vs rj-servicos-drywall"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "ton-e-cor",
+      "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
+      "segment": "servicos",
+      "city": "Região de Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/TonECorPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 5,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 38,
+      "originalityStatus": "PASS",
+      "originalityNearest": "raphael-construcoes",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
+      "funnelCta": "Pedir orçamento",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/ton-e-cor/logo.png",
+          "hash": "8aefbd745bfb180e1fd90c087e5e09418662ff1e",
+          "bytes": 529187,
+          "width": 1983,
+          "height": 793
+        },
+        "cover": {
+          "path": "/images/ton-e-cor/hero-og.jpg",
+          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
+          "bytes": 130989,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/ton-e-cor/hero-og.jpg",
+          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
+          "bytes": 130989,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Sua casa renovada, com os reparos organizados em um só atendimento.",
+        "heroHeight": 465,
+        "editorialChars": 2373,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/ton-e-cor/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_CTA",
+          "severity": "P1",
+          "group": "hero",
+          "label": "Hero sem CTA visível",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
         }
       ],
       "priority": 2
@@ -3783,7 +3783,7 @@
         "desktopImages": 9,
         "heroHeadline": "Transforme seu olhar com quem entende de cada detalhe.",
         "heroHeight": 1409,
-        "editorialChars": 4550,
+        "editorialChars": 4569,
         "smallTargets": 8,
         "consoleErrors": 2
       },
@@ -3944,7 +3944,7 @@
       },
       "originalityScore": 25,
       "originalityStatus": "PASS",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
+      "originalityNearest": "refrigeracao-maresia",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "UNREVIEWED",
@@ -4016,107 +4016,6 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "heloa-gas",
-      "businessName": "Heloá Gás",
-      "segment": "comercios",
-      "city": "Piraquara",
-      "componentType": "custom",
-      "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 2
-      },
-      "originalityScore": 41,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "lj-cleaning",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega.",
-      "funnelCta": "Fazer pedido",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/heloa-gas/logo.png",
-          "hash": "105a6b5b5a26c0bd6e444d6d7fedc85118c7059f",
-          "bytes": 512613,
-          "width": 1152,
-          "height": 576
-        },
-        "cover": {
-          "path": "/images/heloa-gas/hero-og.jpg",
-          "hash": "5af0a0ab2cfb1a85cc40edc22e414504815f5e97",
-          "bytes": 87458,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/heloa-gas/hero.jpg",
-          "hash": "46df646026bfb18dac439f68d98a6c82160faf6f",
-          "bytes": 134216,
-          "width": 1440,
-          "height": 912
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Seu gás acabou? Peça e receba em casa.",
-        "heroHeight": 904,
-        "editorialChars": 2437,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "SOCIAL_WRONG_RATIO",
-          "severity": "P1",
-          "group": "social",
-          "label": "Imagem social fora de 1200x630",
-          "detail": "1440x912"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs lj-cleaning"
         }
       ],
       "priority": 2
@@ -4209,180 +4108,6 @@
       "priority": 2
     },
     {
-      "slug": "lucas-arruma-maquina-lavar",
-      "businessName": "Lucas Arruma Máquina de Lavar",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 93,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 66,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "lk-alvenaria",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "diagnostico",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe o modelo, o sintoma e quando o problema começou.",
-      "funnelCta": "Pedir diagnóstico",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/lucas-arruma-maquina-lavar/logo.svg",
-          "hash": "d6e61014613e9e3c868b4649118256050c7fc3f9",
-          "bytes": 612,
-          "width": 320,
-          "height": 320
-        },
-        "cover": {
-          "path": "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
-          "hash": "f0da534de0341d43719ebdc63a91ab00a47f83bc",
-          "bytes": 66214,
-          "width": 1600,
-          "height": 1000
-        },
-        "social": {
-          "path": "/images/lucas-arruma-maquina-lavar/capa-og.jpg",
-          "hash": "3be42c1c838f33ee2dd1c7d8aef18e65fc5696a8",
-          "bytes": 64184,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Sua máquina parou? Lucas resolve.",
-        "heroHeight": 1331,
-        "editorialChars": 2407,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs lk-alvenaria"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "no-brilho-higienizacao",
-      "businessName": "No Brilho Higienização",
-      "segment": "servicos",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 93,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 65,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe a peça, a necessidade e a região do atendimento.",
-      "funnelCta": "Agendar higienização",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/no-brilho-higienizacao/logo.svg",
-          "hash": "1845aeb6929d1290b7948499f1244c4a262b4f24",
-          "bytes": 585,
-          "width": 320,
-          "height": 320
-        },
-        "cover": {
-          "path": "/images/no-brilho-higienizacao/capa-card.jpg",
-          "hash": "97a8efac6a5ecaa393465cf7700bff5e0e83bd83",
-          "bytes": 48400,
-          "width": 1600,
-          "height": 1000
-        },
-        "social": {
-          "path": "/images/no-brilho-higienizacao/capa-og.jpg",
-          "hash": "275de007cf1141ddcad819a38c42876bcb49be42",
-          "bytes": 75108,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Mais limpeza. Mais brilho.",
-        "heroHeight": 1046,
-        "editorialChars": 2293,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "65 vs lucas-arruma-maquina-lavar"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "premium-envelopamentos",
       "businessName": "Premium Envelopamentos",
       "segment": "prestadores-de-servicos",
@@ -4470,6 +4195,100 @@
       "priority": 2
     },
     {
+      "slug": "heloa-gas",
+      "businessName": "Heloá Gás",
+      "segment": "comercios",
+      "city": "Piraquara",
+      "componentType": "custom",
+      "componentFile": "src/components/site/HeloaGasPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 14,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 2
+      },
+      "originalityScore": 40,
+      "originalityStatus": "PASS",
+      "originalityNearest": "miro-tech",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega.",
+      "funnelCta": "Fazer pedido",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/heloa-gas/logo.png",
+          "hash": "105a6b5b5a26c0bd6e444d6d7fedc85118c7059f",
+          "bytes": 512613,
+          "width": 1152,
+          "height": 576
+        },
+        "cover": {
+          "path": "/images/heloa-gas/hero-og.jpg",
+          "hash": "5af0a0ab2cfb1a85cc40edc22e414504815f5e97",
+          "bytes": 87458,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/heloa-gas/hero.jpg",
+          "hash": "46df646026bfb18dac439f68d98a6c82160faf6f",
+          "bytes": 134216,
+          "width": 1440,
+          "height": 912
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Seu gás acabou? Peça e receba em casa.",
+        "heroHeight": 904,
+        "editorialChars": 2437,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "SOCIAL_WRONG_RATIO",
+          "severity": "P1",
+          "group": "social",
+          "label": "Imagem social fora de 1200x630",
+          "detail": "1440x912"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "angel-mix-brecho",
       "businessName": "Angel Mix Brechó",
       "segment": "comercios",
@@ -4485,9 +4304,9 @@
         "identity": 15,
         "logo": 6,
         "cover": 15,
-        "hero": 15,
+        "hero": 11,
         "images": 6,
-        "content": 4,
+        "content": 8,
         "originality": 6,
         "mobile": 10,
         "social": 5
@@ -4534,8 +4353,8 @@
         "mobileImages": 5,
         "desktopImages": 5,
         "heroHeadline": "Garimpo de moda no Novo Mundo.",
-        "heroHeight": 650,
-        "editorialChars": 1118,
+        "heroHeight": 375,
+        "editorialChars": 1630,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -4554,18 +4373,18 @@
           "detail": "/images/angel-mix-brecho/capa.png"
         },
         {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
           "code": "FEW_IMAGES",
           "severity": "P2",
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
         },
         {
           "code": "CONTENT_SHORT_SERVICES",
@@ -4580,121 +4399,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "41 vs brecho-sao-francisco"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "brecho-sao-francisco",
-      "businessName": "Brechó São Francisco",
-      "segment": "comercios",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 4,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 60,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "toquinho-de-gente-brecho",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "funnelIntent": "contato",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o tipo de peça, o tamanho e o estilo que procura.",
-      "funnelCta": "Consultar peças",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/brecho-sao-francisco/capa.png",
-          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
-          "bytes": 2674602,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/brecho-sao-francisco/capa-card.jpg",
-          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
-          "bytes": 277820,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/brecho-sao-francisco/capa-og.jpg",
-          "hash": "805279e78bff6f38ce58bcc85d221f06abe66781",
-          "bytes": 161423,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Peças com história em uma vitrine acolhedora.",
-        "heroHeight": 674,
-        "editorialChars": 1211,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 4,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/brecho-sao-francisco/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs toquinho-de-gente-brecho"
         }
       ],
       "priority": 3
@@ -4715,9 +4419,9 @@
         "identity": 15,
         "logo": 6,
         "cover": 15,
-        "hero": 15,
+        "hero": 11,
         "images": 6,
-        "content": 4,
+        "content": 8,
         "originality": 6,
         "mobile": 10,
         "social": 5
@@ -4763,9 +4467,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Uma peça especial pode ganhar uma nova história.",
-        "heroHeight": 711,
-        "editorialChars": 1183,
+        "heroHeadline": "Garimpo consciente no Jardim das Américas.",
+        "heroHeight": 435,
+        "editorialChars": 1572,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -4784,18 +4488,18 @@
           "detail": "/images/reuse-house-brecho/capa.png"
         },
         {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
           "code": "FEW_IMAGES",
           "severity": "P2",
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
         },
         {
           "code": "CONTENT_SHORT_SERVICES",
@@ -4810,121 +4514,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "48 vs toquinho-de-gente-brecho"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "toquinho-de-gente-brecho",
-      "businessName": "Toquinho de Gente Brechó Adulto e Infantil",
-      "segment": "comercios",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 4,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 60,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "brecho-sao-francisco",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "funnelIntent": "contato",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte se procura peças adultas ou infantis e o tamanho que precisa.",
-      "funnelCta": "Consultar peças",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/toquinho-de-gente-brecho/capa.png",
-          "hash": "28bf3d4e2ad865963a6abfe3bfe6ace5b684389a",
-          "bytes": 2600281,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/toquinho-de-gente-brecho/capa-card.jpg",
-          "hash": "cf1d41df10e74ab0822db779ea4cfdd1a1a59034",
-          "bytes": 280330,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/toquinho-de-gente-brecho/capa-og.jpg",
-          "hash": "94aebfadc898c2a52cf2335a199798795721e16e",
-          "bytes": 169737,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Moda circular para todas as idades.",
-        "heroHeight": 650,
-        "editorialChars": 1377,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 4,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/toquinho-de-gente-brecho/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs brecho-sao-francisco"
         }
       ],
       "priority": 3
@@ -4995,7 +4584,7 @@
         "desktopImages": 4,
         "heroHeadline": "Várias especialidades, um único prontuário.",
         "heroHeight": 905,
-        "editorialChars": 2745,
+        "editorialChars": 2763,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -5040,6 +4629,222 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "43 vs confeitaria-sabor-da-realeza"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "eletrovale-eletromecanica",
+      "businessName": "Eletrovale Eletromecânica",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EletrovaleEletromecanicaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 84,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 50,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletro-solucoes-eficazes",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o equipamento e o tipo de manutenção necessária.",
+      "funnelCta": "Solicitar suporte técnico",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/eletrovale-eletromecanica/equipamentos.webp",
+          "hash": "5ccc698cdca4ed796494304337e064a287636be0",
+          "bytes": 196454,
+          "width": 1280,
+          "height": 960
+        },
+        "cover": {
+          "path": "/images/eletrovale-eletromecanica/capa-card.jpg",
+          "hash": "4b4f5f27d3d55718e881913b1bb0a4d9a4183308",
+          "bytes": 195467,
+          "width": 1280,
+          "height": 800
+        },
+        "social": {
+          "path": "/images/eletrovale-eletromecanica/equipamentos-og.jpg",
+          "hash": "83cf815a2754fc28633c797e160e04eea1c6ec3b",
+          "bytes": 165751,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Seu equipamento merece confiabilidade.",
+        "heroHeight": 458,
+        "editorialChars": 2293,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/eletrovale-eletromecanica/equipamentos.webp"
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "50 vs eletro-solucoes-eficazes"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "jkl-marcenaria",
+      "businessName": "JKL Marcenaria",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/JklMarcenariaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 84,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 48,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletrovale-eletromecanica",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, as medidas e a ideia que quer realizar.",
+      "funnelCta": "Planejar móvel",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/jkl-marcenaria/cozinha.webp",
+          "hash": "df1e77d211eaf9c128eda7793ee6bee11cb16ef4",
+          "bytes": 65186,
+          "width": 1204,
+          "height": 1600
+        },
+        "cover": {
+          "path": "/images/jkl-marcenaria/capa-card.jpg",
+          "hash": "79cc4d2e300a70fd66debca025a11f57242dc48d",
+          "bytes": 56997,
+          "width": 1204,
+          "height": 753
+        },
+        "social": {
+          "path": "/images/jkl-marcenaria/cozinha-og.jpg",
+          "hash": "573f65ec5092dac85b0e29b9b1f72f3c2521fb66",
+          "bytes": 55622,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Cada centímetrodesenhado para o seu ambiente.",
+        "heroHeight": 540,
+        "editorialChars": 2271,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/jkl-marcenaria/cozinha.webp"
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "48 vs eletrovale-eletromecanica"
         }
       ],
       "priority": 3
@@ -5160,6 +4965,114 @@
       "priority": 3
     },
     {
+      "slug": "brecho-sao-francisco",
+      "businessName": "Brechó São Francisco",
+      "segment": "comercios",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 60,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "toquinho-de-gente-brecho",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tipo de peça, o tamanho e o estilo que procura.",
+      "funnelCta": "Consultar peças",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/brecho-sao-francisco/capa.png",
+          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
+          "bytes": 2674602,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/brecho-sao-francisco/capa-card.jpg",
+          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
+          "bytes": 277820,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/brecho-sao-francisco/capa-og.jpg",
+          "hash": "805279e78bff6f38ce58bcc85d221f06abe66781",
+          "bytes": 161423,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Peças com história em uma vitrine acolhedora.",
+        "heroHeight": 900,
+        "editorialChars": 1850,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/brecho-sao-francisco/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "60 vs toquinho-de-gente-brecho"
+        }
+      ],
+      "priority": 3
+    },
+    {
       "slug": "casa-nativa",
       "businessName": "Casa Nativa Bistrô",
       "segment": "servicos",
@@ -5225,7 +5138,7 @@
         "desktopImages": 4,
         "heroHeadline": "Cozinha de raiz,servida devagar.",
         "heroHeight": 692,
-        "editorialChars": 1952,
+        "editorialChars": 1984,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -5338,9 +5251,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite.",
-        "heroHeight": 1137,
-        "editorialChars": 1587,
+        "heroHeadline": "Pizzas, esfihas e lanches para pedir sem complicação.",
+        "heroHeight": 868,
+        "editorialChars": 1827,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -5446,9 +5359,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Almoço prático para deixar o dia mais leve no Jardim Itália.",
-        "heroHeight": 1161,
-        "editorialChars": 1468,
+        "heroHeadline": "Comida de casa para o almoço de todo dia.",
+        "heroHeight": 611,
+        "editorialChars": 1725,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -5491,12 +5404,12 @@
       "priority": 3
     },
     {
-      "slug": "woodhouse-hamburgueres",
-      "businessName": "Woodhouse Hambúrgueres",
-      "segment": "restaurantes",
-      "city": "São José dos Pinhais",
+      "slug": "toquinho-de-gente-brecho",
+      "businessName": "Toquinho de Gente Brechó Adulto e Infantil",
+      "segment": "comercios",
+      "city": "Curitiba",
       "componentType": "custom",
-      "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
+      "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -5513,37 +5426,37 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 56,
+      "originalityScore": 60,
       "originalityStatus": "WARNING",
       "originalityNearest": "brecho-sao-francisco",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
+      "funnelIntent": "contato",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
-      "funnelCta": "Fazer meu pedido",
+      "funnelNextStep": "Conte se procura peças adultas ou infantis e o tamanho que precisa.",
+      "funnelCta": "Consultar peças",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/woodhouse-hamburgueres/capa.png",
-          "hash": "1c43dd5d7c2a7821a999031fa27c76b749b9abbf",
-          "bytes": 1821198,
-          "width": 1729,
-          "height": 910
+          "path": "/images/toquinho-de-gente-brecho/capa.png",
+          "hash": "28bf3d4e2ad865963a6abfe3bfe6ace5b684389a",
+          "bytes": 2600281,
+          "width": 1536,
+          "height": 1024
         },
         "cover": {
-          "path": "/images/woodhouse-hamburgueres/capa-card.jpg",
-          "hash": "36e5cd66cbae1cbe75e720aa321b8aad65e34441",
-          "bytes": 134173,
-          "width": 1456,
-          "height": 910
+          "path": "/images/toquinho-de-gente-brecho/capa-card.jpg",
+          "hash": "cf1d41df10e74ab0822db779ea4cfdd1a1a59034",
+          "bytes": 280330,
+          "width": 1536,
+          "height": 960
         },
         "social": {
-          "path": "/images/woodhouse-hamburgueres/capa-og.jpg",
-          "hash": "26b6f43332cec722761ed29619ce5de4f95d40da",
-          "bytes": 98220,
+          "path": "/images/toquinho-de-gente-brecho/capa-og.jpg",
+          "hash": "94aebfadc898c2a52cf2335a199798795721e16e",
+          "bytes": 169737,
           "width": 1200,
           "height": 630
         },
@@ -5554,9 +5467,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Grelhados e petiscos para transformar qualquer noite em encontro.",
-        "heroHeight": 1148,
-        "editorialChars": 1510,
+        "heroHeadline": "Moda circular para todas as idades.",
+        "heroHeight": 866,
+        "editorialChars": 1767,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -5572,7 +5485,7 @@
           "severity": "P2",
           "group": "logo",
           "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/woodhouse-hamburgueres/capa.png"
+          "detail": "/images/toquinho-de-gente-brecho/capa.png"
         },
         {
           "code": "FEW_IMAGES",
@@ -5586,14 +5499,14 @@
           "severity": "P3",
           "group": "content",
           "label": "Serviços pouco explicados",
-          "detail": "2 menções"
+          "detail": "1 menções"
         },
         {
           "code": "ORIGINALITY_WARNING",
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "56 vs brecho-sao-francisco"
+          "detail": "60 vs brecho-sao-francisco"
         }
       ],
       "priority": 3
@@ -5707,12 +5620,12 @@
       "priority": 3
     },
     {
-      "slug": "eletrovale-eletromecanica",
-      "businessName": "Eletrovale Eletromecânica",
+      "slug": "diego-montador-moveis",
+      "businessName": "Diego Montador de Móveis",
       "segment": "servicos",
       "city": "Curitiba",
       "componentType": "custom",
-      "componentFile": "src/components/site/EletrovaleEletromecanicaPage.tsx",
+      "componentFile": "src/components/site/DiegoMontadorMoveisPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -5729,37 +5642,37 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 50,
+      "originalityScore": 59,
       "originalityStatus": "WARNING",
-      "originalityNearest": "eletro-solucoes-eficazes",
+      "originalityNearest": "aguia-sul-sinalizacao",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
       "funnelIntent": "orcamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe o equipamento e o tipo de manutenção necessária.",
-      "funnelCta": "Solicitar suporte técnico",
+      "funnelNextStep": "Conte o móvel, a instalação ou o reparo que precisa realizar.",
+      "funnelCta": "Organizar montagem",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/eletrovale-eletromecanica/equipamentos.webp",
-          "hash": "5ccc698cdca4ed796494304337e064a287636be0",
-          "bytes": 196454,
-          "width": 1280,
-          "height": 960
+          "path": "/images/diego-montador-moveis/capa.webp",
+          "hash": "dc72ae2d90448a799bf0c5ef88419fcb78b0fc54",
+          "bytes": 116614,
+          "width": 1122,
+          "height": 1402
         },
         "cover": {
-          "path": "/images/eletrovale-eletromecanica/capa-card.jpg",
-          "hash": "4b4f5f27d3d55718e881913b1bb0a4d9a4183308",
-          "bytes": 195467,
-          "width": 1280,
-          "height": 800
+          "path": "/images/diego-montador-moveis/capa-card.jpg",
+          "hash": "7abb446d56624e66d982ceef2cc5677d3f8017a8",
+          "bytes": 70323,
+          "width": 1122,
+          "height": 701
         },
         "social": {
-          "path": "/images/eletrovale-eletromecanica/equipamentos-og.jpg",
-          "hash": "83cf815a2754fc28633c797e160e04eea1c6ec3b",
-          "bytes": 165751,
+          "path": "/images/diego-montador-moveis/capa-og.jpg",
+          "hash": "6c69769764c40d36ecad7649014e6acf5c89a1ec",
+          "bytes": 69089,
           "width": 1200,
           "height": 630
         },
@@ -5770,110 +5683,9 @@
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Seu equipamento merece confiabilidade.",
-        "heroHeight": 1069,
-        "editorialChars": 2397,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 3,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/eletrovale-eletromecanica/equipamentos.webp"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs eletro-solucoes-eficazes"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "jkl-marcenaria",
-      "businessName": "JKL Marcenaria",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/JklMarcenariaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 88,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 48,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "eletrovale-eletromecanica",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o ambiente, as medidas e a ideia que quer realizar.",
-      "funnelCta": "Planejar móvel",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/jkl-marcenaria/cozinha.webp",
-          "hash": "df1e77d211eaf9c128eda7793ee6bee11cb16ef4",
-          "bytes": 65186,
-          "width": 1204,
-          "height": 1600
-        },
-        "cover": {
-          "path": "/images/jkl-marcenaria/capa-card.jpg",
-          "hash": "79cc4d2e300a70fd66debca025a11f57242dc48d",
-          "bytes": 56997,
-          "width": 1204,
-          "height": 753
-        },
-        "social": {
-          "path": "/images/jkl-marcenaria/cozinha-og.jpg",
-          "hash": "573f65ec5092dac85b0e29b9b1f72f3c2521fb66",
-          "bytes": 55622,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Móveis sob medida para todos os ambientes.",
-        "heroHeight": 1271,
-        "editorialChars": 2474,
+        "heroHeadline": "Seu móvel no lugar. Sua casa em ordem.",
+        "heroHeight": 1092,
+        "editorialChars": 2618,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -5889,7 +5701,7 @@
           "severity": "P2",
           "group": "logo",
           "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/jkl-marcenaria/cozinha.webp"
+          "detail": "/images/diego-montador-moveis/capa.webp"
         },
         {
           "code": "FEW_IMAGES",
@@ -5903,108 +5715,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs eletrovale-eletromecanica"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "beto-pasteis",
-      "businessName": "Beto Pastéis",
-      "segment": "restaurantes",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/BetoPasteisPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 90,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 24,
-      "originalityStatus": "PASS",
-      "originalityNearest": "brecho-sao-francisco",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Escolha a ocasião e conte o que gostaria de encontrar no menu.",
-      "funnelCta": "Conhecer sabores",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/beto-pasteis/capa.png",
-          "hash": "a869dfecd31195056ce94af45bdfe8ce1d4078f2",
-          "bytes": 2201587,
-          "width": 1730,
-          "height": 909
-        },
-        "cover": {
-          "path": "/images/beto-pasteis/capa-card.jpg",
-          "hash": "0fecca9eb5c5e66d333d39e04f9733f1a876af7a",
-          "bytes": 201663,
-          "width": 1454,
-          "height": 909
-        },
-        "social": {
-          "path": "/images/beto-pasteis/capa-og.jpg",
-          "hash": "7cc4f1c5dd9c606616894706b862089e33219e3b",
-          "bytes": 134118,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "O pastel que combina com a pausa, o almoço e a vontade do bairro.",
-        "heroHeight": 1087,
-        "editorialChars": 1372,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/beto-pasteis/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
+          "detail": "59 vs aguia-sul-sinalizacao"
         }
       ],
       "priority": 3
@@ -6111,6 +5822,194 @@
       "priority": 3
     },
     {
+      "slug": "lucas-arruma-maquina-lavar",
+      "businessName": "Lucas Arruma Máquina de Lavar",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 92,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 11,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 47,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "no-brilho-higienizacao",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o modelo, o sintoma e quando o problema começou.",
+      "funnelCta": "Pedir diagnóstico",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/lucas-arruma-maquina-lavar/logo.svg",
+          "hash": "d6e61014613e9e3c868b4649118256050c7fc3f9",
+          "bytes": 612,
+          "width": 320,
+          "height": 320
+        },
+        "cover": {
+          "path": "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
+          "hash": "f0da534de0341d43719ebdc63a91ab00a47f83bc",
+          "bytes": 66214,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/lucas-arruma-maquina-lavar/capa-og.jpg",
+          "hash": "3be42c1c838f33ee2dd1c7d8aef18e65fc5696a8",
+          "bytes": 64184,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Sua máquina parou? Lucas resolve.",
+        "heroHeight": 730,
+        "editorialChars": 2493,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs no-brilho-higienizacao"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "no-brilho-higienizacao",
+      "businessName": "No Brilho Higienização",
+      "segment": "servicos",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 92,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 11,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 47,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "lucas-arruma-maquina-lavar",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe a peça, a necessidade e a região do atendimento.",
+      "funnelCta": "Agendar higienização",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/no-brilho-higienizacao/logo.svg",
+          "hash": "1845aeb6929d1290b7948499f1244c4a262b4f24",
+          "bytes": 585,
+          "width": 320,
+          "height": 320
+        },
+        "cover": {
+          "path": "/images/no-brilho-higienizacao/capa-card.jpg",
+          "hash": "97a8efac6a5ecaa393465cf7700bff5e0e83bd83",
+          "bytes": 48400,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/no-brilho-higienizacao/capa-og.jpg",
+          "hash": "275de007cf1141ddcad819a38c42876bcb49be42",
+          "bytes": 75108,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Mais limpeza. Mais brilho.",
+        "heroHeight": 450,
+        "editorialChars": 2188,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs lucas-arruma-maquina-lavar"
+        }
+      ],
+      "priority": 3
+    },
+    {
       "slug": "paulo-mestre-de-obras",
       "businessName": "Paulo Mestre de Obras",
       "segment": "servicos",
@@ -6133,9 +6032,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 58,
+      "originalityScore": 56,
       "originalityStatus": "WARNING",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
+      "originalityNearest": "diego-montador-moveis",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
@@ -6206,7 +6105,108 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "58 vs lucas-arruma-maquina-lavar"
+          "detail": "56 vs diego-montador-moveis"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "raphael-construcoes",
+      "businessName": "Raphael Construções",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 92,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 11,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 38,
+      "originalityStatus": "PASS",
+      "originalityNearest": "ton-e-cor",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
+      "funnelCta": "Solicitar avaliação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/raphael-construcoes/logo.png",
+          "hash": "ff2fbb35e8eb87534203aa7320949ccf4238ace5",
+          "bytes": 833787,
+          "width": 1774,
+          "height": 887
+        },
+        "cover": {
+          "path": "/images/raphael-construcoes/hero-og.jpg",
+          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
+          "bytes": 147743,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/raphael-construcoes/hero-og.jpg",
+          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
+          "bytes": 147743,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Uma visão completa para sua obra.",
+        "heroHeight": 584,
+        "editorialChars": 2397,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/raphael-construcoes/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
         }
       ],
       "priority": 3
@@ -6328,9 +6328,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 49,
+      "originalityScore": 42,
       "originalityStatus": "WARNING",
-      "originalityNearest": "no-brilho-higienizacao",
+      "originalityNearest": "diego-montador-moveis",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -6394,7 +6394,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs no-brilho-higienizacao"
+          "detail": "42 vs diego-montador-moveis"
         }
       ],
       "priority": 3
@@ -6588,6 +6588,107 @@
       "priority": 3
     },
     {
+      "slug": "hbk-iluminacao-led",
+      "businessName": "HBK Iluminação LED Atacadão",
+      "segment": "construcao",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 94,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 35,
+      "originalityStatus": "PASS",
+      "originalityNearest": "jc-revestimentos",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação.",
+      "funnelCta": "Solicitar cotação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/hbk-iluminacao-led/logo.png",
+          "hash": "4116a36c67ae65717f1475c492c81a6da62e4a41",
+          "bytes": 1138374,
+          "width": 1789,
+          "height": 879
+        },
+        "cover": {
+          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
+          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
+          "bytes": 124720,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
+          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
+          "bytes": 124720,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Iluminando seus projetos com inteligência.",
+        "heroHeight": 817,
+        "editorialChars": 1907,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 2
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/hbk-iluminacao-led/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        }
+      ],
+      "priority": 3
+    },
+    {
       "slug": "r_beauty",
       "businessName": "R_Beauty Studio & Spa",
       "segment": "beleza",
@@ -6598,14 +6699,14 @@
       "technical": "COMPLETE",
       "published": true,
       "visual": "PREMIUM",
-      "score": 93,
+      "score": 95,
       "groupScores": {
         "identity": 15,
         "logo": 10,
         "cover": 14,
         "hero": 15,
         "images": 10,
-        "content": 8,
+        "content": 10,
         "originality": 6,
         "mobile": 10,
         "social": 5
@@ -6653,7 +6754,7 @@
         "desktopImages": 6,
         "heroHeadline": "A alta costura do olhar em cada detalhe milimétrico.",
         "heroHeight": 1367,
-        "editorialChars": 2730,
+        "editorialChars": 2743,
         "smallTargets": 2,
         "consoleErrors": 0
       },
@@ -6661,7 +6762,7 @@
         "P0": 0,
         "P1": 0,
         "P2": 1,
-        "P3": 2
+        "P3": 1
       },
       "issues": [
         {
@@ -6670,13 +6771,6 @@
           "group": "cover",
           "label": "Capa sem focal point definido",
           "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
         },
         {
           "code": "ORIGINALITY_WARNING",
@@ -6863,12 +6957,12 @@
       "priority": 3
     },
     {
-      "slug": "hbk-iluminacao-led",
-      "businessName": "HBK Iluminação LED Atacadão",
-      "segment": "construcao",
-      "city": "Curitiba",
+      "slug": "galileu-locacao-brinquedos",
+      "businessName": "Galileu Locação de Brinquedos",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
       "componentType": "custom",
-      "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
+      "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -6877,58 +6971,58 @@
       "groupScores": {
         "identity": 15,
         "logo": 10,
-        "cover": 11,
+        "cover": 15,
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 10,
+        "originality": 6,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 35,
-      "originalityStatus": "PASS",
-      "originalityNearest": "jc-revestimentos",
+      "originalityScore": 47,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
-      "funnelIntent": "orcamento",
+      "funnelIntent": "reserva",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação.",
-      "funnelCta": "Solicitar cotação",
+      "funnelNextStep": "Conte a data, o local e o perfil da comemoração para montar seu pedido.",
+      "funnelCta": "Planejar diversão",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/hbk-iluminacao-led/logo.png",
-          "hash": "4116a36c67ae65717f1475c492c81a6da62e4a41",
-          "bytes": 1138374,
-          "width": 1789,
-          "height": 879
+          "path": "/images/galileu-locacao-brinquedos/logo.png",
+          "hash": "358134e0fa451a12f3eb0fd776d40b3d01f9ffe9",
+          "bytes": 1649003,
+          "width": 1536,
+          "height": 1024
         },
         "cover": {
-          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
-          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
-          "bytes": 124720,
-          "width": 1200,
-          "height": 630
+          "path": "/images/galileu-locacao-brinquedos/capa-card.jpg",
+          "hash": "724aaa20df1532e09bff19cc758b9f3b56a12da6",
+          "bytes": 69003,
+          "width": 1600,
+          "height": 1000
         },
         "social": {
-          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
-          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
-          "bytes": 124720,
+          "path": "/images/galileu-locacao-brinquedos/capa-og.jpg",
+          "hash": "78180cbe2bcf2c4e17c05b23d0c64a608c8ba93b",
+          "bytes": 58079,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 4
+        "galleryCount": 5
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Soluções LED para construir, reformar e iluminar melhor.",
-        "heroHeight": 892,
-        "editorialChars": 2262,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Diversão garantida para momentos inesquecíveis.",
+        "heroHeight": 1272,
+        "editorialChars": 2505,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -6936,22 +7030,15 @@
         "P0": 0,
         "P1": 0,
         "P2": 1,
-        "P3": 1
+        "P3": 0
       },
       "issues": [
         {
-          "code": "COVER_REUSES_SOCIAL",
+          "code": "ORIGINALITY_WARNING",
           "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/hbk-iluminacao-led/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs eletro-solucoes-eficazes"
         }
       ],
       "priority": 3
@@ -7020,9 +7107,9 @@
         "mobileOverflow": 0,
         "mobileImages": 7,
         "desktopImages": 7,
-        "heroHeadline": "Texturas e massas para transformar o acabamento da sua obra.",
-        "heroHeight": 902,
-        "editorialChars": 2216,
+        "heroHeadline": "O acabamento certo começa com o material adequado.",
+        "heroHeight": 658,
+        "editorialChars": 1964,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -7051,12 +7138,12 @@
       "priority": 3
     },
     {
-      "slug": "raphael-construcoes",
-      "businessName": "Raphael Construções",
-      "segment": "servicos",
-      "city": "Curitiba",
+      "slug": "lj-cleaning",
+      "businessName": "L&J Cleaning",
+      "segment": "prestadores-de-servicos",
+      "city": "São José dos Pinhais",
       "componentType": "custom",
-      "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "componentFile": "src/components/site/LjCleaningPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -7065,58 +7152,58 @@
       "groupScores": {
         "identity": 15,
         "logo": 10,
-        "cover": 11,
+        "cover": 15,
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 10,
+        "originality": 6,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 38,
-      "originalityStatus": "PASS",
-      "originalityNearest": "ton-e-cor",
+      "originalityScore": 45,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "galileu-locacao-brinquedos",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "orcamento",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
-      "funnelCta": "Solicitar avaliação",
+      "funnelNextStep": "Informe o item, o tamanho e o tipo de higienização que deseja avaliar.",
+      "funnelCta": "Solicitar orçamento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/raphael-construcoes/logo.png",
-          "hash": "ff2fbb35e8eb87534203aa7320949ccf4238ace5",
-          "bytes": 833787,
+          "path": "/images/lj-cleaning/logo.png",
+          "hash": "ee9ad3441941e13fd62f3725807b9923feee645e",
+          "bytes": 980309,
           "width": 1774,
           "height": 887
         },
         "cover": {
-          "path": "/images/raphael-construcoes/hero-og.jpg",
-          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
-          "bytes": 147743,
-          "width": 1200,
-          "height": 630
+          "path": "/images/lj-cleaning/capa-card.jpg",
+          "hash": "fc31eed37b623cbbeda3c3ffa079c17acd81aacc",
+          "bytes": 84518,
+          "width": 1600,
+          "height": 1000
         },
         "social": {
-          "path": "/images/raphael-construcoes/hero-og.jpg",
-          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
-          "bytes": 147743,
+          "path": "/images/lj-cleaning/capa-og.jpg",
+          "hash": "16b62c8050134e4d0c41126f40a9d0fde9ab01bf",
+          "bytes": 66145,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 4
+        "galleryCount": 5
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Do projeto à realização, cada etapa da obra em uma visão completa.",
-        "heroHeight": 902,
-        "editorialChars": 2248,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Limpamos, higienizamos e cuidamos do seu conforto.",
+        "heroHeight": 999,
+        "editorialChars": 2413,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -7124,116 +7211,15 @@
         "P0": 0,
         "P1": 0,
         "P2": 1,
-        "P3": 1
+        "P3": 0
       },
       "issues": [
         {
-          "code": "COVER_REUSES_SOCIAL",
+          "code": "ORIGINALITY_WARNING",
           "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/raphael-construcoes/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "ton-e-cor",
-      "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
-      "segment": "servicos",
-      "city": "Região de Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/TonECorPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 96,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 38,
-      "originalityStatus": "PASS",
-      "originalityNearest": "raphael-construcoes",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
-      "funnelCta": "Pedir orçamento",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/ton-e-cor/logo.png",
-          "hash": "8aefbd745bfb180e1fd90c087e5e09418662ff1e",
-          "bytes": 529187,
-          "width": 1983,
-          "height": 793
-        },
-        "cover": {
-          "path": "/images/ton-e-cor/hero-og.jpg",
-          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
-          "bytes": 130989,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/ton-e-cor/hero-og.jpg",
-          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
-          "bytes": 130989,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Sua casa renovada, com os reparos organizados em um só atendimento.",
-        "heroHeight": 902,
-        "editorialChars": 2289,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/ton-e-cor/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "45 vs galileu-locacao-brinquedos"
         }
       ],
       "priority": 3
