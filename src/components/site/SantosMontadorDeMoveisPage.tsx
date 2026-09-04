@@ -42,7 +42,9 @@ export function SantosMontadorDeMoveisPage() {
     </div></header>
     <main>
       <section id="inicio" className="relative isolate min-h-[82vh] overflow-hidden bg-secondary px-4 py-14 text-secondary-foreground md:px-8 lg:py-20">
-        <PortfolioImage src="/images/santos-montador-de-moveis/hero.webp" alt="Profissional montando cuidadosamente um armário de madeira em um apartamento" priority width={1600} height={1067} className="absolute inset-0 -z-20 size-full object-cover object-[64%_center] opacity-55 lg:opacity-70" />
+        <PortfolioImage src="/images/santos-montador-de-moveis/hero.webp" alt="Profissional montando cuidadosamente um armário de madeira em um apartamento" priority width={1600} height={1067} className="absolute inset-0 -z-20 size-full object-cover object-[64%_center] opacity-55 lg:opacity-70"
+            managedField="heroImageUrl"
+          />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,var(--secondary)_0%,color-mix(in_oklab,var(--secondary)_94%,transparent)_38%,color-mix(in_oklab,var(--secondary)_32%,transparent)_72%,color-mix(in_oklab,var(--secondary)_58%,transparent)_100%)]" />
         <div aria-hidden="true" className="absolute bottom-8 left-0 h-px w-[42%] bg-primary"><span className="absolute right-0 top-1/2 size-3 -translate-y-1/2 rotate-45 bg-primary" /></div>
         <div className="mx-auto flex min-h-[68vh] max-w-7xl items-center"><div className="max-w-2xl">

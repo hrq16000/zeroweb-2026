@@ -1,3 +1,5 @@
+import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useState, type ReactNode } from "react";
 import { motion } from "motion/react";
 import {
@@ -111,12 +113,12 @@ export function MaridoDeAluguelPage() {
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,#f6c45355,transparent_36%)]" />
             <div className="relative flex min-h-36 items-center gap-5 p-5 sm:p-7">
-              <img
+              <PortfolioImage managedField="logoUrl"
                 src="/images/mestre-dos-servicos-logo.jpg"
                 alt="Mestre dos Serviços"
                 className="h-24 w-24 rounded-2xl object-cover shadow-lg ring-2 ring-amber-300/60 transition duration-500 group-hover:rotate-2 group-hover:scale-105"
-                loading="eager"
- decoding="async" fetchPriority="high" width={1024} height={1024} />
+               
+ decoding="async" width={1024} height={1024} />
               <div className="text-white">
                 <p className="text-xs font-bold uppercase tracking-[.2em] text-amber-300">
                   Mestre dos Serviços
@@ -139,12 +141,11 @@ export function MaridoDeAluguelPage() {
                 Reparos residenciais com confiança
               </p>
               <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.03] sm:text-6xl">
-                Mestre dos Serviços para resolver o que sua casa precisa.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Mestre dos Servi\u00e7os para resolver o que sua casa precisa."} />
+          </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-100">
-                Instalações, montagens, manutenção e pequenos reparos para casas, apartamentos,
-                escritórios e imóveis de aluguel.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Instala\u00e7\u00f5es, montagens, manuten\u00e7\u00e3o e pequenos reparos para casas, apartamentos, escrit\u00f3rios e im\u00f3veis de aluguel."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <MestreCTA className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-300 px-6 py-3.5 font-bold text-slate-950 hover:bg-amber-200">
                   Pedir orçamento seguro

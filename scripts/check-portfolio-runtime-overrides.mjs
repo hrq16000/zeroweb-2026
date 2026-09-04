@@ -38,48 +38,78 @@ for (const [label, re] of CONTRACTS) {
   if (!re.test(route)) failures.push(`RUNTIME_CONTRACT_MISSING: ${label}`);
 }
 
-// ---- Matriz de suporte por componente -------------------------------------
+// ---- Matriz de cobertura por componente -----------------------------------
+// MANAGED = o campo realmente muda a saída pública quando o admin salva.
+// HARDCODED_INTENTIONAL = composição autoral que não entra no núcleo comum.
 const files = readdirSync(COMPONENT_DIR).filter((f) => f.endsWith("Page.tsx"));
 const rows = [];
 for (const file of files) {
   const src = readFileSync(join(COMPONENT_DIR, file), "utf8");
-  const managed = src.includes("useManagedValue") || src.includes("usePortfolioRuntime");
+  const isPortfolio = src.includes("PortfolioUpsellPopup") || src.includes("PortfolioStandardShell");
+  if (!isPortfolio) continue;
+  const has = (re) => re.test(src);
   rows.push({
     component: file,
-    logo: /useManagedValue\("logoUrl"/.test(src),
-    hero: /useManagedValue\("heroImageUrl"/.test(src),
-    headline: /useManagedValue\("heroHeadline"/.test(src),
-    gallery: /useManagedValue\("gallery"/.test(src),
-    cta: /useManagedValue\("ctaLabel"/.test(src),
-    managed,
+    logo:
+      has(/managedField="logoUrl"/) || has(/useManagedValue\("logoUrl"/)
+        ? "MANAGED"
+        : /logo/i.test(src)
+          ? "MISSING"
+          : "NOT_APPLICABLE",
+    hero:
+      has(/managedField="heroImageUrl"/) || has(/useManagedValue\("heroImageUrl"/)
+        ? "MANAGED"
+        : has(/<PortfolioImage(?![^>]*managedField)[^>]*priority/)
+          ? "MISSING"
+          : "NOT_APPLICABLE",
+    headline: has(/field="heroHeadline"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
+    subheadline: has(/field="heroSubheadline"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
+    cta: has(/field="ctaLabel"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
   });
 }
 
-const mark = (v) => (v ? "sim" : "—");
-const covered = rows.filter((r) => r.managed).length;
+const FIELDS = ["logo", "hero", "headline", "subheadline", "cta"];
+const coreManaged = rows.filter((r) => FIELDS.some((f) => r[f] === "MANAGED"));
+const missing = [];
+for (const r of rows) {
+  for (const f of FIELDS) if (r[f] === "MISSING") missing.push(`${r.component}:${f}`);
+}
+
+// Regressão de cobertura: o número de componentes com núcleo administrável
+// nunca pode cair abaixo da linha de base registrada aqui.
+const BASELINE_MANAGED = 61;
+
 const lines = [
-  "# Matriz de suporte a overrides por componente",
+  "# Matriz de cobertura runtime por componente",
   "",
   "SEO/OG/social image/canonical/robots são resolvidos na rota e valem para **todos** os projetos.",
   "As colunas abaixo indicam o consumo dentro do componente próprio de cada cliente.",
   "",
-  `- Componentes auditados: ${rows.length}`,
-  `- Componentes já conectados ao contexto administrável: ${covered}`,
+  "Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`",
+  "(composição autoral preservada) · `NOT_APPLICABLE` · `MISSING` (bloqueante).",
   "",
-  "| Componente | Logo | Hero | Headline | Galeria | CTA |",
+  `- Componentes de portfólio auditados: ${rows.length}`,
+  `- Componentes com núcleo administrável: ${coreManaged.length}`,
+  `- Conexões faltando (MISSING): ${missing.length}`,
+  "",
+  "| Componente | Logo | Hero | Headline | Subheadline | CTA |",
   "| --- | --- | --- | --- | --- | --- |",
   ...rows
-    .sort((a, b) => Number(b.managed) - Number(a.managed) || a.component.localeCompare(b.component))
-    .map(
-      (r) =>
-        `| ${r.component} | ${mark(r.logo)} | ${mark(r.hero)} | ${mark(r.headline)} | ${mark(r.gallery)} | ${mark(r.cta)} |`,
-    ),
+    .sort((a, b) => a.component.localeCompare(b.component))
+    .map((r) => `| ${r.component} | ${r.logo} | ${r.hero} | ${r.headline} | ${r.subheadline} | ${r.cta} |`),
   "",
 ];
 mkdirSync("reports", { recursive: true });
 writeFileSync("reports/portfolio-runtime-matrix.md", lines.join("\n"));
 
-console.log(`Componentes auditados: ${rows.length} | conectados ao admin: ${covered}`);
+if (missing.length) failures.push(`RUNTIME_FIELD_MISSING: ${missing.join(", ")}`);
+if (coreManaged.length < BASELINE_MANAGED) {
+  failures.push(
+    `RUNTIME_COVERAGE_REGRESSION: ${coreManaged.length} < baseline ${BASELINE_MANAGED}`,
+  );
+}
+
+console.log(`Componentes de portfólio: ${rows.length} | núcleo administrável: ${coreManaged.length} | MISSING: ${missing.length}`);
 console.log("Matriz: reports/portfolio-runtime-matrix.md");
 
 if (failures.length) {

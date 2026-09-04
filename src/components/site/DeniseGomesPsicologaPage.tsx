@@ -108,14 +108,14 @@ export function DeniseGomesPsicologaPage() {
       <header className="sticky top-0 z-20 border-b border-[var(--denise-primary)]/10 bg-[var(--denise-bg)]/95 px-5 py-3 backdrop-blur lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a href="#inicio" aria-label="Denise Gomes · Psicóloga" className="shrink-0">
-            <img
+            <PortfolioImage managedField="logoUrl"
               src="/images/denise-gomes-psicologa/logo.png"
               alt="Denise Gomes · Psicóloga"
               width={1672}
               height={941}
-              loading="eager"
+             
               decoding="async"
-              fetchPriority="high"
+             
               className="h-14 w-auto max-w-[190px] object-contain object-left sm:max-w-[245px]"
             />
           </a>
@@ -186,7 +186,8 @@ export function DeniseGomesPsicologaPage() {
                 width={1024}
                 height={1120}
                 className="relative aspect-[.91/1] w-full rounded-[2rem] object-cover object-top shadow-2xl shadow-[var(--denise-primary)]/15"
-              />
+            managedField="heroImageUrl"
+          />
               <figcaption className="relative mt-3 text-sm text-[var(--denise-muted)]">
                 Atendimento psicológico para adultos em São José dos Pinhais.
               </figcaption>

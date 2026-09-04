@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useMemo, useState } from "react";
 import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils, X } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -179,12 +180,11 @@ export function ParaisoHotDogPage() {
               São José dos Pinhais · aberto das 18h30 às 23h
             </p>
             <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[.95] tracking-tight sm:text-7xl">
-              Seu hot dog caprichado começa aqui.
-            </h1>
+            <ManagedText field="heroHeadline" fallback={"Seu hot dog caprichado come\u00e7a aqui."} />
+          </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#ffe9a5]">
-              Monte do seu jeito, escolha retirar ou receber em casa e envie o pedido pronto pelo
-              WhatsApp.
-            </p>
+            <ManagedText field="heroSubheadline" fallback={"Monte do seu jeito, escolha retirar ou receber em casa e envie o pedido pronto pelo WhatsApp."} />
+          </p>
             <a
               href="#cardapio"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#f5bd21] px-6 py-3.5 font-bold text-black transition hover:-translate-y-1"

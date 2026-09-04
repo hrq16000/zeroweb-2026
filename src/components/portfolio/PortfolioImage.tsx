@@ -1,4 +1,5 @@
 import type { ImgHTMLAttributes } from "react";
+import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
 
 type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "loading"> & {
   src: string;
@@ -12,6 +13,12 @@ type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "loading"> & {
    */
   widths?: number[];
   sizes?: string;
+  /**
+   * Campo administrável correspondente. Quando o admin salva um override
+   * válido para o projeto, ele substitui `src`; caso contrário o valor
+   * original do componente continua valendo (nunca renderiza vazio).
+   */
+  managedField?: "logoUrl" | "heroImageUrl" | "socialImage";
 };
 
 function variantSrc(src: string, width: number): string {
@@ -31,16 +38,21 @@ export function PortfolioImage({
   priority = false,
   widths,
   sizes = "(min-width: 1024px) 960px, 100vw",
+  managedField,
   ...rest
 }: Props) {
+  const runtime = usePortfolioRuntime();
+  const override = managedField ? runtime?.[managedField] : undefined;
+  const managedSrc = typeof override === "string" && override.trim() ? override : src;
+  const isManaged = managedSrc !== src;
   const srcSet =
-    widths && widths.length > 0
-      ? widths.map((w) => `${variantSrc(src, w)} ${w}w`).join(", ")
+    !isManaged && widths && widths.length > 0
+      ? widths.map((w) => `${variantSrc(managedSrc, w)} ${w}w`).join(", ")
       : undefined;
 
   return (
     <img
-      src={src}
+      src={managedSrc}
       alt={alt}
       srcSet={srcSet}
       sizes={srcSet ? sizes : undefined}

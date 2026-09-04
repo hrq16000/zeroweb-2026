@@ -1,3 +1,5 @@
+import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
@@ -118,7 +120,7 @@ function DyzHeader() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="D.Y.Z Promo — início">
           <span className="inline-flex items-center rounded-xl bg-white px-2.5 py-1.5 shadow-[0_4px_18px_rgba(0,0,0,0.2)] ring-1 ring-white/40 sm:px-3">
-            <img src="/images/dyzpromo/logo-dyz-promo.webp" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" loading="lazy" decoding="async" width={2123} height={741} />
+            <PortfolioImage managedField="logoUrl" priority src="/images/dyzpromo/logo-dyz-promo.webp" alt="D.Y.Z Promo — divulgação em campo" className="h-10 w-auto object-contain sm:h-11" decoding="async" width={2123} height={741} />
           </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm text-blue-100 md:flex" aria-label="Navegação D.Y.Z Promo">
@@ -155,11 +157,11 @@ export function DyzPromoPage() {
                 <Megaphone className="h-4 w-4" aria-hidden="true" /> Marketing promocional
               </span>
               <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-                Sua marca na rua, na memória e no próximo cliente.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Sua marca na rua, na mem\u00f3ria e no pr\u00f3ximo cliente."} />
+          </h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-                A D.Y.Z Promo leva campanhas para onde as pessoas estão: com equipes preparadas, distribuição direcionada e presença que faz sua oferta ser percebida.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"A D.Y.Z Promo leva campanhas para onde as pessoas est\u00e3o: com equipes preparadas, distribui\u00e7\u00e3o direcionada e presen\u00e7a que faz sua oferta ser percebida."} />
+          </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <DyzCTA label="Solicitar proposta" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f7c948] px-6 py-3.5 font-bold text-[#10295d] shadow-[0_0_35px_rgba(247,201,72,0.3)] transition hover:bg-[#ffe08a]" />
                 <a href="#servicos" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">

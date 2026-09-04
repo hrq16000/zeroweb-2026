@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function MarmitariaDomDiegoPage() {
             Marmitaria Dom Diego
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Almoço prático para deixar o dia mais leve no Jardim Itália.
+            <ManagedText field="heroHeadline" fallback={"Almo\u00e7o pr\u00e1tico para deixar o dia mais leve no Jardim It\u00e1lia."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Vitrine digital para apresentar marmitas, combinações e caminhos de pedido com clareza.
+            <ManagedText field="heroSubheadline" fallback={"Vitrine digital para apresentar marmitas, combina\u00e7\u00f5es e caminhos de pedido com clareza."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function MarmitariaDomDiegoPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function MarmitariaDomDiegoPage() {
               companySlug="marmitaria-dom-diego"
               formSlug="funnel-marmitaria-dom-diego"
               location="marmitaria-dom-diego_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[['Almoço do dia','Informações organizadas para escolher sem perder tempo.'],['Combinações','Espaço para destacar opções e acompanhamentos confirmados.'],['Pedido simples','Próximo passo direto para consultar disponibilidade.']].map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-5"><h2 className="font-display text-lg font-bold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}

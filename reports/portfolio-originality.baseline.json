@@ -3,12 +3,12 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 3,
-    "attention": 10,
-    "highSimilarity": 25,
+    "acceptable": 7,
+    "attention": 16,
+    "highSimilarity": 26,
     "clone": 19,
-    "sharedFallback": 11,
-    "clusters": 5,
+    "sharedFallback": 0,
+    "clusters": 4,
     "placeholderLogos": 11,
     "missingLogos": 0,
     "missingCovers": 27,
@@ -45,9 +45,9 @@
       "sharedCover": false
     },
     "almeida-torres": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 34,
+      "status": "ACCEPTABLE",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
@@ -63,7 +63,7 @@
       "sharedCover": false
     },
     "artesanatos-darleia-oliveira": {
-      "score": 72,
+      "score": 73,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -72,7 +72,7 @@
       "sharedCover": false
     },
     "assistencia-microondas-santos": {
-      "score": 65,
+      "score": 66,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -90,9 +90,9 @@
       "sharedCover": false
     },
     "bh-barreiro-marmitas": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 45,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
@@ -108,25 +108,25 @@
       "sharedCover": false
     },
     "casa-nativa": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 48,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
     },
     "clinica-integrada": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 49,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
     },
     "confeitaria-chyrley": {
-      "score": 62,
+      "score": 63,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -135,7 +135,7 @@
       "sharedCover": false
     },
     "confeitaria-sabor-da-realeza": {
-      "score": 67,
+      "score": 66,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -144,7 +144,7 @@
       "sharedCover": false
     },
     "denise-gomes-psicologa": {
-      "score": 65,
+      "score": 64,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -171,7 +171,7 @@
       "sharedCover": false
     },
     "dyzpromo": {
-      "score": 27,
+      "score": 28,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
@@ -216,7 +216,7 @@
       "sharedCover": false
     },
     "emporio-lelecute": {
-      "score": 32,
+      "score": 33,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
@@ -234,7 +234,7 @@
       "sharedCover": false
     },
     "fernanda-amaral-drywall": {
-      "score": 53,
+      "score": 55,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -243,7 +243,7 @@
       "sharedCover": false
     },
     "galileu-locacao-brinquedos": {
-      "score": 75,
+      "score": 76,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -252,36 +252,36 @@
       "sharedCover": false
     },
     "guaratuba-atelie-presentes": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 51,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
     },
     "guaratuba-oficina-nautica": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 48,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
     },
     "guaratuba-reparos-residenciais": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 37,
+      "status": "ACCEPTABLE",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
     },
     "guaratuba-sabores-da-baia": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 36,
+      "status": "ACCEPTABLE",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
@@ -297,7 +297,7 @@
       "sharedCover": false
     },
     "heloa-gas": {
-      "score": 57,
+      "score": 58,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -333,7 +333,7 @@
       "sharedCover": false
     },
     "lj-cleaning": {
-      "score": 75,
+      "score": 76,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -342,7 +342,7 @@
       "sharedCover": false
     },
     "lk-alvenaria": {
-      "score": 74,
+      "score": 73,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -351,7 +351,7 @@
       "sharedCover": false
     },
     "lolipa-arte-em-festas": {
-      "score": 69,
+      "score": 70,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -369,7 +369,7 @@
       "sharedCover": false
     },
     "manu-pasteis": {
-      "score": 52,
+      "score": 53,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -405,18 +405,18 @@
       "sharedCover": false
     },
     "mirassol-conserta-celular": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 49,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
     },
     "mirassol-delicias-caseiras": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 51,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
@@ -432,7 +432,7 @@
       "sharedCover": false
     },
     "mp-festas-eventos": {
-      "score": 64,
+      "score": 65,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -468,7 +468,7 @@
       "sharedCover": false
     },
     "premium-envelopamentos": {
-      "score": 69,
+      "score": 70,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -522,7 +522,7 @@
       "sharedCover": false
     },
     "rj-servicos-drywall": {
-      "score": 53,
+      "score": 55,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -531,8 +531,8 @@
       "sharedCover": false
     },
     "rm-fretes": {
-      "score": 42,
-      "status": "ATTENTION",
+      "score": 40,
+      "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -558,7 +558,7 @@
       "sharedCover": false
     },
     "sos-presentes-cosmeticos": {
-      "score": 61,
+      "score": 62,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -567,7 +567,7 @@
       "sharedCover": false
     },
     "studio-de-cilios": {
-      "score": 64,
+      "score": 65,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -576,7 +576,7 @@
       "sharedCover": false
     },
     "thays-camilla": {
-      "score": 72,
+      "score": 73,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
@@ -603,17 +603,17 @@
       "sharedCover": false
     },
     "uberlandia-eletrica-residencial": {
-      "score": 100,
-      "status": "SHARED_FALLBACK",
-      "fallback": true,
+      "score": 45,
+      "status": "ATTENTION",
+      "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
     },
     "vila-da-capivara": {
-      "score": 60,
-      "status": "ATTENTION",
+      "score": 61,
+      "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,

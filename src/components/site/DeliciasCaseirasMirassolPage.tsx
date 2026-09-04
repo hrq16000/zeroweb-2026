@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -70,12 +71,11 @@ export function DeliciasCaseirasMirassolPage() {
               Delícias Caseiras
             </a>
             <h1 className="mt-8 font-serif text-4xl leading-[1.1] sm:text-6xl">
-              Bolos e salgados para os dias que merecem mesa posta.
-            </h1>
+            <ManagedText field="heroHeadline" fallback={"Bolos e salgados para os dias que merecem mesa posta."} />
+          </h1>
             <p className="mx-auto mt-6 max-w-lg text-base leading-8 text-[#6c5145]">
-              Encomendas feitas na hora certa, com prova de sabor para festa grande e entrega combinada no dia do
-              evento.
-            </p>
+            <ManagedText field="heroSubheadline" fallback={"Encomendas feitas na hora certa, com prova de sabor para festa grande e entrega combinada no dia do evento."} />
+          </p>
             <div className="mt-9">
               <Encomendar>Fazer encomenda</Encomendar>
             </div>

@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -67,12 +68,11 @@ export function UberlandiaEletricaResidencialPage() {
                 Elétrica Residencial · Uberlândia — MG
               </a>
               <h1 className="mt-7 text-4xl font-black uppercase leading-[1.02] sm:text-6xl">
-                Instalação elétrica que passa em teste, não em improviso.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Instala\u00e7\u00e3o el\u00e9trica que passa em teste, n\u00e3o em improviso."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#b9b4a7]">
-                Quadros, aterramento, dispositivos DR e novos circuitos executados conforme a NBR 5410 — com medição na
-                entrega e registro fotográfico do serviço.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Quadros, aterramento, dispositivos DR e novos circuitos executados conforme a NBR 5410 \u2014 com medi\u00e7\u00e3o na entrega e registro fotogr\u00e1fico do servi\u00e7o."} />
+          </p>
               <div className="mt-9 flex flex-wrap gap-4">
                 <Chamado>Abrir chamado</Chamado>
                 <a href="#seguranca" className="inline-flex min-h-12 items-center text-sm font-bold uppercase tracking-[.14em] text-[#ffd400] underline underline-offset-8">

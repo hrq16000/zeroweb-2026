@@ -110,13 +110,13 @@ export function FernandaAmaralDrywallPage() {
             className="flex min-h-11 items-center gap-3 rounded-md font-display font-black tracking-tight focus-visible:ring-4 focus-visible:ring-ring/40"
             aria-label="Fernanda e Amaral — início"
           >
-            <img
+            <PortfolioImage managedField="logoUrl"
               src="/images/fernanda-amaral-drywall/logo.webp"
               alt="Fernanda e Amaral — Instalação de Drywall"
               width={1262}
               height={1262}
-              loading="eager"
-              fetchPriority="high"
+             
+             
               decoding="async"
               className="h-12 w-12 rounded-full object-cover"
             />
@@ -158,7 +158,8 @@ export function FernandaAmaralDrywallPage() {
           width={1086}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover object-center opacity-35"
-        />
+            managedField="heroImageUrl"
+          />
         <div className="absolute inset-0 bg-secondary/90" />
         <div className="relative mx-auto flex min-h-[632px] max-w-7xl items-center px-5 py-16">
           <div className="max-w-3xl">

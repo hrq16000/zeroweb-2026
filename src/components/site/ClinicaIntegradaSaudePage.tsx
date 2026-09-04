@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { Activity, CalendarCheck, HeartPulse, Microscope, Smile, Stethoscope } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -84,12 +85,11 @@ export function ClinicaIntegradaSaudePage() {
                 Agenda aberta para esta semana
               </p>
               <h1 className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl">
-                Várias especialidades, um único prontuário.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"V\u00e1rias especialidades, um \u00fanico prontu\u00e1rio."} />
+          </h1>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#43626a]">
-                A clínica reúne odontologia, clínica médica, cardiologia, fisioterapia e exames de rotina no mesmo
-                endereço — com encaminhamento interno quando o caso exige mais de um profissional.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"A cl\u00ednica re\u00fane odontologia, cl\u00ednica m\u00e9dica, cardiologia, fisioterapia e exames de rotina no mesmo endere\u00e7o \u2014 com encaminhamento interno quando o caso exige mais de um profissional."} />
+          </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Agendar>Solicitar agendamento</Agendar>
                 <Agendar variant="outline">Tirar dúvida sobre convênio</Agendar>

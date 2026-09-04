@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function ReuseHouseBrechoPage() {
             REuse House Brechó
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Uma peça especial pode ganhar uma nova história.
+            <ManagedText field="heroHeadline" fallback={"Uma pe\u00e7a especial pode ganhar uma nova hist\u00f3ria."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Presença digital de REuse House Brechó: curadoria de moda sustentável no Jardim das Américas.
+            <ManagedText field="heroSubheadline" fallback={"Presen\u00e7a digital de REuse House Brech\u00f3: curadoria de moda sustent\u00e1vel no Jardim das Am\u00e9ricas."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function ReuseHouseBrechoPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function ReuseHouseBrechoPage() {
               companySlug="reuse-house-brecho"
               formSlug="funnel-reuse-house-brecho"
               location="reuse-house-brecho_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
         </section>
       </main>

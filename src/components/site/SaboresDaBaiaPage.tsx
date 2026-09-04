@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -85,12 +86,11 @@ export function SaboresDaBaiaPage() {
             <div className="mt-14 max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[.28em] text-[#f6c76a]">Cozinha caiçara</p>
               <h1 className="mt-4 text-4xl font-bold leading-[1.06] sm:text-6xl">
-                Peixe fresco no almoço de semana e na mesa cheia de domingo.
-              </h1>
+            <ManagedText field="heroHeadline" fallback={"Peixe fresco no almo\u00e7o de semana e na mesa cheia de domingo."} />
+          </h1>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#c9eae8]">
-                Um restaurante de esquina que serve executivo rápido durante a semana e recebe famílias inteiras na
-                temporada — com o mesmo peixe comprado de manhã.
-              </p>
+            <ManagedText field="heroSubheadline" fallback={"Um restaurante de esquina que serve executivo r\u00e1pido durante a semana e recebe fam\u00edlias inteiras na temporada \u2014 com o mesmo peixe comprado de manh\u00e3."} />
+          </p>
               <div className="mt-9 flex flex-wrap gap-4">
                 <Pedir>Fazer meu pedido</Pedir>
                 <a href="#cardapio" className="inline-flex min-h-12 items-center text-sm font-bold uppercase tracking-wide underline underline-offset-8">

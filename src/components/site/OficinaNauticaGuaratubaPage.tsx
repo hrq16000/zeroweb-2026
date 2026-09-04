@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -71,12 +72,11 @@ export function OficinaNauticaGuaratubaPage() {
             <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-end">
               <div>
                 <h1 className="text-4xl font-bold leading-[1.05] sm:text-6xl">
-                  A embarcação sai da oficina pronta para a temporada inteira.
-                </h1>
+            <ManagedText field="heroHeadline" fallback={"A embarca\u00e7\u00e3o sai da oficina pronta para a temporada inteira."} />
+          </h1>
                 <p className="mt-6 max-w-xl text-base leading-8 text-[#9cbccb]">
-                  Motor de popa, casco, elétrica e carreta em uma única ficha de serviço, com checklist assinado antes
-                  da devolução.
-                </p>
+            <ManagedText field="heroSubheadline" fallback={"Motor de popa, casco, el\u00e9trica e carreta em uma \u00fanica ficha de servi\u00e7o, com checklist assinado antes da devolu\u00e7\u00e3o."} />
+          </p>
                 <div className="mt-9 flex flex-wrap gap-4">
                   <Orcar>Solicitar orçamento</Orcar>
                   <Orcar ghost>Agendar revisão de temporada</Orcar>

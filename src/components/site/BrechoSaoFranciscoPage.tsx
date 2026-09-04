@@ -1,3 +1,4 @@
+import { ManagedText } from "@/components/portfolio/ManagedText";
 import { lazy } from "react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -23,10 +24,10 @@ export function BrechoSaoFranciscoPage() {
             Brechó São Francisco
           </p>
           <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            Peças com história em uma vitrine acolhedora.
+            <ManagedText field="heroHeadline" fallback={"Pe\u00e7as com hist\u00f3ria em uma vitrine acolhedora."} />
           </h1>
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Presença digital de Brechó São Francisco: roupas, acessórios e peças de segunda mão no bairro São Francisco.
+            <ManagedText field="heroSubheadline" fallback={"Presen\u00e7a digital de Brech\u00f3 S\u00e3o Francisco: roupas, acess\u00f3rios e pe\u00e7as de segunda m\u00e3o no bairro S\u00e3o Francisco."} />
           </p>
           {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
           <PortfolioImage
@@ -36,6 +37,7 @@ export function BrechoSaoFranciscoPage() {
             width={1200}
             height={800}
             className="mt-8 w-full rounded-3xl object-cover"
+            managedField="heroImageUrl"
           />
 
           <div className="mt-8">
@@ -44,9 +46,7 @@ export function BrechoSaoFranciscoPage() {
               companySlug="brecho-sao-francisco"
               formSlug="funnel-brecho-sao-francisco"
               location="brecho-sao-francisco_hero"
-            >
-              Falar com a equipe
-            </FunnelCTAButton>
+            ><ManagedText field="ctaLabel" fallback={"Falar com a equipe"} /></FunnelCTAButton>
           </div>
         </section>
       </main>
