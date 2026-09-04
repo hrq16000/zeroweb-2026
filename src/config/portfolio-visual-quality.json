@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T21:04:46.643Z",
+  "generatedAt": "2026-09-04T21:43:05.406Z",
   "runtimeGeneratedAt": "2026-09-04T05:13:44.185Z",
   "thresholds": {
     "PREMIUM": 85,
@@ -25,23 +25,23 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 11,
-      "STANDARD": 48,
-      "NEEDS_UPGRADE": 9
+      "PREMIUM": 20,
+      "STANDARD": 41,
+      "NEEDS_UPGRADE": 7
     },
     "originality": {
-      "PASS": 7,
-      "WARNING": 21,
-      "FAIL": 40,
+      "PASS": 17,
+      "WARNING": 30,
+      "FAIL": 21,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 93,
-      "P2": 151,
+      "P1": 74,
+      "P2": 148,
       "P3": 60
     },
-    "averageScore": 81
+    "averageScore": 84
   },
   "projects": [
     {
@@ -65,7 +65,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 78,
+      "originalityScore": 70,
       "originalityNearest": "espaco-cih-luh",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -161,7 +161,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "78 vs espaco-cih-luh"
+          "detail": "70 vs espaco-cih-luh"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -193,7 +193,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 76,
+      "originalityScore": 66,
       "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -289,7 +289,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "76 vs eletro-solucoes-eficazes"
+          "detail": "66 vs eletro-solucoes-eficazes"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -321,8 +321,8 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 87,
-      "originalityNearest": "eletrovale-eletromecanica",
+      "originalityScore": 78,
+      "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -410,7 +410,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "87 vs eletrovale-eletromecanica"
+          "detail": "78 vs eletro-solucoes-eficazes"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -442,7 +442,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 86,
+      "originalityScore": 78,
       "originalityNearest": "eisenfer-tubos-acos",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -531,7 +531,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "86 vs eisenfer-tubos-acos"
+          "detail": "78 vs eisenfer-tubos-acos"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -563,7 +563,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 84,
+      "originalityScore": 76,
       "originalityNearest": "salao-da-marcia",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -652,7 +652,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "84 vs salao-da-marcia"
+          "detail": "76 vs salao-da-marcia"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -684,7 +684,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 74,
+      "originalityScore": 65,
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -773,121 +773,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "74 vs lucas-arruma-maquina-lavar"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "mp-festas-eventos",
-      "businessName": "MP Festas e Eventos",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "NEEDS_UPGRADE",
-      "score": 69,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 1,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 65,
-      "originalityNearest": "studio-de-cilios",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 3,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/mp-festas-eventos/capa.webp",
-          "hash": "db21615915ea51d8b45dc98a416302a2b28e9c8d",
-          "bytes": 174110,
-          "width": 1024,
-          "height": 1536
-        },
-        "cover": {
-          "path": "/images/mp-festas-eventos/capa.webp",
-          "hash": "db21615915ea51d8b45dc98a416302a2b28e9c8d",
-          "bytes": 174110,
-          "width": 1024,
-          "height": 1536
-        },
-        "social": {
-          "path": "/images/mp-festas-eventos/capa-og.jpg",
-          "hash": "ba743f4fb3912731fa638610000ff42f95d1cc94",
-          "bytes": 122518,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Sua festa linda, do jeitinho que você sonhou.",
-        "heroHeight": 1268,
-        "editorialChars": 2576,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/mp-festas-eventos/capa.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.67"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/mp-festas-eventos/capa.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "65 vs studio-de-cilios"
+          "detail": "65 vs lucas-arruma-maquina-lavar"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -919,7 +805,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 84,
+      "originalityScore": 76,
       "originalityNearest": "espaco-cih-luh",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -1001,577 +887,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "84 vs espaco-cih-luh"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "studio-de-cilios",
-      "businessName": "Studio de Cílios",
-      "segment": "beleza",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "NEEDS_UPGRADE",
-      "score": 69,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 1,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 65,
-      "originalityNearest": "mp-festas-eventos",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 3,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/studio-de-cilios/portfolio-1.webp",
-          "hash": "ae424d5e511cdd7fdcd1b80fbbd1bfd973864c17",
-          "bytes": 65532,
-          "width": 900,
-          "height": 1600
-        },
-        "cover": {
-          "path": "/images/studio-de-cilios/portfolio-1.webp",
-          "hash": "ae424d5e511cdd7fdcd1b80fbbd1bfd973864c17",
-          "bytes": 65532,
-          "width": 900,
-          "height": 1600
-        },
-        "social": {
-          "path": "/images/studio-de-cilios/portfolio-1-og.jpg",
-          "hash": "7936dd39512f12de2fd964645fe46cfc613a0352",
-          "bytes": 66820,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu olhar, sua assinatura.",
-        "heroHeight": 1318,
-        "editorialChars": 2703,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/studio-de-cilios/portfolio-1.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.56"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/studio-de-cilios/portfolio-1.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "65 vs mp-festas-eventos"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "angel-mix-brecho",
-      "businessName": "Angel Mix Brechó",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 73,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 4,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "brecho-sao-francisco",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/angel-mix-brecho/capa.png",
-          "hash": "e7cf199cf5a45ca3365c4910f54d0792e14e8b28",
-          "bytes": 2584088,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/angel-mix-brecho/capa-card.jpg",
-          "hash": "2810ae118668cef89d9a84911298739ee6a8ab72",
-          "bytes": 269012,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/angel-mix-brecho/capa-og.jpg",
-          "hash": "1bcbcafe136759fe01126641f6c40b7201ba72bd",
-          "bytes": 158538,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Garimpo de moda no Novo Mundo.",
-        "heroHeight": 650,
-        "editorialChars": 1118,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/angel-mix-brecho/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs brecho-sao-francisco"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "brecho-sao-francisco",
-      "businessName": "Brechó São Francisco",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 73,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 4,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "angel-mix-brecho",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/brecho-sao-francisco/capa.png",
-          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
-          "bytes": 2674602,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/brecho-sao-francisco/capa-card.jpg",
-          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
-          "bytes": 277820,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/brecho-sao-francisco/capa-og.jpg",
-          "hash": "805279e78bff6f38ce58bcc85d221f06abe66781",
-          "bytes": 161423,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Peças com história em uma vitrine acolhedora.",
-        "heroHeight": 674,
-        "editorialChars": 1211,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/brecho-sao-francisco/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs angel-mix-brecho"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "reuse-house-brecho",
-      "businessName": "REuse House Brechó",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 73,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 4,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "angel-mix-brecho",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/reuse-house-brecho/capa.png",
-          "hash": "98b3f8f087200a4c5431a133cac8028dcf867d4d",
-          "bytes": 2712299,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/reuse-house-brecho/capa-card.jpg",
-          "hash": "821f114dae70751cfcaa6ea3f334aaff86bcd933",
-          "bytes": 306897,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/reuse-house-brecho/capa-og.jpg",
-          "hash": "d5b75340174447831cda1c05f9629512b7859d90",
-          "bytes": 177015,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Uma peça especial pode ganhar uma nova história.",
-        "heroHeight": 711,
-        "editorialChars": 1183,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/reuse-house-brecho/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs angel-mix-brecho"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "toquinho-de-gente-brecho",
-      "businessName": "Toquinho de Gente Brechó Adulto e Infantil",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 73,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 4,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "angel-mix-brecho",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/toquinho-de-gente-brecho/capa.png",
-          "hash": "28bf3d4e2ad865963a6abfe3bfe6ace5b684389a",
-          "bytes": 2600281,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/toquinho-de-gente-brecho/capa-card.jpg",
-          "hash": "cf1d41df10e74ab0822db779ea4cfdd1a1a59034",
-          "bytes": 280330,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/toquinho-de-gente-brecho/capa-og.jpg",
-          "hash": "94aebfadc898c2a52cf2335a199798795721e16e",
-          "bytes": 169737,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Moda circular para todas as idades.",
-        "heroHeight": 650,
-        "editorialChars": 1377,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/toquinho-de-gente-brecho/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_PLACEHOLDER",
-          "severity": "P2",
-          "group": "content",
-          "label": "Conteúdo com linguagem de placeholder",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs angel-mix-brecho"
+          "detail": "76 vs espaco-cih-luh"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -1603,7 +919,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 82,
+      "originalityScore": 73,
       "originalityNearest": "eletrovale-eletromecanica",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -1692,121 +1008,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "82 vs eletrovale-eletromecanica"
-        }
-      ]
-    },
-    {
-      "slug": "liz-moraes-nail-designer",
-      "businessName": "Liz Moraes Nail Designer",
-      "segment": "beleza",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 76,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 2
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 66,
-      "originalityNearest": "salao-da-marcia",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 3,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/liz-moraes-nail-designer/logo.png",
-          "hash": "235cec8a079ac3e6767fa039f4f3660d9ae0c138",
-          "bytes": 1504871,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/liz-moraes-nail-designer/hero-og.jpg",
-          "hash": "d4903e2a5e6840ce0ec145bdc542f5b3bfbfb199",
-          "bytes": 191125,
-          "width": 1731,
-          "height": 909
-        },
-        "social": {
-          "path": "/images/liz-moraes-nail-designer/hero-og.jpg",
-          "hash": "d4903e2a5e6840ce0ec145bdc542f5b3bfbfb199",
-          "bytes": 191125,
-          "width": 1731,
-          "height": 909
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Suas unhas, sua melhor versão.",
-        "heroHeight": 1143,
-        "editorialChars": 2963,
-        "smallTargets": 8,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/liz-moraes-nail-designer/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/liz-moraes-nail-designer/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "SOCIAL_WRONG_RATIO",
-          "severity": "P1",
-          "group": "social",
-          "label": "Imagem social fora de 1200x630",
-          "detail": "1731x909"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs salao-da-marcia"
+          "detail": "73 vs eletrovale-eletromecanica"
         }
       ]
     },
@@ -1831,7 +1033,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 73,
+      "originalityScore": 66,
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -1906,7 +1108,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "73 vs lucas-arruma-maquina-lavar"
+          "detail": "66 vs lucas-arruma-maquina-lavar"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -1938,7 +1140,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 50,
+      "originalityScore": 42,
       "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -1961,15 +1163,15 @@
         },
         "cover": {
           "path": "/images/mirassol-delicias-caseiras/hero-og.jpg",
-          "hash": "9c13225275e81e69c44d7b64d2c36f5feebc4381",
-          "bytes": 40969,
+          "hash": "3eadc978b26ea6864bb29b6cc9f0e82c41c17810",
+          "bytes": 35947,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/mirassol-delicias-caseiras/hero-og.jpg",
-          "hash": "9c13225275e81e69c44d7b64d2c36f5feebc4381",
-          "bytes": 40969,
+          "hash": "3eadc978b26ea6864bb29b6cc9f0e82c41c17810",
+          "bytes": 35947,
           "width": 1200,
           "height": 630
         },
@@ -2034,763 +1236,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs guaratuba-atelie-presentes"
-        }
-      ]
-    },
-    {
-      "slug": "beto-pasteis",
-      "businessName": "Beto Pastéis",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 77,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "dlara-pizzaria",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/beto-pasteis/capa.png",
-          "hash": "a869dfecd31195056ce94af45bdfe8ce1d4078f2",
-          "bytes": 2201587,
-          "width": 1730,
-          "height": 909
-        },
-        "cover": {
-          "path": "/images/beto-pasteis/capa-card.jpg",
-          "hash": "0fecca9eb5c5e66d333d39e04f9733f1a876af7a",
-          "bytes": 201663,
-          "width": 1454,
-          "height": 909
-        },
-        "social": {
-          "path": "/images/beto-pasteis/capa-og.jpg",
-          "hash": "7cc4f1c5dd9c606616894706b862089e33219e3b",
-          "bytes": 134118,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "O pastel que combina com a pausa, o almoço e a vontade do bairro.",
-        "heroHeight": 1087,
-        "editorialChars": 1372,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/beto-pasteis/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs dlara-pizzaria"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "dlara-pizzaria",
-      "businessName": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 77,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "beto-pasteis",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/dlara-pizzaria/capa.png",
-          "hash": "643f1be82d4a2c639f7aaef10352c396b55cabf6",
-          "bytes": 2229525,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/dlara-pizzaria/capa-card.jpg",
-          "hash": "6a61b4db1a7d8ed0e99658ef615d7b33aba66ccf",
-          "bytes": 214467,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/dlara-pizzaria/capa-og.jpg",
-          "hash": "2e3772f6d34877477c462c1f401a5a320ddee8b4",
-          "bytes": 129843,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite.",
-        "heroHeight": 1137,
-        "editorialChars": 1587,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/dlara-pizzaria/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs beto-pasteis"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "marido-de-aluguel",
-      "businessName": "Mestre dos Serviços",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 77,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 7,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 2
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "lk-alvenaria",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/marido-de-aluguel/logo.jpg",
-          "hash": "fb7f7321804741856180d5ee3799d3e0948bbd7b",
-          "bytes": 54733,
-          "width": 1024,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/mestre-dos-servicos-logo.jpg",
-          "hash": "fb7f7321804741856180d5ee3799d3e0948bbd7b",
-          "bytes": 54733,
-          "width": 1024,
-          "height": 1024
-        },
-        "social": {
-          "path": "/images/marido-de-aluguel/social.jpg",
-          "hash": "a24f4dca9e25a0d343e30c43524c44cb3dd65807",
-          "bytes": 121721,
-          "width": 1200,
-          "height": 640
-        },
-        "galleryCount": 2
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Mestre dos Serviços para resolver o que sua casa precisa.",
-        "heroHeight": 1399,
-        "editorialChars": 3653,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 1.00"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "SOCIAL_WRONG_RATIO",
-          "severity": "P1",
-          "group": "social",
-          "label": "Imagem social fora de 1200x630",
-          "detail": "1200x640"
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "2 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs lk-alvenaria"
-        }
-      ]
-    },
-    {
-      "slug": "marmitaria-dom-diego",
-      "businessName": "Marmitaria Dom Diego",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 77,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "beto-pasteis",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/marmitaria-dom-diego/capa.png",
-          "hash": "aa604e181447c7df681024372af241728b6beb19",
-          "bytes": 2325447,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/marmitaria-dom-diego/capa-card.jpg",
-          "hash": "2eeeb2a1777e0b47d08f1aa876e7a0d8c1f2e37e",
-          "bytes": 194734,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/marmitaria-dom-diego/capa-og.jpg",
-          "hash": "293db291743db9116d8b277068f1c19b918d83d2",
-          "bytes": 117820,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Almoço prático para deixar o dia mais leve no Jardim Itália.",
-        "heroHeight": 1161,
-        "editorialChars": 1468,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/marmitaria-dom-diego/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs beto-pasteis"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "woodhouse-hamburgueres",
-      "businessName": "Woodhouse Hambúrgueres",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 77,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 100,
-      "originalityNearest": "beto-pasteis",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/woodhouse-hamburgueres/capa.png",
-          "hash": "1c43dd5d7c2a7821a999031fa27c76b749b9abbf",
-          "bytes": 1821198,
-          "width": 1729,
-          "height": 910
-        },
-        "cover": {
-          "path": "/images/woodhouse-hamburgueres/capa-card.jpg",
-          "hash": "36e5cd66cbae1cbe75e720aa321b8aad65e34441",
-          "bytes": 134173,
-          "width": 1456,
-          "height": 910
-        },
-        "social": {
-          "path": "/images/woodhouse-hamburgueres/capa-og.jpg",
-          "hash": "26b6f43332cec722761ed29619ce5de4f95d40da",
-          "bytes": 98220,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Grelhados e petiscos para transformar qualquer noite em encontro.",
-        "heroHeight": 1148,
-        "editorialChars": 1510,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/woodhouse-hamburgueres/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "100 vs beto-pasteis"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "bh-barreiro-marmitas",
-      "businessName": "Marmitas do Barreiro",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 78,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "uberlandia-eletrica-residencial",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/bh-barreiro-marmitas/logo.svg",
-          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
-          "bytes": 841,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "ca4f7eae7f3498a42542d501e8e6ac13f65ff59a",
-          "bytes": 39699,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "ca4f7eae7f3498a42542d501e8e6ac13f65ff59a",
-          "bytes": 39699,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "O almoço da semanajá está no quadro.",
-        "heroHeight": 807,
-        "editorialChars": 2062,
-        "smallTargets": 3,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs uberlandia-eletrica-residencial"
-        }
-      ]
-    },
-    {
-      "slug": "confeitaria-chyrley",
-      "businessName": "Chyrley Doces & Festas",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 78,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 10,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 63,
-      "originalityNearest": "studio-de-cilios",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 2,
-        "P3": 0
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/confeitaria-chyrley/capa.webp",
-          "hash": "0eaa5d74a0b0079aa7930a8ac27b8ff19694cf27",
-          "bytes": 79894,
-          "width": 899,
-          "height": 1599
-        },
-        "cover": {
-          "path": "/images/confeitaria-chyrley/capa-card.jpg",
-          "hash": "fe53a842111301fab816544d9e6e8f2c4e18ab56",
-          "bytes": 87414,
-          "width": 899,
-          "height": 562
-        },
-        "social": {
-          "path": "/images/confeitaria-chyrley/capa-og.jpg",
-          "hash": "68cf6ddd13ee43cf399a03878afc7208d557cba8",
-          "bytes": 88635,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 8
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Sua comemoração merece ser inesquecível.",
-        "heroHeight": 1377,
-        "editorialChars": 2566,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/confeitaria-chyrley/capa.webp"
-        },
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "899x562"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs studio-de-cilios"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+          "detail": "42 vs guaratuba-atelie-presentes"
         }
       ]
     },
@@ -2815,7 +1261,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 50,
+      "originalityScore": 42,
       "originalityNearest": "mirassol-delicias-caseiras",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -2838,15 +1284,15 @@
         },
         "cover": {
           "path": "/images/guaratuba-atelie-presentes/hero-og.jpg",
-          "hash": "91375bf24fb4f8bd4029fe0d15ab80365c023324",
-          "bytes": 39738,
+          "hash": "70ae5e28d09841a05ae9dbb86f32368d0e1f00fd",
+          "bytes": 35340,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/guaratuba-atelie-presentes/hero-og.jpg",
-          "hash": "91375bf24fb4f8bd4029fe0d15ab80365c023324",
-          "bytes": 39738,
+          "hash": "70ae5e28d09841a05ae9dbb86f32368d0e1f00fd",
+          "bytes": 35340,
           "width": 1200,
           "height": 630
         },
@@ -2904,127 +1350,13 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs mirassol-delicias-caseiras"
+          "detail": "42 vs mirassol-delicias-caseiras"
         }
       ]
     },
     {
-      "slug": "guaratuba-oficina-nautica",
-      "businessName": "Oficina Náutica Guaratuba",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 78,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 47,
-      "originalityNearest": "casa-nativa",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/guaratuba-oficina-nautica/logo.svg",
-          "hash": "e98ae387291d63d2f4b2fda341977d1b704e4565",
-          "bytes": 910,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
-          "hash": "fa394834b57dbf0a63a71dc067cd23a0c7bd80f6",
-          "bytes": 40284,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
-          "hash": "fa394834b57dbf0a63a71dc067cd23a0c7bd80f6",
-          "bytes": 40284,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "A embarcação sai da oficina pronta para a temporada inteira.",
-        "heroHeight": 781,
-        "editorialChars": 2180,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs casa-nativa"
-        }
-      ]
-    },
-    {
-      "slug": "refrigeracao-maresia",
-      "businessName": "Refrigeração Maresia",
+      "slug": "mp-festas-eventos",
+      "businessName": "MP Festas e Eventos",
       "segment": "servicos",
       "componentType": "custom",
       "preset": null,
@@ -3033,239 +1365,18 @@
       "score": 78,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 0,
+        "logo": 6,
+        "cover": 1,
         "hero": 15,
         "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 61,
-      "originalityNearest": "ag-electrical-services",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 4,
-        "P2": 0,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/refrigeracao-maresia/logo.png",
-          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
-          "bytes": 390563,
-          "width": 869,
-          "height": 320
-        },
-        "cover": {
-          "path": "/images/refrigeracao-maresia/logo.png",
-          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
-          "bytes": 390563,
-          "width": 869,
-          "height": 320
-        },
-        "social": {
-          "path": "/images/refrigeracao-maresia/hero-og.jpg",
-          "hash": "fddad6b0f69fb9e10836ff31bb9e3fb4ff258956",
-          "bytes": 111116,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Geladeira parou de gelar?",
-        "heroHeight": 789,
-        "editorialChars": 2377,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 2.72"
-        },
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "869x320"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/refrigeracao-maresia/logo.png"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "61 vs ag-electrical-services"
-        }
-      ]
-    },
-    {
-      "slug": "uberlandia-eletrica-residencial",
-      "businessName": "Elétrica Bairro Brasil",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 78,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
         "content": 10,
         "originality": 6,
         "mobile": 10,
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 45,
-      "originalityNearest": "guaratuba-oficina-nautica",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
-          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
-          "bytes": 730,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "b1cdca5f8c59a0edc67df025bc868aa5618099aa",
-          "bytes": 38642,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "b1cdca5f8c59a0edc67df025bc868aa5618099aa",
-          "bytes": 38642,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
-        "heroHeight": 996,
-        "editorialChars": 2534,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs guaratuba-oficina-nautica"
-        }
-      ]
-    },
-    {
-      "slug": "confeitaria-sabor-da-realeza",
-      "businessName": "Confeitaria Sabor da Realeza",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 79,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 66,
-      "originalityNearest": "lolipa-arte-em-festas",
+      "originalityScore": 59,
+      "originalityNearest": "studio-de-cilios",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -3279,53 +1390,60 @@
       },
       "assets": {
         "logo": {
-          "path": "/images/confeitaria-sabor-da-realeza/logo.png",
-          "hash": "eac104da0841caead6badac94e08acbe9bff1cb6",
-          "bytes": 273628,
-          "width": 936,
-          "height": 303
+          "path": "/images/mp-festas-eventos/capa.webp",
+          "hash": "db21615915ea51d8b45dc98a416302a2b28e9c8d",
+          "bytes": 174110,
+          "width": 1024,
+          "height": 1536
         },
         "cover": {
-          "path": "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
-          "hash": "1f1e1e2127c0c0d1921b05e0687311909372bee6",
-          "bytes": 158165,
-          "width": 1200,
-          "height": 630
+          "path": "/images/mp-festas-eventos/capa.webp",
+          "hash": "db21615915ea51d8b45dc98a416302a2b28e9c8d",
+          "bytes": 174110,
+          "width": 1024,
+          "height": 1536
         },
         "social": {
-          "path": "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
-          "hash": "1f1e1e2127c0c0d1921b05e0687311909372bee6",
-          "bytes": 158165,
+          "path": "/images/mp-festas-eventos/capa-og.jpg",
+          "hash": "ba743f4fb3912731fa638610000ff42f95d1cc94",
+          "bytes": 122518,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 3
+        "galleryCount": 5
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
         "mobileImages": 6,
         "desktopImages": 6,
-        "heroHeadline": "O sabor que faz você se sentir da realeza.",
-        "heroHeight": 1204,
-        "editorialChars": 2258,
+        "heroHeadline": "Sua festa linda, do jeitinho que você sonhou.",
+        "heroHeight": 1268,
+        "editorialChars": 2576,
         "smallTargets": 1,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/confeitaria-sabor-da-realeza/hero-og.jpg"
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/mp-festas-eventos/capa.webp"
         },
         {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
           "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/confeitaria-sabor-da-realeza/hero-og.jpg"
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.67"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/mp-festas-eventos/capa.webp"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -3335,18 +1453,118 @@
           "detail": null
         },
         {
-          "code": "FEW_IMAGES",
+          "code": "ORIGINALITY_WARNING",
           "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "59 vs studio-de-cilios"
+        }
+      ]
+    },
+    {
+      "slug": "studio-de-cilios",
+      "businessName": "Studio de Cílios",
+      "segment": "beleza",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 1,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 59,
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 2,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/studio-de-cilios/portfolio-1.webp",
+          "hash": "ae424d5e511cdd7fdcd1b80fbbd1bfd973864c17",
+          "bytes": 65532,
+          "width": 900,
+          "height": 1600
+        },
+        "cover": {
+          "path": "/images/studio-de-cilios/portfolio-1.webp",
+          "hash": "ae424d5e511cdd7fdcd1b80fbbd1bfd973864c17",
+          "bytes": 65532,
+          "width": 900,
+          "height": 1600
+        },
+        "social": {
+          "path": "/images/studio-de-cilios/portfolio-1-og.jpg",
+          "hash": "7936dd39512f12de2fd964645fe46cfc613a0352",
+          "bytes": 66820,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu olhar, sua assinatura.",
+        "heroHeight": 1318,
+        "editorialChars": 2703,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/studio-de-cilios/portfolio-1.webp"
         },
         {
-          "code": "ORIGINALITY_FAIL",
+          "code": "COVER_SEVERE_CROP",
           "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.56"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/studio-de-cilios/portfolio-1.webp"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
           "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs lolipa-arte-em-festas"
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "59 vs mp-festas-eventos"
         }
       ]
     },
@@ -3371,7 +1589,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 71,
+      "originalityScore": 63,
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3439,7 +1657,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "71 vs lucas-arruma-maquina-lavar"
+          "detail": "63 vs lucas-arruma-maquina-lavar"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -3471,7 +1689,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 87,
+      "originalityScore": 78,
       "originalityNearest": "eisenfer-tubos-acos",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3539,7 +1757,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "87 vs eisenfer-tubos-acos"
+          "detail": "78 vs eisenfer-tubos-acos"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -3571,7 +1789,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 83,
+      "originalityScore": 75,
       "originalityNearest": "eisenfer-tubos-acos",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3639,7 +1857,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "83 vs eisenfer-tubos-acos"
+          "detail": "75 vs eisenfer-tubos-acos"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -3647,6 +1865,120 @@
           "group": "identity",
           "label": "Identidade pouco distinguível de outros projetos",
           "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+        }
+      ]
+    },
+    {
+      "slug": "liz-moraes-nail-designer",
+      "businessName": "Liz Moraes Nail Designer",
+      "segment": "beleza",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 79,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 2
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 60,
+      "originalityNearest": "salao-da-marcia",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/liz-moraes-nail-designer/logo.png",
+          "hash": "235cec8a079ac3e6767fa039f4f3660d9ae0c138",
+          "bytes": 1504871,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/liz-moraes-nail-designer/hero-og.jpg",
+          "hash": "d4903e2a5e6840ce0ec145bdc542f5b3bfbfb199",
+          "bytes": 191125,
+          "width": 1731,
+          "height": 909
+        },
+        "social": {
+          "path": "/images/liz-moraes-nail-designer/hero-og.jpg",
+          "hash": "d4903e2a5e6840ce0ec145bdc542f5b3bfbfb199",
+          "bytes": 191125,
+          "width": 1731,
+          "height": 909
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Suas unhas, sua melhor versão.",
+        "heroHeight": 1143,
+        "editorialChars": 2963,
+        "smallTargets": 8,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/liz-moraes-nail-designer/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/liz-moraes-nail-designer/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "SOCIAL_WRONG_RATIO",
+          "severity": "P1",
+          "group": "social",
+          "label": "Imagem social fora de 1200x630",
+          "detail": "1731x909"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "60 vs salao-da-marcia"
         }
       ]
     },
@@ -3671,7 +2003,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 76,
+      "originalityScore": 66,
       "originalityNearest": "galileu-locacao-brinquedos",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3753,7 +2085,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "76 vs galileu-locacao-brinquedos"
+          "detail": "66 vs galileu-locacao-brinquedos"
         }
       ]
     },
@@ -3778,7 +2110,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 70,
+      "originalityScore": 61,
       "originalityNearest": "lj-cleaning",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3860,7 +2192,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "70 vs lj-cleaning"
+          "detail": "61 vs lj-cleaning"
         }
       ]
     },
@@ -3885,8 +2217,8 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 36,
-      "originalityNearest": "uberlandia-eletrica-residencial",
+      "originalityScore": 31,
+      "originalityNearest": "heloa-gas",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -3908,15 +2240,15 @@
         },
         "cover": {
           "path": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
-          "hash": "f3643d9d562ac60d3803d0f7f49a5d45adf667ff",
-          "bytes": 37965,
+          "hash": "31d36cda74b061732de06b7ae215819d80b6033d",
+          "bytes": 29668,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
-          "hash": "f3643d9d562ac60d3803d0f7f49a5d45adf667ff",
-          "bytes": 37965,
+          "hash": "31d36cda74b061732de06b7ae215819d80b6033d",
+          "bytes": 29668,
           "width": 1200,
           "height": 630
         },
@@ -3979,6 +2311,541 @@
       ]
     },
     {
+      "slug": "marido-de-aluguel",
+      "businessName": "Mestre dos Serviços",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 81,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 7,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 2
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 39,
+      "originalityNearest": "lk-alvenaria",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 2,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/marido-de-aluguel/logo.jpg",
+          "hash": "fb7f7321804741856180d5ee3799d3e0948bbd7b",
+          "bytes": 54733,
+          "width": 1024,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/mestre-dos-servicos-logo.jpg",
+          "hash": "fb7f7321804741856180d5ee3799d3e0948bbd7b",
+          "bytes": 54733,
+          "width": 1024,
+          "height": 1024
+        },
+        "social": {
+          "path": "/images/marido-de-aluguel/social.jpg",
+          "hash": "a24f4dca9e25a0d343e30c43524c44cb3dd65807",
+          "bytes": 121721,
+          "width": 1200,
+          "height": 640
+        },
+        "galleryCount": 2
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Mestre dos Serviços para resolver o que sua casa precisa.",
+        "heroHeight": 1399,
+        "editorialChars": 3653,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 1.00"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "SOCIAL_WRONG_RATIO",
+          "severity": "P1",
+          "group": "social",
+          "label": "Imagem social fora de 1200x630",
+          "detail": "1200x640"
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "2 arquivo(s)"
+        }
+      ]
+    },
+    {
+      "slug": "refrigeracao-maresia",
+      "businessName": "Refrigeração Maresia",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 81,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 0,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 55,
+      "originalityNearest": "ag-electrical-services",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 3,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/refrigeracao-maresia/logo.png",
+          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
+          "bytes": 390563,
+          "width": 869,
+          "height": 320
+        },
+        "cover": {
+          "path": "/images/refrigeracao-maresia/logo.png",
+          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
+          "bytes": 390563,
+          "width": 869,
+          "height": 320
+        },
+        "social": {
+          "path": "/images/refrigeracao-maresia/hero-og.jpg",
+          "hash": "fddad6b0f69fb9e10836ff31bb9e3fb4ff258956",
+          "bytes": 111116,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 7
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Geladeira parou de gelar?",
+        "heroHeight": 789,
+        "editorialChars": 2377,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 2.72"
+        },
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "869x320"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/refrigeracao-maresia/logo.png"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "55 vs ag-electrical-services"
+        }
+      ]
+    },
+    {
+      "slug": "bh-barreiro-marmitas",
+      "businessName": "Marmitas do Barreiro",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 38,
+      "originalityNearest": "miro-tech",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/bh-barreiro-marmitas/logo.svg",
+          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
+          "bytes": 841,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
+          "bytes": 34485,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
+          "bytes": 34485,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "O almoço da semanajá está no quadro.",
+        "heroHeight": 807,
+        "editorialChars": 2062,
+        "smallTargets": 3,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        }
+      ]
+    },
+    {
+      "slug": "confeitaria-sabor-da-realeza",
+      "businessName": "Confeitaria Sabor da Realeza",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 59,
+      "originalityNearest": "lolipa-arte-em-festas",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/confeitaria-sabor-da-realeza/logo.png",
+          "hash": "eac104da0841caead6badac94e08acbe9bff1cb6",
+          "bytes": 273628,
+          "width": 936,
+          "height": 303
+        },
+        "cover": {
+          "path": "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
+          "hash": "1f1e1e2127c0c0d1921b05e0687311909372bee6",
+          "bytes": 158165,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/confeitaria-sabor-da-realeza/hero-og.jpg",
+          "hash": "1f1e1e2127c0c0d1921b05e0687311909372bee6",
+          "bytes": 158165,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "O sabor que faz você se sentir da realeza.",
+        "heroHeight": 1204,
+        "editorialChars": 2258,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/confeitaria-sabor-da-realeza/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/confeitaria-sabor-da-realeza/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "59 vs lolipa-arte-em-festas"
+        }
+      ]
+    },
+    {
+      "slug": "guaratuba-oficina-nautica",
+      "businessName": "Oficina Náutica Guaratuba",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 40,
+      "originalityNearest": "casa-nativa",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/guaratuba-oficina-nautica/logo.svg",
+          "hash": "e98ae387291d63d2f4b2fda341977d1b704e4565",
+          "bytes": 910,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
+          "hash": "80a206dfe936bc8360a149d88d5aa7b42f60f6da",
+          "bytes": 35195,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/guaratuba-oficina-nautica/hero-og.jpg",
+          "hash": "80a206dfe936bc8360a149d88d5aa7b42f60f6da",
+          "bytes": 35195,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "A embarcação sai da oficina pronta para a temporada inteira.",
+        "heroHeight": 781,
+        "editorialChars": 2180,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/guaratuba-oficina-nautica/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        }
+      ]
+    },
+    {
       "slug": "guaratuba-reparos-residenciais",
       "businessName": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
@@ -3999,7 +2866,7 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 37,
+      "originalityScore": 31,
       "originalityNearest": "uberlandia-eletrica-residencial",
       "contentSimilarity": null,
       "charm": "MEDIUM",
@@ -4022,15 +2889,15 @@
         },
         "cover": {
           "path": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
-          "hash": "4d241356c0a2aa053611e2f5ec19ac1d99cd5439",
-          "bytes": 36272,
+          "hash": "380c01f5bed9d14ab75910554d900178cf60fcd7",
+          "bytes": 34327,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
-          "hash": "4d241356c0a2aa053611e2f5ec19ac1d99cd5439",
-          "bytes": 36272,
+          "hash": "380c01f5bed9d14ab75910554d900178cf60fcd7",
+          "bytes": 34327,
           "width": 1200,
           "height": 630
         },
@@ -4106,7 +2973,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 49,
+      "originalityScore": 41,
       "originalityNearest": "mirassol-delicias-caseiras",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -4129,15 +2996,15 @@
         },
         "cover": {
           "path": "/images/mirassol-conserta-celular/hero-og.jpg",
-          "hash": "4b367ecefffbccdb0d48175646f702c8e259a6e1",
-          "bytes": 37707,
+          "hash": "1bdedba95c408fc81282b7a1471d93f93de333d8",
+          "bytes": 29217,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/mirassol-conserta-celular/hero-og.jpg",
-          "hash": "4b367ecefffbccdb0d48175646f702c8e259a6e1",
-          "bytes": 37707,
+          "hash": "1bdedba95c408fc81282b7a1471d93f93de333d8",
+          "bytes": 29217,
           "width": 1200,
           "height": 630
         },
@@ -4188,7 +3055,114 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs mirassol-delicias-caseiras"
+          "detail": "41 vs mirassol-delicias-caseiras"
+        }
+      ]
+    },
+    {
+      "slug": "uberlandia-eletrica-residencial",
+      "businessName": "Elétrica Bairro Brasil",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 38,
+      "originalityNearest": "guaratuba-oficina-nautica",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
+          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
+          "bytes": 730,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
+          "bytes": 33929,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
+          "bytes": 33929,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
+        "heroHeight": 996,
+        "editorialChars": 2534,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
         }
       ]
     },
@@ -4213,7 +3187,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 73,
+      "originalityScore": 63,
       "originalityNearest": "thays-camilla",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -4288,200 +3262,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "73 vs thays-camilla"
-        }
-      ]
-    },
-    {
-      "slug": "ecommerce-on",
-      "businessName": "Ecommerce On",
-      "segment": "agencias",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 83,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 7,
-        "hero": 15,
-        "images": 10,
-        "content": 8,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 62,
-      "originalityNearest": "espaco-cih-luh",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 0,
-        "P3": 2
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/ecommerce-on/logo.webp",
-          "hash": "83fe08e9cb366169ebb5dd50f65413edc99d8ad1",
-          "bytes": 36490,
-          "width": 1440,
-          "height": 1440
-        },
-        "cover": {
-          "path": "/images/ecommerce-on/servicos.webp",
-          "hash": "e69651e8b107c605acd332069eb4f500fa80838c",
-          "bytes": 125172,
-          "width": 1077,
-          "height": 1280
-        },
-        "social": {
-          "path": "/images/ecommerce-on/servicos-og.jpg",
-          "hash": "e5f67e635d512892a3d0cc7541407c9d4572f1a6",
-          "bytes": 109047,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Transformamos cliques em vendas.",
-        "heroHeight": 1103,
-        "editorialChars": 2338,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.84"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "62 vs espaco-cih-luh"
-        }
-      ]
-    },
-    {
-      "slug": "sos-presentes-cosmeticos",
-      "businessName": "SOS Presentes & Cosméticos",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 83,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 62,
-      "originalityNearest": "confeitaria-sabor-da-realeza",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 2,
-        "P3": 0
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
-          "hash": "0475acd9921792f9f0d5e8be7d02137423e4c484",
-          "bytes": 2147496,
-          "width": 1200,
-          "height": 1600
-        },
-        "cover": {
-          "path": "/images/sos-presentes-cosmeticos/capa-card.jpg",
-          "hash": "6113f601c64cbc468eb2b6c046de660dabc98c26",
-          "bytes": 79383,
-          "width": 1200,
-          "height": 750
-        },
-        "social": {
-          "path": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario-og.jpg",
-          "hash": "f760e5c6f472f5ee284b0d5d4ee97e28c3b4c409",
-          "bytes": 114076,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 8
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 9,
-        "desktopImages": 9,
-        "heroHeadline": "Presentes que fazem alguém se sentir especial.",
-        "heroHeight": 1241,
-        "editorialChars": 2923,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/sos-presentes-cosmeticos/cesta-lilas.png"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "62 vs confeitaria-sabor-da-realeza"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+          "detail": "63 vs thays-camilla"
         }
       ]
     },
@@ -4506,7 +3287,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 73,
+      "originalityScore": 63,
       "originalityNearest": "artesanatos-darleia-oliveira",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -4581,7 +3362,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "73 vs artesanatos-darleia-oliveira"
+          "detail": "63 vs artesanatos-darleia-oliveira"
         }
       ]
     },
@@ -4606,8 +3387,8 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 33,
-      "originalityNearest": "mp-festas-eventos",
+      "originalityScore": 29,
+      "originalityNearest": "assistencia-microondas-santos",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -4686,106 +3467,6 @@
       ]
     },
     {
-      "slug": "denise-gomes-psicologa",
-      "businessName": "Denise Gomes · Psicóloga",
-      "segment": "saude",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 85,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 64,
-      "originalityNearest": "thays-camilla",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/denise-gomes-psicologa/logo.png",
-          "hash": "d9548855e10da35d1aa61de49ad106e2a2850fca",
-          "bytes": 580633,
-          "width": 1672,
-          "height": 941
-        },
-        "cover": {
-          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
-          "hash": "7611b371275c6751fed4d49be83f74b55c3d29ba",
-          "bytes": 139545,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
-          "hash": "7611b371275c6751fed4d49be83f74b55c3d29ba",
-          "bytes": 139545,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Cuidar da mente é abrir espaço para viver com mais leveza.",
-        "heroHeight": 1306,
-        "editorialChars": 3091,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/denise-gomes-psicologa/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "64 vs thays-camilla"
-        }
-      ]
-    },
-    {
       "slug": "galileu-locacao-brinquedos",
       "businessName": "Galileu Locação de Brinquedos",
       "segment": "comercios",
@@ -4806,7 +3487,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 76,
+      "originalityScore": 66,
       "originalityNearest": "lj-cleaning",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -4881,7 +3562,107 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "76 vs lj-cleaning"
+          "detail": "66 vs lj-cleaning"
+        }
+      ]
+    },
+    {
+      "slug": "ecommerce-on",
+      "businessName": "Ecommerce On",
+      "segment": "agencias",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 7,
+        "hero": 15,
+        "images": 10,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 56,
+      "originalityNearest": "espaco-cih-luh",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 2
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/ecommerce-on/logo.webp",
+          "hash": "83fe08e9cb366169ebb5dd50f65413edc99d8ad1",
+          "bytes": 36490,
+          "width": 1440,
+          "height": 1440
+        },
+        "cover": {
+          "path": "/images/ecommerce-on/servicos.webp",
+          "hash": "e69651e8b107c605acd332069eb4f500fa80838c",
+          "bytes": 125172,
+          "width": 1077,
+          "height": 1280
+        },
+        "social": {
+          "path": "/images/ecommerce-on/servicos-og.jpg",
+          "hash": "e5f67e635d512892a3d0cc7541407c9d4572f1a6",
+          "bytes": 109047,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 7
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Transformamos cliques em vendas.",
+        "heroHeight": 1103,
+        "editorialChars": 2338,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.84"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "56 vs espaco-cih-luh"
         }
       ]
     },
@@ -4906,7 +3687,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 55,
+      "originalityScore": 49,
       "originalityNearest": "rj-servicos-drywall",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -4981,7 +3762,100 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs rj-servicos-drywall"
+          "detail": "49 vs rj-servicos-drywall"
+        }
+      ]
+    },
+    {
+      "slug": "confeitaria-chyrley",
+      "businessName": "Chyrley Doces & Festas",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 87,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 56,
+      "originalityNearest": "studio-de-cilios",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/confeitaria-chyrley/capa.webp",
+          "hash": "0eaa5d74a0b0079aa7930a8ac27b8ff19694cf27",
+          "bytes": 79894,
+          "width": 899,
+          "height": 1599
+        },
+        "cover": {
+          "path": "/images/confeitaria-chyrley/capa-card.jpg",
+          "hash": "fe53a842111301fab816544d9e6e8f2c4e18ab56",
+          "bytes": 87414,
+          "width": 899,
+          "height": 562
+        },
+        "social": {
+          "path": "/images/confeitaria-chyrley/capa-og.jpg",
+          "hash": "68cf6ddd13ee43cf399a03878afc7208d557cba8",
+          "bytes": 88635,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 8
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Sua comemoração merece ser inesquecível.",
+        "heroHeight": 1377,
+        "editorialChars": 2566,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/confeitaria-chyrley/capa.webp"
+        },
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "899x562"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "56 vs studio-de-cilios"
         }
       ]
     },
@@ -5006,7 +3880,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 71,
+      "originalityScore": 64,
       "originalityNearest": "lk-alvenaria",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5067,7 +3941,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "71 vs lk-alvenaria"
+          "detail": "64 vs lk-alvenaria"
         }
       ]
     },
@@ -5092,7 +3966,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 57,
+      "originalityScore": 51,
       "originalityNearest": "r_beauty",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5160,7 +4034,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "57 vs r_beauty"
+          "detail": "51 vs r_beauty"
         }
       ]
     },
@@ -5185,7 +4059,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 51,
+      "originalityScore": 44,
       "originalityNearest": "miro-tech",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5253,7 +4127,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs miro-tech"
+          "detail": "44 vs miro-tech"
         }
       ]
     },
@@ -5278,7 +4152,7 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 29,
+      "originalityScore": 25,
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "MEDIUM",
@@ -5351,99 +4225,6 @@
       ]
     },
     {
-      "slug": "paulo-mestre-de-obras",
-      "businessName": "Paulo Mestre de Obras",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 89,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 65,
-      "originalityNearest": "lucas-arruma-maquina-lavar",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/paulo-mestre-de-obras/logo.webp",
-          "hash": "b05326a6f2aafef730d391711a9fad23deac6d00",
-          "bytes": 23196,
-          "width": 640,
-          "height": 640
-        },
-        "cover": {
-          "path": "/images/paulo-mestre-de-obras/social.jpg",
-          "hash": "dffe9869925111c8ab38fa5f8cf6f28d06186212",
-          "bytes": 122726,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/paulo-mestre-de-obras/social.jpg",
-          "hash": "dffe9869925111c8ab38fa5f8cf6f28d06186212",
-          "bytes": 122726,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 11,
-        "desktopImages": 11,
-        "heroHeadline": "Sua obra bem feita, do alicerce ao acabamento.",
-        "heroHeight": 1042,
-        "editorialChars": 3245,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/paulo-mestre-de-obras/social.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "65 vs lucas-arruma-maquina-lavar"
-        }
-      ]
-    },
-    {
       "slug": "heloa-gas",
       "businessName": "Heloá Gás",
       "segment": "comercios",
@@ -5464,7 +4245,7 @@
         "social": 2
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 47,
+      "originalityScore": 41,
       "originalityNearest": "lj-cleaning",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5532,7 +4313,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs lj-cleaning"
+          "detail": "41 vs lj-cleaning"
         }
       ]
     },
@@ -5557,7 +4338,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 69,
+      "originalityScore": 62,
       "originalityNearest": "eletrovale-eletromecanica",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5611,86 +4392,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "69 vs eletrovale-eletromecanica"
-        }
-      ]
-    },
-    {
-      "slug": "assistencia-microondas-santos",
-      "businessName": "Assistência Técnica Microondas Santos",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 93,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 66,
-      "originalityNearest": "premium-envelopamentos",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/assistencia-microondas-santos/logo.png",
-          "hash": "f75e8492ff2d76ca94fede3d9a305cefbdca2a8f",
-          "bytes": 1130417,
-          "width": 1768,
-          "height": 890
-        },
-        "cover": {
-          "path": "/images/assistencia-microondas-santos/capa-card.jpg",
-          "hash": "19bdad5333814c7f3b010b268b5ecc7fceeba60f",
-          "bytes": 107022,
-          "width": 1600,
-          "height": 1000
-        },
-        "social": {
-          "path": "/images/assistencia-microondas-santos/hero-og.jpg",
-          "hash": "c5f6a2839ffb0368c8121175e9ae29a9a44b3d55",
-          "bytes": 119243,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 8,
-        "desktopImages": 8,
-        "heroHeadline": "Seu micro-ondas pode voltar a funcionar bem.",
-        "heroHeight": 1134,
-        "editorialChars": 3008,
-        "smallTargets": 5,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs premium-envelopamentos"
+          "detail": "62 vs eletrovale-eletromecanica"
         }
       ]
     },
@@ -5715,7 +4417,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 71,
+      "originalityScore": 63,
       "originalityNearest": "premium-envelopamentos",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5769,7 +4471,7 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "71 vs premium-envelopamentos"
+          "detail": "63 vs premium-envelopamentos"
         }
       ]
     },
@@ -5794,7 +4496,7 @@
         "social": 5
       },
       "originalityStatus": "FAIL",
-      "originalityScore": 71,
+      "originalityScore": 63,
       "originalityNearest": "lolipa-arte-em-festas",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -5848,14 +4550,14 @@
           "severity": "P1",
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
-          "detail": "71 vs lolipa-arte-em-festas"
+          "detail": "63 vs lolipa-arte-em-festas"
         }
       ]
     },
     {
-      "slug": "casa-nativa",
-      "businessName": "Casa Nativa Bistrô",
-      "segment": "servicos",
+      "slug": "angel-mix-brecho",
+      "businessName": "Angel Mix Brechó",
+      "segment": "comercios",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
@@ -5863,48 +4565,48 @@
       "score": 82,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 11,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
         "images": 6,
-        "content": 8,
+        "content": 4,
         "originality": 6,
         "mobile": 10,
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 47,
-      "originalityNearest": "guaratuba-oficina-nautica",
+      "originalityScore": 41,
+      "originalityNearest": "brecho-sao-francisco",
       "contentSimilarity": null,
       "charm": "LOW",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "APPROVED",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
         "P0": 0,
         "P1": 0,
         "P2": 4,
-        "P3": 2
+        "P3": 1
       },
       "assets": {
         "logo": {
-          "path": "/images/casa-nativa/logo.svg",
-          "hash": "2fbf41b1fdcdd80e8149cbccdd01f453e18438c4",
-          "bytes": 771,
-          "width": 900,
-          "height": 300
+          "path": "/images/angel-mix-brecho/capa.png",
+          "hash": "e7cf199cf5a45ca3365c4910f54d0792e14e8b28",
+          "bytes": 2584088,
+          "width": 1536,
+          "height": 1024
         },
         "cover": {
-          "path": "/images/casa-nativa/hero-og.jpg",
-          "hash": "9480902193bc61f421d1ae3cfe2a2455e8a01e2a",
-          "bytes": 35490,
-          "width": 1200,
-          "height": 630
+          "path": "/images/angel-mix-brecho/capa-card.jpg",
+          "hash": "2810ae118668cef89d9a84911298739ee6a8ab72",
+          "bytes": 269012,
+          "width": 1536,
+          "height": 960
         },
         "social": {
-          "path": "/images/casa-nativa/hero-og.jpg",
-          "hash": "9480902193bc61f421d1ae3cfe2a2455e8a01e2a",
-          "bytes": 35490,
+          "path": "/images/angel-mix-brecho/capa-og.jpg",
+          "hash": "1bcbcafe136759fe01126641f6c40b7201ba72bd",
+          "bytes": 158538,
           "width": 1200,
           "height": 630
         },
@@ -5913,35 +4615,21 @@
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Cozinha de raiz,servida devagar.",
-        "heroHeight": 692,
-        "editorialChars": 1952,
-        "smallTargets": 2,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Garimpo de moda no Novo Mundo.",
+        "heroHeight": 650,
+        "editorialChars": 1118,
+        "smallTargets": 1,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "COVER_REUSES_SOCIAL",
+          "code": "LOGO_NOT_DEDICATED",
           "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/casa-nativa/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/angel-mix-brecho/capa.png"
         },
         {
           "code": "FEW_IMAGES",
@@ -5951,18 +4639,346 @@
           "detail": "3 arquivo(s)"
         },
         {
+          "code": "CONTENT_PLACEHOLDER",
+          "severity": "P2",
+          "group": "content",
+          "label": "Conteúdo com linguagem de placeholder",
+          "detail": null
+        },
+        {
           "code": "CONTENT_SHORT_SERVICES",
           "severity": "P3",
           "group": "content",
           "label": "Serviços pouco explicados",
-          "detail": "2 menções"
+          "detail": "1 menções"
         },
         {
           "code": "ORIGINALITY_WARNING",
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs guaratuba-oficina-nautica"
+          "detail": "41 vs brecho-sao-francisco"
+        }
+      ]
+    },
+    {
+      "slug": "brecho-sao-francisco",
+      "businessName": "Brechó São Francisco",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 4,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 60,
+      "originalityNearest": "toquinho-de-gente-brecho",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/brecho-sao-francisco/capa.png",
+          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
+          "bytes": 2674602,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/brecho-sao-francisco/capa-card.jpg",
+          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
+          "bytes": 277820,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/brecho-sao-francisco/capa-og.jpg",
+          "hash": "805279e78bff6f38ce58bcc85d221f06abe66781",
+          "bytes": 161423,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Peças com história em uma vitrine acolhedora.",
+        "heroHeight": 674,
+        "editorialChars": 1211,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/brecho-sao-francisco/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_PLACEHOLDER",
+          "severity": "P2",
+          "group": "content",
+          "label": "Conteúdo com linguagem de placeholder",
+          "detail": null
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "60 vs toquinho-de-gente-brecho"
+        }
+      ]
+    },
+    {
+      "slug": "reuse-house-brecho",
+      "businessName": "REuse House Brechó",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 4,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 48,
+      "originalityNearest": "toquinho-de-gente-brecho",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/reuse-house-brecho/capa.png",
+          "hash": "98b3f8f087200a4c5431a133cac8028dcf867d4d",
+          "bytes": 2712299,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/reuse-house-brecho/capa-card.jpg",
+          "hash": "821f114dae70751cfcaa6ea3f334aaff86bcd933",
+          "bytes": 306897,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/reuse-house-brecho/capa-og.jpg",
+          "hash": "d5b75340174447831cda1c05f9629512b7859d90",
+          "bytes": 177015,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Uma peça especial pode ganhar uma nova história.",
+        "heroHeight": 711,
+        "editorialChars": 1183,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/reuse-house-brecho/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_PLACEHOLDER",
+          "severity": "P2",
+          "group": "content",
+          "label": "Conteúdo com linguagem de placeholder",
+          "detail": null
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "48 vs toquinho-de-gente-brecho"
+        }
+      ]
+    },
+    {
+      "slug": "toquinho-de-gente-brecho",
+      "businessName": "Toquinho de Gente Brechó Adulto e Infantil",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 4,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 60,
+      "originalityNearest": "brecho-sao-francisco",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/toquinho-de-gente-brecho/capa.png",
+          "hash": "28bf3d4e2ad865963a6abfe3bfe6ace5b684389a",
+          "bytes": 2600281,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/toquinho-de-gente-brecho/capa-card.jpg",
+          "hash": "cf1d41df10e74ab0822db779ea4cfdd1a1a59034",
+          "bytes": 280330,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/toquinho-de-gente-brecho/capa-og.jpg",
+          "hash": "94aebfadc898c2a52cf2335a199798795721e16e",
+          "bytes": 169737,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Moda circular para todas as idades.",
+        "heroHeight": 650,
+        "editorialChars": 1377,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/toquinho-de-gente-brecho/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_PLACEHOLDER",
+          "severity": "P2",
+          "group": "content",
+          "label": "Conteúdo com linguagem de placeholder",
+          "detail": null
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "60 vs brecho-sao-francisco"
         }
       ]
     },
@@ -5987,7 +5003,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 49,
+      "originalityScore": 43,
       "originalityNearest": "confeitaria-sabor-da-realeza",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -6010,15 +5026,15 @@
         },
         "cover": {
           "path": "/images/clinica-integrada/hero-og.jpg",
-          "hash": "2967fc546fff191b5da77f8cff02cdc0b0c9b402",
-          "bytes": 37831,
+          "hash": "717ee15ff06e99a583df6f6eefc6e11c263567c6",
+          "bytes": 36672,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/clinica-integrada/hero-og.jpg",
-          "hash": "2967fc546fff191b5da77f8cff02cdc0b0c9b402",
-          "bytes": 37831,
+          "hash": "717ee15ff06e99a583df6f6eefc6e11c263567c6",
+          "bytes": 36672,
           "width": 1200,
           "height": 630
         },
@@ -6069,7 +5085,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs confeitaria-sabor-da-realeza"
+          "detail": "43 vs confeitaria-sabor-da-realeza"
         }
       ]
     },
@@ -6094,7 +5110,7 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 37,
+      "originalityScore": 31,
       "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6117,15 +5133,15 @@
         },
         "cover": {
           "path": "/images/almeida-torres/hero-og.jpg",
-          "hash": "4ffa8fa88e16f45666d75d67190292393c523cc1",
-          "bytes": 38897,
+          "hash": "78a70113a4d186fb367331555f4498c7c3733330",
+          "bytes": 35680,
           "width": 1200,
           "height": 630
         },
         "social": {
           "path": "/images/almeida-torres/hero-og.jpg",
-          "hash": "4ffa8fa88e16f45666d75d67190292393c523cc1",
-          "bytes": 38897,
+          "hash": "78a70113a4d186fb367331555f4498c7c3733330",
+          "bytes": 35680,
           "width": 1200,
           "height": 630
         },
@@ -6181,6 +5197,606 @@
       ]
     },
     {
+      "slug": "casa-nativa",
+      "businessName": "Casa Nativa Bistrô",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 11,
+        "images": 6,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 40,
+      "originalityNearest": "guaratuba-oficina-nautica",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 2
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/casa-nativa/logo.svg",
+          "hash": "2fbf41b1fdcdd80e8149cbccdd01f453e18438c4",
+          "bytes": 771,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/casa-nativa/hero-og.jpg",
+          "hash": "1e87f58a2d50bc126134b7ad0ec585a86c03efc5",
+          "bytes": 29705,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/casa-nativa/hero-og.jpg",
+          "hash": "1e87f58a2d50bc126134b7ad0ec585a86c03efc5",
+          "bytes": 29705,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Cozinha de raiz,servida devagar.",
+        "heroHeight": 692,
+        "editorialChars": 1952,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/casa-nativa/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        }
+      ]
+    },
+    {
+      "slug": "dlara-pizzaria",
+      "businessName": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 44,
+      "originalityNearest": "marmitaria-dom-diego",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/dlara-pizzaria/capa.png",
+          "hash": "643f1be82d4a2c639f7aaef10352c396b55cabf6",
+          "bytes": 2229525,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/dlara-pizzaria/capa-card.jpg",
+          "hash": "6a61b4db1a7d8ed0e99658ef615d7b33aba66ccf",
+          "bytes": 214467,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/dlara-pizzaria/capa-og.jpg",
+          "hash": "2e3772f6d34877477c462c1f401a5a320ddee8b4",
+          "bytes": 129843,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Pizza, esfiha e lanche em uma vitrine feita para abrir o apetite.",
+        "heroHeight": 1137,
+        "editorialChars": 1587,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/dlara-pizzaria/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "44 vs marmitaria-dom-diego"
+        }
+      ]
+    },
+    {
+      "slug": "marmitaria-dom-diego",
+      "businessName": "Marmitaria Dom Diego",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 58,
+      "originalityNearest": "brecho-sao-francisco",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/marmitaria-dom-diego/capa.png",
+          "hash": "aa604e181447c7df681024372af241728b6beb19",
+          "bytes": 2325447,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/marmitaria-dom-diego/capa-card.jpg",
+          "hash": "2eeeb2a1777e0b47d08f1aa876e7a0d8c1f2e37e",
+          "bytes": 194734,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/marmitaria-dom-diego/capa-og.jpg",
+          "hash": "293db291743db9116d8b277068f1c19b918d83d2",
+          "bytes": 117820,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Almoço prático para deixar o dia mais leve no Jardim Itália.",
+        "heroHeight": 1161,
+        "editorialChars": 1468,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/marmitaria-dom-diego/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "58 vs brecho-sao-francisco"
+        }
+      ]
+    },
+    {
+      "slug": "woodhouse-hamburgueres",
+      "businessName": "Woodhouse Hambúrgueres",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 8,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 56,
+      "originalityNearest": "brecho-sao-francisco",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/woodhouse-hamburgueres/capa.png",
+          "hash": "1c43dd5d7c2a7821a999031fa27c76b749b9abbf",
+          "bytes": 1821198,
+          "width": 1729,
+          "height": 910
+        },
+        "cover": {
+          "path": "/images/woodhouse-hamburgueres/capa-card.jpg",
+          "hash": "36e5cd66cbae1cbe75e720aa321b8aad65e34441",
+          "bytes": 134173,
+          "width": 1456,
+          "height": 910
+        },
+        "social": {
+          "path": "/images/woodhouse-hamburgueres/capa-og.jpg",
+          "hash": "26b6f43332cec722761ed29619ce5de4f95d40da",
+          "bytes": 98220,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Grelhados e petiscos para transformar qualquer noite em encontro.",
+        "heroHeight": 1148,
+        "editorialChars": 1510,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/woodhouse-hamburgueres/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "56 vs brecho-sao-francisco"
+        }
+      ]
+    },
+    {
+      "slug": "denise-gomes-psicologa",
+      "businessName": "Denise Gomes · Psicóloga",
+      "segment": "saude",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 88,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 55,
+      "originalityNearest": "thays-camilla",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/denise-gomes-psicologa/logo.png",
+          "hash": "d9548855e10da35d1aa61de49ad106e2a2850fca",
+          "bytes": 580633,
+          "width": 1672,
+          "height": 941
+        },
+        "cover": {
+          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
+          "hash": "7611b371275c6751fed4d49be83f74b55c3d29ba",
+          "bytes": 139545,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
+          "hash": "7611b371275c6751fed4d49be83f74b55c3d29ba",
+          "bytes": 139545,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Cuidar da mente é abrir espaço para viver com mais leveza.",
+        "heroHeight": 1306,
+        "editorialChars": 3091,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/denise-gomes-psicologa/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "55 vs thays-camilla"
+        }
+      ]
+    },
+    {
+      "slug": "beto-pasteis",
+      "businessName": "Beto Pastéis",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 24,
+      "originalityNearest": "brecho-sao-francisco",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/beto-pasteis/capa.png",
+          "hash": "a869dfecd31195056ce94af45bdfe8ce1d4078f2",
+          "bytes": 2201587,
+          "width": 1730,
+          "height": 909
+        },
+        "cover": {
+          "path": "/images/beto-pasteis/capa-card.jpg",
+          "hash": "0fecca9eb5c5e66d333d39e04f9733f1a876af7a",
+          "bytes": 201663,
+          "width": 1454,
+          "height": 909
+        },
+        "social": {
+          "path": "/images/beto-pasteis/capa-og.jpg",
+          "hash": "7cc4f1c5dd9c606616894706b862089e33219e3b",
+          "bytes": 134118,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "O pastel que combina com a pausa, o almoço e a vontade do bairro.",
+        "heroHeight": 1087,
+        "editorialChars": 1372,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/beto-pasteis/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        }
+      ]
+    },
+    {
       "slug": "rm-fretes",
       "businessName": "RM Fretes",
       "segment": "servicos",
@@ -6201,7 +5817,7 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 40,
+      "originalityScore": 36,
       "originalityNearest": "marido-de-aluguel",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6274,194 +5890,8 @@
       ]
     },
     {
-      "slug": "hbk-iluminacao-led",
-      "businessName": "HBK Iluminação LED Atacadão",
-      "segment": "construcao",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "PREMIUM",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 42,
-      "originalityNearest": "jc-revestimentos",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 3,
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/hbk-iluminacao-led/logo.png",
-          "hash": "4116a36c67ae65717f1475c492c81a6da62e4a41",
-          "bytes": 1138374,
-          "width": 1789,
-          "height": 879
-        },
-        "cover": {
-          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
-          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
-          "bytes": 124720,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
-          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
-          "bytes": 124720,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Soluções LED para construir, reformar e iluminar melhor.",
-        "heroHeight": 892,
-        "editorialChars": 2262,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/hbk-iluminacao-led/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs jc-revestimentos"
-        }
-      ]
-    },
-    {
-      "slug": "jc-revestimentos",
-      "businessName": "JC Revestimentos",
-      "segment": "construcao",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "PREMIUM",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 42,
-      "originalityNearest": "hbk-iluminacao-led",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 3,
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/jc-revestimentos/logo.png",
-          "hash": "bff497446e8052372d9d48fae02da1314d238a1c",
-          "bytes": 1059402,
-          "width": 2091,
-          "height": 752
-        },
-        "cover": {
-          "path": "/images/jc-revestimentos/hero-og.jpg",
-          "hash": "85b6554c088bd87cbf6796c3e63756711ebc7378",
-          "bytes": 166173,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/jc-revestimentos/hero-og.jpg",
-          "hash": "85b6554c088bd87cbf6796c3e63756711ebc7378",
-          "bytes": 166173,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Texturas e massas para transformar o acabamento da sua obra.",
-        "heroHeight": 902,
-        "editorialChars": 2216,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/jc-revestimentos/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs hbk-iluminacao-led"
-        }
-      ]
-    },
-    {
-      "slug": "raphael-construcoes",
-      "businessName": "Raphael Construções",
+      "slug": "paulo-mestre-de-obras",
+      "businessName": "Paulo Mestre de Obras",
       "segment": "servicos",
       "componentType": "custom",
       "preset": null,
@@ -6480,8 +5910,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "ton-e-cor",
+      "originalityScore": 58,
+      "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "UNREVIEWED",
@@ -6495,36 +5925,36 @@
       },
       "assets": {
         "logo": {
-          "path": "/images/raphael-construcoes/logo.png",
-          "hash": "ff2fbb35e8eb87534203aa7320949ccf4238ace5",
-          "bytes": 833787,
-          "width": 1774,
-          "height": 887
+          "path": "/images/paulo-mestre-de-obras/logo.webp",
+          "hash": "b05326a6f2aafef730d391711a9fad23deac6d00",
+          "bytes": 23196,
+          "width": 640,
+          "height": 640
         },
         "cover": {
-          "path": "/images/raphael-construcoes/hero-og.jpg",
-          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
-          "bytes": 147743,
+          "path": "/images/paulo-mestre-de-obras/social.jpg",
+          "hash": "dffe9869925111c8ab38fa5f8cf6f28d06186212",
+          "bytes": 122726,
           "width": 1200,
           "height": 630
         },
         "social": {
-          "path": "/images/raphael-construcoes/hero-og.jpg",
-          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
-          "bytes": 147743,
+          "path": "/images/paulo-mestre-de-obras/social.jpg",
+          "hash": "dffe9869925111c8ab38fa5f8cf6f28d06186212",
+          "bytes": 122726,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 4
+        "galleryCount": 7
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Do projeto à realização, cada etapa da obra em uma visão completa.",
-        "heroHeight": 902,
-        "editorialChars": 2248,
+        "mobileImages": 11,
+        "desktopImages": 11,
+        "heroHeadline": "Sua obra bem feita, do alicerce ao acabamento.",
+        "heroHeight": 1042,
+        "editorialChars": 3245,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -6534,7 +5964,7 @@
           "severity": "P2",
           "group": "cover",
           "label": "Capa reaproveita a imagem social",
-          "detail": "/images/raphael-construcoes/hero-og.jpg"
+          "detail": "/images/paulo-mestre-de-obras/social.jpg"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -6548,7 +5978,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs ton-e-cor"
+          "detail": "58 vs lucas-arruma-maquina-lavar"
         }
       ]
     },
@@ -6573,7 +6003,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 55,
+      "originalityScore": 49,
       "originalityNearest": "fernanda-amaral-drywall",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6634,7 +6064,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs fernanda-amaral-drywall"
+          "detail": "49 vs fernanda-amaral-drywall"
         }
       ]
     },
@@ -6659,7 +6089,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 55,
+      "originalityScore": 49,
       "originalityNearest": "no-brilho-higienizacao",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6720,14 +6150,14 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs no-brilho-higienizacao"
+          "detail": "49 vs no-brilho-higienizacao"
         }
       ]
     },
     {
-      "slug": "ton-e-cor",
-      "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
-      "segment": "servicos",
+      "slug": "sos-presentes-cosmeticos",
+      "businessName": "SOS Presentes & Cosméticos",
+      "segment": "comercios",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
@@ -6735,8 +6165,8 @@
       "score": 92,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 11,
+        "logo": 6,
+        "cover": 15,
         "hero": 15,
         "images": 10,
         "content": 10,
@@ -6745,75 +6175,68 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "raphael-construcoes",
+      "originalityScore": 55,
+      "originalityNearest": "confeitaria-sabor-da-realeza",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "APPROVED",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
         "P0": 0,
         "P1": 0,
         "P2": 2,
-        "P3": 1
+        "P3": 0
       },
       "assets": {
         "logo": {
-          "path": "/images/ton-e-cor/logo.png",
-          "hash": "8aefbd745bfb180e1fd90c087e5e09418662ff1e",
-          "bytes": 529187,
-          "width": 1983,
-          "height": 793
+          "path": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
+          "hash": "0475acd9921792f9f0d5e8be7d02137423e4c484",
+          "bytes": 2147496,
+          "width": 1200,
+          "height": 1600
         },
         "cover": {
-          "path": "/images/ton-e-cor/hero-og.jpg",
-          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
-          "bytes": 130989,
+          "path": "/images/sos-presentes-cosmeticos/capa-card.jpg",
+          "hash": "6113f601c64cbc468eb2b6c046de660dabc98c26",
+          "bytes": 79383,
           "width": 1200,
-          "height": 630
+          "height": 750
         },
         "social": {
-          "path": "/images/ton-e-cor/hero-og.jpg",
-          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
-          "bytes": 130989,
+          "path": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario-og.jpg",
+          "hash": "f760e5c6f472f5ee284b0d5d4ee97e28c3b4c409",
+          "bytes": 114076,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 4
+        "galleryCount": 8
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Sua casa renovada, com os reparos organizados em um só atendimento.",
-        "heroHeight": 902,
-        "editorialChars": 2289,
+        "mobileImages": 9,
+        "desktopImages": 9,
+        "heroHeadline": "Presentes que fazem alguém se sentir especial.",
+        "heroHeight": 1241,
+        "editorialChars": 2923,
         "smallTargets": 1,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "COVER_REUSES_SOCIAL",
+          "code": "LOGO_NOT_DEDICATED",
           "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/ton-e-cor/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/sos-presentes-cosmeticos/cesta-lilas.png"
         },
         {
           "code": "ORIGINALITY_WARNING",
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs raphael-construcoes"
+          "detail": "55 vs confeitaria-sabor-da-realeza"
         }
       ]
     },
@@ -6838,7 +6261,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 60,
+      "originalityScore": 54,
       "originalityNearest": "mp-festas-eventos",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6899,7 +6322,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs mp-festas-eventos"
+          "detail": "54 vs mp-festas-eventos"
         }
       ]
     },
@@ -6924,7 +6347,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 57,
+      "originalityScore": 51,
       "originalityNearest": "renata-beauty",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6992,7 +6415,430 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "57 vs renata-beauty"
+          "detail": "51 vs renata-beauty"
+        }
+      ]
+    },
+    {
+      "slug": "assistencia-microondas-santos",
+      "businessName": "Assistência Técnica Microondas Santos",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 58,
+      "originalityNearest": "premium-envelopamentos",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/assistencia-microondas-santos/logo.png",
+          "hash": "f75e8492ff2d76ca94fede3d9a305cefbdca2a8f",
+          "bytes": 1130417,
+          "width": 1768,
+          "height": 890
+        },
+        "cover": {
+          "path": "/images/assistencia-microondas-santos/capa-card.jpg",
+          "hash": "19bdad5333814c7f3b010b268b5ecc7fceeba60f",
+          "bytes": 107022,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/assistencia-microondas-santos/hero-og.jpg",
+          "hash": "c5f6a2839ffb0368c8121175e9ae29a9a44b3d55",
+          "bytes": 119243,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 8,
+        "desktopImages": 8,
+        "heroHeadline": "Seu micro-ondas pode voltar a funcionar bem.",
+        "heroHeight": 1134,
+        "editorialChars": 3008,
+        "smallTargets": 5,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "58 vs premium-envelopamentos"
+        }
+      ]
+    },
+    {
+      "slug": "hbk-iluminacao-led",
+      "businessName": "HBK Iluminação LED Atacadão",
+      "segment": "construcao",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 35,
+      "originalityNearest": "jc-revestimentos",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/hbk-iluminacao-led/logo.png",
+          "hash": "4116a36c67ae65717f1475c492c81a6da62e4a41",
+          "bytes": 1138374,
+          "width": 1789,
+          "height": 879
+        },
+        "cover": {
+          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
+          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
+          "bytes": 124720,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/hbk-iluminacao-led/hero-og.jpg",
+          "hash": "4d802208592f8ddab486cbe017149cf4cbb741e0",
+          "bytes": 124720,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Soluções LED para construir, reformar e iluminar melhor.",
+        "heroHeight": 892,
+        "editorialChars": 2262,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/hbk-iluminacao-led/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "slug": "jc-revestimentos",
+      "businessName": "JC Revestimentos",
+      "segment": "construcao",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 36,
+      "originalityNearest": "ton-e-cor",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/jc-revestimentos/logo.png",
+          "hash": "bff497446e8052372d9d48fae02da1314d238a1c",
+          "bytes": 1059402,
+          "width": 2091,
+          "height": 752
+        },
+        "cover": {
+          "path": "/images/jc-revestimentos/hero-og.jpg",
+          "hash": "85b6554c088bd87cbf6796c3e63756711ebc7378",
+          "bytes": 166173,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/jc-revestimentos/hero-og.jpg",
+          "hash": "85b6554c088bd87cbf6796c3e63756711ebc7378",
+          "bytes": 166173,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Texturas e massas para transformar o acabamento da sua obra.",
+        "heroHeight": 902,
+        "editorialChars": 2216,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/jc-revestimentos/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "slug": "raphael-construcoes",
+      "businessName": "Raphael Construções",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 38,
+      "originalityNearest": "ton-e-cor",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/raphael-construcoes/logo.png",
+          "hash": "ff2fbb35e8eb87534203aa7320949ccf4238ace5",
+          "bytes": 833787,
+          "width": 1774,
+          "height": 887
+        },
+        "cover": {
+          "path": "/images/raphael-construcoes/hero-og.jpg",
+          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
+          "bytes": 147743,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/raphael-construcoes/hero-og.jpg",
+          "hash": "7b4a3f2c40e342fb412571679bedafab26df0128",
+          "bytes": 147743,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Do projeto à realização, cada etapa da obra em uma visão completa.",
+        "heroHeight": 902,
+        "editorialChars": 2248,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/raphael-construcoes/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        }
+      ]
+    },
+    {
+      "slug": "ton-e-cor",
+      "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 38,
+      "originalityNearest": "raphael-construcoes",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/ton-e-cor/logo.png",
+          "hash": "8aefbd745bfb180e1fd90c087e5e09418662ff1e",
+          "bytes": 529187,
+          "width": 1983,
+          "height": 793
+        },
+        "cover": {
+          "path": "/images/ton-e-cor/hero-og.jpg",
+          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
+          "bytes": 130989,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/ton-e-cor/hero-og.jpg",
+          "hash": "429bdcd19382021e4b2096cc61a15b5628001343",
+          "bytes": 130989,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Sua casa renovada, com os reparos organizados em um só atendimento.",
+        "heroHeight": 902,
+        "editorialChars": 2289,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/ton-e-cor/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
         }
       ]
     },
@@ -7017,7 +6863,7 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 28,
+      "originalityScore": 25,
       "originalityNearest": "marido-de-aluguel",
       "contentSimilarity": null,
       "charm": "HIGH",
