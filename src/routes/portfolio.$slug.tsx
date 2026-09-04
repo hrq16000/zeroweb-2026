@@ -484,14 +484,32 @@ export const Route = createFileRoute("/portfolio/$slug")({
     );
     const vertical = loaderData?.vertical;
     const isMarido = loaderData?.slug === "marido-de-aluguel";
+    // Resolver único: BANCO (admin) > REGISTRY/rota. Sem linha no banco, nada muda.
+    const eff = applyPortfolioRuntime(
+      {
+        slug: loaderData?.slug ?? "",
+        title,
+        description,
+        canonicalUrl: url,
+        socialImage,
+        logoUrl: icon,
+      },
+      loaderData?.overrides ?? null,
+    );
+    const effSocial = eff.socialImage.startsWith("http") ? eff.socialImage : absUrl(eff.socialImage);
+    const effIcon = eff.logoUrl
+      ? eff.logoUrl.startsWith("http")
+        ? eff.logoUrl
+        : absUrl(eff.logoUrl)
+      : icon;
     return {
       meta: [
-        { title },
-        { name: "description", content: description },
-        { name: "robots", content: "index,follow,max-image-preview:large" },
+        { title: eff.title },
+        { name: "description", content: eff.description },
+        { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: isRjDrywall
+          content: eff.keywords ?? (isRjDrywall
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
               ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
