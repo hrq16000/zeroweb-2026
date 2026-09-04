@@ -1,77 +1,80 @@
-# Matriz de suporte a overrides por componente
+# Matriz de cobertura runtime por componente
 
 SEO/OG/social image/canonical/robots são resolvidos na rota e valem para **todos** os projetos.
 As colunas abaixo indicam o consumo dentro do componente próprio de cada cliente.
 
-- Componentes auditados: 67
-- Componentes já conectados ao contexto administrável: 3
+Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
+(composição autoral preservada) · `NOT_APPLICABLE` · `MISSING` (bloqueante).
 
-| Componente | Logo | Hero | Headline | Galeria | CTA |
+- Componentes de portfólio auditados: 66
+- Componentes com núcleo administrável: 61
+- Conexões faltando (MISSING): 16
+
+| Componente | Logo | Hero | Headline | Subheadline | CTA |
 | --- | --- | --- | --- | --- | --- |
-| AguiaSulSinalizacaoPage.tsx | sim | — | — | — | — |
-| HeloaGasPage.tsx | sim | sim | — | — | — |
-| PauloMestreDeObrasPage.tsx | sim | sim | — | — | — |
-| AcaiTotalAraucariaPage.tsx | — | — | — | — | — |
-| AgElectricalServicesPage.tsx | — | — | — | — | — |
-| AlmeidaTorresAdvocaciaPage.tsx | — | — | — | — | — |
-| AngelMixBrechoPage.tsx | — | — | — | — | — |
-| ArtesanatosDarLeiaOliveiraPage.tsx | — | — | — | — | — |
-| AssistenciaMicroondasSantosPage.tsx | — | — | — | — | — |
-| AtelieEncantoDaBaiaPage.tsx | — | — | — | — | — |
-| BarreiroMarmitasPage.tsx | — | — | — | — | — |
-| BetoPasteisPage.tsx | — | — | — | — | — |
-| BrechoSaoFranciscoPage.tsx | — | — | — | — | — |
-| CasaNativaBistroPage.tsx | — | — | — | — | — |
-| ClinicaIntegradaSaudePage.tsx | — | — | — | — | — |
-| ConfeitariaChyrleyPage.tsx | — | — | — | — | — |
-| ConfeitariaSaborDaRealezaPage.tsx | — | — | — | — | — |
-| ConsertaMirassolPage.tsx | — | — | — | — | — |
-| DeliciasCaseirasMirassolPage.tsx | — | — | — | — | — |
-| DeniseGomesPsicologaPage.tsx | — | — | — | — | — |
-| DiegoMontadorMoveisPage.tsx | — | — | — | — | — |
-| DlaraPizzariaPage.tsx | — | — | — | — | — |
-| DyzPromoPage.tsx | — | — | — | — | — |
-| EcommerceOnPage.tsx | — | — | — | — | — |
-| EisenferTubosAcosPage.tsx | — | — | — | — | — |
-| EletroSolucoesEficazesPage.tsx | — | — | — | — | — |
-| EletrovaleEletromecanicaPage.tsx | — | — | — | — | — |
-| EmporioLelecutePage.tsx | — | — | — | — | — |
-| EspacoCihLuhPage.tsx | — | — | — | — | — |
-| FernandaAmaralDrywallPage.tsx | — | — | — | — | — |
-| GalileuLocacaoBrinquedosPage.tsx | — | — | — | — | — |
-| HbkIluminacaoLedPage.tsx | — | — | — | — | — |
-| HubPage.tsx | — | — | — | — | — |
-| JcRevestimentosPage.tsx | — | — | — | — | — |
-| JklMarcenariaPage.tsx | — | — | — | — | — |
-| LizMoraesNailDesignerPage.tsx | — | — | — | — | — |
-| LjCleaningPage.tsx | — | — | — | — | — |
-| LkAlvenariaPage.tsx | — | — | — | — | — |
-| LolipaArteEmFestasPage.tsx | — | — | — | — | — |
-| LucasArrumaMaquinaLavarPage.tsx | — | — | — | — | — |
-| ManuPasteisPage.tsx | — | — | — | — | — |
-| MaridoDeAluguelPage.tsx | — | — | — | — | — |
-| MarmitariaDomDiegoPage.tsx | — | — | — | — | — |
-| MaryDiaristaPage.tsx | — | — | — | — | — |
-| MiroTechPage.tsx | — | — | — | — | — |
-| MpFestasEventosPage.tsx | — | — | — | — | — |
-| NoBrilhoHigienizacaoPage.tsx | — | — | — | — | — |
-| OficinaNauticaGuaratubaPage.tsx | — | — | — | — | — |
-| ParaisoHotDogPage.tsx | — | — | — | — | — |
-| PremiumEnvelopamentosPage.tsx | — | — | — | — | — |
-| RaphaelConstrucoesPage.tsx | — | — | — | — | — |
-| RefrigeracaoMaresiaPage.tsx | — | — | — | — | — |
-| ReparosDoLitoralPage.tsx | — | — | — | — | — |
-| ReuseHouseBrechoPage.tsx | — | — | — | — | — |
-| RjServicosDrywallPage.tsx | — | — | — | — | — |
-| RMFretesPage.tsx | — | — | — | — | — |
-| SaboresDaBaiaPage.tsx | — | — | — | — | — |
-| SalaoDaMarciaPage.tsx | — | — | — | — | — |
-| SantosMontadorDeMoveisPage.tsx | — | — | — | — | — |
-| SosPresentesCosmeticosPage.tsx | — | — | — | — | — |
-| StudioDeCiliosPage.tsx | — | — | — | — | — |
-| ThaysCamillaPage.tsx | — | — | — | — | — |
-| TonECorPage.tsx | — | — | — | — | — |
-| ToquinhoDeGenteBrechoPage.tsx | — | — | — | — | — |
-| UberlandiaEletricaResidencialPage.tsx | — | — | — | — | — |
-| VilaDaCapivaraPage.tsx | — | — | — | — | — |
-| WoodhouseHamburgueresPage.tsx | — | — | — | — | — |
+| AcaiTotalAraucariaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| AgElectricalServicesPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| AguiaSulSinalizacaoPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| AlmeidaTorresAdvocaciaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| AngelMixBrechoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| ArtesanatosDarLeiaOliveiraPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| AssistenciaMicroondasSantosPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| AtelieEncantoDaBaiaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| BarreiroMarmitasPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| BetoPasteisPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| BrechoSaoFranciscoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| CasaNativaBistroPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| ClinicaIntegradaSaudePage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ConfeitariaChyrleyPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ConfeitariaSaborDaRealezaPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ConsertaMirassolPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| DeliciasCaseirasMirassolPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| DeniseGomesPsicologaPage.tsx | MISSING | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| DiegoMontadorMoveisPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| DlaraPizzariaPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| DyzPromoPage.tsx | MISSING | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| EcommerceOnPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| EisenferTubosAcosPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| EletroSolucoesEficazesPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| EletrovaleEletromecanicaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| EmporioLelecutePage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| EspacoCihLuhPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| FernandaAmaralDrywallPage.tsx | MISSING | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| GalileuLocacaoBrinquedosPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| HbkIluminacaoLedPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| HeloaGasPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| JcRevestimentosPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| JklMarcenariaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| LizMoraesNailDesignerPage.tsx | MISSING | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| LjCleaningPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| LkAlvenariaPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| LolipaArteEmFestasPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| LucasArrumaMaquinaLavarPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| ManuPasteisPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| MaridoDeAluguelPage.tsx | MISSING | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| MarmitariaDomDiegoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| MaryDiaristaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| MiroTechPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| MpFestasEventosPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| NoBrilhoHigienizacaoPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| OficinaNauticaGuaratubaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ParaisoHotDogPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| PauloMestreDeObrasPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| PremiumEnvelopamentosPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| RaphaelConstrucoesPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| RefrigeracaoMaresiaPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ReparosDoLitoralPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ReuseHouseBrechoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| RjServicosDrywallPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| RMFretesPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| SaboresDaBaiaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| SalaoDaMarciaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| SantosMontadorDeMoveisPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| SosPresentesCosmeticosPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| StudioDeCiliosPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ThaysCamillaPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| TonECorPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| ToquinhoDeGenteBrechoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
+| UberlandiaEletricaResidencialPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| VilaDaCapivaraPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| WoodhouseHamburgueresPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
