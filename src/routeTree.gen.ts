@@ -205,6 +205,7 @@ import { Route as AuthenticatedAppLeadsPortfolioRouteImport } from './routes/_au
 import { Route as AuthenticatedAppMarketplaceAdminRouteImport } from './routes/_authenticated/app.marketplace.admin'
 import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes/_authenticated/app.marketplace.company'
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
+import { Route as AuthenticatedAppPortfolioIndexRouteImport } from './routes/_authenticated/app.portfolio.index'
 import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authenticated/app.projects.$id'
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
@@ -1264,6 +1265,12 @@ const AuthenticatedAppMarketplaceProviderRoute =
     path: '/provider',
     getParentRoute: () => AuthenticatedAppMarketplaceRoute,
   } as any)
+const AuthenticatedAppPortfolioIndexRoute =
+  AuthenticatedAppPortfolioIndexRouteImport.update({
+    id: '/portfolio/',
+    path: '/portfolio/',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppProjectsIdRoute =
   AuthenticatedAppProjectsIdRouteImport.update({
     id: '/$id',
@@ -1603,6 +1610,7 @@ export interface FileRoutesByFullPath {
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
+  '/app/portfolio/': typeof AuthenticatedAppPortfolioIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -1817,6 +1825,7 @@ export interface FileRoutesByTo {
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/app/funis': typeof AuthenticatedAppFunisIndexRoute
   '/app/leads': typeof AuthenticatedAppLeadsIndexRoute
+  '/app/portfolio': typeof AuthenticatedAppPortfolioIndexRoute
   '/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2037,6 +2046,7 @@ export interface FileRoutesById {
   '/r/whatsapp/reissue/$token': typeof RWhatsappReissueTokenRoute
   '/_authenticated/app/funis/': typeof AuthenticatedAppFunisIndexRoute
   '/_authenticated/app/leads/': typeof AuthenticatedAppLeadsIndexRoute
+  '/_authenticated/app/portfolio/': typeof AuthenticatedAppPortfolioIndexRoute
   '/_authenticated/app/funis/pipeline/regras': typeof AuthenticatedAppFunisPipelineRegrasRoute
   '/api/public/landing-image/$page/$file': typeof ApiPublicLandingImagePageFileRoute
 }
@@ -2257,6 +2267,7 @@ export interface FileRouteTypes {
     | '/r/whatsapp/reissue/$token'
     | '/app/funis/'
     | '/app/leads/'
+    | '/app/portfolio/'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesByTo: FileRoutesByTo
@@ -2471,6 +2482,7 @@ export interface FileRouteTypes {
     | '/r/whatsapp/reissue/$token'
     | '/app/funis'
     | '/app/leads'
+    | '/app/portfolio'
     | '/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   id:
@@ -2690,6 +2702,7 @@ export interface FileRouteTypes {
     | '/r/whatsapp/reissue/$token'
     | '/_authenticated/app/funis/'
     | '/_authenticated/app/leads/'
+    | '/_authenticated/app/portfolio/'
     | '/_authenticated/app/funis/pipeline/regras'
     | '/api/public/landing-image/$page/$file'
   fileRoutesById: FileRoutesById
@@ -4208,6 +4221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppMarketplaceProviderRouteImport
       parentRoute: typeof AuthenticatedAppMarketplaceRoute
     }
+    '/_authenticated/app/portfolio/': {
+      id: '/_authenticated/app/portfolio/'
+      path: '/portfolio'
+      fullPath: '/app/portfolio/'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioIndexRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/projects/$id': {
       id: '/_authenticated/app/projects/$id'
       path: '/$id'
@@ -4521,6 +4541,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
   AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
+  AuthenticatedAppPortfolioIndexRoute: typeof AuthenticatedAppPortfolioIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
 }
 
@@ -4578,6 +4599,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
   AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
+  AuthenticatedAppPortfolioIndexRoute: AuthenticatedAppPortfolioIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
     AuthenticatedAppFunisPipelineRegrasRoute,
 }

@@ -8,7 +8,7 @@ import {
 } from "@/lib/portfolio-admin.functions";
 import type { MergedProject } from "@/lib/portfolio-admin";
 
-export const Route = createFileRoute("/_authenticated/app/portfolio")({
+export const Route = createFileRoute("/_authenticated/app/portfolio/")({
   component: PortfolioAdminList,
 });
 
