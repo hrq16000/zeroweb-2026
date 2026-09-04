@@ -5,6 +5,7 @@ import { absUrl } from "@/lib/seo";
 import { findPortfolioPrototype } from "@/lib/portfolio-site-registry";
 import { breadcrumbNode, graph, organizationNode, serviceNode } from "@/lib/portfolio-seo";
 import { MARIDO_ALUGUEL_FAQ } from "@/components/site/marido-de-aluguel-faq";
+import { PAULO_MESTRE_FAQ } from "@/components/site/paulo-mestre-de-obras-faq";
 import { PortfolioStandardShell } from "@/components/portfolio/PortfolioStandardShell";
 import { resolvePortfolioAssets, withSocialVersion } from "@/lib/portfolio-assets";
 
@@ -350,7 +351,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                       : isLucasArruma
                                                         ? "Conserto e manutenção de máquinas de lavar com diagnóstico e atendimento com garantia."
                                                         : isPauloMestre
-                                                          ? "Serviços de pedreiro, azulejista e construção civil para fundação, alvenaria, revestimentos e reformas."
+                                                          ? "Paulo Mestre de Obras em Curitiba e região: pedreiro e azulejista para fundação, alvenaria, reboco, pisos, revestimentos, reformas e reparos."
                                                           : isEcommerceOn
                                                             ? "Agência digital para SEO, e-commerce, redes sociais, tráfego pago, conteúdo, automação e estratégia de comunicação."
                                                             : isNoBrilho
@@ -636,6 +637,58 @@ export const Route = createFileRoute("/portfolio/$slug")({
                             itemOffered: { "@type": "Product", name: "Água mineral 20 litros" },
                           },
                         ],
+                      },
+                    ]
+                  : []),
+                ...(isPauloMestre
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "Paulo Mestre de Obras",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/paulo-mestre-de-obras/logo.webp"),
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Curitiba",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "City", name: "Colombo" },
+                          { "@type": "City", name: "Pinhais" },
+                        ],
+                        knowsAbout: [
+                          "Fundação e baldrame",
+                          "Alvenaria estrutural e de vedação",
+                          "Reboco e revestimentos",
+                          "Assentamento de pisos e azulejos",
+                          "Reformas residenciais e reparos",
+                        ],
+                        makesOffer: [
+                          "Fundação, colunas, vigas e lajes",
+                          "Alvenaria, muros e paredes",
+                          "Reboco, chapisco e emboço",
+                          "Pisos, cerâmica e porcelanato",
+                          "Reformas e pequenos reparos",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: PAULO_MESTRE_FAQ.map((faq) => ({
+                          "@type": "Question",
+                          name: faq.q,
+                          acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
                       },
                     ]
                   : []),
