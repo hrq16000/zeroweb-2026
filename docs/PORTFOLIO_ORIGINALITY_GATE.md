@@ -163,3 +163,30 @@ Leituras confirmadas em duas rodadas:
 - **Segmento não é estilo.** Quatro negócios de comida receberam registros
   distintos: balcão de bairro, forno noturno, caderno de cozinha e casa
   noturna urbana.
+
+## Q3C — núcleo técnico/industrial
+
+Núcleo confirmado sem cluster formal: quatro projetos com pares 78/78/75/75 e
+`IDENTICAL_COMPONENT_STRUCTURE` / `VISUAL_COMPOSITION_CLONE` —
+`eisenfer-tubos-acos`, `eletro-solucoes-eficazes`, `eletrovale-eletromecanica`
+e `jkl-marcenaria`. Dimensões causadoras: STRUCTURE 84–100, SECTION_ORDER 100,
+COMPONENT 83–100, STYLE 91–96. COPY, ASSET e IDENTITY já eram baixos.
+
+Registros aplicados (linguagens novas, sem repetir Q3A/Q3B):
+
+- `eisenfer-tubos-acos` — tabela de estoque siderúrgico: linhas técnicas com
+  código, faixa letterbox de imagem e aplicações em `dl` numerada.
+- `eletro-solucoes-eficazes` — quadro de disjuntores em fundo claro: hero
+  centrado, serviços como circuitos em trilho, etapas em faixa contínua.
+- `eletrovale-eletromecanica` — ordem de serviço: ficha fixa lateral com CTA
+  persistente e laudo rolando à direita, em cinza-bancada.
+- `jkl-marcenaria` — prancha cotada: réguas tracejadas, ambientes com código
+  A-01..A-04 e imagem única em faixa vertical.
+
+Resultado: HIGH_SIMILARITY 21 → 14, MAX_PAIR 78 → 76, clones e clusters seguem
+em 0. Os quatro caíram para 45–50 (`ATTENTION`, `SAME_FAMILY`) e
+`aguia-sul-sinalizacao` caiu de 73 para 59 por efeito indireto.
+
+Aprendizado adicional: quando SECTION_ORDER está em 100 entre vários projetos,
+o ganho maior vem de mudar o **eixo do layout** (coluna fixa, tabela, painel)
+antes de mexer em cor ou tipografia.
