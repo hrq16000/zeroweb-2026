@@ -37,7 +37,7 @@ export function ToquinhoDeGenteBrechoPage() {
               {etiquetas.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-[var(--tq-mint)]/40 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--tq-ink)]/80"
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--tq-mint)]/40 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--tq-ink)]/80"
                 >
                   {tag}
                 </span>
@@ -63,7 +63,7 @@ export function ToquinhoDeGenteBrechoPage() {
                 companySlug="toquinho-de-gente-brecho"
                 formSlug="funnel-toquinho-de-gente-brecho"
                 location="toquinho-de-gente-brecho_hero"
-                className="rounded-2xl bg-[var(--tq-coral)] px-7 py-3.5 text-sm font-bold text-[var(--tq-sun)] shadow-[6px_6px_0_var(--tq-ink)]"
+                className="inline-flex items-center gap-2 rounded-2xl bg-[var(--tq-coral)] px-7 py-3.5 text-sm font-bold text-[var(--tq-sun)] shadow-[6px_6px_0_var(--tq-ink)]"
               >
                 <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
               </FunnelCTAButton>
@@ -99,14 +99,14 @@ export function ToquinhoDeGenteBrechoPage() {
 
         <section className="bg-[var(--tq-mint)] py-14 md:py-20">
           <div className="mx-auto grid w-[min(92%,66rem)] gap-6 md:grid-cols-2">
-            <article className="rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
+            <article className="inline-flex items-center gap-2 rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
               <h2 className="font-display text-2xl font-black">Para adultos</h2>
               <p className="mt-3 leading-relaxed text-[var(--tq-ink)]/75">
                 Peças do dia a dia e achados de garimpo, conferidos antes de
                 entrar na vitrine.
               </p>
             </article>
-            <article className="rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
+            <article className="inline-flex items-center gap-2 rounded-3xl bg-[var(--tq-sun)] p-7 md:p-9">
               <h2 className="font-display text-2xl font-black">Para crianças</h2>
               <p className="mt-3 leading-relaxed text-[var(--tq-ink)]/75">
                 Roupas infantis que duram pouco em casa e podem seguir servindo
@@ -129,7 +129,7 @@ export function ToquinhoDeGenteBrechoPage() {
               companySlug="toquinho-de-gente-brecho"
               formSlug="funnel-toquinho-de-gente-brecho"
               location="toquinho-de-gente-brecho_fechamento"
-              className="rounded-2xl bg-[var(--tq-ink)] px-7 py-3.5 text-sm font-bold text-[var(--tq-sun)]"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[var(--tq-ink)] px-7 py-3.5 text-sm font-bold text-[var(--tq-sun)]"
             >
               Consultar peças
             </FunnelCTAButton>

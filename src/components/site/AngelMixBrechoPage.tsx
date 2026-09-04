@@ -82,7 +82,7 @@ export function AngelMixBrechoPage() {
                 companySlug="angel-mix-brecho"
                 formSlug="funnel-angel-mix-brecho"
                 location="angel-mix-brecho_hero"
-                className="rounded-full bg-[var(--am-rose)] px-7 py-3 text-sm font-semibold text-[var(--am-cream)]"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--am-rose)] px-7 py-3 text-sm font-semibold text-[var(--am-cream)]"
               >
                 <ManagedText field="ctaLabel" fallback={"Falar sobre uma pe\u00e7a"} />
               </FunnelCTAButton>
@@ -126,7 +126,7 @@ export function AngelMixBrechoPage() {
           </section>
 
           <section className="px-6 pb-20 md:pl-10 md:pr-6">
-            <div className="rounded-[2rem] bg-[var(--am-blush)]/60 p-8 md:p-12">
+            <div className="inline-flex items-center gap-2 rounded-[2rem] bg-[var(--am-blush)]/60 p-8 md:p-12">
               <div className="flex items-center gap-3 text-[var(--am-rose)]">
                 <Heart className="h-5 w-5" aria-hidden />
                 <Shirt className="h-5 w-5" aria-hidden />
@@ -143,7 +143,7 @@ export function AngelMixBrechoPage() {
                   companySlug="angel-mix-brecho"
                   formSlug="funnel-angel-mix-brecho"
                   location="angel-mix-brecho_fechamento"
-                  className="rounded-full bg-[var(--am-ink)] px-7 py-3 text-sm font-semibold text-[var(--am-cream)]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--am-ink)] px-7 py-3 text-sm font-semibold text-[var(--am-cream)]"
                 >
                   Falar sobre uma peça
                 </FunnelCTAButton>

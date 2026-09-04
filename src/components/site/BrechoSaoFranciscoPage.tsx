@@ -64,7 +64,7 @@ export function BrechoSaoFranciscoPage() {
                 companySlug="brecho-sao-francisco"
                 formSlug="funnel-brecho-sao-francisco"
                 location="brecho-sao-francisco_hero"
-                className="rounded-sm bg-[var(--sf-terra)] px-8 py-3 text-sm font-semibold uppercase tracking-widest text-[var(--sf-paper)]"
+                className="inline-flex items-center gap-2 rounded-sm bg-[var(--sf-terra)] px-8 py-3 text-sm font-semibold uppercase tracking-widest text-[var(--sf-paper)]"
               >
                 <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
               </FunnelCTAButton>
@@ -136,7 +136,7 @@ export function BrechoSaoFranciscoPage() {
                 companySlug="brecho-sao-francisco"
                 formSlug="funnel-brecho-sao-francisco"
                 location="brecho-sao-francisco_fechamento"
-                className="rounded-sm bg-[var(--sf-gold)] px-8 py-3 text-sm font-semibold uppercase tracking-widest text-[var(--sf-ink)]"
+                className="inline-flex items-center gap-2 rounded-sm bg-[var(--sf-gold)] px-8 py-3 text-sm font-semibold uppercase tracking-widest text-[var(--sf-ink)]"
               >
                 Consultar peças
               </FunnelCTAButton>

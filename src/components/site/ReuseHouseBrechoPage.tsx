@@ -49,7 +49,7 @@ export function ReuseHouseBrechoPage() {
       <main className="mx-auto w-[min(94%,72rem)] py-10 md:py-16">
         {/* mosaico bento: hero e blocos compartilham a mesma malha */}
         <div className="grid gap-4 md:grid-cols-6 md:grid-rows-[auto_auto_auto]">
-          <section className="rounded-3xl bg-[var(--rh-stone)] p-7 md:col-span-4 md:row-span-2 md:p-12">
+          <section className="inline-flex items-center gap-2 rounded-3xl bg-[var(--rh-stone)] p-7 md:col-span-4 md:row-span-2 md:p-12">
             <p className="text-[0.7rem] uppercase tracking-[0.4em] text-[var(--rh-moss)]">
               REuse House · Jardim das Américas
             </p>
@@ -73,7 +73,7 @@ export function ReuseHouseBrechoPage() {
                 companySlug="reuse-house-brecho"
                 formSlug="funnel-reuse-house-brecho"
                 location="reuse-house-brecho_hero"
-                className="rounded-full bg-[var(--rh-moss)] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[var(--rh-deep)]"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--rh-moss)] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[var(--rh-deep)]"
               >
                 <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
               </FunnelCTAButton>
@@ -101,7 +101,7 @@ export function ReuseHouseBrechoPage() {
           {blocos.map((b) => (
             <section
               key={b.title}
-              className="rounded-3xl border border-[var(--rh-light)]/12 p-6 md:col-span-2"
+              className="inline-flex items-center gap-2 rounded-3xl border border-[var(--rh-light)]/12 p-6 md:col-span-2"
             >
               <b.icon className="h-6 w-6 text-[var(--rh-moss)]" aria-hidden />
               <h2 className="mt-4 font-display text-lg font-bold uppercase tracking-wide">
@@ -111,7 +111,7 @@ export function ReuseHouseBrechoPage() {
             </section>
           ))}
 
-          <section className="rounded-3xl bg-[var(--rh-moss)] p-7 text-[var(--rh-deep)] md:col-span-6 md:p-12">
+          <section className="inline-flex items-center gap-2 rounded-3xl bg-[var(--rh-moss)] p-7 text-[var(--rh-deep)] md:col-span-6 md:p-12">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
                 <h2 className="max-w-[22ch] font-display text-2xl font-extrabold uppercase leading-tight md:text-4xl">
@@ -127,7 +127,7 @@ export function ReuseHouseBrechoPage() {
                 companySlug="reuse-house-brecho"
                 formSlug="funnel-reuse-house-brecho"
                 location="reuse-house-brecho_fechamento"
-                className="shrink-0 rounded-full bg-[var(--rh-deep)] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[var(--rh-light)]"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--rh-deep)] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[var(--rh-light)]"
               >
                 Consultar peças
               </FunnelCTAButton>
