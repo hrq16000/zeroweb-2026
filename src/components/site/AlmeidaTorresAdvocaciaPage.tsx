@@ -2,6 +2,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { ManagedRich } from "@/components/portfolio/ManagedText";
 
 const AREAS = [
   ["I", "Direito de família", "Divórcio consensual, guarda, pensão e inventário conduzidos com discrição."],
@@ -66,7 +67,8 @@ export function AlmeidaTorresAdvocaciaPage() {
       <main>
         <section id="inicio" className="mx-auto max-w-3xl px-5 pb-14 pt-16 text-center lg:px-8 lg:pt-24">
           <h1 className="text-balance text-4xl font-semibold leading-[1.12] sm:text-6xl">
-            Orientação jurídica <span className="italic text-[#3a5a49]">antes</span> da decisão difícil.
+            <ManagedRich field="heroHeadline">
+            Orientação jurídica <span className="italic text-[#3a5a49]">antes</span> da decisão difícil.</ManagedRich>
           </h1>
           <hr className="mx-auto my-8 w-28 border-t border-[#22201c]/40" />
           <p className="mx-auto max-w-xl text-[1.02rem] leading-8 text-[#4a463f]">

@@ -12,6 +12,7 @@ import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { ManagedRich } from "@/components/portfolio/ManagedText";
 
 const services = [
   ["Fretes rápidos", "Coletas e entregas ágeis para itens que precisam chegar com segurança."],
@@ -77,8 +78,9 @@ export function RMFretesPage() {
               Curitiba e Região Metropolitana
             </p>
             <h1 className="mt-5 text-5xl font-black italic leading-[.92] tracking-[-.05em] sm:text-7xl">
-              Seu frete em movimento. <span className="text-[#ffd000]">Rápido.</span>
-            </h1>
+            <ManagedRich field="heroHeadline">
+              Seu frete em movimento. <span className="text-[#ffd000]">Rápido.</span></ManagedRich>
+          </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
               Fretes, carretos e pequenas mudanças com cuidado na carga, rota organizada e pagamento
               facilitado.
