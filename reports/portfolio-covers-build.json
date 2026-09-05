@@ -1,26 +1,76 @@
 {
-  "generatedAt": "2026-09-05T00:30:03.694Z",
-  "ok": 2,
+  "generatedAt": "2026-09-05T03:01:04.141Z",
+  "ok": 4,
   "failed": [],
   "results": [
     {
-      "slug": "artesanatos-darleia-oliveira",
+      "slug": "paraiso-do-hot-dog",
       "status": "OK",
-      "mode": "frame",
-      "source": "public/images/artesanatos-darleia-oliveira/hero-og.png",
-      "out": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
-      "bytes": 223283,
-      "dimensions": "1600x1000",
+      "mode": "crop",
+      "source": "public/images/paraiso-do-hot-dog/capa.png",
+      "crop": {
+        "left": 166,
+        "top": 0,
+        "width": 1506,
+        "height": 941
+      },
+      "focal": {
+        "x": 0.62,
+        "y": 0.5
+      },
+      "out": "/images/paraiso-do-hot-dog/capa-card.jpg",
+      "bytes": 242571,
+      "dimensions": "1506x941",
       "lowRes": false
     },
     {
-      "slug": "thays-camilla",
+      "slug": "rm-fretes",
       "status": "OK",
       "mode": "frame",
-      "source": "public/images/thays-camilla/hero-og.png",
-      "out": "/images/thays-camilla/capa-card.jpg",
-      "bytes": 181313,
-      "dimensions": "1600x1000",
+      "source": "public/images/rm-fretes/carroceria-carga.png",
+      "out": "/images/rm-fretes/capa-card.jpg",
+      "bytes": 59529,
+      "dimensions": "832x520",
+      "lowRes": true
+    },
+    {
+      "slug": "heloa-gas",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/heloa-gas/hero.jpg",
+      "crop": {
+        "left": 0,
+        "top": 12,
+        "width": 1440,
+        "height": 900
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "out": "/images/heloa-gas/capa-card.jpg",
+      "bytes": 131518,
+      "dimensions": "1440x900",
+      "lowRes": false
+    },
+    {
+      "slug": "denise-gomes-psicologa",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/denise-gomes-psicologa/hero.png",
+      "crop": {
+        "left": 0,
+        "top": 296,
+        "width": 1024,
+        "height": 640
+      },
+      "focal": {
+        "x": 0.72,
+        "y": 0.55
+      },
+      "out": "/images/denise-gomes-psicologa/capa-card.jpg",
+      "bytes": 85298,
+      "dimensions": "1024x640",
       "lowRes": false
     }
   ]
