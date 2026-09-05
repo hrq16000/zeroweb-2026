@@ -7,7 +7,9 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
  *
  * Fontes canônicas (uma por métrica, sem tracker paralelo e sem PII):
  *  - PORTFOLIO_VIEW_SOURCE  = analytics_events.event_name = 'portfolio_view'  (path /portfolio/:slug)
- *  - CTA_CLICK_SOURCE       = analytics_events.event_name = 'portfolio_contact_floating_click'
+ *  - CTA_CLICK_SOURCE       = analytics_events.event_name IN ('funnel_open','wa_funnel_open')
+ *    (abertura de funil no projeto — intenção comercial de fato. O clique do botão
+ *     flutuante é etapa anterior do mesmo caminho e NÃO é somado, para não duplicar.)
  *  - POPUP_OPEN_SOURCE      = analytics_events.event_name = 'popup_view'      (pop-up comercial 0WEB)
  *  - LEAD_SOURCE            = dynamic_form_leads.metadata_json->>page_url (fallback client_key)
  *  - WHATSAPP_SOURCE        = whatsapp_redirect_tokens.used_at (token server-side do lead)
