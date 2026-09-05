@@ -61,6 +61,20 @@ function slugFromPath(path: string): string | null {
   return m?.[1] ?? null;
 }
 
+/**
+ * Atribuição de projeto de um lead usando a infraestrutura já existente:
+ * a URL da página onde o formulário foi respondido (mesma chave do denominador
+ * de visitas, que também vem do path) e, na falta dela, o `client_key` gravado
+ * pelo funil. Nenhum campo novo, nenhuma base nova, nenhum dado pessoal.
+ */
+export function leadSlug(meta: Record<string, unknown>): string | null {
+  const pageUrl = typeof meta.page_url === "string" ? meta.page_url : "";
+  const fromUrl = /\/portfolio\/([^/?#]+)/.exec(pageUrl)?.[1];
+  if (fromUrl) return fromUrl;
+  const clientKey = typeof meta.client_key === "string" ? meta.client_key.trim() : "";
+  return clientKey || null;
+}
+
 function emptyRow(slug: string): PortfolioFunnelRow {
   return {
     slug,
