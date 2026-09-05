@@ -25,7 +25,6 @@ const gallery: Array<[string, string]> = [
   ["laserway-1.webp", "Distribuição e identificação"],
   ["laserway-2.webp", "Infraestrutura organizada"],
   ["rack-1.webp", "Fechamento de rack"],
-  ["rack-2.webp", "Acabamento e padrão"],
 ];
 
 export function AgElectricalServicesPage() {
@@ -64,7 +63,7 @@ export function AgElectricalServicesPage() {
             </div>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .6 }} className="mx-auto mt-10 max-w-7xl">
-            <PortfolioImage src="/images/ag-electrical-services/intro.webp" alt="A&G Electrical Services: soluções integradas em elétrica e infraestrutura" priority width={950} height={790} className="h-[240px] w-full object-cover sm:h-[320px] lg:h-[420px]" managedField="heroImageUrl" />
+            <PortfolioImage src="/images/ag-electrical-services/rack-2.webp" alt="A&G Electrical Services: soluções integradas em elétrica e infraestrutura" priority width={720} height={960} className="h-[240px] w-full object-cover sm:h-[320px] lg:h-[420px]" managedField="heroImageUrl" />
             <dl className="grid grid-cols-2 divide-[#1c3f66] border-b border-[#1c3f66] text-xs sm:grid-cols-4 sm:divide-x">
               {[["Ambientes", "Residencial a industrial"], ["Escopo", "Projeto e execução"], ["Padrão", "Conformidade técnica"], ["Entrega", "Rack identificado"]].map(([k, v]) => (
                 <div key={k} className="px-4 py-4">
