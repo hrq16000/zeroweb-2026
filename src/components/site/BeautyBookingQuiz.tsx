@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from "lucide-react";
 import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
+import { getSessionId, getVisitorId } from "@/lib/visitor";
 import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
@@ -224,6 +225,10 @@ export function BeautyBookingQuiz({
         answers,
         pageUrl: window.location.href,
         orderContext,
+        // Identificadores técnicos anônimos (mesmos de analytics_events):
+        // permitem ligar o lead à sessão/origem. Nenhum dado pessoal.
+        sessionId: getSessionId(),
+        visitorId: getVisitorId(),
       }});
       window.location.assign(result.redirectPath);
     } catch {

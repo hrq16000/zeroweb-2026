@@ -223,6 +223,9 @@ export const submitFunnel = createServerFn({ method: "POST" })
       gclid: data.client_metadata?.gclid,
       fbclid: data.client_metadata?.fbclid,
       started_at: data.client_metadata?.started_at,
+      // Identificador técnico da sessão de telemetria (sem PII), quando o
+      // cliente o envia: é o que liga o lead à origem já medida.
+      ...(data.client_metadata?.session_id ? { session_id: data.client_metadata.session_id } : {}),
       ...(data.client_metadata?.client_key
         ? { client_key: data.client_metadata.client_key }
         : {}),
@@ -384,6 +387,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     mode: z.enum(["booking", "proposal"]),
     proposalKind: z.enum(["campaign", "service"]).default("service"),
     pageUrl: z.string().url().max(500).optional(),
+    // Vínculo técnico com a telemetria (analytics_events.session_id/visitor_id).
+    // São identificadores opacos: nunca carregam nome, telefone ou e-mail.
+    sessionId: z.string().min(4).max(120).optional(),
+    visitorId: z.string().min(4).max(120).optional(),
     orderContext: z.object({
       order_items: softText(8000).optional(),
       order_total: softText(120).optional(),
@@ -452,6 +459,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           ...(data.orderContext ? { order_context: data.orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
+          ...(data.sessionId ? { session_id: data.sessionId } : {}),
+          ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
           ...(geo.city ? { city: geo.city } : {}),
           ...(geo.region ? { region: geo.region } : {}),
           ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
