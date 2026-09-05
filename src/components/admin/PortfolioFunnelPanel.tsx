@@ -94,6 +94,7 @@ export function PortfolioFunnelPanel({ slug, title = "Desempenho" }: { slug?: st
                 <th scope="col" className="px-3 py-2">Leads</th>
                 <th scope="col" className="px-3 py-2">WhatsApp</th>
                 <th scope="col" className="px-3 py-2">Lead rate</th>
+                <th scope="col" className="px-3 py-2">Canal WhatsApp</th>
               </tr>
             </thead>
             <tbody>
@@ -106,6 +107,13 @@ export function PortfolioFunnelPanel({ slug, title = "Desempenho" }: { slug?: st
                   <Cell>{r.leads}</Cell>
                   <Cell>{r.whatsappOpens}</Cell>
                   <Cell>{pct(r.leadRate)}</Cell>
+                  <Cell>
+                    {r.whatsappChannel === "CONFIGURED"
+                      ? pct(r.whatsappRate)
+                      : r.whatsappChannel === "INVALID"
+                        ? "— inválido"
+                        : "— não configurado"}
+                  </Cell>
                 </tr>
               ))}
             </tbody>
@@ -119,6 +127,7 @@ export function PortfolioFunnelPanel({ slug, title = "Desempenho" }: { slug?: st
                   <Cell>{data.totals.leads}</Cell>
                   <Cell>{data.totals.whatsappOpens}</Cell>
                   <Cell>{pct(data.totals.leadRate)}</Cell>
+                  <Cell>{pct(data.totals.whatsappRate)}</Cell>
                 </tr>
               </tfoot>
             )}

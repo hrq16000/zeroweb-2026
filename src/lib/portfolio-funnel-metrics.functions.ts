@@ -38,6 +38,10 @@ export type PortfolioFunnelRow = {
   popupRate: number | null;
   leadRate: number | null;
   whatsappRate: number | null;
+  /** Estado do canal (sem número): CONFIGURED | NOT_CONFIGURED | INVALID. */
+  whatsappChannel: "CONFIGURED" | "NOT_CONFIGURED" | "INVALID";
+  /** Motivo quando a taxa de WhatsApp não existe (canal ausente ≠ 0%). */
+  whatsappRateReason: "WHATSAPP_NOT_CONFIGURED" | "WHATSAPP_INVALID" | "NO_DATA" | null;
 };
 
 export type PortfolioFunnelMetrics = {
@@ -90,6 +94,8 @@ function emptyRow(slug: string): PortfolioFunnelRow {
     popupRate: null,
     leadRate: null,
     whatsappRate: null,
+    whatsappChannel: "NOT_CONFIGURED",
+    whatsappRateReason: null,
   };
 }
 
@@ -163,13 +169,29 @@ export const getPortfolioFunnelMetrics = createServerFn({ method: "GET" })
       }
     }
 
-    const projects = [...rows.values()].map((row) => ({
-      ...row,
-      ctaRate: rate(row.ctaClicks, row.views),
-      popupRate: rate(row.popupViews, row.views),
-      leadRate: rate(row.leads, row.views),
-      whatsappRate: rate(row.whatsappOpens, row.views),
-    }));
+    // Estado do canal a partir do resolver server-only já existente: um
+    // projeto sem WhatsApp cadastrado não tem 0% de conversão, tem canal
+    // inexistente. Nenhum número é lido nem devolvido aqui.
+    const { getPortfolioWhatsAppChannelState } = await import("@/lib/whatsapp-redirect.server");
+
+    const projects = [...rows.values()].map((row) => {
+      const whatsappChannel = getPortfolioWhatsAppChannelState(row.slug);
+      const configured = whatsappChannel === "CONFIGURED";
+      const whatsappRate = configured ? rate(row.whatsappOpens, row.views) : null;
+      return {
+        ...row,
+        ctaRate: rate(row.ctaClicks, row.views),
+        popupRate: rate(row.popupViews, row.views),
+        leadRate: rate(row.leads, row.views),
+        whatsappChannel,
+        whatsappRate,
+        whatsappRateReason: configured
+          ? (whatsappRate === null ? ("NO_DATA" as const) : null)
+          : whatsappChannel === "INVALID"
+            ? ("WHATSAPP_INVALID" as const)
+            : ("WHATSAPP_NOT_CONFIGURED" as const),
+      };
+    });
     projects.sort((a, b) => b.views - a.views || a.slug.localeCompare(b.slug));
 
     const sum = (pick: (r: PortfolioFunnelRow) => number) => projects.reduce((acc, r) => acc + pick(r), 0);
@@ -183,7 +205,13 @@ export const getPortfolioFunnelMetrics = createServerFn({ method: "GET" })
       ctaRate: rate(sum((r) => r.ctaClicks), totalViews),
       popupRate: rate(sum((r) => r.popupViews), totalViews),
       leadRate: rate(sum((r) => r.leads), totalViews),
-      whatsappRate: rate(sum((r) => r.whatsappOpens), totalViews),
+      // Denominador do canal: apenas projetos com WhatsApp configurado.
+      whatsappRate: rate(
+        projects.filter((r) => r.whatsappChannel === "CONFIGURED").reduce((a, r) => a + r.whatsappOpens, 0),
+        projects.filter((r) => r.whatsappChannel === "CONFIGURED").reduce((a, r) => a + r.views, 0),
+      ),
+      whatsappChannel: "CONFIGURED" as const,
+      whatsappRateReason: null,
     };
 
     return {

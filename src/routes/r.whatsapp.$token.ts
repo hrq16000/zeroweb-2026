@@ -92,11 +92,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           finalDigits = String(resolved.row.destination_digits).replace(/\D/g, "");
           finalMessage = String(resolved.row.message);
           if (!finalDigits) {
-            return htmlErrorPage(
-              "Canal indisponível",
-              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-              503,
-            );
+            return channelNotConfiguredPage();
           }
         } else {
           // Modern path: build from lead + session + form + questions.
@@ -152,11 +148,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               reason: "missing_operational_whatsapp_number",
               fellBackToCentral: false,
             });
-            return htmlErrorPage(
-              "Canal indisponível",
-              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-              503,
-            );
+            return channelNotConfiguredPage();
           }
           finalDigits = contact.digits;
 
@@ -315,6 +307,19 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
     },
   },
 });
+
+/**
+ * Estado de configuração, não erro: o pedido já está salvo e o projeto ainda
+ * não tem WhatsApp oficial cadastrado. Nada de 5xx, nada de promessa de
+ * retorno que o sistema não garante, nada de cair no canal da 0WEB.
+ */
+function channelNotConfiguredPage(): Response {
+  return htmlErrorPage(
+    "Solicitação registrada",
+    "Seus dados foram registrados. O atendimento direto por WhatsApp deste site ainda não está disponível.",
+    200,
+  );
+}
 
 function htmlErrorPage(
   title: string,
