@@ -3,6 +3,13 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import {
+  MotionImageReveal,
+  MotionReveal,
+  MotionScope,
+  useInViewOnce,
+  usePrefersReducedMotion,
+} from "@/components/motion";
 
 /**
  * Site exclusivo de Marmitaria Dom Diego (/portfolio/marmitaria-dom-diego).
