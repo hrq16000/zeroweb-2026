@@ -20,7 +20,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 export const PORTFOLIO_METRIC_SOURCES = {
   PORTFOLIO_VIEW_SOURCE: "analytics_events:portfolio_view",
-  CTA_CLICK_SOURCE: "analytics_events:portfolio_contact_floating_click",
+  CTA_CLICK_SOURCE: "analytics_events:funnel_open|wa_funnel_open",
   POPUP_OPEN_SOURCE: "analytics_events:popup_view",
   LEAD_SOURCE: "dynamic_form_leads.metadata_json.page_url|client_key",
   WHATSAPP_SOURCE: "whatsapp_redirect_tokens.used_at",
@@ -50,7 +50,8 @@ export type PortfolioFunnelMetrics = {
 
 const EVENT_FIELD = {
   portfolio_view: "views",
-  portfolio_contact_floating_click: "ctaClicks",
+  funnel_open: "ctaClicks",
+  wa_funnel_open: "ctaClicks",
   popup_view: "popupViews",
 } as const;
 
