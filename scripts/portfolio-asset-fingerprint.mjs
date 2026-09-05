@@ -182,8 +182,14 @@ export function compareAssetSets(aDescriptors, bDescriptors) {
   const aId = assetIdentityTokens(aDescriptors);
   const bId = assetIdentityTokens(bDescriptors);
   const identity = jaccard(aId, bId);
-  const profile = jaccard(assetProfileTokens(aDescriptors), assetProfileTokens(bDescriptors));
-  const similarity = identity * ASSET_IDENTITY_WEIGHT + profile * ASSET_PROFILE_WEIGHT;
+  const bothHaveAssets = Boolean((aDescriptors?.length ?? 0) && (bDescriptors?.length ?? 0));
+  // Ausência de assets nunca é sinal de identidade compartilhada.
+  const profile = bothHaveAssets
+    ? jaccard(assetProfileTokens(aDescriptors), assetProfileTokens(bDescriptors))
+    : 0;
+  const similarity = bothHaveAssets
+    ? identity * ASSET_IDENTITY_WEIGHT + profile * ASSET_PROFILE_WEIGHT
+    : 0;
 
   const reasons = new Set();
   const shared = [];
