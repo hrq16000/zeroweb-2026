@@ -493,12 +493,32 @@ export function analyzePortfolio(root) {
       ? fingerprintSource(source, { label: componentFile })
       : { ...verticalFingerprint, label: `sites.$vertical.tsx#${fallbackVertical}` };
 
-    // padrão de assets: nomes normalizados dos arquivos do diretório do projeto
     const dir = path.join(root, "public/images", slug);
     const files = fs.existsSync(dir) ? fs.readdirSync(dir).sort() : [];
-    fp.assetPattern = files
-      .filter((f) => /\.(webp|avif|jpe?g|png|svg)$/i.test(f))
-      .map((f) => f.toLowerCase().replace(/\d+/g, "#"));
+
+    // v1 (preservado para comparação): apenas nomes de arquivo normalizados.
+    fp.assetPattern = assetPatternV1(files);
+
+    // v2: assinatura real (hash de conteúdo, referência canônica, metadados).
+    const refs = new Map();
+    const addRef = (rel, role) => {
+      const canonical = normalizeAssetRef(rel);
+      if (!canonical || refs.has(canonical)) return;
+      const remote = /^https?:\/\//i.test(canonical);
+      const abs = remote ? "" : publicPath(rel);
+      const dimensions = remote ? null : imageSize(abs);
+      refs.set(canonical, describeAsset({ ref: rel, absPath: abs, role, dimensions }));
+    };
+    addRef(item.image, "COVER");
+    addRef(assets.icon, "BRAND");
+    addRef(assets.socialImage, "SOCIAL_IMAGE");
+    for (const f of files) {
+      if (!/\.(webp|avif|jpe?g|png|svg)$/i.test(f)) continue;
+      addRef(`/images/${slug}/${f}`, "LIBRARY");
+    }
+    fp.assetDescriptors = [...refs.values()];
+    const brandHash = fp.assetDescriptors.find((d) => d.role === "BRAND")?.contentHash;
+    fp.identityTokens = brandHash ? [`logo:${brandHash}`] : [];
     fp.fallbackVertical = fallbackVertical;
 
     /* ---- sinais de capa ---- */
