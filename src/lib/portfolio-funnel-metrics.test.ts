@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "bun:test";
 import { leadSlug, PORTFOLIO_METRIC_SOURCES } from "./portfolio-funnel-metrics.functions";
 
 describe("atribuição de projeto do lead", () => {
