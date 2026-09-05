@@ -107,6 +107,9 @@ function PortfolioOriginalityView() {
         ))}
       </dl>
 
+      <CoverStatusBlock />
+
+
       <h2 className="mt-10 font-display text-xl font-bold">Clusters de similaridade</h2>
       <div className="mt-3 space-y-3">
         {clusters.map((c) => (
