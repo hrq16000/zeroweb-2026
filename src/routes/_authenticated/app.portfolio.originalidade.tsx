@@ -169,6 +169,9 @@ function PortfolioOriginalityView() {
         <code>bun run check:portfolio-originality</code>, em modo relatório.
       </p>
 
+      <MetricVersionBlock />
+
+
       <dl className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
         {[
           ["Projetos", s.total],
