@@ -390,6 +390,10 @@ export function analyzePortfolio(root) {
   const catalog = readJson("src/config/portfolio-catalog.json");
   const clients = readJson("src/config/portfolio-clients.json");
   const assetsCfg = readJson("src/config/portfolio-assets.json");
+  // Status de capa NÃO é recalculado aqui: vem do contrato canônico
+  // (src/lib/portfolio-cover-status.mjs → src/config/portfolio-cover-status.json).
+  const coverStatus = readJson("src/config/portfolio-cover-status.json");
+  const coverStatusBySlug = new Map((coverStatus.projects ?? []).map((r) => [r.slug, r]));
   const clientBySlug = new Map(clients.map((c) => [c.slug ?? c.clientKey, c]));
 
   // Template de vertical usado como fallback quando não há componente próprio.
@@ -532,6 +536,8 @@ export function analyzePortfolio(root) {
       fingerprint: fp,
       coverSignals: [...new Set(cover)].sort(),
       coverRatio: ratio,
+      canonicalCoverStatus: coverStatusBySlug.get(slug)?.status ?? "UNCERTAIN_ORIGIN",
+      canonicalCoverReason: coverStatusBySlug.get(slug)?.reason ?? null,
       logoSignals: [...new Set(logo)].sort(),
     });
   }
@@ -610,7 +616,11 @@ export function analyzePortfolio(root) {
     clusters: clusters.length,
     placeholderLogos: count((p) => p.logoSignals.includes(SIGNALS.LOGO_PLACEHOLDER)),
     missingLogos: count((p) => p.logoSignals.includes(SIGNALS.LOGO_MISSING)),
+    // Legado (compatibilidade de baseline): "sem campo image no catálogo".
     missingCovers: count((p) => p.coverSignals.includes(SIGNALS.COVER_MISSING)),
+    // Canônico: capa publicável segundo o contrato único.
+    coverValid: count((p) => p.canonicalCoverStatus === "VALID"),
+    coverPending: count((p) => p.canonicalCoverStatus !== "VALID"),
     coversAsSocialImage: count((p) => p.coverSignals.includes(SIGNALS.COVER_IS_SOCIAL_IMAGE)),
     sharedCovers: count((p) => p.coverSignals.includes(SIGNALS.COVER_SHARED_ASSET)),
     severeCrop: count((p) => p.coverSignals.includes(SIGNALS.COVER_SEVERE_CROP)),
@@ -638,6 +648,8 @@ export function analyzePortfolio(root) {
       reasons: p.reasons,
       fallbackVertical: p.hasOwnComponent ? null : p.fallbackVertical,
       coverSignals: p.coverSignals,
+      canonicalCoverStatus: p.canonicalCoverStatus,
+      canonicalCoverReason: p.canonicalCoverReason,
       coverRatio: p.coverRatio,
       logoSignals: p.logoSignals,
       assetSharing: p.assetSharing ?? [],
