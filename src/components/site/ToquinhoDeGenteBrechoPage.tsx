@@ -95,7 +95,7 @@ export function ToquinhoDeGenteBrechoPage() {
                     className="aspect-square w-full rounded-sm object-cover"
                     managedField="heroImageUrl"
                   />
-                  <p className="absolute-none mt-2 text-center font-display text-sm font-semibold text-[var(--tq-ink)]/70">
+                  <p className="mt-2 text-center font-display text-sm font-semibold text-[var(--tq-ink)]/70">
                     Garimpo da semana
                   </p>
                 </div>
