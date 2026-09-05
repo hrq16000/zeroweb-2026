@@ -142,7 +142,7 @@ export function PremiumEnvelopamentosPage() {
               location="premium_footer"
               className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-none bg-[#f06a24] px-7 py-3.5 font-bold uppercase tracking-[.1em] text-white"
             >
-              Solicitar orçamento <ArrowRight className="h-4 w-4" />
+              Solicitar orçamento
             </FunnelCTAButton>
           </div>
         </section>
