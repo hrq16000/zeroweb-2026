@@ -5,6 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
 const catalogo = [
@@ -16,6 +17,7 @@ const catalogo = [
 
 export function PremiumEnvelopamentosPage() {
   return (
+    <MotionScope intensity="EXPRESSIVE">
     <div className="min-h-dvh bg-[#f5f8fb] text-[#071d41]">
       {/* HERO: faixa escura de largura total + tira fotográfica panorâmica abaixo. */}
       <section id="inicio" className="bg-[#071d41] text-white">
@@ -42,9 +44,9 @@ export function PremiumEnvelopamentosPage() {
           <p className="text-xs font-bold uppercase tracking-[.32em] text-[#f06a24]">
             Plotagem · envelopamento · comunicação visual
           </p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black uppercase leading-[.95] tracking-[-.02em] sm:text-7xl">
+          <MotionReveal as="h1" variant="mask" className="mt-5 max-w-4xl text-4xl font-black uppercase leading-[.95] tracking-[-.02em] sm:text-7xl">
             <ManagedText field="heroHeadline" fallback={"Seu m\u00f3vel muda de cara. Seu ambiente ganha presen\u00e7a."} />
-          </h1>
+          </MotionReveal>
           <div className="mt-8 grid gap-6 border-t border-white/15 pt-6 md:grid-cols-[1.4fr_.6fr] md:items-end">
             <p className="max-w-2xl text-lg leading-8 text-[#b9d0e6]">
               <ManagedText
@@ -64,6 +66,7 @@ export function PremiumEnvelopamentosPage() {
             </dl>
           </div>
         </div>
+        <MotionImageReveal direction="left">
         <PortfolioImage
           src="/images/premium-envelopamentos/hero.png"
           alt="Aplicação de envelopamento em geladeira pela Premium Envelopamentos"
@@ -73,6 +76,7 @@ export function PremiumEnvelopamentosPage() {
           className="h-56 w-full object-cover object-center sm:h-80 lg:h-[26rem]"
           managedField="heroImageUrl"
         />
+        </MotionImageReveal>
       </section>
 
       <main>
@@ -83,15 +87,15 @@ export function PremiumEnvelopamentosPage() {
               Uma nova superfície para cada ideia.
             </h2>
             <div className="mt-10 divide-y divide-[#cfdce9] border-y border-[#cfdce9]">
-              {catalogo.map(([index, title, text, tag]) => (
-                <article key={title} className="grid gap-3 py-7 md:grid-cols-[4rem_1fr_1.2fr_8rem] md:items-baseline md:gap-8">
+              {catalogo.map(([index, title, text, tag], i) => (
+                <MotionReveal as="article" variant="right" delay={i * 80} key={title} className="grid gap-3 py-7 md:grid-cols-[4rem_1fr_1.2fr_8rem] md:items-baseline md:gap-8">
                   <span className="text-sm font-black text-[#f06a24]">{index}</span>
                   <h3 className="text-2xl font-black">{title}</h3>
                   <p className="leading-7 text-[#46617c]">{text}</p>
                   <span className="justify-self-start rounded-full bg-[#e1f4f8] px-3 py-1 text-xs font-bold uppercase tracking-[.14em] text-[#0a2b5e] md:justify-self-end">
                     {tag}
                   </span>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -100,6 +104,7 @@ export function PremiumEnvelopamentosPage() {
         {/* Aplicação: foto de oficina em bloco largo com legenda lateral. */}
         <section id="aplicacao" className="bg-[#0a2b5e] px-5 py-16 text-white lg:px-8">
           <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.35fr_.65fr] md:items-center">
+            <MotionImageReveal direction="up">
             <PortfolioImage
               src="/images/premium-envelopamentos/galeria-oficina.png"
               alt="Plotagem de móveis em oficina limpa e moderna"
@@ -107,6 +112,7 @@ export function PremiumEnvelopamentosPage() {
               height={1024}
               className="aspect-[16/9] w-full rounded-none object-cover"
             />
+            </MotionImageReveal>
             <div>
               <p className="text-xs font-bold uppercase tracking-[.32em] text-[#49d6f3]">Como é feito</p>
               <h2 className="mt-3 text-3xl font-black">Preparo, corte e aplicação no mesmo fluxo.</h2>
@@ -172,5 +178,6 @@ export function PremiumEnvelopamentosPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-premium-envelopamentos" />
     </div>
+    </MotionScope>
   );
 }
