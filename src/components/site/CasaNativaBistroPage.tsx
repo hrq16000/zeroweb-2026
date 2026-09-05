@@ -111,7 +111,8 @@ export function CasaNativaBistroPage() {
           </MotionStagger>
         </section>
 
-        <MotionReveal as="section" variant="mask" id="reserva" className="border-t border-[#3a332a] px-5 py-20 text-center lg:px-12">
+        <section id="reserva" className="border-t border-[#3a332a]">
+        <MotionReveal variant="mask" className="px-5 py-20 text-center lg:px-12">
           <h2 className="mx-auto max-w-2xl text-4xl leading-tight sm:text-5xl">
             Guardamos uma mesa para a sua noite.
           </h2>
@@ -123,6 +124,7 @@ export function CasaNativaBistroPage() {
             <Reserva ghost>Consultar menu do dia</Reserva>
           </div>
         </MotionReveal>
+        </section>
       </main>
 
       <footer className="border-t border-[#3a332a] px-5 py-8 text-[0.8rem] text-[#9c917f] lg:px-12">
