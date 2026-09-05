@@ -213,7 +213,8 @@ function InstitutionalSitePage() {
           <h2 className="text-3xl sm:text-4xl font-bold font-display">
             O que muda em relação a um site “só bonito”
           </h2>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
             {BENEFITS.map((b) => (
               <article key={b.title} className="rounded-2xl border border-border bg-card p-5">
                 <b.icon className="w-5 h-5 text-primary" aria-hidden="true" />
