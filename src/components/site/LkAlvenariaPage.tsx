@@ -55,9 +55,8 @@ export function LkAlvenariaPage() {
               <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
             ) : null}
           </div>
-        </section>
 
-          <div className="mx-auto -mt-8 max-w-5xl px-5 lg:px-8">
+          <div className="mx-auto -mt-12 max-w-5xl px-5 lg:px-8">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
               <p className="text-base leading-8 text-[#4a3a2c]">
                 <ManagedText field="heroSubheadline" fallback={"Da funda\u00e7\u00e3o ao acabamento, a LK Alvenaria executa cada etapa com compromisso, transpar\u00eancia e padr\u00e3o de qualidade."} />
@@ -68,7 +67,7 @@ export function LkAlvenariaPage() {
               </div>
             </motion.div>
           </div>
-        </section>
+
 
         {/* CRONOGRAMA: linha do tempo vertical, medida em etapas de obra */}
         <section id="cronograma" className="px-5 py-20 lg:px-8">
