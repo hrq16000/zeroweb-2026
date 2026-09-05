@@ -18,9 +18,9 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 18,
-    "attention": 46,
-    "highSimilarity": 4,
+    "acceptable": 20,
+    "attention": 48,
+    "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -229,21 +229,21 @@
       "title": "Artesanatos Darléia Oliveira",
       "segment": "comercios",
       "componentFile": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
-      "score": 63,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 44,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "thays-camilla",
-      "nearestMatchScore": 63,
+      "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 80.4,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 97.4,
-        "COPY_SIMILARITY": 2.8,
+        "STRUCTURE_SIMILARITY": 21,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 41.9,
+        "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 8.9
+        "IDENTITY_SIMILARITY": 2.7
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -257,10 +257,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "c72f5a7027410b33",
-        "structureHash": "db81bba115d78592",
+        "skeletonHash": "b1f3057b356d4938",
+        "structureHash": "67ec810bd929d17d",
         "sectionCount": 7,
-        "lines": 83
+        "lines": 214
       }
     },
     {
@@ -268,18 +268,18 @@
       "title": "Assistência Técnica Microondas Santos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/AssistenciaMicroondasSantosPage.tsx",
-      "score": 58,
+      "score": 51,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "premium-envelopamentos",
-      "nearestMatchScore": 58,
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 51,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 54.5,
-        "STYLE_SIMILARITY": 67.8,
-        "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 57.1,
-        "IDENTITY_SIMILARITY": 12.9
+        "STRUCTURE_SIMILARITY": 53.8,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 46.2,
+        "STYLE_SIMILARITY": 85,
+        "COPY_SIMILARITY": 1.6,
+        "ASSET_PATTERN_SIMILARITY": 50,
+        "IDENTITY_SIMILARITY": 11.4
       },
       "reasons": [
         "SAME_FAMILY"
@@ -536,18 +536,18 @@
       "title": "Confeitaria Sabor da Realeza",
       "segment": "restaurantes",
       "componentFile": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
-      "score": 59,
+      "score": 55,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "lolipa-arte-em-festas",
-      "nearestMatchScore": 59,
+      "nearestMatch": "miro-tech",
+      "nearestMatchScore": 55,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 61.2,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 77.9,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 20
+        "STRUCTURE_SIMILARITY": 54.9,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 79.2,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 14.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -575,18 +575,18 @@
       "title": "Denise Gomes · Psicóloga",
       "segment": "saude",
       "componentFile": "src/components/site/DeniseGomesPsicologaPage.tsx",
-      "score": 55,
+      "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "thays-camilla",
-      "nearestMatchScore": 55,
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 44.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 46.7,
-        "STYLE_SIMILARITY": 70.2,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 13.5
+        "STRUCTURE_SIMILARITY": 53.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 68.1,
+        "COPY_SIMILARITY": 2,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 14.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1338,16 +1338,16 @@
       "componentFile": "src/components/site/LizMoraesNailDesignerPage.tsx",
       "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "artesanatos-darleia-oliveira",
+      "nearestMatch": "denise-gomes-psicologa",
       "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 41.5,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 85.4,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 7
+        "STRUCTURE_SIMILARITY": 53.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 68.1,
+        "COPY_SIMILARITY": 2,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 14.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1450,22 +1450,20 @@
       "title": "Lolipa Arte em Festas Decor",
       "segment": "comercios",
       "componentFile": "src/components/site/LolipaArteEmFestasPage.tsx",
-      "score": 63,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "premium-envelopamentos",
-      "nearestMatchScore": 63,
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "confeitaria-sabor-da-realeza",
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 62.5,
-        "STYLE_SIMILARITY": 79.7,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 27.3,
-        "IDENTITY_SIMILARITY": 10.3
+        "STRUCTURE_SIMILARITY": 31.4,
+        "SECTION_ORDER_SIMILARITY": 60,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 50,
+        "COPY_SIMILARITY": 2.4,
+        "ASSET_PATTERN_SIMILARITY": 20,
+        "IDENTITY_SIMILARITY": 8.3
       },
-      "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -1478,10 +1476,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "2ab71cb43f4aa238",
-        "structureHash": "a76eb7cd202d31a1",
-        "sectionCount": 8,
-        "lines": 48
+        "skeletonHash": "31c175ff81f46a89",
+        "structureHash": "2492ab8728e720d9",
+        "sectionCount": 7,
+        "lines": 172
       }
     },
     {
@@ -1760,18 +1758,18 @@
       "title": "MIRO TECH",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/MiroTechPage.tsx",
-      "score": 60,
+      "score": 55,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "premium-envelopamentos",
-      "nearestMatchScore": 60,
+      "nearestMatch": "confeitaria-sabor-da-realeza",
+      "nearestMatchScore": 55,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 85.7,
-        "STYLE_SIMILARITY": 78.8,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 18.2
+        "STRUCTURE_SIMILARITY": 54.9,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 79.2,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 14.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1951,22 +1949,20 @@
       "title": "Premium Envelopamentos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
-      "score": 63,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "lolipa-arte-em-festas",
-      "nearestMatchScore": 63,
+      "score": 32,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "jc-revestimentos",
+      "nearestMatchScore": 32,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 62.5,
-        "STYLE_SIMILARITY": 79.7,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 27.3,
-        "IDENTITY_SIMILARITY": 10.3
+        "STRUCTURE_SIMILARITY": 21.6,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 48.1,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 28.6,
+        "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -1979,10 +1975,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "1e4280591d59604a",
-        "structureHash": "cbf82ec7e7400051",
-        "sectionCount": 8,
-        "lines": 29
+        "skeletonHash": "35ba926b04559abc",
+        "structureHash": "bd6a82cdf6905621",
+        "sectionCount": 6,
+        "lines": 177
       }
     },
     {
@@ -2413,21 +2409,21 @@
       "title": "Thays Camilla",
       "segment": "comercios",
       "componentFile": "src/components/site/ThaysCamillaPage.tsx",
-      "score": 63,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 44,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "artesanatos-darleia-oliveira",
-      "nearestMatchScore": 63,
+      "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 80.4,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 97.4,
-        "COPY_SIMILARITY": 2.8,
+        "STRUCTURE_SIMILARITY": 21,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 41.9,
+        "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 8.9
+        "IDENTITY_SIMILARITY": 2.7
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -2441,10 +2437,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "5bc7461881f37cce",
-        "structureHash": "aa1e39de5b1dc47f",
+        "skeletonHash": "36898519175d110b",
+        "structureHash": "10a9d5e872f897ef",
         "sectionCount": 7,
-        "lines": 48
+        "lines": 190
       }
     },
     {
@@ -2642,36 +2638,6 @@
   "clusters": [],
   "topPairs": [
     {
-      "a": "artesanatos-darleia-oliveira",
-      "b": "thays-camilla",
-      "score": 63,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 80.4,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 97.4,
-        "COPY_SIMILARITY": 2.8,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 8.9
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
-      "a": "lolipa-arte-em-festas",
-      "b": "premium-envelopamentos",
-      "score": 63,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 62.5,
-        "STYLE_SIMILARITY": 79.7,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 27.3,
-        "IDENTITY_SIMILARITY": 10.3
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
       "a": "brecho-sao-francisco",
       "b": "toquinho-de-gente-brecho",
       "score": 60,
@@ -2683,21 +2649,6 @@
         "COPY_SIMILARITY": 2.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "miro-tech",
-      "b": "premium-envelopamentos",
-      "score": 60,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 85.7,
-        "STYLE_SIMILARITY": 78.8,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 18.2
       },
       "reason": "SAME_FAMILY"
     },
@@ -2732,21 +2683,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "confeitaria-sabor-da-realeza",
-      "b": "lolipa-arte-em-festas",
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 61.2,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 77.9,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 20
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "mp-festas-eventos",
       "b": "studio-de-cilios",
       "score": 59,
@@ -2777,21 +2713,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "assistencia-microondas-santos",
-      "b": "premium-envelopamentos",
-      "score": 58,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 54.5,
-        "STYLE_SIMILARITY": 67.8,
-        "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 57.1,
-        "IDENTITY_SIMILARITY": 12.9
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "brecho-sao-francisco",
       "b": "marmitaria-dom-diego",
       "score": 58,
@@ -2803,21 +2724,6 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "artesanatos-darleia-oliveira",
-      "b": "assistencia-microondas-santos",
-      "score": 57,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 60.7,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 61.5,
-        "STYLE_SIMILARITY": 85.4,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 83.3,
-        "IDENTITY_SIMILARITY": 13.2
       },
       "reason": "SAME_FAMILY"
     },
@@ -2912,36 +2818,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "denise-gomes-psicologa",
-      "b": "thays-camilla",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 44.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 46.7,
-        "STYLE_SIMILARITY": 70.2,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 13.5
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "mp-festas-eventos",
-      "b": "thays-camilla",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 36.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 69.2,
-        "STYLE_SIMILARITY": 72.7,
-        "COPY_SIMILARITY": 0.4,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 12.8
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "toquinho-de-gente-brecho",
       "b": "woodhouse-hamburgueres",
       "score": 55,
@@ -2987,32 +2863,152 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "artesanatos-darleia-oliveira",
+      "a": "denise-gomes-psicologa",
       "b": "liz-moraes-nail-designer",
       "score": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 41.5,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 85.4,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 7
+        "STRUCTURE_SIMILARITY": 53.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 68.1,
+        "COPY_SIMILARITY": 2,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 14.7
       },
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "artesanatos-darleia-oliveira",
+      "a": "liz-moraes-nail-designer",
       "b": "miro-tech",
       "score": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 41.7,
+        "STRUCTURE_SIMILARITY": 42.6,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 54.5,
-        "STYLE_SIMILARITY": 60.2,
+        "COMPONENT_SIMILARITY": 36.4,
+        "STYLE_SIMILARITY": 64.8,
+        "COPY_SIMILARITY": 2.3,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 11.1
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "liz-moraes-nail-designer",
+      "b": "mp-festas-eventos",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 56.7,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 72.7,
+        "STYLE_SIMILARITY": 72.4,
+        "COPY_SIMILARITY": 0.4,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 13.6
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "marmitaria-dom-diego",
+      "b": "woodhouse-hamburgueres",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 11.1,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 27.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 13.3
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "mp-festas-eventos",
+      "b": "vila-da-capivara",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 67.6,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 61.5,
+        "STYLE_SIMILARITY": 88.6,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 25,
+        "IDENTITY_SIMILARITY": 10.9
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "acai-total-araucaria",
+      "b": "diego-montador-moveis",
+      "score": 53,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 75,
+        "SECTION_ORDER_SIMILARITY": 37.5,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 85.9,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "IDENTITY_SIMILARITY": 12
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "ecommerce-on",
+      "score": 53,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 95.6,
+        "SECTION_ORDER_SIMILARITY": 22.2,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 79.7,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 12.5,
+        "IDENTITY_SIMILARITY": 7.7
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "denise-gomes-psicologa",
+      "b": "mp-festas-eventos",
+      "score": 53,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 39.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 68.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 14.6
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "diego-montador-moveis",
+      "b": "liz-moraes-nail-designer",
+      "score": 53,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 50,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 36.4,
+        "STYLE_SIMILARITY": 75,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 5.9
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "liz-moraes-nail-designer",
+      "b": "refrigeracao-maresia",
+      "score": 53,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 57.9,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 30.8,
+        "STYLE_SIMILARITY": 83.5,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 37.5,
+        "IDENTITY_SIMILARITY": 4.9
       },
       "reason": "SAME_FAMILY"
     }
@@ -3114,34 +3110,34 @@
       "artesanatos-darleia-oliveira": [
         {
           "slug": "thays-camilla",
-          "score": 63,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "assistencia-microondas-santos",
-          "score": 57,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "liz-moraes-nail-designer",
-          "score": 54,
+          "slug": "lk-alvenaria",
+          "score": 41,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "assistencia-microondas-santos": [
         {
-          "slug": "premium-envelopamentos",
-          "score": 58,
+          "slug": "liz-moraes-nail-designer",
+          "score": 51,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
-          "score": 57,
+          "slug": "denise-gomes-psicologa",
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "thays-camilla",
-          "score": 53,
+          "slug": "miro-tech",
+          "score": 50,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3249,11 +3245,6 @@
       ],
       "confeitaria-sabor-da-realeza": [
         {
-          "slug": "lolipa-arte-em-festas",
-          "score": 59,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "miro-tech",
           "score": 55,
           "reason": "SAME_FAMILY"
@@ -3262,14 +3253,14 @@
           "slug": "sos-presentes-cosmeticos",
           "score": 55,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "denise-gomes-psicologa",
+          "score": 49,
+          "reason": "SAME_FAMILY"
         }
       ],
       "denise-gomes-psicologa": [
-        {
-          "slug": "thays-camilla",
-          "score": 55,
-          "reason": "SAME_FAMILY"
-        },
         {
           "slug": "liz-moraes-nail-designer",
           "score": 54,
@@ -3278,6 +3269,11 @@
         {
           "slug": "mp-festas-eventos",
           "score": 53,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "assistencia-microondas-santos",
+          "score": 50,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3412,8 +3408,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "thays-camilla",
-          "score": 29,
+          "slug": "confeitaria-chyrley",
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -3560,13 +3556,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
-          "score": 38,
+          "slug": "refrigeracao-maresia",
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
-          "slug": "refrigeracao-maresia",
-          "score": 36,
+          "slug": "liz-moraes-nail-designer",
+          "score": 33,
           "reason": "DISTINCT"
         }
       ],
@@ -3582,8 +3578,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "raphael-construcoes",
-          "score": 30,
+          "slug": "premium-envelopamentos",
+          "score": 32,
           "reason": "DISTINCT"
         }
       ],
@@ -3606,17 +3602,17 @@
       ],
       "liz-moraes-nail-designer": [
         {
-          "slug": "artesanatos-darleia-oliveira",
-          "score": 54,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "denise-gomes-psicologa",
           "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "miro-tech",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mp-festas-eventos",
           "score": 54,
           "reason": "SAME_FAMILY"
         }
@@ -3633,8 +3629,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "premium-envelopamentos",
-          "score": 33,
+          "slug": "mary-diarista",
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -3657,19 +3653,19 @@
       ],
       "lolipa-arte-em-festas": [
         {
-          "slug": "premium-envelopamentos",
-          "score": 63,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 59,
-          "reason": "SAME_FAMILY"
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "assistencia-microondas-santos",
-          "score": 50,
-          "reason": "SAME_FAMILY"
+          "slug": "guaratuba-oficina-nautica",
+          "score": 33,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "thays-camilla",
+          "score": 32,
+          "reason": "DISTINCT"
         }
       ],
       "lucas-arruma-maquina-lavar": [
@@ -3696,13 +3692,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "premium-envelopamentos",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "assistencia-microondas-santos",
           "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 39,
           "reason": "DISTINCT"
         }
       ],
@@ -3793,18 +3789,18 @@
       ],
       "miro-tech": [
         {
-          "slug": "premium-envelopamentos",
-          "score": 60,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "confeitaria-sabor-da-realeza",
           "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
+          "slug": "liz-moraes-nail-designer",
           "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "assistencia-microondas-santos",
+          "score": 50,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3815,12 +3811,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "thays-camilla",
-          "score": 55,
+          "slug": "liz-moraes-nail-designer",
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "liz-moraes-nail-designer",
+          "slug": "vila-da-capivara",
           "score": 54,
           "reason": "SAME_FAMILY"
         }
@@ -3849,13 +3845,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
+          "slug": "emporio-lelecute",
           "score": 24,
           "reason": "DISTINCT"
         },
         {
-          "slug": "emporio-lelecute",
-          "score": 24,
+          "slug": "diego-montador-moveis",
+          "score": 23,
           "reason": "DISTINCT"
         }
       ],
@@ -3878,19 +3874,19 @@
       ],
       "premium-envelopamentos": [
         {
+          "slug": "jc-revestimentos",
+          "score": 32,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "lolipa-arte-em-festas",
-          "score": 63,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "score": 29,
+          "reason": "DISTINCT"
         },
         {
           "slug": "miro-tech",
-          "score": 60,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "assistencia-microondas-santos",
-          "score": 58,
-          "reason": "SAME_FAMILY"
+          "score": 29,
+          "reason": "DISTINCT"
         }
       ],
       "r_beauty": [
@@ -3934,12 +3930,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
+          "slug": "diego-montador-moveis",
           "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
+          "slug": "miro-tech",
           "score": 48,
           "reason": "SAME_FAMILY"
         }
@@ -4053,13 +4049,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "thays-camilla",
-          "score": 53,
+          "slug": "mp-festas-eventos",
+          "score": 52,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 52,
+          "slug": "ag-electrical-services",
+          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4083,17 +4079,17 @@
       "thays-camilla": [
         {
           "slug": "artesanatos-darleia-oliveira",
-          "score": 63,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "denise-gomes-psicologa",
-          "score": 55,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 55,
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "denise-gomes-psicologa",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4207,9 +4203,9 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 18,
-      "attention": 46,
-      "highSimilarity": 4,
+      "acceptable": 20,
+      "attention": 48,
+      "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
@@ -4230,7 +4226,7 @@
         "key": "highSimilarity",
         "label": "projetos HIGH_SIMILARITY",
         "before": 14,
-        "after": 4
+        "after": 0
       },
       {
         "kind": "COUNTER",
@@ -4242,6 +4238,12 @@
       {
         "kind": "MODIFIED_PROJECT",
         "slug": "ag-electrical-services",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "artesanatos-darleia-oliveira",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       },
@@ -4283,6 +4285,12 @@
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "lolipa-arte-em-festas",
+        "before": "HIGH_SIMILARITY",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "lucas-arruma-maquina-lavar",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
@@ -4301,7 +4309,19 @@
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "premium-envelopamentos",
+        "before": "HIGH_SIMILARITY",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "salao-da-marcia",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "thays-camilla",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       }
