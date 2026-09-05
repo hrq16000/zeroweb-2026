@@ -320,6 +320,37 @@
       ],
       "notes": "Capa 16:10 recortada do material fotografico proprio (caneca + azulejo personalizados). Sem telefone, e-mail, QR ou PII.",
       "mode": "frame"
+    },
+    "paraiso-do-hot-dog": {
+      "source": "public/images/paraiso-do-hot-dog/capa.png",
+      "focal": {
+        "x": 0.44,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "rm-fretes": {
+      "source": "public/images/rm-fretes/carroceria-carga.png",
+      "mode": "frame",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
+    },
+    "heloa-gas": {
+      "source": "public/images/heloa-gas/hero.jpg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ]
     }
   }
 }

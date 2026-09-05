@@ -1156,7 +1156,7 @@
         "COMPONENT_SIMILARITY": 18.2,
         "STYLE_SIMILARITY": 27.6,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "ASSET_PATTERN_SIMILARITY": 14.3,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1230,7 +1230,7 @@
         "COMPONENT_SIMILARITY": 26.7,
         "STYLE_SIMILARITY": 47.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 40,
+        "ASSET_PATTERN_SIMILARITY": 33.3,
         "IDENTITY_SIMILARITY": 14.3
       },
       "reasons": [],
@@ -1882,7 +1882,7 @@
         "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 39.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 22.2,
+        "ASSET_PATTERN_SIMILARITY": 33.3,
         "IDENTITY_SIMILARITY": 4.9
       },
       "reasons": [],
@@ -3557,7 +3557,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "liz-moraes-nail-designer",
+          "slug": "diego-montador-moveis",
           "score": 33,
           "reason": "DISTINCT"
         }
@@ -3841,12 +3841,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "emporio-lelecute",
-          "score": 24,
+          "slug": "diego-montador-moveis",
+          "score": 23,
           "reason": "DISTINCT"
         },
         {
-          "slug": "diego-montador-moveis",
+          "slug": "emporio-lelecute",
           "score": 23,
           "reason": "DISTINCT"
         }
@@ -3978,7 +3978,7 @@
         },
         {
           "slug": "rm-fretes",
-          "score": 33,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3995,7 +3995,7 @@
         },
         {
           "slug": "rj-servicos-drywall",
-          "score": 33,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {

@@ -1044,6 +1044,7 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/heloa-gas/capa-card.jpg",
         "/images/heloa-gas/entrega.jpg",
         "/images/heloa-gas/hero-og.jpg",
         "/images/heloa-gas/hero.jpg",
@@ -1590,6 +1591,7 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/paraiso-do-hot-dog/capa-card.jpg",
         "/images/paraiso-do-hot-dog/capa.png",
         "/images/paraiso-do-hot-dog/capa.webp",
         "/images/paraiso-do-hot-dog/logo.webp"
@@ -1885,6 +1887,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/rm-fretes/anuncio-oficial.png",
+        "/images/rm-fretes/capa-card.jpg",
         "/images/rm-fretes/carroceria-carga.png",
         "/images/rm-fretes/carroceria-carga.webp"
       ],
