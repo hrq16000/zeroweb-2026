@@ -130,8 +130,86 @@ for (const { slug, segment, file } of slugFiles) {
   let level = score >= 12 ? "PREMIUM" : score >= 4 ? "BASELINE" : "STATIC";
   if (hasSignature && signals.primitives > 0) level = "SIGNATURE";
   if (level === "STATIC") warnings.push({ code: "EXPERIENCE_STATIC", detail: rel });
-  pages.push({ slug, segment, file: rel, score, level, hasSignature, signals });
+  // Fingerprint de motion: o que o visitante percebe, não a primitive usada.
+  // Reutilizar MotionReveal/MotionStagger é engenharia compartilhada e NÃO é clone.
+  // Clone = mesma combinação perceptível (assinaturas + intensidade + comportamento).
+  const uniq = (re) => [...new Set(src.match(re) || [])].sort();
+  const profile = { ...(profiles.defaultsBySegment?.[segment] ?? {}), ...(profiles.overrides?.[slug] ?? {}) };
+  const moments = decision?.signatureMoments ?? {};
+  const fingerprint = {
+    heroSignature: String(moments.hero ?? moments.heroMotion ?? "—"),
+    sectionSignature: String(moments.section ?? moments.sections ?? "—"),
+    interactionSignature: String(moments.interaction ?? moments.interactions ?? "—"),
+    motionIntensity: String(profile.intensity ?? profile.motionIntensity ?? "—"),
+    scrollBehavior: String(profile.scroll ?? profile.scrollBehavior ?? "—"),
+    textMotion: /MotionTextReveal/.test(src) ? "TEXT_REVEAL" : /animate-/.test(src) ? "KEYFRAME" : "NONE",
+    imageMotion: /MotionImageReveal/.test(src) ? "IMAGE_REVEAL" : /group-hover:scale/.test(src) ? "HOVER_SCALE" : "NONE",
+    tokens: [
+      ...uniq(/Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter|Scope)\b/g).map((t) => `p:${t}`),
+      ...uniq(/animate-[a-z0-9-]+/g).map((t) => `a:${t}`),
+      ...uniq(/duration-\d+/g).map((t) => `d:${t}`),
+      ...uniq(/(?:group-)?hover:(?:scale|translate|rotate|skew)-[a-z0-9./[\]-]+/g).map((t) => `h:${t}`),
+      ...uniq(/\[clip-path:[^\]]+\]/g).map((t) => `c:${t}`),
+    ],
+  };
+  pages.push({ slug, segment, file: rel, score, level, hasSignature, signals, fingerprint });
 }
+
+// --- Motion originality (Frente E) -----------------------------------------
+const PERCEPTUAL_FIELDS = [
+  "heroSignature",
+  "sectionSignature",
+  "interactionSignature",
+  "motionIntensity",
+  "scrollBehavior",
+  "textMotion",
+  "imageMotion",
+];
+const jaccard = (a, b) => {
+  const A = new Set(a);
+  const B = new Set(b);
+  if (!A.size && !B.size) return 0;
+  let inter = 0;
+  for (const v of A) if (B.has(v)) inter += 1;
+  return inter / (A.size + B.size - inter);
+};
+const motionPairs = [];
+for (let i = 0; i < pages.length; i += 1) {
+  for (let j = i + 1; j < pages.length; j += 1) {
+    const a = pages[i].fingerprint;
+    const b = pages[j].fingerprint;
+    const declared = PERCEPTUAL_FIELDS.filter((f) => a[f] !== "—" || b[f] !== "—");
+    const perceptual = declared.length
+      ? declared.filter((f) => a[f] === b[f]).length / declared.length
+      : 0;
+    const tokens = jaccard(a.tokens, b.tokens);
+    const similarity = Math.round((perceptual * 0.7 + tokens * 0.3) * 100);
+    motionPairs.push({ a: pages[i].slug, b: pages[j].slug, similarity, perceptual: Math.round(perceptual * 100), tokens: Math.round(tokens * 100) });
+  }
+}
+motionPairs.sort((x, y) => y.similarity - x.similarity);
+const MOTION_CLONE_THRESHOLD = 95;
+const MOTION_GROUP_THRESHOLD = 85;
+const motionClones = motionPairs.filter((p) => p.similarity >= MOTION_CLONE_THRESHOLD);
+const motionGroupPairs = motionPairs.filter((p) => p.similarity >= MOTION_GROUP_THRESHOLD);
+const groups = [];
+for (const pair of motionGroupPairs) {
+  const g = groups.find((s) => s.has(pair.a) || s.has(pair.b));
+  if (g) {
+    g.add(pair.a);
+    g.add(pair.b);
+  } else groups.push(new Set([pair.a, pair.b]));
+}
+const motion = {
+  cloneThreshold: MOTION_CLONE_THRESHOLD,
+  groupThreshold: MOTION_GROUP_THRESHOLD,
+  clones: motionClones.length,
+  groups: groups.length,
+  maxSimilarity: motionPairs[0]?.similarity ?? 0,
+  topNearestMatches: motionPairs.slice(0, 10),
+  groupMembers: groups.map((s) => [...s]),
+};
+
 
 const summary = {
   generatedAt: new Date().toISOString(),
