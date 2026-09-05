@@ -4,7 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Beto Pastéis (/portfolio/beto-pasteis).
@@ -130,17 +130,20 @@ export function BetoPasteisPage() {
           >
             No balcão
           </h2>
-          <MotionStagger as="ul" variant="left" className="mt-6">
-            {vitrine.map(([nome, nota]) => (
-              <li
+          <ul className="mt-6">
+            {vitrine.map(([nome, nota], i) => (
+              <MotionReveal
+                as="li"
+                variant="left"
+                delay={i * 80}
                 key={nome}
                 className="flex flex-col gap-1 border-b border-dotted border-[var(--bp-ink)]/30 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
               >
                 <span className="font-display text-xl font-bold md:text-2xl">{nome}</span>
                 <span className="text-sm text-[var(--bp-ink)]/65 sm:max-w-[34ch] sm:text-right">{nota}</span>
-              </li>
+              </MotionReveal>
             ))}
-          </MotionStagger>
+          </ul>
         </section>
 
         <MotionReveal as="section" variant="scale" className="rounded-none border-4 border-[var(--bp-ink)] bg-[var(--bp-gold)]/25 p-7 md:p-10">

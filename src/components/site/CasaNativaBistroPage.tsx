@@ -3,6 +3,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { ManagedRich } from "@/components/portfolio/ManagedText";
+import { MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 
 const TEMPOS = [
   ["01", "Entrada", "Pão de fermentação natural, manteiga de ervas do cerrado e conserva da casa."],
@@ -54,6 +55,7 @@ function Reserva({ children, ghost = false }: { children: React.ReactNode; ghost
 
 export function CasaNativaBistroPage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-[#15130f] font-serif text-[#e8dcc9]">
       <main>
         <section id="inicio" className="relative flex min-h-[82vh] flex-col justify-between px-5 py-10 lg:px-12">
@@ -61,7 +63,7 @@ export function CasaNativaBistroPage() {
             <a href="#inicio">Casa Nativa</a>
             <span className="hidden sm:inline">Bistrô · Belo Horizonte</span>
           </div>
-          <div className="mx-auto w-full max-w-4xl py-16 text-center">
+          <MotionReveal variant="fade" className="mx-auto w-full max-w-4xl py-16 text-center">
             <h1 className="text-balance text-5xl leading-[1.02] sm:text-8xl">
             <ManagedRich field="heroHeadline">
               Cozinha de raiz,
@@ -70,7 +72,7 @@ export function CasaNativaBistroPage() {
             <p className="mx-auto mt-8 max-w-lg text-base leading-8 text-[#b3a894]"><ManagedRich field="heroSubheadline">
               Um bistrô pequeno em Belo Horizonte, com menu curto que muda conforme a feira e um salão pensado para
               conversas longas.</ManagedRich></p>
-          </div>
+          </MotionReveal>
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
             <span className="text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">Menu em quatro tempos</span>
             <Reserva>Reservar mesa</Reserva>
@@ -81,15 +83,15 @@ export function CasaNativaBistroPage() {
           <div className="mx-auto max-w-3xl">
             <p className="text-center text-[0.7rem] uppercase tracking-[.4em] text-[#9c917f]">Carta da semana</p>
             <ul className="mt-12 space-y-10">
-              {TEMPOS.map(([n, nome, descricao]) => (
-                <li key={n}>
+              {TEMPOS.map(([n, nome, descricao], i) => (
+                <MotionReveal as="li" variant="fade" delay={i * 150} key={n}>
                   <div className="flex items-baseline gap-4">
                     <span className="text-[0.7rem] tracking-[.3em] text-[#c98a4b]">{n}</span>
                     <h2 className="text-2xl">{nome}</h2>
                     <span className="h-px flex-1 bg-[#3a332a]" aria-hidden="true" />
                   </div>
                   <p className="mt-3 pl-10 text-[0.98rem] italic leading-8 text-[#b3a894]">{descricao}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
             <p className="mt-12 text-center text-sm leading-7 text-[#9c917f]">
@@ -99,17 +101,17 @@ export function CasaNativaBistroPage() {
         </section>
 
         <section id="sala" className="px-5 py-20 lg:px-12">
-          <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-2">
+          <MotionStagger className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-2" variant="up" step={120}>
             {SALA.map(([titulo, texto]) => (
               <div key={titulo} className="border-t border-[#3a332a] pt-5">
                 <h2 className="text-[0.7rem] uppercase tracking-[.3em] text-[#c98a4b]">{titulo}</h2>
                 <p className="mt-3 text-lg leading-8">{texto}</p>
               </div>
             ))}
-          </div>
+          </MotionStagger>
         </section>
 
-        <section id="reserva" className="border-t border-[#3a332a] px-5 py-20 text-center lg:px-12">
+        <MotionReveal as="section" variant="mask" id="reserva" className="border-t border-[#3a332a] px-5 py-20 text-center lg:px-12">
           <h2 className="mx-auto max-w-2xl text-4xl leading-tight sm:text-5xl">
             Guardamos uma mesa para a sua noite.
           </h2>
@@ -120,7 +122,7 @@ export function CasaNativaBistroPage() {
             <Reserva>Solicitar reserva</Reserva>
             <Reserva ghost>Consultar menu do dia</Reserva>
           </div>
-        </section>
+        </MotionReveal>
       </main>
 
       <footer className="border-t border-[#3a332a] px-5 py-8 text-[0.8rem] text-[#9c917f] lg:px-12">
@@ -143,5 +145,6 @@ export function CasaNativaBistroPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-casa-nativa" />
     </div>
+    </MotionScope>
   );
 }
