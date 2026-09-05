@@ -1,46 +1,66 @@
 {
-  "generatedAt": "2026-09-04T23:36:15.004Z",
-  "ok": 2,
+  "generatedAt": "2026-09-05T00:29:23.635Z",
+  "ok": 3,
   "failed": [],
   "results": [
     {
-      "slug": "galileu-locacao-brinquedos",
+      "slug": "artesanatos-darleia-oliveira",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/galileu-locacao-brinquedos/vitrine.png",
+      "source": "public/images/artesanatos-darleia-oliveira/hero-og.png",
       "crop": {
-        "left": 0,
+        "left": 276,
         "top": 0,
-        "width": 1600,
-        "height": 1000
+        "width": 1454,
+        "height": 909
       },
       "focal": {
-        "x": 0.5,
+        "x": 0.62,
         "y": 0.5
       },
-      "out": "/images/galileu-locacao-brinquedos/capa-card.jpg",
-      "bytes": 69003,
-      "dimensions": "1600x1000",
+      "out": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
+      "bytes": 229557,
+      "dimensions": "1454x909",
       "lowRes": false
     },
     {
-      "slug": "lj-cleaning",
+      "slug": "refrigeracao-maresia",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/lj-cleaning/vitrine.png",
+      "source": "public/images/refrigeracao-maresia/hero-og.png",
       "crop": {
-        "left": 0,
+        "left": 139,
         "top": 0,
-        "width": 1600,
-        "height": 1000
+        "width": 1454,
+        "height": 909
       },
       "focal": {
         "x": 0.5,
         "y": 0.5
       },
-      "out": "/images/lj-cleaning/capa-card.jpg",
-      "bytes": 84518,
-      "dimensions": "1600x1000",
+      "out": "/images/refrigeracao-maresia/capa-card.jpg",
+      "bytes": 165284,
+      "dimensions": "1454x909",
+      "lowRes": false
+    },
+    {
+      "slug": "thays-camilla",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/thays-camilla/hero-og.png",
+      "crop": {
+        "left": 223,
+        "top": 0,
+        "width": 1456,
+        "height": 910
+      },
+      "focal": {
+        "x": 0.55,
+        "y": 0.5
+      },
+      "out": "/images/thays-camilla/capa-card.jpg",
+      "bytes": 185726,
+      "dimensions": "1456x910",
       "lowRes": false
     }
   ]
