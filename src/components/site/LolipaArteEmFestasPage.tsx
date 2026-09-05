@@ -5,6 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /** Mural de festa: o próprio hero é o mosaico de decorações reais da Lolipa. */
 const mural = [
@@ -25,21 +26,23 @@ const mimos = ["Projeto da festa", "Centrinhos de mesa", "Porta presentes"];
 
 export function LolipaArteEmFestasPage() {
   return (
+    <MotionScope intensity="EXPRESSIVE">
     <div className="min-h-dvh bg-[#fbf4f5] text-[#34272b]">
       {/* HERO: mural fotográfico full-bleed com o título sobreposto. */}
       <section id="inicio" className="relative isolate">
         <div className="grid grid-cols-2 gap-1 sm:grid-cols-4">
           {mural.map(([src, alt, span], index) => (
+            <MotionImageReveal key={src} direction={index % 2 === 0 ? "up" : "left"} className={span}>
             <PortfolioImage
-              key={src}
               src={src}
               alt={alt}
               priority={index === 0}
               width={1100}
               height={800}
-              className={`h-32 w-full object-cover sm:h-52 ${span}`}
+              className="h-32 w-full object-cover sm:h-52"
               {...(index === 0 ? { managedField: "heroImageUrl" as const } : {})}
             />
+            </MotionImageReveal>
           ))}
         </div>
         <div className="pointer-events-none absolute inset-0 bg-[#34272b]/55" />
@@ -57,9 +60,9 @@ export function LolipaArteEmFestasPage() {
                 className="h-12 w-auto drop-shadow-lg"
               />
             </a>
-            <h1 className="mt-4 max-w-2xl font-display text-3xl font-black leading-[1.02] drop-shadow-md sm:text-6xl">
+            <MotionReveal as="h1" variant="mask" className="mt-4 max-w-2xl font-display text-3xl font-black leading-[1.02] drop-shadow-md sm:text-6xl">
               <ManagedText field="heroHeadline" fallback={"Sua festa vira um momento inesquec\u00edvel."} />
-            </h1>
+            </MotionReveal>
           </div>
         </div>
       </section>
@@ -97,12 +100,12 @@ export function LolipaArteEmFestasPage() {
               <CakeSlice className="h-10 w-10 shrink-0 text-[#c9aab2]" />
             </div>
             <div className="mt-8 divide-y divide-[#ead8dc] border-y border-[#ead8dc]">
-              {formatos.map(([title, text, letter]) => (
-                <article key={title} className="flex flex-col gap-2 py-7 md:flex-row md:items-baseline md:gap-10">
+              {formatos.map(([title, text, letter], index) => (
+                <MotionReveal as="article" variant="left" delay={index * 90} key={title} className="flex flex-col gap-2 py-7 md:flex-row md:items-baseline md:gap-10">
                   <span className="font-display text-5xl font-black text-[#ead8dc] md:w-20">{letter}</span>
                   <h3 className="font-display text-2xl font-black md:w-64">{title}</h3>
                   <p className="max-w-xl leading-7 text-[#705c62]">{text}</p>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -123,7 +126,7 @@ export function LolipaArteEmFestasPage() {
 
         {/* Fechamento assimétrico. */}
         <section className="px-5 py-16 lg:px-8">
-          <div className="mx-auto grid max-w-5xl gap-6 rounded-[2rem] bg-[#34272b] px-7 py-12 text-white md:grid-cols-[1.3fr_.7fr] md:items-center sm:px-12">
+          <MotionReveal variant="scale" className="mx-auto grid max-w-5xl gap-6 rounded-[2rem] bg-[#34272b] px-7 py-12 text-white md:grid-cols-[1.3fr_.7fr] md:items-center sm:px-12">
             <div>
               <h2 className="font-display text-3xl font-black sm:text-4xl">Vamos planejar a festa que vai marcar memórias?</h2>
               <p className="mt-4 max-w-xl leading-8 text-white/80">
@@ -139,7 +142,7 @@ export function LolipaArteEmFestasPage() {
             >
               Falar sobre minha festa
             </FunnelCTAButton>
-          </div>
+          </MotionReveal>
         </section>
       </main>
 
@@ -167,5 +170,6 @@ export function LolipaArteEmFestasPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-lolipa-arte-em-festas" />
     </div>
+    </MotionScope>
   );
 }

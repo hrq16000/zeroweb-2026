@@ -85,7 +85,8 @@
     "reducedMotionFallback": "opacityOnly | none",
     "desktopBehavior": "string",
     "tabletBehavior": "string",
-    "mobileBehavior": "string"
+    "mobileBehavior": "string",
+    "wave": "string"
   },
   "motionBudget": {
     "maxSignatureMomentsPerPage": 3,

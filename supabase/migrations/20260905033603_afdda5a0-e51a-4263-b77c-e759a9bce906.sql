@@ -1,0 +1,2 @@
+REVOKE EXECUTE ON FUNCTION public.can_view_partner_material(uuid, public.partner_kind[]) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.can_view_partner_material(uuid, public.partner_kind[]) TO authenticated, service_role;

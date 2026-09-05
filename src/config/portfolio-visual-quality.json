@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T01:08:46.742Z",
+  "generatedAt": "2026-09-05T03:46:30.804Z",
   "runtimeGeneratedAt": "2026-09-04T23:44:41.419Z",
   "thresholds": {
     "PREMIUM": 85,
@@ -25,23 +25,23 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 26,
-      "STANDARD": 42,
+      "PREMIUM": 30,
+      "STANDARD": 38,
       "NEEDS_UPGRADE": 0
     },
     "originality": {
-      "PASS": 18,
-      "WARNING": 46,
-      "FAIL": 4,
+      "PASS": 21,
+      "WARNING": 47,
+      "FAIL": 0,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 49,
-      "P2": 148,
-      "P3": 52
+      "P1": 46,
+      "P2": 147,
+      "P3": 49
     },
-    "averageScore": 86
+    "averageScore": 87
   },
   "projects": [
     {
@@ -186,8 +186,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 45,
-      "originalityNearest": "jkl-marcenaria",
+      "originalityScore": 42,
+      "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -275,7 +275,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs jkl-marcenaria"
+          "detail": "42 vs lucas-arruma-maquina-lavar"
         }
       ]
     },
@@ -743,6 +743,120 @@
       ]
     },
     {
+      "slug": "bh-barreiro-marmitas",
+      "businessName": "Marmitas do Barreiro",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 41,
+      "originalityNearest": "miro-tech",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/bh-barreiro-marmitas/logo.svg",
+          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
+          "bytes": 841,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
+          "bytes": 34485,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
+          "bytes": 34485,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "O almoço da semanajá está no quadro.",
+        "heroHeight": 807,
+        "editorialChars": 2074,
+        "smallTargets": 3,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "41 vs miro-tech"
+        }
+      ]
+    },
+    {
       "slug": "guaratuba-atelie-presentes",
       "businessName": "Ateliê Encanto da Baía",
       "segment": "comercios",
@@ -1178,6 +1292,120 @@
       ]
     },
     {
+      "slug": "uberlandia-eletrica-residencial",
+      "businessName": "Elétrica Bairro Brasil",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 78,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 41,
+      "originalityNearest": "bh-barreiro-marmitas",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 4,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
+          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
+          "bytes": 730,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
+          "bytes": 33929,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
+          "bytes": 33929,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
+        "heroHeight": 996,
+        "editorialChars": 2554,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "41 vs bh-barreiro-marmitas"
+        }
+      ]
+    },
+    {
       "slug": "liz-moraes-nail-designer",
       "businessName": "Liz Moraes Nail Designer",
       "segment": "beleza",
@@ -1199,7 +1427,7 @@
       },
       "originalityStatus": "WARNING",
       "originalityScore": 54,
-      "originalityNearest": "artesanatos-darleia-oliveira",
+      "originalityNearest": "denise-gomes-psicologa",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -1287,7 +1515,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "54 vs artesanatos-darleia-oliveira"
+          "detail": "54 vs denise-gomes-psicologa"
         }
       ]
     },
@@ -1312,8 +1540,8 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 24,
-      "originalityNearest": "brecho-sao-francisco",
+      "originalityScore": 28,
+      "originalityNearest": "reuse-house-brecho",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "APPROVED",
@@ -1620,113 +1848,6 @@
       ]
     },
     {
-      "slug": "bh-barreiro-marmitas",
-      "businessName": "Marmitas do Barreiro",
-      "segment": "restaurantes",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "PASS",
-      "originalityScore": 38,
-      "originalityNearest": "miro-tech",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/bh-barreiro-marmitas/logo.svg",
-          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
-          "bytes": 841,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
-          "bytes": 34485,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
-          "bytes": 34485,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "O almoço da semanajá está no quadro.",
-        "heroHeight": 807,
-        "editorialChars": 2074,
-        "smallTargets": 3,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        }
-      ]
-    },
-    {
       "slug": "confeitaria-sabor-da-realeza",
       "businessName": "Confeitaria Sabor da Realeza",
       "segment": "restaurantes",
@@ -1747,8 +1868,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 59,
-      "originalityNearest": "lolipa-arte-em-festas",
+      "originalityScore": 49,
+      "originalityNearest": "denise-gomes-psicologa",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -1829,7 +1950,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "59 vs lolipa-arte-em-festas"
+          "detail": "49 vs denise-gomes-psicologa"
         }
       ]
     },
@@ -1961,8 +2082,8 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 31,
-      "originalityNearest": "uberlandia-eletrica-residencial",
+      "originalityScore": 32,
+      "originalityNearest": "bh-barreiro-marmitas",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -2048,113 +2169,6 @@
       ]
     },
     {
-      "slug": "mirassol-conserta-celular",
-      "businessName": "Conserta Mirassol",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 41,
-      "originalityNearest": "mirassol-delicias-caseiras",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/mirassol-conserta-celular/logo.svg",
-          "hash": "19dac205b4de585b1a169ee7efdb6d0975fc7dfb",
-          "bytes": 811,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
-          "hash": "1bdedba95c408fc81282b7a1471d93f93de333d8",
-          "bytes": 29217,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
-          "hash": "1bdedba95c408fc81282b7a1471d93f93de333d8",
-          "bytes": 29217,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Orçamento com laudo. Só depois a chave de fenda encosta no aparelho.",
-        "heroHeight": 644,
-        "editorialChars": 2398,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs mirassol-delicias-caseiras"
-        }
-      ]
-    },
-    {
       "slug": "miro-tech",
       "businessName": "MIRO TECH",
       "segment": "prestadores-de-servicos",
@@ -2175,8 +2189,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 60,
-      "originalityNearest": "premium-envelopamentos",
+      "originalityScore": 51,
+      "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -2257,114 +2271,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs premium-envelopamentos"
-        }
-      ]
-    },
-    {
-      "slug": "uberlandia-eletrica-residencial",
-      "businessName": "Elétrica Bairro Brasil",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "PASS",
-      "originalityScore": 38,
-      "originalityNearest": "guaratuba-oficina-nautica",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
-          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
-          "bytes": 730,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
-          "bytes": 33929,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
-          "bytes": 33929,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
-        "heroHeight": 996,
-        "editorialChars": 2554,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
+          "detail": "51 vs liz-moraes-nail-designer"
         }
       ]
     },
@@ -2389,8 +2296,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 56,
-      "originalityNearest": "brecho-sao-francisco",
+      "originalityScore": 45,
+      "originalityNearest": "toquinho-de-gente-brecho",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
@@ -2464,7 +2371,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "56 vs brecho-sao-francisco"
+          "detail": "45 vs toquinho-de-gente-brecho"
         }
       ]
     },
@@ -2869,6 +2776,106 @@
       ]
     },
     {
+      "slug": "mirassol-conserta-celular",
+      "businessName": "Conserta Mirassol",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 37,
+      "originalityNearest": "guaratuba-atelie-presentes",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/mirassol-conserta-celular/logo.svg",
+          "hash": "19dac205b4de585b1a169ee7efdb6d0975fc7dfb",
+          "bytes": 811,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
+          "hash": "1bdedba95c408fc81282b7a1471d93f93de333d8",
+          "bytes": 29217,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/mirassol-conserta-celular/hero-og.jpg",
+          "hash": "1bdedba95c408fc81282b7a1471d93f93de333d8",
+          "bytes": 29217,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Orçamento com laudo. Só depois a chave de fenda encosta no aparelho.",
+        "heroHeight": 644,
+        "editorialChars": 2398,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/mirassol-conserta-celular/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        }
+      ]
+    },
+    {
       "slug": "ton-e-cor",
       "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
       "segment": "servicos",
@@ -2889,11 +2896,11 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 38,
+      "originalityScore": 40,
       "originalityNearest": "raphael-construcoes",
       "contentSimilarity": null,
       "charm": "MEDIUM",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 2,
       "severities": {
@@ -3175,7 +3182,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 44,
+      "originalityScore": 41,
       "originalityNearest": "miro-tech",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3243,100 +3250,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs miro-tech"
-        }
-      ]
-    },
-    {
-      "slug": "paraiso-do-hot-dog",
-      "businessName": "Paraíso do Hot Dog",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 89,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 14,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 10,
-        "mobile": 4,
-        "social": 5
-      },
-      "originalityStatus": "PASS",
-      "originalityScore": 25,
-      "originalityNearest": "refrigeracao-maresia",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/paraiso-do-hot-dog/logo.webp",
-          "hash": "71cd1dc19d16407d0018e3faef111c121b80502f",
-          "bytes": 152690,
-          "width": 1672,
-          "height": 941
-        },
-        "cover": {
-          "path": "/images/paraiso-hot-dog-cover.webp",
-          "hash": "71cd1dc19d16407d0018e3faef111c121b80502f",
-          "bytes": 152690,
-          "width": 1672,
-          "height": 941
-        },
-        "social": {
-          "path": "/images/paraiso-hot-dog-cover-og.jpg",
-          "hash": "9cb6e38f3b3cbd746feb6b3170ad5583a0be9969",
-          "bytes": 153064,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 301,
-        "mobileImages": 29,
-        "desktopImages": 29,
-        "heroHeadline": "Seu hot dog caprichado começa aqui.",
-        "heroHeight": 1045,
-        "editorialChars": 3943,
-        "smallTargets": 7,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "MOBILE_OVERFLOW",
-          "severity": "P1",
-          "group": "mobile",
-          "label": "Overflow horizontal em 390px",
-          "detail": "301px · DIV. | DIV.mb-6.flex | DIV. | P.text-xs.font-bold | H2.mt-2.text-4xl"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
+          "detail": "41 vs miro-tech"
         }
       ]
     },
@@ -3427,93 +3341,100 @@
       ]
     },
     {
-      "slug": "artesanatos-darleia-oliveira",
-      "businessName": "Artesanatos Darléia Oliveira",
-      "segment": "comercios",
+      "slug": "rm-fretes",
+      "businessName": "RM Fretes",
+      "segment": "servicos",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
       "visual": "STANDARD",
-      "score": 93,
+      "score": 91,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 15,
+        "logo": 6,
+        "cover": 10,
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 3,
+        "originality": 10,
         "mobile": 10,
         "social": 5
       },
-      "originalityStatus": "FAIL",
-      "originalityScore": 63,
-      "originalityNearest": "thays-camilla",
+      "originalityStatus": "PASS",
+      "originalityScore": 36,
+      "originalityNearest": "marido-de-aluguel",
       "contentSimilarity": null,
-      "charm": "LOW",
+      "charm": "MEDIUM",
       "coverReview": "APPROVED",
       "visuallyReviewed": true,
       "priority": 2,
       "severities": {
         "P0": 0,
         "P1": 1,
-        "P2": 0,
+        "P2": 1,
         "P3": 0
       },
       "assets": {
         "logo": {
-          "path": "/images/artesanatos-darleia-oliveira/logo.png",
-          "hash": "552d3e479a919184a58c61553675e0e45baac00f",
-          "bytes": 1687199,
-          "width": 1254,
-          "height": 1254
+          "path": "/images/rm-fretes/anuncio-oficial.png",
+          "hash": "d83184ab6cb12bb36466caa76a7cc52cd93014dd",
+          "bytes": 298698,
+          "width": 338,
+          "height": 509
         },
         "cover": {
-          "path": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
-          "hash": "a62073462bd99e952a0ff602dde48ce91350b047",
-          "bytes": 223283,
-          "width": 1600,
-          "height": 1000
+          "path": "/images/rm-fretes/capa-card.jpg",
+          "hash": "88419e18aa05f7cd610f216e876ecc28bd2b6861",
+          "bytes": 59529,
+          "width": 832,
+          "height": 520
         },
         "social": {
-          "path": "/images/artesanatos-darleia-oliveira/hero-og.jpg",
-          "hash": "8832f806819e1f3ee99d35fd2578b9ca28c12ecb",
-          "bytes": 145400,
+          "path": "/images/rm-fretes-hero-og.jpg",
+          "hash": "a179a1453a5c9b04bfc01445b37cb8599c59ca1a",
+          "bytes": 104325,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 5
+        "galleryCount": 4
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
         "mobileImages": 6,
         "desktopImages": 6,
-        "heroHeadline": "Seu café merece o melhor filtro.",
-        "heroHeight": 1239,
-        "editorialChars": 2329,
-        "smallTargets": 1,
+        "heroHeadline": "Seu frete em movimento. Rápido.",
+        "heroHeight": 1214,
+        "editorialChars": 2386,
+        "smallTargets": 2,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "ORIGINALITY_FAIL",
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/rm-fretes/anuncio-oficial.png"
+        },
+        {
+          "code": "COVER_LOW_RES",
           "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs thays-camilla"
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "832x520"
         }
       ]
     },
     {
-      "slug": "lolipa-arte-em-festas",
-      "businessName": "Lolipa Arte em Festas Decor",
-      "segment": "comercios",
+      "slug": "paraiso-do-hot-dog",
+      "businessName": "Paraíso do Hot Dog",
+      "segment": "servicos",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
       "visual": "STANDARD",
-      "score": 93,
+      "score": 94,
       "groupScores": {
         "identity": 15,
         "logo": 10,
@@ -3521,15 +3442,15 @@
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 3,
-        "mobile": 10,
+        "originality": 10,
+        "mobile": 4,
         "social": 5
       },
-      "originalityStatus": "FAIL",
-      "originalityScore": 63,
-      "originalityNearest": "premium-envelopamentos",
+      "originalityStatus": "PASS",
+      "originalityScore": 24,
+      "originalityNearest": "refrigeracao-maresia",
       "contentSimilarity": null,
-      "charm": "LOW",
+      "charm": "MEDIUM",
       "coverReview": "APPROVED",
       "visuallyReviewed": true,
       "priority": 2,
@@ -3541,204 +3462,46 @@
       },
       "assets": {
         "logo": {
-          "path": "/images/lolipa-arte-em-festas/logo.png",
-          "hash": "86dcd68e2df1d166de4e65481f4b37def641a4f4",
-          "bytes": 169083,
-          "width": 768,
-          "height": 288
+          "path": "/images/paraiso-do-hot-dog/logo.webp",
+          "hash": "71cd1dc19d16407d0018e3faef111c121b80502f",
+          "bytes": 152690,
+          "width": 1672,
+          "height": 941
         },
         "cover": {
-          "path": "/images/lolipa-arte-em-festas/capa-card.jpg",
-          "hash": "b930cb2951b2f1659548afdc7cef1a5fdd9c78ee",
-          "bytes": 83917,
-          "width": 1200,
-          "height": 750
+          "path": "/images/paraiso-do-hot-dog/capa-card.jpg",
+          "hash": "d54c0a833c95952311580c12d0ed31045c980a10",
+          "bytes": 231074,
+          "width": 1506,
+          "height": 941
         },
         "social": {
-          "path": "/images/lolipa-arte-em-festas/og-og.jpg",
-          "hash": "1974a2e8abf393dd89be3898f268b106649fd450",
-          "bytes": 123117,
+          "path": "/images/paraiso-hot-dog-cover-og.jpg",
+          "hash": "9cb6e38f3b3cbd746feb6b3170ad5583a0be9969",
+          "bytes": 153064,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 9
+        "galleryCount": 4
       },
       "runtime": {
         "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 10,
-        "desktopImages": 10,
-        "heroHeadline": "Sua festa vira um momento inesquecível.",
-        "heroHeight": 1137,
-        "editorialChars": 2607,
-        "smallTargets": 1,
+        "mobileOverflow": 301,
+        "mobileImages": 29,
+        "desktopImages": 29,
+        "heroHeadline": "Seu hot dog caprichado começa aqui.",
+        "heroHeight": 1045,
+        "editorialChars": 3943,
+        "smallTargets": 7,
         "consoleErrors": 0
       },
       "issues": [
         {
-          "code": "ORIGINALITY_FAIL",
+          "code": "MOBILE_OVERFLOW",
           "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs premium-envelopamentos"
-        }
-      ]
-    },
-    {
-      "slug": "premium-envelopamentos",
-      "businessName": "Premium Envelopamentos",
-      "segment": "prestadores-de-servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 93,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 63,
-      "originalityNearest": "lolipa-arte-em-festas",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/premium-envelopamentos/logo.png",
-          "hash": "70839fe003efb398e93e790572fedfbf12f7f7f7",
-          "bytes": 565455,
-          "width": 1983,
-          "height": 793
-        },
-        "cover": {
-          "path": "/images/premium-envelopamentos/capa-card.jpg",
-          "hash": "b5206de3fdff05cf358c922c615692101cf5b2ad",
-          "bytes": 155564,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/premium-envelopamentos/hero-og.jpg",
-          "hash": "bf2e3181b0a26fac25c8787c7bb269036e330add",
-          "bytes": 140235,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 8,
-        "desktopImages": 8,
-        "heroHeadline": "Seu móvel muda de cara. Seu ambiente ganha presença.",
-        "heroHeight": 1199,
-        "editorialChars": 2622,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs lolipa-arte-em-festas"
-        }
-      ]
-    },
-    {
-      "slug": "thays-camilla",
-      "businessName": "Thays Camilla",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 93,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 63,
-      "originalityNearest": "artesanatos-darleia-oliveira",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/thays-camilla/logo.png",
-          "hash": "1706a7a528a2ba5136017e4119ee53574b0baaf5",
-          "bytes": 2173632,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/thays-camilla/capa-card.jpg",
-          "hash": "176a05b1a010eca78e5ae82e96cd15412f77713b",
-          "bytes": 181313,
-          "width": 1600,
-          "height": 1000
-        },
-        "social": {
-          "path": "/images/thays-camilla/hero-og.jpg",
-          "hash": "6fdee0627e8ea2b41fc6378be17e2e43c43562ff",
-          "bytes": 118998,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Personalize carinho em cada detalhe.",
-        "heroHeight": 969,
-        "editorialChars": 2389,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs artesanatos-darleia-oliveira"
+          "group": "mobile",
+          "label": "Overflow horizontal em 390px",
+          "detail": "301px · DIV. | DIV.mb-6.flex | DIV. | P.text-xs.font-bold | H2.mt-2.text-4xl"
         }
       ]
     },
@@ -3750,11 +3513,11 @@
       "preset": null,
       "technical": "COMPLETE",
       "visual": "STANDARD",
-      "score": 96,
+      "score": 97,
       "groupScores": {
         "identity": 15,
         "logo": 10,
-        "cover": 14,
+        "cover": 15,
         "hero": 15,
         "images": 10,
         "content": 10,
@@ -3763,18 +3526,18 @@
         "social": 2
       },
       "originalityStatus": "PASS",
-      "originalityScore": 40,
+      "originalityScore": 36,
       "originalityNearest": "miro-tech",
       "contentSimilarity": null,
       "charm": "MEDIUM",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "APPROVED",
       "visuallyReviewed": true,
       "priority": 2,
       "severities": {
         "P0": 0,
         "P1": 1,
         "P2": 0,
-        "P3": 1
+        "P3": 0
       },
       "assets": {
         "logo": {
@@ -3785,11 +3548,11 @@
           "height": 576
         },
         "cover": {
-          "path": "/images/heloa-gas/hero-og.jpg",
-          "hash": "5af0a0ab2cfb1a85cc40edc22e414504815f5e97",
-          "bytes": 87458,
-          "width": 1200,
-          "height": 630
+          "path": "/images/heloa-gas/capa-card.jpg",
+          "hash": "6545929a1b8468c5be22b97b4a6bcc0098c8076a",
+          "bytes": 131518,
+          "width": 1440,
+          "height": 900
         },
         "social": {
           "path": "/images/heloa-gas/hero.jpg",
@@ -3798,7 +3561,7 @@
           "width": 1440,
           "height": 912
         },
-        "galleryCount": 4
+        "galleryCount": 5
       },
       "runtime": {
         "statusCode": 200,
@@ -3812,13 +3575,6 @@
         "consoleErrors": 0
       },
       "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
         {
           "code": "SOCIAL_WRONG_RATIO",
           "severity": "P1",
@@ -3849,8 +3605,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 41,
-      "originalityNearest": "brecho-sao-francisco",
+      "originalityScore": 42,
+      "originalityNearest": "marmitaria-dom-diego",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
@@ -3931,114 +3687,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs brecho-sao-francisco"
-        }
-      ]
-    },
-    {
-      "slug": "reuse-house-brecho",
-      "businessName": "REuse House Brechó",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 11,
-        "images": 6,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 48,
-      "originalityNearest": "toquinho-de-gente-brecho",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 3,
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 4,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/reuse-house-brecho/capa.png",
-          "hash": "98b3f8f087200a4c5431a133cac8028dcf867d4d",
-          "bytes": 2712299,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/reuse-house-brecho/capa-card.jpg",
-          "hash": "821f114dae70751cfcaa6ea3f334aaff86bcd933",
-          "bytes": 306897,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/reuse-house-brecho/capa-og.jpg",
-          "hash": "d5b75340174447831cda1c05f9629512b7859d90",
-          "bytes": 177015,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Garimpo consciente no Jardim das Américas.",
-        "heroHeight": 435,
-        "editorialChars": 1572,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/reuse-house-brecho/capa.png"
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs toquinho-de-gente-brecho"
+          "detail": "42 vs marmitaria-dom-diego"
         }
       ]
     },
@@ -4067,7 +3716,7 @@
       "originalityNearest": "confeitaria-sabor-da-realeza",
       "contentSimilarity": null,
       "charm": "LOW",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -4270,8 +3919,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 48,
-      "originalityNearest": "eletrovale-eletromecanica",
+      "originalityScore": 44,
+      "originalityNearest": "acai-total-araucaria",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
@@ -4345,7 +3994,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs eletrovale-eletromecanica"
+          "detail": "44 vs acai-total-araucaria"
         }
       ]
     },
@@ -4370,11 +4019,11 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 31,
+      "originalityScore": 28,
       "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -4457,106 +4106,6 @@
       ]
     },
     {
-      "slug": "brecho-sao-francisco",
-      "businessName": "Brechó São Francisco",
-      "segment": "comercios",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "PREMIUM",
-      "score": 86,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 60,
-      "originalityNearest": "toquinho-de-gente-brecho",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 3,
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/brecho-sao-francisco/capa.png",
-          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
-          "bytes": 2674602,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/brecho-sao-francisco/capa-card.jpg",
-          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
-          "bytes": 277820,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/brecho-sao-francisco/capa-og.jpg",
-          "hash": "805279e78bff6f38ce58bcc85d221f06abe66781",
-          "bytes": 161423,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Peças com história em uma vitrine acolhedora.",
-        "heroHeight": 900,
-        "editorialChars": 1850,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/brecho-sao-francisco/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs toquinho-de-gente-brecho"
-        }
-      ]
-    },
-    {
       "slug": "casa-nativa",
       "businessName": "Casa Nativa Bistrô",
       "segment": "servicos",
@@ -4581,7 +4130,7 @@
       "originalityNearest": "guaratuba-oficina-nautica",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -4684,8 +4233,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "marmitaria-dom-diego",
+      "originalityScore": 41,
+      "originalityNearest": "angel-mix-brecho",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -4759,7 +4308,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs marmitaria-dom-diego"
+          "detail": "41 vs angel-mix-brecho"
         }
       ]
     },
@@ -4784,8 +4333,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 58,
-      "originalityNearest": "brecho-sao-francisco",
+      "originalityScore": 44,
+      "originalityNearest": "toquinho-de-gente-brecho",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -4859,7 +4408,107 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "58 vs brecho-sao-francisco"
+          "detail": "44 vs toquinho-de-gente-brecho"
+        }
+      ]
+    },
+    {
+      "slug": "reuse-house-brecho",
+      "businessName": "REuse House Brechó",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 11,
+        "images": 6,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 38,
+      "originalityNearest": "angel-mix-brecho",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/reuse-house-brecho/capa.png",
+          "hash": "98b3f8f087200a4c5431a133cac8028dcf867d4d",
+          "bytes": 2712299,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/reuse-house-brecho/capa-card.jpg",
+          "hash": "821f114dae70751cfcaa6ea3f334aaff86bcd933",
+          "bytes": 306897,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/reuse-house-brecho/capa-og.jpg",
+          "hash": "d5b75340174447831cda1c05f9629512b7859d90",
+          "bytes": 177015,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Garimpo consciente no Jardim das Américas.",
+        "heroHeight": 435,
+        "editorialChars": 1572,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/reuse-house-brecho/capa.png"
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
         }
       ]
     },
@@ -4884,8 +4533,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 60,
-      "originalityNearest": "brecho-sao-francisco",
+      "originalityScore": 45,
+      "originalityNearest": "woodhouse-hamburgueres",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -4959,7 +4608,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "60 vs brecho-sao-francisco"
+          "detail": "45 vs woodhouse-hamburgueres"
         }
       ]
     },
@@ -4984,11 +4633,11 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 55,
-      "originalityNearest": "thays-camilla",
+      "originalityScore": 54,
+      "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -5059,7 +4708,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs thays-camilla"
+          "detail": "54 vs liz-moraes-nail-designer"
         }
       ]
     },
@@ -5157,31 +4806,31 @@
       ]
     },
     {
-      "slug": "rm-fretes",
-      "businessName": "RM Fretes",
-      "segment": "servicos",
+      "slug": "brecho-sao-francisco",
+      "businessName": "Brechó São Francisco",
+      "segment": "comercios",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
       "visual": "PREMIUM",
-      "score": 91,
+      "score": 90,
       "groupScores": {
         "identity": 15,
         "logo": 6,
-        "cover": 14,
+        "cover": 15,
         "hero": 15,
         "images": 6,
-        "content": 10,
+        "content": 8,
         "originality": 10,
         "mobile": 10,
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 36,
-      "originalityNearest": "marido-de-aluguel",
+      "originalityScore": 31,
+      "originalityNearest": "marmitaria-dom-diego",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "APPROVED",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -5192,23 +4841,23 @@
       },
       "assets": {
         "logo": {
-          "path": "/images/rm-fretes/anuncio-oficial.png",
-          "hash": "d83184ab6cb12bb36466caa76a7cc52cd93014dd",
-          "bytes": 298698,
-          "width": 338,
-          "height": 509
+          "path": "/images/brecho-sao-francisco/capa.png",
+          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
+          "bytes": 2674602,
+          "width": 1536,
+          "height": 1024
         },
         "cover": {
-          "path": "/images/rm-fretes-hero.webp",
-          "hash": "d067e2916a92c816e4809ffd152eb166da99405b",
-          "bytes": 101710,
-          "width": 1672,
-          "height": 941
+          "path": "/images/brecho-sao-francisco/capa-card.jpg",
+          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
+          "bytes": 277820,
+          "width": 1536,
+          "height": 960
         },
         "social": {
-          "path": "/images/rm-fretes-hero-og.jpg",
-          "hash": "a179a1453a5c9b04bfc01445b37cb8599c59ca1a",
-          "bytes": 104325,
+          "path": "/images/brecho-sao-francisco/capa-og.jpg",
+          "hash": "805279e78bff6f38ce58bcc85d221f06abe66781",
+          "bytes": 161423,
           "width": 1200,
           "height": 630
         },
@@ -5217,12 +4866,12 @@
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu frete em movimento. Rápido.",
-        "heroHeight": 1214,
-        "editorialChars": 2386,
-        "smallTargets": 2,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Peças com história em uma vitrine acolhedora.",
+        "heroHeight": 900,
+        "editorialChars": 1850,
+        "smallTargets": 1,
         "consoleErrors": 0
       },
       "issues": [
@@ -5231,14 +4880,7 @@
           "severity": "P2",
           "group": "logo",
           "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/rm-fretes/anuncio-oficial.png"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
+          "detail": "/images/brecho-sao-francisco/capa.png"
         },
         {
           "code": "FEW_IMAGES",
@@ -5246,6 +4888,13 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
         }
       ]
     },
@@ -5446,7 +5095,7 @@
       "originalityNearest": "diego-montador-moveis",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -5535,11 +5184,11 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 38,
+      "originalityScore": 40,
       "originalityNearest": "ton-e-cor",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -5800,8 +5449,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 55,
-      "originalityNearest": "confeitaria-sabor-da-realeza",
+      "originalityScore": 50,
+      "originalityNearest": "mp-festas-eventos",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -5861,7 +5510,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs confeitaria-sabor-da-realeza"
+          "detail": "50 vs mp-festas-eventos"
         }
       ]
     },
@@ -5972,11 +5621,11 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 35,
+      "originalityScore": 33,
       "originalityNearest": "jc-revestimentos",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -6069,7 +5718,7 @@
       "originalityNearest": "renata-beauty",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -6210,6 +5859,85 @@
       ]
     },
     {
+      "slug": "artesanatos-darleia-oliveira",
+      "businessName": "Artesanatos Darléia Oliveira",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 42,
+      "originalityNearest": "thays-camilla",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/artesanatos-darleia-oliveira/logo.png",
+          "hash": "552d3e479a919184a58c61553675e0e45baac00f",
+          "bytes": 1687199,
+          "width": 1254,
+          "height": 1254
+        },
+        "cover": {
+          "path": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
+          "hash": "a62073462bd99e952a0ff602dde48ce91350b047",
+          "bytes": 223283,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/artesanatos-darleia-oliveira/hero-og.jpg",
+          "hash": "8832f806819e1f3ee99d35fd2578b9ca28c12ecb",
+          "bytes": 145400,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu café merece o melhor filtro.",
+        "heroHeight": 1239,
+        "editorialChars": 2329,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "42 vs thays-camilla"
+        }
+      ]
+    },
+    {
       "slug": "assistencia-microondas-santos",
       "businessName": "Assistência Técnica Microondas Santos",
       "segment": "prestadores-de-servicos",
@@ -6230,8 +5958,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 58,
-      "originalityNearest": "premium-envelopamentos",
+      "originalityScore": 51,
+      "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -6284,7 +6012,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "58 vs premium-envelopamentos"
+          "detail": "51 vs liz-moraes-nail-designer"
         }
       ]
     },
@@ -6309,8 +6037,8 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 44,
-      "originalityNearest": "eletro-solucoes-eficazes",
+      "originalityScore": 48,
+      "originalityNearest": "lj-cleaning",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -6363,7 +6091,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs eletro-solucoes-eficazes"
+          "detail": "48 vs lj-cleaning"
         }
       ]
     },
@@ -6388,11 +6116,11 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 36,
+      "originalityScore": 35,
       "originalityNearest": "ton-e-cor",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "NEEDS_REVIEW",
       "visuallyReviewed": true,
       "priority": 3,
       "severities": {
@@ -6474,7 +6202,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 43,
+      "originalityScore": 48,
       "originalityNearest": "galileu-locacao-brinquedos",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6528,7 +6256,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "43 vs galileu-locacao-brinquedos"
+          "detail": "48 vs galileu-locacao-brinquedos"
         }
       ]
     },
@@ -6553,7 +6281,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 53,
+      "originalityScore": 51,
       "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6607,7 +6335,86 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "53 vs liz-moraes-nail-designer"
+          "detail": "51 vs liz-moraes-nail-designer"
+        }
+      ]
+    },
+    {
+      "slug": "thays-camilla",
+      "businessName": "Thays Camilla",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 44,
+      "originalityNearest": "denise-gomes-psicologa",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/thays-camilla/logo.png",
+          "hash": "1706a7a528a2ba5136017e4119ee53574b0baaf5",
+          "bytes": 2173632,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/thays-camilla/capa-card.jpg",
+          "hash": "176a05b1a010eca78e5ae82e96cd15412f77713b",
+          "bytes": 181313,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/thays-camilla/hero-og.jpg",
+          "hash": "6fdee0627e8ea2b41fc6378be17e2e43c43562ff",
+          "bytes": 118998,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Personalize carinho em cada detalhe.",
+        "heroHeight": 969,
+        "editorialChars": 2389,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "44 vs denise-gomes-psicologa"
         }
       ]
     },
@@ -6678,6 +6485,148 @@
         "heroHeight": 1261,
         "editorialChars": 6000,
         "smallTargets": 3,
+        "consoleErrors": 0
+      },
+      "issues": []
+    },
+    {
+      "slug": "lolipa-arte-em-festas",
+      "businessName": "Lolipa Arte em Festas Decor",
+      "segment": "comercios",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 100,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 34,
+      "originalityNearest": "confeitaria-sabor-da-realeza",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/lolipa-arte-em-festas/logo.png",
+          "hash": "86dcd68e2df1d166de4e65481f4b37def641a4f4",
+          "bytes": 169083,
+          "width": 768,
+          "height": 288
+        },
+        "cover": {
+          "path": "/images/lolipa-arte-em-festas/capa-card.jpg",
+          "hash": "b930cb2951b2f1659548afdc7cef1a5fdd9c78ee",
+          "bytes": 83917,
+          "width": 1200,
+          "height": 750
+        },
+        "social": {
+          "path": "/images/lolipa-arte-em-festas/og-og.jpg",
+          "hash": "1974a2e8abf393dd89be3898f268b106649fd450",
+          "bytes": 123117,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 9
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 10,
+        "desktopImages": 10,
+        "heroHeadline": "Sua festa vira um momento inesquecível.",
+        "heroHeight": 1137,
+        "editorialChars": 2607,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": []
+    },
+    {
+      "slug": "premium-envelopamentos",
+      "businessName": "Premium Envelopamentos",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 100,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 31,
+      "originalityNearest": "jc-revestimentos",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/premium-envelopamentos/logo.png",
+          "hash": "70839fe003efb398e93e790572fedfbf12f7f7f7",
+          "bytes": 565455,
+          "width": 1983,
+          "height": 793
+        },
+        "cover": {
+          "path": "/images/premium-envelopamentos/capa-card.jpg",
+          "hash": "b5206de3fdff05cf358c922c615692101cf5b2ad",
+          "bytes": 155564,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/premium-envelopamentos/hero-og.jpg",
+          "hash": "bf2e3181b0a26fac25c8787c7bb269036e330add",
+          "bytes": 140235,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 8,
+        "desktopImages": 8,
+        "heroHeadline": "Seu móvel muda de cara. Seu ambiente ganha presença.",
+        "heroHeight": 1199,
+        "editorialChars": 2622,
+        "smallTargets": 1,
         "consoleErrors": 0
       },
       "issues": []

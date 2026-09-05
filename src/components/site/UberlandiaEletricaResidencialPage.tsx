@@ -3,6 +3,12 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import {
+  MotionReveal,
+  MotionScope,
+  useInViewOnce,
+  usePrefersReducedMotion,
+} from "@/components/motion";
 
 const SERVICOS = [
   ["Troca de quadro de distribuição", 95, "Disjuntores dimensionados por circuito e identificação de cada chave."],
@@ -52,8 +58,28 @@ function Chamado({ children, block = false }: { children: React.ReactNode; block
   );
 }
 
+/** Assinatura do projeto: a barra de carga "energiza" da esquerda para a direita. */
+function BarraDeCarga({ carga, rotulo }: { carga: number; rotulo: string }) {
+  const reduced = usePrefersReducedMotion();
+  const { ref, seen } = useInViewOnce<HTMLDivElement>();
+  const cheia = seen || reduced;
+  return (
+    <div ref={ref} className="mt-3 h-2 w-full bg-[#2a251d]" role="img" aria-label={`Demanda t\u00edpica do servi\u00e7o ${rotulo}`}>
+      <div
+        className="h-2 origin-left bg-[#ffd400]"
+        style={{
+          width: `${carga}%`,
+          transform: cheia ? "scaleX(1)" : "scaleX(0)",
+          transition: reduced ? "none" : "transform 720ms cubic-bezier(0.22,1,0.36,1)",
+        }}
+      />
+    </div>
+  );
+}
+
 export function UberlandiaEletricaResidencialPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#12100c] text-[#f1efe9]">
       <div
         aria-hidden="true"
@@ -80,7 +106,7 @@ export function UberlandiaEletricaResidencialPage() {
                 </a>
               </div>
             </div>
-            <aside className="border-2 border-[#ffd400] bg-[#1b1813] p-6">
+            <MotionReveal as="aside" variant="scale" className="border-2 border-[#ffd400] bg-[#1b1813] p-6">
               <p className="text-xs font-black uppercase tracking-[.24em] text-[#ffd400]">Sinal de alerta</p>
               <ul className="mt-5 space-y-3 text-sm leading-6 text-[#d8d3c6]">
                 <li>Disjuntor desarmando sem motivo aparente</li>
@@ -91,7 +117,7 @@ export function UberlandiaEletricaResidencialPage() {
               <p className="mt-5 border-t border-[#ffd400]/30 pt-4 text-xs font-bold uppercase tracking-wide text-[#ffd400]">
                 Qualquer um desses pede desligamento do circuito e avaliação.
               </p>
-            </aside>
+            </MotionReveal>
           </div>
         </section>
 
@@ -100,16 +126,14 @@ export function UberlandiaEletricaResidencialPage() {
             <h2 className="text-2xl font-black uppercase sm:text-3xl">Serviços mais solicitados</h2>
             <ol className="mt-10 space-y-7">
               {SERVICOS.map(([nome, carga, texto], i) => (
-                <li key={nome}>
+                <MotionReveal as="li" variant="right" delay={i * 70} key={nome}>
                   <div className="flex items-baseline gap-4">
                     <span className="font-mono text-sm text-[#ffd400]">{String(i + 1).padStart(2, "0")}</span>
                     <h3 className="text-lg font-bold uppercase">{nome}</h3>
                   </div>
-                  <div className="mt-3 h-2 w-full bg-[#2a251d]">
-                    <div className="h-2 bg-[#ffd400]" style={{ width: `${carga}%` }} />
-                  </div>
+                  <BarraDeCarga carga={carga} rotulo={nome} />
                   <p className="mt-3 pl-9 text-sm leading-7 text-[#b9b4a7]">{texto}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
           </div>
@@ -119,11 +143,11 @@ export function UberlandiaEletricaResidencialPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="text-2xl font-black uppercase sm:text-3xl">O que garante o serviço</h2>
             <div className="mt-8 grid gap-px bg-[#2a251d] sm:grid-cols-2">
-              {NORMAS.map(([titulo, texto]) => (
-                <div key={titulo} className="bg-[#12100c] p-6">
+              {NORMAS.map(([titulo, texto], i) => (
+                <MotionReveal variant="fade" delay={i * 60} key={titulo} className="bg-[#12100c] p-6">
                   <h3 className="text-sm font-black uppercase tracking-[.16em] text-[#ffd400]">{titulo}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#b9b4a7]">{texto}</p>
-                </div>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -172,5 +196,6 @@ export function UberlandiaEletricaResidencialPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-uberlandia-eletrica-residencial" />
     </div>
+    </MotionScope>
   );
 }

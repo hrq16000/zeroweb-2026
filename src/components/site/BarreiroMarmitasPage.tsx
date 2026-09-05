@@ -3,6 +3,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { ManagedRich } from "@/components/portfolio/ManagedText";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 const SEMANA = [
   ["SEG", "Frango grelhado", "Arroz, feijão, purê e salada de repolho"],
@@ -54,6 +55,7 @@ function Pedido({ children, className = "" }: { children: React.ReactNode; class
 
 export function BarreiroMarmitasPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#f7f2e7] text-[#241f16]">
       <header className="bg-[#1f3a26] px-5 py-4 lg:px-8">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3">
@@ -84,7 +86,7 @@ export function BarreiroMarmitasPage() {
               </a>
             </div>
           </div>
-          <div className="rounded-lg border-[10px] border-[#6b4a25] bg-[#1f3a26] p-5 shadow-xl">
+          <MotionReveal variant="down" intensity="EXPRESSIVE" className="rounded-lg border-[10px] border-[#6b4a25] bg-[#1f3a26] p-5 shadow-xl">
             <p className="text-center font-mono text-sm uppercase tracking-[.3em] text-[#f2c744]">Quadro do dia</p>
             <p className="mt-4 text-center font-extrabold uppercase leading-tight text-[#f7f2e7]">
               <span className="block text-5xl">R$ 22</span>
@@ -93,13 +95,13 @@ export function BarreiroMarmitasPage() {
             <p className="mt-5 border-t border-dashed border-[#c6d8c8]/40 pt-4 text-center text-sm leading-6 text-[#dbe6dc]">
               Combo 5 dias sai por R$ 100 — pago na entrega da primeira marmita.
             </p>
-          </div>
+          </MotionReveal>
         </section>
 
         <section id="cardapio" className="bg-[#1f3a26] px-5 py-14 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-extrabold uppercase text-[#f7f2e7]">Cardápio fixo da semana</h2>
-            <div className="mt-6 overflow-x-auto">
+            <MotionReveal variant="mask" className="mt-6 overflow-x-auto">
               <table className="w-full min-w-[34rem] border-collapse text-left text-[#f7f2e7]">
                 <thead>
                   <tr className="border-b-2 border-[#f2c744]">
@@ -118,21 +120,21 @@ export function BarreiroMarmitasPage() {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </MotionReveal>
           </div>
         </section>
 
         <section className="mx-auto max-w-5xl px-5 py-14 lg:px-8">
           <h2 className="text-2xl font-extrabold uppercase">Escolha o tamanho</h2>
           <dl className="mt-6 grid gap-px overflow-hidden rounded-lg bg-[#241f16]/15 sm:grid-cols-3">
-            {TAMANHOS.map(([letra, titulo, texto]) => (
-              <div key={letra} className="bg-[#f7f2e7] p-6">
+            {TAMANHOS.map(([letra, titulo, texto], i) => (
+              <MotionReveal variant="scale" delay={i * 100} key={letra} className="bg-[#f7f2e7] p-6">
                 <dt className="flex items-baseline gap-3">
                   <span className="flex h-11 w-11 items-center justify-center rounded-md bg-[#1f3a26] text-xl font-extrabold text-[#f2c744]">{letra}</span>
                   <span className="text-lg font-extrabold uppercase">{titulo}</span>
                 </dt>
                 <dd className="mt-3 text-sm leading-6 text-[#4a4234]">{texto}</dd>
-              </div>
+              </MotionReveal>
             ))}
           </dl>
         </section>
@@ -170,5 +172,6 @@ export function BarreiroMarmitasPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-bh-barreiro-marmitas" />
     </div>
+    </MotionScope>
   );
 }

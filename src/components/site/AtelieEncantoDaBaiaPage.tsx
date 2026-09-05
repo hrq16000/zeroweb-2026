@@ -3,6 +3,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { ManagedRich } from "@/components/portfolio/ManagedText";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 const COLECAO = [
   ["Lembrancinhas de festa", "Kits de 20 a 200 peças com etiqueta personalizada.", "-rotate-2"],
@@ -55,6 +56,7 @@ function Encomenda({ children, tone = "terracota" }: { children: React.ReactNode
 
 export function AtelieEncantoDaBaiaPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#fdf6ec] text-[#2f2418]">
       <main>
         <section id="inicio" className="relative overflow-hidden px-5 pb-16 pt-10 lg:px-10">
@@ -70,13 +72,14 @@ export function AtelieEncantoDaBaiaPage() {
               </span>
             </div>
             <div className="mt-14 grid gap-8 md:grid-cols-[1.15fr_.85fr] md:items-end">
-              <h1 className="text-5xl font-black leading-[.95] sm:text-7xl">
+              <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="text-5xl font-black leading-[.95] sm:text-7xl">
             <ManagedRich field="heroHeadline">
                 Presente feito
                 <span className="mx-2 inline-block -rotate-2 bg-[#c25a37] px-3 text-[#fdf6ec]">à mão</span>
                 <br />
                 para gente daqui.</ManagedRich>
-          </h1>
+          </MotionReveal>
+              <MotionReveal variant="right" delay={140}>
               <div className="rotate-1 rounded-3xl border-2 border-[#2f2418] bg-white p-6 shadow-[8px_8px_0_#e8c3b0]">
                 <p className="text-[0.95rem] leading-7"><ManagedRich field="heroSubheadline">
                   Lembrancinhas, caixas montadas e peças de casa produzidas no ateliê, uma a uma — com amostra aprovada
@@ -85,6 +88,7 @@ export function AtelieEncantoDaBaiaPage() {
                   <Encomenda>Pedir orçamento</Encomenda>
                 </div>
               </div>
+              </MotionReveal>
             </div>
           </div>
         </section>
@@ -93,17 +97,16 @@ export function AtelieEncantoDaBaiaPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="text-3xl font-black">O que sai do ateliê</h2>
             <div className="mt-8 columns-1 gap-5 sm:columns-2">
-              {COLECAO.map(([titulo, texto, giro]) => (
-                <figure
-                  key={titulo}
-                  className={`mb-5 break-inside-avoid rounded-3xl border-2 border-[#2f2418] bg-white p-6 ${giro}`}
-                >
+              {COLECAO.map(([titulo, texto, giro], i) => (
+                <MotionReveal variant="scale" delay={i * 90} key={titulo} className="mb-5 break-inside-avoid">
+                <figure className={`rounded-3xl border-2 border-[#2f2418] bg-white p-6 ${giro}`}>
                   <span className="inline-block rounded-full bg-[#f0d9b5] px-3 py-1 text-xs font-bold uppercase">
                     Feito à mão
                   </span>
                   <figcaption className="mt-4 text-xl font-black">{titulo}</figcaption>
                   <p className="mt-2 text-sm leading-7 text-[#5b4a35]">{texto}</p>
                 </figure>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -114,11 +117,11 @@ export function AtelieEncantoDaBaiaPage() {
             <h2 className="text-3xl font-black">Como encomendar</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {PASSOS.map(([titulo, texto], i) => (
-                <div key={titulo} className="relative border-t-4 border-[#e8a37f] pt-5">
+                <MotionReveal variant="up" delay={i * 120} key={titulo} className="relative border-t-4 border-[#e8a37f] pt-5">
                   <span className="text-5xl font-black text-[#c25a37]">{i + 1}</span>
                   <h3 className="mt-2 text-xl font-black">{titulo}</h3>
                   <p className="mt-2 text-sm leading-7 text-[#e3d5c1]">{texto}</p>
-                </div>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -138,7 +141,8 @@ export function AtelieEncantoDaBaiaPage() {
         </section>
 
         <section id="contato" className="px-5 pb-20 lg:px-10">
-          <div className="mx-auto max-w-5xl -rotate-1 rounded-[2.5rem] border-2 border-[#2f2418] bg-[#e8c3b0] p-8 text-center shadow-[10px_10px_0_#2f2418]">
+          <MotionReveal variant="fade" className="mx-auto max-w-5xl">
+          <div className="-rotate-1 rounded-[2.5rem] border-2 border-[#2f2418] bg-[#e8c3b0] p-8 text-center shadow-[10px_10px_0_#2f2418]">
             <h2 className="text-3xl font-black sm:text-4xl">Tem uma data chegando?</h2>
             <p className="mx-auto mt-3 max-w-lg text-[0.95rem] leading-7">
               Manda a ideia, a quantidade e a cor. O ateliê responde com amostra e prazo.
@@ -147,6 +151,7 @@ export function AtelieEncantoDaBaiaPage() {
               <Encomenda tone="tinta">Começar minha encomenda</Encomenda>
             </div>
           </div>
+          </MotionReveal>
         </section>
       </main>
 
@@ -170,5 +175,6 @@ export function AtelieEncantoDaBaiaPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-guaratuba-atelie-presentes" />
     </div>
+    </MotionScope>
   );
 }

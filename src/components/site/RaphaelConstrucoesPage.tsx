@@ -6,6 +6,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Raphael Construções — direção PROCESSUAL / CANTEIRO DE OBRA.
@@ -43,13 +44,13 @@ const quizConfig = {
 /** Assinatura: fases da obra em trilho vertical. */
 function PhaseStep({ index, fase, text }: { index: number; fase: string; text: string }) {
   return (
-    <li className="relative pb-10 last:pb-0">
+    <MotionReveal as="li" variant="up" delay={index * 130} className="relative pb-10 last:pb-0">
       <span className="absolute -left-[2.65rem] grid h-8 w-8 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
         {index + 1}
       </span>
       <h3 className="text-lg font-bold">{fase}</h3>
       <p className="mt-2 text-sm leading-7 text-muted-foreground">{text}</p>
-    </li>
+    </MotionReveal>
   );
 }
 
@@ -110,6 +111,7 @@ const theme = {
 
 export function RaphaelConstrucoesPage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <header className="bg-primary px-5 py-4 text-primary-foreground">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
@@ -136,12 +138,12 @@ export function RaphaelConstrucoesPage() {
             <p className="text-[11px] font-bold uppercase tracking-[.34em] text-primary">
               Construção · engenharia · reformas
             </p>
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.06] md:text-6xl">
+            <MotionReveal as="h1" variant="up" intensity="BALANCED" className="mt-5 font-display text-4xl font-bold leading-[1.06] md:text-6xl">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Uma vis\u00e3o completa para sua obra."}
               />
-            </h1>
+            </MotionReveal>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
@@ -165,18 +167,19 @@ export function RaphaelConstrucoesPage() {
 
           <ul className="mx-auto mt-12 grid max-w-5xl grid-cols-2 overflow-hidden rounded-t-xl border border-b-0 border-border bg-card text-left md:grid-cols-4">
             {fases.map(({ fase }, index) => (
-              <li key={fase} className="border-b border-r border-border px-4 py-4 last:border-r-0">
+              <MotionReveal as="li" variant="left" delay={index * 90} key={fase} className="border-b border-r border-border px-4 py-4 last:border-r-0">
                 <span className="font-display text-xs font-bold text-primary">
                   ETAPA {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-1 text-sm font-bold">{fase}</p>
-              </li>
+              </MotionReveal>
             ))}
           </ul>
         </section>
 
         {/* Imagem larga de obra logo após a barra de fases. */}
         <section aria-label="Imagem da obra" className="px-5">
+          <MotionImageReveal direction="up" className="mx-auto max-w-5xl rounded-b-xl">
           <PortfolioImage
             src="/images/raphael-construcoes/hero.webp"
             alt="Construção residencial mostrando estrutura e acabamento final"
@@ -186,6 +189,7 @@ export function RaphaelConstrucoesPage() {
             className="mx-auto aspect-[21/9] w-full max-w-5xl rounded-b-xl border border-t-0 border-border object-cover"
             managedField="heroImageUrl"
           />
+          </MotionImageReveal>
         </section>
 
         {/* Assinatura: trilho vertical numerado das fases. */}
@@ -205,14 +209,14 @@ export function RaphaelConstrucoesPage() {
           <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-3xl font-bold md:text-4xl">Frentes de serviço</h2>
             <dl className="mt-10 grid gap-x-12 md:grid-cols-2">
-              {frentes.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="border-t border-border py-6">
+              {frentes.map(({ icon: Icon, title, text }, index) => (
+                <MotionReveal variant="fade" delay={index * 80} key={title} className="border-t border-border py-6">
                   <dt className="flex items-center gap-3 text-lg font-bold">
                     <Icon aria-hidden className="h-5 w-5 text-primary" />
                     {title}
                   </dt>
                   <dd className="mt-2 text-sm leading-7 text-muted-foreground">{text}</dd>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
           </div>
@@ -279,5 +283,6 @@ export function RaphaelConstrucoesPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-raphael-construcoes" />
     </div>
+    </MotionScope>
   );
 }

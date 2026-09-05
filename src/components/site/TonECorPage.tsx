@@ -4,6 +4,7 @@ import { ArrowRight, Brush, Droplets, House, PaintRoller } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
@@ -38,11 +39,17 @@ const quizConfig = {
 };
 
 /** Cartela cromática — elemento assinatura da marca. */
-function ColorSwatch({ name, value }: { name: string; value: string }) {
+function ColorSwatch({ name, value, index }: { name: string; value: string; index: number }) {
   return (
-    <li className="flex h-20 flex-1 items-end p-2 md:h-28" style={{ backgroundColor: `hsl(${value})` }}>
+    <MotionReveal
+      as="li"
+      variant="up"
+      delay={index * 90}
+      className="flex h-20 flex-1 items-end p-2 md:h-28"
+      style={{ backgroundColor: `hsl(${value})` }}
+    >
       <span className="sr-only">{name}</span>
-    </li>
+    </MotionReveal>
   );
 }
 
@@ -97,6 +104,7 @@ const theme = {
 
 export function TonECorPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <header className="px-5 pt-6">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
@@ -126,12 +134,12 @@ export function TonECorPage() {
             <p className="font-display text-[11px] font-bold uppercase tracking-[.42em] text-primary">
               Pintura · pequenas reformas
             </p>
-            <h1 className="mt-6 max-w-4xl font-display text-[2.6rem] font-bold leading-[.98] tracking-tight md:text-[5.5rem]">
+            <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-6 max-w-4xl font-display text-[2.6rem] font-bold leading-[.98] tracking-tight md:text-[5.5rem]">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Sua casa renovada, com os reparos organizados em um s\u00f3 atendimento."}
               />
-            </h1>
+            </MotionReveal>
             <p className="mt-8 max-w-lg border-l-4 border-primary pl-5 text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
@@ -146,8 +154,8 @@ export function TonECorPage() {
         {/* Assinatura visual: cartela de cor de largura total. */}
         <section aria-label="Cartela de acabamentos" className="mt-10 px-5">
           <ul className="mx-auto flex max-w-5xl overflow-hidden rounded-2xl border border-border">
-            {swatches.map((swatch) => (
-              <ColorSwatch key={swatch.name} name={swatch.name} value={swatch.value} />
+            {swatches.map((swatch, index) => (
+              <ColorSwatch key={swatch.name} name={swatch.name} value={swatch.value} index={index} />
             ))}
           </ul>
           <p className="mx-auto mt-3 max-w-5xl text-xs uppercase tracking-[.2em] text-muted-foreground">
@@ -163,7 +171,10 @@ export function TonECorPage() {
             </h2>
             <ul className="mt-10 border-t border-border">
               {jobs.map(({ icon: Icon, title, text, tag }, index) => (
-                <li
+                <MotionReveal
+                  as="li"
+                  variant="right"
+                  delay={index * 70}
                   key={title}
                   className="grid grid-cols-[auto_1fr] items-start gap-x-5 gap-y-2 border-b border-border py-7 md:grid-cols-[3.5rem_1fr_11rem] md:items-center"
                 >
@@ -180,7 +191,7 @@ export function TonECorPage() {
                   <span className="col-start-2 w-fit rounded-full bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-[.14em] text-muted-foreground md:col-start-3 md:justify-self-end">
                     {tag}
                   </span>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
           </div>
@@ -189,6 +200,7 @@ export function TonECorPage() {
         {/* Faixa de imagem plena com legenda deslocada. */}
         <section aria-label="Galeria de trabalhos" className="px-5">
           <figure className="mx-auto max-w-6xl">
+            <MotionImageReveal direction="up" className="rounded-3xl">
             <PortfolioImage
               src="/images/ton-e-cor/servicos.webp"
               alt="Materiais de pintura e pequenas reformas organizados em ambiente residencial"
@@ -198,6 +210,7 @@ export function TonECorPage() {
               className="aspect-[21/9] w-full rounded-3xl object-cover"
               managedField="heroImageUrl"
             />
+            </MotionImageReveal>
             <figcaption className="mx-auto mt-4 w-fit rounded-full bg-card px-5 py-3 text-center text-sm font-semibold shadow-lg md:-mt-8">
               Trabalho de acabamento, feito no ritmo da sua casa.
             </figcaption>
@@ -282,5 +295,6 @@ export function TonECorPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-ton-e-cor" />
     </div>
+    </MotionScope>
   );
 }

@@ -1,80 +1,15 @@
 {
-  "generatedAt": "2026-09-05T03:15:09.436Z",
+  "generatedAt": "2026-09-05T03:53:07.887Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 14,
+  "premium": 23,
   "signature": 5,
   "baseline": 30,
-  "static": 19,
-  "errors": [
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.jkl-marcenaria.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.jkl-marcenaria: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.refrigeracao-maresia: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.galileu-locacao-brinquedos: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.lj-cleaning.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.lj-cleaning: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.dlara-pizzaria.staggerPattern: \"radial\" fora de [none, linear, grid, diagonal]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.dlara-pizzaria: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.mirassol-conserta-celular.hoverBehavior: \"highlight\" fora de [none, lift, crop, underline, depth]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.mirassol-conserta-celular: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.guaratuba-oficina-nautica.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.guaratuba-oficina-nautica.hoverBehavior: \"highlight\" fora de [none, lift, crop, underline, depth]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.guaratuba-oficina-nautica: campo desconhecido \"wave\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.thays-camilla.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.thays-camilla: campo desconhecido \"wave\""
-    }
-  ],
+  "static": 10,
+  "errors": [],
   "warnings": [
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/CasaNativaBistroPage.tsx"
-    },
     {
       "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/ConfeitariaChyrleyPage.tsx"
@@ -82,10 +17,6 @@
     {
       "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/MarmitariaDomDiegoPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/BetoPasteisPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -109,23 +40,7 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/AtelieEncantoDaBaiaPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/DeliciasCaseirasMirassolPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/BarreiroMarmitasPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/UberlandiaEletricaResidencialPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/LolipaArteEmFestasPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -133,19 +48,7 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/PremiumEnvelopamentosPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/ManuPasteisPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/TonECorPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/RaphaelConstrucoesPage.tsx"
     }
   ],
   "pages": [
@@ -153,20 +56,6 @@
       "slug": "marmitaria-dom-diego",
       "segment": "restaurantes",
       "file": "src/components/site/MarmitariaDomDiegoPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "beto-pasteis",
-      "segment": "restaurantes",
-      "file": "src/components/site/BetoPasteisPage.tsx",
       "score": 0,
       "level": "STATIC",
       "hasSignature": false,
@@ -234,34 +123,6 @@
       }
     },
     {
-      "slug": "bh-barreiro-marmitas",
-      "segment": "restaurantes",
-      "file": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "lolipa-arte-em-festas",
-      "segment": "comercios",
-      "file": "src/components/site/LolipaArteEmFestasPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
       "slug": "confeitaria-sabor-da-realeza",
       "segment": "restaurantes",
       "file": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
@@ -286,76 +147,6 @@
         "primitives": 0,
         "transitions": 0,
         "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "guaratuba-atelie-presentes",
-      "segment": "comercios",
-      "file": "src/components/site/AtelieEncantoDaBaiaPage.tsx",
-      "score": 2,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 2,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "uberlandia-eletrica-residencial",
-      "segment": "prestadores-de-servicos",
-      "file": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 2,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 2,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "ton-e-cor",
-      "segment": "servicos",
-      "file": "src/components/site/TonECorPage.tsx",
-      "score": 2,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 2,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "raphael-construcoes",
-      "segment": "servicos",
-      "file": "src/components/site/RaphaelConstrucoesPage.tsx",
-      "score": 2,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 2,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "casa-nativa",
-      "segment": "servicos",
-      "file": "src/components/site/CasaNativaBistroPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
         "animate": 0
       }
     },
@@ -391,20 +182,6 @@
       "slug": "mirassol-delicias-caseiras",
       "segment": "restaurantes",
       "file": "src/components/site/DeliciasCaseirasMirassolPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "premium-envelopamentos",
-      "segment": "prestadores-de-servicos",
-      "file": "src/components/site/PremiumEnvelopamentosPage.tsx",
       "score": 3,
       "level": "STATIC",
       "hasSignature": false,
@@ -976,6 +753,20 @@
       }
     },
     {
+      "slug": "bh-barreiro-marmitas",
+      "segment": "restaurantes",
+      "file": "src/components/site/BarreiroMarmitasPage.tsx",
+      "score": 40,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
       "slug": "guaratuba-oficina-nautica",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
@@ -986,6 +777,20 @@
         "primitives": 9,
         "transitions": 1,
         "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "uberlandia-eletrica-residencial",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
+      "score": 42,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 2,
         "animate": 0
       }
     },
@@ -1046,6 +851,34 @@
       }
     },
     {
+      "slug": "beto-pasteis",
+      "segment": "restaurantes",
+      "file": "src/components/site/BetoPasteisPage.tsx",
+      "score": 52,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 13,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "lolipa-arte-em-festas",
+      "segment": "comercios",
+      "file": "src/components/site/LolipaArteEmFestasPage.tsx",
+      "score": 52,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 13,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
       "slug": "sos-presentes-cosmeticos",
       "segment": "comercios",
       "file": "src/components/site/SosPresentesCosmeticosPage.tsx",
@@ -1060,6 +893,48 @@
       }
     },
     {
+      "slug": "ton-e-cor",
+      "segment": "servicos",
+      "file": "src/components/site/TonECorPage.tsx",
+      "score": 54,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 13,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "casa-nativa",
+      "segment": "servicos",
+      "file": "src/components/site/CasaNativaBistroPage.tsx",
+      "score": 55,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 13,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "premium-envelopamentos",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/PremiumEnvelopamentosPage.tsx",
+      "score": 55,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 13,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
       "slug": "guaratuba-reparos-residenciais",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/ReparosDoLitoralPage.tsx",
@@ -1070,6 +945,20 @@
         "primitives": 13,
         "transitions": 2,
         "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "guaratuba-atelie-presentes",
+      "segment": "comercios",
+      "file": "src/components/site/AtelieEncantoDaBaiaPage.tsx",
+      "score": 58,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 14,
+        "transitions": 0,
+        "hover": 2,
         "animate": 0
       }
     },
@@ -1099,6 +988,20 @@
         "transitions": 25,
         "hover": 33,
         "animate": 1
+      }
+    },
+    {
+      "slug": "raphael-construcoes",
+      "segment": "servicos",
+      "file": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "score": 62,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 15,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
       }
     }
   ]
