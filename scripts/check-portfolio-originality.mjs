@@ -77,7 +77,9 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Clusters | ${s.clusters} |
 | Logos placeholder | ${s.placeholderLogos} |
 | Logos ausentes | ${s.missingLogos} |
-| Capas ausentes | ${s.missingCovers} |
+| Capas sem arquivo no catálogo (legado) | ${s.missingCovers} |
+| Capas válidas (contrato canônico) | ${s.coverValid ?? "—"} |
+| Capas pendentes (contrato canônico) | ${s.coverPending ?? "—"} |
 | Capas usando imagem social | ${s.coversAsSocialImage} |
 | Capas compartilhadas | ${s.sharedCovers} |
 | Crop severo | ${s.severeCrop} |
@@ -170,7 +172,7 @@ if (asJson) {
     `\n[portfolio-originality] ${s.total} projeto(s) · ${s.original} ORIGINAL · ${s.acceptable} ACCEPTABLE · ${s.attention} ATTENTION · ${s.highSimilarity} HIGH_SIMILARITY · ${s.clone} CLONE · ${s.sharedFallback} SHARED_FALLBACK · ${s.clusters} cluster(s)`,
   );
   console.log(
-    `[portfolio-originality] identidade: ${s.placeholderLogos} logo(s) placeholder · ${s.missingCovers} capa(s) ausente(s) · ${s.sharedCovers} capa(s) compartilhada(s)`,
+    `[portfolio-originality] identidade: ${s.placeholderLogos} logo(s) placeholder · ${s.coverValid ?? "—"} capa(s) válida(s) · ${s.coverPending ?? "—"} capa(s) pendente(s) · ${s.sharedCovers} capa(s) compartilhada(s)`,
   );
   console.log(
     `[portfolio-originality] modo ${report.regression.mode} · regressão ${report.regression.verdict}` +

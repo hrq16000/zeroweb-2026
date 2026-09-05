@@ -27,6 +27,8 @@
     "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 26,
+    "coverValid": 30,
+    "coverPending": 38,
     "coversAsSocialImage": 10,
     "sharedCovers": 0,
     "severeCrop": 20,
