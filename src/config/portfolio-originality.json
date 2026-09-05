@@ -83,18 +83,18 @@
     },
     {
       "slug": "ag-electrical-services",
-      "score": 50,
+      "score": 48,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 48,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50.8,
+        "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 45.3,
+        "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 5.9
@@ -109,7 +109,7 @@
       "nearest": [
         {
           "slug": "lk-alvenaria",
-          "score": 50,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
@@ -564,14 +564,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
+          "slug": "sos-presentes-cosmeticos",
           "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "slug": "lk-alvenaria",
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -1662,18 +1662,18 @@
     },
     {
       "slug": "lk-alvenaria",
-      "score": 50,
+      "score": 48,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 48,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50.8,
+        "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 45.3,
+        "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 5.9
@@ -1689,7 +1689,7 @@
       "nearest": [
         {
           "slug": "ag-electrical-services",
-          "score": 50,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {

@@ -78,15 +78,15 @@
       "title": "A&G Electrical Services",
       "segment": "servicos",
       "componentFile": "src/components/site/AgElectricalServicesPage.tsx",
-      "score": 50,
+      "score": 48,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 48,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50.8,
+        "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 45.3,
+        "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 5.9
@@ -104,10 +104,10 @@
       "logoSignals": [],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "5cd6cc4294c76086",
+        "skeletonHash": "b61aa93552889e53",
         "structureHash": "295479295dfc9037",
         "sectionCount": 7,
-        "lines": 163
+        "lines": 162
       }
     },
     {
@@ -1412,15 +1412,15 @@
       "title": "LK Alvenaria",
       "segment": "servicos",
       "componentFile": "src/components/site/LkAlvenariaPage.tsx",
-      "score": 50,
+      "score": 48,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 48,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 50.8,
+        "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 45.5,
-        "STYLE_SIMILARITY": 45.3,
+        "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 5.9
@@ -1439,10 +1439,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "4232f736bf226a52",
-        "structureHash": "855c5a123aef6e2f",
+        "skeletonHash": "ac102c168346ae08",
+        "structureHash": "e24ed0aace8ac585",
         "sectionCount": 7,
-        "lines": 136
+        "lines": 148
       }
     },
     {
@@ -3046,7 +3046,7 @@
       "ag-electrical-services": [
         {
           "slug": "lk-alvenaria",
-          "score": 50,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3220,14 +3220,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
+          "slug": "sos-presentes-cosmeticos",
           "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "slug": "lk-alvenaria",
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "confeitaria-chyrley": [
@@ -3641,7 +3641,7 @@
       "lk-alvenaria": [
         {
           "slug": "ag-electrical-services",
-          "score": 50,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
