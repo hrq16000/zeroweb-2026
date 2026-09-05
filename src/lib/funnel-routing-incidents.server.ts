@@ -20,7 +20,9 @@ export async function reportRoutingIncident(input: {
   reason: RoutingIncidentReason;
   fellBackToCentral: boolean;
 }): Promise<void> {
-  const tokenHash = createHash("sha256").update(input.token).digest("hex").slice(0, 16);
+  const tokenHash = input.token
+    ? createHash("sha256").update(input.token).digest("hex").slice(0, 16)
+    : null;
   const payload = {
     client_key: input.clientKey,
     lead_id: input.leadId,
