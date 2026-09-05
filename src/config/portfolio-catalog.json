@@ -1227,7 +1227,7 @@
     "subtitle": "Brinquedos seguros, coloridos e divertidos para festas",
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
-    "image": "/images/galileu-locacao-brinquedos/hero-og.jpg",
+    "image": "/images/galileu-locacao-brinquedos/capa-card.jpg",
     "fallbackImage": "/images/galileu-locacao-brinquedos/logo.png",
     "metrics": "Orçamento para eventos",
     "summary": "Presença digital da Galileu Locação de Brinquedos para festas e eventos, com tobogã inflável, cama elástica, piscina de bolinhas e outras atrações."
@@ -1251,7 +1251,9 @@
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
     "metrics": "Orçamento sob medida",
-    "summary": "Presença digital da L&J Cleaning para higienização de sofás, cadeiras, colchões, tapetes, carpetes, puffs e interiores automotivos."
+    "summary": "Presença digital da L&J Cleaning para higienização de sofás, cadeiras, colchões, tapetes, carpetes, puffs e interiores automotivos.",
+    "image": "/images/lj-cleaning/capa-card.jpg",
+    "fallbackImage": "/images/lj-cleaning/logo.png"
   },
   {
     "slug": "manu-pasteis",

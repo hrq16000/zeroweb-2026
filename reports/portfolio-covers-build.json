@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-04T22:42:31.514Z",
+  "generatedAt": "2026-09-04T23:36:15.004Z",
   "ok": 2,
   "failed": [],
   "results": [
     {
-      "slug": "lucas-arruma-maquina-lavar",
+      "slug": "galileu-locacao-brinquedos",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/lucas-arruma-maquina-lavar/vitrine.png",
+      "source": "public/images/galileu-locacao-brinquedos/vitrine.png",
       "crop": {
         "left": 0,
         "top": 0,
@@ -18,16 +18,16 @@
         "x": 0.5,
         "y": 0.5
       },
-      "out": "/images/lucas-arruma-maquina-lavar/capa-card.jpg",
-      "bytes": 66214,
+      "out": "/images/galileu-locacao-brinquedos/capa-card.jpg",
+      "bytes": 69003,
       "dimensions": "1600x1000",
       "lowRes": false
     },
     {
-      "slug": "no-brilho-higienizacao",
+      "slug": "lj-cleaning",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/no-brilho-higienizacao/vitrine.png",
+      "source": "public/images/lj-cleaning/vitrine.png",
       "crop": {
         "left": 0,
         "top": 0,
@@ -38,8 +38,8 @@
         "x": 0.5,
         "y": 0.5
       },
-      "out": "/images/no-brilho-higienizacao/capa-card.jpg",
-      "bytes": 48400,
+      "out": "/images/lj-cleaning/capa-card.jpg",
+      "bytes": 84518,
       "dimensions": "1600x1000",
       "lowRes": false
     }

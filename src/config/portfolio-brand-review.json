@@ -242,6 +242,43 @@
           "#efe9df"
         ]
       }
+    },
+    "galileu-locacao-brinquedos": {
+      "brandOrigin": "CLIENT_PROVIDED",
+      "brandReview": "APPROVED",
+      "classification": "REAL_BRAND_VALID",
+      "authored": true,
+      "logo": "/images/galileu-locacao-brinquedos/logo.png",
+      "direction": {
+        "concept": "cartela de atracoes — cada brinquedo e um bloco colorido",
+        "personality": "festa infantil organizada, alegre sem poluicao",
+        "shapeLanguage": "blocos arredondados e confete",
+        "typography": "sans geometrica com peso alto",
+        "colors": [
+          "#09265b",
+          "#f3ae00",
+          "#e2231a",
+          "#0757c9"
+        ]
+      }
+    },
+    "lj-cleaning": {
+      "brandOrigin": "CLIENT_PROVIDED",
+      "brandReview": "APPROVED",
+      "classification": "REAL_BRAND_VALID",
+      "authored": true,
+      "logo": "/images/lj-cleaning/logo.png",
+      "direction": {
+        "concept": "matriz de superficies — lista item por item do que e higienizado",
+        "personality": "tecnico e limpo, sem clichê de bolhas",
+        "shapeLanguage": "grade e regua laranja",
+        "typography": "sans com contraste editorial",
+        "colors": [
+          "#0a2d5c",
+          "#f2621f",
+          "#f6f9fc"
+        ]
+      }
     }
   }
 }

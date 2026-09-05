@@ -20,16 +20,16 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 |---|---|
 | Total | 68 |
 | ORIGINAL | 0 |
-| ACCEPTABLE | 17 |
-| ATTENTION | 42 |
-| HIGH_SIMILARITY | 9 |
+| ACCEPTABLE | 18 |
+| ATTENTION | 44 |
+| HIGH_SIMILARITY | 6 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
 | Clusters | 0 |
 | Logos placeholder | 0 |
 | Logos ausentes | 0 |
-| Capas ausentes | 27 |
-| Capas usando imagem social | 11 |
+| Capas ausentes | 26 |
+| Capas usando imagem social | 10 |
 | Capas compartilhadas | 0 |
 | Crop severo | 20 |
 | Assets de marca cruzados (inválidos) | 0 |
@@ -43,11 +43,9 @@ Nenhum cluster acima do limiar.
 
 | A | B | Score | Motivo | STRUCTURE | SECTION_ORDER | COMPONENT | STYLE | COPY | ASSET | IDENTITY |
 |---|---|---|---|---|---|---|---|---|---|---|
-| galileu-locacao-brinquedos | lj-cleaning | 66 | NEAR_DUPLICATE_LAYOUT | 94.7 | 57.1 | 55.6 | 96.8 | 1.9 | 100 | 10.7 |
 | ag-electrical-services | lk-alvenaria | 64 | NEAR_DUPLICATE_LAYOUT | 74.1 | 100 | 57.1 | 83.1 | 1 | 0 | 11.4 |
 | artesanatos-darleia-oliveira | thays-camilla | 63 | NEAR_DUPLICATE_LAYOUT | 80.4 | 66.7 | 50 | 97.4 | 2.8 | 100 | 8.9 |
 | lolipa-arte-em-festas | premium-envelopamentos | 63 | NEAR_DUPLICATE_LAYOUT | 62.7 | 100 | 62.5 | 79.7 | 0 | 27.3 | 10.3 |
-| lj-cleaning | miro-tech | 61 | NEAR_DUPLICATE_LAYOUT | 71.1 | 50 | 85.7 | 78.4 | 0.6 | 100 | 20 |
 | brecho-sao-francisco | toquinho-de-gente-brecho | 60 | SAME_FAMILY | 25.8 | 100 | 100 | 40.7 | 2.2 | 100 | 100 |
 | miro-tech | premium-envelopamentos | 60 | SAME_FAMILY | 62.7 | 62.5 | 85.7 | 78.8 | 0.6 | 60 | 18.2 |
 | acai-total-araucaria | aguia-sul-sinalizacao | 59 | SAME_FAMILY | 73.5 | 57.1 | 71.4 | 91.3 | 0 | 20 | 11.1 |
@@ -63,6 +61,8 @@ Nenhum cluster acima do limiar.
 | diego-montador-moveis | lk-alvenaria | 56 | SAME_FAMILY | 60.7 | 100 | 38.5 | 71.1 | 2.1 | 0 | 7.7 |
 | diego-montador-moveis | paulo-mestre-de-obras | 56 | SAME_FAMILY | 62.7 | 75 | 60 | 70.9 | 3 | 25 | 15.6 |
 | acai-total-araucaria | mary-diarista | 55 | SAME_FAMILY | 76.1 | 37.5 | 71.4 | 92.5 | 0 | 0 | 10.7 |
+| ag-electrical-services | refrigeracao-maresia | 55 | SAME_FAMILY | 66.7 | 83.3 | 42.9 | 75 | 3.2 | 5 | 7.3 |
+| artesanatos-darleia-oliveira | liz-moraes-nail-designer | 55 | SAME_FAMILY | 41.5 | 100 | 38.5 | 85.4 | 0 | 75 | 7 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -72,16 +72,14 @@ Nenhum asset percebido compartilhado entre clientes.
 
 | Projeto | Score | Status | Mais parecido | Motivo | Capa | Logo | Fallback |
 |---|---|---|---|---|---|---|---|
-| galileu-locacao-brinquedos | 66 | HIGH_SIMILARITY | lj-cleaning (66) | NEAR_DUPLICATE_LAYOUT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| lj-cleaning | 66 | HIGH_SIMILARITY | galileu-locacao-brinquedos (66) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | ag-electrical-services | 64 | HIGH_SIMILARITY | lk-alvenaria (64) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
 | lk-alvenaria | 64 | HIGH_SIMILARITY | ag-electrical-services (64) | NEAR_DUPLICATE_LAYOUT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | artesanatos-darleia-oliveira | 63 | HIGH_SIMILARITY | thays-camilla (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | lolipa-arte-em-festas | 63 | HIGH_SIMILARITY | premium-envelopamentos (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | premium-envelopamentos | 63 | HIGH_SIMILARITY | lolipa-arte-em-festas (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | thays-camilla | 63 | HIGH_SIMILARITY | artesanatos-darleia-oliveira (63) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| miro-tech | 61 | HIGH_SIMILARITY | lj-cleaning (61) | NEAR_DUPLICATE_LAYOUT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | brecho-sao-francisco | 60 | ATTENTION | toquinho-de-gente-brecho (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| miro-tech | 60 | ATTENTION | premium-envelopamentos (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | toquinho-de-gente-brecho | 60 | ATTENTION | brecho-sao-francisco (60) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | acai-total-araucaria | 59 | ATTENTION | aguia-sul-sinalizacao (59) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | aguia-sul-sinalizacao | 59 | ATTENTION | acai-total-araucaria (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
@@ -114,17 +112,19 @@ Nenhum asset percebido compartilhado entre clientes.
 | salao-da-marcia | 47 | ATTENTION | liz-moraes-nail-designer (47) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | eisenfer-tubos-acos | 45 | ATTENTION | jkl-marcenaria (45) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | dlara-pizzaria | 44 | ATTENTION | marmitaria-dom-diego (44) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| galileu-locacao-brinquedos | 44 | ATTENTION | eletro-solucoes-eficazes (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | manu-pasteis | 44 | ATTENTION | miro-tech (44) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | clinica-integrada | 43 | ATTENTION | confeitaria-sabor-da-realeza (43) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| lj-cleaning | 43 | ATTENTION | galileu-locacao-brinquedos (43) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | espaco-cih-luh | 42 | ATTENTION | salao-da-marcia (42) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-atelie-presentes | 42 | ATTENTION | mirassol-delicias-caseiras (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mirassol-delicias-caseiras | 42 | ATTENTION | guaratuba-atelie-presentes (42) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | santos-montador-de-moveis | 42 | ATTENTION | diego-montador-moveis (42) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | angel-mix-brecho | 41 | ATTENTION | brecho-sao-francisco (41) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| heloa-gas | 41 | ATTENTION | lj-cleaning (41) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mirassol-conserta-celular | 41 | ATTENTION | mirassol-delicias-caseiras (41) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | casa-nativa | 40 | ACCEPTABLE | guaratuba-oficina-nautica (40) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-oficina-nautica | 40 | ACCEPTABLE | casa-nativa (40) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| heloa-gas | 40 | ACCEPTABLE | miro-tech (40) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | marido-de-aluguel | 39 | ACCEPTABLE | lk-alvenaria (39) | DISTINCT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | bh-barreiro-marmitas | 38 | ACCEPTABLE | miro-tech (38) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | raphael-construcoes | 38 | ACCEPTABLE | ton-e-cor (38) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -148,9 +148,14 @@ Veredito: **PASS**
 Nenhuma regressão em relação à baseline.
 
 Melhorias:
-- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":14,"after":9}
+- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":14,"after":6}
+- {"kind":"COUNTER","key":"missingCovers","label":"capas ausentes","before":27,"after":26}
 - {"kind":"MODIFIED_PROJECT","slug":"diego-montador-moveis","before":"HIGH_SIMILARITY","after":"ATTENTION"}
 - {"kind":"MODIFIED_PROJECT","slug":"espaco-cih-luh","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"galileu-locacao-brinquedos","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"heloa-gas","before":"ATTENTION","after":"ACCEPTABLE"}
+- {"kind":"MODIFIED_PROJECT","slug":"lj-cleaning","before":"HIGH_SIMILARITY","after":"ATTENTION"}
 - {"kind":"MODIFIED_PROJECT","slug":"lucas-arruma-maquina-lavar","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+- {"kind":"MODIFIED_PROJECT","slug":"miro-tech","before":"HIGH_SIMILARITY","after":"ATTENTION"}
 - {"kind":"MODIFIED_PROJECT","slug":"no-brilho-higienizacao","before":"HIGH_SIMILARITY","after":"ATTENTION"}
 - {"kind":"MODIFIED_PROJECT","slug":"salao-da-marcia","before":"HIGH_SIMILARITY","after":"ATTENTION"}

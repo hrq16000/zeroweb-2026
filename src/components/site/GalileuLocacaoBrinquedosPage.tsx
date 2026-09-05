@@ -1,24 +1,141 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, CalendarDays, Check, ShieldCheck, Sparkles, TentTree } from "lucide-react";
+import { CalendarDays, MapPin, PartyPopper, Users } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-const toys = [["Tobogã inflável", "A atração que faz a criançada gastar energia e sorrir."], ["Cama elástica", "Diversão para pular, brincar e movimentar a festa."], ["Piscina de bolinhas", "Um cantinho colorido para os pequenos explorarem."], ["E muito mais", "Monte a combinação de brinquedos para o seu evento."]] as const;
+const attractions = [
+  { n: "01", title: "Tobogã inflável", text: "A descida que vira o ponto alto da comemoração.", tone: "bg-[#e2231a] text-white", chip: "bg-white/20 text-white" },
+  { n: "02", title: "Cama elástica", text: "Espaço para pular, gastar energia e brincar junto.", tone: "bg-[#0757c9] text-white", chip: "bg-white/20 text-white" },
+  { n: "03", title: "Piscina de bolinhas", text: "Um canto colorido pensado para os menores.", tone: "bg-[#f3ae00] text-[#09265b]", chip: "bg-[#09265b]/15 text-[#09265b]" },
+  { n: "04", title: "Monte seu kit", text: "Combine as atrações conforme o espaço e o público da festa.", tone: "bg-[#63d5ff] text-[#09265b]", chip: "bg-[#09265b]/15 text-[#09265b]" },
+] as const;
+
+const planning = [
+  { icon: CalendarDays, label: "Data", text: "Dia e horário da comemoração." },
+  { icon: MapPin, label: "Local", text: "Espaço disponível para montagem." },
+  { icon: Users, label: "Público", text: "Quantidade e faixa etária da criançada." },
+] as const;
 
 export function GalileuLocacaoBrinquedosPage() {
-  return <div className="min-h-dvh bg-[#f4f8ff] text-[#09265b]"><header className="sticky top-0 z-20 border-b border-[#d6e4fb] bg-[#f4f8ff]/95 px-5 py-4 backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" aria-label="Galileu Locação de Brinquedos" className="shrink-0"><PortfolioImage managedField="logoUrl" priority src="/images/galileu-locacao-brinquedos/logo.png" alt="Galileu Locação de Brinquedos" width={768} height={256} decoding="async" className="h-10 w-auto" /></a><nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#brinquedos">Brinquedos</a><a href="#como-funciona">Como funciona</a><a href="#orcamento">Orçamento</a></nav><FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0757c9] px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-[#0757c9]/20">Pedir orçamento <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></header><main>
-    <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[.88fr_1.12fr] lg:px-8 lg:py-24"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f3ae00]">Locação de brinquedos · festas e eventos</p><h1 className="mt-5 max-w-xl text-5xl font-black leading-[.98] tracking-tight sm:text-7xl">
-            <ManagedText field="heroHeadline" fallback={"Divers\u00e3o garantida para momentos inesquec\u00edveis."} />
-          </h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#4a638e]">
-            <ManagedText field="heroSubheadline" fallback={"Brinquedos coloridos para transformar festas em mem\u00f3rias alegres: tobog\u00e3 infl\u00e1vel, cama el\u00e1stica, piscina de bolinhas e muito mais."} />
-          </p><div className="mt-8 flex flex-wrap gap-3"><FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f3ae00] px-6 py-3 font-black text-[#09265b]">Garantir diversão <ArrowRight className="h-4 w-4" /></FunnelCTAButton><a href="#brinquedos" className="inline-flex min-h-12 items-center rounded-full border border-[#8db0df] px-6 py-3 font-semibold text-[#0757c9]">Conhecer brinquedos</a></div><div className="mt-7 flex flex-wrap gap-4 text-sm font-semibold text-[#4a638e]"><span><Check className="mr-1 inline h-4 w-4 text-[#0757c9]" />Para festas e eventos</span><span><Check className="mr-1 inline h-4 w-4 text-[#0757c9]" />Diversão sem fim</span></div></div><PortfolioImage src="/images/galileu-locacao-brinquedos/hero.png" alt="Tobogã inflável, cama elástica e piscina de bolinhas Galileu" priority width={1280} height={1280} className="w-full rounded-[2rem] shadow-2xl shadow-[#0757c9]/20"
+  return (
+    <div className="min-h-dvh bg-[#09265b] text-white">
+      <header className="sticky top-0 z-20 border-b border-white/10 bg-[#09265b]/95 px-5 py-4 backdrop-blur lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <a href="#inicio" aria-label="Galileu Locação de Brinquedos" className="shrink-0">
+            <PortfolioImage managedField="logoUrl" priority src="/images/galileu-locacao-brinquedos/logo.png" alt="Galileu Locação de Brinquedos" width={768} height={256} decoding="async" className="h-11 w-auto" />
+          </a>
+          <nav className="hidden gap-6 text-sm font-bold text-white/80 md:flex">
+            <a href="#atracoes" className="hover:text-[#f3ae00]">Atrações</a>
+            <a href="#planejamento" className="hover:text-[#f3ae00]">Planejamento</a>
+            <a href="#orcamento" className="hover:text-[#f3ae00]">Orçamento</a>
+          </nav>
+          <FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#f3ae00] px-5 py-2.5 text-sm font-black text-[#09265b]">
+            Pedir orçamento
+          </FunnelCTAButton>
+        </div>
+      </header>
+
+      <main>
+        <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-20">
+          <div>
+            <p className="inline-flex rounded-full bg-[#f3ae00] px-4 py-1.5 text-xs font-black uppercase tracking-[.2em] text-[#09265b]">Locação de brinquedos · festas e eventos</p>
+            <h1 className="mt-6 max-w-2xl text-5xl font-black leading-[.95] tracking-tight sm:text-7xl">
+              <ManagedText field="heroHeadline" fallback={"Divers\u00e3o garantida para momentos inesquec\u00edveis."} />
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#a9c6f5]">
+              <ManagedText field="heroSubheadline" fallback={"Brinquedos coloridos para transformar festas em mem\u00f3rias alegres: tobog\u00e3 infl\u00e1vel, cama el\u00e1stica, piscina de bolinhas e muito mais."} />
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f3ae00] px-6 py-3 font-black text-[#09265b]">
+                Garantir diversão
+              </FunnelCTAButton>
+              <a href="#atracoes" className="inline-flex min-h-12 items-center rounded-full border border-white/30 px-6 py-3 font-bold text-white">Ver atrações</a>
+            </div>
+            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-3 text-left">
+              {planning.map(({ icon: Icon, label, text }) => (
+                <div key={label} className="rounded-2xl border border-white/15 bg-white/5 p-4">
+                  <Icon className="h-5 w-5 text-[#63d5ff]" aria-hidden="true" />
+                  <dt className="mt-3 text-sm font-black uppercase tracking-widest text-[#f3ae00]">{label}</dt>
+                  <dd className="mt-1 text-sm leading-6 text-[#a9c6f5]">{text}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <PortfolioImage
+            src="/images/galileu-locacao-brinquedos/cena.png"
+            alt="Cartela de atrações Galileu: tobogã inflável, cama elástica, piscina de bolinhas e kit personalizado"
+            priority
+            width={1200}
+            height={1200}
+            className="w-full rounded-[2rem] border border-white/10 shadow-2xl shadow-black/30"
             managedField="heroImageUrl"
-          /></section>
-    <section id="brinquedos" className="bg-[#09265b] px-5 py-20 text-white lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#63d5ff]">Escolha sua atração</p><h2 className="mt-3 max-w-2xl text-4xl font-black">Um espaço de brincadeira para cada festa.</h2><div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{toys.map(([title, text], index) => <article key={title} className="rounded-2xl border border-white/15 bg-white/10 p-6"><span className="text-sm font-bold text-[#f3ae00]">0{index + 1}</span><h3 className="mt-8 text-2xl font-black">{title}</h3><p className="mt-3 leading-7 text-white/70">{text}</p></article>)}</div></div></section>
-    <section id="como-funciona" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#0757c9]">Como funciona</p><h2 className="mt-3 text-4xl font-black">Do planejamento à diversão.</h2><div className="mt-10 grid gap-5 md:grid-cols-3"><article className="rounded-2xl border border-[#d6e4fb] bg-white p-6"><CalendarDays className="h-8 w-8 text-[#0757c9]" /><h3 className="mt-8 text-2xl font-black">1. Conte a data</h3><p className="mt-3 leading-7 text-[#4a638e]">Informe a data, o local e o tipo de comemoração.</p></article><article className="rounded-2xl border border-[#d6e4fb] bg-white p-6"><ShieldCheck className="h-8 w-8 text-[#0757c9]" /><h3 className="mt-8 text-2xl font-black">2. Monte seu kit</h3><p className="mt-3 leading-7 text-[#4a638e]">Escolha os brinquedos que combinam com seu evento.</p></article><article className="rounded-2xl border border-[#d6e4fb] bg-white p-6"><TentTree className="h-8 w-8 text-[#0757c9]" /><h3 className="mt-8 text-2xl font-black">3. Prepare a festa</h3><p className="mt-3 leading-7 text-[#4a638e]">Receba a orientação para organizar um dia especial.</p></article></div></div></section>
-    <section id="orcamento" className="bg-[#f3ae00] px-5 py-16 text-[#09265b] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><Sparkles className="h-8 w-8" /><p className="mt-4 text-sm font-bold uppercase tracking-[.2em]">Vamos brincar?</p><h2 className="mt-2 text-3xl font-black">Garanta alegria para a sua festa.</h2><p className="mt-3 max-w-xl leading-7 text-[#09265b]/75">Conte os detalhes do evento e receba orientação para escolher as atrações.</p></div><FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#09265b] px-7 py-3 font-black text-white">Solicitar orçamento <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></section>
-  </main><footer className="bg-[#061638] px-5 py-8 text-sm text-[#c9dcfb] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">Galileu Locação de Brinquedos</strong><br />Brinquedos para festas e eventos.</p><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" /></div></footer><PortfolioSocialProofPopup clientKey="galileu-locacao-brinquedos" eyebrow="Galileu Locação de Brinquedos" title="Diversão garantida para momentos inesquecíveis." description="Tobogã inflável, cama elástica, piscina de bolinhas e muito mais para festas e eventos." ctaLabel="Pedir orçamento" ctaHref="#orcamento" delayMs={9000} className="border-[#f3ae00]/40 bg-[#061638]/95 text-white" accentClassName="text-[#f3ae00]" /><PortfolioUpsellPopup pageName="portfolio-galileu-locacao-brinquedos" /></div>;
+          />
+        </section>
+
+        <section id="atracoes" className="bg-[#f4f8ff] px-5 py-20 text-[#09265b] lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-sm font-black uppercase tracking-[.2em] text-[#0757c9]">Cartela de atrações</p>
+            <h2 className="mt-3 max-w-2xl text-4xl font-black">Cada brinquedo ocupa um espaço da festa.</h2>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {attractions.map(({ n, title, text, tone, chip }) => (
+                <article key={title} className={`rounded-[1.75rem] p-7 ${tone}`}>
+                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-black tracking-widest ${chip}`}>{n}</span>
+                  <h3 className="mt-6 text-3xl font-black leading-tight">{title}</h3>
+                  <p className="mt-3 text-base leading-7 opacity-85">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="planejamento" className="px-5 py-20 lg:px-8">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[.2em] text-[#f3ae00]">Planejamento</p>
+              <h2 className="mt-3 text-4xl font-black">Do primeiro contato ao dia da festa.</h2>
+              <p className="mt-4 max-w-md leading-7 text-[#a9c6f5]">Três informações bastam para montar a proposta das atrações.</p>
+            </div>
+            <ol className="grid gap-4">
+              {[["Conte a data e o local", "Informe quando e onde acontece a comemoração."], ["Escolha as atrações", "Monte o kit com os brinquedos que cabem no espaço."], ["Combine os detalhes", "Receba a orientação para organizar o dia."]].map(([title, text], index) => (
+                <li key={title} className="flex gap-5 rounded-2xl border border-white/15 bg-white/5 p-6">
+                  <span className="text-3xl font-black text-[#f3ae00]">{index + 1}</span>
+                  <div>
+                    <h3 className="text-xl font-black">{title}</h3>
+                    <p className="mt-2 leading-7 text-[#a9c6f5]">{text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="orcamento" className="bg-[#f3ae00] px-5 py-16 text-[#09265b] lg:px-8">
+          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div>
+              <PartyPopper className="h-8 w-8" aria-hidden="true" />
+              <p className="mt-4 text-sm font-black uppercase tracking-[.2em]">Vamos brincar?</p>
+              <h2 className="mt-2 text-3xl font-black">Garanta alegria para a sua festa.</h2>
+              <p className="mt-3 max-w-xl leading-7 text-[#09265b]/75">Conte os detalhes do evento e receba orientação para escolher as atrações.</p>
+            </div>
+            <FunnelCTAButton clientKey="galileu-locacao-brinquedos" companySlug="galileu-locacao-brinquedos" formSlug="funnel-galileu-locacao-brinquedos" location="galileu_footer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#09265b] px-7 py-3 font-black text-white">
+              Solicitar orçamento
+            </FunnelCTAButton>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#061638] px-5 py-8 text-sm text-[#c9dcfb] lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p><strong className="text-white">Galileu Locação de Brinquedos</strong><br />Brinquedos para festas e eventos · São José dos Pinhais — PR</p>
+          <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" />
+        </div>
+      </footer>
+
+      <PortfolioSocialProofPopup clientKey="galileu-locacao-brinquedos" eyebrow="Galileu Locação de Brinquedos" title="Diversão garantida para momentos inesquecíveis." description="Tobogã inflável, cama elástica, piscina de bolinhas e muito mais para festas e eventos." ctaLabel="Pedir orçamento" ctaHref="#orcamento" delayMs={9000} className="border-[#f3ae00]/40 bg-[#061638]/95 text-white" accentClassName="text-[#f3ae00]" />
+      <PortfolioUpsellPopup pageName="portfolio-galileu-locacao-brinquedos" />
+    </div>
+  );
 }

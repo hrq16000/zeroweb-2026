@@ -527,7 +527,7 @@
     },
     "galileu-locacao-brinquedos": {
       "icon": "/images/galileu-locacao-brinquedos/logo.png",
-      "socialImage": "/images/galileu-locacao-brinquedos/hero-og.jpg",
+      "socialImage": "/images/galileu-locacao-brinquedos/capa-og.jpg",
       "proof": {
         "eyebrow": "Galileu Locação de Brinquedos",
         "title": "Diversão garantida para momentos inesquecíveis.",
@@ -535,11 +535,11 @@
         "ctaLabel": "Pedir orçamento",
         "ctaHref": "#orcamento"
       },
-      "socialVersion": "01c1fdc0"
+      "socialVersion": "78180cbe"
     },
     "lj-cleaning": {
       "icon": "/images/lj-cleaning/logo.png",
-      "socialImage": "/images/lj-cleaning/hero-og.jpg",
+      "socialImage": "/images/lj-cleaning/capa-og.jpg",
       "proof": {
         "eyebrow": "L&J Cleaning",
         "title": "Seu conforto merece um cuidado completo.",
@@ -547,7 +547,7 @@
         "ctaLabel": "Solicitar orçamento",
         "ctaHref": "#orcamento"
       },
-      "socialVersion": "9d3f6af9"
+      "socialVersion": "16b62c80"
     },
     "manu-pasteis": {
       "icon": "/images/manu-pasteis/logo.png",
