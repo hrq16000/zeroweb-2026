@@ -12,15 +12,16 @@ import { trackEvent } from "@/lib/analytics";
 import { capitaisPorRegiao } from "@/lib/capitais";
 
 const CANONICAL = "https://0web.com.br/criacao-de-site-institucional";
-const TITLE = "Criação de Site Institucional que Gera Contatos | 0WEB";
+const TITLE = "Criação de Site Institucional | Sites Profissionais e Otimizados para Conversão";
 const DESCRIPTION =
-  "Criação de site institucional com estrutura de conversão, funil de captura e base de SEO. Faça o diagnóstico gratuito e receba o formato certo para o seu negócio.";
+  "Transforme sua presença digital com um site institucional moderno, responsivo e focado em resultados. Agende seu diagnóstico gratuito e descubra como crescer online.";
 
 const FAQ: { q: string; a: string }[] = [
   {
     q: "Quanto custa criar um site institucional?",
-    a: "O investimento varia conforme número de páginas, integrações e produção de conteúdo. Projetos de escopo enxuto começam em faixas menores; sites com funil, SEO e integrações exigem escopo maior. No diagnóstico gratuito indicamos a faixa compatível com o seu caso antes de qualquer proposta.",
+    a: "Depende do escopo. O formato mais enxuto, o Site Express, começa em R$ 499; projetos com mais páginas, funil, integrações e produção de conteúdo entram na faixa do Site Pro, a partir de R$ 7.900. Os valores são estimativas iniciais e só viram proposta depois do diagnóstico gratuito.",
   },
+
   {
     q: "Em quanto tempo o site fica pronto?",
     a: "Depende do escopo e da velocidade de aprovação de conteúdo. Estruturas simples costumam ficar prontas em poucas semanas; projetos com integrações e produção de textos e imagens levam mais tempo. O prazo é sempre condicionado à entrega de material pelo cliente.",
@@ -41,7 +42,16 @@ const FAQ: { q: string; a: string }[] = [
     q: "Vocês cuidam do conteúdo e das imagens?",
     a: "Sim, com participação do cliente. Trabalhamos com informação real do negócio — não publicamos números, depoimentos ou selos sem comprovação.",
   },
+  {
+    q: "O site será responsivo para dispositivos móveis?",
+    a: "Sim. Cada página é construída e testada em celular, tablet e desktop, com performance e acessibilidade verificadas antes da publicação.",
+  },
+  {
+    q: "Vocês oferecem suporte após o lançamento?",
+    a: "Sim. Depois da publicação acompanhamos desempenho e conversões e priorizamos ajustes por impacto, dentro do plano de suporte combinado no escopo.",
+  },
 ];
+
 
 const STEPS = [
   { icon: Compass, title: "Diagnóstico", text: "Entendemos o negócio, o público e o objetivo do site. Você recebe o formato recomendado e a faixa de investimento." },
@@ -56,7 +66,9 @@ const BENEFITS = [
   { icon: LineChart, title: "Mensurável", text: "Cada contato entra no painel com origem, página e campanha — dá para saber o que gera lead." },
   { icon: Rocket, title: "Rápido de publicar", text: "Escopo fatiado: o essencial entra no ar antes, o restante evolui sem travar o lançamento." },
   { icon: Gauge, title: "Leve e estável", text: "Performance e acessibilidade tratadas como requisito, não como ajuste posterior." },
+  { icon: Compass, title: "Suporte contínuo", text: "Depois da publicação, atualizações e manutenção conforme o plano combinado no escopo." },
 ];
+
 
 const PROOF: { slug: string; label: string; segment: string }[] = [
   { slug: "premium-envelopamentos", label: "Premium Envelopamentos", segment: "Comunicação visual" },
@@ -147,12 +159,13 @@ function InstitutionalSitePage() {
                 Criação de site institucional
               </p>
               <h1 className="mt-3 text-4xl sm:text-5xl font-bold font-display leading-tight">
-                Um site institucional que <span className="text-gradient">apresenta a empresa e gera contato</span>
+                Criação de site institucional profissional para{" "}
+                <span className="text-gradient">impulsionar seu negócio</span>
               </h1>
               <p className="mt-5 text-lg text-muted-foreground max-w-[60ch]">
-                Estrutura de páginas pensada para busca e conversão, funil de captura integrado ao painel de leads e
-                base técnica de SEO. Comece pelo diagnóstico gratuito: em 6 perguntas indicamos o formato certo e a
-                faixa de investimento — sem compromisso.
+                Desenvolvemos sites que refletem a identidade da sua empresa e são construídos para converter:
+                estrutura pensada para busca, funil de captura integrado ao painel de leads e base técnica de SEO.
+                Agende um diagnóstico gratuito e saiba como.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
@@ -160,15 +173,19 @@ function InstitutionalSitePage() {
                   onClick={openModal}
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary"
                 >
-                  Diagnóstico gratuito <ArrowRight className="w-4 h-4" />
+                  Agende seu diagnóstico gratuito <ArrowRight className="w-4 h-4" />
                 </button>
                 <a
                   href="#diagnostico-institucional"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 font-semibold"
                 >
-                  Agende diagnóstico na página
+                  Responder aqui na página
                 </a>
               </div>
+              <p className="mt-3 text-xs text-muted-foreground">
+                O diagnóstico é gratuito e sem compromisso. Seus dados ficam confidenciais e são usados apenas para
+                este atendimento.
+              </p>
               <ul className="mt-8 grid sm:grid-cols-2 gap-2 text-sm">
                 {[
                   "Escopo e prazo definidos por escrito",
@@ -182,6 +199,7 @@ function InstitutionalSitePage() {
                   </li>
                 ))}
               </ul>
+
             </div>
 
             <div id="diagnostico-institucional" className="rounded-3xl border border-border bg-card shadow-elegant overflow-hidden scroll-mt-24">
@@ -195,7 +213,8 @@ function InstitutionalSitePage() {
           <h2 className="text-3xl sm:text-4xl font-bold font-display">
             O que muda em relação a um site “só bonito”
           </h2>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
             {BENEFITS.map((b) => (
               <article key={b.title} className="rounded-2xl border border-border bg-card p-5">
                 <b.icon className="w-5 h-5 text-primary" aria-hidden="true" />
@@ -335,8 +354,13 @@ function InstitutionalSitePage() {
               onClick={openModal}
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary"
             >
-              Fazer diagnóstico gratuito <ArrowRight className="w-4 h-4" />
+              Solicitar diagnóstico <ArrowRight className="w-4 h-4" />
             </button>
+            <p className="mt-4 text-xs text-muted-foreground max-w-[60ch] mx-auto">
+              Valores citados nesta página são estimativas iniciais, sujeitas a avaliação detalhada do escopo. O
+              diagnóstico é gratuito e sem compromisso, e garantimos confidencialidade e segurança dos seus dados.
+            </p>
+
           </div>
         </section>
       </main>
