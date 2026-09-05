@@ -5257,7 +5257,7 @@
     ]
   },
   "regression": {
-    "mode": "REPORT_ONLY",
+    "mode": "NEW_OR_MODIFIED",
     "baseline": {
       "total": 68,
       "original": 0,
