@@ -9,6 +9,7 @@ import {
   resolvePortfolioStandards,
 } from "@/lib/portfolio-global-config";
 import { PortfolioVitals } from "@/lib/portfolio-vitals";
+import { PortfolioView } from "@/components/portfolio/PortfolioView";
 import { PortfolioBackToTop } from "@/components/portfolio/PortfolioBackToTop";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
