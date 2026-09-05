@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T15:57:17.689Z",
+  "generatedAt": "2026-09-05T15:57:57.948Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
@@ -11,86 +11,97 @@
   "motion": {
     "cloneThreshold": 95,
     "groupThreshold": 85,
-    "clones": 5,
-    "groups": 7,
-    "maxSimilarity": 100,
+    "clones": 0,
+    "groups": 6,
+    "signalFloor": 5,
+    "lowSignalPairs": 1197,
+    "maxSimilarity": 92,
     "topNearestMatches": [
       {
         "a": "confeitaria-chyrley",
         "b": "guaratuba-sabores-da-baia",
-        "similarity": 100,
+        "similarity": 92,
         "perceptual": 100,
-        "tokens": 100
+        "tokens": 73,
+        "signal": "COMPARABLE"
       },
       {
         "a": "beto-pasteis",
         "b": "lolipa-arte-em-festas",
-        "similarity": 100,
+        "similarity": 92,
         "perceptual": 100,
-        "tokens": 100
-      },
-      {
-        "a": "beto-pasteis",
-        "b": "premium-envelopamentos",
-        "similarity": 100,
-        "perceptual": 100,
-        "tokens": 100
-      },
-      {
-        "a": "bh-barreiro-marmitas",
-        "b": "uberlandia-eletrica-residencial",
-        "similarity": 100,
-        "perceptual": 100,
-        "tokens": 100
+        "tokens": 73,
+        "signal": "COMPARABLE"
       },
       {
         "a": "lolipa-arte-em-festas",
         "b": "premium-envelopamentos",
-        "similarity": 100,
+        "similarity": 91,
         "perceptual": 100,
-        "tokens": 100
+        "tokens": 70,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "reuse-house-brecho",
+        "b": "confeitaria-sabor-da-realeza",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 53,
+        "signal": "COMPARABLE"
       },
       {
         "a": "angel-mix-brecho",
         "b": "manu-pasteis",
-        "similarity": 94,
+        "similarity": 86,
         "perceptual": 100,
-        "tokens": 80
+        "tokens": 54,
+        "signal": "COMPARABLE"
       },
       {
-        "a": "beto-pasteis",
-        "b": "manu-pasteis",
-        "similarity": 93,
+        "a": "guaratuba-sabores-da-baia",
+        "b": "uberlandia-eletrica-residencial",
+        "similarity": 86,
         "perceptual": 100,
-        "tokens": 75
+        "tokens": 55,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "guaratuba-oficina-nautica",
+        "b": "mirassol-conserta-celular",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 55,
+        "signal": "COMPARABLE"
       },
       {
         "a": "lolipa-arte-em-festas",
         "b": "manu-pasteis",
-        "similarity": 93,
+        "similarity": 86,
         "perceptual": 100,
-        "tokens": 75
+        "tokens": 55,
+        "signal": "COMPARABLE"
       },
       {
-        "a": "confeitaria-sabor-da-realeza",
-        "b": "ton-e-cor",
-        "similarity": 93,
+        "a": "refrigeracao-maresia",
+        "b": "dlara-pizzaria",
+        "similarity": 85,
         "perceptual": 100,
-        "tokens": 75
+        "tokens": 50,
+        "signal": "COMPARABLE"
       },
       {
-        "a": "premium-envelopamentos",
-        "b": "manu-pasteis",
-        "similarity": 93,
+        "a": "beto-pasteis",
+        "b": "premium-envelopamentos",
+        "similarity": 85,
         "perceptual": 100,
-        "tokens": 75
+        "tokens": 50,
+        "signal": "COMPARABLE"
       }
     ],
     "groupMembers": [
       [
         "confeitaria-chyrley",
         "guaratuba-sabores-da-baia",
-        "bh-barreiro-marmitas",
         "uberlandia-eletrica-residencial",
         "guaratuba-atelie-presentes"
       ],
@@ -98,31 +109,24 @@
         "beto-pasteis",
         "lolipa-arte-em-festas",
         "premium-envelopamentos",
-        "manu-pasteis",
-        "angel-mix-brecho"
+        "manu-pasteis"
       ],
       [
-        "bh-barreiro-marmitas",
-        "uberlandia-eletrica-residencial"
+        "reuse-house-brecho",
+        "confeitaria-sabor-da-realeza"
       ],
       [
         "angel-mix-brecho",
         "manu-pasteis"
       ],
       [
-        "confeitaria-sabor-da-realeza",
-        "ton-e-cor",
-        "reuse-house-brecho"
+        "guaratuba-oficina-nautica",
+        "mirassol-conserta-celular"
       ],
       [
         "refrigeracao-maresia",
-        "thays-camilla",
-        "jkl-marcenaria",
-        "dlara-pizzaria"
-      ],
-      [
-        "marmitaria-dom-diego",
-        "raphael-construcoes"
+        "dlara-pizzaria",
+        "thays-camilla"
       ]
     ]
   },
@@ -651,6 +655,10 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "d:duration-500"
@@ -679,6 +687,12 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:down",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "d:duration-200"
         ]
@@ -706,6 +720,11 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "d:duration-200"
@@ -734,6 +753,11 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "d:duration-300"
@@ -790,6 +814,10 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -820,6 +848,11 @@
         "textMotion": "NONE",
         "imageMotion": "HOVER_SCALE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "h:group-hover:scale-[1.01]"
@@ -848,6 +881,11 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope"
         ]
@@ -875,6 +913,12 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -903,6 +947,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "d:duration-300"
         ]
@@ -930,6 +981,12 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:right",
+          "v:Reveal:fade",
+          "e:Reveal:aside",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope"
         ]
@@ -957,6 +1014,10 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:down",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal"
         ]
@@ -984,6 +1045,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:fade",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1012,6 +1080,12 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:aside",
+          "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -1041,6 +1115,11 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionCounter",
           "p:MotionImageReveal",
           "p:MotionReveal",
@@ -1070,6 +1149,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1098,6 +1184,12 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "e:Reveal:article",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "d:duration-300",
@@ -1127,6 +1219,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:fade",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"EXPRESSIVE\"",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1155,6 +1254,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope"
         ]
@@ -1182,6 +1288,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:fade",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -1212,6 +1325,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -1242,6 +1362,11 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:right",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
@@ -1273,6 +1398,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1301,6 +1433,14 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:scale",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1329,6 +1469,14 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1357,6 +1505,13 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "e:Reveal:section",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope"
@@ -1385,6 +1540,12 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope"
@@ -1413,6 +1574,10 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:up",
+          "v:Stagger:scale",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
@@ -1444,6 +1609,14 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:li",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope"
@@ -1472,6 +1645,12 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:fade",
+          "v:Reveal:fade",
+          "v:Reveal:mask",
+          "v:Stagger:up",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "p:MotionStagger"
@@ -1500,6 +1679,14 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1528,6 +1715,11 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope"
@@ -1556,6 +1748,11 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:scale",
+          "v:Stagger:scale",
+          "e:Reveal:div",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionCounter",
           "p:MotionReveal",
           "p:MotionScope",
@@ -1587,6 +1784,14 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:fade",
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "h:hover:rotate-0"
@@ -1615,6 +1820,12 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Stagger:up",
+          "e:Reveal:p",
+          "e:Reveal:span",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "p:MotionStagger",
@@ -1646,6 +1857,9 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
@@ -1677,6 +1891,11 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -1741,6 +1960,14 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "v:Reveal:fade",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope"
@@ -1769,6 +1996,14 @@
         "textMotion": "NONE",
         "imageMotion": "HOVER_SCALE",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "e:Reveal:article",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -1799,6 +2034,16 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "v:Stagger:up",
+          "e:Reveal:aside",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "e:Reveal:p",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "p:MotionStagger",
@@ -1828,6 +2073,14 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:article",
+          "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1856,6 +2109,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:fade",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:up",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200",
@@ -1885,6 +2145,13 @@
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
@@ -1913,6 +2180,10 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
@@ -1942,6 +2213,13 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "e:Reveal:span",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
@@ -1972,6 +2250,12 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Stagger:left",
+          "e:Stagger:dl",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
@@ -2004,6 +2288,13 @@
         "textMotion": "NONE",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:article",
+          "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",

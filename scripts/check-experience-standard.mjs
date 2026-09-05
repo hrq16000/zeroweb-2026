@@ -145,6 +145,14 @@ for (const { slug, segment, file } of slugFiles) {
     textMotion: /MotionTextReveal/.test(src) ? "TEXT_REVEAL" : /animate-/.test(src) ? "KEYFRAME" : "NONE",
     imageMotion: /MotionImageReveal/.test(src) ? "IMAGE_REVEAL" : /group-hover:scale/.test(src) ? "HOVER_SCALE" : "NONE",
     tokens: [
+      // Uso perceptível (variante/intensidade/elemento), não só a primitive importada.
+      ...uniq(/<Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter)[^>]*?variant="[a-z-]+"/g).map(
+        (t) => `v:${t.match(/<Motion(\w+)/)[1]}:${t.match(/variant="([a-z-]+)"/)[1]}`,
+      ),
+      ...uniq(/<Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter)[^>]*?as="[a-z0-9]+"/g).map(
+        (t) => `e:${t.match(/<Motion(\w+)/)[1]}:${t.match(/as="([a-z0-9]+)"/)[1]}`,
+      ),
+      ...uniq(/intensity="[A-Z_]+"/g).map((t) => `i:${t}`),
       ...uniq(/Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter|Scope)\b/g).map((t) => `p:${t}`),
       ...uniq(/animate-[a-z0-9-]+/g).map((t) => `a:${t}`),
       ...uniq(/duration-\d+/g).map((t) => `d:${t}`),
@@ -173,6 +181,7 @@ const jaccard = (a, b) => {
   for (const v of A) if (B.has(v)) inter += 1;
   return inter / (A.size + B.size - inter);
 };
+const MOTION_SIGNAL_FLOOR = 5;
 const motionPairs = [];
 for (let i = 0; i < pages.length; i += 1) {
   for (let j = i + 1; j < pages.length; j += 1) {
@@ -183,15 +192,27 @@ for (let i = 0; i < pages.length; i += 1) {
       ? declared.filter((f) => a[f] === b[f]).length / declared.length
       : 0;
     const tokens = jaccard(a.tokens, b.tokens);
-    const similarity = Math.round((perceptual * 0.7 + tokens * 0.3) * 100);
-    motionPairs.push({ a: pages[i].slug, b: pages[j].slug, similarity, perceptual: Math.round(perceptual * 100), tokens: Math.round(tokens * 100) });
+    const raw = Math.round((perceptual * 0.7 + tokens * 0.3) * 100);
+    // Assinatura pobre (poucos sinais dos dois lados) não prova clone perceptível:
+    // é apenas reutilização de infraestrutura compartilhada.
+    const richness = Math.min(a.tokens.length, b.tokens.length);
+    const lowSignal = richness < MOTION_SIGNAL_FLOOR;
+    motionPairs.push({
+      a: pages[i].slug,
+      b: pages[j].slug,
+      similarity: raw,
+      perceptual: Math.round(perceptual * 100),
+      tokens: Math.round(tokens * 100),
+      signal: lowSignal ? "LOW_SIGNAL" : "COMPARABLE",
+    });
   }
 }
 motionPairs.sort((x, y) => y.similarity - x.similarity);
 const MOTION_CLONE_THRESHOLD = 95;
 const MOTION_GROUP_THRESHOLD = 85;
-const motionClones = motionPairs.filter((p) => p.similarity >= MOTION_CLONE_THRESHOLD);
-const motionGroupPairs = motionPairs.filter((p) => p.similarity >= MOTION_GROUP_THRESHOLD);
+const comparable = motionPairs.filter((p) => p.signal === "COMPARABLE");
+const motionClones = comparable.filter((p) => p.similarity >= MOTION_CLONE_THRESHOLD);
+const motionGroupPairs = comparable.filter((p) => p.similarity >= MOTION_GROUP_THRESHOLD);
 const groups = [];
 for (const pair of motionGroupPairs) {
   const g = groups.find((s) => s.has(pair.a) || s.has(pair.b));
@@ -205,8 +226,10 @@ const motion = {
   groupThreshold: MOTION_GROUP_THRESHOLD,
   clones: motionClones.length,
   groups: groups.length,
-  maxSimilarity: motionPairs[0]?.similarity ?? 0,
-  topNearestMatches: motionPairs.slice(0, 10),
+  signalFloor: MOTION_SIGNAL_FLOOR,
+  lowSignalPairs: motionPairs.length - comparable.length,
+  maxSimilarity: comparable[0]?.similarity ?? 0,
+  topNearestMatches: comparable.slice(0, 10),
   groupMembers: groups.map((s) => [...s]),
 };
 
