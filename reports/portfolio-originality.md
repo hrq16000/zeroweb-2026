@@ -20,8 +20,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 |---|---|
 | Total | 68 |
 | ORIGINAL | 0 |
-| ACCEPTABLE | 21 |
-| ATTENTION | 47 |
+| ACCEPTABLE | 22 |
+| ATTENTION | 46 |
 | HIGH_SIMILARITY | 0 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
@@ -120,11 +120,11 @@ Nenhum asset percebido compartilhado entre clientes.
 | bh-barreiro-marmitas | 41 | ATTENTION | miro-tech (41) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dlara-pizzaria | 41 | ATTENTION | angel-mix-brecho (41) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | manu-pasteis | 41 | ATTENTION | miro-tech (41) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| uberlandia-eletrica-residencial | 41 | ATTENTION | bh-barreiro-marmitas (41) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | casa-nativa | 40 | ACCEPTABLE | guaratuba-oficina-nautica (40) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-oficina-nautica | 40 | ACCEPTABLE | casa-nativa (40) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | raphael-construcoes | 40 | ACCEPTABLE | ton-e-cor (40) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | ton-e-cor | 40 | ACCEPTABLE | raphael-construcoes (40) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| uberlandia-eletrica-residencial | 40 | ACCEPTABLE | bh-barreiro-marmitas (40) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | marido-de-aluguel | 39 | ACCEPTABLE | paulo-mestre-de-obras (39) | DISTINCT | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | reuse-house-brecho | 38 | ACCEPTABLE | angel-mix-brecho (38) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mirassol-conserta-celular | 37 | ACCEPTABLE | guaratuba-atelie-presentes (37) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -148,7 +148,6 @@ Nenhum asset percebido compartilhado entre clientes.
 Veredito: **FAIL**
 
 - MODIFIED_PROJECT: {"kind":"MODIFIED_PROJECT","slug":"bh-barreiro-marmitas","before":"ACCEPTABLE","after":"ATTENTION","beforeScore":38,"afterScore":41}
-- MODIFIED_PROJECT: {"kind":"MODIFIED_PROJECT","slug":"uberlandia-eletrica-residencial","before":"ACCEPTABLE","after":"ATTENTION","beforeScore":38,"afterScore":41}
 
 Melhorias:
 - {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":14,"after":0}

@@ -6,7 +6,6 @@ import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import {
   MotionReveal,
   MotionScope,
-  MotionStagger,
   useInViewOnce,
   usePrefersReducedMotion,
 } from "@/components/motion";
@@ -143,14 +142,14 @@ export function UberlandiaEletricaResidencialPage() {
         <section id="seguranca" className="px-5 py-16 lg:px-10">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-2xl font-black uppercase sm:text-3xl">O que garante o serviço</h2>
-            <MotionStagger className="mt-8 grid gap-px bg-[#2a251d] sm:grid-cols-2" variant="up" step={80}>
-              {NORMAS.map(([titulo, texto]) => (
-                <div key={titulo} className="bg-[#12100c] p-6">
+            <div className="mt-8 grid gap-px bg-[#2a251d] sm:grid-cols-2">
+              {NORMAS.map(([titulo, texto], i) => (
+                <MotionReveal variant="fade" delay={i * 60} key={titulo} className="bg-[#12100c] p-6">
                   <h3 className="text-sm font-black uppercase tracking-[.16em] text-[#ffd400]">{titulo}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#b9b4a7]">{texto}</p>
-                </div>
+                </MotionReveal>
               ))}
-            </MotionStagger>
+            </div>
           </div>
         </section>
 

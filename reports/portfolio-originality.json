@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 21,
-    "attention": 47,
+    "acceptable": 22,
+    "attention": 46,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -2652,22 +2652,20 @@
       "title": "Elétrica Bairro Brasil",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 41,
+      "nearestMatchScore": 40,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 30,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -2682,10 +2680,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "ed84e154d9eac9c1",
+        "skeletonHash": "a3d74e8c7403a415",
         "structureHash": "fe7a1d4fd9998f6b",
         "sectionCount": 6,
-        "lines": 203
+        "lines": 202
       }
     },
     {
@@ -3302,8 +3300,8 @@
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
           "slug": "casa-nativa",
@@ -3629,8 +3627,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lolipa-arte-em-festas",
-          "score": 34,
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -3642,7 +3640,7 @@
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 30,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
@@ -3658,12 +3656,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 26,
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 27,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-delicias-caseiras",
+          "slug": "marmitaria-dom-diego",
           "score": 26,
           "reason": "DISTINCT"
         }
@@ -4266,17 +4264,17 @@
       "uberlandia-eletrica-residencial": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "miro-tech",
-          "score": 36,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 34,
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "miro-tech",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -4339,8 +4337,8 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 21,
-      "attention": 47,
+      "acceptable": 22,
+      "attention": 46,
       "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
@@ -4361,14 +4359,6 @@
       {
         "kind": "MODIFIED_PROJECT",
         "slug": "bh-barreiro-marmitas",
-        "before": "ACCEPTABLE",
-        "after": "ATTENTION",
-        "beforeScore": 38,
-        "afterScore": 41
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "uberlandia-eletrica-residencial",
         "before": "ACCEPTABLE",
         "after": "ATTENTION",
         "beforeScore": 38,

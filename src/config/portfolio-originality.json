@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 21,
-    "attention": 47,
+    "acceptable": 22,
+    "attention": 46,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -433,8 +433,8 @@
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
           "slug": "casa-nativa",
@@ -1298,8 +1298,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lolipa-arte-em-festas",
-          "score": 34,
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -1338,7 +1338,7 @@
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 30,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
@@ -1381,12 +1381,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 26,
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 27,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-delicias-caseiras",
+          "slug": "marmitaria-dom-diego",
           "score": 26,
           "reason": "DISTINCT"
         }
@@ -2975,17 +2975,15 @@
     },
     {
       "slug": "uberlandia-eletrica-residencial",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 41,
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "nearestMatchScore": 40,
+      "reasons": [],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 30,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -3003,17 +3001,17 @@
       "nearest": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "miro-tech",
-          "score": 36,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 34,
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "miro-tech",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
