@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
@@ -29,7 +29,7 @@ export function PremiumEnvelopamentosPage() {
               width={768}
               height={256}
               decoding="async"
-              className="h-10 w-auto"
+              className="h-10 w-auto rounded-md bg-white/95 px-3 py-1.5"
             />
           </a>
           <nav className="hidden gap-6 text-sm font-semibold text-white/80 md:flex">

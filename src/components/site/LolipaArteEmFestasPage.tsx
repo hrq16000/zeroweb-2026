@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, CakeSlice } from "lucide-react";
+import { CakeSlice } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
@@ -81,7 +81,7 @@ export function LolipaArteEmFestasPage() {
               location="lolipa_hero"
               className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-[#9b6875]"
             >
-              Planejar minha festa <ArrowRight className="h-4 w-4" />
+              Planejar minha festa
             </FunnelCTAButton>
           </div>
         </section>
@@ -137,7 +137,7 @@ export function LolipaArteEmFestasPage() {
               location="lolipa_footer"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#9b6875] px-7 py-3.5 font-bold text-white md:justify-self-end"
             >
-              Falar sobre minha festa <ArrowRight className="h-4 w-4" />
+              Falar sobre minha festa
             </FunnelCTAButton>
           </div>
         </section>
