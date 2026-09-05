@@ -3,7 +3,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { ManagedRich } from "@/components/portfolio/ManagedText";
-import { MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 const SEMANA = [
   ["SEG", "Frango grelhado", "Arroz, feijão, purê e salada de repolho"],
@@ -126,17 +126,17 @@ export function BarreiroMarmitasPage() {
 
         <section className="mx-auto max-w-5xl px-5 py-14 lg:px-8">
           <h2 className="text-2xl font-extrabold uppercase">Escolha o tamanho</h2>
-          <MotionStagger as="dl" variant="scale" className="mt-6 grid gap-px overflow-hidden rounded-lg bg-[#241f16]/15 sm:grid-cols-3">
-            {TAMANHOS.map(([letra, titulo, texto]) => (
-              <div key={letra} className="bg-[#f7f2e7] p-6">
+          <dl className="mt-6 grid gap-px overflow-hidden rounded-lg bg-[#241f16]/15 sm:grid-cols-3">
+            {TAMANHOS.map(([letra, titulo, texto], i) => (
+              <MotionReveal variant="scale" delay={i * 100} key={letra} className="bg-[#f7f2e7] p-6">
                 <dt className="flex items-baseline gap-3">
                   <span className="flex h-11 w-11 items-center justify-center rounded-md bg-[#1f3a26] text-xl font-extrabold text-[#f2c744]">{letra}</span>
                   <span className="text-lg font-extrabold uppercase">{titulo}</span>
                 </dt>
                 <dd className="mt-3 text-sm leading-6 text-[#4a4234]">{texto}</dd>
-              </div>
+              </MotionReveal>
             ))}
-          </MotionStagger>
+          </dl>
         </section>
 
         <section id="pedir" className="bg-[#f2c744] px-5 py-12 lg:px-8">

@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 22,
-    "attention": 46,
+    "acceptable": 23,
+    "attention": 45,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -362,22 +362,20 @@
       "title": "Marmitas do Barreiro",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 41,
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "uberlandia-eletrica-residencial",
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 26.3,
-        "SECTION_ORDER_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 20.4,
+        "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 39.8,
+        "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -392,8 +390,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "10fb8b4f65aba38b",
-        "structureHash": "4df5b1cc0d687360",
+        "skeletonHash": "8dc1d7a6b1423f08",
+        "structureHash": "ce13378163268d5c",
         "sectionCount": 7,
         "lines": 178
       }
@@ -1169,14 +1167,14 @@
       "title": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 32,
+      "score": 30,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 32,
+      "nearestMatchScore": 30,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.3,
+        "STRUCTURE_SIMILARITY": 11.5,
         "SECTION_ORDER_SIMILARITY": 44.4,
-        "COMPONENT_SIMILARITY": 44.4,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 50.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2657,9 +2655,9 @@
       "nearestMatch": "bh-barreiro-marmitas",
       "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 20.4,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 30,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -3294,18 +3292,18 @@
       ],
       "bh-barreiro-marmitas": [
         {
-          "slug": "miro-tech",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "uberlandia-eletrica-residencial",
           "score": 40,
           "reason": "DISTINCT"
         },
         {
+          "slug": "miro-tech",
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "casa-nativa",
-          "score": 36,
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -3334,7 +3332,7 @@
         },
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 36,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3635,7 +3633,7 @@
       "guaratuba-reparos-residenciais": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 32,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
@@ -4337,8 +4335,8 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 22,
-      "attention": 46,
+      "acceptable": 23,
+      "attention": 45,
       "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
@@ -4354,17 +4352,8 @@
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "FAIL",
-    "regressions": [
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "bh-barreiro-marmitas",
-        "before": "ACCEPTABLE",
-        "after": "ATTENTION",
-        "beforeScore": 38,
-        "afterScore": 41
-      }
-    ],
+    "verdict": "PASS",
+    "regressions": [],
     "improvements": [
       {
         "kind": "COUNTER",

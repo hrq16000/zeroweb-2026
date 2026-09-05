@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 22,
-    "attention": 46,
+    "acceptable": 23,
+    "attention": 45,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -400,20 +400,18 @@
     },
     {
       "slug": "bh-barreiro-marmitas",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 41,
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "uberlandia-eletrica-residencial",
+      "nearestMatchScore": 40,
+      "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 26.3,
-        "SECTION_ORDER_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 20.4,
+        "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 39.8,
+        "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -427,18 +425,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "miro-tech",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "uberlandia-eletrica-residencial",
           "score": 40,
           "reason": "DISTINCT"
         },
         {
+          "slug": "miro-tech",
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "casa-nativa",
-          "score": 36,
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -521,7 +519,7 @@
         },
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 36,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -1307,15 +1305,15 @@
     },
     {
       "slug": "guaratuba-reparos-residenciais",
-      "score": 32,
+      "score": 30,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 32,
+      "nearestMatchScore": 30,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.3,
+        "STRUCTURE_SIMILARITY": 11.5,
         "SECTION_ORDER_SIMILARITY": 44.4,
-        "COMPONENT_SIMILARITY": 44.4,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 50.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1333,7 +1331,7 @@
       "nearest": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 32,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
@@ -2981,9 +2979,9 @@
       "nearestMatchScore": 40,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 20.4,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 30,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
