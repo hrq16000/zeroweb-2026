@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 23,
-    "attention": 45,
+    "acceptable": 21,
+    "attention": 47,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -161,14 +161,14 @@
       "title": "Almeida Torres Advocacia",
       "segment": "juridico",
       "componentFile": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
-      "score": 31,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 31,
+      "nearestMatchScore": 28,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 18.2,
+        "STRUCTURE_SIMILARITY": 18.9,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 24.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -323,14 +323,14 @@
       "title": "Beto Pastéis",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BetoPasteisPage.tsx",
-      "score": 38,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 28,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 2.9,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
+        "STRUCTURE_SIMILARITY": 3.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 29.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -351,10 +351,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "5579e8e1604d0451",
-        "structureHash": "0bea3ac1ca97a8a7",
-        "sectionCount": 4,
-        "lines": 170
+        "skeletonHash": "ec9741d78a5956f8",
+        "structureHash": "efe8ebccac6a1a68",
+        "sectionCount": 3,
+        "lines": 178
       }
     },
     {
@@ -362,20 +362,22 @@
       "title": "Marmitas do Barreiro",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 37,
-      "originalityStatus": "ACCEPTABLE",
+      "score": 41,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 37,
+      "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 27.1,
+        "STRUCTURE_SIMILARITY": 26.3,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 8.3,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 39.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 20,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [],
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -390,10 +392,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "ea9704f1ed8484cc",
-        "structureHash": "15ef312eba12e6bd",
+        "skeletonHash": "10fb8b4f65aba38b",
+        "structureHash": "4df5b1cc0d687360",
         "sectionCount": 7,
-        "lines": 175
+        "lines": 178
       }
     },
     {
@@ -440,14 +442,14 @@
       "title": "Casa Nativa Bistrô",
       "segment": "servicos",
       "componentFile": "src/components/site/CasaNativaBistroPage.tsx",
-      "score": 39,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-oficina-nautica",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 18.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 16.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -468,10 +470,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "8821b7dea698b98d",
-        "structureHash": "50dcb404b2f5ab5b",
+        "skeletonHash": "0431f3c29388642e",
+        "structureHash": "802b3ed21507fc26",
         "sectionCount": 6,
-        "lines": 148
+        "lines": 153
       }
     },
     {
@@ -1092,9 +1094,9 @@
       "nearestMatch": "mirassol-delicias-caseiras",
       "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 28,
+        "STRUCTURE_SIMILARITY": 29.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 20,
+        "COMPONENT_SIMILARITY": 14.3,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1117,10 +1119,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "f6434fea0f10a6b8",
-        "structureHash": "691b3fb1683e374b",
+        "skeletonHash": "e0bb095a498b5ab9",
+        "structureHash": "6cc06f809ed56bda",
         "sectionCount": 7,
-        "lines": 175
+        "lines": 181
       }
     },
     {
@@ -1128,14 +1130,14 @@
       "title": "Oficina Náutica Guaratuba",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
-      "score": 39,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "casa-nativa",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 18.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 16.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1167,17 +1169,17 @@
       "title": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 27,
+      "score": 32,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 27,
+      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatchScore": 32,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 12.1,
+        "STRUCTURE_SIMILARITY": 11.3,
         "SECTION_ORDER_SIMILARITY": 44.4,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 38.8,
+        "COMPONENT_SIMILARITY": 44.4,
+        "STYLE_SIMILARITY": 50.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1323,16 +1325,16 @@
       "title": "JC Revestimentos",
       "segment": "construcao",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 33,
+      "score": 35,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 33,
+      "nearestMatch": "ton-e-cor",
+      "nearestMatchScore": 35,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22,
-        "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 38.2,
-        "COPY_SIMILARITY": 1.3,
+        "STRUCTURE_SIMILARITY": 20,
+        "SECTION_ORDER_SIMILARITY": 18.2,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 49.4,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1524,14 +1526,14 @@
       "title": "Lolipa Arte em Festas Decor",
       "segment": "comercios",
       "componentFile": "src/components/site/LolipaArteEmFestasPage.tsx",
-      "score": 37,
+      "score": 34,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 37,
+      "nearestMatchScore": 34,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 31.4,
+        "STRUCTURE_SIMILARITY": 30,
         "SECTION_ORDER_SIMILARITY": 60,
-        "COMPONENT_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 30,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 2.4,
         "ASSET_PATTERN_SIMILARITY": 20,
@@ -1552,10 +1554,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "745fc903e24e90d9",
-        "structureHash": "2492ab8728e720d9",
+        "skeletonHash": "76c8d29c711955bc",
+        "structureHash": "70cfe97e92e7cbf9",
         "sectionCount": 7,
-        "lines": 172
+        "lines": 176
       }
     },
     {
@@ -1768,13 +1770,13 @@
       "componentFile": "src/components/site/ConsertaMirassolPage.tsx",
       "score": 37,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "mirassol-delicias-caseiras",
+      "nearestMatch": "guaratuba-atelie-presentes",
       "nearestMatchScore": 37,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.6,
+        "STRUCTURE_SIMILARITY": 31.1,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 46,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 30.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -1810,9 +1812,9 @@
       "nearestMatch": "guaratuba-atelie-presentes",
       "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 28,
+        "STRUCTURE_SIMILARITY": 29.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 20,
+        "COMPONENT_SIMILARITY": 14.3,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2047,14 +2049,14 @@
       "title": "Premium Envelopamentos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
-      "score": 28,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 28,
+      "nearestMatchScore": 31,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22.4,
+        "STRUCTURE_SIMILARITY": 21.3,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 46.9,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 28.6,
@@ -2075,10 +2077,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "cc23f1b05bf75da6",
-        "structureHash": "bd6a82cdf6905621",
+        "skeletonHash": "6c4bcfede6fb1582",
+        "structureHash": "d591bf213e9ee3c5",
         "sectionCount": 6,
-        "lines": 177
+        "lines": 184
       }
     },
     {
@@ -2123,14 +2125,14 @@
       "title": "Raphael Construções",
       "segment": "servicos",
       "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
-      "score": 38,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "ton-e-cor",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.4,
+        "STRUCTURE_SIMILARITY": 23.6,
         "SECTION_ORDER_SIMILARITY": 36.4,
-        "COMPONENT_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2151,10 +2153,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "2a3c29fb93f73728",
-        "structureHash": "4fdaeab6211c47e2",
+        "skeletonHash": "d204a96276cdbbf6",
+        "structureHash": "587de2f47cd34f75",
         "sectionCount": 8,
-        "lines": 284
+        "lines": 289
       }
     },
     {
@@ -2570,14 +2572,14 @@
       "title": "Ton & Cor · Pintura e Pequenas Reformas",
       "segment": "servicos",
       "componentFile": "src/components/site/TonECorPage.tsx",
-      "score": 38,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "raphael-construcoes",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.4,
+        "STRUCTURE_SIMILARITY": 23.6,
         "SECTION_ORDER_SIMILARITY": 36.4,
-        "COMPONENT_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2598,10 +2600,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "23e53bbbb0211f58",
-        "structureHash": "bae5d3d99f88277e",
+        "skeletonHash": "8c9e48381aa758d7",
+        "structureHash": "ce333aa2ca6d2e66",
         "sectionCount": 9,
-        "lines": 287
+        "lines": 301
       }
     },
     {
@@ -2650,20 +2652,22 @@
       "title": "Elétrica Bairro Brasil",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 37,
-      "originalityStatus": "ACCEPTABLE",
+      "score": 41,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 37,
+      "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.5,
+        "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 20,
+        "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [],
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -2678,10 +2682,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "e050ad7e45a13b77",
-        "structureHash": "a2218e2e32585946",
+        "skeletonHash": "ed84e154d9eac9c1",
+        "structureHash": "fe7a1d4fd9998f6b",
         "sectionCount": 6,
-        "lines": 177
+        "lines": 203
       }
     },
     {
@@ -3208,17 +3212,17 @@
       "almeida-torres": [
         {
           "slug": "guaratuba-atelie-presentes",
-          "score": 31,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "casa-nativa",
-          "score": 29,
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "bh-barreiro-marmitas",
-          "score": 28,
+          "slug": "mirassol-delicias-caseiras",
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
@@ -3276,33 +3280,33 @@
       "beto-pasteis": [
         {
           "slug": "reuse-house-brecho",
-          "score": 38,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
-          "slug": "angel-mix-brecho",
-          "score": 22,
+          "slug": "woodhouse-hamburgueres",
+          "score": 20,
           "reason": "DISTINCT"
         },
         {
           "slug": "dlara-pizzaria",
-          "score": 19,
+          "score": 17,
           "reason": "DISTINCT"
         }
       ],
       "bh-barreiro-marmitas": [
         {
           "slug": "miro-tech",
-          "score": 37,
-          "reason": "DISTINCT"
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 37,
-          "reason": "DISTINCT"
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
+          "slug": "casa-nativa",
           "score": 36,
           "reason": "DISTINCT"
         }
@@ -3327,12 +3331,12 @@
       "casa-nativa": [
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 39,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 32,
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
@@ -3604,7 +3608,7 @@
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 34,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
@@ -3616,7 +3620,7 @@
       "guaratuba-oficina-nautica": [
         {
           "slug": "casa-nativa",
-          "score": 39,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
@@ -3625,25 +3629,25 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 35,
+          "slug": "lolipa-arte-em-festas",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
       "guaratuba-reparos-residenciais": [
         {
+          "slug": "bh-barreiro-marmitas",
+          "score": 32,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 30,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "miro-tech",
           "score": 27,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "bh-barreiro-marmitas",
-          "score": 25,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "santos-montador-de-moveis",
-          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -3654,12 +3658,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 30,
+          "slug": "marmitaria-dom-diego",
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
+          "slug": "mirassol-delicias-caseiras",
           "score": 26,
           "reason": "DISTINCT"
         }
@@ -3672,12 +3676,12 @@
         },
         {
           "slug": "ton-e-cor",
-          "score": 33,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "raphael-construcoes",
-          "score": 32,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -3700,18 +3704,18 @@
       ],
       "jc-revestimentos": [
         {
+          "slug": "ton-e-cor",
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "hbk-iluminacao-led",
           "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "ton-e-cor",
-          "score": 33,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "premium-envelopamentos",
-          "score": 28,
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -3786,7 +3790,7 @@
       "lolipa-arte-em-festas": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 37,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3795,7 +3799,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "angel-mix-brecho",
+          "slug": "sos-presentes-cosmeticos",
           "score": 32,
           "reason": "DISTINCT"
         }
@@ -3887,13 +3891,13 @@
       ],
       "mirassol-conserta-celular": [
         {
-          "slug": "mirassol-delicias-caseiras",
+          "slug": "guaratuba-atelie-presentes",
           "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "guaratuba-atelie-presentes",
-          "score": 34,
+          "slug": "mirassol-delicias-caseiras",
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
@@ -4007,17 +4011,17 @@
       "premium-envelopamentos": [
         {
           "slug": "jc-revestimentos",
-          "score": 28,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "lolipa-arte-em-festas",
-          "score": 27,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 24,
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -4041,17 +4045,17 @@
       "raphael-construcoes": [
         {
           "slug": "ton-e-cor",
-          "score": 38,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "hbk-iluminacao-led",
-          "score": 32,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "jc-revestimentos",
-          "score": 28,
+          "score": 30,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "hbk-iluminacao-led",
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -4096,13 +4100,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "beto-pasteis",
-          "score": 38,
+          "slug": "brecho-sao-francisco",
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "brecho-sao-francisco",
-          "score": 30,
+          "slug": "marmitaria-dom-diego",
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
@@ -4228,17 +4232,17 @@
       "ton-e-cor": [
         {
           "slug": "raphael-construcoes",
-          "score": 38,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "hbk-iluminacao-led",
-          "score": 33,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "jc-revestimentos",
-          "score": 33,
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -4262,16 +4266,16 @@
       "uberlandia-eletrica-residencial": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 37,
+          "score": 41,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "miro-tech",
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 35,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "miro-tech",
           "score": 34,
           "reason": "DISTINCT"
         }
@@ -4335,8 +4339,8 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 23,
-      "attention": 45,
+      "acceptable": 21,
+      "attention": 47,
       "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
@@ -4352,8 +4356,25 @@
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "PASS",
-    "regressions": [],
+    "verdict": "FAIL",
+    "regressions": [
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "bh-barreiro-marmitas",
+        "before": "ACCEPTABLE",
+        "after": "ATTENTION",
+        "beforeScore": 38,
+        "afterScore": 41
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "uberlandia-eletrica-residencial",
+        "before": "ACCEPTABLE",
+        "after": "ATTENTION",
+        "beforeScore": 38,
+        "afterScore": 41
+      }
+    ],
     "improvements": [
       {
         "kind": "COUNTER",

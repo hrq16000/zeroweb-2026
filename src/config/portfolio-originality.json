@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 23,
-    "attention": 45,
+    "acceptable": 21,
+    "attention": 47,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -174,15 +174,15 @@
     },
     {
       "slug": "almeida-torres",
-      "score": 31,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 31,
+      "nearestMatchScore": 28,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 18.2,
+        "STRUCTURE_SIMILARITY": 18.9,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 24.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -200,17 +200,17 @@
       "nearest": [
         {
           "slug": "guaratuba-atelie-presentes",
-          "score": 31,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "casa-nativa",
-          "score": 29,
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "bh-barreiro-marmitas",
-          "score": 28,
+          "slug": "mirassol-delicias-caseiras",
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
@@ -356,15 +356,15 @@
     },
     {
       "slug": "beto-pasteis",
-      "score": 38,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 28,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 2.9,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
+        "STRUCTURE_SIMILARITY": 3.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 29.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -382,17 +382,17 @@
       "nearest": [
         {
           "slug": "reuse-house-brecho",
-          "score": 38,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
-          "slug": "angel-mix-brecho",
-          "score": 22,
+          "slug": "woodhouse-hamburgueres",
+          "score": 20,
           "reason": "DISTINCT"
         },
         {
           "slug": "dlara-pizzaria",
-          "score": 19,
+          "score": 17,
           "reason": "DISTINCT"
         }
       ],
@@ -400,15 +400,17 @@
     },
     {
       "slug": "bh-barreiro-marmitas",
-      "score": 37,
-      "originalityStatus": "ACCEPTABLE",
+      "score": 41,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 37,
-      "reasons": [],
+      "nearestMatchScore": 41,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 27.1,
+        "STRUCTURE_SIMILARITY": 26.3,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 8.3,
+        "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 39.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 20,
@@ -426,16 +428,16 @@
       "nearest": [
         {
           "slug": "miro-tech",
-          "score": 37,
-          "reason": "DISTINCT"
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 37,
-          "reason": "DISTINCT"
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
+          "slug": "casa-nativa",
           "score": 36,
           "reason": "DISTINCT"
         }
@@ -488,15 +490,15 @@
     },
     {
       "slug": "casa-nativa",
-      "score": 39,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-oficina-nautica",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 40,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 18.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 16.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -514,12 +516,12 @@
       "nearest": [
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 39,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 32,
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
@@ -1223,9 +1225,9 @@
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 28,
+        "STRUCTURE_SIMILARITY": 29.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 20,
+        "COMPONENT_SIMILARITY": 14.3,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1248,7 +1250,7 @@
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 34,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
@@ -1261,15 +1263,15 @@
     },
     {
       "slug": "guaratuba-oficina-nautica",
-      "score": 39,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "casa-nativa",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 40,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 18.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 16.7,
+        "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1287,7 +1289,7 @@
       "nearest": [
         {
           "slug": "casa-nativa",
-          "score": 39,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
@@ -1296,8 +1298,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 35,
+          "slug": "lolipa-arte-em-festas",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -1305,18 +1307,18 @@
     },
     {
       "slug": "guaratuba-reparos-residenciais",
-      "score": 27,
+      "score": 32,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 27,
+      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatchScore": 32,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 12.1,
+        "STRUCTURE_SIMILARITY": 11.3,
         "SECTION_ORDER_SIMILARITY": 44.4,
-        "COMPONENT_SIMILARITY": 41.7,
-        "STYLE_SIMILARITY": 38.8,
+        "COMPONENT_SIMILARITY": 44.4,
+        "STYLE_SIMILARITY": 50.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -1330,18 +1332,18 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "bh-barreiro-marmitas",
+          "score": 32,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 30,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "miro-tech",
           "score": 27,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "bh-barreiro-marmitas",
-          "score": 25,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "santos-montador-de-moveis",
-          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -1379,12 +1381,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 30,
+          "slug": "marmitaria-dom-diego",
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
+          "slug": "mirassol-delicias-caseiras",
           "score": 26,
           "reason": "DISTINCT"
         }
@@ -1424,12 +1426,12 @@
         },
         {
           "slug": "ton-e-cor",
-          "score": 33,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "raphael-construcoes",
-          "score": 32,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -1481,17 +1483,17 @@
     },
     {
       "slug": "jc-revestimentos",
-      "score": 33,
+      "score": 35,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 33,
+      "nearestMatch": "ton-e-cor",
+      "nearestMatchScore": 35,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22,
-        "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 38.2,
-        "COPY_SIMILARITY": 1.3,
+        "STRUCTURE_SIMILARITY": 20,
+        "SECTION_ORDER_SIMILARITY": 18.2,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 49.4,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1506,18 +1508,18 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "ton-e-cor",
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "hbk-iluminacao-led",
           "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "ton-e-cor",
-          "score": 33,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "premium-envelopamentos",
-          "score": 28,
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -1707,15 +1709,15 @@
     },
     {
       "slug": "lolipa-arte-em-festas",
-      "score": 37,
+      "score": 34,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 37,
+      "nearestMatchScore": 34,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 31.4,
+        "STRUCTURE_SIMILARITY": 30,
         "SECTION_ORDER_SIMILARITY": 60,
-        "COMPONENT_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 30,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 2.4,
         "ASSET_PATTERN_SIMILARITY": 20,
@@ -1733,7 +1735,7 @@
       "nearest": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 37,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -1742,7 +1744,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "angel-mix-brecho",
+          "slug": "sos-presentes-cosmeticos",
           "score": 32,
           "reason": "DISTINCT"
         }
@@ -1981,14 +1983,14 @@
       "slug": "mirassol-conserta-celular",
       "score": 37,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "mirassol-delicias-caseiras",
+      "nearestMatch": "guaratuba-atelie-presentes",
       "nearestMatchScore": 37,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.6,
+        "STRUCTURE_SIMILARITY": 31.1,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 46,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 30.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -2004,13 +2006,13 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "mirassol-delicias-caseiras",
+          "slug": "guaratuba-atelie-presentes",
           "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "guaratuba-atelie-presentes",
-          "score": 34,
+          "slug": "mirassol-delicias-caseiras",
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
@@ -2031,9 +2033,9 @@
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 28,
+        "STRUCTURE_SIMILARITY": 29.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 20,
+        "COMPONENT_SIMILARITY": 14.3,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2295,15 +2297,15 @@
     },
     {
       "slug": "premium-envelopamentos",
-      "score": 28,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 28,
+      "nearestMatchScore": 31,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22.4,
+        "STRUCTURE_SIMILARITY": 21.3,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 46.9,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 28.6,
@@ -2321,17 +2323,17 @@
       "nearest": [
         {
           "slug": "jc-revestimentos",
-          "score": 28,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "lolipa-arte-em-festas",
-          "score": 27,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 24,
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -2381,15 +2383,15 @@
     },
     {
       "slug": "raphael-construcoes",
-      "score": 38,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "ton-e-cor",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 40,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.4,
+        "STRUCTURE_SIMILARITY": 23.6,
         "SECTION_ORDER_SIMILARITY": 36.4,
-        "COMPONENT_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2407,17 +2409,17 @@
       "nearest": [
         {
           "slug": "ton-e-cor",
-          "score": 38,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "hbk-iluminacao-led",
-          "score": 32,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "jc-revestimentos",
-          "score": 28,
+          "score": 30,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "hbk-iluminacao-led",
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -2548,13 +2550,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "beto-pasteis",
-          "score": 38,
+          "slug": "brecho-sao-francisco",
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "brecho-sao-francisco",
-          "score": 30,
+          "slug": "marmitaria-dom-diego",
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
@@ -2883,15 +2885,15 @@
     },
     {
       "slug": "ton-e-cor",
-      "score": 38,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "raphael-construcoes",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 40,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.4,
+        "STRUCTURE_SIMILARITY": 23.6,
         "SECTION_ORDER_SIMILARITY": 36.4,
-        "COMPONENT_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2909,17 +2911,17 @@
       "nearest": [
         {
           "slug": "raphael-construcoes",
-          "score": 38,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "hbk-iluminacao-led",
-          "score": 33,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
           "slug": "jc-revestimentos",
-          "score": 33,
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -2973,15 +2975,17 @@
     },
     {
       "slug": "uberlandia-eletrica-residencial",
-      "score": 37,
-      "originalityStatus": "ACCEPTABLE",
+      "score": 41,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 37,
-      "reasons": [],
+      "nearestMatchScore": 41,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.5,
+        "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 20,
+        "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2999,16 +3003,16 @@
       "nearest": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 37,
+          "score": 41,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "miro-tech",
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 35,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "miro-tech",
           "score": 34,
           "reason": "DISTINCT"
         }
