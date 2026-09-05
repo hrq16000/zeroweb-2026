@@ -596,7 +596,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                                                   : isEletroSolucoes
                                                     ? "/images/eletro-solucoes-eficazes/servicos.webp"
                                                     : isEisenfer
-                                                      ? "/images/eisenfer-tubos-acos/telhas.webp"
+                                                      ? "/images/eisenfer-tubos-acos/capa-card.jpg"
                                                       : isMary
                                                         ? "/images/mary-diarista/servicos.webp"
                                                         : isAcai

@@ -813,13 +813,14 @@
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 3.6
+        "IDENTITY_SIMILARITY": 3.7
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
+        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "VALID",
@@ -830,10 +831,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "18dcdd272716b84d",
+        "skeletonHash": "aa82afbee064b3fc",
         "structureHash": "2f0df1060cf727bd",
         "sectionCount": 7,
-        "lines": 201
+        "lines": 202
       }
     },
     {
@@ -1930,7 +1931,7 @@
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 3.6
+        "IDENTITY_SIMILARITY": 3.7
       },
       "reasons": [
         "SAME_FAMILY"

@@ -82,11 +82,12 @@ export function EisenferTubosAcosPage() {
             </div>
             <MotionReveal variant="mask" delay={120}>
             <PortfolioImage
-              src="/images/eisenfer-tubos-acos/telhas.webp"
+              // capa-card.jpg: recorte aprovado, sem a faixa com telefone/site do material original.
+              src="/images/eisenfer-tubos-acos/capa-card.jpg"
               alt="Telhas metálicas Eisenfer Tubos e Aços"
               priority
               width={1024}
-              height={1536}
+              height={640}
               className="mt-10 h-[220px] w-full object-cover object-center grayscale-[.15] sm:h-[300px] lg:h-[360px]"
               managedField="heroImageUrl"
             />

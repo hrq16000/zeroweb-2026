@@ -1743,9 +1743,10 @@
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 3.6
+        "IDENTITY_SIMILARITY": 3.7
       },
       "coverSignals": [
+        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
@@ -3000,7 +3001,7 @@
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 3.6
+        "IDENTITY_SIMILARITY": 3.7
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"

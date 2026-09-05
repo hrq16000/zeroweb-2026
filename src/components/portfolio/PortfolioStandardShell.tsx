@@ -46,7 +46,8 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
   const proof = resolvePortfolioAssets(slug)?.proof;
 
   return (
-    <div className="portfolio-standard-shell">
+    // overflow-x-clip: reveals horizontais em curso não podem gerar scroll lateral no mobile.
+    <div className="portfolio-standard-shell overflow-x-clip">
       <PortfolioVitals slug={slug} />
       <PortfolioView slug={slug} />
       {standards.shareButton.enabled ? (
