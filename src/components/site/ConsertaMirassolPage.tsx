@@ -3,6 +3,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal } from "@/components/motion";
 
 const REPAROS = [
   ["Troca de tela", "1 a 2 dias", "90 dias", "Peça original ou compatível, você escolhe"],
@@ -67,16 +68,16 @@ export function ConsertaMirassolPage() {
             <a href="#inicio" className="font-mono text-sm uppercase tracking-[.3em] text-[#9ede3a]">
               Conserta Mirassol
             </a>
-            <h1 className="mt-8 max-w-3xl text-4xl font-bold leading-[1.06] sm:text-6xl">
+            <MotionReveal as="h1" variant="mask" intensity="SUBTLE" className="mt-8 block max-w-3xl text-4xl font-bold leading-[1.06] sm:text-6xl">
             <ManagedText field="heroHeadline" fallback={"Or\u00e7amento com laudo. S\u00f3 depois a chave de fenda encosta no aparelho."} />
           </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#9aa6b2]">
             <ManagedText field="heroSubheadline" fallback={"Assist\u00eancia t\u00e9cnica de bairro no S\u00e3o Bernardo, em Mirassol \u2014 SP. Diagn\u00f3stico registrado, prazo declarado e garantia escrita em cada servi\u00e7o."} />
           </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <MotionReveal variant="up" intensity="SUBTLE" delay={160} className="mt-9 flex flex-wrap gap-4">
               <Diagnostico>Pedir diagnóstico</Diagnostico>
               <Diagnostico tone="linha">Consultar prazo e garantia</Diagnostico>
-            </div>
+            </MotionReveal>
           </div>
         </section>
 
@@ -95,7 +96,7 @@ export function ConsertaMirassolPage() {
                 </thead>
                 <tbody>
                   {REPAROS.map(([servico, prazo, garantia, obs]) => (
-                    <tr key={servico} className="border-b border-[#1d242b]">
+                    <tr key={servico} className="border-b border-[#1d242b] transition-colors duration-200 hover:bg-[#1a2027]">
                       <th scope="row" className="py-4 pr-4 text-base font-semibold text-white">{servico}</th>
                       <td className="py-4 pr-4 font-mono text-[#9ede3a]">{prazo}</td>
                       <td className="py-4 pr-4 font-mono text-[#9aa6b2]">{garantia}</td>
@@ -116,11 +117,11 @@ export function ConsertaMirassolPage() {
             <h2 className="text-2xl font-bold sm:text-3xl">Como o aparelho anda pela bancada</h2>
             <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {ETAPAS.map(([titulo, texto], i) => (
-                <li key={titulo} className="border-t-2 border-[#9ede3a] pt-4">
+                <MotionReveal key={titulo} as="li" variant="down" intensity="SUBTLE" delay={i * 90} className="border-t-2 border-[#9ede3a] pt-4">
                   <span className="font-mono text-xs text-[#7d8a97]">ETAPA {String(i + 1).padStart(2, "0")}</span>
                   <h3 className="mt-2 text-lg font-semibold">{titulo}</h3>
                   <p className="mt-2 text-sm leading-6 text-[#9aa6b2]">{texto}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
           </div>
