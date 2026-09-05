@@ -585,7 +585,7 @@
         "COMPONENT_SIMILARITY": 46.7,
         "STYLE_SIMILARITY": 70.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
+        "ASSET_PATTERN_SIMILARITY": 60,
         "IDENTITY_SIMILARITY": 13.5
       },
       "reasons": [
@@ -1336,17 +1336,17 @@
       "title": "Liz Moraes Nail Designer",
       "segment": "beleza",
       "componentFile": "src/components/site/LizMoraesNailDesignerPage.tsx",
-      "score": 55,
+      "score": 54,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "artesanatos-darleia-oliveira",
-      "nearestMatchScore": 55,
+      "nearestMatchScore": 54,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 41.5,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 38.5,
         "STYLE_SIMILARITY": 85.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
+        "ASSET_PATTERN_SIMILARITY": 60,
         "IDENTITY_SIMILARITY": 7
       },
       "reasons": [
@@ -1886,7 +1886,7 @@
         "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 39.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 25,
+        "ASSET_PATTERN_SIMILARITY": 22.2,
         "IDENTITY_SIMILARITY": 4.9
       },
       "reasons": [],
@@ -2072,7 +2072,7 @@
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 75,
         "COPY_SIMILARITY": 3.2,
-        "ASSET_PATTERN_SIMILARITY": 5,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 7.3
       },
       "reasons": [
@@ -2824,14 +2824,14 @@
     {
       "a": "artesanatos-darleia-oliveira",
       "b": "assistencia-microondas-santos",
-      "score": 56,
+      "score": 57,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 60.7,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 66.7,
+        "ASSET_PATTERN_SIMILARITY": 83.3,
         "IDENTITY_SIMILARITY": 13.2
       },
       "reason": "SAME_FAMILY"
@@ -2921,38 +2921,8 @@
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 75,
         "COPY_SIMILARITY": 3.2,
-        "ASSET_PATTERN_SIMILARITY": 5,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 7.3
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "artesanatos-darleia-oliveira",
-      "b": "liz-moraes-nail-designer",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 41.5,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 85.4,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
-        "IDENTITY_SIMILARITY": 7
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "artesanatos-darleia-oliveira",
-      "b": "miro-tech",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 41.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 54.5,
-        "STYLE_SIMILARITY": 60.2,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
-        "IDENTITY_SIMILARITY": 13.3
       },
       "reason": "SAME_FAMILY"
     },
@@ -2996,7 +2966,7 @@
         "COMPONENT_SIMILARITY": 46.7,
         "STYLE_SIMILARITY": 70.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
+        "ASSET_PATTERN_SIMILARITY": 60,
         "IDENTITY_SIMILARITY": 13.5
       },
       "reason": "SAME_FAMILY"
@@ -3013,6 +2983,36 @@
         "COPY_SIMILARITY": 3,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 11.4
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "mp-festas-eventos",
+      "b": "thays-camilla",
+      "score": 55,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 36.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 72.7,
+        "COPY_SIMILARITY": 0.4,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 12.8
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "toquinho-de-gente-brecho",
+      "b": "woodhouse-hamburgueres",
+      "score": 55,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 14.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 27.9,
+        "COPY_SIMILARITY": 1.2,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
       },
       "reason": "SAME_FAMILY"
     }
@@ -3119,12 +3119,12 @@
         },
         {
           "slug": "assistencia-microondas-santos",
-          "score": 56,
+          "score": 57,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 55,
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3136,12 +3136,12 @@
         },
         {
           "slug": "artesanatos-darleia-oliveira",
-          "score": 56,
+          "score": 57,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "thays-camilla",
-          "score": 52,
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3607,7 +3607,7 @@
       "liz-moraes-nail-designer": [
         {
           "slug": "artesanatos-darleia-oliveira",
-          "score": 55,
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3798,13 +3798,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
+          "slug": "confeitaria-sabor-da-realeza",
           "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 55,
+          "slug": "artesanatos-darleia-oliveira",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
