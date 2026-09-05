@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Home, Lightbulb, Settings, Zap } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -33,6 +34,7 @@ function CTA({ children }: { children: React.ReactNode }) {
 
 export function EletroSolucoesEficazesPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#eef2f5] text-[#08283e]">
       <header className="sticky top-0 z-30 bg-[#ffd447] px-5 py-3 lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
@@ -55,11 +57,11 @@ export function EletroSolucoesEficazesPage() {
             <p className="inline-block rounded-full bg-[#08283e] px-4 py-1 text-[11px] font-bold uppercase tracking-[.22em] text-[#ffd447]">
               Pinhais · Curitiba e região
             </p>
-            <h1 className="mt-6 font-display text-4xl font-black leading-tight sm:text-6xl">
+            <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-6 font-display text-4xl font-black leading-tight sm:text-6xl">
               Energia para viver melhor.
               <br />
               <span className="text-[#1276a8]">Tecnologia para evoluir.</span>
-            </h1>
+            </MotionReveal>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-[#4a6070]">
               Soluções elétricas completas para trazer mais segurança, conforto e economia ao seu dia a dia, empresa ou
               condomínio.
@@ -95,10 +97,12 @@ export function EletroSolucoesEficazesPage() {
             <h2 className="font-display text-3xl font-black">Do reparo essencial à automação completa.</h2>
             <p className="mt-2 text-sm font-bold uppercase tracking-[.2em] text-[#1276a8]">Circuitos atendidos</p>
             <div className="mt-8 border-y-4 border-[#08283e] bg-white">
-              {circuitos.map(({ id, nome, texto, Icon }) => (
-                <div
+              {circuitos.map(({ id, nome, texto, Icon }, i) => (
+                <MotionReveal
+                  variant="left"
+                  delay={i * 70}
                   key={id}
-                  className="flex items-start gap-4 border-b border-dashed border-[#cfd9e0] px-4 py-6 last:border-b-0 sm:px-8"
+                  className="flex items-start gap-4 border-b border-dashed border-[#cfd9e0] px-4 py-6 transition-colors duration-200 last:border-b-0 hover:bg-[#f4f8fb] sm:px-8"
                 >
                   <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-[#ffd447] font-mono text-xs font-black">
                     {id}
@@ -113,7 +117,7 @@ export function EletroSolucoesEficazesPage() {
                   <span className="hidden self-center text-[10px] font-bold uppercase tracking-[.2em] text-[#1276a8] sm:block">
                     Ligado
                   </span>
-                </div>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -132,14 +136,17 @@ export function EletroSolucoesEficazesPage() {
                 ["Projeto", "Indicamos a solução ideal."],
                 ["Execução", "Entrega segura e organizada."],
               ].map(([t, d], i) => (
-                <li
+                <MotionReveal
+                  as="li"
+                  variant="up"
+                  delay={i * 120}
                   key={t}
                   className="flex-1 border-l-4 border-[#ffd447] px-5 py-4 sm:border-l-0 sm:border-t-4"
                 >
                   <span className="font-mono text-xs text-[#ffd447]">Etapa {i + 1}</span>
                   <p className="mt-2 font-display text-lg font-bold">{t}</p>
                   <p className="mt-1 text-sm text-white/60">{d}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
             <div className="mt-8">
@@ -199,5 +206,6 @@ export function EletroSolucoesEficazesPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-eletro-solucoes-eficazes" />
     </div>
+    </MotionScope>
   );
 }

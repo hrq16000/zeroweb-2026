@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 import type { CSSProperties } from "react";
@@ -71,6 +72,7 @@ export function HeloaGasPage() {
   const logo = useManagedValue("logoUrl", "/images/heloa-gas/logo.png");
   const hero = useManagedValue("heroImageUrl", "/images/heloa-gas/hero.jpg");
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <header className="border-b border-border bg-card/95 px-5 backdrop-blur">
         <div className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-4">
@@ -118,9 +120,9 @@ export function HeloaGasPage() {
               <p className="text-xs font-bold uppercase tracking-[.2em] text-primary">
                 Gás e água em Piraquara — PR
               </p>
-              <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
+              <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="mt-5 font-display text-4xl font-bold leading-[1.05] md:text-6xl">
             <ManagedText field="heroHeadline" fallback={"Seu g\u00e1s acabou? Pe\u00e7a e receba em casa."} />
-          </h1>
+          </MotionReveal>
               <p className="mt-6 max-w-xl text-base leading-7 text-background/75">
             <ManagedText field="heroSubheadline" fallback={"Botij\u00e3o de g\u00e1s 13kg e \u00e1gua mineral de 20 litros entregues em Vila Vicente Macedo e regi\u00e3o. Fa\u00e7a o pedido em poucos toques e combine a entrega com a equipe."} />
           </p>
@@ -182,12 +184,12 @@ export function HeloaGasPage() {
               </p>
             </div>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {catalogo.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="rounded-2xl border border-border bg-card p-6">
+              {catalogo.map(({ icon: Icon, title, text }, i) => (
+                <MotionReveal as="article" variant="scale" delay={i * 80} key={title} className="rounded-2xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-primary/50">
                   <Icon className="h-7 w-7 text-primary" />
                   <h3 className="mt-5 text-lg font-bold">{title}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -215,12 +217,12 @@ export function HeloaGasPage() {
                   "Informe o endereço, o bairro e um ponto de referência.",
                   "Combine a entrega e o pagamento com a equipe.",
                 ].map((item, index) => (
-                  <li key={item} className="flex gap-4">
+                  <MotionReveal as="li" variant="right" delay={index * 110} key={item} className="flex gap-4">
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
                       {index + 1}
                     </span>
                     <span className="pt-2 font-semibold">{item}</span>
-                  </li>
+                  </MotionReveal>
                 ))}
               </ol>
               <PortfolioCTAQuiz
@@ -292,5 +294,6 @@ export function HeloaGasPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-heloa-gas" />
     </div>
+    </MotionScope>
   );
 }

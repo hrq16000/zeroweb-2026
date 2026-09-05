@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Heart } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -33,6 +34,7 @@ const swatches: Array<[string, string, string]> = [
 
 export function EspacoCihLuhPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#0b1024] text-[#f3efe6]">
       <div className="lg:flex">
         {/* Coluna de marca fixa — eixo vertical, sem hero dividido. */}
@@ -64,9 +66,9 @@ export function EspacoCihLuhPage() {
         <main className="min-w-0 flex-1">
           {/* Abertura empilhada: título sobre fundo sólido, arte da promoção emoldurada abaixo. */}
           <section id="inicio" className="px-5 pt-12 lg:px-12 lg:pt-16">
-            <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.02] sm:text-6xl">
+            <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="max-w-3xl font-display text-4xl font-bold leading-[1.02] sm:text-6xl">
               Mãos que transformam. <span className="text-[#cda85a]">Pés que sustentam.</span>
-            </h1>
+            </MotionReveal>
             <p className="mt-5 max-w-xl text-base leading-8 text-[#d6dbef]">
               Cih e Luh cuidam da sua beleza, saúde e autoestima com técnicas de unhas, pedicure e atenção em cada
               atendimento.
@@ -100,8 +102,8 @@ export function EspacoCihLuhPage() {
               Beleza, saúde e autoestima em uma experiência só.
             </h2>
             <ul className="mt-10 divide-y divide-white/10 border-y border-white/10">
-              {swatches.map(([title, text, tone]) => (
-                <li key={title} className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:gap-8">
+              {swatches.map(([title, text, tone], i) => (
+                <MotionReveal as="li" variant="left" delay={i * 90} key={title} className="flex flex-col gap-4 py-6 transition-colors duration-200 hover:bg-white/[.04] sm:flex-row sm:items-center sm:gap-8">
                   <span
                     aria-hidden
                     className="h-12 w-12 shrink-0 rounded-full ring-1 ring-white/25"
@@ -111,7 +113,7 @@ export function EspacoCihLuhPage() {
                     <h3 className="font-display text-xl font-bold">{title}</h3>
                     <p className="mt-2 max-w-2xl text-sm leading-7 text-[#a9b0c9]">{text}</p>
                   </div>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
           </section>
@@ -176,5 +178,6 @@ export function EspacoCihLuhPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-espaco-cih-luh" />
     </div>
+    </MotionScope>
   );
 }

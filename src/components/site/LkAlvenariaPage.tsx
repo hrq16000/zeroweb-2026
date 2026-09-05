@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { motion } from "motion/react";
 import { ArrowRight, ClipboardCheck, HardHat, Landmark, ShieldCheck } from "lucide-react";
@@ -40,6 +41,7 @@ export function LkAlvenariaPage() {
       : null;
   return (
 
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
       <header className="bg-[#17100b] px-5 py-4 text-[#f4efe7] lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
@@ -58,9 +60,9 @@ export function LkAlvenariaPage() {
           <div aria-hidden className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#ff7900]/25 blur-3xl" />
           <div className="relative mx-auto max-w-5xl px-5 pb-24 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
             <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ffb066]">Empreiteiro de obra civil · construção e acabamento</p>
-            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
+            <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
               <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
-            </h1>
+            </MotionReveal>
             {heroImage ? (
               <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
             ) : null}
@@ -87,13 +89,13 @@ export function LkAlvenariaPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Do chão batido ao acabamento, etapa por etapa</h2>
             <ol className="mt-10 border-l-4 border-dashed border-[#c9b6a0]">
-              {etapas.map((e) => (
-                <li key={e.fase} className="relative pb-10 pl-8 last:pb-0 sm:pl-12">
+              {etapas.map((e, i) => (
+                <MotionReveal as="li" variant="left" delay={i * 120} key={e.fase} className="relative pb-10 pl-8 last:pb-0 sm:pl-12">
                   <span aria-hidden className="absolute -left-[14px] top-1 grid h-6 w-6 place-items-center rounded-full bg-[#ff7900] text-[10px] font-black text-[#17100b]">{e.fase.slice(-2)}</span>
                   <p className="text-xs font-bold uppercase tracking-[.24em] text-[#a2632a]">{e.fase}</p>
                   <h3 className="mt-2 font-display text-2xl font-bold">{e.title}</h3>
                   <p className="mt-2 max-w-2xl leading-8 text-[#5a4839]">{e.text}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
           </div>
@@ -109,10 +111,10 @@ export function LkAlvenariaPage() {
             <p className="mt-4 max-w-2xl leading-8 text-[#d4c6b6]">Trabalhamos com contrato, emissão de nota fiscal, garantia do serviço e orçamento personalizado para você acompanhar a evolução com clareza.</p>
             <dl className="mt-8 divide-y divide-[#3a2c20] border-y border-[#3a2c20]">
               {ficha.map(([k, v]) => (
-                <div key={k} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
+                <MotionReveal key={k} variant="fade" className="flex flex-col gap-1 py-4 transition-colors duration-200 hover:bg-[#241811] sm:flex-row sm:items-baseline sm:gap-8">
                   <dt className="w-48 shrink-0 text-xs font-bold uppercase tracking-[.22em] text-[#ff7900]">{k}</dt>
                   <dd className="font-semibold">{v}</dd>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
             <div className="mt-10 flex flex-wrap items-center gap-6">
@@ -144,5 +146,6 @@ export function LkAlvenariaPage() {
       <PortfolioSocialProofPopup clientKey="lk-alvenaria" eyebrow="LK Alvenaria" title="Sua obra merece contrato, garantia e acabamento de qualidade." description="Conte a etapa do projeto e receba um próximo passo organizado." ctaLabel="Ver cronograma" ctaHref="#cronograma" delayMs={9000} className="border-[#ff7900]/40 bg-[#17100b]/95 text-white" accentClassName="text-[#ff7900]" />
       <PortfolioUpsellPopup pageName="portfolio-lk-alvenaria" />
     </div>
+    </MotionScope>
   );
 }
