@@ -123,7 +123,7 @@ export const getPortfolioFunnelMetrics = createServerFn({ method: "GET" })
     const slugByLeadId = new Map<string, string>();
     for (const lead of leads ?? []) {
       const meta = (lead.metadata_json ?? {}) as Record<string, unknown>;
-      const slug = typeof meta.portfolio_slug === "string" ? meta.portfolio_slug : null;
+      const slug = leadSlug(meta);
       if (!slug) continue;
       if (data.slug && slug !== data.slug) continue;
       slugByLeadId.set(lead.id as string, slug);
