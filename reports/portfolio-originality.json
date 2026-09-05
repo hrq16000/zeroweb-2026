@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 20,
-    "attention": 48,
+    "acceptable": 24,
+    "attention": 44,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -190,22 +190,20 @@
       "title": "Angel Mix Brechó",
       "segment": "comercios",
       "componentFile": "src/components/site/AngelMixBrechoPage.tsx",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "brecho-sao-francisco",
-      "nearestMatchScore": 41,
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "reuse-house-brecho",
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 16.2,
+        "STRUCTURE_SIMILARITY": 17.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 24,
-        "COPY_SIMILARITY": 2.5,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 23.9,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -307,15 +305,15 @@
       "title": "Beto Pastéis",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BetoPasteisPage.tsx",
-      "score": 24,
+      "score": 22,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "brecho-sao-francisco",
-      "nearestMatchScore": 24,
+      "nearestMatch": "reuse-house-brecho",
+      "nearestMatchScore": 22,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.4,
+        "STRUCTURE_SIMILARITY": 8.8,
         "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 28.1,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 28.9,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -381,22 +379,20 @@
       "title": "Brechó São Francisco",
       "segment": "comercios",
       "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
-      "score": 60,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 60,
+      "score": 32,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "woodhouse-hamburgueres",
+      "nearestMatchScore": 32,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.8,
-        "SECTION_ORDER_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 10.3,
+        "SECTION_ORDER_SIMILARITY": 0,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 40.7,
-        "COPY_SIMILARITY": 2.2,
+        "STYLE_SIMILARITY": 30.9,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -409,10 +405,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "3d69a4170842139d",
-        "structureHash": "f6beb2dd707375d2",
-        "sectionCount": 4,
-        "lines": 155
+        "skeletonHash": "768b4e3e67d5c464",
+        "structureHash": "410e6cb162989594",
+        "sectionCount": 1,
+        "lines": 144
       }
     },
     {
@@ -654,22 +650,20 @@
       "title": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
       "segment": "restaurantes",
       "componentFile": "src/components/site/DlaraPizzariaPage.tsx",
-      "score": 44,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "marmitaria-dom-diego",
-      "nearestMatchScore": 44,
+      "score": 39,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "reuse-house-brecho",
+      "nearestMatchScore": 39,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 9.1,
+        "STRUCTURE_SIMILARITY": 3.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 26.8,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 25,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -1601,15 +1595,15 @@
       "title": "Marmitaria Dom Diego",
       "segment": "restaurantes",
       "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
-      "score": 58,
+      "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "brecho-sao-francisco",
-      "nearestMatchScore": 58,
+      "nearestMatch": "toquinho-de-gente-brecho",
+      "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 21.2,
-        "SECTION_ORDER_SIMILARITY": 100,
+        "STRUCTURE_SIMILARITY": 14.3,
+        "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 35.5,
+        "STYLE_SIMILARITY": 28.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -1629,10 +1623,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "6c56f22967c238d7",
-        "structureHash": "d558da94522035ba",
+        "skeletonHash": "e2774c2f38e381bf",
+        "structureHash": "0da086ea8f8d1677",
         "sectionCount": 3,
-        "lines": 160
+        "lines": 145
       }
     },
     {
@@ -2137,22 +2131,20 @@
       "title": "REuse House Brechó",
       "segment": "comercios",
       "componentFile": "src/components/site/ReuseHouseBrechoPage.tsx",
-      "score": 48,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 48,
+      "score": 40,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "angel-mix-brecho",
+      "nearestMatchScore": 40,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.4,
+        "STRUCTURE_SIMILARITY": 17.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 33.8,
-        "COPY_SIMILARITY": 1.3,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 23.9,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -2485,16 +2477,16 @@
       "title": "Toquinho de Gente Brechó Adulto e Infantil",
       "segment": "comercios",
       "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
-      "score": 60,
+      "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "brecho-sao-francisco",
-      "nearestMatchScore": 60,
+      "nearestMatch": "woodhouse-hamburgueres",
+      "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.8,
+        "STRUCTURE_SIMILARITY": 13.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 40.7,
-        "COPY_SIMILARITY": 2.2,
+        "STYLE_SIMILARITY": 27.3,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -2513,10 +2505,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "fba997fb31d5c58e",
-        "structureHash": "8ecce27dce898573",
-        "sectionCount": 4,
-        "lines": 147
+        "skeletonHash": "5b92ec6111d75e6a",
+        "structureHash": "d80ce1dd962b4183",
+        "sectionCount": 2,
+        "lines": 148
       }
     },
     {
@@ -2600,15 +2592,15 @@
       "title": "Woodhouse Hambúrgueres",
       "segment": "restaurantes",
       "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
-      "score": 56,
+      "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "brecho-sao-francisco",
-      "nearestMatchScore": 56,
+      "nearestMatch": "toquinho-de-gente-brecho",
+      "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
+        "STRUCTURE_SIMILARITY": 13.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -2628,30 +2620,15 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "16515dce54be0688",
-        "structureHash": "57a206bcfe17f0c4",
-        "sectionCount": 4,
-        "lines": 148
+        "skeletonHash": "7ccebd50110c1008",
+        "structureHash": "dd422b3d4d85e456",
+        "sectionCount": 2,
+        "lines": 141
       }
     }
   ],
   "clusters": [],
   "topPairs": [
-    {
-      "a": "brecho-sao-francisco",
-      "b": "toquinho-de-gente-brecho",
-      "score": 60,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.8,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 40.7,
-        "COPY_SIMILARITY": 2.2,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
     {
       "a": "acai-total-araucaria",
       "b": "aguia-sul-sinalizacao",
@@ -2709,36 +2686,6 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 9.4
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "brecho-sao-francisco",
-      "b": "marmitaria-dom-diego",
-      "score": 58,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 21.2,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 35.5,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "brecho-sao-francisco",
-      "b": "woodhouse-hamburgueres",
-      "score": 56,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 20,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 28.6,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
       },
       "reason": "SAME_FAMILY"
     },
@@ -2818,21 +2765,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "toquinho-de-gente-brecho",
-      "b": "woodhouse-hamburgueres",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 14.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 27.9,
-        "COPY_SIMILARITY": 1.2,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "acai-total-araucaria",
       "b": "ecommerce-on",
       "score": 54,
@@ -2908,21 +2840,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "marmitaria-dom-diego",
-      "b": "woodhouse-hamburgueres",
-      "score": 54,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 27.5,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "mp-festas-eventos",
       "b": "vila-da-capivara",
       "score": 54,
@@ -2934,6 +2851,21 @@
         "COPY_SIMILARITY": 0.8,
         "ASSET_PATTERN_SIMILARITY": 25,
         "IDENTITY_SIMILARITY": 10.9
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "toquinho-de-gente-brecho",
+      "b": "woodhouse-hamburgueres",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 13.8,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 27.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 100
       },
       "reason": "SAME_FAMILY"
     },
@@ -3009,6 +2941,66 @@
         "COPY_SIMILARITY": 0.6,
         "ASSET_PATTERN_SIMILARITY": 37.5,
         "IDENTITY_SIMILARITY": 4.9
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "diego-montador-moveis",
+      "b": "mary-diarista",
+      "score": 52,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 76.6,
+        "SECTION_ORDER_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 87,
+        "COPY_SIMILARITY": 1.9,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 10
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "mp-festas-eventos",
+      "b": "sos-presentes-cosmeticos",
+      "score": 52,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 40.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 53.8,
+        "STYLE_SIMILARITY": 68.5,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 8.2
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "assistencia-microondas-santos",
+      "b": "liz-moraes-nail-designer",
+      "score": 51,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 53.8,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 46.2,
+        "STYLE_SIMILARITY": 85,
+        "COPY_SIMILARITY": 1.6,
+        "ASSET_PATTERN_SIMILARITY": 50,
+        "IDENTITY_SIMILARITY": 11.4
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "r_beauty",
+      "b": "renata-beauty",
+      "score": 51,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 52.6,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40.9,
+        "STYLE_SIMILARITY": 47.7,
+        "COPY_SIMILARITY": 1.5,
+        "ASSET_PATTERN_SIMILARITY": 14.3,
+        "IDENTITY_SIMILARITY": 10.6
       },
       "reason": "SAME_FAMILY"
     }
@@ -3092,18 +3084,18 @@
       ],
       "angel-mix-brecho": [
         {
-          "slug": "brecho-sao-francisco",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "slug": "reuse-house-brecho",
+          "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "dlara-pizzaria",
+          "score": 35,
+          "reason": "DISTINCT"
         },
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "marmitaria-dom-diego",
-          "score": 40,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -3143,18 +3135,18 @@
       ],
       "beto-pasteis": [
         {
-          "slug": "brecho-sao-francisco",
-          "score": 24,
+          "slug": "reuse-house-brecho",
+          "score": 22,
           "reason": "DISTINCT"
         },
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 24,
+          "slug": "dlara-pizzaria",
+          "score": 20,
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 23,
+          "slug": "angel-mix-brecho",
+          "score": 19,
           "reason": "DISTINCT"
         }
       ],
@@ -3177,19 +3169,19 @@
       ],
       "brecho-sao-francisco": [
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 60,
-          "reason": "SAME_FAMILY"
+          "slug": "woodhouse-hamburgueres",
+          "score": 32,
+          "reason": "DISTINCT"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 58,
-          "reason": "SAME_FAMILY"
+          "score": 31,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 56,
-          "reason": "SAME_FAMILY"
+          "slug": "toquinho-de-gente-brecho",
+          "score": 31,
+          "reason": "DISTINCT"
         }
       ],
       "casa-nativa": [
@@ -3296,19 +3288,19 @@
       ],
       "dlara-pizzaria": [
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 44,
-          "reason": "SAME_FAMILY"
+          "slug": "reuse-house-brecho",
+          "score": 39,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 44,
-          "reason": "SAME_FAMILY"
+          "slug": "angel-mix-brecho",
+          "score": 35,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 44,
-          "reason": "SAME_FAMILY"
+          "slug": "clinica-integrada",
+          "score": 31,
+          "reason": "DISTINCT"
         }
       ],
       "dyzpromo": [
@@ -3721,19 +3713,19 @@
       ],
       "marmitaria-dom-diego": [
         {
-          "slug": "brecho-sao-francisco",
-          "score": 58,
+          "slug": "toquinho-de-gente-brecho",
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 54,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 53,
-          "reason": "SAME_FAMILY"
+          "slug": "brecho-sao-francisco",
+          "score": 31,
+          "reason": "DISTINCT"
         }
       ],
       "mary-diarista": [
@@ -3959,19 +3951,19 @@
       ],
       "reuse-house-brecho": [
         {
+          "slug": "angel-mix-brecho",
+          "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "dlara-pizzaria",
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "toquinho-de-gente-brecho",
-          "score": 48,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "woodhouse-hamburgueres",
-          "score": 47,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "brecho-sao-francisco",
-          "score": 46,
-          "reason": "SAME_FAMILY"
+          "score": 33,
+          "reason": "DISTINCT"
         }
       ],
       "rj-servicos-drywall": [
@@ -4112,19 +4104,19 @@
       ],
       "toquinho-de-gente-brecho": [
         {
-          "slug": "brecho-sao-francisco",
-          "score": 60,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "woodhouse-hamburgueres",
-          "score": 55,
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 53,
+          "score": 44,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "reuse-house-brecho",
+          "score": 33,
+          "reason": "DISTINCT"
         }
       ],
       "uberlandia-eletrica-residencial": [
@@ -4163,19 +4155,19 @@
       ],
       "woodhouse-hamburgueres": [
         {
-          "slug": "brecho-sao-francisco",
-          "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "toquinho-de-gente-brecho",
-          "score": 55,
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 54,
+          "score": 42,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "brecho-sao-francisco",
+          "score": 32,
+          "reason": "DISTINCT"
         }
       ]
     }
@@ -4203,8 +4195,8 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 20,
-      "attention": 48,
+      "acceptable": 24,
+      "attention": 44,
       "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
@@ -4243,15 +4235,33 @@
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "angel-mix-brecho",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "artesanatos-darleia-oliveira",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       },
       {
         "kind": "MODIFIED_PROJECT",
+        "slug": "brecho-sao-francisco",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
         "slug": "diego-montador-moveis",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "dlara-pizzaria",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
       },
       {
         "kind": "MODIFIED_PROJECT",
@@ -4311,6 +4321,12 @@
         "kind": "MODIFIED_PROJECT",
         "slug": "premium-envelopamentos",
         "before": "HIGH_SIMILARITY",
+        "after": "ACCEPTABLE"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "reuse-house-brecho",
+        "before": "ATTENTION",
         "after": "ACCEPTABLE"
       },
       {
