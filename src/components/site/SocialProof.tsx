@@ -4,6 +4,7 @@ import { CheckCircle2, MapPin, Star, Users, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { trackEvent } from "@/lib/analytics";
+import { shouldEmitSocialProof } from "@/lib/telemetry-v2";
 import { useNearFooter } from "@/hooks/useNearFooter";
 import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 import { getSocialProofFeed, type SocialProofItem as Notif } from "@/lib/social-proof.functions";
@@ -70,6 +71,15 @@ export function SocialProof() {
 
   const item = pool[idx % pool.length] ?? pool[0];
 
+  // V2: no máximo 1 `social_proof_view` por sessão. Antes o evento era emitido
+  // a cada início de animação (a cada 8,5s), o que respondia por ~68% de toda
+  // a telemetria. A experiência visual permanece exatamente a mesma.
+  useEffect(() => {
+    if (!visible || dismissed) return;
+    if (!shouldEmitSocialProof("site")) return;
+    trackEvent("social_proof_view", { location: "site_floating" });
+  }, [visible, dismissed]);
+
 
   return (
     <>
@@ -82,7 +92,6 @@ export function SocialProof() {
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 24, opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 280, damping: 24 }}
-            onAnimationStart={() => trackEvent("social_proof_view", { name: item.name })}
             className={`fixed ${FLOATING_SLOT.three} left-4 sm:left-5 ${FLOATING_Z.fab} max-w-[19rem] ${hideNearFooter(nearFooter)}`}
           >
             <div className="relative rounded-2xl glass shadow-elegant border border-border p-3 pr-8">

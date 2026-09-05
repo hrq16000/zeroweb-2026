@@ -5,6 +5,12 @@
 import { supabase } from "@/integrations/supabase/client";
 import { getVisitorId, getSessionId, getDeviceType } from "./visitor";
 import { getActiveUtms, getAttributionPayload } from "./site-config";
+import {
+  firstTouch,
+  normalizePath,
+  sanitizeAnalyticsParams,
+  telemetryEnvelope,
+} from "./telemetry-v2";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Json = any;
@@ -36,23 +42,30 @@ export async function persistEvent(eventName: string, params: Json = {}) {
     const c = ctx();
     const ab = abState();
     const location = (params.location as string | undefined) ?? null;
+    // V2: a origem vem da atribuição real (first touch da sessão). O antigo
+    // preenchimento padrão `utm_source = "site"` tornava a aquisição inútil.
+    const ft = firstTouch();
+    const metadata = {
+      ...sanitizeAnalyticsParams(params as Record<string, unknown>),
+      ...telemetryEnvelope(),
+    };
     const row = {
       session_id: getSessionId(),
       visitor_id: getVisitorId(),
       event_name: eventName,
       page: c.page,
-      path: c.path,
+      path: normalizePath(c.path),
       location,
       hero_variant: ab.hero,
       cta_variant: ab.cta,
-      utm_source: c.utms.utm_source ?? null,
-      utm_medium: c.utms.utm_medium ?? null,
-      utm_campaign: c.utms.utm_campaign ?? null,
-      utm_term: c.utms.utm_term ?? null,
-      utm_content: c.utms.utm_content ?? null,
-      referrer: c.referrer,
+      utm_source: ft.source,
+      utm_medium: ft.medium,
+      utm_campaign: ft.campaign,
+      utm_term: ft.term,
+      utm_content: ft.content,
+      referrer: ft.referrer_host,
       device_type: getDeviceType(),
-      metadata_json: params,
+      metadata_json: metadata,
     };
     // Entrega garantida: upsert idempotente + fila local com backoff se falhar.
     const { sendOrQueueEvent } = await import("./analytics-queue");
@@ -61,6 +74,7 @@ export async function persistEvent(eventName: string, params: Json = {}) {
     /* swallow */
   }
 }
+
 
 export async function persistLead(input: {
   name?: string;
