@@ -476,8 +476,27 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       .single();
     if (leadError || !lead) throw new Error("Não foi possível registrar a solicitação");
 
-    const { createWhatsAppRedirectToken, hashIp, makeProtocol } = await import("@/lib/whatsapp-redirect.server");
+    const { createWhatsAppRedirectToken, hashIp, makeProtocol, getPortfolioWhatsAppChannelState } =
+      await import("@/lib/whatsapp-redirect.server");
+    const protocol = makeProtocol();
+
+    // O lead já está salvo. O WhatsApp é apenas o passo seguinte: quando o
+    // cliente ainda não tem número oficial cadastrado, devolvemos um estado
+    // honesto em vez de gerar um redirect que termina em erro.
+    const channel = getPortfolioWhatsAppChannelState(data.clientKey);
+    if (channel !== "CONFIGURED") {
+      const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
+      await reportRoutingIncident({
+        clientKey: data.clientKey,
+        leadId: lead.id as string,
+        token: null,
+        reason: "missing_client_whatsapp_number",
+        fellBackToCentral: false,
+      });
+      return { redirectPath: null, protocol, whatsappChannel: channel };
+    }
+
     const token = await createWhatsAppRedirectToken({ leadId: lead.id, ipHash: hashIp(ip) });
-    if (!token.ok) throw new Error("Canal de atendimento indisponível");
-    return { redirectPath: token.redirectPath, protocol: makeProtocol() };
+    if (!token.ok) return { redirectPath: null, protocol, whatsappChannel: "NOT_CONFIGURED" as const };
+    return { redirectPath: token.redirectPath, protocol, whatsappChannel: channel };
   });
