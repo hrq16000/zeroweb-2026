@@ -100,21 +100,11 @@ export function MarmitariaDomDiegoPage() {
           </div>
 
           <dl className="mt-2">
-            {cardapio.map((linha) => (
-              <div key={linha.item} className="py-5">
-                <div className="flex items-baseline gap-3">
-                  <dt className="font-display text-lg font-bold md:text-xl">{linha.item}</dt>
-                  <span
-                    aria-hidden
-                    className="h-px flex-1 border-b border-dotted border-[var(--dd-ink)]/35"
-                  />
-                </div>
-                <dd className="mt-2 max-w-[64ch] text-sm leading-[1.85] text-[var(--dd-ink)]/70">
-                  {linha.detalhe}
-                </dd>
-              </div>
+            {cardapio.map((linha, i) => (
+              <LinhaCardapio key={linha.item} index={i} item={linha.item} detalhe={linha.detalhe} />
             ))}
           </dl>
+
 
           <p className="mt-6 max-w-[60ch] text-base leading-[1.8] text-[var(--dd-ink)]/75">
             <ManagedText
