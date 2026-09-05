@@ -15,6 +15,24 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import {
+  ASSET_REASONS,
+  assetPatternV1,
+  compareAssetSets,
+  describeAsset,
+  normalizeAssetRef,
+} from "./portfolio-asset-fingerprint.mjs";
+
+/**
+ * Versão da métrica.
+ *  v1 — ASSET_PATTERN por basename (falso positivo: `hero.jpg` em dois clientes).
+ *  v2 — ASSET_PATTERN por conteúdo real (hash), referência canônica e perfil de
+ *       mídia; IDENTITY passa a considerar o hash do logo. Fórmula e pesos
+ *       estruturais inalterados.
+ */
+export const ORIGINALITY_METRIC_VERSION = 2;
+export const SUPPORTED_METRIC_VERSIONS = [1, 2];
+export { ASSET_REASONS };
 
 /** Reason codes. */
 export const REASONS = {
