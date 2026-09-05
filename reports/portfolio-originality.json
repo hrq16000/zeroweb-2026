@@ -344,15 +344,15 @@
       "title": "Marmitas do Barreiro",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 38,
+      "score": 37,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 37,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 28.8,
+        "STRUCTURE_SIMILARITY": 27.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 11.1,
-        "STYLE_SIMILARITY": 39.1,
+        "COMPONENT_SIMILARITY": 8.3,
+        "STYLE_SIMILARITY": 39.8,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 20,
         "IDENTITY_SIMILARITY": 0
@@ -381,15 +381,15 @@
       "title": "Brechó São Francisco",
       "segment": "comercios",
       "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
-      "score": 32,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "woodhouse-hamburgueres",
-      "nearestMatchScore": 32,
+      "nearestMatch": "marmitaria-dom-diego",
+      "nearestMatchScore": 31,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 10.3,
+        "STRUCTURE_SIMILARITY": 10.7,
         "SECTION_ORDER_SIMILARITY": 0,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 30.9,
+        "STYLE_SIMILARITY": 25.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -534,18 +534,18 @@
       "title": "Confeitaria Sabor da Realeza",
       "segment": "restaurantes",
       "componentFile": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
-      "score": 55,
+      "score": 49,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 55,
+      "nearestMatch": "denise-gomes-psicologa",
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.9,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 79.2,
-        "COPY_SIMILARITY": 0.5,
+        "STRUCTURE_SIMILARITY": 36.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 55.7,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 14.3
+        "IDENTITY_SIMILARITY": 10
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1109,17 +1109,17 @@
       "title": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 31,
+      "score": 27,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "uberlandia-eletrica-residencial",
-      "nearestMatchScore": 31,
+      "nearestMatch": "miro-tech",
+      "nearestMatchScore": 27,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.6,
-        "SECTION_ORDER_SIMILARITY": 33.3,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 36.8,
+        "STRUCTURE_SIMILARITY": 12.1,
+        "SECTION_ORDER_SIMILARITY": 44.4,
+        "COMPONENT_SIMILARITY": 41.7,
+        "STYLE_SIMILARITY": 38.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 20,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1135,10 +1135,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "f9f851712e936f87",
-        "structureHash": "b84bab18ab09f957",
+        "skeletonHash": "c3c256ae71ce4eec",
+        "structureHash": "7ecca2eff875d293",
         "sectionCount": 8,
-        "lines": 166
+        "lines": 177
       }
     },
     {
@@ -1183,14 +1183,14 @@
       "title": "HBK Iluminação LED Atacadão",
       "segment": "construcao",
       "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "score": 35,
+      "score": 33,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 35,
+      "nearestMatchScore": 33,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20.9,
+        "STRUCTURE_SIMILARITY": 22,
         "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 38.2,
         "COPY_SIMILARITY": 1.3,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1220,15 +1220,15 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 40,
+      "score": 36,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 36,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 51.9,
+        "STRUCTURE_SIMILARITY": 42.1,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 48.4,
+        "COMPONENT_SIMILARITY": 26.7,
+        "STYLE_SIMILARITY": 47.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 40,
         "IDENTITY_SIMILARITY": 14.3
@@ -1257,16 +1257,16 @@
       "title": "JC Revestimentos",
       "segment": "construcao",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 36,
+      "score": 33,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "ton-e-cor",
-      "nearestMatchScore": 36,
+      "nearestMatch": "hbk-iluminacao-led",
+      "nearestMatchScore": 33,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 23.1,
-        "SECTION_ORDER_SIMILARITY": 18.2,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 49.4,
-        "COPY_SIMILARITY": 0,
+        "STRUCTURE_SIMILARITY": 22,
+        "SECTION_ORDER_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 38.2,
+        "COPY_SIMILARITY": 1.3,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1283,10 +1283,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "953da0a29117c226",
-        "structureHash": "b1373fe9e0cc47cd",
+        "skeletonHash": "8a7058afdf85c19b",
+        "structureHash": "80c949871261ab8b",
         "sectionCount": 6,
-        "lines": 261
+        "lines": 271
       }
     },
     {
@@ -1522,15 +1522,15 @@
       "title": "Manu Pastéis",
       "segment": "restaurantes",
       "componentFile": "src/components/site/ManuPasteisPage.tsx",
-      "score": 44,
+      "score": 41,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 44,
+      "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 46.6,
+        "STRUCTURE_SIMILARITY": 40,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 36.4,
-        "STYLE_SIMILARITY": 78.4,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 76.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 75,
         "IDENTITY_SIMILARITY": 8.7
@@ -1756,18 +1756,18 @@
       "title": "MIRO TECH",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/MiroTechPage.tsx",
-      "score": 55,
+      "score": 51,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 55,
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 51,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.9,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 79.2,
-        "COPY_SIMILARITY": 0.5,
+        "STRUCTURE_SIMILARITY": 41,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 63.3,
+        "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 14.3
+        "IDENTITY_SIMILARITY": 11.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1784,10 +1784,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "4737d0108b1beb51",
-        "structureHash": "1b6a14a12f9c4b0c",
+        "skeletonHash": "10fb0add75f806f0",
+        "structureHash": "50d83682bb9cf8f7",
         "sectionCount": 8,
-        "lines": 26
+        "lines": 29
       }
     },
     {
@@ -1947,17 +1947,17 @@
       "title": "Premium Envelopamentos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
-      "score": 29,
+      "score": 28,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 29,
+      "nearestMatch": "galileu-locacao-brinquedos",
+      "nearestMatchScore": 28,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 21.6,
-        "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 46.9,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 28.6,
+        "STRUCTURE_SIMILARITY": 32.1,
+        "SECTION_ORDER_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 41.1,
+        "COPY_SIMILARITY": 1.2,
+        "ASSET_PATTERN_SIMILARITY": 25,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2325,18 +2325,18 @@
       "title": "SOS Presentes & Cosméticos",
       "segment": "comercios",
       "componentFile": "src/components/site/SosPresentesCosmeticosPage.tsx",
-      "score": 55,
+      "score": 50,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 55,
+      "nearestMatch": "mp-festas-eventos",
+      "nearestMatchScore": 50,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 46,
+        "STRUCTURE_SIMILARITY": 39.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 60,
-        "STYLE_SIMILARITY": 72,
+        "COMPONENT_SIMILARITY": 41.2,
+        "STYLE_SIMILARITY": 69.7,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "IDENTITY_SIMILARITY": 8.2
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2354,10 +2354,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "04759e234ef43323",
-        "structureHash": "04b4cc843775387e",
+        "skeletonHash": "0fb11efea4f64248",
+        "structureHash": "fcff64602fadc285",
         "sectionCount": 8,
-        "lines": 50
+        "lines": 51
       }
     },
     {
@@ -2481,14 +2481,14 @@
       "title": "Toquinho de Gente Brechó Adulto e Infantil",
       "segment": "comercios",
       "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
-      "score": 54,
+      "score": 45,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "woodhouse-hamburgueres",
-      "nearestMatchScore": 54,
+      "nearestMatchScore": 45,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 13.8,
+        "STRUCTURE_SIMILARITY": 19.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2596,14 +2596,14 @@
       "title": "Woodhouse Hambúrgueres",
       "segment": "restaurantes",
       "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
-      "score": 54,
+      "score": 45,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 54,
+      "nearestMatchScore": 45,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 13.8,
+        "STRUCTURE_SIMILARITY": 19.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2624,10 +2624,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "7ccebd50110c1008",
-        "structureHash": "dd422b3d4d85e456",
+        "skeletonHash": "445fc0c64e20ad0c",
+        "structureHash": "18733bc716cbc3c0",
         "sectionCount": 2,
-        "lines": 141
+        "lines": 152
       }
     }
   ],
@@ -2739,36 +2739,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "confeitaria-sabor-da-realeza",
-      "b": "miro-tech",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 54.9,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 79.2,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 14.3
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "confeitaria-sabor-da-realeza",
-      "b": "sos-presentes-cosmeticos",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 46,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 60,
-        "STYLE_SIMILARITY": 72,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "acai-total-araucaria",
       "b": "ecommerce-on",
       "score": 54,
@@ -2815,21 +2785,6 @@
     },
     {
       "a": "liz-moraes-nail-designer",
-      "b": "miro-tech",
-      "score": 54,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 42.6,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 36.4,
-        "STYLE_SIMILARITY": 64.8,
-        "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 11.1
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "liz-moraes-nail-designer",
       "b": "mp-festas-eventos",
       "score": 54,
       "dimensions": {
@@ -2855,21 +2810,6 @@
         "COPY_SIMILARITY": 0.8,
         "ASSET_PATTERN_SIMILARITY": 25,
         "IDENTITY_SIMILARITY": 10.9
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "toquinho-de-gente-brecho",
-      "b": "woodhouse-hamburgueres",
-      "score": 54,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 13.8,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 27.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
       },
       "reason": "SAME_FAMILY"
     },
@@ -2964,21 +2904,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "mp-festas-eventos",
-      "b": "sos-presentes-cosmeticos",
-      "score": 52,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 40.5,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 53.8,
-        "STYLE_SIMILARITY": 68.5,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 8.2
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "assistencia-microondas-santos",
       "b": "liz-moraes-nail-designer",
       "score": 51,
@@ -2994,6 +2919,21 @@
       "reason": "SAME_FAMILY"
     },
     {
+      "a": "liz-moraes-nail-designer",
+      "b": "miro-tech",
+      "score": 51,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 41,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 63.3,
+        "COPY_SIMILARITY": 2.3,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 11.1
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "r_beauty",
       "b": "renata-beauty",
       "score": 51,
@@ -3005,6 +2945,66 @@
         "COPY_SIMILARITY": 1.5,
         "ASSET_PATTERN_SIMILARITY": 14.3,
         "IDENTITY_SIMILARITY": 10.6
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "assistencia-microondas-santos",
+      "b": "denise-gomes-psicologa",
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 48.6,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 62.9,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 50,
+        "IDENTITY_SIMILARITY": 24.1
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "confeitaria-chyrley",
+      "b": "mp-festas-eventos",
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 50,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 79.7,
+        "COPY_SIMILARITY": 1.7,
+        "ASSET_PATTERN_SIMILARITY": 30,
+        "IDENTITY_SIMILARITY": 8.9
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "eletro-solucoes-eficazes",
+      "b": "eletrovale-eletromecanica",
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 26.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 80,
+        "STYLE_SIMILARITY": 44.2,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 10.5
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "mp-festas-eventos",
+      "b": "sos-presentes-cosmeticos",
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 39.2,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 41.2,
+        "STYLE_SIMILARITY": 69.7,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 8.2
       },
       "reason": "SAME_FAMILY"
     }
@@ -3042,12 +3042,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 45,
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
+          "slug": "mp-festas-eventos",
           "score": 44,
           "reason": "SAME_FAMILY"
         }
@@ -3132,8 +3132,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
-          "score": 50,
+          "slug": "mp-festas-eventos",
+          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3157,7 +3157,7 @@
       "bh-barreiro-marmitas": [
         {
           "slug": "miro-tech",
-          "score": 38,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
@@ -3173,11 +3173,6 @@
       ],
       "brecho-sao-francisco": [
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 32,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "marmitaria-dom-diego",
           "score": 31,
           "reason": "DISTINCT"
@@ -3185,6 +3180,11 @@
         {
           "slug": "toquinho-de-gente-brecho",
           "score": 31,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "angel-mix-brecho",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -3217,9 +3217,9 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "confeitaria-chyrley": [
@@ -3234,24 +3234,24 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 45,
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
       "confeitaria-sabor-da-realeza": [
         {
+          "slug": "denise-gomes-psicologa",
+          "score": 49,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "miro-tech",
-          "score": 55,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "sos-presentes-cosmeticos",
-          "score": 55,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "denise-gomes-psicologa",
           "score": 49,
           "reason": "SAME_FAMILY"
         }
@@ -3302,8 +3302,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 31,
+          "slug": "toquinho-de-gente-brecho",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -3496,18 +3496,18 @@
       ],
       "guaratuba-reparos-residenciais": [
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 31,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "mirassol-conserta-celular",
-          "score": 29,
+          "slug": "miro-tech",
+          "score": 27,
           "reason": "DISTINCT"
         },
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 28,
+          "score": 25,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "santos-montador-de-moveis",
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -3523,15 +3523,15 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "guaratuba-reparos-residenciais",
-          "score": 27,
+          "slug": "marmitaria-dom-diego",
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
       "hbk-iluminacao-led": [
         {
           "slug": "jc-revestimentos",
-          "score": 35,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
@@ -3548,7 +3548,7 @@
       "heloa-gas": [
         {
           "slug": "miro-tech",
-          "score": 40,
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
@@ -3564,18 +3564,18 @@
       ],
       "jc-revestimentos": [
         {
-          "slug": "ton-e-cor",
-          "score": 36,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "hbk-iluminacao-led",
-          "score": 35,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "raphael-construcoes",
-          "score": 30,
+          "slug": "ton-e-cor",
+          "score": 33,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "premium-envelopamentos",
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -3603,13 +3603,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
+          "slug": "mp-festas-eventos",
           "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 54,
+          "slug": "diego-montador-moveis",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3684,7 +3684,7 @@
       "manu-pasteis": [
         {
           "slug": "miro-tech",
-          "score": 44,
+          "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3728,8 +3728,8 @@
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "score": 32,
+          "reason": "DISTINCT"
         }
       ],
       "mary-diarista": [
@@ -3785,18 +3785,18 @@
       ],
       "miro-tech": [
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 55,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "liz-moraes-nail-designer",
-          "score": 54,
+          "score": 51,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "assistencia-microondas-santos",
-          "score": 50,
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 49,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3870,12 +3870,12 @@
       ],
       "premium-envelopamentos": [
         {
-          "slug": "jc-revestimentos",
-          "score": 29,
+          "slug": "galileu-locacao-brinquedos",
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
-          "slug": "galileu-locacao-brinquedos",
+          "slug": "jc-revestimentos",
           "score": 28,
           "reason": "DISTINCT"
         },
@@ -3915,7 +3915,7 @@
         },
         {
           "slug": "jc-revestimentos",
-          "score": 30,
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -3931,8 +3931,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
-          "score": 48,
+          "slug": "assistencia-microondas-santos",
+          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3965,8 +3965,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 32,
+          "slug": "brecho-sao-francisco",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -4040,18 +4040,18 @@
       ],
       "sos-presentes-cosmeticos": [
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 55,
+          "slug": "mp-festas-eventos",
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 52,
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "ag-electrical-services",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4096,12 +4096,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "jc-revestimentos",
-          "score": 36,
+          "slug": "hbk-iluminacao-led",
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "hbk-iluminacao-led",
+          "slug": "jc-revestimentos",
           "score": 33,
           "reason": "DISTINCT"
         }
@@ -4109,7 +4109,7 @@
       "toquinho-de-gente-brecho": [
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 54,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4135,8 +4135,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "miro-tech",
-          "score": 36,
+          "slug": "mirassol-conserta-celular",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -4160,18 +4160,18 @@
       "woodhouse-hamburgueres": [
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 54,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "angel-mix-brecho",
-          "score": 42,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "score": 32,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "angel-mix-brecho",
+          "score": 31,
+          "reason": "DISTINCT"
         }
       ]
     }
