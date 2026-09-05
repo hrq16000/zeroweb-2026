@@ -284,16 +284,25 @@ export function fingerprintSource(source, { label = "" } = {}) {
 }
 
 /** Similaridade multidimensional entre dois fingerprints (0–100 por dimensão). */
-export function compareFingerprints(a, b) {
+export function compareFingerprints(a, b, { version = ORIGINALITY_METRIC_VERSION } = {}) {
   const set = (arr) => new Set(arr);
+  const v2 = version === 2;
+  const assetCmp = v2 ? compareAssetSets(a.assetDescriptors ?? [], b.assetDescriptors ?? []) : null;
+  const identityTokens = (fp) => set([
+    ...fp.colors,
+    ...fp.icons,
+    ...(v2 ? (fp.identityTokens ?? []) : []),
+  ]);
   const dims = {
     STRUCTURE_SIMILARITY: jaccard(set(a.structureNgrams), set(b.structureNgrams)),
     SECTION_ORDER_SIMILARITY: jaccard(set(a.sectionNgrams), set(b.sectionNgrams)),
     COMPONENT_SIMILARITY: jaccard(set(a.components), set(b.components)),
     STYLE_SIMILARITY: jaccard(set(a.style), set(b.style)),
     COPY_SIMILARITY: jaccard(set(a.copy ?? []), set(b.copy ?? [])),
-    ASSET_PATTERN_SIMILARITY: jaccard(set(a.assetPattern ?? []), set(b.assetPattern ?? [])),
-    IDENTITY_SIMILARITY: jaccard(set([...a.colors, ...a.icons]), set([...b.colors, ...b.icons])),
+    ASSET_PATTERN_SIMILARITY: v2
+      ? assetCmp.similarity
+      : jaccard(set(a.assetPattern ?? []), set(b.assetPattern ?? [])),
+    IDENTITY_SIMILARITY: jaccard(identityTokens(a), identityTokens(b)),
   };
   const score =
     dims.STRUCTURE_SIMILARITY * WEIGHTS.structure +
