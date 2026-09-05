@@ -76,6 +76,178 @@
       "depthBehavior": "overlap"
     }
   },
-  "overrides": {},
-  "decisions": {}
+  "overrides": {
+    "miro-tech": {
+      "intensity": "SUBTLE",
+      "preset": "TECHNICAL",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "máscara no título, grade de diagnóstico em stagger",
+      "tabletBehavior": "mesmo comportamento, grade 2 colunas",
+      "mobileBehavior": "stagger mantido, sem lift no toque"
+    },
+    "woodhouse-hamburgueres": {
+      "intensity": "EXPRESSIVE",
+      "preset": "BOLD",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "depth",
+      "depthBehavior": "sticky",
+      "scrollBehavior": "progressive",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "faixa fotográfica sticky revelada por clip, comanda escrita linha a linha",
+      "tabletBehavior": "sticky mantido",
+      "mobileBehavior": "sticky desativado pelo layout, revelação de linhas mantida"
+    },
+    "sos-presentes-cosmeticos": {
+      "intensity": "BALANCED",
+      "preset": "LUXURY",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "crop",
+      "depthBehavior": "overlap",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "máscara lateral na cesta, vitrine em escala, zoom de recorte no hover",
+      "tabletBehavior": "vitrine 2 colunas",
+      "mobileBehavior": "zoom de hover desativado no toque, revelação simples"
+    },
+    "jc-revestimentos": {
+      "intensity": "BALANCED",
+      "preset": "TECHNICAL",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "overlap",
+      "scrollBehavior": "progressive",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "texto atravessa o plano da foto; tabela de especificação revelada linha a linha",
+      "tabletBehavior": "igual, tabela empilhada",
+      "mobileBehavior": "entrada lateral reduzida, indent de hover desativado"
+    },
+    "guaratuba-reparos-residenciais": {
+      "intensity": "SUBTLE",
+      "preset": "MINIMAL",
+      "heroMotion": "static",
+      "sectionReveal": "stagger",
+      "imageReveal": "none",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "ficha chega em escala curta, checklist item a item, passos contam",
+      "tabletBehavior": "igual",
+      "mobileBehavior": "stagger mais rápido, lift desativado no toque"
+    }
+  },
+  "decisions": {
+    "miro-tech": {
+      "wave": "ONDA_1",
+      "segment": "assistência técnica",
+      "motionIntent": "PRECISÃO",
+      "whyThisMotion": "O cliente compra confiança em diagnóstico: o movimento revela informação de forma controlada, sem espalhafato.",
+      "signatureMoments": {
+        "hero": "Título revelado por máscara (linha de diagnóstico abrindo)",
+        "section": "Grade de serviços em stagger curto de cima para baixo",
+        "interaction": "Seta do CTA avança e o cartão de serviço eleva no ponteiro"
+      },
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "contadores"
+      ],
+      "performanceNote": "Somente transform/opacity via primitives; nenhum JS extra além do IntersectionObserver."
+    },
+    "woodhouse-hamburgueres": {
+      "wave": "ONDA_1",
+      "segment": "alimentação",
+      "motionIntent": "CALOR E ENERGIA",
+      "whyThisMotion": "A comanda é a metáfora da casa: o pedido vai sendo escrito enquanto a foto sobe na faixa lateral.",
+      "signatureMoments": {
+        "hero": "Foto vertical revelada por clip de baixo para cima",
+        "section": "Linhas da comanda entrando pela direita, uma a uma",
+        "interaction": "CTA com press físico e ponto da linha crescendo no ponteiro"
+      },
+      "effectsAvoided": [
+        "stagger em grade",
+        "zoom de imagem",
+        "contadores"
+      ],
+      "performanceNote": "Sticky nativo do CSS, sem listener de scroll."
+    },
+    "sos-presentes-cosmeticos": {
+      "wave": "ONDA_1",
+      "segment": "presentes e cosméticos",
+      "motionIntent": "ACOLHIMENTO E SURPRESA",
+      "whyThisMotion": "A loja vende o gesto de presentear: a imagem abre como um embrulho e a vitrine surge com delicadeza.",
+      "signatureMoments": {
+        "hero": "Cesta revelada por máscara lateral (embrulho abrindo)",
+        "section": "Vitrine de presentes surgindo em escala",
+        "interaction": "Recorte da foto do produto aproxima no ponteiro"
+      },
+      "effectsAvoided": [
+        "entrada lateral de texto",
+        "parallax",
+        "press agressivo"
+      ],
+      "performanceNote": "Zoom de hover só em transform; imagens já dimensionadas."
+    },
+    "jc-revestimentos": {
+      "wave": "ONDA_1",
+      "segment": "construção e acabamento",
+      "motionIntent": "ORGANIZAÇÃO E CAMADAS",
+      "whyThisMotion": "O produto é camada sobre superfície: o texto atravessa o plano da foto e a linha técnica se organiza item a item.",
+      "signatureMoments": {
+        "hero": "Bloco editorial atravessando o plano da foto de fachada",
+        "section": "Tabela de especificação revelada linha a linha pela esquerda",
+        "interaction": "Linha recua e a etiqueta de acabamento desliza no ponteiro"
+      },
+      "effectsAvoided": [
+        "stagger em grade",
+        "escala de cartões",
+        "contadores"
+      ],
+      "performanceNote": "Hero sem parallax; imagem de fundo estática para proteger o LCP."
+    },
+    "guaratuba-reparos-residenciais": {
+      "wave": "ONDA_1",
+      "segment": "serviços residenciais",
+      "motionIntent": "RESOLUÇÃO RÁPIDA",
+      "whyThisMotion": "A promessa é resolver rápido: nada de cena longa — a ficha chega pronta e o passo a passo se conta sozinho.",
+      "signatureMoments": {
+        "hero": "Ficha branca chegando em escala curta",
+        "section": "Checklist de reparos aparecendo item a item",
+        "interaction": "Números 01–03 contando ao entrar, com leve elevação no ponteiro"
+      },
+      "effectsAvoided": [
+        "máscara de imagem",
+        "parallax",
+        "entrada lateral"
+      ],
+      "performanceNote": "Contador em requestAnimationFrame com parada imediata sob reduced motion."
+    }
+  }
 }

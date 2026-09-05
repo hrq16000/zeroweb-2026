@@ -1,19 +1,15 @@
 {
-  "generatedAt": "2026-09-05T02:45:34.822Z",
+  "generatedAt": "2026-09-05T02:49:51.464Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
   "missingSlugs": [],
   "premium": 6,
-  "signature": 0,
+  "signature": 5,
   "baseline": 30,
-  "static": 32,
+  "static": 27,
   "errors": [],
   "warnings": [
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/SosPresentesCosmeticosPage.tsx"
-    },
     {
       "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/CasaNativaBistroPage.tsx"
@@ -37,10 +33,6 @@
     {
       "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/BetoPasteisPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/WoodhouseHamburgueresPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -76,10 +68,6 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/ReparosDoLitoralPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/DeliciasCaseirasMirassolPage.tsx"
     },
     {
@@ -108,10 +96,6 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/MiroTechPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/GalileuLocacaoBrinquedosPage.tsx"
     },
     {
@@ -133,10 +117,6 @@
     {
       "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/RaphaelConstrucoesPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/JcRevestimentosPage.tsx"
     }
   ],
   "pages": [
@@ -158,20 +138,6 @@
       "slug": "beto-pasteis",
       "segment": "restaurantes",
       "file": "src/components/site/BetoPasteisPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "woodhouse-hamburgueres",
-      "segment": "restaurantes",
-      "file": "src/components/site/WoodhouseHamburgueresPage.tsx",
       "score": 0,
       "level": "STATIC",
       "hasSignature": false,
@@ -295,20 +261,6 @@
       }
     },
     {
-      "slug": "miro-tech",
-      "segment": "prestadores-de-servicos",
-      "file": "src/components/site/MiroTechPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
       "slug": "manu-pasteis",
       "segment": "restaurantes",
       "file": "src/components/site/ManuPasteisPage.tsx",
@@ -319,34 +271,6 @@
         "primitives": 0,
         "transitions": 0,
         "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "guaratuba-reparos-residenciais",
-      "segment": "prestadores-de-servicos",
-      "file": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 1,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 1,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "jc-revestimentos",
-      "segment": "construcao",
-      "file": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 1,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 1,
         "animate": 0
       }
     },
@@ -403,20 +327,6 @@
         "primitives": 0,
         "transitions": 0,
         "hover": 2,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "sos-presentes-cosmeticos",
-      "segment": "comercios",
-      "file": "src/components/site/SosPresentesCosmeticosPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
         "animate": 0
       }
     },
@@ -1075,6 +985,76 @@
         "primitives": 0,
         "transitions": 15,
         "hover": 23,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "jc-revestimentos",
+      "segment": "construcao",
+      "file": "src/components/site/JcRevestimentosPage.tsx",
+      "score": 38,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 8,
+        "transitions": 3,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "woodhouse-hamburgueres",
+      "segment": "restaurantes",
+      "file": "src/components/site/WoodhouseHamburgueresPage.tsx",
+      "score": 48,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 11,
+        "transitions": 2,
+        "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "sos-presentes-cosmeticos",
+      "segment": "comercios",
+      "file": "src/components/site/SosPresentesCosmeticosPage.tsx",
+      "score": 53,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 12,
+        "transitions": 1,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "guaratuba-reparos-residenciais",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/ReparosDoLitoralPage.tsx",
+      "score": 57,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 13,
+        "transitions": 2,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "miro-tech",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/MiroTechPage.tsx",
+      "score": 58,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 11,
+        "transitions": 8,
+        "hover": 6,
         "animate": 0
       }
     },
