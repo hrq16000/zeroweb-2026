@@ -10,7 +10,7 @@ import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
  * Direção autoral (Rodada 4 · CLUSTER_02): quadro de cardápio da casa.
  * Faixa fotográfica larga no topo com o nome aplicado sobre ela, e abaixo um
  * cardápio em linhas com pontilhado de menu (item · descrição), no lugar de
- * lista numerada. O convite fica logo abaixo do cardápio, em linha única.
+ * lista numerada. O convite fecha o cardápio, em linha única.
  *
  * Identidade do cliente é soberana: nada de Header/Footer/copy da 0WEB.
  * Contato é resolvido no servidor pelo clientKey — nunca no bundle público.

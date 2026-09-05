@@ -8,7 +8,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 
 - Componentes de portfólio auditados: 66
 - Componentes com núcleo administrável: 66
-- Conexões faltando (MISSING): 1
+- Conexões faltando (MISSING): 0
 
 | Componente | Logo | Hero | Headline | Subheadline | CTA |
 | --- | --- | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 | LucasArrumaMaquinaLavarPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | ManuPasteisPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | MaridoDeAluguelPage.tsx | MANAGED | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
-| MarmitariaDomDiegoPage.tsx | MISSING | MANAGED | MANAGED | MANAGED | MANAGED |
+| MarmitariaDomDiegoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
 | MaryDiaristaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | MiroTechPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | MpFestasEventosPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
