@@ -6477,6 +6477,13 @@ export type Database = {
         Returns: undefined
       }
       can_manage_settings: { Args: { _uid: string }; Returns: boolean }
+      can_view_partner_material: {
+        Args: {
+          _user_id: string
+          _visible_to: Database["public"]["Enums"]["partner_kind"][]
+        }
+        Returns: boolean
+      }
       check_and_record_rate_limit: {
         Args: {
           p_ip_hash: string
