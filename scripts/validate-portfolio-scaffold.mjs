@@ -20,6 +20,14 @@ const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p
 const errors = [];
 
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
+// Contrato de experiência (Onda 6): todo projeto — inclusive os futuros criados
+// pelo wizard — precisa nascer com perfil de motion resolvível e movimento real.
+const motionProfiles = JSON.parse(read("src/config/portfolio-motion-profiles.json") || "{}");
+const catalogProjects = (() => {
+  const c = JSON.parse(read("src/config/portfolio-catalog.json") || "[]");
+  return c.projects ?? c;
+})();
+const segmentBySlug = new Map(catalogProjects.map((p) => [p.slug, p.segment]));
 const routeSource = read("src/routes/portfolio.$slug.tsx");
 const registrySource = read("src/lib/portfolio-site-registry.ts");
 const upsellConfigRaw = read("src/config/portfolio-upsell.json");
@@ -98,6 +106,29 @@ for (const client of clients) {
   }
   if (!/clientKey=["'`]/.test(componentSource)) {
     errors.push(`${label} CTA sem clientKey (roteamento privado de WhatsApp)`);
+  }
+
+  // --- Contrato de experiência ------------------------------------------
+  const segment = segmentBySlug.get(client.slug);
+  const hasProfile = Boolean(
+    motionProfiles.overrides?.[client.slug] ??
+      (segment && motionProfiles.defaultsBySegment?.[segment]) ??
+      motionProfiles.defaultsBySegment?.default,
+  );
+  if (!hasProfile) {
+    errors.push(`${label} sem perfil de motion resolvível (segmento "${segment ?? "—"}")`);
+  }
+  const hasMotionSignal =
+    /@\/components\/motion/.test(componentSource) ||
+    /from "motion\/react"/.test(componentSource) ||
+    /\banimate-/.test(componentSource) ||
+    /transition-/.test(componentSource);
+  if (!hasMotionSignal) {
+    errors.push(`${label} sem nenhum sinal de experiência/motion (página estática)`);
+  }
+  if (!/prefers-reduced-motion|@\/components\/motion|from "motion\/react"/.test(componentSource) &&
+      /animation:[^;]*infinite/i.test(componentSource)) {
+    errors.push(`${label} animação infinita sem guarda de reduced motion`);
   }
 
   const usesSharedRoute = client.routeFile.includes("portfolio.$slug.tsx");
