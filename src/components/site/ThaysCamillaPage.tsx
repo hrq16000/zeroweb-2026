@@ -5,6 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal } from "@/components/motion";
 
 const quiz = {
   services: [
@@ -81,9 +82,9 @@ export function ThaysCamillaPage() {
         {/* HERO centralizado com etiqueta de presente pendurada — sem grade 2 colunas. */}
         <section id="inicio" className="px-5 pb-16 pt-4 text-center lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h1 className="mx-auto max-w-2xl font-serif text-[2.6rem] font-semibold leading-[1.02] sm:text-6xl">
+            <MotionReveal as="h1" variant="down" intensity="BALANCED" className="mx-auto max-w-2xl font-serif text-[2.6rem] font-semibold leading-[1.02] sm:text-6xl">
               <ManagedText field="heroHeadline" fallback={"Personalize carinho em cada detalhe."} />
-            </h1>
+            </MotionReveal>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-[#704738]">
               <ManagedText
                 field="heroSubheadline"
@@ -92,6 +93,7 @@ export function ThaysCamillaPage() {
             </p>
           </div>
           <div className="relative mx-auto mt-10 max-w-2xl">
+            <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-[2.5rem]">
             <PortfolioImage
               src="/images/thays-camilla/hero.png"
               alt="Kit de caneca e azulejo personalizados Thays Camilla"
@@ -101,11 +103,12 @@ export function ThaysCamillaPage() {
               className="mx-auto w-full rounded-[2.5rem] border-8 border-white object-cover shadow-[0_30px_60px_-25px_rgba(142,76,55,.5)]"
               managedField="heroImageUrl"
             />
-            <div className="mx-auto -mt-8 w-fit rotate-[-2deg] rounded-2xl bg-[#4b271d] px-6 py-4 text-[#fff9f4] shadow-xl">
+            </MotionImageReveal>
+            <MotionReveal variant="down" intensity="BALANCED" delay={240} className="mx-auto -mt-8 w-fit rotate-[-2deg] rounded-2xl bg-[#4b271d] px-6 py-4 text-[#fff9f4] shadow-xl">
               <p className="text-[.68rem] font-bold uppercase tracking-[.28em] text-[#f5b39a]">Kit promocional informado</p>
               <p className="mt-1 font-serif text-3xl">R$ 59,90</p>
               <p className="text-xs text-[#edc6b4]/80">caneca + azulejo 15x15 cm</p>
-            </div>
+            </MotionReveal>
           </div>
           <div className="mt-10">
             <CTA>Montar meu presente <ArrowRight className="h-4 w-4" /></CTA>
@@ -116,11 +119,11 @@ export function ThaysCamillaPage() {
         <section id="kit" className="border-y border-[#f1d8ca] bg-[#f8e4d8] px-5 py-16 lg:px-8">
           <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-2 sm:divide-x sm:divide-[#dfae95]">
             {pecas.map(([title, text, tag], index) => (
-              <div key={title} className={index === 1 ? "sm:pl-10" : "sm:pr-10"}>
+              <MotionReveal key={title} variant={index === 1 ? "right" : "left"} intensity="BALANCED" delay={index * 130} className={index === 1 ? "sm:pl-10" : "sm:pr-10"}>
                 <p className="text-[.7rem] font-bold uppercase tracking-[.28em] text-[#d6654a]">{tag}</p>
                 <h2 className="mt-3 font-serif text-3xl">{title}</h2>
                 <p className="mt-3 leading-7 text-[#704738]">{text}</p>
-              </div>
+              </MotionReveal>
             ))}
           </div>
         </section>
