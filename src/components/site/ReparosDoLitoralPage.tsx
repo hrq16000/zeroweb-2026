@@ -1,4 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
+import { MotionCounter, MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -60,6 +61,7 @@ function Chamar({ children, big = false }: { children: React.ReactNode; big?: bo
 
 export function ReparosDoLitoralPage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-[#eef1f5] text-[#16243a]">
       <header className="bg-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
@@ -73,7 +75,7 @@ export function ReparosDoLitoralPage() {
 
       <main>
         <section id="inicio" className="px-5 py-10 lg:px-8">
-          <div className="mx-auto max-w-5xl rounded-3xl bg-white p-7 shadow-sm sm:p-10">
+          <MotionReveal variant="scale" className="mx-auto max-w-5xl rounded-3xl bg-white p-7 shadow-sm sm:p-10">
             <h1 className="max-w-2xl text-3xl font-extrabold leading-[1.12] sm:text-5xl">
             <ManagedText field="heroHeadline" fallback={"Aquele conserto que voc\u00ea adia h\u00e1 semanas leva menos de uma tarde."} />
           </h1>
@@ -87,22 +89,22 @@ export function ReparosDoLitoralPage() {
                 simples.
               </p>
             </div>
-          </div>
+          </MotionReveal>
         </section>
 
         <section id="servicos" className="px-5 py-8 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-xl font-extrabold uppercase tracking-wide">Toca sem drama</h2>
-            <ul className="mt-5 flex flex-wrap gap-2.5">
+            <MotionStagger variant="scale" step={45} className="mt-5 flex flex-wrap gap-2.5">
               {CHIPS.map((c) => (
                 <li
                   key={c}
-                  className="rounded-full border border-[#16243a]/12 bg-white px-4 py-2 text-sm font-semibold shadow-[0_1px_0_rgba(22,36,58,.08)]"
+                  className="rounded-full border border-[#16243a]/12 bg-white px-4 py-2 text-sm font-semibold shadow-[0_1px_0_rgba(22,36,58,.08)] transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   {c}
                 </li>
               ))}
-            </ul>
+            </MotionStagger>
             <p className="mt-4 text-sm text-[#5b6b82]">
               Não está na lista? Descreva mesmo assim — se não for serviço da equipe, você é avisado na hora.
             </p>
@@ -111,12 +113,20 @@ export function ReparosDoLitoralPage() {
 
         <section id="funciona" className="px-5 py-12 lg:px-8">
           <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3">
-            {PASSOS.map(([n, titulo, texto]) => (
-              <div key={n} className="rounded-2xl bg-[#16243a] p-6 text-white">
-                <span className="text-4xl font-extrabold text-[#f4b400]">{n}</span>
+            {PASSOS.map(([n, titulo, texto], index) => (
+              <MotionReveal
+                as="div"
+                key={n}
+                variant="up"
+                delay={index * 80}
+                className="rounded-2xl bg-[#16243a] p-6 text-white transition-transform duration-300 hover:-translate-y-1"
+              >
+                <span className="text-4xl font-extrabold text-[#f4b400]">
+                  <MotionCounter value={Number(n)} prefix={Number(n) < 10 ? "0" : ""} />
+                </span>
                 <h3 className="mt-4 text-lg font-extrabold">{titulo}</h3>
                 <p className="mt-2 text-sm leading-6 text-white/70">{texto}</p>
-              </div>
+              </MotionReveal>
             ))}
           </div>
         </section>
@@ -161,5 +171,6 @@ export function ReparosDoLitoralPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-guaratuba-reparos-residenciais" />
     </div>
+    </MotionScope>
   );
 }
