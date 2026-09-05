@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 24,
-    "attention": 44,
+    "acceptable": 22,
+    "attention": 46,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -216,16 +216,18 @@
     },
     {
       "slug": "angel-mix-brecho",
-      "score": 40,
-      "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 40,
-      "reasons": [],
+      "score": 45,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "dlara-pizzaria",
+      "nearestMatchScore": 45,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.1,
+        "STRUCTURE_SIMILARITY": 11.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 23.9,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 31.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -241,19 +243,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "reuse-house-brecho",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "dlara-pizzaria",
+          "score": 45,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "dlara-pizzaria",
-          "score": 35,
-          "reason": "DISTINCT"
+          "slug": "marmitaria-dom-diego",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 27,
-          "reason": "DISTINCT"
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -352,16 +354,16 @@
     },
     {
       "slug": "beto-pasteis",
-      "score": 22,
+      "score": 38,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 22,
+      "nearestMatchScore": 38,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 8.8,
-        "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 28.9,
+        "STRUCTURE_SIMILARITY": 2.9,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 29.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -378,17 +380,17 @@
       "nearest": [
         {
           "slug": "reuse-house-brecho",
+          "score": 38,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "angel-mix-brecho",
           "score": 22,
           "reason": "DISTINCT"
         },
         {
           "slug": "dlara-pizzaria",
           "score": 20,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "angel-mix-brecho",
-          "score": 19,
           "reason": "DISTINCT"
         }
       ],
@@ -760,16 +762,18 @@
     },
     {
       "slug": "dlara-pizzaria",
-      "score": 39,
-      "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 39,
-      "reasons": [],
+      "score": 45,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "angel-mix-brecho",
+      "nearestMatchScore": 45,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 3.4,
+        "STRUCTURE_SIMILARITY": 11.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 31.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -785,17 +789,17 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "reuse-house-brecho",
-          "score": 39,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "angel-mix-brecho",
-          "score": 35,
-          "reason": "DISTINCT"
+          "score": 45,
+          "reason": "SAME_FAMILY"
         },
         {
           "slug": "clinica-integrada",
+          "score": 31,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "woodhouse-hamburgueres",
           "score": 31,
           "reason": "DISTINCT"
         }
@@ -1736,7 +1740,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
+          "slug": "angel-mix-brecho",
           "score": 32,
           "reason": "DISTINCT"
         }
@@ -1912,14 +1916,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "woodhouse-hamburgueres",
+          "slug": "angel-mix-brecho",
           "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "brecho-sao-francisco",
-          "score": 31,
-          "reason": "DISTINCT"
+          "slug": "woodhouse-hamburgueres",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -2514,19 +2518,19 @@
     },
     {
       "slug": "reuse-house-brecho",
-      "score": 40,
+      "score": 38,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 38,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 23.9,
+        "STRUCTURE_SIMILARITY": 14.8,
+        "SECTION_ORDER_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 25,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 0
+        "IDENTITY_SIMILARITY": 100
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -2540,17 +2544,17 @@
       "nearest": [
         {
           "slug": "angel-mix-brecho",
-          "score": 40,
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
-          "slug": "dlara-pizzaria",
-          "score": 39,
+          "slug": "beto-pasteis",
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 33,
+          "slug": "woodhouse-hamburgueres",
+          "score": 32,
           "reason": "DISTINCT"
         }
       ],
@@ -2960,9 +2964,9 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "reuse-house-brecho",
-          "score": 33,
-          "reason": "DISTINCT"
+          "slug": "angel-mix-brecho",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -3091,14 +3095,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "marmitaria-dom-diego",
+          "slug": "angel-mix-brecho",
           "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "brecho-sao-francisco",
-          "score": 32,
-          "reason": "DISTINCT"
+          "slug": "marmitaria-dom-diego",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
