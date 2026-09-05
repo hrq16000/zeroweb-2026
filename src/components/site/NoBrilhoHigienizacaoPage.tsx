@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Home } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -64,6 +65,7 @@ const etapas: Array<[string, string]> = [
 
 export function NoBrilhoHigienizacaoPage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-[#efe9df] font-sans text-[#24443a]">
       <header className="bg-[#24443a] text-[#efe9df]">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4">
@@ -97,9 +99,9 @@ export function NoBrilhoHigienizacaoPage() {
             <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#c9a888]">
               Higienização profissional a domicílio
             </p>
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
+            <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="mt-5 font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
               Mais limpeza. <span className="text-[#c9a888]">Mais brilho.</span>
-            </h1>
+            </MotionReveal>
             <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-[#cfded6]">
               Sofás, colchões, cadeiras, poltronas e bancos automotivos renovados com atendimento profissional e
               agendamento prévio.
@@ -142,14 +144,14 @@ export function NoBrilhoHigienizacaoPage() {
               Um cuidado profundo para o que faz parte da sua rotina.
             </h2>
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {amostras.map(([title, text, chip]) => (
-                <article key={title} className="flex gap-5 rounded-2xl bg-white/70 p-5">
+              {amostras.map(([title, text, chip], i) => (
+                <MotionReveal as="article" variant="scale" delay={i * 90} key={title} className="flex gap-5 rounded-2xl bg-white/70 p-5 transition duration-200 hover:-translate-y-1 hover:bg-white">
                   <span className={`h-20 w-14 shrink-0 rounded-xl ${chip}`} aria-hidden="true" />
                   <div>
                     <h3 className="font-display text-lg font-bold">{title}</h3>
                     <p className="mt-2 text-sm leading-7 text-[#4c6459]">{text}</p>
                   </div>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -164,11 +166,11 @@ export function NoBrilhoHigienizacaoPage() {
             </h2>
             <div className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-[#24443a]/15 sm:grid-cols-3">
               {etapas.map(([title, text], i) => (
-                <div key={title} className="bg-[#dfd6c7] p-6">
+                <MotionReveal key={title} variant="right" delay={i * 110} className="bg-[#dfd6c7] p-6">
                   <span className="font-display text-3xl font-bold text-[#b4703f]">{i + 1}</span>
                   <h3 className="mt-3 font-display text-lg font-bold">{title}</h3>
                   <p className="mt-2 text-sm leading-7 text-[#4c6459]">{text}</p>
-                </div>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -218,5 +220,6 @@ export function NoBrilhoHigienizacaoPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-no-brilho-higienizacao" />
     </div>
+    </MotionScope>
   );
 }

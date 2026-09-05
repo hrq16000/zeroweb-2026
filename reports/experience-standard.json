@@ -1,44 +1,16 @@
 {
-  "generatedAt": "2026-09-05T06:18:17.792Z",
+  "generatedAt": "2026-09-05T15:33:45.145Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 33,
+  "premium": 41,
   "signature": 5,
-  "baseline": 30,
+  "baseline": 22,
   "static": 0,
   "errors": [],
   "warnings": [],
   "pages": [
-    {
-      "slug": "clinica-integrada",
-      "segment": "saude",
-      "file": "src/components/site/ClinicaIntegradaSaudePage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "almeida-torres",
-      "segment": "juridico",
-      "file": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
     {
       "slug": "ecommerce-on",
       "segment": "agencias",
@@ -82,20 +54,6 @@
       }
     },
     {
-      "slug": "eletrovale-eletromecanica",
-      "segment": "servicos",
-      "file": "src/components/site/EletrovaleEletromecanicaPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
       "slug": "mary-diarista",
       "segment": "servicos",
       "file": "src/components/site/MaryDiaristaPage.tsx",
@@ -124,51 +82,9 @@
       }
     },
     {
-      "slug": "hbk-iluminacao-led",
-      "segment": "construcao",
-      "file": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
       "slug": "vila-da-capivara",
       "segment": "servicos",
       "file": "src/components/site/VilaDaCapivaraPage.tsx",
-      "score": 5,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 5,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "eisenfer-tubos-acos",
-      "segment": "construcao",
-      "file": "src/components/site/EisenferTubosAcosPage.tsx",
-      "score": 5,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 5,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "artesanatos-darleia-oliveira",
-      "segment": "comercios",
-      "file": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
       "score": 5,
       "level": "BASELINE",
       "hasSignature": false,
@@ -208,37 +124,9 @@
       }
     },
     {
-      "slug": "eletro-solucoes-eficazes",
-      "segment": "servicos",
-      "file": "src/components/site/EletroSolucoesEficazesPage.tsx",
-      "score": 6,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 6,
-        "animate": 0
-      }
-    },
-    {
       "slug": "studio-de-cilios",
       "segment": "beleza",
       "file": "src/components/site/StudioDeCiliosPage.tsx",
-      "score": 7,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 7,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "no-brilho-higienizacao",
-      "segment": "servicos",
-      "file": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
       "score": 7,
       "level": "BASELINE",
       "hasSignature": false,
@@ -628,6 +516,34 @@
       }
     },
     {
+      "slug": "almeida-torres",
+      "segment": "juridico",
+      "file": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
+      "score": 45,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 1,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "eletrovale-eletromecanica",
+      "segment": "servicos",
+      "file": "src/components/site/EletrovaleEletromecanicaPage.tsx",
+      "score": 45,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
       "slug": "lj-cleaning",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/LjCleaningPage.tsx",
@@ -656,6 +572,34 @@
       }
     },
     {
+      "slug": "artesanatos-darleia-oliveira",
+      "segment": "comercios",
+      "file": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
+      "score": 47,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 1,
+        "hover": 6,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "eletro-solucoes-eficazes",
+      "segment": "servicos",
+      "file": "src/components/site/EletroSolucoesEficazesPage.tsx",
+      "score": 48,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 1,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
       "slug": "woodhouse-hamburgueres",
       "segment": "restaurantes",
       "file": "src/components/site/WoodhouseHamburgueresPage.tsx",
@@ -666,6 +610,34 @@
         "primitives": 11,
         "transitions": 2,
         "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "no-brilho-higienizacao",
+      "segment": "servicos",
+      "file": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
+      "score": 49,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 9,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "hbk-iluminacao-led",
+      "segment": "construcao",
+      "file": "src/components/site/HbkIluminacaoLedPage.tsx",
+      "score": 49,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 1,
+        "hover": 8,
         "animate": 0
       }
     },
@@ -736,6 +708,20 @@
         "primitives": 13,
         "transitions": 0,
         "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "eisenfer-tubos-acos",
+      "segment": "construcao",
+      "file": "src/components/site/EisenferTubosAcosPage.tsx",
+      "score": 55,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 1,
+        "hover": 6,
         "animate": 0
       }
     },
@@ -861,6 +847,20 @@
       "signals": {
         "primitives": 14,
         "transitions": 2,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "clinica-integrada",
+      "segment": "saude",
+      "file": "src/components/site/ClinicaIntegradaSaudePage.tsx",
+      "score": 65,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 15,
+        "transitions": 0,
         "hover": 5,
         "animate": 0
       }

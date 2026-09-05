@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import type { CSSProperties } from "react";
 import { ArrowRight, Building2, LampDesk, Lightbulb, PlugZap } from "lucide-react";
@@ -43,22 +44,27 @@ function LedTile({
   title,
   text,
   span,
+  delay = 0,
 }: {
   icon: typeof Lightbulb;
   title: string;
   text: string;
   span: string;
+  delay?: number;
 }) {
   return (
-    <article
-      className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 ${span}`}
+    <MotionReveal
+      as="article"
+      variant="scale"
+      delay={delay}
+      className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 transition duration-200 hover:-translate-y-1 hover:border-primary/60 ${span}`}
     >
       <Icon aria-hidden className="h-8 w-8 text-primary" />
       <div className="mt-8">
         <h3 className="text-lg font-bold">{title}</h3>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
       </div>
-    </article>
+    </MotionReveal>
   );
 }
 
@@ -113,6 +119,7 @@ const theme = {
 
 export function HbkIluminacaoLedPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <main id="inicio">
         {/* HERO centrado com halo radial — assinatura de luz. */}
@@ -131,12 +138,12 @@ export function HbkIluminacaoLedPage() {
               className="mx-auto h-16 w-auto object-contain"
               managedField="logoUrl"
             />
-            <h1 className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
+            <MotionReveal as="h1" variant="scale" intensity="EXPRESSIVE" className="mt-10 font-display text-4xl font-bold leading-[1.04] md:text-6xl">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Iluminando seus projetos com intelig\u00eancia."}
               />
-            </h1>
+            </MotionReveal>
             <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-muted-foreground">
               <ManagedText
                 field="heroSubheadline"
@@ -182,8 +189,8 @@ export function HbkIluminacaoLedPage() {
           <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-3xl font-bold md:text-4xl">Soluções LED</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-6">
-              {tiles.map((tile) => (
-                <LedTile key={tile.title} {...tile} />
+              {tiles.map((tile, i) => (
+                <LedTile key={tile.title} delay={i * 90} {...tile} />
               ))}
             </div>
           </div>
@@ -197,13 +204,16 @@ export function HbkIluminacaoLedPage() {
                 Onde a luz certa faz diferença
               </h2>
               <ul className="mt-6 flex flex-wrap gap-2">
-                {aplicacoes.map((item) => (
-                  <li
+                {aplicacoes.map((item, i) => (
+                  <MotionReveal
+                    as="li"
+                    variant="scale"
+                    delay={i * 45}
                     key={item}
-                    className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-muted-foreground"
+                    className="rounded-full border border-border px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors duration-200 hover:border-primary hover:text-foreground"
                   >
                     {item}
-                  </li>
+                  </MotionReveal>
                 ))}
               </ul>
             </div>
@@ -261,5 +271,6 @@ export function HbkIluminacaoLedPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-hbk-iluminacao-led" />
     </div>
+    </MotionScope>
   );
 }

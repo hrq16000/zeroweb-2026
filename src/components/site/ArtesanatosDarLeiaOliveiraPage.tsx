@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { ArrowRight, Coffee, Droplets, Instagram, Recycle, Scissors } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -62,6 +63,7 @@ const ficha: Array<[string, string]> = [
 
 export function ArtesanatosDarLeiaOliveiraPage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-[#fff8ef] text-[#3e241d]">
       <header className="border-b-2 border-[#3e241d] bg-[#fff8ef] px-5 py-3 lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
@@ -104,9 +106,9 @@ export function ArtesanatosDarLeiaOliveiraPage() {
               <span className="absolute -top-3 left-6 bg-[#bd355d] px-3 py-1 text-[.7rem] font-bold uppercase tracking-[.22em] text-white">
                 Feito à mão
               </span>
-              <h1 className="font-serif text-4xl font-semibold leading-[1.02] sm:text-6xl">
+              <MotionReveal as="h1" variant="up" intensity="EXPRESSIVE" className="font-serif text-4xl font-semibold leading-[1.02] sm:text-6xl">
                 <ManagedText field="heroHeadline" fallback={"Seu caf\u00e9 merece o melhor filtro."} />
-              </h1>
+              </MotionReveal>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#6d4a3e]">
                 <ManagedText
                   field="heroSubheadline"
@@ -130,13 +132,13 @@ export function ArtesanatosDarLeiaOliveiraPage() {
             <h2 className="mt-3 font-serif text-3xl sm:text-4xl">Três tempos entre a água e a xícara.</h2>
             <ol className="mt-10 border-l-2 border-[#c98c77]">
               {ritual.map(([title, text, index]) => (
-                <li key={title} className="relative py-6 pl-8 sm:pl-12">
+                <MotionReveal as="li" variant="left" delay={Number(index) * 130} key={title} className="relative py-6 pl-8 sm:pl-12">
                   <span className="absolute -left-[.9rem] top-7 flex h-7 w-7 items-center justify-center rounded-full border-2 border-[#3e241d] bg-[#fff8ef] text-[.7rem] font-bold">
                     {index}
                   </span>
                   <h3 className="font-serif text-2xl">{title}</h3>
                   <p className="mt-2 max-w-2xl leading-7 text-[#6d4a3e]">{text}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
             <p className="mt-4 flex flex-wrap items-center gap-5 text-sm font-semibold text-[#6d4a3e]">
@@ -156,10 +158,10 @@ export function ArtesanatosDarLeiaOliveiraPage() {
             </div>
             <dl className="divide-y divide-[#e1c2aa]">
               {ficha.map(([term, value]) => (
-                <div key={term} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
+                <MotionReveal key={term} variant="fade" className="flex flex-col gap-1 py-4 transition-colors duration-200 hover:bg-[#f7e8d8] sm:flex-row sm:items-baseline sm:gap-8">
                   <dt className="w-40 shrink-0 text-xs font-bold uppercase tracking-[.22em] text-[#8d2345]">{term}</dt>
                   <dd className="leading-7 text-[#6d4a3e]">{value}</dd>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
           </div>
@@ -209,5 +211,6 @@ export function ArtesanatosDarLeiaOliveiraPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-artesanatos-darleia-oliveira" />
     </div>
+    </MotionScope>
   );
 }

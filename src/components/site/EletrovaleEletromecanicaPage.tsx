@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight, Cog, Gauge, ShieldCheck, Wrench } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -33,6 +34,7 @@ function CTA({ children }: { children: React.ReactNode }) {
 
 export function EletrovaleEletromecanicaPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#1b1e22] text-[#eceff2]">
       <header className="border-b border-[#3a4048] bg-[#15181b] px-5 py-3 lg:px-8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
@@ -53,7 +55,7 @@ export function EletrovaleEletromecanicaPage() {
         className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-12 lg:flex-row lg:items-start lg:gap-14 lg:px-8"
       >
         {/* Ficha fixa: identidade + CTA sempre visível no desktop */}
-        <aside className="w-full border-l-4 border-[#e6ad2d] bg-[#22262b] p-6 lg:sticky lg:top-8 lg:w-[340px] lg:shrink-0">
+        <MotionReveal as="aside" variant="left" className="w-full border-l-4 border-[#e6ad2d] bg-[#22262b] p-6 lg:sticky lg:top-8 lg:w-[340px] lg:shrink-0">
           <p className="font-mono text-[11px] uppercase tracking-[.22em] text-[#e6ad2d]">Ordem de serviço</p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight">
             Seu equipamento merece <span className="text-[#e6ad2d]">confiabilidade.</span>
@@ -81,9 +83,10 @@ export function EletrovaleEletromecanicaPage() {
               Solicitar avaliação <ArrowRight className="h-4 w-4" />
             </CTA>
           </div>
-        </aside>
+        </MotionReveal>
 
         <div className="min-w-0 flex-1">
+          <MotionReveal variant="mask" delay={80}>
           <PortfolioImage
             src="/images/eletrovale-eletromecanica/equipamentos.webp"
             alt="Motores elétricos e bombas da Eletrovale Eletromecânica"
@@ -93,14 +96,18 @@ export function EletrovaleEletromecanicaPage() {
             className="h-[220px] w-full border border-[#3a4048] object-cover sm:h-[320px]"
             managedField="heroImageUrl"
           />
+          </MotionReveal>
 
           <section id="ordens" className="mt-10">
             <h2 className="font-display text-2xl font-bold">Menos paradas. Mais desempenho.</h2>
             <div className="mt-6 space-y-3">
               {ordens.map(({ titulo, texto, Icon }, i) => (
-                <article
+                <MotionReveal
+                  as="article"
+                  variant="right"
+                  delay={i * 80}
                   key={titulo}
-                  className="flex gap-4 border border-[#3a4048] bg-[#22262b] p-5 transition hover:border-[#e6ad2d]"
+                  className="flex gap-4 border border-[#3a4048] bg-[#22262b] p-5 transition duration-200 hover:translate-x-1 hover:border-[#e6ad2d]"
                 >
                   <Icon className="mt-1 h-6 w-6 shrink-0 text-[#e6ad2d]" aria-hidden />
                   <div>
@@ -110,7 +117,7 @@ export function EletrovaleEletromecanicaPage() {
                     </h3>
                     <p className="mt-1 text-sm leading-6 text-white/60">{texto}</p>
                   </div>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </section>
@@ -191,5 +198,6 @@ export function EletrovaleEletromecanicaPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-eletrovale-eletromecanica" />
     </div>
+    </MotionScope>
   );
 }

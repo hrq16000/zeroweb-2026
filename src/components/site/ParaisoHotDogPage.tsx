@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { useMemo, useState } from "react";
 import { ArrowRight, Check, Minus, Plus, ShoppingBag, Truck, Utensils, X } from "lucide-react";
@@ -172,6 +173,7 @@ export function ParaisoHotDogPage() {
         : [...(v[id] ?? []), extra],
     }));
   return (
+    <MotionScope intensity="EXPRESSIVE">
     <main className="portfolio-theme-paraiso min-h-screen bg-[#fff8e8] text-[#24170d]">
       <section className="relative overflow-hidden bg-[#17130f] px-5 py-12 text-white sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1fr_.8fr]">
@@ -179,9 +181,9 @@ export function ParaisoHotDogPage() {
             <p className="text-sm font-bold uppercase tracking-[.22em] text-[#f5bd21]">
               São José dos Pinhais · aberto das 18h30 às 23h
             </p>
-            <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[.95] tracking-tight sm:text-7xl">
+            <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-5 max-w-3xl text-5xl font-black leading-[.95] tracking-tight sm:text-7xl">
             <ManagedText field="heroHeadline" fallback={"Seu hot dog caprichado come\u00e7a aqui."} />
-          </h1>
+          </MotionReveal>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#ffe9a5]">
             <ManagedText field="heroSubheadline" fallback={"Monte do seu jeito, escolha retirar ou receber em casa e envie o pedido pronto pelo WhatsApp."} />
           </p>
@@ -242,8 +244,11 @@ export function ParaisoHotDogPage() {
             ))}
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {visibleProducts.map((p) => (
-              <article
+            {visibleProducts.map((p, i) => (
+              <MotionReveal
+                as="article"
+                variant="up"
+                delay={Math.min(i, 5) * 70}
                 key={p.id}
                 className="overflow-hidden rounded-3xl border border-[#eed9a7] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
@@ -440,5 +445,6 @@ export function ParaisoHotDogPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-paraiso-do-hot-dog" />
     </main>
+    </MotionScope>
   );
 }

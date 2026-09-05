@@ -1,4 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
+import { MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 import { Activity, CalendarCheck, HeartPulse, Microscope, Smile, Stethoscope } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -57,6 +58,7 @@ function Agendar({ children, variant = "solid" }: { children: React.ReactNode; v
 
 export function ClinicaIntegradaSaudePage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-white text-[#132a30]">
       <header className="border-b border-[#dbe8ea] bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
@@ -84,18 +86,18 @@ export function ClinicaIntegradaSaudePage() {
               <p className="inline-flex items-center gap-2 rounded-full bg-[#d6efe4] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#186b4c]">
                 Agenda aberta para esta semana
               </p>
-              <h1 className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl">
+              <MotionReveal as="h1" variant="mask" className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl">
             <ManagedText field="heroHeadline" fallback={"V\u00e1rias especialidades, um \u00fanico prontu\u00e1rio."} />
-          </h1>
-              <p className="mt-5 max-w-xl text-lg leading-8 text-[#43626a]">
+          </MotionReveal>
+              <MotionReveal as="p" variant="up" delay={90} className="mt-5 max-w-xl text-lg leading-8 text-[#43626a]">
             <ManagedText field="heroSubheadline" fallback={"A cl\u00ednica re\u00fane odontologia, cl\u00ednica m\u00e9dica, cardiologia, fisioterapia e exames de rotina no mesmo endere\u00e7o \u2014 com encaminhamento interno quando o caso exige mais de um profissional."} />
-          </p>
+          </MotionReveal>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Agendar>Solicitar agendamento</Agendar>
                 <Agendar variant="outline">Tirar dúvida sobre convênio</Agendar>
               </div>
             </div>
-            <aside className="rounded-2xl border border-[#dbe8ea] bg-white p-6 shadow-sm">
+            <MotionReveal as="aside" variant="right" delay={140} className="rounded-2xl border border-[#dbe8ea] bg-white p-6 shadow-sm">
               <h2 className="text-sm font-semibold uppercase tracking-wide text-[#5c7a80]">Painel de atendimento</h2>
               <dl className="mt-5 divide-y divide-[#eef4f5] text-sm">
                 {[
@@ -110,21 +112,21 @@ export function ClinicaIntegradaSaudePage() {
                   </div>
                 ))}
               </dl>
-            </aside>
+            </MotionReveal>
           </div>
         </section>
 
         <section id="especialidades" className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
           <h2 className="text-2xl font-semibold sm:text-3xl">Especialidades da casa</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <MotionStagger className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" variant="up">
             {ESPECIALIDADES.map(([Icon, nome, texto]) => (
-              <article key={nome} className="rounded-2xl border border-[#dbe8ea] p-6 transition hover:border-[#0f5d70]/40 hover:shadow-sm">
+              <article key={nome} className="h-full rounded-2xl border border-[#dbe8ea] p-6 transition duration-200 hover:-translate-y-0.5 hover:border-[#0f5d70]/40 hover:shadow-sm">
                 <Icon className="h-6 w-6 text-[#0f5d70]" aria-hidden="true" />
                 <h3 className="mt-4 text-lg font-semibold">{nome}</h3>
                 <p className="mt-2 text-sm leading-6 text-[#43626a]">{texto}</p>
               </article>
             ))}
-          </div>
+          </MotionStagger>
         </section>
 
         <section id="jornada" className="border-y border-[#dbe8ea] bg-[#0f5d70] text-white">
@@ -132,13 +134,13 @@ export function ClinicaIntegradaSaudePage() {
             <h2 className="text-2xl font-semibold sm:text-3xl">A jornada do paciente, do contato ao retorno</h2>
             <ol className="mt-10 border-l border-white/25 pl-8">
               {JORNADA.map(([titulo, texto], i) => (
-                <li key={titulo} className="relative pb-10 last:pb-0">
+                <MotionReveal as="li" variant="right" delay={i * 110} key={titulo} className="relative pb-10 last:pb-0">
                   <span className="absolute -left-[2.55rem] grid h-7 w-7 place-items-center rounded-full bg-white text-sm font-bold text-[#0f5d70]">
                     {i + 1}
                   </span>
                   <h3 className="text-lg font-semibold">{titulo}</h3>
                   <p className="mt-2 max-w-xl text-sm leading-7 text-white/80">{texto}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
           </div>
@@ -189,5 +191,6 @@ export function ClinicaIntegradaSaudePage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-clinica-integrada" />
     </div>
+    </MotionScope>
   );
 }

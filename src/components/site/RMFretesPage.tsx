@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { useState } from "react";
 import {
   ArrowRight,
@@ -49,6 +50,7 @@ export function RMFretesPage() {
   const ctaClass =
     "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#ffd000] px-6 py-3.5 font-black text-[#080b12] shadow-[0_14px_40px_rgba(255,208,0,.22)] transition hover:-translate-y-0.5 hover:bg-[#ffe05b] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#ffd000]/40";
   return (
+    <MotionScope intensity="BALANCED">
     <main className="portfolio-theme-rm-fretes min-h-screen overflow-hidden bg-[#080b12] text-white">
       <header className="border-b border-white/10 bg-[#080b12]/95 px-5 py-4 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
@@ -77,10 +79,10 @@ export function RMFretesPage() {
             <p className="text-xs font-black uppercase tracking-[.24em] text-[#ffd000]">
               Curitiba e Região Metropolitana
             </p>
-            <h1 className="mt-5 text-5xl font-black italic leading-[.92] tracking-[-.05em] sm:text-7xl">
+            <MotionReveal as="h1" variant="left" intensity="EXPRESSIVE" className="mt-5 text-5xl font-black italic leading-[.92] tracking-[-.05em] sm:text-7xl">
             <ManagedRich field="heroHeadline">
               Seu frete em movimento. <span className="text-[#ffd000]">Rápido.</span></ManagedRich>
-          </h1>
+          </MotionReveal>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300"><ManagedRich field="heroSubheadline">
               Fretes, carretos e pequenas mudanças com cuidado na carga, rota organizada e pagamento
               facilitado.</ManagedRich></p>
@@ -142,14 +144,17 @@ export function RMFretesPage() {
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {services.map(([title, text], index) => (
-              <article
+              <MotionReveal
+                as="article"
+                variant="right"
+                delay={index * 90}
                 key={title}
                 className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <span className="text-sm font-black text-[#1e59d9]">0{index + 1}</span>
                 <h3 className="mt-8 text-2xl font-black">{title}</h3>
                 <p className="mt-3 leading-7 text-slate-600">{text}</p>
-              </article>
+              </MotionReveal>
             ))}
           </div>
         </div>
@@ -177,7 +182,7 @@ export function RMFretesPage() {
                 ["3", "Confirme o orçamento", "A RM valida rota, disponibilidade e condições."],
                 ["4", "Frete em andamento", "A carga segue organizada até o destino combinado."],
               ].map(([n, t, d]) => (
-                <div key={n} className="flex gap-4">
+                <MotionReveal key={n} variant="up" className="flex gap-4">
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#ffd000] font-black text-black">
                     {n}
                   </span>
@@ -185,7 +190,7 @@ export function RMFretesPage() {
                     <h3 className="font-black">{t}</h3>
                     <p className="mt-1 text-sm leading-6 text-slate-400">{d}</p>
                   </div>
-                </div>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -288,5 +293,6 @@ export function RMFretesPage() {
         }}
       />
     </main>
+    </MotionScope>
   );
 }

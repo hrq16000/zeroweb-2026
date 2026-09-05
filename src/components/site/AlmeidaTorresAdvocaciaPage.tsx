@@ -2,6 +2,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedRich } from "@/components/portfolio/ManagedText";
 
 const AREAS = [
@@ -54,6 +55,7 @@ function Consulta({ children, dark = false }: { children: React.ReactNode; dark?
 
 export function AlmeidaTorresAdvocaciaPage() {
   return (
+    <MotionScope intensity="SUBTLE">
     <div className="min-h-dvh bg-[#f3efe6] font-serif text-[#22201c]">
       <header className="border-b border-[#22201c]/25">
         <div className="mx-auto flex max-w-4xl flex-col gap-1 px-5 py-6 text-center lg:px-8">
@@ -66,11 +68,13 @@ export function AlmeidaTorresAdvocaciaPage() {
 
       <main>
         <section id="inicio" className="mx-auto max-w-3xl px-5 pb-14 pt-16 text-center lg:px-8 lg:pt-24">
-          <h1 className="text-balance text-4xl font-semibold leading-[1.12] sm:text-6xl">
+          <MotionReveal as="h1" variant="fade" className="text-balance text-4xl font-semibold leading-[1.12] sm:text-6xl">
             <ManagedRich field="heroHeadline">
             Orientação jurídica <span className="italic text-[#3a5a49]">antes</span> da decisão difícil.</ManagedRich>
-          </h1>
-          <hr className="mx-auto my-8 w-28 border-t border-[#22201c]/40" />
+          </MotionReveal>
+          <MotionReveal variant="scale" delay={120} className="mx-auto my-8 w-28" intensity="EXPRESSIVE">
+            <hr className="border-t border-[#22201c]/40" />
+          </MotionReveal>
           <p className="mx-auto max-w-xl text-[1.02rem] leading-8 text-[#4a463f]"><ManagedRich field="heroSubheadline">
             Um escritório de atuação contida: analisamos documentos, explicamos os caminhos possíveis e só então
             propomos a estratégia. Sem promessa de resultado, com clareza sobre riscos e prazos.</ManagedRich></p>
@@ -84,14 +88,16 @@ export function AlmeidaTorresAdvocaciaPage() {
             <p className="text-[0.68rem] uppercase tracking-[.34em] text-[#5c6b60]">Índice de atuação</p>
             <ol className="mt-8">
               {AREAS.map(([num, titulo, texto]) => (
-                <li
+                <MotionReveal
+                  as="li"
+                  variant="right"
                   key={num}
                   className="grid grid-cols-[2.5rem_1fr] gap-4 border-t border-[#22201c]/20 py-6 first:border-t-0 sm:grid-cols-[3rem_14rem_1fr] sm:items-baseline"
                 >
                   <span className="text-sm tracking-[.2em] text-[#3a5a49]">{num}</span>
                   <h2 className="text-xl font-semibold">{titulo}</h2>
                   <p className="col-span-2 text-[0.95rem] leading-7 text-[#4a463f] sm:col-span-1">{texto}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ol>
           </div>
@@ -109,7 +115,7 @@ export function AlmeidaTorresAdvocaciaPage() {
             <p className="text-[0.68rem] uppercase tracking-[.34em] text-[#5c6b60]">Perguntas frequentes</p>
             <div className="mt-6">
               {PERGUNTAS.map(([q, a]) => (
-                <details key={q} className="border-b border-[#22201c]/20 py-5">
+                <details key={q} className="border-b border-[#22201c]/20 py-5 [&_summary]:transition-colors [&_summary]:duration-200 [&_summary:hover]:text-[#3a5a49]">
                   <summary className="cursor-pointer list-none text-lg font-semibold marker:content-none">
                     {q}
                   </summary>
@@ -153,5 +159,6 @@ export function AlmeidaTorresAdvocaciaPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-almeida-torres" />
     </div>
+    </MotionScope>
   );
 }

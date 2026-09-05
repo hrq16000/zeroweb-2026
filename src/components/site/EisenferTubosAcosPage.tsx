@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ArrowRight } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -34,6 +35,7 @@ function CTA({ children }: { children: React.ReactNode }) {
 
 export function EisenferTubosAcosPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#07162e] text-[#f7f9ff]">
       <header className="sticky top-0 z-30 border-b-2 border-[#f5b51b] bg-[#07162e] px-5 py-3 lg:px-10">
         <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-4">
@@ -56,11 +58,11 @@ export function EisenferTubosAcosPage() {
             <p className="text-[11px] font-black uppercase tracking-[.32em] text-[#f5b51b]">
               Av. das Américas, 116 · Três Marias · São José dos Pinhais — PR
             </p>
-            <h1 className="mt-6 font-display text-[2.6rem] font-black uppercase leading-[.92] tracking-tight sm:text-[4.6rem]">
+            <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-6 font-display text-[2.6rem] font-black uppercase leading-[.92] tracking-tight sm:text-[4.6rem]">
               Aço cortado na medida
               <br />
               <span className="text-[#2d8cff]">da sua obra.</span>
-            </h1>
+            </MotionReveal>
             <div className="mt-8 flex flex-col gap-6 border-t border-white/15 pt-6 md:flex-row md:items-end md:justify-between">
               <p className="max-w-lg text-base leading-7 text-white/65">
                 Tubos, perfis, chapas e telhas metálicas para obras residenciais, comerciais e industriais — com atendimento
@@ -78,6 +80,7 @@ export function EisenferTubosAcosPage() {
                 </a>
               </div>
             </div>
+            <MotionReveal variant="mask" delay={120}>
             <PortfolioImage
               src="/images/eisenfer-tubos-acos/telhas.webp"
               alt="Telhas metálicas Eisenfer Tubos e Aços"
@@ -87,6 +90,7 @@ export function EisenferTubosAcosPage() {
               className="mt-10 h-[220px] w-full object-cover object-center grayscale-[.15] sm:h-[300px] lg:h-[360px]"
               managedField="heroImageUrl"
             />
+            </MotionReveal>
           </div>
         </section>
 
@@ -98,13 +102,13 @@ export function EisenferTubosAcosPage() {
               <span className="text-[11px] font-bold uppercase tracking-[.2em] text-[#1265bc]">Medidas sob consulta</span>
             </div>
             <ul className="divide-y divide-[#c9d4e2]">
-              {linha.map((item) => (
-                <li key={item.cod} className="flex flex-col gap-1 py-5 sm:flex-row sm:items-center sm:gap-6">
+              {linha.map((item, i) => (
+                <MotionReveal as="li" variant="left" delay={i * 60} key={item.cod} className="flex flex-col gap-1 py-5 transition-colors duration-200 hover:bg-[#e6ecf5] sm:flex-row sm:items-center sm:gap-6">
                   <span className="w-12 shrink-0 font-mono text-sm font-black text-[#1265bc]">{item.cod}</span>
                   <span className="w-full font-display text-lg font-bold sm:w-64">{item.nome}</span>
                   <span className="flex-1 text-sm text-[#586a7e]">{item.spec}</span>
                   <span className="text-[11px] font-bold uppercase tracking-[.16em] text-[#0b1d39]/70">{item.uso}</span>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap items-center gap-4 border-t-2 border-[#0b1d39] pt-6">
@@ -128,13 +132,13 @@ export function EisenferTubosAcosPage() {
                 ["02", "Agilidade", "Entrega no prazo combinado em São José dos Pinhais e Curitiba."],
                 ["03", "Parceria", "Atendimento especializado para encontrar medida e espessura certas."],
               ].map(([n, t, d]) => (
-                <div key={n} className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:gap-8">
+                <MotionReveal key={n} variant="up" className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:gap-8">
                   <dt className="font-mono text-3xl font-black text-[#2d8cff] sm:w-24">{n}</dt>
                   <div className="sm:flex-1">
                     <p className="font-display text-xl font-bold">{t}</p>
                     <dd className="mt-1 max-w-2xl text-sm leading-6 text-white/60">{d}</dd>
                   </div>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
           </div>
@@ -191,5 +195,6 @@ export function EisenferTubosAcosPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-eisenfer-tubos-acos" />
     </div>
+    </MotionScope>
   );
 }

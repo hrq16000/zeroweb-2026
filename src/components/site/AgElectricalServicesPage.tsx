@@ -1,3 +1,4 @@
+import { MotionReveal, MotionScope } from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { motion } from "motion/react";
 import { ArrowRight, CircuitBoard, Network, ShieldCheck, Zap } from "lucide-react";
@@ -29,6 +30,7 @@ const gallery: Array<[string, string]> = [
 
 export function AgElectricalServicesPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-[#061d38] font-sans text-[#e6eef7]">
       {/* Barra técnica: sem logotipo-cartão, apenas marcação de painel */}
       <header className="border-b border-[#f47b20]/40 bg-[#061d38] px-5 py-3 lg:px-10">
@@ -49,9 +51,9 @@ export function AgElectricalServicesPage() {
         <section id="inicio" className="px-5 pt-14 lg:px-10 lg:pt-20">
           <div className="mx-auto max-w-7xl">
             <p className="font-mono text-[11px] uppercase tracking-[.3em] text-[#f47b20]">Elétrica / infraestrutura / redes / CFTV — Curitiba e RMC</p>
-            <h1 className="mt-6 max-w-5xl font-display text-[2.65rem] font-bold uppercase leading-[.95] tracking-[-.02em] sm:text-6xl lg:text-[5.5rem]">
+            <MotionReveal as="h1" variant="mask" intensity="EXPRESSIVE" className="mt-6 max-w-5xl font-display text-[2.65rem] font-bold uppercase leading-[.95] tracking-[-.02em] sm:text-6xl lg:text-[5.5rem]">
               <ManagedText field="heroHeadline" fallback={"Energia e conectividade para sua opera\u00e7\u00e3o."} />
-            </h1>
+            </MotionReveal>
             <div className="mt-8 grid gap-6 border-t border-[#1c3f66] pt-6 md:grid-cols-[1.2fr_.8fr] md:items-end">
               <p className="max-w-2xl text-base leading-8 text-[#a9c2da]">
                 <ManagedText field="heroSubheadline" fallback={"A&G Electrical Services entrega solu\u00e7\u00f5es integradas em el\u00e9trica e infraestrutura para resid\u00eancias, com\u00e9rcios, condom\u00ednios e empresas em Curitiba e Regi\u00e3o Metropolitana."} />
@@ -82,14 +84,14 @@ export function AgElectricalServicesPage() {
             <div className="relative mt-12">
               <span aria-hidden className="absolute left-0 right-0 top-3 hidden h-px bg-[#1c3f66] lg:block" />
               <div className="grid gap-10 lg:grid-cols-4 lg:gap-6">
-                {circuit.map((item) => (
-                  <div key={item.code} className="relative pl-6 lg:pl-0 lg:pt-10">
+                {circuit.map((item, i) => (
+                  <MotionReveal key={item.code} variant="up" delay={i * 110} className="relative pl-6 lg:pl-0 lg:pt-10">
                     <span aria-hidden className="absolute left-0 top-1 h-full w-px bg-[#1c3f66] lg:left-0 lg:top-3 lg:h-3 lg:w-px" />
                     <span aria-hidden className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-[#f47b20] lg:left-0 lg:top-2" />
                     <p className="font-mono text-xs uppercase tracking-[.25em] text-[#f47b20]">{item.code}</p>
                     <h3 className="mt-3 font-display text-xl font-bold">{item.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-[#9db6cf]">{item.text}</p>
-                  </div>
+                  </MotionReveal>
                 ))}
               </div>
             </div>
@@ -105,11 +107,11 @@ export function AgElectricalServicesPage() {
             </div>
           </div>
           <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 lg:px-10">
-            {gallery.map(([src, alt]) => (
-              <li key={src} className="w-[76vw] shrink-0 snap-start sm:w-[46vw] lg:w-[24vw]">
+            {gallery.map(([src, alt], i) => (
+              <MotionReveal as="li" variant="right" delay={i * 80} key={src} className="w-[76vw] shrink-0 snap-start transition duration-200 hover:-translate-y-1 sm:w-[46vw] lg:w-[24vw]">
                 <PortfolioImage src={`/images/ag-electrical-services/${src}`} alt={alt} width={720} height={960} className="h-64 w-full object-cover lg:h-80" />
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[.18em] text-[#9db6cf]">{alt}</p>
-              </li>
+              </MotionReveal>
             ))}
           </ul>
         </section>
@@ -157,5 +159,6 @@ export function AgElectricalServicesPage() {
       <PortfolioSocialProofPopup clientKey="ag-electrical-services" eyebrow="A&G Electrical Services" title="Sua infraestrutura merece organização e segurança." description="Conte o que precisa instalar, modernizar ou organizar e receba um próximo passo claro." ctaLabel="Ver circuito" ctaHref="#circuito" delayMs={9000} className="border-[#f47b20]/35 bg-[#092c52]/95 text-white" accentClassName="text-[#f47b20]" />
       <PortfolioUpsellPopup pageName="portfolio-ag-electrical-services" />
     </div>
+    </MotionScope>
   );
 }
