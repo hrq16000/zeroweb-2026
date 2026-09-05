@@ -3,6 +3,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 const CARDAPIO = [
   [
@@ -74,6 +75,7 @@ function Onda({ className }: { className?: string }) {
 export function SaboresDaBaiaPage() {
   return (
     <div className="min-h-dvh bg-[#fdf4e6] text-[#173a3d]">
+      <MotionScope intensity="BALANCED">
       <main>
         <section id="inicio" className="relative bg-[#0b6b74] pb-16 pt-10 text-[#eafaf9]">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
@@ -84,13 +86,19 @@ export function SaboresDaBaiaPage() {
               <span className="text-xs font-semibold uppercase tracking-[.24em] text-[#9fd8d5]">Centro · Guaratuba — PR</span>
             </div>
             <div className="mt-14 max-w-3xl">
+              <MotionReveal variant="left">
               <p className="text-sm font-bold uppercase tracking-[.28em] text-[#f6c76a]">Cozinha caiçara</p>
+              </MotionReveal>
+              <MotionReveal variant="up" delay={120}>
               <h1 className="mt-4 text-4xl font-bold leading-[1.06] sm:text-6xl">
             <ManagedText field="heroHeadline" fallback={"Peixe fresco no almo\u00e7o de semana e na mesa cheia de domingo."} />
           </h1>
+              </MotionReveal>
+              <MotionReveal variant="up" delay={240}>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#c9eae8]">
             <ManagedText field="heroSubheadline" fallback={"Um restaurante de esquina que serve executivo r\u00e1pido durante a semana e recebe fam\u00edlias inteiras na temporada \u2014 com o mesmo peixe comprado de manh\u00e3."} />
           </p>
+              </MotionReveal>
               <div className="mt-9 flex flex-wrap gap-4">
                 <Pedir>Fazer meu pedido</Pedir>
                 <a href="#cardapio" className="inline-flex min-h-12 items-center text-sm font-bold uppercase tracking-wide underline underline-offset-8">
@@ -107,12 +115,12 @@ export function SaboresDaBaiaPage() {
             <div key={secao} className="mb-12 last:mb-0">
               <h2 className="text-2xl font-bold text-[#0b6b74]">{secao}</h2>
               <ul className="mt-6">
-                {itens.map(([nome, preco, obs]) => (
-                  <li key={nome} className="flex flex-wrap items-baseline gap-x-3 border-b border-dashed border-[#173a3d]/25 py-4">
+                {itens.map(([nome, preco, obs], i) => (
+                  <MotionReveal as="li" key={nome} variant="left" delay={i * 110} className="group flex flex-wrap items-baseline gap-x-3 border-b border-dashed border-[#173a3d]/25 py-4">
                     <span className="text-lg font-semibold">{nome}</span>
                     <span className="order-3 w-full text-sm text-[#5a7a7c] sm:order-2 sm:w-auto sm:flex-1">{obs}</span>
-                    <span className="order-2 ml-auto text-lg font-bold text-[#ef5f4c] sm:order-3">{preco}</span>
-                  </li>
+                    <span className="order-2 ml-auto text-lg font-bold text-[#ef5f4c] transition-transform duration-200 group-hover:-translate-y-0.5 sm:order-3">{preco}</span>
+                  </MotionReveal>
                 ))}
               </ul>
             </div>
@@ -121,23 +129,23 @@ export function SaboresDaBaiaPage() {
 
         <section className="relative bg-[#f6c76a] py-14">
           <Onda className="absolute inset-x-0 -top-px h-10 w-full rotate-180 text-[#fdf4e6]" />
-          <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
+          <MotionReveal variant="scale" className="mx-auto max-w-4xl px-5 text-center lg:px-8">
             <h2 className="text-2xl font-bold sm:text-3xl">Da maré para a mesa no mesmo dia</h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#4a4223]">
               O peixe chega de manhã, o cardápio se ajusta ao que veio bom e o que não vendeu não volta amanhã. É por
               isso que alguns pratos saem da lista sem aviso.
             </p>
-          </div>
+          </MotionReveal>
         </section>
 
         <section id="horarios" className="mx-auto max-w-4xl px-5 py-16 lg:px-8">
           <h2 className="text-2xl font-bold">Horários</h2>
           <dl className="mt-6 space-y-4">
-            {TEMPORADA.map(([k, v]) => (
-              <div key={k} className="rounded-2xl bg-white p-5 shadow-sm">
+            {TEMPORADA.map(([k, v], i) => (
+              <MotionReveal key={k} variant="right" delay={i * 120} className="rounded-2xl bg-white p-5 shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
                 <dt className="text-sm font-bold uppercase tracking-wide text-[#0b6b74]">{k}</dt>
                 <dd className="mt-1 text-base leading-7 text-[#3e5a5c]">{v}</dd>
-              </div>
+              </MotionReveal>
             ))}
           </dl>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -146,6 +154,7 @@ export function SaboresDaBaiaPage() {
           </div>
         </section>
       </main>
+      </MotionScope>
 
       <footer className="bg-[#0b6b74] px-5 py-8 text-sm text-[#9fd8d5] lg:px-8">
         <div className="mx-auto flex max-w-4xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
