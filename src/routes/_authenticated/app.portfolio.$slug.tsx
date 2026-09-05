@@ -16,6 +16,8 @@ import {
   VISUAL_BADGE_STYLE,
 } from "@/lib/portfolio-visual-quality";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
+import { PortfolioFunnelPanel } from "@/components/admin/PortfolioFunnelPanel";
+
 import {
   auditPortfolioFunnelContext,
   resolvePortfolioFunnelContext,
@@ -527,6 +529,8 @@ function PortfolioAdminDetail() {
       <FunnelContextPanel slug={project.slug} name={project.displayName} />
 
       <VisualQualityPanel slug={project.slug} />
+      <PortfolioFunnelPanel slug={project.slug} title="Desempenho" />
+
     </div>
   );
 }
