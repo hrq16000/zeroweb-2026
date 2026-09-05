@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { shouldEmitSocialProof } from "@/lib/telemetry-v2";
 import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
 import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
 import { useNearFooter } from "@/hooks/useNearFooter";
@@ -43,7 +44,10 @@ export function PortfolioSocialProofPopup({
     let dismissTimer: number | undefined;
     const timer = window.setTimeout(() => {
       setOpen(true);
-      trackEvent("portfolio_social_proof_view", { client_key: clientKey, location: "portfolio_client_site" });
+      // V2: 1 evento por sessão + projeto (remount/reabertura não recontam).
+      if (shouldEmitSocialProof(`portfolio:${clientKey}`)) {
+        trackEvent("portfolio_social_proof_view", { client_key: clientKey, location: "portfolio_client_site" });
+      }
       dismissTimer = window.setTimeout(() => setOpen(false), autoDismissMs);
     }, delayMs);
     return () => {

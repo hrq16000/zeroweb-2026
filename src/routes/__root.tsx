@@ -16,6 +16,7 @@ import faviconAsset from "../assets/favicon-0web.png.asset.json";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { WaFunnelProvider } from "../components/site/WaFunnelModal";
 import { AnalyticsBootstrap } from "../components/site/AnalyticsBootstrap";
+import { TelemetryPageView } from "../components/site/TelemetryPageView";
 import { ErrorState } from "../components/site/ErrorState";
 import { RouteLoader } from "../components/site/RouteLoader";
 import { CartDrawer } from "../components/site/CartDrawer";
@@ -308,6 +309,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <WaFunnelProvider>
         <AnalyticsBootstrap />
+        <TelemetryPageView />
         <AuthErrorGuard />
         <ScrollToTop />
         <RouteLoader />
