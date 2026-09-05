@@ -63,6 +63,49 @@ const COVER_STATUS_LABEL: Record<string, string> = {
 };
 
 /** Bloco compacto de capas: uma fonte de verdade, sem inventário paralelo. */
+type Comparison = {
+  v1: { clones: number; over60: number; clusters: number; highSimilarity: number };
+  v2: { clones: number; over60: number; clusters: number; highSimilarity: number };
+  projects: Array<{ slug: string; v1Score: number; v2Score: number; delta: number }>;
+};
+
+/** Versão da métrica + delta V1 → V2 (exibido por uma rodada após a migração). */
+function MetricVersionBlock() {
+  const version = (originality as { metricVersion?: number }).metricVersion ?? 1;
+  const cmp = (originality as { comparison?: Comparison }).comparison;
+  if (!cmp) return null;
+  const changed = cmp.projects.filter((p) => p.delta !== 0);
+  const avg = changed.length
+    ? Math.round((changed.reduce((s, p) => s + p.delta, 0) / changed.length) * 10) / 10
+    : 0;
+  return (
+    <section className="mt-5 rounded-lg border border-border bg-card p-4">
+      <h2 className="text-sm font-semibold">
+        Métrica v{version} — assinatura real de assets
+      </h2>
+      <p className="mt-1 max-w-[80ch] text-sm text-muted-foreground">
+        Assets passaram a ser identificados por conteúdo (hash), referência canônica e perfil de
+        mídia. Dois arquivos chamados <code>hero.jpg</code> em clientes diferentes deixaram de contar
+        como duplicação. Queda de score é <strong>correção da medição</strong>, não mudança de
+        página.
+      </p>
+      <dl className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {[
+          ["CLONES v1 → v2", `${cmp.v1.clones} → ${cmp.v2.clones}`],
+          ["Acima de 60 v1 → v2", `${cmp.v1.over60} → ${cmp.v2.over60}`],
+          ["Clusters v1 → v2", `${cmp.v1.clusters} → ${cmp.v2.clusters}`],
+          ["Projetos com delta", `${changed.length} (média ${avg})`],
+        ].map(([label, value]) => (
+          <div key={String(label)}>
+            <dt className="text-xs uppercase tracking-wide text-muted-foreground">{label}</dt>
+            <dd className="mt-1 text-base font-semibold">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
 function CoverStatusBlock() {
   const [coverFilter, setCoverFilter] = useState("PENDING");
   const cs = coverStatus.summary;
