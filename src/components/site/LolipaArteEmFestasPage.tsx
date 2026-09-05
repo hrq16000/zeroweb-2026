@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionImageReveal, MotionReveal, MotionScope, MotionTextReveal } from "@/components/motion";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 
 /** Mural de festa: o próprio hero é o mosaico de decorações reais da Lolipa. */
 const mural = [
@@ -32,7 +32,7 @@ export function LolipaArteEmFestasPage() {
       <section id="inicio" className="relative isolate">
         <div className="grid grid-cols-2 gap-1 sm:grid-cols-4">
           {mural.map(([src, alt, span], index) => (
-            <MotionImageReveal key={src} direction={index % 2 === 0 ? "up" : "down"} className={span}>
+            <MotionImageReveal key={src} direction={index % 2 === 0 ? "up" : "left"} className={span}>
             <PortfolioImage
               src={src}
               alt={alt}
@@ -60,12 +60,9 @@ export function LolipaArteEmFestasPage() {
                 className="h-12 w-auto drop-shadow-lg"
               />
             </a>
-            <h1 className="mt-4 max-w-2xl font-display text-3xl font-black leading-[1.02] drop-shadow-md sm:text-6xl">
-              <span className="sr-only">
-                <ManagedText field="heroHeadline" fallback={"Sua festa vira um momento inesquec\u00edvel."} />
-              </span>
-              <MotionTextReveal aria-hidden text={"Sua festa vira um momento inesquec\u00edvel."} />
-            </h1>
+            <MotionReveal as="h1" variant="mask" className="mt-4 max-w-2xl font-display text-3xl font-black leading-[1.02] drop-shadow-md sm:text-6xl">
+              <ManagedText field="heroHeadline" fallback={"Sua festa vira um momento inesquec\u00edvel."} />
+            </MotionReveal>
           </div>
         </div>
       </section>
