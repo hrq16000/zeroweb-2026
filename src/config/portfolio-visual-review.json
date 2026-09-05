@@ -251,11 +251,15 @@
   },
   "artesanatos-darleia-oliveira": {
     "coverReview": "APPROVED",
-    "coverDecision": "REAL_CLIENT_MATERIAL",
-    "notes": "Revisao visual individual 2026-09-05: material fotografico proprio (coadores + xicara) enquadrado 16:10 sem recorte destrutivo. Sem telefone, endereco, @ ou QR.",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "notes": "R11: capa editorial 16:10 derivada do material fotografico proprio (coadores + xicara). Enquadramento dedicado ao card, distinto da imagem social. Sem telefone, e-mail, endereco, preco ou QR.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
-    "coverSource": "public/images/artesanatos-darleia-oliveira/hero-og.png"
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (R11): imagem inspecionada em tamanho real, sem OCR isolado.",
+    "coverSource": "public/images/artesanatos-darleia-oliveira/capa-card.jpg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.5
+    }
   },
   "assistencia-microondas-santos": {
     "coverReview": "APPROVED",
@@ -301,12 +305,16 @@
     "coverBlockReason": "BLOCKED_CONTACT"
   },
   "eisenfer-tubos-acos": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional; resolucao insuficiente para 1600x1000. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "notes": "R11: capa editorial 16:10 recortada da faixa de produtos do material proprio (telhas metalicas reais). Rodape com telefone/site excluido do enquadramento. Sem PII, sem preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
-    "coverBlockReason": "BLOCKED_QUALITY"
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (R11): imagem inspecionada em tamanho real, sem OCR isolado.",
+    "coverSource": "public/images/eisenfer-tubos-acos/capa-card.jpg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.45
+    }
   },
   "emporio-lelecute": {
     "coverReview": "NEEDS_REVIEW",
@@ -424,11 +432,15 @@
   },
   "refrigeracao-maresia": {
     "coverReview": "APPROVED",
-    "coverDecision": "REAL_CLIENT_MATERIAL",
-    "notes": "Revisao visual individual 2026-09-05: banner proprio (marca + produto) recortado 16:10. Flyer com telefone (hero.png/capa.png) permanece fora da capa. Sem PII.",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "notes": "R11: capa editorial 16:10 derivada do banner proprio (marca + geladeira real). Flyer com telefone permanece fora da experiencia publica. Sem PII.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
-    "coverSource": "public/images/refrigeracao-maresia/hero-og.png"
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (R11): imagem inspecionada em tamanho real, sem OCR isolado.",
+    "coverSource": "public/images/refrigeracao-maresia/capa-card.jpg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.5
+    }
   },
   "renata-beauty": {
     "coverReview": "NEEDS_REVIEW",
@@ -440,11 +452,15 @@
   },
   "thays-camilla": {
     "coverReview": "APPROVED",
-    "coverDecision": "REAL_CLIENT_MATERIAL",
-    "notes": "Revisao visual individual 2026-09-05: material proprio (caneca + azulejo personalizados) enquadrado 16:10. Arte promocional com preco nao foi usada. Sem PII.",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "notes": "R11: capa editorial 16:10 derivada do material proprio (caneca + azulejo personalizados). Arte com preco nao foi usada. Sem PII.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
-    "coverSource": "public/images/thays-camilla/hero-og.png"
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (R11): imagem inspecionada em tamanho real, sem OCR isolado.",
+    "coverSource": "public/images/thays-camilla/capa-card.jpg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.5
+    }
   },
   "uberlandia-eletrica-residencial": {
     "coverReview": "NEEDS_REVIEW",

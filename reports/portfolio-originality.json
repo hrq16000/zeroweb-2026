@@ -26,12 +26,12 @@
     "clusters": 0,
     "placeholderLogos": 0,
     "missingLogos": 0,
-    "missingCovers": 26,
-    "coverValid": 30,
-    "coverPending": 38,
+    "missingCovers": 24,
+    "coverValid": 34,
+    "coverPending": 34,
     "coversAsSocialImage": 10,
     "sharedCovers": 0,
-    "severeCrop": 20,
+    "severeCrop": 18,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -259,13 +259,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_MISSING",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "canonicalCoverStatus": "NEEDS_CROP",
-      "canonicalCoverReason": "Asset aprovado é imagem social (OG); precisa de recorte editorial de card.",
-      "coverRatio": 1.9,
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
@@ -813,7 +811,7 @@
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 35.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 11.1,
         "IDENTITY_SIMILARITY": 4.3
       },
       "reasons": [
@@ -821,14 +819,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "canonicalCoverStatus": "NEEDS_CROP",
-      "canonicalCoverReason": "Material real e seguro, mas enquadramento não aprovado.",
-      "coverRatio": 0.67,
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
@@ -2178,14 +2173,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "canonicalCoverStatus": "NEEDS_CROP",
-      "canonicalCoverReason": "Asset aprovado é imagem social (OG); precisa de recorte editorial de card.",
-      "coverRatio": 2.72,
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
@@ -2545,13 +2537,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_MISSING",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "canonicalCoverStatus": "NEEDS_CROP",
-      "canonicalCoverReason": "Asset aprovado é imagem social (OG); precisa de recorte editorial de card.",
-      "coverRatio": 1.9,
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
@@ -3482,12 +3472,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "jkl-marcenaria",
-          "score": 39,
+          "slug": "no-brilho-higienizacao",
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
-          "slug": "no-brilho-higienizacao",
+          "slug": "jkl-marcenaria",
           "score": 39,
           "reason": "DISTINCT"
         }
@@ -3959,7 +3949,7 @@
         },
         {
           "slug": "eisenfer-tubos-acos",
-          "score": 39,
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
@@ -4341,12 +4331,12 @@
       "clusters": 0,
       "placeholderLogos": 0,
       "missingLogos": 0,
-      "missingCovers": 26,
-      "coverValid": 30,
-      "coverPending": 38,
+      "missingCovers": 24,
+      "coverValid": 34,
+      "coverPending": 34,
       "coversAsSocialImage": 10,
       "sharedCovers": 0,
-      "severeCrop": 20,
+      "severeCrop": 18,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
@@ -4365,7 +4355,7 @@
         "key": "missingCovers",
         "label": "capas sem arquivo no catálogo (legado)",
         "before": 27,
-        "after": 26
+        "after": 24
       },
       {
         "kind": "MODIFIED_PROJECT",

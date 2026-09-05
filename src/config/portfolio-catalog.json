@@ -352,7 +352,7 @@
     "subtitle": "Conserto e manutenção de geladeiras e freezers",
     "location": "Curitiba e Região Metropolitana — PR",
     "badge": "Projeto publicado",
-    "image": "/images/refrigeracao-maresia/logo.png",
+    "image": "/images/refrigeracao-maresia/capa-card.jpg",
     "fallbackImage": "/images/refrigeracao-maresia/hero.png",
     "metrics": "Orçamento sob consulta",
     "summary": "Presença digital da Refrigeração Maresia para atendimento de geladeiras e freezers, com peças originais, garantia de serviço e resposta rápida pelo WhatsApp."
@@ -699,7 +699,7 @@
     "subtitle": "Tubos, perfis, chapas e telhas metálicas",
     "location": "Três Marias · São José dos Pinhais — PR",
     "badge": "Novo projeto",
-    "image": "/images/eisenfer-tubos-acos/telhas.webp",
+    "image": "/images/eisenfer-tubos-acos/capa-card.jpg",
     "fallbackImage": "/images/eisenfer-tubos-acos/tubos.webp",
     "metrics": "Cotação especializada",
     "summary": "Venda de tubos quadrados, retangulares, redondos, perfis, chapas lisas e frisadas e telhas TP40 simples e sanduíche."
@@ -1340,7 +1340,8 @@
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
     "metrics": "Pedidos sob consulta",
-    "summary": "Presença digital da Artesanatos Darléia Oliveira para coadores de café 100% algodão, reutilizáveis e feitos à mão."
+    "summary": "Presença digital da Artesanatos Darléia Oliveira para coadores de café 100% algodão, reutilizáveis e feitos à mão.",
+    "image": "/images/artesanatos-darleia-oliveira/capa-card.jpg"
   },
   {
     "slug": "thays-camilla",
@@ -1361,7 +1362,8 @@
     "location": "São José dos Pinhais — PR",
     "badge": "Projeto real",
     "metrics": "Kit promocional R$ 59,90",
-    "summary": "Presença digital da Thays Camilla para canecas e azulejos personalizados, com kit promocional de caneca + azulejo 15x15 cm."
+    "summary": "Presença digital da Thays Camilla para canecas e azulejos personalizados, com kit promocional de caneca + azulejo 15x15 cm.",
+    "image": "/images/thays-camilla/capa-card.jpg"
   },
   {
     "slug": "fernanda-amaral-drywall",
