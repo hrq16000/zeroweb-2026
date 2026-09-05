@@ -148,11 +148,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               reason: "missing_operational_whatsapp_number",
               fellBackToCentral: false,
             });
-            return htmlErrorPage(
-              "Canal indisponível",
-              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-              503,
-            );
+            return channelNotConfiguredPage();
           }
           finalDigits = contact.digits;
 
