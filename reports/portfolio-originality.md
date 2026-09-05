@@ -1,7 +1,7 @@
 # Originalidade do portfólio
 
 Gerado por `bun run check:portfolio-originality --report`. Determinístico: mesmos
-arquivos produzem o mesmo resultado. Modo atual: **NEW_OR_MODIFIED**.
+arquivos produzem o mesmo resultado. Modo atual: **REPORT_ONLY**.
 
 ## Fórmula
 
