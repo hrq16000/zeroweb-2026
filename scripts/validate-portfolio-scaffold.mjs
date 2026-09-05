@@ -122,7 +122,8 @@ for (const client of clients) {
     /@\/components\/motion/.test(componentSource) ||
     /from "motion\/react"/.test(componentSource) ||
     /\banimate-/.test(componentSource) ||
-    /transition-/.test(componentSource);
+    /\btransition\b|transition-/.test(componentSource) ||
+    /(?:group-)?hover:/.test(componentSource);
   if (!hasMotionSignal) {
     errors.push(`${label} sem nenhum sinal de experiência/motion (página estática)`);
   }
