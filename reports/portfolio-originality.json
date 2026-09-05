@@ -998,18 +998,18 @@
       "title": "Galileu Locação de Brinquedos",
       "segment": "comercios",
       "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "score": 47,
+      "score": 44,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "eletro-solucoes-eficazes",
-      "nearestMatchScore": 47,
+      "nearestMatchScore": 44,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 39,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 47.2,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 44.9,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 9.5
+        "IDENTITY_SIMILARITY": 4.8
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1024,7 +1024,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "d287a23351a224fc",
+        "skeletonHash": "38eecd674112acdf",
         "structureHash": "ea0bc730bb453820",
         "sectionCount": 7,
         "lines": 142
@@ -1375,18 +1375,18 @@
       "title": "L&J Cleaning",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/LjCleaningPage.tsx",
-      "score": 45,
+      "score": 43,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "galileu-locacao-brinquedos",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 43,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 39.7,
         "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 70.7,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 68,
         "COPY_SIMILARITY": 4.8,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 4
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1401,7 +1401,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "7425139e4e4a4757",
+        "skeletonHash": "282f1e1630e37f2a",
         "structureHash": "e1157f707fd34167",
         "sectionCount": 7,
         "lines": 134
@@ -3378,7 +3378,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "galileu-locacao-brinquedos",
+          "slug": "jkl-marcenaria",
           "score": 47,
           "reason": "SAME_FAMILY"
         }
@@ -3454,17 +3454,17 @@
       "galileu-locacao-brinquedos": [
         {
           "slug": "eletro-solucoes-eficazes",
-          "score": 47,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "acai-total-araucaria",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "lj-cleaning",
-          "score": 45,
+          "score": 43,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3624,17 +3624,17 @@
       "lj-cleaning": [
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 45,
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 35,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
           "slug": "premium-envelopamentos",
-          "score": 35,
+          "score": 33,
           "reason": "DISTINCT"
         }
       ],

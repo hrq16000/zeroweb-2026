@@ -981,7 +981,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "galileu-locacao-brinquedos",
+          "slug": "jkl-marcenaria",
           "score": 47,
           "reason": "SAME_FAMILY"
         }
@@ -1171,21 +1171,21 @@
     },
     {
       "slug": "galileu-locacao-brinquedos",
-      "score": 47,
+      "score": 44,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "eletro-solucoes-eficazes",
-      "nearestMatchScore": 47,
+      "nearestMatchScore": 44,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 39,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 47.2,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 44.9,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 9.5
+        "IDENTITY_SIMILARITY": 4.8
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -1197,17 +1197,17 @@
       "nearest": [
         {
           "slug": "eletro-solucoes-eficazes",
-          "score": 47,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "acai-total-araucaria",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "lj-cleaning",
-          "score": 45,
+          "score": 43,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1618,21 +1618,21 @@
     },
     {
       "slug": "lj-cleaning",
-      "score": 45,
+      "score": 43,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "galileu-locacao-brinquedos",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 43,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 39.7,
         "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 70.7,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 68,
         "COPY_SIMILARITY": 4.8,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 4
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -1644,17 +1644,17 @@
       "nearest": [
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 45,
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 35,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
           "slug": "premium-envelopamentos",
-          "score": 35,
+          "score": 33,
           "reason": "DISTINCT"
         }
       ],
