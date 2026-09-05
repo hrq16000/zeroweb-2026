@@ -94,7 +94,7 @@ function PortfolioOriginalityView() {
           ["SHARED_FALLBACK", s.sharedFallback],
           ["Clusters", s.clusters],
           ["Logos placeholder", s.placeholderLogos],
-          ["Capas ausentes", s.missingCovers],
+          ["Capas sem arquivo (legado)", s.missingCovers],
           ["Capa = imagem social", s.coversAsSocialImage],
           ["Crop severo", s.severeCrop],
           ["Marca cruzada", (s as Record<string, number>).invalidCrossClientAssets ?? 0],
