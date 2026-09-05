@@ -74,7 +74,9 @@
     "audit:portfolio-visual-runtime": "node scripts/audit-portfolio-visual-runtime.mjs",
     "check:portfolio-visual-quality": "node scripts/check-portfolio-visual-quality.mjs",
     "check:portfolio-visual-quality:enforce": "node scripts/check-portfolio-visual-quality.mjs --check --enforce",
-    "check:portfolio-originality:enforce": "node scripts/check-portfolio-originality.mjs --report --enforce"
+    "check:portfolio-originality:enforce": "node scripts/check-portfolio-originality.mjs --report --enforce",
+    "check:experience-standard": "node scripts/check-experience-standard.mjs",
+    "check:experience-standard:enforce": "node scripts/check-experience-standard.mjs --enforce"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "doc": "docs/PORTFOLIO_IMMERSIVE_EXPERIENCE_STANDARD.md",
+  "note": "Perfis por segmento são o ponto de partida. `overrides` vence o padrão do segmento. Nenhum perfil é aplicado automaticamente às páginas — a adoção acontece por lote de rollout.",
+  "defaultsBySegment": {
+    "juridico": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "textReveal",
+      "sectionReveal": "fade",
+      "hoverBehavior": "underline",
+      "depthBehavior": "flat"
+    },
+    "saude": {
+      "intensity": "SUBTLE",
+      "preset": "ORGANIC",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "fade",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat"
+    },
+    "beleza": {
+      "intensity": "BALANCED",
+      "preset": "LUXURY",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "mask",
+      "hoverBehavior": "crop",
+      "depthBehavior": "overlap"
+    },
+    "alimentacao": {
+      "intensity": "EXPRESSIVE",
+      "preset": "BOLD",
+      "heroMotion": "layered",
+      "sectionReveal": "stagger",
+      "hoverBehavior": "depth",
+      "depthBehavior": "crossing"
+    },
+    "industria": {
+      "intensity": "BALANCED",
+      "preset": "TECHNICAL",
+      "heroMotion": "textReveal",
+      "sectionReveal": "up",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat"
+    },
+    "construcao": {
+      "intensity": "BALANCED",
+      "preset": "TECHNICAL",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "up",
+      "hoverBehavior": "lift",
+      "depthBehavior": "overlap"
+    },
+    "festas": {
+      "intensity": "EXPRESSIVE",
+      "preset": "PLAYFUL",
+      "heroMotion": "layered",
+      "sectionReveal": "stagger",
+      "hoverBehavior": "depth",
+      "depthBehavior": "crossing"
+    },
+    "servicos": {
+      "intensity": "BALANCED",
+      "preset": "MINIMAL",
+      "heroMotion": "textReveal",
+      "sectionReveal": "up",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat"
+    },
+    "varejo": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "up",
+      "hoverBehavior": "crop",
+      "depthBehavior": "overlap"
+    }
+  },
+  "overrides": {},
+  "decisions": {}
+}
