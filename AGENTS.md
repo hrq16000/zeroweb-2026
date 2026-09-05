@@ -93,3 +93,6 @@ máquina: `src/config/experience-capabilities.json` e
 - Gate: `bun run check:experience-standard` (report-only) e
   `:enforce`. Bloqueia só falha objetiva; nunca por gosto.
 - Rollout em ondas. Não redesenhar projetos autorais já aprovados.
+- Projeto novo só nasce válido com perfil de motion, sinal real de experiência
+  e assinatura própria — ver `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` §19 e
+  `bun run validate:portfolio-scaffold`.

@@ -150,3 +150,26 @@ Cada projeto registra `whyThisMotion`, `signatureMoments`, `motionIntensity`,
 
 A norma é global. A identidade não. Cada domínio tem público, marca, objetivo,
 intensidade, funil e linguagem próprios.
+
+## 19. Contrato de novos projetos (vigente desde a Onda 6)
+
+Nenhum projeto novo entra em `/portfolio/<slug>` sem, já no nascimento:
+
+1. perfil de motion resolvível (`overrides[slug]` ou `defaultsBySegment`,
+   com fallback `default`);
+2. pelo menos um sinal real de experiência no componente do cliente
+   (primitives de `src/components/motion`, `motion/react`, `animate-*`,
+   `transition*` ou `hover:`);
+3. nenhuma animação infinita sem guarda de `prefers-reduced-motion`;
+4. assinatura perceptível própria — não reaproveitar a combinação de outro
+   cliente (reutilizar primitives é infraestrutura, não clone);
+5. funil próprio, capa/logo próprios, SEO próprio e contato só no servidor.
+
+Itens 1–3 são verificados por `bun run validate:portfolio-scaffold`
+(bloqueante). Item 4 é medido por `bun run check:experience-standard`
+(`MOTION_CLONES`, `MOTION_GROUPS`). Item 5 pelos gates já existentes de
+originalidade, capas, boundaries e privacidade.
+
+O nível de experiência publicado no admin vem exclusivamente de
+`src/config/portfolio-experience-levels.json`, gerado pelo gate. Ninguém
+classifica projeto à mão.
