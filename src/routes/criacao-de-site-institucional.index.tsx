@@ -354,8 +354,13 @@ function InstitutionalSitePage() {
               onClick={openModal}
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary"
             >
-              Fazer diagnóstico gratuito <ArrowRight className="w-4 h-4" />
+              Solicitar diagnóstico <ArrowRight className="w-4 h-4" />
             </button>
+            <p className="mt-4 text-xs text-muted-foreground max-w-[60ch] mx-auto">
+              Valores citados nesta página são estimativas iniciais, sujeitas a avaliação detalhada do escopo. O
+              diagnóstico é gratuito e sem compromisso, e garantimos confidencialidade e segurança dos seus dados.
+            </p>
+
           </div>
         </section>
       </main>
