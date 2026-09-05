@@ -157,12 +157,13 @@ function InstitutionalSitePage() {
                 Criação de site institucional
               </p>
               <h1 className="mt-3 text-4xl sm:text-5xl font-bold font-display leading-tight">
-                Um site institucional que <span className="text-gradient">apresenta a empresa e gera contato</span>
+                Criação de site institucional profissional para{" "}
+                <span className="text-gradient">impulsionar seu negócio</span>
               </h1>
               <p className="mt-5 text-lg text-muted-foreground max-w-[60ch]">
-                Estrutura de páginas pensada para busca e conversão, funil de captura integrado ao painel de leads e
-                base técnica de SEO. Comece pelo diagnóstico gratuito: em 6 perguntas indicamos o formato certo e a
-                faixa de investimento — sem compromisso.
+                Desenvolvemos sites que refletem a identidade da sua empresa e são construídos para converter:
+                estrutura pensada para busca, funil de captura integrado ao painel de leads e base técnica de SEO.
+                Agende um diagnóstico gratuito e saiba como.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
@@ -170,15 +171,19 @@ function InstitutionalSitePage() {
                   onClick={openModal}
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary"
                 >
-                  Diagnóstico gratuito <ArrowRight className="w-4 h-4" />
+                  Agende seu diagnóstico gratuito <ArrowRight className="w-4 h-4" />
                 </button>
                 <a
                   href="#diagnostico-institucional"
                   className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 font-semibold"
                 >
-                  Agende diagnóstico na página
+                  Responder aqui na página
                 </a>
               </div>
+              <p className="mt-3 text-xs text-muted-foreground">
+                O diagnóstico é gratuito e sem compromisso. Seus dados ficam confidenciais e são usados apenas para
+                este atendimento.
+              </p>
               <ul className="mt-8 grid sm:grid-cols-2 gap-2 text-sm">
                 {[
                   "Escopo e prazo definidos por escrito",
@@ -192,6 +197,7 @@ function InstitutionalSitePage() {
                   </li>
                 ))}
               </ul>
+
             </div>
 
             <div id="diagnostico-institucional" className="rounded-3xl border border-border bg-card shadow-elegant overflow-hidden scroll-mt-24">
