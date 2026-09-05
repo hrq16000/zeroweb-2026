@@ -124,21 +124,30 @@ for (const { slug, segment, file } of slugFiles) {
   };
   const score =
     signals.primitives * 4 + signals.transitions + signals.hover + signals.animate * 2;
-  const level = score >= 12 ? "PREMIUM" : score >= 4 ? "BASELINE" : "STATIC";
+  const decision = profiles.decisions?.[slug];
+  const hasSignature =
+    Boolean(decision?.signatureMoments) && Object.keys(decision.signatureMoments).length >= 3;
+  let level = score >= 12 ? "PREMIUM" : score >= 4 ? "BASELINE" : "STATIC";
+  if (hasSignature && signals.primitives > 0) level = "SIGNATURE";
   if (level === "STATIC") warnings.push({ code: "EXPERIENCE_STATIC", detail: rel });
-  pages.push({ file: rel, score, level, signals });
+  pages.push({ slug, segment, file: rel, score, level, hasSignature, signals });
 }
 
 const summary = {
   generatedAt: new Date().toISOString(),
+  totalCatalogProjects: catalogProjects.length,
   totalPages: pages.length,
+  auditCoverage: `${Math.round((pages.length / catalogProjects.length) * 100)}%`,
+  missingSlugs,
   premium: pages.filter((p) => p.level === "PREMIUM").length,
+  signature: pages.filter((p) => p.level === "SIGNATURE").length,
   baseline: pages.filter((p) => p.level === "BASELINE").length,
   static: pages.filter((p) => p.level === "STATIC").length,
   errors,
   warnings,
   pages: pages.sort((a, b) => a.score - b.score),
 };
+
 
 fs.mkdirSync(path.join(root, "reports"), { recursive: true });
 fs.writeFileSync(
