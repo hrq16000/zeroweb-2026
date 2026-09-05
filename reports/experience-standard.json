@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T03:46:23.047Z",
+  "generatedAt": "2026-09-05T03:48:09.344Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
@@ -753,6 +753,20 @@
       }
     },
     {
+      "slug": "bh-barreiro-marmitas",
+      "segment": "restaurantes",
+      "file": "src/components/site/BarreiroMarmitasPage.tsx",
+      "score": 40,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
       "slug": "guaratuba-oficina-nautica",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
@@ -763,6 +777,20 @@
         "primitives": 9,
         "transitions": 1,
         "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "uberlandia-eletrica-residencial",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
+      "score": 42,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 2,
         "animate": 0
       }
     },
@@ -781,20 +809,6 @@
       }
     },
     {
-      "slug": "bh-barreiro-marmitas",
-      "segment": "restaurantes",
-      "file": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 44,
-      "level": "PREMIUM",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 11,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
       "slug": "lj-cleaning",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/LjCleaningPage.tsx",
@@ -805,20 +819,6 @@
         "primitives": 10,
         "transitions": 1,
         "hover": 4,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "uberlandia-eletrica-residencial",
-      "segment": "prestadores-de-servicos",
-      "file": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 46,
-      "level": "PREMIUM",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 11,
-        "transitions": 0,
-        "hover": 2,
         "animate": 0
       }
     },
