@@ -339,8 +339,16 @@ export function pageViewKey(path: string | null | undefined, transition: number)
   return `${normalizePath(path)}#${transition}`;
 }
 
+/**
+ * Idempotência do page_view: memória do documento, não sessionStorage.
+ * StrictMode, hidratação e re-render repetem a mesma chave (nenhum evento
+ * extra); um recarregamento real é um documento novo e volta a contar.
+ */
 export function shouldEmitPageView(path: string | null | undefined, transition: number): boolean {
-  return onceInSession(PAGE_VIEW_KEY, pageViewKey(path, transition));
+  const full = `${PAGE_VIEW_KEY}:${pageViewKey(path, transition)}`;
+  if (memoryOnce.has(full)) return false;
+  memoryOnce.add(full);
+  return true;
 }
 
 export function shouldEmitSocialProof(context: string): boolean {
