@@ -48,6 +48,7 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
   return (
     <div className="portfolio-standard-shell">
       <PortfolioVitals slug={slug} />
+      <PortfolioView slug={slug} />
       {standards.shareButton.enabled ? (
         <PortfolioShareButton
           position={standards.shareButton.position}
