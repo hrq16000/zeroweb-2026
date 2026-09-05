@@ -118,11 +118,39 @@ export function portfolioWhatsAppEnvName(clientKey?: string | null): string | nu
                                     ? "HBK_ILUMINACAO_LED_WHATSAPP_NUMBER"
                                     : clientKey === "heloa-gas"
                                       ? "HELOA_GAS_WHATSAPP_NUMBER"
-                                      : null;
-  if (!envName) return null;
-  const digits = (process.env[envName] ?? "").replace(/\D/g, "");
-  if (!digits || digits.length < 10 || digits.length > 15) return null;
-  return { digits };
+                                       : null;
+  if (legacy) return legacy;
+  // Convenção canônica para novos clientes: cadastrar o segredo
+  // PORTFOLIO_WHATSAPP_<CLIENT_KEY> e o canal passa a funcionar sem
+  // qualquer alteração de página, rota ou código.
+  return `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+}
+
+/**
+ * Estado do canal WhatsApp de um projeto. Server-only e sem PII: devolve
+ * apenas o estado de configuração, nunca o número.
+ */
+export type WhatsAppChannelState = "CONFIGURED" | "NOT_CONFIGURED" | "INVALID";
+
+export function getPortfolioWhatsAppChannelState(
+  clientKey?: string | null,
+): WhatsAppChannelState {
+  const envName = portfolioWhatsAppEnvName(clientKey);
+  if (!envName) return "NOT_CONFIGURED";
+  const raw = (process.env[envName] ?? "").trim();
+  if (!raw) return "NOT_CONFIGURED";
+  const digits = raw.replace(/\D/g, "");
+  // Número oficial precisa ser válido; nunca corrigimos silenciosamente.
+  if (digits.length < 10 || digits.length > 15) return "INVALID";
+  return "CONFIGURED";
+}
+
+export function resolvePortfolioWhatsAppContact(
+  clientKey?: string | null,
+): OperationalWhatsAppContact | null {
+  if (getPortfolioWhatsAppChannelState(clientKey) !== "CONFIGURED") return null;
+  const envName = portfolioWhatsAppEnvName(clientKey)!;
+  return { digits: (process.env[envName] ?? "").replace(/\D/g, "") };
 }
 
 // ============================================================================
