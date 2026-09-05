@@ -19,8 +19,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 18,
-    "attention": 44,
-    "highSimilarity": 6,
+    "attention": 46,
+    "highSimilarity": 4,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -78,21 +78,21 @@
       "title": "A&G Electrical Services",
       "segment": "servicos",
       "componentFile": "src/components/site/AgElectricalServicesPage.tsx",
-      "score": 64,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 49,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 64,
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 74.1,
+        "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 83.1,
-        "COPY_SIMILARITY": 1,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 40.4,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "IDENTITY_SIMILARITY": 6.1
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -104,10 +104,10 @@
       "logoSignals": [],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "79b4e66a90812f58",
-        "structureHash": "f859e7b056b5d98b",
+        "skeletonHash": "b61aa93552889e53",
+        "structureHash": "295479295dfc9037",
         "sectionCount": 7,
-        "lines": 28
+        "lines": 162
       }
     },
     {
@@ -1412,21 +1412,21 @@
       "title": "LK Alvenaria",
       "segment": "servicos",
       "componentFile": "src/components/site/LkAlvenariaPage.tsx",
-      "score": 64,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 49,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 64,
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 74.1,
+        "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 83.1,
-        "COPY_SIMILARITY": 1,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 40.4,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "IDENTITY_SIMILARITY": 6.1
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
@@ -1439,10 +1439,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "933f1c34d58bbeba",
-        "structureHash": "44994b0e645e2289",
+        "skeletonHash": "5c25e50b0160297d",
+        "structureHash": "e24ed0aace8ac585",
         "sectionCount": 7,
-        "lines": 27
+        "lines": 149
       }
     },
     {
@@ -1567,16 +1567,16 @@
       "componentFile": "src/components/site/MaridoDeAluguelPage.tsx",
       "score": 39,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "lk-alvenaria",
+      "nearestMatch": "paulo-mestre-de-obras",
       "nearestMatchScore": 39,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 45.8,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 27.8,
-        "STYLE_SIMILARITY": 58,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 8.1
+        "STRUCTURE_SIMILARITY": 40.5,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 23.5,
+        "STYLE_SIMILARITY": 55.2,
+        "COPY_SIMILARITY": 2.9,
+        "ASSET_PATTERN_SIMILARITY": 12.5,
+        "IDENTITY_SIMILARITY": 9.4
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -2062,18 +2062,18 @@
       "title": "Refrigeração Maresia",
       "segment": "servicos",
       "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
-      "score": 55,
+      "score": 53,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 55,
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 53,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 66.7,
+        "STRUCTURE_SIMILARITY": 57.9,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 75,
-        "COPY_SIMILARITY": 3.2,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 7.3
+        "COMPONENT_SIMILARITY": 30.8,
+        "STYLE_SIMILARITY": 83.5,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 37.5,
+        "IDENTITY_SIMILARITY": 4.9
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2642,21 +2642,6 @@
   "clusters": [],
   "topPairs": [
     {
-      "a": "ag-electrical-services",
-      "b": "lk-alvenaria",
-      "score": 64,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 74.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 83.1,
-        "COPY_SIMILARITY": 1,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
-      },
-      "reason": "NEAR_DUPLICATE_LAYOUT"
-    },
-    {
       "a": "artesanatos-darleia-oliveira",
       "b": "thays-camilla",
       "score": 63,
@@ -2868,21 +2853,6 @@
     },
     {
       "a": "diego-montador-moveis",
-      "b": "lk-alvenaria",
-      "score": 56,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 60.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 71.1,
-        "COPY_SIMILARITY": 2.1,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.7
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "diego-montador-moveis",
       "b": "paulo-mestre-de-obras",
       "score": 56,
       "dimensions": {
@@ -2908,21 +2878,6 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 10.7
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "ag-electrical-services",
-      "b": "refrigeracao-maresia",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 66.7,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 75,
-        "COPY_SIMILARITY": 3.2,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 7.3
       },
       "reason": "SAME_FAMILY"
     },
@@ -2972,21 +2927,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "lk-alvenaria",
-      "b": "paulo-mestre-de-obras",
-      "score": 55,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 66.7,
-        "SECTION_ORDER_SIMILARITY": 75,
-        "COMPONENT_SIMILARITY": 53.8,
-        "STYLE_SIMILARITY": 74.4,
-        "COPY_SIMILARITY": 3,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "mp-festas-eventos",
       "b": "thays-camilla",
       "score": 55,
@@ -3013,6 +2953,66 @@
         "COPY_SIMILARITY": 1.2,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "acai-total-araucaria",
+      "b": "ecommerce-on",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 73.5,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 75,
+        "STYLE_SIMILARITY": 77.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 10,
+        "IDENTITY_SIMILARITY": 11.8
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "paulo-mestre-de-obras",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 79.6,
+        "SECTION_ORDER_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 72.9,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 12.5,
+        "IDENTITY_SIMILARITY": 14.7
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "artesanatos-darleia-oliveira",
+      "b": "liz-moraes-nail-designer",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 41.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 85.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 60,
+        "IDENTITY_SIMILARITY": 7
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "artesanatos-darleia-oliveira",
+      "b": "miro-tech",
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 41.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 54.5,
+        "STYLE_SIMILARITY": 60.2,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 60,
+        "IDENTITY_SIMILARITY": 13.3
       },
       "reason": "SAME_FAMILY"
     }
@@ -3046,17 +3046,17 @@
       "ag-electrical-services": [
         {
           "slug": "lk-alvenaria",
-          "score": 64,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "refrigeracao-maresia",
-          "score": 55,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 53,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3220,14 +3220,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
+          "slug": "lk-alvenaria",
           "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "sos-presentes-cosmeticos",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "confeitaria-chyrley": [
@@ -3288,13 +3288,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
+          "slug": "paulo-mestre-de-obras",
           "score": 56,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "paulo-mestre-de-obras",
-          "score": 56,
+          "slug": "acai-total-araucaria",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3641,17 +3641,17 @@
       "lk-alvenaria": [
         {
           "slug": "ag-electrical-services",
-          "score": 64,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "diego-montador-moveis",
-          "score": 56,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "paulo-mestre-de-obras",
-          "score": 55,
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mp-festas-eventos",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3679,13 +3679,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 44,
+          "slug": "lk-alvenaria",
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 43,
+          "slug": "ag-electrical-services",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3708,18 +3708,18 @@
       ],
       "marido-de-aluguel": [
         {
-          "slug": "lk-alvenaria",
-          "score": 39,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "paulo-mestre-de-obras",
           "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "ag-electrical-services",
-          "score": 37,
+          "slug": "rm-fretes",
+          "score": 36,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -3866,13 +3866,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 55,
+          "slug": "aguia-sul-sinalizacao",
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 54,
+          "slug": "ecommerce-on",
+          "score": 48,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3929,18 +3929,18 @@
       ],
       "refrigeracao-maresia": [
         {
-          "slug": "ag-electrical-services",
-          "score": 55,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "liz-moraes-nail-designer",
           "score": 53,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 52,
+          "slug": "artesanatos-darleia-oliveira",
+          "score": 48,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 48,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4041,8 +4041,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 36,
+          "slug": "acai-total-araucaria",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -4160,8 +4160,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 43,
+          "slug": "acai-total-araucaria",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4208,8 +4208,8 @@
       "total": 68,
       "original": 0,
       "acceptable": 18,
-      "attention": 44,
-      "highSimilarity": 6,
+      "attention": 46,
+      "highSimilarity": 4,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
@@ -4230,7 +4230,7 @@
         "key": "highSimilarity",
         "label": "projetos HIGH_SIMILARITY",
         "before": 14,
-        "after": 6
+        "after": 4
       },
       {
         "kind": "COUNTER",
@@ -4238,6 +4238,12 @@
         "label": "capas ausentes",
         "before": 27,
         "after": 26
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "ag-electrical-services",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
       },
       {
         "kind": "MODIFIED_PROJECT",
@@ -4266,6 +4272,12 @@
       {
         "kind": "MODIFIED_PROJECT",
         "slug": "lj-cleaning",
+        "before": "HIGH_SIMILARITY",
+        "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "lk-alvenaria",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
       },
