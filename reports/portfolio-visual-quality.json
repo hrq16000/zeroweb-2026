@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T03:46:30.804Z",
+  "generatedAt": "2026-09-05T15:56:25.233Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -25,21 +25,21 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 30,
-      "STANDARD": 38,
+      "PREMIUM": 31,
+      "STANDARD": 37,
       "NEEDS_UPGRADE": 0
     },
     "originality": {
-      "PASS": 21,
-      "WARNING": 47,
+      "PASS": 26,
+      "WARNING": 42,
       "FAIL": 0,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 46,
-      "P2": 147,
-      "P3": 49
+      "P1": 44,
+      "P2": 141,
+      "P3": 48
     },
     "averageScore": 87
   },
@@ -67,7 +67,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 58,
+      "originalityScore": 59,
       "originalityStatus": "WARNING",
       "originalityNearest": "aguia-sul-sinalizacao",
       "contentSimilarity": null,
@@ -168,129 +168,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "58 vs aguia-sul-sinalizacao"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "eisenfer-tubos-acos",
-      "businessName": "Eisenfer Tubos e Aços",
-      "segment": "construcao",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 74,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 1,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 42,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o projeto e os materiais que precisa cotar.",
-      "funnelCta": "Solicitar cotação",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/eisenfer-tubos-acos/telhas.webp",
-          "hash": "a3c1dbfbe568ba4cdafdf5aabdf4b730ddcf80b3",
-          "bytes": 265604,
-          "width": 1024,
-          "height": 1536
-        },
-        "cover": {
-          "path": "/images/eisenfer-tubos-acos/telhas.webp",
-          "hash": "a3c1dbfbe568ba4cdafdf5aabdf4b730ddcf80b3",
-          "bytes": 265604,
-          "width": 1024,
-          "height": 1536
-        },
-        "social": {
-          "path": "/images/eisenfer-tubos-acos/telhas-og.jpg",
-          "hash": "9c5137c67a37c4e4eab3505989b5d464fbf61b76",
-          "bytes": 143041,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Aço cortado na medidada sua obra.",
-        "heroHeight": 796,
-        "editorialChars": 2223,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 3,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/eisenfer-tubos-acos/telhas.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.67"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/eisenfer-tubos-acos/telhas.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs lucas-arruma-maquina-lavar"
+          "detail": "59 vs aguia-sul-sinalizacao"
         }
       ],
       "priority": 2
@@ -413,128 +291,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "50 vs eletrovale-eletromecanica"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "espaco-cih-luh",
-      "businessName": "Espaço CIH & LUH",
-      "segment": "beleza",
-      "city": "Manaus",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 74,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 1,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 42,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "salao-da-marcia",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
-      "funnelCta": "Escolher atendimento",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/espaco-cih-luh/promocao.webp",
-          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
-          "bytes": 88810,
-          "width": 1122,
-          "height": 1402
-        },
-        "cover": {
-          "path": "/images/espaco-cih-luh/promocao.webp",
-          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
-          "bytes": 88810,
-          "width": 1122,
-          "height": 1402
-        },
-        "social": {
-          "path": "/images/espaco-cih-luh/promocao-og.jpg",
-          "hash": "096aff4bc6ec49cb4592cc5428e991e5e39290c5",
-          "bytes": 81042,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Mãos que transformam. Pés que sustentam.",
-        "heroHeight": 885,
-        "editorialChars": 2268,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 3,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/espaco-cih-luh/promocao.webp"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.80"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/espaco-cih-luh/promocao.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs salao-da-marcia"
         }
       ],
       "priority": 2
@@ -693,7 +449,7 @@
       },
       "originalityScore": 59,
       "originalityStatus": "WARNING",
-      "originalityNearest": "acai-total-araucaria",
+      "originalityNearest": "diego-montador-moveis",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -785,18 +541,18 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "59 vs acai-total-araucaria"
+          "detail": "59 vs diego-montador-moveis"
         }
       ],
       "priority": 2
     },
     {
-      "slug": "bh-barreiro-marmitas",
-      "businessName": "Marmitas do Barreiro",
-      "segment": "restaurantes",
-      "city": "Belo Horizonte",
+      "slug": "espaco-cih-luh",
+      "businessName": "Espaço CIH & LUH",
+      "segment": "beleza",
+      "city": "Manaus",
       "componentType": "custom",
-      "componentFile": "src/components/site/BarreiroMarmitasPage.tsx",
+      "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -804,46 +560,46 @@
       "score": 78,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
+        "logo": 6,
+        "cover": 1,
+        "hero": 15,
         "images": 6,
         "content": 10,
-        "originality": 6,
+        "originality": 10,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 41,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "miro-tech",
+      "originalityScore": 38,
+      "originalityStatus": "PASS",
+      "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
-      "charm": "LOW",
+      "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "pedido",
+      "funnelIntent": "agendamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte sua rotina e o tipo de refeição que deseja receber no dia a dia.",
-      "funnelCta": "Ver marmitas do dia",
+      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
+      "funnelCta": "Escolher atendimento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/bh-barreiro-marmitas/logo.svg",
-          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
-          "bytes": 841,
-          "width": 900,
-          "height": 300
+          "path": "/images/espaco-cih-luh/promocao.webp",
+          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
+          "bytes": 88810,
+          "width": 1122,
+          "height": 1402
         },
         "cover": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
-          "bytes": 34485,
-          "width": 1200,
-          "height": 630
+          "path": "/images/espaco-cih-luh/promocao.webp",
+          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
+          "bytes": 88810,
+          "width": 1122,
+          "height": 1402
         },
         "social": {
-          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
-          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
-          "bytes": 34485,
+          "path": "/images/espaco-cih-luh/promocao-og.jpg",
+          "hash": "096aff4bc6ec49cb4592cc5428e991e5e39290c5",
+          "bytes": 81042,
           "width": 1200,
           "height": 630
         },
@@ -852,34 +608,41 @@
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "O almoço da semanajá está no quadro.",
-        "heroHeight": 807,
-        "editorialChars": 2074,
-        "smallTargets": 3,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Mãos que transformam. Pés que sustentam.",
+        "heroHeight": 885,
+        "editorialChars": 2268,
+        "smallTargets": 1,
         "consoleErrors": 0
       },
       "severities": {
         "P0": 0,
-        "P1": 1,
-        "P2": 4,
+        "P1": 2,
+        "P2": 2,
         "P3": 1
       },
       "issues": [
         {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/espaco-cih-luh/promocao.webp"
         },
         {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
           "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.80"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/espaco-cih-luh/promocao.webp"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -889,25 +652,11 @@
           "detail": null
         },
         {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
           "code": "FEW_IMAGES",
           "severity": "P2",
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs miro-tech"
         }
       ],
       "priority": 2
@@ -1380,128 +1129,6 @@
       "priority": 2
     },
     {
-      "slug": "uberlandia-eletrica-residencial",
-      "businessName": "Elétrica Bairro Brasil",
-      "segment": "prestadores-de-servicos",
-      "city": "Uberlândia",
-      "componentType": "custom",
-      "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 78,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 11,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 41,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "bh-barreiro-marmitas",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Descreva o ambiente e a instalação elétrica que precisa revisar.",
-      "funnelCta": "Descrever o serviço elétrico",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
-          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
-          "bytes": 730,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
-          "bytes": 33929,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
-          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
-          "bytes": 33929,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 4,
-        "desktopImages": 4,
-        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
-        "heroHeight": 996,
-        "editorialChars": 2554,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 4,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs bh-barreiro-marmitas"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "liz-moraes-nail-designer",
       "businessName": "Liz Moraes Nail Designer",
       "segment": "beleza",
@@ -1526,7 +1153,7 @@
       },
       "originalityScore": 54,
       "originalityStatus": "WARNING",
-      "originalityNearest": "denise-gomes-psicologa",
+      "originalityNearest": "mp-festas-eventos",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -1618,7 +1245,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "54 vs denise-gomes-psicologa"
+          "detail": "54 vs mp-festas-eventos"
         }
       ],
       "priority": 2
@@ -1646,7 +1273,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 28,
+      "originalityScore": 30,
       "originalityStatus": "PASS",
       "originalityNearest": "reuse-house-brecho",
       "contentSimilarity": null,
@@ -1761,7 +1388,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 31,
+      "originalityScore": 30,
       "originalityStatus": "PASS",
       "originalityNearest": "heloa-gas",
       "contentSimilarity": null,
@@ -1883,7 +1510,7 @@
         "mobile": 10,
         "social": 2
       },
-      "originalityScore": 39,
+      "originalityScore": 38,
       "originalityStatus": "PASS",
       "originalityNearest": "paulo-mestre-de-obras",
       "contentSimilarity": null,
@@ -1976,6 +1603,121 @@
       "priority": 2
     },
     {
+      "slug": "bh-barreiro-marmitas",
+      "businessName": "Marmitas do Barreiro",
+      "segment": "restaurantes",
+      "city": "Belo Horizonte",
+      "componentType": "custom",
+      "componentFile": "src/components/site/BarreiroMarmitasPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 39,
+      "originalityStatus": "PASS",
+      "originalityNearest": "miro-tech",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte sua rotina e o tipo de refeição que deseja receber no dia a dia.",
+      "funnelCta": "Ver marmitas do dia",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/bh-barreiro-marmitas/logo.svg",
+          "hash": "2c8334623a7c1992deb44e375466819eeecf6d11",
+          "bytes": 841,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
+          "bytes": 34485,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/bh-barreiro-marmitas/hero-og.jpg",
+          "hash": "484fb8fe767ebb4efd81c58c4db0828fc6e32c2c",
+          "bytes": 34485,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "O almoço da semanajá está no quadro.",
+        "heroHeight": 807,
+        "editorialChars": 2074,
+        "smallTargets": 3,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/bh-barreiro-marmitas/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "confeitaria-sabor-da-realeza",
       "businessName": "Confeitaria Sabor da Realeza",
       "segment": "restaurantes",
@@ -1998,9 +1740,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 49,
+      "originalityScore": 51,
       "originalityStatus": "WARNING",
-      "originalityNearest": "denise-gomes-psicologa",
+      "originalityNearest": "sos-presentes-cosmeticos",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -2085,7 +1827,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs denise-gomes-psicologa"
+          "detail": "51 vs sos-presentes-cosmeticos"
         }
       ],
       "priority": 2
@@ -2113,7 +1855,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 40,
+      "originalityScore": 36,
       "originalityStatus": "PASS",
       "originalityNearest": "casa-nativa",
       "contentSimilarity": null,
@@ -2228,7 +1970,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 32,
+      "originalityScore": 26,
       "originalityStatus": "PASS",
       "originalityNearest": "bh-barreiro-marmitas",
       "contentSimilarity": null,
@@ -2343,7 +2085,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 51,
+      "originalityScore": 48,
       "originalityStatus": "WARNING",
       "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
@@ -2430,7 +2172,122 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs liz-moraes-nail-designer"
+          "detail": "48 vs liz-moraes-nail-designer"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "uberlandia-eletrica-residencial",
+      "businessName": "Elétrica Bairro Brasil",
+      "segment": "prestadores-de-servicos",
+      "city": "Uberlândia",
+      "componentType": "custom",
+      "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 5,
+        "hero": 11,
+        "images": 6,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 37,
+      "originalityStatus": "PASS",
+      "originalityNearest": "bh-barreiro-marmitas",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o ambiente e a instalação elétrica que precisa revisar.",
+      "funnelCta": "Descrever o serviço elétrico",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/uberlandia-eletrica-residencial/logo.svg",
+          "hash": "83cae55845b561f4b545137e8fb3a185b8e9f59c",
+          "bytes": 730,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
+          "bytes": 33929,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+          "hash": "a6c836275e4c3ce9f47612fa16683a399b1b2cf9",
+          "bytes": 33929,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Instalação elétrica que passa em teste, não em improviso.",
+        "heroHeight": 996,
+        "editorialChars": 2554,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 3,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_NOT_DEDICATED",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/uberlandia-eletrica-residencial/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
         }
       ],
       "priority": 2
@@ -2458,7 +2315,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 45,
+      "originalityScore": 46,
       "originalityStatus": "WARNING",
       "originalityNearest": "toquinho-de-gente-brecho",
       "contentSimilarity": null,
@@ -2538,7 +2395,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs toquinho-de-gente-brecho"
+          "detail": "46 vs toquinho-de-gente-brecho"
         }
       ],
       "priority": 2
@@ -2674,7 +2531,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 49,
+      "originalityScore": 51,
       "originalityStatus": "WARNING",
       "originalityNearest": "ag-electrical-services",
       "contentSimilarity": null,
@@ -2754,7 +2611,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs ag-electrical-services"
+          "detail": "51 vs ag-electrical-services"
         }
       ],
       "priority": 2
@@ -2890,7 +2747,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 49,
+      "originalityScore": 50,
       "originalityStatus": "WARNING",
       "originalityNearest": "rj-servicos-drywall",
       "contentSimilarity": null,
@@ -2970,7 +2827,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs rj-servicos-drywall"
+          "detail": "50 vs rj-servicos-drywall"
         }
       ],
       "priority": 2
@@ -2998,9 +2855,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 37,
+      "originalityScore": 35,
       "originalityStatus": "PASS",
-      "originalityNearest": "guaratuba-atelie-presentes",
+      "originalityNearest": "mirassol-delicias-caseiras",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -3106,7 +2963,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 40,
+      "originalityScore": 34,
       "originalityStatus": "PASS",
       "originalityNearest": "raphael-construcoes",
       "contentSimilarity": null,
@@ -3394,107 +3251,6 @@
       "priority": 2
     },
     {
-      "slug": "manu-pasteis",
-      "businessName": "Manu Pastéis",
-      "segment": "restaurantes",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/ManuPasteisPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 89,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 10,
-        "hero": 15,
-        "images": 10,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 41,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "miro-tech",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.",
-      "funnelCta": "Abrir cardápio",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/manu-pasteis/logo.png",
-          "hash": "d486c052f38ca8e8d6c869776b535cadcbe7a115",
-          "bytes": 1401484,
-          "width": 1672,
-          "height": 941
-        },
-        "cover": {
-          "path": "/images/manu-pasteis/capa-card.jpg",
-          "hash": "86ebfaf0f2b51bfa34b9fb1df65085d385efd363",
-          "bytes": 64777,
-          "width": 720,
-          "height": 450
-        },
-        "social": {
-          "path": "/images/manu-pasteis/hero-og.jpg",
-          "hash": "51267cd780b2e37eb1cc4bab1ec9411c2e3188a3",
-          "bytes": 113348,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Terçooou, minha gente. Bora comer pastel?",
-        "heroHeight": 1364,
-        "editorialChars": 1930,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "720x450"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "2 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs miro-tech"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "ag-electrical-services",
       "businessName": "A&G Electrical Services",
       "segment": "servicos",
@@ -3517,7 +3273,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 49,
+      "originalityScore": 51,
       "originalityStatus": "WARNING",
       "originalityNearest": "lk-alvenaria",
       "contentSimilarity": null,
@@ -3583,7 +3339,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs lk-alvenaria"
+          "detail": "51 vs lk-alvenaria"
         }
       ],
       "priority": 2
@@ -3611,7 +3367,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 36,
+      "originalityScore": 35,
       "originalityStatus": "PASS",
       "originalityNearest": "marido-de-aluguel",
       "contentSimilarity": null,
@@ -3683,6 +3439,100 @@
       "priority": 2
     },
     {
+      "slug": "manu-pasteis",
+      "businessName": "Manu Pastéis",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/ManuPasteisPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 93,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 39,
+      "originalityStatus": "PASS",
+      "originalityNearest": "miro-tech",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha seus sabores no menu online e, se precisar, fale com a loja para tirar dúvidas.",
+      "funnelCta": "Abrir cardápio",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/manu-pasteis/logo.png",
+          "hash": "d486c052f38ca8e8d6c869776b535cadcbe7a115",
+          "bytes": 1401484,
+          "width": 1672,
+          "height": 941
+        },
+        "cover": {
+          "path": "/images/manu-pasteis/capa-card.jpg",
+          "hash": "86ebfaf0f2b51bfa34b9fb1df65085d385efd363",
+          "bytes": 64777,
+          "width": 720,
+          "height": 450
+        },
+        "social": {
+          "path": "/images/manu-pasteis/hero-og.jpg",
+          "hash": "51267cd780b2e37eb1cc4bab1ec9411c2e3188a3",
+          "bytes": 113348,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Terçooou, minha gente. Bora comer pastel?",
+        "heroHeight": 1364,
+        "editorialChars": 1930,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "720x450"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "paraiso-do-hot-dog",
       "businessName": "Paraíso do Hot Dog",
       "segment": "servicos",
@@ -3707,7 +3557,7 @@
       },
       "originalityScore": 24,
       "originalityStatus": "PASS",
-      "originalityNearest": "refrigeracao-maresia",
+      "originalityNearest": "miro-tech",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "APPROVED",
@@ -3792,7 +3642,7 @@
         "mobile": 10,
         "social": 2
       },
-      "originalityScore": 36,
+      "originalityScore": 38,
       "originalityStatus": "PASS",
       "originalityNearest": "miro-tech",
       "contentSimilarity": null,
@@ -3881,7 +3731,7 @@
       },
       "originalityScore": 42,
       "originalityStatus": "WARNING",
-      "originalityNearest": "marmitaria-dom-diego",
+      "originalityNearest": "dlara-pizzaria",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
@@ -3966,7 +3816,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs marmitaria-dom-diego"
+          "detail": "42 vs dlara-pizzaria"
         }
       ],
       "priority": 3
@@ -3996,7 +3846,7 @@
       },
       "originalityScore": 43,
       "originalityStatus": "WARNING",
-      "originalityNearest": "confeitaria-sabor-da-realeza",
+      "originalityNearest": "lk-alvenaria",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -4081,7 +3931,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "43 vs confeitaria-sabor-da-realeza"
+          "detail": "43 vs lk-alvenaria"
         }
       ],
       "priority": 3
@@ -4217,9 +4067,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 44,
+      "originalityScore": 46,
       "originalityStatus": "WARNING",
-      "originalityNearest": "acai-total-araucaria",
+      "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
@@ -4297,7 +4147,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs acai-total-araucaria"
+          "detail": "46 vs eletro-solucoes-eficazes"
         }
       ],
       "priority": 3
@@ -4325,7 +4175,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 28,
+      "originalityScore": 31,
       "originalityStatus": "PASS",
       "originalityNearest": "guaratuba-atelie-presentes",
       "contentSimilarity": null,
@@ -4440,7 +4290,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 40,
+      "originalityScore": 36,
       "originalityStatus": "PASS",
       "originalityNearest": "guaratuba-oficina-nautica",
       "contentSimilarity": null,
@@ -4555,7 +4405,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 41,
+      "originalityScore": 42,
       "originalityStatus": "WARNING",
       "originalityNearest": "angel-mix-brecho",
       "contentSimilarity": null,
@@ -4635,115 +4485,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs angel-mix-brecho"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "marmitaria-dom-diego",
-      "businessName": "Marmitaria Dom Diego",
-      "segment": "restaurantes",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 86,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 6,
-        "content": 8,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 44,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "toquinho-de-gente-brecho",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o que procura no cardápio e como prefere fazer o pedido.",
-      "funnelCta": "Conhecer cardápio",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/marmitaria-dom-diego/capa.png",
-          "hash": "aa604e181447c7df681024372af241728b6beb19",
-          "bytes": 2325447,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/marmitaria-dom-diego/capa-card.jpg",
-          "hash": "2eeeb2a1777e0b47d08f1aa876e7a0d8c1f2e37e",
-          "bytes": 194734,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/marmitaria-dom-diego/capa-og.jpg",
-          "hash": "293db291743db9116d8b277068f1c19b918d83d2",
-          "bytes": 117820,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Comida de casa para o almoço de todo dia.",
-        "heroHeight": 611,
-        "editorialChars": 1725,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 3,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/marmitaria-dom-diego/capa.png"
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "CONTENT_SHORT_SERVICES",
-          "severity": "P3",
-          "group": "content",
-          "label": "Serviços pouco explicados",
-          "detail": "1 menções"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs toquinho-de-gente-brecho"
+          "detail": "42 vs angel-mix-brecho"
         }
       ],
       "priority": 3
@@ -4771,9 +4513,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 38,
+      "originalityScore": 30,
       "originalityStatus": "PASS",
-      "originalityNearest": "angel-mix-brecho",
+      "originalityNearest": "beto-pasteis",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -4879,7 +4621,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 45,
+      "originalityScore": 46,
       "originalityStatus": "WARNING",
       "originalityNearest": "woodhouse-hamburgueres",
       "contentSimilarity": null,
@@ -4959,7 +4701,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs woodhouse-hamburgueres"
+          "detail": "46 vs woodhouse-hamburgueres"
         }
       ],
       "priority": 3
@@ -4987,9 +4729,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 54,
+      "originalityScore": 53,
       "originalityStatus": "WARNING",
-      "originalityNearest": "liz-moraes-nail-designer",
+      "originalityNearest": "mp-festas-eventos",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "NEEDS_REVIEW",
@@ -5067,7 +4809,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "54 vs liz-moraes-nail-designer"
+          "detail": "53 vs mp-festas-eventos"
         }
       ],
       "priority": 3
@@ -5196,9 +4938,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 31,
+      "originalityScore": 24,
       "originalityStatus": "PASS",
-      "originalityNearest": "marmitaria-dom-diego",
+      "originalityNearest": "toquinho-de-gente-brecho",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -5275,6 +5017,201 @@
       "priority": 3
     },
     {
+      "slug": "marmitaria-dom-diego",
+      "businessName": "Marmitaria Dom Diego",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 6,
+        "content": 8,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 32,
+      "originalityStatus": "PASS",
+      "originalityNearest": "angel-mix-brecho",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que procura no cardápio e como prefere fazer o pedido.",
+      "funnelCta": "Conhecer cardápio",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/marmitaria-dom-diego/capa.png",
+          "hash": "aa604e181447c7df681024372af241728b6beb19",
+          "bytes": 2325447,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/marmitaria-dom-diego/capa-card.jpg",
+          "hash": "2eeeb2a1777e0b47d08f1aa876e7a0d8c1f2e37e",
+          "bytes": 194734,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/marmitaria-dom-diego/capa-og.jpg",
+          "hash": "293db291743db9116d8b277068f1c19b918d83d2",
+          "bytes": 117820,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Comida de casa para o almoço de todo dia.",
+        "heroHeight": 611,
+        "editorialChars": 1725,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/marmitaria-dom-diego/capa.png"
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "1 menções"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "eisenfer-tubos-acos",
+      "businessName": "Eisenfer Tubos e Aços",
+      "segment": "construcao",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 92,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 42,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "no-brilho-higienizacao",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o projeto e os materiais que precisa cotar.",
+      "funnelCta": "Solicitar cotação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/eisenfer-tubos-acos/telhas.webp",
+          "hash": "a3c1dbfbe568ba4cdafdf5aabdf4b730ddcf80b3",
+          "bytes": 265604,
+          "width": 1024,
+          "height": 1536
+        },
+        "cover": {
+          "path": "/images/eisenfer-tubos-acos/capa-card.jpg",
+          "hash": "0dbf6d9d7521eabc858b946bb4cd942b451eb1d2",
+          "bytes": 147268,
+          "width": 1024,
+          "height": 640
+        },
+        "social": {
+          "path": "/images/eisenfer-tubos-acos/telhas-og.jpg",
+          "hash": "9c5137c67a37c4e4eab3505989b5d464fbf61b76",
+          "bytes": 143041,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Aço cortado na medidada sua obra.",
+        "heroHeight": 796,
+        "editorialChars": 2223,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/eisenfer-tubos-acos/telhas.webp"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "42 vs no-brilho-higienizacao"
+        }
+      ],
+      "priority": 3
+    },
+    {
       "slug": "lucas-arruma-maquina-lavar",
       "businessName": "Lucas Arruma Máquina de Lavar",
       "segment": "servicos",
@@ -5297,9 +5234,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 47,
+      "originalityScore": 44,
       "originalityStatus": "WARNING",
-      "originalityNearest": "no-brilho-higienizacao",
+      "originalityNearest": "denise-gomes-psicologa",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -5363,7 +5300,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs no-brilho-higienizacao"
+          "detail": "44 vs denise-gomes-psicologa"
         }
       ],
       "priority": 3
@@ -5391,9 +5328,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 47,
+      "originalityScore": 42,
       "originalityStatus": "WARNING",
-      "originalityNearest": "lucas-arruma-maquina-lavar",
+      "originalityNearest": "eisenfer-tubos-acos",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -5457,7 +5394,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs lucas-arruma-maquina-lavar"
+          "detail": "42 vs eisenfer-tubos-acos"
         }
       ],
       "priority": 3
@@ -5485,7 +5422,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 56,
+      "originalityScore": 55,
       "originalityStatus": "WARNING",
       "originalityNearest": "diego-montador-moveis",
       "contentSimilarity": null,
@@ -5558,7 +5495,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "56 vs diego-montador-moveis"
+          "detail": "55 vs diego-montador-moveis"
         }
       ],
       "priority": 3
@@ -5586,7 +5523,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 40,
+      "originalityScore": 34,
       "originalityStatus": "PASS",
       "originalityNearest": "ton-e-cor",
       "contentSimilarity": null,
@@ -5687,7 +5624,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 49,
+      "originalityScore": 50,
       "originalityStatus": "WARNING",
       "originalityNearest": "fernanda-amaral-drywall",
       "contentSimilarity": null,
@@ -5753,7 +5690,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs fernanda-amaral-drywall"
+          "detail": "50 vs fernanda-amaral-drywall"
         }
       ],
       "priority": 3
@@ -5781,7 +5718,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 42,
+      "originalityScore": 41,
       "originalityStatus": "WARNING",
       "originalityNearest": "diego-montador-moveis",
       "contentSimilarity": null,
@@ -5847,7 +5784,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs diego-montador-moveis"
+          "detail": "41 vs diego-montador-moveis"
         }
       ],
       "priority": 3
@@ -5875,9 +5812,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 50,
+      "originalityScore": 51,
       "originalityStatus": "WARNING",
-      "originalityNearest": "mp-festas-eventos",
+      "originalityNearest": "confeitaria-sabor-da-realeza",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -5941,7 +5878,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs mp-festas-eventos"
+          "detail": "51 vs confeitaria-sabor-da-realeza"
         }
       ],
       "priority": 3
@@ -5969,7 +5906,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 54,
+      "originalityScore": 53,
       "originalityStatus": "WARNING",
       "originalityNearest": "mp-festas-eventos",
       "contentSimilarity": null,
@@ -6035,7 +5972,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "54 vs mp-festas-eventos"
+          "detail": "53 vs mp-festas-eventos"
         }
       ],
       "priority": 3
@@ -6063,7 +6000,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 33,
+      "originalityScore": 32,
       "originalityStatus": "PASS",
       "originalityNearest": "jc-revestimentos",
       "contentSimilarity": null,
@@ -6258,7 +6195,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 59,
+      "originalityScore": 58,
       "originalityStatus": "WARNING",
       "originalityNearest": "aguia-sul-sinalizacao",
       "contentSimilarity": null,
@@ -6317,7 +6254,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "59 vs aguia-sul-sinalizacao"
+          "detail": "58 vs aguia-sul-sinalizacao"
         }
       ],
       "priority": 3
@@ -6347,7 +6284,7 @@
       },
       "originalityScore": 42,
       "originalityStatus": "WARNING",
-      "originalityNearest": "thays-camilla",
+      "originalityNearest": "lk-alvenaria",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -6404,7 +6341,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs thays-camilla"
+          "detail": "42 vs lk-alvenaria"
         }
       ],
       "priority": 3
@@ -6432,7 +6369,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 51,
+      "originalityScore": 49,
       "originalityStatus": "WARNING",
       "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
@@ -6491,7 +6428,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs liz-moraes-nail-designer"
+          "detail": "49 vs liz-moraes-nail-designer"
         }
       ],
       "priority": 3
@@ -6519,7 +6456,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 48,
+      "originalityScore": 45,
       "originalityStatus": "WARNING",
       "originalityNearest": "lj-cleaning",
       "contentSimilarity": null,
@@ -6578,7 +6515,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs lj-cleaning"
+          "detail": "45 vs lj-cleaning"
         }
       ],
       "priority": 3
@@ -6606,9 +6543,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 35,
+      "originalityScore": 32,
       "originalityStatus": "PASS",
-      "originalityNearest": "ton-e-cor",
+      "originalityNearest": "hbk-iluminacao-led",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "NEEDS_REVIEW",
@@ -6700,7 +6637,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 48,
+      "originalityScore": 45,
       "originalityStatus": "WARNING",
       "originalityNearest": "galileu-locacao-brinquedos",
       "contentSimilarity": null,
@@ -6759,7 +6696,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs galileu-locacao-brinquedos"
+          "detail": "45 vs galileu-locacao-brinquedos"
         }
       ],
       "priority": 3
@@ -6787,7 +6724,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 51,
+      "originalityScore": 50,
       "originalityStatus": "WARNING",
       "originalityNearest": "liz-moraes-nail-designer",
       "contentSimilarity": null,
@@ -6846,7 +6783,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs liz-moraes-nail-designer"
+          "detail": "50 vs liz-moraes-nail-designer"
         }
       ],
       "priority": 3
@@ -6876,7 +6813,7 @@
       },
       "originalityScore": 44,
       "originalityStatus": "WARNING",
-      "originalityNearest": "denise-gomes-psicologa",
+      "originalityNearest": "sos-presentes-cosmeticos",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -6933,7 +6870,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs denise-gomes-psicologa"
+          "detail": "44 vs sos-presentes-cosmeticos"
         }
       ],
       "priority": 3
@@ -7040,7 +6977,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 34,
+      "originalityScore": 38,
       "originalityStatus": "PASS",
       "originalityNearest": "confeitaria-sabor-da-realeza",
       "contentSimilarity": null,
@@ -7119,7 +7056,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 31,
+      "originalityScore": 30,
       "originalityStatus": "PASS",
       "originalityNearest": "jc-revestimentos",
       "contentSimilarity": null,
