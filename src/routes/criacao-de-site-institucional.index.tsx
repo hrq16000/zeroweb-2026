@@ -12,15 +12,16 @@ import { trackEvent } from "@/lib/analytics";
 import { capitaisPorRegiao } from "@/lib/capitais";
 
 const CANONICAL = "https://0web.com.br/criacao-de-site-institucional";
-const TITLE = "Criação de Site Institucional que Gera Contatos | 0WEB";
+const TITLE = "Criação de Site Institucional | Sites Profissionais e Otimizados para Conversão";
 const DESCRIPTION =
-  "Criação de site institucional com estrutura de conversão, funil de captura e base de SEO. Faça o diagnóstico gratuito e receba o formato certo para o seu negócio.";
+  "Transforme sua presença digital com um site institucional moderno, responsivo e focado em resultados. Agende seu diagnóstico gratuito e descubra como crescer online.";
 
 const FAQ: { q: string; a: string }[] = [
   {
     q: "Quanto custa criar um site institucional?",
-    a: "O investimento varia conforme número de páginas, integrações e produção de conteúdo. Projetos de escopo enxuto começam em faixas menores; sites com funil, SEO e integrações exigem escopo maior. No diagnóstico gratuito indicamos a faixa compatível com o seu caso antes de qualquer proposta.",
+    a: "Depende do escopo. O formato mais enxuto, o Site Express, começa em R$ 499; projetos com mais páginas, funil, integrações e produção de conteúdo entram na faixa do Site Pro, a partir de R$ 7.900. Os valores são estimativas iniciais e só viram proposta depois do diagnóstico gratuito.",
   },
+
   {
     q: "Em quanto tempo o site fica pronto?",
     a: "Depende do escopo e da velocidade de aprovação de conteúdo. Estruturas simples costumam ficar prontas em poucas semanas; projetos com integrações e produção de textos e imagens levam mais tempo. O prazo é sempre condicionado à entrega de material pelo cliente.",
