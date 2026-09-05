@@ -100,7 +100,7 @@ export function ReuseHouseBrechoPage() {
           alt="REuse House Brechó"
           width={1536}
           height={1024}
-          loading="lazy"
+          
           className="h-56 w-full object-cover md:h-[22rem]"
           managedField="heroImageUrl"
         />
