@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "doc": "docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md",
+  "intensities": ["SUBTLE", "BALANCED", "EXPRESSIVE", "IMMERSIVE"],
+  "capabilityStates": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"],
+  "qaStates": ["PASS", "WARNING", "FAIL"],
+  "coverCategories": ["PHOTO_DERIVED", "BRAND_COMPOSITION", "ABSTRACT_BRAND_ART"],
+  "presetFamilies": [
+    "EDITORIAL",
+    "CINEMATIC",
+    "TECHNICAL",
+    "PLAYFUL",
+    "LUXURY",
+    "ORGANIC",
+    "BOLD",
+    "MINIMAL"
+  ],
+  "primitives": {
+    "module": "src/components/motion/index.tsx",
+    "available": [
+      "MotionScope",
+      "MotionReveal",
+      "MotionStagger",
+      "MotionTextReveal",
+      "MotionImageReveal",
+      "MotionCounter",
+      "useInViewOnce",
+      "usePrefersReducedMotion"
+    ],
+    "cssLayer": {
+      "file": "src/styles.css",
+      "available": ["page-reveal", "section-reveal (scroll-driven)", "reduced-motion override"]
+    },
+    "notImplementedYet": ["MotionParallax", "MotionMarquee", "PageTransition (View Transitions)"]
+  },
+  "skillProfileSchema": {
+    "branding": "REQUIRED",
+    "motion": "REQUIRED",
+    "interaction": "REQUIRED",
+    "storytelling": "OPTIONAL",
+    "conversion": "REQUIRED",
+    "seo": "REQUIRED",
+    "accessibility": "REQUIRED",
+    "performance": "REQUIRED",
+    "originality": "REQUIRED",
+    "privacy": "REQUIRED"
+  },
+  "motionProfileSchema": {
+    "intensity": "SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE",
+    "preset": "one of presetFamilies",
+    "heroMotion": "static | textReveal | imageReveal | layered | maskedSplit",
+    "sectionReveal": "none | fade | up | mask | stagger",
+    "imageReveal": "none | clip | zoom | crossfade",
+    "textReveal": "none | word | line",
+    "iconMotion": "none | draw | pop",
+    "hoverBehavior": "none | lift | crop | underline | depth",
+    "depthBehavior": "flat | overlap | crossing | sticky",
+    "scrollBehavior": "none | progressive | stickyStory",
+    "staggerPattern": "none | linear | grid | diagonal",
+    "reducedMotionFallback": "opacityOnly | none",
+    "desktopBehavior": "string",
+    "tabletBehavior": "string",
+    "mobileBehavior": "string"
+  },
+  "motionBudget": {
+    "maxSignatureMomentsPerPage": 3,
+    "maxParallaxLayers": 1,
+    "maxStaggeredGroupsPerViewport": 1,
+    "maxLoopingAnimations": 1
+  },
+  "performanceBudget": {
+    "note": "Valores herdados de src/config/portfolio-performance.json; animationJS medido antes de fixar número.",
+    "animatedProperties": ["transform", "opacity", "clip-path"],
+    "forbiddenAnimatedProperties": ["width", "height", "top", "left", "margin"],
+    "clsMax": 0.1,
+    "inpMaxMs": 200
+  },
+  "minimumExperience": [
+    "entrada de página",
+    "tratamento próprio de hero",
+    "reveal de seções",
+    "microinteração em cards ou links",
+    "feedback explícito no CTA",
+    "assinatura de movimento coerente com a identidade"
+  ],
+  "blockers": [
+    "MOTION_CONTENT_INACCESSIBLE",
+    "REDUCED_MOTION_BROKEN",
+    "MOTION_CAUSES_LAYOUT_SHIFT",
+    "INTERACTION_UNUSABLE",
+    "MOBILE_OVERFLOW",
+    "PERFORMANCE_REGRESSION"
+  ]
+}
