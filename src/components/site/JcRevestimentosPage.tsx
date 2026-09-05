@@ -1,4 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
+import { MotionReveal, MotionScope } from "@/components/motion";
 import type { CSSProperties } from "react";
 import { ArrowRight, BrickWall, Building2, Droplets, PaintRoller } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
@@ -43,23 +44,30 @@ function SpecRow({
   produto,
   aplicacao,
   acabamento,
+  index,
 }: {
   icon: typeof PaintRoller;
   produto: string;
   aplicacao: string;
   acabamento: string;
+  index: number;
 }) {
   return (
-    <li className="grid gap-1 border-b border-border py-5 md:grid-cols-[1.2fr_1.4fr_.8fr] md:items-center md:gap-6">
-      <h3 className="flex items-center gap-3 text-lg font-bold">
+    <MotionReveal
+      as="li"
+      variant="left"
+      delay={index * 70}
+      className="group grid gap-1 border-b border-border py-5 md:grid-cols-[1.2fr_1.4fr_.8fr] md:items-center md:gap-6"
+    >
+      <h3 className="flex items-center gap-3 text-lg font-bold transition-transform duration-300 group-hover:translate-x-1.5">
         <Icon aria-hidden className="h-5 w-5 text-primary" />
         {produto}
       </h3>
       <p className="text-sm text-muted-foreground">{aplicacao}</p>
-      <span className="w-fit rounded-sm bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-[.16em] md:justify-self-end">
+      <span className="w-fit rounded-sm bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-[.16em] transition-transform duration-300 group-hover:-translate-x-1 md:justify-self-end">
         {acabamento}
       </span>
-    </li>
+    </MotionReveal>
   );
 }
 
@@ -117,6 +125,7 @@ const theme = {
 
 export function JcRevestimentosPage() {
   return (
+    <MotionScope intensity="BALANCED">
     <div className="min-h-dvh bg-background text-foreground" style={theme}>
       <main id="inicio">
         {/* HERO de imagem plena com sobreposição e logo dentro da composição. */}
@@ -143,7 +152,7 @@ export function JcRevestimentosPage() {
               className="h-14 w-auto object-contain"
               managedField="logoUrl"
             />
-            <div className="max-w-2xl pb-6">
+            <MotionReveal variant="right" className="max-w-2xl pb-6">
               <p className="text-[11px] font-bold uppercase tracking-[.38em] text-primary">
                 Revestimentos direto da fábrica
               </p>
@@ -167,7 +176,7 @@ export function JcRevestimentosPage() {
               >
                 Ver a linha completa <ArrowRight aria-hidden className="h-4 w-4" />
               </a>
-            </div>
+            </MotionReveal>
           </div>
         </section>
 
@@ -182,8 +191,8 @@ export function JcRevestimentosPage() {
             </div>
 
             <ul className="mt-2">
-              {linha.map((item) => (
-                <SpecRow key={item.produto} {...item} />
+              {linha.map((item, index) => (
+                <SpecRow key={item.produto} index={index} {...item} />
               ))}
             </ul>
           </div>
@@ -224,7 +233,7 @@ export function JcRevestimentosPage() {
               theme="navy"
               mode="proposal"
               quizConfig={quizConfig}
-              className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-sm bg-primary px-7 font-bold text-primary-foreground hover:opacity-90"
+              className="group inline-flex min-h-12 shrink-0 items-center gap-2 rounded-sm bg-primary px-7 font-bold text-primary-foreground transition-transform duration-200 hover:opacity-90 active:scale-[.98]"
             >
               Pedir orçamento <ArrowRight aria-hidden className="h-4 w-4" />
             </PortfolioCTAQuiz>
@@ -256,5 +265,6 @@ export function JcRevestimentosPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-jc-revestimentos" />
     </div>
+    </MotionScope>
   );
 }
