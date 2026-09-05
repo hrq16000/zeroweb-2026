@@ -658,7 +658,7 @@
       "summary": "Venda de tubos quadrados, retangulares, redondos, perfis, chapas lisas e frisadas e telhas TP40 simples e sanduíche.",
       "subtitle": "Tubos, perfis, chapas e telhas metálicas",
       "image": "/images/eisenfer-tubos-acos/capa-card.jpg",
-      "icon": "/images/eisenfer-tubos-acos/telhas.webp",
+      "icon": "/images/eisenfer-tubos-acos/capa-card.jpg",
       "socialImage": "/images/eisenfer-tubos-acos/telhas-og.jpg",
       "socialVersion": "9c5137c6",
       "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
