@@ -29,7 +29,16 @@ const ficha: Array<[string, string]> = [
 ];
 
 export function LkAlvenariaPage() {
+  // Material oficial disponível hoje é um panfleto com telefone visível e o
+  // perfil (logo) — nenhum dos dois pode virar imagem de topo pública.
+  // COVER_ASSET_PENDING: só exibimos foto quando o admin salvar uma segura.
+  const managedHero = useManagedValue("heroImageUrl");
+  const heroImage =
+    typeof managedHero === "string" && managedHero && !/\/(portfolio|perfil)\.(webp|png|jpg)$/i.test(managedHero)
+      ? managedHero
+      : null;
   return (
+
     <div className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
       <header className="bg-[#17100b] px-5 py-4 text-[#f4efe7] lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
