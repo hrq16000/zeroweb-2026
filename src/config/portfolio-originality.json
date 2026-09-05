@@ -19,8 +19,8 @@
     "total": 68,
     "original": 0,
     "acceptable": 18,
-    "attention": 44,
-    "highSimilarity": 6,
+    "attention": 46,
+    "highSimilarity": 4,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -83,21 +83,21 @@
     },
     {
       "slug": "ag-electrical-services",
-      "score": 64,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 50,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 64,
+      "nearestMatchScore": 50,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 74.1,
+        "STRUCTURE_SIMILARITY": 50.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 83.1,
-        "COPY_SIMILARITY": 1,
+        "COMPONENT_SIMILARITY": 45.5,
+        "STYLE_SIMILARITY": 45.3,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "IDENTITY_SIMILARITY": 5.9
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -109,17 +109,17 @@
       "nearest": [
         {
           "slug": "lk-alvenaria",
-          "score": 64,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "refrigeracao-maresia",
-          "score": 55,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 53,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -564,14 +564,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
+          "slug": "lk-alvenaria",
           "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "sos-presentes-cosmeticos",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -750,13 +750,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
+          "slug": "paulo-mestre-de-obras",
           "score": 56,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "paulo-mestre-de-obras",
-          "score": 56,
+          "slug": "acai-total-araucaria",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1662,21 +1662,21 @@
     },
     {
       "slug": "lk-alvenaria",
-      "score": 64,
-      "originalityStatus": "HIGH_SIMILARITY",
+      "score": 50,
+      "originalityStatus": "ATTENTION",
       "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 64,
+      "nearestMatchScore": 50,
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 74.1,
+        "STRUCTURE_SIMILARITY": 50.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 83.1,
-        "COPY_SIMILARITY": 1,
+        "COMPONENT_SIMILARITY": 45.5,
+        "STYLE_SIMILARITY": 45.3,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "IDENTITY_SIMILARITY": 5.9
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1689,17 +1689,17 @@
       "nearest": [
         {
           "slug": "ag-electrical-services",
-          "score": 64,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "diego-montador-moveis",
-          "score": 56,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "paulo-mestre-de-obras",
-          "score": 55,
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mp-festas-eventos",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1783,13 +1783,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
+          "slug": "ag-electrical-services",
           "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 43,
+          "slug": "denise-gomes-psicologa",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1845,17 +1845,17 @@
       "slug": "marido-de-aluguel",
       "score": 39,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "lk-alvenaria",
+      "nearestMatch": "paulo-mestre-de-obras",
       "nearestMatchScore": 39,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 45.8,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 27.8,
-        "STYLE_SIMILARITY": 58,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 8.1
+        "STRUCTURE_SIMILARITY": 40.5,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 23.5,
+        "STYLE_SIMILARITY": 55.2,
+        "COPY_SIMILARITY": 2.9,
+        "ASSET_PATTERN_SIMILARITY": 12.5,
+        "IDENTITY_SIMILARITY": 9.4
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1869,18 +1869,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lk-alvenaria",
-          "score": 39,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "paulo-mestre-de-obras",
           "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "ag-electrical-services",
-          "score": 37,
+          "slug": "rm-fretes",
+          "score": 36,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -2285,13 +2285,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 55,
+          "slug": "aguia-sul-sinalizacao",
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 54,
+          "slug": "ecommerce-on",
+          "score": 48,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2431,21 +2431,21 @@
     },
     {
       "slug": "refrigeracao-maresia",
-      "score": 55,
+      "score": 53,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 55,
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 53,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 66.7,
+        "STRUCTURE_SIMILARITY": 57.9,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 42.9,
-        "STYLE_SIMILARITY": 75,
-        "COPY_SIMILARITY": 3.2,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 7.3
+        "COMPONENT_SIMILARITY": 30.8,
+        "STYLE_SIMILARITY": 83.5,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 37.5,
+        "IDENTITY_SIMILARITY": 4.9
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -2459,18 +2459,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "ag-electrical-services",
-          "score": 55,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "liz-moraes-nail-designer",
           "score": 53,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 52,
+          "slug": "artesanatos-darleia-oliveira",
+          "score": 48,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 48,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2742,8 +2742,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 36,
+          "slug": "acai-total-araucaria",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -3062,8 +3062,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 43,
+          "slug": "acai-total-araucaria",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
