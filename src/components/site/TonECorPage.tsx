@@ -295,5 +295,6 @@ export function TonECorPage() {
       />
       <PortfolioUpsellPopup pageName="portfolio-ton-e-cor" />
     </div>
+    </MotionScope>
   );
 }
