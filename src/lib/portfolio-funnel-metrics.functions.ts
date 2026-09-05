@@ -9,7 +9,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
  *  - PORTFOLIO_VIEW_SOURCE  = analytics_events.event_name = 'portfolio_view'  (path /portfolio/:slug)
  *  - CTA_CLICK_SOURCE       = analytics_events.event_name = 'portfolio_contact_floating_click'
  *  - POPUP_OPEN_SOURCE      = analytics_events.event_name = 'popup_view'      (pop-up comercial 0WEB)
- *  - LEAD_SOURCE            = dynamic_form_leads.metadata_json->>portfolio_slug
+ *  - LEAD_SOURCE            = dynamic_form_leads.metadata_json->>page_url (fallback client_key)
  *  - WHATSAPP_SOURCE        = whatsapp_redirect_tokens.used_at (token server-side do lead)
  *
  * Métricas derivadas só são calculadas quando o denominador (views) é confiável;
@@ -20,7 +20,7 @@ export const PORTFOLIO_METRIC_SOURCES = {
   PORTFOLIO_VIEW_SOURCE: "analytics_events:portfolio_view",
   CTA_CLICK_SOURCE: "analytics_events:portfolio_contact_floating_click",
   POPUP_OPEN_SOURCE: "analytics_events:popup_view",
-  LEAD_SOURCE: "dynamic_form_leads.metadata_json.portfolio_slug",
+  LEAD_SOURCE: "dynamic_form_leads.metadata_json.page_url|client_key",
   WHATSAPP_SOURCE: "whatsapp_redirect_tokens.used_at",
 } as const;
 
