@@ -1,6 +1,6 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { motion } from "motion/react";
-import { ArrowRight, Check, ClipboardCheck, HardHat, Landmark, ShieldCheck, Sparkles, Wrench } from "lucide-react";
+import { ArrowRight, ClipboardCheck, HardHat, Landmark, ShieldCheck } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -8,19 +8,128 @@ import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 
 const quiz = { services: ["Alicerce e fundação", "Baldrame e concretagem", "Alvenaria, muros e paredes", "Colunas, vigas e lajes", "Reboco, chapisco e emboço", "Cerâmica e porcelanato", "Drywall e forro PVC", "Calçadas e paver", "Reformas e reparos"], experienceOptions: ["Construção nova", "Reforma residencial", "Obra comercial ou predial", "Reparo ou manutenção"], periodOptions: ["Curitiba e região", "Vou confirmar o endereço", "Ainda estou definindo o local"], timingOptions: ["Preciso iniciar em breve", "Estou planejando", "Quero uma avaliação primeiro"], proposalKind: "service" as const, stepTitles: { service: "Qual etapa da obra você precisa?", experience: "Que tipo de projeto é?", period: "Onde será a obra?", timing: "Quando pretende começar?", note: "Conte os detalhes da obra" }, notePlaceholder: "Ex.: metragem, etapa atual, material desejado e prazo estimado." };
-function CTA({ children }: { children: React.ReactNode }) { return <PortfolioCTAQuiz clientKey="lk-alvenaria" studioName="LK Alvenaria" recipientName="LK Alvenaria" theme="gold" mode="proposal" quizConfig={quiz} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#ff7900] px-6 py-3.5 font-bold text-[#17100b] shadow-lg shadow-[#ff7900]/25 transition hover:-translate-y-1 hover:bg-[#ff9638] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7900]">{children}</PortfolioCTAQuiz>; }
-const services = [["Alicerce e estrutura", "Baldrame, colunas, vigas, lajes e concretagem para uma base segura."], ["Alvenaria e muros", "Tijolo, bloco, paredes e muro de arrimo com execução cuidadosa."], ["Acabamentos", "Reboco, chapisco, emboço, contrapiso, cerâmica e porcelanato."], ["Reformas e soluções", "Drywall, forro PVC, calçadas, paver, consertos e reparos."]];
-export function LkAlvenariaPage() { return <div className="min-h-dvh bg-[#f7f7f5] text-[#102b4d]">
- <header className="sticky top-0 z-20 border-b border-[#263b55] bg-[#0a2038]/95 px-5 py-4 text-white backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" className="flex items-center gap-3 font-display text-lg font-bold"><span className="grid h-10 w-10 place-items-center rounded-xl bg-[#ff7900] text-[#102b4d]"><HardHat className="h-5 w-5" /></span><span>LK <span className="text-[#ff7900]">Alvenaria</span></span></a><nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#servicos">Serviços</a><a href="#obra">Nossa obra</a><a href="#garantia">Garantia</a></nav><CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA></div></header>
- <main><section id="inicio" className="relative overflow-hidden bg-[#0a2038] px-5 py-14 text-white lg:px-8 lg:py-24"><div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#ff7900]/20 blur-3xl" /><div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[.95fr_1.05fr]"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff7900]">Empreiteiro de obra civil · construção e acabamento</p><h1 className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl">
-            <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
-          </h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#d6e1ec]">
-            <ManagedText field="heroSubheadline" fallback={"Da funda\u00e7\u00e3o ao acabamento, a LK Alvenaria executa cada etapa com compromisso, transpar\u00eancia e padr\u00e3o de qualidade."} />
-          </p><div className="mt-8 flex flex-wrap gap-3"><CTA>Agendar avaliação <ArrowRight className="h-4 w-4" /></CTA><a href="#servicos" className="inline-flex min-h-12 items-center rounded-full border border-[#7e91a5] px-6 py-3.5 font-semibold text-white">Ver serviços</a></div><div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-[#d6e1ec]"><span><Check className="mr-1 inline h-4 w-4 text-[#ff7900]" />Contrato de obra</span><span><ShieldCheck className="mr-1 inline h-4 w-4 text-[#ff7900]" />Garantia do serviço</span></div></div><motion.div initial={{ opacity: 0, y: 20, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: .65 }}><PortfolioImage src="/images/lk-alvenaria/portfolio.webp" alt="LK Alvenaria: obra civil, estrutura e acabamentos" priority width={1280} height={800} className="w-full rounded-[2rem] object-cover shadow-2xl"
-            managedField="heroImageUrl"
-          /></motion.div></div></section>
- <section id="servicos" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#d56300]">O que executamos</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">Uma equipe para transformar projeto em obra bem feita.</h2><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{services.map(([title, text], i) => <motion.article key={title} whileHover={{ y: -6 }} className="rounded-3xl border border-[#dbe2e8] bg-white p-6 shadow-sm"><span className="text-sm font-bold text-[#d56300]">0{i + 1}</span><Wrench className="mt-8 h-7 w-7 text-[#d56300]" /><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-[#536987]">{text}</p></motion.article>)}</div></div></section>
- <section id="obra" className="bg-[#11100e] px-5 py-20 text-white lg:px-8"><div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#ff7900]">Compromisso em cada etapa</p><h2 className="mt-3 font-display text-4xl font-bold">Obra organizada, prazo combinado e acabamento de qualidade.</h2><p className="mt-5 leading-8 text-[#d8d0c5]">Trabalhamos com contrato, emissão de nota fiscal, garantia do serviço e orçamento personalizado para você acompanhar a evolução com clareza.</p><div className="mt-8 grid gap-4 sm:grid-cols-2"><div className="rounded-2xl border border-white/15 bg-white/5 p-5"><ClipboardCheck className="h-6 w-6 text-[#ff7900]" /><p className="mt-4 font-bold">Transparência</p><p className="mt-1 text-sm text-[#c7c0b7]">Escopo e orçamento alinhados.</p></div><div className="rounded-2xl border border-white/15 bg-white/5 p-5"><Landmark className="h-6 w-6 text-[#ff7900]" /><p className="mt-4 font-bold">Responsabilidade</p><p className="mt-1 text-sm text-[#c7c0b7]">Execução com cuidado técnico.</p></div></div></div><div className="grid gap-5 sm:grid-cols-2"><PortfolioImage src="/images/lk-alvenaria/portfolio.webp" alt="Registro de serviços de alvenaria e construção" width={1280} height={800} className="h-72 w-full rounded-3xl object-cover sm:col-span-2" /><div id="garantia" className="rounded-3xl bg-[#ff7900] p-6 text-[#17100b]"><ShieldCheck className="h-7 w-7" /><h3 className="mt-6 text-xl font-bold">Garantia e contrato</h3><p className="mt-2 text-sm leading-6">Mais segurança para sua obra do começo ao fim.</p></div><div className="rounded-3xl bg-[#243c58] p-6"><Sparkles className="h-7 w-7 text-[#ff7900]" /><h3 className="mt-6 text-xl font-bold">Acabamento</h3><p className="mt-2 text-sm leading-6 text-[#d6e1ec]">Cuidado nos detalhes que fazem diferença.</p></div></div></div></section>
- <section id="pedido" className="bg-[#f1eee9] px-5 py-20 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 rounded-[2rem] bg-white p-8 shadow-xl md:flex-row md:items-center"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#d56300]">Próximo passo</p><h2 className="mt-3 font-display text-4xl font-bold">Vamos conversar sobre a sua obra?</h2><p className="mt-3 max-w-xl leading-7 text-[#536987]">Envie os detalhes do projeto e solicite um orçamento personalizado.</p></div><CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA></div></section></main>
- <footer className="bg-[#071a2d] px-5 py-8 text-sm text-[#c9d6e4] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-bold text-white">LK <span className="text-[#ff7900]">Alvenaria</span></p><p className="mt-1">Construção, reformas e acabamento em geral.</p></div><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#ff7900]" /></div></footer><PortfolioSocialProofPopup clientKey="lk-alvenaria" eyebrow="LK Alvenaria" title="Sua obra merece contrato, garantia e acabamento de qualidade." description="Conte a etapa do projeto e receba um próximo passo organizado." ctaLabel="Ver serviços" ctaHref="#servicos" delayMs={9000} className="border-[#ff7900]/40 bg-[#0a2038]/95 text-white" accentClassName="text-[#ff7900]" /><PortfolioUpsellPopup pageName="portfolio-lk-alvenaria" />
- </div>; }
+
+function CTA({ children }: { children: React.ReactNode }) {
+  return <PortfolioCTAQuiz clientKey="lk-alvenaria" studioName="LK Alvenaria" recipientName="LK Alvenaria" theme="gold" mode="proposal" quizConfig={quiz} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#17100b] px-7 py-3.5 font-bold text-[#ffd7ab] shadow-[6px_6px_0_0_#ff7900] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_0_#ff7900] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7900]">{children}</PortfolioCTAQuiz>;
+}
+
+/** Cronograma de obra: etapas em sequência, do chão ao acabamento. */
+const etapas = [
+  { fase: "Etapa 01", title: "Alicerce e estrutura", text: "Baldrame, colunas, vigas, lajes e concretagem para uma base segura." },
+  { fase: "Etapa 02", title: "Alvenaria e muros", text: "Tijolo, bloco, paredes e muro de arrimo com execução cuidadosa." },
+  { fase: "Etapa 03", title: "Acabamentos", text: "Reboco, chapisco, emboço, contrapiso, cerâmica e porcelanato." },
+  { fase: "Etapa 04", title: "Reformas e soluções", text: "Drywall, forro PVC, calçadas, paver, consertos e reparos." },
+];
+
+const ficha: Array<[string, string]> = [
+  ["Formalização", "Contrato de obra e nota fiscal"],
+  ["Garantia", "Garantia do serviço executado"],
+  ["Orçamento", "Personalizado por etapa"],
+  ["Atendimento", "Curitiba e região"],
+];
+
+export function LkAlvenariaPage() {
+  return (
+    <div className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
+      <header className="bg-[#17100b] px-5 py-4 text-[#f4efe7] lg:px-8">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
+          <a href="#inicio" className="flex items-center gap-2 font-display text-lg font-bold"><HardHat className="h-5 w-5 text-[#ff7900]" aria-hidden />LK <span className="text-[#ff7900]">Alvenaria</span></a>
+          <nav className="hidden gap-6 text-sm font-semibold sm:flex">
+            <a href="#cronograma" className="hover:text-[#ff7900]">Cronograma</a>
+            <a href="#ficha" className="hover:text-[#ff7900]">Ficha da obra</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        {/* HERO: manchete sobre a imagem da obra + ficha sobreposta (coluna única, centrada) */}
+        <section id="inicio" className="relative">
+          <div className="relative">
+            <PortfolioImage src="/images/lk-alvenaria/portfolio.webp" alt="LK Alvenaria: obra civil, estrutura e acabamentos" priority width={1280} height={800} className="h-[420px] w-full object-cover sm:h-[520px]" managedField="heroImageUrl" />
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#17100b] via-[#17100b]/80 to-[#17100b]/35" />
+            <div className="absolute inset-0 flex items-end">
+              <div className="mx-auto w-full max-w-5xl px-5 pb-12 lg:px-8">
+                <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ffb066]">Empreiteiro de obra civil · construção e acabamento</p>
+                <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
+                  <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div className="mx-auto -mt-8 max-w-5xl px-5 lg:px-8">
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
+              <p className="text-base leading-8 text-[#4a3a2c]">
+                <ManagedText field="heroSubheadline" fallback={"Da funda\u00e7\u00e3o ao acabamento, a LK Alvenaria executa cada etapa com compromisso, transpar\u00eancia e padr\u00e3o de qualidade."} />
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA>
+                <a href="#cronograma" className="text-sm font-bold underline decoration-[#ff7900] decoration-2 underline-offset-4">Ver o cronograma da obra</a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CRONOGRAMA: linha do tempo vertical, medida em etapas de obra */}
+        <section id="cronograma" className="px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">Do chão batido ao acabamento, etapa por etapa</h2>
+            <ol className="mt-10 border-l-4 border-dashed border-[#c9b6a0]">
+              {etapas.map((e) => (
+                <li key={e.fase} className="relative pb-10 pl-8 last:pb-0 sm:pl-12">
+                  <span aria-hidden className="absolute -left-[14px] top-1 grid h-6 w-6 place-items-center rounded-full bg-[#ff7900] text-[10px] font-black text-[#17100b]">{e.fase.slice(-2)}</span>
+                  <p className="text-xs font-bold uppercase tracking-[.24em] text-[#a2632a]">{e.fase}</p>
+                  <h3 className="mt-2 font-display text-2xl font-bold">{e.title}</h3>
+                  <p className="mt-2 max-w-2xl leading-8 text-[#5a4839]">{e.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* FICHA DA OBRA: tabela de compromissos, não cards */}
+        <section id="ficha" className="bg-[#17100b] px-5 py-20 text-[#f4efe7] lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-wrap items-center gap-3">
+              <ClipboardCheck className="h-7 w-7 text-[#ff7900]" aria-hidden />
+              <h2 className="font-display text-3xl font-bold sm:text-4xl">Ficha da obra</h2>
+            </div>
+            <p className="mt-4 max-w-2xl leading-8 text-[#d4c6b6]">Trabalhamos com contrato, emissão de nota fiscal, garantia do serviço e orçamento personalizado para você acompanhar a evolução com clareza.</p>
+            <dl className="mt-8 divide-y divide-[#3a2c20] border-y border-[#3a2c20]">
+              {ficha.map(([k, v]) => (
+                <div key={k} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-8">
+                  <dt className="w-48 shrink-0 text-xs font-bold uppercase tracking-[.22em] text-[#ff7900]">{k}</dt>
+                  <dd className="font-semibold">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <div className="flex items-center gap-2 text-sm font-semibold text-[#d4c6b6]"><ShieldCheck className="h-5 w-5 text-[#ff7900]" aria-hidden />Garantia do serviço</div>
+              <div className="flex items-center gap-2 text-sm font-semibold text-[#d4c6b6]"><Landmark className="h-5 w-5 text-[#ff7900]" aria-hidden />Execução com cuidado técnico</div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-5 py-16 lg:px-8">
+          <div className="mx-auto max-w-5xl text-center">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">Vamos conversar sobre a sua obra?</h2>
+            <p className="mx-auto mt-3 max-w-xl leading-8 text-[#5a4839]">Envie os detalhes do projeto e solicite um orçamento personalizado.</p>
+            <div className="mt-7 flex justify-center"><CTA>Solicitar orçamento <ArrowRight className="h-4 w-4" /></CTA></div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#17100b] px-5 py-8 text-sm text-[#c7b7a5] lg:px-8">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-display font-bold text-[#f4efe7]">LK <span className="text-[#ff7900]">Alvenaria</span></p>
+            <p className="mt-1">Construção, reformas e acabamento em geral.</p>
+          </div>
+          <PortfolioHostCredit linkClassName="font-semibold text-[#f4efe7] underline underline-offset-4 hover:text-[#ff7900]" />
+        </div>
+      </footer>
+
+      <PortfolioSocialProofPopup clientKey="lk-alvenaria" eyebrow="LK Alvenaria" title="Sua obra merece contrato, garantia e acabamento de qualidade." description="Conte a etapa do projeto e receba um próximo passo organizado." ctaLabel="Ver cronograma" ctaHref="#cronograma" delayMs={9000} className="border-[#ff7900]/40 bg-[#17100b]/95 text-white" accentClassName="text-[#ff7900]" />
+      <PortfolioUpsellPopup pageName="portfolio-lk-alvenaria" />
+    </div>
+  );
+}
