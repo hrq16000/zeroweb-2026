@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T00:00:01.860Z",
+  "generatedAt": "2026-09-05T01:08:46.742Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -25,21 +25,21 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 25,
-      "STANDARD": 43,
+      "PREMIUM": 26,
+      "STANDARD": 42,
       "NEEDS_UPGRADE": 0
     },
     "originality": {
       "PASS": 18,
-      "WARNING": 44,
-      "FAIL": 6,
+      "WARNING": 46,
+      "FAIL": 4,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 56,
-      "P2": 149,
-      "P3": 55
+      "P1": 49,
+      "P2": 148,
+      "P3": 52
     },
     "averageScore": 86
   },
@@ -535,121 +535,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "42 vs salao-da-marcia"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "lk-alvenaria",
-      "businessName": "LK Alvenaria",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/LkAlvenariaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 76,
-      "groupScores": {
-        "identity": 9,
-        "logo": 6,
-        "cover": 8,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 64,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "ag-electrical-services",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte a fase da construção ou reforma que quer avaliar.",
-      "funnelCta": "Avaliar minha obra",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/lk-alvenaria/portfolio.webp",
-          "hash": "946cc3e8b8b6df2f6e9fa4a7e62950493c400e16",
-          "bytes": 179140,
-          "width": 1280,
-          "height": 853
-        },
-        "cover": {
-          "path": "/images/lk-alvenaria/portfolio.webp",
-          "hash": "946cc3e8b8b6df2f6e9fa4a7e62950493c400e16",
-          "bytes": 179140,
-          "width": 1280,
-          "height": 853
-        },
-        "social": {
-          "path": "/images/lk-alvenaria/portfolio-og.jpg",
-          "hash": "ede919c0e52556e0d538bb68e443189c024e8828",
-          "bytes": 200305,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Sua obra com contrato e garantia.",
-        "heroHeight": 940,
-        "editorialChars": 2273,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 2,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/lk-alvenaria/portfolio.webp"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/lk-alvenaria/portfolio.webp"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "64 vs ag-electrical-services"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
         }
       ],
       "priority": 2
@@ -1395,7 +1280,7 @@
         "mobile": 10,
         "social": 2
       },
-      "originalityScore": 55,
+      "originalityScore": 54,
       "originalityStatus": "WARNING",
       "originalityNearest": "artesanatos-darleia-oliveira",
       "contentSimilarity": null,
@@ -1489,7 +1374,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs artesanatos-darleia-oliveira"
+          "detail": "54 vs artesanatos-darleia-oliveira"
         }
       ],
       "priority": 2
@@ -1756,7 +1641,7 @@
       },
       "originalityScore": 39,
       "originalityStatus": "PASS",
-      "originalityNearest": "lk-alvenaria",
+      "originalityNearest": "paulo-mestre-de-obras",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -1842,121 +1727,6 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "2 arquivo(s)"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "refrigeracao-maresia",
-      "businessName": "Refrigeração Maresia",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 81,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 0,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 55,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "ag-electrical-services",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "diagnostico",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe o equipamento, o sintoma e o momento mais adequado.",
-      "funnelCta": "Relatar o problema",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/refrigeracao-maresia/logo.png",
-          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
-          "bytes": 390563,
-          "width": 869,
-          "height": 320
-        },
-        "cover": {
-          "path": "/images/refrigeracao-maresia/logo.png",
-          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
-          "bytes": 390563,
-          "width": 869,
-          "height": 320
-        },
-        "social": {
-          "path": "/images/refrigeracao-maresia/hero-og.jpg",
-          "hash": "fddad6b0f69fb9e10836ff31bb9e3fb4ff258956",
-          "bytes": 111116,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Geladeira parou de gelar?",
-        "heroHeight": 789,
-        "editorialChars": 2377,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 3,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 2.72"
-        },
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "869x320"
-        },
-        {
-          "code": "COVER_IS_LOGO",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa do catálogo é a própria logo",
-          "detail": "/images/refrigeracao-maresia/logo.png"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "55 vs ag-electrical-services"
         }
       ],
       "priority": 2
@@ -2875,222 +2645,6 @@
       "priority": 2
     },
     {
-      "slug": "artesanatos-darleia-oliveira",
-      "businessName": "Artesanatos Darléia Oliveira",
-      "segment": "comercios",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 83,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 63,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "thays-camilla",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte a ocasião, a estampa ou a quantidade que deseja conhecer.",
-      "funnelCta": "Conhecer os produtos",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/artesanatos-darleia-oliveira/logo.png",
-          "hash": "552d3e479a919184a58c61553675e0e45baac00f",
-          "bytes": 1687199,
-          "width": 1254,
-          "height": 1254
-        },
-        "cover": {
-          "path": "/images/artesanatos-darleia-oliveira/hero-og.jpg",
-          "hash": "8832f806819e1f3ee99d35fd2578b9ca28c12ecb",
-          "bytes": 145400,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/artesanatos-darleia-oliveira/hero-og.jpg",
-          "hash": "8832f806819e1f3ee99d35fd2578b9ca28c12ecb",
-          "bytes": 145400,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu café merece o melhor filtro.",
-        "heroHeight": 1239,
-        "editorialChars": 2329,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/artesanatos-darleia-oliveira/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/artesanatos-darleia-oliveira/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs thays-camilla"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "thays-camilla",
-      "businessName": "Thays Camilla",
-      "segment": "comercios",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/ThaysCamillaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 83,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 5,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 63,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "artesanatos-darleia-oliveira",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte a mensagem, a imagem ou a ocasião que deseja personalizar.",
-      "funnelCta": "Montar meu presente",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/thays-camilla/logo.png",
-          "hash": "1706a7a528a2ba5136017e4119ee53574b0baaf5",
-          "bytes": 2173632,
-          "width": 1536,
-          "height": 1024
-        },
-        "cover": {
-          "path": "/images/thays-camilla/hero-og.jpg",
-          "hash": "6fdee0627e8ea2b41fc6378be17e2e43c43562ff",
-          "bytes": 118998,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/thays-camilla/hero-og.jpg",
-          "hash": "6fdee0627e8ea2b41fc6378be17e2e43c43562ff",
-          "bytes": 118998,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Personalize carinho em cada detalhe.",
-        "heroHeight": 969,
-        "editorialChars": 2389,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NOT_DEDICATED",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Sem capa dedicada no catálogo (card cai no fallback social/logo)",
-          "detail": "/images/thays-camilla/hero-og.jpg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/thays-camilla/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "63 vs artesanatos-darleia-oliveira"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "emporio-lelecute",
       "businessName": "Empório LeleCute",
       "segment": "servicos",
@@ -3194,6 +2748,114 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "2 arquivo(s)"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "lk-alvenaria",
+      "businessName": "LK Alvenaria",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/LkAlvenariaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 85,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 8,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 49,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "ag-electrical-services",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a fase da construção ou reforma que quer avaliar.",
+      "funnelCta": "Avaliar minha obra",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/lk-alvenaria/portfolio.webp",
+          "hash": "946cc3e8b8b6df2f6e9fa4a7e62950493c400e16",
+          "bytes": 179140,
+          "width": 1280,
+          "height": 853
+        },
+        "cover": {
+          "path": "/images/lk-alvenaria/portfolio.webp",
+          "hash": "946cc3e8b8b6df2f6e9fa4a7e62950493c400e16",
+          "bytes": 179140,
+          "width": 1280,
+          "height": 853
+        },
+        "social": {
+          "path": "/images/lk-alvenaria/portfolio-og.jpg",
+          "hash": "ede919c0e52556e0d538bb68e443189c024e8828",
+          "bytes": 200305,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Sua obra com contrato e garantia.",
+        "heroHeight": 940,
+        "editorialChars": 2273,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/lk-alvenaria/portfolio.webp"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/lk-alvenaria/portfolio.webp"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "49 vs ag-electrical-services"
         }
       ],
       "priority": 2
@@ -3624,100 +3286,6 @@
       "priority": 2
     },
     {
-      "slug": "ag-electrical-services",
-      "businessName": "A&G Electrical Services",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/AgElectricalServicesPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 88,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 10,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 64,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "lk-alvenaria",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Descreva o ambiente e a solução técnica que precisa avaliar.",
-      "funnelCta": "Solicitar avaliação",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/ag-electrical-services/logo.webp",
-          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
-          "bytes": 38280,
-          "width": 1050,
-          "height": 600
-        },
-        "cover": {
-          "path": "/images/ag-electrical-services/capa-card.jpg",
-          "hash": "10efb23b3fb06d07d365c6dac42dd88a1024b3e3",
-          "bytes": 39879,
-          "width": 720,
-          "height": 450
-        },
-        "social": {
-          "path": "/images/ag-electrical-services/social-2026-og.jpg",
-          "hash": "511e01b25f487a81c040bffda7fafc562d73ffe6",
-          "bytes": 75761,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 18
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 9,
-        "desktopImages": 9,
-        "heroHeadline": "Energia e conectividade para sua operação.",
-        "heroHeight": 1022,
-        "editorialChars": 2541,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 0,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "720x450"
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "64 vs lk-alvenaria"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "renata-beauty",
       "businessName": "Renata Beauty Studio",
       "segment": "beleza",
@@ -4021,6 +3589,187 @@
       "priority": 2
     },
     {
+      "slug": "ag-electrical-services",
+      "businessName": "A&G Electrical Services",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/AgElectricalServicesPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 91,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 49,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "lk-alvenaria",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Descreva o ambiente e a solução técnica que precisa avaliar.",
+      "funnelCta": "Solicitar avaliação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/ag-electrical-services/logo.webp",
+          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
+          "bytes": 38280,
+          "width": 1050,
+          "height": 600
+        },
+        "cover": {
+          "path": "/images/ag-electrical-services/capa-card.jpg",
+          "hash": "10efb23b3fb06d07d365c6dac42dd88a1024b3e3",
+          "bytes": 39879,
+          "width": 720,
+          "height": 450
+        },
+        "social": {
+          "path": "/images/ag-electrical-services/social-2026-og.jpg",
+          "hash": "511e01b25f487a81c040bffda7fafc562d73ffe6",
+          "bytes": 75761,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 18
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 9,
+        "desktopImages": 9,
+        "heroHeadline": "Energia e conectividade para sua operação.",
+        "heroHeight": 1022,
+        "editorialChars": 2541,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "720x450"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "49 vs lk-alvenaria"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "artesanatos-darleia-oliveira",
+      "businessName": "Artesanatos Darléia Oliveira",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 93,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 63,
+      "originalityStatus": "FAIL",
+      "originalityNearest": "thays-camilla",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a ocasião, a estampa ou a quantidade que deseja conhecer.",
+      "funnelCta": "Conhecer os produtos",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/artesanatos-darleia-oliveira/logo.png",
+          "hash": "552d3e479a919184a58c61553675e0e45baac00f",
+          "bytes": 1687199,
+          "width": 1254,
+          "height": 1254
+        },
+        "cover": {
+          "path": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
+          "hash": "a62073462bd99e952a0ff602dde48ce91350b047",
+          "bytes": 223283,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/artesanatos-darleia-oliveira/hero-og.jpg",
+          "hash": "8832f806819e1f3ee99d35fd2578b9ca28c12ecb",
+          "bytes": 145400,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu café merece o melhor filtro.",
+        "heroHeight": 1239,
+        "editorialChars": 2329,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "63 vs thays-camilla"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "lolipa-arte-em-festas",
       "businessName": "Lolipa Arte em Festas Decor",
       "segment": "comercios",
@@ -4190,6 +3939,93 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "63 vs lolipa-arte-em-festas"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "thays-camilla",
+      "businessName": "Thays Camilla",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/ThaysCamillaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 93,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 63,
+      "originalityStatus": "FAIL",
+      "originalityNearest": "artesanatos-darleia-oliveira",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a mensagem, a imagem ou a ocasião que deseja personalizar.",
+      "funnelCta": "Montar meu presente",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/thays-camilla/logo.png",
+          "hash": "1706a7a528a2ba5136017e4119ee53574b0baaf5",
+          "bytes": 2173632,
+          "width": 1536,
+          "height": 1024
+        },
+        "cover": {
+          "path": "/images/thays-camilla/capa-card.jpg",
+          "hash": "176a05b1a010eca78e5ae82e96cd15412f77713b",
+          "bytes": 181313,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/thays-camilla/hero-og.jpg",
+          "hash": "6fdee0627e8ea2b41fc6378be17e2e43c43562ff",
+          "bytes": 118998,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Personalize carinho em cada detalhe.",
+        "heroHeight": 969,
+        "editorialChars": 2389,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "63 vs artesanatos-darleia-oliveira"
         }
       ],
       "priority": 2
@@ -5849,7 +5685,7 @@
       "originalityNearest": "no-brilho-higienizacao",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "NEEDS_REVIEW",
+      "coverReview": "APPROVED",
       "funnelIntent": "diagnostico",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
@@ -5943,7 +5779,7 @@
       "originalityNearest": "lucas-arruma-maquina-lavar",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "NEEDS_REVIEW",
+      "coverReview": "APPROVED",
       "funnelIntent": "agendamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
@@ -6979,7 +6815,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 47,
+      "originalityScore": 44,
       "originalityStatus": "WARNING",
       "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
@@ -7038,7 +6874,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs eletro-solucoes-eficazes"
+          "detail": "44 vs eletro-solucoes-eficazes"
         }
       ],
       "priority": 3
@@ -7160,7 +6996,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 45,
+      "originalityScore": 43,
       "originalityStatus": "WARNING",
       "originalityNearest": "galileu-locacao-brinquedos",
       "contentSimilarity": null,
@@ -7219,7 +7055,94 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "45 vs galileu-locacao-brinquedos"
+          "detail": "43 vs galileu-locacao-brinquedos"
+        }
+      ],
+      "priority": 3
+    },
+    {
+      "slug": "refrigeracao-maresia",
+      "businessName": "Refrigeração Maresia",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 53,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "liz-moraes-nail-designer",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "funnelIntent": "diagnostico",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o equipamento, o sintoma e o momento mais adequado.",
+      "funnelCta": "Relatar o problema",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/refrigeracao-maresia/logo.png",
+          "hash": "0da32b0020b543bfd44c9752cf8826b932312145",
+          "bytes": 390563,
+          "width": 869,
+          "height": 320
+        },
+        "cover": {
+          "path": "/images/refrigeracao-maresia/capa-card.jpg",
+          "hash": "3857f48d082b147335fd36e5caede786148e8bb8",
+          "bytes": 165284,
+          "width": 1454,
+          "height": 909
+        },
+        "social": {
+          "path": "/images/refrigeracao-maresia/hero-og.jpg",
+          "hash": "fddad6b0f69fb9e10836ff31bb9e3fb4ff258956",
+          "bytes": 111116,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 8
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Geladeira parou de gelar?",
+        "heroHeight": 789,
+        "editorialChars": 2377,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "53 vs liz-moraes-nail-designer"
         }
       ],
       "priority": 3

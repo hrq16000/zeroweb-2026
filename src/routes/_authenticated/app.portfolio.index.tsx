@@ -7,6 +7,8 @@ import {
   listPortfolioAdminProjects,
 } from "@/lib/portfolio-admin.functions";
 import type { MergedProject } from "@/lib/portfolio-admin";
+import { PortfolioFunnelPanel } from "@/components/admin/PortfolioFunnelPanel";
+
 import {
   getVisualQuality,
   VISUAL_BADGE_STYLE,
@@ -232,6 +234,9 @@ function PortfolioAdminList() {
           padrão. Só issues P0 bloqueiam o gate.
         </p>
       </section>
+
+      <PortfolioFunnelPanel title="Desempenho por projeto" />
+
 
       {message && (
         <p className="mt-4 rounded-md border border-border bg-muted/40 p-3 text-sm">{message}</p>

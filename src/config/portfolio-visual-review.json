@@ -1,5 +1,5 @@
 {
-  "_readme": "Julgamento humano da qualidade visual. Ver docs/PORTFOLIO_VISUAL_QUALITY_STANDARD.md. Chaves: coverReview, originalityReview, charm, visualOverride, notes. Override sem notes é dívida de governança.",
+  "_readme": "Julgamento humano da qualidade visual. Ver docs/PORTFOLIO_VISUAL_QUALITY_STANDARD.md. Chaves: coverReview, coverDecision, coverBlockReason, coverMaterial, coverSource, coverFocal, originalityReview, charm, visualOverride, notes. coverBlockReason e obrigatorio quando coverMaterial=HAS_SAFE_REAL_MATERIAL e coverReview!=APPROVED. Override sem notes e divida de governanca.",
   "acai-total-araucaria": {
     "coverReview": "APPROVED",
     "coverDecision": "NEEDS_CROP_ONLY",
@@ -199,14 +199,16 @@
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone e tabela de precos visiveis. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_CONTACT"
   },
   "eletro-solucoes-eficazes": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone visivel. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_CONTACT"
   },
   "miro-tech": {
     "coverReview": "NEEDS_REVIEW",
@@ -227,7 +229,8 @@
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone/WhatsApp e print de perfil. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_CONTACT"
   },
   "ag-electrical-services": {
     "coverReview": "APPROVED",
@@ -286,21 +289,24 @@
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — endereco fisico e arte promocional com preco. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_ADDRESS"
   },
   "ecommerce-on": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — print de perfil com dados pessoais e tabela de precos. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_CONTACT"
   },
   "eisenfer-tubos-acos": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional; resolucao insuficiente para 1600x1000. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_QUALITY"
   },
   "emporio-lelecute": {
     "coverReview": "NEEDS_REVIEW",
@@ -314,14 +320,16 @@
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional (10% OFF) inseparavel da foto no recorte 16:10. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_PROMOTIONAL_PRICE"
   },
   "fernanda-amaral-drywall": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — chamada de WhatsApp na arte. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_CONTACT"
   },
   "guaratuba-atelie-presentes": {
     "coverReview": "NEEDS_REVIEW",
@@ -389,7 +397,8 @@
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone e tabela de precos. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_CONTACT"
   },
   "mirassol-conserta-celular": {
     "coverReview": "NEEDS_REVIEW",
@@ -426,7 +435,8 @@
     "coverDecision": "NEEDS_DEDICATED_COVER",
     "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional com preco/telefone. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR).",
+    "coverBlockReason": "BLOCKED_PROMOTIONAL_PRICE"
   },
   "thays-camilla": {
     "coverReview": "APPROVED",
