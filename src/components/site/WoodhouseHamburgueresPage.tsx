@@ -1,4 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
+import { MotionImageReveal, MotionReveal, MotionScope } from "@/components/motion";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
@@ -35,6 +36,7 @@ const comanda = [
 
 export function WoodhouseHamburgueresPage() {
   return (
+    <MotionScope intensity="EXPRESSIVE">
     <div
       className="min-h-dvh bg-[var(--wh-dark)] text-[var(--wh-bone)]"
       style={
@@ -59,19 +61,25 @@ export function WoodhouseHamburgueresPage() {
               </p>
             </div>
 
-            <h1 className="mt-6 max-w-[16ch] font-display text-[2.1rem] font-black uppercase leading-[0.98] tracking-tight md:text-[3.6rem]">
+            <MotionReveal as="h1" variant="right" className="mt-6 max-w-[16ch] font-display text-[2.1rem] font-black uppercase leading-[0.98] tracking-tight md:text-[3.6rem]">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Hamb\u00fargueres grelhados e petiscos para a noite."}
               />
-            </h1>
+            </MotionReveal>
 
             <ul className="mt-9 space-y-0 divide-y divide-dashed divide-[var(--wh-amber)]/25">
-              {comanda.map((item) => (
-                <li key={item.titulo} className="flex gap-4 py-5">
+              {comanda.map((item, index) => (
+                <MotionReveal
+                  as="li"
+                  key={item.titulo}
+                  variant="right"
+                  delay={index * 90}
+                  className="group flex gap-4 py-5"
+                >
                   <span
                     aria-hidden
-                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--wh-amber)]"
+                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--wh-amber)] transition-transform duration-300 group-hover:scale-150"
                   />
                   <div className="min-w-0">
                     <p className="text-[0.6rem] font-bold uppercase tracking-[0.32em] text-[var(--wh-amber)]">
@@ -84,7 +92,7 @@ export function WoodhouseHamburgueresPage() {
                       {item.texto}
                     </p>
                   </div>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
 
@@ -102,7 +110,7 @@ export function WoodhouseHamburgueresPage() {
                 companySlug="woodhouse-hamburgueres"
                 formSlug="funnel-woodhouse-hamburgueres"
                 location="woodhouse-hamburgueres_hero"
-                className="mt-6 inline-flex items-center rounded-md bg-[var(--wh-amber)] px-8 py-4 text-sm font-black uppercase tracking-[0.16em] text-[var(--wh-dark)]"
+                className="mt-6 inline-flex items-center rounded-md bg-[var(--wh-amber)] px-8 py-4 text-sm font-black uppercase tracking-[0.16em] text-[var(--wh-dark)] transition-transform duration-150 hover:-translate-y-0.5 active:translate-y-0 active:scale-[.97]"
               >
                 <ManagedText field="ctaLabel" fallback={"Falar com a equipe"} />
               </FunnelCTAButton>
@@ -115,6 +123,7 @@ export function WoodhouseHamburgueresPage() {
 
           {/* faixa vertical fotográfica */}
           <aside className="min-w-0 md:sticky md:top-10 md:self-start">
+            <MotionImageReveal direction="up" className="rounded-lg">
             <PortfolioImage
               src="/images/woodhouse-hamburgueres/capa.png"
               alt="Woodhouse Hambúrgueres"
@@ -124,6 +133,7 @@ export function WoodhouseHamburgueresPage() {
               className="h-[48vh] w-full rounded-lg object-cover md:h-[70vh]"
               managedField="heroImageUrl"
             />
+            </MotionImageReveal>
             <p className="mt-4 text-[0.62rem] uppercase tracking-[0.36em] text-[var(--wh-bone)]/50">
               Grelhados · Petiscos · Combos · Retirada
             </p>
@@ -136,5 +146,6 @@ export function WoodhouseHamburgueresPage() {
       <PortfolioUpsellPopup pageName="portfolio-woodhouse-hamburgueres" />
       <PortfolioHostCredit />
     </div>
+    </MotionScope>
   );
 }
