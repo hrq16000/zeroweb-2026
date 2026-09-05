@@ -469,5 +469,108 @@
     "coverSource": "public/images/galileu-locacao-brinquedos/vitrine.png",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
     "notes": "Capa grafica autoral (cartela de atracoes) gerada da marca do cliente. Panfleto com telefone removido do projeto."
+  },
+  "paraiso-do-hot-dog": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverSource": "public/images/paraiso-do-hot-dog/capa.png",
+    "coverFocal": {
+      "x": 0.44,
+      "y": 0.5
+    },
+    "notes": "R9: arte propria da marca com produto real. OCR sem telefone/endereco/preco. Capa 16:10 gerada e revisada."
+  },
+  "rm-fretes": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverSource": "public/images/rm-fretes/carroceria-carga.png",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "notes": "R9: arte propria com veiculo do cliente, preservada em moldura (mode=frame). anuncio-oficial.png rejeitado: contem telefone (BLOCKED_CONTACT)."
+  },
+  "heloa-gas": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverSource": "public/images/heloa-gas/hero.jpg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "notes": "R9: composicao de produto (botijao/galao), sem pessoas, fachada, contato ou preco. entrega.jpg nao usado: retrata pessoa nao comprovada como equipe."
+  },
+  "denise-gomes-psicologa": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "MATERIAL_INSUFFICIENT",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: unico material e arte vertical com muito texto; recorte 16:10 corta texto e retrato. Necessario retrato horizontal proprio."
+  },
+  "ton-e-cor": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "MATERIAL_INSUFFICIENT",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: LOGO_ONLY (banner de marca com lista de servicos). Nao ampliar logo como capa fotografica."
+  },
+  "paulo-mestre-de-obras": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "MATERIAL_INSUFFICIENT",
+    "coverBlockReason": "BLOCKED_CONTACT",
+    "notes": "R9: capa.webp e panfleto com telefone (41) 99848-2304. Demais imagens de obra sem comprovacao de autoria do cliente (WRONG_PROJECT_OR_UNCERTAIN)."
+  },
+  "raphael-construcoes": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "jc-revestimentos": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "hbk-iluminacao-led": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "casa-nativa": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "almeida-torres": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "clinica-integrada": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "r_beauty": {
+    "coverReview": "NEEDS_REVIEW",
+    "coverDecision": "COVER_ASSET_PENDING",
+    "coverMaterial": "NO_SAFE_REAL_MATERIAL",
+    "coverBlockReason": "BLOCKED_QUALITY",
+    "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
   }
 }
