@@ -7,13 +7,41 @@ import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 /**
  * Site exclusivo de Brechó São Francisco (/portfolio/brecho-sao-francisco).
  *
- * Direção autoral: vitrine cinematográfica — capa em tela cheia com cartão
- * de legenda sobreposto, depois texto corrido em duas colunas com fio
- * dourado, no clima de bairro histórico. Sem cards, sem grid de serviços.
+ * Direção autoral (Rodada 4 · CLUSTER_02): caderno de garimpo com coluna
+ * fixa. A marca, a chamada e o CTA moram em uma coluna lateral que acompanha
+ * a rolagem; a direita é uma lista de araras numeradas em texto corrido, sem
+ * hero sangrado e sem faixa de fechamento.
  *
  * Identidade do cliente é soberana: nada de Header/Footer/copy da 0WEB.
  * Contato é resolvido no servidor pelo clientKey — nunca no bundle público.
  */
+const araras = [
+  {
+    numero: "Arara 01",
+    titulo: "Peças femininas",
+    texto:
+      "Vestidos, blusas, saias e alfaiataria garimpados peça a peça, conferidos antes de entrar na vitrine.",
+  },
+  {
+    numero: "Arara 02",
+    titulo: "Peças masculinas",
+    texto:
+      "Camisas, malhas e calças de uso diário, escolhidas pelo caimento e pelo estado de conservação.",
+  },
+  {
+    numero: "Arara 03",
+    titulo: "Acessórios de garimpo",
+    texto:
+      "Bolsas, cintos e miudezas que fecham o look e costumam sair rápido da vitrine.",
+  },
+  {
+    numero: "Arara 04",
+    titulo: "Moda circular",
+    texto:
+      "Cada peça que volta a circular é uma escolha de consumo mais consciente no bairro São Francisco.",
+  },
+] as const;
+
 export function BrechoSaoFranciscoPage() {
   return (
     <div
@@ -27,30 +55,21 @@ export function BrechoSaoFranciscoPage() {
         } as React.CSSProperties
       }
     >
-      <main>
-        {/* capa em tela cheia com legenda sobreposta */}
-        <section className="relative">
-          <PortfolioImage
-            src="/images/brecho-sao-francisco/capa.png"
-            alt="Brechó São Francisco"
-            priority
-            width={1600}
-            height={1000}
-            className="h-[62vh] w-full object-cover md:h-[78vh]"
-            managedField="heroImageUrl"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--sf-ink)]/70 via-[var(--sf-ink)]/10 to-transparent" />
-          <div className="relative mx-auto -mt-24 w-[min(92%,44rem)] rounded-sm border-t-4 border-[var(--sf-gold)] bg-[var(--sf-paper)] px-7 py-8 shadow-xl md:-mt-32 md:px-12 md:py-12">
-            <p className="text-[0.7rem] uppercase tracking-[0.4em] text-[var(--sf-terra)]">
+      <main className="mx-auto w-[min(94%,72rem)] py-10 md:py-16">
+        <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16">
+          {/* coluna fixa: assinatura do projeto */}
+          <div className="md:sticky md:top-10 md:self-start">
+            <p className="text-[0.68rem] uppercase tracking-[0.42em] text-[var(--sf-terra)]">
               Brechó São Francisco · Curitiba
             </p>
-            <h1 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-5xl">
+            <h1 className="mt-5 font-display text-[2.2rem] font-semibold leading-[1.05] md:text-[3.2rem]">
               <ManagedText
                 field="heroHeadline"
                 fallback={"Pe\u00e7as com hist\u00f3ria em uma vitrine acolhedora."}
               />
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-[var(--sf-ink)]/75">
+            <div className="mt-6 h-px w-24 bg-[var(--sf-gold)]" />
+            <p className="mt-6 max-w-[42ch] text-base leading-[1.85] text-[var(--sf-ink)]/75">
               <ManagedText
                 field="heroSubheadline"
                 fallback={
@@ -69,80 +88,50 @@ export function BrechoSaoFranciscoPage() {
                 <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
               </FunnelCTAButton>
             </div>
-          </div>
-        </section>
-
-        {/* texto corrido em duas colunas, com capitular */}
-        <section className="mx-auto w-[min(92%,60rem)] py-16 md:py-24">
-          <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
-            <div>
-              <p className="text-[0.7rem] uppercase tracking-[0.4em] text-[var(--sf-gold)]">
-                Sobre a vitrine
-              </p>
-              <p className="mt-6 text-lg leading-8 text-[var(--sf-ink)]/85">
-                <span className="float-left mr-3 mt-1 font-display text-6xl font-semibold leading-none text-[var(--sf-terra)]">
-                  R
-                </span>
-                oupas e acessórios de segunda mão ganham uma apresentação
-                cuidadosa: cada peça é conferida, fotografada e descrita antes de
-                entrar na vitrine, para que a escolha seja feita com calma.
-              </p>
-            </div>
-            <div className="border-l border-[var(--sf-gold)]/50 pl-8">
-              <dl className="space-y-6 text-[var(--sf-ink)]/80">
-                <div>
-                  <dt className="text-xs uppercase tracking-[0.3em] text-[var(--sf-terra)]">
-                    O que você encontra
-                  </dt>
-                  <dd className="mt-2 leading-relaxed">
-                    Roupas femininas e masculinas, acessórios e peças de garimpo
-                    selecionadas uma a uma.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-[0.3em] text-[var(--sf-terra)]">
-                    Como escolher
-                  </dt>
-                  <dd className="mt-2 leading-relaxed">
-                    Conte o tipo de peça, o tamanho e o estilo que procura para
-                    receber o que está disponível.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-[0.3em] text-[var(--sf-terra)]">
-                    Moda circular
-                  </dt>
-                  <dd className="mt-2 leading-relaxed">
-                    Cada peça que segue em uso é uma escolha mais consciente de
-                    consumo.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-y border-[var(--sf-gold)]/40 bg-[var(--sf-ink)] py-16 text-[var(--sf-paper)] md:py-20">
-          <div className="mx-auto w-[min(92%,48rem)] text-center">
-            <h2 className="font-display text-2xl font-semibold leading-snug md:text-4xl">
-              Roupas com história merecem uma descoberta cuidadosa.
-            </h2>
-            <p className="mx-auto mt-4 max-w-[48ch] text-[var(--sf-paper)]/75">
-              Conte o tipo de peça, o tamanho e o estilo que procura.
+            <p className="mt-6 max-w-[36ch] text-xs leading-relaxed text-[var(--sf-ink)]/55">
+              Conte o tipo de peça, o tamanho e o estilo que procura para receber
+              o que está disponível na vitrine.
             </p>
-            <div className="mt-8">
-              <FunnelCTAButton
-                clientKey="brecho-sao-francisco"
-                companySlug="brecho-sao-francisco"
-                formSlug="funnel-brecho-sao-francisco"
-                location="brecho-sao-francisco_fechamento"
-                className="inline-flex items-center gap-2 rounded-sm bg-[var(--sf-gold)] px-8 py-3 text-sm font-semibold uppercase tracking-widest text-[var(--sf-ink)]"
-              >
-                Consultar peças
-              </FunnelCTAButton>
-            </div>
           </div>
-        </section>
+
+          {/* coluna de leitura: retrato + araras numeradas */}
+          <div className="min-w-0">
+            <figure className="max-w-md">
+              <PortfolioImage
+                src="/images/brecho-sao-francisco/capa.png"
+                alt="Brechó São Francisco"
+                priority
+                width={1200}
+                height={1500}
+                className="w-full rounded-sm object-cover"
+                managedField="heroImageUrl"
+              />
+              <figcaption className="mt-3 text-[0.68rem] uppercase tracking-[0.3em] text-[var(--sf-gold)]">
+                Vitrine da semana
+              </figcaption>
+            </figure>
+
+            <ol className="mt-12 divide-y divide-[var(--sf-gold)]/40 border-y border-[var(--sf-gold)]/40">
+              {araras.map((item) => (
+                <li key={item.numero} className="py-7">
+                  <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--sf-terra)]">
+                    {item.numero}
+                  </p>
+                  <h2 className="mt-2 font-display text-xl font-semibold md:text-2xl">
+                    {item.titulo}
+                  </h2>
+                  <p className="mt-2 max-w-[58ch] leading-[1.85] text-[var(--sf-ink)]/75">
+                    {item.texto}
+                  </p>
+                </li>
+              ))}
+            </ol>
+
+            <p className="mt-8 font-display text-lg italic text-[var(--sf-ink)]/70">
+              Roupas com história merecem uma descoberta cuidadosa.
+            </p>
+          </div>
+        </div>
       </main>
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
