@@ -3,6 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Toquinho de Gente Brechó Adulto e Infantil
