@@ -215,7 +215,7 @@ export function ParaisoHotDogPage() {
         id="cardapio"
         className="mx-auto grid max-w-6xl gap-8 px-5 py-14 lg:grid-cols-[1.2fr_.8fr]"
       >
-        <div>
+        <div className="min-w-0">
           <div className="mb-6 flex items-end justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[.2em] text-[#b46b00]">
