@@ -67,16 +67,40 @@ for (const [key, profile] of Object.entries(profiles.defaultsBySegment ?? {}))
 for (const [key, profile] of Object.entries(profiles.overrides ?? {}))
   validateProfile("overrides", key, profile);
 
-// 3. Varredura das páginas de projeto.
+// 3. Varredura das páginas de projeto — cobertura dirigida pelo catálogo (100%).
 const dir = "src/components/site";
-const files = fs.readdirSync(path.join(root, dir)).filter((f) => /Page\.tsx$/.test(f));
+const catalog = readJson("src/config/portfolio-catalog.json");
+const catalogProjects = catalog.projects ?? catalog;
+const availableFiles = fs.readdirSync(path.join(root, dir)).filter((f) => /\.tsx$/.test(f));
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const byNorm = new Map(
+  availableFiles
+    .filter((f) => /(Page|View)\.tsx$/.test(f))
+    .map((f) => [norm(f.replace(/\.tsx$/, "").replace(/(Page|View)$/, "")), f]),
+);
+const componentMap = capabilities.projectComponentMap ?? { aliases: {}, nonProjectComponents: [] };
+const missingSlugs = [];
+const slugFiles = [];
+for (const project of catalogProjects) {
+  const file = componentMap.aliases?.[project.slug] ?? byNorm.get(norm(project.slug));
+  if (!file || !fs.existsSync(path.join(root, dir, file))) {
+    missingSlugs.push(project.slug);
+    continue;
+  }
+  slugFiles.push({ slug: project.slug, segment: project.segment, file });
+}
+if (missingSlugs.length) {
+  errors.push({ code: "AUDIT_COVERAGE_GAP", detail: missingSlugs.join(", ") });
+}
 const forbidden = capabilities.performanceBudget.forbiddenAnimatedProperties;
 const pages = [];
 
-for (const file of files) {
+for (const { slug, segment, file } of slugFiles) {
   const rel = `${dir}/${file}`;
   const src = read(rel);
   const count = (re) => (src.match(re) || []).length;
+
+
 
   // Animação de propriedade de layout: objetivamente causa reflow/CLS.
   for (const prop of forbidden) {
