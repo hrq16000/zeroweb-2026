@@ -100,36 +100,44 @@ export function MarmitariaDomDiegoPage() {
         } as React.CSSProperties
       }
     >
+      <MotionScope intensity="SUBTLE">
       <main>
         {/* faixa fotográfica larga com o nome aplicado */}
         <section className="relative">
-          <PortfolioImage
-            src="/images/marmitaria-dom-diego/capa.png"
-            alt="Marmitaria Dom Diego"
-            priority
-            width={1600}
-            height={700}
-            className="h-[38vh] min-h-[240px] w-full object-cover md:h-[46vh]"
-            managedField="heroImageUrl"
-          />
+          <MotionImageReveal direction="left">
+            <PortfolioImage
+              src="/images/marmitaria-dom-diego/capa.png"
+              alt="Marmitaria Dom Diego"
+              priority
+              width={1600}
+              height={700}
+              className="h-[38vh] min-h-[240px] w-full object-cover md:h-[46vh]"
+              managedField="heroImageUrl"
+            />
+          </MotionImageReveal>
           <div
             aria-hidden
             className="absolute inset-0 bg-gradient-to-r from-[var(--dd-ink)]/85 via-[var(--dd-ink)]/45 to-transparent"
           />
           <div className="absolute inset-y-0 left-0 flex w-full items-center px-5">
             <div className="mx-auto w-full max-w-5xl">
-              <p className="font-display text-[0.68rem] font-bold uppercase tracking-[0.34em] text-[var(--dd-paper)]/85">
-                Marmitaria Dom Diego
-              </p>
-              <h1 className="mt-3 max-w-[15ch] font-display text-[2rem] font-bold leading-[1.05] text-[var(--dd-paper)] md:text-[3.2rem]">
-                <ManagedText
-                  field="heroHeadline"
-                  fallback={"Comida de casa para o almo\u00e7o de todo dia."}
-                />
-              </h1>
+              <MotionReveal variant="right" delay={120}>
+                <p className="font-display text-[0.68rem] font-bold uppercase tracking-[0.34em] text-[var(--dd-paper)]/85">
+                  Marmitaria Dom Diego
+                </p>
+              </MotionReveal>
+              <MotionReveal variant="right" delay={220}>
+                <h1 className="mt-3 max-w-[15ch] font-display text-[2rem] font-bold leading-[1.05] text-[var(--dd-paper)] md:text-[3.2rem]">
+                  <ManagedText
+                    field="heroHeadline"
+                    fallback={"Comida de casa para o almo\u00e7o de todo dia."}
+                  />
+                </h1>
+              </MotionReveal>
             </div>
           </div>
         </section>
+
 
         {/* cardápio em linhas com pontilhado */}
         <section aria-labelledby="dd-cardapio" className="mx-auto max-w-5xl px-5 py-12 md:py-16">
