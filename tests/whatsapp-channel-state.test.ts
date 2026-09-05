@@ -1,4 +1,4 @@
-import { describe, expect, it, afterEach } from "bun:test";
+import { describe, expect, it, afterEach } from "vitest";
 import {
   getPortfolioWhatsAppChannelState,
   portfolioWhatsAppEnvName,
