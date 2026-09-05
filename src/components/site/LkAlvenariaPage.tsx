@@ -42,20 +42,21 @@ export function LkAlvenariaPage() {
       </header>
 
       <main>
-        {/* HERO: manchete sobre a imagem da obra + ficha sobreposta (coluna única, centrada) */}
-        <section id="inicio" className="relative">
-          <div className="relative">
-            <PortfolioImage src="/images/lk-alvenaria/portfolio.webp" alt="LK Alvenaria: obra civil, estrutura e acabamentos" priority width={1280} height={800} className="h-[420px] w-full object-cover sm:h-[520px]" managedField="heroImageUrl" />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#17100b] via-[#17100b]/80 to-[#17100b]/35" />
-            <div className="absolute inset-0 flex items-end">
-              <div className="mx-auto w-full max-w-5xl px-5 pb-12 lg:px-8">
-                <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ffb066]">Empreiteiro de obra civil · construção e acabamento</p>
-                <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
-                  <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
-                </h1>
-              </div>
-            </div>
+        {/* HERO: painel tipográfico de canteiro (sem material com contato visível) */}
+        <section id="inicio" className="relative overflow-hidden bg-[#17100b]">
+          <div aria-hidden className="absolute inset-0 opacity-25 [background-image:repeating-linear-gradient(90deg,#3a2c20_0_2px,transparent_2px_92px),repeating-linear-gradient(0deg,#3a2c20_0_2px,transparent_2px_44px)]" />
+          <div aria-hidden className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#ff7900]/25 blur-3xl" />
+          <div className="relative mx-auto max-w-5xl px-5 pb-24 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
+            <p className="text-xs font-bold uppercase tracking-[.28em] text-[#ffb066]">Empreiteiro de obra civil · construção e acabamento</p>
+            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.02] text-[#fdf7f0] sm:text-6xl">
+              <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
+            </h1>
+            {heroImage ? (
+              <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
+            ) : null}
           </div>
+        </section>
+
           <div className="mx-auto -mt-8 max-w-5xl px-5 lg:px-8">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }} className="rounded-2xl border-2 border-[#17100b] bg-[#fdf7f0] p-6 sm:p-8">
               <p className="text-base leading-8 text-[#4a3a2c]">
