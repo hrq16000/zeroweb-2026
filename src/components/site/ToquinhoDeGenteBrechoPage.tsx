@@ -55,7 +55,6 @@ export function ToquinhoDeGenteBrechoPage() {
         } as React.CSSProperties
       }
     >
-      <main>
       <MotionScope intensity="EXPRESSIVE">
       <main>
         <div className="bg-[var(--tq-coral)] py-2.5 text-center text-[0.66rem] font-bold uppercase tracking-[0.38em] text-[var(--tq-sun)]">
