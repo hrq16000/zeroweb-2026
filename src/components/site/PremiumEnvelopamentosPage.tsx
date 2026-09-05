@@ -1,28 +1,176 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { ArrowRight, Check, Instagram, Sparkles } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
-const services = [["Plotagem de móveis", "Renove portas e frentes com acabamento premium, cores modernas e aplicação pronta no mesmo dia."], ["Envelopamento de geladeiras", "Escolha entre mais de 800 opções de imagens e cores para personalizar eletros com acabamento profissional."], ["Comunicação visual", "Adesivos para paredes, portas e automóveis, além de lonas, banners e perfurados."], ["Criação de artes", "Logotipos e artes personalizadas para dar unidade à comunicação da sua marca."]] as const;
+/** Catálogo de superfícies: linhas técnicas numeradas, não cards. */
+const catalogo = [
+  ["01", "Plotagem de móveis", "Portas e frentes renovadas com película aplicada em obra limpa, sem barulho e sem quebra.", "Móveis"],
+  ["02", "Envelopamento de geladeiras", "Mais de 800 opções de imagens e cores para transformar o eletro em peça central da cozinha.", "Eletros"],
+  ["03", "Comunicação visual", "Adesivos para paredes, portas e automóveis, além de lonas, banners e perfurados.", "Ambientes"],
+  ["04", "Criação de artes", "Logotipos e artes personalizadas para dar unidade à comunicação da marca.", "Marca"],
+] as const;
 
 export function PremiumEnvelopamentosPage() {
-  return <div className="min-h-dvh bg-[#f5f8fb] text-[#071d41]">
-    <header className="sticky top-0 z-20 border-b border-[#d7e3ef] bg-[#f5f8fb]/95 px-5 py-4 backdrop-blur lg:px-8"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4"><a href="#inicio" aria-label="Premium Envelopamentos" className="shrink-0"><PortfolioImage managedField="logoUrl" priority src="/images/premium-envelopamentos/logo.png" alt="Premium Envelopamentos" width={768} height={256} decoding="async" className="h-10 w-auto" /></a><nav className="hidden gap-6 text-sm font-semibold md:flex"><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#instagram">Instagram</a></nav><FunnelCTAButton clientKey="premium-envelopamentos" companySlug="premium-envelopamentos" formSlug="funnel-premium-envelopamentos" location="premium_header" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#0a2b5e] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#0a2b5e]/20">Solicitar orçamento <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></header>
-    <main>
-      <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[.9fr_1.1fr] lg:px-8 lg:py-24"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f06a24]">Plotagem · envelopamento · comunicação visual</p><h1 className="mt-5 max-w-xl text-5xl font-black leading-[.98] tracking-tight sm:text-7xl">
+  return (
+    <div className="min-h-dvh bg-[#f5f8fb] text-[#071d41]">
+      {/* HERO: faixa escura de largura total + tira fotográfica panorâmica abaixo. */}
+      <section id="inicio" className="bg-[#071d41] text-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 lg:px-8">
+          <a href="#inicio" aria-label="Premium Envelopamentos" className="shrink-0">
+            <PortfolioImage
+              managedField="logoUrl"
+              priority
+              src="/images/premium-envelopamentos/logo.png"
+              alt="Premium Envelopamentos"
+              width={768}
+              height={256}
+              decoding="async"
+              className="h-10 w-auto rounded-md bg-white/95 px-3 py-1.5"
+            />
+          </a>
+          <nav className="hidden gap-6 text-sm font-semibold text-white/80 md:flex">
+            <a href="#catalogo" className="hover:text-white">Catálogo</a>
+            <a href="#aplicacao" className="hover:text-white">Aplicação</a>
+            <a href="#orcamento" className="hover:text-white">Orçamento</a>
+          </nav>
+        </div>
+        <div className="mx-auto max-w-6xl px-5 pb-14 lg:px-8">
+          <p className="text-xs font-bold uppercase tracking-[.32em] text-[#f06a24]">
+            Plotagem · envelopamento · comunicação visual
+          </p>
+          <h1 className="mt-5 max-w-4xl text-4xl font-black uppercase leading-[.95] tracking-[-.02em] sm:text-7xl">
             <ManagedText field="heroHeadline" fallback={"Seu m\u00f3vel muda de cara. Seu ambiente ganha presen\u00e7a."} />
-          </h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#46617c]">
-            <ManagedText field="heroSubheadline" fallback={"Plotagem de m\u00f3veis e envelopamento de geladeiras com aplica\u00e7\u00e3o limpa, cores atuais e acabamento profissional em Curitiba e regi\u00e3o."} />
-          </p><div className="mt-8 flex flex-wrap gap-3"><FunnelCTAButton clientKey="premium-envelopamentos" companySlug="premium-envelopamentos" formSlug="funnel-premium-envelopamentos" location="premium_hero" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#f06a24] px-6 py-3 font-bold text-white">Quero transformar meu ambiente <ArrowRight className="h-4 w-4" /></FunnelCTAButton><a href="#servicos" className="inline-flex min-h-12 items-center rounded-full border border-[#9db5cb] px-6 py-3 font-semibold text-[#0a2b5e]">Ver serviços</a></div><div className="mt-7 flex flex-wrap gap-4 text-sm font-semibold text-[#46617c]"><span><Check className="mr-1 inline h-4 w-4 text-[#10a8d8]" />Sem barulho e sem sujeira</span><span><Check className="mr-1 inline h-4 w-4 text-[#10a8d8]" />Pronto no mesmo dia</span></div></div><PortfolioImage src="/images/premium-envelopamentos/hero.png" alt="Aplicação de envelopamento em geladeira pela Premium Envelopamentos" priority width={1024} height={1024} className="w-full rounded-[2rem] object-cover shadow-2xl shadow-[#0a2b5e]/20"
-            managedField="heroImageUrl"
-          /></section>
-      <section id="servicos" className="bg-[#0a2b5e] px-5 py-20 text-white lg:px-8"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-[#49d6f3]">Soluções sob medida</p><h2 className="mt-3 max-w-2xl text-4xl font-black">Uma nova superfície para cada ideia.</h2><div className="mt-10 grid gap-5 md:grid-cols-2">{services.map(([title, text], index) => <article key={title} className="rounded-[1.6rem] border border-white/15 bg-white/10 p-6"><span className="text-sm font-bold text-[#f6a05b]">0{index + 1}</span><h3 className="mt-8 text-2xl font-black">{title}</h3><p className="mt-3 leading-7 text-white/75">{text}</p></article>)}</div></div></section>
-      <section id="galeria" className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-6xl"><div className="flex items-end justify-between gap-5"><div><p className="text-sm font-bold uppercase tracking-[.2em] text-[#f06a24]">Acabamento que aparece</p><h2 className="mt-3 text-4xl font-black">Veja possibilidades para o seu espaço.</h2></div><Sparkles className="h-10 w-10 text-[#10a8d8]" /></div><div className="mt-10 grid gap-5 md:grid-cols-2"><figure className="overflow-hidden rounded-[1.6rem] bg-white shadow-lg"><PortfolioImage src="/images/premium-envelopamentos/galeria-oficina.png" alt="Plotagem de móveis em oficina limpa e moderna" width={1536} height={1024} className="aspect-[3/2] w-full object-cover" /><figcaption className="p-4 text-sm font-semibold text-[#46617c]">Aplicação cuidadosa e visual renovado para móveis e eletros.</figcaption></figure><figure className="overflow-hidden rounded-[1.6rem] bg-white shadow-lg"><PortfolioImage src="/images/premium-envelopamentos/hero.png" alt="Envelopamento personalizado de geladeira" width={1024} height={1024} className="aspect-square w-full object-cover" /><figcaption className="p-4 text-sm font-semibold text-[#46617c]">Escolha cores e imagens para criar uma geladeira exclusiva.</figcaption></figure></div></div></section>
-      <section id="instagram" className="bg-[#e1f4f8] px-5 py-16 lg:px-8"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-[2rem] bg-white p-8 shadow-sm md:flex-row md:items-center"><div><Instagram className="h-8 w-8 text-[#e1306c]" /><p className="mt-4 text-sm font-bold uppercase tracking-[.2em] text-[#0a2b5e]">Acompanhe no Instagram</p><h2 className="mt-2 text-3xl font-black">Mais ideias, aplicações e acabamentos.</h2><p className="mt-3 max-w-xl leading-7 text-[#46617c]">Conheça o trabalho da Premium Envelopamentos e veja referências reais no perfil oficial.</p></div><a href="https://www.instagram.com/premiumenvelopamentos" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#e1306c] px-6 py-3 font-bold text-white">Abrir Instagram <ArrowRight className="h-4 w-4" /></a></div></section>
-      <section className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-5xl rounded-[2rem] bg-[#f06a24] px-7 py-12 text-center text-white sm:px-12"><h2 className="text-4xl font-black">Pronto para renovar sem reforma?</h2><p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/85">Conte qual móvel ou eletro você quer transformar e receba orientação sobre as possibilidades.</p><FunnelCTAButton clientKey="premium-envelopamentos" companySlug="premium-envelopamentos" formSlug="funnel-premium-envelopamentos" location="premium_footer" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#071d41] px-7 py-3.5 font-bold text-white">Falar com a Premium <ArrowRight className="h-4 w-4" /></FunnelCTAButton></div></section>
-    </main><footer className="bg-[#071d41] px-5 py-8 text-sm text-[#c8e4f0] lg:px-8"><div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p><strong className="text-white">Premium Envelopamentos</strong><br />Plotagem, envelopamento e comunicação visual em Curitiba e região.</p><PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" /></div></footer><PortfolioSocialProofPopup clientKey="premium-envelopamentos" eyebrow="Premium Envelopamentos" title="Uma nova superfície muda a sensação do ambiente." description="Conheça plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual." ctaLabel="Ver serviços" ctaHref="#servicos" delayMs={9000} className="border-[#10a8d8]/35 bg-[#071d41]/95 text-white" accentClassName="text-[#49d6f3]" /><PortfolioUpsellPopup pageName="portfolio-premium-envelopamentos" />
-  </div>;
+          </h1>
+          <div className="mt-8 grid gap-6 border-t border-white/15 pt-6 md:grid-cols-[1.4fr_.6fr] md:items-end">
+            <p className="max-w-2xl text-lg leading-8 text-[#b9d0e6]">
+              <ManagedText
+                field="heroSubheadline"
+                fallback={"Plotagem de m\u00f3veis e envelopamento de geladeiras com aplica\u00e7\u00e3o limpa, cores atuais e acabamento profissional em Curitiba e regi\u00e3o."}
+              />
+            </p>
+            <dl className="grid grid-cols-2 gap-4 text-sm md:justify-items-end">
+              <div>
+                <dt className="text-[#7fa6cd]">Aplicação</dt>
+                <dd className="text-lg font-black">Sem obra</dd>
+              </div>
+              <div>
+                <dt className="text-[#7fa6cd]">Prazo típico</dt>
+                <dd className="text-lg font-black">Mesmo dia</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <PortfolioImage
+          src="/images/premium-envelopamentos/hero.png"
+          alt="Aplicação de envelopamento em geladeira pela Premium Envelopamentos"
+          priority
+          width={1024}
+          height={1024}
+          className="h-56 w-full object-cover object-center sm:h-80 lg:h-[26rem]"
+          managedField="heroImageUrl"
+        />
+      </section>
+
+      <main>
+        {/* Catálogo em linhas técnicas com coluna de índice. */}
+        <section id="catalogo" className="px-5 py-16 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="max-w-2xl text-3xl font-black uppercase tracking-[-.01em] sm:text-4xl">
+              Uma nova superfície para cada ideia.
+            </h2>
+            <div className="mt-10 divide-y divide-[#cfdce9] border-y border-[#cfdce9]">
+              {catalogo.map(([index, title, text, tag]) => (
+                <article key={title} className="grid gap-3 py-7 md:grid-cols-[4rem_1fr_1.2fr_8rem] md:items-baseline md:gap-8">
+                  <span className="text-sm font-black text-[#f06a24]">{index}</span>
+                  <h3 className="text-2xl font-black">{title}</h3>
+                  <p className="leading-7 text-[#46617c]">{text}</p>
+                  <span className="justify-self-start rounded-full bg-[#e1f4f8] px-3 py-1 text-xs font-bold uppercase tracking-[.14em] text-[#0a2b5e] md:justify-self-end">
+                    {tag}
+                  </span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Aplicação: foto de oficina em bloco largo com legenda lateral. */}
+        <section id="aplicacao" className="bg-[#0a2b5e] px-5 py-16 text-white lg:px-8">
+          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.35fr_.65fr] md:items-center">
+            <PortfolioImage
+              src="/images/premium-envelopamentos/galeria-oficina.png"
+              alt="Plotagem de móveis em oficina limpa e moderna"
+              width={1536}
+              height={1024}
+              className="aspect-[16/9] w-full rounded-none object-cover"
+            />
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.32em] text-[#49d6f3]">Como é feito</p>
+              <h2 className="mt-3 text-3xl font-black">Preparo, corte e aplicação no mesmo fluxo.</h2>
+              <p className="mt-4 leading-7 text-white/75">
+                A superfície é limpa e nivelada antes da película. O corte é ajustado à peça e o acabamento é conferido
+                borda a borda — sem poeira, sem cheiro forte e sem parar o ambiente por dias.
+              </p>
+              <a
+                href="https://www.instagram.com/premiumenvelopamentos"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4"
+              >
+                <Instagram className="h-4 w-4" /> Ver aplicações no Instagram
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Orçamento em linha horizontal, sem card centralizado. */}
+        <section id="orcamento" className="border-b-8 border-[#f06a24] px-5 py-14 lg:px-8">
+          <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-3xl font-black uppercase sm:text-4xl">Pronto para renovar sem reforma?</h2>
+              <p className="mt-3 max-w-xl leading-8 text-[#46617c]">
+                Conte qual móvel ou eletro você quer transformar e receba orientação sobre as possibilidades.
+              </p>
+            </div>
+            <FunnelCTAButton
+              clientKey="premium-envelopamentos"
+              companySlug="premium-envelopamentos"
+              formSlug="funnel-premium-envelopamentos"
+              location="premium_footer"
+              className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-none bg-[#f06a24] px-7 py-3.5 font-bold uppercase tracking-[.1em] text-white"
+            >
+              Solicitar orçamento
+            </FunnelCTAButton>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#071d41] px-5 py-8 text-sm text-[#c8e4f0] lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            <strong className="text-white">Premium Envelopamentos</strong>
+            <br />
+            Plotagem, envelopamento e comunicação visual em Curitiba e região.
+          </p>
+          <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4" />
+        </div>
+      </footer>
+
+      <PortfolioSocialProofPopup
+        clientKey="premium-envelopamentos"
+        eyebrow="Premium Envelopamentos"
+        title="Uma nova superfície muda a sensação do ambiente."
+        description="Conheça plotagem de móveis, envelopamento de geladeiras e soluções de comunicação visual."
+        ctaLabel="Ver catálogo"
+        ctaHref="#catalogo"
+        delayMs={9000}
+        className="border-[#10a8d8]/35 bg-[#071d41]/95 text-white"
+        accentClassName="text-[#49d6f3]"
+      />
+      <PortfolioUpsellPopup pageName="portfolio-premium-envelopamentos" />
+    </div>
+  );
 }
