@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Brechó São Francisco (/portfolio/brecho-sao-francisco).
@@ -123,14 +123,15 @@ export function BrechoSaoFranciscoPage() {
               </figure>
             </MotionReveal>
 
-            <MotionStagger
-              as="ol"
-              variant="right"
-              step={120}
-              className="mt-12 divide-y divide-[var(--sf-gold)]/40 border-y border-[var(--sf-gold)]/40"
-            >
-              {araras.map((item) => (
-                <li key={item.numero} className="group py-7">
+            <ol className="mt-12 divide-y divide-[var(--sf-gold)]/40 border-y border-[var(--sf-gold)]/40">
+              {araras.map((item, i) => (
+                <MotionReveal
+                  as="li"
+                  key={item.numero}
+                  variant="right"
+                  delay={i * 120}
+                  className="group block py-7"
+                >
                   <p className="text-[0.66rem] uppercase tracking-[0.34em] text-[var(--sf-terra)] transition-transform duration-200 group-hover:translate-x-1">
                     {item.numero}
                   </p>
@@ -140,9 +141,9 @@ export function BrechoSaoFranciscoPage() {
                   <p className="mt-2 max-w-[58ch] leading-[1.85] text-[var(--sf-ink)]/75">
                     {item.texto}
                   </p>
-                </li>
+                </MotionReveal>
               ))}
-            </MotionStagger>
+            </ol>
 
             <p className="mt-8 font-display text-lg italic text-[var(--sf-ink)]/70">
               Roupas com história merecem uma descoberta cuidadosa.
