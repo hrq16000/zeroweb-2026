@@ -67,6 +67,9 @@ export function LkAlvenariaPage() {
               </div>
             </motion.div>
           </div>
+        </section>
+
+
 
 
         {/* CRONOGRAMA: linha do tempo vertical, medida em etapas de obra */}
