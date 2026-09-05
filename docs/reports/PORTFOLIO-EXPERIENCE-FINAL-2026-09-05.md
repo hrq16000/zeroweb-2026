@@ -304,3 +304,24 @@ pontos de score ou porque uma página STANDARD não virou PREMIUM.
 
 Este contrato vale para `0web.com.br`. Outros domínios ou negócios só adotam
 padrões semelhantes quando tratados explicitamente em seus próprios contextos.
+
+## 12. LACRE FINAL (2026-09-05)
+
+`PORTFOLIO_FINAL_STATE = SEALED` · `MAINTENANCE_MODE = ACTIVE` ·
+`AUTOMATIC_IMPROVEMENT_ROUNDS = DISABLED` · `REOPEN_ONLY_WITH_REAL_TRIGGER = YES`.
+
+Baseline lacrado: 68 projetos, STATIC=0, MOTION_CLONES=0, VISUAL_CLONES=0,
+FUNNEL_FAIL=0, WHATSAPP_CONFIGURED=7 / NOT_CONFIGURED=61 (ausência não é erro),
+CRITICAL_SECURITY=0, PII_REGRESSION=0, PRIVACY/TESTS/BUILD/PRODUCTION = PASS.
+
+Reabertura somente com gatilho real: NEW_PROJECT, REAL_BUG, REGRESSION,
+OFFICIAL_CLIENT_CONTACT_RECEIVED, REAL_CLIENT_ASSET_RECEIVED,
+COMMERCIAL_REQUIREMENT, MEASURED_CONVERSION_PROBLEM, SECURITY_FINDING ou
+RELEVANT_TECHNICAL_EVOLUTION. Qualquer outro caso: NO_ACTION.
+
+Projetos futuros nascem no padrão vigente (identidade, experiência, motion,
+funil, SEO, a11y, performance, privacidade, segurança, originalidade e tracking
+próprios): padronizar a engenharia, não a criatividade. Capas pendentes
+permanecem backlog editorial; WhatsApp ausente é NOT_CONFIGURED, nunca 0%.
+Escopo exclusivo: 0web.com.br. Este documento é a referência; não criar
+documentação concorrente.
