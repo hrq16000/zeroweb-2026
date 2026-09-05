@@ -1,30 +1,18 @@
 {
-  "generatedAt": "2026-09-05T02:43:17.359Z",
-  "totalPages": 67,
-  "premium": 4,
-  "baseline": 31,
+  "generatedAt": "2026-09-05T02:45:34.822Z",
+  "totalCatalogProjects": 68,
+  "totalPages": 68,
+  "auditCoverage": "100%",
+  "missingSlugs": [],
+  "premium": 6,
+  "signature": 0,
+  "baseline": 30,
   "static": 32,
   "errors": [],
   "warnings": [
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/AngelMixBrechoPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/AtelieEncantoDaBaiaPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/BarreiroMarmitasPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/BetoPasteisPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/BrechoSaoFranciscoPage.tsx"
+      "detail": "src/components/site/SosPresentesCosmeticosPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -36,27 +24,7 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/ConsertaMirassolPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/DeliciasCaseirasMirassolPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/DlaraPizzariaPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/GalileuLocacaoBrinquedosPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/JcRevestimentosPage.tsx"
+      "detail": "src/components/site/RefrigeracaoMaresiaPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -64,43 +32,23 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/LjCleaningPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/LolipaArteEmFestasPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/ManuPasteisPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/MarmitariaDomDiegoPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/MiroTechPage.tsx"
+      "detail": "src/components/site/BetoPasteisPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/OficinaNauticaGuaratubaPage.tsx"
+      "detail": "src/components/site/WoodhouseHamburgueresPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/PremiumEnvelopamentosPage.tsx"
+      "detail": "src/components/site/DlaraPizzariaPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/RaphaelConstrucoesPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/RefrigeracaoMaresiaPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/ReparosDoLitoralPage.tsx"
+      "detail": "src/components/site/ToquinhoDeGenteBrechoPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -108,11 +56,71 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/BrechoSaoFranciscoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/AngelMixBrechoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
       "detail": "src/components/site/SaboresDaBaiaPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/SosPresentesCosmeticosPage.tsx"
+      "detail": "src/components/site/OficinaNauticaGuaratubaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/AtelieEncantoDaBaiaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ReparosDoLitoralPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/DeliciasCaseirasMirassolPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ConsertaMirassolPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/BarreiroMarmitasPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/UberlandiaEletricaResidencialPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/LolipaArteEmFestasPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/PremiumEnvelopamentosPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/MiroTechPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/GalileuLocacaoBrinquedosPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/LjCleaningPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ManuPasteisPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
@@ -124,110 +132,21 @@
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/ToquinhoDeGenteBrechoPage.tsx"
+      "detail": "src/components/site/RaphaelConstrucoesPage.tsx"
     },
     {
       "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/UberlandiaEletricaResidencialPage.tsx"
-    },
-    {
-      "code": "EXPERIENCE_STATIC",
-      "detail": "src/components/site/WoodhouseHamburgueresPage.tsx"
+      "detail": "src/components/site/JcRevestimentosPage.tsx"
     }
   ],
   "pages": [
     {
-      "file": "src/components/site/AngelMixBrechoPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/BetoPasteisPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/BrechoSaoFranciscoPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/DlaraPizzariaPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/LolipaArteEmFestasPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/ManuPasteisPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "marmitaria-dom-diego",
+      "segment": "restaurantes",
       "file": "src/components/site/MarmitariaDomDiegoPage.tsx",
       "score": 0,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -236,9 +155,12 @@
       }
     },
     {
-      "file": "src/components/site/MiroTechPage.tsx",
+      "slug": "beto-pasteis",
+      "segment": "restaurantes",
+      "file": "src/components/site/BetoPasteisPage.tsx",
       "score": 0,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -247,31 +169,12 @@
       }
     },
     {
-      "file": "src/components/site/ReuseHouseBrechoPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
-      "score": 0,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 0,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "woodhouse-hamburgueres",
+      "segment": "restaurantes",
       "file": "src/components/site/WoodhouseHamburgueresPage.tsx",
       "score": 0,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -280,20 +183,152 @@
       }
     },
     {
-      "file": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 1,
+      "slug": "dlara-pizzaria",
+      "segment": "restaurantes",
+      "file": "src/components/site/DlaraPizzariaPage.tsx",
+      "score": 0,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 1,
+        "hover": 0,
         "animate": 0
       }
     },
     {
+      "slug": "toquinho-de-gente-brecho",
+      "segment": "comercios",
+      "file": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "reuse-house-brecho",
+      "segment": "comercios",
+      "file": "src/components/site/ReuseHouseBrechoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "brecho-sao-francisco",
+      "segment": "comercios",
+      "file": "src/components/site/BrechoSaoFranciscoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "angel-mix-brecho",
+      "segment": "comercios",
+      "file": "src/components/site/AngelMixBrechoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "bh-barreiro-marmitas",
+      "segment": "restaurantes",
+      "file": "src/components/site/BarreiroMarmitasPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "lolipa-arte-em-festas",
+      "segment": "comercios",
+      "file": "src/components/site/LolipaArteEmFestasPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "confeitaria-sabor-da-realeza",
+      "segment": "restaurantes",
+      "file": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "miro-tech",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/MiroTechPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "manu-pasteis",
+      "segment": "restaurantes",
+      "file": "src/components/site/ManuPasteisPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "guaratuba-reparos-residenciais",
+      "segment": "prestadores-de-servicos",
       "file": "src/components/site/ReparosDoLitoralPage.tsx",
       "score": 1,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -302,9 +337,26 @@
       }
     },
     {
+      "slug": "jc-revestimentos",
+      "segment": "construcao",
+      "file": "src/components/site/JcRevestimentosPage.tsx",
+      "score": 1,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 1,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "guaratuba-atelie-presentes",
+      "segment": "comercios",
       "file": "src/components/site/AtelieEncantoDaBaiaPage.tsx",
       "score": 2,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -313,31 +365,12 @@
       }
     },
     {
-      "file": "src/components/site/RaphaelConstrucoesPage.tsx",
-      "score": 2,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 2,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/TonECorPage.tsx",
-      "score": 2,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 2,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "uberlandia-eletrica-residencial",
+      "segment": "prestadores-de-servicos",
       "file": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
       "score": 2,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -346,130 +379,40 @@
       }
     },
     {
-      "file": "src/components/site/CasaNativaBistroPage.tsx",
-      "score": 3,
+      "slug": "ton-e-cor",
+      "segment": "servicos",
+      "file": "src/components/site/TonECorPage.tsx",
+      "score": 2,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 3,
+        "hover": 2,
         "animate": 0
       }
     },
     {
-      "file": "src/components/site/ConfeitariaChyrleyPage.tsx",
-      "score": 3,
+      "slug": "raphael-construcoes",
+      "segment": "servicos",
+      "file": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "score": 2,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 3,
+        "hover": 2,
         "animate": 0
       }
     },
     {
-      "file": "src/components/site/ConsertaMirassolPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/DeliciasCaseirasMirassolPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/JklMarcenariaPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/LjCleaningPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/PremiumEnvelopamentosPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/RefrigeracaoMaresiaPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/SaboresDaBaiaPage.tsx",
-      "score": 3,
-      "level": "STATIC",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 3,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "sos-presentes-cosmeticos",
+      "segment": "comercios",
       "file": "src/components/site/SosPresentesCosmeticosPage.tsx",
       "score": 3,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -478,9 +421,166 @@
       }
     },
     {
+      "slug": "casa-nativa",
+      "segment": "servicos",
+      "file": "src/components/site/CasaNativaBistroPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "confeitaria-chyrley",
+      "segment": "servicos",
+      "file": "src/components/site/ConfeitariaChyrleyPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "refrigeracao-maresia",
+      "segment": "servicos",
+      "file": "src/components/site/RefrigeracaoMaresiaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "jkl-marcenaria",
+      "segment": "servicos",
+      "file": "src/components/site/JklMarcenariaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "guaratuba-sabores-da-baia",
+      "segment": "restaurantes",
+      "file": "src/components/site/SaboresDaBaiaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "guaratuba-oficina-nautica",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "mirassol-delicias-caseiras",
+      "segment": "restaurantes",
+      "file": "src/components/site/DeliciasCaseirasMirassolPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "mirassol-conserta-celular",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/ConsertaMirassolPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "premium-envelopamentos",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/PremiumEnvelopamentosPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "galileu-locacao-brinquedos",
+      "segment": "comercios",
+      "file": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "lj-cleaning",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/LjCleaningPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "thays-camilla",
+      "segment": "comercios",
       "file": "src/components/site/ThaysCamillaPage.tsx",
       "score": 3,
       "level": "STATIC",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -489,42 +589,12 @@
       }
     },
     {
-      "file": "src/components/site/AcaiTotalAraucariaPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/AguiaSulSinalizacaoPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "clinica-integrada",
+      "segment": "saude",
       "file": "src/components/site/ClinicaIntegradaSaudePage.tsx",
       "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -533,9 +603,12 @@
       }
     },
     {
-      "file": "src/components/site/DiegoMontadorMoveisPage.tsx",
+      "slug": "almeida-torres",
+      "segment": "juridico",
+      "file": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
       "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -544,9 +617,12 @@
       }
     },
     {
+      "slug": "ecommerce-on",
+      "segment": "agencias",
       "file": "src/components/site/EcommerceOnPage.tsx",
       "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -555,9 +631,40 @@
       }
     },
     {
+      "slug": "diego-montador-moveis",
+      "segment": "servicos",
+      "file": "src/components/site/DiegoMontadorMoveisPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "aguia-sul-sinalizacao",
+      "segment": "servicos",
+      "file": "src/components/site/AguiaSulSinalizacaoPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "eletrovale-eletromecanica",
+      "segment": "servicos",
       "file": "src/components/site/EletrovaleEletromecanicaPage.tsx",
       "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -566,20 +673,12 @@
       }
     },
     {
-      "file": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "score": 4,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 4,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "mary-diarista",
+      "segment": "servicos",
       "file": "src/components/site/MaryDiaristaPage.tsx",
       "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -588,31 +687,40 @@
       }
     },
     {
-      "file": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
-      "score": 5,
+      "slug": "acai-total-araucaria",
+      "segment": "restaurantes",
+      "file": "src/components/site/AcaiTotalAraucariaPage.tsx",
+      "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 5,
+        "hover": 4,
         "animate": 0
       }
     },
     {
-      "file": "src/components/site/EisenferTubosAcosPage.tsx",
-      "score": 5,
+      "slug": "hbk-iluminacao-led",
+      "segment": "construcao",
+      "file": "src/components/site/HbkIluminacaoLedPage.tsx",
+      "score": 4,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 5,
+        "hover": 4,
         "animate": 0
       }
     },
     {
+      "slug": "vila-da-capivara",
+      "segment": "servicos",
       "file": "src/components/site/VilaDaCapivaraPage.tsx",
       "score": 5,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -621,9 +729,40 @@
       }
     },
     {
+      "slug": "eisenfer-tubos-acos",
+      "segment": "construcao",
+      "file": "src/components/site/EisenferTubosAcosPage.tsx",
+      "score": 5,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "artesanatos-darleia-oliveira",
+      "segment": "comercios",
+      "file": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
+      "score": 5,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "ag-electrical-services",
+      "segment": "servicos",
       "file": "src/components/site/AgElectricalServicesPage.tsx",
       "score": 6,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -632,20 +771,12 @@
       }
     },
     {
-      "file": "src/components/site/EletroSolucoesEficazesPage.tsx",
-      "score": 6,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 6,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "lk-alvenaria",
+      "segment": "servicos",
       "file": "src/components/site/LkAlvenariaPage.tsx",
       "score": 6,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -654,53 +785,26 @@
       }
     },
     {
-      "file": "src/components/site/EspacoCihLuhPage.tsx",
-      "score": 7,
+      "slug": "eletro-solucoes-eficazes",
+      "segment": "servicos",
+      "file": "src/components/site/EletroSolucoesEficazesPage.tsx",
+      "score": 6,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 7,
+        "hover": 6,
         "animate": 0
       }
     },
     {
-      "file": "src/components/site/LizMoraesNailDesignerPage.tsx",
-      "score": 7,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 7,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
-      "score": 7,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 7,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/SalaoDaMarciaPage.tsx",
-      "score": 7,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 7,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "studio-de-cilios",
+      "segment": "beleza",
       "file": "src/components/site/StudioDeCiliosPage.tsx",
       "score": 7,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -709,53 +813,68 @@
       }
     },
     {
-      "file": "src/components/site/HeloaGasPage.tsx",
-      "score": 8,
+      "slug": "no-brilho-higienizacao",
+      "segment": "servicos",
+      "file": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
+      "score": 7,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 8,
-        "animate": 0
-      }
-    },
-    {
-      "file": "src/components/site/HubPage.tsx",
-      "score": 8,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 1,
         "hover": 7,
         "animate": 0
       }
     },
     {
-      "file": "src/components/site/MpFestasEventosPage.tsx",
-      "score": 8,
+      "slug": "salao-da-marcia",
+      "segment": "beleza",
+      "file": "src/components/site/SalaoDaMarciaPage.tsx",
+      "score": 7,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 8,
+        "hover": 7,
         "animate": 0
       }
     },
     {
-      "file": "src/components/site/ParaisoHotDogPage.tsx",
-      "score": 8,
+      "slug": "espaco-cih-luh",
+      "segment": "beleza",
+      "file": "src/components/site/EspacoCihLuhPage.tsx",
+      "score": 7,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
-        "hover": 8,
+        "hover": 7,
         "animate": 0
       }
     },
     {
+      "slug": "liz-moraes-nail-designer",
+      "segment": "beleza",
+      "file": "src/components/site/LizMoraesNailDesignerPage.tsx",
+      "score": 7,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "rm-fretes",
+      "segment": "servicos",
       "file": "src/components/site/RMFretesPage.tsx",
       "score": 8,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -764,9 +883,54 @@
       }
     },
     {
+      "slug": "paraiso-do-hot-dog",
+      "segment": "servicos",
+      "file": "src/components/site/ParaisoHotDogPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "mp-festas-eventos",
+      "segment": "servicos",
+      "file": "src/components/site/MpFestasEventosPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "heloa-gas",
+      "segment": "comercios",
+      "file": "src/components/site/HeloaGasPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "emporio-lelecute",
+      "segment": "servicos",
       "file": "src/components/site/EmporioLelecutePage.tsx",
       "score": 9,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -775,9 +939,12 @@
       }
     },
     {
+      "slug": "lucas-arruma-maquina-lavar",
+      "segment": "servicos",
       "file": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
       "score": 9,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -786,20 +953,12 @@
       }
     },
     {
-      "file": "src/components/site/FernandaAmaralDrywallPage.tsx",
-      "score": 10,
-      "level": "BASELINE",
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 10,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "marido-de-aluguel",
+      "segment": "servicos",
       "file": "src/components/site/MaridoDeAluguelPage.tsx",
       "score": 10,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -808,9 +967,12 @@
       }
     },
     {
+      "slug": "paulo-mestre-de-obras",
+      "segment": "servicos",
       "file": "src/components/site/PauloMestreDeObrasPage.tsx",
       "score": 10,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -819,9 +981,26 @@
       }
     },
     {
+      "slug": "fernanda-amaral-drywall",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/FernandaAmaralDrywallPage.tsx",
+      "score": 10,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "assistencia-microondas-santos",
+      "segment": "prestadores-de-servicos",
       "file": "src/components/site/AssistenciaMicroondasSantosPage.tsx",
       "score": 11,
       "level": "BASELINE",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -830,9 +1009,26 @@
       }
     },
     {
+      "slug": "rj-servicos-drywall",
+      "segment": "servicos",
+      "file": "src/components/site/RjServicosDrywallPage.tsx",
+      "score": 12,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 1,
+        "hover": 11,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "denise-gomes-psicologa",
+      "segment": "saude",
       "file": "src/components/site/DeniseGomesPsicologaPage.tsx",
       "score": 12,
       "level": "PREMIUM",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
@@ -841,20 +1037,12 @@
       }
     },
     {
-      "file": "src/components/site/RjServicosDrywallPage.tsx",
-      "score": 12,
-      "level": "PREMIUM",
-      "signals": {
-        "primitives": 0,
-        "transitions": 1,
-        "hover": 11,
-        "animate": 0
-      }
-    },
-    {
+      "slug": "santos-montador-de-moveis",
+      "segment": "servicos",
       "file": "src/components/site/SantosMontadorDeMoveisPage.tsx",
       "score": 14,
       "level": "PREMIUM",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 2,
@@ -863,14 +1051,45 @@
       }
     },
     {
+      "slug": "dyzpromo",
+      "segment": "servicos",
       "file": "src/components/site/DyzPromoPage.tsx",
       "score": 24,
       "level": "PREMIUM",
+      "hasSignature": false,
       "signals": {
         "primitives": 0,
         "transitions": 0,
         "hover": 24,
         "animate": 0
+      }
+    },
+    {
+      "slug": "r_beauty",
+      "segment": "beleza",
+      "file": "src/components/site/RBeautyEditorialView.tsx",
+      "score": 38,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 15,
+        "hover": 23,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "renata-beauty",
+      "segment": "beleza",
+      "file": "src/components/site/RenataBeautyView.tsx",
+      "score": 60,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 25,
+        "hover": 33,
+        "animate": 1
       }
     }
   ]
