@@ -289,13 +289,14 @@
     "artesanatos-darleia-oliveira": {
       "source": "public/images/artesanatos-darleia-oliveira/hero-og.png",
       "focal": {
-        "x": 0.8,
+        "x": 0.5,
         "y": 0.5
       },
       "issues": [
         "COVER_NO_DEDICATED_ASSET"
       ],
-      "notes": "Capa 16:10 recortada do material fotografico proprio (coadores + xicara). Sem telefone, e-mail, QR ou PII."
+      "notes": "Capa 16:10 recortada do material fotografico proprio (coadores + xicara). Sem telefone, e-mail, QR ou PII.",
+      "mode": "frame"
     },
     "refrigeracao-maresia": {
       "source": "public/images/refrigeracao-maresia/hero-og.png",
@@ -311,13 +312,14 @@
     "thays-camilla": {
       "source": "public/images/thays-camilla/hero-og.png",
       "focal": {
-        "x": 0.8,
+        "x": 0.5,
         "y": 0.5
       },
       "issues": [
         "COVER_NO_DEDICATED_ASSET"
       ],
-      "notes": "Capa 16:10 recortada do material fotografico proprio (caneca + azulejo personalizados). Sem telefone, e-mail, QR ou PII."
+      "notes": "Capa 16:10 recortada do material fotografico proprio (caneca + azulejo personalizados). Sem telefone, e-mail, QR ou PII.",
+      "mode": "frame"
     }
   }
 }

@@ -1,46 +1,26 @@
 {
-  "generatedAt": "2026-09-05T00:29:45.910Z",
+  "generatedAt": "2026-09-05T00:30:03.694Z",
   "ok": 2,
   "failed": [],
   "results": [
     {
       "slug": "artesanatos-darleia-oliveira",
       "status": "OK",
-      "mode": "crop",
+      "mode": "frame",
       "source": "public/images/artesanatos-darleia-oliveira/hero-og.png",
-      "crop": {
-        "left": 276,
-        "top": 0,
-        "width": 1454,
-        "height": 909
-      },
-      "focal": {
-        "x": 0.8,
-        "y": 0.5
-      },
       "out": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
-      "bytes": 229557,
-      "dimensions": "1454x909",
+      "bytes": 223283,
+      "dimensions": "1600x1000",
       "lowRes": false
     },
     {
       "slug": "thays-camilla",
       "status": "OK",
-      "mode": "crop",
+      "mode": "frame",
       "source": "public/images/thays-camilla/hero-og.png",
-      "crop": {
-        "left": 273,
-        "top": 0,
-        "width": 1456,
-        "height": 910
-      },
-      "focal": {
-        "x": 0.8,
-        "y": 0.5
-      },
       "out": "/images/thays-camilla/capa-card.jpg",
-      "bytes": 190801,
-      "dimensions": "1456x910",
+      "bytes": 181313,
+      "dimensions": "1600x1000",
       "lowRes": false
     }
   ]
