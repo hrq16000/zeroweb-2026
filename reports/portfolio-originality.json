@@ -1,5 +1,6 @@
 {
   "generator": "scripts/portfolio-originality.mjs",
+  "metricVersion": 2,
   "weights": {
     "structure": 0.28,
     "sectionOrder": 0.22,
@@ -18,8 +19,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 25,
-    "attention": 43,
+    "acceptable": 26,
+    "attention": 42,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -41,18 +42,18 @@
       "title": "Açaí Total",
       "segment": "restaurantes",
       "componentFile": "src/components/site/AcaiTotalAraucariaPage.tsx",
-      "score": 59,
+      "score": 58,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "aguia-sul-sinalizacao",
-      "nearestMatchScore": 59,
+      "nearestMatchScore": 58,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 73.5,
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 71.4,
         "STYLE_SIMILARITY": 91.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 11.1
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -92,7 +93,7 @@
         "COMPONENT_SIMILARITY": 58.3,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.5,
         "IDENTITY_SIMILARITY": 5.9
       },
       "reasons": [
@@ -123,16 +124,16 @@
       "componentFile": "src/components/site/AguiaSulSinalizacaoPage.tsx",
       "score": 59,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "acai-total-araucaria",
+      "nearestMatch": "diego-montador-moveis",
       "nearestMatchScore": 59,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 73.5,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 71.4,
-        "STYLE_SIMILARITY": 91.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 11.1
+        "STRUCTURE_SIMILARITY": 74,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 85.7,
+        "STYLE_SIMILARITY": 85.9,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 23.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -161,17 +162,17 @@
       "title": "Almeida Torres Advocacia",
       "segment": "juridico",
       "componentFile": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
-      "score": 34,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 34,
+      "nearestMatchScore": 31,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 19.6,
         "SECTION_ORDER_SIMILARITY": 42.9,
         "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 24.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -200,17 +201,17 @@
       "title": "Angel Mix Brechó",
       "segment": "comercios",
       "componentFile": "src/components/site/AngelMixBrechoPage.tsx",
-      "score": 46,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "dlara-pizzaria",
-      "nearestMatchScore": 46,
+      "nearestMatchScore": 42,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 13,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 31.1,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -251,8 +252,8 @@
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 47,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 2.7
+        "ASSET_PATTERN_SIMILARITY": 8.6,
+        "IDENTITY_SIMILARITY": 2.6
       },
       "reasons": [
         "SAME_FAMILY"
@@ -280,18 +281,18 @@
       "title": "Assistência Técnica Microondas Santos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/AssistenciaMicroondasSantosPage.tsx",
-      "score": 51,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 49,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 53.8,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 46.2,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 1.6,
-        "ASSET_PATTERN_SIMILARITY": 50,
-        "IDENTITY_SIMILARITY": 11.4
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 10.8
       },
       "reasons": [
         "SAME_FAMILY"
@@ -321,17 +322,17 @@
       "title": "Beto Pastéis",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BetoPasteisPage.tsx",
-      "score": 33,
+      "score": 30,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 33,
+      "nearestMatchScore": 30,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 3.1,
         "SECTION_ORDER_SIMILARITY": 66.7,
         "COMPONENT_SIMILARITY": 55.6,
         "STYLE_SIMILARITY": 29.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -360,17 +361,17 @@
       "title": "Marmitas do Barreiro",
       "segment": "restaurantes",
       "componentFile": "src/components/site/BarreiroMarmitasPage.tsx",
-      "score": 40,
+      "score": 39,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "uberlandia-eletrica-residencial",
-      "nearestMatchScore": 40,
+      "nearestMatch": "miro-tech",
+      "nearestMatchScore": 39,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 20.4,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 48.5,
+        "STRUCTURE_SIMILARITY": 24.6,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 25,
+        "STYLE_SIMILARITY": 39.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 6,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -399,18 +400,18 @@
       "title": "Brechó São Francisco",
       "segment": "comercios",
       "componentFile": "src/components/site/BrechoSaoFranciscoPage.tsx",
-      "score": 31,
+      "score": 24,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 31,
+      "nearestMatchScore": 24,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 7.1,
         "SECTION_ORDER_SIMILARITY": 0,
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 28.1,
         "COPY_SIMILARITY": 1.6,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -438,17 +439,17 @@
       "title": "Casa Nativa Bistrô",
       "segment": "servicos",
       "componentFile": "src/components/site/CasaNativaBistroPage.tsx",
-      "score": 40,
+      "score": 36,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-oficina-nautica",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 36,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 18.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -487,7 +488,7 @@
         "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 47.1,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 1.9,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -518,17 +519,17 @@
       "title": "Chyrley Doces & Festas",
       "segment": "servicos",
       "componentFile": "src/components/site/ConfeitariaChyrleyPage.tsx",
-      "score": 55,
+      "score": 56,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "studio-de-cilios",
-      "nearestMatchScore": 55,
+      "nearestMatchScore": 56,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 54,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 37.5,
         "STYLE_SIMILARITY": 86.5,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 6.8
       },
       "reasons": [
@@ -570,8 +571,8 @@
         "COMPONENT_SIMILARITY": 64.3,
         "STYLE_SIMILARITY": 71.1,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 11.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -601,18 +602,18 @@
       "title": "Denise Gomes · Psicóloga",
       "segment": "saude",
       "componentFile": "src/components/site/DeniseGomesPsicologaPage.tsx",
-      "score": 54,
+      "score": 53,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 54,
+      "nearestMatch": "mp-festas-eventos",
+      "nearestMatchScore": 53,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.1,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 58.3,
-        "STYLE_SIMILARITY": 68.1,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 14.7
+        "STRUCTURE_SIMILARITY": 39.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 68.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 14.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -652,7 +653,7 @@
         "COMPONENT_SIMILARITY": 85.7,
         "STYLE_SIMILARITY": 85.9,
         "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 23.1
       },
       "reasons": [
@@ -684,17 +685,17 @@
       "title": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
       "segment": "restaurantes",
       "componentFile": "src/components/site/DlaraPizzariaPage.tsx",
-      "score": 46,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 46,
+      "nearestMatchScore": 42,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 13,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 31.1,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -735,8 +736,8 @@
         "COMPONENT_SIMILARITY": 26.3,
         "STYLE_SIMILARITY": 40.9,
         "COPY_SIMILARITY": 0.4,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.1
+        "ASSET_PATTERN_SIMILARITY": 1.7,
+        "IDENTITY_SIMILARITY": 10.3
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -772,8 +773,8 @@
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 77.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 11.8
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 11.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -811,8 +812,8 @@
         "COMPONENT_SIMILARITY": 83.3,
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 11.1,
-        "IDENTITY_SIMILARITY": 3.8
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 3.6
       },
       "reasons": [
         "SAME_FAMILY"
@@ -850,7 +851,7 @@
         "COMPONENT_SIMILARITY": 85.7,
         "STYLE_SIMILARITY": 44.2,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 10
       },
       "reasons": [
@@ -892,7 +893,7 @@
         "COMPONENT_SIMILARITY": 85.7,
         "STYLE_SIMILARITY": 44.2,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 10
       },
       "reasons": [
@@ -933,8 +934,8 @@
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 42.4,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 10.5
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 10
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -972,8 +973,8 @@
         "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 47.5,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 6.7
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 6.5
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1002,18 +1003,18 @@
       "title": "Fernanda & Amaral — Instalação de Drywall",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/FernandaAmaralDrywallPage.tsx",
-      "score": 49,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "rj-servicos-drywall",
-      "nearestMatchScore": 49,
+      "nearestMatchScore": 50,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 64.6,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 35.7,
         "STYLE_SIMILARITY": 74.8,
         "COPY_SIMILARITY": 2.4,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 40
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 36.4
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1041,17 +1042,17 @@
       "title": "Galileu Locação de Brinquedos",
       "segment": "comercios",
       "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "score": 48,
+      "score": 45,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "lj-cleaning",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 45,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 50,
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 68,
         "COPY_SIMILARITY": 4.8,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -1080,17 +1081,17 @@
       "title": "Ateliê Encanto da Baía",
       "segment": "comercios",
       "componentFile": "src/components/site/AtelieEncantoDaBaiaPage.tsx",
-      "score": 45,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "mirassol-delicias-caseiras",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 42,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 22.9,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -1121,17 +1122,17 @@
       "title": "Oficina Náutica Guaratuba",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
-      "score": 40,
+      "score": 36,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "casa-nativa",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 36,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 18.8,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1160,17 +1161,17 @@
       "title": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 30,
+      "score": 26,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 30,
+      "nearestMatchScore": 26,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 11.5,
         "SECTION_ORDER_SIMILARITY": 44.4,
         "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 50.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1209,7 +1210,7 @@
         "COMPONENT_SIMILARITY": 30.8,
         "STYLE_SIMILARITY": 27.6,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 14.3,
+        "ASSET_PATTERN_SIMILARITY": 3,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1238,18 +1239,18 @@
       "title": "HBK Iluminação LED Atacadão",
       "segment": "construcao",
       "componentFile": "src/components/site/HbkIluminacaoLedPage.tsx",
-      "score": 39,
+      "score": 32,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 32,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 27.8,
         "SECTION_ORDER_SIMILARITY": 25,
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 38.2,
         "COPY_SIMILARITY": 1.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1277,18 +1278,18 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 39,
+      "score": 38,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 38,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 45.5,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 47.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 33.3,
-        "IDENTITY_SIMILARITY": 14.3
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 12.5
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1316,18 +1317,18 @@
       "title": "JC Revestimentos",
       "segment": "construcao",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
-      "score": 39,
+      "score": 32,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "hbk-iluminacao-led",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 32,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 27.8,
         "SECTION_ORDER_SIMILARITY": 25,
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 38.2,
         "COPY_SIMILARITY": 1.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1365,7 +1366,7 @@
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 45.6,
         "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 5
       },
       "reasons": [
@@ -1399,16 +1400,16 @@
       "componentFile": "src/components/site/LizMoraesNailDesignerPage.tsx",
       "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "denise-gomes-psicologa",
+      "nearestMatch": "mp-festas-eventos",
       "nearestMatchScore": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.1,
+        "STRUCTURE_SIMILARITY": 56.7,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 58.3,
-        "STYLE_SIMILARITY": 68.1,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 14.7
+        "COMPONENT_SIMILARITY": 72.7,
+        "STYLE_SIMILARITY": 72.4,
+        "COPY_SIMILARITY": 0.4,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 13.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1438,17 +1439,17 @@
       "title": "L&J Cleaning",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/LjCleaningPage.tsx",
-      "score": 48,
+      "score": 45,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "galileu-locacao-brinquedos",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 45,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 50,
         "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 68,
         "COPY_SIMILARITY": 4.8,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -1487,7 +1488,7 @@
         "COMPONENT_SIMILARITY": 58.3,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.5,
         "IDENTITY_SIMILARITY": 5.9
       },
       "reasons": [
@@ -1517,18 +1518,18 @@
       "title": "Lolipa Arte em Festas Decor",
       "segment": "comercios",
       "componentFile": "src/components/site/LolipaArteEmFestasPage.tsx",
-      "score": 39,
+      "score": 38,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 38,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 27.1,
         "SECTION_ORDER_SIMILARITY": 60,
         "COMPONENT_SIMILARITY": 60,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 2.4,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 4.2
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 3.8
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1566,8 +1567,8 @@
         "COMPONENT_SIMILARITY": 36.4,
         "STYLE_SIMILARITY": 36.8,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 7.1
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 6.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1595,22 +1596,20 @@
       "title": "Manu Pastéis",
       "segment": "restaurantes",
       "componentFile": "src/components/site/ManuPasteisPage.tsx",
-      "score": 42,
-      "originalityStatus": "ATTENTION",
+      "score": 39,
+      "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 39,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 38.3,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 76.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
-        "IDENTITY_SIMILARITY": 8.7
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 8
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -1636,18 +1635,18 @@
       "title": "Mestre dos Serviços",
       "segment": "servicos",
       "componentFile": "src/components/site/MaridoDeAluguelPage.tsx",
-      "score": 39,
+      "score": 38,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "paulo-mestre-de-obras",
-      "nearestMatchScore": 39,
+      "nearestMatchScore": 38,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 40.5,
         "SECTION_ORDER_SIMILARITY": 66.7,
         "COMPONENT_SIMILARITY": 23.5,
         "STYLE_SIMILARITY": 55.2,
         "COPY_SIMILARITY": 2.9,
-        "ASSET_PATTERN_SIMILARITY": 12.5,
-        "IDENTITY_SIMILARITY": 9.4
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 8.8
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1676,18 +1675,18 @@
       "title": "Marmitaria Dom Diego",
       "segment": "restaurantes",
       "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
-      "score": 38,
+      "score": 32,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 32,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 25,
         "SECTION_ORDER_SIMILARITY": 33.3,
         "COMPONENT_SIMILARITY": 71.4,
         "STYLE_SIMILARITY": 29.8,
         "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1715,17 +1714,17 @@
       "title": "Mary Diarista",
       "segment": "servicos",
       "componentFile": "src/components/site/MaryDiaristaPage.tsx",
-      "score": 58,
+      "score": 59,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "aguia-sul-sinalizacao",
-      "nearestMatchScore": 58,
+      "nearestMatchScore": 59,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 78.7,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 71.4,
         "STYLE_SIMILARITY": 92.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 9.4
       },
       "reasons": [
@@ -1757,17 +1756,17 @@
       "title": "Conserta Mirassol",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ConsertaMirassolPage.tsx",
-      "score": 38,
+      "score": 35,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "mirassol-delicias-caseiras",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 35,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 15.6,
         "SECTION_ORDER_SIMILARITY": 66.7,
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 46,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1796,17 +1795,17 @@
       "title": "Delícias Caseiras Mirassol",
       "segment": "restaurantes",
       "componentFile": "src/components/site/DeliciasCaseirasMirassolPage.tsx",
-      "score": 45,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 42,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 22.9,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -1837,18 +1836,18 @@
       "title": "MIRO TECH",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/MiroTechPage.tsx",
-      "score": 51,
+      "score": 48,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 48,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 41,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 28.6,
         "STYLE_SIMILARITY": 63.3,
         "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 11.1
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 10.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1888,7 +1887,7 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 5,
         "IDENTITY_SIMILARITY": 9.8
       },
       "reasons": [
@@ -1930,8 +1929,8 @@
         "COMPONENT_SIMILARITY": 83.3,
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 11.1,
-        "IDENTITY_SIMILARITY": 3.8
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 3.6
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1959,18 +1958,18 @@
       "title": "Paraíso do Hot Dog",
       "segment": "servicos",
       "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
-      "score": 25,
+      "score": 24,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "refrigeracao-maresia",
-      "nearestMatchScore": 25,
+      "nearestMatch": "miro-tech",
+      "nearestMatchScore": 24,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 9.6,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 26.3,
-        "STYLE_SIMILARITY": 40.5,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 33.3,
-        "IDENTITY_SIMILARITY": 4.9
+        "STRUCTURE_SIMILARITY": 10,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 35.3,
+        "STYLE_SIMILARITY": 36.7,
+        "COPY_SIMILARITY": 2.2,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 6.7
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1997,18 +1996,18 @@
       "title": "Paulo Mestre de Obras",
       "segment": "servicos",
       "componentFile": "src/components/site/PauloMestreDeObrasPage.tsx",
-      "score": 56,
+      "score": 55,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "diego-montador-moveis",
-      "nearestMatchScore": 56,
+      "nearestMatchScore": 55,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 62.7,
         "SECTION_ORDER_SIMILARITY": 75,
         "COMPONENT_SIMILARITY": 60,
         "STYLE_SIMILARITY": 70.9,
         "COPY_SIMILARITY": 3,
-        "ASSET_PATTERN_SIMILARITY": 25,
-        "IDENTITY_SIMILARITY": 15.6
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 15.2
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2038,17 +2037,17 @@
       "title": "Premium Envelopamentos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
-      "score": 31,
+      "score": 30,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 31,
+      "nearestMatchScore": 30,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 21.3,
         "SECTION_ORDER_SIMILARITY": 42.9,
         "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 46.9,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 28.6,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2087,8 +2086,8 @@
         "COMPONENT_SIMILARITY": 40.9,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 14.3,
-        "IDENTITY_SIMILARITY": 10.6
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10.2
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2114,18 +2113,18 @@
       "title": "Raphael Construções",
       "segment": "servicos",
       "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
-      "score": 40,
+      "score": 34,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "ton-e-cor",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 34,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 23.6,
         "SECTION_ORDER_SIMILARITY": 36.4,
         "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -2153,18 +2152,18 @@
       "title": "Refrigeração Maresia",
       "segment": "servicos",
       "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
-      "score": 51,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 50,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 56.1,
         "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 26.7,
         "STYLE_SIMILARITY": 82.5,
         "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 37.5,
-        "IDENTITY_SIMILARITY": 4.9
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 4.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2202,8 +2201,8 @@
         "COMPONENT_SIMILARITY": 40.9,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 14.3,
-        "IDENTITY_SIMILARITY": 10.6
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10.2
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2233,18 +2232,18 @@
       "title": "REuse House Brechó",
       "segment": "comercios",
       "componentFile": "src/components/site/ReuseHouseBrechoPage.tsx",
-      "score": 34,
+      "score": 30,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 34,
+      "nearestMatch": "beto-pasteis",
+      "nearestMatchScore": 30,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.5,
-        "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 83.3,
-        "STYLE_SIMILARITY": 24.6,
+        "STRUCTURE_SIMILARITY": 3.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 29.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -2272,18 +2271,18 @@
       "title": "RJ Serviços de Drywall",
       "segment": "servicos",
       "componentFile": "src/components/site/RjServicosDrywallPage.tsx",
-      "score": 49,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "fernanda-amaral-drywall",
-      "nearestMatchScore": 49,
+      "nearestMatchScore": 50,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 64.6,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 35.7,
         "STYLE_SIMILARITY": 74.8,
         "COPY_SIMILARITY": 2.4,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 40
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 36.4
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2323,8 +2322,8 @@
         "COMPONENT_SIMILARITY": 22.2,
         "STYLE_SIMILARITY": 66.3,
         "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 14.3
+        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "IDENTITY_SIMILARITY": 13
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -2361,8 +2360,8 @@
         "COMPONENT_SIMILARITY": 62.5,
         "STYLE_SIMILARITY": 40.2,
         "COPY_SIMILARITY": 2.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 9.4
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2393,17 +2392,17 @@
       "title": "Santos Montador de Móveis",
       "segment": "servicos",
       "componentFile": "src/components/site/SantosMontadorDeMoveisPage.tsx",
-      "score": 42,
+      "score": 41,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "diego-montador-moveis",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 41,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 45.8,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 63.6,
         "STYLE_SIMILARITY": 42.1,
         "COPY_SIMILARITY": 3.9,
-        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "ASSET_PATTERN_SIMILARITY": 2.5,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -2443,8 +2442,8 @@
         "COMPONENT_SIMILARITY": 64.3,
         "STYLE_SIMILARITY": 71.1,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 11.1
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2485,7 +2484,7 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 5,
         "IDENTITY_SIMILARITY": 9.8
       },
       "reasons": [
@@ -2519,16 +2518,16 @@
       "componentFile": "src/components/site/ThaysCamillaPage.tsx",
       "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "denise-gomes-psicologa",
+      "nearestMatch": "sos-presentes-cosmeticos",
       "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 26.2,
+        "STRUCTURE_SIMILARITY": 29.7,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 42.9,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 60,
-        "IDENTITY_SIMILARITY": 8.8
+        "COMPONENT_SIMILARITY": 46.7,
+        "STYLE_SIMILARITY": 39.4,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 4.8
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2556,18 +2555,18 @@
       "title": "Ton & Cor · Pintura e Pequenas Reformas",
       "segment": "servicos",
       "componentFile": "src/components/site/TonECorPage.tsx",
-      "score": 40,
+      "score": 34,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "raphael-construcoes",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 34,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 23.6,
         "SECTION_ORDER_SIMILARITY": 36.4,
         "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -2595,18 +2594,18 @@
       "title": "Toquinho de Gente Brechó Adulto e Infantil",
       "segment": "comercios",
       "componentFile": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
-      "score": 52,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "woodhouse-hamburgueres",
-      "nearestMatchScore": 52,
+      "nearestMatchScore": 46,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 19.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 80,
         "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2636,17 +2635,17 @@
       "title": "Elétrica Bairro Brasil",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 40,
+      "score": 37,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 37,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 20.4,
         "SECTION_ORDER_SIMILARITY": 83.3,
         "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2675,18 +2674,18 @@
       "title": "Vila da Capivara",
       "segment": "servicos",
       "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
-      "score": 54,
+      "score": 53,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "mp-festas-eventos",
-      "nearestMatchScore": 54,
+      "nearestMatchScore": 53,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 67.6,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 88.6,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 25,
-        "IDENTITY_SIMILARITY": 10.9
+        "ASSET_PATTERN_SIMILARITY": 6.4,
+        "IDENTITY_SIMILARITY": 10.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2716,18 +2715,18 @@
       "title": "Woodhouse Hambúrgueres",
       "segment": "restaurantes",
       "componentFile": "src/components/site/WoodhouseHamburgueresPage.tsx",
-      "score": 52,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 52,
+      "nearestMatchScore": 46,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 19.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 80,
         "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2756,23 +2755,9 @@
   "clusters": [],
   "topPairs": [
     {
-      "a": "acai-total-araucaria",
-      "b": "aguia-sul-sinalizacao",
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 73.5,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 71.4,
-        "STYLE_SIMILARITY": 91.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 11.1
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "aguia-sul-sinalizacao",
       "b": "diego-montador-moveis",
+      "metricVersion": 2,
       "score": 59,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 74,
@@ -2780,14 +2765,39 @@
         "COMPONENT_SIMILARITY": 85.7,
         "STYLE_SIMILARITY": 85.9,
         "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 23.1
       },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "mary-diarista",
+      "metricVersion": 2,
+      "score": 59,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 78.7,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 71.4,
+        "STYLE_SIMILARITY": 92.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 9.4
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "mp-festas-eventos",
       "b": "studio-de-cilios",
+      "metricVersion": 2,
       "score": 59,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 76.2,
@@ -2795,44 +2805,59 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 5,
         "IDENTITY_SIMILARITY": 9.8
       },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "aguia-sul-sinalizacao",
-      "b": "mary-diarista",
+      "a": "acai-total-araucaria",
+      "b": "aguia-sul-sinalizacao",
+      "metricVersion": 2,
       "score": 58,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.7,
-        "SECTION_ORDER_SIMILARITY": 50,
+        "STRUCTURE_SIMILARITY": 73.5,
+        "SECTION_ORDER_SIMILARITY": 57.1,
         "COMPONENT_SIMILARITY": 71.4,
-        "STYLE_SIMILARITY": 92.5,
+        "STYLE_SIMILARITY": 91.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 9.4
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10.7
       },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "diego-montador-moveis",
-      "b": "paulo-mestre-de-obras",
+      "a": "confeitaria-chyrley",
+      "b": "studio-de-cilios",
+      "metricVersion": 2,
       "score": 56,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.7,
-        "SECTION_ORDER_SIMILARITY": 75,
-        "COMPONENT_SIMILARITY": 60,
-        "STYLE_SIMILARITY": 70.9,
-        "COPY_SIMILARITY": 3,
-        "ASSET_PATTERN_SIMILARITY": 25,
-        "IDENTITY_SIMILARITY": 15.6
+        "STRUCTURE_SIMILARITY": 54,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 37.5,
+        "STYLE_SIMILARITY": 86.5,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 10,
+        "IDENTITY_SIMILARITY": 6.8
       },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "acai-total-araucaria",
       "b": "mary-diarista",
+      "metricVersion": 2,
       "score": 55,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 76.1,
@@ -2840,29 +2865,39 @@
         "COMPONENT_SIMILARITY": 71.4,
         "STYLE_SIMILARITY": 92.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 10.7
+        "ASSET_PATTERN_SIMILARITY": 3,
+        "IDENTITY_SIMILARITY": 10.3
       },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "confeitaria-chyrley",
-      "b": "studio-de-cilios",
+      "a": "diego-montador-moveis",
+      "b": "paulo-mestre-de-obras",
+      "metricVersion": 2,
       "score": 55,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 54,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 37.5,
-        "STYLE_SIMILARITY": 86.5,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 6.8
+        "STRUCTURE_SIMILARITY": 62.7,
+        "SECTION_ORDER_SIMILARITY": 75,
+        "COMPONENT_SIMILARITY": 60,
+        "STYLE_SIMILARITY": 70.9,
+        "COPY_SIMILARITY": 3,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 15.2
       },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "acai-total-araucaria",
       "b": "ecommerce-on",
+      "metricVersion": 2,
       "score": 54,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 73.5,
@@ -2870,44 +2905,19 @@
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 77.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 11.8
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 11.1
       },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "aguia-sul-sinalizacao",
-      "b": "paulo-mestre-de-obras",
-      "score": 54,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 79.6,
-        "SECTION_ORDER_SIMILARITY": 40,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 72.9,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 12.5,
-        "IDENTITY_SIMILARITY": 14.7
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "denise-gomes-psicologa",
-      "b": "liz-moraes-nail-designer",
-      "score": 54,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.1,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 58.3,
-        "STYLE_SIMILARITY": 68.1,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 14.7
-      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "liz-moraes-nail-designer",
       "b": "mp-festas-eventos",
+      "metricVersion": 2,
       "score": 54,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 56.7,
@@ -2915,59 +2925,39 @@
         "COMPONENT_SIMILARITY": 72.7,
         "STYLE_SIMILARITY": 72.4,
         "COPY_SIMILARITY": 0.4,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 13.6
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 13.3
       },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "mp-festas-eventos",
-      "b": "vila-da-capivara",
-      "score": 54,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 67.6,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 61.5,
-        "STYLE_SIMILARITY": 88.6,
-        "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 25,
-        "IDENTITY_SIMILARITY": 10.9
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "acai-total-araucaria",
-      "b": "diego-montador-moveis",
-      "score": 53,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 75,
-        "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 62.5,
-        "STYLE_SIMILARITY": 85.9,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 16.7,
-        "IDENTITY_SIMILARITY": 12
-      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "aguia-sul-sinalizacao",
-      "b": "ecommerce-on",
+      "b": "paulo-mestre-de-obras",
+      "metricVersion": 2,
       "score": 53,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 95.6,
-        "SECTION_ORDER_SIMILARITY": 22.2,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 79.7,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 12.5,
-        "IDENTITY_SIMILARITY": 7.7
+        "STRUCTURE_SIMILARITY": 79.6,
+        "SECTION_ORDER_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 72.9,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 14.3
       },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "denise-gomes-psicologa",
       "b": "mp-festas-eventos",
+      "metricVersion": 2,
       "score": 53,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 39.7,
@@ -2975,14 +2965,19 @@
         "COMPONENT_SIMILARITY": 57.1,
         "STYLE_SIMILARITY": 68.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 14.6
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 14.3
       },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "diego-montador-moveis",
       "b": "liz-moraes-nail-designer",
+      "metricVersion": 2,
       "score": 53,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 50,
@@ -2990,14 +2985,79 @@
         "COMPONENT_SIMILARITY": 36.4,
         "STYLE_SIMILARITY": 75,
         "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 5.9
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 5.7
       },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "mp-festas-eventos",
+      "b": "vila-da-capivara",
+      "metricVersion": 2,
+      "score": 53,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 67.6,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 61.5,
+        "STYLE_SIMILARITY": 88.6,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 6.4,
+        "IDENTITY_SIMILARITY": 10.7
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "acai-total-araucaria",
+      "b": "diego-montador-moveis",
+      "metricVersion": 2,
+      "score": 52,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 75,
+        "SECTION_ORDER_SIMILARITY": 37.5,
+        "COMPONENT_SIMILARITY": 62.5,
+        "STYLE_SIMILARITY": 85.9,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3,
+        "IDENTITY_SIMILARITY": 11.5
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "ecommerce-on",
+      "metricVersion": 2,
+      "score": 52,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 95.6,
+        "SECTION_ORDER_SIMILARITY": 22.2,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 79.7,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 7.5
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "diego-montador-moveis",
       "b": "mary-diarista",
+      "metricVersion": 2,
       "score": 52,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 76.6,
@@ -3005,29 +3065,19 @@
         "COMPONENT_SIMILARITY": 62.5,
         "STYLE_SIMILARITY": 87,
         "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 10
       },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "toquinho-de-gente-brecho",
-      "b": "woodhouse-hamburgueres",
-      "score": 52,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.2,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 80,
-        "STYLE_SIMILARITY": 27.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
-      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "ag-electrical-services",
       "b": "lk-alvenaria",
+      "metricVersion": 2,
       "score": 51,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 47.4,
@@ -3035,29 +3085,19 @@
         "COMPONENT_SIMILARITY": 58.3,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.5,
         "IDENTITY_SIMILARITY": 5.9
       },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "assistencia-microondas-santos",
-      "b": "liz-moraes-nail-designer",
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.8,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 46.2,
-        "STYLE_SIMILARITY": 85,
-        "COPY_SIMILARITY": 1.6,
-        "ASSET_PATTERN_SIMILARITY": 50,
-        "IDENTITY_SIMILARITY": 11.4
-      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "confeitaria-sabor-da-realeza",
       "b": "sos-presentes-cosmeticos",
+      "metricVersion": 2,
       "score": 51,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 26.1,
@@ -3065,44 +3105,19 @@
         "COMPONENT_SIMILARITY": 64.3,
         "STYLE_SIMILARITY": 71.1,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 11.4
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "liz-moraes-nail-designer",
-      "b": "miro-tech",
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 41,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 28.6,
-        "STYLE_SIMILARITY": 63.3,
-        "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 6,
         "IDENTITY_SIMILARITY": 11.1
       },
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "liz-moraes-nail-designer",
-      "b": "refrigeracao-maresia",
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 56.1,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 26.7,
-        "STYLE_SIMILARITY": 82.5,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 37.5,
-        "IDENTITY_SIMILARITY": 4.9
-      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "r_beauty",
       "b": "renata-beauty",
+      "metricVersion": 2,
       "score": 51,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 52.6,
@@ -3110,24 +3125,133 @@
         "COMPONENT_SIMILARITY": 40.9,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 14.3,
-        "IDENTITY_SIMILARITY": 10.6
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10.2
       },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "denise-gomes-psicologa",
+      "b": "liz-moraes-nail-designer",
+      "metricVersion": 2,
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 53.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 68.1,
+        "COPY_SIMILARITY": 2,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 13.9
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "eletro-solucoes-eficazes",
+      "b": "eletrovale-eletromecanica",
+      "metricVersion": 2,
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 23.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 85.7,
+        "STYLE_SIMILARITY": 44.2,
+        "COPY_SIMILARITY": 0.8,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 10
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "fernanda-amaral-drywall",
+      "b": "rj-servicos-drywall",
+      "metricVersion": 2,
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 64.6,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 35.7,
+        "STYLE_SIMILARITY": 74.8,
+        "COPY_SIMILARITY": 2.4,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 36.4
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "liz-moraes-nail-designer",
+      "b": "refrigeracao-maresia",
+      "metricVersion": 2,
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 56.1,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 26.7,
+        "STYLE_SIMILARITY": 82.5,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 4.7
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "mp-festas-eventos",
+      "b": "sos-presentes-cosmeticos",
+      "metricVersion": 2,
+      "score": 50,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 39.2,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 41.2,
+        "STYLE_SIMILARITY": 69.7,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "IDENTITY_SIMILARITY": 8.2
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     },
     {
       "a": "assistencia-microondas-santos",
-      "b": "denise-gomes-psicologa",
-      "score": 50,
+      "b": "liz-moraes-nail-designer",
+      "metricVersion": 2,
+      "score": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 48.6,
-        "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 69.2,
-        "STYLE_SIMILARITY": 62.9,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 50,
-        "IDENTITY_SIMILARITY": 24.1
+        "STRUCTURE_SIMILARITY": 53.8,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 46.2,
+        "STYLE_SIMILARITY": 85,
+        "COPY_SIMILARITY": 1.6,
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 10.8
       },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
       "reason": "SAME_FAMILY"
     }
   ],
@@ -3143,7 +3267,7 @@
       "acai-total-araucaria": [
         {
           "slug": "aguia-sul-sinalizacao",
-          "score": 59,
+          "score": 58,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3176,17 +3300,17 @@
       ],
       "aguia-sul-sinalizacao": [
         {
-          "slug": "acai-total-araucaria",
-          "score": 59,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "diego-montador-moveis",
           "score": 59,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mary-diarista",
+          "score": 59,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
           "score": 58,
           "reason": "SAME_FAMILY"
         }
@@ -3194,34 +3318,34 @@
       "almeida-torres": [
         {
           "slug": "guaratuba-atelie-presentes",
-          "score": 34,
+          "score": 31,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "eletro-solucoes-eficazes",
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 31,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "casa-nativa",
-          "score": 31,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
       "angel-mix-brecho": [
         {
           "slug": "dlara-pizzaria",
-          "score": 46,
+          "score": 42,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "lolipa-arte-em-festas",
+          "score": 36,
+          "reason": "DISTINCT"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "marmitaria-dom-diego",
-          "score": 38,
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -3232,25 +3356,25 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "thays-camilla",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "slug": "ag-electrical-services",
+          "score": 39,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "ag-electrical-services",
-          "score": 40,
+          "slug": "mp-festas-eventos",
+          "score": 39,
           "reason": "DISTINCT"
         }
       ],
       "assistencia-microondas-santos": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 51,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "denise-gomes-psicologa",
-          "score": 50,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3262,33 +3386,33 @@
       "beto-pasteis": [
         {
           "slug": "reuse-house-brecho",
-          "score": 33,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 21,
+          "score": 17,
           "reason": "DISTINCT"
         },
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 20,
+          "score": 17,
           "reason": "DISTINCT"
         }
       ],
       "bh-barreiro-marmitas": [
-        {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 40,
-          "reason": "DISTINCT"
-        },
         {
           "slug": "miro-tech",
           "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "casa-nativa",
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 37,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "diego-montador-moveis",
           "score": 34,
           "reason": "DISTINCT"
         }
@@ -3296,34 +3420,34 @@
       "brecho-sao-francisco": [
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 31,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "woodhouse-hamburgueres",
-          "score": 29,
+          "score": 24,
           "reason": "DISTINCT"
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 28,
+          "score": 22,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "woodhouse-hamburgueres",
+          "score": 22,
           "reason": "DISTINCT"
         }
       ],
       "casa-nativa": [
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 40,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "clinica-integrada",
           "score": 36,
           "reason": "DISTINCT"
         },
         {
-          "slug": "bh-barreiro-marmitas",
-          "score": 34,
+          "slug": "clinica-integrada",
+          "score": 33,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "lolipa-arte-em-festas",
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -3347,12 +3471,12 @@
       "confeitaria-chyrley": [
         {
           "slug": "studio-de-cilios",
-          "score": 55,
+          "score": 56,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mp-festas-eventos",
-          "score": 48,
+          "score": 47,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3369,29 +3493,29 @@
         },
         {
           "slug": "miro-tech",
-          "score": 49,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 46,
+          "slug": "mp-festas-eventos",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
       "denise-gomes-psicologa": [
-        {
-          "slug": "liz-moraes-nail-designer",
-          "score": 54,
-          "reason": "SAME_FAMILY"
-        },
         {
           "slug": "mp-festas-eventos",
           "score": 53,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "assistencia-microondas-santos",
+          "slug": "liz-moraes-nail-designer",
           "score": 50,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "assistencia-microondas-santos",
+          "score": 48,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3403,11 +3527,11 @@
         },
         {
           "slug": "paulo-mestre-de-obras",
-          "score": 56,
+          "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
+          "slug": "liz-moraes-nail-designer",
           "score": 53,
           "reason": "SAME_FAMILY"
         }
@@ -3415,17 +3539,17 @@
       "dlara-pizzaria": [
         {
           "slug": "angel-mix-brecho",
-          "score": 46,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 31,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
-          "score": 31,
+          "slug": "guaratuba-oficina-nautica",
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
@@ -3454,7 +3578,7 @@
         },
         {
           "slug": "aguia-sul-sinalizacao",
-          "score": 53,
+          "score": 52,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3476,8 +3600,8 @@
         },
         {
           "slug": "lk-alvenaria",
-          "score": 40,
-          "reason": "DISTINCT"
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "eletro-solucoes-eficazes": [
@@ -3505,12 +3629,12 @@
         },
         {
           "slug": "acai-total-araucaria",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "jkl-marcenaria",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3526,7 +3650,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "confeitaria-chyrley",
+          "slug": "denise-gomes-psicologa",
           "score": 27,
           "reason": "DISTINCT"
         }
@@ -3551,7 +3675,7 @@
       "fernanda-amaral-drywall": [
         {
           "slug": "rj-servicos-drywall",
-          "score": 49,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3568,16 +3692,16 @@
       "galileu-locacao-brinquedos": [
         {
           "slug": "lj-cleaning",
-          "score": 48,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "acai-total-araucaria",
-          "score": 43,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "eletro-solucoes-eficazes",
+          "score": 43,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
           "score": 42,
           "reason": "SAME_FAMILY"
         }
@@ -3585,51 +3709,51 @@
       "guaratuba-atelie-presentes": [
         {
           "slug": "mirassol-delicias-caseiras",
-          "score": 45,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 37,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
           "slug": "almeida-torres",
-          "score": 34,
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
       "guaratuba-oficina-nautica": [
         {
           "slug": "casa-nativa",
-          "score": 40,
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
           "slug": "clinica-integrada",
-          "score": 38,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 35,
+          "slug": "lolipa-arte-em-festas",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
       "guaratuba-reparos-residenciais": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 30,
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
           "slug": "clinica-integrada",
-          "score": 29,
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
-          "score": 28,
+          "slug": "miro-tech",
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
@@ -3641,41 +3765,41 @@
         },
         {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 30,
+          "score": 27,
           "reason": "DISTINCT"
         },
         {
           "slug": "mirassol-delicias-caseiras",
-          "score": 29,
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
       "hbk-iluminacao-led": [
         {
           "slug": "jc-revestimentos",
-          "score": 39,
+          "score": 32,
           "reason": "DISTINCT"
         },
         {
           "slug": "ton-e-cor",
-          "score": 33,
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
           "slug": "raphael-construcoes",
-          "score": 31,
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
       "heloa-gas": [
         {
           "slug": "miro-tech",
-          "score": 39,
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
           "slug": "refrigeracao-maresia",
-          "score": 37,
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
@@ -3687,17 +3811,17 @@
       "jc-revestimentos": [
         {
           "slug": "hbk-iluminacao-led",
-          "score": 39,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "ton-e-cor",
-          "score": 35,
+          "score": 32,
           "reason": "DISTINCT"
         },
         {
           "slug": "premium-envelopamentos",
-          "score": 31,
+          "score": 30,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "ton-e-cor",
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
@@ -3709,21 +3833,16 @@
         },
         {
           "slug": "eletrovale-eletromecanica",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "acai-total-araucaria",
-          "score": 44,
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
       "liz-moraes-nail-designer": [
-        {
-          "slug": "denise-gomes-psicologa",
-          "score": 54,
-          "reason": "SAME_FAMILY"
-        },
         {
           "slug": "mp-festas-eventos",
           "score": 54,
@@ -3733,17 +3852,22 @@
           "slug": "diego-montador-moveis",
           "score": 53,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "denise-gomes-psicologa",
+          "score": 50,
+          "reason": "SAME_FAMILY"
         }
       ],
       "lj-cleaning": [
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 48,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 35,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3772,7 +3896,7 @@
       "lolipa-arte-em-festas": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 39,
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
@@ -3793,12 +3917,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 43,
+          "slug": "lk-alvenaria",
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "no-brilho-higienizacao",
+          "slug": "mp-festas-eventos",
           "score": 42,
           "reason": "SAME_FAMILY"
         }
@@ -3806,29 +3930,29 @@
       "manu-pasteis": [
         {
           "slug": "miro-tech",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "score": 39,
+          "reason": "DISTINCT"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 40,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
           "slug": "assistencia-microondas-santos",
-          "score": 38,
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
       "marido-de-aluguel": [
         {
           "slug": "paulo-mestre-de-obras",
-          "score": 39,
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
           "slug": "diego-montador-moveis",
-          "score": 35,
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
@@ -3840,24 +3964,24 @@
       "marmitaria-dom-diego": [
         {
           "slug": "angel-mix-brecho",
-          "score": 38,
+          "score": 32,
           "reason": "DISTINCT"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 36,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 34,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
       "mary-diarista": [
         {
           "slug": "aguia-sul-sinalizacao",
-          "score": 58,
+          "score": 59,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3874,51 +3998,51 @@
       "mirassol-conserta-celular": [
         {
           "slug": "mirassol-delicias-caseiras",
-          "score": 38,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-atelie-presentes",
-          "score": 37,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "guaratuba-oficina-nautica",
-          "score": 32,
+          "slug": "galileu-locacao-brinquedos",
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
       "mirassol-delicias-caseiras": [
         {
           "slug": "guaratuba-atelie-presentes",
-          "score": 45,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 38,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
-          "slug": "guaratuba-oficina-nautica",
-          "score": 33,
+          "slug": "galileu-locacao-brinquedos",
+          "score": 32,
           "reason": "DISTINCT"
         }
       ],
       "miro-tech": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 51,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 49,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "diego-montador-moveis",
           "score": 46,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3934,8 +4058,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "vila-da-capivara",
-          "score": 54,
+          "slug": "denise-gomes-psicologa",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3946,42 +4070,42 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lucas-arruma-maquina-lavar",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "slug": "lk-alvenaria",
+          "score": 38,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 37,
+          "slug": "lucas-arruma-maquina-lavar",
+          "score": 38,
           "reason": "DISTINCT"
         }
       ],
       "paraiso-do-hot-dog": [
         {
+          "slug": "miro-tech",
+          "score": 24,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "refrigeracao-maresia",
-          "score": 25,
+          "score": 24,
           "reason": "DISTINCT"
         },
         {
           "slug": "diego-montador-moveis",
-          "score": 24,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "miro-tech",
-          "score": 24,
+          "score": 22,
           "reason": "DISTINCT"
         }
       ],
       "paulo-mestre-de-obras": [
         {
           "slug": "diego-montador-moveis",
-          "score": 56,
+          "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "aguia-sul-sinalizacao",
-          "score": 54,
+          "score": 53,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3993,17 +4117,17 @@
       "premium-envelopamentos": [
         {
           "slug": "jc-revestimentos",
-          "score": 31,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
           "slug": "lolipa-arte-em-festas",
-          "score": 31,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 30,
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
@@ -4014,12 +4138,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "emporio-lelecute",
-          "score": 24,
+          "slug": "mp-festas-eventos",
+          "score": 25,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mp-festas-eventos",
+          "slug": "emporio-lelecute",
           "score": 24,
           "reason": "DISTINCT"
         }
@@ -4027,34 +4151,34 @@
       "raphael-construcoes": [
         {
           "slug": "ton-e-cor",
-          "score": 40,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
           "slug": "hbk-iluminacao-led",
-          "score": 31,
+          "score": 25,
           "reason": "DISTINCT"
         },
         {
-          "slug": "jc-revestimentos",
-          "score": 30,
+          "slug": "lk-alvenaria",
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
       "refrigeracao-maresia": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 51,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "diego-montador-moveis",
-          "score": 48,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "miro-tech",
-          "score": 45,
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4077,25 +4201,25 @@
       ],
       "reuse-house-brecho": [
         {
-          "slug": "angel-mix-brecho",
-          "score": 34,
+          "slug": "beto-pasteis",
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "beto-pasteis",
-          "score": 33,
+          "slug": "angel-mix-brecho",
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 29,
+          "score": 23,
           "reason": "DISTINCT"
         }
       ],
       "rj-servicos-drywall": [
         {
           "slug": "fernanda-amaral-drywall",
-          "score": 49,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4104,7 +4228,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "diego-montador-moveis",
+          "slug": "liz-moraes-nail-designer",
           "score": 31,
           "reason": "DISTINCT"
         }
@@ -4117,7 +4241,7 @@
         },
         {
           "slug": "rj-servicos-drywall",
-          "score": 31,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
@@ -4146,7 +4270,7 @@
       "santos-montador-de-moveis": [
         {
           "slug": "diego-montador-moveis",
-          "score": 42,
+          "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4155,8 +4279,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 34,
+          "slug": "paulo-mestre-de-obras",
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -4185,7 +4309,7 @@
         },
         {
           "slug": "confeitaria-chyrley",
-          "score": 55,
+          "score": 56,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4196,76 +4320,76 @@
       ],
       "thays-camilla": [
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "sos-presentes-cosmeticos",
           "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 43,
+          "slug": "denise-gomes-psicologa",
+          "score": 42,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "ag-electrical-services",
+          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],
       "ton-e-cor": [
         {
           "slug": "raphael-construcoes",
-          "score": 40,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
           "slug": "jc-revestimentos",
-          "score": 35,
+          "score": 29,
           "reason": "DISTINCT"
         },
         {
-          "slug": "hbk-iluminacao-led",
-          "score": 33,
+          "slug": "galileu-locacao-brinquedos",
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
       "toquinho-de-gente-brecho": [
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 52,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 37,
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 34,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
       "uberlandia-eletrica-residencial": [
         {
           "slug": "bh-barreiro-marmitas",
-          "score": 40,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "guaratuba-oficina-nautica",
-          "score": 35,
+          "slug": "espaco-cih-luh",
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
           "slug": "miro-tech",
-          "score": 35,
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
       "vila-da-capivara": [
         {
           "slug": "mp-festas-eventos",
-          "score": 54,
+          "score": 53,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4282,47 +4406,883 @@
       "woodhouse-hamburgueres": [
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 52,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "score": 35,
+          "reason": "DISTINCT"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 36,
+          "score": 30,
           "reason": "DISTINCT"
         }
       ]
     }
+  },
+  "comparison": {
+    "v1": {
+      "metricVersion": 1,
+      "clones": 0,
+      "over60": 0,
+      "clusters": 0,
+      "highSimilarity": 0
+    },
+    "v2": {
+      "metricVersion": 2,
+      "clones": 0,
+      "over60": 0,
+      "clusters": 0,
+      "highSimilarity": 0
+    },
+    "projects": [
+      {
+        "slug": "acai-total-araucaria",
+        "v1Score": 59,
+        "v2Score": 58,
+        "delta": -1,
+        "v1Nearest": "aguia-sul-sinalizacao",
+        "v2Nearest": "aguia-sul-sinalizacao",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "ag-electrical-services",
+        "v1Score": 51,
+        "v2Score": 51,
+        "delta": 0,
+        "v1Nearest": "lk-alvenaria",
+        "v2Nearest": "lk-alvenaria",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.5
+      },
+      {
+        "slug": "aguia-sul-sinalizacao",
+        "v1Score": 59,
+        "v2Score": 59,
+        "delta": 0,
+        "v1Nearest": "acai-total-araucaria",
+        "v2Nearest": "diego-montador-moveis",
+        "neighbourChanged": true,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "almeida-torres",
+        "v1Score": 34,
+        "v2Score": 31,
+        "delta": -3,
+        "v1Nearest": "guaratuba-atelie-presentes",
+        "v2Nearest": "guaratuba-atelie-presentes",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "angel-mix-brecho",
+        "v1Score": 46,
+        "v2Score": 42,
+        "delta": -4,
+        "v1Nearest": "dlara-pizzaria",
+        "v2Nearest": "dlara-pizzaria",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "artesanatos-darleia-oliveira",
+        "v1Score": 42,
+        "v2Score": 42,
+        "delta": 0,
+        "v1Nearest": "lk-alvenaria",
+        "v2Nearest": "lk-alvenaria",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 8.6
+      },
+      {
+        "slug": "assistencia-microondas-santos",
+        "v1Score": 51,
+        "v2Score": 49,
+        "delta": -2,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 50,
+        "v2AssetPattern": 9
+      },
+      {
+        "slug": "beto-pasteis",
+        "v1Score": 33,
+        "v2Score": 30,
+        "delta": -3,
+        "v1Nearest": "reuse-house-brecho",
+        "v2Nearest": "reuse-house-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "bh-barreiro-marmitas",
+        "v1Score": 40,
+        "v2Score": 39,
+        "delta": -1,
+        "v1Nearest": "uberlandia-eletrica-residencial",
+        "v2Nearest": "miro-tech",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 6
+      },
+      {
+        "slug": "brecho-sao-francisco",
+        "v1Score": 31,
+        "v2Score": 24,
+        "delta": -7,
+        "v1Nearest": "toquinho-de-gente-brecho",
+        "v2Nearest": "toquinho-de-gente-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "casa-nativa",
+        "v1Score": 40,
+        "v2Score": 36,
+        "delta": -4,
+        "v1Nearest": "guaratuba-oficina-nautica",
+        "v2Nearest": "guaratuba-oficina-nautica",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "clinica-integrada",
+        "v1Score": 43,
+        "v2Score": 43,
+        "delta": 0,
+        "v1Nearest": "lk-alvenaria",
+        "v2Nearest": "lk-alvenaria",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 1.9
+      },
+      {
+        "slug": "confeitaria-chyrley",
+        "v1Score": 55,
+        "v2Score": 56,
+        "delta": 1,
+        "v1Nearest": "studio-de-cilios",
+        "v2Nearest": "studio-de-cilios",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 10
+      },
+      {
+        "slug": "confeitaria-sabor-da-realeza",
+        "v1Score": 51,
+        "v2Score": 51,
+        "delta": 0,
+        "v1Nearest": "sos-presentes-cosmeticos",
+        "v2Nearest": "sos-presentes-cosmeticos",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 6
+      },
+      {
+        "slug": "denise-gomes-psicologa",
+        "v1Score": 54,
+        "v2Score": 53,
+        "delta": -1,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "mp-festas-eventos",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "diego-montador-moveis",
+        "v1Score": 59,
+        "v2Score": 59,
+        "delta": 0,
+        "v1Nearest": "aguia-sul-sinalizacao",
+        "v2Nearest": "aguia-sul-sinalizacao",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "dlara-pizzaria",
+        "v1Score": 46,
+        "v2Score": 42,
+        "delta": -4,
+        "v1Nearest": "angel-mix-brecho",
+        "v2Nearest": "angel-mix-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "dyzpromo",
+        "v1Score": 25,
+        "v2Score": 25,
+        "delta": 0,
+        "v1Nearest": "marido-de-aluguel",
+        "v2Nearest": "marido-de-aluguel",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 1.7
+      },
+      {
+        "slug": "ecommerce-on",
+        "v1Score": 54,
+        "v2Score": 54,
+        "delta": 0,
+        "v1Nearest": "acai-total-araucaria",
+        "v2Nearest": "acai-total-araucaria",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 10,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "eisenfer-tubos-acos",
+        "v1Score": 42,
+        "v2Score": 42,
+        "delta": 0,
+        "v1Nearest": "no-brilho-higienizacao",
+        "v2Nearest": "no-brilho-higienizacao",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 11.1,
+        "v2AssetPattern": 4.3
+      },
+      {
+        "slug": "eletro-solucoes-eficazes",
+        "v1Score": 50,
+        "v2Score": 50,
+        "delta": 0,
+        "v1Nearest": "eletrovale-eletromecanica",
+        "v2Nearest": "eletrovale-eletromecanica",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "eletrovale-eletromecanica",
+        "v1Score": 50,
+        "v2Score": 50,
+        "delta": 0,
+        "v1Nearest": "eletro-solucoes-eficazes",
+        "v2Nearest": "eletro-solucoes-eficazes",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "emporio-lelecute",
+        "v1Score": 29,
+        "v2Score": 29,
+        "delta": 0,
+        "v1Nearest": "assistencia-microondas-santos",
+        "v2Nearest": "assistencia-microondas-santos",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 2.5
+      },
+      {
+        "slug": "espaco-cih-luh",
+        "v1Score": 38,
+        "v2Score": 38,
+        "delta": 0,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 5
+      },
+      {
+        "slug": "fernanda-amaral-drywall",
+        "v1Score": 49,
+        "v2Score": 50,
+        "delta": 1,
+        "v1Nearest": "rj-servicos-drywall",
+        "v2Nearest": "rj-servicos-drywall",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.8
+      },
+      {
+        "slug": "galileu-locacao-brinquedos",
+        "v1Score": 48,
+        "v2Score": 45,
+        "delta": -3,
+        "v1Nearest": "lj-cleaning",
+        "v2Nearest": "lj-cleaning",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "guaratuba-atelie-presentes",
+        "v1Score": 45,
+        "v2Score": 42,
+        "delta": -3,
+        "v1Nearest": "mirassol-delicias-caseiras",
+        "v2Nearest": "mirassol-delicias-caseiras",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "guaratuba-oficina-nautica",
+        "v1Score": 40,
+        "v2Score": 36,
+        "delta": -4,
+        "v1Nearest": "casa-nativa",
+        "v2Nearest": "casa-nativa",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "guaratuba-reparos-residenciais",
+        "v1Score": 30,
+        "v2Score": 26,
+        "delta": -4,
+        "v1Nearest": "bh-barreiro-marmitas",
+        "v2Nearest": "bh-barreiro-marmitas",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "guaratuba-sabores-da-baia",
+        "v1Score": 30,
+        "v2Score": 30,
+        "delta": 0,
+        "v1Nearest": "heloa-gas",
+        "v2Nearest": "heloa-gas",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 14.3,
+        "v2AssetPattern": 3
+      },
+      {
+        "slug": "hbk-iluminacao-led",
+        "v1Score": 39,
+        "v2Score": 32,
+        "delta": -7,
+        "v1Nearest": "jc-revestimentos",
+        "v2Nearest": "jc-revestimentos",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 9
+      },
+      {
+        "slug": "heloa-gas",
+        "v1Score": 39,
+        "v2Score": 38,
+        "delta": -1,
+        "v1Nearest": "miro-tech",
+        "v2Nearest": "miro-tech",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 33.3,
+        "v2AssetPattern": 2.5
+      },
+      {
+        "slug": "jc-revestimentos",
+        "v1Score": 39,
+        "v2Score": 32,
+        "delta": -7,
+        "v1Nearest": "hbk-iluminacao-led",
+        "v2Nearest": "hbk-iluminacao-led",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 9
+      },
+      {
+        "slug": "jkl-marcenaria",
+        "v1Score": 46,
+        "v2Score": 46,
+        "delta": 0,
+        "v1Nearest": "eletro-solucoes-eficazes",
+        "v2Nearest": "eletro-solucoes-eficazes",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "liz-moraes-nail-designer",
+        "v1Score": 54,
+        "v2Score": 54,
+        "delta": 0,
+        "v1Nearest": "denise-gomes-psicologa",
+        "v2Nearest": "mp-festas-eventos",
+        "neighbourChanged": true,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "lj-cleaning",
+        "v1Score": 48,
+        "v2Score": 45,
+        "delta": -3,
+        "v1Nearest": "galileu-locacao-brinquedos",
+        "v2Nearest": "galileu-locacao-brinquedos",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "lk-alvenaria",
+        "v1Score": 51,
+        "v2Score": 51,
+        "delta": 0,
+        "v1Nearest": "ag-electrical-services",
+        "v2Nearest": "ag-electrical-services",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.5
+      },
+      {
+        "slug": "lolipa-arte-em-festas",
+        "v1Score": 39,
+        "v2Score": 38,
+        "delta": -1,
+        "v1Nearest": "confeitaria-sabor-da-realeza",
+        "v2Nearest": "confeitaria-sabor-da-realeza",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "lucas-arruma-maquina-lavar",
+        "v1Score": 44,
+        "v2Score": 44,
+        "delta": 0,
+        "v1Nearest": "denise-gomes-psicologa",
+        "v2Nearest": "denise-gomes-psicologa",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.8
+      },
+      {
+        "slug": "manu-pasteis",
+        "v1Score": 42,
+        "v2Score": 39,
+        "delta": -3,
+        "v1Nearest": "miro-tech",
+        "v2Nearest": "miro-tech",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 75,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "marido-de-aluguel",
+        "v1Score": 39,
+        "v2Score": 38,
+        "delta": -1,
+        "v1Nearest": "paulo-mestre-de-obras",
+        "v2Nearest": "paulo-mestre-de-obras",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 12.5,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "marmitaria-dom-diego",
+        "v1Score": 38,
+        "v2Score": 32,
+        "delta": -6,
+        "v1Nearest": "angel-mix-brecho",
+        "v2Nearest": "angel-mix-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "mary-diarista",
+        "v1Score": 58,
+        "v2Score": 59,
+        "delta": 1,
+        "v1Nearest": "aguia-sul-sinalizacao",
+        "v2Nearest": "aguia-sul-sinalizacao",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "mirassol-conserta-celular",
+        "v1Score": 38,
+        "v2Score": 35,
+        "delta": -3,
+        "v1Nearest": "mirassol-delicias-caseiras",
+        "v2Nearest": "mirassol-delicias-caseiras",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "mirassol-delicias-caseiras",
+        "v1Score": 45,
+        "v2Score": 42,
+        "delta": -3,
+        "v1Nearest": "guaratuba-atelie-presentes",
+        "v2Nearest": "guaratuba-atelie-presentes",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "miro-tech",
+        "v1Score": 51,
+        "v2Score": 48,
+        "delta": -3,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 5
+      },
+      {
+        "slug": "mp-festas-eventos",
+        "v1Score": 59,
+        "v2Score": 59,
+        "delta": 0,
+        "v1Nearest": "studio-de-cilios",
+        "v2Nearest": "studio-de-cilios",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 5
+      },
+      {
+        "slug": "no-brilho-higienizacao",
+        "v1Score": 42,
+        "v2Score": 42,
+        "delta": 0,
+        "v1Nearest": "eisenfer-tubos-acos",
+        "v2Nearest": "eisenfer-tubos-acos",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 11.1,
+        "v2AssetPattern": 4.3
+      },
+      {
+        "slug": "paraiso-do-hot-dog",
+        "v1Score": 25,
+        "v2Score": 24,
+        "delta": -1,
+        "v1Nearest": "refrigeracao-maresia",
+        "v2Nearest": "miro-tech",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 33.3,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "paulo-mestre-de-obras",
+        "v1Score": 56,
+        "v2Score": 55,
+        "delta": -1,
+        "v1Nearest": "diego-montador-moveis",
+        "v2Nearest": "diego-montador-moveis",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 25,
+        "v2AssetPattern": 5
+      },
+      {
+        "slug": "premium-envelopamentos",
+        "v1Score": 31,
+        "v2Score": 30,
+        "delta": -1,
+        "v1Nearest": "jc-revestimentos",
+        "v2Nearest": "jc-revestimentos",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 28.6,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "r_beauty",
+        "v1Score": 51,
+        "v2Score": 51,
+        "delta": 0,
+        "v1Nearest": "renata-beauty",
+        "v2Nearest": "renata-beauty",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 14.3,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "raphael-construcoes",
+        "v1Score": 40,
+        "v2Score": 34,
+        "delta": -6,
+        "v1Nearest": "ton-e-cor",
+        "v2Nearest": "ton-e-cor",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 9
+      },
+      {
+        "slug": "refrigeracao-maresia",
+        "v1Score": 51,
+        "v2Score": 50,
+        "delta": -1,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 3.8
+      },
+      {
+        "slug": "renata-beauty",
+        "v1Score": 51,
+        "v2Score": 51,
+        "delta": 0,
+        "v1Nearest": "r_beauty",
+        "v2Nearest": "r_beauty",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 14.3,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "reuse-house-brecho",
+        "v1Score": 34,
+        "v2Score": 30,
+        "delta": -4,
+        "v1Nearest": "angel-mix-brecho",
+        "v2Nearest": "beto-pasteis",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "rj-servicos-drywall",
+        "v1Score": 49,
+        "v2Score": 50,
+        "delta": 1,
+        "v1Nearest": "fernanda-amaral-drywall",
+        "v2Nearest": "fernanda-amaral-drywall",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.8
+      },
+      {
+        "slug": "rm-fretes",
+        "v1Score": 35,
+        "v2Score": 35,
+        "delta": 0,
+        "v1Nearest": "marido-de-aluguel",
+        "v2Nearest": "marido-de-aluguel",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 1.9
+      },
+      {
+        "slug": "salao-da-marcia",
+        "v1Score": 47,
+        "v2Score": 47,
+        "delta": 0,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 2.1
+      },
+      {
+        "slug": "santos-montador-de-moveis",
+        "v1Score": 42,
+        "v2Score": 41,
+        "delta": -1,
+        "v1Nearest": "diego-montador-moveis",
+        "v2Nearest": "diego-montador-moveis",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 16.7,
+        "v2AssetPattern": 2.5
+      },
+      {
+        "slug": "sos-presentes-cosmeticos",
+        "v1Score": 51,
+        "v2Score": 51,
+        "delta": 0,
+        "v1Nearest": "confeitaria-sabor-da-realeza",
+        "v2Nearest": "confeitaria-sabor-da-realeza",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 6
+      },
+      {
+        "slug": "studio-de-cilios",
+        "v1Score": 59,
+        "v2Score": 59,
+        "delta": 0,
+        "v1Nearest": "mp-festas-eventos",
+        "v2Nearest": "mp-festas-eventos",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 5
+      },
+      {
+        "slug": "thays-camilla",
+        "v1Score": 44,
+        "v2Score": 44,
+        "delta": 0,
+        "v1Nearest": "denise-gomes-psicologa",
+        "v2Nearest": "sos-presentes-cosmeticos",
+        "neighbourChanged": true,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 60,
+        "v2AssetPattern": 6
+      },
+      {
+        "slug": "ton-e-cor",
+        "v1Score": 40,
+        "v2Score": 34,
+        "delta": -6,
+        "v1Nearest": "raphael-construcoes",
+        "v2Nearest": "raphael-construcoes",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 9
+      },
+      {
+        "slug": "toquinho-de-gente-brecho",
+        "v1Score": 52,
+        "v2Score": 46,
+        "delta": -6,
+        "v1Nearest": "woodhouse-hamburgueres",
+        "v2Nearest": "woodhouse-hamburgueres",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "uberlandia-eletrica-residencial",
+        "v1Score": 40,
+        "v2Score": 37,
+        "delta": -3,
+        "v1Nearest": "bh-barreiro-marmitas",
+        "v2Nearest": "bh-barreiro-marmitas",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "vila-da-capivara",
+        "v1Score": 54,
+        "v2Score": 53,
+        "delta": -1,
+        "v1Nearest": "mp-festas-eventos",
+        "v2Nearest": "mp-festas-eventos",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 25,
+        "v2AssetPattern": 6.4
+      },
+      {
+        "slug": "woodhouse-hamburgueres",
+        "v1Score": 52,
+        "v2Score": 46,
+        "delta": -6,
+        "v1Nearest": "toquinho-de-gente-brecho",
+        "v2Nearest": "toquinho-de-gente-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      }
+    ]
   },
   "regression": {
     "mode": "REPORT_ONLY",
     "baseline": {
       "total": 68,
       "original": 0,
-      "acceptable": 17,
-      "attention": 37,
-      "highSimilarity": 14,
+      "acceptable": 26,
+      "attention": 42,
+      "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
       "placeholderLogos": 0,
       "missingLogos": 0,
-      "missingCovers": 27,
-      "coversAsSocialImage": 11,
+      "missingCovers": 24,
+      "coverValid": 34,
+      "coverPending": 34,
+      "coversAsSocialImage": 10,
       "sharedCovers": 0,
-      "severeCrop": 22,
+      "severeCrop": 18,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 25,
-      "attention": 43,
+      "acceptable": 26,
+      "attention": 42,
       "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
@@ -4340,135 +5300,6 @@
     },
     "verdict": "PASS",
     "regressions": [],
-    "improvements": [
-      {
-        "kind": "COUNTER",
-        "key": "highSimilarity",
-        "label": "projetos HIGH_SIMILARITY",
-        "before": 14,
-        "after": 0
-      },
-      {
-        "kind": "COUNTER",
-        "key": "missingCovers",
-        "label": "capas sem arquivo no catálogo (legado)",
-        "before": 27,
-        "after": 24
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "ag-electrical-services",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "artesanatos-darleia-oliveira",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "brecho-sao-francisco",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "diego-montador-moveis",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "espaco-cih-luh",
-        "before": "HIGH_SIMILARITY",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "galileu-locacao-brinquedos",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "heloa-gas",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "lj-cleaning",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "lk-alvenaria",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "lolipa-arte-em-festas",
-        "before": "HIGH_SIMILARITY",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "lucas-arruma-maquina-lavar",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "marmitaria-dom-diego",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "mirassol-conserta-celular",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "miro-tech",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "no-brilho-higienizacao",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "premium-envelopamentos",
-        "before": "HIGH_SIMILARITY",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "reuse-house-brecho",
-        "before": "ATTENTION",
-        "after": "ACCEPTABLE"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "salao-da-marcia",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "thays-camilla",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      }
-    ]
+    "improvements": []
   }
 }

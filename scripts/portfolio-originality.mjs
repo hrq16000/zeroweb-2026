@@ -15,6 +15,24 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import {
+  ASSET_REASONS,
+  assetPatternV1,
+  compareAssetSets,
+  describeAsset,
+  normalizeAssetRef,
+} from "./portfolio-asset-fingerprint.mjs";
+
+/**
+ * Versão da métrica.
+ *  v1 — ASSET_PATTERN por basename (falso positivo: `hero.jpg` em dois clientes).
+ *  v2 — ASSET_PATTERN por conteúdo real (hash), referência canônica e perfil de
+ *       mídia; IDENTITY passa a considerar o hash do logo. Fórmula e pesos
+ *       estruturais inalterados.
+ */
+export const ORIGINALITY_METRIC_VERSION = 2;
+export const SUPPORTED_METRIC_VERSIONS = [1, 2];
+export { ASSET_REASONS };
 
 /** Reason codes. */
 export const REASONS = {
@@ -266,16 +284,25 @@ export function fingerprintSource(source, { label = "" } = {}) {
 }
 
 /** Similaridade multidimensional entre dois fingerprints (0–100 por dimensão). */
-export function compareFingerprints(a, b) {
+export function compareFingerprints(a, b, { version = ORIGINALITY_METRIC_VERSION } = {}) {
   const set = (arr) => new Set(arr);
+  const v2 = version === 2;
+  const assetCmp = v2 ? compareAssetSets(a.assetDescriptors ?? [], b.assetDescriptors ?? []) : null;
+  const identityTokens = (fp) => set([
+    ...fp.colors,
+    ...fp.icons,
+    ...(v2 ? (fp.identityTokens ?? []) : []),
+  ]);
   const dims = {
     STRUCTURE_SIMILARITY: jaccard(set(a.structureNgrams), set(b.structureNgrams)),
     SECTION_ORDER_SIMILARITY: jaccard(set(a.sectionNgrams), set(b.sectionNgrams)),
     COMPONENT_SIMILARITY: jaccard(set(a.components), set(b.components)),
     STYLE_SIMILARITY: jaccard(set(a.style), set(b.style)),
     COPY_SIMILARITY: jaccard(set(a.copy ?? []), set(b.copy ?? [])),
-    ASSET_PATTERN_SIMILARITY: jaccard(set(a.assetPattern ?? []), set(b.assetPattern ?? [])),
-    IDENTITY_SIMILARITY: jaccard(set([...a.colors, ...a.icons]), set([...b.colors, ...b.icons])),
+    ASSET_PATTERN_SIMILARITY: v2
+      ? assetCmp.similarity
+      : jaccard(set(a.assetPattern ?? []), set(b.assetPattern ?? [])),
+    IDENTITY_SIMILARITY: jaccard(identityTokens(a), identityTokens(b)),
   };
   const score =
     dims.STRUCTURE_SIMILARITY * WEIGHTS.structure +
@@ -288,8 +315,11 @@ export function compareFingerprints(a, b) {
 
   const pct = (v) => Math.round(v * 1000) / 10;
   return {
+    metricVersion: version,
     score: Math.round(score * 100),
     dimensions: Object.fromEntries(Object.entries(dims).map(([k, v]) => [k, pct(v)])),
+    assetReasons: assetCmp?.reasons ?? [],
+    sharedAssets: assetCmp?.sharedAssets ?? [],
   };
 }
 
@@ -385,7 +415,7 @@ export function isPlaceholderLogo(file) {
 /* ------------------------------------------------------------------ */
 /* Análise completa do portfólio                                        */
 /* ------------------------------------------------------------------ */
-export function analyzePortfolio(root) {
+export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERSION } = {}) {
   const readJson = (p) => JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
   const catalog = readJson("src/config/portfolio-catalog.json");
   const clients = readJson("src/config/portfolio-clients.json");
@@ -463,12 +493,32 @@ export function analyzePortfolio(root) {
       ? fingerprintSource(source, { label: componentFile })
       : { ...verticalFingerprint, label: `sites.$vertical.tsx#${fallbackVertical}` };
 
-    // padrão de assets: nomes normalizados dos arquivos do diretório do projeto
     const dir = path.join(root, "public/images", slug);
     const files = fs.existsSync(dir) ? fs.readdirSync(dir).sort() : [];
-    fp.assetPattern = files
-      .filter((f) => /\.(webp|avif|jpe?g|png|svg)$/i.test(f))
-      .map((f) => f.toLowerCase().replace(/\d+/g, "#"));
+
+    // v1 (preservado para comparação): apenas nomes de arquivo normalizados.
+    fp.assetPattern = assetPatternV1(files);
+
+    // v2: assinatura real (hash de conteúdo, referência canônica, metadados).
+    const refs = new Map();
+    const addRef = (rel, role) => {
+      const canonical = normalizeAssetRef(rel);
+      if (!canonical || refs.has(canonical)) return;
+      const remote = /^https?:\/\//i.test(canonical);
+      const abs = remote ? "" : publicPath(rel);
+      const dimensions = remote ? null : imageSize(abs);
+      refs.set(canonical, describeAsset({ ref: rel, absPath: abs, role, dimensions }));
+    };
+    addRef(item.image, "COVER");
+    addRef(assets.icon, "BRAND");
+    addRef(assets.socialImage, "SOCIAL_IMAGE");
+    for (const f of files) {
+      if (!/\.(webp|avif|jpe?g|png|svg)$/i.test(f)) continue;
+      addRef(`/images/${slug}/${f}`, "LIBRARY");
+    }
+    fp.assetDescriptors = [...refs.values()];
+    const brandHash = fp.assetDescriptors.find((d) => d.role === "BRAND")?.contentHash;
+    fp.identityTokens = brandHash ? [`logo:${brandHash}`] : [];
     fp.fallbackVertical = fallbackVertical;
 
     /* ---- sinais de capa ---- */
@@ -548,7 +598,7 @@ export function analyzePortfolio(root) {
   const pairs = [];
   for (let i = 0; i < projects.length; i += 1) {
     for (let j = i + 1; j < projects.length; j += 1) {
-      const cmp = compareFingerprints(projects[i].fingerprint, projects[j].fingerprint);
+      const cmp = compareFingerprints(projects[i].fingerprint, projects[j].fingerprint, { version: metricVersion });
       const reason = pairReason(projects[i].fingerprint, projects[j].fingerprint, cmp);
       pairs.push({ a: projects[i].slug, b: projects[j].slug, ...cmp, reason });
     }
@@ -632,6 +682,7 @@ export function analyzePortfolio(root) {
 
   return {
     generator: "scripts/portfolio-originality.mjs",
+    metricVersion,
     weights: WEIGHTS,
     thresholds: THRESHOLDS,
     summary,
