@@ -1516,8 +1516,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "premium-envelopamentos",
-          "score": 32,
+          "slug": "raphael-construcoes",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -1707,19 +1707,19 @@
     },
     {
       "slug": "lolipa-arte-em-festas",
-      "score": 40,
+      "score": 37,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 37,
       "reasons": [],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 31.4,
         "SECTION_ORDER_SIMILARITY": 60,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 2.4,
         "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 8.3
+        "IDENTITY_SIMILARITY": 4.2
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -1733,16 +1733,16 @@
       "nearest": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 40,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 33,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
-          "slug": "thays-camilla",
+          "slug": "uberlandia-eletrica-residencial",
           "score": 32,
           "reason": "DISTINCT"
         }
@@ -2297,16 +2297,16 @@
     },
     {
       "slug": "premium-envelopamentos",
-      "score": 32,
+      "score": 29,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 32,
+      "nearestMatchScore": 29,
       "reasons": [],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 21.6,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 48.1,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 46.9,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 28.6,
         "IDENTITY_SIMILARITY": 0
@@ -2323,17 +2323,17 @@
       "nearest": [
         {
           "slug": "jc-revestimentos",
-          "score": 32,
+          "score": 29,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "lolipa-arte-em-festas",
-          "score": 29,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "miro-tech",
-          "score": 29,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],

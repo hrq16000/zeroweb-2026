@@ -1450,18 +1450,18 @@
       "title": "Lolipa Arte em Festas Decor",
       "segment": "comercios",
       "componentFile": "src/components/site/LolipaArteEmFestasPage.tsx",
-      "score": 40,
+      "score": 37,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 37,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 31.4,
         "SECTION_ORDER_SIMILARITY": 60,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 2.4,
         "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 8.3
+        "IDENTITY_SIMILARITY": 4.2
       },
       "reasons": [],
       "fallbackVertical": null,
@@ -1476,7 +1476,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "31c175ff81f46a89",
+        "skeletonHash": "745fc903e24e90d9",
         "structureHash": "2492ab8728e720d9",
         "sectionCount": 7,
         "lines": 172
@@ -1949,15 +1949,15 @@
       "title": "Premium Envelopamentos",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
-      "score": 32,
+      "score": 29,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "jc-revestimentos",
-      "nearestMatchScore": 32,
+      "nearestMatchScore": 29,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 21.6,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 48.1,
+        "COMPONENT_SIMILARITY": 33.3,
+        "STYLE_SIMILARITY": 46.9,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 28.6,
         "IDENTITY_SIMILARITY": 0
@@ -1975,7 +1975,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "35ba926b04559abc",
+        "skeletonHash": "cc23f1b05bf75da6",
         "structureHash": "bd6a82cdf6905621",
         "sectionCount": 6,
         "lines": 177
@@ -3578,8 +3578,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "premium-envelopamentos",
-          "score": 32,
+          "slug": "raphael-construcoes",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -3654,16 +3654,16 @@
       "lolipa-arte-em-festas": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 40,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 33,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
-          "slug": "thays-camilla",
+          "slug": "uberlandia-eletrica-residencial",
           "score": 32,
           "reason": "DISTINCT"
         }
@@ -3875,17 +3875,17 @@
       "premium-envelopamentos": [
         {
           "slug": "jc-revestimentos",
-          "score": 32,
+          "score": 29,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
           "slug": "lolipa-arte-em-festas",
-          "score": 29,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "miro-tech",
-          "score": 29,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
