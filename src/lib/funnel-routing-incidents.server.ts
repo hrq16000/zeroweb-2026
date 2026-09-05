@@ -15,7 +15,8 @@ export type RoutingIncidentReason =
 export async function reportRoutingIncident(input: {
   clientKey: string | null;
   leadId: string | null;
-  token: string;
+  /** null quando o incidente ocorre antes de existir token (canal ausente). */
+  token: string | null;
   reason: RoutingIncidentReason;
   fellBackToCentral: boolean;
 }): Promise<void> {
