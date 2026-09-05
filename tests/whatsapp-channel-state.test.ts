@@ -1,9 +1,15 @@
 import { describe, expect, it, afterEach } from "vitest";
-import {
+// Módulo server-only: o preload de testes cria `window`, então removemos o
+// global antes de importar (é exatamente o ambiente real do servidor).
+const globalRef = globalThis as { window?: unknown };
+const savedWindow = globalRef.window;
+delete globalRef.window;
+const {
   getPortfolioWhatsAppChannelState,
   portfolioWhatsAppEnvName,
   resolvePortfolioWhatsAppContact,
-} from "@/lib/whatsapp-redirect.server";
+} = await import("@/lib/whatsapp-redirect.server");
+if (savedWindow !== undefined) globalRef.window = savedWindow;
 
 const KEY = "heloa-gas";
 const ENV = portfolioWhatsAppEnvName(KEY)!;
