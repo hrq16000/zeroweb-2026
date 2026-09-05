@@ -3,6 +3,12 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import {
+  MotionImageReveal,
+  MotionReveal,
+  MotionScope,
+  MotionStagger,
+} from "@/components/motion";
 
 /**
  * Site exclusivo de REuse House Brechó (/portfolio/reuse-house-brecho).
@@ -47,26 +53,33 @@ export function ReuseHouseBrechoPage() {
         } as React.CSSProperties
       }
     >
+      <MotionScope intensity="BALANCED">
       <main className="mx-auto w-[min(92%,60rem)] pb-16 pt-10 md:pb-24 md:pt-16">
         {/* cabeçalho tipográfico: etiqueta antes de qualquer imagem */}
         <header className="border-y-2 border-[var(--rh-deep)] py-8 md:py-12">
-          <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-moss)]">
-            REuse House · Jardim das Américas · Curitiba PR
-          </p>
-          <h1 className="mt-5 max-w-[20ch] font-display text-[2.1rem] font-extrabold uppercase leading-[0.98] tracking-tight md:text-[3.4rem]">
-            <ManagedText
-              field="heroHeadline"
-              fallback={"Garimpo consciente no Jardim das Am\u00e9ricas."}
-            />
-          </h1>
-          <p className="mt-5 max-w-[52ch] text-[var(--rh-deep)]/75 md:text-lg">
-            <ManagedText
-              field="heroSubheadline"
-              fallback={
-                "Presen\u00e7a digital de REuse House Brech\u00f3: presen\u00e7a digital para brech\u00f3 de moda sustent\u00e1vel no Jardim das Am\u00e9ricas."
-              }
-            />
-          </p>
+          <MotionReveal variant="left">
+            <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-moss)]">
+              REuse House · Jardim das Américas · Curitiba PR
+            </p>
+          </MotionReveal>
+          <MotionReveal variant="up" delay={120}>
+            <h1 className="mt-5 max-w-[20ch] font-display text-[2.1rem] font-extrabold uppercase leading-[0.98] tracking-tight md:text-[3.4rem]">
+              <ManagedText
+                field="heroHeadline"
+                fallback={"Garimpo consciente no Jardim das Am\u00e9ricas."}
+              />
+            </h1>
+          </MotionReveal>
+          <MotionReveal variant="up" delay={240}>
+            <p className="mt-5 max-w-[52ch] text-[var(--rh-deep)]/75 md:text-lg">
+              <ManagedText
+                field="heroSubheadline"
+                fallback={
+                  "Presen\u00e7a digital de REuse House Brech\u00f3: presen\u00e7a digital para brech\u00f3 de moda sustent\u00e1vel no Jardim das Am\u00e9ricas."
+                }
+              />
+            </p>
+          </MotionReveal>
         </header>
 
         {/* índice tabular com linhas pontilhadas — leitura de ficha, não de cards */}
@@ -74,14 +87,16 @@ export function ReuseHouseBrechoPage() {
           <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-deep)]/55">
             Índice do garimpo
           </p>
-          <dl className="mt-5">
+          <MotionStagger as="dl" variant="left" className="mt-5" step={110}>
             {indice.map((item) => (
               <div
                 key={item.codigo}
-                className="grid grid-cols-[2.5rem_1fr] items-start gap-x-4 gap-y-1 border-b border-dotted border-[var(--rh-line)] py-5 md:grid-cols-[3rem_14rem_1fr]"
+                className="group grid grid-cols-[2.5rem_1fr] items-start gap-x-4 gap-y-1 border-b border-dotted border-[var(--rh-line)] py-5 md:grid-cols-[3rem_14rem_1fr]"
               >
-                <span className="font-mono text-sm text-[var(--rh-moss)]">{item.codigo}</span>
-                <dt className="font-display text-lg font-bold uppercase tracking-wide">
+                <span className="font-mono text-sm text-[var(--rh-moss)] transition-transform duration-200 group-hover:translate-x-1">
+                  {item.codigo}
+                </span>
+                <dt className="font-display text-lg font-bold uppercase tracking-wide transition-colors duration-200 group-hover:text-[var(--rh-moss)]">
                   {item.titulo}
                 </dt>
                 <dd className="col-start-2 text-sm leading-relaxed text-[var(--rh-deep)]/70 md:col-start-3">
@@ -89,48 +104,53 @@ export function ReuseHouseBrechoPage() {
                 </dd>
               </div>
             ))}
-          </dl>
+          </MotionStagger>
         </section>
       </main>
 
       {/* fotografia só depois do índice, como faixa larga de largura total */}
       <section>
-        <PortfolioImage
-          src="/images/reuse-house-brecho/capa.png"
-          alt="REuse House Brechó"
-          width={1536}
-          height={1024}
-          
-          className="h-56 w-full object-cover md:h-[22rem]"
-          managedField="heroImageUrl"
-        />
+        <MotionImageReveal direction="up">
+          <PortfolioImage
+            src="/images/reuse-house-brecho/capa.png"
+            alt="REuse House Brechó"
+            width={1536}
+            height={1024}
+            className="h-56 w-full object-cover md:h-[22rem]"
+            managedField="heroImageUrl"
+          />
+        </MotionImageReveal>
       </section>
 
       {/* etiqueta destacável de fechamento */}
       <section className="mx-auto w-[min(92%,60rem)] py-14 md:py-20">
-        <div className="rounded-lg border-2 border-dashed border-[var(--rh-deep)] p-7 md:p-10">
-          <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-moss)]">
-            Etiqueta
-          </p>
-          <h2 className="mt-4 max-w-[24ch] font-display text-2xl font-extrabold uppercase leading-tight md:text-3xl">
-            Uma peça especial pode ganhar uma nova história.
-          </h2>
-          <p className="mt-3 max-w-[52ch] text-[var(--rh-deep)]/75">
-            Conte o estilo e a peça que procura para receber as opções disponíveis.
-          </p>
-          <div className="mt-7">
-            <FunnelCTAButton
-              clientKey="reuse-house-brecho"
-              companySlug="reuse-house-brecho"
-              formSlug="funnel-reuse-house-brecho"
-              location="reuse-house-brecho_fechamento"
-              className="inline-flex items-center gap-2 rounded-none bg-[var(--rh-deep)] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[var(--rh-paper)]"
-            >
-              <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
-            </FunnelCTAButton>
+        <MotionReveal variant="scale">
+          <div className="rounded-lg border-2 border-dashed border-[var(--rh-deep)] p-7 md:p-10">
+            <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-moss)]">
+              Etiqueta
+            </p>
+            <h2 className="mt-4 max-w-[24ch] font-display text-2xl font-extrabold uppercase leading-tight md:text-3xl">
+              Uma peça especial pode ganhar uma nova história.
+            </h2>
+            <p className="mt-3 max-w-[52ch] text-[var(--rh-deep)]/75">
+              Conte o estilo e a peça que procura para receber as opções disponíveis.
+            </p>
+            <div className="mt-7">
+              <FunnelCTAButton
+                clientKey="reuse-house-brecho"
+                companySlug="reuse-house-brecho"
+                formSlug="funnel-reuse-house-brecho"
+                location="reuse-house-brecho_fechamento"
+                className="inline-flex items-center gap-2 rounded-none bg-[var(--rh-deep)] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-[var(--rh-paper)] transition-transform duration-200 hover:translate-x-1"
+              >
+                <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
+              </FunnelCTAButton>
+            </div>
           </div>
-        </div>
+        </MotionReveal>
       </section>
+      </MotionScope>
+
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
       <PortfolioSocialProofPopup clientKey="reuse-house-brecho" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}

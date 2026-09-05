@@ -3,6 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 /**
  * Site exclusivo de Toquinho de Gente Brechó Adulto e Infantil
@@ -54,6 +55,7 @@ export function ToquinhoDeGenteBrechoPage() {
         } as React.CSSProperties
       }
     >
+      <MotionScope intensity="EXPRESSIVE">
       <main>
         <div className="bg-[var(--tq-coral)] py-2.5 text-center text-[0.66rem] font-bold uppercase tracking-[0.38em] text-[var(--tq-sun)]">
           Toquinho de Gente · Brechó adulto e infantil
@@ -61,58 +63,65 @@ export function ToquinhoDeGenteBrechoPage() {
 
         {/* mural de recados: assinatura do projeto */}
         <section className="mx-auto w-[min(94%,70rem)] py-10 md:py-16">
-          <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
-            <ManagedText
-              field="heroHeadline"
-              fallback={"Moda circular para todas as idades."}
-            />
-          </h1>
+          <MotionReveal variant="mask">
+            <h1 className="max-w-[15ch] font-display text-[2.4rem] font-black leading-[1.02] tracking-tight md:text-[4rem]">
+              <ManagedText
+                field="heroHeadline"
+                fallback={"Moda circular para todas as idades."}
+              />
+            </h1>
+          </MotionReveal>
 
           <div className="mt-10 rounded-[2rem] border-[6px] border-[var(--tq-mint)] bg-[var(--tq-mint)]/12 p-5 md:p-10">
             <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-start">
               <div className="space-y-5">
-                {bilhetes.map((b) => (
-                  <article
-                    key={b.titulo}
-                    className={`${b.giro} rounded-xl bg-white px-6 py-5 shadow-[4px_5px_0_var(--tq-ink)]`}
-                  >
-                    <h2 className="font-display text-lg font-black">{b.titulo}</h2>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--tq-ink)]/75">
-                      {b.texto}
-                    </p>
-                  </article>
+                {bilhetes.map((b, i) => (
+                  <MotionReveal key={b.titulo} variant="down" delay={i * 110}>
+                    <article
+                      className={`${b.giro} rounded-xl bg-white px-6 py-5 shadow-[4px_5px_0_var(--tq-ink)] transition-transform duration-200 hover:rotate-0 hover:-translate-y-1`}
+                    >
+                      <h2 className="font-display text-lg font-black">{b.titulo}</h2>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--tq-ink)]/75">
+                        {b.texto}
+                      </p>
+                    </article>
+                  </MotionReveal>
                 ))}
               </div>
 
               <div className="space-y-6">
-                <div className="rotate-[2.5deg] rounded-md bg-white p-3 pb-9 shadow-2xl">
-                  <PortfolioImage
-                    src="/images/toquinho-de-gente-brecho/capa.png"
-                    alt="Toquinho de Gente Brechó Adulto e Infantil"
-                    priority
-                    width={900}
-                    height={900}
-                    className="aspect-square w-full rounded-sm object-cover"
-                    managedField="heroImageUrl"
-                  />
-                  <p className="mt-2 text-center font-display text-sm font-semibold text-[var(--tq-ink)]/70">
-                    Garimpo da semana
+                <MotionReveal variant="scale" delay={160}>
+                  <div className="rotate-[2.5deg] rounded-md bg-white p-3 pb-9 shadow-2xl transition-transform duration-300 hover:rotate-0">
+                    <PortfolioImage
+                      src="/images/toquinho-de-gente-brecho/capa.png"
+                      alt="Toquinho de Gente Brechó Adulto e Infantil"
+                      priority
+                      width={900}
+                      height={900}
+                      className="aspect-square w-full rounded-sm object-cover"
+                      managedField="heroImageUrl"
+                    />
+                    <p className="mt-2 text-center font-display text-sm font-semibold text-[var(--tq-ink)]/70">
+                      Garimpo da semana
+                    </p>
+                  </div>
+                </MotionReveal>
+                <MotionReveal variant="up" delay={220}>
+                  <p className="text-base leading-relaxed text-[var(--tq-ink)]/80">
+                    <ManagedText
+                      field="heroSubheadline"
+                      fallback={
+                        "Presen\u00e7a digital de Toquinho de Gente Brech\u00f3 Adulto e Infantil: vitrine para moda circular adulta e infantil no S\u00edtio Cercado."
+                      }
+                    />
                   </p>
-                </div>
-                <p className="text-base leading-relaxed text-[var(--tq-ink)]/80">
-                  <ManagedText
-                    field="heroSubheadline"
-                    fallback={
-                      "Presen\u00e7a digital de Toquinho de Gente Brech\u00f3 Adulto e Infantil: vitrine para moda circular adulta e infantil no S\u00edtio Cercado."
-                    }
-                  />
-                </p>
+                </MotionReveal>
                 <FunnelCTAButton
                   clientKey="toquinho-de-gente-brecho"
                   companySlug="toquinho-de-gente-brecho"
                   formSlug="funnel-toquinho-de-gente-brecho"
                   location="toquinho-de-gente-brecho_hero"
-                  className="inline-flex items-center gap-2 rounded-2xl bg-[var(--tq-coral)] px-7 py-3.5 text-sm font-bold text-[var(--tq-sun)] shadow-[6px_6px_0_var(--tq-ink)]"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-[var(--tq-coral)] px-7 py-3.5 text-sm font-bold text-[var(--tq-sun)] shadow-[6px_6px_0_var(--tq-ink)] transition-transform duration-200 hover:translate-x-1 hover:translate-y-1"
                 >
                   <ManagedText field="ctaLabel" fallback={"Consultar pe\u00e7as"} />
                 </FunnelCTAButton>
@@ -125,7 +134,7 @@ export function ToquinhoDeGenteBrechoPage() {
             {lembretes.map((item) => (
               <li
                 key={item}
-                className="rounded-full border-2 border-[var(--tq-ink)] px-4 py-1.5 text-xs font-bold uppercase tracking-wide"
+                className="rounded-full border-2 border-[var(--tq-ink)] px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors duration-200 hover:bg-[var(--tq-ink)] hover:text-[var(--tq-sun)]"
               >
                 {item}
               </li>
@@ -137,6 +146,8 @@ export function ToquinhoDeGenteBrechoPage() {
           </p>
         </section>
       </main>
+      </MotionScope>
+
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
       <PortfolioSocialProofPopup clientKey="toquinho-de-gente-brecho" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}

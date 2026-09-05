@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 23,
-    "attention": 45,
+    "acceptable": 24,
+    "attention": 44,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -209,8 +209,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-delicias-caseiras",
-          "score": 26,
+          "slug": "bh-barreiro-marmitas",
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -218,21 +218,21 @@
     },
     {
       "slug": "angel-mix-brecho",
-      "score": 42,
+      "score": 46,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "marmitaria-dom-diego",
-      "nearestMatchScore": 42,
+      "nearestMatch": "dlara-pizzaria",
+      "nearestMatchScore": 46,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 18.5,
-        "SECTION_ORDER_SIMILARITY": 33.3,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 30.4,
-        "COPY_SIMILARITY": 2,
+        "STRUCTURE_SIMILARITY": 13,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 31.1,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 100
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -245,19 +245,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 42,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 42,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "dlara-pizzaria",
+          "score": 46,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "woodhouse-hamburgueres",
           "score": 41,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "marmitaria-dom-diego",
+          "score": 38,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -301,7 +301,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
+          "slug": "denise-gomes-psicologa",
           "score": 40,
           "reason": "DISTINCT"
         }
@@ -356,15 +356,15 @@
     },
     {
       "slug": "beto-pasteis",
-      "score": 28,
+      "score": 33,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 28,
+      "nearestMatchScore": 33,
       "reasons": [],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 3.1,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 55.6,
         "STYLE_SIMILARITY": 29.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -382,17 +382,17 @@
       "nearest": [
         {
           "slug": "reuse-house-brecho",
-          "score": 28,
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
+          "slug": "angel-mix-brecho",
+          "score": 21,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "toquinho-de-gente-brecho",
           "score": 20,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "dlara-pizzaria",
-          "score": 17,
           "reason": "DISTINCT"
         }
       ],
@@ -446,15 +446,15 @@
       "slug": "brecho-sao-francisco",
       "score": 31,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "marmitaria-dom-diego",
+      "nearestMatch": "toquinho-de-gente-brecho",
       "nearestMatchScore": 31,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 10.7,
+        "STRUCTURE_SIMILARITY": 7.1,
         "SECTION_ORDER_SIMILARITY": 0,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 25.5,
-        "COPY_SIMILARITY": 0,
+        "STYLE_SIMILARITY": 28.1,
+        "COPY_SIMILARITY": 1.6,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -469,18 +469,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 31,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "toquinho-de-gente-brecho",
           "score": 31,
           "reason": "DISTINCT"
         },
         {
+          "slug": "woodhouse-hamburgueres",
+          "score": 29,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "angel-mix-brecho",
-          "score": 30,
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -532,20 +532,20 @@
     },
     {
       "slug": "clinica-integrada",
-      "score": 43,
+      "score": 41,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 43,
+      "nearestMatch": "lk-alvenaria",
+      "nearestMatchScore": 41,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 37.1,
+        "STRUCTURE_SIMILARITY": 30.3,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 22.2,
-        "STYLE_SIMILARITY": 44.7,
+        "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 20,
+        "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -559,11 +559,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 43,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "lk-alvenaria",
           "score": 41,
           "reason": "SAME_FAMILY"
@@ -572,23 +567,28 @@
           "slug": "lucas-arruma-maquina-lavar",
           "score": 40,
           "reason": "DISTINCT"
+        },
+        {
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 39,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
     },
     {
       "slug": "confeitaria-chyrley",
-      "score": 56,
+      "score": 55,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "studio-de-cilios",
-      "nearestMatchScore": 56,
+      "nearestMatchScore": 55,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.8,
+        "STRUCTURE_SIMILARITY": 54,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 37.5,
         "STYLE_SIMILARITY": 86.5,
         "COPY_SIMILARITY": 0.5,
         "ASSET_PATTERN_SIMILARITY": 0,
@@ -607,17 +607,17 @@
       "nearest": [
         {
           "slug": "studio-de-cilios",
-          "score": 56,
+          "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mp-festas-eventos",
-          "score": 50,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 44,
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -625,21 +625,21 @@
     },
     {
       "slug": "confeitaria-sabor-da-realeza",
-      "score": 49,
+      "score": 51,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "denise-gomes-psicologa",
-      "nearestMatchScore": 49,
+      "nearestMatch": "sos-presentes-cosmeticos",
+      "nearestMatchScore": 51,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 36.4,
+        "STRUCTURE_SIMILARITY": 26.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 28.6,
-        "STYLE_SIMILARITY": 55.7,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 10
+        "COMPONENT_SIMILARITY": 64.3,
+        "STYLE_SIMILARITY": 71.1,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 0,
+        "IDENTITY_SIMILARITY": 11.4
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -652,8 +652,8 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 49,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 51,
           "reason": "SAME_FAMILY"
         },
         {
@@ -662,8 +662,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 49,
+          "slug": "denise-gomes-psicologa",
+          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -764,18 +764,18 @@
     },
     {
       "slug": "dlara-pizzaria",
-      "score": 41,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 41,
+      "nearestMatchScore": 46,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 12,
+        "STRUCTURE_SIMILARITY": 13,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 31.7,
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 31.1,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -792,7 +792,7 @@
       "nearest": [
         {
           "slug": "angel-mix-brecho",
-          "score": 41,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
@@ -1072,7 +1072,7 @@
         },
         {
           "slug": "confeitaria-chyrley",
-          "score": 28,
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -1215,17 +1215,17 @@
     },
     {
       "slug": "guaratuba-atelie-presentes",
-      "score": 42,
+      "score": 45,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "mirassol-delicias-caseiras",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 45,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 29.2,
+        "STRUCTURE_SIMILARITY": 22.9,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 14.3,
+        "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1243,7 +1243,7 @@
       "nearest": [
         {
           "slug": "mirassol-delicias-caseiras",
-          "score": 42,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
@@ -1340,7 +1340,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "miro-tech",
+          "slug": "mirassol-delicias-caseiras",
           "score": 27,
           "reason": "DISTINCT"
         }
@@ -1349,18 +1349,18 @@
     },
     {
       "slug": "guaratuba-sabores-da-baia",
-      "score": 31,
+      "score": 30,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "heloa-gas",
-      "nearestMatchScore": 31,
+      "nearestMatch": "uberlandia-eletrica-residencial",
+      "nearestMatchScore": 30,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 18.3,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 18.2,
-        "STYLE_SIMILARITY": 27.6,
+        "STRUCTURE_SIMILARITY": 15.4,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 44.4,
+        "STYLE_SIMILARITY": 33.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 14.3,
+        "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -1374,18 +1374,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "heloa-gas",
-          "score": 31,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 27,
+          "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
-          "score": 26,
+          "slug": "heloa-gas",
+          "score": 29,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "mirassol-delicias-caseiras",
+          "score": 29,
           "reason": "DISTINCT"
         }
       ],
@@ -1649,7 +1649,7 @@
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 32,
+          "score": 35,
           "reason": "DISTINCT"
         },
         {
@@ -1707,15 +1707,15 @@
     },
     {
       "slug": "lolipa-arte-em-festas",
-      "score": 34,
+      "score": 39,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 34,
+      "nearestMatchScore": 39,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 30,
+        "STRUCTURE_SIMILARITY": 27.1,
         "SECTION_ORDER_SIMILARITY": 60,
-        "COMPONENT_SIMILARITY": 30,
+        "COMPONENT_SIMILARITY": 60,
         "STYLE_SIMILARITY": 47.7,
         "COPY_SIMILARITY": 2.4,
         "ASSET_PATTERN_SIMILARITY": 20,
@@ -1733,17 +1733,17 @@
       "nearest": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 34,
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "angel-mix-brecho",
+          "score": 36,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
           "score": 34,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "sos-presentes-cosmeticos",
-          "score": 32,
           "reason": "DISTINCT"
         }
       ],
@@ -1795,17 +1795,17 @@
     },
     {
       "slug": "manu-pasteis",
-      "score": 41,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "miro-tech",
-      "nearestMatchScore": 41,
+      "nearestMatchScore": 42,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 40,
+        "STRUCTURE_SIMILARITY": 38.3,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 28.6,
+        "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 76.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 75,
@@ -1823,17 +1823,17 @@
       "nearest": [
         {
           "slug": "miro-tech",
-          "score": 41,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "assistencia-microondas-santos",
+          "slug": "confeitaria-sabor-da-realeza",
           "score": 40,
           "reason": "DISTINCT"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 39,
+          "slug": "assistencia-microondas-santos",
+          "score": 38,
           "reason": "DISTINCT"
         }
       ],
@@ -1886,19 +1886,17 @@
     },
     {
       "slug": "marmitaria-dom-diego",
-      "score": 44,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 44,
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "score": 38,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "angel-mix-brecho",
+      "nearestMatchScore": 38,
+      "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 14.3,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 28.8,
-        "COPY_SIMILARITY": 0,
+        "STRUCTURE_SIMILARITY": 25,
+        "SECTION_ORDER_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 71.4,
+        "STYLE_SIMILARITY": 29.8,
+        "COPY_SIMILARITY": 1.9,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
       },
@@ -1913,18 +1911,18 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "angel-mix-brecho",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "score": 38,
+          "reason": "DISTINCT"
         },
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 32,
+          "score": 36,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "toquinho-de-gente-brecho",
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -1979,16 +1977,16 @@
     },
     {
       "slug": "mirassol-conserta-celular",
-      "score": 37,
+      "score": 38,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 37,
+      "nearestMatch": "mirassol-delicias-caseiras",
+      "nearestMatchScore": 38,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 31.1,
+        "STRUCTURE_SIMILARITY": 15.6,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 28.6,
-        "STYLE_SIMILARITY": 30.7,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 46,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -2004,12 +2002,12 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "guaratuba-atelie-presentes",
-          "score": 37,
+          "slug": "mirassol-delicias-caseiras",
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-delicias-caseiras",
+          "slug": "guaratuba-atelie-presentes",
           "score": 37,
           "reason": "DISTINCT"
         },
@@ -2023,17 +2021,17 @@
     },
     {
       "slug": "mirassol-delicias-caseiras",
-      "score": 42,
+      "score": 45,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 45,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 29.2,
+        "STRUCTURE_SIMILARITY": 22.9,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 14.3,
+        "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 37.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2051,17 +2049,17 @@
       "nearest": [
         {
           "slug": "guaratuba-atelie-presentes",
-          "score": 42,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 37,
+          "score": 38,
           "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 34,
+          "score": 33,
           "reason": "DISTINCT"
         }
       ],
@@ -2518,16 +2516,16 @@
     },
     {
       "slug": "reuse-house-brecho",
-      "score": 38,
+      "score": 34,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 38,
+      "nearestMatchScore": 34,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 14.8,
+        "STRUCTURE_SIMILARITY": 11.5,
         "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 25,
+        "COMPONENT_SIMILARITY": 83.3,
+        "STYLE_SIMILARITY": 24.6,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 100
@@ -2544,16 +2542,16 @@
       "nearest": [
         {
           "slug": "angel-mix-brecho",
-          "score": 38,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
-          "slug": "brecho-sao-francisco",
-          "score": 30,
+          "slug": "beto-pasteis",
+          "score": 33,
           "reason": "DISTINCT"
         },
         {
-          "slug": "marmitaria-dom-diego",
+          "slug": "woodhouse-hamburgueres",
           "score": 29,
           "reason": "DISTINCT"
         }
@@ -2743,21 +2741,21 @@
     },
     {
       "slug": "sos-presentes-cosmeticos",
-      "score": 50,
+      "score": 51,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "mp-festas-eventos",
-      "nearestMatchScore": 50,
+      "nearestMatch": "confeitaria-sabor-da-realeza",
+      "nearestMatchScore": 51,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 39.2,
+        "STRUCTURE_SIMILARITY": 26.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 41.2,
-        "STYLE_SIMILARITY": 69.7,
+        "COMPONENT_SIMILARITY": 64.3,
+        "STYLE_SIMILARITY": 71.1,
         "COPY_SIMILARITY": 0.7,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 8.2
+        "IDENTITY_SIMILARITY": 11.4
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -2771,13 +2769,13 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "mp-festas-eventos",
-          "score": 50,
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 51,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 49,
+          "slug": "mp-festas-eventos",
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
@@ -2824,7 +2822,7 @@
         },
         {
           "slug": "confeitaria-chyrley",
-          "score": 56,
+          "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
@@ -2874,8 +2872,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
-          "score": 42,
+          "slug": "confeitaria-sabor-da-realeza",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2927,17 +2925,17 @@
     },
     {
       "slug": "toquinho-de-gente-brecho",
-      "score": 45,
+      "score": 52,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "woodhouse-hamburgueres",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 52,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 19.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 80,
         "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -2955,18 +2953,18 @@
       "nearest": [
         {
           "slug": "woodhouse-hamburgueres",
-          "score": 45,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "marmitaria-dom-diego",
-          "score": 44,
+          "score": 52,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 42,
-          "reason": "SAME_FAMILY"
+          "score": 37,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "marmitaria-dom-diego",
+          "score": 34,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -3063,17 +3061,17 @@
     },
     {
       "slug": "woodhouse-hamburgueres",
-      "score": 45,
+      "score": 52,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "toquinho-de-gente-brecho",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 52,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 19.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 80,
         "STYLE_SIMILARITY": 27.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -3091,17 +3089,17 @@
       "nearest": [
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 45,
+          "score": 52,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "angel-mix-brecho",
+          "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 32,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "angel-mix-brecho",
-          "score": 31,
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
