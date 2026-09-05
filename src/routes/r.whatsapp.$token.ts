@@ -92,11 +92,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           finalDigits = String(resolved.row.destination_digits).replace(/\D/g, "");
           finalMessage = String(resolved.row.message);
           if (!finalDigits) {
-            return htmlErrorPage(
-              "Canal indisponível",
-              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-              503,
-            );
+            return channelNotConfiguredPage();
           }
         } else {
           // Modern path: build from lead + session + form + questions.
