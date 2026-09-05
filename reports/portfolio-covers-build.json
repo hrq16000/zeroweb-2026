@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-05T00:29:23.635Z",
-  "ok": 3,
+  "generatedAt": "2026-09-05T00:29:45.910Z",
+  "ok": 2,
   "failed": [],
   "results": [
     {
@@ -15,31 +15,11 @@
         "height": 909
       },
       "focal": {
-        "x": 0.62,
+        "x": 0.8,
         "y": 0.5
       },
       "out": "/images/artesanatos-darleia-oliveira/capa-card.jpg",
       "bytes": 229557,
-      "dimensions": "1454x909",
-      "lowRes": false
-    },
-    {
-      "slug": "refrigeracao-maresia",
-      "status": "OK",
-      "mode": "crop",
-      "source": "public/images/refrigeracao-maresia/hero-og.png",
-      "crop": {
-        "left": 139,
-        "top": 0,
-        "width": 1454,
-        "height": 909
-      },
-      "focal": {
-        "x": 0.5,
-        "y": 0.5
-      },
-      "out": "/images/refrigeracao-maresia/capa-card.jpg",
-      "bytes": 165284,
       "dimensions": "1454x909",
       "lowRes": false
     },
@@ -49,17 +29,17 @@
       "mode": "crop",
       "source": "public/images/thays-camilla/hero-og.png",
       "crop": {
-        "left": 223,
+        "left": 273,
         "top": 0,
         "width": 1456,
         "height": 910
       },
       "focal": {
-        "x": 0.55,
+        "x": 0.8,
         "y": 0.5
       },
       "out": "/images/thays-camilla/capa-card.jpg",
-      "bytes": 185726,
+      "bytes": 190801,
       "dimensions": "1456x910",
       "lowRes": false
     }

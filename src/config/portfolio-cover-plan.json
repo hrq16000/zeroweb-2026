@@ -289,7 +289,7 @@
     "artesanatos-darleia-oliveira": {
       "source": "public/images/artesanatos-darleia-oliveira/hero-og.png",
       "focal": {
-        "x": 0.62,
+        "x": 0.8,
         "y": 0.5
       },
       "issues": [
@@ -311,7 +311,7 @@
     "thays-camilla": {
       "source": "public/images/thays-camilla/hero-og.png",
       "focal": {
-        "x": 0.55,
+        "x": 0.8,
         "y": 0.5
       },
       "issues": [
