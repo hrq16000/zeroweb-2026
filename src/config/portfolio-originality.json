@@ -83,21 +83,21 @@
     },
     {
       "slug": "ag-electrical-services",
-      "score": 48,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 49,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 45.5,
+        "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 5.9
+        "IDENTITY_SIMILARITY": 6.1
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -109,7 +109,7 @@
       "nearest": [
         {
           "slug": "lk-alvenaria",
-          "score": 48,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -564,14 +564,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
+          "slug": "lk-alvenaria",
           "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "lk-alvenaria",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "sos-presentes-cosmeticos",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -1662,21 +1662,21 @@
     },
     {
       "slug": "lk-alvenaria",
-      "score": 48,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "ag-electrical-services",
-      "nearestMatchScore": 48,
+      "nearestMatchScore": 49,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 45.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 45.5,
+        "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 5.9
+        "IDENTITY_SIMILARITY": 6.1
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -1689,12 +1689,12 @@
       "nearest": [
         {
           "slug": "ag-electrical-services",
-          "score": 48,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "lucas-arruma-maquina-lavar",
-          "score": 44,
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
@@ -1783,12 +1783,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "ag-electrical-services",
-          "score": 44,
+          "slug": "lk-alvenaria",
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
+          "slug": "ag-electrical-services",
           "score": 44,
           "reason": "SAME_FAMILY"
         }
