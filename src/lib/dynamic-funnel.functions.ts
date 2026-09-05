@@ -384,6 +384,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     mode: z.enum(["booking", "proposal"]),
     proposalKind: z.enum(["campaign", "service"]).default("service"),
     pageUrl: z.string().url().max(500).optional(),
+    // Vínculo técnico com a telemetria (analytics_events.session_id/visitor_id).
+    // São identificadores opacos: nunca carregam nome, telefone ou e-mail.
+    sessionId: z.string().min(4).max(120).optional(),
+    visitorId: z.string().min(4).max(120).optional(),
     orderContext: z.object({
       order_items: softText(8000).optional(),
       order_total: softText(120).optional(),
