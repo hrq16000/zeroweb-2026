@@ -223,6 +223,9 @@ export const submitFunnel = createServerFn({ method: "POST" })
       gclid: data.client_metadata?.gclid,
       fbclid: data.client_metadata?.fbclid,
       started_at: data.client_metadata?.started_at,
+      // Identificador técnico da sessão de telemetria (sem PII), quando o
+      // cliente o envia: é o que liga o lead à origem já medida.
+      ...(data.client_metadata?.session_id ? { session_id: data.client_metadata.session_id } : {}),
       ...(data.client_metadata?.client_key
         ? { client_key: data.client_metadata.client_key }
         : {}),
