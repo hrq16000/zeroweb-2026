@@ -163,3 +163,144 @@ Trabalho futuro limita-se a evolução editorial contínua: novas capas quando
 houver material real do cliente e diferenciação gradual dos grupos de afinidade.
 Nenhuma nova onda de redesign é necessária.
 
+
+---
+
+## 11. MAINTENANCE MODE
+
+Seção normativa adicionada em 2026-09-05 (rodada de fechamento definitivo).
+A partir daqui o `/portfolio` da 0WEB é mantido como produto, não desenvolvido
+como campanha.
+
+```text
+PORTFOLIO_STATUS        = MAINTENANCE_MODE
+MODERNIZATION           = CLOSED
+FUTURE_STANDARD         = ACTIVE
+GLOBAL_REDESIGN_REQUIRED= NO
+SCOPE                   = 0web.com.br apenas
+```
+
+### 11.1 Baseline canônico
+
+O estado abaixo é a referência oficial de comparação. Não criar fonte paralela:
+as fontes canônicas continuam sendo `src/config/portfolio-motion-profiles.json`,
+`src/config/experience-capabilities.json`, `src/config/portfolio-cover-status.json`,
+`src/config/portfolio-catalog*.json` e os scripts `check:*` existentes.
+
+| Dimensão | Baseline congelado |
+|---|---|
+| TOTAL_PROJECTS | 68 · COMPLETE 68 |
+| Experience | STATIC 0 · BASIC/BASELINE 16 · SIGNATURE 19 · IMMERSIVE/PREMIUM 33 |
+| Motion | MOTION_CLONES 0 · 6 grupos de afinidade · similaridade máx 92% |
+| Originalidade | VISUAL_CLONES 0 · HIGH_SIMILARITY 0 · SHARED_FALLBACK 0 · clusters 0 · 26 ACCEPTABLE · 42 ATTENTION |
+| Funil | FUNNEL_PASS 68 · FUNNEL_FAIL 0 |
+| Capas | VALID 34 · PENDING 34 · NEEDS_CROP 0 · compartilhadas 0 |
+| SEO | 0 erro · 0 aviso |
+| Privacy | bundle público limpo (2 avisos conhecidos em chunks administrativos) |
+| Security | CRITICAL 0 |
+| Testes / Typecheck / Build | 350 PASS · PASS · PASS |
+| Produção | smoke PASS |
+
+### 11.2 Política de regressão
+
+Nenhuma alteração futura pode degradar silenciosamente um projeto em:
+`experience`, `originality`, `mobile`, `reducedMotion`, `SEO`, `funnel`,
+`privacy`, `security`.
+
+Os gates existentes já cobrem cada condição — **não criar gates novos**:
+
+| Dimensão | Gate responsável |
+|---|---|
+| experience / reducedMotion / motion clones | `bun run check:experience-standard` |
+| originality / capas / logos | `bun run check:portfolio-originality` |
+| completude, funil, SEO por projeto | `bun run check:portfolio-projects` |
+| isolamento de portfólio | `bun run validate:portfolio-boundaries` |
+| privacidade do bundle | etapa `client-privacy` do `bun run build` |
+| segurança de dados | scanner de segurança + testes RLS em `tests/rls/` |
+| regressão geral | `bun test` · `bunx tsgo --noEmit` |
+
+Regressão objetiva sinalizada por qualquer gate bloqueia a publicação.
+
+### 11.3 Projetos novos
+
+Todo novo `/portfolio/:slug` nasce dentro do contrato ativo
+(`bun run validate:portfolio-scaffold` + §19 do Global Web Experience Standard).
+Checklist obrigatório antes de publicar: BRAND · COVER · HERO · CONTENT ·
+MOTION · INTERACTION · FUNNEL · SEO · ACCESSIBILITY · PERFORMANCE ·
+ORIGINALITY · PRIVACY · SECURITY.
+
+Não precisa ser IMMERSIVE. **Não pode nascer STATIC.**
+
+### 11.4 Autoria
+
+Padronizar engenharia, nunca criatividade.
+
+- Compartilhável: primitives, shell, analytics, gates, acessibilidade,
+  segurança, runtime, motion primitives.
+- Não compartilhável perceptivelmente: composição, hero, ritmo, motion
+  fingerprint, storytelling, identidade.
+
+### 11.5 Motion
+
+Não adicionar efeito para elevar score. Toda alteração de motion responde
+`WHY_THIS_MOTION?` no PR e respeita contexto de marca, performance, mobile,
+`prefers-reduced-motion`, acessibilidade e originalidade. Motion budget
+inalterado: máx. 3 signature moments, 1 parallax, 1 stagger por viewport, 1 loop.
+
+### 11.6 Capas pendentes = EDITORIAL_BACKLOG
+
+As 34 capas `PENDING` são **fila editorial**, não `SYSTEM_BLOCKER` e não dívida
+técnica. Não publicar capas automaticamente para zerar inventário.
+
+Ao surgir material legítimo, classificar como `PHOTO_DERIVED`,
+`BRAND_COMPOSITION`, `ABSTRACT_BRAND_ART` ou `BLOCKED`.
+
+Permanecem proibidos: foto falsa de cliente, fachada inventada, funcionário
+inventado, serviço inventado, asset de outro cliente e telefone/PII em imagem
+pública.
+
+### 11.7 Grupos de afinidade de motion
+
+Os 6 grupos reportados **não** justificam redesign: `MOTION_CLONES = 0` e
+afinidade não é clone. Agir apenas se uma auditoria futura registrar
+`PERCEPTIBLE_DUPLICATION = YES`.
+
+### 11.8 Admin
+
+Manter o admin atual (`/app/portfolio`, `/app/portfolio/originalidade`,
+`/app/leads/*`). Filtros e status são suficientes. Não criar painel novo de SEO,
+Experience, leads ou capas sem necessidade operacional comprovada; estender o
+existente quando necessário.
+
+### 11.9 Métricas antes de estética
+
+A próxima melhoria relevante nasce de dado real: `VIEWS`, `CTA`, `POPUP`,
+`LEADS`, `WHATSAPP`. Intervenções válidas: muitas views com pouco CTA, CTA alto
+com pouco WhatsApp, tráfego bom com conversão abaixo da média, regressão após
+alteração. Preferência estética isolada não é motivo.
+
+### 11.10 Segurança e privacidade
+
+Finding `CRITICAL` ou `HIGH` tem prioridade sobre qualquer melhoria visual.
+Nenhuma publicação ignora finding crítico real. Continuam protegidos: telefone,
+e-mail, dados de lead, dados de parceiros, URLs internas, assets privados e
+analytics. Nenhuma PII vai para tracking público.
+
+### 11.11 Produção
+
+O estado publicado é o baseline operacional. Publicação futura exige mudança
+real, motivo declarado, gates verdes e smoke apropriado. Não publicar para
+"mexer um pouco".
+
+### 11.12 Critério para reabrir uma frente global
+
+Somente com `SYSTEMIC_REGRESSION`, `NEW_TECHNICAL_REQUIREMENT`,
+`NEW_PRODUCT_DIRECTION` ou `MAJOR_ARCHITECTURAL_CHANGE`.
+
+Não reabrir por animação da moda, efeito visto em outro site, oscilação de 1–2
+pontos de score ou porque uma página STANDARD não virou PREMIUM.
+
+### 11.13 Isolamento de escopo
+
+Este contrato vale para `0web.com.br`. Outros domínios ou negócios só adotam
+padrões semelhantes quando tratados explicitamente em seus próprios contextos.
