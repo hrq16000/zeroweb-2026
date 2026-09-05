@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T23:45:11.398Z",
+  "generatedAt": "2026-09-05T00:00:01.860Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -6984,7 +6984,7 @@
       "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
+      "coverReview": "APPROVED",
       "funnelIntent": "reserva",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
@@ -7165,7 +7165,7 @@
       "originalityNearest": "galileu-locacao-brinquedos",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "NEEDS_REVIEW",
+      "coverReview": "APPROVED",
       "funnelIntent": "agendamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
