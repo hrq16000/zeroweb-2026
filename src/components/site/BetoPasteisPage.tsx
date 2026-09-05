@@ -4,6 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 
 /**
  * Site exclusivo de Beto Pastéis (/portfolio/beto-pasteis).
@@ -24,6 +25,7 @@ const vitrine = [
 
 export function BetoPasteisPage() {
   return (
+    <MotionScope intensity="EXPRESSIVE">
     <div
       className="min-h-dvh bg-[var(--bp-paper)] text-[var(--bp-ink)]"
       style={
@@ -44,16 +46,17 @@ export function BetoPasteisPage() {
 
       <main className="mx-auto max-w-6xl px-5 pb-16">
         <header className="border-b-4 border-dashed border-[var(--bp-ink)]/25 py-10 md:py-14">
-          <h1 className="font-display text-[2.6rem] font-black uppercase leading-[0.88] tracking-tight md:text-[5.5rem]">
+          <MotionReveal as="h1" variant="mask" className="font-display text-[2.6rem] font-black uppercase leading-[0.88] tracking-tight md:text-[5.5rem]">
             <ManagedText
               field="heroHeadline"
               fallback={"O pastel que combina com a pausa, o almo\u00e7o e a vontade do bairro."}
             />
-          </h1>
+          </MotionReveal>
         </header>
 
         <div className="flex flex-col gap-8 py-10 md:flex-row md:items-start md:gap-14">
           <figure className="md:w-[38%] md:shrink-0">
+            <MotionImageReveal direction="left" className="rounded-sm">
             <PortfolioImage
               src="/images/beto-pasteis/capa.png"
               alt="Beto Pastéis"
@@ -63,6 +66,7 @@ export function BetoPasteisPage() {
               className="w-full rotate-[-1.5deg] rounded-sm border-8 border-[var(--bp-paper)] object-cover shadow-[0_10px_0_rgba(0,0,0,0.08)]"
               managedField="heroImageUrl"
             />
+            </MotionImageReveal>
             <figcaption className="mt-4 text-xs uppercase tracking-[0.25em] text-[var(--bp-ink)]/55">
               Massa fina, fritura na hora
             </figcaption>
@@ -126,7 +130,7 @@ export function BetoPasteisPage() {
           >
             No balcão
           </h2>
-          <ul className="mt-6">
+          <MotionStagger as="ul" variant="left" className="mt-6">
             {vitrine.map(([nome, nota]) => (
               <li
                 key={nome}
@@ -136,10 +140,10 @@ export function BetoPasteisPage() {
                 <span className="text-sm text-[var(--bp-ink)]/65 sm:max-w-[34ch] sm:text-right">{nota}</span>
               </li>
             ))}
-          </ul>
+          </MotionStagger>
         </section>
 
-        <section className="rounded-none border-4 border-[var(--bp-ink)] bg-[var(--bp-gold)]/25 p-7 md:p-10">
+        <MotionReveal as="section" variant="scale" className="rounded-none border-4 border-[var(--bp-ink)] bg-[var(--bp-gold)]/25 p-7 md:p-10">
           <h2 className="font-display text-2xl font-black uppercase leading-tight md:text-3xl">
             Um pastel bem escolhido muda o ritmo do dia.
           </h2>
@@ -157,7 +161,7 @@ export function BetoPasteisPage() {
               Conhecer sabores
             </FunnelCTAButton>
           </div>
-        </section>
+        </MotionReveal>
       </main>
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
@@ -165,5 +169,6 @@ export function BetoPasteisPage() {
       <PortfolioUpsellPopup pageName="portfolio-beto-pasteis" />
       <PortfolioHostCredit />
     </div>
+    </MotionScope>
   );
 }
