@@ -41,6 +41,52 @@ const cardapio = [
   },
 ] as const;
 
+/**
+ * Assinatura de seção: a linha pontilhada do cardápio é "escrita" da esquerda
+ * para a direita quando entra na viewport (scaleX, sem alterar layout).
+ * Com reduced motion, a linha já nasce completa.
+ */
+function LinhaCardapio({
+  item,
+  detalhe,
+  index,
+}: {
+  item: string;
+  detalhe: string;
+  index: number;
+}) {
+  const reduced = usePrefersReducedMotion();
+  const { ref, seen } = useInViewOnce<HTMLDivElement>();
+  const drawn = reduced || seen;
+  return (
+    <div
+      ref={ref}
+      className="group py-5 transition-[opacity] duration-300 hover:opacity-100"
+      style={{ opacity: drawn ? 1 : 0.35, transition: "opacity 420ms ease" }}
+    >
+      <div className="flex items-baseline gap-3">
+        <dt className="font-display text-lg font-bold transition-transform duration-200 group-hover:translate-x-1 md:text-xl">
+          {item}
+        </dt>
+        <span
+          aria-hidden
+          className="h-px flex-1 border-b border-dotted border-[var(--dd-ink)]/35 group-hover:border-[var(--dd-leaf)]"
+          style={{
+            transform: drawn ? "scaleX(1)" : "scaleX(0)",
+            transformOrigin: "left",
+            transition: reduced
+              ? "none"
+              : `transform 520ms cubic-bezier(0.22,1,0.36,1) ${index * 90}ms`,
+          }}
+        />
+      </div>
+      <dd className="mt-2 max-w-[64ch] text-sm leading-[1.85] text-[var(--dd-ink)]/70">
+        {detalhe}
+      </dd>
+    </div>
+  );
+}
+
 export function MarmitariaDomDiegoPage() {
   return (
     <div
