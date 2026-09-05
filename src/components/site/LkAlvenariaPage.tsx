@@ -5,7 +5,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
-import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { useManagedValue } from "@/components/portfolio/PortfolioRuntimeContext";
 
 const quiz = { services: ["Alicerce e fundação", "Baldrame e concretagem", "Alvenaria, muros e paredes", "Colunas, vigas e lajes", "Reboco, chapisco e emboço", "Cerâmica e porcelanato", "Drywall e forro PVC", "Calçadas e paver", "Reformas e reparos"], experienceOptions: ["Construção nova", "Reforma residencial", "Obra comercial ou predial", "Reparo ou manutenção"], periodOptions: ["Curitiba e região", "Vou confirmar o endereço", "Ainda estou definindo o local"], timingOptions: ["Preciso iniciar em breve", "Estou planejando", "Quero uma avaliação primeiro"], proposalKind: "service" as const, stepTitles: { service: "Qual etapa da obra você precisa?", experience: "Que tipo de projeto é?", period: "Onde será a obra?", timing: "Quando pretende começar?", note: "Conte os detalhes da obra" }, notePlaceholder: "Ex.: metragem, etapa atual, material desejado e prazo estimado." };
 
