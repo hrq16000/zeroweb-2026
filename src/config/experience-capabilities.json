@@ -1,10 +1,27 @@
 {
   "version": 1,
   "doc": "docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md",
-  "intensities": ["SUBTLE", "BALANCED", "EXPRESSIVE", "IMMERSIVE"],
-  "capabilityStates": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"],
-  "qaStates": ["PASS", "WARNING", "FAIL"],
-  "coverCategories": ["PHOTO_DERIVED", "BRAND_COMPOSITION", "ABSTRACT_BRAND_ART"],
+  "intensities": [
+    "SUBTLE",
+    "BALANCED",
+    "EXPRESSIVE",
+    "IMMERSIVE"
+  ],
+  "capabilityStates": [
+    "REQUIRED",
+    "OPTIONAL",
+    "NOT_APPLICABLE"
+  ],
+  "qaStates": [
+    "PASS",
+    "WARNING",
+    "FAIL"
+  ],
+  "coverCategories": [
+    "PHOTO_DERIVED",
+    "BRAND_COMPOSITION",
+    "ABSTRACT_BRAND_ART"
+  ],
   "presetFamilies": [
     "EDITORIAL",
     "CINEMATIC",
@@ -29,9 +46,17 @@
     ],
     "cssLayer": {
       "file": "src/styles.css",
-      "available": ["page-reveal", "section-reveal (scroll-driven)", "reduced-motion override"]
+      "available": [
+        "page-reveal",
+        "section-reveal (scroll-driven)",
+        "reduced-motion override"
+      ]
     },
-    "notImplementedYet": ["MotionParallax", "MotionMarquee", "PageTransition (View Transitions)"]
+    "notImplementedYet": [
+      "MotionParallax",
+      "MotionMarquee",
+      "PageTransition (View Transitions)"
+    ]
   },
   "skillProfileSchema": {
     "branding": "REQUIRED",
@@ -70,8 +95,18 @@
   },
   "performanceBudget": {
     "note": "Valores herdados de src/config/portfolio-performance.json; animationJS medido antes de fixar número.",
-    "animatedProperties": ["transform", "opacity", "clip-path"],
-    "forbiddenAnimatedProperties": ["width", "height", "top", "left", "margin"],
+    "animatedProperties": [
+      "transform",
+      "opacity",
+      "clip-path"
+    ],
+    "forbiddenAnimatedProperties": [
+      "width",
+      "height",
+      "top",
+      "left",
+      "margin"
+    ],
     "clsMax": 0.1,
     "inpMaxMs": 200
   },
@@ -90,5 +125,25 @@
     "INTERACTION_UNUSABLE",
     "MOBILE_OVERFLOW",
     "PERFORMANCE_REGRESSION"
-  ]
+  ],
+  "projectComponentMap": {
+    "doc": "Slugs cujo componente não deriva do nome. Garante AUDIT_COVERAGE=100% em scripts/check-experience-standard.mjs.",
+    "aliases": {
+      "paraiso-do-hot-dog": "ParaisoHotDogPage.tsx",
+      "r_beauty": "RBeautyEditorialView.tsx",
+      "clinica-integrada": "ClinicaIntegradaSaudePage.tsx",
+      "almeida-torres": "AlmeidaTorresAdvocaciaPage.tsx",
+      "casa-nativa": "CasaNativaBistroPage.tsx",
+      "guaratuba-sabores-da-baia": "SaboresDaBaiaPage.tsx",
+      "guaratuba-oficina-nautica": "OficinaNauticaGuaratubaPage.tsx",
+      "guaratuba-atelie-presentes": "AtelieEncantoDaBaiaPage.tsx",
+      "guaratuba-reparos-residenciais": "ReparosDoLitoralPage.tsx",
+      "mirassol-delicias-caseiras": "DeliciasCaseirasMirassolPage.tsx",
+      "mirassol-conserta-celular": "ConsertaMirassolPage.tsx",
+      "bh-barreiro-marmitas": "BarreiroMarmitasPage.tsx"
+    },
+    "nonProjectComponents": [
+      "HubPage.tsx"
+    ]
+  }
 }

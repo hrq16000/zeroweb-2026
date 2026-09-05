@@ -67,16 +67,40 @@ for (const [key, profile] of Object.entries(profiles.defaultsBySegment ?? {}))
 for (const [key, profile] of Object.entries(profiles.overrides ?? {}))
   validateProfile("overrides", key, profile);
 
-// 3. Varredura das páginas de projeto.
+// 3. Varredura das páginas de projeto — cobertura dirigida pelo catálogo (100%).
 const dir = "src/components/site";
-const files = fs.readdirSync(path.join(root, dir)).filter((f) => /Page\.tsx$/.test(f));
+const catalog = readJson("src/config/portfolio-catalog.json");
+const catalogProjects = catalog.projects ?? catalog;
+const availableFiles = fs.readdirSync(path.join(root, dir)).filter((f) => /\.tsx$/.test(f));
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const byNorm = new Map(
+  availableFiles
+    .filter((f) => /(Page|View)\.tsx$/.test(f))
+    .map((f) => [norm(f.replace(/\.tsx$/, "").replace(/(Page|View)$/, "")), f]),
+);
+const componentMap = capabilities.projectComponentMap ?? { aliases: {}, nonProjectComponents: [] };
+const missingSlugs = [];
+const slugFiles = [];
+for (const project of catalogProjects) {
+  const file = componentMap.aliases?.[project.slug] ?? byNorm.get(norm(project.slug));
+  if (!file || !fs.existsSync(path.join(root, dir, file))) {
+    missingSlugs.push(project.slug);
+    continue;
+  }
+  slugFiles.push({ slug: project.slug, segment: project.segment, file });
+}
+if (missingSlugs.length) {
+  errors.push({ code: "AUDIT_COVERAGE_GAP", detail: missingSlugs.join(", ") });
+}
 const forbidden = capabilities.performanceBudget.forbiddenAnimatedProperties;
 const pages = [];
 
-for (const file of files) {
+for (const { slug, segment, file } of slugFiles) {
   const rel = `${dir}/${file}`;
   const src = read(rel);
   const count = (re) => (src.match(re) || []).length;
+
+
 
   // Animação de propriedade de layout: objetivamente causa reflow/CLS.
   for (const prop of forbidden) {
@@ -100,21 +124,30 @@ for (const file of files) {
   };
   const score =
     signals.primitives * 4 + signals.transitions + signals.hover + signals.animate * 2;
-  const level = score >= 12 ? "PREMIUM" : score >= 4 ? "BASELINE" : "STATIC";
+  const decision = profiles.decisions?.[slug];
+  const hasSignature =
+    Boolean(decision?.signatureMoments) && Object.keys(decision.signatureMoments).length >= 3;
+  let level = score >= 12 ? "PREMIUM" : score >= 4 ? "BASELINE" : "STATIC";
+  if (hasSignature && signals.primitives > 0) level = "SIGNATURE";
   if (level === "STATIC") warnings.push({ code: "EXPERIENCE_STATIC", detail: rel });
-  pages.push({ file: rel, score, level, signals });
+  pages.push({ slug, segment, file: rel, score, level, hasSignature, signals });
 }
 
 const summary = {
   generatedAt: new Date().toISOString(),
+  totalCatalogProjects: catalogProjects.length,
   totalPages: pages.length,
+  auditCoverage: `${Math.round((pages.length / catalogProjects.length) * 100)}%`,
+  missingSlugs,
   premium: pages.filter((p) => p.level === "PREMIUM").length,
+  signature: pages.filter((p) => p.level === "SIGNATURE").length,
   baseline: pages.filter((p) => p.level === "BASELINE").length,
   static: pages.filter((p) => p.level === "STATIC").length,
   errors,
   warnings,
   pages: pages.sort((a, b) => a.score - b.score),
 };
+
 
 fs.mkdirSync(path.join(root, "reports"), { recursive: true });
 fs.writeFileSync(
@@ -126,8 +159,9 @@ if (asJson) {
   console.log(JSON.stringify(summary, null, 2));
 } else {
   console.log(
-    `[experience] ${summary.totalPages} páginas — PREMIUM ${summary.premium} · BASELINE ${summary.baseline} · STATIC ${summary.static}`,
+    `[experience] ${summary.totalPages}/${summary.totalCatalogProjects} projetos (cobertura ${summary.auditCoverage}) — PREMIUM ${summary.premium} · SIGNATURE ${summary.signature} · BASELINE ${summary.baseline} · STATIC ${summary.static}`,
   );
+
   for (const w of warnings.slice(0, 10)) console.log(`  WARNING ${w.code} ${w.detail}`);
   if (warnings.length > 10) console.log(`  ... +${warnings.length - 10} warnings (reports/experience-standard.json)`);
   for (const e of errors) console.log(`  FAIL ${e.code} ${e.detail}`);
