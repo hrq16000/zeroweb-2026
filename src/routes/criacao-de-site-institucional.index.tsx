@@ -66,7 +66,9 @@ const BENEFITS = [
   { icon: LineChart, title: "Mensurável", text: "Cada contato entra no painel com origem, página e campanha — dá para saber o que gera lead." },
   { icon: Rocket, title: "Rápido de publicar", text: "Escopo fatiado: o essencial entra no ar antes, o restante evolui sem travar o lançamento." },
   { icon: Gauge, title: "Leve e estável", text: "Performance e acessibilidade tratadas como requisito, não como ajuste posterior." },
+  { icon: Compass, title: "Suporte contínuo", text: "Depois da publicação, atualizações e manutenção conforme o plano combinado no escopo." },
 ];
+
 
 const PROOF: { slug: string; label: string; segment: string }[] = [
   { slug: "premium-envelopamentos", label: "Premium Envelopamentos", segment: "Comunicação visual" },
