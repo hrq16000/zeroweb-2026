@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T06:18:01.608Z",
+  "generatedAt": "2026-09-05T06:18:17.792Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
@@ -8,100 +8,7 @@
   "signature": 5,
   "baseline": 30,
   "static": 0,
-  "errors": [
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.toquinho-de-gente-brecho.heroMotion: \"mask\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.toquinho-de-gente-brecho.sectionReveal: \"down\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.toquinho-de-gente-brecho.imageReveal: \"scale\" fora de [none, clip, zoom, crossfade]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.toquinho-de-gente-brecho.hoverBehavior: \"tilt\" fora de [none, lift, crop, underline, depth]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.toquinho-de-gente-brecho.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.reuse-house-brecho.heroMotion: \"stagger\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.reuse-house-brecho.sectionReveal: \"left\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.reuse-house-brecho.hoverBehavior: \"shift\" fora de [none, lift, crop, underline, depth]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.brecho-sao-francisco.heroMotion: \"stagger\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.brecho-sao-francisco.sectionReveal: \"right\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.brecho-sao-francisco.hoverBehavior: \"shift\" fora de [none, lift, crop, underline, depth]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.angel-mix-brecho.sectionReveal: \"down\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.angel-mix-brecho.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.confeitaria-sabor-da-realeza.heroMotion: \"split\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.confeitaria-sabor-da-realeza.sectionReveal: \"scale\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.manu-pasteis.heroMotion: \"scale\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.confeitaria-chyrley.heroMotion: \"mask\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.confeitaria-chyrley.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.guaratuba-sabores-da-baia.heroMotion: \"stagger\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.guaratuba-sabores-da-baia.sectionReveal: \"left\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.mirassol-delicias-caseiras.heroMotion: \"scale\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.mirassol-delicias-caseiras.sectionReveal: \"scale\" fora de [none, fade, up, mask, stagger]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.mirassol-delicias-caseiras.hoverBehavior: \"scale\" fora de [none, lift, crop, underline, depth]"
-    }
-  ],
+  "errors": [],
   "warnings": [],
   "pages": [
     {
