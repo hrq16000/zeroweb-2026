@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T15:36:53.520Z",
+  "generatedAt": "2026-09-05T16:08:20.543Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
@@ -8,6 +8,128 @@
   "signature": 19,
   "baseline": 16,
   "static": 0,
+  "motion": {
+    "cloneThreshold": 95,
+    "groupThreshold": 85,
+    "clones": 0,
+    "groups": 6,
+    "signalFloor": 5,
+    "lowSignalPairs": 1197,
+    "maxSimilarity": 92,
+    "topNearestMatches": [
+      {
+        "a": "confeitaria-chyrley",
+        "b": "guaratuba-sabores-da-baia",
+        "similarity": 92,
+        "perceptual": 100,
+        "tokens": 73,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "beto-pasteis",
+        "b": "lolipa-arte-em-festas",
+        "similarity": 92,
+        "perceptual": 100,
+        "tokens": 73,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "lolipa-arte-em-festas",
+        "b": "premium-envelopamentos",
+        "similarity": 91,
+        "perceptual": 100,
+        "tokens": 70,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "reuse-house-brecho",
+        "b": "confeitaria-sabor-da-realeza",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 53,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "angel-mix-brecho",
+        "b": "manu-pasteis",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 54,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "guaratuba-sabores-da-baia",
+        "b": "uberlandia-eletrica-residencial",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 55,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "guaratuba-oficina-nautica",
+        "b": "mirassol-conserta-celular",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 55,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "lolipa-arte-em-festas",
+        "b": "manu-pasteis",
+        "similarity": 86,
+        "perceptual": 100,
+        "tokens": 55,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "refrigeracao-maresia",
+        "b": "dlara-pizzaria",
+        "similarity": 85,
+        "perceptual": 100,
+        "tokens": 50,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "beto-pasteis",
+        "b": "premium-envelopamentos",
+        "similarity": 85,
+        "perceptual": 100,
+        "tokens": 50,
+        "signal": "COMPARABLE"
+      }
+    ],
+    "groupMembers": [
+      [
+        "confeitaria-chyrley",
+        "guaratuba-sabores-da-baia",
+        "uberlandia-eletrica-residencial",
+        "guaratuba-atelie-presentes"
+      ],
+      [
+        "beto-pasteis",
+        "lolipa-arte-em-festas",
+        "premium-envelopamentos",
+        "manu-pasteis"
+      ],
+      [
+        "reuse-house-brecho",
+        "confeitaria-sabor-da-realeza"
+      ],
+      [
+        "angel-mix-brecho",
+        "manu-pasteis"
+      ],
+      [
+        "guaratuba-oficina-nautica",
+        "mirassol-conserta-celular"
+      ],
+      [
+        "refrigeracao-maresia",
+        "dlara-pizzaria",
+        "thays-camilla"
+      ]
+    ]
+  },
   "errors": [],
   "warnings": [],
   "pages": [
@@ -23,6 +145,16 @@
         "transitions": 0,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "—",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -37,6 +169,16 @@
         "transitions": 0,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -51,6 +193,16 @@
         "transitions": 0,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -65,6 +217,16 @@
         "transitions": 0,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -79,6 +241,16 @@
         "transitions": 0,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "—",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -93,6 +265,16 @@
         "transitions": 0,
         "hover": 5,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -107,6 +289,16 @@
         "transitions": 0,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -121,6 +313,16 @@
         "transitions": 0,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -135,6 +337,16 @@
         "transitions": 0,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -149,6 +361,16 @@
         "transitions": 0,
         "hover": 8,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -163,6 +385,19 @@
         "transitions": 0,
         "hover": 9,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "d:duration-300",
+          "d:duration-700"
+        ]
       }
     },
     {
@@ -177,6 +412,16 @@
         "transitions": 0,
         "hover": 9,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -191,6 +436,21 @@
         "transitions": 0,
         "hover": 10,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "d:duration-500",
+          "d:duration-700",
+          "h:group-hover:rotate-2",
+          "h:group-hover:scale-105"
+        ]
       }
     },
     {
@@ -205,6 +465,16 @@
         "transitions": 0,
         "hover": 10,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -219,6 +489,18 @@
         "transitions": 0,
         "hover": 10,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "—",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "h:group-hover:scale-110"
+        ]
       }
     },
     {
@@ -233,6 +515,16 @@
         "transitions": 0,
         "hover": 11,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "—",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -247,6 +539,20 @@
         "transitions": 1,
         "hover": 11,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "d:duration-300",
+          "h:group-hover:rotate-[-6deg]",
+          "h:group-hover:scale-110"
+        ]
       }
     },
     {
@@ -261,6 +567,16 @@
         "transitions": 0,
         "hover": 12,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
       }
     },
     {
@@ -275,6 +591,20 @@
         "transitions": 2,
         "hover": 12,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "d:duration-200",
+          "h:group-hover:scale-110",
+          "h:group-hover:translate-x-1"
+        ]
       }
     },
     {
@@ -289,6 +619,18 @@
         "transitions": 0,
         "hover": 24,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "d:duration-500"
+        ]
       }
     },
     {
@@ -303,6 +645,24 @@
         "transitions": 1,
         "hover": 0,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "d:duration-500"
+        ]
       }
     },
     {
@@ -317,6 +677,25 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:down",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -331,6 +710,25 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -345,6 +743,25 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "d:duration-300"
+        ]
       }
     },
     {
@@ -359,6 +776,20 @@
         "transitions": 15,
         "hover": 23,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "d:duration-700",
+          "h:group-hover:scale-105",
+          "h:hover:scale-105"
+        ]
       }
     },
     {
@@ -373,6 +804,26 @@
         "transitions": 3,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Bloco editorial atravessando o plano da foto de fachada",
+        "sectionSignature": "Tabela de especificação revelada linha a linha pela esquerda",
+        "interactionSignature": "Linha recua e a etiqueta de acabamento desliza no ponteiro",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "d:duration-300",
+          "h:group-hover:translate-x-1.5"
+        ]
       }
     },
     {
@@ -387,6 +838,25 @@
         "transitions": 0,
         "hover": 8,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título em máscara sobre o fundo escuro",
+        "sectionSignature": "Cards do cardápio subindo em onda curta",
+        "interactionSignature": "Card eleva e ganha sombra ao montar o pedido",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "h:group-hover:scale-[1.01]"
+        ]
       }
     },
     {
@@ -401,6 +871,24 @@
         "transitions": 0,
         "hover": 0,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -415,6 +903,26 @@
         "transitions": 1,
         "hover": 8,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título em máscara dourada",
+        "sectionSignature": "Cartela de cuidados entrando pela esquerda",
+        "interactionSignature": "Linha da cartela ganha véu claro no ponteiro",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -429,6 +937,26 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "d:duration-300"
+        ]
       }
     },
     {
@@ -443,6 +971,25 @@
         "transitions": 0,
         "hover": 2,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:right",
+          "v:Reveal:fade",
+          "e:Reveal:aside",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -457,6 +1004,23 @@
         "transitions": 0,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:down",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal"
+        ]
       }
     },
     {
@@ -471,6 +1035,27 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Headline em fade contido",
+        "sectionSignature": "Régua horizontal abrindo em escala antes do índice de atuação",
+        "interactionSignature": "Perguntas do FAQ mudam de cor no foco e no ponteiro",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:fade",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -485,6 +1070,27 @@
         "transitions": 0,
         "hover": 5,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Ficha lateral entrando pela esquerda",
+        "sectionSignature": "Imagem de equipamentos com reveal mascarado",
+        "interactionSignature": "Linhas de ordem de serviço deslizam 4px e acendem a borda âmbar",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:aside",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "h:hover:translate-x-1"
+        ]
       }
     },
     {
@@ -499,6 +1105,26 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionCounter",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "d:duration-300"
+        ]
       }
     },
     {
@@ -513,6 +1139,27 @@
         "transitions": 0,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título em máscara industrial",
+        "sectionSignature": "Pontos L1..L4 subindo em sequência",
+        "interactionSignature": "Registros de campo deslizam ao entrar e elevam no ponteiro",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -527,6 +1174,27 @@
         "transitions": 2,
         "hover": 5,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "e:Reveal:article",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "d:duration-300",
+          "h:hover:rotate-[-1deg]"
+        ]
       }
     },
     {
@@ -541,6 +1209,27 @@
         "transitions": 1,
         "hover": 6,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título subindo devagar dentro do bloco de papel",
+        "sectionSignature": "Trilho do ritual revelando um passo por vez",
+        "interactionSignature": "Linhas da ficha do produto acendem em bege ao passar",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:fade",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"EXPRESSIVE\"",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -555,6 +1244,26 @@
         "transitions": 0,
         "hover": 8,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Headline itálica entrando pela esquerda",
+        "sectionSignature": "Serviços chegando pela direita em sequência",
+        "interactionSignature": "Cartão de serviço eleva e ganha sombra",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -569,6 +1278,29 @@
         "transitions": 1,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título subindo sobre a foto de obra",
+        "sectionSignature": "Cronograma revelando fase por fase",
+        "interactionSignature": "Linhas da ficha da obra escurecem ao passar",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:fade",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "h:hover:translate-x-[2px]",
+          "h:hover:translate-y-[2px]"
+        ]
       }
     },
     {
@@ -583,6 +1315,29 @@
         "transitions": 1,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Headline em máscara",
+        "sectionSignature": "Circuitos atendidos entrando pela esquerda em série",
+        "interactionSignature": "Etapas sobem uma a uma e as linhas destacam ao ponteiro",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "h:hover:translate-x-[2px]",
+          "h:hover:translate-y-[2px]"
+        ]
       }
     },
     {
@@ -597,6 +1352,28 @@
         "transitions": 2,
         "hover": 2,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Foto vertical revelada por clip de baixo para cima",
+        "sectionSignature": "Linhas da comanda entrando pela direita, uma a uma",
+        "interactionSignature": "CTA com press físico e ponto da linha crescendo no ponteiro",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:right",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-150",
+          "d:duration-300",
+          "h:group-hover:scale-150"
+        ]
       }
     },
     {
@@ -611,6 +1388,27 @@
         "transitions": 0,
         "hover": 9,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título subindo com folga",
+        "sectionSignature": "Amostras de estofado crescendo em escala",
+        "interactionSignature": "Etapas entram pela direita e o card ganha fundo branco no ponteiro",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -625,6 +1423,28 @@
         "transitions": 1,
         "hover": 8,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Headline crescendo em escala sob o halo",
+        "sectionSignature": "Bento de soluções acendendo em diagonal",
+        "interactionSignature": "Pílulas de aplicação ganham contorno de luz",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:scale",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -639,6 +1459,28 @@
         "transitions": 0,
         "hover": 10,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título subindo no primeiro quadro",
+        "sectionSignature": "Catálogo em escala escalonada",
+        "interactionSignature": "Passos do pedido entrando pela direita, card com borda de destaque",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -653,6 +1495,27 @@
         "transitions": 0,
         "hover": 0,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "e:Reveal:section",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -667,6 +1530,26 @@
         "transitions": 0,
         "hover": 0,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -681,6 +1564,27 @@
         "transitions": 1,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Cesta revelada por máscara lateral (embrulho abrindo)",
+        "sectionSignature": "Vitrine de presentes surgindo em escala",
+        "interactionSignature": "Recorte da foto do produto aproxima no ponteiro",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Stagger:scale",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "d:duration-500",
+          "h:group-hover:scale-105"
+        ]
       }
     },
     {
@@ -695,6 +1599,28 @@
         "transitions": 0,
         "hover": 2,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:li",
+          "e:Reveal:li",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -709,6 +1635,26 @@
         "transitions": 0,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:fade",
+          "v:Reveal:fade",
+          "v:Reveal:mask",
+          "v:Stagger:up",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
+        ]
       }
     },
     {
@@ -723,6 +1669,28 @@
         "transitions": 1,
         "hover": 6,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título em máscara expressiva",
+        "sectionSignature": "Linhas da tabela de bitolas entrando pela esquerda em sequência",
+        "interactionSignature": "Linha da tabela realça o fundo no ponteiro",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -737,6 +1705,25 @@
         "transitions": 0,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -751,6 +1738,28 @@
         "transitions": 2,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Ficha branca chegando em escala curta",
+        "sectionSignature": "Checklist de reparos aparecendo item a item",
+        "interactionSignature": "Números 01–03 contando ao entrar, com leve elevação no ponteiro",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:scale",
+          "v:Stagger:scale",
+          "e:Reveal:div",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionCounter",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "d:duration-200",
+          "d:duration-300"
+        ]
       }
     },
     {
@@ -765,6 +1774,28 @@
         "transitions": 0,
         "hover": 2,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:fade",
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "h:hover:rotate-0"
+        ]
       }
     },
     {
@@ -779,6 +1810,29 @@
         "transitions": 8,
         "hover": 6,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título revelado por máscara (linha de diagnóstico abrindo)",
+        "sectionSignature": "Grade de serviços em stagger curto de cima para baixo",
+        "interactionSignature": "Seta do CTA avança e o cartão de serviço eleva no ponteiro",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Stagger:up",
+          "e:Reveal:p",
+          "e:Reveal:span",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "d:duration-200",
+          "d:duration-300",
+          "h:group-hover:translate-x-1"
+        ]
       }
     },
     {
@@ -793,6 +1847,26 @@
         "transitions": 3,
         "hover": 4,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "d:duration-300",
+          "h:group-hover:translate-x-1"
+        ]
       }
     },
     {
@@ -807,6 +1881,29 @@
         "transitions": 4,
         "hover": 7,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "d:duration-300",
+          "h:hover:rotate-0",
+          "h:hover:translate-x-1",
+          "h:hover:translate-y-1"
+        ]
       }
     },
     {
@@ -821,6 +1918,24 @@
         "transitions": 25,
         "hover": 33,
         "animate": 1
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "—",
+        "textMotion": "KEYFRAME",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "a:animate-pulse",
+          "d:duration-300",
+          "d:duration-500",
+          "d:duration-700",
+          "h:group-hover:scale-105",
+          "h:hover:scale-105",
+          "h:hover:translate-x-1"
+        ]
       }
     },
     {
@@ -835,6 +1950,28 @@
         "transitions": 0,
         "hover": 2,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "v:Reveal:fade",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
       }
     },
     {
@@ -849,6 +1986,30 @@
         "transitions": 2,
         "hover": 5,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "e:Reveal:article",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "d:duration-300",
+          "h:group-hover:scale-105"
+        ]
       }
     },
     {
@@ -863,6 +2024,31 @@
         "transitions": 0,
         "hover": 5,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título revelado por máscara suave",
+        "sectionSignature": "Cards de especialidades em stagger curto",
+        "interactionSignature": "Card eleva levemente e a borda ganha cor no ponteiro",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "v:Stagger:up",
+          "e:Reveal:aside",
+          "e:Reveal:h1",
+          "e:Reveal:li",
+          "e:Reveal:p",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -877,6 +2063,28 @@
         "transitions": 1,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:article",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -891,6 +2099,28 @@
         "transitions": 3,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:right",
+          "v:Reveal:fade",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:up",
+          "e:Reveal:li",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "h:group-hover:translate-x-1"
+        ]
       }
     },
     {
@@ -905,6 +2135,27 @@
         "transitions": 2,
         "hover": 5,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "v:Reveal:left",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:li",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -919,6 +2170,25 @@
         "transitions": 2,
         "hover": 2,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     },
     {
@@ -933,6 +2203,29 @@
         "transitions": 2,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:down",
+          "v:Reveal:left",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "v:Reveal:up",
+          "e:Reveal:span",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "h:hover:scale-[1.03]"
+        ]
       }
     },
     {
@@ -947,6 +2240,30 @@
         "transitions": 3,
         "hover": 3,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Stagger:left",
+          "e:Stagger:dl",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "d:duration-200",
+          "h:group-hover:translate-x-1",
+          "h:hover:translate-x-1"
+        ]
       }
     },
     {
@@ -961,6 +2278,28 @@
         "transitions": 1,
         "hover": 1,
         "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "e:Reveal:article",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200"
+        ]
       }
     }
   ]

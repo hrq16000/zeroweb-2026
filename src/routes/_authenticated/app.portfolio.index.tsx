@@ -14,6 +14,11 @@ import {
   VISUAL_BADGE_STYLE,
   visualQuality,
 } from "@/lib/portfolio-visual-quality";
+import {
+  EXPERIENCE_BADGE_STYLE,
+  EXPERIENCE_LABEL,
+  getExperienceLevel,
+} from "@/lib/portfolio-experience";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/")({
   component: PortfolioAdminList,
@@ -38,6 +43,7 @@ function PortfolioAdminList() {
   const [status, setStatus] = useState("all");
   const [visual, setVisual] = useState("all");
   const [cover, setCover] = useState("all");
+  const [experience, setExperience] = useState("all");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -74,6 +80,7 @@ function PortfolioAdminList() {
           const vq = getVisualQuality(r.slug);
           if ((vq?.coverReview ?? "UNREVIEWED") !== cover) return false;
         }
+        if (experience !== "all" && getExperienceLevel(r.slug) !== experience) return false;
         if (!query.trim()) return true;
         const q = query.trim().toLowerCase();
         return (
@@ -83,7 +90,7 @@ function PortfolioAdminList() {
           r.city.toLowerCase().includes(q)
         );
       }),
-    [rows, query, status, visual, cover],
+    [rows, query, status, visual, cover, experience],
   );
 
   const onImport = async () => {
@@ -166,6 +173,18 @@ function PortfolioAdminList() {
           <option value="NEEDS_REVIEW">Capa em revisão</option>
           <option value="UNREVIEWED">Capa não revisada</option>
           <option value="REJECTED">Capa rejeitada</option>
+        </select>
+        <select
+          aria-label="Filtrar por experiência"
+          value={experience}
+          onChange={(e) => setExperience(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todas as experiências</option>
+          <option value="PREMIUM">IMMERSIVE</option>
+          <option value="SIGNATURE">SIGNATURE</option>
+          <option value="BASELINE">BASIC</option>
+          <option value="STATIC">STATIC</option>
         </select>
         <button
           type="button"
@@ -273,6 +292,18 @@ function PortfolioAdminList() {
                 <span className={`rounded px-2 py-1 text-[11px] font-semibold ${STATUS_STYLE[p.conformance.status]}`}>
                   {p.conformance.status}
                 </span>
+                {(() => {
+                  const level = getExperienceLevel(p.slug);
+                  if (!level) return null;
+                  return (
+                    <span
+                      className={`rounded px-2 py-1 text-[11px] font-semibold ${EXPERIENCE_BADGE_STYLE[level]}`}
+                      title="Nível de experiência (check:experience-standard)"
+                    >
+                      {EXPERIENCE_LABEL[level]}
+                    </span>
+                  );
+                })()}
                 {(() => {
                   const vq = getVisualQuality(p.slug);
                   if (!vq) return null;

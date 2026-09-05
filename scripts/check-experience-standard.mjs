@@ -130,8 +130,109 @@ for (const { slug, segment, file } of slugFiles) {
   let level = score >= 12 ? "PREMIUM" : score >= 4 ? "BASELINE" : "STATIC";
   if (hasSignature && signals.primitives > 0) level = "SIGNATURE";
   if (level === "STATIC") warnings.push({ code: "EXPERIENCE_STATIC", detail: rel });
-  pages.push({ slug, segment, file: rel, score, level, hasSignature, signals });
+  // Fingerprint de motion: o que o visitante percebe, não a primitive usada.
+  // Reutilizar MotionReveal/MotionStagger é engenharia compartilhada e NÃO é clone.
+  // Clone = mesma combinação perceptível (assinaturas + intensidade + comportamento).
+  const uniq = (re) => [...new Set(src.match(re) || [])].sort();
+  const profile = { ...(profiles.defaultsBySegment?.[segment] ?? {}), ...(profiles.overrides?.[slug] ?? {}) };
+  const moments = decision?.signatureMoments ?? {};
+  const fingerprint = {
+    heroSignature: String(moments.hero ?? moments.heroMotion ?? "—"),
+    sectionSignature: String(moments.section ?? moments.sections ?? "—"),
+    interactionSignature: String(moments.interaction ?? moments.interactions ?? "—"),
+    motionIntensity: String(profile.intensity ?? profile.motionIntensity ?? "—"),
+    scrollBehavior: String(profile.scroll ?? profile.scrollBehavior ?? "—"),
+    textMotion: /MotionTextReveal/.test(src) ? "TEXT_REVEAL" : /animate-/.test(src) ? "KEYFRAME" : "NONE",
+    imageMotion: /MotionImageReveal/.test(src) ? "IMAGE_REVEAL" : /group-hover:scale/.test(src) ? "HOVER_SCALE" : "NONE",
+    tokens: [
+      // Uso perceptível (variante/intensidade/elemento), não só a primitive importada.
+      ...uniq(/<Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter)[^>]*?variant="[a-z-]+"/g).map(
+        (t) => `v:${t.match(/<Motion(\w+)/)[1]}:${t.match(/variant="([a-z-]+)"/)[1]}`,
+      ),
+      ...uniq(/<Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter)[^>]*?as="[a-z0-9]+"/g).map(
+        (t) => `e:${t.match(/<Motion(\w+)/)[1]}:${t.match(/as="([a-z0-9]+)"/)[1]}`,
+      ),
+      ...uniq(/intensity="[A-Z_]+"/g).map((t) => `i:${t}`),
+      ...uniq(/Motion(?:Reveal|Stagger|TextReveal|ImageReveal|Counter|Scope)\b/g).map((t) => `p:${t}`),
+      ...uniq(/animate-[a-z0-9-]+/g).map((t) => `a:${t}`),
+      ...uniq(/duration-\d+/g).map((t) => `d:${t}`),
+      ...uniq(/(?:group-)?hover:(?:scale|translate|rotate|skew)-[a-z0-9./[\]-]+/g).map((t) => `h:${t}`),
+      ...uniq(/\[clip-path:[^\]]+\]/g).map((t) => `c:${t}`),
+    ],
+  };
+  pages.push({ slug, segment, file: rel, score, level, hasSignature, signals, fingerprint });
 }
+
+// --- Motion originality (Frente E) -----------------------------------------
+const PERCEPTUAL_FIELDS = [
+  "heroSignature",
+  "sectionSignature",
+  "interactionSignature",
+  "motionIntensity",
+  "scrollBehavior",
+  "textMotion",
+  "imageMotion",
+];
+const jaccard = (a, b) => {
+  const A = new Set(a);
+  const B = new Set(b);
+  if (!A.size && !B.size) return 0;
+  let inter = 0;
+  for (const v of A) if (B.has(v)) inter += 1;
+  return inter / (A.size + B.size - inter);
+};
+const MOTION_SIGNAL_FLOOR = 5;
+const motionPairs = [];
+for (let i = 0; i < pages.length; i += 1) {
+  for (let j = i + 1; j < pages.length; j += 1) {
+    const a = pages[i].fingerprint;
+    const b = pages[j].fingerprint;
+    const declared = PERCEPTUAL_FIELDS.filter((f) => a[f] !== "—" || b[f] !== "—");
+    const perceptual = declared.length
+      ? declared.filter((f) => a[f] === b[f]).length / declared.length
+      : 0;
+    const tokens = jaccard(a.tokens, b.tokens);
+    const raw = Math.round((perceptual * 0.7 + tokens * 0.3) * 100);
+    // Assinatura pobre (poucos sinais dos dois lados) não prova clone perceptível:
+    // é apenas reutilização de infraestrutura compartilhada.
+    const richness = Math.min(a.tokens.length, b.tokens.length);
+    const lowSignal = richness < MOTION_SIGNAL_FLOOR;
+    motionPairs.push({
+      a: pages[i].slug,
+      b: pages[j].slug,
+      similarity: raw,
+      perceptual: Math.round(perceptual * 100),
+      tokens: Math.round(tokens * 100),
+      signal: lowSignal ? "LOW_SIGNAL" : "COMPARABLE",
+    });
+  }
+}
+motionPairs.sort((x, y) => y.similarity - x.similarity);
+const MOTION_CLONE_THRESHOLD = 95;
+const MOTION_GROUP_THRESHOLD = 85;
+const comparable = motionPairs.filter((p) => p.signal === "COMPARABLE");
+const motionClones = comparable.filter((p) => p.similarity >= MOTION_CLONE_THRESHOLD);
+const motionGroupPairs = comparable.filter((p) => p.similarity >= MOTION_GROUP_THRESHOLD);
+const groups = [];
+for (const pair of motionGroupPairs) {
+  const g = groups.find((s) => s.has(pair.a) || s.has(pair.b));
+  if (g) {
+    g.add(pair.a);
+    g.add(pair.b);
+  } else groups.push(new Set([pair.a, pair.b]));
+}
+const motion = {
+  cloneThreshold: MOTION_CLONE_THRESHOLD,
+  groupThreshold: MOTION_GROUP_THRESHOLD,
+  clones: motionClones.length,
+  groups: groups.length,
+  signalFloor: MOTION_SIGNAL_FLOOR,
+  lowSignalPairs: motionPairs.length - comparable.length,
+  maxSimilarity: comparable[0]?.similarity ?? 0,
+  topNearestMatches: comparable.slice(0, 10),
+  groupMembers: groups.map((s) => [...s]),
+};
+
 
 const summary = {
   generatedAt: new Date().toISOString(),
@@ -143,6 +244,7 @@ const summary = {
   signature: pages.filter((p) => p.level === "SIGNATURE").length,
   baseline: pages.filter((p) => p.level === "BASELINE").length,
   static: pages.filter((p) => p.level === "STATIC").length,
+  motion,
   errors,
   warnings,
   pages: pages.sort((a, b) => a.score - b.score),
@@ -155,6 +257,27 @@ fs.writeFileSync(
   `${JSON.stringify(summary, null, 2)}\n`,
 );
 
+// Fonte canônica única para o admin (filtro/badge de Experience).
+fs.writeFileSync(
+  path.join(root, "src/config/portfolio-experience-levels.json"),
+  `${JSON.stringify(
+    {
+      generatedAt: summary.generatedAt,
+      generator: "scripts/check-experience-standard.mjs",
+      levels: Object.fromEntries(pages.map((p) => [p.slug, p.level])),
+      summary: {
+        total: summary.totalPages,
+        premium: summary.premium,
+        signature: summary.signature,
+        baseline: summary.baseline,
+        static: summary.static,
+      },
+    },
+    null,
+    2,
+  )}\n`,
+);
+
 if (asJson) {
   console.log(JSON.stringify(summary, null, 2));
 } else {
@@ -162,6 +285,11 @@ if (asJson) {
     `[experience] ${summary.totalPages}/${summary.totalCatalogProjects} projetos (cobertura ${summary.auditCoverage}) — PREMIUM ${summary.premium} · SIGNATURE ${summary.signature} · BASELINE ${summary.baseline} · STATIC ${summary.static}`,
   );
 
+  console.log(
+    `[experience] motion originality — clones ${motion.clones} · grupos ${motion.groups} · similaridade máx ${motion.maxSimilarity}%`,
+  );
+  for (const p of motion.topNearestMatches.slice(0, 5))
+    console.log(`    ${p.similarity}%  ${p.a} × ${p.b} (perceptível ${p.perceptual}% · tokens ${p.tokens}%)`);
   for (const w of warnings.slice(0, 10)) console.log(`  WARNING ${w.code} ${w.detail}`);
   if (warnings.length > 10) console.log(`  ... +${warnings.length - 10} warnings (reports/experience-standard.json)`);
   for (const e of errors) console.log(`  FAIL ${e.code} ${e.detail}`);

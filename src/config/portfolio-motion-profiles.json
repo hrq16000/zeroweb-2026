@@ -74,6 +74,14 @@
       "sectionReveal": "up",
       "hoverBehavior": "crop",
       "depthBehavior": "overlap"
+    },
+    "default": {
+      "intensity": "BALANCED",
+      "preset": "MINIMAL",
+      "heroMotion": "textReveal",
+      "sectionReveal": "up",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat"
     }
   },
   "overrides": {
