@@ -3,6 +3,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 const VITRINE = [
   ["Bolo de festa", "2 a 4 andares", "#e5477a"],
@@ -63,9 +64,10 @@ function Encomendar({ children, soft = false }: { children: React.ReactNode; sof
 export function DeliciasCaseirasMirassolPage() {
   return (
     <div className="min-h-dvh bg-[#fff6ee] text-[#4a3128]">
+      <MotionScope intensity="SUBTLE">
       <main>
         <section id="inicio" className="px-5 py-14 text-center lg:px-8">
-          <div className="mx-auto max-w-3xl rounded-[3rem] border-4 border-double border-[#e5477a]/45 px-6 py-14 sm:px-12">
+          <MotionReveal variant="scale" className="mx-auto max-w-3xl rounded-[3rem] border-4 border-double border-[#e5477a]/45 px-6 py-14 sm:px-12">
             <p className="text-xs font-bold uppercase tracking-[.36em] text-[#c8407a]">Centro · Mirassol — SP</p>
             <a href="#inicio" className="mt-4 block font-serif text-3xl font-bold sm:text-4xl">
               Delícias Caseiras
@@ -79,17 +81,17 @@ export function DeliciasCaseirasMirassolPage() {
             <div className="mt-9">
               <Encomendar>Fazer encomenda</Encomendar>
             </div>
-          </div>
+          </MotionReveal>
         </section>
 
         <section id="vitrine" className="px-5 py-12 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-center font-serif text-3xl">A vitrine da semana</h2>
             <ul className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
-              {VITRINE.map(([nome, detalhe, cor]) => (
-                <li key={nome} className="flex flex-col items-center text-center">
+              {VITRINE.map(([nome, detalhe, cor], i) => (
+                <MotionReveal as="li" key={nome} variant="scale" delay={i * 90} className="group flex flex-col items-center text-center">
                   <span
-                    className="grid aspect-square w-full max-w-[9.5rem] place-items-center rounded-full ring-4 ring-offset-4 ring-offset-[#fff6ee]"
+                    className="grid aspect-square w-full max-w-[9.5rem] place-items-center rounded-full ring-4 ring-offset-4 ring-offset-[#fff6ee] transition-transform duration-300 group-hover:scale-105"
                     style={{ backgroundColor: `${cor}1f`, boxShadow: `inset 0 0 0 8px ${cor}33`, color: cor }}
                   >
                     <span className="px-4 font-serif text-lg font-bold leading-tight" style={{ color: cor }}>
@@ -97,7 +99,7 @@ export function DeliciasCaseirasMirassolPage() {
                     </span>
                   </span>
                   <p className="mt-4 text-sm font-semibold text-[#6c5145]">{detalhe}</p>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
           </div>
@@ -110,11 +112,11 @@ export function DeliciasCaseirasMirassolPage() {
               A cozinha é pequena e cada pedido é feito por ordem de reserva. Estes são os prazos mínimos:
             </p>
             <dl className="mt-8 space-y-px overflow-hidden rounded-2xl bg-[#4a3128]/10">
-              {CALENDARIO.map(([k, v]) => (
-                <div key={k} className="flex flex-wrap items-baseline justify-between gap-2 bg-[#fff6ee] px-6 py-4">
+              {CALENDARIO.map(([k, v], i) => (
+                <MotionReveal key={k} variant="left" delay={i * 100} className="flex flex-wrap items-baseline justify-between gap-2 bg-[#fff6ee] px-6 py-4">
                   <dt className="font-semibold">{k}</dt>
                   <dd className="text-sm font-bold text-[#c8407a]">{v}</dd>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
           </div>
@@ -124,14 +126,17 @@ export function DeliciasCaseirasMirassolPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="font-serif text-3xl">Kits prontos para fechar rápido</h2>
             <div className="mt-8 flex snap-x gap-5 overflow-x-auto pb-2">
-              {KITS.map(([nome, texto]) => (
-                <article
+              {KITS.map(([nome, texto], i) => (
+                <MotionReveal
+                  as="article"
                   key={nome}
-                  className="min-w-[16rem] flex-1 snap-start rounded-3xl border border-[#e5477a]/25 bg-white p-6 shadow-sm"
+                  variant="right"
+                  delay={i * 120}
+                  className="min-w-[16rem] flex-1 snap-start rounded-3xl border border-[#e5477a]/25 bg-white p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1"
                 >
                   <h3 className="font-serif text-xl font-bold">{nome}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#6c5145]">{texto}</p>
-                </article>
+                </MotionReveal>
               ))}
             </div>
             <div className="mt-8">
@@ -141,14 +146,17 @@ export function DeliciasCaseirasMirassolPage() {
         </section>
 
         <section id="contato" className="bg-[#4a3128] px-5 py-14 text-center text-[#fff6ee] lg:px-8">
-          <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-snug sm:text-4xl">
-            Já tem data marcada? Reserve a agenda da cozinha.
-          </h2>
+          <MotionReveal variant="mask">
+            <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-snug sm:text-4xl">
+              Já tem data marcada? Reserve a agenda da cozinha.
+            </h2>
+          </MotionReveal>
           <div className="mt-8">
             <Encomendar>Reservar minha data</Encomendar>
           </div>
         </section>
       </main>
+      </MotionScope>
 
       <footer className="px-5 py-8 text-sm text-[#6c5145] lg:px-8">
         <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
