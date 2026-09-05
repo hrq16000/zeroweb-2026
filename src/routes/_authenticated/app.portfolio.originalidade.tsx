@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search } from "lucide-react";
 import originality from "@/config/portfolio-originality.json";
+import coverStatus from "@/config/portfolio-cover-status.json";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/originalidade")({
   component: PortfolioOriginalityView,
@@ -49,6 +50,92 @@ const NEXT_ACTION: Record<string, string> = {
   SHARED_FALLBACK: "Criar componente próprio do cliente",
 };
 
+type CoverRow = (typeof coverStatus.projects)[number];
+
+const COVER_STATUS_LABEL: Record<string, string> = {
+  VALID: "Capa válida",
+  NEEDS_CROP: "Precisa de recorte",
+  CONTACT_OR_PII: "Contato ou endereço visível",
+  PROMOTIONAL_MATERIAL: "Peça promocional",
+  LOGO_ONLY: "Só marca/logo",
+  NO_REAL_ASSET: "Sem material real",
+  UNCERTAIN_ORIGIN: "Origem incerta",
+};
+
+/** Bloco compacto de capas: uma fonte de verdade, sem inventário paralelo. */
+function CoverStatusBlock() {
+  const [coverFilter, setCoverFilter] = useState("PENDING");
+  const cs = coverStatus.summary;
+  const all = coverStatus.projects as CoverRow[];
+  const rows = useMemo(
+    () =>
+      all
+        .filter((r) =>
+          coverFilter === "all"
+            ? true
+            : coverFilter === "PENDING"
+              ? r.status !== "VALID"
+              : r.status === coverFilter,
+        )
+        .sort((a, b) => a.slug.localeCompare(b.slug)),
+    [all, coverFilter],
+  );
+
+  return (
+    <section className="mt-10">
+      <h2 className="font-display text-xl font-bold">Capas</h2>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Fonte única de verdade derivada do catálogo, da revisão visual e dos arquivos reais
+        (<code>bun run build:portfolio-cover-status</code>). Imagem social e hero não contam como
+        capa. Total {cs.total} · válidas {cs.valid} · pendentes {cs.pending}.
+      </p>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {["PENDING", "all", ...Object.keys(COVER_STATUS_LABEL)].map((key) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setCoverFilter(key)}
+            className={`rounded-full border px-3 py-1 text-xs ${
+              coverFilter === key
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-border text-muted-foreground"
+            }`}
+          >
+            {key === "PENDING"
+              ? `Pendentes (${cs.pending})`
+              : key === "all"
+                ? `Todas (${cs.total})`
+                : `${COVER_STATUS_LABEL[key]} (${(cs.byStatus as Record<string, number>)[key] ?? 0})`}
+          </button>
+        ))}
+      </div>
+
+      <ul className="mt-3 space-y-2 text-sm">
+        {rows.map((r) => (
+          <li key={r.slug} className="rounded-lg border border-border bg-card p-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <strong>{r.businessName}</strong>
+              <span className="text-xs text-muted-foreground">
+                {COVER_STATUS_LABEL[r.status] ?? r.status} · última auditoria{" "}
+                {r.reviewedAt ?? "—"}
+              </span>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">
+              <code>{r.slug}</code> · {r.reason ?? "Aprovada em revisão humana."}
+            </p>
+          </li>
+        ))}
+        {rows.length === 0 ? (
+          <li className="rounded-lg border border-border bg-card p-3 text-muted-foreground">
+            Nenhuma capa neste estado.
+          </li>
+        ) : null}
+      </ul>
+    </section>
+  );
+}
+
 function PortfolioOriginalityView() {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("all");
@@ -93,7 +180,7 @@ function PortfolioOriginalityView() {
           ["SHARED_FALLBACK", s.sharedFallback],
           ["Clusters", s.clusters],
           ["Logos placeholder", s.placeholderLogos],
-          ["Capas ausentes", s.missingCovers],
+          ["Capas sem arquivo (legado)", s.missingCovers],
           ["Capa = imagem social", s.coversAsSocialImage],
           ["Crop severo", s.severeCrop],
           ["Marca cruzada", (s as Record<string, number>).invalidCrossClientAssets ?? 0],
@@ -105,6 +192,9 @@ function PortfolioOriginalityView() {
           </div>
         ))}
       </dl>
+
+      <CoverStatusBlock />
+
 
       <h2 className="mt-10 font-display text-xl font-bold">Clusters de similaridade</h2>
       <div className="mt-3 space-y-3">

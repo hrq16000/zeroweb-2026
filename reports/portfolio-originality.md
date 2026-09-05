@@ -28,7 +28,9 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Clusters | 0 |
 | Logos placeholder | 0 |
 | Logos ausentes | 0 |
-| Capas ausentes | 26 |
+| Capas sem arquivo no catálogo (legado) | 26 |
+| Capas válidas (contrato canônico) | 30 |
+| Capas pendentes (contrato canônico) | 38 |
 | Capas usando imagem social | 10 |
 | Capas compartilhadas | 0 |
 | Crop severo | 20 |
@@ -149,7 +151,7 @@ Nenhuma regressão em relação à baseline.
 
 Melhorias:
 - {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":14,"after":0}
-- {"kind":"COUNTER","key":"missingCovers","label":"capas ausentes","before":27,"after":26}
+- {"kind":"COUNTER","key":"missingCovers","label":"capas sem arquivo no catálogo (legado)","before":27,"after":26}
 - {"kind":"MODIFIED_PROJECT","slug":"ag-electrical-services","before":"HIGH_SIMILARITY","after":"ATTENTION"}
 - {"kind":"MODIFIED_PROJECT","slug":"artesanatos-darleia-oliveira","before":"HIGH_SIMILARITY","after":"ATTENTION"}
 - {"kind":"MODIFIED_PROJECT","slug":"brecho-sao-francisco","before":"ATTENTION","after":"ACCEPTABLE"}
