@@ -88,7 +88,7 @@ export function GalileuLocacaoBrinquedosPage() {
                   <span className={`inline-flex rounded-full px-3 py-1 text-xs font-black tracking-widest ${chip}`}>{n}</span>
                   <h3 className="mt-6 text-3xl font-black leading-tight">{title}</h3>
                   <p className="mt-3 text-base leading-7 opacity-85">{text}</p>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </div>
