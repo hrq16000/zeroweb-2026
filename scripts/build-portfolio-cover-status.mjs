@@ -26,8 +26,9 @@ const listProjectFiles = (slug) => {
 
 const projects = catalog
   .filter((item) => item?.slug)
-  .map((item) =>
-    resolveCoverStatus({
+  .map((item) => ({
+    item,
+    row: resolveCoverStatus({
       slug: item.slug,
       review: review[item.slug] ?? null,
       catalogImage: item.image ?? null,
@@ -35,8 +36,8 @@ const projects = catalog
       projectFiles: listProjectFiles(item.slug),
       fileExists,
     }),
-  )
-  .map((row, i) => ({ ...row, businessName: catalog[i]?.title ?? row.slug, segment: catalog[i]?.segment ?? null }))
+  }))
+  .map(({ item, row }) => ({ ...row, businessName: item.title ?? row.slug, segment: item.segment ?? null }))
   .sort((a, b) => a.slug.localeCompare(b.slug));
 
 const summary = summarizeCoverStatus(projects);
