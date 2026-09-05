@@ -307,7 +307,7 @@ export function ParaisoHotDogPage() {
                     )}
                   </div>
                 </div>
-              </article>
+              </MotionReveal>
             ))}
           </div>
         </div>

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-05T15:33:45.145Z",
+  "generatedAt": "2026-09-05T15:35:26.150Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 41,
+  "premium": 45,
   "signature": 5,
-  "baseline": 22,
+  "baseline": 18,
   "static": 0,
   "errors": [],
   "warnings": [],
@@ -96,34 +96,6 @@
       }
     },
     {
-      "slug": "ag-electrical-services",
-      "segment": "servicos",
-      "file": "src/components/site/AgElectricalServicesPage.tsx",
-      "score": 6,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 6,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "lk-alvenaria",
-      "segment": "servicos",
-      "file": "src/components/site/LkAlvenariaPage.tsx",
-      "score": 6,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 6,
-        "animate": 0
-      }
-    },
-    {
       "slug": "studio-de-cilios",
       "segment": "beleza",
       "file": "src/components/site/StudioDeCiliosPage.tsx",
@@ -176,34 +148,6 @@
         "primitives": 0,
         "transitions": 0,
         "hover": 7,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "rm-fretes",
-      "segment": "servicos",
-      "file": "src/components/site/RMFretesPage.tsx",
-      "score": 8,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 8,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "paraiso-do-hot-dog",
-      "segment": "servicos",
-      "file": "src/components/site/ParaisoHotDogPage.tsx",
-      "score": 8,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 8,
         "animate": 0
       }
     },
@@ -460,6 +404,20 @@
       }
     },
     {
+      "slug": "paraiso-do-hot-dog",
+      "segment": "servicos",
+      "file": "src/components/site/ParaisoHotDogPage.tsx",
+      "score": 40,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
       "slug": "bh-barreiro-marmitas",
       "segment": "restaurantes",
       "file": "src/components/site/BarreiroMarmitasPage.tsx",
@@ -558,6 +516,20 @@
       }
     },
     {
+      "slug": "ag-electrical-services",
+      "segment": "servicos",
+      "file": "src/components/site/AgElectricalServicesPage.tsx",
+      "score": 47,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
       "slug": "galileu-locacao-brinquedos",
       "segment": "comercios",
       "file": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
@@ -582,6 +554,34 @@
         "primitives": 10,
         "transitions": 1,
         "hover": 6,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "rm-fretes",
+      "segment": "servicos",
+      "file": "src/components/site/RMFretesPage.tsx",
+      "score": 48,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "lk-alvenaria",
+      "segment": "servicos",
+      "file": "src/components/site/LkAlvenariaPage.tsx",
+      "score": 48,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 1,
+        "hover": 7,
         "animate": 0
       }
     },
