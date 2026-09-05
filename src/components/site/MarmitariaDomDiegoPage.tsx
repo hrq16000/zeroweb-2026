@@ -169,22 +169,26 @@ export function MarmitariaDomDiegoPage() {
             />
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4 border-t-2 border-[var(--dd-ink)]/20 pt-8">
-            <FunnelCTAButton
-              clientKey="marmitaria-dom-diego"
-              companySlug="marmitaria-dom-diego"
-              formSlug="funnel-marmitaria-dom-diego"
-              location="marmitaria-dom-diego_hero"
-              className="inline-flex items-center rounded-xl bg-[var(--dd-leaf)] px-7 py-3.5 text-sm font-semibold text-[var(--dd-paper)]"
-            >
-              <ManagedText field="ctaLabel" fallback={"Falar com a equipe"} />
-            </FunnelCTAButton>
-            <p className="max-w-[42ch] text-sm leading-relaxed text-[var(--dd-ink)]/65">
-              Conte o que procura no cardápio e como prefere fazer o pedido.
-            </p>
-          </div>
+          <MotionReveal variant="up" delay={80}>
+            <div className="mt-8 flex flex-wrap items-center gap-4 border-t-2 border-[var(--dd-ink)]/20 pt-8">
+              <FunnelCTAButton
+                clientKey="marmitaria-dom-diego"
+                companySlug="marmitaria-dom-diego"
+                formSlug="funnel-marmitaria-dom-diego"
+                location="marmitaria-dom-diego_hero"
+                className="inline-flex items-center rounded-xl bg-[var(--dd-leaf)] px-7 py-3.5 text-sm font-semibold text-[var(--dd-paper)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                <ManagedText field="ctaLabel" fallback={"Falar com a equipe"} />
+              </FunnelCTAButton>
+              <p className="max-w-[42ch] text-sm leading-relaxed text-[var(--dd-ink)]/65">
+                Conte o que procura no cardápio e como prefere fazer o pedido.
+              </p>
+            </div>
+          </MotionReveal>
         </section>
       </main>
+      </MotionScope>
+
 
       {/* TODO: preencher com conteúdo real do cliente antes de ativar:
       <PortfolioSocialProofPopup clientKey="marmitaria-dom-diego" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
