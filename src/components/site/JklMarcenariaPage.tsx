@@ -4,6 +4,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal } from "@/components/motion";
 
 // Conceito: prancha de projeto cotada. Ambientes em faixas verticais, medidas como marcação.
 const ambientes = [
@@ -62,11 +63,16 @@ export function JklMarcenariaPage() {
               <span>Projeto sob medida</span>
               <span>Curitiba e região</span>
             </div>
-            <h1 className="mt-8 font-display text-[2.5rem] font-semibold leading-[1.02] sm:text-[4.2rem]">
+            <MotionReveal
+              as="h1"
+              variant="mask"
+              intensity="BALANCED"
+              className="mt-8 font-display text-[2.5rem] font-semibold leading-[1.02] sm:text-[4.2rem]"
+            >
               Cada centímetro
               <br />
               desenhado para <span className="italic text-[#b56b29]">o seu ambiente.</span>
-            </h1>
+            </MotionReveal>
             <div className="mt-8 max-w-xl border-t border-[#24170e]/20 pt-5">
               <p className="text-base leading-7 text-[#76553a]">
                 Seu espaço, seu estilo e um projeto pensado nos detalhes. Móveis 100% MDF, acabamento caprichado e
@@ -85,24 +91,33 @@ export function JklMarcenariaPage() {
         <section id="ambientes" className="px-5 py-12 lg:px-10">
           <div className="mx-auto max-w-[1100px]">
             <div className="flex flex-col gap-6 md:flex-row md:items-stretch">
+              <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-sm md:w-[38%]">
               <PortfolioImage
                 src="/images/jkl-marcenaria/cozinha.webp"
                 alt="Cozinha planejada em MDF produzida pela JKL Marcenaria"
                 priority
                 width={1200}
                 height={1600}
-                className="h-[300px] w-full rounded-sm object-cover md:h-auto md:w-[38%]"
+                className="h-[300px] w-full rounded-sm object-cover md:h-full"
                 managedField="heroImageUrl"
               />
+              </MotionImageReveal>
               <ul className="flex flex-1 flex-col justify-between">
-                {ambientes.map((item) => (
-                  <li key={item.medida} className="border-b border-[#24170e]/15 py-5 last:border-b-0">
+                {ambientes.map((item, i) => (
+                  <MotionReveal
+                    key={item.medida}
+                    as="li"
+                    variant="left"
+                    intensity="BALANCED"
+                    delay={i * 90}
+                    className="group/medida border-b border-[#24170e]/15 py-5 transition-[padding] duration-300 last:border-b-0 hover:pl-2"
+                  >
                     <div className="flex items-baseline gap-4">
                       <span className="font-mono text-[11px] tracking-[.2em] text-[#b56b29]">{item.medida}</span>
                       <h2 className="font-display text-xl font-semibold">{item.nome}</h2>
                     </div>
                     <p className="mt-2 text-sm leading-6 text-[#76553a]">{item.texto}</p>
-                  </li>
+                  </MotionReveal>
                 ))}
               </ul>
             </div>
