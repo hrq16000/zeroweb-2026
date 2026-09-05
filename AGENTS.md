@@ -14,6 +14,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
 | Narrativa e originalidade de conversão em `/portfolio` | `docs/PORTFOLIO_CONVERSION_NARRATIVE_STANDARD.md` |
 | Funis | `docs/PORTFOLIO_FUNNELS.md` |
+| Baseline congelado, política de regressão e manutenção do `/portfolio` | `docs/reports/PORTFOLIO-EXPERIENCE-FINAL-2026-09-05.md` §11 MAINTENANCE MODE |
 
 Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
 `docs/skills/CHANGELOG.md`.
