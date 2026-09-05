@@ -159,8 +159,9 @@ if (asJson) {
   console.log(JSON.stringify(summary, null, 2));
 } else {
   console.log(
-    `[experience] ${summary.totalPages} páginas — PREMIUM ${summary.premium} · BASELINE ${summary.baseline} · STATIC ${summary.static}`,
+    `[experience] ${summary.totalPages}/${summary.totalCatalogProjects} projetos (cobertura ${summary.auditCoverage}) — PREMIUM ${summary.premium} · SIGNATURE ${summary.signature} · BASELINE ${summary.baseline} · STATIC ${summary.static}`,
   );
+
   for (const w of warnings.slice(0, 10)) console.log(`  WARNING ${w.code} ${w.detail}`);
   if (warnings.length > 10) console.log(`  ... +${warnings.length - 10} warnings (reports/experience-standard.json)`);
   for (const e of errors) console.log(`  FAIL ${e.code} ${e.detail}`);
