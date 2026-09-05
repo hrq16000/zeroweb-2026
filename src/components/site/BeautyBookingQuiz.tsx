@@ -230,7 +230,15 @@ export function BeautyBookingQuiz({
         sessionId: getSessionId(),
         visitorId: getVisitorId(),
       }});
-      window.location.assign(result.redirectPath);
+      if (result.redirectPath) {
+        window.location.assign(result.redirectPath);
+        return;
+      }
+      // Canal de WhatsApp deste projeto ainda não configurado: o pedido foi
+      // registrado do mesmo jeito. Nada de redirect quebrado.
+      setRedirecting(false);
+      setSavedProtocol(result.protocol ?? null);
+      setStep(6);
     } catch {
       setRedirecting(false);
       setSubmitError("Não foi possível abrir o atendimento agora. Tente novamente em instantes.");
