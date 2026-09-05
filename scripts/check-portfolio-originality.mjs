@@ -15,7 +15,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { analyzePortfolio, toBaseline, detectRegressions, STATUS } from "./portfolio-originality.mjs";
+import {
+  analyzePortfolio,
+  toBaseline,
+  detectRegressions,
+  STATUS,
+  ORIGINALITY_METRIC_VERSION,
+} from "./portfolio-originality.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -24,12 +30,51 @@ const writeReport = args.includes("--report");
 const writeBaseline = args.includes("--write-baseline");
 const enforce = args.includes("--enforce");
 
-const BASELINE_PATH = path.join(root, "reports/portfolio-originality.baseline.json");
+// V1 preservada: a baseline histórica NUNCA é sobrescrita pela v2.
+const BASELINE_PATH_V1 = path.join(root, "reports/portfolio-originality.baseline.json");
+const BASELINE_PATH_V2 = path.join(root, "reports/portfolio-originality.baseline.v2.json");
+const BASELINE_PATH = ORIGINALITY_METRIC_VERSION === 1 ? BASELINE_PATH_V1 : BASELINE_PATH_V2;
+const COMPARE_MD_PATH = path.join(root, "reports/portfolio-originality-v1-v2.md");
 const JSON_PATH = path.join(root, "reports/portfolio-originality.json");
 const MD_PATH = path.join(root, "reports/portfolio-originality.md");
 const ADMIN_PATH = path.join(root, "src/config/portfolio-originality.json");
 
-const report = analyzePortfolio(root);
+const report = analyzePortfolio(root, { metricVersion: ORIGINALITY_METRIC_VERSION });
+// Comparação explícita V1 x V2: mudança de algoritmo não é redesign.
+const reportV1 = analyzePortfolio(root, { metricVersion: 1 });
+const v1BySlug = new Map(reportV1.projects.map((p) => [p.slug, p]));
+const comparison = {
+  v1: {
+    metricVersion: 1,
+    clones: reportV1.summary.clone,
+    over60: reportV1.projects.filter((p) => p.score >= 61).length,
+    clusters: reportV1.summary.clusters,
+    highSimilarity: reportV1.summary.highSimilarity,
+  },
+  v2: {
+    metricVersion: report.metricVersion,
+    clones: report.summary.clone,
+    over60: report.projects.filter((p) => p.score >= 61).length,
+    clusters: report.summary.clusters,
+    highSimilarity: report.summary.highSimilarity,
+  },
+  projects: report.projects.map((p) => {
+    const prev = v1BySlug.get(p.slug);
+    return {
+      slug: p.slug,
+      v1Score: prev?.score ?? null,
+      v2Score: p.score,
+      delta: prev ? p.score - prev.score : null,
+      v1Nearest: prev?.nearestMatch ?? null,
+      v2Nearest: p.nearestMatch,
+      neighbourChanged: Boolean(prev && prev.nearestMatch !== p.nearestMatch),
+      reason: prev && p.score < prev.score ? "METRIC_CORRECTION" : prev && p.score > prev.score ? "METRIC_SENSITIVITY" : "UNCHANGED",
+      v1AssetPattern: prev?.dimensions?.ASSET_PATTERN_SIMILARITY ?? null,
+      v2AssetPattern: p.dimensions?.ASSET_PATTERN_SIMILARITY ?? null,
+    };
+  }),
+};
+report.comparison = comparison;
 const baseline = fs.existsSync(BASELINE_PATH)
   ? JSON.parse(fs.readFileSync(BASELINE_PATH, "utf8"))
   : null;
@@ -118,16 +163,46 @@ ${r.regression.improvements.length ? `Melhorias:\n${r.regression.improvements.ma
 `;
 }
 
+
+function comparisonMarkdown(c) {
+  const rows = [...c.projects].sort((a, b) => (a.delta ?? 0) - (b.delta ?? 0));
+  return `# Originalidade — V1 x V2 (fingerprint de assets)
+
+A v2 identifica assets por **conteúdo real** (hash), **referência canônica** e
+perfil de mídia. Nome de arquivo (\`hero.jpg\`, \`logo.svg\`) deixou de ser prova
+de duplicação. Queda de score aqui é **METRIC_CORRECTION**, não melhoria de
+originalidade: nenhuma página pública mudou.
+
+| Métrica | V1 | V2 |
+|---|---|---|
+| CLONES | ${c.v1.clones} | ${c.v2.clones} |
+| HIGH_SIMILARITY | ${c.v1.highSimilarity} | ${c.v2.highSimilarity} |
+| PROJECTS_OVER_60 | ${c.v1.over60} | ${c.v2.over60} |
+| CLUSTERS | ${c.v1.clusters} | ${c.v2.clusters} |
+
+| Projeto | Nearest V1 | Nearest V2 | V1 | V2 | Delta | Mudou vizinho? | Motivo | ASSET V1 | ASSET V2 |
+|---|---|---|---|---|---|---|---|---|---|
+${rows.map((r) => `| ${r.slug} | ${r.v1Nearest ?? "—"} | ${r.v2Nearest ?? "—"} | ${r.v1Score} | ${r.v2Score} | ${r.delta} | ${r.neighbourChanged ? "SIM" : "não"} | ${r.reason} | ${r.v1AssetPattern} | ${r.v2AssetPattern} |`).join("\n")}
+`;
+}
+
 if (writeReport) {
   fs.mkdirSync(path.dirname(JSON_PATH), { recursive: true });
   fs.writeFileSync(JSON_PATH, `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(MD_PATH, markdown(report));
+  fs.writeFileSync(COMPARE_MD_PATH, comparisonMarkdown(comparison));
   // Visão compacta consumida pelo admin (sem banco).
   fs.writeFileSync(
     ADMIN_PATH,
     `${JSON.stringify(
       {
         generatedAt: null,
+        metricVersion: report.metricVersion,
+        comparison: {
+          v1: comparison.v1,
+          v2: comparison.v2,
+          projects: comparison.projects,
+        },
         weights: report.weights,
         thresholds: report.thresholds,
         summary: report.summary,
