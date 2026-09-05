@@ -81,11 +81,9 @@ export function resolveOperationalWhatsAppContact(): OperationalWhatsAppContact 
  * Destinatário do site de um cliente. Sem fallback para o WhatsApp da 0WEB
  * e sem número no código-fonte: só a env do cliente.
  */
-export function resolvePortfolioWhatsAppContact(
-  clientKey?: string | null,
-): OperationalWhatsAppContact | null {
+export function portfolioWhatsAppEnvName(clientKey?: string | null): string | null {
   if (!isPortfolioClientKey(clientKey)) return null;
-  const envName =
+  const legacy =
     clientKey === "dyzpromo"
       ? "DYZ_PROMO_WHATSAPP_NUMBER"
       : clientKey === "renata-beauty" || clientKey === "r-beauty"
