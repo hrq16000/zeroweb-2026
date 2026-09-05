@@ -7,9 +7,11 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
  *
  * Fontes canônicas (uma por métrica, sem tracker paralelo e sem PII):
  *  - PORTFOLIO_VIEW_SOURCE  = analytics_events.event_name = 'portfolio_view'  (path /portfolio/:slug)
- *  - CTA_CLICK_SOURCE       = analytics_events.event_name = 'portfolio_contact_floating_click'
+ *  - CTA_CLICK_SOURCE       = analytics_events.event_name IN ('funnel_open','wa_funnel_open')
+ *    (abertura de funil no projeto — intenção comercial de fato. O clique do botão
+ *     flutuante é etapa anterior do mesmo caminho e NÃO é somado, para não duplicar.)
  *  - POPUP_OPEN_SOURCE      = analytics_events.event_name = 'popup_view'      (pop-up comercial 0WEB)
- *  - LEAD_SOURCE            = dynamic_form_leads.metadata_json->>portfolio_slug
+ *  - LEAD_SOURCE            = dynamic_form_leads.metadata_json->>page_url (fallback client_key)
  *  - WHATSAPP_SOURCE        = whatsapp_redirect_tokens.used_at (token server-side do lead)
  *
  * Métricas derivadas só são calculadas quando o denominador (views) é confiável;
@@ -18,9 +20,9 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 export const PORTFOLIO_METRIC_SOURCES = {
   PORTFOLIO_VIEW_SOURCE: "analytics_events:portfolio_view",
-  CTA_CLICK_SOURCE: "analytics_events:portfolio_contact_floating_click",
+  CTA_CLICK_SOURCE: "analytics_events:funnel_open|wa_funnel_open",
   POPUP_OPEN_SOURCE: "analytics_events:popup_view",
-  LEAD_SOURCE: "dynamic_form_leads.metadata_json.portfolio_slug",
+  LEAD_SOURCE: "dynamic_form_leads.metadata_json.page_url|client_key",
   WHATSAPP_SOURCE: "whatsapp_redirect_tokens.used_at",
 } as const;
 
@@ -48,7 +50,8 @@ export type PortfolioFunnelMetrics = {
 
 const EVENT_FIELD = {
   portfolio_view: "views",
-  portfolio_contact_floating_click: "ctaClicks",
+  funnel_open: "ctaClicks",
+  wa_funnel_open: "ctaClicks",
   popup_view: "popupViews",
 } as const;
 
@@ -59,6 +62,20 @@ const inputSchema = z
 function slugFromPath(path: string): string | null {
   const m = /^\/portfolio\/([^/?#]+)/.exec(path || "");
   return m?.[1] ?? null;
+}
+
+/**
+ * Atribuição de projeto de um lead usando a infraestrutura já existente:
+ * a URL da página onde o formulário foi respondido (mesma chave do denominador
+ * de visitas, que também vem do path) e, na falta dela, o `client_key` gravado
+ * pelo funil. Nenhum campo novo, nenhuma base nova, nenhum dado pessoal.
+ */
+export function leadSlug(meta: Record<string, unknown>): string | null {
+  const pageUrl = typeof meta.page_url === "string" ? meta.page_url : "";
+  const fromUrl = /\/portfolio\/([^/?#]+)/.exec(pageUrl)?.[1];
+  if (fromUrl) return fromUrl;
+  const clientKey = typeof meta.client_key === "string" ? meta.client_key.trim() : "";
+  return clientKey || null;
 }
 
 function emptyRow(slug: string): PortfolioFunnelRow {
@@ -123,7 +140,7 @@ export const getPortfolioFunnelMetrics = createServerFn({ method: "GET" })
     const slugByLeadId = new Map<string, string>();
     for (const lead of leads ?? []) {
       const meta = (lead.metadata_json ?? {}) as Record<string, unknown>;
-      const slug = typeof meta.portfolio_slug === "string" ? meta.portfolio_slug : null;
+      const slug = leadSlug(meta);
       if (!slug) continue;
       if (data.slug && slug !== data.slug) continue;
       slugByLeadId.set(lead.id as string, slug);
