@@ -351,6 +351,17 @@
       "issues": [
         "COVER_NOT_DEDICATED"
       ]
+    },
+    "eisenfer-tubos-acos": {
+      "source": "public/images/eisenfer-tubos-acos/telhas.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "issues": [
+        "COVER_NO_DEDICATED_ASSET"
+      ],
+      "notes": "R11: recorte editorial 16:10 da faixa de produtos do material proprio (telhas metalicas reais). Rodape com telefone/site do flyer fica fora do enquadramento. Sem PII, sem preco."
     }
   }
 }

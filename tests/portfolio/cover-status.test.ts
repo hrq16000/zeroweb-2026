@@ -130,4 +130,18 @@ describe("inventário gerado", () => {
       expect(rows.find((r) => r.slug === slug)?.status).toBe("VALID");
     }
   });
+
+  it("as quatro capas reenquadradas na Rodada 11 estão válidas e nenhuma pendência NEEDS_CROP resta", () => {
+    for (const slug of [
+      "artesanatos-darleia-oliveira",
+      "eisenfer-tubos-acos",
+      "refrigeracao-maresia",
+      "thays-camilla",
+    ]) {
+      expect(rows.find((r) => r.slug === slug)?.status).toBe("VALID");
+    }
+    const s = summarizeCoverStatus(rows);
+    expect(s.byStatus.NEEDS_CROP).toBe(0);
+    expect(s.total).toBe(68);
+  });
 });

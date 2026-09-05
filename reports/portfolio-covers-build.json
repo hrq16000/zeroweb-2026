@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-09-05T03:01:38.062Z",
+  "generatedAt": "2026-09-05T15:07:32.209Z",
   "ok": 1,
   "failed": [],
   "results": [
     {
-      "slug": "paraiso-do-hot-dog",
+      "slug": "eisenfer-tubos-acos",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/paraiso-do-hot-dog/capa.png",
+      "source": "public/images/eisenfer-tubos-acos/telhas.webp",
       "crop": {
         "left": 0,
-        "top": 0,
-        "width": 1506,
-        "height": 941
+        "top": 371,
+        "width": 1024,
+        "height": 640
       },
       "focal": {
-        "x": 0.44,
-        "y": 0.5
+        "x": 0.5,
+        "y": 0.45
       },
-      "out": "/images/paraiso-do-hot-dog/capa-card.jpg",
-      "bytes": 231074,
-      "dimensions": "1506x941",
+      "out": "/images/eisenfer-tubos-acos/capa-card.jpg",
+      "bytes": 147268,
+      "dimensions": "1024x640",
       "lowRes": false
     }
   ]
