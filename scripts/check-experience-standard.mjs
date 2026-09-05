@@ -221,6 +221,7 @@ const summary = {
   signature: pages.filter((p) => p.level === "SIGNATURE").length,
   baseline: pages.filter((p) => p.level === "BASELINE").length,
   static: pages.filter((p) => p.level === "STATIC").length,
+  motion,
   errors,
   warnings,
   pages: pages.sort((a, b) => a.score - b.score),
@@ -233,6 +234,27 @@ fs.writeFileSync(
   `${JSON.stringify(summary, null, 2)}\n`,
 );
 
+// Fonte canônica única para o admin (filtro/badge de Experience).
+fs.writeFileSync(
+  path.join(root, "src/config/portfolio-experience-levels.json"),
+  `${JSON.stringify(
+    {
+      generatedAt: summary.generatedAt,
+      generator: "scripts/check-experience-standard.mjs",
+      levels: Object.fromEntries(pages.map((p) => [p.slug, p.level])),
+      summary: {
+        total: summary.totalPages,
+        premium: summary.premium,
+        signature: summary.signature,
+        baseline: summary.baseline,
+        static: summary.static,
+      },
+    },
+    null,
+    2,
+  )}\n`,
+);
+
 if (asJson) {
   console.log(JSON.stringify(summary, null, 2));
 } else {
@@ -240,6 +262,11 @@ if (asJson) {
     `[experience] ${summary.totalPages}/${summary.totalCatalogProjects} projetos (cobertura ${summary.auditCoverage}) — PREMIUM ${summary.premium} · SIGNATURE ${summary.signature} · BASELINE ${summary.baseline} · STATIC ${summary.static}`,
   );
 
+  console.log(
+    `[experience] motion originality — clones ${motion.clones} · grupos ${motion.groups} · similaridade máx ${motion.maxSimilarity}%`,
+  );
+  for (const p of motion.topNearestMatches.slice(0, 5))
+    console.log(`    ${p.similarity}%  ${p.a} × ${p.b} (perceptível ${p.perceptual}% · tokens ${p.tokens}%)`);
   for (const w of warnings.slice(0, 10)) console.log(`  WARNING ${w.code} ${w.detail}`);
   if (warnings.length > 10) console.log(`  ... +${warnings.length - 10} warnings (reports/experience-standard.json)`);
   for (const e of errors) console.log(`  FAIL ${e.code} ${e.detail}`);
