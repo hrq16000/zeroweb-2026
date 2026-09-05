@@ -42,7 +42,7 @@ export function LkAlvenariaPage() {
     <div className="min-h-dvh bg-[#f4efe7] font-sans text-[#17100b]">
       <header className="bg-[#17100b] px-5 py-4 text-[#f4efe7] lg:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
-          <a href="#inicio" className="flex items-center gap-2 font-display text-lg font-bold"><HardHat className="h-5 w-5 text-[#ff7900]" aria-hidden />LK <span className="text-[#ff7900]">Alvenaria</span></a>
+          <a href="#inicio" className="flex items-center gap-2 font-display text-lg font-bold"><PortfolioImage src="/images/lk-alvenaria/perfil.png" alt="LK Alvenaria" width={40} height={40} className="h-7 w-7 rounded-full object-cover" managedField="logoUrl" />LK <span className="text-[#ff7900]">Alvenaria</span></a>
           <nav className="hidden gap-6 text-sm font-semibold sm:flex">
             <a href="#cronograma" className="hover:text-[#ff7900]">Cronograma</a>
             <a href="#ficha" className="hover:text-[#ff7900]">Ficha da obra</a>
