@@ -131,5 +131,10 @@ for (const f of failed) console.log(`  FALHA ${f.slug}: ${f.status} (${f.source}
 const lowRes = ok.filter((r) => r.lowRes);
 if (lowRes.length) {
   console.log("  resolução real insuficiente (asset do cliente precisa ser substituído):");
-  for (const u of lowRes) console.log(`   - ${u.slug} · recorte ${u.crop.width}x${u.crop.height}`);
+  for (const u of lowRes)
+    console.log(
+      u.crop
+        ? `   - ${u.slug} · recorte ${u.crop.width}x${u.crop.height}`
+        : `   - ${u.slug} · arte preservada em moldura (sem recorte)`,
+    );
 }
