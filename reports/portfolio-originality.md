@@ -55,14 +55,14 @@ Nenhum cluster acima do limiar.
 | aguia-sul-sinalizacao | mary-diarista | 58 | SAME_FAMILY | 78.7 | 50 | 71.4 | 92.5 | 0 | 0 | 9.4 |
 | assistencia-microondas-santos | premium-envelopamentos | 58 | SAME_FAMILY | 52.4 | 100 | 54.5 | 67.8 | 1.1 | 57.1 | 12.9 |
 | brecho-sao-francisco | marmitaria-dom-diego | 58 | SAME_FAMILY | 21.2 | 100 | 100 | 35.5 | 0 | 100 | 100 |
-| artesanatos-darleia-oliveira | assistencia-microondas-santos | 56 | SAME_FAMILY | 60.7 | 62.5 | 61.5 | 85.4 | 0 | 66.7 | 13.2 |
+| artesanatos-darleia-oliveira | assistencia-microondas-santos | 57 | SAME_FAMILY | 60.7 | 62.5 | 61.5 | 85.4 | 0 | 83.3 | 13.2 |
 | brecho-sao-francisco | woodhouse-hamburgueres | 56 | SAME_FAMILY | 20 | 100 | 100 | 28.6 | 0 | 100 | 100 |
 | confeitaria-chyrley | studio-de-cilios | 56 | SAME_FAMILY | 53.8 | 100 | 42.9 | 86.5 | 0.5 | 0 | 6.8 |
 | diego-montador-moveis | lk-alvenaria | 56 | SAME_FAMILY | 60.7 | 100 | 38.5 | 71.1 | 2.1 | 0 | 7.7 |
 | diego-montador-moveis | paulo-mestre-de-obras | 56 | SAME_FAMILY | 62.7 | 75 | 60 | 70.9 | 3 | 25 | 15.6 |
 | acai-total-araucaria | mary-diarista | 55 | SAME_FAMILY | 76.1 | 37.5 | 71.4 | 92.5 | 0 | 0 | 10.7 |
-| ag-electrical-services | refrigeracao-maresia | 55 | SAME_FAMILY | 66.7 | 83.3 | 42.9 | 75 | 3.2 | 5 | 7.3 |
-| artesanatos-darleia-oliveira | liz-moraes-nail-designer | 55 | SAME_FAMILY | 41.5 | 100 | 38.5 | 85.4 | 0 | 75 | 7 |
+| ag-electrical-services | refrigeracao-maresia | 55 | SAME_FAMILY | 66.7 | 83.3 | 42.9 | 75 | 3.2 | 10 | 7.3 |
+| confeitaria-sabor-da-realeza | miro-tech | 55 | SAME_FAMILY | 54.9 | 66.7 | 55.6 | 79.2 | 0.5 | 100 | 14.3 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -94,10 +94,10 @@ Nenhum asset percebido compartilhado entre clientes.
 | paulo-mestre-de-obras | 56 | ATTENTION | diego-montador-moveis (56) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | woodhouse-hamburgueres | 56 | ATTENTION | brecho-sao-francisco (56) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | denise-gomes-psicologa | 55 | ATTENTION | thays-camilla (55) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| liz-moraes-nail-designer | 55 | ATTENTION | artesanatos-darleia-oliveira (55) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | refrigeracao-maresia | 55 | ATTENTION | ag-electrical-services (55) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | sos-presentes-cosmeticos | 55 | ATTENTION | confeitaria-sabor-da-realeza (55) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | ecommerce-on | 54 | ATTENTION | acai-total-araucaria (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
+| liz-moraes-nail-designer | 54 | ATTENTION | artesanatos-darleia-oliveira (54) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | vila-da-capivara | 54 | ATTENTION | mp-festas-eventos (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | r_beauty | 51 | ATTENTION | renata-beauty (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT | — | — |
 | renata-beauty | 51 | ATTENTION | r_beauty (51) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |

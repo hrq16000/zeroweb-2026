@@ -196,17 +196,17 @@
   },
   "studio-de-cilios": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — portfolio-1.png, portfolio-1.webp, portfolio-2.png, portfolio-2.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone e tabela de precos visiveis. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "eletro-solucoes-eficazes": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone visivel. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "miro-tech": {
     "coverReview": "NEEDS_REVIEW",
@@ -224,10 +224,10 @@
   },
   "mp-festas-eventos": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — capa.png, capa.webp, galeria.png, galeria.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone/WhatsApp e print de perfil. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "ag-electrical-services": {
     "coverReview": "APPROVED",
@@ -247,11 +247,12 @@
     "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
   },
   "artesanatos-darleia-oliveira": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada.",
+    "coverReview": "APPROVED",
+    "coverDecision": "REAL_CLIENT_MATERIAL",
+    "notes": "Revisao visual individual 2026-09-05: material fotografico proprio (coadores + xicara) enquadrado 16:10 sem recorte destrutivo. Sem telefone, endereco, @ ou QR.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
+    "coverSource": "public/images/artesanatos-darleia-oliveira/hero-og.png"
   },
   "assistencia-microondas-santos": {
     "coverReview": "APPROVED",
@@ -283,23 +284,23 @@
   "confeitaria-sabor-da-realeza": {
     "coverReview": "NEEDS_REVIEW",
     "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada.",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — endereco fisico e arte promocional com preco. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "ecommerce-on": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — perfil.png, perfil.webp, servicos.png, servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — print de perfil com dados pessoais e tabela de precos. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "eisenfer-tubos-acos": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — telhas.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional; resolucao insuficiente para 1600x1000. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "emporio-lelecute": {
     "coverReview": "NEEDS_REVIEW",
@@ -310,17 +311,17 @@
   },
   "espaco-cih-luh": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — promocao.png, promocao.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional (10% OFF) inseparavel da foto no recorte 16:10. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "fernanda-amaral-drywall": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — servicos-source.png, servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — chamada de WhatsApp na arte. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "guaratuba-atelie-presentes": {
     "coverReview": "NEEDS_REVIEW",
@@ -359,11 +360,12 @@
     "coverSource": "public/images/lj-cleaning/vitrine.png"
   },
   "lucas-arruma-maquina-lavar": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — capa.png, capa.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverReview": "APPROVED",
+    "coverDecision": "AUTHORED_GRAPHIC",
+    "notes": "Capa grafica autoral 16:10 entregue na Q4A. Panfleto com telefone removido da experiencia publica.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
+    "coverSource": "public/images/lucas-arruma-maquina-lavar/vitrine.png"
   },
   "manu-pasteis": {
     "coverReview": "APPROVED",
@@ -384,10 +386,10 @@
   },
   "mary-diarista": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — servicos.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — telefone e tabela de precos. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "mirassol-conserta-celular": {
     "coverReview": "NEEDS_REVIEW",
@@ -404,32 +406,35 @@
     "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
   },
   "no-brilho-higienizacao": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada.",
+    "coverReview": "APPROVED",
+    "coverDecision": "AUTHORED_GRAPHIC",
+    "notes": "Capa grafica autoral 16:10 entregue na Q4A. Sem fotografia inventada e sem PII.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
+    "coverSource": "public/images/no-brilho-higienizacao/vitrine.png"
   },
   "refrigeracao-maresia": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — hero-og.png, hero.png. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverReview": "APPROVED",
+    "coverDecision": "REAL_CLIENT_MATERIAL",
+    "notes": "Revisao visual individual 2026-09-05: banner proprio (marca + produto) recortado 16:10. Flyer com telefone (hero.png/capa.png) permanece fora da capa. Sem PII.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
+    "coverSource": "public/images/refrigeracao-maresia/hero-og.png"
   },
   "renata-beauty": {
     "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_REPLACEMENT",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): assets com texto sensivel/contato ou promocional — hero.webp. Publicacao bloqueada ate material fotografico proprio sem contato.",
+    "coverDecision": "NEEDS_DEDICATED_COVER",
+    "notes": "Revisao visual individual 2026-09-05: bloqueado — arte promocional com preco/telefone. Capa so pode ser publicada com material fotografico proprio sem contato/preco.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "Revisao visual individual 2026-09-05 (imagem inspecionada, nao apenas OCR)."
   },
   "thays-camilla": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "NEEDS_DEDICATED_COVER",
-    "notes": "Revisao 2026-09-04 (OCR + inspecao): nenhum asset fotografico proprio adequado (apenas logo/OG/arte gerada ou resolucao insuficiente). Nao gerar capa inventada.",
+    "coverReview": "APPROVED",
+    "coverDecision": "REAL_CLIENT_MATERIAL",
+    "notes": "Revisao visual individual 2026-09-05: material proprio (caneca + azulejo personalizados) enquadrado 16:10. Arte promocional com preco nao foi usada. Sem PII.",
     "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
-    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente."
+    "coverMaterialEvidence": "OCR (alerta) + inventario de assets em 2026-09-04; confirmacao visual pendente.",
+    "coverSource": "public/images/thays-camilla/hero-og.png"
   },
   "uberlandia-eletrica-residencial": {
     "coverReview": "NEEDS_REVIEW",

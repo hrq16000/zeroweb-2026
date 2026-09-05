@@ -295,12 +295,12 @@
         },
         {
           "slug": "assistencia-microondas-santos",
-          "score": 56,
+          "score": 57,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 55,
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -341,12 +341,12 @@
         },
         {
           "slug": "artesanatos-darleia-oliveira",
-          "score": 56,
+          "score": 57,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "thays-camilla",
-          "score": 52,
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -684,7 +684,7 @@
         "COMPONENT_SIMILARITY": 46.7,
         "STYLE_SIMILARITY": 70.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
+        "ASSET_PATTERN_SIMILARITY": 60,
         "IDENTITY_SIMILARITY": 13.5
       },
       "coverSignals": [
@@ -1572,10 +1572,10 @@
     },
     {
       "slug": "liz-moraes-nail-designer",
-      "score": 55,
+      "score": 54,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "artesanatos-darleia-oliveira",
-      "nearestMatchScore": 55,
+      "nearestMatchScore": 54,
       "reasons": [
         "SAME_FAMILY"
       ],
@@ -1585,7 +1585,7 @@
         "COMPONENT_SIMILARITY": 38.5,
         "STYLE_SIMILARITY": 85.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 75,
+        "ASSET_PATTERN_SIMILARITY": 60,
         "IDENTITY_SIMILARITY": 7
       },
       "coverSignals": [
@@ -1600,7 +1600,7 @@
       "nearest": [
         {
           "slug": "artesanatos-darleia-oliveira",
-          "score": 55,
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
@@ -2105,13 +2105,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "artesanatos-darleia-oliveira",
+          "slug": "confeitaria-sabor-da-realeza",
           "score": 55,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 55,
+          "slug": "artesanatos-darleia-oliveira",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2221,7 +2221,7 @@
         "COMPONENT_SIMILARITY": 25,
         "STYLE_SIMILARITY": 39.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 25,
+        "ASSET_PATTERN_SIMILARITY": 22.2,
         "IDENTITY_SIMILARITY": 4.9
       },
       "coverSignals": [
@@ -2444,7 +2444,7 @@
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 75,
         "COPY_SIMILARITY": 3.2,
-        "ASSET_PATTERN_SIMILARITY": 5,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 7.3
       },
       "coverSignals": [

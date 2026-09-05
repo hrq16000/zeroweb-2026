@@ -285,6 +285,41 @@
         "COVER_NO_FOCAL_POINT"
       ],
       "notes": "Capa grafica autoral 16:10 (matriz de superficies). Sem fotografia inventada e sem PII."
+    },
+    "artesanatos-darleia-oliveira": {
+      "source": "public/images/artesanatos-darleia-oliveira/hero-og.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_NO_DEDICATED_ASSET"
+      ],
+      "notes": "Capa 16:10 recortada do material fotografico proprio (coadores + xicara). Sem telefone, e-mail, QR ou PII.",
+      "mode": "frame"
+    },
+    "refrigeracao-maresia": {
+      "source": "public/images/refrigeracao-maresia/hero-og.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_NO_DEDICATED_ASSET"
+      ],
+      "notes": "Capa 16:10 recortada do banner proprio do cliente (marca + produto). Sem telefone, e-mail, QR ou PII."
+    },
+    "thays-camilla": {
+      "source": "public/images/thays-camilla/hero-og.png",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [
+        "COVER_NO_DEDICATED_ASSET"
+      ],
+      "notes": "Capa 16:10 recortada do material fotografico proprio (caneca + azulejo personalizados). Sem telefone, e-mail, QR ou PII.",
+      "mode": "frame"
     }
   }
 }
