@@ -324,7 +324,7 @@
     "paraiso-do-hot-dog": {
       "source": "public/images/paraiso-do-hot-dog/capa.png",
       "focal": {
-        "x": 0.62,
+        "x": 0.44,
         "y": 0.5
       },
       "issues": [
@@ -346,16 +346,6 @@
       "source": "public/images/heloa-gas/hero.jpg",
       "focal": {
         "x": 0.5,
-        "y": 0.55
-      },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
-    },
-    "denise-gomes-psicologa": {
-      "source": "public/images/denise-gomes-psicologa/hero.png",
-      "focal": {
-        "x": 0.72,
         "y": 0.55
       },
       "issues": [
