@@ -707,7 +707,7 @@ const COUNTERS = [
   ["sharedFallback", "fallbacks compartilhados"],
   ["placeholderLogos", "logos placeholder"],
   ["missingLogos", "logos ausentes"],
-  ["missingCovers", "capas ausentes"],
+  ["missingCovers", "capas sem arquivo no catálogo (legado)"],
   ["sharedCovers", "capas compartilhadas"],
 ];
 
