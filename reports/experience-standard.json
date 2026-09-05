@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T03:14:38.465Z",
+  "generatedAt": "2026-09-05T03:15:09.436Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
@@ -8,7 +8,68 @@
   "signature": 5,
   "baseline": 30,
   "static": 19,
-  "errors": [],
+  "errors": [
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-marcenaria.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-marcenaria: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.refrigeracao-maresia: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.galileu-locacao-brinquedos: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.lj-cleaning.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.lj-cleaning: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.dlara-pizzaria.staggerPattern: \"radial\" fora de [none, linear, grid, diagonal]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.dlara-pizzaria: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.mirassol-conserta-celular.hoverBehavior: \"highlight\" fora de [none, lift, crop, underline, depth]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.mirassol-conserta-celular: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.guaratuba-oficina-nautica.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.guaratuba-oficina-nautica.hoverBehavior: \"highlight\" fora de [none, lift, crop, underline, depth]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.guaratuba-oficina-nautica: campo desconhecido \"wave\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.thays-camilla.sectionReveal: \"slide\" fora de [none, fade, up, mask, stagger]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.thays-camilla: campo desconhecido \"wave\""
+    }
+  ],
   "warnings": [
     {
       "code": "EXPERIENCE_STATIC",
