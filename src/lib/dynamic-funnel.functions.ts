@@ -456,6 +456,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           ...(data.orderContext ? { order_context: data.orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
+          ...(data.sessionId ? { session_id: data.sessionId } : {}),
+          ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
           ...(geo.city ? { city: geo.city } : {}),
           ...(geo.region ? { region: geo.region } : {}),
           ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
