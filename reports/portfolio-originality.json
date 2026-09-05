@@ -18,8 +18,8 @@
   "summary": {
     "total": 68,
     "original": 0,
-    "acceptable": 22,
-    "attention": 46,
+    "acceptable": 23,
+    "attention": 45,
     "highSimilarity": 0,
     "clone": 0,
     "sharedFallback": 0,
@@ -190,18 +190,18 @@
       "title": "Angel Mix Brechó",
       "segment": "comercios",
       "componentFile": "src/components/site/AngelMixBrechoPage.tsx",
-      "score": 45,
+      "score": 42,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "dlara-pizzaria",
-      "nearestMatchScore": 45,
+      "nearestMatch": "marmitaria-dom-diego",
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 31.7,
-        "COPY_SIMILARITY": 0,
+        "STRUCTURE_SIMILARITY": 18.5,
+        "SECTION_ORDER_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 30.4,
+        "COPY_SIMILARITY": 2,
         "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 0
+        "IDENTITY_SIMILARITY": 100
       },
       "reasons": [
         "SAME_FAMILY"
@@ -229,14 +229,14 @@
       "title": "Artesanatos Darléia Oliveira",
       "segment": "comercios",
       "componentFile": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
-      "score": 44,
+      "score": 42,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "thays-camilla",
-      "nearestMatchScore": 44,
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 21,
+        "STRUCTURE_SIMILARITY": 18,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 28.6,
         "STYLE_SIMILARITY": 41.9,
         "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -418,15 +418,15 @@
       "title": "Casa Nativa Bistrô",
       "segment": "servicos",
       "componentFile": "src/components/site/CasaNativaBistroPage.tsx",
-      "score": 40,
+      "score": 39,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "guaratuba-oficina-nautica",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 39,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22,
+        "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 20,
-        "STYLE_SIMILARITY": 29.9,
+        "COMPONENT_SIMILARITY": 16.7,
+        "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -652,14 +652,14 @@
       "title": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
       "segment": "restaurantes",
       "componentFile": "src/components/site/DlaraPizzariaPage.tsx",
-      "score": 45,
+      "score": 41,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 45,
+      "nearestMatchScore": 41,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.1,
+        "STRUCTURE_SIMILARITY": 12,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 31.7,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -680,10 +680,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "f80ab72ba71c5592",
-        "structureHash": "9724990940d8bb90",
+        "skeletonHash": "4d153613eb401586",
+        "structureHash": "072267ea070e1249",
         "sectionCount": 4,
-        "lines": 138
+        "lines": 141
       }
     },
     {
@@ -763,18 +763,18 @@
       "title": "Eisenfer Tubos e Aços",
       "segment": "construcao",
       "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
-      "score": 45,
+      "score": 42,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "jkl-marcenaria",
-      "nearestMatchScore": 45,
+      "nearestMatch": "lucas-arruma-maquina-lavar",
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 42.1,
-        "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 49.3,
-        "COPY_SIMILARITY": 0.7,
+        "STRUCTURE_SIMILARITY": 31.1,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 75,
+        "STYLE_SIMILARITY": 35.4,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 5
+        "IDENTITY_SIMILARITY": 4.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -996,18 +996,18 @@
       "title": "Galileu Locação de Brinquedos",
       "segment": "comercios",
       "componentFile": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
-      "score": 44,
+      "score": 48,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "eletro-solucoes-eficazes",
-      "nearestMatchScore": 44,
+      "nearestMatch": "lj-cleaning",
+      "nearestMatchScore": 48,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 39,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 28.6,
-        "STYLE_SIMILARITY": 44.9,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 0,
-        "IDENTITY_SIMILARITY": 4.8
+        "STRUCTURE_SIMILARITY": 50,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 44.4,
+        "STYLE_SIMILARITY": 68,
+        "COPY_SIMILARITY": 4.8,
+        "ASSET_PATTERN_SIMILARITY": 100,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1022,10 +1022,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "38eecd674112acdf",
-        "structureHash": "ea0bc730bb453820",
+        "skeletonHash": "36c569bc58365101",
+        "structureHash": "9a9c93a51ab76c45",
         "sectionCount": 7,
-        "lines": 142
+        "lines": 145
       }
     },
     {
@@ -1072,15 +1072,15 @@
       "title": "Oficina Náutica Guaratuba",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
-      "score": 40,
+      "score": 39,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "casa-nativa",
-      "nearestMatchScore": 40,
+      "nearestMatchScore": 39,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 22,
+        "STRUCTURE_SIMILARITY": 20,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 20,
-        "STYLE_SIMILARITY": 29.9,
+        "COMPONENT_SIMILARITY": 16.7,
+        "STYLE_SIMILARITY": 31.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -1098,10 +1098,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "936ce6a42b9052f9",
-        "structureHash": "41e5ecf6daa93bd5",
+        "skeletonHash": "2d07e75887885762",
+        "structureHash": "a23e4dfdc06daccb",
         "sectionCount": 6,
-        "lines": 169
+        "lines": 172
       }
     },
     {
@@ -1294,18 +1294,18 @@
       "title": "JKL Marcenaria",
       "segment": "servicos",
       "componentFile": "src/components/site/JklMarcenariaPage.tsx",
-      "score": 48,
+      "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "eletrovale-eletromecanica",
-      "nearestMatchScore": 48,
+      "nearestMatch": "acai-total-araucaria",
+      "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.4,
+        "STRUCTURE_SIMILARITY": 34.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 75,
-        "STYLE_SIMILARITY": 43.6,
-        "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 20,
-        "IDENTITY_SIMILARITY": 5.6
+        "COMPONENT_SIMILARITY": 37.5,
+        "STYLE_SIMILARITY": 37.2,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 16.7,
+        "IDENTITY_SIMILARITY": 4.8
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1323,10 +1323,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "a34978f0ed888191",
-        "structureHash": "ed9661fd4f34b3aa",
+        "skeletonHash": "dc304d4551295507",
+        "structureHash": "1376e81723138771",
         "sectionCount": 7,
-        "lines": 174
+        "lines": 189
       }
     },
     {
@@ -1373,14 +1373,14 @@
       "title": "L&J Cleaning",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/LjCleaningPage.tsx",
-      "score": 43,
+      "score": 48,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "galileu-locacao-brinquedos",
-      "nearestMatchScore": 43,
+      "nearestMatchScore": 48,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 39.7,
+        "STRUCTURE_SIMILARITY": 50,
         "SECTION_ORDER_SIMILARITY": 57.1,
-        "COMPONENT_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 68,
         "COPY_SIMILARITY": 4.8,
         "ASSET_PATTERN_SIMILARITY": 100,
@@ -1399,10 +1399,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "282f1e1630e37f2a",
-        "structureHash": "e1157f707fd34167",
+        "skeletonHash": "6bf037b560d79c5d",
+        "structureHash": "1de8214d44701889",
         "sectionCount": 7,
-        "lines": 134
+        "lines": 139
       }
     },
     {
@@ -1678,22 +1678,20 @@
       "title": "Conserta Mirassol",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ConsertaMirassolPage.tsx",
-      "score": 41,
-      "originalityStatus": "ATTENTION",
+      "score": 37,
+      "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "mirassol-delicias-caseiras",
-      "nearestMatchScore": 41,
+      "nearestMatchScore": 37,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 28.3,
+        "STRUCTURE_SIMILARITY": 19.6,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 44.4,
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 46,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_MISSING",
@@ -1706,10 +1704,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "73795d7aa17cd3da",
-        "structureHash": "93d16e67f5d2414c",
+        "skeletonHash": "29320cf063afed25",
+        "structureHash": "91061f35ed36e6d5",
         "sectionCount": 7,
-        "lines": 175
+        "lines": 176
       }
     },
     {
@@ -1872,15 +1870,15 @@
       "title": "Paraíso do Hot Dog",
       "segment": "servicos",
       "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
-      "score": 25,
+      "score": 24,
       "originalityStatus": "ACCEPTABLE",
       "nearestMatch": "refrigeracao-maresia",
-      "nearestMatchScore": 25,
+      "nearestMatchScore": 24,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 10.6,
+        "STRUCTURE_SIMILARITY": 8.1,
         "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 25,
-        "STYLE_SIMILARITY": 39.7,
+        "COMPONENT_SIMILARITY": 22.2,
+        "STYLE_SIMILARITY": 40.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 33.3,
         "IDENTITY_SIMILARITY": 4.9
@@ -1949,15 +1947,15 @@
       "componentFile": "src/components/site/PremiumEnvelopamentosPage.tsx",
       "score": 28,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "galileu-locacao-brinquedos",
+      "nearestMatch": "jc-revestimentos",
       "nearestMatchScore": 28,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 32.1,
-        "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 41.1,
-        "COPY_SIMILARITY": 1.2,
-        "ASSET_PATTERN_SIMILARITY": 25,
+        "STRUCTURE_SIMILARITY": 22.4,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 25,
+        "STYLE_SIMILARITY": 46.9,
+        "COPY_SIMILARITY": 0.7,
+        "ASSET_PATTERN_SIMILARITY": 28.6,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2056,15 +2054,15 @@
       "title": "Refrigeração Maresia",
       "segment": "servicos",
       "componentFile": "src/components/site/RefrigeracaoMaresiaPage.tsx",
-      "score": 53,
+      "score": 51,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 53,
+      "nearestMatchScore": 51,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 57.9,
+        "STRUCTURE_SIMILARITY": 56.1,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 30.8,
-        "STYLE_SIMILARITY": 83.5,
+        "COMPONENT_SIMILARITY": 26.7,
+        "STYLE_SIMILARITY": 82.5,
         "COPY_SIMILARITY": 0.6,
         "ASSET_PATTERN_SIMILARITY": 37.5,
         "IDENTITY_SIMILARITY": 4.9
@@ -2085,8 +2083,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "7cf88784c69df234",
-        "structureHash": "c92db59fce8246ba",
+        "skeletonHash": "7da04c8d6cac4137",
+        "structureHash": "f3e62521e563d074",
         "sectionCount": 6,
         "lines": 35
       }
@@ -2407,16 +2405,16 @@
       "componentFile": "src/components/site/ThaysCamillaPage.tsx",
       "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "artesanatos-darleia-oliveira",
+      "nearestMatch": "denise-gomes-psicologa",
       "nearestMatchScore": 44,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 21,
+        "STRUCTURE_SIMILARITY": 26.2,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 41.9,
-        "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 100,
-        "IDENTITY_SIMILARITY": 2.7
+        "STYLE_SIMILARITY": 42.9,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 60,
+        "IDENTITY_SIMILARITY": 8.8
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2433,10 +2431,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "36898519175d110b",
-        "structureHash": "10a9d5e872f897ef",
+        "skeletonHash": "d8aa387c3d3f28c9",
+        "structureHash": "f24e77e295bce83f",
         "sectionCount": 7,
-        "lines": 190
+        "lines": 193
       }
     },
     {
@@ -2520,15 +2518,15 @@
       "title": "Elétrica Bairro Brasil",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
-      "score": 38,
+      "score": 37,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "guaratuba-oficina-nautica",
-      "nearestMatchScore": 38,
+      "nearestMatch": "bh-barreiro-marmitas",
+      "nearestMatchScore": 37,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 17.9,
-        "SECTION_ORDER_SIMILARITY": 60,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 50.8,
+        "STRUCTURE_SIMILARITY": 17.5,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 20,
+        "STYLE_SIMILARITY": 48.5,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 0
@@ -2874,21 +2872,6 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "liz-moraes-nail-designer",
-      "b": "refrigeracao-maresia",
-      "score": 53,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 57.9,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 30.8,
-        "STYLE_SIMILARITY": 83.5,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 37.5,
-        "IDENTITY_SIMILARITY": 4.9
-      },
-      "reason": "SAME_FAMILY"
-    },
-    {
       "a": "diego-montador-moveis",
       "b": "mary-diarista",
       "score": 52,
@@ -2930,6 +2913,21 @@
         "COPY_SIMILARITY": 2.3,
         "ASSET_PATTERN_SIMILARITY": 100,
         "IDENTITY_SIMILARITY": 11.1
+      },
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "liz-moraes-nail-designer",
+      "b": "refrigeracao-maresia",
+      "score": 51,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 56.1,
+        "SECTION_ORDER_SIMILARITY": 83.3,
+        "COMPONENT_SIMILARITY": 26.7,
+        "STYLE_SIMILARITY": 82.5,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 37.5,
+        "IDENTITY_SIMILARITY": 4.9
       },
       "reason": "SAME_FAMILY"
     },
@@ -3088,11 +3086,6 @@
       ],
       "angel-mix-brecho": [
         {
-          "slug": "dlara-pizzaria",
-          "score": 45,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "marmitaria-dom-diego",
           "score": 42,
           "reason": "SAME_FAMILY"
@@ -3101,12 +3094,17 @@
           "slug": "toquinho-de-gente-brecho",
           "score": 42,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "dlara-pizzaria",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "artesanatos-darleia-oliveira": [
         {
           "slug": "thays-camilla",
-          "score": 44,
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3150,7 +3148,7 @@
         },
         {
           "slug": "dlara-pizzaria",
-          "score": 20,
+          "score": 19,
           "reason": "DISTINCT"
         }
       ],
@@ -3191,7 +3189,7 @@
       "casa-nativa": [
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 40,
+          "score": 39,
           "reason": "DISTINCT"
         },
         {
@@ -3293,17 +3291,17 @@
       "dlara-pizzaria": [
         {
           "slug": "angel-mix-brecho",
-          "score": 45,
+          "score": 41,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "clinica-integrada",
+          "slug": "galileu-locacao-brinquedos",
           "score": 31,
           "reason": "DISTINCT"
         },
         {
-          "slug": "toquinho-de-gente-brecho",
-          "score": 30,
+          "slug": "woodhouse-hamburgueres",
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -3343,14 +3341,14 @@
       ],
       "eisenfer-tubos-acos": [
         {
-          "slug": "jkl-marcenaria",
-          "score": 45,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "lucas-arruma-maquina-lavar",
           "score": 42,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "jkl-marcenaria",
+          "score": 39,
+          "reason": "DISTINCT"
         },
         {
           "slug": "no-brilho-higienizacao",
@@ -3371,7 +3369,7 @@
         },
         {
           "slug": "jkl-marcenaria",
-          "score": 47,
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3382,13 +3380,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "jkl-marcenaria",
-          "score": 48,
+          "slug": "acai-total-araucaria",
+          "score": 47,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 47,
+          "slug": "jkl-marcenaria",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3445,17 +3443,17 @@
       ],
       "galileu-locacao-brinquedos": [
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "lj-cleaning",
-          "score": 43,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "acai-total-araucaria",
+          "score": 43,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "eletro-solucoes-eficazes",
           "score": 42,
           "reason": "SAME_FAMILY"
         }
@@ -3468,7 +3466,7 @@
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 35,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3480,17 +3478,17 @@
       "guaratuba-oficina-nautica": [
         {
           "slug": "casa-nativa",
-          "score": 40,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "clinica-integrada",
           "score": 39,
           "reason": "DISTINCT"
         },
         {
+          "slug": "clinica-integrada",
+          "score": 37,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "uberlandia-eletrica-residencial",
-          "score": 38,
+          "score": 35,
           "reason": "DISTINCT"
         }
       ],
@@ -3553,7 +3551,7 @@
         },
         {
           "slug": "refrigeracao-maresia",
-          "score": 36,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3581,18 +3579,18 @@
       ],
       "jkl-marcenaria": [
         {
-          "slug": "eletrovale-eletromecanica",
-          "score": 48,
+          "slug": "acai-total-araucaria",
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "eletro-solucoes-eficazes",
-          "score": 47,
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 46,
+          "slug": "eletrovale-eletromecanica",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3616,16 +3614,16 @@
       "lj-cleaning": [
         {
           "slug": "galileu-locacao-brinquedos",
-          "score": 43,
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 33,
+          "score": 32,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mary-diarista",
+          "slug": "jkl-marcenaria",
           "score": 31,
           "reason": "DISTINCT"
         }
@@ -3655,7 +3653,7 @@
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 35,
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
@@ -3752,17 +3750,17 @@
       "mirassol-conserta-celular": [
         {
           "slug": "mirassol-delicias-caseiras",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "guaratuba-atelie-presentes",
-          "score": 35,
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
+          "slug": "guaratuba-atelie-presentes",
           "score": 34,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "guaratuba-oficina-nautica",
+          "score": 32,
           "reason": "DISTINCT"
         }
       ],
@@ -3774,12 +3772,12 @@
         },
         {
           "slug": "mirassol-conserta-celular",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "score": 37,
+          "reason": "DISTINCT"
         },
         {
           "slug": "guaratuba-oficina-nautica",
-          "score": 37,
+          "score": 34,
           "reason": "DISTINCT"
         }
       ],
@@ -3829,15 +3827,15 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "jkl-marcenaria",
-          "score": 38,
+          "slug": "acai-total-araucaria",
+          "score": 37,
           "reason": "DISTINCT"
         }
       ],
       "paraiso-do-hot-dog": [
         {
           "slug": "refrigeracao-maresia",
-          "score": 25,
+          "score": 24,
           "reason": "DISTINCT"
         },
         {
@@ -3870,11 +3868,6 @@
       ],
       "premium-envelopamentos": [
         {
-          "slug": "galileu-locacao-brinquedos",
-          "score": 28,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "jc-revestimentos",
           "score": 28,
           "reason": "DISTINCT"
@@ -3882,6 +3875,11 @@
         {
           "slug": "lolipa-arte-em-festas",
           "score": 27,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 24,
           "reason": "DISTINCT"
         }
       ],
@@ -3922,7 +3920,7 @@
       "refrigeracao-maresia": [
         {
           "slug": "liz-moraes-nail-designer",
-          "score": 53,
+          "score": 51,
           "reason": "SAME_FAMILY"
         },
         {
@@ -3931,8 +3929,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "assistencia-microondas-santos",
-          "score": 46,
+          "slug": "miro-tech",
+          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4074,18 +4072,18 @@
       ],
       "thays-camilla": [
         {
-          "slug": "artesanatos-darleia-oliveira",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 44,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "denise-gomes-psicologa",
           "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "sos-presentes-cosmeticos",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "artesanatos-darleia-oliveira",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4125,17 +4123,17 @@
       ],
       "uberlandia-eletrica-residencial": [
         {
-          "slug": "guaratuba-oficina-nautica",
-          "score": 38,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "bh-barreiro-marmitas",
           "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-conserta-celular",
+          "slug": "guaratuba-oficina-nautica",
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "miro-tech",
           "score": 34,
           "reason": "DISTINCT"
         }
@@ -4199,8 +4197,8 @@
     "current": {
       "total": 68,
       "original": 0,
-      "acceptable": 22,
-      "attention": 46,
+      "acceptable": 23,
+      "attention": 45,
       "highSimilarity": 0,
       "clone": 0,
       "sharedFallback": 0,
@@ -4296,6 +4294,12 @@
         "slug": "lucas-arruma-maquina-lavar",
         "before": "HIGH_SIMILARITY",
         "after": "ATTENTION"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "mirassol-conserta-celular",
+        "before": "ATTENTION",
+        "after": "ACCEPTABLE"
       },
       {
         "kind": "MODIFIED_PROJECT",
