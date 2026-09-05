@@ -307,6 +307,24 @@ export function BeautyBookingQuiz({
                     Ver minha mensagem pronta <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </button>
                 </div>
+              ) : step === 6 ? (
+                <div className="space-y-5">
+                  <div className="space-y-2">
+                    <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
+                    <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Solicitação registrada</h2>
+                    <p className="text-sm leading-relaxed text-gray-400">
+                      Seus dados foram registrados para {recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.
+                    </p>
+                  </div>
+                  {savedProtocol && (
+                    <p className="rounded-2xl border border-dashed border-white/20 bg-black/20 px-4 py-3 text-center text-sm text-gray-300">
+                      Protocolo <strong className="text-white">{savedProtocol}</strong>
+                    </p>
+                  )}
+                  <button type="button" onClick={() => setOpen(false)} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition " + primaryClass}>
+                    Fechar
+                  </button>
+                </div>
               ) : (
                 <div className="space-y-5">
                   <div className="space-y-2">
