@@ -315,8 +315,11 @@ export function compareFingerprints(a, b, { version = ORIGINALITY_METRIC_VERSION
 
   const pct = (v) => Math.round(v * 1000) / 10;
   return {
+    metricVersion: version,
     score: Math.round(score * 100),
     dimensions: Object.fromEntries(Object.entries(dims).map(([k, v]) => [k, pct(v)])),
+    assetReasons: assetCmp?.reasons ?? [],
+    sharedAssets: assetCmp?.sharedAssets ?? [],
   };
 }
 
