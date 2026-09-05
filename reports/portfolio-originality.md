@@ -1,7 +1,7 @@
 # Originalidade do portfólio
 
 Gerado por `bun run check:portfolio-originality --report`. Determinístico: mesmos
-arquivos produzem o mesmo resultado. Modo atual: **REPORT_ONLY**.
+arquivos produzem o mesmo resultado. Modo atual: **NEW_OR_MODIFIED**.
 
 ## Fórmula
 
@@ -145,7 +145,7 @@ Nenhum asset percebido compartilhado entre clientes.
 
 ## Regressão
 
-Veredito: **NO_BASELINE**
+Veredito: **PASS**
 
 Nenhuma regressão em relação à baseline.
 

@@ -5257,8 +5257,27 @@
     ]
   },
   "regression": {
-    "mode": "REPORT_ONLY",
-    "baseline": null,
+    "mode": "NEW_OR_MODIFIED",
+    "baseline": {
+      "total": 68,
+      "original": 0,
+      "acceptable": 26,
+      "attention": 42,
+      "highSimilarity": 0,
+      "clone": 0,
+      "sharedFallback": 0,
+      "clusters": 0,
+      "placeholderLogos": 0,
+      "missingLogos": 0,
+      "missingCovers": 24,
+      "coverValid": 34,
+      "coverPending": 34,
+      "coversAsSocialImage": 10,
+      "sharedCovers": 0,
+      "severeCrop": 18,
+      "invalidCrossClientAssets": 0,
+      "suspiciousSharedAssets": 0
+    },
     "current": {
       "total": 68,
       "original": 0,
@@ -5279,7 +5298,7 @@
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "NO_BASELINE",
+    "verdict": "PASS",
     "regressions": [],
     "improvements": []
   }
