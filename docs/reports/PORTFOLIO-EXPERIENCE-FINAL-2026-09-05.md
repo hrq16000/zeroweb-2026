@@ -128,19 +128,38 @@ existentes.
 | CRITICAL_SECURITY = 0 | PASS |
 | PII_REGRESSION = 0 | PASS |
 | REDUCED_MOTION_BLOCKER = 0 | PASS |
-| MOBILE_BLOCKER = 0 | FAIL em produção (1 página) · PASS no código atual |
+| MOBILE_BLOCKER = 0 | PASS em produção (deploy 2026-09-05) |
 | BUILD = PASS | PASS |
 
-## 9. Declaração
+## 9. Production Closure (2026-09-05)
 
-A frente de Experience Standard está **tecnicamente concluída no código**:
-68/68 auditados, STATIC = 0, 0 clone de motion, gates verdes.
+Publicação do estado auditado e validação em produção (`https://0web.com.br`).
 
-O **encerramento formal fica condicionado a duas ações objetivas**:
+| Item | Estado | Evidência |
+|---|---|---|
+| DEPLOY | PASS | deploy 2026-09-05, domínio `0web.com.br` servindo o build auditado |
+| PARAISO_MOBILE_OVERFLOW | FIXED | `/portfolio/paraiso-do-hot-dog` — overflow horizontal 0px em 390/768/1440 |
+| EISENFER_COVER | LIVE | `/images/eisenfer-tubos-acos/capa-card.jpg` HTTP 200; hero, logo, capa de catálogo e galeria migrados; `telhas.webp` (com telefone/site/endereço) fora de qualquer superfície pública |
+| PRODUCTION_SMOKE | PASS | 72 verificações (12 slugs × 390/768/1440 × motion normal e reduzido): 0 falhas, HTTP 200, 1 H1, 0 imagem quebrada, 0 erro de console, CTA visível, conteúdo visível com motion reduzido |
+| SECURITY | PASS | scan 2026-09-05T16:59Z — 0 finding crítico ativo; corrigida a política `dist target update` de `request_distributions` (adicionado `WITH CHECK` de posse do novo alvo); demais itens permanecem ignorados pelo usuário |
+| PRIVACY | PASS | privacy audit do build: 0 contato operacional/segredo em 454 arquivos publicados |
+| FUNNEL | PASS | 68 auditados · PASS 68 · WARNING 0 · FAIL 0 |
+| EXPERIENCE | PASS | 68/68 no padrão · STATIC 0 · MOTION_CLONES 0 |
 
-1. publicar o estado atual (corrige o overflow do Paraíso do Hot Dog e a capa
-   da Eisenfer em produção);
-2. rodada editorial curta para diferenciar os 6 grupos de afinidade e reduzir
-   as 34 capas pendentes.
+Pendências herdadas (fila editorial, não bloqueiam o encerramento): 34 capas
+`PENDING` por falta de material real seguro e 6 grupos de afinidade de motion.
 
-Nenhum dos dois exige nova onda de redesign.
+## 10. Declaração
+
+A modernização de Experience do `/portfolio` está **encerrada**: 68/68 dentro do
+padrão, estado auditado publicado e validado em produção, segurança, privacidade,
+funil, testes e build verdes.
+
+As duas divergências entre código e produção apontadas na auditoria anterior
+(overflow mobile do Paraíso do Hot Dog e capa da Eisenfer) estão resolvidas no
+site publicado.
+
+Trabalho futuro limita-se a evolução editorial contínua: novas capas quando
+houver material real do cliente e diferenciação gradual dos grupos de afinidade.
+Nenhuma nova onda de redesign é necessária.
+

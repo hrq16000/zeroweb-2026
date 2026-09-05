@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T15:56:25.233Z",
+  "generatedAt": "2026-09-05T16:47:07.216Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -25,8 +25,8 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 31,
-      "STANDARD": 37,
+      "PREMIUM": 30,
+      "STANDARD": 38,
       "NEEDS_UPGRADE": 0
     },
     "originality": {
@@ -37,7 +37,7 @@
     },
     "issues": {
       "P0": 0,
-      "P1": 44,
+      "P1": 45,
       "P2": 141,
       "P3": 48
     },
@@ -2725,6 +2725,107 @@
       "priority": 2
     },
     {
+      "slug": "eisenfer-tubos-acos",
+      "businessName": "Eisenfer Tubos e Aços",
+      "segment": "construcao",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 6,
+        "cover": 9,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 42,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "no-brilho-higienizacao",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o projeto e os materiais que precisa cotar.",
+      "funnelCta": "Solicitar cotação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/eisenfer-tubos-acos/capa-card.jpg",
+          "hash": "0dbf6d9d7521eabc858b946bb4cd942b451eb1d2",
+          "bytes": 147268,
+          "width": 1024,
+          "height": 640
+        },
+        "cover": {
+          "path": "/images/eisenfer-tubos-acos/capa-card.jpg",
+          "hash": "0dbf6d9d7521eabc858b946bb4cd942b451eb1d2",
+          "bytes": 147268,
+          "width": 1024,
+          "height": 640
+        },
+        "social": {
+          "path": "/images/eisenfer-tubos-acos/telhas-og.jpg",
+          "hash": "9c5137c67a37c4e4eab3505989b5d464fbf61b76",
+          "bytes": 143041,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Aço cortado na medidada sua obra.",
+        "heroHeight": 796,
+        "editorialChars": 2223,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_NOT_DEDICATED",
+          "severity": "P2",
+          "group": "logo",
+          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
+          "detail": "/images/eisenfer-tubos-acos/capa-card.jpg"
+        },
+        {
+          "code": "COVER_IS_LOGO",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa do catálogo é a própria logo",
+          "detail": "/images/eisenfer-tubos-acos/capa-card.jpg"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "42 vs no-brilho-higienizacao"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "fernanda-amaral-drywall",
       "businessName": "Fernanda & Amaral — Instalação de Drywall",
       "segment": "prestadores-de-servicos",
@@ -5113,100 +5214,6 @@
           "group": "content",
           "label": "Serviços pouco explicados",
           "detail": "1 menções"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "eisenfer-tubos-acos",
-      "businessName": "Eisenfer Tubos e Aços",
-      "segment": "construcao",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 6,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 42,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "no-brilho-higienizacao",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o projeto e os materiais que precisa cotar.",
-      "funnelCta": "Solicitar cotação",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/eisenfer-tubos-acos/telhas.webp",
-          "hash": "a3c1dbfbe568ba4cdafdf5aabdf4b730ddcf80b3",
-          "bytes": 265604,
-          "width": 1024,
-          "height": 1536
-        },
-        "cover": {
-          "path": "/images/eisenfer-tubos-acos/capa-card.jpg",
-          "hash": "0dbf6d9d7521eabc858b946bb4cd942b451eb1d2",
-          "bytes": 147268,
-          "width": 1024,
-          "height": 640
-        },
-        "social": {
-          "path": "/images/eisenfer-tubos-acos/telhas-og.jpg",
-          "hash": "9c5137c67a37c4e4eab3505989b5d464fbf61b76",
-          "bytes": 143041,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Aço cortado na medidada sua obra.",
-        "heroHeight": 796,
-        "editorialChars": 2223,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_NOT_DEDICATED",
-          "severity": "P2",
-          "group": "logo",
-          "label": "Logo é uma foto/asset genérico, não uma marca dedicada",
-          "detail": "/images/eisenfer-tubos-acos/telhas.webp"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs no-brilho-higienizacao"
         }
       ],
       "priority": 3

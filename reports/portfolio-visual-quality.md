@@ -1,6 +1,6 @@
 # Qualidade visual do /portfolio
 
-Gerado em 2026-09-05T15:56:25.233Z
+Gerado em 2026-09-05T16:47:07.216Z
 Runtime inspecionado em 2026-09-04T23:44:41.419Z
 
 Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
@@ -12,9 +12,9 @@ Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
 - PORTFOLIO REAL: **68**
 - VISUALMENTE INSPECIONADO: **68**
 - TECHNICAL: COMPLETE 68 · PARTIAL 0 · LEGACY 0
-- VISUAL: PREMIUM 31 · STANDARD 37 · NEEDS_UPGRADE 0
+- VISUAL: PREMIUM 30 · STANDARD 38 · NEEDS_UPGRADE 0
 - ORIGINALITY: PASS 26 · WARNING 42 · FAIL 0 · UNREVIEWED 0
-- ISSUES: P0 0 · P1 44 · P2 141 · P3 48
+- ISSUES: P0 0 · P1 45 · P2 141 · P3 48
 - Score médio: **87/100**
 
 ## Pesos
@@ -89,6 +89,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | emporio-lelecute | Empório LeleCute | servicos | COMPLETE | STANDARD | 84 | PASS (29) | COVER_SEVERE_CROP, HERO_NO_IMAGE, FEW_IMAGES | P2 |
 | lk-alvenaria | LK Alvenaria | servicos | COMPLETE | STANDARD | 85 | WARNING (51) | COVER_IS_LOGO, LOGO_NOT_DEDICATED, ORIGINALITY_WARNING | P2 |
 | ecommerce-on | Ecommerce On | agencias | COMPLETE | STANDARD | 86 | WARNING (54) | COVER_SEVERE_CROP, ORIGINALITY_WARNING | P2 |
+| eisenfer-tubos-acos | Eisenfer Tubos e Aços | construcao | COMPLETE | STANDARD | 86 | WARNING (42) | COVER_IS_LOGO, LOGO_NOT_DEDICATED, ORIGINALITY_WARNING | P2 |
 | fernanda-amaral-drywall | Fernanda & Amaral — Instalação de Drywall | prestadores-de-servicos | COMPLETE | STANDARD | 86 | WARNING (50) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P2 |
 | mirassol-conserta-celular | Conserta Mirassol | prestadores-de-servicos | COMPLETE | STANDARD | 86 | PASS (35) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, FEW_IMAGES | P2 |
 | ton-e-cor | Ton & Cor · Pintura e Pequenas Reformas | servicos | COMPLETE | STANDARD | 86 | PASS (34) | HERO_NO_CTA, COVER_REUSES_SOCIAL, HERO_NO_IMAGE | P2 |
@@ -112,7 +113,6 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | diego-montador-moveis | Diego Montador de Móveis | servicos | COMPLETE | PREMIUM | 88 | WARNING (59) | LOGO_NOT_DEDICATED, FEW_IMAGES, ORIGINALITY_WARNING | P3 |
 | brecho-sao-francisco | Brechó São Francisco | comercios | COMPLETE | PREMIUM | 90 | PASS (24) | LOGO_NOT_DEDICATED, FEW_IMAGES | P3 |
 | marmitaria-dom-diego | Marmitaria Dom Diego | restaurantes | COMPLETE | PREMIUM | 90 | PASS (32) | LOGO_NOT_DEDICATED, FEW_IMAGES | P3 |
-| eisenfer-tubos-acos | Eisenfer Tubos e Aços | construcao | COMPLETE | PREMIUM | 92 | WARNING (42) | LOGO_NOT_DEDICATED, ORIGINALITY_WARNING | P3 |
 | lucas-arruma-maquina-lavar | Lucas Arruma Máquina de Lavar | servicos | COMPLETE | PREMIUM | 92 | WARNING (44) | HERO_NO_IMAGE, ORIGINALITY_WARNING | P3 |
 | no-brilho-higienizacao | No Brilho Higienização | servicos | COMPLETE | PREMIUM | 92 | WARNING (42) | HERO_NO_IMAGE, ORIGINALITY_WARNING | P3 |
 | paulo-mestre-de-obras | Paulo Mestre de Obras | servicos | COMPLETE | PREMIUM | 92 | WARNING (55) | COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P3 |
@@ -141,7 +141,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | --- | --- | --- | --- |
 | COVER_NOT_DEDICATED | P1 | 12 | Sem capa dedicada no catálogo (card cai no fallback social/logo) |
 | COVER_SEVERE_CROP | P1 | 11 | Capa com proporção incompatível com o card (corte severo) |
-| COVER_IS_LOGO | P1 | 8 | Capa do catálogo é a própria logo |
+| COVER_IS_LOGO | P1 | 9 | Capa do catálogo é a própria logo |
 | COVER_LOW_RES | P1 | 6 | Capa com resolução insuficiente para o card |
 | SOCIAL_WRONG_RATIO | P1 | 3 | Imagem social fora de 1200x630 |
 | HERO_NO_CTA | P1 | 3 | Hero sem CTA visível |
@@ -187,13 +187,14 @@ Nenhum par acima do limiar de 35%.
 21. **emporio-lelecute** — prioridade 2 · score 84 · STANDARD · COVER_SEVERE_CROP
 22. **lk-alvenaria** — prioridade 2 · score 85 · STANDARD · COVER_IS_LOGO
 23. **ecommerce-on** — prioridade 2 · score 86 · STANDARD · COVER_SEVERE_CROP
-24. **fernanda-amaral-drywall** — prioridade 2 · score 86 · STANDARD · COVER_NOT_DEDICATED
-25. **mirassol-conserta-celular** — prioridade 2 · score 86 · STANDARD · COVER_NOT_DEDICATED
-26. **ton-e-cor** — prioridade 2 · score 86 · STANDARD · HERO_NO_CTA
-27. **confeitaria-chyrley** — prioridade 2 · score 87 · STANDARD · COVER_LOW_RES
-28. **renata-beauty** — prioridade 2 · score 88 · STANDARD · COVER_SEVERE_CROP
-29. **ag-electrical-services** — prioridade 2 · score 91 · STANDARD · COVER_LOW_RES
-30. **rm-fretes** — prioridade 2 · score 91 · STANDARD · COVER_LOW_RES
-31. **manu-pasteis** — prioridade 2 · score 93 · STANDARD · COVER_LOW_RES
-32. **paraiso-do-hot-dog** — prioridade 2 · score 94 · STANDARD · MOBILE_OVERFLOW
-33. **heloa-gas** — prioridade 2 · score 97 · STANDARD · SOCIAL_WRONG_RATIO
+24. **eisenfer-tubos-acos** — prioridade 2 · score 86 · STANDARD · COVER_IS_LOGO
+25. **fernanda-amaral-drywall** — prioridade 2 · score 86 · STANDARD · COVER_NOT_DEDICATED
+26. **mirassol-conserta-celular** — prioridade 2 · score 86 · STANDARD · COVER_NOT_DEDICATED
+27. **ton-e-cor** — prioridade 2 · score 86 · STANDARD · HERO_NO_CTA
+28. **confeitaria-chyrley** — prioridade 2 · score 87 · STANDARD · COVER_LOW_RES
+29. **renata-beauty** — prioridade 2 · score 88 · STANDARD · COVER_SEVERE_CROP
+30. **ag-electrical-services** — prioridade 2 · score 91 · STANDARD · COVER_LOW_RES
+31. **rm-fretes** — prioridade 2 · score 91 · STANDARD · COVER_LOW_RES
+32. **manu-pasteis** — prioridade 2 · score 93 · STANDARD · COVER_LOW_RES
+33. **paraiso-do-hot-dog** — prioridade 2 · score 94 · STANDARD · MOBILE_OVERFLOW
+34. **heloa-gas** — prioridade 2 · score 97 · STANDARD · SOCIAL_WRONG_RATIO
