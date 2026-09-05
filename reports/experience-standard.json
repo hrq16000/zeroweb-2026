@@ -1,0 +1,877 @@
+{
+  "generatedAt": "2026-09-05T02:25:48.583Z",
+  "totalPages": 67,
+  "premium": 4,
+  "baseline": 31,
+  "static": 32,
+  "errors": [],
+  "warnings": [
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/AngelMixBrechoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/AtelieEncantoDaBaiaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/BarreiroMarmitasPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/BetoPasteisPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/BrechoSaoFranciscoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/CasaNativaBistroPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ConfeitariaChyrleyPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ConsertaMirassolPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/DeliciasCaseirasMirassolPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/DlaraPizzariaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/GalileuLocacaoBrinquedosPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/JcRevestimentosPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/JklMarcenariaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/LjCleaningPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/LolipaArteEmFestasPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ManuPasteisPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/MarmitariaDomDiegoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/MiroTechPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/OficinaNauticaGuaratubaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/PremiumEnvelopamentosPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/RaphaelConstrucoesPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/RefrigeracaoMaresiaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ReparosDoLitoralPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ReuseHouseBrechoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/SaboresDaBaiaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/SosPresentesCosmeticosPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ThaysCamillaPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/TonECorPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/ToquinhoDeGenteBrechoPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/UberlandiaEletricaResidencialPage.tsx"
+    },
+    {
+      "code": "EXPERIENCE_STATIC",
+      "detail": "src/components/site/WoodhouseHamburgueresPage.tsx"
+    }
+  ],
+  "pages": [
+    {
+      "file": "src/components/site/AngelMixBrechoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/BarreiroMarmitasPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/BetoPasteisPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/BrechoSaoFranciscoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ConfeitariaSaborDaRealezaPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/DlaraPizzariaPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/LolipaArteEmFestasPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ManuPasteisPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/MarmitariaDomDiegoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/MiroTechPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ReuseHouseBrechoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ToquinhoDeGenteBrechoPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/WoodhouseHamburgueresPage.tsx",
+      "score": 0,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/JcRevestimentosPage.tsx",
+      "score": 1,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 1,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ReparosDoLitoralPage.tsx",
+      "score": 1,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 1,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/AtelieEncantoDaBaiaPage.tsx",
+      "score": 2,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "score": 2,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/TonECorPage.tsx",
+      "score": 2,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/UberlandiaEletricaResidencialPage.tsx",
+      "score": 2,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/CasaNativaBistroPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ConfeitariaChyrleyPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ConsertaMirassolPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/DeliciasCaseirasMirassolPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/GalileuLocacaoBrinquedosPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/JklMarcenariaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/LjCleaningPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/PremiumEnvelopamentosPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/RefrigeracaoMaresiaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/SaboresDaBaiaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/SosPresentesCosmeticosPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ThaysCamillaPage.tsx",
+      "score": 3,
+      "level": "STATIC",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/AcaiTotalAraucariaPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/AguiaSulSinalizacaoPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/AlmeidaTorresAdvocaciaPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ClinicaIntegradaSaudePage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/DiegoMontadorMoveisPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/EcommerceOnPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/EletrovaleEletromecanicaPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/HbkIluminacaoLedPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/MaryDiaristaPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ArtesanatosDarLeiaOliveiraPage.tsx",
+      "score": 5,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/EisenferTubosAcosPage.tsx",
+      "score": 5,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/VilaDaCapivaraPage.tsx",
+      "score": 5,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/AgElectricalServicesPage.tsx",
+      "score": 6,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 6,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/EletroSolucoesEficazesPage.tsx",
+      "score": 6,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 6,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/LkAlvenariaPage.tsx",
+      "score": 6,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 6,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/EspacoCihLuhPage.tsx",
+      "score": 7,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/LizMoraesNailDesignerPage.tsx",
+      "score": 7,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
+      "score": 7,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/SalaoDaMarciaPage.tsx",
+      "score": 7,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/StudioDeCiliosPage.tsx",
+      "score": 7,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/HeloaGasPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/HubPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 1,
+        "hover": 7,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/MpFestasEventosPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/ParaisoHotDogPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/RMFretesPage.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/EmporioLelecutePage.tsx",
+      "score": 9,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 9,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/LucasArrumaMaquinaLavarPage.tsx",
+      "score": 9,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 9,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/FernandaAmaralDrywallPage.tsx",
+      "score": 10,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/MaridoDeAluguelPage.tsx",
+      "score": 10,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/PauloMestreDeObrasPage.tsx",
+      "score": 10,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/AssistenciaMicroondasSantosPage.tsx",
+      "score": 11,
+      "level": "BASELINE",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 11,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/DeniseGomesPsicologaPage.tsx",
+      "score": 12,
+      "level": "PREMIUM",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 12,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/RjServicosDrywallPage.tsx",
+      "score": 12,
+      "level": "PREMIUM",
+      "signals": {
+        "primitives": 0,
+        "transitions": 1,
+        "hover": 11,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/SantosMontadorDeMoveisPage.tsx",
+      "score": 14,
+      "level": "PREMIUM",
+      "signals": {
+        "primitives": 0,
+        "transitions": 2,
+        "hover": 12,
+        "animate": 0
+      }
+    },
+    {
+      "file": "src/components/site/DyzPromoPage.tsx",
+      "score": 24,
+      "level": "PREMIUM",
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 24,
+        "animate": 0
+      }
+    }
+  ]
+}

@@ -63,3 +63,33 @@ reutilize identidade, navegação, conteúdo, contato, SEO, CTA ou linguagem da
 - Copiar design/layout de outro portfolio como padrão visual.
 - Inferir `clientKey` pelo nome visível da empresa.
 - Expor contato direto ou dados sensíveis no código público.
+
+---
+
+# Norma global de experiência (resumo)
+
+Completo: `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` ·
+`docs/PORTFOLIO_IMMERSIVE_EXPERIENCE_STANDARD.md` ·
+máquina: `src/config/experience-capabilities.json` e
+`src/config/portfolio-motion-profiles.json`.
+
+- Toda página cumpre engineering, brand, motion, interaction, content,
+  conversion, SEO, accessibility, performance, originality e privacy.
+  O padrão é a capacidade; a composição visual continua exclusiva.
+- Motion usa as primitives de `src/components/motion` (`MotionReveal`,
+  `MotionStagger`, `MotionTextReveal`, `MotionImageReveal`, `MotionCounter`).
+  Não espalhar animação avulsa por componentes.
+- Conteúdo sempre no DOM e visível sem JS. Animar só `transform`, `opacity`,
+  `clip-path`. `prefers-reduced-motion` remove deslocamento, nunca conteúdo.
+- Intensidade: `SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE`. Sem
+  `MAXIMUM_EVERYTHING`. Motion budget: máx. 3 signature moments, 1 parallax,
+  1 stagger por viewport, 1 loop.
+- Cada projeto declara motion profile + skill profile e registra decisões
+  (`whyThisMotion`, `signatureMoments`, notas de performance/a11y/originalidade).
+- Hierarquia técnica: CSS → API nativa → motion system → lib leve → lib pesada
+  só com justificativa. Skill não justifica dependência.
+- Capas: `PHOTO_DERIVED | BRAND_COMPOSITION | ABSTRACT_BRAND_ART`. Nunca
+  inventar fachada, equipe, produto ou serviço executado.
+- Gate: `bun run check:experience-standard` (report-only) e
+  `:enforce`. Bloqueia só falha objetiva; nunca por gosto.
+- Rollout em ondas. Não redesenhar projetos autorais já aprovados.
