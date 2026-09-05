@@ -224,6 +224,10 @@ export function BeautyBookingQuiz({
         answers,
         pageUrl: window.location.href,
         orderContext,
+        // Identificadores técnicos anônimos (mesmos de analytics_events):
+        // permitem ligar o lead à sessão/origem. Nenhum dado pessoal.
+        sessionId: getSessionId(),
+        visitorId: getVisitorId(),
       }});
       window.location.assign(result.redirectPath);
     } catch {
