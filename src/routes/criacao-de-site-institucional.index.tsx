@@ -42,7 +42,16 @@ const FAQ: { q: string; a: string }[] = [
     q: "Vocês cuidam do conteúdo e das imagens?",
     a: "Sim, com participação do cliente. Trabalhamos com informação real do negócio — não publicamos números, depoimentos ou selos sem comprovação.",
   },
+  {
+    q: "O site será responsivo para dispositivos móveis?",
+    a: "Sim. Cada página é construída e testada em celular, tablet e desktop, com performance e acessibilidade verificadas antes da publicação.",
+  },
+  {
+    q: "Vocês oferecem suporte após o lançamento?",
+    a: "Sim. Depois da publicação acompanhamos desempenho e conversões e priorizamos ajustes por impacto, dentro do plano de suporte combinado no escopo.",
+  },
 ];
+
 
 const STEPS = [
   { icon: Compass, title: "Diagnóstico", text: "Entendemos o negócio, o público e o objetivo do site. Você recebe o formato recomendado e a faixa de investimento." },
