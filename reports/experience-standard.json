@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-05T15:35:26.150Z",
+  "generatedAt": "2026-09-05T15:35:59.865Z",
   "totalCatalogProjects": 68,
   "totalPages": 68,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 45,
+  "premium": 47,
   "signature": 5,
-  "baseline": 18,
+  "baseline": 16,
   "static": 0,
   "errors": [],
   "warnings": [],
@@ -124,20 +124,6 @@
       }
     },
     {
-      "slug": "espaco-cih-luh",
-      "segment": "beleza",
-      "file": "src/components/site/EspacoCihLuhPage.tsx",
-      "score": 7,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 7,
-        "animate": 0
-      }
-    },
-    {
       "slug": "liz-moraes-nail-designer",
       "segment": "beleza",
       "file": "src/components/site/LizMoraesNailDesignerPage.tsx",
@@ -155,20 +141,6 @@
       "slug": "mp-festas-eventos",
       "segment": "servicos",
       "file": "src/components/site/MpFestasEventosPage.tsx",
-      "score": 8,
-      "level": "BASELINE",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 0,
-        "transitions": 0,
-        "hover": 8,
-        "animate": 0
-      }
-    },
-    {
-      "slug": "heloa-gas",
-      "segment": "comercios",
-      "file": "src/components/site/HeloaGasPage.tsx",
       "score": 8,
       "level": "BASELINE",
       "hasSignature": false,
@@ -432,6 +404,20 @@
       }
     },
     {
+      "slug": "espaco-cih-luh",
+      "segment": "beleza",
+      "file": "src/components/site/EspacoCihLuhPage.tsx",
+      "score": 41,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 1,
+        "hover": 8,
+        "animate": 0
+      }
+    },
+    {
       "slug": "guaratuba-oficina-nautica",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/OficinaNauticaGuaratubaPage.tsx",
@@ -638,6 +624,20 @@
         "primitives": 10,
         "transitions": 1,
         "hover": 8,
+        "animate": 0
+      }
+    },
+    {
+      "slug": "heloa-gas",
+      "segment": "comercios",
+      "file": "src/components/site/HeloaGasPage.tsx",
+      "score": 50,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 10,
         "animate": 0
       }
     },
