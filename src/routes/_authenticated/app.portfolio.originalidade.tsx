@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Search } from "lucide-react";
 import originality from "@/config/portfolio-originality.json";
+import coverStatus from "@/config/portfolio-cover-status.json";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/originalidade")({
   component: PortfolioOriginalityView,
