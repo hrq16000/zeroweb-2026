@@ -415,7 +415,7 @@ export function isPlaceholderLogo(file) {
 /* ------------------------------------------------------------------ */
 /* Análise completa do portfólio                                        */
 /* ------------------------------------------------------------------ */
-export function analyzePortfolio(root) {
+export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERSION } = {}) {
   const readJson = (p) => JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
   const catalog = readJson("src/config/portfolio-catalog.json");
   const clients = readJson("src/config/portfolio-clients.json");
@@ -598,7 +598,7 @@ export function analyzePortfolio(root) {
   const pairs = [];
   for (let i = 0; i < projects.length; i += 1) {
     for (let j = i + 1; j < projects.length; j += 1) {
-      const cmp = compareFingerprints(projects[i].fingerprint, projects[j].fingerprint);
+      const cmp = compareFingerprints(projects[i].fingerprint, projects[j].fingerprint, { version: metricVersion });
       const reason = pairReason(projects[i].fingerprint, projects[j].fingerprint, cmp);
       pairs.push({ a: projects[i].slug, b: projects[j].slug, ...cmp, reason });
     }
@@ -682,6 +682,7 @@ export function analyzePortfolio(root) {
 
   return {
     generator: "scripts/portfolio-originality.mjs",
+    metricVersion,
     weights: WEIGHTS,
     thresholds: THRESHOLDS,
     summary,
