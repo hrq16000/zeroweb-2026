@@ -308,6 +308,19 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
   },
 });
 
+/**
+ * Estado de configuração, não erro: o pedido já está salvo e o projeto ainda
+ * não tem WhatsApp oficial cadastrado. Nada de 5xx, nada de promessa de
+ * retorno que o sistema não garante, nada de cair no canal da 0WEB.
+ */
+function channelNotConfiguredPage(): Response {
+  return htmlErrorPage(
+    "Solicitação registrada",
+    "Seus dados foram registrados. O atendimento direto por WhatsApp deste site ainda não está disponível.",
+    200,
+  );
+}
+
 function htmlErrorPage(
   title: string,
   body: string,
