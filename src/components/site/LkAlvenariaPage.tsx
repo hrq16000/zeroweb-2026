@@ -32,7 +32,7 @@ export function LkAlvenariaPage() {
   // Material oficial disponível hoje é um panfleto com telefone visível e o
   // perfil (logo) — nenhum dos dois pode virar imagem de topo pública.
   // COVER_ASSET_PENDING: só exibimos foto quando o admin salvar uma segura.
-  const managedHero = useManagedValue("heroImageUrl");
+  const managedHero = useManagedValue("heroImageUrl", "");
   const heroImage =
     typeof managedHero === "string" && managedHero && !/\/(portfolio|perfil)\.(webp|png|jpg)$/i.test(managedHero)
       ? managedHero
