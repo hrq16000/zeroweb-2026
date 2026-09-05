@@ -139,6 +139,7 @@ export function BeautyBookingQuiz({
   const [redirecting, setRedirecting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [previewLocation, setPreviewLocation] = useState("");
+  const [savedProtocol, setSavedProtocol] = useState<string | null>(null);
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
   const dialogRef = useRef<HTMLDivElement>(null);
   const look = THEMES[theme];
