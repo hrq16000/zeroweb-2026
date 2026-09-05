@@ -70,7 +70,7 @@ export function ConsertaMirassolPage() {
             </a>
             <MotionReveal as="h1" variant="mask" intensity="SUBTLE" className="mt-8 block max-w-3xl text-4xl font-bold leading-[1.06] sm:text-6xl">
             <ManagedText field="heroHeadline" fallback={"Or\u00e7amento com laudo. S\u00f3 depois a chave de fenda encosta no aparelho."} />
-          </h1>
+          </MotionReveal>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#9aa6b2]">
             <ManagedText field="heroSubheadline" fallback={"Assist\u00eancia t\u00e9cnica de bairro no S\u00e3o Bernardo, em Mirassol \u2014 SP. Diagn\u00f3stico registrado, prazo declarado e garantia escrita em cada servi\u00e7o."} />
           </p>
