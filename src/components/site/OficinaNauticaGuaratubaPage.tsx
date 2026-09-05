@@ -3,6 +3,7 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionReveal } from "@/components/motion";
 
 const FICHA = [
   ["Motor de popa", "Revisão, carburação, impelidor e sistema de arrefecimento."],
@@ -71,9 +72,9 @@ export function OficinaNauticaGuaratubaPage() {
             </a>
             <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_.9fr] lg:items-end">
               <div>
-                <h1 className="text-4xl font-bold leading-[1.05] sm:text-6xl">
+                <MotionReveal as="h1" variant="mask" intensity="SUBTLE" className="block text-4xl font-bold leading-[1.05] sm:text-6xl">
             <ManagedText field="heroHeadline" fallback={"A embarca\u00e7\u00e3o sai da oficina pronta para a temporada inteira."} />
-          </h1>
+          </MotionReveal>
                 <p className="mt-6 max-w-xl text-base leading-8 text-[#9cbccb]">
             <ManagedText field="heroSubheadline" fallback={"Motor de popa, casco, el\u00e9trica e carreta em uma \u00fanica ficha de servi\u00e7o, com checklist assinado antes da devolu\u00e7\u00e3o."} />
           </p>
@@ -82,12 +83,14 @@ export function OficinaNauticaGuaratubaPage() {
                   <Orcar ghost>Agendar revisão de temporada</Orcar>
                 </div>
               </div>
+              <MotionReveal variant="right" intensity="SUBTLE" delay={180}>
               <svg viewBox="0 0 400 180" className="w-full text-[#0d3a51]" role="img" aria-label="Ilustração de casco de lancha em vista lateral">
                 <path d="M20 120 H360 L330 155 Q200 175 60 155 Z" fill="currentColor" />
                 <path d="M70 120 V78 Q190 62 300 78 V120 Z" fill="#0a2f42" />
                 <rect x="330" y="86" width="34" height="34" rx="6" fill="#ff8b2c" />
                 <line x1="20" y1="132" x2="360" y2="132" stroke="#7fd0e6" strokeWidth="2" strokeDasharray="8 8" />
               </svg>
+              </MotionReveal>
             </div>
           </div>
         </section>
@@ -96,11 +99,11 @@ export function OficinaNauticaGuaratubaPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="text-2xl font-bold sm:text-3xl">Ficha de serviços</h2>
             <dl className="mt-8 divide-y divide-[#0e3d54]">
-              {FICHA.map(([titulo, texto]) => (
-                <div key={titulo} className="grid gap-2 py-5 sm:grid-cols-[14rem_1fr] sm:gap-8">
+              {FICHA.map(([titulo, texto], i) => (
+                <MotionReveal key={titulo} variant="up" intensity="SUBTLE" delay={i * 70} className="grid gap-2 py-5 transition-colors duration-300 hover:bg-[#0a2f42] sm:grid-cols-[14rem_1fr] sm:gap-8">
                   <dt className="text-sm font-bold uppercase tracking-[.14em] text-[#7fd0e6]">{titulo}</dt>
                   <dd className="text-base leading-7 text-[#bcd7e3]">{texto}</dd>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
           </div>
@@ -116,11 +119,11 @@ export function OficinaNauticaGuaratubaPage() {
               </p>
             </div>
             <ul className="space-y-3">
-              {CHECKLIST.map((item) => (
-                <li key={item} className="flex items-start gap-3 border-l-2 border-[#ff8b2c] bg-[#082b3d] px-4 py-3 text-sm">
+              {CHECKLIST.map((item, i) => (
+                <MotionReveal key={item} as="li" variant="left" intensity="SUBTLE" delay={i * 60} className="flex items-start gap-3 border-l-2 border-[#ff8b2c] bg-[#082b3d] px-4 py-3 text-sm">
                   <span aria-hidden="true" className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#7fd0e6]" />
                   {item}
-                </li>
+                </MotionReveal>
               ))}
             </ul>
           </div>

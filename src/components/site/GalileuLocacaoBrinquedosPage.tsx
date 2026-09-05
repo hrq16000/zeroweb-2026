@@ -5,6 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal } from "@/components/motion";
 
 const attractions = [
   { n: "01", title: "Tobogã inflável", text: "A descida que vira o ponto alto da comemoração.", tone: "bg-[#e2231a] text-white", chip: "bg-white/20 text-white" },
@@ -42,9 +43,9 @@ export function GalileuLocacaoBrinquedosPage() {
         <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-20">
           <div>
             <p className="inline-flex rounded-full bg-[#f3ae00] px-4 py-1.5 text-xs font-black uppercase tracking-[.2em] text-[#09265b]">Locação de brinquedos · festas e eventos</p>
-            <h1 className="mt-6 max-w-2xl text-5xl font-black leading-[.95] tracking-tight sm:text-7xl">
+            <MotionReveal as="h1" variant="scale" intensity="EXPRESSIVE" className="mt-6 max-w-2xl text-5xl font-black leading-[.95] tracking-tight sm:text-7xl">
               <ManagedText field="heroHeadline" fallback={"Divers\u00e3o garantida para momentos inesquec\u00edveis."} />
-            </h1>
+            </MotionReveal>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#a9c6f5]">
               <ManagedText field="heroSubheadline" fallback={"Brinquedos coloridos para transformar festas em mem\u00f3rias alegres: tobog\u00e3 infl\u00e1vel, cama el\u00e1stica, piscina de bolinhas e muito mais."} />
             </p>
@@ -55,15 +56,16 @@ export function GalileuLocacaoBrinquedosPage() {
               <a href="#atracoes" className="inline-flex min-h-12 items-center rounded-full border border-white/30 px-6 py-3 font-bold text-white">Ver atrações</a>
             </div>
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-3 text-left">
-              {planning.map(({ icon: Icon, label, text }) => (
-                <div key={label} className="rounded-2xl border border-white/15 bg-white/5 p-4">
-                  <Icon className="h-5 w-5 text-[#63d5ff]" aria-hidden="true" />
+              {planning.map(({ icon: Icon, label, text }, i) => (
+                <MotionReveal key={label} variant="up" intensity="EXPRESSIVE" delay={200 + i * 110} className="group/plan rounded-2xl border border-white/15 bg-white/5 p-4">
+                  <Icon className="h-5 w-5 text-[#63d5ff] transition-transform duration-300 group-hover/plan:-translate-y-1" aria-hidden="true" />
                   <dt className="mt-3 text-sm font-black uppercase tracking-widest text-[#f3ae00]">{label}</dt>
                   <dd className="mt-1 text-sm leading-6 text-[#a9c6f5]">{text}</dd>
-                </div>
+                </MotionReveal>
               ))}
             </dl>
           </div>
+          <MotionImageReveal intensity="EXPRESSIVE" direction="left" className="rounded-[2rem]">
           <PortfolioImage
             src="/images/galileu-locacao-brinquedos/cena.png"
             alt="Cartela de atrações Galileu: tobogã inflável, cama elástica, piscina de bolinhas e kit personalizado"
@@ -73,6 +75,7 @@ export function GalileuLocacaoBrinquedosPage() {
             className="w-full rounded-[2rem] border border-white/10 shadow-2xl shadow-black/30"
             managedField="heroImageUrl"
           />
+          </MotionImageReveal>
         </section>
 
         <section id="atracoes" className="bg-[#f4f8ff] px-5 py-20 text-[#09265b] lg:px-8">
@@ -80,12 +83,12 @@ export function GalileuLocacaoBrinquedosPage() {
             <p className="text-sm font-black uppercase tracking-[.2em] text-[#0757c9]">Cartela de atrações</p>
             <h2 className="mt-3 max-w-2xl text-4xl font-black">Cada brinquedo ocupa um espaço da festa.</h2>
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {attractions.map(({ n, title, text, tone, chip }) => (
-                <article key={title} className={`rounded-[1.75rem] p-7 ${tone}`}>
+              {attractions.map(({ n, title, text, tone, chip }, i) => (
+                <MotionReveal key={title} as="article" variant="up" intensity="EXPRESSIVE" delay={i * 110} className={`rounded-[1.75rem] p-7 transition-transform duration-300 hover:-translate-y-1.5 hover:rotate-[-1deg] ${tone}`}>
                   <span className={`inline-flex rounded-full px-3 py-1 text-xs font-black tracking-widest ${chip}`}>{n}</span>
                   <h3 className="mt-6 text-3xl font-black leading-tight">{title}</h3>
                   <p className="mt-3 text-base leading-7 opacity-85">{text}</p>
-                </article>
+                </MotionReveal>
               ))}
             </div>
           </div>

@@ -5,6 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionCounter, MotionImageReveal, MotionReveal } from "@/components/motion";
 
 const surfaces = [
   { item: "Sofá", detail: "Tecido e couro, dos assentos às laterais.", group: "Residencial" },
@@ -40,9 +41,9 @@ export function LjCleaningPage() {
           <p className="text-xs font-bold uppercase tracking-[.28em] text-[#f2621f]">Higienização residencial e automotiva</p>
           <div className="mt-6 grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
             <div>
-              <h1 className="max-w-2xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
+              <MotionReveal as="h1" variant="mask" intensity="SUBTLE" className="max-w-2xl text-4xl font-black leading-[1.02] tracking-tight sm:text-6xl">
                 <ManagedText field="heroHeadline" fallback={"Limpamos, higienizamos e cuidamos do seu conforto."} />
-              </h1>
+              </MotionReveal>
               <p className="mt-6 max-w-xl text-lg leading-8 text-[#5b7899]">
                 <ManagedText field="heroSubheadline" fallback={"Higieniza\u00e7\u00e3o de sof\u00e1s, cadeiras, colch\u00f5es, tapetes, carpetes, puffs e interiores automotivos, com atendimento sob medida."} />
               </p>
@@ -53,6 +54,7 @@ export function LjCleaningPage() {
                 <a href="#superficies" className="inline-flex min-h-12 items-center rounded-full border border-[#9dbbd8] px-6 py-3 font-semibold text-[#0a2d5c]">Ver o que higienizamos</a>
               </div>
             </div>
+            <MotionImageReveal intensity="SUBTLE" direction="left" className="rounded-2xl">
             <PortfolioImage
               src="/images/lj-cleaning/cena.png"
               alt="Matriz de superfícies higienizadas pela L&J Cleaning: sofá, colchão, cadeira, tapete, puff e interior automotivo"
@@ -62,6 +64,7 @@ export function LjCleaningPage() {
               className="w-full rounded-2xl border border-[#d7e3f0]"
               managedField="heroImageUrl"
             />
+            </MotionImageReveal>
           </div>
         </section>
 
@@ -78,12 +81,12 @@ export function LjCleaningPage() {
               </div>
             </div>
             <ul className="mt-10 divide-y divide-[#e2eaf2] border-y border-[#e2eaf2]">
-              {surfaces.map(({ item, detail, group }) => (
-                <li key={item} className="grid gap-2 py-6 sm:grid-cols-[minmax(0,14rem)_1fr_auto] sm:items-baseline sm:gap-6">
+              {surfaces.map(({ item, detail, group }, i) => (
+                <MotionReveal key={item} as="li" variant="right" intensity="SUBTLE" delay={i * 60} className="grid gap-2 py-6 sm:grid-cols-[minmax(0,14rem)_1fr_auto] sm:items-baseline sm:gap-6">
                   <span className="text-xl font-black">{item}</span>
                   <span className="leading-7 text-[#5b7899]">{detail}</span>
                   <span className="justify-self-start rounded-full bg-[#eef4fa] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0a2d5c] sm:justify-self-end">{group}</span>
-                </li>
+                </MotionReveal>
               ))}
             </ul>
           </div>
@@ -95,8 +98,10 @@ export function LjCleaningPage() {
             <h2 className="mt-3 text-3xl font-black sm:text-4xl">Um pedido claro rende um orçamento certo.</h2>
             <ol className="mt-10 grid gap-4 md:grid-cols-3">
               {[["Descreva o item", "Informe qual superfície precisa de higienização e o tamanho dela."], ["Receba orientação", "A equipe organiza o atendimento conforme a sua necessidade."], ["Combine o serviço", "Defina os próximos passos pelo canal de atendimento."]].map(([title, text], index) => (
-                <li key={title} className="rounded-2xl border border-[#d7e3f0] bg-white p-6">
-                  <span className="text-sm font-black uppercase tracking-widest text-[#f2621f]">Passo {index + 1}</span>
+                <li key={title} className="rounded-2xl border border-[#d7e3f0] bg-white p-6 transition-shadow duration-300 hover:shadow-[0_12px_30px_-18px_rgba(10,45,92,.6)]">
+                  <span className="text-sm font-black uppercase tracking-widest text-[#f2621f]">
+                    Passo <MotionCounter value={index + 1} />
+                  </span>
                   <h3 className="mt-4 text-xl font-black">{title}</h3>
                   <p className="mt-2 leading-7 text-[#5b7899]">{text}</p>
                 </li>

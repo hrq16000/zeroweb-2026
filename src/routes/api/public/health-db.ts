@@ -46,14 +46,23 @@ export const Route = createFileRoute('/api/public/health-db')({
         const missing = rows.filter((r) => !r.present).map((r) => r.tbl);
         const ok = missing.length === 0;
 
+        // Sem o segredo de manutenção, o health-check não enumera nomes de
+        // tabelas internas: devolve apenas o estado agregado.
         return Response.json(
-          {
-            ok,
-            checked_at: new Date().toISOString(),
-            required: REQUIRED_TABLES,
-            missing,
-            reloaded: reload,
-          },
+          reload
+            ? {
+                ok,
+                checked_at: new Date().toISOString(),
+                required: REQUIRED_TABLES,
+                missing,
+                reloaded: true,
+              }
+            : {
+                ok,
+                checked_at: new Date().toISOString(),
+                checked: rows.length,
+                missing: missing.length,
+              },
           { status: ok ? 200 : 503, headers: { 'cache-control': 'no-store' } },
         );
       },

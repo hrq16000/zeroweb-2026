@@ -4,6 +4,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import { MotionImageReveal, MotionReveal } from "@/components/motion";
 
 /**
  * Site exclusivo de D’Lara Pizzaria, Esfiharia e Hamburgueria (/portfolio/dlara-pizzaria).
@@ -54,6 +55,7 @@ export function DlaraPizzariaPage() {
 
           <div className="relative mt-9 w-full max-w-md">
             <div className="absolute inset-0 -z-0 rounded-full bg-[var(--dl-ember)]/20 blur-2xl" aria-hidden />
+            <MotionImageReveal intensity="BALANCED" direction="up" className="rounded-full">
             <PortfolioImage
               src="/images/dlara-pizzaria/capa.png"
               alt="D’Lara Pizzaria, Esfiharia e Hamburgueria"
@@ -63,14 +65,15 @@ export function DlaraPizzariaPage() {
               className="relative aspect-square w-full rounded-full border-[6px] border-[var(--dl-ember)]/70 object-cover"
               managedField="heroImageUrl"
             />
+            </MotionImageReveal>
           </div>
 
-          <h1 className="mt-10 font-display text-[2.1rem] font-black leading-[1.02] tracking-tight md:text-[3.6rem]">
+          <MotionReveal as="h1" variant="scale" intensity="BALANCED" className="mt-10 font-display text-[2.1rem] font-black leading-[1.02] tracking-tight md:text-[3.6rem]">
             <ManagedText
               field="heroHeadline"
               fallback={"Pizzas, esfihas e lanches para pedir sem complica\u00e7\u00e3o."}
             />
-          </h1>
+          </MotionReveal>
           <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--dl-light)]/70 md:text-lg">
             <ManagedText
               field="heroSubheadline"
@@ -99,12 +102,12 @@ export function DlaraPizzariaPage() {
             As três cozinhas da casa
           </h2>
           <div className="mx-auto grid max-w-5xl divide-y divide-[var(--dl-ember)]/20 px-5 md:grid-cols-3 md:divide-x md:divide-y-0">
-            {frentes.map(({ icon: Icon, nome, texto }) => (
-              <div key={nome} className="px-0 py-9 text-center md:px-8">
-                <Icon className="mx-auto h-7 w-7 text-[var(--dl-basil)]" aria-hidden />
+            {frentes.map(({ icon: Icon, nome, texto }, i) => (
+              <MotionReveal key={nome} variant="up" intensity="BALANCED" delay={i * 120} className="group/frente px-0 py-9 text-center md:px-8">
+                <Icon className="mx-auto h-7 w-7 text-[var(--dl-basil)] transition-transform duration-500 group-hover/frente:rotate-12" aria-hidden />
                 <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-[0.2em]">{nome}</h3>
                 <p className="mx-auto mt-3 max-w-[30ch] text-sm leading-relaxed text-[var(--dl-light)]/65">{texto}</p>
-              </div>
+              </MotionReveal>
             ))}
           </div>
         </section>
