@@ -361,8 +361,8 @@
       "subtitle": "Diárias, pós-obra e organização",
       "image": "/images/bruna-diarista/hero.png",
       "icon": "/images/bruna-diarista/hero.png",
-      "socialImage": "/images/bruna-diarista/hero.png",
-      "socialVersion": "bruna-20260906",
+      "socialImage": "/images/bruna-diarista/hero-og.jpg",
+      "socialVersion": "57a87dcb",
       "componentFile": "src/components/site/BrunaDiaristaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/bruna-diarista",
@@ -371,14 +371,13 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/bruna-diarista/hero-og.jpg",
         "/images/bruna-diarista/hero.png"
       ],
       "shareCopy": "🧹 A Bruna Diarista ganhou uma vitrine nova para facilitar sua próxima diária!\n\nDiárias de 4, 6 ou 8 horas, pós-obra e organização de ambientes em Curitiba e Região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/bruna-diarista\n\n📲 Consulte horários e monte seu atendimento.\n\n#BrunaDiarista #LimpezaResidencial #PersonalOrganizer #Curitiba #0WEB",
       "published": true,
-      "status": "PARTIAL",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING"
-      ],
+      "status": "COMPLETE",
+      "issues": [],
       "blocking": []
     },
     {
@@ -1453,8 +1452,8 @@
       "subtitle": "Salgados, doces e copo da felicidade",
       "image": "/images/mimo-salgados-doces/hero-food.png",
       "icon": "/images/mimo-salgados-doces/logo.png",
-      "socialImage": "/images/mimo-salgados-doces/hero-food.png",
-      "socialVersion": "mimo-20260906",
+      "socialImage": "/images/mimo-salgados-doces/hero-food-og.jpg",
+      "socialVersion": "2cb68046",
       "componentFile": "src/components/site/MimoSalgadosDocesPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/mimo-salgados-doces",
@@ -1463,6 +1462,7 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/mimo-salgados-doces/hero-food-og.jpg",
         "/images/mimo-salgados-doces/hero-food.png",
         "/images/mimo-salgados-doces/logo.png",
         "/images/mimo-salgados-doces/menu-corrected.png"
@@ -1711,8 +1711,8 @@
       "subtitle": "Limpeza profissional para empresas e obras",
       "image": "/images/popys-conservacao-limpeza/hero-cleaning.png",
       "icon": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialVersion": "popys-20260906",
+      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
+      "socialVersion": "37ea4b42",
       "componentFile": "src/components/site/PopysConservacaoLimpezaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/popys-conservacao-limpeza",
@@ -1721,14 +1721,13 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
         "/images/popys-conservacao-limpeza/hero-cleaning.png"
       ],
       "shareCopy": "✨ A POPYS Conservação e Limpeza ganhou uma presença digital nova!\n\nLimpeza e conservação para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/popys-conservacao-limpeza\n\n📲 Solicite um orçamento personalizado com a equipe.\n\n#Popys #Conservacao #LimpezaProfissional #PosObra #Curitiba #0WEB",
       "published": true,
-      "status": "PARTIAL",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING"
-      ],
+      "status": "COMPLETE",
+      "issues": [],
       "blocking": []
     },
     {
