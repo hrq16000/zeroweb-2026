@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T23:44:41.419Z",
+  "generatedAt": "2026-09-06T05:21:34.253Z",
   "base": "http://localhost:8080",
   "viewports": [
     {
@@ -7964,6 +7964,137 @@
             {
               "color": "rgb(255, 255, 255)",
               "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "sscons": {
+      "slug": "sscons",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 13,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/sscons/logo.png",
+            "/images/sscons/hero-768.webp",
+            "/images/sscons/projeto-01.webp",
+            "/images/sscons/projeto-02.webp",
+            "/images/sscons/projeto-03.webp",
+            "/images/sscons/projeto-04.webp",
+            "/images/sscons/projeto-05.webp",
+            "/images/sscons/projeto-06.webp",
+            "/images/sscons/sobre.webp",
+            "/images/sscons/social.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Construindosonhoscom excelência em Curitiba.",
+          "h2Count": 7,
+          "sections": 9,
+          "smallTargets": 1,
+          "hero": {
+            "height": 772,
+            "backgroundImage": false,
+            "heading": "Construindosonhoscom excelência em Curitiba.",
+            "headingSize": 36,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3750,
+          "text": "CARREGANDO Copiar divulgação S&S Construções ✦ Especialistas em Construção Civil Construindosonhoscom excelência em Curitiba. Da fundação ao acabamento, seu projeto em boas mãos. Pedir orçamento agora Conheça a S&S Obra do planejamento à entrega Curitiba e Região Metropolitana Proposta com escopo definido NOSSOS SERVIÇOS Qualidade que os seus clientes vão sentir. Carpintaria Soluções em madeira que unem beleza e funcionalidade ao seu espaço. Orçar carpintaria ✦ Obras Realizamos sua obra do planejamento à entrega, com eficiência e qualidade. Orçar obras Alvenaria Estruturas sólidas e acabamentos impecáveis para sua construção. Orçar alvenaria Pintura Cores e texturas que renovam ambientes e valorizam seu imóvel. Orçar pintura ✦ Reforma Transformamos seu ambiente com soluções inteligentes e personalizadas. Orçar reforma Azulejo Instalação e assentamento de azulejos com precisão e excelente acabamento. Orçar azulejo PORTFÓLIO Projetos que nos orgulham. Referências visuais por tipo de serviço. Toque em uma imagem para ampliar e navegar pela galeria. OBRA COMPLETA Residência Moderna REFORMA Cozinha Gourmet OBRA COMPLETA Edifício Comercial REFORMA Banheiro de Luxo PINTURA Sala de Estar ALVENARIA Área Externa QUEM SOMOS Construindo o futuro com base sólida. Na S&S Construções, transformamos ideias em realidade com dedicação e profissionalismo. Nosso compromisso é entregar projetos de alta qualidade e durabilidade, superando suas expectativas. Compromisso com a entrega Planejamento, execução e acabamento acompanhados de perto, do início ao fim da obra. Precisão em cada etapa Medidas, prumo e alinhamento conferidos antes de avançar para o próximo serviço. Do bruto ao acabamento Carpintaria, alvenaria, pintura e azulejo em um só time, sem retrabalho entre equipes. Fale com a nossa equipe CURITIBA · PR Obras, reformas e acabamentos COMO TRABALHAMOS Do primeiro contato à entrega da obra. 01 Conversa inicial Você descreve o serviço, o tipo de obra e o prazo desejado. 02 Visita e medição Avaliamos o local em Curitiba e região para dimensionar o trabalho. 03 Proposta clara Escopo, etapas e materiais definidos antes de começar. 04 Execução e entrega Obra conduzida com acompanhamento até o acabamento final. CONTATO Fale com a gente agora. Atendimento Pelo formulário desta página. Sua solicitação chega direto à equipe da S&S. Horário Envie o pedido de orçamento a qualquer hora; a equipe retorna assim que possível. Endereço Curitiba, PR — atendemos a Região Metropolitana. Pronto para começar o seu projeto? Responda a quatro perguntas rápidas e a equipe da S&S retorna com os próximos passos para o seu orçamento. Solicitar orçamento SOBRE O PROJETO Da fundação ao acabamento, a obra começa com um bom planejamento. Carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, em Curitiba e Região Metropolitana. Atendimento em Curitiba — PR. Como começar Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento. construcao civil obras reformas alvenaria Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de S&S Construções. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS S&S Construções SERVICOS Construcao Civil · Obras · Reformas · Alvenaria Curitiba — PR 0web.com.br/portfolio/sscons Ilustração do cartão de visitas de S&S Construções PANFLETO DIGITAL S&S CONSTRUÇÕES Conheça S&S Construções. Construcao Civil · Obras · Reformas · Alvenaria Ver a presença digital Ilustração do panfleto digital de S&S Construções © 2026 · S&S Construções Site desenvolvido por 0WEB Contato",
+          "docHeight": 9614,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 10
+            },
+            {
+              "color": "rgb(26, 29, 35)",
+              "n": 9
+            },
+            {
+              "color": "rgb(232, 180, 48)",
+              "n": 7
+            },
+            {
+              "color": "oklab(0.796387 0.0120488 0.149504 / 0.12)",
+              "n": 7
+            },
+            {
+              "color": "rgb(240, 238, 234)",
+              "n": 7
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+              "n": 6
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 13,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/sscons/logo.png",
+            "/images/sscons/hero-1920.webp",
+            "/images/sscons/projeto-01.webp",
+            "/images/sscons/projeto-02.webp",
+            "/images/sscons/projeto-03.webp",
+            "/images/sscons/projeto-04.webp",
+            "/images/sscons/projeto-05.webp",
+            "/images/sscons/projeto-06.webp",
+            "/images/sscons/sobre.webp",
+            "/images/sscons/social.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Construindosonhoscom excelência em Curitiba.",
+          "h2Count": 7,
+          "sections": 9,
+          "smallTargets": 1,
+          "hero": {
+            "height": 928,
+            "backgroundImage": false,
+            "heading": "Construindosonhoscom excelência em Curitiba.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3831,
+          "text": "CARREGANDO Copiar divulgação S&S Construções Início Serviços Projetos Quem Somos Contato Solicitar orçamento ✦ Especialistas em Construção Civil Construindosonhoscom excelência em Curitiba. Da fundação ao acabamento, seu projeto em boas mãos. Pedir orçamento agora Conheça a S&S Obra do planejamento à entrega Curitiba e Região Metropolitana Proposta com escopo definido ROLE NOSSOS SERVIÇOS Qualidade que os seus clientes vão sentir. Carpintaria Soluções em madeira que unem beleza e funcionalidade ao seu espaço. Orçar carpintaria ✦ Obras Realizamos sua obra do planejamento à entrega, com eficiência e qualidade. Orçar obras Alvenaria Estruturas sólidas e acabamentos impecáveis para sua construção. Orçar alvenaria Pintura Cores e texturas que renovam ambientes e valorizam seu imóvel. Orçar pintura ✦ Reforma Transformamos seu ambiente com soluções inteligentes e personalizadas. Orçar reforma Azulejo Instalação e assentamento de azulejos com precisão e excelente acabamento. Orçar azulejo PORTFÓLIO Projetos que nos orgulham. Referências visuais por tipo de serviço. Toque em uma imagem para ampliar e navegar pela galeria. OBRA COMPLETA Residência Moderna REFORMA Cozinha Gourmet OBRA COMPLETA Edifício Comercial REFORMA Banheiro de Luxo PINTURA Sala de Estar ALVENARIA Área Externa QUEM SOMOS Construindo o futuro com base sólida. Na S&S Construções, transformamos ideias em realidade com dedicação e profissionalismo. Nosso compromisso é entregar projetos de alta qualidade e durabilidade, superando suas expectativas. Compromisso com a entrega Planejamento, execução e acabamento acompanhados de perto, do início ao fim da obra. Precisão em cada etapa Medidas, prumo e alinhamento conferidos antes de avançar para o próximo serviço. Do bruto ao acabamento Carpintaria, alvenaria, pintura e azulejo em um só time, sem retrabalho entre equipes. Fale com a nossa equipe CURITIBA · PR Obras, reformas e acabamentos COMO TRABALHAMOS Do primeiro contato à entrega da obra. 01 Conversa inicial Você descreve o serviço, o tipo de obra e o prazo desejado. 02 Visita e medição Avaliamos o local em Curitiba e região para dimensionar o trabalho. 03 Proposta clara Escopo, etapas e materiais definidos antes de começar. 04 Execução e entrega Obra conduzida com acompanhamento até o acabamento final. CONTATO Fale com a gente agora. Atendimento Pelo formulário desta página. Sua solicitação chega direto à equipe da S&S. Horário Envie o pedido de orçamento a qualquer hora; a equipe retorna assim que possível. Endereço Curitiba, PR — atendemos a Região Metropolitana. Pronto para começar o seu projeto? Responda a quatro perguntas rápidas e a equipe da S&S retorna com os próximos passos para o seu orçamento. Solicitar orçamento SOBRE O PROJETO Da fundação ao acabamento, a obra começa com um bom planejamento. Carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, em Curitiba e Região Metropolitana. Atendimento em Curitiba — PR. Como começar Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento. construcao civil obras reformas alvenaria Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de S&S Construções. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS S&S Construções SERVICOS Construcao Civil · Obras · Reformas · Alvenaria Curitiba — PR 0web.com.br/portfolio/sscons Ilustração do cartão de visitas de S&S Construções PANFLETO DIGITAL S&S CONSTRUÇÕES Conheça S&S Construções. Construcao Civil · Obras · Reformas · Alvenaria Ver a presença digital Ilustração do panfleto digital de S&S Construções © 2026 · S&S Construções Site desenvolvido por 0WEB Solicitar orçamento",
+          "docHeight": 6690,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 10
+            },
+            {
+              "color": "rgb(26, 29, 35)",
+              "n": 9
+            },
+            {
+              "color": "rgb(232, 180, 48)",
+              "n": 7
+            },
+            {
+              "color": "oklab(0.796387 0.0120488 0.149504 / 0.12)",
+              "n": 7
+            },
+            {
+              "color": "rgb(240, 238, 234)",
+              "n": 7
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+              "n": 6
             }
           ]
         }
