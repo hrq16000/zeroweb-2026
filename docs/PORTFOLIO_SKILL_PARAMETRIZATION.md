@@ -1,72 +1,102 @@
 # Parametrização por skill dos projetos `/portfolio/<slug>`
 
 Status: **normativo** · Gate automático: `bun run audit:portfolio-skills`
-Complementa `docs/AGENT_SKILLS_GOVERNANCE.md`, `docs/PORTFOLIO_CLIENT_STANDARD.md`
-e `docs/PORTFOLIO_GLOBAL_STANDARDS.md`.
+Complementa `docs/AGENT_SKILLS_GOVERNANCE.md`, `docs/PORTFOLIO_CLIENT_STANDARD.md`,
+`docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` e `docs/PORTFOLIO_GLOBAL_STANDARDS.md`.
 
 ## Princípio
 
-A parametrização de um projeto **não vive no componente**. Ela vive nos
-arquivos canônicos de configuração. Assim, projetos atuais e futuros herdam o
-mesmo padrão sem correção manual individual, e a auditoria consegue provar
-conformidade por dado, não por leitura de código.
+A plataforma parametriza capacidades e contratos; a identidade criativa não é
+um template compartilhado. O que deve ser herdado entre clientes é segurança,
+funil, observabilidade, SEO técnico, acessibilidade e primitives — não o mesmo
+hero, section order, tipografia ou motion.
 
 ## Matriz obrigatória — skill → parâmetro → fonte de verdade
 
-| Categoria de skill | O que garante na página | Fonte de verdade (parâmetro) | Verificação automática |
+| Categoria de skill | O que garante na página | Fonte de verdade | Verificação |
 |---|---|---|---|
-| **Business / Marketing** | Enquadramento comercial: quem é o cliente, o que vende, para quem | `portfolio-catalog.json`: `segment`, `projectType`, `subtitle`, `summary` | campos obrigatórios |
-| **Lead Capture / CRM** | CTA e botão flutuante abrem o **mesmo** funil individual do cliente | `portfolio-global-config.json → overrides.<key>.contactFloating.quizConfig` › `portfolio-quiz-configs.generated.ts` › **padrão por segmento** (`src/lib/portfolio-funnel-defaults.ts`) | funil resolvível + projeto registrado em `portfolio-clients.json` ou `portfolio-site-registry.ts` |
-| **Design / UI Automation** | Casca padrão (compartilhar, contato flutuante, rodapé, voltar ao topo) e capa sempre visível | `PortfolioStandardShell` + `PortfolioCover` (`image` › `fallbackImage` › `socialImage` › `icon` › gradiente) | capa resolvível; override não pode desligar rodapé/captação |
-| **AI Copywriting** | Texto próprio, específico e sem placeholder | `summary`/`subtitle` do catálogo e copy do componente do cliente | `summary` ≥ 60 caracteres e sem `lorem/placeholder/em breve` |
-| **Local SEO** | Busca regional: cidade, termos, canonical e imagem social | catálogo (`city`, `state`, `tags`) + `portfolio-assets.json` (`socialImage`) + `head()` da rota | cidade/estado, ≥ 2 tags e imagem social própria |
-| **Engagement / Extras** | Prova social do cliente e captação da hospedagem | `portfolio-assets.json → clients.<key>.proof` + `hostCaptureRequired` | prova configurada e captação ativa |
+| **Business / Marketing** | quem é o cliente, o que vende, para quem e objetivo principal | catálogo: `segment`, `projectType`, `subtitle`, `summary` + creative brief | campos + revisão |
+| **Creative Direction / Anti-template** | metáfora, topologia, hero, tipografia, imagem, motion, interação e decisões de diferenciação | `docs/portfolio/briefs/<slug>.md` + `creativeContractVersion` | scaffold v2 + originality review |
+| **Lead Capture / CRM** | CTA e contato flutuante resolvem o funil individual | config de funil + `clientKey` | funil resolvível |
+| **Design Engineering** | primitives, responsividade, semântica, tokens e estados sem impor skin | componente + tokens locais + design-system | QA visual/a11y |
+| **Motion** | gramática de motion coerente com o cliente | `portfolio-motion-profiles.json → overrides.<slug>` em projetos v2 | scaffold/experience gate |
+| **Copy / Narrative** | texto específico, intenção e objeções reais | catálogo + componente + brief | sem placeholder/generic copy |
+| **Local SEO** | cidade, termos, canonical, social image e JSON-LD | catálogo + assets + `head()` | meta/SEO gates |
+| **Performance** | imagens, lazy, LCP, code split e budgets | `PortfolioImage`, rota lazy, build/Lighthouse | perf gates |
+| **Accessibility / UX** | teclado, foco, contraste, touch, reduced motion, modal semantics | componente/primitives | a11y/browser QA |
+| **Proof / Trust** | evidência real ou ausência honesta de prova | assets/proof + conteúdo | sem fabricated proof |
 
-## Resolução automática do funil (fim das correções manuais)
+## Direção criativa não é configuração de segmento
+
+Defaults por segmento podem ajudar funil e fornecer fallback legado de motion.
+Eles **não** podem ser a direção final de um novo portfolio creative v2.
+
+Todo novo projeto v2 precisa:
+
+- creative brief preenchido;
+- composição autoral;
+- tokens/tipografia de cliente quando apropriado;
+- motion override próprio;
+- comparação contra portfolios mais próximos.
+
+## Resolução automática do funil
 
 `src/lib/portfolio-funnel-config.ts` resolve nesta ordem:
 
 ```text
-override do cliente  >  registro gerado da página  >  padrão por segmento do catálogo
+override do cliente > registro gerado da página > padrão por segmento do catálogo
 ```
 
-O padrão por segmento (`buildDefaultFunnelConfig`) monta perguntas coerentes com
-o segmento do projeto e usa a cidade do catálogo na etapa de localização.
-Consequência prática: **um projeto novo, apenas registrado no catálogo, já nasce
-com funil coerente** — nunca cai em perguntas de outro segmento.
+Isso evita perguntas de outro segmento. O destino WhatsApp continua server-side
+por `clientKey`. Para novos clientes, o secret canônico é:
 
-Regras que continuam valendo: nenhum telefone, `wa.me` ou e-mail no bundle; o
-destinatário é resolvido no servidor por `clientKey`; o funil universal da 0WEB
-é apenas o pop-up de captação da hospedagem.
+```text
+PORTFOLIO_WHATSAPP_<CLIENT_KEY_NORMALIZADO>
+```
+
+Nenhum telefone, `wa.me` ou e-mail entra no bundle público.
+
+## Prova social
+
+Prova social não é requisito visual obrigatório quando não existe evidência.
+`socialProofRequired` deve ser `true` somente quando houver material verificável.
+
+Em protótipo, texto fictício pode existir apenas claramente rotulado como
+`Exemplo`/`Demonstração`. Em produção, não apresentar avaliação, depoimento,
+rating, prêmio, cliente, número ou resultado inventado como real.
 
 ## O que a parametrização nunca autoriza
 
-- Depoimento, avaliação, selo, número de clientes ou resultado sem evidência.
-- Copiar identidade, navegação ou conteúdo de outro cliente.
-- Desligar rodapé de hospedagem ou pop-up de captação por override.
+- copiar identidade, composição, navegação ou conteúdo de outro cliente;
+- transformar a casca compartilhada em template visual;
+- desligar rodapé/captação obrigatórios por override;
+- trocar a stack por exigência de uma skill externa sem necessidade real;
+- publicar scaffold v2 ainda marcado como `CREATIVE_BRIEF_REQUIRED`.
 
 ## Como validar
 
 ```bash
-bun run audit:portfolio-skills          # matriz de skills por projeto (gate de build)
+bun run audit:portfolio-skills
+bun run validate:portfolio-scaffold
 bun run validate:portfolio-boundaries
 bun run validate:portfolio-catalog
 bun run validate:portfolio-meta
-bun test && bun run build
+bun run check:portfolio-originality
+bun run check:experience-standard
+bun test
+bun run build
 ```
 
-O relatório por projeto fica em
-`seo-reports/portfolio-skill-parametrization.json` (categoria a categoria, com
-os motivos de eventual não conformidade) e deve ser anexado ao PR.
-
-## Novo projeto — o que basta fazer
+## Novo projeto — sequência mínima
 
 1. `bun run scaffold:portfolio -- --slug <slug> --name "Nome"`.
-2. Preencher no catálogo: `segment`, `projectType`, `subtitle`, `summary`,
-   `city`, `state`, `tags`, imagem.
-3. Registrar assets (`icon`, `socialImage`, `proof`) em `portfolio-assets.json`.
-4. Rodar `bun run audit:portfolio-skills`.
+2. Preencher `docs/portfolio/briefs/<slug>.md` antes do layout.
+3. Preencher catálogo e registry.
+4. Criar identidade/assets próprios e componente autoral.
+5. Criar override de motion próprio.
+6. Preencher e publicar funil somente depois de validar perguntas.
+7. Cadastrar `PORTFOLIO_WHATSAPP_<CLIENT_KEY>` quando houver número oficial.
+8. Rodar gates + browser/funnel QA.
 
-Funil, casca, compartilhamento, rodapé, captação, tracking e fallback de capa
-são herdados automaticamente. Override só quando o cliente exigir perguntas
-específicas.
+Funil seguro, share, captação, tracking e infraestrutura são herdados. **A
+composição visual nunca é herdada.**
