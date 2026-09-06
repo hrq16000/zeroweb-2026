@@ -979,6 +979,18 @@ export function SsConsPage() {
             returnFocusTo={trigger}
           />
         ) : null}
+
+        {/* Mecanismos compartilhados da hospedagem — conteúdo do cliente, sem prova social inventada. */}
+        <PortfolioSocialProofPopup
+          clientKey={CLIENT_KEY}
+          eyebrow={SITE_NAME}
+          title="Planejando uma obra ou reforma?"
+          description="Conte o serviço e receba os próximos passos do orçamento com a equipe da S&S."
+          ctaLabel="Ver serviços"
+          ctaHref="#servicos"
+          accentClassName="text-[var(--ss-gold-deep)]"
+        />
+        <PortfolioUpsellPopup pageName="portfolio-sscons" />
       </div>
     </MotionScope>
   );
