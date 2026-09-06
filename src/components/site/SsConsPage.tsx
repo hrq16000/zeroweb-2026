@@ -442,7 +442,7 @@ export function SsConsPage() {
 
             <div className="hidden md:block">
               <PortfolioCTAQuiz
-                clientKey={CLIENT_KEY}
+                clientKey="sscons"
                 studioName={SITE_NAME}
                 theme="gold"
                 mode="proposal"
@@ -487,7 +487,7 @@ export function SsConsPage() {
             </nav>
             <div className="pt-4">
               <PortfolioCTAQuiz
-                clientKey={CLIENT_KEY}
+                clientKey="sscons"
                 studioName={SITE_NAME}
                 theme="gold"
                 mode="proposal"
@@ -565,7 +565,7 @@ export function SsConsPage() {
                 <MotionReveal variant="up" delay={480}>
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <PortfolioCTAQuiz
-                      clientKey={CLIENT_KEY}
+                      clientKey="sscons"
                       studioName={SITE_NAME}
                       theme="gold"
                       mode="proposal"
@@ -662,7 +662,7 @@ export function SsConsPage() {
                     </p>
                     <div className="mt-auto pt-6">
                       <PortfolioCTAQuiz
-                        clientKey={CLIENT_KEY}
+                        clientKey="sscons"
                         studioName={SITE_NAME}
                         theme="gold"
                         mode="proposal"
@@ -806,7 +806,7 @@ export function SsConsPage() {
 
                 <div className="mt-10">
                   <PortfolioCTAQuiz
-                    clientKey={CLIENT_KEY}
+                    clientKey="sscons"
                     studioName={SITE_NAME}
                     theme="gold"
                     mode="proposal"
@@ -939,7 +939,7 @@ export function SsConsPage() {
                   </p>
                   <div className="mt-8 flex justify-center">
                     <PortfolioCTAQuiz
-                      clientKey={CLIENT_KEY}
+                      clientKey="sscons"
                       studioName={SITE_NAME}
                       theme="gold"
                       mode="proposal"
@@ -984,7 +984,7 @@ export function SsConsPage() {
 
         {/* Mecanismos compartilhados da hospedagem — conteúdo do cliente, sem prova social inventada. */}
         <PortfolioSocialProofPopup
-          clientKey={CLIENT_KEY}
+          clientKey="sscons"
           eyebrow={SITE_NAME}
           title="Planejando uma obra ou reforma?"
           description="Conte o serviço e receba os próximos passos do orçamento com a equipe da S&S."
