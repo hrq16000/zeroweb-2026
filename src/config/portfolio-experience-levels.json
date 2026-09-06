@@ -80,12 +80,16 @@
     "angel-mix-brecho": "PREMIUM",
     "reuse-house-brecho": "PREMIUM",
     "confeitaria-sabor-da-realeza": "PREMIUM",
-    "sscons": "SIGNATURE"
+    "sscons": "SIGNATURE",
+    "kitutes-na-mesa": "SIGNATURE",
+    "enoel-portas": "SIGNATURE",
+    "mania-de-limpeza": "SIGNATURE",
+    "dona-lucy-salgados": "SIGNATURE"
   },
   "summary": {
-    "total": 79,
+    "total": 81,
     "premium": 42,
-    "signature": 21,
+    "signature": 23,
     "baseline": 16,
     "static": 0
   }

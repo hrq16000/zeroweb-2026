@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T20:36:45.661Z
+Gerado em 2026-09-06T19:47:44.847Z
 
-- Projetos auditados: **79**
-- PASS: **79** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (20) · orcamento (27) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
+- Projetos auditados: **83**
+- PASS: **83** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (22) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -82,8 +82,12 @@ Gerado em 2026-09-06T20:36:45.661Z
 | bruna-diarista | servicos | agendamento | Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. | Consultar horários | PROJECT_CONTRACT | PASS | — |
 | btb-construcao | construcao | orcamento | Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | easy-clean | servicos | orcamento | Conte qual peça precisa de higienização e se deseja impermeabilização. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
-| js-eletrica-manutencao | servicos | orcamento | Conte qual quadro, circuito ou manutenção está pedindo atenção agora. | Pedir visita técnica | PROJECT_CONTRACT | PASS | — |
-| papelemi-personalizados | comercios | orcamento | Diga o tema, a quantidade e a data da festa para montarmos o kit. | Montar meu kit | PROJECT_CONTRACT | PASS | — |
-| maximos-cabeleireiros | beleza | agendamento | Conte o corte, a cor ou o cuidado que você quer fazer e o melhor dia. | Solicitar horário | PROJECT_CONTRACT | PASS | — |
+| js-eletrica-manutencao | servicos | orcamento | Conte se precisa de elétrica, ar-condicionado ou sistema solar e informe a região do atendimento. | Solicitar avaliação | PROJECT_CONTRACT | PASS | — |
+| papelemi-personalizados | comercios | pedido | Conte a ocasião, o produto e a identidade visual que deseja criar para receber uma orientação inicial. | Criar meu personalizado | PROJECT_CONTRACT | PASS | — |
+| maximos-cabeleireiros | beleza | agendamento | Conte o serviço que procura e a melhor janela para a equipe encontrar o atendimento ideal. | Agendar atendimento | PROJECT_CONTRACT | PASS | — |
 | embalar-embalagens | comercios | contato | Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade. | Consultar produtos | PROJECT_CONTRACT | PASS | — |
 | simone-lacerda-vaz | saude | agendamento | Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone. | Conversar agora | PROJECT_CONTRACT | PASS | — |
+| kitutes-na-mesa | restaurantes | orcamento | Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso. | Montar orçamento | PROJECT_CONTRACT | PASS | — |
+| enoel-portas | construcao | orcamento | Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |
+| mania-de-limpeza | servicos | orcamento | Conte os itens que deseja higienizar e monte o combo família com a equipe. | Montar meu combo | PROJECT_CONTRACT | PASS | — |
+| dona-lucy-salgados | restaurantes | pedido | Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. | Fazer pedido | PROJECT_CONTRACT | PASS | — |

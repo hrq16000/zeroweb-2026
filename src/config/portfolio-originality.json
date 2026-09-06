@@ -342,16 +342,28 @@
         "v2AssetPattern": 2.5
       },
       {
-        "slug": "espaco-cih-luh",
-        "v1Score": 38,
-        "v2Score": 38,
+        "slug": "enoel-portas",
+        "v1Score": 56,
+        "v2Score": 56,
         "delta": 0,
-        "v1Nearest": "liz-moraes-nail-designer",
-        "v2Nearest": "liz-moraes-nail-designer",
+        "v1Nearest": "btb-construcao",
+        "v2Nearest": "btb-construcao",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "espaco-cih-luh",
+        "v1Score": 39,
+        "v2Score": 39,
+        "delta": 0,
+        "v1Nearest": "kitutes-na-mesa",
+        "v2Nearest": "kitutes-na-mesa",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 5
+        "v2AssetPattern": 2.1
       },
       {
         "slug": "fernanda-amaral-drywall",
@@ -486,15 +498,27 @@
         "v2AssetPattern": 9
       },
       {
+        "slug": "kitutes-na-mesa",
+        "v1Score": 55,
+        "v2Score": 53,
+        "delta": -2,
+        "v1Nearest": "liz-moraes-nail-designer",
+        "v2Nearest": "liz-moraes-nail-designer",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 40,
+        "v2AssetPattern": 9
+      },
+      {
         "slug": "liz-moraes-nail-designer",
-        "v1Score": 54,
+        "v1Score": 55,
         "v2Score": 54,
-        "delta": 0,
-        "v1Nearest": "denise-gomes-psicologa",
+        "delta": -1,
+        "v1Nearest": "kitutes-na-mesa",
         "v2Nearest": "mp-festas-eventos",
         "neighbourChanged": true,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 100,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 40,
         "v2AssetPattern": 2.1
       },
       {
@@ -544,6 +568,18 @@
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
         "v2AssetPattern": 3.8
+      },
+      {
+        "slug": "mania-de-limpeza",
+        "v1Score": 54,
+        "v2Score": 54,
+        "delta": 0,
+        "v1Nearest": "enoel-portas",
+        "v2Nearest": "js-eletrica-manutencao",
+        "neighbourChanged": true,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 11.2
       },
       {
         "slug": "manu-pasteis",
@@ -643,15 +679,15 @@
       },
       {
         "slug": "miro-tech",
-        "v1Score": 51,
-        "v2Score": 49,
+        "v1Score": 52,
+        "v2Score": 50,
         "delta": -2,
-        "v1Nearest": "liz-moraes-nail-designer",
-        "v2Nearest": "mimo-salgados-doces",
-        "neighbourChanged": true,
+        "v1Nearest": "kitutes-na-mesa",
+        "v2Nearest": "kitutes-na-mesa",
+        "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
-        "v2AssetPattern": 5
+        "v1AssetPattern": 40,
+        "v2AssetPattern": 2.1
       },
       {
         "slug": "mp-festas-eventos",
@@ -695,11 +731,11 @@
         "v2Score": 24,
         "delta": -1,
         "v1Nearest": "refrigeracao-maresia",
-        "v2Nearest": "miro-tech",
+        "v2Nearest": "kitutes-na-mesa",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 33.3,
-        "v2AssetPattern": 2.1
+        "v2AssetPattern": 9
       },
       {
         "slug": "paulo-mestre-de-obras",
@@ -983,10 +1019,10 @@
     "clone": 81
   },
   "summary": {
-    "total": 79,
+    "total": 82,
     "original": 0,
     "acceptable": 27,
-    "attention": 46,
+    "attention": 49,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
@@ -994,8 +1030,8 @@
     "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 35,
-    "coverPending": 44,
+    "coverValid": 44,
+    "coverPending": 38,
     "coversAsSocialImage": 8,
     "sharedCovers": 0,
     "severeCrop": 21,
@@ -1535,7 +1571,7 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "popys-conservacao-limpeza",
+          "slug": "enoel-portas",
           "score": 56,
           "reason": "SAME_FAMILY"
         }
@@ -2223,20 +2259,65 @@
       "fallbackVertical": null
     },
     {
+      "slug": "enoel-portas",
+      "score": 56,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "btb-construcao",
+      "nearestMatchScore": 56,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 58.6,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 56.7,
+        "COPY_SIMILARITY": 4.1,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 12.5
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "btb-construcao",
+          "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "easy-clean",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
       "slug": "espaco-cih-luh",
-      "score": 38,
+      "score": 39,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 38,
+      "nearestMatch": "kitutes-na-mesa",
+      "nearestMatchScore": 39,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 21.9,
+        "STRUCTURE_SIMILARITY": 26.1,
         "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 47.5,
-        "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 6.5
+        "COMPONENT_SIMILARITY": 45.5,
+        "STYLE_SIMILARITY": 39.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 4
       },
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -2250,17 +2331,17 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "kitutes-na-mesa",
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "liz-moraes-nail-designer",
           "score": 38,
           "reason": "DISTINCT"
         },
         {
           "slug": "mimo-salgados-doces",
-          "score": 38,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "salao-da-marcia",
           "score": 38,
           "reason": "DISTINCT"
         }
@@ -2749,8 +2830,53 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 49,
+          "slug": "mania-de-limpeza",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
+      "slug": "kitutes-na-mesa",
+      "score": 53,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "liz-moraes-nail-designer",
+      "nearestMatchScore": 53,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 50.8,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 56.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 12.1
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "liz-moraes-nail-designer",
+          "score": 53,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 51,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 51,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2795,8 +2921,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 50,
+          "slug": "kitutes-na-mesa",
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2974,6 +3100,51 @@
         {
           "slug": "mp-festas-eventos",
           "score": 42,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
+      "slug": "mania-de-limpeza",
+      "score": 54,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "js-eletrica-manutencao",
+      "nearestMatchScore": 54,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 51.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 59.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "IDENTITY_SIMILARITY": 6.8
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "js-eletrica-manutencao",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "enoel-portas",
+          "score": 51,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "easy-clean",
+          "score": 50,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3243,8 +3414,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 50,
+          "slug": "kitutes-na-mesa",
+          "score": 51,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3342,21 +3513,21 @@
     },
     {
       "slug": "miro-tech",
-      "score": 49,
+      "score": 50,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "mimo-salgados-doces",
-      "nearestMatchScore": 49,
+      "nearestMatch": "kitutes-na-mesa",
+      "nearestMatchScore": 50,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 43.9,
+        "STRUCTURE_SIMILARITY": 31.3,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 54.5,
-        "COPY_SIMILARITY": 1.6,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 9.5
+        "COMPONENT_SIMILARITY": 66.7,
+        "STYLE_SIMILARITY": 51,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 25
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -3369,6 +3540,11 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "kitutes-na-mesa",
+          "score": 50,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "mimo-salgados-doces",
           "score": 49,
           "reason": "SAME_FAMILY"
@@ -3376,11 +3552,6 @@
         {
           "slug": "liz-moraes-nail-designer",
           "score": 48,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "diego-montador-moveis",
-          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3515,8 +3686,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 41,
+          "slug": "mania-de-limpeza",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3526,17 +3697,17 @@
       "slug": "paraiso-do-hot-dog",
       "score": 24,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "miro-tech",
+      "nearestMatch": "kitutes-na-mesa",
       "nearestMatchScore": 24,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 10,
+        "STRUCTURE_SIMILARITY": 11.9,
         "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 35.3,
-        "STYLE_SIMILARITY": 36.7,
-        "COPY_SIMILARITY": 2.2,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 6.7
+        "COMPONENT_SIMILARITY": 27.8,
+        "STYLE_SIMILARITY": 42.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 5.7
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -3548,6 +3719,11 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "kitutes-na-mesa",
+          "score": 24,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "miro-tech",
           "score": 24,
           "reason": "DISTINCT"
@@ -3555,11 +3731,6 @@
         {
           "slug": "refrigeracao-maresia",
           "score": 24,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "diego-montador-moveis",
-          "score": 22,
           "reason": "DISTINCT"
         }
       ],
@@ -3823,7 +3994,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
+          "slug": "kitutes-na-mesa",
           "score": 44,
           "reason": "SAME_FAMILY"
         }
@@ -3959,7 +4130,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "liz-moraes-nail-designer",
+          "slug": "kitutes-na-mesa",
           "score": 31,
           "reason": "DISTINCT"
         }
@@ -4049,9 +4220,9 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "espaco-cih-luh",
-          "score": 38,
-          "reason": "DISTINCT"
+          "slug": "kitutes-na-mesa",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -4094,8 +4265,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "easy-clean",
-          "score": 36,
+          "slug": "enoel-portas",
+          "score": 37,
           "reason": "DISTINCT"
         }
       ],

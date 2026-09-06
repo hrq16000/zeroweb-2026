@@ -968,6 +968,54 @@
         "ctaHref": "#contato"
       },
       "socialVersion": "0cc62164"
+    },
+    "kitutes-na-mesa": {
+      "icon": "/images/kitutes-na-mesa/logo.png",
+      "socialImage": "/images/kitutes-na-mesa/social-og.jpg",
+      "proof": {
+        "eyebrow": "Kitutes na Mesa · Porções com Carinho",
+        "title": "Sua comemoração pode começar pela mesa.",
+        "description": "Salgados, mini lanches, doces e bolos caseiros sob encomenda.",
+        "ctaLabel": "Montar orçamento",
+        "ctaHref": "#encomenda"
+      },
+      "socialVersion": "872fab26"
+    },
+    "enoel-portas": {
+      "icon": "/images/enoel-portas/logo.png",
+      "socialImage": "/images/enoel-portas/social-og.jpg",
+      "proof": {
+        "eyebrow": "Enoel Portas",
+        "title": "Uma boa porta muda a entrada do seu projeto.",
+        "description": "Colocação, regulagem, vistas e caxilhos com cuidado no detalhe.",
+        "ctaLabel": "Pedir orçamento",
+        "ctaHref": "#orcamento"
+      },
+      "socialVersion": "70ffb80c"
+    },
+    "mania-de-limpeza": {
+      "icon": "/images/mania-de-limpeza/logo.png",
+      "socialImage": "/images/mania-de-limpeza/social-og.jpg",
+      "proof": {
+        "eyebrow": "Mania de Limpeza · Higienização",
+        "title": "Sua casa mais leve começa por um ambiente bem cuidado.",
+        "description": "Monte seu combo família para sofás, colchões e tapetes.",
+        "ctaLabel": "Montar meu combo",
+        "ctaHref": "#combo"
+      },
+      "socialVersion": "18fb973e"
+    },
+    "dona-lucy-salgados": {
+      "icon": "/images/dona-lucy-salgados/logo.png",
+      "socialImage": "/images/dona-lucy-salgados/social-og.jpg",
+      "proof": {
+        "eyebrow": "Dona Lucy Salgados · Delivery",
+        "title": "Seu domingo merece um combo quentinho.",
+        "description": "Salgados fritos na hora e churros de doce de leite em Araucária.",
+        "ctaLabel": "Fazer pedido",
+        "ctaHref": "#como-pedir"
+      },
+      "socialVersion": "ef6ba9f9"
     }
   }
 }

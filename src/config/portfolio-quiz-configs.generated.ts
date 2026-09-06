@@ -479,6 +479,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma avaliação primeiro"
     ]
   },
+  "dona-lucy-salgados": {
+    "services": [
+      "Combo de salgados a partir de R$ 11,99",
+      "Salgados fritos",
+      "Churros de doce de leite",
+      "Encomenda para evento",
+      "Entrega agendada"
+    ],
+    "experienceOptions": [
+      "Domingo em família",
+      "Festa ou comemoração",
+      "Reunião ou encontro",
+      "Quero só experimentar"
+    ],
+    "periodOptions": [
+      "Hoje",
+      "Terça a domingo",
+      "Quero agendar outro horário"
+    ],
+    "timingOptions": [
+      "Quero pedir agora",
+      "Quero consultar o cardápio",
+      "Quero fazer uma encomenda"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que vai deixar seu domingo melhor?",
+      "experience": "Qual é a ocasião?",
+      "period": "Quando você precisa?",
+      "timing": "Qual o próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: quantidade, sabores, endereço ou horário desejado."
+  },
   "easy-clean": {
     "services": [
       "Sofá ou estofado",
@@ -680,6 +714,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "note": "Conte os itens que busca"
     },
     "notePlaceholder": "Ex.: quantidade, tamanho da embalagem, tipo de produto ou data do evento."
+  },
+  "enoel-portas": {
+    "services": [
+      "Colocação de portas de madeira",
+      "Regulagem de portas",
+      "Vistas e guarnições",
+      "Caxilhos em geral",
+      "Avaliar um projeto"
+    ],
+    "experienceOptions": [
+      "Casa ou apartamento",
+      "Reforma em andamento",
+      "Obra nova",
+      "Ainda estou planejando"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "São José dos Pinhais",
+      "Região Metropolitana",
+      "Vou confirmar o local"
+    ],
+    "timingOptions": [
+      "Quero um orçamento",
+      "Preciso resolver em breve",
+      "Estou pesquisando opções"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que precisa resolver?",
+      "experience": "Em qual contexto?",
+      "period": "Onde será?",
+      "timing": "Qual o próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: medida aproximada, modelo da porta, quantidade ou fase da obra."
   },
   "espaco-cih-luh": {
     "services": [
@@ -1060,6 +1129,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: equipamento, defeito, quantidade de pontos, foto do quadro ou prazo."
   },
+  "kitutes-na-mesa": {
+    "services": [
+      "Salgados assados e fritos",
+      "Mini lanches",
+      "Doces e bolos caseiros",
+      "Porções para eventos",
+      "Coffee break e kits"
+    ],
+    "experienceOptions": [
+      "Aniversário ou comemoração",
+      "Casamento ou confraternização",
+      "Coffee break empresarial",
+      "Receber família e amigos"
+    ],
+    "periodOptions": [
+      "Ainda vou definir a data",
+      "Nos próximos 7 dias",
+      "Nas próximas semanas",
+      "Quero consultar disponibilidade"
+    ],
+    "timingOptions": [
+      "Quero um orçamento",
+      "Estou montando o cardápio",
+      "Preciso de uma orientação"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que vai compor sua mesa?",
+      "experience": "Qual é a ocasião?",
+      "period": "Quando será?",
+      "timing": "Qual próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: data, número de pessoas, sabores desejados ou tipo de evento."
+  },
   "liz-moraes-nail-designer": {
     "services": [
       "Manicure tradicional · R$ 45,00",
@@ -1170,6 +1274,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "note": "Conte mais sobre o problema"
     },
     "notePlaceholder": "Ex.: marca, modelo, código de erro e quando o problema começou."
+  },
+  "mania-de-limpeza": {
+    "services": [
+      "Combo família · 3 ou mais itens",
+      "Higienização de sofá",
+      "Higienização de colchão",
+      "Higienização de tapete",
+      "Quero avaliar outros itens"
+    ],
+    "experienceOptions": [
+      "Minha casa",
+      "Apartamento",
+      "Empresa ou comércio",
+      "Ainda estou pesquisando"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o local"
+    ],
+    "timingOptions": [
+      "Quero aproveitar o combo",
+      "Quero um orçamento",
+      "Estou pesquisando opções"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você quer higienizar?",
+      "experience": "Onde será o atendimento?",
+      "period": "Em qual região?",
+      "timing": "Qual o próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: quantidade de itens, tipo de tecido, manchas ou prazo desejado."
   },
   "marido-de-aluguel": {
     "services": [

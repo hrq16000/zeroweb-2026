@@ -539,6 +539,58 @@
         "stepTitles": { "service": "Qual cuidado você procura?", "experience": "Em que momento você está?", "period": "Qual período facilita?", "timing": "Quando gostaria de começar?" },
         "notePlaceholder": "Ex.: objetivo, cirurgia planejada, rotina alimentar ou dúvida sobre amamentação."
       }
+    },
+    "kitutes-na-mesa": {
+      "contactFloating": { "theme": "pink", "recipientName": "a equipe Kitutes na Mesa", "label": "Fazer orçamento" },
+      "footer": { "variant": "light" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Salgados assados e fritos", "Mini lanches", "Doces e bolos caseiros", "Porções para eventos", "Coffee break e kits"],
+        "experienceOptions": ["Aniversário ou comemoração", "Casamento ou confraternização", "Coffee break empresarial", "Receber família e amigos"],
+        "periodOptions": ["Ainda vou definir a data", "Nos próximos 7 dias", "Nas próximas semanas", "Quero consultar disponibilidade"],
+        "timingOptions": ["Quero um orçamento", "Estou montando o cardápio", "Preciso de uma orientação"],
+        "stepTitles": { "service": "O que vai compor sua mesa?", "experience": "Qual é a ocasião?", "period": "Quando será?", "timing": "Qual próximo passo?" },
+        "notePlaceholder": "Ex.: data, número de pessoas, sabores desejados ou tipo de evento."
+      }
+    },
+    "enoel-portas": {
+      "contactFloating": { "theme": "gold", "recipientName": "a equipe Enoel Portas", "label": "Pedir orçamento" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Colocação de portas de madeira", "Regulagem de portas", "Vistas e guarnições", "Caxilhos em geral", "Avaliar um projeto"],
+        "experienceOptions": ["Casa ou apartamento", "Reforma em andamento", "Obra nova", "Ainda estou planejando"],
+        "periodOptions": ["Curitiba", "São José dos Pinhais", "Região Metropolitana", "Vou confirmar o local"],
+        "timingOptions": ["Quero um orçamento", "Preciso resolver em breve", "Estou pesquisando opções"],
+        "stepTitles": { "service": "O que precisa resolver?", "experience": "Em qual contexto?", "period": "Onde será?", "timing": "Qual o próximo passo?" },
+        "notePlaceholder": "Ex.: medida aproximada, modelo da porta, quantidade ou fase da obra."
+      }
+    },
+    "mania-de-limpeza": {
+      "contactFloating": { "theme": "gold", "recipientName": "a equipe Mania de Limpeza", "label": "Montar meu combo" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Combo família · 3 ou mais itens", "Higienização de sofá", "Higienização de colchão", "Higienização de tapete", "Quero avaliar outros itens"],
+        "experienceOptions": ["Minha casa", "Apartamento", "Empresa ou comércio", "Ainda estou pesquisando"],
+        "periodOptions": ["Curitiba", "Região Metropolitana", "Vou confirmar o local"],
+        "timingOptions": ["Quero aproveitar o combo", "Quero um orçamento", "Estou pesquisando opções"],
+        "stepTitles": { "service": "O que você quer higienizar?", "experience": "Onde será o atendimento?", "period": "Em qual região?", "timing": "Qual o próximo passo?" },
+        "notePlaceholder": "Ex.: quantidade de itens, tipo de tecido, manchas ou prazo desejado."
+      }
+    },
+    "dona-lucy-salgados": {
+      "contactFloating": { "theme": "pink", "recipientName": "a equipe Dona Lucy", "label": "Fazer pedido" },
+      "footer": { "variant": "light" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Combo de salgados a partir de R$ 11,99", "Salgados fritos", "Churros de doce de leite", "Encomenda para evento", "Entrega agendada"],
+        "experienceOptions": ["Domingo em família", "Festa ou comemoração", "Reunião ou encontro", "Quero só experimentar"],
+        "periodOptions": ["Hoje", "Terça a domingo", "Quero agendar outro horário"],
+        "timingOptions": ["Quero pedir agora", "Quero consultar o cardápio", "Quero fazer uma encomenda"],
+        "stepTitles": { "service": "O que vai deixar seu momento melhor?", "experience": "Qual é a ocasião?", "period": "Quando você precisa?", "timing": "Qual o próximo passo?" },
+        "notePlaceholder": "Ex.: quantidade, sabores, endereço ou horário desejado."
+      }
     }
   }
 }

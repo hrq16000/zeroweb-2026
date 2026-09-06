@@ -850,3 +850,70 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Rejeitado: importar telefone/WhatsApp público, depoimentos, alegação “24 horas” e
   atribuição de obras não comprovadas. WhatsApp permanece `NOT_CONFIGURED`.
 - Relatório: `docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md`.
+
+## 2026-09-06 — Kitutes na Mesa (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: página autoral `/portfolio/kitutes-na-mesa`, brief versionado,
+  identidade editorial “mesa posta”, hero/logo/social gerados sem telefone
+  incorporado, narrativa de orçamento sob encomenda e CTA seguro por funil.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy e seed administrativo.
+- Validação: 80 projetos conformes; narrativas 80/80 distintas; contexto de funil
+  80/80 sem warnings; regional 80/80; seed 80/80; typecheck e gates restantes em execução.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.
+
+## 2026-09-06 — Enoel Portas (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: página autoral `/portfolio/enoel-portas`, brief versionado e direção
+  “limiar arquitetônico” em preto, branco e amarelo, com seletor interativo de
+  serviços, processo de atendimento e CTA de orçamento.
+- Imagens: hero, logo e social image gerados a partir da arte fornecida; social OG
+  derivada localmente para compartilhamento, sem telefone embutido no bundle público.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy e seed administrativo.
+- Funil: `funnel-enoel-portas` idempotente, com perguntas de serviço, contexto,
+  local, detalhes e telefone; destinatário WhatsApp permanece como segredo de runtime.
+- Validação: 81 projetos conformes nos gates de scaffold, boundaries, catálogo,
+  meta, assets, logos, ícones, regional, presença, conversão, funil, seed,
+  originalidade, typecheck e build.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.
+
+## 2026-09-06 — Mania de Limpeza Higienização (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: `/portfolio/mania-de-limpeza`, direção “renovação doméstica” em preto,
+  amarelo e verde, combo família em destaque, quiz contextual e seção Instagram viva.
+- Imagens: hero, logo e social OG gerados a partir da arte recebida, sem telefone no
+  bundle público; o perfil do Instagram fica incorporado como fonte atualizável.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy, seed administrativo e funil.
+- Validação: 82 projetos; scaffold, boundaries, catálogo, assets, funil, meta,
+  runtime, typecheck, build e SSR da rota passaram. SSR confirmou HTTP 200 sem telefone.
+- Catálogo WhatsApp não foi exposto como link público por privacidade; produtos são
+  apresentados durante o atendimento seguro.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.
+
+## 2026-09-06 — Dona Lucy Salgados (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: `/portfolio/dona-lucy-salgados`, experiência food-delivery autoral com
+  hero gastronômico, combos a partir de R$ 11,99, processo de pedido, horários,
+  endereço e link oficial do InstaDelivery.
+- Imagens: hero, logo e social OG gerados a partir da embalagem enviada, sem telefone
+  ou QR code no bundle público.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy, seed administrativo e funil.
+- Fonte externa: InstaDelivery consultado; como o catálogo depende de JavaScript,
+  nenhum item não confirmado foi inventado.
+- Validação: 83 projetos; scaffold, boundaries, catálogo, assets, funil e JSON válidos.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.

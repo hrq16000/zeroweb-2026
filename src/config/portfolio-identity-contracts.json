@@ -143,6 +143,58 @@
       "logoStatus": "LOGO_PENDING",
       "coverStatus": "GRAPHIC_COMPOSITION",
       "forbiddenSimilarities": ["guaratuba-oficina-nautica", "guaratuba-reparos-residenciais", "almeida-torres"]
+    },
+    "kitutes-na-mesa": {
+      "brandCharacter": ["acolhedor", "artesanal", "generoso", "alegre"],
+      "visualConcept": "Mesa editorial em camadas: etiquetas de menu, papel creme e blocos terracota para transformar variedade em convite.",
+      "heroComposition": "food-editorial-assimetrico-com-mesa",
+      "sectionRhythm": ["convite", "cardapio-em-faixas", "seletor-de-ocasiao", "briefing-de-encomenda"],
+      "typographicCharacter": "Serifa calorosa nos títulos, sans funcional no corpo e etiquetas monoespaceadas para organizar a encomenda.",
+      "colorBehavior": "Creme e papel como base, terracota como ação, cacau como contraste e blush como camada de afeto.",
+      "imageDirection": "Arte culinária conceitual com área negativa para texto; sem pessoas, cozinha, fachada ou evento inventado.",
+      "signatureElement": "Seletor de ocasião que destaca a mesa correspondente.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["mimo-salgados-doces", "confeitaria-sabor-da-realeza", "vila-da-capivara"]
+    },
+    "enoel-portas": {
+      "brandCharacter": ["direto", "técnico", "seguro", "resolutivo"],
+      "visualConcept": "Limiar arquitetônico: uma linha amarela conduz do vão e da medida até a porta funcionando.",
+      "heroComposition": "split-diagonal-preto-amarelo-com-porta-em-detalhe",
+      "sectionRhythm": ["manifesto", "servicos-seletor", "metodo-em-tres-passos", "orcamento"],
+      "typographicCharacter": "Sans industrial pesada em caixa alta, com corpo funcional e espaçamento de sinalização.",
+      "colorBehavior": "Preto como estrutura, amarelo como ação e medida, papel quente como superfície de projeto.",
+      "imageDirection": "Composição arquitetônica gerada a partir da arte oficial; sem equipe, cliente, fachada ou obra apresentada como fato.",
+      "signatureElement": "Seletor de serviços que destaca o escopo escolhido como uma ficha técnica.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["btb-construcao", "js-eletrica-manutencao", "jc-revestimentos"]
+    },
+    "mania-de-limpeza": {
+      "brandCharacter": ["energético", "acolhedor", "higiênico", "otimista"],
+      "visualConcept": "Renovação doméstica: preto e amarelo de campanha com verde vivo como sinal de frescor.",
+      "heroComposition": "split-cinematic-higienizacao-com-negativo-escuro",
+      "sectionRhythm": ["renovacao", "servicos", "combo-familia", "instagram-vivo", "orcamento"],
+      "typographicCharacter": "Sans-display pesada para impacto promocional e sans limpa para leitura.",
+      "colorBehavior": "Preto estrutura, amarelo ativa, verde comunica frescor e papel claro dá respiro.",
+      "imageDirection": "Cena de higienização gerada a partir da arte oficial; sem pessoas, telefone ou resultado documental inventado.",
+      "signatureElement": "Combo família em faixa de campanha, conectado ao quiz de orçamento.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["popys-conservacao-limpeza", "easy-clean", "bruna-diarista"]
+    },
+    "dona-lucy-salgados": {
+      "brandCharacter": ["acolhedor", "artesanal", "generoso", "familiar"],
+      "visualConcept": "Caixa aberta no centro da mesa como convite para compartilhar.",
+      "heroComposition": "split-food-editorial-com-caixa-de-salgados",
+      "sectionRhythm": ["desejo", "sabores", "processo-de-pedido", "horario-localidade"],
+      "typographicCharacter": "Serifa calorosa para a marca e sans robusta para ações de delivery.",
+      "colorBehavior": "Vermelho abre o apetite, dourado aquece a oferta, creme acolhe e marrom ancora.",
+      "imageDirection": "Fotografia gastronômica gerada a partir da foto da embalagem; sem telefone, QR code ou alegação documental.",
+      "signatureElement": "Processo em três passos entre cardápio, pedido e entrega.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["mimo-salgados-doces", "kitutes-na-mesa", "manu-pasteis"]
     }
   }
 }

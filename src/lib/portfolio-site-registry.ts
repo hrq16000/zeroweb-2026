@@ -532,6 +532,34 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "kitutes-na-mesa",
+    siteName: "Kitutes na Mesa · Porções com Carinho",
+    vertical: "restaurantes",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
+    slug: "enoel-portas",
+    vertical: "prestadores-de-servicos",
+    siteName: "Enoel Portas · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
+    slug: "mania-de-limpeza",
+    vertical: "prestadores-de-servicos",
+    siteName: "Mania de Limpeza Higienização · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
+    slug: "dona-lucy-salgados",
+    vertical: "restaurantes",
+    siteName: "Dona Lucy Salgados · Araucária — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {
