@@ -17,10 +17,10 @@
     "clone": 81
   },
   "summary": {
-    "total": 81,
+    "total": 82,
     "original": 0,
     "acceptable": 27,
-    "attention": 48,
+    "attention": 49,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
@@ -28,7 +28,7 @@
     "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 43,
+    "coverValid": 44,
     "coverPending": 38,
     "coversAsSocialImage": 8,
     "sharedCovers": 0,
@@ -1870,6 +1870,46 @@
         "structureHash": "17712458f7ca167f",
         "sectionCount": 7,
         "lines": 260
+      }
+    },
+    {
+      "slug": "mania-de-limpeza",
+      "title": "Mania de Limpeza Higienização",
+      "segment": "servicos",
+      "componentFile": "src/components/site/ManiaDeLimpezaPage.tsx",
+      "score": 54,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "js-eletrica-manutencao",
+      "nearestMatchScore": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 51.7,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 59.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "IDENTITY_SIMILARITY": 6.8
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.78,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "6c623b3292d2de3d",
+        "structureHash": "08e795bb6a8c3a96",
+        "sectionCount": 8,
+        "lines": 23
       }
     },
     {
@@ -3783,7 +3823,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 3240,
+    "totalPairs": 3321,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -4460,8 +4500,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 49,
+          "slug": "mania-de-limpeza",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4564,6 +4604,23 @@
         {
           "slug": "mp-festas-eventos",
           "score": 42,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "mania-de-limpeza": [
+        {
+          "slug": "js-eletrica-manutencao",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "enoel-portas",
+          "score": 51,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "easy-clean",
+          "score": 50,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4766,8 +4823,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 41,
+          "slug": "mania-de-limpeza",
+          "score": 42,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -5733,6 +5790,18 @@
         "v2AssetPattern": 3.8
       },
       {
+        "slug": "mania-de-limpeza",
+        "v1Score": 54,
+        "v2Score": 54,
+        "delta": 0,
+        "v1Nearest": "enoel-portas",
+        "v2Nearest": "js-eletrica-manutencao",
+        "neighbourChanged": true,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 11.2
+      },
+      {
         "slug": "manu-pasteis",
         "v1Score": 42,
         "v2Score": 39,
@@ -6177,10 +6246,10 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 81,
+      "total": 82,
       "original": 0,
       "acceptable": 27,
-      "attention": 48,
+      "attention": 49,
       "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
@@ -6188,7 +6257,7 @@
       "placeholderLogos": 0,
       "missingLogos": 0,
       "missingCovers": 24,
-      "coverValid": 43,
+      "coverValid": 44,
       "coverPending": 38,
       "coversAsSocialImage": 8,
       "sharedCovers": 0,

@@ -661,5 +661,12 @@
     "coverSource": "public/images/enoel-portas/hero.png",
     "coverFocal": { "x": 0.72, "y": 0.5 },
     "notes": "Composição arquitetônica de marca gerada a partir da referência oficial, sem telefone, pessoa ou alegação documental."
+  },
+  "mania-de-limpeza": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/mania-de-limpeza/hero.png",
+    "coverFocal": { "x": 0.72, "y": 0.5 },
+    "notes": "Cena de higienização gerada a partir da referência oficial, sem telefone, pessoa ou alegação documental."
   }
 }

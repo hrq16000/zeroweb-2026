@@ -546,6 +546,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "mania-de-limpeza",
+    vertical: "prestadores-de-servicos",
+    siteName: "Mania de Limpeza Higienização · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

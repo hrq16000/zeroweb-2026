@@ -79,6 +79,7 @@ originalidade: nenhuma página pública mudou.
 | js-eletrica-manutencao | maximos-cabeleireiros | maximos-cabeleireiros | 60 | 60 | 0 | não | UNCHANGED | 14.3 | 9 |
 | lk-alvenaria | ag-electrical-services | ag-electrical-services | 51 | 51 | 0 | não | UNCHANGED | 0 | 3.5 |
 | lucas-arruma-maquina-lavar | denise-gomes-psicologa | denise-gomes-psicologa | 44 | 44 | 0 | não | UNCHANGED | 0 | 3.8 |
+| mania-de-limpeza | enoel-portas | js-eletrica-manutencao | 54 | 54 | 0 | SIM | UNCHANGED | 100 | 11.2 |
 | marido-de-aluguel | paulo-mestre-de-obras | paulo-mestre-de-obras | 38 | 38 | 0 | não | UNCHANGED | 10 | 1.9 |
 | mp-festas-eventos | studio-de-cilios | studio-de-cilios | 59 | 59 | 0 | não | UNCHANGED | 0 | 5 |
 | no-brilho-higienizacao | eisenfer-tubos-acos | eisenfer-tubos-acos | 42 | 42 | 0 | não | UNCHANGED | 11.1 | 4.3 |

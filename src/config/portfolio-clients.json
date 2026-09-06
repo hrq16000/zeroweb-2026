@@ -1026,5 +1026,24 @@
       "source": "Arte, serviços e telefone fornecidos pelo cliente nesta conversa",
       "reference": "Arte fornecida pelo cliente nesta conversa"
     }
+  },
+  {
+    "clientKey": "mania-de-limpeza",
+    "slug": "mania-de-limpeza",
+    "siteName": "Mania de Limpeza Higienização",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ManiaDeLimpezaPage.tsx",
+    "assetsDir": "public/images/mania-de-limpeza",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/mania-de-limpeza.md",
+    "funnelRecipientConfigured": false,
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Arte promocional, serviços, Instagram e catálogo fornecidos pelo cliente nesta conversa",
+      "reference": "Arte promocional fornecida pelo cliente nesta conversa"
+    }
   }
 ]

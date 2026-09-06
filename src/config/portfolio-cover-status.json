@@ -4,11 +4,11 @@
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
   "generatedAt": "2026-09-06",
   "summary": {
-    "total": 81,
-    "valid": 43,
+    "total": 82,
+    "valid": 44,
     "pending": 38,
     "byStatus": {
-      "VALID": 43,
+      "VALID": 44,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
@@ -615,6 +615,19 @@
       "reason": null,
       "cardValid": true,
       "businessName": "Lucas Arruma Máquina de Lavar",
+      "segment": "servicos"
+    },
+    {
+      "slug": "mania-de-limpeza",
+      "asset": "public/images/mania-de-limpeza/hero.png",
+      "catalogImage": "/images/mania-de-limpeza/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Mania de Limpeza Higienização",
       "segment": "servicos"
     },
     {

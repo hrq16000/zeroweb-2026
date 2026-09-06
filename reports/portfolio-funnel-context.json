@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T18:46:51.466Z",
-    "audited": 81,
-    "pass": 81,
+    "generatedAt": "2026-09-06T19:25:45.705Z",
+    "audited": 82,
+    "pass": 82,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 21,
-      "orcamento": 28,
+      "orcamento": 29,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 7,
@@ -1065,6 +1065,19 @@
       "nextStepTitle": "Seu projeto começa com uma boa conversa.",
       "nextStepBody": "Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo.",
       "primaryCtaLabel": "Pedir orçamento",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "mania-de-limpeza",
+      "businessName": "Mania de Limpeza Higienização",
+      "segment": "servicos",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Sua casa mais leve começa por uma conversa.",
+      "nextStepBody": "Conte os itens que deseja higienizar e monte o combo família com a equipe.",
+      "primaryCtaLabel": "Montar meu combo",
       "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []

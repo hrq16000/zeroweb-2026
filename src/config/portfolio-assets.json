@@ -992,6 +992,18 @@
         "ctaHref": "#orcamento"
       },
       "socialVersion": "70ffb80c"
+    },
+    "mania-de-limpeza": {
+      "icon": "/images/mania-de-limpeza/logo.png",
+      "socialImage": "/images/mania-de-limpeza/social-og.jpg",
+      "proof": {
+        "eyebrow": "Mania de Limpeza · Higienização",
+        "title": "Sua casa mais leve começa por um ambiente bem cuidado.",
+        "description": "Monte seu combo família para sofás, colchões e tapetes.",
+        "ctaLabel": "Montar meu combo",
+        "ctaHref": "#combo"
+      },
+      "socialVersion": "18fb973e"
     }
   }
 }

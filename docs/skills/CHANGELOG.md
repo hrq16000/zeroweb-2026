@@ -883,3 +883,20 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   originalidade, typecheck e build.
 - Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
   ou domínio `chatgpt.site` foi usado.
+
+## 2026-09-06 — Mania de Limpeza Higienização (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: `/portfolio/mania-de-limpeza`, direção “renovação doméstica” em preto,
+  amarelo e verde, combo família em destaque, quiz contextual e seção Instagram viva.
+- Imagens: hero, logo e social OG gerados a partir da arte recebida, sem telefone no
+  bundle público; o perfil do Instagram fica incorporado como fonte atualizável.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy, seed administrativo e funil.
+- Validação: 82 projetos; scaffold, boundaries, catálogo, assets, funil, meta,
+  runtime, typecheck, build e SSR da rota passaram. SSR confirmou HTTP 200 sem telefone.
+- Catálogo WhatsApp não foi exposto como link público por privacidade; produtos são
+  apresentados durante o atendimento seguro.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.

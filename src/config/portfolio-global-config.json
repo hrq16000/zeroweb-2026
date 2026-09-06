@@ -565,6 +565,19 @@
         "stepTitles": { "service": "O que precisa resolver?", "experience": "Em qual contexto?", "period": "Onde será?", "timing": "Qual o próximo passo?" },
         "notePlaceholder": "Ex.: medida aproximada, modelo da porta, quantidade ou fase da obra."
       }
+    },
+    "mania-de-limpeza": {
+      "contactFloating": { "theme": "gold", "recipientName": "a equipe Mania de Limpeza", "label": "Montar meu combo" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Combo família · 3 ou mais itens", "Higienização de sofá", "Higienização de colchão", "Higienização de tapete", "Quero avaliar outros itens"],
+        "experienceOptions": ["Minha casa", "Apartamento", "Empresa ou comércio", "Ainda estou pesquisando"],
+        "periodOptions": ["Curitiba", "Região Metropolitana", "Vou confirmar o local"],
+        "timingOptions": ["Quero aproveitar o combo", "Quero um orçamento", "Estou pesquisando opções"],
+        "stepTitles": { "service": "O que você quer higienizar?", "experience": "Onde será o atendimento?", "period": "Em qual região?", "timing": "Qual o próximo passo?" },
+        "notePlaceholder": "Ex.: quantidade de itens, tipo de tecido, manchas ou prazo desejado."
+      }
     }
   }
 }

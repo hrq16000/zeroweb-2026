@@ -263,6 +263,11 @@ const EnoelPortasPage = lazy(() =>
     default: m.EnoelPortasPage,
   })),
 );
+const ManiaDeLimpezaPage = lazy(() =>
+  import("@/components/site/ManiaDeLimpezaPage").then((m) => ({
+    default: m.ManiaDeLimpezaPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -522,6 +527,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isSimoneLacerdaVaz = loaderData?.slug === "simone-lacerda-vaz";
     const isKitutesNaMesa = loaderData?.slug === "kitutes-na-mesa";
     const isEnoelPortas = loaderData?.slug === "enoel-portas";
+    const isManiaDeLimpeza = loaderData?.slug === "mania-de-limpeza";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -548,6 +554,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Kitutes na Mesa: porções, salgados, mini lanches, doces e bolos caseiros para eventos, coffee breaks e comemorações sob encomenda."
       : isEnoelPortas
       ? "Enoel Portas: colocação de portas de madeira, regulagem, vistas e caxilhos em Curitiba e região."
+      : isManiaDeLimpeza
+      ? "Mania de Limpeza Higienização: combo família para sofás, colchões, tapetes e estofados em Curitiba e região."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1168,6 +1176,8 @@ function PortfolioPrototypePage() {
 
         ) : slug === "enoel-portas" ? (
           <EnoelPortasPage />
+        ) : slug === "mania-de-limpeza" ? (
+          <ManiaDeLimpezaPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

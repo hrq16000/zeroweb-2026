@@ -1793,5 +1793,24 @@
     "fallbackImage": "/images/enoel-portas/social-og.jpg",
     "metrics": "Orçamento por WhatsApp",
     "summary": "Enoel Portas oferece colocação de portas de madeira, regulagem, vistas e caxilhos em geral para casas, apartamentos e obras em Curitiba e região."
+  },
+  {
+    "slug": "mania-de-limpeza",
+    "clientKey": "mania-de-limpeza",
+    "title": "Mania de Limpeza Higienização",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["higienizacao", "sofas", "colchoes", "tapetes", "combo-familia"],
+    "live": true,
+    "subtitle": "Sua casa mais leve",
+    "location": "Curitiba e Região Metropolitana — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/mania-de-limpeza/hero.png",
+    "fallbackImage": "/images/mania-de-limpeza/social-og.jpg",
+    "metrics": "Combo a partir de 3 itens",
+    "summary": "Mania de Limpeza Higienização oferece limpeza profissional de sofás, colchões, tapetes e estofados com combo família."
   }
 ]

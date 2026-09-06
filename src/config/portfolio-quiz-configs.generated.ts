@@ -1241,6 +1241,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: marca, modelo, código de erro e quando o problema começou."
   },
+  "mania-de-limpeza": {
+    "services": [
+      "Combo família · 3 ou mais itens",
+      "Higienização de sofá",
+      "Higienização de colchão",
+      "Higienização de tapete",
+      "Quero avaliar outros itens"
+    ],
+    "experienceOptions": [
+      "Minha casa",
+      "Apartamento",
+      "Empresa ou comércio",
+      "Ainda estou pesquisando"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o local"
+    ],
+    "timingOptions": [
+      "Quero aproveitar o combo",
+      "Quero um orçamento",
+      "Estou pesquisando opções"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você quer higienizar?",
+      "experience": "Onde será o atendimento?",
+      "period": "Em qual região?",
+      "timing": "Qual o próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: quantidade de itens, tipo de tecido, manchas ou prazo desejado."
+  },
   "marido-de-aluguel": {
     "services": [
       "Instalação",

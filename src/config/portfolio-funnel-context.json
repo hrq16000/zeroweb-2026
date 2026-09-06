@@ -565,5 +565,12 @@
     "nextStepBody": "Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo.",
     "primaryCtaLabel": "Pedir orçamento",
     "theme": "gold"
+  },
+  "mania-de-limpeza": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua casa mais leve começa por uma conversa.",
+    "nextStepBody": "Conte os itens que deseja higienizar e monte o combo família com a equipe.",
+    "primaryCtaLabel": "Montar meu combo",
+    "theme": "gold"
   }
 }

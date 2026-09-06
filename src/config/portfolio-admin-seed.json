@@ -1514,6 +1514,38 @@
       "blocking": []
     },
     {
+      "slug": "mania-de-limpeza",
+      "clientKey": "mania-de-limpeza",
+      "title": "Mania de Limpeza Higienização",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Mania de Limpeza Higienização oferece limpeza profissional de sofás, colchões, tapetes e estofados com combo família.",
+      "subtitle": "Sua casa mais leve",
+      "image": "/images/mania-de-limpeza/hero.png",
+      "icon": "/images/mania-de-limpeza/logo.png",
+      "socialImage": "/images/mania-de-limpeza/social-og.jpg",
+      "socialVersion": "18fb973e",
+      "componentFile": "src/components/site/ManiaDeLimpezaPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/mania-de-limpeza",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/mania-de-limpeza/hero.png",
+        "/images/mania-de-limpeza/logo.png",
+        "/images/mania-de-limpeza/social-og.jpg",
+        "/images/mania-de-limpeza/social.png"
+      ],
+      "shareCopy": "✨ A Mania de Limpeza Higienização ganhou uma presença digital nova!\n\nHigienização profissional de sofás, colchões, tapetes e estofados, com combo família a partir de 3 itens.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/mania-de-limpeza\n\n📲 Monte seu combo e solicite um orçamento.\n\n#ManiaDeLimpeza #Higienizacao #Sofa #Colchao #Curitiba #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "manu-pasteis",
       "clientKey": "manu-pasteis",
       "title": "Manu Pastéis",

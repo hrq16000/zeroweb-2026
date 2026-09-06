@@ -169,6 +169,19 @@
       "logoStatus": "CONCEPT_PENDING_APPROVAL",
       "coverStatus": "BRAND_COMPOSITION",
       "forbiddenSimilarities": ["btb-construcao", "js-eletrica-manutencao", "jc-revestimentos"]
+    },
+    "mania-de-limpeza": {
+      "brandCharacter": ["energético", "acolhedor", "higiênico", "otimista"],
+      "visualConcept": "Renovação doméstica: preto e amarelo de campanha com verde vivo como sinal de frescor.",
+      "heroComposition": "split-cinematic-higienizacao-com-negativo-escuro",
+      "sectionRhythm": ["renovacao", "servicos", "combo-familia", "instagram-vivo", "orcamento"],
+      "typographicCharacter": "Sans-display pesada para impacto promocional e sans limpa para leitura.",
+      "colorBehavior": "Preto estrutura, amarelo ativa, verde comunica frescor e papel claro dá respiro.",
+      "imageDirection": "Cena de higienização gerada a partir da arte oficial; sem pessoas, telefone ou resultado documental inventado.",
+      "signatureElement": "Combo família em faixa de campanha, conectado ao quiz de orçamento.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["popys-conservacao-limpeza", "easy-clean", "bruna-diarista"]
     }
   }
 }
