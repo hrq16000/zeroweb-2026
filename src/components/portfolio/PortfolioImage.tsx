@@ -1,7 +1,7 @@
 import type { ImgHTMLAttributes } from "react";
 import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
 
-type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "loading"> & {
+type Props = Omit<ImgHTMLAttributes<HTMLImageElement>, "src"> & {
   src: string;
   alt: string;
   /** Marca a imagem como candidata a LCP: sem lazy e com fetchpriority alto. */
@@ -39,6 +39,7 @@ export function PortfolioImage({
   widths,
   sizes = "(min-width: 1024px) 960px, 100vw",
   managedField,
+  loading,
   ...rest
 }: Props) {
   const runtime = usePortfolioRuntime();
@@ -56,7 +57,7 @@ export function PortfolioImage({
       alt={alt}
       srcSet={srcSet}
       sizes={srcSet ? sizes : undefined}
-      loading={priority ? "eager" : "lazy"}
+      loading={priority ? "eager" : loading ?? "lazy"}
       fetchPriority={priority ? "high" : "auto"}
       decoding="async"
       {...rest}

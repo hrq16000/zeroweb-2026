@@ -504,6 +504,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "papelemi-personalizados",
+    vertical: "comercios",
+    siteName: "PapeLemi Papelaria Personalizada",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

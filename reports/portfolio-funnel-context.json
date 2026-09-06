@@ -1,12 +1,12 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T08:31:59.440Z",
-    "audited": 75,
+    "generatedAt": "2026-09-06T08:52:19.444Z",
+    "audited": 76,
     "pass": 74,
-    "warning": 1,
+    "warning": 2,
     "fail": 0,
     "byIntent": {
-      "pedido": 20,
+      "pedido": 21,
       "orcamento": 26,
       "solicitacao": 1,
       "agendamento": 12,
@@ -988,6 +988,24 @@
       "nextStepBody": "Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção.",
       "primaryCtaLabel": "Fale com a empresa",
       "whatsappIntent": "orcamento",
+      "status": "WARNING",
+      "issues": [
+        {
+          "code": "PORTFOLIO_FUNNEL_FALLBACK",
+          "detail": "sem contrato próprio — fallback neutro"
+        }
+      ]
+    },
+    {
+      "slug": "papelemi-personalizados",
+      "businessName": "PapeLemi Papelaria Personalizada",
+      "segment": "comercios",
+      "intent": "pedido",
+      "source": "SEGMENT_FALLBACK",
+      "nextStepTitle": "Fale com PapeLemi Papelaria Personalizada sobre o que você precisa.",
+      "nextStepBody": "Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada.",
+      "primaryCtaLabel": "Fale com a empresa",
+      "whatsappIntent": "pedido",
       "status": "WARNING",
       "issues": [
         {

@@ -912,5 +912,24 @@
       "source": "Site oficial e materiais fornecidos pelo cliente nesta conversa",
       "reference": "https://jseletricaemanutencoes.com.br/"
     }
+  },
+  {
+    "clientKey": "papelemi-personalizados",
+    "slug": "papelemi-personalizados",
+    "siteName": "PapeLemi Papelaria Personalizada",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/PapelemiPersonalizadosPage.tsx",
+    "assetsDir": "public/images/papelemi-personalizados",
+    "ctaMode": "order",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/papelemi-personalizados.md",
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "source": "Loja oficial, Artesanou e perfis sociais fornecidos pelo cliente nesta conversa",
+      "reference": "https://papelemi.lojavirtualnuvem.com.br"
+    }
   }
 ]
