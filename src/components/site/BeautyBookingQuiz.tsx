@@ -178,6 +178,7 @@ export function BeautyBookingQuiz({
 
   const start = () => {
     onOpen?.();
+    window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open", { detail: { clientKey } }));
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
     setStep(0);
     void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));

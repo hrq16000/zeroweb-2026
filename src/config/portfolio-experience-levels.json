@@ -70,12 +70,14 @@
     "angel-mix-brecho": "PREMIUM",
     "reuse-house-brecho": "PREMIUM",
     "confeitaria-sabor-da-realeza": "PREMIUM",
-    "sscons": "SIGNATURE"
+    "sscons": "SIGNATURE",
+    "mimo-salgados-doces": "SIGNATURE",
+    "popys-conservacao-limpeza": "SIGNATURE"
   },
   "summary": {
-    "total": 69,
+    "total": 71,
     "premium": 33,
-    "signature": 20,
+    "signature": 22,
     "baseline": 16,
     "static": 0
   }

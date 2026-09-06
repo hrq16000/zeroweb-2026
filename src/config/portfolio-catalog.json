@@ -1563,5 +1563,43 @@
     "fallbackImage": "/images/sscons/social.jpg",
     "metrics": "Orçamento personalizado",
     "summary": "Carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, em Curitiba e Região Metropolitana."
+  },
+  {
+    "slug": "mimo-salgados-doces",
+    "clientKey": "mimo-salgados-doces",
+    "title": "Mimo Salgados e Doces",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["salgados", "doces", "copo-da-felicidade", "encomendas"],
+    "live": true,
+    "subtitle": "Salgados, doces e copo da felicidade",
+    "location": "Costeira · São José dos Pinhais — PR",
+    "badge": "Novo projeto",
+    "image": "/images/mimo-salgados-doces/hero-food.png",
+    "fallbackImage": "/images/mimo-salgados-doces/brand-poster.png",
+    "metrics": "Copo da felicidade · R$ 22,00",
+    "summary": "Salgados artesanais, doces e copo da felicidade para encomendas na Costeira, em São José dos Pinhais — PR."
+  },
+  {
+    "slug": "popys-conservacao-limpeza",
+    "clientKey": "popys-conservacao-limpeza",
+    "title": "POPYS Conservação e Limpeza",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["limpeza", "conservacao", "pos-obra", "escritorios", "fachadas"],
+    "live": true,
+    "subtitle": "Limpeza profissional para empresas e obras",
+    "location": "Curitiba e Região — PR",
+    "badge": "Novo projeto",
+    "image": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+    "fallbackImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+    "metrics": "Atendimento personalizado",
+    "summary": "Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região."
   }
 ]

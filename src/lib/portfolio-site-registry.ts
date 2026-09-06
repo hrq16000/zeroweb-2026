@@ -462,6 +462,20 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "mimo-salgados-doces",
+    vertical: "comercios",
+    siteName: "Mimo Salgados e Doces · São José dos Pinhais — PR",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
+    slug: "popys-conservacao-limpeza",
+    vertical: "prestadores-de-servicos",
+    siteName: "POPYS Conservação e Limpeza · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

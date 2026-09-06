@@ -43,7 +43,7 @@ jobs:
           # Testa o mesmo artefato que será publicado. O servidor de
           # desenvolvimento pode responder com fallback do Vite e não
           # representa o HTML SSR de produção.
-          bun run preview --port 8080 > /tmp/dev-server.log 2>&1 &
+          PREVIEW_PORT=8080 bun run preview:prod > /tmp/preview-server.log 2>&1 &
           for i in $(seq 1 60); do
             curl -sf -o /dev/null "$E2E_BASE_URL/" && exit 0
             sleep 2

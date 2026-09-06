@@ -915,6 +915,40 @@
       "desktopBehavior": "hero em camadas (selo → título palavra a palavra → subtítulo → CTAs), grade de serviços em stagger, galeria e foto institucional com revelação por máscara",
       "tabletBehavior": "mesma sequência; grade de serviços em 2 colunas, galeria em 2 colunas",
       "mobileBehavior": "revelações mantidas com distância menor; lift desativado no toque; lightbox com navegação por botões"
+    },
+    "mimo-salgados-doces": {
+      "intensity": "BALANCED",
+      "preset": "WARM_VITRINE",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero fotográfico revelado em camadas; cards de sabores em stagger curto",
+      "tabletBehavior": "KEEP",
+      "mobileBehavior": "SIMPLIFY"
+    },
+    "popys-conservacao-limpeza": {
+      "intensity": "BALANCED",
+      "preset": "CLEAN_REVEAL",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero limpo com revelação de imagem e cards de solução em sequência",
+      "tabletBehavior": "KEEP",
+      "mobileBehavior": "SIMPLIFY"
     }
   },
   "decisions": {
@@ -1323,6 +1357,21 @@
         "loops decorativos"
       ],
       "performanceNote": "Somente transform/opacity/clip-path via primitives; hero WebP responsivo (768/1280/1920) como único LCP priority; galeria lazy com variantes 480/800."
+    },
+    "mimo-salgados-doces": {
+      "wave": "MIMO_VITRINE",
+      "segment": "comercios",
+      "motionIntent": "VITRINE AFETIVA",
+      "whyThisMotion": "A entrada revela a comida como uma vitrine preparada com carinho: produto primeiro, pedido depois.",
+      "signatureMoments": {
+        "hero": "Imagem de comida revela pela esquerda com título curto em camadas",
+        "section": "Cards de sabores sobem em sequência curta",
+        "interaction": "CTA de encomenda abre o funil com foco imediato"
+      },
+      "motionIntensity": "BALANCED",
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
+      "performanceNote": "Somente transform/opacity; hero único com prioridade e menu carregado sob demanda.",
+      "accessibilityNotes": "Conteúdo fica no DOM; reduced motion remove deslocamentos."
     }
   }
 }

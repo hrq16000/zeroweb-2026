@@ -848,6 +848,30 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "2272c272"
+    },
+    "mimo-salgados-doces": {
+      "icon": "/images/mimo-salgados-doces/logo.png",
+      "socialImage": "/images/mimo-salgados-doces/hero-food.png",
+      "proof": {
+        "eyebrow": "Mimo Salgados e Doces",
+        "title": "Um carinho em forma de sabor.",
+        "description": "Salgados artesanais, doces e copo da felicidade para encomendar na Costeira.",
+        "ctaLabel": "Ver cardápio",
+        "ctaHref": "#cardapio"
+      },
+      "socialVersion": "mimo-20260906"
+    },
+    "popys-conservacao-limpeza": {
+      "icon": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "proof": {
+        "eyebrow": "POPYS Conservação e Limpeza",
+        "title": "Seu ambiente merece cuidado constante.",
+        "description": "Limpeza profissional para empresas, escritórios e obras em Curitiba e Região.",
+        "ctaLabel": "Conhecer soluções",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "popys-20260906"
     }
   }
 }

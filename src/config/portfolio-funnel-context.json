@@ -481,5 +481,19 @@
     "nextStepBody": "Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento.",
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "gold"
+  },
+  "mimo-salgados-doces": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu pedido começa com um sabor.",
+    "nextStepBody": "Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos.",
+    "primaryCtaLabel": "Montar meu pedido",
+    "theme": "pink"
+  },
+  "popys-conservacao-limpeza": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu ambiente merece cuidado constante.",
+    "nextStepBody": "Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "pink"
   }
 }

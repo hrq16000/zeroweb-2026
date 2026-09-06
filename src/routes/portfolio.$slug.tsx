@@ -213,6 +213,15 @@ const PauloMestreDeObrasPage = lazy(() =>
 const SsConsPage = lazy(() =>
   import("@/components/site/SsConsPage").then((m) => ({ default: m.SsConsPage })),
 );
+const MimoSalgadosDocesPage = lazy(() =>
+  import("@/components/site/MimoSalgadosDocesPage").then((m) => ({ default: m.MimoSalgadosDocesPage })),
+);
+const PopysConservacaoLimpezaPage = lazy(() =>
+  import("@/components/site/PopysConservacaoLimpezaPage").then((m) => ({ default: m.PopysConservacaoLimpezaPage })),
+);
+const MimoSalgadosDocesPage = lazy(() =>
+  import("@/components/site/MimoSalgadosDocesPage").then((m) => ({ default: m.MimoSalgadosDocesPage })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -460,8 +469,14 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
     const isHeloaGas = loaderData?.slug === "heloa-gas";
     const isSscons = loaderData?.slug === "sscons";
+    const isMimo = loaderData?.slug === "mimo-salgados-doces";
+    const isPopys = loaderData?.slug === "popys-conservacao-limpeza";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
+      : isMimo
+      ? "Mimo Salgados e Doces na Costeira, em São José dos Pinhais: salgados artesanais, doces e copo da felicidade por R$ 22,00."
+      : isPopys
+      ? "POPYS Conservação e Limpeza em Curitiba e Região: limpeza corporativa, escritórios, pós-obra, vidros, pisos e fachadas."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1048,6 +1063,12 @@ function PortfolioPrototypePage() {
           <PauloMestreDeObrasPage />
         ) : slug === "sscons" ? (
           <SsConsPage />
+
+        ) : slug === "mimo-salgados-doces" ? (
+          <MimoSalgadosDocesPage />
+
+        ) : slug === "popys-conservacao-limpeza" ? (
+          <PopysConservacaoLimpezaPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

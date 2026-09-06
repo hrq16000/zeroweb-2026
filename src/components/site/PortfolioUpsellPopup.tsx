@@ -36,6 +36,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const cardRef = useRef<HTMLDivElement | null>(null);
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const triggerRef = useRef<Trigger>("timer");
+  const funnelActiveRef = useRef(false);
   const storageKey = `${STORAGE_KEY}:${pageName}`;
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
@@ -102,7 +103,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     }
 
     const fire = (trigger: Trigger) => {
-      if (firedRef.current) return;
+      if (firedRef.current || funnelActiveRef.current) return;
       firedRef.current = true;
       triggerRef.current = trigger;
       try {
@@ -133,6 +134,17 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
     };
   }, [cfg, storageKey, trackingBase, track]);
+
+  // O funil do cliente tem prioridade absoluta sobre a captação da 0WEB.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onFunnelOpen = () => {
+      funnelActiveRef.current = true;
+      setVisible(false);
+    };
+    window.addEventListener("0web:portfolio-funnel-open", onFunnelOpen);
+    return () => window.removeEventListener("0web:portfolio-funnel-open", onFunnelOpen);
+  }, []);
 
   const close = useCallback(
     (reason: "dismiss" | "cta") => {

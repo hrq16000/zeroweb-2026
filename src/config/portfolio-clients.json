@@ -806,5 +806,42 @@
       "lovableSourceProjectId": "a6148619-92b1-4e27-afdc-bd7864392fe5",
       "publishedReference": "https://sscons.lovable.app/"
     }
+  },
+  {
+    "clientKey": "mimo-salgados-doces",
+    "slug": "mimo-salgados-doces",
+    "siteName": "Mimo Salgados e Doces",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MimoSalgadosDocesPage.tsx",
+    "assetsDir": "public/images/mimo-salgados-doces",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/mimo-salgados-doces.md",
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "source": "Materiais fornecidos pelo cliente nesta conversa",
+      "mapReference": "https://maps.app.goo.gl/jBt67rLbru5KceSw9?g_st=awb"
+    }
+  },
+  {
+    "clientKey": "popys-conservacao-limpeza",
+    "slug": "popys-conservacao-limpeza",
+    "siteName": "POPYS Conservação e Limpeza",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/PopysConservacaoLimpezaPage.tsx",
+    "assetsDir": "public/images/popys-conservacao-limpeza",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/popys-conservacao-limpeza.md",
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "source": "Material e briefing fornecidos pelo cliente nesta conversa"
+    }
   }
 ]

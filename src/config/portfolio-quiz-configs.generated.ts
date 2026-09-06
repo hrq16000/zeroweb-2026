@@ -1673,6 +1673,24 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: tema do bolo, quantidade de convidados, sabores e preferência de entrega."
   },
+  "mimo-salgados-doces": {
+    "services": ["Salgados", "Doces", "Copo da Felicidade · R$ 22,00", "Encomenda para festa", "Quero conhecer o cardápio"],
+    "experienceOptions": ["Para mim", "Festa ou evento", "Presente", "Encomenda para a família"],
+    "periodOptions": ["Retirar na Costeira", "Combinar entrega", "Ainda preciso confirmar"],
+    "timingOptions": ["Para hoje", "Para esta semana", "Estou planejando"],
+    "proposalKind": "service",
+    "stepTitles": { "service": "O que você quer pedir?", "experience": "Para qual ocasião?", "period": "Como prefere receber?", "timing": "Para quando precisa?" },
+    "notePlaceholder": "Conte a quantidade, sabores e data do pedido."
+  },
+  "popys-conservacao-limpeza": {
+    "services": ["Limpeza e conservação", "Escritório ou ambiente comercial", "Limpeza pós-obra", "Vidros, pisos e fachadas", "Serviço periódico personalizado"],
+    "experienceOptions": ["Empresa ou escritório", "Condomínio", "Obra em andamento", "Casa ou apartamento"],
+    "periodOptions": ["Curitiba", "Região Metropolitana", "Ainda preciso confirmar o local"],
+    "timingOptions": ["Preciso avaliar com urgência", "Nos próximos dias", "Serviço periódico", "Estou planejando"],
+    "proposalKind": "service",
+    "stepTitles": { "service": "Qual limpeza você precisa?", "experience": "Que tipo de ambiente?", "period": "Onde será o serviço?", "timing": "Quando pretende começar?" },
+    "notePlaceholder": "Conte a metragem, frequência e detalhes do ambiente."
+  },
 };
 
 export function resolvePortfolioQuizConfig(clientKey?: string): PortfolioQuizConfig | undefined {
