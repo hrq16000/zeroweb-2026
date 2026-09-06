@@ -20,6 +20,15 @@
   quebram rotas nem WhatsApp, mas devem receber revisão visual e novas capas
   sociais autorais em uma rodada dedicada.
 
+## 2026-09-06 — frente editorial e fila de capas
+
+- O painel de originalidade agora mostra a próxima ação recomendada por status
+  de capa (`CONTACT_OR_PII`, `PROMOTIONAL_MATERIAL`, `LOGO_ONLY`, `NO_REAL_ASSET`,
+  `UNCERTAIN_ORIGIN` e `NEEDS_CROP`).
+- Criado `docs/PORTFOLIO_EDITORIAL_REMEDIATION.md` com a fila priorizada e o
+  critério de aceite para transformar pendências em capas editoriais válidas,
+  sem apresentar arte gerada como prova real do cliente.
+
 ## 2026-09-02 — catálogo por segmentos e ramos existentes
 
 - A navegação de `/portfolio/` passou a derivar todos os segmentos diretamente do catálogo canônico.

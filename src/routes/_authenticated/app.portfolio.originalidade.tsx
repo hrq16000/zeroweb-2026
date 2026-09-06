@@ -62,6 +62,16 @@ const COVER_STATUS_LABEL: Record<string, string> = {
   UNCERTAIN_ORIGIN: "Origem incerta",
 };
 
+const COVER_NEXT_ACTION: Record<string, string> = {
+  CONTACT_OR_PII: "Substituir por foto própria sem telefone, endereço, e-mail ou QR code.",
+  PROMOTIONAL_MATERIAL: "Separar a foto editorial de preço, promoção e campanha.",
+  LOGO_ONLY: "Solicitar foto real do produto, ambiente ou processo do cliente.",
+  NO_REAL_ASSET: "Aguardar material próprio; não usar arte gerada como evidência.",
+  UNCERTAIN_ORIGIN: "Registrar origem, ponto focal e aprovação visual humana.",
+  NEEDS_CROP: "Gerar recorte editorial 16:10 e revisar em mobile e desktop.",
+  VALID: "Manter e revisar quando houver novo material oficial.",
+};
+
 /** Bloco compacto de capas: uma fonte de verdade, sem inventário paralelo. */
 type Comparison = {
   v1: { clones: number; over60: number; clusters: number; highSimilarity: number };
@@ -166,6 +176,9 @@ function CoverStatusBlock() {
             </div>
             <p className="mt-1 text-xs text-muted-foreground">
               <code>{r.slug}</code> · {r.reason ?? "Aprovada em revisão humana."}
+            </p>
+            <p className="mt-2 text-xs font-medium text-primary">
+              Próxima ação: {COVER_NEXT_ACTION[r.status] ?? "Revisar manualmente."}
             </p>
           </li>
         ))}
