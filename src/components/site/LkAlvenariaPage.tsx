@@ -64,7 +64,7 @@ export function LkAlvenariaPage() {
               <ManagedText field="heroHeadline" fallback={"Sua obra com contrato e garantia."} />
             </MotionReveal>
             {heroImage ? (
-              <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
+              <img src={heroImage} alt="LK Alvenaria: registro de obra" width={1280} height={800} loading="eager" fetchPriority="high" decoding="async" className="mt-8 h-56 w-full rounded-xl object-cover sm:h-72" />
             ) : null}
           </div>
 

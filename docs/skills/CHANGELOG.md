@@ -1,5 +1,25 @@
 # Skill changelog / usage log
 
+## 2026-09-06 — auditoria geral de qualidade e sincronização
+
+- Auditoria profunda do catálogo canônico: **83/83** projetos isolados, com
+  logos, ícones sociais, contratos de identidade, metadados, funis e presença
+  validados sem falhas bloqueantes.
+- Sincronizado o seed administrativo versionado (`portfolio-admin-seed.json`)
+  com os registries atuais; o check determinístico voltou a passar para os 83
+  projetos.
+- Corrigida a imagem hero de LK Alvenaria com `fetchPriority="high"` e
+  removido do texto público o exemplo de telefone que acionava o scanner de
+  privacidade.
+- Typecheck passou. O build de produção iniciou corretamente, mas excedeu o
+  limite de memória do processo durante a compilação Nitro; os avisos de
+  `inputValidator()` e diretivas `use client` pertencem às dependências e ficam
+  registrados para atualização controlada.
+- Backlog editorial identificado: 38 capas ainda pendentes de origem, 7 artes
+  com contato/PII embutido e 14 sem asset real confirmado. Esses itens não
+  quebram rotas nem WhatsApp, mas devem receber revisão visual e novas capas
+  sociais autorais em uma rodada dedicada.
+
 ## 2026-09-02 — catálogo por segmentos e ramos existentes
 
 - A navegação de `/portfolio/` passou a derivar todos os segmentos diretamente do catálogo canônico.
