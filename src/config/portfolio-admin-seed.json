@@ -1128,9 +1128,9 @@
       "state": "PR",
       "summary": "JC Revestimentos fornece textura projetada, grafiato, textura lisa, massa corrida, massa acrílica e massa niveladora em Uberaba, Curitiba.",
       "subtitle": "Revestimentos para pintura direto da fábrica",
-      "image": "/images/jc-revestimentos/hero-og.jpg",
+      "image": "/images/jc-revestimentos/hero-v2.png",
       "icon": "/images/jc-revestimentos/logo.png",
-      "socialImage": "/images/jc-revestimentos/hero-og.jpg",
+      "socialImage": "/images/jc-revestimentos/hero-v2.png",
       "socialVersion": "85b6554c",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
@@ -1141,6 +1141,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/jc-revestimentos/hero-og.jpg",
+        "/images/jc-revestimentos/hero-v2.png",
         "/images/jc-revestimentos/hero.webp",
         "/images/jc-revestimentos/logo.png",
         "/images/jc-revestimentos/servicos.webp"

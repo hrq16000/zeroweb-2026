@@ -131,8 +131,8 @@ export function JcRevestimentosPage() {
         {/* HERO de imagem plena com sobreposição e logo dentro da composição. */}
         <section aria-label="Apresentação principal" className="relative isolate min-h-[78svh] overflow-hidden">
           <PortfolioImage
-            src="/images/jc-revestimentos/hero.webp"
-            alt="Amostras de revestimento e textura em fachada residencial"
+            src="/images/jc-revestimentos/hero-v2.png"
+            alt="Amostras de revestimento e texturas para pintura com rolos e baldes de material"
             priority
             width={1920}
             height={1200}
@@ -166,7 +166,7 @@ export function JcRevestimentosPage() {
                 <ManagedText
                   field="heroSubheadline"
                   fallback={
-                    "Textura projetada, grafiato, textura lisa e massas para preparo de superf\u00edcie em Uberaba, Curitiba."
+                    "Textura projetada, grafiato, textura lisa e massas para preparo de superfície, direto da fábrica em Curitiba."
                   }
                 />
               </p>
@@ -210,7 +210,7 @@ export function JcRevestimentosPage() {
             />
             <div>
               <h2 className="font-display text-2xl font-bold md:text-3xl">
-                Superfície preparada, acabamento previsível.
+                Material certo, acabamento previsível.
               </h2>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">
                 Cada produto tem uma aplicação recomendada. Informe metragem, ambiente e o
@@ -246,7 +246,7 @@ export function JcRevestimentosPage() {
           <div>
             <strong>JC Revestimentos</strong>
             <p className="mt-1 text-sm text-muted-foreground">
-              Revestimentos para pintura — Uberaba, Curitiba.
+              Revestimentos para pintura direto da fábrica — Uberaba, Curitiba.
             </p>
           </div>
           <PortfolioHostCredit
