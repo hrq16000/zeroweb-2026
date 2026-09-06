@@ -925,3 +925,4 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Alterações:** marcas SVG art-directed e OGs JPEG refeitos para Almeida Torres, Marmitas do Barreiro, Casa Nativa, Clínica Integrada, Ateliê Encanto da Baía, Oficina Náutica Guaratuba, Reparos do Litoral, Sabores da Baía, Conserta Mirassol, Delícias Caseiras Mirassol e Elétrica Bairro Brasil; 15 contratos marcados como entregues; script reprodutível `scripts/complete-pending-identities.mjs` criado.
 - **Validação:** `validate-portfolio-assets`, `validate-portfolio-logos`, `validate-portfolio-icons`, `validate-portfolio-catalog` e `validate-portfolio-scaffold` aprovados para 83 projetos.
 - **Privacidade:** nenhum telefone, endereço ou `wa.me` entrou nas imagens sociais ou no novo SVG de marca.
+- **Fechamento documental:** `scripts/document-all-portfolio-identities.mjs` registrou contratos individuais para os 68 projetos que já possuíam assets, totalizando identidade declarada em 83/83.
