@@ -1,71 +1,112 @@
 ---
 name: 0web-design-system
-description: Design direction, semantic tokens, typography, layout rhythm, component API rules and anti-AI-slop criteria for 0WEB interfaces and isolated /portfolio client sites. Use when creating or redesigning any page, section or component.
+description: Design engineering, semantic tokens, typography, layout rhythm, component API rules and anti-AI-slop criteria for 0WEB interfaces and isolated /portfolio client sites. Use after creative direction is defined.
 ---
 
 # 0WEB Design System
 
-Source of truth for tokens: `src/styles.css` (`@theme` + `:root` + client
-themes). Never hardcode colors — no `text-white`, `bg-black`, `bg-[#...]`.
-Use semantic utilities: `bg-background`, `text-foreground`, `bg-card`,
+This skill is a **design-engineering layer**, not a universal visual skin.
+For `/portfolio/<slug>`, read `.agents/skills/0web-portfolio-art-direction/SKILL.md`
+and the client's creative brief first.
+
+## Platform vs client identity
+
+### 0WEB platform pages
+
+Source of truth for tokens: `src/styles.css` (`@theme` + `:root`). Prefer semantic
+utilities such as `bg-background`, `text-foreground`, `bg-card`,
 `text-muted-foreground`, `bg-primary`, `border-border`, `ring-ring`.
+
+### Portfolio client sites
+
+The client's identity is sovereign. Reuse platform primitives and engineering,
+but create **client-scoped semantic variables/tokens** when the brand requires
+another palette, type pairing, radius, spacing rhythm, image treatment or
+surface language.
+
+Do not force the 0WEB palette or typography onto a client. Hard-coded random
+colors are still discouraged, but a deliberate local token such as
+`--client-accent`, `--client-ink`, `--client-paper` is valid and preferred over
+pretending every client shares the same global theme.
 
 ## Direction before code
 
-Before implementing, state in one paragraph: audience, the single goal of the
-page, aesthetic direction, 4–6 color roles, type pairing, structure and one
-signature element that makes the page recognizable.
+For normal 0WEB UI, state audience, goal, aesthetic direction, color roles,
+type pairing, structure and signature element.
 
-If the direction cannot be stated, the page is not ready to be built.
+For a new or materially redesigned portfolio/landing, the full creative brief
+in `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` is mandatory. If the brief
+could fit another client by changing only the name, do not build yet.
 
 ## Typography
 
+### 0WEB platform
+
 - Display: `--font-display` (Space Grotesk). Body: `--font-sans` (Inter).
+
+### Portfolio client
+
+- Choose a brand-appropriate type pairing. Space Grotesk/Inter are **fallbacks,
+  not defaults** for client identity.
+- Use licensed/allowed fonts with performant loading and sensible fallbacks.
 - One `h1` per route. Heading levels never skip.
-- Body measure 60–75ch. Mobile body ≥ 16px to avoid iOS zoom.
-- Type scale is intentional: hero, section title, subtitle, body, caption.
-  Do not invent one-off sizes when a step already exists.
+- Body measure is normally 60–75ch; deliberate editorial exceptions are allowed.
+- Mobile body text must remain readable and form fields should avoid iOS zoom.
 
 ## Layout and rhythm
 
-- Spacing uses the Tailwind scale; keep a consistent vertical rhythm per
-  section (e.g. `py-16 md:py-24`).
-- Radius comes from `--radius` derivatives (`rounded-lg`, `rounded-2xl`).
-- Shadows: `--shadow-soft` / `--shadow-glow` only when they express elevation.
+Use the Tailwind scale and CSS custom properties, but do not impose one vertical
+rhythm, radius or max-width across all clients. The creative brief decides
+whether the project is dense, editorial, cinematic, technical, catalog-like,
+asymmetric, modular or something else.
+
+Shared values are engineering conveniences, not visual requirements.
 
 ## Component API rules
 
-- Compose instead of growing props. No boolean explosion (`isPrimary`,
-  `isLarge`, `isCompact` → one `variant` + one `size` via `cva`).
-- Extract when a component exceeds ~200 lines or mixes fetching, layout and
-  business rules.
-- Shared shell/behaviour lives in a shared component; identity (copy, colors,
-  imagery) stays with the page or client.
+- Compose instead of growing props. Avoid boolean explosion.
+- Extract when a component mixes fetching, layout and business rules or becomes
+  difficult to reason about.
+- Shared behavior belongs in shared primitives; client identity, layout topology,
+  copy, palette, typography, imagery and signature motion stay local.
+- A shared primitive must not silently impose a hero/card/section composition.
 
 ## Anti-AI-slop checklist
 
 Reject a design that shows any of these without a deliberate reason:
 
-- generic 3-card grid as the only structure;
-- purple/indigo gradient on white;
+- generic 3-card grid as the dominant structure;
+- purple/indigo gradient on white by habit;
 - gratuitous glassmorphism or decorative blur;
 - shadows with no elevation meaning;
-- interchangeable hero → cards → logos → pricing → FAQ → CTA template;
-- default Inter-only typography with no hierarchy contrast;
-- stock-feeling illustrations replacing real client photography.
+- interchangeable `hero → cards → logos → pricing → FAQ → CTA` template;
+- same hero topology, same section order and same motion grammar as nearby
+  portfolio clients;
+- default Inter-only typography when the brand calls for another voice;
+- stock-feeling imagery replacing official client material;
+- a redesign whose only meaningful differences are logo, color and copy.
 
-Ask: is it better, more coherent, more distinctive, and does it serve the
-business goal — or is it just different?
+Ask: is it better, more coherent, more distinctive, and grounded in this
+client's business — or merely a recolored template?
 
 ## Portfolio isolation
 
-Inside `/portfolio/<slug>` the client's identity is sovereign. Never import
-0WEB `Header`, `Footer`, navigation, palette or copy. Read
-`docs/PORTFOLIO_CLIENT_STANDARD.md` and `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md`
-first, then run `bun run validate:portfolio-boundaries`.
+Inside `/portfolio/<slug>` never import 0WEB `Header`, `Footer`, navigation,
+palette or copy. Read:
+
+- `docs/PORTFOLIO_CLIENT_STANDARD.md`
+- `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md`
+- `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`
+
+Then run `bun run validate:portfolio-boundaries`.
 
 ## Conversion
 
-Every commercial page answers, visually, in under 3 seconds: what it is, for
-whom, why trust it, what to do next. The primary action must be the strongest
-element in the hierarchy; secondary actions must be visibly secondary.
+Every commercial page should communicate what it is, for whom, why it deserves
+attention and what to do next quickly. The strongest conversion pattern depends
+on traffic and offer; a fixed landing-page section count is not a requirement.
+
+Primary action must be visually clear. Proof must be evidence-based; if no
+verified testimonial/rating exists, use legitimate proof such as process,
+materials, scope, official imagery, guarantees or methodology instead of
+fabricating social proof.

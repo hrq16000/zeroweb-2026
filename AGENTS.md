@@ -6,6 +6,8 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
+| Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
@@ -22,49 +24,66 @@ Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
 
 # Regra oficial da zona de portfolios
 
-
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
-`docs/PORTFOLIO_CLIENT_STANDARD.md` e execute `npm run validate:portfolio-boundaries`.
+`docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
+`docs/PORTFOLIO_CAPABILITY_PALETTE.md` e execute `bun run validate:portfolio-boundaries`.
 
 ## Skills obrigatórias
 
-Toda implementação nova ou revisão visual em `/portfolio/` deve seguir
-`docs/AGENT_SKILLS_GOVERNANCE.md`. No mínimo, aplique a direção do
-`frontend-design`, a revisão de acessibilidade/mobile da Apple Design Skill e a
-passada de `ui-craft` adequada (tokens, adapt, animate, polish ou audit). A
-decisão e o resultado devem ser registrados no PR/commit ou na documentação do
-projeto. Não publique uma nova página sem validar funil individual, SEO,
-imagens reais, estados de carregamento/erro, `prefers-reduced-motion` e
-viewports móveis.
+Toda implementação nova ou revisão visual material em `/portfolio/` deve seguir
+`docs/AGENT_SKILLS_GOVERNANCE.md`. No mínimo:
+
+1. executar `0web-skill-discovery` para selecionar competências complementares;
+2. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
+3. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam
+   problemas reais da marca/jornada — o arquivo é repertório, nunca template;
+4. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar
+   estrutura fixa;
+5. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
+6. revisar acessibilidade/mobile, motion, performance e quality gates.
+
+Não publique uma nova página sem creative brief v2, funil individual, SEO,
+imagens classificadas corretamente, estados, `prefers-reduced-motion`, viewport
+móvel, originality review e contato server-side quando houver número oficial.
 
 ## Princípio obrigatório
 
 Cada `/portfolio/<slug>` é um site independente de um cliente. A 0WEB fornece
-somente hospedagem, vitrine, infraestrutura e mecanismos compartilhados. Nunca
-reutilize identidade, navegação, conteúdo, contato, SEO, CTA ou linguagem da
-0WEB ou de outro cliente dentro desse site.
+somente hospedagem, vitrine, infraestrutura e mecanismos compartilhados.
+
+**Padronizar a engenharia, nunca a criatividade.**
+
+Nunca reutilize identidade, navegação, composição visual, conteúdo, contato,
+SEO, CTA ou linguagem de outro cliente como padrão. Reutilizar primitives de
+engenharia é permitido; reutilizar o mesmo hero/section-order/motion e apenas
+recolorir não é.
 
 ## Recursos compartilhados
 
-- CTA/funil: compartilhar o mecanismo seguro e parametrizável; perguntas,
-  destinatário, serviço, texto e visual pertencem ao cliente.
-- Prova social: usar `PortfolioSocialProofPopup`; conteúdo e tema devem ser do
-  cliente.
-- Captação da 0WEB: manter `PortfolioUpsellPopup` como camada externa da
-  hospedagem/vitrine. Ele não pertence à identidade do cliente, mas é obrigatório
-  para transformar visitas aos portfolios em oportunidades para a 0WEB.
+- CTA/funil: compartilhar mecanismo seguro; perguntas, destinatário, serviço,
+  texto e visual pertencem ao cliente.
+- Prova social: conteúdo deve ser verificável. Em demo/protótipo, conteúdo
+  ilustrativo precisa estar claramente rotulado como exemplo/demonstração.
+- Captação 0WEB: `PortfolioUpsellPopup` é camada externa obrigatória da plataforma.
 - Contato: nunca inserir `wa.me`, telefone ou e-mail operacional no bundle.
-  Resolver o destinatário no servidor por `clientKey`.
-- SEO: cada cliente precisa de título, descrição, canonical, imagem social e
-  ícone próprios.
-- Assets: cada cliente possui diretório próprio e não herda imagens de outro.
+  Resolver por `clientKey`; novos clientes usam secret
+  `PORTFOLIO_WHATSAPP_<CLIENT_KEY_NORMALIZADO>`.
+- SEO: título, descrição, canonical, social image e ícone próprios.
+- Assets: diretório próprio; mídia gerada pode apoiar a marca, mas não fingir
+  equipe, sede, cliente, obra executada ou resultado real.
+- Tipografia/paleta: podem e devem ser escopadas ao cliente quando a identidade
+  pedir; Space Grotesk/Inter e tokens 0WEB não são skin obrigatória do portfolio.
 
 ## Proibido
 
 - `Header` ou `Footer` da 0WEB dentro da identidade visual de um cliente.
 - Copiar design/layout de outro portfolio como padrão visual.
+- Publicar um scaffold v2 com `CREATIVE_BRIEF_REQUIRED`.
+- Usar apenas default de motion por segmento em novo portfolio v2 publicado.
 - Inferir `clientKey` pelo nome visível da empresa.
 - Expor contato direto ou dados sensíveis no código público.
+- Apresentar avaliações, depoimentos, ratings, prêmios, números ou resultados
+  fabricados como se fossem reais.
 
 ---
 
@@ -77,24 +96,18 @@ máquina: `src/config/experience-capabilities.json` e
 
 - Toda página cumpre engineering, brand, motion, interaction, content,
   conversion, SEO, accessibility, performance, originality e privacy.
-  O padrão é a capacidade; a composição visual continua exclusiva.
-- Motion usa as primitives de `src/components/motion` (`MotionReveal`,
-  `MotionStagger`, `MotionTextReveal`, `MotionImageReveal`, `MotionCounter`).
-  Não espalhar animação avulsa por componentes.
-- Conteúdo sempre no DOM e visível sem JS. Animar só `transform`, `opacity`,
-  `clip-path`. `prefers-reduced-motion` remove deslocamento, nunca conteúdo.
-- Intensidade: `SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE`. Sem
-  `MAXIMUM_EVERYTHING`. Motion budget: máx. 3 signature moments, 1 parallax,
-  1 stagger por viewport, 1 loop.
-- Cada projeto declara motion profile + skill profile e registra decisões
-  (`whyThisMotion`, `signatureMoments`, notas de performance/a11y/originalidade).
+- Motion usa primitives de `src/components/motion` / `motion/react` conforme o
+  padrão local; conteúdo sempre existe sem JS.
+- `prefers-reduced-motion` remove deslocamento, nunca conteúdo.
+- Intensidade: `SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE`. Motion budget usual:
+  máx. 3 signature moments, 1 parallax, 1 stagger por viewport, 1 loop.
+- Novo portfolio v2 declara override próprio de motion e creative brief; defaults
+  por segmento ficam como fallback legado.
 - Hierarquia técnica: CSS → API nativa → motion system → lib leve → lib pesada
   só com justificativa. Skill não justifica dependência.
-- Capas: `PHOTO_DERIVED | BRAND_COMPOSITION | ABSTRACT_BRAND_ART`. Nunca
-  inventar fachada, equipe, produto ou serviço executado.
-- Gate: `bun run check:experience-standard` (report-only) e
-  `:enforce`. Bloqueia só falha objetiva; nunca por gosto.
-- Rollout em ondas. Não redesenhar projetos autorais já aprovados.
-- Projeto novo só nasce válido com perfil de motion, sinal real de experiência
-  e assinatura própria — ver `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` §19 e
-  `bun run validate:portfolio-scaffold`.
+- Capas: `PHOTO_DERIVED | BRAND_COMPOSITION | ABSTRACT_BRAND_ART`; nunca inventar
+  evidência factual.
+- Gate: `bun run check:experience-standard` e `:enforce`.
+- Rollout em ondas. Não redesenhar projetos autorais aprovados sem gatilho real.
+- Projeto novo só nasce válido com direção criativa, identidade, motion, funil,
+  SEO, imagens e assinatura próprias, além dos gates técnicos.

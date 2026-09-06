@@ -1,78 +1,149 @@
 # Parametrização técnica — stack, motion, performance e acessibilidade
 
 Status: **normativo** · Escopo: projetos atuais e novos `/portfolio/<slug>` e demais páginas 0WEB.
-Complementa `docs/PORTFOLIO_SKILL_PARAMETRIZATION.md` (skills de negócio),
+Complementa `docs/PORTFOLIO_SKILL_PARAMETRIZATION.md`,
+`docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` e `docs/PORTFOLIO_CLIENT_STANDARD.md`.
 
-Este documento traduz o template genérico de parametrização técnica para a
-**stack real** do 0WEB. Valores que divergem do template genérico estão marcados
-como **[CORREÇÃO]** — a fonte de verdade é o código, não o template.
+Este documento traduz competências genéricas de desenvolvimento web para a
+**stack real** do 0WEB. A regra é aproveitar a capacidade, não trocar a stack
+apenas porque uma skill menciona outra ferramenta.
 
 ## 1. Stack canônica
 
-| Camada | Padrão 0WEB | Observação |
+| Competência genérica | Padrão 0WEB | Observação |
 |---|---|---|
-| Framework | **React 19 + TanStack Start v1 (SSR)** | [CORREÇÃO] Não é HTML/SCSS/JS vanilla nem Vue/Svelte. |
-| Linguagem | **TypeScript (ES6+)** | Componentes `.tsx`; nada de manipulação manual de DOM fora das primitives. |
-| Estilização | **Tailwind CSS v4** via `src/styles.css` + tokens semânticos | [CORREÇÃO] Sem Sass/SCSS, sem Bootstrap. Cores sempre por tokens, nunca utilitários hardcoded (`text-white`, `bg-[#...]`). |
-| Build | **Vite 7 + Bun 1.4** (`bun.lock` único) | Minificação/bundle automáticos; sem Webpack/PostCSS manual. |
-| Rotas | `src/routes/` (TanStack Router) | Cada `/portfolio/<slug>` é site independente do cliente. |
-| Backend | Lovable Cloud (RLS) + `createServerFn` | Contato/WhatsApp resolvidos **somente no servidor** por `clientKey`. |
+| HTML5 semântico | JSX/TSX semântico em React 19 | landmarks, headings, forms e ARIA quando necessários |
+| CSS3, Flexbox, Grid, media queries | Tailwind CSS v4 + CSS custom properties | mobile-first; sem Sass/Less como requisito |
+| JavaScript/framework | TypeScript + React 19 + TanStack Start | handlers React; DOM direto só em primitives justificadas |
+| Build/bundling | Vite 7 + Bun 1.4 | sem Webpack/Babel manual por padrão |
+| Backend/API | TanStack server functions + Supabase/Lovable Cloud | somente quando a feature exige |
+| Versionamento | GitHub issue → branch → PR → checks → merge | nunca direto em `main` |
+| QA | Bun tests + Playwright + Lighthouse + gates locais | evidência antes de declarar pronto |
 
-## 2. Interatividade e animação
+## 2. Design system: plataforma ≠ cliente
 
-| Item do template genérico | Equivalente 0WEB |
+Em páginas 0WEB, `src/styles.css` e os tokens globais são a fonte de verdade.
+
+Em `/portfolio/<slug>`, o cliente pode ter tokens locais escopados para paleta,
+tipografia, radius, espaçamento, superfície e tratamento de imagem. Isso é
+preferível a forçar todos os clientes a parecerem a mesma marca.
+
+Space Grotesk/Inter são defaults da 0WEB e fallbacks possíveis, **não obrigação
+visual para clientes**. A tipografia do portfolio é definida no creative brief.
+
+## 3. Interatividade e animação
+
+| Capacidade | Equivalente 0WEB |
 |---|---|
-| Manipulação de DOM / event listeners | Handlers React nos componentes; DOM direto só dentro das primitives de motion. |
-| IntersectionObserver (scroll reveal) | Encapsulado em `src/components/motion/index.tsx` (`useInViewOnce`, `MotionReveal`, `MotionStagger`). **Não espalhar observers avulsos.** |
-| GSAP / AOS / Lottie | [CORREÇÃO] **Não usar por padrão.** A hierarquia é: CSS → API nativa → motion system (`src/components/motion`) → lib leve → lib pesada só com justificativa registrada. |
-| CSS transitions/animations | Permitidas em `transform`, `opacity`, `clip-path`; conteúdo sempre no DOM e visível sem JS. |
-| Intensidade | `SUBTLE · BALANCED · EXPRESSIVE · IMMERSIVE` — nunca "máximo de tudo". Budget: ≤3 signature moments, 1 parallax, 1 stagger por viewport, 1 loop. |
-| Reduced motion | `prefers-reduced-motion` remove deslocamento, **nunca** conteúdo (via `usePrefersReducedMotion` + camada CSS). |
+| DOM/event listeners | handlers React; DOM direto encapsulado |
+| IntersectionObserver | primitives em `src/components/motion` quando aplicável |
+| CSS transitions/animations | `transform`, `opacity`, `clip-path` e estados de UI |
+| Motion library | `motion/react` + primitives locais |
+| GSAP/AOS/Lottie/Three | somente com necessidade concreta, revisão e budget; nunca default |
+| Reduced motion | `prefers-reduced-motion` obrigatório |
 
-## 3. Mídia, performance e SEO
+Todo projeto novo creative v2 precisa de **override de motion próprio**.
+Defaults por segmento existem apenas como fallback legado.
 
-- **Imagens**: componente `PortfolioImage` (lazy-loading, dimensões, alt); formatos WebP/JPG; capa por precedência `image › fallbackImage › socialImage › icon › gradiente`. Imagens pesadas são o backlog `IMAGE_PERFORMANCE` — otimização só em rodada própria.
-- **SEO**: `head()` por rota com título/descrição/OG/Twitter únicos, canonical e JSON-LD por cliente; conteúdo editorial verdadeiro (sem métricas/depoimentos inventados).
-- **Acessibilidade**: HTML semântico, hierarquia de headings, `alt`, foco visível, contraste AA; validado pelos gates de experiência.
-- **CTA/WhatsApp**: [CORREÇÃO] **Nunca** link `wa.me`/telefone no bundle. CTA abre o funil do cliente; o redirect `/r/whatsapp/:token` resolve o número no servidor. Sem número oficial: `NOT_CONFIGURED` é válido (sem 503, sem fallback para outro cliente ou 0WEB).
+Budget usual: até 3 signature moments, 1 parallax, 1 stagger por viewport e 1
+loop. Não é “mínimo de efeito”; é limite para concentrar impacto onde importa.
 
-## 4. Gates que provam a parametrização
+## 4. UX/UI e responsividade
 
-```bash
-bun run audit:portfolio-skills        # matriz skill→parâmetro por projeto
-bun run validate:portfolio-boundaries # isolamento entre clientes e 0WEB
-bun run check:experience-standard     # motion/a11y/conteúdo (report + :enforce)
-bun run validate:client-privacy       # zero PII/contato no bundle
-bun test && bun run build
+Aplicar em toda página comercial:
+
+- hierarquia visual clara;
+- mobile-first e cross-browser moderno;
+- touch targets adequados;
+- teclado/foco visível;
+- contraste AA;
+- loading/empty/error quando houver estado dinâmico;
+- modais/lightboxes com semântica, ESC, foco e restauração de foco;
+- composição específica do cliente definida antes do código.
+
+A direção visual pode ser editorial, cinematográfica, técnica, assimétrica,
+minimalista, brutalista, luxuosa, lúdica ou outra — desde que derive do negócio e
+não copie o portfolio vizinho.
+
+## 5. Mídia, performance e SEO
+
+- **Imagens**: `PortfolioImage`, dimensões explícitas, hero/LCP prioritário e
+  demais imagens lazy; WebP/JPG/SVG quando adequado.
+- **Assets oficiais**: preservar logo/fotos reais do cliente. Mídia gerada pode
+  ser arte de marca, mas não prova fictícia de equipe, sede, obra ou cliente.
+- **SEO**: `head()` único, title/description/OG/Twitter/canonical/JSON-LD por
+  cliente, sitemap e conteúdo semântico.
+- **Performance**: code splitting, requests sob demanda, imagens responsivas,
+  cache/CDN da plataforma, Lighthouse e Core Web Vitals.
+- **Acessibilidade**: HTML semântico, alt, foco, contraste, teclado, reduced motion.
+
+## 6. CTA/WhatsApp
+
+Nunca usar `wa.me`, telefone ou e-mail operacional no bundle público.
+
+Fluxo canônico:
+
+```text
+CTA → funil individual → lead → token → /r/whatsapp/:token
+→ resolver contato server-side → mensagem → 302 para WhatsApp
 ```
 
-## 5. Template de parametrização para NOVOS projetos (preencher no briefing)
+Para novos clientes, o secret canônico é:
+
+```text
+PORTFOLIO_WHATSAPP_<CLIENT_KEY_NORMALIZADO>
+```
+
+Sem secret válido: `NOT_CONFIGURED`; nunca fallback silencioso para outro cliente.
+
+## 7. Gates
+
+```bash
+bun run audit:portfolio-skills
+bun run validate:portfolio-scaffold
+bun run validate:portfolio-boundaries
+bun run check:portfolio-originality
+bun run check:experience-standard
+bun run validate:client-privacy
+bun test
+bun run build
+```
+
+Além disso, validar a experiência real em mobile/desktop, console, teclado,
+reduced motion e CTA/funil.
+
+## 8. Briefing técnico + criativo para NOVOS projetos
 
 ```text
 Cliente/slug: [nome + slug]
-Segmento/tipo: [segment, projectType]            Cidade/UF: [city, state]
-Identidade: [paleta própria, tipografia, tom]     — nunca copiar outro cliente
-Seções: [hero, serviços, prova real, FAQ, contato via funil...]
-Motion profile: [SUBTLE|BALANCED|EXPRESSIVE|IMMERSIVE] + família preset
-  signature moments (≤3): [...]   parallax (≤1): [...]   loop (≤1): [...]
-  whyThisMotion: [justificativa curta]
-Assets reais do cliente: [logo, fotos, socialImage] — nunca fachada/equipe inventada
-Capa: [PHOTO_DERIVED | BRAND_COMPOSITION | ABSTRACT_BRAND_ART]
-Contato oficial: [recebido? cadastrar só na fonte server-side; senão NOT_CONFIGURED]
-SEO: [título, descrição, cidade, tags, imagem social própria]
-A11y/perf: [AA, reduced-motion, alt, lazy, budget de motion respeitado]
+Segmento/tipo/cidade: [...]
+Business truth / público / objetivo: [...]
+Metáfora visual: [...]
+Layout topology + hero archetype: [...]
+Tipografia própria + color roles: [...]
+Image strategy: [oficiais / brand art / licenciadas]
+Motion override: [intensity + grammar + signature moments]
+Interaction signature: [...]
+Conversion narrative: [...]
+Proof strategy: [evidence-first]
+Funil/clientKey: [...]
+Secret esperado: PORTFOLIO_WHATSAPP_<...>
+SEO: [...]
+A11y/perf: [...]
+Anti-template decisions: [...]
 ```
 
-Todo projeto novo nasce válido somente com: identidade própria, motion profile
-declarado, funil próprio resolvível, SEO próprio, assets reais, gates verdes
-(`validate:portfolio-scaffold` + gates acima). **Padronizar a engenharia, nunca
-a criatividade.**
+Todo projeto novo nasce válido somente com creative brief preenchido, identidade
+própria, motion override próprio, funil resolvível, SEO próprio, assets próprios
+e gates verdes. **Padronizar a engenharia, nunca a criatividade.**
 
-## 6. O que este padrão proíbe
+## 9. O que este padrão proíbe
 
-- Sass/Bootstrap/GSAP/AOS/Lottie como default; libs pesadas sem justificativa.
-- Telefone, `wa.me` ou e-mail operacional no bundle, analytics ou logs.
-- Copiar visual, composição ou motion de outro cliente.
-- Desligar por override: rodapé de hospedagem, captação 0WEB, reduced-motion.
-- Métricas, selos, depoimentos ou resultados sem evidência auditável.
+- trocar React/TanStack/Tailwind/Bun por hábito de uma skill externa;
+- Sass/Bootstrap/GSAP/AOS/Lottie/Three como default;
+- telefone, `wa.me` ou e-mail operacional no bundle;
+- copiar visual, composição ou motion de outro cliente;
+- publicar workbench/scaffold não finalizado;
+- apresentar métricas, selos, avaliações, depoimentos ou resultados fabricados
+  como se fossem reais.

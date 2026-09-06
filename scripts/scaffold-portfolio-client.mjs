@@ -2,13 +2,14 @@
 /**
  * Gerador parametrizado de novos sites em /portfolio/<slug>.
  *
- * Garante, desde o primeiro commit, os itens que o playbook exige:
+ * V2: o scaffold cria infraestrutura, NÃO um template visual pronto.
+ * Ele gera:
  *  - registro em src/config/portfolio-clients.json
  *  - chave em src/lib/portfolio-client-keys.ts
- *  - componente exclusivo do cliente (sem Header/Footer da 0WEB)
+ *  - workbench não publicável até direção criativa ser concluída
+ *  - creative brief obrigatório
  *  - diretório próprio de assets
- *  - migration do funil individual `funnel-<slug>`
- *  - pop-up de captação + share + SEO herdados da rota /portfolio/$slug
+ *  - migration do funil individual em DRAFT
  *
  * Uso:
  *   node scripts/scaffold-portfolio-client.mjs --slug pizzaria-do-ze \
@@ -47,7 +48,9 @@ const componentName = `${pascal}Page`;
 const componentFile = `src/components/site/${componentName}.tsx`;
 const assetsDir = `public/images/${slug}`;
 const funnelSlug = `funnel-${slug}`;
-const secretName = `${slug.toUpperCase().replace(/[^A-Z0-9]/g, "_")}_WHATSAPP_NUMBER`;
+const normalizedClientKey = clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_");
+const secretName = `PORTFOLIO_WHATSAPP_${normalizedClientKey}`;
+const creativeBriefFile = `docs/portfolio/briefs/${slug}.md`;
 
 const written = [];
 const write = (relPath, content) => {
@@ -63,88 +66,118 @@ const write = (relPath, content) => {
   written.push(relPath);
 };
 
-const componentSource = `import { lazy } from "react";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { LazySection } from "@/components/portfolio/LazySection";
-
-// Seções pesadas (galerias, mapas, carrosséis) entram por chunk sob demanda.
-// Ver docs/PORTFOLIO_PERFORMANCE.md
-// const Galeria = lazy(() => import("./${pascal}Galeria"));
 
 /**
- * Site exclusivo de ${siteName} (/portfolio/${slug}).
- * Identidade do cliente é soberana: nada de Header/Footer/copy da 0WEB.
- * Contato é resolvido no servidor pelo clientKey — nunca no bundle público.
+ * WORKBENCH de ${siteName} (/portfolio/${slug}).
+ *
+ * NÃO PUBLICAR enquanto data-portfolio-scaffold="CREATIVE_BRIEF_REQUIRED" existir.
+ * Antes do layout, preencher ${creativeBriefFile} e seguir
+ * docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md.
  */
 export function ${componentName}() {
   return (
-    <div className="min-h-dvh bg-background text-foreground">
+    <div
+      data-client-slug="${slug}"
+      data-portfolio-scaffold="CREATIVE_BRIEF_REQUIRED"
+      className="min-h-dvh bg-background text-foreground"
+    >
       <main>
-        <section className="mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+        <section aria-labelledby="${slug}-workbench-title" className="mx-auto max-w-3xl px-4 py-20 md:py-28">
+          <p className="text-sm font-medium text-muted-foreground">Direção criativa pendente</p>
+          <h1 id="${slug}-workbench-title" className="mt-3 text-3xl font-semibold md:text-5xl">
             ${siteName}
-          </p>
-          <h1 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-tight">
-            ${siteName}: uma presença digital clara para o seu público.
           </h1>
-          <p className="mt-4 max-w-[65ch] text-muted-foreground">
-            Conheça os serviços, a identidade e os próximos passos de ${siteName}.
+          <p className="mt-5 max-w-[65ch] text-muted-foreground">
+            Este componente é somente a base técnica. Substitua esta composição por uma direção autoral do cliente antes de publicar.
           </p>
-          {/* Única imagem LCP do projeto: priority. As demais ficam lazy por padrão. */}
-          <PortfolioImage
-            src="/images/${slug}/capa.webp"
-            alt="${siteName}"
-            priority
-            width={1200}
-            height={800}
-            className="mt-8 w-full rounded-3xl object-cover"
-          />
-
-          <div className="mt-8">
+          <div className="mt-8 transition-opacity">
             <FunnelCTAButton
               clientKey="${clientKey}"
               companySlug="${slug}"
               formSlug="${funnelSlug}"
-              location="${slug}_hero"
+              location="${slug}_workbench"
             >
-              Falar com a equipe
+              Iniciar contato
             </FunnelCTAButton>
           </div>
         </section>
       </main>
-
-      {/* Exemplo de seção sob demanda:
-      <LazySection minHeight={320} fallback={<div className="h-80 animate-pulse rounded-2xl bg-muted" />}>
-        <Galeria />
-      </LazySection>
-      */}
-
-      {/* TODO: preencher com conteúdo real do cliente antes de ativar:
-      <PortfolioSocialProofPopup clientKey="${clientKey}" eyebrow="" title="" description="" ctaLabel="" ctaHref="#" /> */}
       <PortfolioHostCredit />
     </div>
   );
 }
 `;
 
+const creativeBriefSource = `# Creative brief — ${siteName}
+
+Contrato: v2 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
+
+> Preencher antes de construir a interface. Nenhum campo pode permanecer como
+> \`[PREENCHER]\` quando o projeto estiver \`published\`.
+
+- businessTruth: [PREENCHER]
+- audience: [PREENCHER]
+- singleGoal: [PREENCHER]
+- brandPersonality: [PREENCHER]
+- visualMetaphor: [PREENCHER]
+- layoutTopology: [PREENCHER]
+- heroArchetype: [PREENCHER]
+- navigationArchetype: [PREENCHER]
+- sectionRhythm: [PREENCHER]
+- typePairing: [PREENCHER]
+- colorRoles: [PREENCHER]
+- imageStrategy: [PREENCHER]
+- iconStrategy: [PREENCHER]
+- motionGrammar: [PREENCHER]
+- interactionSignature: [PREENCHER]
+- conversionNarrative: [PREENCHER]
+- proofStrategy: [PREENCHER]
+- nearestPortfolioRisks: [PREENCHER]
+- antiTemplateDecisions: [PREENCHER]
+
+## Assets oficiais recebidos
+
+[PREENCHER]
+
+## Skills selecionadas
+
+[PREENCHER]
+
+## Skills rejeitadas e motivo
+
+[PREENCHER]
+
+## Validação final
+
+- [ ] identidade escopada ao cliente
+- [ ] override de motion próprio
+- [ ] hero/composição distintos dos portfolios mais próximos
+- [ ] imagens classificadas corretamente
+- [ ] funil individual funcional
+- [ ] secret server-side configurado quando houver contato oficial
+- [ ] mobile/desktop/teclado/reduced-motion
+- [ ] originality + a11y + performance + privacy + build
+`;
+
 const migrationName = `${new Date().toISOString().replace(/[-:TZ.]/g, "").slice(0, 14)}_seed_${slug.replace(/-/g, "_")}_funnel.sql`;
 const migrationSource = `-- Funil individual de ${siteName} (${funnelSlug}).
--- Modelo: supabase/migrations/*_seed_paraiso_hot_dog_funnel.sql
--- Preencha as perguntas reais do cliente antes de aplicar.
+-- Scaffold V2: nasce DRAFT. Preencha perguntas reais e só então publique.
 
 insert into public.dynamic_forms (slug, name, status, description)
-values ('${funnelSlug}', '${siteName}', 'published', 'Funil individual de ${siteName}')
+values ('${funnelSlug}', '${siteName}', 'draft', 'Funil individual de ${siteName}')
 on conflict (slug) do update
   set name = excluded.name,
-      status = 'published',
+      status = excluded.status,
       description = excluded.description;
 
--- TODO: inserir as etapas em public.dynamic_form_questions referenciando o form acima.
+-- TODO: inserir etapas reais em public.dynamic_form_questions.
+-- TODO: depois de validar o fluxo, alterar o status para 'published'.
 `;
 
 write(componentFile, componentSource);
+write(creativeBriefFile, creativeBriefSource);
 write(`${assetsDir}/.gitkeep`, "");
 write(`supabase/migrations/${migrationName}`, migrationSource);
 
@@ -160,8 +193,10 @@ if (!registry.some((c) => c.slug === slug)) {
     componentFile,
     assetsDir,
     ctaMode,
-    socialProofRequired: true,
+    socialProofRequired: false,
     hostCaptureRequired: true,
+    creativeContractVersion: 2,
+    creativeBriefFile,
   });
   if (!dryRun) writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`, "utf8");
   written.push("src/config/portfolio-clients.json");
@@ -178,19 +213,20 @@ if (existsSync(keysPath)) {
   }
 }
 
-console.log(`\n[scaffold] ${siteName} → /portfolio/${slug}`);
+console.log(`\n[scaffold:v2] ${siteName} → /portfolio/${slug}`);
 for (const file of written) console.log(`  + ${file}`);
 
 console.log(`
-Próximos passos obrigatórios (docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md):
-  1. Registrar o site em src/lib/portfolio-site-registry.ts (sitemap + SEO + card).
-  2. Ligar o branch "${slug}" em src/routes/portfolio.$slug.tsx.
-  3. Preencher a migration supabase/migrations/${migrationName} com as etapas reais.
-  4. Cadastrar o secret privado ${secretName} (somente servidor).
-  5. Adicionar imagens reais em ${assetsDir}.
-  6. Otimizar imagens em .webp e manter apenas 1 imagem priority (docs/PORTFOLIO_PERFORMANCE.md).
-  7. Rodar: bun run validate:portfolio-performance && bun run validate:portfolio-boundaries && bun run validate:portfolio-meta && bun test && bun run build
+Próximos passos obrigatórios:
+  1. Preencher ${creativeBriefFile} ANTES de desenhar a página.
+  2. Substituir o workbench por composição autoral e remover CREATIVE_BRIEF_REQUIRED.
+  3. Registrar catálogo + site registry + rota lazy.
+  4. Adicionar assets oficiais/próprios em ${assetsDir}.
+  5. Criar override próprio em src/config/portfolio-motion-profiles.json.
+  6. Preencher o funil ${funnelSlug}, validar e só então mudar para published.
+  7. Cadastrar o secret privado ${secretName} (somente servidor), se houver contato oficial.
+  8. Rodar gates de scaffold, boundaries, meta, originality, a11y, privacy, test e build.
 
-Herdados automaticamente pela rota compartilhada: pop-up de captação da 0WEB,
-botão de compartilhamento, SEO base, breadcrumbs e JSON-LD.
+Herdados automaticamente pela rota compartilhada: captação 0WEB,
+compartilhamento, breadcrumbs e infraestrutura SEO. Visual NÃO é herdado.
 `);
