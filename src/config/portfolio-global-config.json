@@ -431,6 +431,10 @@
         "stepTitles": { "service": "Qual solução LED você procura?", "experience": "Onde será instalado?", "period": "Como podemos orientar?", "timing": "Quando pretende comprar ou instalar?" },
         "notePlaceholder": "Conte os ambientes, a metragem e o que deseja iluminar."
       }
+    },
+    "sscons": {
+      "contactFloating": { "theme": "gold", "recipientName": "a equipe S&S", "label": "Solicitar orçamento" },
+      "footer": { "variant": "dark" }
     }
   }
 }
