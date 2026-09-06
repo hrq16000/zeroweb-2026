@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T05:21:34.253Z",
+  "generatedAt": "2026-09-06T07:25:45.499Z",
   "base": "http://localhost:8080",
   "viewports": [
     {
@@ -8101,6 +8101,246 @@
       },
       "consoleErrors": [],
       "status": 200
+    },
+    "bruna-diarista": {
+      "slug": "bruna-diarista",
+      "viewports": {
+        "mobile": {
+          "overflowX": 8,
+          "offenders": [
+            "DIV.card"
+          ],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 0,
+          "imageSrcs": [],
+          "h1Count": 1,
+          "h1": "Esta página não carregou",
+          "h2Count": 0,
+          "sections": 0,
+          "smallTargets": 0,
+          "hero": {
+            "height": 212,
+            "backgroundImage": false,
+            "heading": "Esta página não carregou",
+            "headingSize": 20,
+            "ctaCount": 2,
+            "imageCount": 0
+          },
+          "textLength": 133,
+          "text": "Esta página não carregou Ocorreu uma instabilidade momentânea. Tente atualizar ou voltar ao início. Tentar novamente Voltar ao início",
+          "docHeight": 892,
+          "topColors": [
+            {
+              "color": "rgb(17, 17, 17)",
+              "n": 1
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 0,
+          "imageSrcs": [],
+          "h1Count": 1,
+          "h1": "Esta página não carregou",
+          "h2Count": 0,
+          "sections": 0,
+          "smallTargets": 0,
+          "hero": {
+            "height": 212,
+            "backgroundImage": false,
+            "heading": "Esta página não carregou",
+            "headingSize": 20,
+            "ctaCount": 2,
+            "imageCount": 0
+          },
+          "textLength": 133,
+          "text": "Esta página não carregou Ocorreu uma instabilidade momentânea. Tente atualizar ou voltar ao início. Tentar novamente Voltar ao início",
+          "docHeight": 1048,
+          "topColors": [
+            {
+              "color": "rgb(17, 17, 17)",
+              "n": 1
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 500 ()",
+        "Failed to load resource: the server responded with a status of 500 ()"
+      ],
+      "status": 500
+    },
+    "popys-conservacao-limpeza": {
+      "slug": "popys-conservacao-limpeza",
+      "viewports": {
+        "mobile": {
+          "overflowX": 8,
+          "offenders": [
+            "DIV.card"
+          ],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 0,
+          "imageSrcs": [],
+          "h1Count": 1,
+          "h1": "Esta página não carregou",
+          "h2Count": 0,
+          "sections": 0,
+          "smallTargets": 0,
+          "hero": {
+            "height": 212,
+            "backgroundImage": false,
+            "heading": "Esta página não carregou",
+            "headingSize": 20,
+            "ctaCount": 2,
+            "imageCount": 0
+          },
+          "textLength": 133,
+          "text": "Esta página não carregou Ocorreu uma instabilidade momentânea. Tente atualizar ou voltar ao início. Tentar novamente Voltar ao início",
+          "docHeight": 892,
+          "topColors": [
+            {
+              "color": "rgb(17, 17, 17)",
+              "n": 1
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 0,
+          "imageSrcs": [],
+          "h1Count": 1,
+          "h1": "Esta página não carregou",
+          "h2Count": 0,
+          "sections": 0,
+          "smallTargets": 0,
+          "hero": {
+            "height": 212,
+            "backgroundImage": false,
+            "heading": "Esta página não carregou",
+            "headingSize": 20,
+            "ctaCount": 2,
+            "imageCount": 0
+          },
+          "textLength": 133,
+          "text": "Esta página não carregou Ocorreu uma instabilidade momentânea. Tente atualizar ou voltar ao início. Tentar novamente Voltar ao início",
+          "docHeight": 1048,
+          "topColors": [
+            {
+              "color": "rgb(17, 17, 17)",
+              "n": 1
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 500 ()",
+        "Failed to load resource: the server responded with a status of 500 ()"
+      ],
+      "status": 500
+    },
+    "mimo-salgados-doces": {
+      "slug": "mimo-salgados-doces",
+      "viewports": {
+        "mobile": {
+          "overflowX": 8,
+          "offenders": [
+            "DIV.card"
+          ],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 0,
+          "imageSrcs": [],
+          "h1Count": 1,
+          "h1": "Esta página não carregou",
+          "h2Count": 0,
+          "sections": 0,
+          "smallTargets": 0,
+          "hero": {
+            "height": 212,
+            "backgroundImage": false,
+            "heading": "Esta página não carregou",
+            "headingSize": 20,
+            "ctaCount": 2,
+            "imageCount": 0
+          },
+          "textLength": 133,
+          "text": "Esta página não carregou Ocorreu uma instabilidade momentânea. Tente atualizar ou voltar ao início. Tentar novamente Voltar ao início",
+          "docHeight": 892,
+          "topColors": [
+            {
+              "color": "rgb(17, 17, 17)",
+              "n": 1
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 0,
+          "imageSrcs": [],
+          "h1Count": 1,
+          "h1": "Esta página não carregou",
+          "h2Count": 0,
+          "sections": 0,
+          "smallTargets": 0,
+          "hero": {
+            "height": 212,
+            "backgroundImage": false,
+            "heading": "Esta página não carregou",
+            "headingSize": 20,
+            "ctaCount": 2,
+            "imageCount": 0
+          },
+          "textLength": 133,
+          "text": "Esta página não carregou Ocorreu uma instabilidade momentânea. Tente atualizar ou voltar ao início. Tentar novamente Voltar ao início",
+          "docHeight": 1048,
+          "topColors": [
+            {
+              "color": "rgb(17, 17, 17)",
+              "n": 1
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 500 ()",
+        "Failed to load resource: the server responded with a status of 500 ()"
+      ],
+      "status": 500
     }
   }
 }
