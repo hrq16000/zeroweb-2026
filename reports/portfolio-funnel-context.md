@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T05:21:56.431Z
+Gerado em 2026-09-06T06:52:27.225Z
 
-- Projetos auditados: **69**
-- PASS: **69** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (19) · orcamento (22) · solicitacao (1) · agendamento (11) · contato (6) · reserva (4) · diagnostico (6)
+- Projetos auditados: **71**
+- PASS: **71** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (20) · orcamento (23) · solicitacao (1) · agendamento (11) · contato (6) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -77,3 +77,5 @@ Gerado em 2026-09-06T05:21:56.431Z
 | hbk-iluminacao-led | construcao | orcamento | Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação. | Solicitar cotação | PROJECT_CONTRACT | PASS | — |
 | heloa-gas | comercios | pedido | Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega. | Fazer pedido | PROJECT_CONTRACT | PASS | — |
 | sscons | servicos | orcamento | Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
+| mimo-salgados-doces | comercios | pedido | Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. | Montar meu pedido | PROJECT_CONTRACT | PASS | — |
+| popys-conservacao-limpeza | servicos | orcamento | Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
