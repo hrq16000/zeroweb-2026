@@ -1,7 +1,10 @@
 {
   "version": 1,
   "policy": {
-    "preferredFormats": ["avif", "webp"],
+    "preferredFormats": [
+      "avif",
+      "webp"
+    ],
     "mobileFirst": true,
     "preserveOriginals": true
   },
