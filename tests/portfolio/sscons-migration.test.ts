@@ -109,7 +109,7 @@ describe("S&S Construções — registro canônico", () => {
 });
 
 describe("S&S Construções — proveniência dos assets", () => {
-  it("preserva o hero original byte a byte", () => {
+  it("preserva os 8 assets originais byte a byte", () => {
     for (const [file, hash] of Object.entries(ORIGINAL_ASSET_HASHES)) {
       expect(existsSync(resolve(root, file))).toBe(true);
       expect(sha256(file)).toBe(hash);
