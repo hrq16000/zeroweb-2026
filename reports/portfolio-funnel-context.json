@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T09:52:41.038Z",
+    "generatedAt": "2026-09-06T20:36:45.661Z",
     "audited": 79,
-    "pass": 76,
-    "warning": 3,
+    "pass": 79,
+    "warning": 0,
     "fail": 0,
     "byIntent": {
-      "pedido": 21,
-      "orcamento": 26,
+      "pedido": 20,
+      "orcamento": 27,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 7,
@@ -983,54 +983,39 @@
       "businessName": "JS Elétrica e Manutenção",
       "segment": "servicos",
       "intent": "orcamento",
-      "source": "SEGMENT_FALLBACK",
-      "nextStepTitle": "Fale com JS Elétrica e Manutenção sobre o que você precisa.",
-      "nextStepBody": "Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção.",
-      "primaryCtaLabel": "Fale com a empresa",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Elétrica revisada com laudo claro do que precisa ser feito.",
+      "nextStepBody": "Conte qual quadro, circuito ou manutenção está pedindo atenção agora.",
+      "primaryCtaLabel": "Pedir visita técnica",
       "whatsappIntent": "orcamento",
-      "status": "WARNING",
-      "issues": [
-        {
-          "code": "PORTFOLIO_FUNNEL_FALLBACK",
-          "detail": "sem contrato próprio — fallback neutro"
-        }
-      ]
+      "status": "PASS",
+      "issues": []
     },
     {
       "slug": "papelemi-personalizados",
       "businessName": "PapeLemi Papelaria Personalizada",
       "segment": "comercios",
-      "intent": "pedido",
-      "source": "SEGMENT_FALLBACK",
-      "nextStepTitle": "Fale com PapeLemi Papelaria Personalizada sobre o que você precisa.",
-      "nextStepBody": "Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada.",
-      "primaryCtaLabel": "Fale com a empresa",
-      "whatsappIntent": "pedido",
-      "status": "WARNING",
-      "issues": [
-        {
-          "code": "PORTFOLIO_FUNNEL_FALLBACK",
-          "detail": "sem contrato próprio — fallback neutro"
-        }
-      ]
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Papelaria personalizada feita para a sua data.",
+      "nextStepBody": "Diga o tema, a quantidade e a data da festa para montarmos o kit.",
+      "primaryCtaLabel": "Montar meu kit",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
     },
     {
       "slug": "maximos-cabeleireiros",
       "businessName": "Maximos Cabeleireiros",
       "segment": "beleza",
       "intent": "agendamento",
-      "source": "SEGMENT_FALLBACK",
-      "nextStepTitle": "Fale com Maximos Cabeleireiros sobre o que você precisa.",
-      "nextStepBody": "Conte sua necessidade e os detalhes importantes para Maximos Cabeleireiros.",
-      "primaryCtaLabel": "Fale com a empresa",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu horário começa por uma conversa sobre o seu cabelo.",
+      "nextStepBody": "Conte o corte, a cor ou o cuidado que você quer fazer e o melhor dia.",
+      "primaryCtaLabel": "Solicitar horário",
       "whatsappIntent": "agendamento",
-      "status": "WARNING",
-      "issues": [
-        {
-          "code": "PORTFOLIO_FUNNEL_FALLBACK",
-          "detail": "sem contrato próprio — fallback neutro"
-        }
-      ]
+      "status": "PASS",
+      "issues": []
     },
     {
       "slug": "embalar-embalagens",

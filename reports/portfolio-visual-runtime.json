@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T05:21:34.253Z",
+  "generatedAt": "2026-09-06T20:36:21.815Z",
   "base": "http://localhost:8080",
   "viewports": [
     {
@@ -8095,6 +8095,1138 @@
             {
               "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
               "n": 6
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "bruna-diarista": {
+      "slug": "bruna-diarista",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/bruna-diarista/hero.png"
+          ],
+          "h1Count": 1,
+          "h1": "Sua casa limpa. Sua rotina mais leve.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 856,
+            "backgroundImage": false,
+            "heading": "Sua casa limpa. Sua rotina mais leve.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2361,
+          "text": "CARREGANDO Copiar divulgação B Bruna Diarista Consultar horários DIÁRIAS · ORGANIZAÇÃO · CURITIBA Sua casa limpa. Sua rotina mais leve. Limpeza cuidadosa, pós-obra e organização para quem valoriza tempo, confiança e um ambiente bem cuidado. Falar com a Bruna Ver diárias Atendimento com agendamento Segunda a sábado CUIDADO QUE SE PERCEBE Mais do que limpeza: tranquilidade para a semana. Limpeza de rotina Casas e apartamentos cuidados com atenção em cada ambiente. Limpeza pesada Uma rotina mais profunda para recuperar a sensação de casa em ordem. Personal organizer Organização de ambientes para ganhar espaço, agilidade e bem-estar. DIÁRIAS PROFISSIONAIS Escolha o tempo que combina com seu ambiente. Uma profissional 4 horas R$ 130 + deslocamento Uma profissional 6 horas R$ 160 + deslocamento Uma profissional 8 horas R$ 200 + deslocamento Duas profissionais 4 horas R$ 220 + deslocamento Duas profissionais 6 horas R$ 280 + deslocamento Duas profissionais 8 horas R$ 420 + deslocamento Pós-obra, pós-mudança e organização: R$ 35,00 por hora + deslocamento. Confirme disponibilidade no atendimento. AGENDA BRUNA DIARISTA Vamos deixar sua casa brilhando? Conte o que precisa e escolha a frequência que combina com sua rotina. Solicitar horário SOBRE O PROJETO Sua casa em ordem começa com um bom horário. Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. diarista limpeza residencial pos obra personal organizer Consultar horários KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Bruna Diarista. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Bruna Diarista SERVICOS Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Curitiba — PR 0web.com.br/portfolio/bruna-diarista Ilustração do cartão de visitas de Bruna Diarista PANFLETO DIGITAL BRUNA DIARISTA Conheça Bruna Diarista. Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Ver a presença digital Ilustração do panfleto digital de Bruna Diarista © 2026 · Bruna Diarista Site desenvolvido por 0WEB Contato",
+          "docHeight": 5807,
+          "topColors": [
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+              "n": 6
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(24, 35, 61)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/bruna-diarista/hero.png"
+          ],
+          "h1Count": 1,
+          "h1": "Sua casa limpa. Sua rotina mais leve.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 732,
+            "backgroundImage": false,
+            "heading": "Sua casa limpa. Sua rotina mais leve.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2397,
+          "text": "CARREGANDO Copiar divulgação B Bruna Diarista Serviços Valores Contato Consultar horários DIÁRIAS · ORGANIZAÇÃO · CURITIBA Sua casa limpa. Sua rotina mais leve. Limpeza cuidadosa, pós-obra e organização para quem valoriza tempo, confiança e um ambiente bem cuidado. Falar com a Bruna Ver diárias Atendimento com agendamento Segunda a sábado CUIDADO QUE SE PERCEBE Mais do que limpeza: tranquilidade para a semana. Limpeza de rotina Casas e apartamentos cuidados com atenção em cada ambiente. Limpeza pesada Uma rotina mais profunda para recuperar a sensação de casa em ordem. Personal organizer Organização de ambientes para ganhar espaço, agilidade e bem-estar. DIÁRIAS PROFISSIONAIS Escolha o tempo que combina com seu ambiente. Uma profissional 4 horas R$ 130 + deslocamento Uma profissional 6 horas R$ 160 + deslocamento Uma profissional 8 horas R$ 200 + deslocamento Duas profissionais 4 horas R$ 220 + deslocamento Duas profissionais 6 horas R$ 280 + deslocamento Duas profissionais 8 horas R$ 420 + deslocamento Pós-obra, pós-mudança e organização: R$ 35,00 por hora + deslocamento. Confirme disponibilidade no atendimento. AGENDA BRUNA DIARISTA Vamos deixar sua casa brilhando? Conte o que precisa e escolha a frequência que combina com sua rotina. Solicitar horário SOBRE O PROJETO Sua casa em ordem começa com um bom horário. Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. diarista limpeza residencial pos obra personal organizer Consultar horários KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Bruna Diarista. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Bruna Diarista SERVICOS Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Curitiba — PR 0web.com.br/portfolio/bruna-diarista Ilustração do cartão de visitas de Bruna Diarista PANFLETO DIGITAL BRUNA DIARISTA Conheça Bruna Diarista. Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Ver a presença digital Ilustração do panfleto digital de Bruna Diarista © 2026 · Bruna Diarista Site desenvolvido por 0WEB Consultar horários",
+          "docHeight": 3484,
+          "topColors": [
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+              "n": 6
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(24, 35, 61)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "btb-construcao": {
+      "slug": "btb-construcao",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 1,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png"
+          ],
+          "h1Count": 0,
+          "h1": "",
+          "h2Count": 0,
+          "sections": 1,
+          "smallTargets": 0,
+          "hero": {
+            "height": 0,
+            "backgroundImage": false,
+            "heading": "",
+            "headingSize": 0,
+            "ctaCount": 0,
+            "imageCount": 0
+          },
+          "textLength": 10,
+          "text": "CARREGANDO",
+          "docHeight": 844,
+          "topColors": [
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 1,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png"
+          ],
+          "h1Count": 0,
+          "h1": "",
+          "h2Count": 0,
+          "sections": 1,
+          "smallTargets": 0,
+          "hero": {
+            "height": 0,
+            "backgroundImage": false,
+            "heading": "",
+            "headingSize": 0,
+            "ctaCount": 0,
+            "imageCount": 0
+          },
+          "textLength": 10,
+          "text": "CARREGANDO",
+          "docHeight": 1000,
+          "topColors": [
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "easy-clean": {
+      "slug": "easy-clean",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/easy-clean/hero.png"
+          ],
+          "h1Count": 1,
+          "h1": "Conforto limpo, sem sair de casa.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1017,
+            "backgroundImage": false,
+            "heading": "Conforto limpo, sem sair de casa.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2394,
+          "text": "CARREGANDO Copiar divulgação EC Easy Clean Solicitar orçamento HIGIENIZAÇÃO A SECO · CURITIBA E REGIÃO Conforto limpo, sem sair de casa. A Easy Clean vai até você para higienizar estofados, colchões e interiores de carro com cuidado, praticidade e equipamentos profissionais. Chamar a Easy Clean Conhecer serviços Produtos seguros Atendimento em domicílio Limpeza profunda. Rotina mais leve. CUIDADO QUE SE SENTE Higienizar é devolver vida ao que você usa todos os dias. Estofados Lavagem a seco para sofás, poltronas, cadeiras e puffs. Colchões Higienização profunda para uma noite mais limpa e confortável. Interior do carro Bancos e teto de carro cuidados no conforto de onde você estiver. Impermeabilização Proteção para manter seu estofado limpo por mais tempo. O QUE A LIMPEZA REMOVE Mais cuidado para o seu ambiente. A higienização e a impermeabilização ajudam a conservar tecidos e tornar a rotina mais agradável. Organizar meu orçamento Ácaros Mofos Fungos Bactérias Odores Sujeira acumulada EM CASA OU NA EMPRESA Seu estofado limpo e protegido por mais tempo. Conte o que precisa higienizar e receba uma orientação para o melhor atendimento. Solicitar orçamento SOBRE O PROJETO Seu conforto limpo começa com uma boa avaliação. Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro. Atendimento em Curitiba — PR. Como começar Conte qual peça precisa de higienização e se deseja impermeabilização. higienizacao lavagem a seco estofados impermeabilizacao Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Easy Clean Higienização a Seco. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Easy Clean Higienização a Seco SERVICOS Higienizacao · Lavagem A Seco · Estofados · Impermeabilizacao Curitiba — PR 0web.com.br/portfolio/easy-clean Ilustração do cartão de visitas de Easy Clean Higienização a Seco PANFLETO DIGITAL EASY CLEAN HIGIENIZAÇÃO A SECO Conheça Easy Clean Higienização a Seco. Higienizacao · Lavagem A Seco · Estofados · Impermeabilizacao Ver a presença digital Ilustração do panfleto digital de Easy Clean Higienização a Seco © 2026 · Easy Clean Higienização a Seco Site desenvolvido por 0WEB Contato",
+          "docHeight": 5704,
+          "topColors": [
+            {
+              "color": "rgb(105, 201, 66)",
+              "n": 8
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(244, 251, 247)",
+              "n": 2
+            },
+            {
+              "color": "rgb(16, 42, 60)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/easy-clean/hero.png"
+          ],
+          "h1Count": 1,
+          "h1": "Conforto limpo, sem sair de casa.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 689,
+            "backgroundImage": false,
+            "heading": "Conforto limpo, sem sair de casa.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2434,
+          "text": "CARREGANDO Copiar divulgação EC Easy Clean Serviços Cuidados Orçamento Solicitar orçamento HIGIENIZAÇÃO A SECO · CURITIBA E REGIÃO Conforto limpo, sem sair de casa. A Easy Clean vai até você para higienizar estofados, colchões e interiores de carro com cuidado, praticidade e equipamentos profissionais. Chamar a Easy Clean Conhecer serviços Produtos seguros Atendimento em domicílio Limpeza profunda. Rotina mais leve. CUIDADO QUE SE SENTE Higienizar é devolver vida ao que você usa todos os dias. Estofados Lavagem a seco para sofás, poltronas, cadeiras e puffs. Colchões Higienização profunda para uma noite mais limpa e confortável. Interior do carro Bancos e teto de carro cuidados no conforto de onde você estiver. Impermeabilização Proteção para manter seu estofado limpo por mais tempo. O QUE A LIMPEZA REMOVE Mais cuidado para o seu ambiente. A higienização e a impermeabilização ajudam a conservar tecidos e tornar a rotina mais agradável. Organizar meu orçamento Ácaros Mofos Fungos Bactérias Odores Sujeira acumulada EM CASA OU NA EMPRESA Seu estofado limpo e protegido por mais tempo. Conte o que precisa higienizar e receba uma orientação para o melhor atendimento. Solicitar orçamento SOBRE O PROJETO Seu conforto limpo começa com uma boa avaliação. Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro. Atendimento em Curitiba — PR. Como começar Conte qual peça precisa de higienização e se deseja impermeabilização. higienizacao lavagem a seco estofados impermeabilizacao Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Easy Clean Higienização a Seco. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Easy Clean Higienização a Seco SERVICOS Higienizacao · Lavagem A Seco · Estofados · Impermeabilizacao Curitiba — PR 0web.com.br/portfolio/easy-clean Ilustração do cartão de visitas de Easy Clean Higienização a Seco PANFLETO DIGITAL EASY CLEAN HIGIENIZAÇÃO A SECO Conheça Easy Clean Higienização a Seco. Higienizacao · Lavagem A Seco · Estofados · Impermeabilizacao Ver a presença digital Ilustração do panfleto digital de Easy Clean Higienização a Seco © 2026 · Easy Clean Higienização a Seco Site desenvolvido por 0WEB Solicitar orçamento",
+          "docHeight": 3551,
+          "topColors": [
+            {
+              "color": "rgb(105, 201, 66)",
+              "n": 8
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.75)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(244, 251, 247)",
+              "n": 2
+            },
+            {
+              "color": "rgb(16, 42, 60)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "popys-conservacao-limpeza": {
+      "slug": "popys-conservacao-limpeza",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/popys-conservacao-limpeza/hero-cleaning.png"
+          ],
+          "h1Count": 1,
+          "h1": "Seu ambiente limpo, organizado e bem cuidado.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 950,
+            "backgroundImage": false,
+            "heading": "Seu ambiente limpo, organizado e bem cuidado.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2640,
+          "text": "CARREGANDO Copiar divulgação P POPYS Conservação Solicitar orçamento CONSERVAÇÃO · LIMPEZA · CURITIBA Seu ambiente limpo, organizado e bem cuidado. Soluções profissionais para empresas, escritórios e obras, com atendimento personalizado para a necessidade de cada cliente. Solicitar orçamento Conhecer soluções Curitiba e Região Periódico ou sob medida SOLUÇÕES POPYS Limpeza que sustenta a rotina. Limpeza e conservação Rotinas de cuidado para manter cada ambiente organizado, saudável e pronto para receber. Organizar este serviço Escritórios e empresas Atendimento profissional para ambientes comerciais, com escopo ajustado à sua operação. Organizar este serviço Limpeza pós-obra Remoção de resíduos e acabamento cuidadoso para entregar o espaço pronto para usar. Organizar este serviço Vidros, pisos e fachadas Detalhes que mudam a percepção do ambiente, com planejamento para cada superfície. Organizar este serviço CUIDADO EM CADA DETALHE Um atendimento pensado para o seu ambiente. A POPYS entende o local, organiza a rotina e combina o escopo adequado antes de começar. Atendimento personalizado Profissionais preparados Serviço periódico ou pontual Seu espaço merece constância. Da primeira avaliação à manutenção, a equipe monta uma solução clara para sua realidade. Descrever meu ambiente CURITIBA E REGIÃO Vamos cuidar do seu ambiente? Conte o tipo de espaço, a frequência e o que precisa. A POPYS organiza o próximo passo. Falar com a POPYS SOBRE O PROJETO Seu ambiente merece cuidado constante. Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. limpeza conservacao pos obra escritorios Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de POPYS Conservação e Limpeza. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS POPYS Conservação e Limpeza SERVICOS Limpeza · Conservacao · Pos Obra · Escritorios Curitiba — PR 0web.com.br/portfolio/popys-conservacao-limpeza Ilustração do cartão de visitas de POPYS Conservação e Limpeza PANFLETO DIGITAL POPYS CONSERVAÇÃO E LIMPEZA Conheça POPYS Conservação e Limpeza. Limpeza · Conservacao · Pos Obra · Escritorios Ver a presença digital Ilustração do panfleto digital de POPYS Conservação e Limpeza © 2026 · POPYS Conservação e Limpeza Site desenvolvido por 0WEB Contato",
+          "docHeight": 5808,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(249, 231, 232)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/popys-conservacao-limpeza/hero-cleaning.png"
+          ],
+          "h1Count": 1,
+          "h1": "Seu ambiente limpo, organizado e bem cuidado.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 8,
+          "hero": {
+            "height": 764,
+            "backgroundImage": false,
+            "heading": "Seu ambiente limpo, organizado e bem cuidado.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2683,
+          "text": "CARREGANDO Copiar divulgação P POPYS Conservação Soluções Como funciona Contato Solicitar orçamento CONSERVAÇÃO · LIMPEZA · CURITIBA Seu ambiente limpo, organizado e bem cuidado. Soluções profissionais para empresas, escritórios e obras, com atendimento personalizado para a necessidade de cada cliente. Solicitar orçamento Conhecer soluções Curitiba e Região Periódico ou sob medida SOLUÇÕES POPYS Limpeza que sustenta a rotina. Limpeza e conservação Rotinas de cuidado para manter cada ambiente organizado, saudável e pronto para receber. Organizar este serviço Escritórios e empresas Atendimento profissional para ambientes comerciais, com escopo ajustado à sua operação. Organizar este serviço Limpeza pós-obra Remoção de resíduos e acabamento cuidadoso para entregar o espaço pronto para usar. Organizar este serviço Vidros, pisos e fachadas Detalhes que mudam a percepção do ambiente, com planejamento para cada superfície. Organizar este serviço CUIDADO EM CADA DETALHE Um atendimento pensado para o seu ambiente. A POPYS entende o local, organiza a rotina e combina o escopo adequado antes de começar. Atendimento personalizado Profissionais preparados Serviço periódico ou pontual Seu espaço merece constância. Da primeira avaliação à manutenção, a equipe monta uma solução clara para sua realidade. Descrever meu ambiente CURITIBA E REGIÃO Vamos cuidar do seu ambiente? Conte o tipo de espaço, a frequência e o que precisa. A POPYS organiza o próximo passo. Falar com a POPYS SOBRE O PROJETO Seu ambiente merece cuidado constante. Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. limpeza conservacao pos obra escritorios Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de POPYS Conservação e Limpeza. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS POPYS Conservação e Limpeza SERVICOS Limpeza · Conservacao · Pos Obra · Escritorios Curitiba — PR 0web.com.br/portfolio/popys-conservacao-limpeza Ilustração do cartão de visitas de POPYS Conservação e Limpeza PANFLETO DIGITAL POPYS CONSERVAÇÃO E LIMPEZA Conheça POPYS Conservação e Limpeza. Limpeza · Conservacao · Pos Obra · Escritorios Ver a presença digital Ilustração do panfleto digital de POPYS Conservação e Limpeza © 2026 · POPYS Conservação e Limpeza Site desenvolvido por 0WEB Solicitar orçamento",
+          "docHeight": 3744,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(249, 231, 232)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "simone-lacerda-vaz": {
+      "slug": "simone-lacerda-vaz",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/simone-lacerda-vaz/hero.png",
+            "/images/simone-lacerda-vaz/social.png"
+          ],
+          "h1Count": 1,
+          "h1": "Seu cuidado merece um plano que caiba na vida.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1250,
+            "backgroundImage": false,
+            "heading": "Seu cuidado merece um plano que caiba na vida.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2512,
+          "text": "CARREGANDO Copiar divulgação SV Simone Lacerda Vaz NUTRICIONISTA Conversar agora NUTRIÇÃO COM ESCUTA E ESTRATÉGIA Seu cuidado merece um plano que caiba na vida. Atendimento nutricional, bioimpedância e acompanhamento especializado para cada fase do seu processo. Começar uma conversa Ver atendimentos Plano individualizado Acompanhamento cuidadoso Cuidado especializado para cada fase ATENDIMENTOS Nutrição para decisões mais tranquilas. Atendimento nutricional Um plano possível para sua rotina, objetivos e fase de vida. Bioimpedância Avaliação para acompanhar composição corporal com mais contexto. Pré e pós-bariátrica Acompanhamento nutricional e orientação em cada etapa do processo. Consultoria em amamentação Orientação acolhedora para uma experiência mais segura e tranquila. UM PRÓXIMO PASSO POSSÍVEL Escuta, avaliação e acompanhamento sem fórmula pronta. Cada conversa começa entendendo seu momento: rotina, objetivos, cirurgia, maternidade ou o que você precisa organizar agora. Vamos conversar? Responda algumas perguntas rápidas e a equipe organiza o melhor próximo passo. Iniciar atendimento CONTATO Seu cuidado começa com uma conversa. Atendimento nutricional, bioimpedância, pré e pós-bariátrica e consultoria em amamentação. Falar pelo WhatsApp SOBRE O PROJETO Seu cuidado começa com uma conversa acolhedora. Atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação. Atendimento em Brasil — BR. Como começar Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone. nutricao bioimpedancia plano alimentar bariatrica Conversar agora KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Simone Lacerda Vaz · Nutricionista. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Simone Lacerda Vaz · Nutricionista SAUDE Nutricao · Bioimpedancia · Plano Alimentar · Bariatrica Brasil — BR 0web.com.br/portfolio/simone-lacerda-vaz Ilustração do cartão de visitas de Simone Lacerda Vaz · Nutricionista PANFLETO DIGITAL SIMONE LACERDA VAZ · NUTRICIONISTA Conheça Simone Lacerda Vaz · Nutricionista. Nutricao · Bioimpedancia · Plano Alimentar · Bariatrica Ver a presença digital Ilustração do panfleto digital de Simone Lacerda Vaz · Nutricionista © 2026 · Simone Lacerda Vaz · Nutricionista Site desenvolvido por 0WEB Contato",
+          "docHeight": 5628,
+          "topColors": [
+            {
+              "color": "rgb(116, 29, 37)",
+              "n": 6
+            },
+            {
+              "color": "rgb(247, 234, 219)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(255, 250, 242)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/simone-lacerda-vaz/hero.png",
+            "/images/simone-lacerda-vaz/social.png"
+          ],
+          "h1Count": 1,
+          "h1": "Seu cuidado merece um plano que caiba na vida.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 1023,
+            "backgroundImage": false,
+            "heading": "Seu cuidado merece um plano que caiba na vida.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2555,
+          "text": "CARREGANDO Copiar divulgação SV Simone Lacerda Vaz NUTRICIONISTA Atendimentos Como funciona Contato Conversar agora NUTRIÇÃO COM ESCUTA E ESTRATÉGIA Seu cuidado merece um plano que caiba na vida. Atendimento nutricional, bioimpedância e acompanhamento especializado para cada fase do seu processo. Começar uma conversa Ver atendimentos Plano individualizado Acompanhamento cuidadoso Cuidado especializado para cada fase ATENDIMENTOS Nutrição para decisões mais tranquilas. Atendimento nutricional Um plano possível para sua rotina, objetivos e fase de vida. Bioimpedância Avaliação para acompanhar composição corporal com mais contexto. Pré e pós-bariátrica Acompanhamento nutricional e orientação em cada etapa do processo. Consultoria em amamentação Orientação acolhedora para uma experiência mais segura e tranquila. UM PRÓXIMO PASSO POSSÍVEL Escuta, avaliação e acompanhamento sem fórmula pronta. Cada conversa começa entendendo seu momento: rotina, objetivos, cirurgia, maternidade ou o que você precisa organizar agora. Vamos conversar? Responda algumas perguntas rápidas e a equipe organiza o melhor próximo passo. Iniciar atendimento CONTATO Seu cuidado começa com uma conversa. Atendimento nutricional, bioimpedância, pré e pós-bariátrica e consultoria em amamentação. Falar pelo WhatsApp SOBRE O PROJETO Seu cuidado começa com uma conversa acolhedora. Atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação. Atendimento em Brasil — BR. Como começar Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone. nutricao bioimpedancia plano alimentar bariatrica Conversar agora KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Simone Lacerda Vaz · Nutricionista. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Simone Lacerda Vaz · Nutricionista SAUDE Nutricao · Bioimpedancia · Plano Alimentar · Bariatrica Brasil — BR 0web.com.br/portfolio/simone-lacerda-vaz Ilustração do cartão de visitas de Simone Lacerda Vaz · Nutricionista PANFLETO DIGITAL SIMONE LACERDA VAZ · NUTRICIONISTA Conheça Simone Lacerda Vaz · Nutricionista. Nutricao · Bioimpedancia · Plano Alimentar · Bariatrica Ver a presença digital Ilustração do panfleto digital de Simone Lacerda Vaz · Nutricionista © 2026 · Simone Lacerda Vaz · Nutricionista Site desenvolvido por 0WEB Conversar agora",
+          "docHeight": 3609,
+          "topColors": [
+            {
+              "color": "rgb(116, 29, 37)",
+              "n": 6
+            },
+            {
+              "color": "rgb(247, 234, 219)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(255, 250, 242)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "mimo-salgados-doces": {
+      "slug": "mimo-salgados-doces",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/mimo-salgados-doces/logo.png",
+            "/images/mimo-salgados-doces/hero-food.png",
+            "/images/mimo-salgados-doces/menu-corrected.png"
+          ],
+          "h1Count": 1,
+          "h1": "Um carinho em forma de sabor.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1015,
+            "backgroundImage": false,
+            "heading": "Um carinho em forma de sabor.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2303,
+          "text": "CARREGANDO Copiar divulgação Mimo Salgados e Doces Pedir agora SALGADOS · DOCES · COSTEIRA Um carinho em forma de sabor. Salgados artesanais, doces e copos da felicidade para deixar os pequenos e grandes momentos mais gostosos. Fazer meu pedido Ver cardápio Costeira · São José dos Pinhais Feito todos os dias FEITO COM AMOR Tem sabor para cada vontade. Salgados artesanais Coxinhas e outras opções douradas, feitas para comer quentinhas. Doces que abraçam Brigadeiros, bolos e doces para adoçar a mesa e o presente. Copo da Felicidade Camadas cremosas e generosas por R$ 22,00. CARDÁPIO DA CASA O copo da felicidade é R$ 22,00. A informação atualizada fica clara no primeiro olhar. Para quantidades, sabores e disponibilidade do dia, fale com a equipe. Consultar disponibilidade Cardápio sujeito à disponibilidade do dia. ENCOMENDAS E MOMENTOS ESPECIAIS Da vontade do dia à mesa da festa. Conte o que você imaginou, para quando precisa e como prefere receber. A Mimo combina os próximos passos com você. Montar meu pedido Como chegar Fale com a Mimo R. Giocondo Dall Stella · Costeira São José dos Pinhais — PR · 83085-050 Atendimento pelo canal oficial da loja SOBRE O PROJETO Seu pedido começa com um sabor. Salgados artesanais, doces e copo da felicidade para encomendas na Costeira, em São José dos Pinhais — PR. Atendimento em São José dos Pinhais — PR. Como começar Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. salgados doces copo da felicidade encomendas Montar meu pedido KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Mimo Salgados e Doces. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Mimo Salgados e Doces COMERCIOS Salgados · Doces · Copo Da Felicidade · Encomendas São José dos Pinhais — PR 0web.com.br/portfolio/mimo-salgados-doces Ilustração do cartão de visitas de Mimo Salgados e Doces PANFLETO DIGITAL MIMO SALGADOS E DOCES Conheça Mimo Salgados e Doces. Salgados · Doces · Copo Da Felicidade · Encomendas Ver a presença digital Ilustração do panfleto digital de Mimo Salgados e Doces © 2026 · Mimo Salgados e Doces Site desenvolvido por 0WEB Contato",
+          "docHeight": 5939,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(143, 13, 26)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/mimo-salgados-doces/logo.png",
+            "/images/mimo-salgados-doces/hero-food.png",
+            "/images/mimo-salgados-doces/menu-corrected.png"
+          ],
+          "h1Count": 1,
+          "h1": "Um carinho em forma de sabor.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 872,
+            "backgroundImage": false,
+            "heading": "Um carinho em forma de sabor.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2335,
+          "text": "CARREGANDO Copiar divulgação Mimo Salgados e Doces Sabores Cardápio Encomendas Pedir agora SALGADOS · DOCES · COSTEIRA Um carinho em forma de sabor. Salgados artesanais, doces e copos da felicidade para deixar os pequenos e grandes momentos mais gostosos. Fazer meu pedido Ver cardápio Costeira · São José dos Pinhais Feito todos os dias FEITO COM AMOR Tem sabor para cada vontade. Salgados artesanais Coxinhas e outras opções douradas, feitas para comer quentinhas. Doces que abraçam Brigadeiros, bolos e doces para adoçar a mesa e o presente. Copo da Felicidade Camadas cremosas e generosas por R$ 22,00. CARDÁPIO DA CASA O copo da felicidade é R$ 22,00. A informação atualizada fica clara no primeiro olhar. Para quantidades, sabores e disponibilidade do dia, fale com a equipe. Consultar disponibilidade Cardápio sujeito à disponibilidade do dia. ENCOMENDAS E MOMENTOS ESPECIAIS Da vontade do dia à mesa da festa. Conte o que você imaginou, para quando precisa e como prefere receber. A Mimo combina os próximos passos com você. Montar meu pedido Como chegar Fale com a Mimo R. Giocondo Dall Stella · Costeira São José dos Pinhais — PR · 83085-050 Atendimento pelo canal oficial da loja SOBRE O PROJETO Seu pedido começa com um sabor. Salgados artesanais, doces e copo da felicidade para encomendas na Costeira, em São José dos Pinhais — PR. Atendimento em São José dos Pinhais — PR. Como começar Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. salgados doces copo da felicidade encomendas Montar meu pedido KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Mimo Salgados e Doces. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Mimo Salgados e Doces COMERCIOS Salgados · Doces · Copo Da Felicidade · Encomendas São José dos Pinhais — PR 0web.com.br/portfolio/mimo-salgados-doces Ilustração do cartão de visitas de Mimo Salgados e Doces PANFLETO DIGITAL MIMO SALGADOS E DOCES Conheça Mimo Salgados e Doces. Salgados · Doces · Copo Da Felicidade · Encomendas Ver a presença digital Ilustração do panfleto digital de Mimo Salgados e Doces © 2026 · Mimo Salgados e Doces Site desenvolvido por 0WEB Pedir agora",
+          "docHeight": 4007,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(143, 13, 26)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "embalar-embalagens": {
+      "slug": "embalar-embalagens",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 11,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/embalar-embalagens/logo.png",
+            "/images/embalar-embalagens/hero.png",
+            "/images/embalar-embalagens/loja-01.png",
+            "/images/embalar-embalagens/loja-02.png",
+            "/images/embalar-embalagens/loja-03.png",
+            "/images/embalar-embalagens/loja-04.png",
+            "/images/embalar-embalagens/loja-05.png",
+            "/images/embalar-embalagens/social.png"
+          ],
+          "h1Count": 1,
+          "h1": "Tudo para embalar, cuidar e fazer acontecer.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 980,
+            "backgroundImage": false,
+            "heading": "Tudo para embalar, cuidar e fazer acontecer.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2368,
+          "text": "CARREGANDO Copiar divulgação Embalar Embalagens Consultar produtos JARDIM ITÁLIA · SÃO JOSÉ DOS PINHAIS Tudo para embalar, cuidar e fazer acontecer. Embalagens, descartáveis, produtos de limpeza e utilidades para sua casa, festa ou negócio. Falar com a Embalar Explorar categorias Variedade Praticidade Retire no bairro IMAGEM EDITORIAL · COMPOSIÇÃO DE MARCA NO BALCÃO A solução certa está mais perto do que parece. Conte o que você precisa e a equipe ajuda a encontrar o formato, a quantidade e o tipo de produto para o seu uso. 01 Embalagens Caixas, sacos, potes, bobinas e soluções para apresentar e proteger seus produtos. 02 Descartáveis Itens para festas, lanchonetes, delivery e o dia a dia do seu negócio. 03 Limpeza e utilidades Produtos para higiene, organização e manutenção de ambientes e operações. Quer confirmar disponibilidade? Descrever minha necessidade POR DENTRO DA EMBALAR Uma loja para resolver a rotina real. Fotos reais da loja mostram a variedade do atendimento e dos produtos disponíveis. ORÇAMENTO E DISPONIBILIDADE Diga o que você precisa. A Embalar ajuda a montar a solução. Rua Quirino Zagonel, 1330 · Itália · São José dos Pinhais/PR. Atendimento e dúvidas pelo WhatsApp. Solicitar atendimento SOBRE O PROJETO A compra certa começa por uma consulta simples. Embalar Embalagens reúne embalagens, descartáveis, produtos de limpeza, higiene e utilidades para casas, festas, comércios e revenda. Atendimento em São José dos Pinhais — PR. Como começar Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade. embalagens descartaveis limpeza higiene Consultar produtos KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Embalar Embalagens. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Embalar Embalagens COMERCIOS Embalagens · Descartaveis · Limpeza · Higiene São José dos Pinhais — PR 0web.com.br/portfolio/embalar-embalagens Ilustração do cartão de visitas de Embalar Embalagens PANFLETO DIGITAL EMBALAR EMBALAGENS Conheça Embalar Embalagens. Embalagens · Descartaveis · Limpeza · Higiene Ver a presença digital Ilustração do panfleto digital de Embalar Embalagens © 2026 · Embalar Embalagens Site desenvolvido por 0WEB Contato",
+          "docHeight": 6925,
+          "topColors": [
+            {
+              "color": "rgb(244, 236, 229)",
+              "n": 5
+            },
+            {
+              "color": "rgb(221, 92, 75)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(255, 248, 241)",
+              "n": 3
+            },
+            {
+              "color": "rgb(48, 67, 72)",
+              "n": 3
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 3
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 11,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/embalar-embalagens/logo.png",
+            "/images/embalar-embalagens/hero.png",
+            "/images/embalar-embalagens/loja-01.png",
+            "/images/embalar-embalagens/loja-02.png",
+            "/images/embalar-embalagens/loja-03.png",
+            "/images/embalar-embalagens/loja-04.png",
+            "/images/embalar-embalagens/loja-05.png",
+            "/images/embalar-embalagens/social.png"
+          ],
+          "h1Count": 1,
+          "h1": "Tudo para embalar, cuidar e fazer acontecer.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 756,
+            "backgroundImage": false,
+            "heading": "Tudo para embalar, cuidar e fazer acontecer.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2407,
+          "text": "CARREGANDO Copiar divulgação Embalar Embalagens Categorias A loja Orçamento Consultar produtos JARDIM ITÁLIA · SÃO JOSÉ DOS PINHAIS Tudo para embalar, cuidar e fazer acontecer. Embalagens, descartáveis, produtos de limpeza e utilidades para sua casa, festa ou negócio. Falar com a Embalar Explorar categorias Variedade Praticidade Retire no bairro IMAGEM EDITORIAL · COMPOSIÇÃO DE MARCA NO BALCÃO A solução certa está mais perto do que parece. Conte o que você precisa e a equipe ajuda a encontrar o formato, a quantidade e o tipo de produto para o seu uso. 01 Embalagens Caixas, sacos, potes, bobinas e soluções para apresentar e proteger seus produtos. 02 Descartáveis Itens para festas, lanchonetes, delivery e o dia a dia do seu negócio. 03 Limpeza e utilidades Produtos para higiene, organização e manutenção de ambientes e operações. Quer confirmar disponibilidade? Descrever minha necessidade POR DENTRO DA EMBALAR Uma loja para resolver a rotina real. Fotos reais da loja mostram a variedade do atendimento e dos produtos disponíveis. ORÇAMENTO E DISPONIBILIDADE Diga o que você precisa. A Embalar ajuda a montar a solução. Rua Quirino Zagonel, 1330 · Itália · São José dos Pinhais/PR. Atendimento e dúvidas pelo WhatsApp. Solicitar atendimento SOBRE O PROJETO A compra certa começa por uma consulta simples. Embalar Embalagens reúne embalagens, descartáveis, produtos de limpeza, higiene e utilidades para casas, festas, comércios e revenda. Atendimento em São José dos Pinhais — PR. Como começar Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade. embalagens descartaveis limpeza higiene Consultar produtos KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Embalar Embalagens. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Embalar Embalagens COMERCIOS Embalagens · Descartaveis · Limpeza · Higiene São José dos Pinhais — PR 0web.com.br/portfolio/embalar-embalagens Ilustração do cartão de visitas de Embalar Embalagens PANFLETO DIGITAL EMBALAR EMBALAGENS Conheça Embalar Embalagens. Embalagens · Descartaveis · Limpeza · Higiene Ver a presença digital Ilustração do panfleto digital de Embalar Embalagens © 2026 · Embalar Embalagens Site desenvolvido por 0WEB Consultar produtos",
+          "docHeight": 4122,
+          "topColors": [
+            {
+              "color": "rgb(244, 236, 229)",
+              "n": 5
+            },
+            {
+              "color": "rgb(221, 92, 75)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(255, 248, 241)",
+              "n": 3
+            },
+            {
+              "color": "rgb(48, 67, 72)",
+              "n": 3
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 3
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "maximos-cabeleireiros": {
+      "slug": "maximos-cabeleireiros",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/maximos-cabeleireiros/logo.png",
+            "/images/maximos-cabeleireiros/hero.png",
+            "/images/maximos-cabeleireiros/social.png"
+          ],
+          "h1Count": 1,
+          "h1": "Seu cabelo, do jeito que faz sentido para você.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 988,
+            "backgroundImage": false,
+            "heading": "Seu cabelo, do jeito que faz sentido para você.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2606,
+          "text": "CARREGANDO Copiar divulgação Maximos Cabeleireiros Agendar horário JARDIM ITÁLIA · SÃO JOSÉ DOS PINHAIS Seu cabelo, do jeito que faz sentido para você. Cortes, cor e cuidados em um atendimento próximo, cuidadoso e pensado para a sua beleza real. Quero conversar sobre meu visual Conhecer serviços Escuta antes de criar Beleza possível Horário combinado IMAGEM EDITORIAL · ATMOSFERA DA MARCA SERVIÇOS Um cuidado que começa na conversa. Você chega com uma ideia, uma dúvida ou só vontade de se sentir bem. A equipe ajuda a encontrar o próximo passo. 01 Cortes com intenção Do clássico ao novo, um corte pensado para a sua rotina e para o movimento do seu cabelo. 02 Cor que conversa Coloração, mechas e iluminação com uma leitura cuidadosa do seu tom e do resultado desejado. 03 Ritual de cuidado Tratamentos e finalizações para devolver toque, brilho e presença aos fios. Já sabe o que quer fazer? Falar com o Maximos O RITUAL MAXIMOS Não é só sobre mudar. É sobre reconhecer você no espelho. Cada atendimento parte do seu momento, da sua rotina e do que você quer sentir. O resultado é uma beleza mais leve de levar para a vida. Escutar Entender o que você procura. Desenhar Traduzir intenção em forma e cor. Cuidar Finalizar com atenção aos detalhes. AGENDAMENTO Seu próximo horário pode começar aqui. Atendimento no Jardim Itália, em São José dos Pinhais. Conte o que você procura e receba orientação pelo WhatsApp. Solicitar meu horário SOBRE O PROJETO Seu horário começa por uma conversa sobre o seu cabelo. Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e finalizações para diferentes momentos e rotinas. Atendimento em São José dos Pinhais — PR. Como começar Conte o corte, a cor ou o cuidado que você quer fazer e o melhor dia. cabeleireiro cortes coloracao tratamentos Solicitar horário KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Maximos Cabeleireiros. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Maximos Cabeleireiros BELEZA Cabeleireiro · Cortes · Coloracao · Tratamentos São José dos Pinhais — PR 0web.com.br/portfolio/maximos-cabeleireiros Ilustração do cartão de visitas de Maximos Cabeleireiros PANFLETO DIGITAL MAXIMOS CABELEIREIROS Conheça Maximos Cabeleireiros. Cabeleireiro · Cortes · Coloracao · Tratamentos Ver a presença digital Ilustração do panfleto digital de Maximos Cabeleireiros © 2026 · Maximos Cabeleireiros Site desenvolvido por 0WEB Contato",
+          "docHeight": 6159,
+          "topColors": [
+            {
+              "color": "rgb(182, 92, 82)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(247, 239, 232)",
+              "n": 3
+            },
+            {
+              "color": "rgb(73, 51, 50)",
+              "n": 3
+            },
+            {
+              "color": "rgb(59, 43, 42)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/maximos-cabeleireiros/logo.png",
+            "/images/maximos-cabeleireiros/hero.png",
+            "/images/maximos-cabeleireiros/social.png"
+          ],
+          "h1Count": 1,
+          "h1": "Seu cabelo, do jeito que faz sentido para você.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 820,
+            "backgroundImage": false,
+            "heading": "Seu cabelo, do jeito que faz sentido para você.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2642,
+          "text": "CARREGANDO Copiar divulgação Maximos Cabeleireiros Serviços Ritual Agendamento Agendar horário JARDIM ITÁLIA · SÃO JOSÉ DOS PINHAIS Seu cabelo, do jeito que faz sentido para você. Cortes, cor e cuidados em um atendimento próximo, cuidadoso e pensado para a sua beleza real. Quero conversar sobre meu visual Conhecer serviços Escuta antes de criar Beleza possível Horário combinado IMAGEM EDITORIAL · ATMOSFERA DA MARCA SERVIÇOS Um cuidado que começa na conversa. Você chega com uma ideia, uma dúvida ou só vontade de se sentir bem. A equipe ajuda a encontrar o próximo passo. 01 Cortes com intenção Do clássico ao novo, um corte pensado para a sua rotina e para o movimento do seu cabelo. 02 Cor que conversa Coloração, mechas e iluminação com uma leitura cuidadosa do seu tom e do resultado desejado. 03 Ritual de cuidado Tratamentos e finalizações para devolver toque, brilho e presença aos fios. Já sabe o que quer fazer? Falar com o Maximos O RITUAL MAXIMOS Não é só sobre mudar. É sobre reconhecer você no espelho. Cada atendimento parte do seu momento, da sua rotina e do que você quer sentir. O resultado é uma beleza mais leve de levar para a vida. Escutar Entender o que você procura. Desenhar Traduzir intenção em forma e cor. Cuidar Finalizar com atenção aos detalhes. AGENDAMENTO Seu próximo horário pode começar aqui. Atendimento no Jardim Itália, em São José dos Pinhais. Conte o que você procura e receba orientação pelo WhatsApp. Solicitar meu horário SOBRE O PROJETO Seu horário começa por uma conversa sobre o seu cabelo. Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e finalizações para diferentes momentos e rotinas. Atendimento em São José dos Pinhais — PR. Como começar Conte o corte, a cor ou o cuidado que você quer fazer e o melhor dia. cabeleireiro cortes coloracao tratamentos Solicitar horário KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Maximos Cabeleireiros. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Maximos Cabeleireiros BELEZA Cabeleireiro · Cortes · Coloracao · Tratamentos São José dos Pinhais — PR 0web.com.br/portfolio/maximos-cabeleireiros Ilustração do cartão de visitas de Maximos Cabeleireiros PANFLETO DIGITAL MAXIMOS CABELEIREIROS Conheça Maximos Cabeleireiros. Cabeleireiro · Cortes · Coloracao · Tratamentos Ver a presença digital Ilustração do panfleto digital de Maximos Cabeleireiros © 2026 · Maximos Cabeleireiros Site desenvolvido por 0WEB Agendar horário",
+          "docHeight": 3917,
+          "topColors": [
+            {
+              "color": "rgb(182, 92, 82)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(247, 239, 232)",
+              "n": 3
+            },
+            {
+              "color": "rgb(73, 51, 50)",
+              "n": 3
+            },
+            {
+              "color": "rgb(59, 43, 42)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "js-eletrica-manutencao": {
+      "slug": "js-eletrica-manutencao",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
+            "/images/js-eletrica-manutencao/hero.png",
+            "/images/js-eletrica-manutencao/medicao-energia-01.jpeg",
+            "/images/js-eletrica-manutencao/social.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Energia funcionando. Serviço bem feito.",
+          "h2Count": 6,
+          "sections": 8,
+          "smallTargets": 1,
+          "hero": {
+            "height": 974,
+            "backgroundImage": true,
+            "heading": "Energia funcionando. Serviço bem feito.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3219,
+          "text": "CARREGANDO Copiar divulgação Solicitar orçamento JS ELÉTRICA E MANUTENÇÃO · CURITIBA E REGIÃO ENERGIA FUNCIONANDO. SERVIÇO BEM FEITO. Atendimento técnico para residências, comércios, condomínios e indústrias: instalação, manutenção, padrão Copel, energia solar, motores, bombas e iluminação. Falar com a JS Ver serviços Residencial Comercial Predial Industrial IMAGEM EDITORIAL · IDENTIDADE TÉCNICA JS SERVIÇOS O que a JS resolve para você. Sem foto genérica e sem enrolação: você descreve a necessidade, recebe orientação inicial e combina o próximo passo. 01 Instalações e manutenção Elétrica residencial, comercial, predial e industrial, com manutenção preventiva e corretiva. 02 Infraestrutura elétrica Quadros, circuitos, padrão Copel, motores, bombas e reparos para manter a operação segura. 03 Solar e eficiência Soluções de energia solar e fotovoltaica para quem quer produzir e usar energia com mais inteligência. 04 Climatização Instalação e manutenção de ar-condicionado e equipamentos que precisam de atenção técnica. Não encontrou o que procura? Descrever meu serviço A EMPRESA Elétrica não pode virar dor de cabeça. O atendimento começa entendendo a necessidade do cliente para indicar o melhor caminho antes de executar o serviço. A conversa é direta do orçamento ao pós-serviço. Conversa clara Você entende o que será feito. Atendimento direto Orientação pelo WhatsApp. Frentes completas Da casa ao ambiente industrial. Foto oficial de atendimento técnico da JS Elétrica. ÁREA DE ATUAÇÃO Uma frente técnica para cada tipo de ambiente. 01 Residencial Tomadas, iluminação, quadros e circuitos para a casa. 02 Comercial Continuidade para lojas, escritórios e pequenos negócios. 03 Predial Manutenção e organização das áreas comuns e sistemas. 04 Industrial Reparos, motores e infraestrutura para a rotina da operação. VAMOS CONVERSAR Precisando de um eletricista? Envie sua dúvida, foto ou vídeo pelo WhatsApp. A JS organiza uma orientação inicial para o seu atendimento. Solicitar orçamento SOBRE O PROJETO Elétrica revisada com laudo claro do que precisa ser feito. JS Elétrica e Manutenção para serviços residenciais, comerciais, prediais e industriais, padrão Copel, fotovoltaico, ar-condicionado, motores, bombas e iluminação. Atendimento em Curitiba — PR. Como começar Conte qual quadro, circuito ou manutenção está pedindo atenção agora. eletrica manutencao ar condicionado energia solar Pedir visita técnica KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de JS Elétrica e Manutenção. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS JS Elétrica e Manutenção SERVICOS Eletrica · Manutencao · Ar Condicionado · Energia Solar Curitiba — PR 0web.com.br/portfolio/js-eletrica-manutencao Ilustração do cartão de visitas de JS Elétrica e Manutenção PANFLETO DIGITAL JS ELÉTRICA E MANUTENÇÃO Conheça JS Elétrica e Manutenção. Eletrica · Manutencao · Ar Condicionado · Energia Solar Ver a presença digital Ilustração do panfleto digital de JS Elétrica e Manutenção © 2026 · JS Elétrica e Manutenção Site desenvolvido por 0WEB Contato",
+          "docHeight": 7339,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 7
+            },
+            {
+              "color": "rgb(255, 210, 29)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(7, 19, 29)",
+              "n": 3
+            },
+            {
+              "color": "lab(5.31677 -1.95115 -8.30609 / 0.95)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
+            "/images/js-eletrica-manutencao/hero.png",
+            "/images/js-eletrica-manutencao/medicao-energia-01.jpeg",
+            "/images/js-eletrica-manutencao/social.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Energia funcionando. Serviço bem feito.",
+          "h2Count": 6,
+          "sections": 8,
+          "smallTargets": 5,
+          "hero": {
+            "height": 780,
+            "backgroundImage": true,
+            "heading": "Energia funcionando. Serviço bem feito.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3259,
+          "text": "CARREGANDO Copiar divulgação SERVIÇOS A EMPRESA ATUAÇÃO CONTATO Solicitar orçamento JS ELÉTRICA E MANUTENÇÃO · CURITIBA E REGIÃO ENERGIA FUNCIONANDO. SERVIÇO BEM FEITO. Atendimento técnico para residências, comércios, condomínios e indústrias: instalação, manutenção, padrão Copel, energia solar, motores, bombas e iluminação. Falar com a JS Ver serviços Residencial Comercial Predial Industrial IMAGEM EDITORIAL · IDENTIDADE TÉCNICA JS SERVIÇOS O que a JS resolve para você. Sem foto genérica e sem enrolação: você descreve a necessidade, recebe orientação inicial e combina o próximo passo. 01 Instalações e manutenção Elétrica residencial, comercial, predial e industrial, com manutenção preventiva e corretiva. 02 Infraestrutura elétrica Quadros, circuitos, padrão Copel, motores, bombas e reparos para manter a operação segura. 03 Solar e eficiência Soluções de energia solar e fotovoltaica para quem quer produzir e usar energia com mais inteligência. 04 Climatização Instalação e manutenção de ar-condicionado e equipamentos que precisam de atenção técnica. Não encontrou o que procura? Descrever meu serviço A EMPRESA Elétrica não pode virar dor de cabeça. O atendimento começa entendendo a necessidade do cliente para indicar o melhor caminho antes de executar o serviço. A conversa é direta do orçamento ao pós-serviço. Conversa clara Você entende o que será feito. Atendimento direto Orientação pelo WhatsApp. Frentes completas Da casa ao ambiente industrial. Foto oficial de atendimento técnico da JS Elétrica. ÁREA DE ATUAÇÃO Uma frente técnica para cada tipo de ambiente. 01 Residencial Tomadas, iluminação, quadros e circuitos para a casa. 02 Comercial Continuidade para lojas, escritórios e pequenos negócios. 03 Predial Manutenção e organização das áreas comuns e sistemas. 04 Industrial Reparos, motores e infraestrutura para a rotina da operação. VAMOS CONVERSAR Precisando de um eletricista? Envie sua dúvida, foto ou vídeo pelo WhatsApp. A JS organiza uma orientação inicial para o seu atendimento. Solicitar orçamento SOBRE O PROJETO Elétrica revisada com laudo claro do que precisa ser feito. JS Elétrica e Manutenção para serviços residenciais, comerciais, prediais e industriais, padrão Copel, fotovoltaico, ar-condicionado, motores, bombas e iluminação. Atendimento em Curitiba — PR. Como começar Conte qual quadro, circuito ou manutenção está pedindo atenção agora. eletrica manutencao ar condicionado energia solar Pedir visita técnica KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de JS Elétrica e Manutenção. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS JS Elétrica e Manutenção SERVICOS Eletrica · Manutencao · Ar Condicionado · Energia Solar Curitiba — PR 0web.com.br/portfolio/js-eletrica-manutencao Ilustração do cartão de visitas de JS Elétrica e Manutenção PANFLETO DIGITAL JS ELÉTRICA E MANUTENÇÃO Conheça JS Elétrica e Manutenção. Eletrica · Manutencao · Ar Condicionado · Energia Solar Ver a presença digital Ilustração do panfleto digital de JS Elétrica e Manutenção © 2026 · JS Elétrica e Manutenção Site desenvolvido por 0WEB Fale conosco",
+          "docHeight": 4316,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 7
+            },
+            {
+              "color": "rgb(255, 210, 29)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(7, 19, 29)",
+              "n": 3
+            },
+            {
+              "color": "lab(5.31677 -1.95115 -8.30609 / 0.95)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "papelemi-personalizados": {
+      "slug": "papelemi-personalizados",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 13,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/papelemi-personalizados/logo.png",
+            "/images/papelemi-personalizados/hero.png",
+            "/images/papelemi-personalizados/product-01.webp",
+            "/images/papelemi-personalizados/product-02.webp",
+            "/images/papelemi-personalizados/product-03.webp",
+            "/images/papelemi-personalizados/product-04.webp",
+            "/images/papelemi-personalizados/product-05.webp",
+            "/images/papelemi-personalizados/social.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Papelaria com afeto para guardar o que importa.",
+          "h2Count": 6,
+          "sections": 8,
+          "smallTargets": 7,
+          "hero": {
+            "height": 1005,
+            "backgroundImage": false,
+            "heading": "Papelaria com afeto para guardar o que importa.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2896,
+          "text": "CARREGANDO Copiar divulgação Visitar loja PAPELARIA CRIATIVA · PAPELEMI Papelaria com afeto para guardar o que importa. Encadernação pessoal, mimos e brindes corporativos feitos para transformar papel em memórias afetivas. Conhecer a loja Ver inspirações Feito à mão Personalizado Sob encomenda IMAGEM EDITORIAL · COMPOSIÇÃO INSPIRADA NO CATÁLOGO PAPELEMI COLEÇÃO PAPELEMI Peças que começam no papel e terminam em uma lembrança. Ver catálogo completo Mimos e lembranças Pequenos detalhes de papelaria para celebrar com afeto. VER NA LOJA Blocos personalizados Anotações que ganham capa, cor e intenção. VER NA LOJA Cadernos afetivos Presentes artesanais para guardar ideias e memórias. VER NA LOJA Planners e listas Organização bonita para a rotina ficar mais leve. VER NA LOJA Encadernação sob medida Cadernetas, agendas e peças feitas para cada história. VER NA LOJA COMO NASCE Personalizar é deixar espaço para a história de cada pessoa. A PapeLemi trabalha com encadernação pessoal e brindes corporativos para datas especiais, presentes, eventos e marcas que querem sair do comum. 01 Escolha a ideia Caderneta, agenda, bloco ou mimo. 02 Ajuste os detalhes Cores, tema e acabamento. 03 Receba algo seu Uma peça feita para permanecer. DIRETO DO INSTAGRAM As últimas 6 publicações, sempre no ritmo da PapeLemi. O perfil oficial é incorporado pelo próprio Instagram para manter novidades, bastidores e lançamentos atualizados. @papelemi.personalizados Ideias no Pinterest ENCOMENDAS E DÚVIDAS Sua próxima peça começa com uma ideia. Consulte produtos, prazos e opções de personalização diretamente na loja PapeLemi. Abrir loja SOBRE O PROJETO Papelaria personalizada feita para a sua data. PapeLemi transforma papel em memórias afetivas com encadernação pessoal, cadernetas, agendas, blocos, planners e brindes corporativos. Atendimento em Brasil — BR. Como começar Diga o tema, a quantidade e a data da festa para montarmos o kit. papelaria criativa encadernacao brindes corporativos personalizados Montar meu kit KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de PapeLemi Papelaria Personalizada. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS PapeLemi Papelaria Personalizada COMERCIOS Papelaria Criativa · Encadernacao · Brindes Corporativos · Personalizados Brasil — BR 0web.com.br/portfolio/papelemi-personalizados Ilustração do cartão de visitas de PapeLemi Papelaria Personalizada PANFLETO DIGITAL PAPELEMI PAPELARIA PERSONALIZADA Conheça PapeLemi Papelaria Personalizada. Papelaria Criativa · Encadernacao · Brindes Corporativos · Personalizados Ver a presença digital Ilustração do panfleto digital de PapeLemi Papelaria Personalizada © 2026 · PapeLemi Papelaria Personalizada Site desenvolvido por 0WEB Contato",
+          "docHeight": 8896,
+          "topColors": [
+            {
+              "color": "rgb(251, 250, 249)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(52, 70, 93)",
+              "n": 3
+            },
+            {
+              "color": "rgb(207, 85, 125)",
+              "n": 3
+            },
+            {
+              "color": "rgb(247, 243, 239)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 13,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/papelemi-personalizados/logo.png",
+            "/images/papelemi-personalizados/hero.png",
+            "/images/papelemi-personalizados/product-01.webp",
+            "/images/papelemi-personalizados/product-02.webp",
+            "/images/papelemi-personalizados/product-03.webp",
+            "/images/papelemi-personalizados/product-04.webp",
+            "/images/papelemi-personalizados/product-05.webp",
+            "/images/papelemi-personalizados/social.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Papelaria com afeto para guardar o que importa.",
+          "h2Count": 6,
+          "sections": 8,
+          "smallTargets": 10,
+          "hero": {
+            "height": 759,
+            "backgroundImage": false,
+            "heading": "Papelaria com afeto para guardar o que importa.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2935,
+          "text": "CARREGANDO Copiar divulgação Coleção Feito com afeto Instagram Visitar loja PAPELARIA CRIATIVA · PAPELEMI Papelaria com afeto para guardar o que importa. Encadernação pessoal, mimos e brindes corporativos feitos para transformar papel em memórias afetivas. Conhecer a loja Ver inspirações Feito à mão Personalizado Sob encomenda IMAGEM EDITORIAL · COMPOSIÇÃO INSPIRADA NO CATÁLOGO PAPELEMI COLEÇÃO PAPELEMI Peças que começam no papel e terminam em uma lembrança. Ver catálogo completo Mimos e lembranças Pequenos detalhes de papelaria para celebrar com afeto. VER NA LOJA Blocos personalizados Anotações que ganham capa, cor e intenção. VER NA LOJA Cadernos afetivos Presentes artesanais para guardar ideias e memórias. VER NA LOJA Planners e listas Organização bonita para a rotina ficar mais leve. VER NA LOJA Encadernação sob medida Cadernetas, agendas e peças feitas para cada história. VER NA LOJA COMO NASCE Personalizar é deixar espaço para a história de cada pessoa. A PapeLemi trabalha com encadernação pessoal e brindes corporativos para datas especiais, presentes, eventos e marcas que querem sair do comum. 01 Escolha a ideia Caderneta, agenda, bloco ou mimo. 02 Ajuste os detalhes Cores, tema e acabamento. 03 Receba algo seu Uma peça feita para permanecer. DIRETO DO INSTAGRAM As últimas 6 publicações, sempre no ritmo da PapeLemi. O perfil oficial é incorporado pelo próprio Instagram para manter novidades, bastidores e lançamentos atualizados. @papelemi.personalizados Ideias no Pinterest ENCOMENDAS E DÚVIDAS Sua próxima peça começa com uma ideia. Consulte produtos, prazos e opções de personalização diretamente na loja PapeLemi. Abrir loja SOBRE O PROJETO Papelaria personalizada feita para a sua data. PapeLemi transforma papel em memórias afetivas com encadernação pessoal, cadernetas, agendas, blocos, planners e brindes corporativos. Atendimento em Brasil — BR. Como começar Diga o tema, a quantidade e a data da festa para montarmos o kit. papelaria criativa encadernacao brindes corporativos personalizados Montar meu kit KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de PapeLemi Papelaria Personalizada. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS PapeLemi Papelaria Personalizada COMERCIOS Papelaria Criativa · Encadernacao · Brindes Corporativos · Personalizados Brasil — BR 0web.com.br/portfolio/papelemi-personalizados Ilustração do cartão de visitas de PapeLemi Papelaria Personalizada PANFLETO DIGITAL PAPELEMI PAPELARIA PERSONALIZADA Conheça PapeLemi Papelaria Personalizada. Papelaria Criativa · Encadernacao · Brindes Corporativos · Personalizados Ver a presença digital Ilustração do panfleto digital de PapeLemi Papelaria Personalizada © 2026 · PapeLemi Papelaria Personalizada Site desenvolvido por 0WEB Fale conosco",
+          "docHeight": 5261,
+          "topColors": [
+            {
+              "color": "rgb(251, 250, 249)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(52, 70, 93)",
+              "n": 3
+            },
+            {
+              "color": "rgb(207, 85, 125)",
+              "n": 3
+            },
+            {
+              "color": "rgb(247, 243, 239)",
+              "n": 2
             }
           ]
         }

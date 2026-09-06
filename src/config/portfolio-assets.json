@@ -223,7 +223,7 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "dffe9869"
+      "socialVersion": "9bcebda4"
     },
     "ecommerce-on": {
       "icon": "/images/ecommerce-on/logo.webp",
@@ -803,7 +803,7 @@
     },
     "jc-revestimentos": {
       "icon": "/images/jc-revestimentos/logo.png",
-      "socialImage": "/images/jc-revestimentos/hero-v2.png",
+      "socialImage": "/images/jc-revestimentos/hero-v2-og.jpg",
       "proof": {
         "eyebrow": "JC Revestimentos",
         "title": "O acabamento certo começa com o material adequado.",
@@ -811,7 +811,7 @@
         "ctaLabel": "Ver produtos",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "85b6554c"
+      "socialVersion": "5032b4e1"
     },
     "hbk-iluminacao-led": {
       "icon": "/images/hbk-iluminacao-led/logo.png",
@@ -851,7 +851,7 @@
     },
     "mimo-salgados-doces": {
       "icon": "/images/mimo-salgados-doces/logo.png",
-      "socialImage": "/images/mimo-salgados-doces/hero-food.png",
+      "socialImage": "/images/mimo-salgados-doces/hero-food-og.jpg",
       "proof": {
         "eyebrow": "Mimo Salgados e Doces",
         "title": "Um carinho em forma de sabor.",
@@ -859,11 +859,11 @@
         "ctaLabel": "Ver cardápio",
         "ctaHref": "#cardapio"
       },
-      "socialVersion": "mimo-20260906"
+      "socialVersion": "2cb68046"
     },
     "popys-conservacao-limpeza": {
       "icon": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
       "proof": {
         "eyebrow": "POPYS Conservação e Limpeza",
         "title": "Seu ambiente merece cuidado constante.",
@@ -871,11 +871,11 @@
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "popys-20260906"
+      "socialVersion": "37ea4b42"
     },
     "bruna-diarista": {
       "icon": "/images/bruna-diarista/hero.png",
-      "socialImage": "/images/bruna-diarista/hero.png",
+      "socialImage": "/images/bruna-diarista/hero-og.jpg",
       "proof": {
         "eyebrow": "Bruna Diarista",
         "title": "Uma casa em ordem deixa a rotina mais leve.",
@@ -883,11 +883,11 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "bruna-20260906"
+      "socialVersion": "57a87dcb"
     },
     "btb-construcao": {
       "icon": "/images/btb-construcao/hero.png",
-      "socialImage": "/images/btb-construcao/hero.png",
+      "socialImage": "/images/btb-construcao/hero-og.jpg",
       "proof": {
         "eyebrow": "BTB Construção",
         "title": "A próxima transformação começa na conversa.",
@@ -895,11 +895,11 @@
         "ctaLabel": "Planejar reforma",
         "ctaHref": "#contato"
       },
-      "socialVersion": "btb-20260906"
+      "socialVersion": "5a2a93c8"
     },
     "easy-clean": {
       "icon": "/images/easy-clean/hero.png",
-      "socialImage": "/images/easy-clean/hero.png",
+      "socialImage": "/images/easy-clean/hero-og.jpg",
       "proof": {
         "eyebrow": "Easy Clean Higienização a Seco",
         "title": "Conforto limpo começa com uma boa higienização.",
@@ -907,7 +907,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "easy-clean-20260906"
+      "socialVersion": "1f3d9007"
     },
     "js-eletrica-manutencao": {
       "icon": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
@@ -919,7 +919,7 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "js-eletrica-20260906"
+      "socialVersion": "6890cb40"
     },
     "papelemi-personalizados": {
       "icon": "/images/papelemi-personalizados/logo.png",
@@ -931,11 +931,11 @@
         "ctaLabel": "Ver coleção",
         "ctaHref": "#colecao"
       },
-      "socialVersion": "papelemi-20260906"
+      "socialVersion": "ff04b464"
     },
     "maximos-cabeleireiros": {
       "icon": "/images/maximos-cabeleireiros/logo.png",
-      "socialImage": "/images/maximos-cabeleireiros/social.png",
+      "socialImage": "/images/maximos-cabeleireiros/social-og.jpg",
       "proof": {
         "eyebrow": "Maximos Cabeleireiros",
         "title": "Beleza pensada para a sua rotina.",
@@ -943,11 +943,11 @@
         "ctaLabel": "Agendar horário",
         "ctaHref": "#contato"
       },
-      "socialVersion": "maximos-20260906"
+      "socialVersion": "fb260275"
     },
     "embalar-embalagens": {
       "icon": "/images/embalar-embalagens/logo.png",
-      "socialImage": "/images/embalar-embalagens/social.png",
+      "socialImage": "/images/embalar-embalagens/social-og.jpg",
       "proof": {
         "eyebrow": "Embalar Embalagens",
         "title": "Tudo para embalar, cuidar e fazer acontecer.",
@@ -955,11 +955,11 @@
         "ctaLabel": "Consultar produtos",
         "ctaHref": "#contato"
       },
-      "socialVersion": "embalar-20260906"
+      "socialVersion": "e77f6e62"
     },
     "simone-lacerda-vaz": {
       "icon": "/images/simone-lacerda-vaz/hero.png",
-      "socialImage": "/images/simone-lacerda-vaz/social.png",
+      "socialImage": "/images/simone-lacerda-vaz/social-og.jpg",
       "proof": {
         "eyebrow": "Simone Lacerda Vaz · Nutricionista",
         "title": "Seu cuidado merece um plano que caiba na vida.",
@@ -967,7 +967,7 @@
         "ctaLabel": "Conversar agora",
         "ctaHref": "#contato"
       },
-      "socialVersion": "simone-lacerda-vaz-20260906"
+      "socialVersion": "0cc62164"
     }
   }
 }
