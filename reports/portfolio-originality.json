@@ -17,18 +17,18 @@
     "clone": 81
   },
   "summary": {
-    "total": 82,
+    "total": 83,
     "original": 0,
-    "acceptable": 27,
-    "attention": 49,
+    "acceptable": 26,
+    "attention": 51,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 0,
+    "placeholderLogos": 25,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 44,
+    "coverValid": 45,
     "coverPending": 38,
     "coversAsSocialImage": 8,
     "sharedCovers": 0,
@@ -93,8 +93,8 @@
         "COMPONENT_SIMILARITY": 58.3,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.5,
-        "IDENTITY_SIMILARITY": 5.9
+        "ASSET_PATTERN_SIMILARITY": 3.2,
+        "IDENTITY_SIMILARITY": 5.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -252,7 +252,7 @@
         "COMPONENT_SIMILARITY": 42.9,
         "STYLE_SIMILARITY": 47,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 8.6,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 2.6
       },
       "reasons": [
@@ -385,7 +385,8 @@
       "canonicalCoverReason": "Só existe marca/logo do cliente.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -450,21 +451,21 @@
         "STYLE_SIMILARITY": 80.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 11.8
+        "IDENTITY_SIMILARITY": 11.1
       },
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.5,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -490,14 +491,13 @@
         "STYLE_SIMILARITY": 74.7,
         "COPY_SIMILARITY": 1.8,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 10.3
+        "IDENTITY_SIMILARITY": 9.7
       },
       "reasons": [
         "VISUAL_COMPOSITION_CLONE"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
@@ -505,7 +505,8 @@
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 2,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -569,7 +570,7 @@
         "COMPONENT_SIMILARITY": 33.3,
         "STYLE_SIMILARITY": 47.1,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -610,8 +611,8 @@
         "COMPONENT_SIMILARITY": 37.5,
         "STYLE_SIMILARITY": 86.5,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 6.8
+        "ASSET_PATTERN_SIMILARITY": 8.6,
+        "IDENTITY_SIMILARITY": 6.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -652,8 +653,8 @@
         "COMPONENT_SIMILARITY": 64.3,
         "STYLE_SIMILARITY": 71.1,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 11.1
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 10.8
       },
       "reasons": [
         "SAME_FAMILY"
@@ -693,7 +694,7 @@
         "COMPONENT_SIMILARITY": 57.1,
         "STYLE_SIMILARITY": 68.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "ASSET_PATTERN_SIMILARITY": 4.3,
         "IDENTITY_SIMILARITY": 14.3
       },
       "reasons": [
@@ -709,7 +710,7 @@
       "canonicalCoverReason": "Sem material real adequado para capa editorial.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -803,6 +804,46 @@
       }
     },
     {
+      "slug": "dona-lucy-salgados",
+      "title": "Dona Lucy Salgados",
+      "segment": "restaurantes",
+      "componentFile": "src/components/site/DonaLucySalgadosPage.tsx",
+      "score": 44,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "mania-de-limpeza",
+      "nearestMatchScore": 44,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 63,
+        "SECTION_ORDER_SIMILARITY": 33.3,
+        "COMPONENT_SIMILARITY": 44.4,
+        "STYLE_SIMILARITY": 79.1,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 13.8
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.78,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "04aef6e0d8495f1c",
+        "structureHash": "70d7d1145cbc38a3",
+        "sectionCount": 7,
+        "lines": 22
+      }
+    },
+    {
       "slug": "dyzpromo",
       "title": "D.Y.Z Promo",
       "segment": "servicos",
@@ -855,21 +896,21 @@
         "STYLE_SIMILARITY": 74.7,
         "COPY_SIMILARITY": 1.8,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 10.3
+        "IDENTITY_SIMILARITY": 9.7
       },
       "reasons": [
         "VISUAL_COMPOSITION_CLONE"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.5,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -973,15 +1014,14 @@
         "COMPONENT_SIMILARITY": 85.7,
         "STYLE_SIMILARITY": 44.2,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -990,7 +1030,8 @@
       "canonicalCoverReason": "Material exibe contato ou endereço.",
       "coverRatio": 1,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1015,15 +1056,14 @@
         "COMPONENT_SIMILARITY": 85.7,
         "STYLE_SIMILARITY": 44.2,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
@@ -1031,7 +1071,8 @@
       "canonicalCoverReason": null,
       "coverRatio": 1.33,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1135,8 +1176,8 @@
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 56.7,
         "COPY_SIMILARITY": 4.1,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 12.5
+        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "IDENTITY_SIMILARITY": 12
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1175,13 +1216,12 @@
         "COMPONENT_SIMILARITY": 45.5,
         "STYLE_SIMILARITY": 39.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 4
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 3.8
       },
       "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -1190,7 +1230,8 @@
       "canonicalCoverReason": "Material é peça promocional com preço/campanha.",
       "coverRatio": 0.8,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1205,18 +1246,18 @@
       "title": "Fernanda & Amaral — Instalação de Drywall",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/FernandaAmaralDrywallPage.tsx",
-      "score": 50,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "rj-servicos-drywall",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 49,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 64.6,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 35.7,
         "STYLE_SIMILARITY": 74.8,
         "COPY_SIMILARITY": 2.4,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 36.4
+        "ASSET_PATTERN_SIMILARITY": 3.3,
+        "IDENTITY_SIMILARITY": 33.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -1309,7 +1350,8 @@
       "canonicalCoverReason": "Só existe marca/logo do cliente.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1373,7 +1415,7 @@
         "COMPONENT_SIMILARITY": 28.6,
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "ASSET_PATTERN_SIMILARITY": 6,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1387,7 +1429,8 @@
       "canonicalCoverReason": "Só existe marca/logo do cliente.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1426,7 +1469,8 @@
       "canonicalCoverReason": "Só existe marca/logo do cliente.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1480,20 +1524,22 @@
       "title": "Heloá Gás",
       "segment": "comercios",
       "componentFile": "src/components/site/HeloaGasPage.tsx",
-      "score": 38,
-      "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 38,
+      "score": 42,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "dona-lucy-salgados",
+      "nearestMatchScore": 42,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 45.5,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 40,
-        "STYLE_SIMILARITY": 47.3,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.5,
-        "IDENTITY_SIMILARITY": 12.5
+        "STRUCTURE_SIMILARITY": 50.9,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 41.2,
+        "STYLE_SIMILARITY": 53.8,
+        "COPY_SIMILARITY": 0.4,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 20
       },
-      "reasons": [],
+      "reasons": [
+        "SAME_FAMILY"
+      ],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -1567,15 +1613,14 @@
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 45.6,
         "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 5
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 4.5
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -1584,7 +1629,8 @@
       "canonicalCoverReason": null,
       "coverRatio": 0.75,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -1769,26 +1815,26 @@
         "COMPONENT_SIMILARITY": 58.3,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.5,
-        "IDENTITY_SIMILARITY": 5.9
+        "ASSET_PATTERN_SIMILARITY": 3.2,
+        "IDENTITY_SIMILARITY": 5.7
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "NO_REAL_ASSET",
       "canonicalCoverReason": "Não há fotografia ou material real apropriado.",
       "coverRatio": 1.5,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "fcb5449b80037302",
+        "skeletonHash": "94bb5d4097412444",
         "structureHash": "88afa0ee514ed8f0",
         "sectionCount": 7,
         "lines": 152
@@ -1848,7 +1894,7 @@
         "COMPONENT_SIMILARITY": 36.4,
         "STYLE_SIMILARITY": 36.8,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 8.6,
         "IDENTITY_SIMILARITY": 6.7
       },
       "reasons": [
@@ -2035,25 +2081,24 @@
       "title": "Mary Diarista",
       "segment": "servicos",
       "componentFile": "src/components/site/MaryDiaristaPage.tsx",
-      "score": 59,
+      "score": 58,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "aguia-sul-sinalizacao",
-      "nearestMatchScore": 59,
+      "nearestMatchScore": 58,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 78.7,
         "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 71.4,
         "STYLE_SIMILARITY": 92.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 9.4
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -2062,7 +2107,8 @@
       "canonicalCoverReason": "Material exibe contato ou endereço.",
       "coverRatio": 0.56,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2127,8 +2173,8 @@
         "COMPONENT_SIMILARITY": 76.9,
         "STYLE_SIMILARITY": 88.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.5,
-        "IDENTITY_SIMILARITY": 13.8
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 13.3
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2223,7 +2269,8 @@
       "canonicalCoverReason": "Só existe marca/logo do cliente.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2289,8 +2336,8 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 9.8
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 9.6
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2490,21 +2537,21 @@
         "STYLE_SIMILARITY": 80.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 11.8
+        "IDENTITY_SIMILARITY": 11.1
       },
       "reasons": [
         "NEAR_DUPLICATE_LAYOUT"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.5,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2605,7 +2652,7 @@
         "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
-        "ASSET_PATTERN_SIMILARITY": 9,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2619,7 +2666,7 @@
       "canonicalCoverReason": "Sem material real adequado para capa editorial.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2753,25 +2800,24 @@
       "title": "RJ Serviços de Drywall",
       "segment": "servicos",
       "componentFile": "src/components/site/RjServicosDrywallPage.tsx",
-      "score": 50,
+      "score": 49,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "fernanda-amaral-drywall",
-      "nearestMatchScore": 50,
+      "nearestMatchScore": 49,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 64.6,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 35.7,
         "STYLE_SIMILARITY": 74.8,
         "COPY_SIMILARITY": 2.4,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 36.4
+        "ASSET_PATTERN_SIMILARITY": 3.3,
+        "IDENTITY_SIMILARITY": 33.3
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
@@ -2779,7 +2825,8 @@
       "canonicalCoverReason": null,
       "coverRatio": 1.33,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2804,7 +2851,7 @@
         "COMPONENT_SIMILARITY": 22.2,
         "STYLE_SIMILARITY": 66.3,
         "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "ASSET_PATTERN_SIMILARITY": 1.7,
         "IDENTITY_SIMILARITY": 13
       },
       "reasons": [],
@@ -2817,7 +2864,8 @@
       "canonicalCoverReason": null,
       "coverRatio": 1.78,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2842,15 +2890,14 @@
         "COMPONENT_SIMILARITY": 62.5,
         "STYLE_SIMILARITY": 40.2,
         "COPY_SIMILARITY": 2.8,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 9.1
+        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "IDENTITY_SIMILARITY": 8.8
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -2859,7 +2906,8 @@
       "canonicalCoverReason": "Não há fotografia ou material real apropriado.",
       "coverRatio": 0.67,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2884,7 +2932,7 @@
         "COMPONENT_SIMILARITY": 63.6,
         "STYLE_SIMILARITY": 42.1,
         "COPY_SIMILARITY": 3.9,
-        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -2892,14 +2940,14 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "VALID",
       "canonicalCoverReason": null,
       "coverRatio": 1.5,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2924,15 +2972,14 @@
         "COMPONENT_SIMILARITY": 81.8,
         "STYLE_SIMILARITY": 54,
         "COPY_SIMILARITY": 1.7,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 12.9
+        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "IDENTITY_SIMILARITY": 12.5
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -2941,7 +2988,8 @@
       "canonicalCoverReason": null,
       "coverRatio": 0.67,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -2966,15 +3014,14 @@
         "COMPONENT_SIMILARITY": 64.3,
         "STYLE_SIMILARITY": 71.1,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 11.1
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 10.8
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -2983,7 +3030,8 @@
       "canonicalCoverReason": null,
       "coverRatio": 0.75,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -3008,7 +3056,7 @@
         "COMPONENT_SIMILARITY": 26.9,
         "STYLE_SIMILARITY": 30,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "ASSET_PATTERN_SIMILARITY": 1.7,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -3045,15 +3093,14 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 9.8
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 9.6
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -3062,7 +3109,8 @@
       "canonicalCoverReason": "Material exibe contato ou endereço.",
       "coverRatio": 0.56,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -3087,8 +3135,8 @@
         "COMPONENT_SIMILARITY": 46.7,
         "STYLE_SIMILARITY": 39.4,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 4.8
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 4.7
       },
       "reasons": [
         "SAME_FAMILY"
@@ -3126,7 +3174,7 @@
         "COMPONENT_SIMILARITY": 70,
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 6.3,
-        "ASSET_PATTERN_SIMILARITY": 9,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -3140,7 +3188,7 @@
       "canonicalCoverReason": "Sem material real adequado para capa editorial.",
       "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT"
+        "LOGO_PLACEHOLDER"
       ],
       "assetSharing": [],
       "fingerprint": {
@@ -3245,7 +3293,7 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 88.6,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 6.4,
+        "ASSET_PATTERN_SIMILARITY": 5.6,
         "IDENTITY_SIMILARITY": 10.7
       },
       "reasons": [
@@ -3327,7 +3375,7 @@
         "STYLE_SIMILARITY": 74.7,
         "COPY_SIMILARITY": 1.8,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 10.3
+        "IDENTITY_SIMILARITY": 9.7
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3347,10 +3395,10 @@
         "STYLE_SIMILARITY": 80.3,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 11.8
+        "IDENTITY_SIMILARITY": 11.1
       },
       "assetReasons": [
-        "DISTINCT_ASSET"
+        "SAME_BASENAME_ONLY"
       ],
       "sharedAssets": [],
       "reason": "NEAR_DUPLICATE_LAYOUT"
@@ -3367,7 +3415,7 @@
         "STYLE_SIMILARITY": 68.2,
         "COPY_SIMILARITY": 2.6,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 9.1
+        "IDENTITY_SIMILARITY": 8.6
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3387,10 +3435,10 @@
         "STYLE_SIMILARITY": 70.7,
         "COPY_SIMILARITY": 2.2,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 8.6
+        "IDENTITY_SIMILARITY": 8.1
       },
       "assetReasons": [
-        "DISTINCT_ASSET"
+        "SAME_BASENAME_ONLY"
       ],
       "sharedAssets": [],
       "reason": "NEAR_DUPLICATE_LAYOUT"
@@ -3407,7 +3455,7 @@
         "STYLE_SIMILARITY": 69,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 6.7
+        "IDENTITY_SIMILARITY": 6.3
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3486,28 +3534,8 @@
         "COMPONENT_SIMILARITY": 54.5,
         "STYLE_SIMILARITY": 71.6,
         "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 12.9
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "aguia-sul-sinalizacao",
-      "b": "mary-diarista",
-      "metricVersion": 2,
-      "score": 59,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 78.7,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 71.4,
-        "STYLE_SIMILARITY": 92.5,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 9.4
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 12.5
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3526,8 +3554,8 @@
         "COMPONENT_SIMILARITY": 61.5,
         "STYLE_SIMILARITY": 85,
         "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 9.8
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 9.6
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3557,6 +3585,26 @@
     },
     {
       "a": "aguia-sul-sinalizacao",
+      "b": "mary-diarista",
+      "metricVersion": 2,
+      "score": 58,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 78.7,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 71.4,
+        "STYLE_SIMILARITY": 92.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 9.1
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
       "b": "bruna-diarista",
       "metricVersion": 2,
       "score": 57,
@@ -3566,8 +3614,8 @@
         "COMPONENT_SIMILARITY": 41.7,
         "STYLE_SIMILARITY": 78.9,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 9.4
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3586,8 +3634,8 @@
         "COMPONENT_SIMILARITY": 50,
         "STYLE_SIMILARITY": 56.7,
         "COPY_SIMILARITY": 4.1,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 12.5
+        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "IDENTITY_SIMILARITY": 12
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3607,10 +3655,10 @@
         "STYLE_SIMILARITY": 61.6,
         "COPY_SIMILARITY": 1.1,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 6.3
+        "IDENTITY_SIMILARITY": 5.9
       },
       "assetReasons": [
-        "DISTINCT_ASSET"
+        "SAME_BASENAME_ONLY"
       ],
       "sharedAssets": [],
       "reason": "SAME_FAMILY"
@@ -3626,8 +3674,8 @@
         "COMPONENT_SIMILARITY": 37.5,
         "STYLE_SIMILARITY": 86.5,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 10,
-        "IDENTITY_SIMILARITY": 6.8
+        "ASSET_PATTERN_SIMILARITY": 8.6,
+        "IDENTITY_SIMILARITY": 6.7
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3646,8 +3694,8 @@
         "COMPONENT_SIMILARITY": 76.9,
         "STYLE_SIMILARITY": 88.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.5,
-        "IDENTITY_SIMILARITY": 13.8
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 13.3
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3666,8 +3714,8 @@
         "COMPONENT_SIMILARITY": 71.4,
         "STYLE_SIMILARITY": 92.5,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3,
-        "IDENTITY_SIMILARITY": 10.3
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 10
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3686,8 +3734,8 @@
         "COMPONENT_SIMILARITY": 41.7,
         "STYLE_SIMILARITY": 64.3,
         "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10.7
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 10.3
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3796,21 +3844,21 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "easy-clean",
-      "b": "enoel-portas",
+      "a": "bruna-diarista",
+      "b": "mimo-salgados-doces",
       "metricVersion": 2,
       "score": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 49.2,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 61.5,
-        "STYLE_SIMILARITY": 48.5,
-        "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 14.8
+        "STRUCTURE_SIMILARITY": 67.3,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 82.2,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 10.3
       },
       "assetReasons": [
-        "SAME_BASENAME_ONLY"
+        "DISTINCT_ASSET"
       ],
       "sharedAssets": [],
       "reason": "SAME_FAMILY"
@@ -3823,7 +3871,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 3321,
+    "totalPairs": 3403,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -3871,8 +3919,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mary-diarista",
-          "score": 59,
+          "slug": "acai-total-araucaria",
+          "score": 58,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4148,6 +4196,23 @@
           "reason": "DISTINCT"
         }
       ],
+      "dona-lucy-salgados": [
+        {
+          "slug": "mania-de-limpeza",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "heloa-gas",
+          "score": 42,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "embalar-embalagens",
+          "score": 39,
+          "reason": "DISTINCT"
+        }
+      ],
       "dyzpromo": [
         {
           "slug": "marido-de-aluguel",
@@ -4308,12 +4373,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "liz-moraes-nail-designer",
-          "score": 38,
+          "slug": "mimo-salgados-doces",
+          "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mimo-salgados-doces",
+          "slug": "liz-moraes-nail-designer",
           "score": 38,
           "reason": "DISTINCT"
         }
@@ -4321,7 +4386,7 @@
       "fernanda-amaral-drywall": [
         {
           "slug": "rj-servicos-drywall",
-          "score": 50,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4439,17 +4504,17 @@
       ],
       "heloa-gas": [
         {
+          "slug": "dona-lucy-salgados",
+          "score": 42,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "miro-tech",
           "score": 38,
           "reason": "DISTINCT"
         },
         {
           "slug": "mimo-salgados-doces",
-          "score": 36,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "refrigeracao-maresia",
           "score": 36,
           "reason": "DISTINCT"
         }
@@ -4466,8 +4531,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "ton-e-cor",
-          "score": 29,
+          "slug": "js-eletrica-manutencao",
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -4483,7 +4548,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletrovale-eletromecanica",
+          "slug": "acai-total-araucaria",
           "score": 44,
           "reason": "SAME_FAMILY"
         }
@@ -4678,7 +4743,7 @@
       "mary-diarista": [
         {
           "slug": "aguia-sul-sinalizacao",
-          "score": 59,
+          "score": 58,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4705,7 +4770,7 @@
         },
         {
           "slug": "bruna-diarista",
-          "score": 52,
+          "score": 53,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4717,7 +4782,7 @@
         },
         {
           "slug": "bruna-diarista",
-          "score": 53,
+          "score": 54,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4823,7 +4888,7 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mania-de-limpeza",
+          "slug": "eletro-solucoes-eficazes",
           "score": 42,
           "reason": "SAME_FAMILY"
         }
@@ -4984,7 +5049,7 @@
       "rj-servicos-drywall": [
         {
           "slug": "fernanda-amaral-drywall",
-          "score": 50,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5044,7 +5109,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "enoel-portas",
+          "slug": "easy-clean",
           "score": 37,
           "reason": "DISTINCT"
         }
@@ -5142,7 +5207,7 @@
         },
         {
           "slug": "jc-revestimentos",
-          "score": 29,
+          "score": 28,
           "reason": "DISTINCT"
         },
         {
@@ -5259,7 +5324,7 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 3.5
+        "v2AssetPattern": 3.2
       },
       {
         "slug": "aguia-sul-sinalizacao",
@@ -5306,8 +5371,8 @@
         "v2Nearest": "lk-alvenaria",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 8.6
+        "v1AssetPattern": 8.3,
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "assistencia-microondas-santos",
@@ -5395,15 +5460,15 @@
       },
       {
         "slug": "clinica-integrada",
-        "v1Score": 43,
+        "v1Score": 44,
         "v2Score": 43,
-        "delta": 0,
+        "delta": -1,
         "v1Nearest": "lk-alvenaria",
         "v2Nearest": "lk-alvenaria",
         "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 1.9
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 3.8
       },
       {
         "slug": "confeitaria-chyrley",
@@ -5415,7 +5480,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_SENSITIVITY",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 10
+        "v2AssetPattern": 8.6
       },
       {
         "slug": "confeitaria-sabor-da-realeza",
@@ -5426,20 +5491,20 @@
         "v2Nearest": "sos-presentes-cosmeticos",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 6
+        "v1AssetPattern": 7.7,
+        "v2AssetPattern": 5
       },
       {
         "slug": "denise-gomes-psicologa",
-        "v1Score": 54,
+        "v1Score": 53,
         "v2Score": 53,
-        "delta": -1,
-        "v1Nearest": "liz-moraes-nail-designer",
+        "delta": 0,
+        "v1Nearest": "mp-festas-eventos",
         "v2Nearest": "mp-festas-eventos",
-        "neighbourChanged": true,
-        "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
-        "v2AssetPattern": 2.1
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 4.3
       },
       {
         "slug": "diego-montador-moveis",
@@ -5460,6 +5525,18 @@
         "delta": -4,
         "v1Nearest": "angel-mix-brecho",
         "v2Nearest": "angel-mix-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "dona-lucy-salgados",
+        "v1Score": 48,
+        "v2Score": 44,
+        "delta": -4,
+        "v1Nearest": "mania-de-limpeza",
+        "v2Nearest": "mania-de-limpeza",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
@@ -5515,27 +5592,27 @@
       },
       {
         "slug": "eletro-solucoes-eficazes",
-        "v1Score": 50,
+        "v1Score": 52,
         "v2Score": 50,
-        "delta": 0,
+        "delta": -2,
         "v1Nearest": "eletrovale-eletromecanica",
         "v2Nearest": "eletrovale-eletromecanica",
         "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 7.5
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 9
       },
       {
         "slug": "eletrovale-eletromecanica",
-        "v1Score": 50,
+        "v1Score": 52,
         "v2Score": 50,
-        "delta": 0,
+        "delta": -2,
         "v1Nearest": "eletro-solucoes-eficazes",
         "v2Nearest": "eletro-solucoes-eficazes",
         "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 7.5
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 9
       },
       {
         "slug": "embalar-embalagens",
@@ -5570,8 +5647,8 @@
         "v2Nearest": "btb-construcao",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 20,
-        "v2AssetPattern": 7.5
+        "v1AssetPattern": 14.3,
+        "v2AssetPattern": 11.2
       },
       {
         "slug": "espaco-cih-luh",
@@ -5583,19 +5660,19 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 2.1
+        "v2AssetPattern": 4.3
       },
       {
         "slug": "fernanda-amaral-drywall",
-        "v1Score": 49,
-        "v2Score": 50,
-        "delta": 1,
+        "v1Score": 50,
+        "v2Score": 49,
+        "delta": -1,
         "v1Nearest": "rj-servicos-drywall",
         "v2Nearest": "rj-servicos-drywall",
         "neighbourChanged": false,
-        "reason": "METRIC_SENSITIVITY",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 3.8
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 9.1,
+        "v2AssetPattern": 3.3
       },
       {
         "slug": "galileu-locacao-brinquedos",
@@ -5643,7 +5720,7 @@
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 7.5
+        "v2AssetPattern": 6
       },
       {
         "slug": "guaratuba-sabores-da-baia",
@@ -5671,15 +5748,15 @@
       },
       {
         "slug": "heloa-gas",
-        "v1Score": 39,
-        "v2Score": 38,
-        "delta": -1,
-        "v1Nearest": "miro-tech",
-        "v2Nearest": "miro-tech",
+        "v1Score": 42,
+        "v2Score": 42,
+        "delta": 0,
+        "v1Nearest": "dona-lucy-salgados",
+        "v2Nearest": "dona-lucy-salgados",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 33.3,
-        "v2AssetPattern": 2.5
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 12.5,
+        "v2AssetPattern": 15
       },
       {
         "slug": "jc-revestimentos",
@@ -5695,15 +5772,15 @@
       },
       {
         "slug": "jkl-marcenaria",
-        "v1Score": 46,
+        "v1Score": 47,
         "v2Score": 46,
-        "delta": 0,
+        "delta": -1,
         "v1Nearest": "eletro-solucoes-eficazes",
         "v2Nearest": "eletro-solucoes-eficazes",
         "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 7.5
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 9
       },
       {
         "slug": "js-eletrica-manutencao",
@@ -5763,7 +5840,7 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 3.5
+        "v2AssetPattern": 3.2
       },
       {
         "slug": "lolipa-arte-em-festas",
@@ -5786,8 +5863,8 @@
         "v2Nearest": "denise-gomes-psicologa",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 3.8
+        "v1AssetPattern": 10,
+        "v2AssetPattern": 8.6
       },
       {
         "slug": "mania-de-limpeza",
@@ -5840,14 +5917,14 @@
       {
         "slug": "mary-diarista",
         "v1Score": 58,
-        "v2Score": 59,
-        "delta": 1,
+        "v2Score": 58,
+        "delta": 0,
         "v1Nearest": "aguia-sul-sinalizacao",
         "v2Nearest": "aguia-sul-sinalizacao",
         "neighbourChanged": false,
-        "reason": "METRIC_SENSITIVITY",
+        "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 7.5
+        "v2AssetPattern": 2.5
       },
       {
         "slug": "maximos-cabeleireiros",
@@ -5871,7 +5948,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_SENSITIVITY",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 2.5
+        "v2AssetPattern": 5
       },
       {
         "slug": "mirassol-conserta-celular",
@@ -5919,7 +5996,7 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 5
+        "v2AssetPattern": 4.3
       },
       {
         "slug": "no-brilho-higienizacao",
@@ -5971,14 +6048,14 @@
       },
       {
         "slug": "popys-conservacao-limpeza",
-        "v1Score": 65,
+        "v1Score": 67,
         "v2Score": 66,
-        "delta": 1,
+        "delta": -1,
         "v1Nearest": "bruna-diarista",
         "v2Nearest": "bruna-diarista",
         "neighbourChanged": false,
-        "reason": "METRIC_SENSITIVITY",
-        "v1AssetPattern": 0,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 50,
         "v2AssetPattern": 15
       },
       {
@@ -6015,7 +6092,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 9
+        "v2AssetPattern": 10
       },
       {
         "slug": "refrigeracao-maresia",
@@ -6055,15 +6132,15 @@
       },
       {
         "slug": "rj-servicos-drywall",
-        "v1Score": 49,
-        "v2Score": 50,
-        "delta": 1,
+        "v1Score": 50,
+        "v2Score": 49,
+        "delta": -1,
         "v1Nearest": "fernanda-amaral-drywall",
         "v2Nearest": "fernanda-amaral-drywall",
         "neighbourChanged": false,
-        "reason": "METRIC_SENSITIVITY",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 3.8
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 9.1,
+        "v2AssetPattern": 3.3
       },
       {
         "slug": "rm-fretes",
@@ -6075,7 +6152,7 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 1.9
+        "v2AssetPattern": 1.7
       },
       {
         "slug": "salao-da-marcia",
@@ -6086,8 +6163,8 @@
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 2.1
+        "v1AssetPattern": 8.3,
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "santos-montador-de-moveis",
@@ -6098,20 +6175,20 @@
         "v2Nearest": "diego-montador-moveis",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 16.7,
-        "v2AssetPattern": 2.5
+        "v1AssetPattern": 12.5,
+        "v2AssetPattern": 2.1
       },
       {
         "slug": "simone-lacerda-vaz",
-        "v1Score": 50,
+        "v1Score": 49,
         "v2Score": 48,
-        "delta": -2,
+        "delta": -1,
         "v1Nearest": "embalar-embalagens",
         "v2Nearest": "embalar-embalagens",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 60,
-        "v2AssetPattern": 2.1
+        "v1AssetPattern": 37.5,
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "sos-presentes-cosmeticos",
@@ -6122,8 +6199,8 @@
         "v2Nearest": "confeitaria-sabor-da-realeza",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 6
+        "v1AssetPattern": 7.7,
+        "v2AssetPattern": 5
       },
       {
         "slug": "sscons",
@@ -6135,7 +6212,7 @@
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 13.3,
-        "v2AssetPattern": 1.9
+        "v2AssetPattern": 1.7
       },
       {
         "slug": "studio-de-cilios",
@@ -6147,19 +6224,19 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 5
+        "v2AssetPattern": 4.3
       },
       {
         "slug": "thays-camilla",
-        "v1Score": 44,
+        "v1Score": 45,
         "v2Score": 44,
-        "delta": 0,
-        "v1Nearest": "denise-gomes-psicologa",
+        "delta": -1,
+        "v1Nearest": "sos-presentes-cosmeticos",
         "v2Nearest": "sos-presentes-cosmeticos",
-        "neighbourChanged": true,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 60,
-        "v2AssetPattern": 6
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 14.3,
+        "v2AssetPattern": 2.1
       },
       {
         "slug": "ton-e-cor",
@@ -6171,7 +6248,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 9
+        "v2AssetPattern": 10
       },
       {
         "slug": "toquinho-de-gente-brecho",
@@ -6206,8 +6283,8 @@
         "v2Nearest": "mp-festas-eventos",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 25,
-        "v2AssetPattern": 6.4
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 5.6
       },
       {
         "slug": "woodhouse-hamburgueres",
@@ -6246,18 +6323,18 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 82,
+      "total": 83,
       "original": 0,
-      "acceptable": 27,
-      "attention": 49,
+      "acceptable": 26,
+      "attention": 51,
       "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
-      "placeholderLogos": 0,
+      "placeholderLogos": 25,
       "missingLogos": 0,
       "missingCovers": 24,
-      "coverValid": 44,
+      "coverValid": 45,
       "coverPending": 38,
       "coversAsSocialImage": 8,
       "sharedCovers": 0,
@@ -6273,6 +6350,13 @@
         "label": "projetos HIGH_SIMILARITY",
         "before": 0,
         "after": 6
+      },
+      {
+        "kind": "COUNTER",
+        "key": "placeholderLogos",
+        "label": "logos placeholder",
+        "before": 0,
+        "after": 25
       },
       {
         "kind": "NEW_PROJECT",
@@ -6301,6 +6385,14 @@
         "status": "HIGH_SIMILARITY",
         "score": 61,
         "nearestMatch": "maximos-cabeleireiros"
+      },
+      {
+        "kind": "MODIFIED_PROJECT",
+        "slug": "heloa-gas",
+        "before": "ACCEPTABLE",
+        "after": "ATTENTION",
+        "beforeScore": 38,
+        "afterScore": 42
       },
       {
         "kind": "NEW_PROJECT",

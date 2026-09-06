@@ -221,7 +221,7 @@ export function ParaisoHotDogPage() {
               <p className="text-xs font-bold uppercase tracking-[.2em] text-[#b46b00]">
                 Cardápio online completo
               </p>
-              <h2 className="mt-2 text-4xl font-black">Escolha seus favoritos</h2>
+              <h2 className="mt-2 max-w-full break-words text-3xl font-black sm:text-4xl">Escolha seus favoritos</h2>
             </div>
             <span className="hidden items-center gap-2 text-sm font-semibold text-[#b46b00] sm:flex">
               <Utensils className="h-4 w-4" /> feito na hora

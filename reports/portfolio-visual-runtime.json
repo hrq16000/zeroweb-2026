@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-06T20:36:21.815Z",
-  "base": "http://localhost:8080",
+  "generatedAt": "2026-09-06T23:48:08.129Z",
+  "base": "http://127.0.0.1:8080",
   "viewports": [
     {
       "name": "mobile",
@@ -9226,6 +9226,474 @@
             },
             {
               "color": "rgb(247, 243, 239)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "kitutes-na-mesa": {
+      "slug": "kitutes-na-mesa",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/kitutes-na-mesa/logo.png",
+            "/images/kitutes-na-mesa/hero.png",
+            "/images/kitutes-na-mesa/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Seu evento merece uma mesa com gosto de quero mais.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1006,
+            "backgroundImage": false,
+            "heading": "Seu evento merece uma mesa com gosto de quero mais.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3290,
+          "text": "CARREGANDO Copiar divulgação Kitutes na Mesa PORÇÕES COM CARINHO Fazer orçamento ENCOMENDAS SOB MEDIDA · CURITIBA E REGIÃO Seu evento merece uma mesa com gosto de quero mais. Salgados, mini lanches, doces e bolos caseiros preparados com ingredientes selecionados e carinho em cada mordida. Montar meu orçamento Ver o cardápio Somente sob encomenda Feito com capricho UMA COMPOSIÇÃO DE MARCA · SABORES PARA IMAGINAR O QUE VAI À MESA Um cardápio que acompanha o tamanho do seu momento. A composição é definida na conversa, de acordo com a ocasião, o número de pessoas e as preferências do seu evento. Salgados Assados e fritos para servir quentinhos e dividir sem pressa. Mini lanches Combinações práticas para coffee breaks, reuniões e comemorações. Doces Pequenos detalhes doces para completar a mesa e surpreender. Bolos caseiros Bolos com clima de casa para acompanhar cada encontro. ESCOLHA O CLIMA A mesa começa pela ocasião. Selecione um cenário para ver como a conversa pode começar. O cardápio final é sempre combinado sob encomenda. Festas em família Eventos e celebrações Empresas e coffee breaks 01 Festas em família Aniversários, encontros e datas que pedem uma mesa cheia de carinho. OCASIÃO SELECIONADA 02 Eventos e celebrações Casamentos, confraternizações e momentos que merecem planejamento. TOQUE PARA SELECIONAR 03 Empresas e coffee breaks Porções e mini lanches pensados para receber equipes e convidados. TOQUE PARA SELECIONAR PRÓXIMO PASSO Conte a ocasião. A gente ajuda a montar a mesa. Escolha o que deseja, informe a data e receba um orçamento sem compromisso pelo WhatsApp. Solicitar orçamento SOBRE O PROJETO Sua mesa começa com uma conversa simples. Salgados, mini lanches, doces, bolos caseiros e porções para festas, coffee breaks, empresas e encontros sob encomenda. Atendimento em Curitiba — PR. Como começar Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso. salgados mini lanches doces bolos caseiros Montar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Kitutes na Mesa · Porções com Carinho. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Kitutes na Mesa · Porções com Carinho RESTAURANTES Salgados · Mini Lanches · Doces · Bolos Caseiros Curitiba — PR 0web.com.br/portfolio/kitutes-na-mesa Ilustração do cartão de visitas de Kitutes na Mesa · Porções com Carinho PANFLETO DIGITAL KITUTES NA MESA · PORÇÕES COM CARINHO Conheça Kitutes na Mesa · Porções com Carinho. Salgados · Mini Lanches · Doces · Bolos Caseiros Ver a presença digital Ilustração do panfleto digital de Kitutes na Mesa · Porções com Carinho © 2026 · Kitutes na Mesa · Porções com Carinho Site desenvolvido por 0WEB Contato GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 6578,
+          "topColors": [
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(185, 101, 85)",
+              "n": 4
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.06)",
+              "n": 4
+            },
+            {
+              "color": "rgb(244, 201, 184)",
+              "n": 2
+            },
+            {
+              "color": "rgb(255, 250, 246)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/kitutes-na-mesa/logo.png",
+            "/images/kitutes-na-mesa/hero.png",
+            "/images/kitutes-na-mesa/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Seu evento merece uma mesa com gosto de quero mais.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 737,
+            "backgroundImage": false,
+            "heading": "Seu evento merece uma mesa com gosto de quero mais.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3326,
+          "text": "CARREGANDO Copiar divulgação Kitutes na Mesa PORÇÕES COM CARINHO Cardápio Ocasiões Encomenda Fazer orçamento ENCOMENDAS SOB MEDIDA · CURITIBA E REGIÃO Seu evento merece uma mesa com gosto de quero mais. Salgados, mini lanches, doces e bolos caseiros preparados com ingredientes selecionados e carinho em cada mordida. Montar meu orçamento Ver o cardápio Somente sob encomenda Feito com capricho UMA COMPOSIÇÃO DE MARCA · SABORES PARA IMAGINAR O QUE VAI À MESA Um cardápio que acompanha o tamanho do seu momento. A composição é definida na conversa, de acordo com a ocasião, o número de pessoas e as preferências do seu evento. Salgados Assados e fritos para servir quentinhos e dividir sem pressa. Mini lanches Combinações práticas para coffee breaks, reuniões e comemorações. Doces Pequenos detalhes doces para completar a mesa e surpreender. Bolos caseiros Bolos com clima de casa para acompanhar cada encontro. ESCOLHA O CLIMA A mesa começa pela ocasião. Selecione um cenário para ver como a conversa pode começar. O cardápio final é sempre combinado sob encomenda. Festas em família Eventos e celebrações Empresas e coffee breaks 01 Festas em família Aniversários, encontros e datas que pedem uma mesa cheia de carinho. OCASIÃO SELECIONADA 02 Eventos e celebrações Casamentos, confraternizações e momentos que merecem planejamento. TOQUE PARA SELECIONAR 03 Empresas e coffee breaks Porções e mini lanches pensados para receber equipes e convidados. TOQUE PARA SELECIONAR PRÓXIMO PASSO Conte a ocasião. A gente ajuda a montar a mesa. Escolha o que deseja, informe a data e receba um orçamento sem compromisso pelo WhatsApp. Solicitar orçamento SOBRE O PROJETO Sua mesa começa com uma conversa simples. Salgados, mini lanches, doces, bolos caseiros e porções para festas, coffee breaks, empresas e encontros sob encomenda. Atendimento em Curitiba — PR. Como começar Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso. salgados mini lanches doces bolos caseiros Montar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Kitutes na Mesa · Porções com Carinho. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Kitutes na Mesa · Porções com Carinho RESTAURANTES Salgados · Mini Lanches · Doces · Bolos Caseiros Curitiba — PR 0web.com.br/portfolio/kitutes-na-mesa Ilustração do cartão de visitas de Kitutes na Mesa · Porções com Carinho PANFLETO DIGITAL KITUTES NA MESA · PORÇÕES COM CARINHO Conheça Kitutes na Mesa · Porções com Carinho. Salgados · Mini Lanches · Doces · Bolos Caseiros Ver a presença digital Ilustração do panfleto digital de Kitutes na Mesa · Porções com Carinho © 2026 · Kitutes na Mesa · Porções com Carinho Site desenvolvido por 0WEB Fazer orçamento GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 4076,
+          "topColors": [
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(185, 101, 85)",
+              "n": 4
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.06)",
+              "n": 4
+            },
+            {
+              "color": "rgb(244, 201, 184)",
+              "n": 2
+            },
+            {
+              "color": "rgb(255, 250, 246)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "enoel-portas": {
+      "slug": "enoel-portas",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/enoel-portas/logo.png",
+            "/images/enoel-portas/hero.png",
+            "/images/enoel-portas/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Uma boa porta muda a entrada do seu projeto.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 978,
+            "backgroundImage": false,
+            "heading": "Uma boa porta muda a entrada do seu projeto.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2906,
+          "text": "CARREGANDO Copiar divulgação FALE COM A EQUIPE QUALIDADE, PRATICIDADE E SEGURANÇA UMA BOA PORTA MUDA A ENTRADA DO SEU PROJETO. Colocação de portas de madeira, regulagem, vistas e caxilhos em geral — com uma experiência de obra mais organizada do começo ao acabamento. PEDIR ORÇAMENTO VER SERVIÇOS ORÇAMENTO SEM COMPROMISSO CUIDADO NO DETALHE PORTAS COM QUEM ENTENDE ESCOPO CLARO, EXECUÇÃO CUIDADOSA O DETALHE QUE FAZ A PORTA FUNCIONAR. Escolha um serviço para entender como começamos a conversa sobre o seu espaço. 01 COLOCAÇÃO Portas de madeira instaladas com prumo, ajuste e acabamento. SELECIONADO 02 REGULAGEM Correções de fechamento, folgas, dobradiças e ferragens. VER DETALHE 03 VISTAS Molduras e guarnições que fecham o desenho do ambiente. VER DETALHE 04 CAXILHOS Soluções para portas, vãos e arremates em geral. VER DETALHE UMA EXPERIÊNCIA MAIS TRANQUILA A BAGUNÇA É TEMPORÁRIA. O RESULTADO FICA. A gente organiza as informações antes, cuida do encaixe durante e deixa o acabamento pronto para o seu ambiente. CONVERSAR SOBRE MEU PROJETO 01 MEDIR Entender vão, modelo e necessidade do ambiente. 02 AJUSTAR Preparar instalação, regulagem e acabamento. 03 ENTREGAR Deixar a porta funcionando e o espaço valorizado. CURITIBA E REGIÃO SEU PROJETO COMEÇA COM UMA BOA CONVERSA. Envie o contexto, a medida aproximada e o que você precisa resolver. A equipe orienta o próximo passo. SOLICITAR ORÇAMENTO SOBRE O PROJETO Seu projeto começa com uma boa conversa. Enoel Portas oferece colocação de portas de madeira, regulagem, vistas e caxilhos em geral para casas, apartamentos e obras em Curitiba e região. Atendimento em Curitiba — PR. Como começar Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. portas madeira instalacao regulagem Pedir orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Enoel Portas. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Enoel Portas CONSTRUCAO Portas · Madeira · Instalacao · Regulagem Curitiba — PR 0web.com.br/portfolio/enoel-portas Ilustração do cartão de visitas de Enoel Portas PANFLETO DIGITAL ENOEL PORTAS Conheça Enoel Portas. Portas · Madeira · Instalacao · Regulagem Ver a presença digital Ilustração do panfleto digital de Enoel Portas © 2026 · Enoel Portas Site desenvolvido por 0WEB Contato GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 6100,
+          "topColors": [
+            {
+              "color": "rgb(255, 210, 26)",
+              "n": 7
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(11, 12, 13)",
+              "n": 4
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.06)",
+              "n": 3
+            },
+            {
+              "color": "rgb(244, 240, 231)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/enoel-portas/logo.png",
+            "/images/enoel-portas/hero.png",
+            "/images/enoel-portas/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Uma boa porta muda a entrada do seu projeto.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 764,
+            "backgroundImage": false,
+            "heading": "Uma boa porta muda a entrada do seu projeto.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2978,
+          "text": "CARREGANDO Copiar divulgação PORTAS QUE VALORIZAM SEU ESPAÇO SERVIÇOS COMO FAZEMOS ORÇAMENTO FALE COM A EQUIPE QUALIDADE, PRATICIDADE E SEGURANÇA UMA BOA PORTA MUDA A ENTRADA DO SEU PROJETO. Colocação de portas de madeira, regulagem, vistas e caxilhos em geral — com uma experiência de obra mais organizada do começo ao acabamento. PEDIR ORÇAMENTO VER SERVIÇOS ORÇAMENTO SEM COMPROMISSO CUIDADO NO DETALHE PORTAS COM QUEM ENTENDE ESCOPO CLARO, EXECUÇÃO CUIDADOSA O DETALHE QUE FAZ A PORTA FUNCIONAR. Escolha um serviço para entender como começamos a conversa sobre o seu espaço. 01 COLOCAÇÃO Portas de madeira instaladas com prumo, ajuste e acabamento. SELECIONADO 02 REGULAGEM Correções de fechamento, folgas, dobradiças e ferragens. VER DETALHE 03 VISTAS Molduras e guarnições que fecham o desenho do ambiente. VER DETALHE 04 CAXILHOS Soluções para portas, vãos e arremates em geral. VER DETALHE UMA EXPERIÊNCIA MAIS TRANQUILA A BAGUNÇA É TEMPORÁRIA. O RESULTADO FICA. A gente organiza as informações antes, cuida do encaixe durante e deixa o acabamento pronto para o seu ambiente. CONVERSAR SOBRE MEU PROJETO 01 MEDIR Entender vão, modelo e necessidade do ambiente. 02 AJUSTAR Preparar instalação, regulagem e acabamento. 03 ENTREGAR Deixar a porta funcionando e o espaço valorizado. CURITIBA E REGIÃO SEU PROJETO COMEÇA COM UMA BOA CONVERSA. Envie o contexto, a medida aproximada e o que você precisa resolver. A equipe orienta o próximo passo. SOLICITAR ORÇAMENTO SOBRE O PROJETO Seu projeto começa com uma boa conversa. Enoel Portas oferece colocação de portas de madeira, regulagem, vistas e caxilhos em geral para casas, apartamentos e obras em Curitiba e região. Atendimento em Curitiba — PR. Como começar Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. portas madeira instalacao regulagem Pedir orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Enoel Portas. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Enoel Portas CONSTRUCAO Portas · Madeira · Instalacao · Regulagem Curitiba — PR 0web.com.br/portfolio/enoel-portas Ilustração do cartão de visitas de Enoel Portas PANFLETO DIGITAL ENOEL PORTAS Conheça Enoel Portas. Portas · Madeira · Instalacao · Regulagem Ver a presença digital Ilustração do panfleto digital de Enoel Portas © 2026 · Enoel Portas Site desenvolvido por 0WEB Pedir orçamento GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 3613,
+          "topColors": [
+            {
+              "color": "rgb(255, 210, 26)",
+              "n": 7
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(11, 12, 13)",
+              "n": 4
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.06)",
+              "n": 3
+            },
+            {
+              "color": "rgb(244, 240, 231)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "mania-de-limpeza": {
+      "slug": "mania-de-limpeza",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/mania-de-limpeza/logo.png",
+            "/images/mania-de-limpeza/hero.png",
+            "/images/mania-de-limpeza/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Limpeza que você sente. Cuidado que fica.",
+          "h2Count": 7,
+          "sections": 8,
+          "smallTargets": 1,
+          "hero": {
+            "height": 973,
+            "backgroundImage": false,
+            "heading": "Limpeza que você sente. Cuidado que fica.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2789,
+          "text": "CARREGANDO Copiar divulgação MONTAR MEU COMBO RENOVE O CONFORTO DA SUA CASA Limpeza que você sente. Cuidado que fica. Higienização profissional para sofás, colchões e tapetes, com um combo família pensado para deixar sua casa mais limpa, cheirosa e confortável. QUERO MEU ORÇAMENTO VER COMBO FAMÍLIA A PARTIR DE 3 ITENS ATENDIMENTO CUIDADOSO HIGIENIZAÇÃO PARA A VIDA REAL Mais saúde, conforto e sensação de novo. Estofados Sofás, poltronas, cadeiras e puffs com cuidado no tecido. Colchões Mais conforto para a família com limpeza profunda. Tapetes Renovação para superfícies que acumulam poeira. PROMOÇÃO COMBO FAMÍLIA A partir de 3 itens, R$ 100 cada. Monte sua combinação com sofá, colchão, tapete ou outros itens e aproveite a condição especial para renovar a casa. MONTAR MEU COMBO CASA RENOVADA LIMPEZA PROFUNDA MAIS CONFORTO CONTEÚDO VIVO DA MARCA Veja as novidades da Mania de Limpeza. O perfil oficial é atualizado pelo próprio Instagram. Abra para conferir as publicações mais recentes, bastidores e ofertas. Abrir Instagram PRÓXIMO PASSO Sua casa merece esse cuidado. Conte quais itens deseja higienizar e receba orientação para montar seu combo. O catálogo completo é apresentado no atendimento. FALAR NO WHATSAPP SOBRE O PROJETO Sua casa mais leve começa por uma conversa. Mania de Limpeza Higienização oferece limpeza profissional de sofás, colchões, tapetes e estofados com combo família. Atendimento em Curitiba — PR. Como começar Conte os itens que deseja higienizar e monte o combo família com a equipe. higienizacao sofas colchoes tapetes Montar meu combo KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Mania de Limpeza Higienização. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Mania de Limpeza Higienização SERVICOS Higienizacao · Sofas · Colchoes · Tapetes Curitiba — PR 0web.com.br/portfolio/mania-de-limpeza Ilustração do cartão de visitas de Mania de Limpeza Higienização PANFLETO DIGITAL MANIA DE LIMPEZA HIGIENIZAÇÃO Conheça Mania de Limpeza Higienização. Higienizacao · Sofas · Colchoes · Tapetes Ver a presença digital Ilustração do panfleto digital de Mania de Limpeza Higienização © 2026 · Mania de Limpeza Higienização Site desenvolvido por 0WEB Contato GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 6331,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 8
+            },
+            {
+              "color": "rgb(255, 208, 0)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 253, 244)",
+              "n": 3
+            },
+            {
+              "color": "rgb(17, 19, 15)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/mania-de-limpeza/logo.png",
+            "/images/mania-de-limpeza/hero.png",
+            "/images/mania-de-limpeza/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Limpeza que você sente. Cuidado que fica.",
+          "h2Count": 6,
+          "sections": 8,
+          "smallTargets": 4,
+          "hero": {
+            "height": 836,
+            "backgroundImage": false,
+            "heading": "Limpeza que você sente. Cuidado que fica.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2408,
+          "text": "CARREGANDO Copiar divulgação SERVIÇOS COMBO FAMÍLIA INSTAGRAM MONTAR MEU COMBO RENOVE O CONFORTO DA SUA CASA Limpeza que você sente. Cuidado que fica. Higienização profissional para sofás, colchões e tapetes, com um combo família pensado para deixar sua casa mais limpa, cheirosa e confortável. QUERO MEU ORÇAMENTO VER COMBO FAMÍLIA A PARTIR DE 3 ITENS ATENDIMENTO CUIDADOSO HIGIENIZAÇÃO PARA A VIDA REAL Mais saúde, conforto e sensação de novo. Estofados Sofás, poltronas, cadeiras e puffs com cuidado no tecido. Colchões Mais conforto para a família com limpeza profunda. Tapetes Renovação para superfícies que acumulam poeira. PROMOÇÃO COMBO FAMÍLIA A partir de 3 itens, R$ 100 cada. Monte sua combinação com sofá, colchão, tapete ou outros itens e aproveite a condição especial para renovar a casa. MONTAR MEU COMBO CASA RENOVADA LIMPEZA PROFUNDA MAIS CONFORTO CONTEÚDO VIVO DA MARCA Veja as novidades da Mania de Limpeza. O perfil oficial é atualizado pelo próprio Instagram. Abra para conferir as publicações mais recentes, bastidores e ofertas. Abrir Instagram PRÓXIMO PASSO Sua casa merece esse cuidado. Conte quais itens deseja higienizar e receba orientação para montar seu combo. O catálogo completo é apresentado no atendimento. FALAR NO WHATSAPP SOBRE O PROJETO Sua casa mais leve começa por uma conversa. Mania de Limpeza Higienização oferece limpeza profissional de sofás, colchões, tapetes e estofados com combo família. Atendimento em Curitiba — PR. Como começar Conte os itens que deseja higienizar e monte o combo família com a equipe. higienizacao sofas colchoes tapetes Montar meu combo KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Mania de Limpeza Higienização. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Mania de Limpeza Higienização SERVICOS Higienizacao · Sofas · Colchoes · Tapetes Curitiba — PR 0web.com.br/portfolio/mania-de-limpeza Ilustração do cartão de visitas de Mania de Limpeza Higienização PANFLETO DIGITAL MANIA DE LIMPEZA HIGIENIZAÇÃO Conheça Mania de Limpeza Higienização. Higienizacao · Sofas · Colchoes · Tapetes Ver a presença digital Ilustração do panfleto digital de Mania de Limpeza Higienização © 2026 · Mania de Limpeza Higienização Site desenvolvido por 0WEB Montar meu combo",
+          "docHeight": 4466,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 8
+            },
+            {
+              "color": "rgb(255, 208, 0)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(255, 253, 244)",
+              "n": 3
+            },
+            {
+              "color": "rgb(17, 19, 15)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "dona-lucy-salgados": {
+      "slug": "dona-lucy-salgados",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/dona-lucy-salgados/logo.png",
+            "/images/dona-lucy-salgados/hero.png",
+            "/images/dona-lucy-salgados/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Aquele lanchinho que transforma o domingo em família.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1043,
+            "backgroundImage": false,
+            "heading": "Aquele lanchinho que transforma o domingo em família.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2665,
+          "text": "CARREGANDO Copiar divulgação Abrir cardápio DELIVERY FEITO NA HORA Aquele lanchinho que transforma o domingo em família. Salgados fritos e churros de doce de leite, preparados na hora para chegar quentinhos, crocantes e cheios de carinho. VER COMBOS A PARTIR DE R$ 11,99 FAZER PEDIDO FRITAMOS NA HORA SOMENTE DELIVERY O QUE CHEGA NA SUA MESA Pequenos momentos, grande sabor. Fritos na hora Salgados dourados para chegar quentinhos. Qualidade e carinho Ingredientes selecionados e atendimento próximo. Delivery Araucária Entrega para Campina da Barra e região. PEDIDO SEM COMPLICAÇÃO Você escolhe. A Dona Lucy prepara. Consulte o cardápio, escolha seus combos e peça pelo delivery. Para encomendas ou horários especiais, combine durante o expediente. MONTAR MEU PEDIDO Abrir InstaDelivery 01 Escolha Veja os combos, salgados e churros no cardápio. 02 Peça Informe endereço, quantidade e melhor horário. 03 Receba Salgados fritos na hora chegando até você. Terça a domingo, das 14h às 22h. Precisa de entrega fora desse horário? Agende durante o expediente e combine o dia e a hora. Campina da Barra · Araucária R. das Camélias, 1715 — Araucária, PR. CONSULTAR DISPONIBILIDADE SOBRE O PROJETO Seu pedido começa com uma escolha gostosa. Dona Lucy Salgados prepara salgados fritos e churros de doce de leite para delivery e encomendas em Araucária. Atendimento em Araucária — PR. Como começar Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. salgados delivery churros encomendas Fazer pedido KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Dona Lucy Salgados. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Dona Lucy Salgados RESTAURANTES Salgados · Delivery · Churros · Encomendas Araucária — PR 0web.com.br/portfolio/dona-lucy-salgados Ilustração do cartão de visitas de Dona Lucy Salgados PANFLETO DIGITAL DONA LUCY SALGADOS Conheça Dona Lucy Salgados. Salgados · Delivery · Churros · Encomendas Ver a presença digital Ilustração do panfleto digital de Dona Lucy Salgados © 2026 · Dona Lucy Salgados Site desenvolvido por 0WEB Contato GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 5806,
+          "topColors": [
+            {
+              "color": "rgb(166, 59, 50)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 248, 233)",
+              "n": 3
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.06)",
+              "n": 3
+            },
+            {
+              "color": "rgb(228, 163, 33)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo-fallback.svg",
+            "/images/dona-lucy-salgados/logo.png",
+            "/images/dona-lucy-salgados/hero.png",
+            "/images/dona-lucy-salgados/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Aquele lanchinho que transforma o domingo em família.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 872,
+            "backgroundImage": false,
+            "heading": "Aquele lanchinho que transforma o domingo em família.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2698,
+          "text": "CARREGANDO Copiar divulgação SABORES COMO PEDIR HORÁRIOS Abrir cardápio DELIVERY FEITO NA HORA Aquele lanchinho que transforma o domingo em família. Salgados fritos e churros de doce de leite, preparados na hora para chegar quentinhos, crocantes e cheios de carinho. VER COMBOS A PARTIR DE R$ 11,99 FAZER PEDIDO FRITAMOS NA HORA SOMENTE DELIVERY O QUE CHEGA NA SUA MESA Pequenos momentos, grande sabor. Fritos na hora Salgados dourados para chegar quentinhos. Qualidade e carinho Ingredientes selecionados e atendimento próximo. Delivery Araucária Entrega para Campina da Barra e região. PEDIDO SEM COMPLICAÇÃO Você escolhe. A Dona Lucy prepara. Consulte o cardápio, escolha seus combos e peça pelo delivery. Para encomendas ou horários especiais, combine durante o expediente. MONTAR MEU PEDIDO Abrir InstaDelivery 01 Escolha Veja os combos, salgados e churros no cardápio. 02 Peça Informe endereço, quantidade e melhor horário. 03 Receba Salgados fritos na hora chegando até você. Terça a domingo, das 14h às 22h. Precisa de entrega fora desse horário? Agende durante o expediente e combine o dia e a hora. Campina da Barra · Araucária R. das Camélias, 1715 — Araucária, PR. CONSULTAR DISPONIBILIDADE SOBRE O PROJETO Seu pedido começa com uma escolha gostosa. Dona Lucy Salgados prepara salgados fritos e churros de doce de leite para delivery e encomendas em Araucária. Atendimento em Araucária — PR. Como começar Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. salgados delivery churros encomendas Fazer pedido KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Dona Lucy Salgados. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Dona Lucy Salgados RESTAURANTES Salgados · Delivery · Churros · Encomendas Araucária — PR 0web.com.br/portfolio/dona-lucy-salgados Ilustração do cartão de visitas de Dona Lucy Salgados PANFLETO DIGITAL DONA LUCY SALGADOS Conheça Dona Lucy Salgados. Salgados · Delivery · Churros · Encomendas Ver a presença digital Ilustração do panfleto digital de Dona Lucy Salgados © 2026 · Dona Lucy Salgados Site desenvolvido por 0WEB Fazer pedido GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 3628,
+          "topColors": [
+            {
+              "color": "rgb(166, 59, 50)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 248, 233)",
+              "n": 3
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.06)",
+              "n": 3
+            },
+            {
+              "color": "rgb(228, 163, 33)",
               "n": 2
             }
           ]

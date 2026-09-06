@@ -142,7 +142,16 @@ const installed = fs.existsSync(installedRoot)
 
 const browser = await chromium.launch({
   headless: true,
-  executablePath: fs.existsSync(bundled) ? bundled : installed,
+  // In Windows CI/desktop sessions the full Chromium binary can fail with
+  // `spawn UNKNOWN`; Playwright's bundled headless shell is purpose-built for
+  // this audit and keeps the evidence reproducible.
+  executablePath:
+    process.platform === "win32" &&
+    fs.existsSync(path.join(process.env.LOCALAPPDATA ?? "", "ms-playwright", "chromium_headless_shell-1243", "chrome-headless-shell-win64", "chrome-headless-shell.exe"))
+      ? path.join(process.env.LOCALAPPDATA ?? "", "ms-playwright", "chromium_headless_shell-1243", "chrome-headless-shell-win64", "chrome-headless-shell.exe")
+      : fs.existsSync(bundled)
+        ? bundled
+        : installed,
 });
 
 if (withShots) fs.mkdirSync(path.join(root, "reports/portfolio-shots"), { recursive: true });
