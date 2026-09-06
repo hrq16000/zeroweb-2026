@@ -906,7 +906,11 @@ export function SsConsPage() {
                     title: "Atendimento",
                     body: "Pelo formulário desta página. Sua solicitação chega direto à equipe da S&S.",
                   },
-                  { icon: Clock, title: "Horário", body: "Atendimento 24 horas para orçamentos." },
+                  {
+                    icon: Clock,
+                    title: "Horário",
+                    body: "Envie o pedido de orçamento a qualquer hora; a equipe retorna assim que possível.",
+                  },
                   { icon: MapPin, title: "Endereço", body: "Curitiba, PR — atendemos a Região Metropolitana." },
                 ].map(({ icon: Icon, title, body }) => (
                   <div
