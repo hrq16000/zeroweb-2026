@@ -331,6 +331,7 @@ function Lightbox({
             width={800}
             height={600}
             loading="eager"
+            fetchPriority="high"
             decoding="async"
             className="mx-auto max-h-[75vh] w-full object-contain"
           />
