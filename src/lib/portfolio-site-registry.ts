@@ -483,6 +483,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "btb-construcao",
+    vertical: "prestadores-de-servicos",
+    siteName: "BTB Construção · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {
