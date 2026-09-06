@@ -270,6 +270,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Conte a metragem, frequência e detalhes do ambiente."
   },
+  "btb-construcao": {
+    "services": [
+      "Pintura",
+      "Elétrica",
+      "Hidráulica",
+      "Pisos e revestimentos",
+      "Drywall e forro",
+      "Acabamentos",
+      "Iluminação em LED"
+    ],
+    "experienceOptions": [
+      "Reforma interna",
+      "Ambiente comercial",
+      "Construção nova",
+      "Manutenção ou reparo"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o endereço"
+    ],
+    "timingOptions": [
+      "Preciso começar em breve",
+      "Nos próximos meses",
+      "Ainda estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual frente da obra você precisa?",
+      "experience": "Que tipo de reforma é?",
+      "period": "Onde será o serviço?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte os ambientes, metragem aproximada e o que você quer transformar."
+  },
   "casa-nativa": {
     "stepTitles": {
       "service": "Que experiência procura?",

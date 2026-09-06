@@ -474,6 +474,19 @@
         "stepTitles": { "service": "Qual diária você precisa?", "experience": "Que ambiente vamos cuidar?", "period": "Onde será o atendimento?", "timing": "Quando pretende começar?" },
         "notePlaceholder": "Conte a metragem, frequência e detalhes do ambiente."
       }
+    },
+    "btb-construcao": {
+      "contactFloating": { "theme": "default", "recipientName": "a equipe da BTB", "label": "Solicitar orçamento" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Pintura", "Elétrica", "Hidráulica", "Pisos e revestimentos", "Drywall e forro", "Acabamentos", "Iluminação em LED"],
+        "experienceOptions": ["Reforma interna", "Ambiente comercial", "Construção nova", "Manutenção ou reparo"],
+        "periodOptions": ["Curitiba", "Região Metropolitana", "Ainda preciso confirmar o local"],
+        "timingOptions": ["Preciso começar em breve", "Nos próximos meses", "Ainda estou planejando"],
+        "stepTitles": { "service": "Qual frente da obra você precisa?", "experience": "Que tipo de reforma é?", "period": "Onde será o serviço?", "timing": "Quando pretende começar?" },
+        "notePlaceholder": "Conte os ambientes, metragem aproximada e o que você quer transformar."
+      }
     }
   }
 }

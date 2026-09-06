@@ -17,11 +17,11 @@
     "clone": 81
   },
   "summary": {
-    "total": 69,
+    "total": 73,
     "original": 0,
     "acceptable": 27,
-    "attention": 42,
-    "highSimilarity": 0,
+    "attention": 43,
+    "highSimilarity": 3,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -29,10 +29,10 @@
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 35,
-    "coverPending": 34,
-    "coversAsSocialImage": 10,
+    "coverPending": 38,
+    "coversAsSocialImage": 14,
     "sharedCovers": 0,
-    "severeCrop": 18,
+    "severeCrop": 19,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -432,6 +432,89 @@
         "structureHash": "8b15348d1c017dfd",
         "sectionCount": 1,
         "lines": 164
+      }
+    },
+    {
+      "slug": "bruna-diarista",
+      "title": "Bruna Diarista",
+      "segment": "servicos",
+      "componentFile": "src/components/site/BrunaDiaristaPage.tsx",
+      "score": 66,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "popys-conservacao-limpeza",
+      "nearestMatchScore": 66,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 65.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 80.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 11.8
+      },
+      "reasons": [
+        "NEAR_DUPLICATE_LAYOUT"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_LOGO",
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.5,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "e57b70cd97ce1593",
+        "structureHash": "2391e258585406d8",
+        "sectionCount": 7,
+        "lines": 17
+      }
+    },
+    {
+      "slug": "btb-construcao",
+      "title": "BTB Construção",
+      "segment": "construcao",
+      "componentFile": "src/components/site/BtbConstrucaoPage.tsx",
+      "score": 61,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "bruna-diarista",
+      "nearestMatchScore": 61,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 66,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 69,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 6.7
+      },
+      "reasons": [
+        "NEAR_DUPLICATE_LAYOUT"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_LOGO",
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 2,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "04b7c39f3a9429d1",
+        "structureHash": "499a50d18931b9ea",
+        "sectionCount": 7,
+        "lines": 42
       }
     },
     {
@@ -1162,17 +1245,17 @@
       "title": "Reparos do Litoral",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 26,
+      "score": 27,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "bh-barreiro-marmitas",
-      "nearestMatchScore": 26,
+      "nearestMatch": "bruna-diarista",
+      "nearestMatchScore": 27,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.5,
-        "SECTION_ORDER_SIMILARITY": 44.4,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 50.8,
+        "STRUCTURE_SIMILARITY": 11.1,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 15,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1753,6 +1836,48 @@
       }
     },
     {
+      "slug": "mimo-salgados-doces",
+      "title": "Mimo Salgados e Doces",
+      "segment": "comercios",
+      "componentFile": "src/components/site/MimoSalgadosDocesPage.tsx",
+      "score": 56,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "popys-conservacao-limpeza",
+      "nearestMatchScore": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 66.7,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 88.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 13.8
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH",
+        "COVER_SEVERE_CROP"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 0.8,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "8ef76dd29071b13a",
+        "structureHash": "62ea1daa7799899c",
+        "sectionCount": 7,
+        "lines": 57
+      }
+    },
+    {
       "slug": "mirassol-conserta-celular",
       "title": "Conserta Mirassol",
       "segment": "prestadores-de-servicos",
@@ -1837,18 +1962,18 @@
       "title": "MIRO TECH",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/MiroTechPage.tsx",
-      "score": 48,
+      "score": 49,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "liz-moraes-nail-designer",
-      "nearestMatchScore": 48,
+      "nearestMatch": "mimo-salgados-doces",
+      "nearestMatchScore": 49,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 41,
+        "STRUCTURE_SIMILARITY": 43.9,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 28.6,
-        "STYLE_SIMILARITY": 63.3,
-        "COPY_SIMILARITY": 2.3,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 10.3
+        "COMPONENT_SIMILARITY": 40,
+        "STYLE_SIMILARITY": 54.5,
+        "COPY_SIMILARITY": 1.6,
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 9.5
       },
       "reasons": [
         "SAME_FAMILY"
@@ -2031,6 +2156,47 @@
         "structureHash": "95afbc06b5a86590",
         "sectionCount": 10,
         "lines": 453
+      }
+    },
+    {
+      "slug": "popys-conservacao-limpeza",
+      "title": "POPYS Conservação e Limpeza",
+      "segment": "servicos",
+      "componentFile": "src/components/site/PopysConservacaoLimpezaPage.tsx",
+      "score": 66,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "bruna-diarista",
+      "nearestMatchScore": 66,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 65.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 80.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 11.8
+      },
+      "reasons": [
+        "NEAR_DUPLICATE_LAYOUT"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_LOGO",
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.5,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "bb81ef504bce51c4",
+        "structureHash": "1e67606eea8cbadb",
+        "sectionCount": 7,
+        "lines": 48
       }
     },
     {
@@ -2477,15 +2643,15 @@
       "componentFile": "src/components/site/SsConsPage.tsx",
       "score": 24,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "jc-revestimentos",
+      "nearestMatch": "bruna-diarista",
       "nearestMatchScore": 24,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 7.6,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 26.1,
-        "STYLE_SIMILARITY": 26.2,
+        "STRUCTURE_SIMILARITY": 22.4,
+        "SECTION_ORDER_SIMILARITY": 40,
+        "COMPONENT_SIMILARITY": 26.9,
+        "STYLE_SIMILARITY": 30,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 0,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2793,6 +2959,46 @@
   "clusters": [],
   "topPairs": [
     {
+      "a": "bruna-diarista",
+      "b": "popys-conservacao-limpeza",
+      "metricVersion": 2,
+      "score": 66,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 65.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 80.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 11.8
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "bruna-diarista",
+      "b": "btb-construcao",
+      "metricVersion": 2,
+      "score": 61,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 66,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 69,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 6.7
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
       "a": "aguia-sul-sinalizacao",
       "b": "diego-montador-moveis",
       "metricVersion": 2,
@@ -2873,6 +3079,46 @@
       "reason": "SAME_FAMILY"
     },
     {
+      "a": "aguia-sul-sinalizacao",
+      "b": "bruna-diarista",
+      "metricVersion": 2,
+      "score": 57,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 41.7,
+        "STYLE_SIMILARITY": 78.9,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 9.4
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "btb-construcao",
+      "b": "popys-conservacao-limpeza",
+      "metricVersion": 2,
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 56.9,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 53.3,
+        "STYLE_SIMILARITY": 61.6,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 6.3
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "confeitaria-chyrley",
       "b": "studio-de-cilios",
       "metricVersion": 2,
@@ -2893,6 +3139,26 @@
       "reason": "SAME_FAMILY"
     },
     {
+      "a": "mimo-salgados-doces",
+      "b": "popys-conservacao-limpeza",
+      "metricVersion": 2,
+      "score": 56,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 66.7,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 88.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 13.8
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "acai-total-araucaria",
       "b": "mary-diarista",
       "metricVersion": 2,
@@ -2905,6 +3171,26 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3,
         "IDENTITY_SIMILARITY": 10.3
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "btb-construcao",
+      "metricVersion": 2,
+      "score": 55,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 60,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 41.7,
+        "STYLE_SIMILARITY": 64.3,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 10.7
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -2948,6 +3234,26 @@
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "bruna-diarista",
+      "b": "mimo-salgados-doces",
+      "metricVersion": 2,
+      "score": 54,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 67.3,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 82.2,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 10.7
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
       ],
       "sharedAssets": [],
       "reason": "SAME_FAMILY"
@@ -3093,6 +3399,26 @@
       "reason": "SAME_FAMILY"
     },
     {
+      "a": "aguia-sul-sinalizacao",
+      "b": "popys-conservacao-limpeza",
+      "metricVersion": 2,
+      "score": 52,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 49.2,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 68.4,
+        "COPY_SIMILARITY": 0.6,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 8.8
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "diego-montador-moveis",
       "b": "mary-diarista",
       "metricVersion": 2,
@@ -3131,166 +3457,6 @@
       ],
       "sharedAssets": [],
       "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "confeitaria-sabor-da-realeza",
-      "b": "sos-presentes-cosmeticos",
-      "metricVersion": 2,
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 26.1,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 64.3,
-        "STYLE_SIMILARITY": 71.1,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 11.1
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "r_beauty",
-      "b": "renata-beauty",
-      "metricVersion": 2,
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 52.6,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 40.9,
-        "STYLE_SIMILARITY": 47.7,
-        "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10.2
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "denise-gomes-psicologa",
-      "b": "liz-moraes-nail-designer",
-      "metricVersion": 2,
-      "score": 50,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.1,
-        "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 58.3,
-        "STYLE_SIMILARITY": 68.1,
-        "COPY_SIMILARITY": 2,
-        "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 13.9
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "eletro-solucoes-eficazes",
-      "b": "eletrovale-eletromecanica",
-      "metricVersion": 2,
-      "score": 50,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 23.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 85.7,
-        "STYLE_SIMILARITY": 44.2,
-        "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "fernanda-amaral-drywall",
-      "b": "rj-servicos-drywall",
-      "metricVersion": 2,
-      "score": 50,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 64.6,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 35.7,
-        "STYLE_SIMILARITY": 74.8,
-        "COPY_SIMILARITY": 2.4,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 36.4
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "liz-moraes-nail-designer",
-      "b": "refrigeracao-maresia",
-      "metricVersion": 2,
-      "score": 50,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 56.1,
-        "SECTION_ORDER_SIMILARITY": 83.3,
-        "COMPONENT_SIMILARITY": 26.7,
-        "STYLE_SIMILARITY": 82.5,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 4.7
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "mp-festas-eventos",
-      "b": "sos-presentes-cosmeticos",
-      "metricVersion": 2,
-      "score": 50,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 39.2,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 41.2,
-        "STYLE_SIMILARITY": 69.7,
-        "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 11.2,
-        "IDENTITY_SIMILARITY": 8.2
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "assistencia-microondas-santos",
-      "b": "liz-moraes-nail-designer",
-      "metricVersion": 2,
-      "score": 49,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 53.8,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 46.2,
-        "STYLE_SIMILARITY": 85,
-        "COPY_SIMILARITY": 1.6,
-        "ASSET_PATTERN_SIMILARITY": 9,
-        "IDENTITY_SIMILARITY": 10.8
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
     }
   ],
   "pairMatrix": {
@@ -3300,7 +3466,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 2346,
+    "totalPairs": 2628,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -3445,13 +3611,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
+          "slug": "mimo-salgados-doces",
           "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 34,
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 37,
           "reason": "DISTINCT"
         }
       ],
@@ -3470,6 +3636,40 @@
           "slug": "woodhouse-hamburgueres",
           "score": 22,
           "reason": "DISTINCT"
+        }
+      ],
+      "bruna-diarista": [
+        {
+          "slug": "popys-conservacao-limpeza",
+          "score": 66,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "btb-construcao",
+          "score": 61,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 57,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "btb-construcao": [
+        {
+          "slug": "bruna-diarista",
+          "score": 61,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "popys-conservacao-limpeza",
+          "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 55,
+          "reason": "SAME_FAMILY"
         }
       ],
       "casa-nativa": [
@@ -3700,13 +3900,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "salao-da-marcia",
+          "slug": "mimo-salgados-doces",
           "score": 38,
           "reason": "DISTINCT"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 37,
+          "slug": "salao-da-marcia",
+          "score": 38,
           "reason": "DISTINCT"
         }
       ],
@@ -3780,17 +3980,17 @@
       ],
       "guaratuba-reparos-residenciais": [
         {
+          "slug": "bruna-diarista",
+          "score": 27,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "btb-construcao",
+          "score": 27,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "bh-barreiro-marmitas",
-          "score": 26,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "clinica-integrada",
-          "score": 26,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "miro-tech",
           "score": 26,
           "reason": "DISTINCT"
         }
@@ -3836,13 +4036,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "refrigeracao-maresia",
+          "slug": "mimo-salgados-doces",
           "score": 36,
           "reason": "DISTINCT"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 33,
+          "slug": "refrigeracao-maresia",
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
@@ -4033,6 +4233,23 @@
           "reason": "SAME_FAMILY"
         }
       ],
+      "mimo-salgados-doces": [
+        {
+          "slug": "popys-conservacao-limpeza",
+          "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "bruna-diarista",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 50,
+          "reason": "SAME_FAMILY"
+        }
+      ],
       "mirassol-conserta-celular": [
         {
           "slug": "mirassol-delicias-caseiras",
@@ -4069,6 +4286,11 @@
       ],
       "miro-tech": [
         {
+          "slug": "mimo-salgados-doces",
+          "score": 49,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "liz-moraes-nail-designer",
           "score": 48,
           "reason": "SAME_FAMILY"
@@ -4076,11 +4298,6 @@
         {
           "slug": "diego-montador-moveis",
           "score": 46,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4149,6 +4366,23 @@
         {
           "slug": "ecommerce-on",
           "score": 48,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "popys-conservacao-limpeza": [
+        {
+          "slug": "bruna-diarista",
+          "score": 66,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "btb-construcao",
+          "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 56,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4317,7 +4551,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "paulo-mestre-de-obras",
+          "slug": "btb-construcao",
           "score": 35,
           "reason": "DISTINCT"
         }
@@ -4341,18 +4575,18 @@
       ],
       "sscons": [
         {
-          "slug": "jc-revestimentos",
+          "slug": "bruna-diarista",
           "score": 24,
           "reason": "DISTINCT"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 22,
+          "slug": "btb-construcao",
+          "score": 24,
           "reason": "DISTINCT"
         },
         {
-          "slug": "galileu-locacao-brinquedos",
-          "score": 20,
+          "slug": "jc-revestimentos",
+          "score": 24,
           "reason": "DISTINCT"
         }
       ],
@@ -4481,16 +4715,16 @@
     "v1": {
       "metricVersion": 1,
       "clones": 0,
-      "over60": 0,
+      "over60": 3,
       "clusters": 0,
-      "highSimilarity": 0
+      "highSimilarity": 3
     },
     "v2": {
       "metricVersion": 2,
       "clones": 0,
-      "over60": 0,
+      "over60": 3,
       "clusters": 0,
-      "highSimilarity": 0
+      "highSimilarity": 3
     },
     "projects": [
       {
@@ -4608,6 +4842,30 @@
         "delta": -7,
         "v1Nearest": "toquinho-de-gente-brecho",
         "v2Nearest": "toquinho-de-gente-brecho",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "bruna-diarista",
+        "v1Score": 65,
+        "v2Score": 66,
+        "delta": 1,
+        "v1Nearest": "popys-conservacao-limpeza",
+        "v2Nearest": "popys-conservacao-limpeza",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 15
+      },
+      {
+        "slug": "btb-construcao",
+        "v1Score": 64,
+        "v2Score": 61,
+        "delta": -3,
+        "v1Nearest": "bruna-diarista",
+        "v2Nearest": "bruna-diarista",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
@@ -4832,14 +5090,14 @@
       {
         "slug": "guaratuba-reparos-residenciais",
         "v1Score": 30,
-        "v2Score": 26,
-        "delta": -4,
+        "v2Score": 27,
+        "delta": -3,
         "v1Nearest": "bh-barreiro-marmitas",
-        "v2Nearest": "bh-barreiro-marmitas",
-        "neighbourChanged": false,
+        "v2Nearest": "bruna-diarista",
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 15
+        "v2AssetPattern": 3.8
       },
       {
         "slug": "guaratuba-sabores-da-baia",
@@ -5010,6 +5268,18 @@
         "v2AssetPattern": 7.5
       },
       {
+        "slug": "mimo-salgados-doces",
+        "v1Score": 55,
+        "v2Score": 56,
+        "delta": 1,
+        "v1Nearest": "popys-conservacao-limpeza",
+        "v2Nearest": "popys-conservacao-limpeza",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.8
+      },
+      {
         "slug": "mirassol-conserta-celular",
         "v1Score": 38,
         "v2Score": 35,
@@ -5036,14 +5306,14 @@
       {
         "slug": "miro-tech",
         "v1Score": 51,
-        "v2Score": 48,
-        "delta": -3,
+        "v2Score": 49,
+        "delta": -2,
         "v1Nearest": "liz-moraes-nail-designer",
-        "v2Nearest": "liz-moraes-nail-designer",
-        "neighbourChanged": false,
+        "v2Nearest": "mimo-salgados-doces",
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 5
+        "v2AssetPattern": 6
       },
       {
         "slug": "mp-festas-eventos",
@@ -5092,6 +5362,18 @@
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 25,
         "v2AssetPattern": 5
+      },
+      {
+        "slug": "popys-conservacao-limpeza",
+        "v1Score": 65,
+        "v2Score": 66,
+        "delta": 1,
+        "v1Nearest": "bruna-diarista",
+        "v2Nearest": "bruna-diarista",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 15
       },
       {
         "slug": "premium-envelopamentos",
@@ -5231,11 +5513,11 @@
         "v2Score": 24,
         "delta": -1,
         "v1Nearest": "jc-revestimentos",
-        "v2Nearest": "jc-revestimentos",
-        "neighbourChanged": false,
+        "v2Nearest": "bruna-diarista",
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 15.4,
-        "v2AssetPattern": 3.8
+        "v2AssetPattern": 0
       },
       {
         "slug": "studio-de-cilios",
@@ -5346,11 +5628,11 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 69,
+      "total": 73,
       "original": 0,
       "acceptable": 27,
-      "attention": 42,
-      "highSimilarity": 0,
+      "attention": 43,
+      "highSimilarity": 3,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
@@ -5358,15 +5640,44 @@
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 35,
-      "coverPending": 34,
-      "coversAsSocialImage": 10,
+      "coverPending": 38,
+      "coversAsSocialImage": 14,
       "sharedCovers": 0,
-      "severeCrop": 18,
+      "severeCrop": 19,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "PASS",
-    "regressions": [],
+    "verdict": "FAIL",
+    "regressions": [
+      {
+        "kind": "COUNTER",
+        "key": "highSimilarity",
+        "label": "projetos HIGH_SIMILARITY",
+        "before": 0,
+        "after": 3
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "bruna-diarista",
+        "status": "HIGH_SIMILARITY",
+        "score": 66,
+        "nearestMatch": "popys-conservacao-limpeza"
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "btb-construcao",
+        "status": "HIGH_SIMILARITY",
+        "score": 61,
+        "nearestMatch": "bruna-diarista"
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "popys-conservacao-limpeza",
+        "status": "HIGH_SIMILARITY",
+        "score": 66,
+        "nearestMatch": "bruna-diarista"
+      }
+    ],
     "improvements": []
   }
 }

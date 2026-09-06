@@ -884,6 +884,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "bruna-20260906"
+    },
+    "btb-construcao": {
+      "icon": "/images/btb-construcao/hero.png",
+      "socialImage": "/images/btb-construcao/hero.png",
+      "proof": {
+        "eyebrow": "BTB Construção",
+        "title": "A próxima transformação começa na conversa.",
+        "description": "Reformas internas e acabamentos em Curitiba e região.",
+        "ctaLabel": "Planejar reforma",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "btb-20260906"
     }
   }
 }

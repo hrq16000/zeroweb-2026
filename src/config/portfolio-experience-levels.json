@@ -73,12 +73,13 @@
     "sscons": "SIGNATURE",
     "mimo-salgados-doces": "SIGNATURE",
     "popys-conservacao-limpeza": "SIGNATURE",
-    "bruna-diarista": "SIGNATURE"
+    "bruna-diarista": "SIGNATURE",
+    "btb-construcao": "SIGNATURE"
   },
   "summary": {
-    "total": 72,
+    "total": 73,
     "premium": 33,
-    "signature": 23,
+    "signature": 24,
     "baseline": 16,
     "static": 0
   }

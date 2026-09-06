@@ -502,5 +502,12 @@
     "nextStepBody": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
     "primaryCtaLabel": "Consultar horários",
     "theme": "pink"
+  },
+  "btb-construcao": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua reforma pode começar agora.",
+    "nextStepBody": "Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "default"
   }
 }

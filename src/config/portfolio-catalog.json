@@ -1620,5 +1620,24 @@
     "fallbackImage": "/images/bruna-diarista/hero.png",
     "metrics": "4, 6 ou 8 horas",
     "summary": "Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região."
+  },
+  {
+    "slug": "btb-construcao",
+    "clientKey": "btb-construcao",
+    "title": "BTB Construção",
+    "segment": "construcao",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["reformas", "pintura", "eletrica", "hidraulica", "drywall", "acabamentos"],
+    "live": true,
+    "subtitle": "Reformas internas e acabamentos",
+    "location": "Curitiba e Região — PR",
+    "badge": "Novo projeto",
+    "image": "/images/btb-construcao/hero.png",
+    "fallbackImage": "/images/btb-construcao/hero.png",
+    "metrics": "Garantia de 90 dias",
+    "summary": "BTB Construção realiza reformas internas em Curitiba e região: pintura, elétrica, hidráulica, pisos, drywall, acabamentos e iluminação LED."
   }
 ]

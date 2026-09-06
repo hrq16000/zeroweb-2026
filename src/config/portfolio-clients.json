@@ -861,5 +861,18 @@
       "kind": "AUTHENTIC_MIGRATION",
       "source": "Materiais fornecidos pelo cliente nesta conversa"
     }
+  },
+  {
+    "clientKey": "btb-construcao",
+    "slug": "btb-construcao",
+    "siteName": "BTB Construção",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/BtbConstrucaoPage.tsx",
+    "assetsDir": "public/images/btb-construcao",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md"
   }
 ]

@@ -222,8 +222,8 @@ const PopysConservacaoLimpezaPage = lazy(() =>
 const BrunaDiaristaPage = lazy(() =>
   import("@/components/site/BrunaDiaristaPage").then((m) => ({ default: m.BrunaDiaristaPage })),
 );
-const MimoSalgadosDocesPage = lazy(() =>
-  import("@/components/site/MimoSalgadosDocesPage").then((m) => ({ default: m.MimoSalgadosDocesPage })),
+const BtbConstrucaoPage = lazy(() =>
+  import("@/components/site/BtbConstrucaoPage").then((m) => ({ default: m.BtbConstrucaoPage })),
 );
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
@@ -475,6 +475,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isMimo = loaderData?.slug === "mimo-salgados-doces";
     const isPopys = loaderData?.slug === "popys-conservacao-limpeza";
     const isBruna = loaderData?.slug === "bruna-diarista";
+    const isBtb = loaderData?.slug === "btb-construcao";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -483,6 +484,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "POPYS Conservação e Limpeza em Curitiba e Região: limpeza corporativa, escritórios, pós-obra, vidros, pisos e fachadas."
       : isBruna
       ? "Bruna Diarista em Curitiba e Região: diárias de 4, 6 ou 8 horas, limpeza pós-obra e organização de ambientes."
+      : isBtb
+      ? "BTB Construção em Curitiba e região: reformas internas, pintura, elétrica, hidráulica, drywall, revestimentos e iluminação LED."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1078,6 +1081,9 @@ function PortfolioPrototypePage() {
 
         ) : slug === "bruna-diarista" ? (
           <BrunaDiaristaPage />
+
+        ) : slug === "btb-construcao" ? (
+          <BtbConstrucaoPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

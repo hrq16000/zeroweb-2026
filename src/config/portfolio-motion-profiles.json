@@ -966,6 +966,23 @@
       "desktopBehavior": "hero residencial revelado em camadas e tabela de diárias em sequência",
       "tabletBehavior": "KEEP",
       "mobileBehavior": "SIMPLIFY"
+    },
+    "btb-construcao": {
+      "intensity": "BALANCED",
+      "preset": "BOLD",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "left",
+      "textReveal": "up",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "manifesto em camadas e imagem com máscara lateral",
+      "tabletBehavior": "hero empilhado, stagger curto",
+      "mobileBehavior": "sem deslocamento no toque"
     }
   },
   "decisions": {
