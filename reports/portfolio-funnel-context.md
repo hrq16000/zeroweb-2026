@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T09:17:32.288Z
+Gerado em 2026-09-06T09:36:55.231Z
 
-- Projetos auditados: **77**
-- PASS: **74** · WARNING: **3** · FAIL: **0**
-- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (13) · contato (6) · reserva (4) · diagnostico (6)
+- Projetos auditados: **78**
+- PASS: **75** · WARNING: **3** · FAIL: **0**
+- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (13) · contato (7) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -85,3 +85,4 @@ Gerado em 2026-09-06T09:17:32.288Z
 | js-eletrica-manutencao | servicos | orcamento | Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
 | papelemi-personalizados | comercios | pedido | Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
 | maximos-cabeleireiros | beleza | agendamento | Conte sua necessidade e os detalhes importantes para Maximos Cabeleireiros. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
+| embalar-embalagens | comercios | contato | Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade. | Consultar produtos | PROJECT_CONTRACT | PASS | — |

@@ -243,6 +243,11 @@ const MaximosCabeleireirosPage = lazy(() =>
     default: m.MaximosCabeleireirosPage,
   })),
 );
+const EmbalarEmbalagensPage = lazy(() =>
+  import("@/components/site/EmbalarEmbalagensPage").then((m) => ({
+    default: m.EmbalarEmbalagensPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -498,6 +503,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJsEletrica = loaderData?.slug === "js-eletrica-manutencao";
     const isPapelemi = loaderData?.slug === "papelemi-personalizados";
     const isMaximos = loaderData?.slug === "maximos-cabeleireiros";
+    const isEmbalar = loaderData?.slug === "embalar-embalagens";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -516,6 +522,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "PapeLemi Papelaria Personalizada: papelaria criativa, encadernação pessoal e brindes corporativos feitos com afeto."
       : isMaximos
       ? "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e beleza pensada para a sua rotina."
+      : isEmbalar
+      ? "Embalar Embalagens em São José dos Pinhais: embalagens, descartáveis, produtos de limpeza, higiene e utilidades no Jardim Itália."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1124,6 +1132,9 @@ function PortfolioPrototypePage() {
 
         ) : slug === "maximos-cabeleireiros" ? (
           <MaximosCabeleireirosPage />
+
+        ) : slug === "embalar-embalagens" ? (
+          <EmbalarEmbalagensPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

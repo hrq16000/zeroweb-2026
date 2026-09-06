@@ -513,6 +513,19 @@
         "stepTitles": { "service": "Qual cuidado você procura?", "experience": "O que você quer transformar?", "period": "Onde fica melhor para você?", "timing": "Quando gostaria de vir?" },
         "notePlaceholder": "Ex.: comprimento atual, referência de corte, cor desejada ou ocasião."
       }
+    },
+    "embalar-embalagens": {
+      "contactFloating": { "theme": "pink", "recipientName": "a equipe Embalar", "label": "Consultar produtos" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Embalagens para alimentos", "Descartáveis e festas", "Produtos de limpeza", "Higiene e utilidades", "Sacos, caixas e papelaria"],
+        "experienceOptions": ["Minha casa", "Meu comércio", "Festa ou evento", "Compra para revenda"],
+        "periodOptions": ["Jardim Itália", "São José dos Pinhais", "Vou confirmar a retirada"],
+        "timingOptions": ["Quero consultar agora", "Para esta semana", "Estou planejando"],
+        "stepTitles": { "service": "O que você procura?", "experience": "Para qual uso?", "period": "Onde será a retirada?", "timing": "Quando precisa?" },
+        "notePlaceholder": "Ex.: quantidade, tamanho da embalagem, tipo de produto ou data do evento."
+      }
     }
   }
 }

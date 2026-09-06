@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-06T09:17:12.139Z",
-  "totalCatalogProjects": 77,
-  "totalPages": 77,
+  "generatedAt": "2026-09-06T09:35:12.280Z",
+  "totalCatalogProjects": 78,
+  "totalPages": 78,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 40,
+  "premium": 41,
   "signature": 21,
   "baseline": 16,
   "static": 0,
@@ -14,7 +14,7 @@
     "clones": 7,
     "groups": 8,
     "signalFloor": 5,
-    "lowSignalPairs": 1386,
+    "lowSignalPairs": 1407,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -74,27 +74,27 @@
         "signal": "COMPARABLE"
       },
       {
+        "a": "js-eletrica-manutencao",
+        "b": "embalar-embalagens",
+        "similarity": 93,
+        "perceptual": 100,
+        "tokens": 75,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "maximos-cabeleireiros",
+        "b": "embalar-embalagens",
+        "similarity": 93,
+        "perceptual": 100,
+        "tokens": 75,
+        "signal": "COMPARABLE"
+      },
+      {
         "a": "confeitaria-chyrley",
         "b": "guaratuba-sabores-da-baia",
         "similarity": 92,
         "perceptual": 100,
         "tokens": 73,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "beto-pasteis",
-        "b": "lolipa-arte-em-festas",
-        "similarity": 92,
-        "perceptual": 100,
-        "tokens": 73,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "lolipa-arte-em-festas",
-        "b": "premium-envelopamentos",
-        "similarity": 91,
-        "perceptual": 100,
-        "tokens": 70,
         "signal": "COMPARABLE"
       }
     ],
@@ -107,7 +107,8 @@
       ],
       [
         "js-eletrica-manutencao",
-        "maximos-cabeleireiros"
+        "maximos-cabeleireiros",
+        "embalar-embalagens"
       ],
       [
         "confeitaria-chyrley",
@@ -2067,6 +2068,44 @@
           "p:MotionScope",
           "d:duration-500",
           "h:group-hover:scale-105"
+        ]
+      }
+    },
+    {
+      "slug": "embalar-embalagens",
+      "segment": "comercios",
+      "file": "src/components/site/EmbalarEmbalagensPage.tsx",
+      "score": 58,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:figure",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-500",
+          "h:hover:scale-105"
         ]
       }
     },

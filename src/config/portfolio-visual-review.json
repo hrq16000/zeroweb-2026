@@ -633,5 +633,12 @@
       "y": 0.5
     },
     "notes": "Capa editorial gerada para atmosfera de marca, sem pessoas, fachada, telefone ou alegacao documental."
+  },
+  "embalar-embalagens": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/embalar-embalagens/hero.png",
+    "coverFocal": { "x": 0.72, "y": 0.5 },
+    "notes": "Capa editorial gerada para atmosfera da loja; fotos reais do interior ficam na galeria. Exterior com telefone foi excluído do bundle público."
   }
 }
