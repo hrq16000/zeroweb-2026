@@ -1639,5 +1639,24 @@
     "fallbackImage": "/images/btb-construcao/hero.png",
     "metrics": "Garantia de 90 dias",
     "summary": "BTB Construção realiza reformas internas em Curitiba e região: pintura, elétrica, hidráulica, pisos, drywall, acabamentos e iluminação LED."
+  },
+  {
+    "slug": "easy-clean",
+    "clientKey": "easy-clean",
+    "title": "Easy Clean Higienização a Seco",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["higienizacao", "lavagem-a-seco", "estofados", "impermeabilizacao", "colchoes"],
+    "live": true,
+    "subtitle": "Higienização a seco e impermeabilização",
+    "location": "Curitiba e Região — PR",
+    "badge": "Novo projeto",
+    "image": "/images/easy-clean/hero.png",
+    "fallbackImage": "/images/easy-clean/hero.png",
+    "metrics": "Atendimento em domicílio",
+    "summary": "Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro."
   }
 ]

@@ -6,8 +6,8 @@ As colunas abaixo indicam o consumo dentro do componente próprio de cada client
 Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 (composição autoral preservada) · `NOT_APPLICABLE` · `MISSING` (bloqueante).
 
-- Componentes de portfólio auditados: 71
-- Componentes com núcleo administrável: 71
+- Componentes de portfólio auditados: 72
+- Componentes com núcleo administrável: 72
 - Conexões faltando (MISSING): 0
 
 | Componente | Logo | Hero | Headline | Subheadline | CTA |
@@ -35,6 +35,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 | DiegoMontadorMoveisPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | DlaraPizzariaPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | MANAGED |
 | DyzPromoPage.tsx | MANAGED | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| EasyCleanPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | EcommerceOnPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | EisenferTubosAcosPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | EletroSolucoesEficazesPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |

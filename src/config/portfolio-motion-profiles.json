@@ -983,6 +983,23 @@
       "desktopBehavior": "manifesto em camadas e imagem com máscara lateral",
       "tabletBehavior": "hero empilhado, stagger curto",
       "mobileBehavior": "sem deslocamento no toque"
+    },
+    "easy-clean": {
+      "intensity": "BALANCED",
+      "preset": "ORGANIC",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "up",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero de textura revela o conforto e catálogo de peças em sequência",
+      "tabletBehavior": "hero empilhado e grade 2 colunas",
+      "mobileBehavior": "sem deslocamento no toque"
     }
   },
   "decisions": {

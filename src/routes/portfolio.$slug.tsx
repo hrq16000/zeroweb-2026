@@ -225,6 +225,9 @@ const BrunaDiaristaPage = lazy(() =>
 const BtbConstrucaoPage = lazy(() =>
   import("@/components/site/BtbConstrucaoPage").then((m) => ({ default: m.BtbConstrucaoPage })),
 );
+const EasyCleanPage = lazy(() =>
+  import("@/components/site/EasyCleanPage").then((m) => ({ default: m.EasyCleanPage })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -476,6 +479,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isPopys = loaderData?.slug === "popys-conservacao-limpeza";
     const isBruna = loaderData?.slug === "bruna-diarista";
     const isBtb = loaderData?.slug === "btb-construcao";
+    const isEasyClean = loaderData?.slug === "easy-clean";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -486,6 +490,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Bruna Diarista em Curitiba e Região: diárias de 4, 6 ou 8 horas, limpeza pós-obra e organização de ambientes."
       : isBtb
       ? "BTB Construção em Curitiba e região: reformas internas, pintura, elétrica, hidráulica, drywall, revestimentos e iluminação LED."
+      : isEasyClean
+      ? "Easy Clean Higienização a Seco em Curitiba e região: lavagem a seco, higienização e impermeabilização de estofados, colchões e interiores de carro."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1084,6 +1090,9 @@ function PortfolioPrototypePage() {
 
         ) : slug === "btb-construcao" ? (
           <BtbConstrucaoPage />
+
+        ) : slug === "easy-clean" ? (
+          <EasyCleanPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

@@ -487,6 +487,19 @@
         "stepTitles": { "service": "Qual frente da obra você precisa?", "experience": "Que tipo de reforma é?", "period": "Onde será o serviço?", "timing": "Quando pretende começar?" },
         "notePlaceholder": "Conte os ambientes, metragem aproximada e o que você quer transformar."
       }
+    },
+    "easy-clean": {
+      "contactFloating": { "theme": "navy", "recipientName": "a equipe Easy Clean", "label": "Solicitar orçamento" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Sofá ou estofado", "Colchão", "Poltrona, cadeira ou puff", "Banco ou teto de carro", "Impermeabilização"],
+        "experienceOptions": ["Minha casa", "Empresa ou escritório", "Veículo", "Condomínio"],
+        "periodOptions": ["Curitiba", "Região Metropolitana", "Ainda preciso confirmar o local"],
+        "timingOptions": ["Preciso agendar em breve", "Nos próximos dias", "Ainda estou planejando"],
+        "stepTitles": { "service": "O que precisa higienizar?", "experience": "Onde será o atendimento?", "period": "Qual região?", "timing": "Quando pretende começar?" },
+        "notePlaceholder": "Conte a quantidade de peças, tecido e se deseja impermeabilização."
+      }
     }
   }
 }

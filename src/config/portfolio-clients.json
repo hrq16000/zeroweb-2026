@@ -874,5 +874,18 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md"
+  },
+  {
+    "clientKey": "easy-clean",
+    "slug": "easy-clean",
+    "siteName": "Easy Clean Higienização a Seco",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EasyCleanPage.tsx",
+    "assetsDir": "public/images/easy-clean",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/easy-clean.md"
   }
 ]
