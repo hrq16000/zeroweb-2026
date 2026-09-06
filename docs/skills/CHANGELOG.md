@@ -926,3 +926,4 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Validação:** `validate-portfolio-assets`, `validate-portfolio-logos`, `validate-portfolio-icons`, `validate-portfolio-catalog` e `validate-portfolio-scaffold` aprovados para 83 projetos.
 - **Privacidade:** nenhum telefone, endereço ou `wa.me` entrou nas imagens sociais ou no novo SVG de marca.
 - **Fechamento documental:** `scripts/document-all-portfolio-identities.mjs` registrou contratos individuais para os 68 projetos que já possuíam assets, totalizando identidade declarada em 83/83.
+- **Rodada visual P0:** auditoria renderizada identificou 21 projetos que exibiam foto/capa/anúncio como logo; `scripts/complete-logo-backlog.mjs` criou marcas dedicadas e capas sociais OG legíveis para todos, sem alterar assets oficiais já reconhecidos.

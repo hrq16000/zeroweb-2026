@@ -10,9 +10,9 @@
   },
   "clients": {
     "sos-presentes-cosmeticos": {
-      "icon": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
-      "socialImage": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario-og.jpg",
-      "socialVersion": "f760e5c6",
+      "icon": "/images/sos-presentes-cosmeticos/logo.svg",
+      "socialImage": "/images/sos-presentes-cosmeticos/hero-og.jpg",
+      "socialVersion": "0964bd9b",
       "proof": {
         "eyebrow": "SOS Presentes & Cosméticos",
         "title": "Uma boa surpresa começa com uma escolha feita com carinho.",
@@ -94,8 +94,8 @@
       "socialVersion": "9cb6e38f"
     },
     "rm-fretes": {
-      "icon": "/images/rm-fretes/anuncio-oficial.png",
-      "socialImage": "/images/rm-fretes-hero-og.jpg",
+      "icon": "/images/rm-fretes/logo.svg",
+      "socialImage": "/images/rm-fretes/hero-og.jpg",
       "proof": {
         "eyebrow": "RM Fretes",
         "title": "Transporte organizado para sua mudança ou carreto.",
@@ -103,11 +103,11 @@
         "ctaLabel": "Conhecer fretes",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "a179a145"
+      "socialVersion": "3e7b0de1"
     },
     "rj-servicos-drywall": {
-      "icon": "/images/rj-servicos-drywall/acabamento-sala.webp",
-      "socialImage": "/images/rj-servicos-drywall/acabamento-sala-og.jpg",
+      "icon": "/images/rj-servicos-drywall/logo.svg",
+      "socialImage": "/images/rj-servicos-drywall/hero-og.jpg",
       "proof": {
         "eyebrow": "RJ Serviços de Drywall",
         "title": "Ambientes bem resolvidos, com obra limpa e acabamento fino.",
@@ -115,7 +115,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "c2ad247b"
+      "socialVersion": "e0d2d68c"
     },
     "confeitaria-chyrley": {
       "icon": "/images/confeitaria-chyrley/capa.webp",
@@ -142,8 +142,8 @@
       "socialVersion": "ba743f4f"
     },
     "studio-de-cilios": {
-      "icon": "/images/studio-de-cilios/portfolio-1.webp",
-      "socialImage": "/images/studio-de-cilios/portfolio-1-og.jpg",
+      "icon": "/images/studio-de-cilios/logo.svg",
+      "socialImage": "/images/studio-de-cilios/hero-og.jpg",
       "proof": {
         "eyebrow": "Studio de Cílios",
         "title": "Seu olhar pode ganhar a presença que você imaginou.",
@@ -151,7 +151,7 @@
         "ctaLabel": "Conhecer estilos",
         "ctaHref": "#estilos"
       },
-      "socialVersion": "7936dd39"
+      "socialVersion": "e7df36f0"
     },
     "refrigeracao-maresia": {
       "icon": "/images/refrigeracao-maresia/logo.png",
@@ -178,8 +178,8 @@
       "socialVersion": "511e01b2"
     },
     "vila-da-capivara": {
-      "icon": "/images/vila-da-capivara/editorial.webp",
-      "socialImage": "/images/vila-da-capivara/capa-og.jpg",
+      "icon": "/images/vila-da-capivara/logo.svg",
+      "socialImage": "/images/vila-da-capivara/hero-og.jpg",
       "proof": {
         "eyebrow": "Vila da Capivara",
         "title": "Sua festa merece um sabor inesquecível.",
@@ -187,11 +187,11 @@
         "ctaLabel": "Ver kits",
         "ctaHref": "#kits"
       },
-      "socialVersion": "658d1ec9"
+      "socialVersion": "bef5e60a"
     },
     "lk-alvenaria": {
-      "icon": "/images/lk-alvenaria/portfolio.webp",
-      "socialImage": "/images/lk-alvenaria/portfolio-og.jpg",
+      "icon": "/images/lk-alvenaria/logo.svg",
+      "socialImage": "/images/lk-alvenaria/hero-og.jpg",
       "proof": {
         "eyebrow": "LK Alvenaria",
         "title": "Sua obra merece contrato, garantia e acabamento de qualidade.",
@@ -199,7 +199,7 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "ede919c0"
+      "socialVersion": "aeb3c2a1"
     },
     "lucas-arruma-maquina-lavar": {
       "icon": "/images/lucas-arruma-maquina-lavar/logo.svg",
@@ -250,8 +250,8 @@
       "socialVersion": "275de007"
     },
     "salao-da-marcia": {
-      "icon": "/images/salao-da-marcia/depilacao.webp",
-      "socialImage": "/images/salao-da-marcia/depilacao-og.jpg",
+      "icon": "/images/salao-da-marcia/logo.svg",
+      "socialImage": "/images/salao-da-marcia/hero-og.jpg",
       "proof": {
         "eyebrow": "Salão da Marcia · Cidade Jardim",
         "title": "Seu momento de autocuidado começa com um horário reservado.",
@@ -259,11 +259,11 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "11b45218"
+      "socialVersion": "275f1eef"
     },
     "espaco-cih-luh": {
-      "icon": "/images/espaco-cih-luh/promocao.webp",
-      "socialImage": "/images/espaco-cih-luh/promocao-og.jpg",
+      "icon": "/images/espaco-cih-luh/logo.svg",
+      "socialImage": "/images/espaco-cih-luh/hero-og.jpg",
       "proof": {
         "eyebrow": "CIH & LUH · O casal das unhas",
         "title": "Mãos que transformam, pés que sustentam seus passos.",
@@ -271,7 +271,7 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "096aff4b"
+      "socialVersion": "a16577f4"
     },
     "diego-montador-moveis": {
       "icon": "/images/diego-montador-moveis/capa.webp",
@@ -298,8 +298,8 @@
       "socialVersion": "7aa8c64b"
     },
     "eletrovale-eletromecanica": {
-      "icon": "/images/eletrovale-eletromecanica/equipamentos.webp",
-      "socialImage": "/images/eletrovale-eletromecanica/equipamentos-og.jpg",
+      "icon": "/images/eletrovale-eletromecanica/logo.svg",
+      "socialImage": "/images/eletrovale-eletromecanica/hero-og.jpg",
       "proof": {
         "eyebrow": "Eletrovale · Eletromecânica",
         "title": "Confiança para manter sua operação em movimento.",
@@ -307,11 +307,11 @@
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "83cf815a"
+      "socialVersion": "b06d1932"
     },
     "eletro-solucoes-eficazes": {
-      "icon": "/images/eletro-solucoes-eficazes/servicos.webp",
-      "socialImage": "/images/eletro-solucoes-eficazes/servicos-og.jpg",
+      "icon": "/images/eletro-solucoes-eficazes/logo.svg",
+      "socialImage": "/images/eletro-solucoes-eficazes/hero-og.jpg",
       "proof": {
         "eyebrow": "Eletro Soluções · Pinhais",
         "title": "Energia, segurança e tecnologia para sua rotina.",
@@ -319,7 +319,7 @@
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "ffe3c76f"
+      "socialVersion": "5c7db630"
     },
     "eisenfer-tubos-acos": {
       "icon": "/images/eisenfer-tubos-acos/capa-card.jpg",
@@ -334,8 +334,8 @@
       "socialVersion": "9c5137c6"
     },
     "mary-diarista": {
-      "icon": "/images/mary-diarista/servicos.webp",
-      "socialImage": "/images/mary-diarista/servicos-og.jpg",
+      "icon": "/images/mary-diarista/logo.svg",
+      "socialImage": "/images/mary-diarista/hero-og.jpg",
       "proof": {
         "eyebrow": "Mary · Diarista",
         "title": "Uma casa em ordem deixa a rotina mais leve.",
@@ -343,7 +343,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "5db03143"
+      "socialVersion": "396467df"
     },
     "acai-total-araucaria": {
       "icon": "/images/acai-total-araucaria/logo.webp",
@@ -358,8 +358,8 @@
       "socialVersion": "8e9a230d"
     },
     "jkl-marcenaria": {
-      "icon": "/images/jkl-marcenaria/cozinha.webp",
-      "socialImage": "/images/jkl-marcenaria/cozinha-og.jpg",
+      "icon": "/images/jkl-marcenaria/logo.svg",
+      "socialImage": "/images/jkl-marcenaria/hero-og.jpg",
       "proof": {
         "eyebrow": "JKL Marcenaria · Curitiba",
         "title": "Móveis sob medida que valorizam cada ambiente.",
@@ -367,10 +367,10 @@
         "ctaLabel": "Ver soluções",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "573f65ec"
+      "socialVersion": "837f4bd9"
     },
     "santos-montador-de-moveis": {
-      "icon": "/images/santos-montador-de-moveis/hero.webp",
+      "icon": "/images/santos-montador-de-moveis/logo.svg",
       "socialImage": "/images/santos-montador-de-moveis/hero-og.jpg",
       "proof": {
         "eyebrow": "Santos · Serviços residenciais",
@@ -379,7 +379,7 @@
         "ctaLabel": "Ver todos os serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "32d438f9"
+      "socialVersion": "6d277fce"
     },
     "marmitaria-dom-diego": {
       "icon": "/images/marmitaria-dom-diego/capa.png",
@@ -766,7 +766,7 @@
       "socialVersion": "f503255f"
     },
     "denise-gomes-psicologa": {
-      "icon": "/images/denise-gomes-psicologa/logo.png",
+      "icon": "/images/denise-gomes-psicologa/logo.svg",
       "socialImage": "/images/denise-gomes-psicologa/hero-og.jpg",
       "proof": {
         "eyebrow": "Denise Gomes · Psicóloga",
@@ -775,10 +775,10 @@
         "ctaLabel": "Entender o atendimento",
         "ctaHref": "#como-funciona"
       },
-      "socialVersion": "7611b371"
+      "socialVersion": "7013ead0"
     },
     "ton-e-cor": {
-      "icon": "/images/ton-e-cor/logo.png",
+      "icon": "/images/ton-e-cor/logo.svg",
       "socialImage": "/images/ton-e-cor/hero-og.jpg",
       "proof": {
         "eyebrow": "Ton & Cor",
@@ -787,10 +787,10 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "429bdcd1"
+      "socialVersion": "c9172f9c"
     },
     "raphael-construcoes": {
-      "icon": "/images/raphael-construcoes/logo.png",
+      "icon": "/images/raphael-construcoes/logo.svg",
       "socialImage": "/images/raphael-construcoes/hero-og.jpg",
       "proof": {
         "eyebrow": "Raphael Construções",
@@ -799,7 +799,7 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "7b4a3f2c"
+      "socialVersion": "681a7910"
     },
     "jc-revestimentos": {
       "icon": "/images/jc-revestimentos/logo.png",
@@ -862,8 +862,8 @@
       "socialVersion": "2cb68046"
     },
     "popys-conservacao-limpeza": {
-      "icon": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
+      "icon": "/images/popys-conservacao-limpeza/logo.svg",
+      "socialImage": "/images/popys-conservacao-limpeza/hero-og.jpg",
       "proof": {
         "eyebrow": "POPYS Conservação e Limpeza",
         "title": "Seu ambiente merece cuidado constante.",
@@ -871,10 +871,10 @@
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "37ea4b42"
+      "socialVersion": "d61905eb"
     },
     "bruna-diarista": {
-      "icon": "/images/bruna-diarista/hero.png",
+      "icon": "/images/bruna-diarista/logo.svg",
       "socialImage": "/images/bruna-diarista/hero-og.jpg",
       "proof": {
         "eyebrow": "Bruna Diarista",
@@ -883,10 +883,10 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "57a87dcb"
+      "socialVersion": "dd665487"
     },
     "btb-construcao": {
-      "icon": "/images/btb-construcao/hero.png",
+      "icon": "/images/btb-construcao/logo.svg",
       "socialImage": "/images/btb-construcao/hero-og.jpg",
       "proof": {
         "eyebrow": "BTB Construção",
@@ -895,10 +895,10 @@
         "ctaLabel": "Planejar reforma",
         "ctaHref": "#contato"
       },
-      "socialVersion": "5a2a93c8"
+      "socialVersion": "96e53c02"
     },
     "easy-clean": {
-      "icon": "/images/easy-clean/hero.png",
+      "icon": "/images/easy-clean/logo.svg",
       "socialImage": "/images/easy-clean/hero-og.jpg",
       "proof": {
         "eyebrow": "Easy Clean Higienização a Seco",
@@ -907,7 +907,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "1f3d9007"
+      "socialVersion": "316c6982"
     },
     "js-eletrica-manutencao": {
       "icon": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
@@ -958,8 +958,8 @@
       "socialVersion": "e77f6e62"
     },
     "simone-lacerda-vaz": {
-      "icon": "/images/simone-lacerda-vaz/hero.png",
-      "socialImage": "/images/simone-lacerda-vaz/social-og.jpg",
+      "icon": "/images/simone-lacerda-vaz/logo.svg",
+      "socialImage": "/images/simone-lacerda-vaz/hero-og.jpg",
       "proof": {
         "eyebrow": "Simone Lacerda Vaz · Nutricionista",
         "title": "Seu cuidado merece um plano que caiba na vida.",
@@ -967,7 +967,7 @@
         "ctaLabel": "Conversar agora",
         "ctaHref": "#contato"
       },
-      "socialVersion": "0cc62164"
+      "socialVersion": "33375c41"
     },
     "kitutes-na-mesa": {
       "icon": "/images/kitutes-na-mesa/logo.png",
