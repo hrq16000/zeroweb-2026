@@ -1046,6 +1046,9 @@ function PortfolioPrototypePage() {
           <LucasArrumaMaquinaLavarPage />
         ) : slug === "paulo-mestre-de-obras" ? (
           <PauloMestreDeObrasPage />
+        ) : slug === "sscons" ? (
+          <SsConsPage />
+
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />
         ) : slug === "no-brilho-higienizacao" ? (
