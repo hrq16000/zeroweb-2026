@@ -648,7 +648,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isRjDrywall
+          content: eff.keywords ?? (isSscons
+            ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
+            : isRjDrywall
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
               ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
