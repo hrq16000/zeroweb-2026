@@ -525,6 +525,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "simone-lacerda-vaz",
+    siteName: "Simone Lacerda Vaz · Nutricionista",
+    vertical: "saude",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

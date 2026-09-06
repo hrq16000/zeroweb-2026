@@ -956,6 +956,18 @@
         "ctaHref": "#contato"
       },
       "socialVersion": "embalar-20260906"
+    },
+    "simone-lacerda-vaz": {
+      "icon": "/images/simone-lacerda-vaz/hero.png",
+      "socialImage": "/images/simone-lacerda-vaz/social.png",
+      "proof": {
+        "eyebrow": "Simone Lacerda Vaz · Nutricionista",
+        "title": "Seu cuidado merece um plano que caiba na vida.",
+        "description": "Atendimento nutricional, bioimpedância e acompanhamento especializado.",
+        "ctaLabel": "Conversar agora",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "simone-lacerda-vaz-20260906"
     }
   }
 }

@@ -640,5 +640,12 @@
     "coverSource": "public/images/embalar-embalagens/hero.png",
     "coverFocal": { "x": 0.72, "y": 0.5 },
     "notes": "Capa editorial gerada para atmosfera da loja; fotos reais do interior ficam na galeria. Exterior com telefone foi excluído do bundle público."
+  },
+  "simone-lacerda-vaz": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/simone-lacerda-vaz/hero.png",
+    "coverFocal": { "x": 0.72, "y": 0.5 },
+    "notes": "Arte fornecida e editada para retirar a faixa de contato rasterizada; preserva a identidade visual e a profissional retratada sem telefone no bundle público."
   }
 }

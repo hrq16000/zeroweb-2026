@@ -1,15 +1,15 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T09:36:55.231Z",
-    "audited": 78,
-    "pass": 75,
+    "generatedAt": "2026-09-06T09:52:41.038Z",
+    "audited": 79,
+    "pass": 76,
     "warning": 3,
     "fail": 0,
     "byIntent": {
       "pedido": 21,
       "orcamento": 26,
       "solicitacao": 1,
-      "agendamento": 13,
+      "agendamento": 14,
       "contato": 7,
       "reserva": 4,
       "diagnostico": 6
@@ -1042,6 +1042,19 @@
       "nextStepBody": "Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade.",
       "primaryCtaLabel": "Consultar produtos",
       "whatsappIntent": "contato",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "simone-lacerda-vaz",
+      "businessName": "Simone Lacerda Vaz · Nutricionista",
+      "segment": "saude",
+      "intent": "agendamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu cuidado começa com uma conversa acolhedora.",
+      "nextStepBody": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
+      "primaryCtaLabel": "Conversar agora",
+      "whatsappIntent": "agendamento",
       "status": "PASS",
       "issues": []
     }

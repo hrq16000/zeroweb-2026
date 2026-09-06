@@ -2259,6 +2259,36 @@
       "blocking": []
     },
     {
+      "slug": "simone-lacerda-vaz",
+      "clientKey": "simone-lacerda-vaz",
+      "title": "Simone Lacerda Vaz · Nutricionista",
+      "segment": "saude",
+      "city": "Brasil",
+      "state": "BR",
+      "summary": "Atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação.",
+      "subtitle": "Nutrição com escuta e estratégia",
+      "image": "/images/simone-lacerda-vaz/hero.png",
+      "icon": "/images/simone-lacerda-vaz/hero.png",
+      "socialImage": "/images/simone-lacerda-vaz/social.png",
+      "socialVersion": "simone-lacerda-vaz-20260906",
+      "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/simone-lacerda-vaz",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/simone-lacerda-vaz/hero.png",
+        "/images/simone-lacerda-vaz/social.png"
+      ],
+      "shareCopy": "🌿 Simone Lacerda Vaz ganhou uma presença digital nova!\n\nAtendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/simone-lacerda-vaz\n\n📲 Converse pelo WhatsApp e organize seu próximo passo.\n\n#SimoneLacerdaVaz #Nutricao #Bioimpedancia #Amamentacao #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "sos-presentes-cosmeticos",
       "clientKey": "sos-presentes-cosmeticos",
       "title": "SOS Presentes & Cosméticos",

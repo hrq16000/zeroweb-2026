@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T09:35:12.280Z",
+  "generatedAt": "2026-09-06T09:49:06.849Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -30,6 +30,7 @@
     "jc-revestimentos": "SIGNATURE",
     "paraiso-do-hot-dog": "SIGNATURE",
     "bh-barreiro-marmitas": "PREMIUM",
+    "simone-lacerda-vaz": "PREMIUM",
     "espaco-cih-luh": "SIGNATURE",
     "guaratuba-oficina-nautica": "PREMIUM",
     "uberlandia-eletrica-residencial": "PREMIUM",
@@ -82,8 +83,8 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 78,
-    "premium": 41,
+    "total": 79,
+    "premium": 42,
     "signature": 21,
     "baseline": 16,
     "static": 0

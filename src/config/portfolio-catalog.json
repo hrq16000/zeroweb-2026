@@ -1736,5 +1736,24 @@
     "fallbackImage": "/images/embalar-embalagens/logo.png",
     "metrics": "Atendimento por WhatsApp",
     "summary": "Embalar Embalagens reúne embalagens, descartáveis, produtos de limpeza, higiene e utilidades para casas, festas, comércios e revenda."
+  },
+  {
+    "slug": "simone-lacerda-vaz",
+    "clientKey": "simone-lacerda-vaz",
+    "title": "Simone Lacerda Vaz · Nutricionista",
+    "segment": "saude",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Brasil",
+    "state": "BR",
+    "tags": ["nutricao", "bioimpedancia", "plano-alimentar", "bariatrica", "amamentacao"],
+    "live": true,
+    "subtitle": "Nutrição com escuta e estratégia",
+    "location": "Atendimento nutricional — Brasil",
+    "badge": "Projeto publicado",
+    "image": "/images/simone-lacerda-vaz/hero.png",
+    "fallbackImage": "/images/simone-lacerda-vaz/hero.png",
+    "metrics": "Agendamento por WhatsApp",
+    "summary": "Atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação."
   }
 ]

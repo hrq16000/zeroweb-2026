@@ -523,5 +523,12 @@
     "nextStepBody": "Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade.",
     "primaryCtaLabel": "Consultar produtos",
     "theme": "pink"
+  },
+  "simone-lacerda-vaz": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu cuidado começa com uma conversa acolhedora.",
+    "nextStepBody": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
+    "primaryCtaLabel": "Conversar agora",
+    "theme": "pink"
   }
 }

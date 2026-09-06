@@ -526,6 +526,19 @@
         "stepTitles": { "service": "O que você procura?", "experience": "Para qual uso?", "period": "Onde será a retirada?", "timing": "Quando precisa?" },
         "notePlaceholder": "Ex.: quantidade, tamanho da embalagem, tipo de produto ou data do evento."
       }
+    },
+    "simone-lacerda-vaz": {
+      "contactFloating": { "theme": "pink", "recipientName": "Simone Lacerda Vaz", "label": "Conversar agora" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Atendimento nutricional", "Bioimpedância e plano alimentar", "Pré e pós-bariátrica", "Laudo nutricional para cirurgia", "Consultoria em amamentação"],
+        "experienceOptions": ["Quero organizar minha alimentação", "Estou no pré-operatório", "Estou no pós-operatório", "Tenho dúvidas sobre amamentação"],
+        "periodOptions": ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"],
+        "timingOptions": ["Quero conversar agora", "Nesta semana", "Estou me organizando"],
+        "stepTitles": { "service": "Qual cuidado você procura?", "experience": "Em que momento você está?", "period": "Qual período facilita?", "timing": "Quando gostaria de começar?" },
+        "notePlaceholder": "Ex.: objetivo, cirurgia planejada, rotina alimentar ou dúvida sobre amamentação."
+      }
     }
   }
 }

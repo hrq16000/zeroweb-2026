@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-06T09:35:12.280Z",
-  "totalCatalogProjects": 78,
-  "totalPages": 78,
+  "generatedAt": "2026-09-06T09:49:06.849Z",
+  "totalCatalogProjects": 79,
+  "totalPages": 79,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 41,
+  "premium": 42,
   "signature": 21,
   "baseline": 16,
   "static": 0,
@@ -14,7 +14,7 @@
     "clones": 7,
     "groups": 8,
     "signalFloor": 5,
-    "lowSignalPairs": 1407,
+    "lowSignalPairs": 1485,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -897,6 +897,34 @@
           "v:Reveal:scale",
           "i:intensity=\"BALANCED\"",
           "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
+      }
+    },
+    {
+      "slug": "simone-lacerda-vaz",
+      "segment": "saude",
+      "file": "src/components/site/SimoneLacerdaVazPage.tsx",
+      "score": 40,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope"
         ]
