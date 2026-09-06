@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T18:12:13.669Z
+Gerado em 2026-09-06T18:46:51.466Z
 
-- Projetos auditados: **80**
-- PASS: **80** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (21) · orcamento (27) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
+- Projetos auditados: **81**
+- PASS: **81** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (21) · orcamento (28) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -88,3 +88,4 @@ Gerado em 2026-09-06T18:12:13.669Z
 | embalar-embalagens | comercios | contato | Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade. | Consultar produtos | PROJECT_CONTRACT | PASS | — |
 | simone-lacerda-vaz | saude | agendamento | Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone. | Conversar agora | PROJECT_CONTRACT | PASS | — |
 | kitutes-na-mesa | restaurantes | orcamento | Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso. | Montar orçamento | PROJECT_CONTRACT | PASS | — |
+| enoel-portas | construcao | orcamento | Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |

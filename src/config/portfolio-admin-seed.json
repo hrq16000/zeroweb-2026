@@ -899,6 +899,38 @@
       "blocking": []
     },
     {
+      "slug": "enoel-portas",
+      "clientKey": "enoel-portas",
+      "title": "Enoel Portas",
+      "segment": "construcao",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Enoel Portas oferece colocação de portas de madeira, regulagem, vistas e caxilhos em geral para casas, apartamentos e obras em Curitiba e região.",
+      "subtitle": "Portas que valorizam seu espaço",
+      "image": "/images/enoel-portas/hero.png",
+      "icon": "/images/enoel-portas/logo.png",
+      "socialImage": "/images/enoel-portas/social-og.jpg",
+      "socialVersion": "70ffb80c",
+      "componentFile": "src/components/site/EnoelPortasPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/enoel-portas",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/enoel-portas/hero.png",
+        "/images/enoel-portas/logo.png",
+        "/images/enoel-portas/social-og.jpg",
+        "/images/enoel-portas/social.png"
+      ],
+      "shareCopy": "🚪 A Enoel Portas ganhou uma presença digital nova!\n\nColocação de portas de madeira, regulagem, vistas e caxilhos para projetos em Curitiba e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/enoel-portas\n\n📲 Peça seu orçamento pelo WhatsApp.\n\n#EnoelPortas #PortasDeMadeira #Reforma #Curitiba #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "espaco-cih-luh",
       "clientKey": "espaco-cih-luh",
       "title": "Espaço CIH & LUH",

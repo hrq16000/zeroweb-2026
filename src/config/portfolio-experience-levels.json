@@ -81,12 +81,13 @@
     "reuse-house-brecho": "PREMIUM",
     "confeitaria-sabor-da-realeza": "PREMIUM",
     "sscons": "SIGNATURE",
-    "kitutes-na-mesa": "SIGNATURE"
+    "kitutes-na-mesa": "SIGNATURE",
+    "enoel-portas": "SIGNATURE"
   },
   "summary": {
-    "total": 80,
+    "total": 81,
     "premium": 42,
-    "signature": 22,
+    "signature": 23,
     "baseline": 16,
     "static": 0
   }

@@ -1119,6 +1119,23 @@
       "desktopBehavior": "mesa editorial em camadas; convite, sabores e briefing entram como pratos organizados",
       "tabletBehavior": "hero empilhado e seletor de ocasião preservado em duas colunas",
       "mobileBehavior": "sem deslocamento no toque; seleção por ocasião continua acessível por teclado"
+    },
+    "enoel-portas": {
+      "intensity": "BALANCED",
+      "preset": "INDUSTRIAL_PRECISION",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "a linha amarela abre o hero como um vão arquitetônico; os serviços entram como etapas de instalação",
+      "tabletBehavior": "split vira pilha e preserva o contraste preto/amarelo",
+      "mobileBehavior": "sem deslocamento no toque; seletor de serviço mantém alvo mínimo e foco visível"
     }
   },
   "decisions": {

@@ -980,6 +980,18 @@
         "ctaHref": "#encomenda"
       },
       "socialVersion": "872fab26"
+    },
+    "enoel-portas": {
+      "icon": "/images/enoel-portas/logo.png",
+      "socialImage": "/images/enoel-portas/social-og.jpg",
+      "proof": {
+        "eyebrow": "Enoel Portas",
+        "title": "Uma boa porta muda a entrada do seu projeto.",
+        "description": "Colocação, regulagem, vistas e caxilhos com cuidado no detalhe.",
+        "ctaLabel": "Pedir orçamento",
+        "ctaHref": "#orcamento"
+      },
+      "socialVersion": "70ffb80c"
     }
   }
 }

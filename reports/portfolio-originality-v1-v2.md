@@ -72,6 +72,7 @@ originalidade: nenhuma página pública mudou.
 | eletro-solucoes-eficazes | eletrovale-eletromecanica | eletrovale-eletromecanica | 50 | 50 | 0 | não | UNCHANGED | 0 | 7.5 |
 | eletrovale-eletromecanica | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 50 | 50 | 0 | não | UNCHANGED | 0 | 7.5 |
 | emporio-lelecute | assistencia-microondas-santos | assistencia-microondas-santos | 29 | 29 | 0 | não | UNCHANGED | 0 | 2.5 |
+| enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 20 | 7.5 |
 | espaco-cih-luh | kitutes-na-mesa | kitutes-na-mesa | 39 | 39 | 0 | não | UNCHANGED | 0 | 2.1 |
 | guaratuba-sabores-da-baia | heloa-gas | heloa-gas | 30 | 30 | 0 | não | UNCHANGED | 14.3 | 3 |
 | jkl-marcenaria | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 46 | 46 | 0 | não | UNCHANGED | 0 | 7.5 |

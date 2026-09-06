@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T18:12:13.669Z",
-    "audited": 80,
-    "pass": 80,
+    "generatedAt": "2026-09-06T18:46:51.466Z",
+    "audited": 81,
+    "pass": 81,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 21,
-      "orcamento": 27,
+      "orcamento": 28,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 7,
@@ -1052,6 +1052,19 @@
       "nextStepTitle": "Sua mesa começa com uma conversa simples.",
       "nextStepBody": "Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso.",
       "primaryCtaLabel": "Montar orçamento",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "enoel-portas",
+      "businessName": "Enoel Portas",
+      "segment": "construcao",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu projeto começa com uma boa conversa.",
+      "nextStepBody": "Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo.",
+      "primaryCtaLabel": "Pedir orçamento",
       "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []

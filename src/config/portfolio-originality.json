@@ -342,6 +342,18 @@
         "v2AssetPattern": 2.5
       },
       {
+        "slug": "enoel-portas",
+        "v1Score": 56,
+        "v2Score": 56,
+        "delta": 0,
+        "v1Nearest": "btb-construcao",
+        "v2Nearest": "btb-construcao",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 7.5
+      },
+      {
         "slug": "espaco-cih-luh",
         "v1Score": 39,
         "v2Score": 39,
@@ -995,10 +1007,10 @@
     "clone": 81
   },
   "summary": {
-    "total": 80,
+    "total": 81,
     "original": 0,
     "acceptable": 27,
-    "attention": 47,
+    "attention": 48,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
@@ -1006,8 +1018,8 @@
     "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 36,
-    "coverPending": 44,
+    "coverValid": 43,
+    "coverPending": 38,
     "coversAsSocialImage": 8,
     "sharedCovers": 0,
     "severeCrop": 21,
@@ -1547,7 +1559,7 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "popys-conservacao-limpeza",
+          "slug": "enoel-portas",
           "score": 56,
           "reason": "SAME_FAMILY"
         }
@@ -2230,6 +2242,51 @@
           "slug": "denise-gomes-psicologa",
           "score": 27,
           "reason": "DISTINCT"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
+      "slug": "enoel-portas",
+      "score": 56,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "btb-construcao",
+      "nearestMatchScore": 56,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 58.6,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 56.7,
+        "COPY_SIMILARITY": 4.1,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 12.5
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "btb-construcao",
+          "score": 56,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "easy-clean",
+          "score": 54,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -4151,8 +4208,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "easy-clean",
-          "score": 36,
+          "slug": "enoel-portas",
+          "score": 37,
           "reason": "DISTINCT"
         }
       ],

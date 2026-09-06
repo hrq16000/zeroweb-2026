@@ -4,17 +4,17 @@
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
   "generatedAt": "2026-09-06",
   "summary": {
-    "total": 69,
-    "valid": 35,
-    "pending": 34,
+    "total": 81,
+    "valid": 43,
+    "pending": 38,
     "byStatus": {
-      "VALID": 35,
+      "VALID": 43,
       "NEEDS_CROP": 0,
-      "CONTACT_OR_PII": 8,
+      "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 0
+      "UNCERTAIN_ORIGIN": 5
     },
     "balanced": true
   },
@@ -150,6 +150,32 @@
       "segment": "comercios"
     },
     {
+      "slug": "bruna-diarista",
+      "asset": "/images/bruna-diarista/hero.png",
+      "catalogImage": "/images/bruna-diarista/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Bruna Diarista",
+      "segment": "servicos"
+    },
+    {
+      "slug": "btb-construcao",
+      "asset": "/images/btb-construcao/hero.png",
+      "catalogImage": "/images/btb-construcao/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "BTB Construção",
+      "segment": "construcao"
+    },
+    {
       "slug": "casa-nativa",
       "asset": "/images/casa-nativa/hero-og.jpg",
       "catalogImage": "/images/casa-nativa/hero-og.jpg",
@@ -254,6 +280,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "easy-clean",
+      "asset": "/images/easy-clean/hero.png",
+      "catalogImage": "/images/easy-clean/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Easy Clean Higienização a Seco",
+      "segment": "servicos"
+    },
+    {
       "slug": "ecommerce-on",
       "asset": "/images/ecommerce-on/servicos.webp",
       "catalogImage": "/images/ecommerce-on/servicos.webp",
@@ -306,6 +345,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "embalar-embalagens",
+      "asset": "public/images/embalar-embalagens/hero.png",
+      "catalogImage": "/images/embalar-embalagens/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Embalar Embalagens",
+      "segment": "comercios"
+    },
+    {
       "slug": "emporio-lelecute",
       "asset": "/images/emporio-lelecute/capa.webp",
       "catalogImage": "/images/emporio-lelecute/capa.webp",
@@ -317,6 +369,19 @@
       "cardValid": false,
       "businessName": "Empório LeleCute",
       "segment": "servicos"
+    },
+    {
+      "slug": "enoel-portas",
+      "asset": "public/images/enoel-portas/hero.png",
+      "catalogImage": "/images/enoel-portas/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Enoel Portas",
+      "segment": "construcao"
     },
     {
       "slug": "espaco-cih-luh",
@@ -437,9 +502,9 @@
     },
     {
       "slug": "jc-revestimentos",
-      "asset": "/images/jc-revestimentos/hero-og.jpg",
-      "catalogImage": "/images/jc-revestimentos/hero-og.jpg",
-      "catalogImageRole": "SOCIAL",
+      "asset": "/images/jc-revestimentos/hero-v2.png",
+      "catalogImage": "/images/jc-revestimentos/hero-v2.png",
+      "catalogImageRole": "EDITORIAL",
       "origin": "CATALOG",
       "reviewedAt": null,
       "status": "NO_REAL_ASSET",
@@ -460,6 +525,32 @@
       "cardValid": true,
       "businessName": "JKL Marcenaria",
       "segment": "servicos"
+    },
+    {
+      "slug": "js-eletrica-manutencao",
+      "asset": "public/images/js-eletrica-manutencao/hero.png",
+      "catalogImage": "/images/js-eletrica-manutencao/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "JS Elétrica e Manutenção",
+      "segment": "servicos"
+    },
+    {
+      "slug": "kitutes-na-mesa",
+      "asset": "public/images/kitutes-na-mesa/hero.png",
+      "catalogImage": "/images/kitutes-na-mesa/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Kitutes na Mesa · Porções com Carinho",
+      "segment": "restaurantes"
     },
     {
       "slug": "liz-moraes-nail-designer",
@@ -579,6 +670,32 @@
       "segment": "servicos"
     },
     {
+      "slug": "maximos-cabeleireiros",
+      "asset": "public/images/maximos-cabeleireiros/hero.png",
+      "catalogImage": "/images/maximos-cabeleireiros/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Maximos Cabeleireiros",
+      "segment": "beleza"
+    },
+    {
+      "slug": "mimo-salgados-doces",
+      "asset": "/images/mimo-salgados-doces/hero-food.png",
+      "catalogImage": "/images/mimo-salgados-doces/hero-food.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Mimo Salgados e Doces",
+      "segment": "comercios"
+    },
+    {
       "slug": "mirassol-conserta-celular",
       "asset": null,
       "catalogImage": null,
@@ -644,6 +761,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "papelemi-personalizados",
+      "asset": "public/images/papelemi-personalizados/hero.png",
+      "catalogImage": "/images/papelemi-personalizados/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "PapeLemi Papelaria Personalizada",
+      "segment": "comercios"
+    },
+    {
       "slug": "paraiso-do-hot-dog",
       "asset": "public/images/paraiso-do-hot-dog/capa.png",
       "catalogImage": "/images/paraiso-hot-dog-cover.webp",
@@ -658,15 +788,28 @@
     },
     {
       "slug": "paulo-mestre-de-obras",
-      "asset": "/images/paulo-mestre-de-obras/social.jpg",
-      "catalogImage": "/images/paulo-mestre-de-obras/social.jpg",
-      "catalogImageRole": "SOCIAL",
+      "asset": "public/images/paulo-mestre-de-obras/hero-v2.png",
+      "catalogImage": "/images/paulo-mestre-de-obras/hero-v2.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Paulo Mestre de Obras",
+      "segment": "servicos"
+    },
+    {
+      "slug": "popys-conservacao-limpeza",
+      "asset": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "catalogImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "catalogImageRole": "EDITORIAL",
       "origin": "CATALOG",
       "reviewedAt": null,
-      "status": "CONTACT_OR_PII",
-      "reason": "Material exibe contato ou endereço.",
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
       "cardValid": false,
-      "businessName": "Paulo Mestre de Obras",
+      "businessName": "POPYS Conservação e Limpeza",
       "segment": "servicos"
     },
     {
@@ -800,6 +943,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "simone-lacerda-vaz",
+      "asset": "public/images/simone-lacerda-vaz/hero.png",
+      "catalogImage": "/images/simone-lacerda-vaz/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Simone Lacerda Vaz · Nutricionista",
+      "segment": "saude"
+    },
+    {
       "slug": "sos-presentes-cosmeticos",
       "asset": "public/images/sos-presentes-cosmeticos/caneca-eu-te-protejo.png",
       "catalogImage": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
@@ -914,19 +1070,6 @@
       "reason": null,
       "cardValid": true,
       "businessName": "Woodhouse Hambúrgueres",
-      "segment": "restaurantes"
-    },
-    {
-      "slug": "kitutes-na-mesa",
-      "asset": "public/images/kitutes-na-mesa/hero.png",
-      "catalogImage": "/images/kitutes-na-mesa/hero.png",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "GENERATED_BRAND_ART",
-      "reviewedAt": null,
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
-      "businessName": "Kitutes na Mesa",
       "segment": "restaurantes"
     }
   ]

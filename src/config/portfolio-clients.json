@@ -1007,5 +1007,24 @@
       "source": "Serviços, canais e arte de referência fornecidos pelo cliente nesta conversa",
       "reference": "Arte fornecida pelo cliente nesta conversa"
     }
+  },
+  {
+    "clientKey": "enoel-portas",
+    "slug": "enoel-portas",
+    "siteName": "Enoel Portas",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EnoelPortasPage.tsx",
+    "assetsDir": "public/images/enoel-portas",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/enoel-portas.md",
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Arte, serviços e telefone fornecidos pelo cliente nesta conversa",
+      "reference": "Arte fornecida pelo cliente nesta conversa"
+    }
   }
 ]

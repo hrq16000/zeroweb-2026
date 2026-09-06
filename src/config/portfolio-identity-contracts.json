@@ -156,6 +156,19 @@
       "logoStatus": "CONCEPT_PENDING_APPROVAL",
       "coverStatus": "BRAND_COMPOSITION",
       "forbiddenSimilarities": ["mimo-salgados-doces", "confeitaria-sabor-da-realeza", "vila-da-capivara"]
+    },
+    "enoel-portas": {
+      "brandCharacter": ["direto", "técnico", "seguro", "resolutivo"],
+      "visualConcept": "Limiar arquitetônico: uma linha amarela conduz do vão e da medida até a porta funcionando.",
+      "heroComposition": "split-diagonal-preto-amarelo-com-porta-em-detalhe",
+      "sectionRhythm": ["manifesto", "servicos-seletor", "metodo-em-tres-passos", "orcamento"],
+      "typographicCharacter": "Sans industrial pesada em caixa alta, com corpo funcional e espaçamento de sinalização.",
+      "colorBehavior": "Preto como estrutura, amarelo como ação e medida, papel quente como superfície de projeto.",
+      "imageDirection": "Composição arquitetônica gerada a partir da arte oficial; sem equipe, cliente, fachada ou obra apresentada como fato.",
+      "signatureElement": "Seletor de serviços que destaca o escopo escolhido como uma ficha técnica.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["btb-construcao", "js-eletrica-manutencao", "jc-revestimentos"]
     }
   }
 }

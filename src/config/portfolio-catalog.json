@@ -1774,5 +1774,24 @@
     "fallbackImage": "/images/kitutes-na-mesa/social.png",
     "metrics": "Orçamento por WhatsApp",
     "summary": "Salgados, mini lanches, doces, bolos caseiros e porções para festas, coffee breaks, empresas e encontros sob encomenda."
+  },
+  {
+    "slug": "enoel-portas",
+    "clientKey": "enoel-portas",
+    "title": "Enoel Portas",
+    "segment": "construcao",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["portas", "madeira", "instalacao", "regulagem", "caxilhos", "reforma"],
+    "live": true,
+    "subtitle": "Portas que valorizam seu espaço",
+    "location": "Curitiba e região — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/enoel-portas/hero.png",
+    "fallbackImage": "/images/enoel-portas/social-og.jpg",
+    "metrics": "Orçamento por WhatsApp",
+    "summary": "Enoel Portas oferece colocação de portas de madeira, regulagem, vistas e caxilhos em geral para casas, apartamentos e obras em Curitiba e região."
   }
 ]

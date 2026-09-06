@@ -681,6 +681,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: quantidade, tamanho da embalagem, tipo de produto ou data do evento."
   },
+  "enoel-portas": {
+    "services": [
+      "Colocação de portas de madeira",
+      "Regulagem de portas",
+      "Vistas e guarnições",
+      "Caxilhos em geral",
+      "Avaliar um projeto"
+    ],
+    "experienceOptions": [
+      "Casa ou apartamento",
+      "Reforma em andamento",
+      "Obra nova",
+      "Ainda estou planejando"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "São José dos Pinhais",
+      "Região Metropolitana",
+      "Vou confirmar o local"
+    ],
+    "timingOptions": [
+      "Quero um orçamento",
+      "Preciso resolver em breve",
+      "Estou pesquisando opções"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que precisa resolver?",
+      "experience": "Em qual contexto?",
+      "period": "Onde será?",
+      "timing": "Qual o próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: medida aproximada, modelo da porta, quantidade ou fase da obra."
+  },
   "espaco-cih-luh": {
     "services": [
       "Alongamento em gel",

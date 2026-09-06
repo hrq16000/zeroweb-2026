@@ -864,3 +864,22 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   80/80 sem warnings; regional 80/80; seed 80/80; typecheck e gates restantes em execução.
 - Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
   ou domínio `chatgpt.site` foi usado.
+
+## 2026-09-06 — Enoel Portas (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: página autoral `/portfolio/enoel-portas`, brief versionado e direção
+  “limiar arquitetônico” em preto, branco e amarelo, com seletor interativo de
+  serviços, processo de atendimento e CTA de orçamento.
+- Imagens: hero, logo e social image gerados a partir da arte fornecida; social OG
+  derivada localmente para compartilhamento, sem telefone embutido no bundle público.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy e seed administrativo.
+- Funil: `funnel-enoel-portas` idempotente, com perguntas de serviço, contexto,
+  local, detalhes e telefone; destinatário WhatsApp permanece como segredo de runtime.
+- Validação: 81 projetos conformes nos gates de scaffold, boundaries, catálogo,
+  meta, assets, logos, ícones, regional, presença, conversão, funil, seed,
+  originalidade, typecheck e build.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.

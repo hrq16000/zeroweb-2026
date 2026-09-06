@@ -18,10 +18,10 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 80 |
+| Total | 81 |
 | ORIGINAL | 0 |
 | ACCEPTABLE | 27 |
-| ATTENTION | 47 |
+| ATTENTION | 48 |
 | HIGH_SIMILARITY | 6 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
@@ -29,8 +29,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Logos placeholder | 0 |
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
-| Capas válidas (contrato canônico) | 36 |
-| Capas pendentes (contrato canônico) | 44 |
+| Capas válidas (contrato canônico) | 43 |
+| Capas pendentes (contrato canônico) | 38 |
 | Capas usando imagem social | 8 |
 | Capas compartilhadas | 0 |
 | Crop severo | 21 |
@@ -58,13 +58,13 @@ Nenhum cluster acima do limiar.
 | mp-festas-eventos | studio-de-cilios | 59 | SAME_FAMILY | 76.2 | 66.7 | 61.5 | 85 | 0.8 | 5 | 9.8 |
 | acai-total-araucaria | aguia-sul-sinalizacao | 58 | SAME_FAMILY | 73.5 | 57.1 | 71.4 | 91.3 | 0 | 7.5 | 10.7 |
 | aguia-sul-sinalizacao | bruna-diarista | 57 | SAME_FAMILY | 60 | 100 | 41.7 | 78.9 | 0 | 7.5 | 9.4 |
+| btb-construcao | enoel-portas | 56 | SAME_FAMILY | 58.6 | 100 | 50 | 56.7 | 4.1 | 7.5 | 12.5 |
 | btb-construcao | popys-conservacao-limpeza | 56 | SAME_FAMILY | 56.9 | 100 | 53.3 | 61.6 | 1.1 | 15 | 6.3 |
 | confeitaria-chyrley | studio-de-cilios | 56 | SAME_FAMILY | 54 | 100 | 37.5 | 86.5 | 0.5 | 10 | 6.8 |
 | mimo-salgados-doces | popys-conservacao-limpeza | 56 | SAME_FAMILY | 66.7 | 50 | 76.9 | 88.4 | 0 | 2.5 | 13.8 |
 | acai-total-araucaria | mary-diarista | 55 | SAME_FAMILY | 76.1 | 37.5 | 71.4 | 92.5 | 0 | 3 | 10.3 |
 | aguia-sul-sinalizacao | btb-construcao | 55 | SAME_FAMILY | 60 | 100 | 41.7 | 64.3 | 0.6 | 7.5 | 10.7 |
 | diego-montador-moveis | paulo-mestre-de-obras | 55 | SAME_FAMILY | 62.7 | 75 | 60 | 70.9 | 3 | 4.3 | 15.2 |
-| embalar-embalagens | js-eletrica-manutencao | 55 | SAME_FAMILY | 64.2 | 71.4 | 63.6 | 72 | 0.5 | 4.3 | 3.9 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -88,6 +88,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | studio-de-cilios | 59 | ATTENTION | mp-festas-eventos (59) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | acai-total-araucaria | 58 | ATTENTION | aguia-sul-sinalizacao (58) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
+| enoel-portas | 56 | ATTENTION | btb-construcao (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mimo-salgados-doces | 56 | ATTENTION | popys-conservacao-limpeza (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | paulo-mestre-de-obras | 55 | ATTENTION | diego-montador-moveis (55) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | ecommerce-on | 54 | ATTENTION | acai-total-araucaria (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
