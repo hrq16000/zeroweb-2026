@@ -1,10 +1,1 @@
-<!-- gerado por scripts/build-portfolio-brand-social.mjs a partir da marca autoral -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#14655a"/>
-  <rect x="0" y="0" width="1200" height="14" fill="#ff6b57"/>
-  <circle cx="1120" cy="96" r="220" fill="#ff6b57" opacity=".16"/>
-  <circle cx="1040" cy="600" r="150" fill="#f2f7f5" opacity=".12"/>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Reparos do Litoral</text>
-  <text x="80" y="502" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">Prestador de serviços</text>
-  <text x="80" y="568" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ffffff" opacity=".72">Guaratuba — PR</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#273347"/><circle cx="1020" cy="70" r="280" fill="#f3c84b" opacity=".18"/><circle cx="160" cy="600" r="270" fill="#f3c84b" opacity=".12"/><g transform="translate(760 165) scale(1.7)" fill="none" stroke="#f3c84b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="m44 108 78-64 78 64v78H44v-78Zm48 78v-56h60v56M168 62l22 22-48 48-22-22 48-48ZM112 110l-22 22"/></g><rect x="76" y="74" width="148" height="148" rx="36" fill="#f3c84b"/><text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#273347">RR</text><text x="76" y="326" font-family="Arial,sans-serif" font-size="54" font-weight="800" fill="#fff">Reparos do Litoral</text><text x="78" y="382" font-family="Arial,sans-serif" font-size="21" fill="#fff" opacity=".85">Presença digital de Reparos do Litoral: serviço local para reparo…</text><text x="78" y="520" font-family="Arial,sans-serif" font-size="18" letter-spacing="3" font-weight="700" fill="#f3c84b">PRESTADORES DE SERVICOS</text></svg>

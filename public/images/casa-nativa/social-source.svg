@@ -1,10 +1,1 @@
-<!-- gerado por scripts/build-portfolio-brand-social.mjs a partir da marca autoral -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#1b1814"/>
-  <rect x="0" y="0" width="1200" height="14" fill="#c98a4b"/>
-  <circle cx="1120" cy="96" r="220" fill="#c98a4b" opacity=".16"/>
-  <circle cx="1040" cy="600" r="150" fill="#f4ece0" opacity=".12"/>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Casa Nativa Bistrô</text>
-  <text x="80" y="502" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">Serviços</text>
-  <text x="80" y="568" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ffffff" opacity=".72">Belo Horizonte — MG</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#241f27"/><circle cx="1020" cy="70" r="280" fill="#c67b43" opacity=".18"/><circle cx="160" cy="600" r="270" fill="#c67b43" opacity=".12"/><g transform="translate(760 165) scale(1.7)" fill="none" stroke="#c67b43" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="m48 112 74-62 74 62v72H48v-72Zm38 72v-55h72v55M122 50v-22M78 112h88"/><path d="M62 52c15-20 32-24 48-10"/></g><rect x="76" y="74" width="148" height="148" rx="36" fill="#c67b43"/><text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#241f27">CN</text><text x="76" y="326" font-family="Arial,sans-serif" font-size="54" font-weight="800" fill="#fff">Casa Nativa Bistrô</text><text x="78" y="382" font-family="Arial,sans-serif" font-size="21" fill="#fff" opacity=".85">Presença digital de Casa Nativa Bistrô: bistrô, com ambiente, exp…</text><text x="78" y="520" font-family="Arial,sans-serif" font-size="18" letter-spacing="3" font-weight="700" fill="#c67b43">SERVICOS</text></svg>

@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Conserta Mirassol">
-  <rect width="900" height="300" fill="#21252b"/>
-  <rect x="96" y="60" width="122" height="180" rx="20" fill="none" stroke="#22d3a8" stroke-width="10"/>
-  <path d="M140 78h34" stroke="#22d3a8" stroke-width="8" stroke-linecap="round"/>
-  <path d="M124 168l24 24 50-58" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M238 96l30-30 26 26-30 30z" fill="#22d3a8"/>
-  <text x="300" y="146" font-family="'Courier New',monospace" font-size="60" font-weight="700" fill="#ffffff">conserta</text>
-  <text x="302" y="200" font-family="'Courier New',monospace" font-size="40" letter-spacing="8" fill="#22d3a8">mirassol</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Conserta Mirassol</title><desc id="desc">Identidade visual de Conserta Mirassol</desc>
+  <rect width="900" height="300" rx="44" fill="#202b37"/><path d="M0 240C210 180 280 320 510 238S760 176 900 218V300H0Z" fill="#96d34f" opacity=".16"/>
+  <circle cx="150" cy="150" r="98" fill="#96d34f"/><g transform="translate(28 28)" fill="none" stroke="#202b37" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><rect x="72" y="40" width="100" height="156" rx="18"/><path d="M96 70h52M96 166h52M122 92v44M100 114h44"/></g>
+  <text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#202b37">MC</text>
+  <text x="292" y="132" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">Conserta Mirassol</text>
+  <text x="294" y="184" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#96d34f">PRESTADORES DE SERVICOS</text>
+  <text x="294" y="226" font-family="Arial,sans-serif" font-size="17" fill="#fff" opacity=".78">Identidade 0WEB · direção visual exclusiva</text></svg>

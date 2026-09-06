@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Eletrica Bairro Brasil">
-  <rect width="900" height="300" fill="#12224a"/>
-  <path d="M74 154L162 76l88 78" fill="none" stroke="#ffd400" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M100 160v66h124v-66" fill="none" stroke="#7f92c4" stroke-width="10"/>
-  <path d="M170 150l-32 46h26l-8 38 36-52h-26z" fill="#ffd400"/>
-  <text x="300" y="142" font-family="Verdana,Geneva,sans-serif" font-size="52" font-weight="700" fill="#ffffff">Elétrica</text>
-  <text x="300" y="200" font-family="Verdana,Geneva,sans-serif" font-size="38" letter-spacing="6" fill="#ffd400">BAIRRO BRASIL</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Elétrica Bairro Brasil</title><desc id="desc">Identidade visual de Elétrica Bairro Brasil</desc>
+  <rect width="900" height="300" rx="44" fill="#1b2530"/><path d="M0 240C210 180 280 320 510 238S760 176 900 218V300H0Z" fill="#f6c744" opacity=".16"/>
+  <circle cx="150" cy="150" r="98" fill="#f6c744"/><g transform="translate(28 28)" fill="none" stroke="#1b2530" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="m132 32-54 96h42l-18 70 58-104h-42l14-62Z"/><path d="M46 202h152"/></g>
+  <text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#1b2530">ER</text>
+  <text x="292" y="132" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">Elétrica Bairro Brasil</text>
+  <text x="294" y="184" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#f6c744">PRESTADORES DE SERVICOS</text>
+  <text x="294" y="226" font-family="Arial,sans-serif" font-size="17" fill="#fff" opacity=".78">Identidade 0WEB · direção visual exclusiva</text></svg>

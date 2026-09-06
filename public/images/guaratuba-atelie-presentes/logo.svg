@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Atelie Encanto da Baia">
-  <rect width="900" height="300" fill="#fdf6ec"/>
-  <path d="M160 150c-40-40-86-24-86 8s46 44 86 12z" fill="#c25a37"/>
-  <path d="M160 150c40-40 86-24 86 8s-46 44-86 12z" fill="#e08a5a"/>
-  <path d="M150 150h20l24 88-34-30-34 30z" fill="#c25a37"/>
-  <circle cx="160" cy="152" r="16" fill="#f0d9b5" stroke="#2f2418" stroke-width="6"/>
-  <text x="300" y="136" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="58" font-weight="700" fill="#2f2418">Ateliê Encanto</text>
-  <text x="302" y="194" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="40" letter-spacing="10" fill="#c25a37">DA BAÍA</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Ateliê Encanto da Baía</title><desc id="desc">Identidade visual de Ateliê Encanto da Baía</desc>
+  <rect width="900" height="300" rx="44" fill="#493044"/><path d="M0 240C210 180 280 320 510 238S760 176 900 218V300H0Z" fill="#f3b17c" opacity=".16"/>
+  <circle cx="150" cy="150" r="98" fill="#f3b17c"/><g transform="translate(28 28)" fill="none" stroke="#493044" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M48 90h148v94H48zM48 90l74 46 74-46M122 136v48M80 90c-20-36 24-52 42 0 18-52 62-36 42 0"/></g>
+  <text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#493044">AE</text>
+  <text x="292" y="132" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">Ateliê Encanto da Baía</text>
+  <text x="294" y="184" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#f3b17c">COMERCIOS</text>
+  <text x="294" y="226" font-family="Arial,sans-serif" font-size="17" fill="#fff" opacity=".78">Identidade 0WEB · direção visual exclusiva</text></svg>

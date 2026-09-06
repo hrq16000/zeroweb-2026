@@ -1,10 +1,1 @@
-<!-- gerado por scripts/build-portfolio-brand-social.mjs a partir da marca autoral -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#b2452e"/>
-  <rect x="0" y="0" width="1200" height="14" fill="#f6ead6"/>
-  <circle cx="1120" cy="96" r="220" fill="#f6ead6" opacity=".16"/>
-  <circle cx="1040" cy="600" r="150" fill="#2f1d15" opacity=".12"/>
-  <text x="80" y="450" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="800" fill="#ffffff">Delícias Caseiras Mirassol</text>
-  <text x="80" y="502" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#ffffff" opacity=".92">Restaurante</text>
-  <text x="80" y="568" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#ffffff" opacity=".72">Mirassol — SP</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#5a2f2b"/><circle cx="1020" cy="70" r="280" fill="#f1b47b" opacity=".18"/><circle cx="160" cy="600" r="270" fill="#f1b47b" opacity=".12"/><g transform="translate(760 165) scale(1.7)" fill="none" stroke="#f1b47b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M54 126h136l-14 58H68l-14-58Zm22 0c0-38 92-38 92 0M122 48v34M100 64h44M82 154h80"/></g><rect x="76" y="74" width="148" height="148" rx="36" fill="#f1b47b"/><text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#5a2f2b">DC</text><text x="76" y="326" font-family="Arial,sans-serif" font-size="54" font-weight="800" fill="#fff">Delícias Caseiras Mirassol</text><text x="78" y="382" font-family="Arial,sans-serif" font-size="21" fill="#fff" opacity=".85">Presença digital de Delícias Caseiras Mirassol: catálogo para uma…</text><text x="78" y="520" font-family="Arial,sans-serif" font-size="18" letter-spacing="3" font-weight="700" fill="#f1b47b">RESTAURANTES</text></svg>

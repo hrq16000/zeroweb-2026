@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Reparos do Litoral">
-  <rect width="900" height="300" fill="#f2f7f5"/>
-  <path d="M66 176c26-18 52-18 78 0s52 18 78 0" stroke="#14655a" stroke-width="12" fill="none" stroke-linecap="round"/>
-  <path d="M120 60l40 34 40-34" fill="none" stroke="#ff6b57" stroke-width="0"/>
-  <path d="M78 130l82-58 82 58" fill="none" stroke="#14655a" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M196 84c18 4 28 22 22 38-5 13-19 20-32 18l-36 34-22-20 36-34c-4-14 3-28 16-34z" fill="#ff6b57"/>
-  <text x="300" y="140" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="60" font-weight="700" fill="#14655a">Reparos</text>
-  <text x="302" y="196" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="40" letter-spacing="10" fill="#2f4f49">DO LITORAL</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Reparos do Litoral</title><desc id="desc">Identidade visual de Reparos do Litoral</desc>
+  <rect width="900" height="300" rx="44" fill="#273347"/><path d="M0 240C210 180 280 320 510 238S760 176 900 218V300H0Z" fill="#f3c84b" opacity=".16"/>
+  <circle cx="150" cy="150" r="98" fill="#f3c84b"/><g transform="translate(28 28)" fill="none" stroke="#273347" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="m44 108 78-64 78 64v78H44v-78Zm48 78v-56h60v56M168 62l22 22-48 48-22-22 48-48ZM112 110l-22 22"/></g>
+  <text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#273347">RR</text>
+  <text x="292" y="132" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">Reparos do Litoral</text>
+  <text x="294" y="184" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#f3c84b">PRESTADORES DE SERVICOS</text>
+  <text x="294" y="226" font-family="Arial,sans-serif" font-size="17" fill="#fff" opacity=".78">Identidade 0WEB · direção visual exclusiva</text></svg>
