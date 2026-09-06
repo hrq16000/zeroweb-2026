@@ -81,7 +81,7 @@ export function PortfolioHostLeadDialog({
           setStatus("error");
           setError(
             res.reason === "invalid_phone"
-              ? "Confira o WhatsApp com DDD (ex.: 41 99999-9999)."
+              ? "Confira o WhatsApp informado com o DDD completo."
               : res.reason === "rate_limited"
                 ? "Muitos envios seguidos. Tente novamente em alguns minutos."
                 : "Não foi possível enviar agora. Tente novamente.",
