@@ -50,6 +50,8 @@ const ORIGINAL_ASSET_HASHES: Record<string, string> = {
 };
 
 const component = read("src/components/site/SsConsPage.tsx");
+/** Sem comentários de bloco: a norma vale para o que é renderizado, não para a documentação. */
+const rendered = component.replace(/\/\*[\s\S]*?\*\//g, "");
 const route = read("src/routes/portfolio.$slug.tsx");
 
 describe("S&S Construções — registro canônico", () => {
@@ -151,8 +153,8 @@ describe("S&S Construções — funil, privacidade e casca", () => {
     expect(component).not.toMatch(/wa\.me/i);
     expect(component).not.toMatch(/(?<!\d)(?:\+?55\s*)?\(?\d{2}\)?\s*9\d{4}[-\s]?\d{4}(?!\d)/);
     expect(component).not.toMatch(/tel:|mailto:/);
-    expect(component).not.toMatch(/depoimento|testimonial|24 horas|24h/i);
-    expect(component).not.toMatch(/\+\d+\s*(clientes|obras|projetos)/i);
+    expect(rendered).not.toMatch(/depoimento|testimonial|24 horas|24h/i);
+    expect(rendered).not.toMatch(/\+\d+\s*(clientes|obras|projetos)/i);
   });
 
   it("renderiza a casca obrigatória: main, imagens do padrão, crédito da hospedagem e pop-ups", () => {
