@@ -459,7 +459,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
     const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
     const isHeloaGas = loaderData?.slug === "heloa-gas";
-    const description = isHeloaGas
+    const isSscons = loaderData?.slug === "sscons";
+    const description = isSscons
+      ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
+      : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
       ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
