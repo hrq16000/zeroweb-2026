@@ -1,118 +1,177 @@
 # Playbook oficial — novo site em `/portfolio/<slug>`
 
-Status: **obrigatório**. Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md`.
-Objetivo: nenhum projeto novo deve exigir correção manual de itens que já são
-padrão da plataforma.
+Status: **obrigatório**. Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md` e
+`docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`.
+
+Objetivo: todo projeto novo nasce tecnicamente completo **sem virar um template
+visual da 0WEB**.
+
+## 0. Regra de ouro
+
+**Padronizar a engenharia, nunca a criatividade.**
+
+Antes de criar JSX visual, executar:
+
+```text
+0web-skill-router
+→ 0web-skill-discovery
+→ 0web-portfolio-art-direction
+→ 1 especialista landing/CRO adequado à intenção
+→ 0web-design-system
+→ especialistas de motion/a11y/perf necessários
+→ 0web-ui-quality-gates
+```
+
+Criar e preencher `docs/portfolio/briefs/<slug>.md` conforme
+`PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`.
 
 ## 1. Camadas — quem garante o quê
 
-### Contrato de catálogo (obrigatório)
+### Contrato de catálogo
 
-Além dos campos técnicos abaixo, todo cliente deve possuir metadados de
-descoberta: `segment`, `subsegments`, `projectType`, `city`, `state`,
-`services`, `technologies`, `tags`, `status` (`published`, `draft` ou
-`coming-soon`), `publishedAt`, `featured`, resumo curto e imagem do card.
-Esses dados devem ter uma única fonte de verdade e alimentar card, busca,
-filtros, sitemap, JSON-LD, Lighthouse e testes. Não duplicar o card diretamente
-em uma rota sem atualizar o registro canônico.
+Todo cliente deve possuir metadados de descoberta: `segment`, `subsegments`,
+`projectType`, `city`, `state`, `services`, `technologies`, `tags`, `status`,
+`publishedAt`, `featured`, resumo curto e imagem do card.
 
-O contrato de consistência exige que todo item publicado do catálogo tenha uma
-rota resolvível, componente e imagem existentes, slug único, canonical próprio
-e entrada no sitemap; e que toda rota pública de cliente esteja presente no
-catálogo. Projetos demonstrativos devem ser marcados explicitamente e nunca
-receber métricas ou prova social inventadas.
+Todo projeto criado pelo scaffold v2 também registra `creativeContractVersion: 2`
+e `creativeBriefFile` em `portfolio-clients.json`.
+
+O contrato de consistência exige rota resolvível, componente e assets próprios,
+slug único, canonical próprio, sitemap, funil próprio e identidade própria.
 
 | Camada | Quem garante | Onde |
 |---|---|---|
-| Pop-up de captação da 0WEB (`PortfolioUpsellPopup`) | **Plataforma (rota)** | `src/routes/portfolio.$slug.tsx` renderiza automaticamente |
-| Botão de compartilhamento (`PortfolioShareButton`) | **Plataforma (rota)** | idem |
-| SEO base, canonical, JSON-LD, breadcrumbs | Plataforma + dados do cliente | `head()` da rota |
-| Roteamento privado de WhatsApp | Plataforma | `/r/whatsapp/$token` + secret por cliente |
-| Identidade, textos, imagens, oferta | **Cliente** | componente exclusivo |
-| Funil próprio (`funnel-<cliente>`) | **Cliente** | `dynamic_forms` publicado |
-| Prova social (`PortfolioSocialProofPopup`) | Cliente (conteúdo) | componente do cliente |
-| Crédito de hospedagem (`PortfolioHostCredit`) | Cliente (estilo), obrigatório | rodapé do componente |
+| Pop-up de captação 0WEB | Plataforma | rota compartilhada |
+| Compartilhamento | Plataforma | rota compartilhada |
+| SEO base/canonical/JSON-LD/breadcrumb | Plataforma + dados do cliente | `head()`/registry |
+| Roteamento privado WhatsApp | Plataforma | `/r/whatsapp/$token` + secret por cliente |
+| Direção criativa | **Cliente/projeto** | creative brief + componente exclusivo |
+| Paleta/tipografia/layout/motion | **Cliente/projeto** | tokens locais + componente + motion override |
+| Funil | **Cliente** | `dynamic_forms` publicado |
+| Prova social | Cliente | somente conteúdo verificável |
+| Crédito de hospedagem | Plataforma com estilo compatível | `PortfolioHostCredit` |
 
-O pop-up de captação **não depende mais** do componente do cliente: a rota já o
-renderiza. O componente tem guard de instância única, então renderizá-lo também
-no site do cliente não duplica nada.
+## 2. Scaffold é infraestrutura, não template
 
-## 2. Regra de overlays (causa da falha histórica)
+`scaffold:portfolio` não deve produzir uma landing genérica pronta para
+publicação. Ele cria:
 
-Overlays da hospedagem só são silenciados com `?0web_preview=1` (ou
-`?0web_overlays_off=1`). **Nunca** usar `?preview=1`: ambientes de preview e
-ferramentas externas injetam esse parâmetro e o pop-up sumia em visitas reais.
-`scripts/validate-portfolio-boundaries.mjs` falha se o parâmetro genérico voltar.
+- registros técnicos;
+- componente workbench com marcador de direção criativa pendente;
+- diretório de assets;
+- migration do funil;
+- creative brief v2.
 
-## 3. Checklist de lançamento (executar na ordem)
+O marcador de scaffold deve ser removido quando a composição real do cliente
+for implementada. Projeto `published` com marcador pendente falha no gate.
 
-1. Registrar o cliente em `src/config/portfolio-clients.json` e
-   `src/config/portfolio-catalog.json` (o gate `validate:portfolio-catalog`
-   bloqueia slugs duplicados, campos ausentes e clientes sem item de catálogo)
-   (`clientKey`, `slug`, `siteName`, `routeFile`, `componentFile`, `assetsDir`,
-   `ctaMode`, `socialProofRequired`, `hostCaptureRequired`).
-2. Adicionar a chave em `src/lib/portfolio-client-keys.ts`.
-3. Registrar em `src/lib/portfolio-site-registry.ts` (sitemap + SEO + card).
-4. Criar diretório exclusivo de imagens `public/images/<slug>/` (sem herdar de outro cliente) e registrar uma logo/marca própria no campo `icon` de `portfolio-assets.json`.
-5. Criar o componente exclusivo em `src/components/site/<Cliente>Page.tsx`:
-   sem `Header`/`Footer` da 0WEB, com `PortfolioHostCredit` no rodapé e
-   `PortfolioSocialProofPopup` com conteúdo do próprio cliente.
-6. Ligar o branch do slug em `src/routes/portfolio.$slug.tsx` e completar
-   `head()` (title, description, canonical, `og:site_name`, `og:image`, icon, JSON-LD).
-7. Criar migration do funil próprio `funnel-<slug>` publicado em
-   `dynamic_forms` + `dynamic_form_questions` (modelo:
-   `supabase/migrations/*_seed_paraiso_hot_dog_funnel.sql`).
-8. Usar `FunnelCTAButton` com `clientKey="<clientKey>"`, `companySlug` e
-   `formSlug="funnel-<slug>"`. Proibido cair em funil universal da 0WEB.
-9. Cadastrar o secret privado `"<CLIENTE>_WHATSAPP_NUMBER"` no servidor.
-   Nenhum telefone, `wa.me` ou e-mail pode existir no bundle público.
-10. Adicionar o card do cliente na grade `/portfolio`.
-11. Validar a identidade com `bun run validate:portfolio-logos`; a logo deve existir,
-    estar no diretório do slug e não pode ser compartilhada com outro projeto.
+Nunca partir do componente de outro cliente para “ganhar tempo”. Consulte outros
+projetos apenas para **evitar** semelhança.
 
-## 4. Portões automáticos (tudo precisa passar)
+## 3. Checklist de lançamento
 
-```bash
-bun run validate:portfolio-boundaries   # isolamento, popup, crédito, contatos
-bun run validate:portfolio-meta         # SEO/metadados por cliente
-bun test
-bun run build                           # inclui validate-client-privacy no postbuild
-node scripts/playwright-portfolio-funnels.mjs   # CTA → lead → token → WhatsApp
+1. Rodar o scaffold ou registrar manualmente os mesmos contratos.
+2. Preencher o creative brief v2 antes do layout.
+3. Registrar catálogo e `portfolio-site-registry.ts`.
+4. Criar diretório exclusivo `public/images/<slug>/` e identidade própria.
+5. Criar componente exclusivo em `src/components/site/<Cliente>Page.tsx`.
+6. Usar tokens/tipografia escopados ao cliente quando a identidade exigir.
+7. Declarar **override próprio** em `src/config/portfolio-motion-profiles.json`;
+   default por segmento é fallback legado, não direção final de novo cliente.
+8. Ligar a rota/lazy loader e completar metadata/OG/Twitter/JSON-LD.
+9. Criar/preencher o funil `funnel-<slug>`.
+10. Usar `FunnelCTAButton` com `clientKey`, `companySlug` e `formSlug` próprios.
+11. Cadastrar o contato server-side pela convenção canônica:
+
+```text
+PORTFOLIO_WHATSAPP_<CLIENT_KEY_NORMALIZADO>
 ```
 
-Critério de pronto: os cinco comandos passam, o funil do cliente conclui sem
-“funil indisponível”, o redirect responde 302 e nenhum contato aparece no HTML
-ou no JS público.
+Ex.: `clientKey="sscons"` → `PORTFOLIO_WHATSAPP_SSCONS`.
 
-## 5. Revisão visual obrigatória
+12. Adicionar card/capa com crop válido para mobile e desktop.
+13. Validar logo/ícone exclusivos e assets sem compartilhamento indevido.
+14. Comparar originalidade contra os três portfolios mais próximos e registrar
+    `antiTemplateDecisions` no brief.
 
-Seguir `docs/AGENT_SKILLS_GOVERNANCE.md`: direção de `frontend-design`, revisão
-Apple (acessibilidade + mobile) e passada de `ui-craft`. Validar imagens reais,
-estados de carregamento/erro, `prefers-reduced-motion` e viewport 393×852.
+Nenhum telefone, `wa.me` ou e-mail operacional pode existir no bundle público.
 
-## 6. Automação, testes e observabilidade
+## 4. Conteúdo e prova
 
-Gerador de projeto (cria componente, pasta de imagens, migration do funil e
-registros obrigatórios):
+Não fabricar avaliações, depoimentos, estrelas, números de clientes, prêmios,
+logos de clientes, urgência ou resultados apresentados como reais.
+
+Para protótipo, conteúdo ilustrativo só pode aparecer visivelmente marcado como
+`Exemplo`, `Demonstração` ou equivalente. Em produção, preferir evidência real:
+processo, materiais, garantia real, escopo, metodologia, fotos oficiais, FAQ e
+outras provas verificáveis.
+
+## 5. Imagens
+
+Prioridade:
+
+1. logo/marca oficial;
+2. fotos/produtos/trabalhos oficiais;
+3. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir
+   ser equipe, sede, cliente ou serviço executado;
+4. composição abstrata/typographic brand art.
+
+Usar `PortfolioImage`, dimensões explícitas, LCP controlado e lazy loading nas
+imagens abaixo da dobra. Gerar derivados WebP quando útil sem apagar originais
+importantes do cliente.
+
+## 6. Portões automáticos
+
+```bash
+bun run validate:portfolio-scaffold
+bun run validate:portfolio-boundaries
+bun run validate:portfolio-meta
+bun run validate:portfolio-logos
+bun run audit:portfolio-skills
+bun run check:portfolio-originality
+bun run check:experience-standard
+bun run validate:client-privacy
+bun test
+bun run build
+node scripts/playwright-portfolio-funnels.mjs
+```
+
+Critério funcional: CTA → funil → lead → token → `/r/whatsapp/...` → redirect
+correto quando o canal estiver `CONFIGURED`, sem contato exposto no bundle.
+
+## 7. Revisão visual obrigatória
+
+Validar pelo menos:
+
+- mobile 393×852;
+- tablet ~768px;
+- desktop;
+- teclado/foco;
+- reduced motion;
+- console;
+- navegação;
+- modal/lightbox quando houver;
+- CTA/funil;
+- contraste;
+- crop das capas e imagens.
+
+A revisão precisa responder: hero, section order, tipografia, tratamento de
+imagem, motion e assinatura interativa são realmente diferentes dos portfolios
+mais próximos?
+
+## 8. Automação
 
 ```bash
 bun run scaffold:portfolio -- --slug <slug> --name "Nome do Cliente"
 bun run scaffold:portfolio -- --slug <slug> --name "Nome" --dry-run
 ```
 
-Portões automáticos adicionais:
+Após o scaffold, o próximo passo **não** é publicar: é preencher o creative brief
+e substituir o workbench por uma composição autoral.
 
-```bash
-bun run validate:portfolio-scaffold   # conformidade estrutural de todo /portfolio (roda no prebuild)
-bun run test:e2e:portfolio-popup      # pop-up único, 1x por sessão, ?preview=1 não silencia
-bun run test:visual                   # regressão visual (mobile + desktop); --update regrava baselines
-bun run audit:a11y                    # axe-core em todas as rotas de portfólio
-```
+## 9. Governança
 
-Budgets de performance/SEO/acessibilidade rodam no Lighthouse CI
-(`.lighthouserc.cjs`), incluindo `/portfolio` e um site de cliente; scores
-abaixo do budget quebram o PR.
+Issue → branch → PR → checks → revisão → merge. Nunca publicar direto em `main`.
 
-Observabilidade: `/painel-portfolio` (restrito) mostra impressões, cliques,
-CTR, descartes e conversões do pop-up por projeto, com alertas de queda.
-Documentação viva do design system: `/design-system`.
+Herdados da plataforma: segurança do redirect, pop-up de captação, share,
+breadcrumbs e infraestrutura SEO. O visual do cliente não é herdado.
