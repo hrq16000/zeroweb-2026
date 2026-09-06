@@ -851,7 +851,7 @@
     },
     "mimo-salgados-doces": {
       "icon": "/images/mimo-salgados-doces/logo.png",
-      "socialImage": "/images/mimo-salgados-doces/hero-food.png",
+      "socialImage": "/images/mimo-salgados-doces/hero-food-og.jpg",
       "proof": {
         "eyebrow": "Mimo Salgados e Doces",
         "title": "Um carinho em forma de sabor.",
@@ -859,11 +859,11 @@
         "ctaLabel": "Ver cardápio",
         "ctaHref": "#cardapio"
       },
-      "socialVersion": "mimo-20260906"
+      "socialVersion": "2cb68046"
     },
     "popys-conservacao-limpeza": {
       "icon": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
       "proof": {
         "eyebrow": "POPYS Conservação e Limpeza",
         "title": "Seu ambiente merece cuidado constante.",
@@ -871,11 +871,11 @@
         "ctaLabel": "Conhecer soluções",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "popys-20260906"
+      "socialVersion": "37ea4b42"
     },
     "bruna-diarista": {
       "icon": "/images/bruna-diarista/hero.png",
-      "socialImage": "/images/bruna-diarista/hero.png",
+      "socialImage": "/images/bruna-diarista/hero-og.jpg",
       "proof": {
         "eyebrow": "Bruna Diarista",
         "title": "Uma casa em ordem deixa a rotina mais leve.",
@@ -883,7 +883,7 @@
         "ctaLabel": "Conhecer serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "bruna-20260906"
+      "socialVersion": "57a87dcb"
     }
   }
 }

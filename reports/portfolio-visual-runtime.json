@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T05:21:34.253Z",
+  "generatedAt": "2026-09-06T07:29:17.400Z",
   "base": "http://localhost:8080",
   "viewports": [
     {
@@ -8095,6 +8095,355 @@
             {
               "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
               "n": 6
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "bruna-diarista": {
+      "slug": "bruna-diarista",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/bruna-diarista/hero.png",
+            "/images/bruna-diarista/hero-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Sua casa limpa. Sua rotina mais leve.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 856,
+            "backgroundImage": false,
+            "heading": "Sua casa limpa. Sua rotina mais leve.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2361,
+          "text": "CARREGANDO Copiar divulgação B Bruna Diarista Consultar horários DIÁRIAS · ORGANIZAÇÃO · CURITIBA Sua casa limpa. Sua rotina mais leve. Limpeza cuidadosa, pós-obra e organização para quem valoriza tempo, confiança e um ambiente bem cuidado. Falar com a Bruna Ver diárias Atendimento com agendamento Segunda a sábado CUIDADO QUE SE PERCEBE Mais do que limpeza: tranquilidade para a semana. Limpeza de rotina Casas e apartamentos cuidados com atenção em cada ambiente. Limpeza pesada Uma rotina mais profunda para recuperar a sensação de casa em ordem. Personal organizer Organização de ambientes para ganhar espaço, agilidade e bem-estar. DIÁRIAS PROFISSIONAIS Escolha o tempo que combina com seu ambiente. Uma profissional 4 horas R$ 130 + deslocamento Uma profissional 6 horas R$ 160 + deslocamento Uma profissional 8 horas R$ 200 + deslocamento Duas profissionais 4 horas R$ 220 + deslocamento Duas profissionais 6 horas R$ 280 + deslocamento Duas profissionais 8 horas R$ 420 + deslocamento Pós-obra, pós-mudança e organização: R$ 35,00 por hora + deslocamento. Confirme disponibilidade no atendimento. AGENDA BRUNA DIARISTA Vamos deixar sua casa brilhando? Conte o que precisa e escolha a frequência que combina com sua rotina. Solicitar horário SOBRE O PROJETO Sua casa em ordem começa com um bom horário. Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. diarista limpeza residencial pos obra personal organizer Consultar horários KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Bruna Diarista. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Bruna Diarista SERVICOS Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Curitiba — PR 0web.com.br/portfolio/bruna-diarista Ilustração do cartão de visitas de Bruna Diarista PANFLETO DIGITAL BRUNA DIARISTA Conheça Bruna Diarista. Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Ver a presença digital Ilustração do panfleto digital de Bruna Diarista © 2026 · Bruna Diarista Site desenvolvido por 0WEB Contato",
+          "docHeight": 5807,
+          "topColors": [
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+              "n": 6
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(24, 35, 61)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/bruna-diarista/hero.png",
+            "/images/bruna-diarista/hero-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Sua casa limpa. Sua rotina mais leve.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 732,
+            "backgroundImage": false,
+            "heading": "Sua casa limpa. Sua rotina mais leve.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2397,
+          "text": "CARREGANDO Copiar divulgação B Bruna Diarista Serviços Valores Contato Consultar horários DIÁRIAS · ORGANIZAÇÃO · CURITIBA Sua casa limpa. Sua rotina mais leve. Limpeza cuidadosa, pós-obra e organização para quem valoriza tempo, confiança e um ambiente bem cuidado. Falar com a Bruna Ver diárias Atendimento com agendamento Segunda a sábado CUIDADO QUE SE PERCEBE Mais do que limpeza: tranquilidade para a semana. Limpeza de rotina Casas e apartamentos cuidados com atenção em cada ambiente. Limpeza pesada Uma rotina mais profunda para recuperar a sensação de casa em ordem. Personal organizer Organização de ambientes para ganhar espaço, agilidade e bem-estar. DIÁRIAS PROFISSIONAIS Escolha o tempo que combina com seu ambiente. Uma profissional 4 horas R$ 130 + deslocamento Uma profissional 6 horas R$ 160 + deslocamento Uma profissional 8 horas R$ 200 + deslocamento Duas profissionais 4 horas R$ 220 + deslocamento Duas profissionais 6 horas R$ 280 + deslocamento Duas profissionais 8 horas R$ 420 + deslocamento Pós-obra, pós-mudança e organização: R$ 35,00 por hora + deslocamento. Confirme disponibilidade no atendimento. AGENDA BRUNA DIARISTA Vamos deixar sua casa brilhando? Conte o que precisa e escolha a frequência que combina com sua rotina. Solicitar horário SOBRE O PROJETO Sua casa em ordem começa com um bom horário. Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. diarista limpeza residencial pos obra personal organizer Consultar horários KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Bruna Diarista. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Bruna Diarista SERVICOS Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Curitiba — PR 0web.com.br/portfolio/bruna-diarista Ilustração do cartão de visitas de Bruna Diarista PANFLETO DIGITAL BRUNA DIARISTA Conheça Bruna Diarista. Diarista · Limpeza Residencial · Pos Obra · Personal Organizer Ver a presença digital Ilustração do panfleto digital de Bruna Diarista © 2026 · Bruna Diarista Site desenvolvido por 0WEB Consultar horários",
+          "docHeight": 3484,
+          "topColors": [
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+              "n": 6
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(24, 35, 61)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "popys-conservacao-limpeza": {
+      "slug": "popys-conservacao-limpeza",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/popys-conservacao-limpeza/hero-cleaning.png",
+            "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Seu ambiente limpo, organizado e bem cuidado.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 950,
+            "backgroundImage": false,
+            "heading": "Seu ambiente limpo, organizado e bem cuidado.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2640,
+          "text": "CARREGANDO Copiar divulgação P POPYS Conservação Solicitar orçamento CONSERVAÇÃO · LIMPEZA · CURITIBA Seu ambiente limpo, organizado e bem cuidado. Soluções profissionais para empresas, escritórios e obras, com atendimento personalizado para a necessidade de cada cliente. Solicitar orçamento Conhecer soluções Curitiba e Região Periódico ou sob medida SOLUÇÕES POPYS Limpeza que sustenta a rotina. Limpeza e conservação Rotinas de cuidado para manter cada ambiente organizado, saudável e pronto para receber. Organizar este serviço Escritórios e empresas Atendimento profissional para ambientes comerciais, com escopo ajustado à sua operação. Organizar este serviço Limpeza pós-obra Remoção de resíduos e acabamento cuidadoso para entregar o espaço pronto para usar. Organizar este serviço Vidros, pisos e fachadas Detalhes que mudam a percepção do ambiente, com planejamento para cada superfície. Organizar este serviço CUIDADO EM CADA DETALHE Um atendimento pensado para o seu ambiente. A POPYS entende o local, organiza a rotina e combina o escopo adequado antes de começar. Atendimento personalizado Profissionais preparados Serviço periódico ou pontual Seu espaço merece constância. Da primeira avaliação à manutenção, a equipe monta uma solução clara para sua realidade. Descrever meu ambiente CURITIBA E REGIÃO Vamos cuidar do seu ambiente? Conte o tipo de espaço, a frequência e o que precisa. A POPYS organiza o próximo passo. Falar com a POPYS SOBRE O PROJETO Seu ambiente merece cuidado constante. Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. limpeza conservacao pos obra escritorios Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de POPYS Conservação e Limpeza. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS POPYS Conservação e Limpeza SERVICOS Limpeza · Conservacao · Pos Obra · Escritorios Curitiba — PR 0web.com.br/portfolio/popys-conservacao-limpeza Ilustração do cartão de visitas de POPYS Conservação e Limpeza PANFLETO DIGITAL POPYS CONSERVAÇÃO E LIMPEZA Conheça POPYS Conservação e Limpeza. Limpeza · Conservacao · Pos Obra · Escritorios Ver a presença digital Ilustração do panfleto digital de POPYS Conservação e Limpeza © 2026 · POPYS Conservação e Limpeza Site desenvolvido por 0WEB Contato",
+          "docHeight": 5808,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(249, 231, 232)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 5,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/popys-conservacao-limpeza/hero-cleaning.png",
+            "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Seu ambiente limpo, organizado e bem cuidado.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 8,
+          "hero": {
+            "height": 764,
+            "backgroundImage": false,
+            "heading": "Seu ambiente limpo, organizado e bem cuidado.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2683,
+          "text": "CARREGANDO Copiar divulgação P POPYS Conservação Soluções Como funciona Contato Solicitar orçamento CONSERVAÇÃO · LIMPEZA · CURITIBA Seu ambiente limpo, organizado e bem cuidado. Soluções profissionais para empresas, escritórios e obras, com atendimento personalizado para a necessidade de cada cliente. Solicitar orçamento Conhecer soluções Curitiba e Região Periódico ou sob medida SOLUÇÕES POPYS Limpeza que sustenta a rotina. Limpeza e conservação Rotinas de cuidado para manter cada ambiente organizado, saudável e pronto para receber. Organizar este serviço Escritórios e empresas Atendimento profissional para ambientes comerciais, com escopo ajustado à sua operação. Organizar este serviço Limpeza pós-obra Remoção de resíduos e acabamento cuidadoso para entregar o espaço pronto para usar. Organizar este serviço Vidros, pisos e fachadas Detalhes que mudam a percepção do ambiente, com planejamento para cada superfície. Organizar este serviço CUIDADO EM CADA DETALHE Um atendimento pensado para o seu ambiente. A POPYS entende o local, organiza a rotina e combina o escopo adequado antes de começar. Atendimento personalizado Profissionais preparados Serviço periódico ou pontual Seu espaço merece constância. Da primeira avaliação à manutenção, a equipe monta uma solução clara para sua realidade. Descrever meu ambiente CURITIBA E REGIÃO Vamos cuidar do seu ambiente? Conte o tipo de espaço, a frequência e o que precisa. A POPYS organiza o próximo passo. Falar com a POPYS SOBRE O PROJETO Seu ambiente merece cuidado constante. Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região. Atendimento em Curitiba — PR. Como começar Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. limpeza conservacao pos obra escritorios Solicitar orçamento KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de POPYS Conservação e Limpeza. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS POPYS Conservação e Limpeza SERVICOS Limpeza · Conservacao · Pos Obra · Escritorios Curitiba — PR 0web.com.br/portfolio/popys-conservacao-limpeza Ilustração do cartão de visitas de POPYS Conservação e Limpeza PANFLETO DIGITAL POPYS CONSERVAÇÃO E LIMPEZA Conheça POPYS Conservação e Limpeza. Limpeza · Conservacao · Pos Obra · Escritorios Ver a presença digital Ilustração do panfleto digital de POPYS Conservação e Limpeza © 2026 · POPYS Conservação e Limpeza Site desenvolvido por 0WEB Solicitar orçamento",
+          "docHeight": 3744,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(249, 231, 232)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "mimo-salgados-doces": {
+      "slug": "mimo-salgados-doces",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/mimo-salgados-doces/logo.png",
+            "/images/mimo-salgados-doces/hero-food.png",
+            "/images/mimo-salgados-doces/menu-corrected.png",
+            "/images/mimo-salgados-doces/hero-food-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Um carinho em forma de sabor.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1015,
+            "backgroundImage": false,
+            "heading": "Um carinho em forma de sabor.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2303,
+          "text": "CARREGANDO Copiar divulgação Mimo Salgados e Doces Pedir agora SALGADOS · DOCES · COSTEIRA Um carinho em forma de sabor. Salgados artesanais, doces e copos da felicidade para deixar os pequenos e grandes momentos mais gostosos. Fazer meu pedido Ver cardápio Costeira · São José dos Pinhais Feito todos os dias FEITO COM AMOR Tem sabor para cada vontade. Salgados artesanais Coxinhas e outras opções douradas, feitas para comer quentinhas. Doces que abraçam Brigadeiros, bolos e doces para adoçar a mesa e o presente. Copo da Felicidade Camadas cremosas e generosas por R$ 22,00. CARDÁPIO DA CASA O copo da felicidade é R$ 22,00. A informação atualizada fica clara no primeiro olhar. Para quantidades, sabores e disponibilidade do dia, fale com a equipe. Consultar disponibilidade Cardápio sujeito à disponibilidade do dia. ENCOMENDAS E MOMENTOS ESPECIAIS Da vontade do dia à mesa da festa. Conte o que você imaginou, para quando precisa e como prefere receber. A Mimo combina os próximos passos com você. Montar meu pedido Como chegar Fale com a Mimo R. Giocondo Dall Stella · Costeira São José dos Pinhais — PR · 83085-050 Atendimento pelo canal oficial da loja SOBRE O PROJETO Seu pedido começa com um sabor. Salgados artesanais, doces e copo da felicidade para encomendas na Costeira, em São José dos Pinhais — PR. Atendimento em São José dos Pinhais — PR. Como começar Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. salgados doces copo da felicidade encomendas Montar meu pedido KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Mimo Salgados e Doces. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Mimo Salgados e Doces COMERCIOS Salgados · Doces · Copo Da Felicidade · Encomendas São José dos Pinhais — PR 0web.com.br/portfolio/mimo-salgados-doces Ilustração do cartão de visitas de Mimo Salgados e Doces PANFLETO DIGITAL MIMO SALGADOS E DOCES Conheça Mimo Salgados e Doces. Salgados · Doces · Copo Da Felicidade · Encomendas Ver a presença digital Ilustração do panfleto digital de Mimo Salgados e Doces © 2026 · Mimo Salgados e Doces Site desenvolvido por 0WEB Contato",
+          "docHeight": 5939,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(143, 13, 26)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 7,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/mimo-salgados-doces/logo.png",
+            "/images/mimo-salgados-doces/hero-food.png",
+            "/images/mimo-salgados-doces/menu-corrected.png",
+            "/images/mimo-salgados-doces/hero-food-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Um carinho em forma de sabor.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 872,
+            "backgroundImage": false,
+            "heading": "Um carinho em forma de sabor.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2335,
+          "text": "CARREGANDO Copiar divulgação Mimo Salgados e Doces Sabores Cardápio Encomendas Pedir agora SALGADOS · DOCES · COSTEIRA Um carinho em forma de sabor. Salgados artesanais, doces e copos da felicidade para deixar os pequenos e grandes momentos mais gostosos. Fazer meu pedido Ver cardápio Costeira · São José dos Pinhais Feito todos os dias FEITO COM AMOR Tem sabor para cada vontade. Salgados artesanais Coxinhas e outras opções douradas, feitas para comer quentinhas. Doces que abraçam Brigadeiros, bolos e doces para adoçar a mesa e o presente. Copo da Felicidade Camadas cremosas e generosas por R$ 22,00. CARDÁPIO DA CASA O copo da felicidade é R$ 22,00. A informação atualizada fica clara no primeiro olhar. Para quantidades, sabores e disponibilidade do dia, fale com a equipe. Consultar disponibilidade Cardápio sujeito à disponibilidade do dia. ENCOMENDAS E MOMENTOS ESPECIAIS Da vontade do dia à mesa da festa. Conte o que você imaginou, para quando precisa e como prefere receber. A Mimo combina os próximos passos com você. Montar meu pedido Como chegar Fale com a Mimo R. Giocondo Dall Stella · Costeira São José dos Pinhais — PR · 83085-050 Atendimento pelo canal oficial da loja SOBRE O PROJETO Seu pedido começa com um sabor. Salgados artesanais, doces e copo da felicidade para encomendas na Costeira, em São José dos Pinhais — PR. Atendimento em São José dos Pinhais — PR. Como começar Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. salgados doces copo da felicidade encomendas Montar meu pedido KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Mimo Salgados e Doces. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Mimo Salgados e Doces COMERCIOS Salgados · Doces · Copo Da Felicidade · Encomendas São José dos Pinhais — PR 0web.com.br/portfolio/mimo-salgados-doces Ilustração do cartão de visitas de Mimo Salgados e Doces PANFLETO DIGITAL MIMO SALGADOS E DOCES Conheça Mimo Salgados e Doces. Salgados · Doces · Copo Da Felicidade · Encomendas Ver a presença digital Ilustração do panfleto digital de Mimo Salgados e Doces © 2026 · Mimo Salgados e Doces Site desenvolvido por 0WEB Pedir agora",
+          "docHeight": 4007,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(143, 13, 26)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
             }
           ]
         }

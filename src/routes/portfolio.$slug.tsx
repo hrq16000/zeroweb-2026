@@ -222,9 +222,6 @@ const PopysConservacaoLimpezaPage = lazy(() =>
 const BrunaDiaristaPage = lazy(() =>
   import("@/components/site/BrunaDiaristaPage").then((m) => ({ default: m.BrunaDiaristaPage })),
 );
-const MimoSalgadosDocesPage = lazy(() =>
-  import("@/components/site/MimoSalgadosDocesPage").then((m) => ({ default: m.MimoSalgadosDocesPage })),
-);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
