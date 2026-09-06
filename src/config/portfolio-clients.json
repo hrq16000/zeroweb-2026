@@ -788,5 +788,23 @@
     "socialProofRequired": true,
     "hostCaptureRequired": true,
     "funnelRecipientConfigured": false
+  },
+  {
+    "clientKey": "sscons",
+    "slug": "sscons",
+    "siteName": "S&S Construções",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/SsConsPage.tsx",
+    "assetsDir": "public/images/sscons",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "issue": "hrq16000/zeroweb-2026#60",
+      "lovableSourceProjectId": "a6148619-92b1-4e27-afdc-bd7864392fe5",
+      "publishedReference": "https://sscons.lovable.app/"
+    }
   }
 ]

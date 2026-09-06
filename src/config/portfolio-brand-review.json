@@ -279,6 +279,24 @@
           "#f6f9fc"
         ]
       }
+    },
+    "sscons": {
+      "brandOrigin": "EXISTING_PROJECT_ASSET",
+      "brandReview": "APPROVED",
+      "classification": "BRAND_COMPOSITION",
+      "authored": true,
+      "logo": "/images/sscons/logo.png",
+      "concept": "Monograma tipográfico S&S em Playfair Display dourado sobre carvão, derivado do wordmark textual do site original (que não possuía arquivo de logo).",
+      "personality": "sólido, premium, artesanal",
+      "shape": "quadrado com filete dourado",
+      "typography": "Playfair Display (display) + Inter (texto)",
+      "colors": [
+        "#e8b430",
+        "#f6c955",
+        "hsl(220 15% 12%)",
+        "hsl(220 20% 8%)"
+      ],
+      "notes": "Composição de marca gerada a partir do wordmark do site de origem (sem invenção de símbolo). Protegida contra regeneração automática (authored=true)."
     }
   }
 }

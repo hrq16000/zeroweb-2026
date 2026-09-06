@@ -1536,5 +1536,32 @@
     "fallbackImage": "/images/heloa-gas/logo.png",
     "metrics": "Pedido pelo atendimento",
     "summary": "Heloá Gás entrega botijão de gás 13kg e água mineral de 20 litros em Vila Vicente Macedo e região, em Piraquara — PR."
+  },
+  {
+    "slug": "sscons",
+    "clientKey": "sscons",
+    "title": "S&S Construções",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "construcao-civil",
+      "obras",
+      "reformas",
+      "alvenaria",
+      "carpintaria",
+      "pintura",
+      "azulejo"
+    ],
+    "live": true,
+    "subtitle": "Construção civil, obras e reformas",
+    "location": "Curitiba — PR · atendimento sob orçamento",
+    "badge": "Novo projeto",
+    "image": "/images/sscons/capa-card.jpg",
+    "fallbackImage": "/images/sscons/social.jpg",
+    "metrics": "Orçamento personalizado",
+    "summary": "Carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, em Curitiba e Região Metropolitana."
   }
 ]

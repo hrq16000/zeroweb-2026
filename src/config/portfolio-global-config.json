@@ -113,7 +113,12 @@
             "Manutenção preventiva",
             "Ainda estou avaliando"
           ],
-          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Fim de semana",
+            "Tenho flexibilidade"
+          ],
           "timingOptions": [
             "É urgente",
             "Ainda nesta semana",
@@ -201,8 +206,18 @@
             "Quero indicação do que pedir",
             "Pedido para um grupo"
           ],
-          "periodOptions": ["Agora", "Mais tarde hoje", "Amanhã", "Ainda estou decidindo"],
-          "timingOptions": ["O quanto antes", "Em até 1 hora", "Em horário marcado", "Sem pressa"],
+          "periodOptions": [
+            "Agora",
+            "Mais tarde hoje",
+            "Amanhã",
+            "Ainda estou decidindo"
+          ],
+          "timingOptions": [
+            "O quanto antes",
+            "Em até 1 hora",
+            "Em horário marcado",
+            "Sem pressa"
+          ],
           "stepTitles": {
             "service": "Como você quer pedir?",
             "experience": "Como podemos te ajudar?",
@@ -232,7 +247,12 @@
             "Outro estado",
             "Ainda estou avaliando"
           ],
-          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Fim de semana",
+            "Tenho flexibilidade"
+          ],
           "timingOptions": [
             "Nos próximos dias",
             "Ainda nesta semana",
@@ -320,7 +340,12 @@
           "Limpeza de telhado",
           "Reparos em geral"
         ],
-        "experienceOptions": ["Casa", "Apartamento", "Comércio", "Outro espaço"],
+        "experienceOptions": [
+          "Casa",
+          "Apartamento",
+          "Comércio",
+          "Outro espaço"
+        ],
         "periodOptions": [
           "Tenho fotos do local",
           "Posso explicar o reparo",
@@ -362,7 +387,13 @@
           "Pintura e acabamentos",
           "Engenharia e acompanhamento"
         ],
-        "experienceOptions": ["Casa", "Apartamento", "Comércio", "Condomínio", "Outro imóvel"],
+        "experienceOptions": [
+          "Casa",
+          "Apartamento",
+          "Comércio",
+          "Condomínio",
+          "Outro imóvel"
+        ],
         "periodOptions": [
           "Tenho projeto ou medidas",
           "Tenho fotos do local",
@@ -384,8 +415,14 @@
       }
     },
     "jc-revestimentos": {
-      "contactFloating": { "theme": "navy", "recipientName": "JC", "label": "Solicitar orçamento" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "JC",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
         "services": [
@@ -403,7 +440,11 @@
           "Obra em andamento",
           "Outro projeto"
         ],
-        "periodOptions": ["Sei a metragem", "Tenho fotos do ambiente", "Preciso de orientação"],
+        "periodOptions": [
+          "Sei a metragem",
+          "Tenho fotos do ambiente",
+          "Preciso de orientação"
+        ],
         "timingOptions": [
           "O quanto antes",
           "Nos próximos dias",
@@ -420,16 +461,59 @@
       }
     },
     "hbk-iluminacao-led": {
-      "contactFloating": { "theme": "navy", "recipientName": "HBK", "label": "Solicitar cotação" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "HBK",
+        "label": "Solicitar cotação"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Iluminação LED residencial", "Iluminação LED comercial", "Lâmpadas e luminárias LED", "Spots e perfis LED", "Projetos de iluminação", "Orientação técnica"],
-        "experienceOptions": ["Residência", "Condomínio", "Comércio", "Obra em andamento", "Outro projeto"],
-        "periodOptions": ["Tenho projeto ou planta", "Sei os ambientes", "Preciso de orientação"],
-        "timingOptions": ["O quanto antes", "Nos próximos dias", "Ainda neste mês", "Estou planejando"],
-        "stepTitles": { "service": "Qual solução LED você procura?", "experience": "Onde será instalado?", "period": "Como podemos orientar?", "timing": "Quando pretende comprar ou instalar?" },
+        "services": [
+          "Iluminação LED residencial",
+          "Iluminação LED comercial",
+          "Lâmpadas e luminárias LED",
+          "Spots e perfis LED",
+          "Projetos de iluminação",
+          "Orientação técnica"
+        ],
+        "experienceOptions": [
+          "Residência",
+          "Condomínio",
+          "Comércio",
+          "Obra em andamento",
+          "Outro projeto"
+        ],
+        "periodOptions": [
+          "Tenho projeto ou planta",
+          "Sei os ambientes",
+          "Preciso de orientação"
+        ],
+        "timingOptions": [
+          "O quanto antes",
+          "Nos próximos dias",
+          "Ainda neste mês",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual solução LED você procura?",
+          "experience": "Onde será instalado?",
+          "period": "Como podemos orientar?",
+          "timing": "Quando pretende comprar ou instalar?"
+        },
         "notePlaceholder": "Conte os ambientes, a metragem e o que deseja iluminar."
+      }
+    },
+    "sscons": {
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe S&S",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
       }
     }
   }

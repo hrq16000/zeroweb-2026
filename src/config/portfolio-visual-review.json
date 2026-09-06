@@ -588,5 +588,17 @@
     "coverMaterial": "NO_SAFE_REAL_MATERIAL",
     "coverBlockReason": "BLOCKED_QUALITY",
     "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
+  },
+  "sscons": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverMaterialEvidence": "Migração autêntica (issue #60): hero.jpg é o asset original publicado pelo cliente em sscons.lovable.app (SHA-256 fe539ee9…8426), inspecionado em tamanho real: sem telefone, endereço, preço ou marca de terceiros.",
+    "coverSource": "public/images/sscons/capa-card.jpg",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "notes": "Recorte 16:10 do hero original (mesa de projeto). Autoria/direitos das fotos confirmados como material do próprio site do cliente; substituir por fotos de obra reais quando a S&S enviar."
   }
 }
