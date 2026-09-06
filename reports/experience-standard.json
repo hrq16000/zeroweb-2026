@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-06T03:33:41.294Z",
-  "totalCatalogProjects": 68,
-  "totalPages": 68,
+  "generatedAt": "2026-09-06T05:00:07.638Z",
+  "totalCatalogProjects": 69,
+  "totalPages": 69,
   "auditCoverage": "100%",
   "missingSlugs": [],
   "premium": 33,
-  "signature": 19,
+  "signature": 20,
   "baseline": 16,
   "static": 0,
   "motion": {
@@ -14,7 +14,7 @@
     "clones": 0,
     "groups": 6,
     "signalFloor": 5,
-    "lowSignalPairs": 1197,
+    "lowSignalPairs": 1218,
     "maxSimilarity": 92,
     "topNearestMatches": [
       {
@@ -2299,6 +2299,54 @@
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
+        ]
+      }
+    },
+    {
+      "slug": "sscons",
+      "segment": "servicos",
+      "file": "src/components/site/SsConsPage.tsx",
+      "score": 202,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 40,
+        "transitions": 15,
+        "hover": 27,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Título Playfair entrando palavra a palavra, com 'excelência' em gradiente dourado",
+        "sectionSignature": "Grade de seis serviços em stagger de grade; destaques com ✦ e cartão escuro",
+        "interactionSignature": "Galeria com revelação por máscara e lightbox com teclado (ESC, setas) e contador",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "none",
+        "textMotion": "TEXT_REVEAL",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:up",
+          "v:Reveal:fade",
+          "v:Reveal:right",
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Stagger:up",
+          "v:Stagger:up",
+          "e:Reveal:li",
+          "e:Reveal:span",
+          "e:TextReveal:span",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "p:MotionTextReveal",
+          "d:duration-200",
+          "d:duration-300",
+          "d:duration-500",
+          "h:group-hover:scale-105",
+          "h:group-hover:scale-110",
+          "h:group-hover:translate-x-1"
         ]
       }
     }

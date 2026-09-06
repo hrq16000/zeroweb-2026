@@ -18,9 +18,9 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 68 |
+| Total | 69 |
 | ORIGINAL | 0 |
-| ACCEPTABLE | 26 |
+| ACCEPTABLE | 27 |
 | ATTENTION | 42 |
 | HIGH_SIMILARITY | 0 |
 | CLONE | 0 |
@@ -29,7 +29,7 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Logos placeholder | 0 |
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
-| Capas válidas (contrato canônico) | 34 |
+| Capas válidas (contrato canônico) | 35 |
 | Capas pendentes (contrato canônico) | 34 |
 | Capas usando imagem social | 10 |
 | Capas compartilhadas | 0 |
@@ -142,6 +142,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | dyzpromo | 25 | ACCEPTABLE | marido-de-aluguel (25) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
 | brecho-sao-francisco | 24 | ACCEPTABLE | toquinho-de-gente-brecho (24) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | paraiso-do-hot-dog | 24 | ACCEPTABLE | miro-tech (24) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| sscons | 24 | ACCEPTABLE | jc-revestimentos (24) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 
 ## Regressão
 
