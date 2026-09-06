@@ -7,6 +7,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
+| Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
@@ -24,8 +25,8 @@ Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
 # Regra oficial da zona de portfolios
 
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
-`docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`
-e execute `bun run validate:portfolio-boundaries`.
+`docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
+`docs/PORTFOLIO_CAPABILITY_PALETTE.md` e execute `bun run validate:portfolio-boundaries`.
 
 ## Skills obrigatórias
 
@@ -34,10 +35,12 @@ Toda implementação nova ou revisão visual material em `/portfolio/` deve segu
 
 1. executar `0web-skill-discovery` para selecionar competências complementares;
 2. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
-3. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar
+3. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam
+   problemas reais da marca/jornada — o arquivo é repertório, nunca template;
+4. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar
    estrutura fixa;
-4. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
-5. revisar acessibilidade/mobile, motion, performance e quality gates.
+5. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
+6. revisar acessibilidade/mobile, motion, performance e quality gates.
 
 Não publique uma nova página sem creative brief v2, funil individual, SEO,
 imagens classificadas corretamente, estados, `prefers-reduced-motion`, viewport
