@@ -509,5 +509,12 @@
     "nextStepBody": "Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo.",
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "default"
+  },
+  "easy-clean": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu conforto limpo começa com uma boa avaliação.",
+    "nextStepBody": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "navy"
   }
 }

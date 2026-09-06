@@ -676,6 +676,37 @@
       "blocking": []
     },
     {
+      "slug": "easy-clean",
+      "clientKey": "easy-clean",
+      "title": "Easy Clean Higienização a Seco",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro.",
+      "subtitle": "Higienização a seco e impermeabilização",
+      "image": "/images/easy-clean/hero.png",
+      "icon": "/images/easy-clean/hero.png",
+      "socialImage": "/images/easy-clean/hero.png",
+      "socialVersion": "easy-clean-20260906",
+      "componentFile": "src/components/site/EasyCleanPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/easy-clean",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/easy-clean/hero.png"
+      ],
+      "shareCopy": "✨ A Easy Clean Higienização a Seco ganhou uma presença digital nova!\n\nLavagem a seco, higienização e impermeabilização de estofados, colchões e interiores de carro em Curitiba e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/easy-clean\n\n📲 Solicite um orçamento para cuidar do seu ambiente.\n\n#EasyClean #HigienizacaoASeco #Estofados #Impermeabilizacao #Curitiba #0WEB",
+      "published": true,
+      "status": "PARTIAL",
+      "issues": [
+        "PORTFOLIO_HERO_MISSING"
+      ],
+      "blocking": []
+    },
+    {
       "slug": "ecommerce-on",
       "clientKey": "ecommerce-on",
       "title": "Ecommerce On",

@@ -896,6 +896,18 @@
         "ctaHref": "#contato"
       },
       "socialVersion": "btb-20260906"
+    },
+    "easy-clean": {
+      "icon": "/images/easy-clean/hero.png",
+      "socialImage": "/images/easy-clean/hero.png",
+      "proof": {
+        "eyebrow": "Easy Clean Higienização a Seco",
+        "title": "Conforto limpo começa com uma boa higienização.",
+        "description": "Lavagem a seco e impermeabilização em Curitiba e região.",
+        "ctaLabel": "Conhecer serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "easy-clean-20260906"
     }
   }
 }

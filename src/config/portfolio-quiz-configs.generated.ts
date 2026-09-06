@@ -479,6 +479,39 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma avaliação primeiro"
     ]
   },
+  "easy-clean": {
+    "services": [
+      "Sofá ou estofado",
+      "Colchão",
+      "Poltrona, cadeira ou puff",
+      "Banco ou teto de carro",
+      "Impermeabilização"
+    ],
+    "experienceOptions": [
+      "Minha casa",
+      "Empresa ou escritório",
+      "Veículo",
+      "Condomínio"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o endereço"
+    ],
+    "timingOptions": [
+      "Preciso agendar em breve",
+      "Nos próximos dias",
+      "Ainda estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que precisa higienizar?",
+      "experience": "Onde será o atendimento?",
+      "period": "Qual região?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte a quantidade de peças, tecido e se deseja impermeabilização."
+  },
   "ecommerce-on": {
     "services": [
       "SEO e posicionamento",
