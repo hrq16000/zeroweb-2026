@@ -528,7 +528,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   {
     slug: "simone-lacerda-vaz",
     siteName: "Simone Lacerda Vaz · Nutricionista",
-    vertical: "saude",
+    vertical: "clinicas",
     kind: "prototype",
     indexable: true,
   },
