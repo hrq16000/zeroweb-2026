@@ -2,199 +2,451 @@
   "$comment": "Contratos de identidade individual dos projetos que deixaram o fallback de vertical (CLUSTER_01). Fonte de verdade documental: docs/PORTFOLIO_IDENTITY_CONTRACTS.md",
   "contracts": {
     "almeida-torres": {
-      "brandCharacter": ["sóbrio", "técnico", "institucional"],
+      "brandCharacter": [
+        "sóbrio",
+        "técnico",
+        "institucional"
+      ],
       "visualConcept": "Dossiê jurídico impresso: papel bege, serifa alta, índice numerado e filetes finos no lugar de cards.",
       "heroComposition": "typography-dominant-centered",
-      "sectionRhythm": ["hero", "indice-de-atuacao", "nota-de-orientacao", "perguntas-frequentes", "cta-rodape"],
+      "sectionRhythm": [
+        "hero",
+        "indice-de-atuacao",
+        "nota-de-orientacao",
+        "perguntas-frequentes",
+        "cta-rodape"
+      ],
       "typographicCharacter": "Serifa em escala editorial, versalete nas etiquetas, corpo em medida estreita.",
       "colorBehavior": "Papel bege dominante, grafite para texto, verde-garrafa apenas em marcações pontuais.",
       "imageDirection": "Sem fotografia: composição tipográfica e filetes.",
       "signatureElement": "Numeração romana com régua horizontal contínua.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["clinica-integrada", "uberlandia-eletrica-residencial"]
+      "forbiddenSimilarities": [
+        "clinica-integrada",
+        "uberlandia-eletrica-residencial"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/almeida-torres/logo.svg",
+      "socialFile": "/images/almeida-torres/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "bh-barreiro-marmitas": {
-      "brandCharacter": ["popular", "direto", "cotidiano"],
+      "brandCharacter": [
+        "popular",
+        "direto",
+        "cotidiano"
+      ],
       "visualConcept": "Quadro de cardápio da semana: tabela real de segunda a sábado, preços em destaque e nada de vitrine sofisticada.",
       "heroComposition": "split-hero-com-quadro",
-      "sectionRhythm": ["hero", "tabela-semanal", "faixa-de-precos", "como-pedir", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "tabela-semanal",
+        "faixa-de-precos",
+        "como-pedir",
+        "cta"
+      ],
       "typographicCharacter": "Sans condensada em caixa alta para dias, corpo curto e funcional.",
       "colorBehavior": "Verde-quadro dominante, giz off-white, laranja quente apenas no preço.",
       "imageDirection": "Sem fotografia de prato: quadro, tabela e etiqueta de preço.",
       "signatureElement": "Tabela semanal em moldura de quadro-negro.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["guaratuba-sabores-da-baia", "mirassol-delicias-caseiras", "casa-nativa"]
+      "forbiddenSimilarities": [
+        "guaratuba-sabores-da-baia",
+        "mirassol-delicias-caseiras",
+        "casa-nativa"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/bh-barreiro-marmitas/logo.svg",
+      "socialFile": "/images/bh-barreiro-marmitas/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "casa-nativa": {
-      "brandCharacter": ["premium", "editorial", "noturno"],
+      "brandCharacter": [
+        "premium",
+        "editorial",
+        "noturno"
+      ],
       "visualConcept": "Menu de bistrô impresso em carta escura: tempos numerados, linha pontilhada entre prato e descrição.",
       "heroComposition": "full-bleed-editorial",
-      "sectionRhythm": ["hero", "menu-em-tempos", "sala-e-horarios", "reserva"],
+      "sectionRhythm": [
+        "hero",
+        "menu-em-tempos",
+        "sala-e-horarios",
+        "reserva"
+      ],
       "typographicCharacter": "Serifa display grande, itálico nas descrições, espaçamento generoso.",
       "colorBehavior": "Fundo carvão dominante, superfície grafite, cobre como único destaque.",
       "imageDirection": "Sem fotografia: hierarquia tipográfica e filete metálico.",
       "signatureElement": "Linha pontilhada de carta de menu ligando prato e descrição.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["bh-barreiro-marmitas", "guaratuba-sabores-da-baia"]
+      "forbiddenSimilarities": [
+        "bh-barreiro-marmitas",
+        "guaratuba-sabores-da-baia"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/casa-nativa/logo.svg",
+      "socialFile": "/images/casa-nativa/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "clinica-integrada": {
-      "brandCharacter": ["clínico", "organizado", "acolhedor"],
+      "brandCharacter": [
+        "clínico",
+        "organizado",
+        "acolhedor"
+      ],
       "visualConcept": "Painel de atendimento: grade de especialidades e uma linha do tempo vertical da jornada do paciente.",
       "heroComposition": "split-hero-com-painel-de-agenda",
-      "sectionRhythm": ["hero", "especialidades", "jornada-do-atendimento", "orientacoes", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "especialidades",
+        "jornada-do-atendimento",
+        "orientacoes",
+        "cta"
+      ],
       "typographicCharacter": "Sans neutra, pesos médios, títulos curtos e rótulos legíveis.",
       "colorBehavior": "Branco clínico dominante, azul-petróleo estrutural, verde-menta em estados.",
       "imageDirection": "Sem fotografia de pessoas: grade modular e ícones de especialidade.",
       "signatureElement": "Linha do tempo vertical com marcadores em cruz modular.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["almeida-torres", "mirassol-conserta-celular"]
+      "forbiddenSimilarities": [
+        "almeida-torres",
+        "mirassol-conserta-celular"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/clinica-integrada/logo.svg",
+      "socialFile": "/images/clinica-integrada/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "guaratuba-atelie-presentes": {
-      "brandCharacter": ["artesanal", "afetivo", "colorido"],
+      "brandCharacter": [
+        "artesanal",
+        "afetivo",
+        "colorido"
+      ],
       "visualConcept": "Colagem de papel: blocos rotacionados, etiquetas amarradas e catálogo em colunas desiguais.",
       "heroComposition": "asymmetric-collage",
-      "sectionRhythm": ["hero", "colecao-em-colunas", "encomendas-em-3-passos", "datas-especiais", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "colecao-em-colunas",
+        "encomendas-em-3-passos",
+        "datas-especiais",
+        "cta"
+      ],
       "typographicCharacter": "Título manuscrito-adjacente em peso alto, corpo pequeno e caloroso.",
       "colorBehavior": "Areia dominante, terracota como destaque, tinta escura para leitura.",
       "imageDirection": "Sem fotografia: formas recortadas e etiquetas.",
       "signatureElement": "Etiqueta de presente com furo e cordão, blocos levemente rotacionados.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["mirassol-delicias-caseiras", "guaratuba-sabores-da-baia"]
+      "forbiddenSimilarities": [
+        "mirassol-delicias-caseiras",
+        "guaratuba-sabores-da-baia"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/guaratuba-atelie-presentes/logo.svg",
+      "socialFile": "/images/guaratuba-atelie-presentes/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "guaratuba-oficina-nautica": {
-      "brandCharacter": ["industrial", "técnico", "marítimo"],
+      "brandCharacter": [
+        "industrial",
+        "técnico",
+        "marítimo"
+      ],
       "visualConcept": "Painel de oficina: ficha técnica em lista de definição, faixa de serviços em movimento e checklist de manutenção.",
       "heroComposition": "stacked-com-faixa-tecnica",
-      "sectionRhythm": ["hero", "faixa-de-servicos", "ficha-tecnica", "checklist-de-manutencao", "temporada", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "faixa-de-servicos",
+        "ficha-tecnica",
+        "checklist-de-manutencao",
+        "temporada",
+        "cta"
+      ],
       "typographicCharacter": "Sans técnica, caixa alta com tracking largo, números monoespaçados.",
       "colorBehavior": "Azul-profundo dominante, aço como superfície, laranja-sinal em avisos.",
       "imageDirection": "Sem fotografia: linhas de casco e retículas técnicas.",
       "signatureElement": "Linhas de casco em SVG atravessando o cabeçalho.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["uberlandia-eletrica-residencial", "guaratuba-reparos-residenciais"]
+      "forbiddenSimilarities": [
+        "uberlandia-eletrica-residencial",
+        "guaratuba-reparos-residenciais"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/guaratuba-oficina-nautica/logo.svg",
+      "socialFile": "/images/guaratuba-oficina-nautica/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "guaratuba-reparos-residenciais": {
-      "brandCharacter": ["prático", "acessível", "de bairro"],
+      "brandCharacter": [
+        "prático",
+        "acessível",
+        "de bairro"
+      ],
       "visualConcept": "Cartela de serviços rápidos: chips clicáveis, faixa de bairros atendidos e resposta em três números grandes.",
       "heroComposition": "card-based-hero",
-      "sectionRhythm": ["hero", "chips-de-servico", "como-funciona", "bairros-atendidos", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "chips-de-servico",
+        "como-funciona",
+        "bairros-atendidos",
+        "cta"
+      ],
       "typographicCharacter": "Sans compacta, números grandes, rótulos curtos.",
       "colorBehavior": "Cinza-claro dominante, amarelo-ferramenta como destaque, azul-escuro em texto.",
       "imageDirection": "Sem fotografia: chips, faixas e numerais.",
       "signatureElement": "Chips arredondados em fita amarela.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["guaratuba-oficina-nautica", "uberlandia-eletrica-residencial"]
+      "forbiddenSimilarities": [
+        "guaratuba-oficina-nautica",
+        "uberlandia-eletrica-residencial"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/guaratuba-reparos-residenciais/logo.svg",
+      "socialFile": "/images/guaratuba-reparos-residenciais/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "guaratuba-sabores-da-baia": {
-      "brandCharacter": ["caiçara", "sazonal", "próximo"],
+      "brandCharacter": [
+        "caiçara",
+        "sazonal",
+        "próximo"
+      ],
       "visualConcept": "Cardápio de beira-mar: seções separadas por ondas, preço alinhado à direita e aviso de temporada.",
       "heroComposition": "image-dominant-grafico",
-      "sectionRhythm": ["hero", "cardapio-por-secao", "da-mare-para-a-mesa", "horarios-de-temporada", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "cardapio-por-secao",
+        "da-mare-para-a-mesa",
+        "horarios-de-temporada",
+        "cta"
+      ],
       "typographicCharacter": "Sans humanista, títulos médios, preços tabulares.",
       "colorBehavior": "Turquesa dominante, areia como superfície, coral no preço.",
       "imageDirection": "Sem fotografia: ondas vetoriais e blocos de cor.",
       "signatureElement": "Divisor de onda SVG entre seções.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["bh-barreiro-marmitas", "casa-nativa", "mirassol-delicias-caseiras"]
+      "forbiddenSimilarities": [
+        "bh-barreiro-marmitas",
+        "casa-nativa",
+        "mirassol-delicias-caseiras"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/guaratuba-sabores-da-baia/logo.svg",
+      "socialFile": "/images/guaratuba-sabores-da-baia/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "mirassol-conserta-celular": {
-      "brandCharacter": ["técnico", "transparente", "rápido"],
+      "brandCharacter": [
+        "técnico",
+        "transparente",
+        "rápido"
+      ],
       "visualConcept": "Balcão de diagnóstico: tabela de reparos com prazo e garantia, passo a passo horizontal e marcas em faixa.",
       "heroComposition": "typography-dominant-com-diagnostico",
-      "sectionRhythm": ["hero", "tabela-de-reparos", "passo-a-passo", "marcas-atendidas", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "tabela-de-reparos",
+        "passo-a-passo",
+        "marcas-atendidas",
+        "cta"
+      ],
       "typographicCharacter": "Sans técnica, monoespaçado em prazos e códigos.",
       "colorBehavior": "Grafite dominante, verde-lima em confirmação, cinza-frio nas superfícies.",
       "imageDirection": "Sem fotografia: retícula de circuito.",
       "signatureElement": "Retícula de trilha de circuito no fundo do cabeçalho.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["clinica-integrada", "guaratuba-oficina-nautica"]
+      "forbiddenSimilarities": [
+        "clinica-integrada",
+        "guaratuba-oficina-nautica"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/mirassol-conserta-celular/logo.svg",
+      "socialFile": "/images/mirassol-conserta-celular/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "mirassol-delicias-caseiras": {
-      "brandCharacter": ["caseiro", "festivo", "afetuoso"],
+      "brandCharacter": [
+        "caseiro",
+        "festivo",
+        "afetuoso"
+      ],
       "visualConcept": "Vitrine de encomendas: cards circulares, calendário de datas e kits em faixa horizontal.",
       "heroComposition": "centered-com-moldura",
-      "sectionRhythm": ["hero", "vitrine-circular", "calendario-de-encomendas", "kits", "cta"],
+      "sectionRhythm": [
+        "hero",
+        "vitrine-circular",
+        "calendario-de-encomendas",
+        "kits",
+        "cta"
+      ],
       "typographicCharacter": "Serifa suave nos títulos, corpo arredondado e curto.",
       "colorBehavior": "Creme dominante, rosa-framboesa em destaque, marrom-cacau no texto.",
       "imageDirection": "Sem fotografia: círculos, camadas e texturas de glacê.",
       "signatureElement": "Cards perfeitamente circulares com anel duplo.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["guaratuba-atelie-presentes", "bh-barreiro-marmitas"]
+      "forbiddenSimilarities": [
+        "guaratuba-atelie-presentes",
+        "bh-barreiro-marmitas"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/mirassol-delicias-caseiras/logo.svg",
+      "socialFile": "/images/mirassol-delicias-caseiras/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "uberlandia-eletrica-residencial": {
-      "brandCharacter": ["seguro", "normativo", "de plantão"],
+      "brandCharacter": [
+        "seguro",
+        "normativo",
+        "de plantão"
+      ],
       "visualConcept": "Painel elétrico: faixa de alerta no topo, serviços em lista numerada com barras de carga e bloco de normas.",
       "heroComposition": "split-hero-escuro-com-alerta",
-      "sectionRhythm": ["faixa-de-alerta", "hero", "servicos-em-barras", "seguranca-e-normas", "plantao", "cta"],
+      "sectionRhythm": [
+        "faixa-de-alerta",
+        "hero",
+        "servicos-em-barras",
+        "seguranca-e-normas",
+        "plantao",
+        "cta"
+      ],
       "typographicCharacter": "Sans industrial, caixa alta nos rótulos, números grandes em amperagem.",
       "colorBehavior": "Preto-carvão dominante, amarelo-advertência em sinalização, branco frio no texto.",
       "imageDirection": "Sem fotografia: zigue-zague de energia e barras.",
       "signatureElement": "Faixa diagonal listrada de advertência.",
-      "logoStatus": "LOGO_PENDING",
+      "logoStatus": "GENERATED_BY_0WEB",
       "coverStatus": "GRAPHIC_COMPOSITION",
-      "forbiddenSimilarities": ["guaratuba-oficina-nautica", "guaratuba-reparos-residenciais", "almeida-torres"]
+      "forbiddenSimilarities": [
+        "guaratuba-oficina-nautica",
+        "guaratuba-reparos-residenciais",
+        "almeida-torres"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/uberlandia-eletrica-residencial/logo.svg",
+      "socialFile": "/images/uberlandia-eletrica-residencial/hero-og.jpg",
+      "identityNote": "Marca conceitual criada para a presença digital; aguarda eventual substituição por arquivo oficial do cliente."
     },
     "kitutes-na-mesa": {
-      "brandCharacter": ["acolhedor", "artesanal", "generoso", "alegre"],
+      "brandCharacter": [
+        "acolhedor",
+        "artesanal",
+        "generoso",
+        "alegre"
+      ],
       "visualConcept": "Mesa editorial em camadas: etiquetas de menu, papel creme e blocos terracota para transformar variedade em convite.",
       "heroComposition": "food-editorial-assimetrico-com-mesa",
-      "sectionRhythm": ["convite", "cardapio-em-faixas", "seletor-de-ocasiao", "briefing-de-encomenda"],
+      "sectionRhythm": [
+        "convite",
+        "cardapio-em-faixas",
+        "seletor-de-ocasiao",
+        "briefing-de-encomenda"
+      ],
       "typographicCharacter": "Serifa calorosa nos títulos, sans funcional no corpo e etiquetas monoespaceadas para organizar a encomenda.",
       "colorBehavior": "Creme e papel como base, terracota como ação, cacau como contraste e blush como camada de afeto.",
       "imageDirection": "Arte culinária conceitual com área negativa para texto; sem pessoas, cozinha, fachada ou evento inventado.",
       "signatureElement": "Seletor de ocasião que destaca a mesa correspondente.",
-      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "logoStatus": "CONCEPT_DELIVERED",
       "coverStatus": "BRAND_COMPOSITION",
-      "forbiddenSimilarities": ["mimo-salgados-doces", "confeitaria-sabor-da-realeza", "vila-da-capivara"]
+      "forbiddenSimilarities": [
+        "mimo-salgados-doces",
+        "confeitaria-sabor-da-realeza",
+        "vila-da-capivara"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO"
     },
     "enoel-portas": {
-      "brandCharacter": ["direto", "técnico", "seguro", "resolutivo"],
+      "brandCharacter": [
+        "direto",
+        "técnico",
+        "seguro",
+        "resolutivo"
+      ],
       "visualConcept": "Limiar arquitetônico: uma linha amarela conduz do vão e da medida até a porta funcionando.",
       "heroComposition": "split-diagonal-preto-amarelo-com-porta-em-detalhe",
-      "sectionRhythm": ["manifesto", "servicos-seletor", "metodo-em-tres-passos", "orcamento"],
+      "sectionRhythm": [
+        "manifesto",
+        "servicos-seletor",
+        "metodo-em-tres-passos",
+        "orcamento"
+      ],
       "typographicCharacter": "Sans industrial pesada em caixa alta, com corpo funcional e espaçamento de sinalização.",
       "colorBehavior": "Preto como estrutura, amarelo como ação e medida, papel quente como superfície de projeto.",
       "imageDirection": "Composição arquitetônica gerada a partir da arte oficial; sem equipe, cliente, fachada ou obra apresentada como fato.",
       "signatureElement": "Seletor de serviços que destaca o escopo escolhido como uma ficha técnica.",
-      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "logoStatus": "CONCEPT_DELIVERED",
       "coverStatus": "BRAND_COMPOSITION",
-      "forbiddenSimilarities": ["btb-construcao", "js-eletrica-manutencao", "jc-revestimentos"]
+      "forbiddenSimilarities": [
+        "btb-construcao",
+        "js-eletrica-manutencao",
+        "jc-revestimentos"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO"
     },
     "mania-de-limpeza": {
-      "brandCharacter": ["energético", "acolhedor", "higiênico", "otimista"],
+      "brandCharacter": [
+        "energético",
+        "acolhedor",
+        "higiênico",
+        "otimista"
+      ],
       "visualConcept": "Renovação doméstica: preto e amarelo de campanha com verde vivo como sinal de frescor.",
       "heroComposition": "split-cinematic-higienizacao-com-negativo-escuro",
-      "sectionRhythm": ["renovacao", "servicos", "combo-familia", "instagram-vivo", "orcamento"],
+      "sectionRhythm": [
+        "renovacao",
+        "servicos",
+        "combo-familia",
+        "instagram-vivo",
+        "orcamento"
+      ],
       "typographicCharacter": "Sans-display pesada para impacto promocional e sans limpa para leitura.",
       "colorBehavior": "Preto estrutura, amarelo ativa, verde comunica frescor e papel claro dá respiro.",
       "imageDirection": "Cena de higienização gerada a partir da arte oficial; sem pessoas, telefone ou resultado documental inventado.",
       "signatureElement": "Combo família em faixa de campanha, conectado ao quiz de orçamento.",
-      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "logoStatus": "CONCEPT_DELIVERED",
       "coverStatus": "BRAND_COMPOSITION",
-      "forbiddenSimilarities": ["popys-conservacao-limpeza", "easy-clean", "bruna-diarista"]
+      "forbiddenSimilarities": [
+        "popys-conservacao-limpeza",
+        "easy-clean",
+        "bruna-diarista"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO"
     },
     "dona-lucy-salgados": {
-      "brandCharacter": ["acolhedor", "artesanal", "generoso", "familiar"],
+      "brandCharacter": [
+        "acolhedor",
+        "artesanal",
+        "generoso",
+        "familiar"
+      ],
       "visualConcept": "Caixa aberta no centro da mesa como convite para compartilhar.",
       "heroComposition": "split-food-editorial-com-caixa-de-salgados",
-      "sectionRhythm": ["desejo", "sabores", "processo-de-pedido", "horario-localidade"],
+      "sectionRhythm": [
+        "desejo",
+        "sabores",
+        "processo-de-pedido",
+        "horario-localidade"
+      ],
       "typographicCharacter": "Serifa calorosa para a marca e sans robusta para ações de delivery.",
       "colorBehavior": "Vermelho abre o apetite, dourado aquece a oferta, creme acolhe e marrom ancora.",
       "imageDirection": "Fotografia gastronômica gerada a partir da foto da embalagem; sem telefone, QR code ou alegação documental.",
       "signatureElement": "Processo em três passos entre cardápio, pedido e entrega.",
-      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "logoStatus": "CONCEPT_DELIVERED",
       "coverStatus": "BRAND_COMPOSITION",
-      "forbiddenSimilarities": ["mimo-salgados-doces", "kitutes-na-mesa", "manu-pasteis"]
+      "forbiddenSimilarities": [
+        "mimo-salgados-doces",
+        "kitutes-na-mesa",
+        "manu-pasteis"
+      ],
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO"
     }
   }
 }

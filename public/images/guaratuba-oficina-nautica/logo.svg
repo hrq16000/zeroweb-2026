@@ -1,12 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Oficina Nautica Guaratuba">
-  <rect width="900" height="300" fill="#10243d"/>
-  <g transform="translate(158,150)">
-    <path d="M0 0c-8-46 6-76 26-76s28 34 6 62z" fill="#ff7a1a"/>
-    <path d="M0 0c40-24 74-20 84-2s-24 40-58 26z" fill="#ff7a1a" opacity=".9"/>
-    <path d="M0 0c-32 34-32 68-14 78s42-14 40-52z" fill="#ff7a1a" opacity=".8"/>
-    <circle cx="0" cy="0" r="16" fill="#10243d" stroke="#ffffff" stroke-width="8"/>
-  </g>
-  <path d="M300 92v116" stroke="#ff7a1a" stroke-width="6"/>
-  <text x="326" y="140" font-family="Arial Narrow,Arial,sans-serif" font-size="58" font-weight="700" letter-spacing="6" fill="#ffffff">OFICINA</text>
-  <text x="326" y="200" font-family="Arial Narrow,Arial,sans-serif" font-size="58" font-weight="700" letter-spacing="6" fill="#8fb6d8">NÁUTICA</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Oficina Náutica Guaratuba</title><desc id="desc">Identidade visual de Oficina Náutica Guaratuba</desc>
+  <rect width="900" height="300" rx="44" fill="#0d344c"/><path d="M0 240C210 180 280 320 510 238S760 176 900 218V300H0Z" fill="#f09b42" opacity=".16"/>
+  <circle cx="150" cy="150" r="98" fill="#f09b42"/><g transform="translate(28 28)" fill="none" stroke="#0d344c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M42 150h160l-32 34H74l-32-34Zm22-18 58-58 58 58M122 74V46M88 132h68"/><path d="M42 202c28-14 54-14 80 0 26-14 52-14 80 0"/></g>
+  <text x="150" y="166" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#0d344c">ON</text>
+  <text x="292" y="132" font-family="Arial,sans-serif" font-size="40" font-weight="800" fill="#fff">Oficina Náutica Guaratuba</text>
+  <text x="294" y="184" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#f09b42">PRESTADORES DE SERVICOS</text>
+  <text x="294" y="226" font-family="Arial,sans-serif" font-size="17" fill="#fff" opacity=".78">Identidade 0WEB · direção visual exclusiva</text></svg>

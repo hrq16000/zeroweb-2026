@@ -917,3 +917,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Validação: 83 projetos; scaffold, boundaries, catálogo, assets, funil e JSON válidos.
 - Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
   ou domínio `chatgpt.site` foi usado.
+# 2026-09-06 — fechamento do backlog de identidade visual
+
+- **Tarefa:** auditoria dos 83 portfolios para localizar contratos de identidade, logos e imagens sociais pendentes.
+- **Stack aplicada:** `0web-skill-router` → `0web-skill-discovery` → `0web-portfolio-art-direction` → `0web-design-system` → `0web-ui-quality-gates`.
+- **Achados:** 11 contratos estavam em `LOGO_PENDING` usando o fallback genérico; 4 estavam em `CONCEPT_PENDING_APPROVAL` apesar de já terem assets conceituais entregues.
+- **Alterações:** marcas SVG art-directed e OGs JPEG refeitos para Almeida Torres, Marmitas do Barreiro, Casa Nativa, Clínica Integrada, Ateliê Encanto da Baía, Oficina Náutica Guaratuba, Reparos do Litoral, Sabores da Baía, Conserta Mirassol, Delícias Caseiras Mirassol e Elétrica Bairro Brasil; 15 contratos marcados como entregues; script reprodutível `scripts/complete-pending-identities.mjs` criado.
+- **Validação:** `validate-portfolio-assets`, `validate-portfolio-logos`, `validate-portfolio-icons`, `validate-portfolio-catalog` e `validate-portfolio-scaffold` aprovados para 83 projetos.
+- **Privacidade:** nenhum telefone, endereço ou `wa.me` entrou nas imagens sociais ou no novo SVG de marca.
