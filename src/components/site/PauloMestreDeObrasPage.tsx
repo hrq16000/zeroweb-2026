@@ -24,16 +24,18 @@ export { PAULO_MESTRE_FAQ };
 
 const quiz = {
   services: [
-    "Fundação e baldrame",
-    "Alvenaria, muros e paredes",
-    "Colunas, vigas e lajes",
-    "Reboco e revestimentos",
-    "Pisos e azulejos",
-    "Reformas e pequenos reparos",
+    "Elétrica",
+    "Hidráulica",
+    "Azulejista",
+    "Pisos e revestimentos",
+    "Pequenas reformas",
+    "Pequenos reparos",
+    "Instalação de portas",
+    "Venda e instalação de janelas",
   ],
   experienceOptions: [
-    "Construção nova",
     "Reforma residencial",
+    "Acabamento ou revestimento",
     "Manutenção ou reparo",
     "Obra comercial",
   ],
@@ -81,26 +83,27 @@ function CTA({ children, tone = "solid" }: { children: ReactNode; tone?: "solid"
 }
 
 const LOGO = "/images/paulo-mestre-de-obras/logo.webp";
+const HERO = "/images/paulo-mestre-de-obras/hero-v2.png";
 
 const services: Array<{ title: string; text: string; icon: typeof Wrench }> = [
   {
-    title: "Fundação e estrutura",
-    text: "Alicerce, baldrame, colunas, vigas, lajes e concretagem para começar a obra com segurança.",
+    title: "Elétrica e hidráulica",
+    text: "Instalações, ajustes e reparos para manter a casa funcionando com segurança e acabamento limpo.",
     icon: Layers,
   },
   {
-    title: "Alvenaria e reboco",
-    text: "Tijolo, bloco, muros, paredes, chapisco, emboço e reboco com alinhamento e prumo conferidos.",
+    title: "Azulejos e revestimentos",
+    text: "Assentamento de azulejos, pisos e revestimentos com nivelamento, recortes e rejunte cuidadoso.",
     icon: Wrench,
   },
   {
-    title: "Pisos e revestimentos",
-    text: "Contrapiso, cerâmica, porcelanato e azulejos assentados com nivelamento e rejunte cuidadoso.",
+    title: "Portas e janelas",
+    text: "Venda e instalação de portas e janelas para atualizar o ambiente com medida e montagem corretas.",
     icon: Ruler,
   },
   {
-    title: "Reformas e reparos",
-    text: "Pequenas reformas, hidráulica, elétrica, portas, janelas, calçadas e manutenção do dia a dia.",
+    title: "Pequenas reformas",
+    text: "Reparos e melhorias gerais para resolver pendências e deixar o ambiente pronto para usar.",
     icon: PaintRoller,
   },
 ];
@@ -144,7 +147,7 @@ const gallery = [
 
 export function PauloMestreDeObrasPage() {
   const logo = useManagedValue("logoUrl", LOGO);
-  const capa = useManagedValue("heroImageUrl", "/images/paulo-mestre-de-obras/capa.webp");
+  const capa = useManagedValue("heroImageUrl", HERO);
   return (
     <div className="min-h-dvh overflow-hidden bg-[#f7f5ef] text-[#14243e]">
       <header className="sticky top-0 z-30 border-b border-white/15 bg-[#101d35]/95 px-5 py-3 text-white backdrop-blur lg:px-8">
@@ -199,7 +202,7 @@ export function PauloMestreDeObrasPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-sm font-bold uppercase tracking-[.2em] text-[#f5b51b]"
               >
-                Pedreiro · azulejista · construção civil
+                Pedreiro · azulejista · reformas e reparos
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
@@ -207,12 +210,12 @@ export function PauloMestreDeObrasPage() {
                 transition={{ delay: 0.08 }}
                 className="mt-5 font-display text-5xl font-bold leading-[.98] sm:text-7xl"
               >
-                Sua obra bem feita, do{" "}
-                <span className="text-[#f5b51b]">alicerce ao acabamento.</span>
+                O reparo que sua casa precisa, com{" "}
+                <span className="text-[#f5b51b]">acabamento de verdade.</span>
               </motion.h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-[#dbe4ef]">
-                Serviços gerais de construção civil, reformas e reparos em Curitiba e região, com
-                combinado claro, obra organizada e atenção aos detalhes que aparecem no fim.
+                Serviços de pedreiro e azulejista em Curitiba e região: elétrica, hidráulica,
+                pisos, revestimentos, portas, janelas e pequenas reformas com orçamento claro.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <CTA>
@@ -247,7 +250,7 @@ export function PauloMestreDeObrasPage() {
             >
               <PortfolioImage
                 src={capa}
-                alt="Serviços de pedreiro e azulejista de Paulo Mestre de Obras"
+                alt="Profissional assentando revestimento em uma reforma residencial"
                 priority
                 width={1084}
                 height={1600}
@@ -263,7 +266,7 @@ export function PauloMestreDeObrasPage() {
               O que fazemos
             </p>
             <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">
-              Uma solução completa para construir, reformar e reparar.
+              Serviços gerais para construir, reformar e resolver o que ficou pendente.
             </h2>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {services.map(({ title, text, icon: Icon }, i) => (
@@ -288,7 +291,7 @@ export function PauloMestreDeObrasPage() {
               Etapas na prática
             </p>
             <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold">
-              Do bloco assentado ao rodapé alinhado.
+              Do primeiro reparo ao acabamento alinhado.
             </h2>
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {gallery.map((item) => (
