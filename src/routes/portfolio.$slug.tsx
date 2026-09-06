@@ -238,6 +238,11 @@ const PapelemiPersonalizadosPage = lazy(() =>
     default: m.PapelemiPersonalizadosPage,
   })),
 );
+const MaximosCabeleireirosPage = lazy(() =>
+  import("@/components/site/MaximosCabeleireirosPage").then((m) => ({
+    default: m.MaximosCabeleireirosPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -492,6 +497,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEasyClean = loaderData?.slug === "easy-clean";
     const isJsEletrica = loaderData?.slug === "js-eletrica-manutencao";
     const isPapelemi = loaderData?.slug === "papelemi-personalizados";
+    const isMaximos = loaderData?.slug === "maximos-cabeleireiros";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -508,6 +514,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "JS Elétrica e Manutenção em Curitiba e região: elétrica residencial, comercial, predial e industrial, padrão Copel, energia solar, ar-condicionado, motores, bombas e iluminação."
       : isPapelemi
       ? "PapeLemi Papelaria Personalizada: papelaria criativa, encadernação pessoal e brindes corporativos feitos com afeto."
+      : isMaximos
+      ? "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e beleza pensada para a sua rotina."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1113,6 +1121,9 @@ function PortfolioPrototypePage() {
           <JsEletricaManutencaoPage />
         ) : slug === "papelemi-personalizados" ? (
           <PapelemiPersonalizadosPage />
+
+        ) : slug === "maximos-cabeleireiros" ? (
+          <MaximosCabeleireirosPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

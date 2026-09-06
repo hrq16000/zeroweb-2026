@@ -511,6 +511,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "maximos-cabeleireiros",
+    siteName: "Maximos Cabeleireiros",
+    vertical: "beleza",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

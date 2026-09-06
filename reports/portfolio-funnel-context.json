@@ -1,15 +1,15 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T08:52:19.444Z",
-    "audited": 76,
+    "generatedAt": "2026-09-06T09:17:32.288Z",
+    "audited": 77,
     "pass": 74,
-    "warning": 2,
+    "warning": 3,
     "fail": 0,
     "byIntent": {
       "pedido": 21,
       "orcamento": 26,
       "solicitacao": 1,
-      "agendamento": 12,
+      "agendamento": 13,
       "contato": 6,
       "reserva": 4,
       "diagnostico": 6
@@ -1006,6 +1006,24 @@
       "nextStepBody": "Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada.",
       "primaryCtaLabel": "Fale com a empresa",
       "whatsappIntent": "pedido",
+      "status": "WARNING",
+      "issues": [
+        {
+          "code": "PORTFOLIO_FUNNEL_FALLBACK",
+          "detail": "sem contrato próprio — fallback neutro"
+        }
+      ]
+    },
+    {
+      "slug": "maximos-cabeleireiros",
+      "businessName": "Maximos Cabeleireiros",
+      "segment": "beleza",
+      "intent": "agendamento",
+      "source": "SEGMENT_FALLBACK",
+      "nextStepTitle": "Fale com Maximos Cabeleireiros sobre o que você precisa.",
+      "nextStepBody": "Conte sua necessidade e os detalhes importantes para Maximos Cabeleireiros.",
+      "primaryCtaLabel": "Fale com a empresa",
+      "whatsappIntent": "agendamento",
       "status": "WARNING",
       "issues": [
         {

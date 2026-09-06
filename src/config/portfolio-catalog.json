@@ -1698,5 +1698,24 @@
     "fallbackImage": "/images/papelemi-personalizados/logo.png",
     "metrics": "Loja online",
     "summary": "PapeLemi transforma papel em memórias afetivas com encadernação pessoal, cadernetas, agendas, blocos, planners e brindes corporativos."
+  },
+  {
+    "slug": "maximos-cabeleireiros",
+    "clientKey": "maximos-cabeleireiros",
+    "title": "Maximos Cabeleireiros",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["cabeleireiro", "cortes", "coloracao", "tratamentos", "beleza", "jardim-italia"],
+    "live": true,
+    "subtitle": "Cortes, cor e cuidados com intenção",
+    "location": "Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/maximos-cabeleireiros/hero.png",
+    "fallbackImage": "/images/maximos-cabeleireiros/logo.png",
+    "metrics": "Agendamento por WhatsApp",
+    "summary": "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e finalizações para diferentes momentos e rotinas."
   }
 ]

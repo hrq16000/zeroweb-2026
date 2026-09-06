@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T08:52:17.837Z",
+  "generatedAt": "2026-09-06T09:17:12.139Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -46,6 +46,7 @@
     "woodhouse-hamburgueres": "SIGNATURE",
     "no-brilho-higienizacao": "SIGNATURE",
     "hbk-iluminacao-led": "SIGNATURE",
+    "maximos-cabeleireiros": "PREMIUM",
     "heloa-gas": "SIGNATURE",
     "bruna-diarista": "PREMIUM",
     "popys-conservacao-limpeza": "PREMIUM",
@@ -80,8 +81,8 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 76,
-    "premium": 39,
+    "total": 77,
+    "premium": 40,
     "signature": 21,
     "baseline": 16,
     "static": 0

@@ -1051,6 +1051,23 @@
       "desktopBehavior": "hero editorial abre o atelie pela direita; colecao entra em mosaico de pecas",
       "tabletBehavior": "hero empilhado e grade 2 colunas",
       "mobileBehavior": "sem deslocamento no toque"
+    },
+    "maximos-cabeleireiros": {
+      "intensity": "BALANCED",
+      "preset": "LUXURY",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero abre da bancada para o espaço negativo; serviços entram como etapas do ritual",
+      "tabletBehavior": "hero empilhado e trilho de serviços em três colunas",
+      "mobileBehavior": "sem deslocamento no toque; CTA permanece visível após o hero"
     }
   },
   "decisions": {
