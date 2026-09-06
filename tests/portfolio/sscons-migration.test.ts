@@ -26,10 +26,27 @@ const read = (p: string) => readFileSync(resolve(root, p), "utf8");
 const sha256 = (p: string) =>
   createHash("sha256").update(readFileSync(resolve(root, p))).digest("hex");
 
-/** Hashes dos 8 assets originais publicados em sscons.lovable.app (inventário /tmp/sscons). */
+/**
+ * SHA-256 dos 8 assets originais publicados em sscons.lovable.app, copiados
+ * byte a byte (ver docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md).
+ */
 const ORIGINAL_ASSET_HASHES: Record<string, string> = {
   "public/images/sscons/hero.jpg":
-    "fe539ee9fc0f6c9c4b5cd8b3ea0e72b4c7c0d5a8a1b52c4c3a1b9a9c1e6f8426",
+    "fe539ee9e975e56793663f9e9bfc27ee1a8dba0efde8b919d313c50117828426",
+  "public/images/sscons/sobre.jpg":
+    "00039028ed8e006364efa59bcc1aa38f2627e26297683623faa5bc4085c0ee11",
+  "public/images/sscons/projeto-01.jpg":
+    "8c4ff9119bc49e9005571c7fc4a20352732f57af51a7e153169b7c2969c15ea1",
+  "public/images/sscons/projeto-02.jpg":
+    "63a527984c49367c1dd2b0e3f60f547b5ecd1063c4f197ce4d5ae6a547025e81",
+  "public/images/sscons/projeto-03.jpg":
+    "083bd61464abaf394365988106af6c2055459711d1d7a6077e29770e1ddd8814",
+  "public/images/sscons/projeto-04.jpg":
+    "5b910facfa46bdc87330914d30bc596f891d268fb6045a05fa4ce93e1817d773",
+  "public/images/sscons/projeto-05.jpg":
+    "23fc4793c0bd156e2c5134f9c3a92ee811d07bd8481d67fae6ba79283a67913b",
+  "public/images/sscons/projeto-06.jpg":
+    "9fcde083bb9da96d7bce69b7711eba0dc021567470eabb0518f793bc44941141",
 };
 
 const component = read("src/components/site/SsConsPage.tsx");
