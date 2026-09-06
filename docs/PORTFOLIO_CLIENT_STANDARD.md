@@ -184,5 +184,26 @@ alvos de toque de 44px e respeito a `prefers-reduced-motion`.
 `public.portfolio_web_vitals` (RLS ativa, acesso público revogado, escrita e
 leitura apenas por `service_role`, índices por slug/métrica/data), com fallback
 em memória quando o banco está indisponível. O painel `/painel-web-vitals`
-(restrito a administradores) mostra p75 por métrica, volume de amostras e
-alertas de regressão contra os budgets 2500 ms / 0,1 / 200 ms.
+  (restrito a administradores) mostra p75 por métrica, volume de amostras e
+  alertas de regressão contra os budgets 2500 ms / 0,1 / 200 ms.
+
+## 10. Padrão de interface responsiva e acessível
+
+Este contrato vale para projetos existentes, novos e futuras atualizações:
+
+- estrutura semântica clara com landmarks, uma hierarquia de títulos por página,
+  labels e atributos ARIA somente quando necessários;
+- layout responsivo construído com CSS Flexbox e Grid, sem dependência de
+  coordenadas fixas ou overflow horizontal acidental;
+- espaçamento, alinhamento e contraste definidos por identidade do cliente,
+  mantendo leitura confortável em 393 px, tablet e desktop;
+- transições e keyframes curtos, sempre respeitando prefers-reduced-motion;
+  efeitos de scroll não podem esconder conteúdo ou impedir a navegação;
+- menus, sliders, modais e hover devem ter equivalente por teclado, foco
+  visível, Escape quando aplicável e alvos de toque de pelo menos 44 px;
+- imagens abaixo da dobra usam lazy loading, dimensões explícitas e
+  PortfolioImage; SVGs devem ser semânticos ou marcados como decorativos;
+- JavaScript controla comportamento e estados, não substitui HTML semântico;
+  qualquer CTA continua tendo fallback navegável sem JavaScript;
+- cada release deve verificar console, mobile, teclado, reduced motion,
+  acessibilidade, privacidade e Web Vitals antes de ser considerada publicada.
