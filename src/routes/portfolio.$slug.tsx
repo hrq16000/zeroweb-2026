@@ -834,6 +834,51 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       },
                     ]
                   : []),
+                ...(isSscons
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "S&S Construções",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/sscons/logo.png"),
+                        address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Curitiba",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          {
+                            "@type": "AdministrativeArea",
+                            name: "Região Metropolitana de Curitiba",
+                          },
+                        ],
+                        knowsAbout: [
+                          "Carpintaria",
+                          "Obras e construção civil",
+                          "Alvenaria",
+                          "Pintura",
+                          "Reformas",
+                          "Assentamento de azulejos",
+                        ],
+                        makesOffer: [
+                          "Carpintaria",
+                          "Obras",
+                          "Alvenaria",
+                          "Pintura",
+                          "Reforma",
+                          "Azulejo",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
                 ...(isPauloMestre
                   ? [
                       {
