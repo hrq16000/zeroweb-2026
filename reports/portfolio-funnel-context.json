@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-05T23:20:57.842Z",
-    "audited": 68,
-    "pass": 68,
+    "generatedAt": "2026-09-06T05:21:56.431Z",
+    "audited": 69,
+    "pass": 69,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 19,
-      "orcamento": 21,
+      "orcamento": 22,
       "solicitacao": 1,
       "agendamento": 11,
       "contato": 6,
@@ -897,6 +897,19 @@
       "nextStepBody": "Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega.",
       "primaryCtaLabel": "Fazer pedido",
       "whatsappIntent": "pedido",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "sscons",
+      "businessName": "S&S Construções",
+      "segment": "servicos",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Da fundação ao acabamento, a obra começa com um bom planejamento.",
+      "nextStepBody": "Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento.",
+      "primaryCtaLabel": "Solicitar orçamento",
+      "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
     }

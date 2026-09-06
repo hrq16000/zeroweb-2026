@@ -2483,7 +2483,7 @@
         "STRUCTURE_SIMILARITY": 7.6,
         "SECTION_ORDER_SIMILARITY": 62.5,
         "COMPONENT_SIMILARITY": 26.1,
-        "STYLE_SIMILARITY": 25.5,
+        "STYLE_SIMILARITY": 26.2,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3.8,
         "IDENTITY_SIMILARITY": 0
@@ -2501,10 +2501,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "20e3e09acd3d26fb",
+        "skeletonHash": "b4eac96ec0e039c7",
         "structureHash": "0e4b8d93d6de3d54",
         "sectionCount": 9,
-        "lines": 1000
+        "lines": 1004
       }
     },
     {

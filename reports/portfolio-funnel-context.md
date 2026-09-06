@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-05T23:20:57.842Z
+Gerado em 2026-09-06T05:21:56.431Z
 
-- Projetos auditados: **68**
-- PASS: **68** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (19) · orcamento (21) · solicitacao (1) · agendamento (11) · contato (6) · reserva (4) · diagnostico (6)
+- Projetos auditados: **69**
+- PASS: **69** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (19) · orcamento (22) · solicitacao (1) · agendamento (11) · contato (6) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -76,3 +76,4 @@ Gerado em 2026-09-05T23:20:57.842Z
 | jc-revestimentos | construcao | orcamento | Informe o produto, o ambiente e a metragem para organizar a orientação e o orçamento. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | hbk-iluminacao-led | construcao | orcamento | Conte o ambiente, o tipo de projeto e o que deseja iluminar para organizar sua cotação. | Solicitar cotação | PROJECT_CONTRACT | PASS | — |
 | heloa-gas | comercios | pedido | Escolha entre botijão de gás e água mineral, informe o endereço e combine a entrega. | Fazer pedido | PROJECT_CONTRACT | PASS | — |
+| sscons | servicos | orcamento | Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
