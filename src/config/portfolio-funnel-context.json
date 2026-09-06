@@ -572,5 +572,12 @@
     "nextStepBody": "Conte os itens que deseja higienizar e monte o combo família com a equipe.",
     "primaryCtaLabel": "Montar meu combo",
     "theme": "gold"
+  },
+  "dona-lucy-salgados": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu pedido começa com uma escolha gostosa.",
+    "nextStepBody": "Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery.",
+    "primaryCtaLabel": "Fazer pedido",
+    "theme": "pink"
   }
 }

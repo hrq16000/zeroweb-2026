@@ -268,6 +268,11 @@ const ManiaDeLimpezaPage = lazy(() =>
     default: m.ManiaDeLimpezaPage,
   })),
 );
+const DonaLucySalgadosPage = lazy(() =>
+  import("@/components/site/DonaLucySalgadosPage").then((m) => ({
+    default: m.DonaLucySalgadosPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -528,6 +533,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isKitutesNaMesa = loaderData?.slug === "kitutes-na-mesa";
     const isEnoelPortas = loaderData?.slug === "enoel-portas";
     const isManiaDeLimpeza = loaderData?.slug === "mania-de-limpeza";
+    const isDonaLucySalgados = loaderData?.slug === "dona-lucy-salgados";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -556,6 +562,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Enoel Portas: colocação de portas de madeira, regulagem, vistas e caxilhos em Curitiba e região."
       : isManiaDeLimpeza
       ? "Mania de Limpeza Higienização: combo família para sofás, colchões, tapetes e estofados em Curitiba e região."
+      : isDonaLucySalgados
+      ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1178,6 +1186,8 @@ function PortfolioPrototypePage() {
           <EnoelPortasPage />
         ) : slug === "mania-de-limpeza" ? (
           <ManiaDeLimpezaPage />
+        ) : slug === "dona-lucy-salgados" ? (
+          <DonaLucySalgadosPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

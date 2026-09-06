@@ -668,5 +668,12 @@
     "coverSource": "public/images/mania-de-limpeza/hero.png",
     "coverFocal": { "x": 0.72, "y": 0.5 },
     "notes": "Cena de higienização gerada a partir da referência oficial, sem telefone, pessoa ou alegação documental."
+  },
+  "dona-lucy-salgados": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/dona-lucy-salgados/hero.png",
+    "coverFocal": { "x": 0.72, "y": 0.5 },
+    "notes": "Fotografia gastronômica gerada a partir da embalagem oficial, sem telefone, QR code ou alegação documental."
   }
 }

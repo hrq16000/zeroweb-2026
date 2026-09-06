@@ -553,6 +553,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "dona-lucy-salgados",
+    vertical: "restaurantes",
+    siteName: "Dona Lucy Salgados · Araucária — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

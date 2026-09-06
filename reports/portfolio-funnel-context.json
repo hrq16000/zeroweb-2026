@@ -1,12 +1,12 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T19:25:45.705Z",
-    "audited": 82,
-    "pass": 82,
+    "generatedAt": "2026-09-06T19:47:44.847Z",
+    "audited": 83,
+    "pass": 83,
     "warning": 0,
     "fail": 0,
     "byIntent": {
-      "pedido": 21,
+      "pedido": 22,
       "orcamento": 29,
       "solicitacao": 1,
       "agendamento": 14,
@@ -1079,6 +1079,19 @@
       "nextStepBody": "Conte os itens que deseja higienizar e monte o combo família com a equipe.",
       "primaryCtaLabel": "Montar meu combo",
       "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "dona-lucy-salgados",
+      "businessName": "Dona Lucy Salgados",
+      "segment": "restaurantes",
+      "intent": "pedido",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu pedido começa com uma escolha gostosa.",
+      "nextStepBody": "Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery.",
+      "primaryCtaLabel": "Fazer pedido",
+      "whatsappIntent": "pedido",
       "status": "PASS",
       "issues": []
     }

@@ -4,11 +4,11 @@
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
   "generatedAt": "2026-09-06",
   "summary": {
-    "total": 82,
-    "valid": 44,
+    "total": 83,
+    "valid": 45,
     "pending": 38,
     "byStatus": {
-      "VALID": 44,
+      "VALID": 45,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
@@ -264,6 +264,19 @@
       "reason": null,
       "cardValid": true,
       "businessName": "D’Lara Pizzaria, Esfiharia e Hamburgueria",
+      "segment": "restaurantes"
+    },
+    {
+      "slug": "dona-lucy-salgados",
+      "asset": "public/images/dona-lucy-salgados/hero.png",
+      "catalogImage": "/images/dona-lucy-salgados/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Dona Lucy Salgados",
       "segment": "restaurantes"
     },
     {

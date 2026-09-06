@@ -9,7 +9,8 @@ export const PORTFOLIO_CLIENT_KEYS = [
   
   
   
-  "mania-de-limpeza","enoel-portas","easy-clean","btb-construcao","heloa-gas","hbk-iluminacao-led","jc-revestimentos","raphael-construcoes","ton-e-cor","denise-gomes-psicologa","embalar-embalagens","simone-lacerda-vaz",
+  
+  "dona-lucy-salgados","mania-de-limpeza","enoel-portas","easy-clean","btb-construcao","heloa-gas","hbk-iluminacao-led","jc-revestimentos","raphael-construcoes","ton-e-cor","denise-gomes-psicologa","embalar-embalagens","simone-lacerda-vaz",
   "fernanda-amaral-drywall",
   "manu-pasteis",
   "lj-cleaning",

@@ -479,6 +479,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma avaliação primeiro"
     ]
   },
+  "dona-lucy-salgados": {
+    "services": [
+      "Combo de salgados a partir de R$ 11,99",
+      "Salgados fritos",
+      "Churros de doce de leite",
+      "Encomenda para evento",
+      "Entrega agendada"
+    ],
+    "experienceOptions": [
+      "Domingo em família",
+      "Festa ou comemoração",
+      "Reunião ou encontro",
+      "Quero só experimentar"
+    ],
+    "periodOptions": [
+      "Hoje",
+      "Terça a domingo",
+      "Quero agendar outro horário"
+    ],
+    "timingOptions": [
+      "Quero pedir agora",
+      "Quero consultar o cardápio",
+      "Quero fazer uma encomenda"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que vai deixar seu domingo melhor?",
+      "experience": "Qual é a ocasião?",
+      "period": "Quando você precisa?",
+      "timing": "Qual o próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: quantidade, sabores, endereço ou horário desejado."
+  },
   "easy-clean": {
     "services": [
       "Sofá ou estofado",

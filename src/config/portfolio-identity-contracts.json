@@ -182,6 +182,19 @@
       "logoStatus": "CONCEPT_PENDING_APPROVAL",
       "coverStatus": "BRAND_COMPOSITION",
       "forbiddenSimilarities": ["popys-conservacao-limpeza", "easy-clean", "bruna-diarista"]
+    },
+    "dona-lucy-salgados": {
+      "brandCharacter": ["acolhedor", "artesanal", "generoso", "familiar"],
+      "visualConcept": "Caixa aberta no centro da mesa como convite para compartilhar.",
+      "heroComposition": "split-food-editorial-com-caixa-de-salgados",
+      "sectionRhythm": ["desejo", "sabores", "processo-de-pedido", "horario-localidade"],
+      "typographicCharacter": "Serifa calorosa para a marca e sans robusta para ações de delivery.",
+      "colorBehavior": "Vermelho abre o apetite, dourado aquece a oferta, creme acolhe e marrom ancora.",
+      "imageDirection": "Fotografia gastronômica gerada a partir da foto da embalagem; sem telefone, QR code ou alegação documental.",
+      "signatureElement": "Processo em três passos entre cardápio, pedido e entrega.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["mimo-salgados-doces", "kitutes-na-mesa", "manu-pasteis"]
     }
   }
 }

@@ -633,6 +633,43 @@
       "blocking": []
     },
     {
+      "slug": "dona-lucy-salgados",
+      "clientKey": "dona-lucy-salgados",
+      "title": "Dona Lucy Salgados",
+      "segment": "restaurantes",
+      "city": "Araucária",
+      "state": "PR",
+      "summary": "Dona Lucy Salgados prepara salgados fritos e churros de doce de leite para delivery e encomendas em Araucária.",
+      "subtitle": "Salgados delivery fritos na hora",
+      "image": "/images/dona-lucy-salgados/hero.png",
+      "icon": "",
+      "socialImage": "",
+      "socialVersion": "",
+      "componentFile": "src/components/site/DonaLucySalgadosPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/dona-lucy-salgados",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/dona-lucy-salgados/hero.png",
+        "/images/dona-lucy-salgados/logo.png",
+        "/images/dona-lucy-salgados/social.png"
+      ],
+      "shareCopy": "🍽️ A Dona Lucy Salgados ganhou uma presença digital nova!\n\nSalgados fritos na hora, churros de doce de leite, delivery e encomendas em Araucária, com combos a partir de R$ 11,99.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/dona-lucy-salgados\n\n📲 Confira o cardápio e faça seu pedido.\n\n#DonaLucy #Salgados #Delivery #Araucaria #Churros #0WEB",
+      "published": true,
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_LOGO_MISSING",
+        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+      ],
+      "blocking": [
+        "PORTFOLIO_LOGO_MISSING",
+        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+      ]
+    },
+    {
       "slug": "dyzpromo",
       "clientKey": "dyzpromo",
       "title": "D.Y.Z Promo",

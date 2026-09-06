@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T19:25:45.705Z
+Gerado em 2026-09-06T19:47:44.847Z
 
-- Projetos auditados: **82**
-- PASS: **82** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (21) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
+- Projetos auditados: **83**
+- PASS: **83** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (22) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -90,3 +90,4 @@ Gerado em 2026-09-06T19:25:45.705Z
 | kitutes-na-mesa | restaurantes | orcamento | Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso. | Montar orçamento | PROJECT_CONTRACT | PASS | — |
 | enoel-portas | construcao | orcamento | Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |
 | mania-de-limpeza | servicos | orcamento | Conte os itens que deseja higienizar e monte o combo família com a equipe. | Montar meu combo | PROJECT_CONTRACT | PASS | — |
+| dona-lucy-salgados | restaurantes | pedido | Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. | Fazer pedido | PROJECT_CONTRACT | PASS | — |

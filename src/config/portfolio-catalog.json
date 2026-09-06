@@ -1812,5 +1812,24 @@
     "fallbackImage": "/images/mania-de-limpeza/social-og.jpg",
     "metrics": "Combo a partir de 3 itens",
     "summary": "Mania de Limpeza Higienização oferece limpeza profissional de sofás, colchões, tapetes e estofados com combo família."
+  },
+  {
+    "slug": "dona-lucy-salgados",
+    "clientKey": "dona-lucy-salgados",
+    "title": "Dona Lucy Salgados",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Araucária",
+    "state": "PR",
+    "tags": ["salgados", "delivery", "churros", "encomendas", "araucaria"],
+    "live": true,
+    "subtitle": "Salgados delivery fritos na hora",
+    "location": "Campina da Barra · Araucária — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/dona-lucy-salgados/hero.png",
+    "fallbackImage": "/images/dona-lucy-salgados/social-og.jpg",
+    "metrics": "Combos a partir de R$ 11,99",
+    "summary": "Dona Lucy Salgados prepara salgados fritos e churros de doce de leite para delivery e encomendas em Araucária."
   }
 ]

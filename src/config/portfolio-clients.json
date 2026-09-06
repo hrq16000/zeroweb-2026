@@ -1045,5 +1045,24 @@
       "source": "Arte promocional, serviços, Instagram e catálogo fornecidos pelo cliente nesta conversa",
       "reference": "Arte promocional fornecida pelo cliente nesta conversa"
     }
+  },
+  {
+    "clientKey": "dona-lucy-salgados",
+    "slug": "dona-lucy-salgados",
+    "siteName": "Dona Lucy Salgados",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/DonaLucySalgadosPage.tsx",
+    "assetsDir": "public/images/dona-lucy-salgados",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/dona-lucy-salgados.md",
+    "funnelRecipientConfigured": false,
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Arte, serviços, horário, endereço e cardápio fornecidos pelo cliente nesta conversa",
+      "reference": "Foto da embalagem fornecida pelo cliente nesta conversa"
+    }
   }
 ]

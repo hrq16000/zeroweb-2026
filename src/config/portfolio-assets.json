@@ -1004,6 +1004,18 @@
         "ctaHref": "#combo"
       },
       "socialVersion": "18fb973e"
+    },
+    "dona-lucy-salgados": {
+      "icon": "/images/dona-lucy-salgados/logo.png",
+      "socialImage": "/images/dona-lucy-salgados/social-og.jpg",
+      "proof": {
+        "eyebrow": "Dona Lucy Salgados · Delivery",
+        "title": "Seu domingo merece um combo quentinho.",
+        "description": "Salgados fritos na hora e churros de doce de leite em Araucária.",
+        "ctaLabel": "Fazer pedido",
+        "ctaHref": "#como-pedir"
+      },
+      "socialVersion": "ef6ba9f9"
     }
   }
 }

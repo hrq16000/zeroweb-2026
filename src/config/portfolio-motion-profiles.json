@@ -1153,6 +1153,23 @@
       "desktopBehavior": "hero abre do escuro para o ambiente renovado; combo recebe elevação curta",
       "tabletBehavior": "split vira pilha preservando oferta e contraste",
       "mobileBehavior": "sem deslocamento no toque; CTA e iframe permanecem acessíveis"
+    },
+    "dona-lucy-salgados": {
+      "intensity": "BALANCED",
+      "preset": "WARM_DELIVERY",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero revela a caixa como convite; passos entram como sequência do pedido",
+      "tabletBehavior": "split vira pilha preservando foto e cardápio",
+      "mobileBehavior": "sem deslocamento no toque; botões de pedido ficam sempre alcançáveis"
     }
   },
   "decisions": {

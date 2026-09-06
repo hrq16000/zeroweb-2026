@@ -900,3 +900,20 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   apresentados durante o atendimento seguro.
 - Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
   ou domínio `chatgpt.site` foi usado.
+
+## 2026-09-06 — Dona Lucy Salgados (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: `/portfolio/dona-lucy-salgados`, experiência food-delivery autoral com
+  hero gastronômico, combos a partir de R$ 11,99, processo de pedido, horários,
+  endereço e link oficial do InstaDelivery.
+- Imagens: hero, logo e social OG gerados a partir da embalagem enviada, sem telefone
+  ou QR code no bundle público.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy, seed administrativo e funil.
+- Fonte externa: InstaDelivery consultado; como o catálogo depende de JavaScript,
+  nenhum item não confirmado foi inventado.
+- Validação: 83 projetos; scaffold, boundaries, catálogo, assets, funil e JSON válidos.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.
