@@ -898,6 +898,23 @@
       "tabletBehavior": "KEEP",
       "mobileBehavior": "SIMPLIFY",
       "wave": "onda5"
+    },
+    "sscons": {
+      "intensity": "EXPRESSIVE",
+      "preset": "CINEMATIC",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "clip",
+      "textReveal": "word",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero em camadas (selo → título palavra a palavra → subtítulo → CTAs), grade de serviços em stagger, galeria e foto institucional com revelação por máscara",
+      "tabletBehavior": "mesma sequência; grade de serviços em 2 colunas, galeria em 2 colunas",
+      "mobileBehavior": "revelações mantidas com distância menor; lift desativado no toque; lightbox com navegação por botões"
     }
   },
   "decisions": {
@@ -1288,6 +1305,24 @@
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
+    },
+    "sscons": {
+      "wave": "MIGRATION_SSCONS",
+      "segment": "construção civil",
+      "motionIntent": "SOLIDEZ",
+      "whyThisMotion": "A S&S vende solidez e acabamento: o hero entra em camadas ordenadas (como etapas de obra), as imagens abrem por máscara como quem revela um acabamento pronto, e os cartões elevam com brilho dourado — a assinatura carvão + dourado do site original.",
+      "signatureMoments": {
+        "hero": "Título Playfair entrando palavra a palavra, com 'excelência' em gradiente dourado",
+        "section": "Grade de seis serviços em stagger de grade; destaques com ✦ e cartão escuro",
+        "interaction": "Galeria com revelação por máscara e lightbox com teclado (ESC, setas) e contador"
+      },
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "contadores",
+        "loops decorativos"
+      ],
+      "performanceNote": "Somente transform/opacity/clip-path via primitives; hero WebP responsivo (768/1280/1920) como único LCP priority; galeria lazy com variantes 480/800."
     }
   }
 }

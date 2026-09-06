@@ -454,6 +454,14 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   },
   { slug: "hbk-iluminacao-led", vertical: "prestadores-de-servicos", siteName: "HBK Iluminação LED Atacadão", kind: "prototype", indexable: true },
   { slug: "heloa-gas", vertical: "comercios", siteName: "Heloá Gás · Piraquara — PR", kind: "prototype", indexable: true },
+  // Migração autêntica do projeto S&S Construções (issue #60).
+  {
+    slug: "sscons",
+    vertical: "prestadores-de-servicos",
+    siteName: "S&S Construções · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

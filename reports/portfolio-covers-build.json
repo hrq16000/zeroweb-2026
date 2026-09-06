@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-09-05T15:07:32.209Z",
+  "generatedAt": "2026-09-06T04:57:29.604Z",
   "ok": 1,
   "failed": [],
   "results": [
     {
-      "slug": "eisenfer-tubos-acos",
+      "slug": "sscons",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/eisenfer-tubos-acos/telhas.webp",
+      "source": "public/images/sscons/hero.jpg",
       "crop": {
-        "left": 0,
-        "top": 371,
-        "width": 1024,
-        "height": 640
+        "left": 96,
+        "top": 0,
+        "width": 1728,
+        "height": 1080
       },
       "focal": {
         "x": 0.5,
-        "y": 0.45
+        "y": 0.55
       },
-      "out": "/images/eisenfer-tubos-acos/capa-card.jpg",
-      "bytes": 147268,
-      "dimensions": "1024x640",
+      "out": "/images/sscons/capa-card.jpg",
+      "bytes": 181303,
+      "dimensions": "1600x1000",
       "lowRes": false
     }
   ]

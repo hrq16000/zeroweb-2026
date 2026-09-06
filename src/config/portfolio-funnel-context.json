@@ -474,5 +474,12 @@
     "nextStepBody": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
     "primaryCtaLabel": "Fazer meu pedido",
     "theme": "navy"
+  },
+  "sscons": {
+    "intent": "orcamento",
+    "nextStepTitle": "Da fundação ao acabamento, a obra começa com um bom planejamento.",
+    "nextStepBody": "Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "gold"
   }
 }

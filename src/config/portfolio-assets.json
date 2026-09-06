@@ -836,6 +836,18 @@
         "ctaHref": "#produtos"
       },
       "socialVersion": "46df6460"
+    },
+    "sscons": {
+      "icon": "/images/sscons/logo.png",
+      "socialImage": "/images/sscons/social.jpg",
+      "proof": {
+        "eyebrow": "S&S Construções",
+        "title": "Planejando uma obra ou reforma?",
+        "description": "Conte o serviço e receba os próximos passos do orçamento com a equipe da S&S.",
+        "ctaLabel": "Ver serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "sscons-v1"
     }
   }
 }

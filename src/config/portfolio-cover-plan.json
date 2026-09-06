@@ -362,6 +362,17 @@
         "COVER_NO_DEDICATED_ASSET"
       ],
       "notes": "R11: recorte editorial 16:10 da faixa de produtos do material proprio (telhas metalicas reais). Rodape com telefone/site do flyer fica fora do enquadramento. Sem PII, sem preco."
+    },
+    "sscons": {
+      "source": "public/images/sscons/hero.jpg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "issues": [
+        "COVER_NOT_DEDICATED"
+      ],
+      "notes": "Migração S&S (issue #60): recorte 16:10 do hero original do cliente. Sem PII, sem preço, sem marca de terceiros."
     }
   }
 }

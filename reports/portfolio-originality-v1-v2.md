@@ -50,6 +50,7 @@ originalidade: nenhuma página pública mudou.
 | premium-envelopamentos | jc-revestimentos | jc-revestimentos | 31 | 30 | -1 | não | METRIC_CORRECTION | 28.6 | 7.5 |
 | refrigeracao-maresia | liz-moraes-nail-designer | liz-moraes-nail-designer | 51 | 50 | -1 | não | METRIC_CORRECTION | 37.5 | 3.8 |
 | santos-montador-de-moveis | diego-montador-moveis | diego-montador-moveis | 42 | 41 | -1 | não | METRIC_CORRECTION | 16.7 | 2.5 |
+| sscons | jc-revestimentos | jc-revestimentos | 25 | 24 | -1 | não | METRIC_CORRECTION | 15.4 | 3.8 |
 | vila-da-capivara | mp-festas-eventos | mp-festas-eventos | 54 | 53 | -1 | não | METRIC_CORRECTION | 25 | 6.4 |
 | ag-electrical-services | lk-alvenaria | lk-alvenaria | 51 | 51 | 0 | não | UNCHANGED | 0 | 3.5 |
 | aguia-sul-sinalizacao | acai-total-araucaria | diego-montador-moveis | 59 | 59 | 0 | SIM | UNCHANGED | 20 | 7.5 |

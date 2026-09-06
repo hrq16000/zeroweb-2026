@@ -832,3 +832,21 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Gate `check:portfolio-runtime-overrides` no prebuild + matriz por componente.
 - Validação: SSR real com override e rollback, 302 testes, build e privacidade verdes.
 - Pendente: wizard de novo projeto e componente managed (Frentes K–Q).
+
+## 2026-09-06 — Migração autêntica S&S Construções → `/portfolio/sscons` (issue #60)
+- Gatilho: `NEW_PROJECT` com material real do cliente; lacre do `/portfolio` preservado
+  (nenhuma das 68 páginas existentes alterada).
+- Skills: 0web-skill-router → PORTFOLIO_NEW_CLIENT_PLAYBOOK → 0web-design-system
+  (identidade carvão/dourado + Playfair/Inter do cliente) → 0web-ui-quality-gates.
+- Achados: projeto de origem não compartilhado no workspace (referência publicada usada
+  read-only); origem expunha telefone/`wa.me`, depoimentos sem fonte e “24 horas”.
+- Mudanças: 8 assets originais preservados byte a byte (SHA-256 testados), página isolada
+  com lightbox acessível, funil `funnel-sscons` idempotente, JSON-LD sem telefone,
+  registros canônicos + gerados (69 projetos), 12 testes focados.
+- Validação: boundaries/scaffold/catalog/meta/assets/logos/quiz/admin-seed OK (69);
+  originality 0 clone (score 24); experience 69/69 STATIC 0; source-privacy OK;
+  tsgo limpo; QA 1440/390/reduced-motion HTTP 200 sem overflow, sem erro de console,
+  lightbox ESC/setas/foco e funil próprio abrindo.
+- Rejeitado: importar telefone/WhatsApp público, depoimentos, alegação “24 horas” e
+  atribuição de obras não comprovadas. WhatsApp permanece `NOT_CONFIGURED`.
+- Relatório: `docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md`.

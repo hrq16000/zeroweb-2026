@@ -209,6 +209,10 @@ const PauloMestreDeObrasPage = lazy(() =>
     default: m.PauloMestreDeObrasPage,
   })),
 );
+// Migração autêntica (issue #60) — S&S Construções, chunk isolado por slug.
+const SsConsPage = lazy(() =>
+  import("@/components/site/SsConsPage").then((m) => ({ default: m.SsConsPage })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -455,7 +459,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
     const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
     const isHeloaGas = loaderData?.slug === "heloa-gas";
-    const description = isHeloaGas
+    const isSscons = loaderData?.slug === "sscons";
+    const description = isSscons
+      ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
+      : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
       ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
@@ -641,7 +648,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isRjDrywall
+          content: eff.keywords ?? (isSscons
+            ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
+            : isRjDrywall
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
               ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
@@ -825,6 +834,51 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       },
                     ]
                   : []),
+                ...(isSscons
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "S&S Construções",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/sscons/logo.png"),
+                        address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Curitiba",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          {
+                            "@type": "AdministrativeArea",
+                            name: "Região Metropolitana de Curitiba",
+                          },
+                        ],
+                        knowsAbout: [
+                          "Carpintaria",
+                          "Obras e construção civil",
+                          "Alvenaria",
+                          "Pintura",
+                          "Reformas",
+                          "Assentamento de azulejos",
+                        ],
+                        makesOffer: [
+                          "Carpintaria",
+                          "Obras",
+                          "Alvenaria",
+                          "Pintura",
+                          "Reforma",
+                          "Azulejo",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
                 ...(isPauloMestre
                   ? [
                       {
@@ -992,6 +1046,9 @@ function PortfolioPrototypePage() {
           <LucasArrumaMaquinaLavarPage />
         ) : slug === "paulo-mestre-de-obras" ? (
           <PauloMestreDeObrasPage />
+        ) : slug === "sscons" ? (
+          <SsConsPage />
+
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />
         ) : slug === "no-brilho-higienizacao" ? (

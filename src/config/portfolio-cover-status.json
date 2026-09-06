@@ -2,13 +2,13 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-05",
+  "generatedAt": "2026-09-06",
   "summary": {
-    "total": 68,
-    "valid": 34,
+    "total": 69,
+    "valid": 35,
     "pending": 34,
     "byStatus": {
-      "VALID": 34,
+      "VALID": 35,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 8,
       "PROMOTIONAL_MATERIAL": 2,
@@ -811,6 +811,19 @@
       "cardValid": true,
       "businessName": "SOS Presentes & Cosméticos",
       "segment": "comercios"
+    },
+    {
+      "slug": "sscons",
+      "asset": "public/images/sscons/capa-card.jpg",
+      "catalogImage": "/images/sscons/capa-card.jpg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "S&S Construções",
+      "segment": "servicos"
     },
     {
       "slug": "studio-de-cilios",

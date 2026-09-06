@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T03:33:41.294Z",
+  "generatedAt": "2026-09-06T05:00:07.638Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -69,12 +69,13 @@
     "manu-pasteis": "PREMIUM",
     "angel-mix-brecho": "PREMIUM",
     "reuse-house-brecho": "PREMIUM",
-    "confeitaria-sabor-da-realeza": "PREMIUM"
+    "confeitaria-sabor-da-realeza": "PREMIUM",
+    "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 68,
+    "total": 69,
     "premium": 33,
-    "signature": 19,
+    "signature": 20,
     "baseline": 16,
     "static": 0
   }

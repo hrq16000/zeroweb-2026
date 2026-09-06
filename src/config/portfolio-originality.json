@@ -750,6 +750,18 @@
         "v2AssetPattern": 6
       },
       {
+        "slug": "sscons",
+        "v1Score": 25,
+        "v2Score": 24,
+        "delta": -1,
+        "v1Nearest": "jc-revestimentos",
+        "v2Nearest": "jc-revestimentos",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 15.4,
+        "v2AssetPattern": 3.8
+      },
+      {
         "slug": "studio-de-cilios",
         "v1Score": 59,
         "v2Score": 59,
@@ -851,9 +863,9 @@
     "clone": 81
   },
   "summary": {
-    "total": 68,
+    "total": 69,
     "original": 0,
-    "acceptable": 26,
+    "acceptable": 27,
     "attention": 42,
     "highSimilarity": 0,
     "clone": 0,
@@ -862,7 +874,7 @@
     "placeholderLogos": 0,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 34,
+    "coverValid": 35,
     "coverPending": 34,
     "coversAsSocialImage": 10,
     "sharedCovers": 0,
@@ -3606,6 +3618,48 @@
           "slug": "ag-electrical-services",
           "score": 46,
           "reason": "SAME_FAMILY"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
+      "slug": "sscons",
+      "score": 24,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "jc-revestimentos",
+      "nearestMatchScore": 24,
+      "reasons": [],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 7.6,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 26.1,
+        "STYLE_SIMILARITY": 25.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 0
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "jc-revestimentos",
+          "score": 24,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 22,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 20,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
