@@ -40,6 +40,8 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { ManagedRich, ManagedText } from "@/components/portfolio/ManagedText";
+import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import {
   MotionImageReveal,
   MotionReveal,
