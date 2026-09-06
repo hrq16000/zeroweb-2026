@@ -209,6 +209,10 @@ const PauloMestreDeObrasPage = lazy(() =>
     default: m.PauloMestreDeObrasPage,
   })),
 );
+// Migração autêntica (issue #60) — S&S Construções, chunk isolado por slug.
+const SsConsPage = lazy(() =>
+  import("@/components/site/SsConsPage").then((m) => ({ default: m.SsConsPage })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
