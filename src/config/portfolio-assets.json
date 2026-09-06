@@ -944,6 +944,18 @@
         "ctaHref": "#contato"
       },
       "socialVersion": "maximos-20260906"
+    },
+    "embalar-embalagens": {
+      "icon": "/images/embalar-embalagens/logo.png",
+      "socialImage": "/images/embalar-embalagens/social.png",
+      "proof": {
+        "eyebrow": "Embalar Embalagens",
+        "title": "Tudo para embalar, cuidar e fazer acontecer.",
+        "description": "Embalagens, descartáveis e utilidades no Jardim Itália.",
+        "ctaLabel": "Consultar produtos",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "embalar-20260906"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T09:17:12.139Z",
+  "generatedAt": "2026-09-06T09:35:12.280Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -64,6 +64,7 @@
     "btb-construcao": "PREMIUM",
     "js-eletrica-manutencao": "PREMIUM",
     "papelemi-personalizados": "PREMIUM",
+    "embalar-embalagens": "PREMIUM",
     "marmitaria-dom-diego": "PREMIUM",
     "toquinho-de-gente-brecho": "PREMIUM",
     "renata-beauty": "PREMIUM",
@@ -81,8 +82,8 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 77,
-    "premium": 40,
+    "total": 78,
+    "premium": 41,
     "signature": 21,
     "baseline": 16,
     "static": 0

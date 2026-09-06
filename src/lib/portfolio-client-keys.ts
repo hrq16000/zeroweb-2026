@@ -7,7 +7,7 @@ export const PORTFOLIO_CLIENT_KEYS = [
   
   
   
-  "easy-clean","btb-construcao","heloa-gas","hbk-iluminacao-led","jc-revestimentos","raphael-construcoes","ton-e-cor","denise-gomes-psicologa",
+  "easy-clean","btb-construcao","heloa-gas","hbk-iluminacao-led","jc-revestimentos","raphael-construcoes","ton-e-cor","denise-gomes-psicologa","embalar-embalagens",
   "fernanda-amaral-drywall",
   "manu-pasteis",
   "lj-cleaning",

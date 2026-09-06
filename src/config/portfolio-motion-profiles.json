@@ -916,6 +916,23 @@
       "tabletBehavior": "mesma sequência; grade de serviços em 2 colunas, galeria em 2 colunas",
       "mobileBehavior": "revelações mantidas com distância menor; lift desativado no toque; lightbox com navegação por botões"
     },
+    "embalar-embalagens": {
+      "intensity": "BALANCED",
+      "preset": "BOLD",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero abre como balcão; categorias entram como prateleiras",
+      "tabletBehavior": "hero empilhado e galeria em duas colunas",
+      "mobileBehavior": "sem deslocamento no toque; CTA permanece após o hero"
+    },
     "mimo-salgados-doces": {
       "intensity": "BALANCED",
       "preset": "WARM_VITRINE",

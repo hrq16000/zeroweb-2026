@@ -516,5 +516,12 @@
     "nextStepBody": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "navy"
+  },
+  "embalar-embalagens": {
+    "intent": "contato",
+    "nextStepTitle": "A compra certa começa por uma consulta simples.",
+    "nextStepBody": "Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade.",
+    "primaryCtaLabel": "Consultar produtos",
+    "theme": "pink"
   }
 }

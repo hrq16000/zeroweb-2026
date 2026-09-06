@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T09:17:32.288Z",
-    "audited": 77,
-    "pass": 74,
+    "generatedAt": "2026-09-06T09:36:55.231Z",
+    "audited": 78,
+    "pass": 75,
     "warning": 3,
     "fail": 0,
     "byIntent": {
@@ -10,7 +10,7 @@
       "orcamento": 26,
       "solicitacao": 1,
       "agendamento": 13,
-      "contato": 6,
+      "contato": 7,
       "reserva": 4,
       "diagnostico": 6
     }
@@ -1031,6 +1031,19 @@
           "detail": "sem contrato próprio — fallback neutro"
         }
       ]
+    },
+    {
+      "slug": "embalar-embalagens",
+      "businessName": "Embalar Embalagens",
+      "segment": "comercios",
+      "intent": "contato",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "A compra certa começa por uma consulta simples.",
+      "nextStepBody": "Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade.",
+      "primaryCtaLabel": "Consultar produtos",
+      "whatsappIntent": "contato",
+      "status": "PASS",
+      "issues": []
     }
   ]
 }

@@ -1717,5 +1717,24 @@
     "fallbackImage": "/images/maximos-cabeleireiros/logo.png",
     "metrics": "Agendamento por WhatsApp",
     "summary": "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e finalizações para diferentes momentos e rotinas."
+  },
+  {
+    "slug": "embalar-embalagens",
+    "clientKey": "embalar-embalagens",
+    "title": "Embalar Embalagens",
+    "segment": "comercios",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["embalagens", "descartaveis", "limpeza", "higiene", "utilidades", "jardim-italia"],
+    "live": true,
+    "subtitle": "Embalagens, limpeza e utilidades para a rotina",
+    "location": "Jardim Itália · São José dos Pinhais — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/embalar-embalagens/hero.png",
+    "fallbackImage": "/images/embalar-embalagens/logo.png",
+    "metrics": "Atendimento por WhatsApp",
+    "summary": "Embalar Embalagens reúne embalagens, descartáveis, produtos de limpeza, higiene e utilidades para casas, festas, comércios e revenda."
   }
 ]

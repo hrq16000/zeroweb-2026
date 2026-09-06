@@ -647,6 +647,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma avaliação técnica"
     ]
   },
+  "embalar-embalagens": {
+    "services": [
+      "Embalagens para alimentos",
+      "Descartáveis e festas",
+      "Produtos de limpeza",
+      "Higiene e utilidades",
+      "Sacos, caixas e papelaria"
+    ],
+    "experienceOptions": [
+      "Minha casa",
+      "Meu comércio",
+      "Festa ou evento",
+      "Compra para revenda"
+    ],
+    "periodOptions": [
+      "Jardim Itália",
+      "São José dos Pinhais",
+      "Vou confirmar a retirada"
+    ],
+    "timingOptions": [
+      "Quero consultar agora",
+      "Para esta semana",
+      "Estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você procura?",
+      "experience": "Para qual uso?",
+      "period": "Onde será a retirada?",
+      "timing": "Quando precisa?",
+      "note": "Conte os itens que busca"
+    },
+    "notePlaceholder": "Ex.: quantidade, tamanho da embalagem, tipo de produto ou data do evento."
+  },
   "espaco-cih-luh": {
     "services": [
       "Alongamento em gel",
