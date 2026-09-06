@@ -893,5 +893,24 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/easy-clean.md"
+  },
+  {
+    "clientKey": "js-eletrica-manutencao",
+    "slug": "js-eletrica-manutencao",
+    "siteName": "JS Elétrica e Manutenção",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/JsEletricaManutencaoPage.tsx",
+    "assetsDir": "public/images/js-eletrica-manutencao",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/js-eletrica-manutencao.md",
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "source": "Site oficial e materiais fornecidos pelo cliente nesta conversa",
+      "reference": "https://jseletricaemanutencoes.com.br/"
+    }
   }
 ]

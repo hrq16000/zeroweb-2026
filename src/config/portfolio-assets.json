@@ -908,6 +908,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "easy-clean-20260906"
+    },
+    "js-eletrica-manutencao": {
+      "icon": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
+      "socialImage": "/images/js-eletrica-manutencao/social.jpg",
+      "proof": {
+        "eyebrow": "JS Elétrica e Manutenção",
+        "title": "Energia funcionando. Serviço bem feito.",
+        "description": "Conte o que precisa instalar, reparar ou modernizar e receba um próximo passo organizado.",
+        "ctaLabel": "Ver serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "js-eletrica-20260906"
     }
   }
 }

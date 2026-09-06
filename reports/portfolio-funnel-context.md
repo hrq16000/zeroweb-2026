@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T06:52:27.225Z
+Gerado em 2026-09-06T08:31:59.440Z
 
-- Projetos auditados: **71**
-- PASS: **71** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (20) · orcamento (23) · solicitacao (1) · agendamento (11) · contato (6) · reserva (4) · diagnostico (6)
+- Projetos auditados: **75**
+- PASS: **74** · WARNING: **1** · FAIL: **0**
+- Intenções: pedido (20) · orcamento (26) · solicitacao (1) · agendamento (12) · contato (6) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -79,3 +79,7 @@ Gerado em 2026-09-06T06:52:27.225Z
 | sscons | servicos | orcamento | Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | mimo-salgados-doces | comercios | pedido | Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. | Montar meu pedido | PROJECT_CONTRACT | PASS | — |
 | popys-conservacao-limpeza | servicos | orcamento | Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
+| bruna-diarista | servicos | agendamento | Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. | Consultar horários | PROJECT_CONTRACT | PASS | — |
+| btb-construcao | construcao | orcamento | Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
+| easy-clean | servicos | orcamento | Conte qual peça precisa de higienização e se deseja impermeabilização. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
+| js-eletrica-manutencao | servicos | orcamento | Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T05:00:07.638Z",
+  "generatedAt": "2026-09-06T08:25:23.840Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -47,6 +47,8 @@
     "no-brilho-higienizacao": "SIGNATURE",
     "hbk-iluminacao-led": "SIGNATURE",
     "heloa-gas": "SIGNATURE",
+    "bruna-diarista": "PREMIUM",
+    "popys-conservacao-limpeza": "PREMIUM",
     "beto-pasteis": "PREMIUM",
     "lolipa-arte-em-festas": "PREMIUM",
     "sos-presentes-cosmeticos": "SIGNATURE",
@@ -54,9 +56,12 @@
     "casa-nativa": "PREMIUM",
     "eisenfer-tubos-acos": "SIGNATURE",
     "premium-envelopamentos": "PREMIUM",
+    "easy-clean": "PREMIUM",
     "guaratuba-reparos-residenciais": "SIGNATURE",
     "guaratuba-atelie-presentes": "PREMIUM",
     "miro-tech": "SIGNATURE",
+    "btb-construcao": "PREMIUM",
+    "js-eletrica-manutencao": "PREMIUM",
     "marmitaria-dom-diego": "PREMIUM",
     "toquinho-de-gente-brecho": "PREMIUM",
     "renata-beauty": "PREMIUM",
@@ -64,23 +69,19 @@
     "mirassol-delicias-caseiras": "PREMIUM",
     "clinica-integrada": "SIGNATURE",
     "confeitaria-chyrley": "PREMIUM",
+    "mimo-salgados-doces": "SIGNATURE",
     "brecho-sao-francisco": "PREMIUM",
     "guaratuba-sabores-da-baia": "PREMIUM",
     "manu-pasteis": "PREMIUM",
     "angel-mix-brecho": "PREMIUM",
     "reuse-house-brecho": "PREMIUM",
     "confeitaria-sabor-da-realeza": "PREMIUM",
-    "sscons": "SIGNATURE",
-    "mimo-salgados-doces": "SIGNATURE",
-    "popys-conservacao-limpeza": "SIGNATURE",
-    "bruna-diarista": "SIGNATURE",
-    "btb-construcao": "SIGNATURE",
-    "easy-clean": "SIGNATURE"
+    "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 74,
-    "premium": 33,
-    "signature": 25,
+    "total": 75,
+    "premium": 38,
+    "signature": 21,
     "baseline": 16,
     "static": 0
   }

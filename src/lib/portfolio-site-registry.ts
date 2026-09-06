@@ -497,6 +497,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "js-eletrica-manutencao",
+    vertical: "prestadores-de-servicos",
+    siteName: "JS Elétrica e Manutenção · Curitiba — PR",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

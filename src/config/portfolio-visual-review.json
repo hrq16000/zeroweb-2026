@@ -592,6 +592,16 @@
     "coverBlockReason": "BLOCKED_QUALITY",
     "notes": "R9: nenhum material fotografico comprovadamente do cliente (assets sao composicoes genericas de marca). Nao publicar como capa; aguardando foto real."
   },
+  "js-eletrica-manutencao": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/js-eletrica-manutencao/hero.png",
+    "coverFocal": {
+      "x": 0.78,
+      "y": 0.5
+    },
+    "notes": "Capa editorial gerada a partir de referência técnica oficial, revisada em tamanho real e sem telefone, texto rasterizado ou marca de terceiros; foto oficial separada é usada como prova de atendimento."
+  },
   "sscons": {
     "coverReview": "APPROVED",
     "coverDecision": "NEEDS_CROP_ONLY",

@@ -989,6 +989,43 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Quero uma avaliação"
     ]
   },
+  "js-eletrica-manutencao": {
+    "services": [
+      "Instalação e manutenção residencial",
+      "Instalação comercial ou predial",
+      "Manutenção industrial",
+      "Padrão Copel e quadros",
+      "Sistema solar / fotovoltaico",
+      "Ar-condicionado",
+      "Motores, bombas e iluminação",
+      "Reparo elétrico em geral"
+    ],
+    "experienceOptions": [
+      "Residencial",
+      "Comercial",
+      "Predial / condomínio",
+      "Industrial"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o endereço"
+    ],
+    "timingOptions": [
+      "Preciso avaliar com urgência",
+      "Nos próximos dias",
+      "Estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual solução você precisa?",
+      "experience": "Em qual tipo de ambiente?",
+      "period": "Onde será o serviço?",
+      "timing": "Quando você precisa?",
+      "note": "Conte os detalhes do atendimento"
+    },
+    "notePlaceholder": "Ex.: equipamento, defeito, quantidade de pontos, foto do quadro ou prazo."
+  },
   "liz-moraes-nail-designer": {
     "services": [
       "Manicure tradicional · R$ 45,00",

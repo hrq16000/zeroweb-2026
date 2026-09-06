@@ -1,15 +1,15 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T06:52:27.225Z",
-    "audited": 71,
-    "pass": 71,
-    "warning": 0,
+    "generatedAt": "2026-09-06T08:31:59.440Z",
+    "audited": 75,
+    "pass": 74,
+    "warning": 1,
     "fail": 0,
     "byIntent": {
       "pedido": 20,
-      "orcamento": 23,
+      "orcamento": 26,
       "solicitacao": 1,
-      "agendamento": 11,
+      "agendamento": 12,
       "contato": 6,
       "reserva": 4,
       "diagnostico": 6
@@ -938,6 +938,63 @@
       "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
+    },
+    {
+      "slug": "bruna-diarista",
+      "businessName": "Bruna Diarista",
+      "segment": "servicos",
+      "intent": "agendamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Sua casa em ordem começa com um bom horário.",
+      "nextStepBody": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
+      "primaryCtaLabel": "Consultar horários",
+      "whatsappIntent": "agendamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "btb-construcao",
+      "businessName": "BTB Construção",
+      "segment": "construcao",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Sua reforma pode começar agora.",
+      "nextStepBody": "Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo.",
+      "primaryCtaLabel": "Solicitar orçamento",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "easy-clean",
+      "businessName": "Easy Clean Higienização a Seco",
+      "segment": "servicos",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu conforto limpo começa com uma boa avaliação.",
+      "nextStepBody": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
+      "primaryCtaLabel": "Solicitar orçamento",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "js-eletrica-manutencao",
+      "businessName": "JS Elétrica e Manutenção",
+      "segment": "servicos",
+      "intent": "orcamento",
+      "source": "SEGMENT_FALLBACK",
+      "nextStepTitle": "Fale com JS Elétrica e Manutenção sobre o que você precisa.",
+      "nextStepBody": "Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção.",
+      "primaryCtaLabel": "Fale com a empresa",
+      "whatsappIntent": "orcamento",
+      "status": "WARNING",
+      "issues": [
+        {
+          "code": "PORTFOLIO_FUNNEL_FALLBACK",
+          "detail": "sem contrato próprio — fallback neutro"
+        }
+      ]
     }
   ]
 }
