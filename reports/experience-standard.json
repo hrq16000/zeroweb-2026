@@ -1,22 +1,70 @@
 {
-  "generatedAt": "2026-09-06T05:00:07.638Z",
-  "totalCatalogProjects": 69,
-  "totalPages": 69,
+  "generatedAt": "2026-09-06T08:25:23.840Z",
+  "totalCatalogProjects": 75,
+  "totalPages": 75,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 33,
-  "signature": 20,
+  "premium": 38,
+  "signature": 21,
   "baseline": 16,
   "static": 0,
   "motion": {
     "cloneThreshold": 95,
     "groupThreshold": 85,
-    "clones": 0,
-    "groups": 6,
+    "clones": 6,
+    "groups": 7,
     "signalFloor": 5,
-    "lowSignalPairs": 1218,
-    "maxSimilarity": 92,
+    "lowSignalPairs": 1344,
+    "maxSimilarity": 100,
     "topNearestMatches": [
+      {
+        "a": "popys-conservacao-limpeza",
+        "b": "bruna-diarista",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "popys-conservacao-limpeza",
+        "b": "easy-clean",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "bruna-diarista",
+        "b": "easy-clean",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "popys-conservacao-limpeza",
+        "b": "btb-construcao",
+        "similarity": 95,
+        "perceptual": 100,
+        "tokens": 83,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "bruna-diarista",
+        "b": "btb-construcao",
+        "similarity": 95,
+        "perceptual": 100,
+        "tokens": 83,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "btb-construcao",
+        "b": "easy-clean",
+        "similarity": 95,
+        "perceptual": 100,
+        "tokens": 83,
+        "signal": "COMPARABLE"
+      },
       {
         "a": "confeitaria-chyrley",
         "b": "guaratuba-sabores-da-baia",
@@ -48,57 +96,15 @@
         "perceptual": 100,
         "tokens": 53,
         "signal": "COMPARABLE"
-      },
-      {
-        "a": "angel-mix-brecho",
-        "b": "manu-pasteis",
-        "similarity": 86,
-        "perceptual": 100,
-        "tokens": 54,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "guaratuba-sabores-da-baia",
-        "b": "uberlandia-eletrica-residencial",
-        "similarity": 86,
-        "perceptual": 100,
-        "tokens": 55,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "guaratuba-oficina-nautica",
-        "b": "mirassol-conserta-celular",
-        "similarity": 86,
-        "perceptual": 100,
-        "tokens": 55,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "lolipa-arte-em-festas",
-        "b": "manu-pasteis",
-        "similarity": 86,
-        "perceptual": 100,
-        "tokens": 55,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "refrigeracao-maresia",
-        "b": "dlara-pizzaria",
-        "similarity": 85,
-        "perceptual": 100,
-        "tokens": 50,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "beto-pasteis",
-        "b": "premium-envelopamentos",
-        "similarity": 85,
-        "perceptual": 100,
-        "tokens": 50,
-        "signal": "COMPARABLE"
       }
     ],
     "groupMembers": [
+      [
+        "popys-conservacao-limpeza",
+        "bruna-diarista",
+        "easy-clean",
+        "btb-construcao"
+      ],
       [
         "confeitaria-chyrley",
         "guaratuba-sabores-da-baia",
@@ -471,7 +477,7 @@
         "sectionSignature": "—",
         "interactionSignature": "—",
         "motionIntensity": "BALANCED",
-        "scrollBehavior": "—",
+        "scrollBehavior": "none",
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": []
@@ -1484,6 +1490,66 @@
       }
     },
     {
+      "slug": "bruna-diarista",
+      "segment": "servicos",
+      "file": "src/components/site/BrunaDiaristaPage.tsx",
+      "score": 50,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 0,
+        "hover": 2,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
+        ]
+      }
+    },
+    {
+      "slug": "popys-conservacao-limpeza",
+      "segment": "servicos",
+      "file": "src/components/site/PopysConservacaoLimpezaPage.tsx",
+      "score": 51,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
+        ]
+      }
+    },
+    {
       "slug": "beto-pasteis",
       "segment": "restaurantes",
       "file": "src/components/site/BetoPasteisPage.tsx",
@@ -1727,6 +1793,36 @@
       }
     },
     {
+      "slug": "easy-clean",
+      "segment": "servicos",
+      "file": "src/components/site/EasyCleanPage.tsx",
+      "score": 55,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
+        ]
+      }
+    },
+    {
       "slug": "guaratuba-reparos-residenciais",
       "segment": "prestadores-de-servicos",
       "file": "src/components/site/ReparosDoLitoralPage.tsx",
@@ -1832,6 +1928,71 @@
           "d:duration-200",
           "d:duration-300",
           "h:group-hover:translate-x-1"
+        ]
+      }
+    },
+    {
+      "slug": "btb-construcao",
+      "segment": "construcao",
+      "file": "src/components/site/BtbConstrucaoPage.tsx",
+      "score": 58,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "c:[clip-path:polygon(0_18%,50%_0,100%_18%,100%_82%,50%_100%,0_82%)]"
+        ]
+      }
+    },
+    {
+      "slug": "js-eletrica-manutencao",
+      "segment": "servicos",
+      "file": "src/components/site/JsEletricaManutencaoPage.tsx",
+      "score": 58,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 12,
+        "transitions": 0,
+        "hover": 10,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
         ]
       }
     },
@@ -2084,6 +2245,37 @@
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
+        ]
+      }
+    },
+    {
+      "slug": "mimo-salgados-doces",
+      "segment": "comercios",
+      "file": "src/components/site/MimoSalgadosDocesPage.tsx",
+      "score": 68,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 16,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Imagem de comida revela pela esquerda com título curto em camadas",
+        "sectionSignature": "Cards de sabores sobem em sequência curta",
+        "interactionSignature": "CTA de encomenda abre o funil com foco imediato",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
         ]
       }
     },

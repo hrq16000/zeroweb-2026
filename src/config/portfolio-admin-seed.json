@@ -1215,6 +1215,38 @@
       "blocking": []
     },
     {
+      "slug": "js-eletrica-manutencao",
+      "clientKey": "js-eletrica-manutencao",
+      "title": "JS Elétrica e Manutenção",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "JS Elétrica e Manutenção para serviços residenciais, comerciais, prediais e industriais, padrão Copel, fotovoltaico, ar-condicionado, motores, bombas e iluminação.",
+      "subtitle": "Elétrica, manutenção, solar e climatização",
+      "image": "/images/js-eletrica-manutencao/hero.png",
+      "icon": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
+      "socialImage": "/images/js-eletrica-manutencao/social.jpg",
+      "socialVersion": "js-eletrica-20260906",
+      "componentFile": "src/components/site/JsEletricaManutencaoPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/js-eletrica-manutencao",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/js-eletrica-manutencao/hero.png",
+        "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
+        "/images/js-eletrica-manutencao/medicao-energia-01.jpeg",
+        "/images/js-eletrica-manutencao/social.jpg"
+      ],
+      "shareCopy": "⚡ A JS Elétrica e Manutenção ganhou uma presença digital nova!\n\nServiços elétricos residenciais, comerciais, prediais e industriais, padrão Copel, energia solar, ar-condicionado, motores, bombas e iluminação em Curitiba e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/js-eletrica-manutencao\n\n📲 Solicite uma orientação técnica pelo WhatsApp.\n\n#JSEletrica #Manutencao #EnergiaSolar #ArCondicionado #Curitiba #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "liz-moraes-nail-designer",
       "clientKey": "liz-moraes-nail-designer",
       "title": "Liz Moraes Nail Designer",

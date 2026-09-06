@@ -1660,5 +1660,24 @@
     "fallbackImage": "/images/easy-clean/hero.png",
     "metrics": "Atendimento em domicílio",
     "summary": "Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro."
+  },
+  {
+    "slug": "js-eletrica-manutencao",
+    "clientKey": "js-eletrica-manutencao",
+    "title": "JS Elétrica e Manutenção",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["eletrica", "manutencao", "ar-condicionado", "energia-solar", "padrao-copel", "motores-bombas", "guaira"],
+    "live": true,
+    "subtitle": "Elétrica, manutenção, solar e climatização",
+    "location": "Guaíra · Curitiba — PR · atendimento em Curitiba e região",
+    "badge": "Projeto publicado",
+    "image": "/images/js-eletrica-manutencao/hero.png",
+    "fallbackImage": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
+    "metrics": "Orçamento técnico",
+    "summary": "JS Elétrica e Manutenção para serviços residenciais, comerciais, prediais e industriais, padrão Copel, fotovoltaico, ar-condicionado, motores, bombas e iluminação."
   }
 ]

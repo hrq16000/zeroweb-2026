@@ -228,6 +228,11 @@ const BtbConstrucaoPage = lazy(() =>
 const EasyCleanPage = lazy(() =>
   import("@/components/site/EasyCleanPage").then((m) => ({ default: m.EasyCleanPage })),
 );
+const JsEletricaManutencaoPage = lazy(() =>
+  import("@/components/site/JsEletricaManutencaoPage").then((m) => ({
+    default: m.JsEletricaManutencaoPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -480,6 +485,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isBruna = loaderData?.slug === "bruna-diarista";
     const isBtb = loaderData?.slug === "btb-construcao";
     const isEasyClean = loaderData?.slug === "easy-clean";
+    const isJsEletrica = loaderData?.slug === "js-eletrica-manutencao";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -492,6 +498,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "BTB Construção em Curitiba e região: reformas internas, pintura, elétrica, hidráulica, drywall, revestimentos e iluminação LED."
       : isEasyClean
       ? "Easy Clean Higienização a Seco em Curitiba e região: lavagem a seco, higienização e impermeabilização de estofados, colchões e interiores de carro."
+      : isJsEletrica
+      ? "JS Elétrica e Manutenção em Curitiba e região: elétrica residencial, comercial, predial e industrial, padrão Copel, energia solar, ar-condicionado, motores, bombas e iluminação."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1093,6 +1101,8 @@ function PortfolioPrototypePage() {
 
         ) : slug === "easy-clean" ? (
           <EasyCleanPage />
+        ) : slug === "js-eletrica-manutencao" ? (
+          <JsEletricaManutencaoPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />
