@@ -17,11 +17,11 @@
     "clone": 81
   },
   "summary": {
-    "total": 73,
+    "total": 79,
     "original": 0,
     "acceptable": 27,
-    "attention": 43,
-    "highSimilarity": 3,
+    "attention": 46,
+    "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
@@ -29,10 +29,10 @@
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 35,
-    "coverPending": 38,
-    "coversAsSocialImage": 14,
+    "coverPending": 44,
+    "coversAsSocialImage": 8,
     "sharedCovers": 0,
-    "severeCrop": 19,
+    "severeCrop": 21,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -458,7 +458,6 @@
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_LOGO",
-        "COVER_IS_SOCIAL_IMAGE",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
@@ -480,26 +479,25 @@
       "title": "BTB Construção",
       "segment": "construcao",
       "componentFile": "src/components/site/BtbConstrucaoPage.tsx",
-      "score": 61,
+      "score": 69,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "bruna-diarista",
-      "nearestMatchScore": 61,
+      "nearestMatch": "easy-clean",
+      "nearestMatchScore": 69,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 66,
+        "STRUCTURE_SIMILARITY": 85.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 69,
-        "COPY_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 74.7,
+        "COPY_SIMILARITY": 1.8,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 6.7
+        "IDENTITY_SIMILARITY": 10.3
       },
       "reasons": [
-        "NEAR_DUPLICATE_LAYOUT"
+        "VISUAL_COMPOSITION_CLONE"
       ],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_LOGO",
-        "COVER_IS_SOCIAL_IMAGE",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
@@ -842,6 +840,46 @@
       }
     },
     {
+      "slug": "easy-clean",
+      "title": "Easy Clean Higienização a Seco",
+      "segment": "servicos",
+      "componentFile": "src/components/site/EasyCleanPage.tsx",
+      "score": 69,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "btb-construcao",
+      "nearestMatchScore": 69,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 85.1,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 74.7,
+        "COPY_SIMILARITY": 1.8,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "reasons": [
+        "VISUAL_COMPOSITION_CLONE"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_LOGO",
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.5,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "2378011d46a89b8c",
+        "structureHash": "3c373d2b4d2c0e79",
+        "sectionCount": 7,
+        "lines": 40
+      }
+    },
+    {
       "slug": "ecommerce-on",
       "title": "Ecommerce On",
       "segment": "agencias",
@@ -1001,6 +1039,46 @@
         "structureHash": "b2da24e80fdfeef5",
         "sectionCount": 6,
         "lines": 204
+      }
+    },
+    {
+      "slug": "embalar-embalagens",
+      "title": "Embalar Embalagens",
+      "segment": "comercios",
+      "componentFile": "src/components/site/EmbalarEmbalagensPage.tsx",
+      "score": 61,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "maximos-cabeleireiros",
+      "nearestMatchScore": 61,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 89.1,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 88.6,
+        "COPY_SIMILARITY": 5.9,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 4.5
+      },
+      "reasons": [
+        "NEAR_DUPLICATE_LAYOUT"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.78,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "6ae0de4a61a40686",
+        "structureHash": "78fe75b59cb7fc76",
+        "sectionCount": 7,
+        "lines": 51
       }
     },
     {
@@ -1255,7 +1333,7 @@
         "COMPONENT_SIMILARITY": 28.6,
         "STYLE_SIMILARITY": 36.9,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1333,7 +1411,7 @@
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 38.2,
         "COPY_SIMILARITY": 1.3,
-        "ASSET_PATTERN_SIMILARITY": 9,
+        "ASSET_PATTERN_SIMILARITY": 12,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1411,19 +1489,18 @@
         "COMPONENT_SIMILARITY": 75,
         "STYLE_SIMILARITY": 38.2,
         "COPY_SIMILARITY": 1.3,
-        "ASSET_PATTERN_SIMILARITY": 9,
+        "ASSET_PATTERN_SIMILARITY": 12,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
       "canonicalCoverStatus": "NO_REAL_ASSET",
       "canonicalCoverReason": "Sem material real adequado para capa editorial.",
-      "coverRatio": 1.9,
+      "coverRatio": 2,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
@@ -1475,6 +1552,46 @@
         "structureHash": "1376e81723138771",
         "sectionCount": 7,
         "lines": 189
+      }
+    },
+    {
+      "slug": "js-eletrica-manutencao",
+      "title": "JS Elétrica e Manutenção",
+      "segment": "servicos",
+      "componentFile": "src/components/site/JsEletricaManutencaoPage.tsx",
+      "score": 60,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "maximos-cabeleireiros",
+      "nearestMatchScore": 60,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 73.1,
+        "SECTION_ORDER_SIMILARITY": 85.7,
+        "COMPONENT_SIMILARITY": 54.5,
+        "STYLE_SIMILARITY": 77.1,
+        "COPY_SIMILARITY": 0.9,
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 1.9
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.78,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "781de1a9b0406869",
+        "structureHash": "c1b641a3e8ffc64d",
+        "sectionCount": 8,
+        "lines": 147
       }
     },
     {
@@ -1728,8 +1845,8 @@
         "SECTION_ORDER_SIMILARITY": 66.7,
         "COMPONENT_SIMILARITY": 23.5,
         "STYLE_SIMILARITY": 55.2,
-        "COPY_SIMILARITY": 2.9,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "COPY_SIMILARITY": 3.2,
+        "ASSET_PATTERN_SIMILARITY": 1.9,
         "IDENTITY_SIMILARITY": 8.8
       },
       "reasons": [],
@@ -1836,6 +1953,46 @@
       }
     },
     {
+      "slug": "maximos-cabeleireiros",
+      "title": "Maximos Cabeleireiros",
+      "segment": "beleza",
+      "componentFile": "src/components/site/MaximosCabeleireirosPage.tsx",
+      "score": 61,
+      "originalityStatus": "HIGH_SIMILARITY",
+      "nearestMatch": "embalar-embalagens",
+      "nearestMatchScore": 61,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 89.1,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 88.6,
+        "COPY_SIMILARITY": 5.9,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 4.5
+      },
+      "reasons": [
+        "NEAR_DUPLICATE_LAYOUT"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.78,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "d1fb5e6a409e5730",
+        "structureHash": "0d5512f2f5755bbd",
+        "sectionCount": 7,
+        "lines": 43
+      }
+    },
+    {
       "slug": "mimo-salgados-doces",
       "title": "Mimo Salgados e Doces",
       "segment": "comercios",
@@ -1850,7 +2007,7 @@
         "COMPONENT_SIMILARITY": 76.9,
         "STYLE_SIMILARITY": 88.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 2.5,
         "IDENTITY_SIMILARITY": 13.8
       },
       "reasons": [
@@ -1858,7 +2015,6 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH",
         "COVER_SEVERE_CROP"
@@ -1972,7 +2128,7 @@
         "COMPONENT_SIMILARITY": 40,
         "STYLE_SIMILARITY": 54.5,
         "COPY_SIMILARITY": 1.6,
-        "ASSET_PATTERN_SIMILARITY": 6,
+        "ASSET_PATTERN_SIMILARITY": 5,
         "IDENTITY_SIMILARITY": 9.5
       },
       "reasons": [
@@ -2080,6 +2236,46 @@
       }
     },
     {
+      "slug": "papelemi-personalizados",
+      "title": "PapeLemi Papelaria Personalizada",
+      "segment": "comercios",
+      "componentFile": "src/components/site/PapelemiPersonalizadosPage.tsx",
+      "score": 49,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "embalar-embalagens",
+      "nearestMatchScore": 49,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 47.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 26.7,
+        "STYLE_SIMILARITY": 69.7,
+        "COPY_SIMILARITY": 1,
+        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "IDENTITY_SIMILARITY": 1.9
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.78,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "acc8830e108a79eb",
+        "structureHash": "721bf3c699c7226c",
+        "sectionCount": 8,
+        "lines": 70
+      }
+    },
+    {
       "slug": "paraiso-do-hot-dog",
       "title": "Paraíso do Hot Dog",
       "segment": "servicos",
@@ -2132,7 +2328,7 @@
         "COMPONENT_SIMILARITY": 60,
         "STYLE_SIMILARITY": 70.9,
         "COPY_SIMILARITY": 3,
-        "ASSET_PATTERN_SIMILARITY": 5,
+        "ASSET_PATTERN_SIMILARITY": 4.3,
         "IDENTITY_SIMILARITY": 15.2
       },
       "reasons": [
@@ -2140,22 +2336,22 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
         "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_RATIO_MISMATCH",
+        "COVER_SEVERE_CROP"
       ],
       "canonicalCoverStatus": "CONTACT_OR_PII",
       "canonicalCoverReason": "Material exibe contato ou endereço.",
-      "coverRatio": 1.9,
+      "coverRatio": 0.8,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "c58caa7c4000753d",
+        "skeletonHash": "6a6246ae9c0a3bd8",
         "structureHash": "95afbc06b5a86590",
         "sectionCount": 10,
-        "lines": 453
+        "lines": 456
       }
     },
     {
@@ -2182,7 +2378,6 @@
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_LOGO",
-        "COVER_IS_SOCIAL_IMAGE",
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
@@ -2214,7 +2409,7 @@
         "COMPONENT_SIMILARITY": 44.4,
         "STYLE_SIMILARITY": 46.9,
         "COPY_SIMILARITY": 0.7,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "ASSET_PATTERN_SIMILARITY": 10,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2595,6 +2790,48 @@
       }
     },
     {
+      "slug": "simone-lacerda-vaz",
+      "title": "Simone Lacerda Vaz · Nutricionista",
+      "segment": "saude",
+      "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
+      "score": 48,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "embalar-embalagens",
+      "nearestMatchScore": 48,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 46.4,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 81.8,
+        "STYLE_SIMILARITY": 54,
+        "COPY_SIMILARITY": 1.7,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 12.9
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_LOGO",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH",
+        "COVER_SEVERE_CROP"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 0.67,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "a7e963a3c0a03773",
+        "structureHash": "c831098c4a6d2f3c",
+        "sectionCount": 7,
+        "lines": 54
+      }
+    },
+    {
       "slug": "sos-presentes-cosmeticos",
       "title": "SOS Presentes & Cosméticos",
       "segment": "comercios",
@@ -2651,7 +2888,7 @@
         "COMPONENT_SIMILARITY": 26.9,
         "STYLE_SIMILARITY": 30,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 1.9,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2959,6 +3196,26 @@
   "clusters": [],
   "topPairs": [
     {
+      "a": "btb-construcao",
+      "b": "easy-clean",
+      "metricVersion": 2,
+      "score": 69,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 85.1,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 74.7,
+        "COPY_SIMILARITY": 1.8,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 10.3
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "VISUAL_COMPOSITION_CLONE"
+    },
+    {
       "a": "bruna-diarista",
       "b": "popys-conservacao-limpeza",
       "metricVersion": 2,
@@ -2971,6 +3228,46 @@
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 11.8
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "bruna-diarista",
+      "b": "easy-clean",
+      "metricVersion": 2,
+      "score": 65,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 74,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 68.2,
+        "COPY_SIMILARITY": 2.6,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 9.1
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "easy-clean",
+      "b": "popys-conservacao-limpeza",
+      "metricVersion": 2,
+      "score": 62,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 63.6,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 64.3,
+        "STYLE_SIMILARITY": 70.7,
+        "COPY_SIMILARITY": 2.2,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 8.6
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -2999,6 +3296,46 @@
       "reason": "NEAR_DUPLICATE_LAYOUT"
     },
     {
+      "a": "embalar-embalagens",
+      "b": "maximos-cabeleireiros",
+      "metricVersion": 2,
+      "score": 61,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 89.1,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 58.3,
+        "STYLE_SIMILARITY": 88.6,
+        "COPY_SIMILARITY": 5.9,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 4.5
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "NEAR_DUPLICATE_LAYOUT"
+    },
+    {
+      "a": "js-eletrica-manutencao",
+      "b": "maximos-cabeleireiros",
+      "metricVersion": 2,
+      "score": 60,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 73.1,
+        "SECTION_ORDER_SIMILARITY": 85.7,
+        "COMPONENT_SIMILARITY": 54.5,
+        "STYLE_SIMILARITY": 77.1,
+        "COPY_SIMILARITY": 0.9,
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 1.9
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
       "a": "aguia-sul-sinalizacao",
       "b": "diego-montador-moveis",
       "metricVersion": 2,
@@ -3011,6 +3348,26 @@
         "COPY_SIMILARITY": 1.1,
         "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 23.1
+      },
+      "assetReasons": [
+        "DISTINCT_ASSET"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "aguia-sul-sinalizacao",
+      "b": "easy-clean",
+      "metricVersion": 2,
+      "score": 59,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 61.1,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 54.5,
+        "STYLE_SIMILARITY": 71.6,
+        "COPY_SIMILARITY": 1.1,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 12.9
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3089,7 +3446,7 @@
         "COMPONENT_SIMILARITY": 41.7,
         "STYLE_SIMILARITY": 78.9,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 9.4
       },
       "assetReasons": [
@@ -3149,7 +3506,7 @@
         "COMPONENT_SIMILARITY": 76.9,
         "STYLE_SIMILARITY": 88.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 2.5,
         "IDENTITY_SIMILARITY": 13.8
       },
       "assetReasons": [
@@ -3189,7 +3546,7 @@
         "COMPONENT_SIMILARITY": 41.7,
         "STYLE_SIMILARITY": 64.3,
         "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
         "IDENTITY_SIMILARITY": 10.7
       },
       "assetReasons": [
@@ -3209,8 +3566,28 @@
         "COMPONENT_SIMILARITY": 60,
         "STYLE_SIMILARITY": 70.9,
         "COPY_SIMILARITY": 3,
-        "ASSET_PATTERN_SIMILARITY": 5,
+        "ASSET_PATTERN_SIMILARITY": 4.3,
         "IDENTITY_SIMILARITY": 15.2
+      },
+      "assetReasons": [
+        "SAME_BASENAME_ONLY"
+      ],
+      "sharedAssets": [],
+      "reason": "SAME_FAMILY"
+    },
+    {
+      "a": "embalar-embalagens",
+      "b": "js-eletrica-manutencao",
+      "metricVersion": 2,
+      "score": 55,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 64.2,
+        "SECTION_ORDER_SIMILARITY": 71.4,
+        "COMPONENT_SIMILARITY": 63.6,
+        "STYLE_SIMILARITY": 72,
+        "COPY_SIMILARITY": 0.5,
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 3.9
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3239,18 +3616,18 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "bruna-diarista",
-      "b": "mimo-salgados-doces",
+      "a": "acai-total-araucaria",
+      "b": "embalar-embalagens",
       "metricVersion": 2,
       "score": 54,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 67.3,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 69.2,
-        "STYLE_SIMILARITY": 82.2,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 10.7
+        "STRUCTURE_SIMILARITY": 48.2,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 60,
+        "STYLE_SIMILARITY": 53.1,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "IDENTITY_SIMILARITY": 12.1
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3289,108 +3666,8 @@
         "COMPONENT_SIMILARITY": 66.7,
         "STYLE_SIMILARITY": 72.9,
         "COPY_SIMILARITY": 0.5,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 14.3
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "denise-gomes-psicologa",
-      "b": "mp-festas-eventos",
-      "metricVersion": 2,
-      "score": 53,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 39.7,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 68.4,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 14.3
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "diego-montador-moveis",
-      "b": "liz-moraes-nail-designer",
-      "metricVersion": 2,
-      "score": 53,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 50,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 36.4,
-        "STYLE_SIMILARITY": 75,
-        "COPY_SIMILARITY": 1.1,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 5.7
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "mp-festas-eventos",
-      "b": "vila-da-capivara",
-      "metricVersion": 2,
-      "score": 53,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 67.6,
-        "SECTION_ORDER_SIMILARITY": 50,
-        "COMPONENT_SIMILARITY": 61.5,
-        "STYLE_SIMILARITY": 88.6,
-        "COPY_SIMILARITY": 0.8,
-        "ASSET_PATTERN_SIMILARITY": 6.4,
-        "IDENTITY_SIMILARITY": 10.7
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "acai-total-araucaria",
-      "b": "diego-montador-moveis",
-      "metricVersion": 2,
-      "score": 52,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 75,
-        "SECTION_ORDER_SIMILARITY": 37.5,
-        "COMPONENT_SIMILARITY": 62.5,
-        "STYLE_SIMILARITY": 85.9,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3,
-        "IDENTITY_SIMILARITY": 11.5
-      },
-      "assetReasons": [
-        "SAME_BASENAME_ONLY"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "aguia-sul-sinalizacao",
-      "b": "ecommerce-on",
-      "metricVersion": 2,
-      "score": 52,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 95.6,
-        "SECTION_ORDER_SIMILARITY": 22.2,
-        "COMPONENT_SIMILARITY": 55.6,
-        "STYLE_SIMILARITY": 79.7,
-        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 7.5
+        "IDENTITY_SIMILARITY": 14.3
       },
       "assetReasons": [
         "SAME_BASENAME_ONLY"
@@ -3399,58 +3676,18 @@
       "reason": "SAME_FAMILY"
     },
     {
-      "a": "aguia-sul-sinalizacao",
-      "b": "popys-conservacao-limpeza",
+      "a": "bruna-diarista",
+      "b": "mimo-salgados-doces",
       "metricVersion": 2,
-      "score": 52,
+      "score": 53,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 49.2,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 38.5,
-        "STYLE_SIMILARITY": 68.4,
+        "STRUCTURE_SIMILARITY": 67.3,
+        "SECTION_ORDER_SIMILARITY": 50,
+        "COMPONENT_SIMILARITY": 69.2,
+        "STYLE_SIMILARITY": 82.2,
         "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
-        "IDENTITY_SIMILARITY": 8.8
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "diego-montador-moveis",
-      "b": "mary-diarista",
-      "metricVersion": 2,
-      "score": 52,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 76.6,
-        "SECTION_ORDER_SIMILARITY": 33.3,
-        "COMPONENT_SIMILARITY": 62.5,
-        "STYLE_SIMILARITY": 87,
-        "COPY_SIMILARITY": 1.9,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
-        "IDENTITY_SIMILARITY": 10
-      },
-      "assetReasons": [
-        "DISTINCT_ASSET"
-      ],
-      "sharedAssets": [],
-      "reason": "SAME_FAMILY"
-    },
-    {
-      "a": "ag-electrical-services",
-      "b": "lk-alvenaria",
-      "metricVersion": 2,
-      "score": 51,
-      "dimensions": {
-        "STRUCTURE_SIMILARITY": 47.4,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 58.3,
-        "STYLE_SIMILARITY": 40.4,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.5,
-        "IDENTITY_SIMILARITY": 5.9
+        "ASSET_PATTERN_SIMILARITY": 2.5,
+        "IDENTITY_SIMILARITY": 10.7
       },
       "assetReasons": [
         "DISTINCT_ASSET"
@@ -3466,7 +3703,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 2628,
+    "totalPairs": 3081,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -3509,13 +3746,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mary-diarista",
+          "slug": "easy-clean",
           "score": 59,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 58,
+          "slug": "mary-diarista",
+          "score": 59,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3645,17 +3882,22 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "btb-construcao",
-          "score": 61,
+          "slug": "easy-clean",
+          "score": 65,
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 57,
-          "reason": "SAME_FAMILY"
+          "slug": "btb-construcao",
+          "score": 61,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
         }
       ],
       "btb-construcao": [
+        {
+          "slug": "easy-clean",
+          "score": 69,
+          "reason": "VISUAL_COMPOSITION_CLONE"
+        },
         {
           "slug": "bruna-diarista",
           "score": 61,
@@ -3664,11 +3906,6 @@
         {
           "slug": "popys-conservacao-limpeza",
           "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "aguia-sul-sinalizacao",
-          "score": 55,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -3808,6 +4045,23 @@
           "reason": "DISTINCT"
         }
       ],
+      "easy-clean": [
+        {
+          "slug": "btb-construcao",
+          "score": 69,
+          "reason": "VISUAL_COMPOSITION_CLONE"
+        },
+        {
+          "slug": "bruna-diarista",
+          "score": 65,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "popys-conservacao-limpeza",
+          "score": 62,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        }
+      ],
       "ecommerce-on": [
         {
           "slug": "acai-total-araucaria",
@@ -3849,12 +4103,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 46,
+          "slug": "embalar-embalagens",
+          "score": 48,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "jkl-marcenaria",
+          "slug": "acai-total-araucaria",
           "score": 46,
           "reason": "SAME_FAMILY"
         }
@@ -3866,13 +4120,30 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 44,
+          "slug": "embalar-embalagens",
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "jkl-marcenaria",
+          "slug": "acai-total-araucaria",
           "score": 44,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "embalar-embalagens": [
+        {
+          "slug": "maximos-cabeleireiros",
+          "score": 61,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "js-eletrica-manutencao",
+          "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 54,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4070,13 +4341,30 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletrovale-eletromecanica",
-          "score": 44,
+          "slug": "embalar-embalagens",
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 43,
+          "slug": "eletrovale-eletromecanica",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "js-eletrica-manutencao": [
+        {
+          "slug": "maximos-cabeleireiros",
+          "score": 60,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "embalar-embalagens",
+          "score": 55,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 49,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4233,6 +4521,23 @@
           "reason": "SAME_FAMILY"
         }
       ],
+      "maximos-cabeleireiros": [
+        {
+          "slug": "embalar-embalagens",
+          "score": 61,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "js-eletrica-manutencao",
+          "score": 60,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "bruna-diarista",
+          "score": 52,
+          "reason": "SAME_FAMILY"
+        }
+      ],
       "mimo-salgados-doces": [
         {
           "slug": "popys-conservacao-limpeza",
@@ -4241,7 +4546,7 @@
         },
         {
           "slug": "bruna-diarista",
-          "score": 54,
+          "score": 53,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4335,6 +4640,23 @@
           "reason": "DISTINCT"
         }
       ],
+      "papelemi-personalizados": [
+        {
+          "slug": "embalar-embalagens",
+          "score": 49,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 43,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "eletro-solucoes-eficazes",
+          "score": 41,
+          "reason": "SAME_FAMILY"
+        }
+      ],
       "paraiso-do-hot-dog": [
         {
           "slug": "miro-tech",
@@ -4376,12 +4698,12 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "btb-construcao",
-          "score": 56,
-          "reason": "SAME_FAMILY"
+          "slug": "easy-clean",
+          "score": 62,
+          "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "mimo-salgados-doces",
+          "slug": "btb-construcao",
           "score": 56,
           "reason": "SAME_FAMILY"
         }
@@ -4427,12 +4749,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "hbk-iluminacao-led",
-          "score": 25,
+          "slug": "js-eletrica-manutencao",
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "lk-alvenaria",
+          "slug": "hbk-iluminacao-led",
           "score": 25,
           "reason": "DISTINCT"
         }
@@ -4551,9 +4873,26 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "btb-construcao",
-          "score": 35,
+          "slug": "easy-clean",
+          "score": 36,
           "reason": "DISTINCT"
+        }
+      ],
+      "simone-lacerda-vaz": [
+        {
+          "slug": "embalar-embalagens",
+          "score": 48,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "easy-clean",
+          "score": 43,
+          "reason": "SAME_FAMILY"
         }
       ],
       "sos-presentes-cosmeticos": [
@@ -4585,7 +4924,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "jc-revestimentos",
+          "slug": "easy-clean",
           "score": 24,
           "reason": "DISTINCT"
         }
@@ -4715,16 +5054,16 @@
     "v1": {
       "metricVersion": 1,
       "clones": 0,
-      "over60": 3,
+      "over60": 6,
       "clusters": 0,
-      "highSimilarity": 3
+      "highSimilarity": 6
     },
     "v2": {
       "metricVersion": 2,
       "clones": 0,
-      "over60": 3,
+      "over60": 6,
       "clusters": 0,
-      "highSimilarity": 3
+      "highSimilarity": 6
     },
     "projects": [
       {
@@ -4849,23 +5188,23 @@
       },
       {
         "slug": "bruna-diarista",
-        "v1Score": 65,
+        "v1Score": 69,
         "v2Score": 66,
-        "delta": 1,
-        "v1Nearest": "popys-conservacao-limpeza",
+        "delta": -3,
+        "v1Nearest": "easy-clean",
         "v2Nearest": "popys-conservacao-limpeza",
-        "neighbourChanged": false,
-        "reason": "METRIC_SENSITIVITY",
-        "v1AssetPattern": 0,
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
         "v2AssetPattern": 15
       },
       {
         "slug": "btb-construcao",
-        "v1Score": 64,
-        "v2Score": 61,
-        "delta": -3,
-        "v1Nearest": "bruna-diarista",
-        "v2Nearest": "bruna-diarista",
+        "v1Score": 73,
+        "v2Score": 69,
+        "delta": -4,
+        "v1Nearest": "easy-clean",
+        "v2Nearest": "easy-clean",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
@@ -4968,6 +5307,18 @@
         "v2AssetPattern": 1.7
       },
       {
+        "slug": "easy-clean",
+        "v1Score": 73,
+        "v2Score": 69,
+        "delta": -4,
+        "v1Nearest": "btb-construcao",
+        "v2Nearest": "btb-construcao",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 15
+      },
+      {
         "slug": "ecommerce-on",
         "v1Score": 54,
         "v2Score": 54,
@@ -5013,6 +5364,18 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "embalar-embalagens",
+        "v1Score": 64,
+        "v2Score": 61,
+        "delta": -3,
+        "v1Nearest": "maximos-cabeleireiros",
+        "v2Nearest": "maximos-cabeleireiros",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 80,
         "v2AssetPattern": 7.5
       },
       {
@@ -5097,7 +5460,7 @@
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 3.8
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "guaratuba-sabores-da-baia",
@@ -5113,15 +5476,15 @@
       },
       {
         "slug": "hbk-iluminacao-led",
-        "v1Score": 39,
+        "v1Score": 38,
         "v2Score": 32,
-        "delta": -7,
+        "delta": -6,
         "v1Nearest": "jc-revestimentos",
         "v2Nearest": "jc-revestimentos",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
-        "v2AssetPattern": 9
+        "v1AssetPattern": 66.7,
+        "v2AssetPattern": 12
       },
       {
         "slug": "heloa-gas",
@@ -5137,15 +5500,15 @@
       },
       {
         "slug": "jc-revestimentos",
-        "v1Score": 39,
+        "v1Score": 38,
         "v2Score": 32,
-        "delta": -7,
+        "delta": -6,
         "v1Nearest": "hbk-iluminacao-led",
         "v2Nearest": "hbk-iluminacao-led",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
-        "v2AssetPattern": 9
+        "v1AssetPattern": 66.7,
+        "v2AssetPattern": 12
       },
       {
         "slug": "jkl-marcenaria",
@@ -5158,6 +5521,18 @@
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
         "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "js-eletrica-manutencao",
+        "v1Score": 60,
+        "v2Score": 60,
+        "delta": 0,
+        "v1Nearest": "maximos-cabeleireiros",
+        "v2Nearest": "maximos-cabeleireiros",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 14.3,
+        "v2AssetPattern": 9
       },
       {
         "slug": "liz-moraes-nail-designer",
@@ -5233,15 +5608,15 @@
       },
       {
         "slug": "marido-de-aluguel",
-        "v1Score": 39,
+        "v1Score": 38,
         "v2Score": 38,
-        "delta": -1,
+        "delta": 0,
         "v1Nearest": "paulo-mestre-de-obras",
         "v2Nearest": "paulo-mestre-de-obras",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 12.5,
-        "v2AssetPattern": 2.1
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 10,
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "marmitaria-dom-diego",
@@ -5268,6 +5643,18 @@
         "v2AssetPattern": 7.5
       },
       {
+        "slug": "maximos-cabeleireiros",
+        "v1Score": 64,
+        "v2Score": 61,
+        "delta": -3,
+        "v1Nearest": "embalar-embalagens",
+        "v2Nearest": "embalar-embalagens",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 80,
+        "v2AssetPattern": 7.5
+      },
+      {
         "slug": "mimo-salgados-doces",
         "v1Score": 55,
         "v2Score": 56,
@@ -5277,7 +5664,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_SENSITIVITY",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 3.8
+        "v2AssetPattern": 2.5
       },
       {
         "slug": "mirassol-conserta-celular",
@@ -5313,7 +5700,7 @@
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 6
+        "v2AssetPattern": 5
       },
       {
         "slug": "mp-festas-eventos",
@@ -5340,6 +5727,18 @@
         "v2AssetPattern": 4.3
       },
       {
+        "slug": "papelemi-personalizados",
+        "v1Score": 50,
+        "v2Score": 49,
+        "delta": -1,
+        "v1Nearest": "embalar-embalagens",
+        "v2Nearest": "embalar-embalagens",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 28.6,
+        "v2AssetPattern": 3.8
+      },
+      {
         "slug": "paraiso-do-hot-dog",
         "v1Score": 25,
         "v2Score": 24,
@@ -5360,8 +5759,8 @@
         "v2Nearest": "diego-montador-moveis",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 25,
-        "v2AssetPattern": 5
+        "v1AssetPattern": 20,
+        "v2AssetPattern": 4.3
       },
       {
         "slug": "popys-conservacao-limpeza",
@@ -5380,12 +5779,12 @@
         "v1Score": 31,
         "v2Score": 30,
         "delta": -1,
-        "v1Nearest": "jc-revestimentos",
+        "v1Nearest": "lolipa-arte-em-festas",
         "v2Nearest": "jc-revestimentos",
-        "neighbourChanged": false,
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 28.6,
-        "v2AssetPattern": 7.5
+        "v1AssetPattern": 27.3,
+        "v2AssetPattern": 10
       },
       {
         "slug": "r_beauty",
@@ -5496,6 +5895,18 @@
         "v2AssetPattern": 2.5
       },
       {
+        "slug": "simone-lacerda-vaz",
+        "v1Score": 50,
+        "v2Score": 48,
+        "delta": -2,
+        "v1Nearest": "embalar-embalagens",
+        "v2Nearest": "embalar-embalagens",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 60,
+        "v2AssetPattern": 2.1
+      },
+      {
         "slug": "sos-presentes-cosmeticos",
         "v1Score": 51,
         "v2Score": 51,
@@ -5516,8 +5927,8 @@
         "v2Nearest": "bruna-diarista",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 15.4,
-        "v2AssetPattern": 0
+        "v1AssetPattern": 13.3,
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "studio-de-cilios",
@@ -5628,11 +6039,11 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 73,
+      "total": 79,
       "original": 0,
       "acceptable": 27,
-      "attention": 43,
-      "highSimilarity": 3,
+      "attention": 46,
+      "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
@@ -5640,10 +6051,10 @@
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 35,
-      "coverPending": 38,
-      "coversAsSocialImage": 14,
+      "coverPending": 44,
+      "coversAsSocialImage": 8,
       "sharedCovers": 0,
-      "severeCrop": 19,
+      "severeCrop": 21,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
@@ -5654,7 +6065,7 @@
         "key": "highSimilarity",
         "label": "projetos HIGH_SIMILARITY",
         "before": 0,
-        "after": 3
+        "after": 6
       },
       {
         "kind": "NEW_PROJECT",
@@ -5667,8 +6078,29 @@
         "kind": "NEW_PROJECT",
         "slug": "btb-construcao",
         "status": "HIGH_SIMILARITY",
+        "score": 69,
+        "nearestMatch": "easy-clean"
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "easy-clean",
+        "status": "HIGH_SIMILARITY",
+        "score": 69,
+        "nearestMatch": "btb-construcao"
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "embalar-embalagens",
+        "status": "HIGH_SIMILARITY",
         "score": 61,
-        "nearestMatch": "bruna-diarista"
+        "nearestMatch": "maximos-cabeleireiros"
+      },
+      {
+        "kind": "NEW_PROJECT",
+        "slug": "maximos-cabeleireiros",
+        "status": "HIGH_SIMILARITY",
+        "score": 61,
+        "nearestMatch": "embalar-embalagens"
       },
       {
         "kind": "NEW_PROJECT",
