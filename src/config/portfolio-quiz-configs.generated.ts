@@ -1703,6 +1703,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     "notePlaceholder": "Ex.: tipo de móvel, quantidade, medidas ou o reparo necessário",
     "proposalKind": "service"
   },
+  "simone-lacerda-vaz": {
+    "services": [
+      "Atendimento nutricional",
+      "Bioimpedância e plano alimentar",
+      "Pré e pós-bariátrica",
+      "Laudo nutricional para cirurgia",
+      "Consultoria em amamentação"
+    ],
+    "experienceOptions": [
+      "Quero organizar minha alimentação",
+      "Estou no pré-operatório",
+      "Estou no pós-operatório",
+      "Tenho dúvidas sobre amamentação"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Noite",
+      "Tenho flexibilidade"
+    ],
+    "timingOptions": [
+      "Quero conversar agora",
+      "Nesta semana",
+      "Estou me organizando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual cuidado você procura?",
+      "experience": "Em que momento você está?",
+      "period": "Qual período facilita?",
+      "timing": "Quando gostaria de começar?",
+      "note": "Se desejar, conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: objetivo, cirurgia planejada, rotina alimentar ou dúvida sobre amamentação."
+  },
   "sos-presentes-cosmeticos": {
     "services": [
       "Quero uma cesta pronta",

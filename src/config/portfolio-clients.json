@@ -969,5 +969,24 @@
       "source": "Dados de endereço, telefone, redes sociais e imagens fornecidos pelo cliente nesta conversa",
       "reference": "https://www.facebook.com/embalarsjp/"
     }
+  },
+  {
+    "clientKey": "simone-lacerda-vaz",
+    "slug": "simone-lacerda-vaz",
+    "siteName": "Simone Lacerda Vaz · Nutricionista",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
+    "assetsDir": "public/images/simone-lacerda-vaz",
+    "ctaMode": "booking",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/simone-lacerda-vaz.md",
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Serviços, nome profissional, telefone e arte fornecidos pelo cliente nesta conversa",
+      "reference": "Arte fornecida pelo cliente nesta conversa"
+    }
   }
 ]

@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T09:36:55.231Z
+Gerado em 2026-09-06T09:52:41.038Z
 
-- Projetos auditados: **78**
-- PASS: **75** · WARNING: **3** · FAIL: **0**
-- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (13) · contato (7) · reserva (4) · diagnostico (6)
+- Projetos auditados: **79**
+- PASS: **76** · WARNING: **3** · FAIL: **0**
+- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -86,3 +86,4 @@ Gerado em 2026-09-06T09:36:55.231Z
 | papelemi-personalizados | comercios | pedido | Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
 | maximos-cabeleireiros | beleza | agendamento | Conte sua necessidade e os detalhes importantes para Maximos Cabeleireiros. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
 | embalar-embalagens | comercios | contato | Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade. | Consultar produtos | PROJECT_CONTRACT | PASS | — |
+| simone-lacerda-vaz | saude | agendamento | Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone. | Conversar agora | PROJECT_CONTRACT | PASS | — |

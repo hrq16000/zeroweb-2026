@@ -248,6 +248,11 @@ const EmbalarEmbalagensPage = lazy(() =>
     default: m.EmbalarEmbalagensPage,
   })),
 );
+const SimoneLacerdaVazPage = lazy(() =>
+  import("@/components/site/SimoneLacerdaVazPage").then((m) => ({
+    default: m.SimoneLacerdaVazPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -504,6 +509,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isPapelemi = loaderData?.slug === "papelemi-personalizados";
     const isMaximos = loaderData?.slug === "maximos-cabeleireiros";
     const isEmbalar = loaderData?.slug === "embalar-embalagens";
+    const isSimoneLacerdaVaz = loaderData?.slug === "simone-lacerda-vaz";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -524,6 +530,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e beleza pensada para a sua rotina."
       : isEmbalar
       ? "Embalar Embalagens em São José dos Pinhais: embalagens, descartáveis, produtos de limpeza, higiene e utilidades no Jardim Itália."
+      : isSimoneLacerdaVaz
+      ? "Simone Lacerda Vaz: atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1135,6 +1143,9 @@ function PortfolioPrototypePage() {
 
         ) : slug === "embalar-embalagens" ? (
           <EmbalarEmbalagensPage />
+
+        ) : slug === "simone-lacerda-vaz" ? (
+          <SimoneLacerdaVazPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />
