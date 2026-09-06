@@ -469,6 +469,8 @@
       "pedreiro",
       "alvenaria",
       "azulejista",
+      "portas",
+      "janelas",
       "reformas",
       "construcao-civil"
     ],
@@ -476,10 +478,10 @@
     "subtitle": "Pedreiro, azulejista e construção civil",
     "location": "Curitiba — PR · atendimento sob orçamento",
     "badge": "Novo projeto",
-    "image": "/images/paulo-mestre-de-obras/social.jpg",
+    "image": "/images/paulo-mestre-de-obras/hero-v2.png",
     "fallbackImage": "/images/paulo-mestre-de-obras/logo.webp",
     "metrics": "Orçamento personalizado",
-    "summary": "Serviços de pedreiro, azulejista, alvenaria, pisos, revestimentos, elétrica, hidráulica e reformas."
+    "summary": "Serviços de pedreiro e azulejista para elétrica, hidráulica, pisos, revestimentos, portas, janelas e pequenas reformas."
   },
   {
     "slug": "ecommerce-on",

@@ -1337,16 +1337,18 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
   },
   "paulo-mestre-de-obras": {
     "services": [
-      "Fundação e baldrame",
-      "Alvenaria, muros e paredes",
-      "Colunas, vigas e lajes",
-      "Reboco e revestimentos",
-      "Pisos e azulejos",
-      "Reformas e pequenos reparos"
+      "Elétrica",
+      "Hidráulica",
+      "Azulejista",
+      "Pisos e revestimentos",
+      "Pequenas reformas",
+      "Pequenos reparos",
+      "Instalação de portas",
+      "Venda e instalação de janelas"
     ],
     "experienceOptions": [
-      "Construção nova",
       "Reforma residencial",
+      "Acabamento ou revestimento",
       "Manutenção ou reparo",
       "Obra comercial"
     ],

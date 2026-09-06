@@ -534,11 +534,14 @@
     "notes": "R9: LOGO_ONLY (banner de marca com lista de servicos). Nao ampliar logo como capa fotografica."
   },
   "paulo-mestre-de-obras": {
-    "coverReview": "NEEDS_REVIEW",
-    "coverDecision": "COVER_ASSET_PENDING",
-    "coverMaterial": "MATERIAL_INSUFFICIENT",
-    "coverBlockReason": "BLOCKED_CONTACT",
-    "notes": "R9: capa.webp e panfleto com telefone (41) 99848-2304. Demais imagens de obra sem comprovacao de autoria do cliente (WRONG_PROJECT_OR_UNCERTAIN)."
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/paulo-mestre-de-obras/hero-v2.png",
+    "coverFocal": {
+      "x": 0.74,
+      "y": 0.44
+    },
+    "notes": "Atualização visual 2026-09-06: capa editorial gerada a partir da referência do cliente, sem telefone, endereço ou texto rasterizado. A referência original permanece arquivada apenas em docs/portfolio/source-materials; o contato continua server-only."
   },
   "raphael-construcoes": {
     "coverReview": "NEEDS_REVIEW",

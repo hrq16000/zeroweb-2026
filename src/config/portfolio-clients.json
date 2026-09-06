@@ -215,7 +215,13 @@
     "ctaMode": "proposal",
     "socialProofRequired": true,
     "hostCaptureRequired": true,
-    "funnelRecipientConfigured": false
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/paulo-mestre-de-obras.md",
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "source": "Material atualizado fornecido pelo cliente nesta conversa"
+    }
   },
   {
     "clientKey": "ecommerce-on",

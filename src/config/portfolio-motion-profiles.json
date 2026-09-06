@@ -1000,6 +1000,23 @@
       "desktopBehavior": "hero de textura revela o conforto e catálogo de peças em sequência",
       "tabletBehavior": "hero empilhado e grade 2 colunas",
       "mobileBehavior": "sem deslocamento no toque"
+    },
+    "paulo-mestre-de-obras": {
+      "intensity": "BALANCED",
+      "preset": "BOLD",
+      "heroMotion": "imageReveal",
+      "sectionReveal": "stagger",
+      "imageReveal": "right",
+      "textReveal": "up",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero fotográfico revela o trabalho manual pela direita; cards de serviços entram em sequência",
+      "tabletBehavior": "hero empilhado e grade em duas colunas",
+      "mobileBehavior": "sem deslocamento no toque"
     }
   },
   "decisions": {
