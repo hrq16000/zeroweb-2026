@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-06T08:52:17.837Z",
-  "totalCatalogProjects": 76,
-  "totalPages": 76,
+  "generatedAt": "2026-09-06T09:17:12.139Z",
+  "totalCatalogProjects": 77,
+  "totalPages": 77,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 39,
+  "premium": 40,
   "signature": 21,
   "baseline": 16,
   "static": 0,
   "motion": {
     "cloneThreshold": 95,
     "groupThreshold": 85,
-    "clones": 6,
-    "groups": 7,
+    "clones": 7,
+    "groups": 8,
     "signalFloor": 5,
-    "lowSignalPairs": 1365,
+    "lowSignalPairs": 1386,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -36,6 +36,14 @@
       {
         "a": "bruna-diarista",
         "b": "easy-clean",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "js-eletrica-manutencao",
+        "b": "maximos-cabeleireiros",
         "similarity": 100,
         "perceptual": 100,
         "tokens": 100,
@@ -88,14 +96,6 @@
         "perceptual": 100,
         "tokens": 70,
         "signal": "COMPARABLE"
-      },
-      {
-        "a": "reuse-house-brecho",
-        "b": "confeitaria-sabor-da-realeza",
-        "similarity": 86,
-        "perceptual": 100,
-        "tokens": 53,
-        "signal": "COMPARABLE"
       }
     ],
     "groupMembers": [
@@ -104,6 +104,10 @@
         "bruna-diarista",
         "easy-clean",
         "btb-construcao"
+      ],
+      [
+        "js-eletrica-manutencao",
+        "maximos-cabeleireiros"
       ],
       [
         "confeitaria-chyrley",
@@ -1450,6 +1454,40 @@
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
+        ]
+      }
+    },
+    {
+      "slug": "maximos-cabeleireiros",
+      "segment": "beleza",
+      "file": "src/components/site/MaximosCabeleireirosPage.tsx",
+      "score": 49,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 9,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
         ]
       }
     },

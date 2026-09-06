@@ -1203,6 +1203,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Atendimento esporádico"
     ]
   },
+  "maximos-cabeleireiros": {
+    "services": [
+      "Corte feminino",
+      "Corte masculino",
+      "Coloração e mechas",
+      "Escova e finalização",
+      "Tratamentos capilares",
+      "Produção para evento"
+    ],
+    "experienceOptions": [
+      "Quero mudar o visual",
+      "Manutenção do corte",
+      "Cor ou iluminação",
+      "Tratamento e cuidado"
+    ],
+    "periodOptions": [
+      "Jardim Itália",
+      "São José dos Pinhais",
+      "Vou confirmar o horário"
+    ],
+    "timingOptions": [
+      "Quero agendar nesta semana",
+      "Nos próximos dias",
+      "Estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual cuidado você procura?",
+      "experience": "O que você quer transformar?",
+      "period": "Onde fica melhor para você?",
+      "timing": "Quando gostaria de vir?",
+      "note": "Conte um pouco sobre o seu cabelo"
+    },
+    "notePlaceholder": "Ex.: comprimento atual, referência de corte, cor desejada ou ocasião."
+  },
   "mimo-salgados-doces": {
     "proposalKind": "service",
     "services": [

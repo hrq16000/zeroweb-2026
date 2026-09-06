@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T08:52:19.444Z
+Gerado em 2026-09-06T09:17:32.288Z
 
-- Projetos auditados: **76**
-- PASS: **74** · WARNING: **2** · FAIL: **0**
-- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (12) · contato (6) · reserva (4) · diagnostico (6)
+- Projetos auditados: **77**
+- PASS: **74** · WARNING: **3** · FAIL: **0**
+- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (13) · contato (6) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -84,3 +84,4 @@ Gerado em 2026-09-06T08:52:19.444Z
 | easy-clean | servicos | orcamento | Conte qual peça precisa de higienização e se deseja impermeabilização. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | js-eletrica-manutencao | servicos | orcamento | Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
 | papelemi-personalizados | comercios | pedido | Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
+| maximos-cabeleireiros | beleza | agendamento | Conte sua necessidade e os detalhes importantes para Maximos Cabeleireiros. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |

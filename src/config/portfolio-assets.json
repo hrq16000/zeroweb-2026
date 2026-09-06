@@ -932,6 +932,18 @@
         "ctaHref": "#colecao"
       },
       "socialVersion": "papelemi-20260906"
+    },
+    "maximos-cabeleireiros": {
+      "icon": "/images/maximos-cabeleireiros/logo.png",
+      "socialImage": "/images/maximos-cabeleireiros/social.png",
+      "proof": {
+        "eyebrow": "Maximos Cabeleireiros",
+        "title": "Beleza pensada para a sua rotina.",
+        "description": "Cortes, cor e cuidado no Jardim Itália, em São José dos Pinhais.",
+        "ctaLabel": "Agendar horário",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "maximos-20260906"
     }
   }
 }

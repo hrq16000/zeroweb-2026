@@ -1538,6 +1538,37 @@
       "blocking": []
     },
     {
+      "slug": "maximos-cabeleireiros",
+      "clientKey": "maximos-cabeleireiros",
+      "title": "Maximos Cabeleireiros",
+      "segment": "beleza",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Maximos Cabeleireiros no Jardim Itália, em São José dos Pinhais: cortes, coloração, tratamentos e finalizações para diferentes momentos e rotinas.",
+      "subtitle": "Cortes, cor e cuidados com intenção",
+      "image": "/images/maximos-cabeleireiros/hero.png",
+      "icon": "/images/maximos-cabeleireiros/logo.png",
+      "socialImage": "/images/maximos-cabeleireiros/social.png",
+      "socialVersion": "maximos-20260906",
+      "componentFile": "src/components/site/MaximosCabeleireirosPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/maximos-cabeleireiros",
+      "ctaMode": "booking",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/maximos-cabeleireiros/hero.png",
+        "/images/maximos-cabeleireiros/logo.png",
+        "/images/maximos-cabeleireiros/social.png"
+      ],
+      "shareCopy": "✂️ O Maximos Cabeleireiros ganhou uma presença digital nova!\n\nCortes, coloração, tratamentos e beleza pensada para a sua rotina no Jardim Itália, em São José dos Pinhais.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/maximos-cabeleireiros\n\n📲 Agende seu horário pelo WhatsApp.\n\n#MaximosCabeleireiros #SaoJoseDosPinhais #Cabeleireiro #Beleza #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "mimo-salgados-doces",
       "clientKey": "mimo-salgados-doces",
       "title": "Mimo Salgados e Doces",

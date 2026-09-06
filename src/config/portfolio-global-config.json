@@ -500,6 +500,19 @@
         "stepTitles": { "service": "O que precisa higienizar?", "experience": "Onde será o atendimento?", "period": "Qual região?", "timing": "Quando pretende começar?" },
         "notePlaceholder": "Conte a quantidade de peças, tecido e se deseja impermeabilização."
       }
+    },
+    "maximos-cabeleireiros": {
+      "contactFloating": { "theme": "pink", "recipientName": "a equipe Maximos", "label": "Agendar horário" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Corte feminino", "Corte masculino", "Coloração e mechas", "Escova e finalização", "Tratamentos capilares", "Produção para evento"],
+        "experienceOptions": ["Quero mudar o visual", "Manutenção do corte", "Cor ou iluminação", "Tratamento e cuidado"],
+        "periodOptions": ["Jardim Itália", "São José dos Pinhais", "Vou confirmar o horário"],
+        "timingOptions": ["Quero agendar nesta semana", "Nos próximos dias", "Estou planejando"],
+        "stepTitles": { "service": "Qual cuidado você procura?", "experience": "O que você quer transformar?", "period": "Onde fica melhor para você?", "timing": "Quando gostaria de vir?" },
+        "notePlaceholder": "Ex.: comprimento atual, referência de corte, cor desejada ou ocasião."
+      }
     }
   }
 }
