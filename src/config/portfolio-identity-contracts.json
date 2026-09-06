@@ -457,12 +457,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "SOS Presentes & Cosméticos: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/sos-presentes-cosmeticos/cesta-lilas.png",
-      "socialFile": "/images/sos-presentes-cosmeticos/cestas-feliz-aniversario-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/sos-presentes-cosmeticos/logo.svg",
+      "socialFile": "/images/sos-presentes-cosmeticos/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "marido-de-aluguel": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -521,12 +521,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "RM Fretes: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/rm-fretes/anuncio-oficial.png",
-      "socialFile": "/images/rm-fretes-hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/rm-fretes/logo.svg",
+      "socialFile": "/images/rm-fretes/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "rj-servicos-drywall": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -537,12 +537,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "RJ Serviços de Drywall: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/rj-servicos-drywall/acabamento-sala.webp",
-      "socialFile": "/images/rj-servicos-drywall/acabamento-sala-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/rj-servicos-drywall/logo.svg",
+      "socialFile": "/images/rj-servicos-drywall/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "paraiso-do-hot-dog": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -633,12 +633,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Studio de Cílios: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/studio-de-cilios/portfolio-1.webp",
-      "socialFile": "/images/studio-de-cilios/portfolio-1-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/studio-de-cilios/logo.svg",
+      "socialFile": "/images/studio-de-cilios/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "refrigeracao-maresia": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -681,12 +681,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Vila da Capivara: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/vila-da-capivara/editorial.webp",
-      "socialFile": "/images/vila-da-capivara/capa-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/vila-da-capivara/logo.svg",
+      "socialFile": "/images/vila-da-capivara/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "lk-alvenaria": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -697,12 +697,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "LK Alvenaria: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/lk-alvenaria/portfolio.webp",
-      "socialFile": "/images/lk-alvenaria/portfolio-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/lk-alvenaria/logo.svg",
+      "socialFile": "/images/lk-alvenaria/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "lucas-arruma-maquina-lavar": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -777,12 +777,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Salão da Marcia: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/salao-da-marcia/depilacao.webp",
-      "socialFile": "/images/salao-da-marcia/depilacao-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/salao-da-marcia/logo.svg",
+      "socialFile": "/images/salao-da-marcia/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "espaco-cih-luh": {
       "brandCharacter": "beleza com comunicação própria e foco local",
@@ -793,12 +793,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Espaço CIH & LUH: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/espaco-cih-luh/promocao.webp",
-      "socialFile": "/images/espaco-cih-luh/promocao-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/espaco-cih-luh/logo.svg",
+      "socialFile": "/images/espaco-cih-luh/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "diego-montador-moveis": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -841,12 +841,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Eletrovale Eletromecânica: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/eletrovale-eletromecanica/equipamentos.webp",
-      "socialFile": "/images/eletrovale-eletromecanica/equipamentos-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/eletrovale-eletromecanica/logo.svg",
+      "socialFile": "/images/eletrovale-eletromecanica/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "eletro-solucoes-eficazes": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -857,12 +857,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Eletro Soluções Eficazes: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/eletro-solucoes-eficazes/servicos.webp",
-      "socialFile": "/images/eletro-solucoes-eficazes/servicos-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/eletro-solucoes-eficazes/logo.svg",
+      "socialFile": "/images/eletro-solucoes-eficazes/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "eisenfer-tubos-acos": {
       "brandCharacter": "construcao com comunicação própria e foco local",
@@ -889,12 +889,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Mary Diarista: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/mary-diarista/servicos.webp",
-      "socialFile": "/images/mary-diarista/servicos-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/mary-diarista/logo.svg",
+      "socialFile": "/images/mary-diarista/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "acai-total-araucaria": {
       "brandCharacter": "restaurantes com comunicação própria e foco local",
@@ -921,12 +921,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "JKL Marcenaria: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/jkl-marcenaria/cozinha.webp",
-      "socialFile": "/images/jkl-marcenaria/cozinha-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/jkl-marcenaria/logo.svg",
+      "socialFile": "/images/jkl-marcenaria/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "santos-montador-de-moveis": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -937,12 +937,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Santos Montador de Móveis: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/santos-montador-de-moveis/hero.webp",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/santos-montador-de-moveis/logo.svg",
       "socialFile": "/images/santos-montador-de-moveis/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "marmitaria-dom-diego": {
       "brandCharacter": "restaurantes com comunicação própria e foco local",
@@ -1273,12 +1273,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Denise Gomes · Psicóloga: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/denise-gomes-psicologa/logo.png",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/denise-gomes-psicologa/logo.svg",
       "socialFile": "/images/denise-gomes-psicologa/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "ton-e-cor": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -1289,12 +1289,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Ton & Cor · Pintura e Pequenas Reformas: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/ton-e-cor/logo.png",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/ton-e-cor/logo.svg",
       "socialFile": "/images/ton-e-cor/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "raphael-construcoes": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -1305,12 +1305,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Raphael Construções: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/raphael-construcoes/logo.png",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/raphael-construcoes/logo.svg",
       "socialFile": "/images/raphael-construcoes/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "jc-revestimentos": {
       "brandCharacter": "construcao com comunicação própria e foco local",
@@ -1401,12 +1401,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "POPYS Conservação e Limpeza: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialFile": "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/popys-conservacao-limpeza/logo.svg",
+      "socialFile": "/images/popys-conservacao-limpeza/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "bruna-diarista": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -1417,12 +1417,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Bruna Diarista: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/bruna-diarista/hero.png",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/bruna-diarista/logo.svg",
       "socialFile": "/images/bruna-diarista/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "btb-construcao": {
       "brandCharacter": "construcao com comunicação própria e foco local",
@@ -1433,12 +1433,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "BTB Construção: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/btb-construcao/hero.png",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/btb-construcao/logo.svg",
       "socialFile": "/images/btb-construcao/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "easy-clean": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -1449,12 +1449,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Easy Clean Higienização a Seco: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/easy-clean/hero.png",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/easy-clean/logo.svg",
       "socialFile": "/images/easy-clean/hero-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     },
     "js-eletrica-manutencao": {
       "brandCharacter": "servicos com comunicação própria e foco local",
@@ -1529,12 +1529,12 @@
       "colorBehavior": "Paleta herdada do asset do cliente; tokens locais preservam contraste e reconhecimento.",
       "imageDirection": "Asset oficial ou já existente no projeto; nenhuma evidência factual é inventada.",
       "signatureElement": "Simone Lacerda Vaz · Nutricionista: marca e imagem social próprias no diretório do slug.",
-      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
-      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
-      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
-      "logoFile": "/images/simone-lacerda-vaz/hero.png",
-      "socialFile": "/images/simone-lacerda-vaz/social-og.jpg",
-      "identityNote": "Contrato documental criado na auditoria 0WEB; substituir somente quando o cliente fornecer uma marca oficial nova."
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/simone-lacerda-vaz/logo.svg",
+      "socialFile": "/images/simone-lacerda-vaz/hero-og.jpg",
+      "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
     }
   }
 }
