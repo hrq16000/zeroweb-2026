@@ -113,12 +113,7 @@
             "Manutenção preventiva",
             "Ainda estou avaliando"
           ],
-          "periodOptions": [
-            "Manhã",
-            "Tarde",
-            "Fim de semana",
-            "Tenho flexibilidade"
-          ],
+          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
           "timingOptions": [
             "É urgente",
             "Ainda nesta semana",
@@ -206,18 +201,8 @@
             "Quero indicação do que pedir",
             "Pedido para um grupo"
           ],
-          "periodOptions": [
-            "Agora",
-            "Mais tarde hoje",
-            "Amanhã",
-            "Ainda estou decidindo"
-          ],
-          "timingOptions": [
-            "O quanto antes",
-            "Em até 1 hora",
-            "Em horário marcado",
-            "Sem pressa"
-          ],
+          "periodOptions": ["Agora", "Mais tarde hoje", "Amanhã", "Ainda estou decidindo"],
+          "timingOptions": ["O quanto antes", "Em até 1 hora", "Em horário marcado", "Sem pressa"],
           "stepTitles": {
             "service": "Como você quer pedir?",
             "experience": "Como podemos te ajudar?",
@@ -247,12 +232,7 @@
             "Outro estado",
             "Ainda estou avaliando"
           ],
-          "periodOptions": [
-            "Manhã",
-            "Tarde",
-            "Fim de semana",
-            "Tenho flexibilidade"
-          ],
+          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
           "timingOptions": [
             "Nos próximos dias",
             "Ainda nesta semana",
@@ -340,12 +320,7 @@
           "Limpeza de telhado",
           "Reparos em geral"
         ],
-        "experienceOptions": [
-          "Casa",
-          "Apartamento",
-          "Comércio",
-          "Outro espaço"
-        ],
+        "experienceOptions": ["Casa", "Apartamento", "Comércio", "Outro espaço"],
         "periodOptions": [
           "Tenho fotos do local",
           "Posso explicar o reparo",
@@ -387,13 +362,7 @@
           "Pintura e acabamentos",
           "Engenharia e acompanhamento"
         ],
-        "experienceOptions": [
-          "Casa",
-          "Apartamento",
-          "Comércio",
-          "Condomínio",
-          "Outro imóvel"
-        ],
+        "experienceOptions": ["Casa", "Apartamento", "Comércio", "Condomínio", "Outro imóvel"],
         "periodOptions": [
           "Tenho projeto ou medidas",
           "Tenho fotos do local",
@@ -440,11 +409,7 @@
           "Obra em andamento",
           "Outro projeto"
         ],
-        "periodOptions": [
-          "Sei a metragem",
-          "Tenho fotos do ambiente",
-          "Preciso de orientação"
-        ],
+        "periodOptions": ["Sei a metragem", "Tenho fotos do ambiente", "Preciso de orientação"],
         "timingOptions": [
           "O quanto antes",
           "Nos próximos dias",
@@ -486,11 +451,7 @@
           "Obra em andamento",
           "Outro projeto"
         ],
-        "periodOptions": [
-          "Tenho projeto ou planta",
-          "Sei os ambientes",
-          "Preciso de orientação"
-        ],
+        "periodOptions": ["Tenho projeto ou planta", "Sei os ambientes", "Preciso de orientação"],
         "timingOptions": [
           "O quanto antes",
           "Nos próximos dias",

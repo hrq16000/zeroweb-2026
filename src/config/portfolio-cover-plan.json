@@ -7,9 +7,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "brecho-sao-francisco": {
       "source": "public/images/brecho-sao-francisco/capa.png",
@@ -17,9 +15,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "reuse-house-brecho": {
       "source": "public/images/reuse-house-brecho/capa.png",
@@ -27,9 +23,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "toquinho-de-gente-brecho": {
       "source": "public/images/toquinho-de-gente-brecho/capa.png",
@@ -37,9 +31,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "diego-montador-moveis": {
       "source": "public/images/diego-montador-moveis/capa.webp",
@@ -47,10 +39,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP",
-        "COVER_IS_LOGO"
-      ]
+      "issues": ["COVER_SEVERE_CROP", "COVER_IS_LOGO"]
     },
     "jkl-marcenaria": {
       "source": "public/images/jkl-marcenaria/cozinha.webp",
@@ -58,10 +47,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP",
-        "COVER_IS_LOGO"
-      ]
+      "issues": ["COVER_SEVERE_CROP", "COVER_IS_LOGO"]
     },
     "beto-pasteis": {
       "source": "public/images/beto-pasteis/capa.png",
@@ -69,9 +55,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "dlara-pizzaria": {
       "source": "public/images/dlara-pizzaria/capa.png",
@@ -79,9 +63,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "marmitaria-dom-diego": {
       "source": "public/images/marmitaria-dom-diego/capa.png",
@@ -89,9 +71,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "woodhouse-hamburgueres": {
       "source": "public/images/woodhouse-hamburgueres/capa.png",
@@ -99,9 +79,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "sos-presentes-cosmeticos": {
       "source": "public/images/sos-presentes-cosmeticos/caneca-eu-te-protejo.png",
@@ -109,10 +87,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP",
-        "COVER_IS_LOGO"
-      ]
+      "issues": ["COVER_SEVERE_CROP", "COVER_IS_LOGO"]
     },
     "eletrovale-eletromecanica": {
       "source": "public/images/eletrovale-eletromecanica/equipamentos.webp",
@@ -120,9 +95,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_IS_LOGO"
-      ]
+      "issues": ["COVER_IS_LOGO"]
     },
     "acai-total-araucaria": {
       "source": "public/images/acai-total-araucaria/acai.webp",
@@ -130,9 +103,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP"
-      ]
+      "issues": ["COVER_SEVERE_CROP"]
     },
     "rj-servicos-drywall": {
       "source": "public/images/rj-servicos-drywall/hero-drywall.webp",
@@ -140,9 +111,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_IS_LOGO"
-      ]
+      "issues": ["COVER_IS_LOGO"]
     },
     "santos-montador-de-moveis": {
       "source": "public/images/santos-montador-de-moveis/hero.png",
@@ -150,9 +119,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_IS_LOGO"
-      ]
+      "issues": ["COVER_IS_LOGO"]
     },
     "lolipa-arte-em-festas": {
       "source": "public/images/lolipa-arte-em-festas/decoracao-branca.png",
@@ -160,9 +127,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "premium-envelopamentos": {
       "source": "public/images/premium-envelopamentos/galeria-oficina.png",
@@ -170,9 +135,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "dyzpromo": {
       "source": "public/images/dyzpromo/faixa-equipe.jpeg",
@@ -180,10 +143,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP",
-        "COVER_LOW_RES"
-      ]
+      "issues": ["COVER_SEVERE_CROP", "COVER_LOW_RES"]
     },
     "ag-electrical-services": {
       "source": "public/images/ag-electrical-services/laserway-2.webp",
@@ -191,9 +151,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "assistencia-microondas-santos": {
       "source": "public/images/assistencia-microondas-santos/hero.png",
@@ -201,9 +159,7 @@
         "x": 0.5,
         "y": 0.28
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ],
+      "issues": ["COVER_NOT_DEDICATED"],
       "mode": "frame"
     },
     "confeitaria-chyrley": {
@@ -212,9 +168,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "manu-pasteis": {
       "source": "public/images/manu-pasteis/hero.png",
@@ -222,9 +176,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "vila-da-capivara": {
       "source": "public/images/vila-da-capivara/capa.webp",
@@ -232,9 +184,7 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "lucas-arruma-maquina-lavar": {
       "source": "public/images/lucas-arruma-maquina-lavar/vitrine.png",
@@ -242,11 +192,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_IS_LOGO",
-        "COVER_SEVERE_CROP",
-        "COVER_LOW_RES"
-      ],
+      "issues": ["COVER_IS_LOGO", "COVER_SEVERE_CROP", "COVER_LOW_RES"],
       "notes": "Capa grafica autoral 16:10 (tipografia + tambor). Sem fotografia inventada e sem PII."
     },
     "no-brilho-higienizacao": {
@@ -255,10 +201,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_IS_LOGO",
-        "COVER_SEVERE_CROP"
-      ],
+      "issues": ["COVER_IS_LOGO", "COVER_SEVERE_CROP"],
       "notes": "Capa grafica autoral 16:10 (tipografia + amostras de tecido). Sem fotografia inventada e sem PII."
     },
     "galileu-locacao-brinquedos": {
@@ -267,10 +210,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_REUSES_SOCIAL",
-        "COVER_NO_FOCAL_POINT"
-      ],
+      "issues": ["COVER_REUSES_SOCIAL", "COVER_NO_FOCAL_POINT"],
       "notes": "Capa grafica autoral 16:10 (cartela de atracoes). Sem fotografia inventada e sem PII."
     },
     "lj-cleaning": {
@@ -279,11 +219,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_NOT_DEDICATED",
-        "COVER_REUSES_SOCIAL",
-        "COVER_NO_FOCAL_POINT"
-      ],
+      "issues": ["COVER_NOT_DEDICATED", "COVER_REUSES_SOCIAL", "COVER_NO_FOCAL_POINT"],
       "notes": "Capa grafica autoral 16:10 (matriz de superficies). Sem fotografia inventada e sem PII."
     },
     "artesanatos-darleia-oliveira": {
@@ -292,9 +228,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_NO_DEDICATED_ASSET"
-      ],
+      "issues": ["COVER_NO_DEDICATED_ASSET"],
       "notes": "Capa 16:10 recortada do material fotografico proprio (coadores + xicara). Sem telefone, e-mail, QR ou PII.",
       "mode": "frame"
     },
@@ -304,9 +238,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_NO_DEDICATED_ASSET"
-      ],
+      "issues": ["COVER_NO_DEDICATED_ASSET"],
       "notes": "Capa 16:10 recortada do banner proprio do cliente (marca + produto). Sem telefone, e-mail, QR ou PII."
     },
     "thays-camilla": {
@@ -315,9 +247,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_NO_DEDICATED_ASSET"
-      ],
+      "issues": ["COVER_NO_DEDICATED_ASSET"],
       "notes": "Capa 16:10 recortada do material fotografico proprio (caneca + azulejo personalizados). Sem telefone, e-mail, QR ou PII.",
       "mode": "frame"
     },
@@ -327,9 +257,7 @@
         "x": 0.44,
         "y": 0.5
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "rm-fretes": {
       "source": "public/images/rm-fretes/carroceria-carga.png",
@@ -338,9 +266,7 @@
         "x": 0.5,
         "y": 0.5
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "heloa-gas": {
       "source": "public/images/heloa-gas/hero.jpg",
@@ -348,9 +274,7 @@
         "x": 0.5,
         "y": 0.55
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": ["COVER_NOT_DEDICATED"]
     },
     "eisenfer-tubos-acos": {
       "source": "public/images/eisenfer-tubos-acos/telhas.webp",
@@ -358,9 +282,7 @@
         "x": 0.5,
         "y": 0.45
       },
-      "issues": [
-        "COVER_NO_DEDICATED_ASSET"
-      ],
+      "issues": ["COVER_NO_DEDICATED_ASSET"],
       "notes": "R11: recorte editorial 16:10 da faixa de produtos do material proprio (telhas metalicas reais). Rodape com telefone/site do flyer fica fora do enquadramento. Sem PII, sem preco."
     },
     "sscons": {
@@ -369,9 +291,7 @@
         "x": 0.5,
         "y": 0.55
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ],
+      "issues": ["COVER_NOT_DEDICATED"],
       "notes": "Migração S&S (issue #60): recorte 16:10 do hero original do cliente. Sem PII, sem preço, sem marca de terceiros."
     }
   }

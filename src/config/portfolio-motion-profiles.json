@@ -928,11 +928,7 @@
         "section": "Grade de serviços em stagger curto de cima para baixo",
         "interaction": "Seta do CTA avança e o cartão de serviço eleva no ponteiro"
       },
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "contadores"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "contadores"],
       "performanceNote": "Somente transform/opacity via primitives; nenhum JS extra além do IntersectionObserver."
     },
     "woodhouse-hamburgueres": {
@@ -945,11 +941,7 @@
         "section": "Linhas da comanda entrando pela direita, uma a uma",
         "interaction": "CTA com press físico e ponto da linha crescendo no ponteiro"
       },
-      "effectsAvoided": [
-        "stagger em grade",
-        "zoom de imagem",
-        "contadores"
-      ],
+      "effectsAvoided": ["stagger em grade", "zoom de imagem", "contadores"],
       "performanceNote": "Sticky nativo do CSS, sem listener de scroll."
     },
     "sos-presentes-cosmeticos": {
@@ -962,11 +954,7 @@
         "section": "Vitrine de presentes surgindo em escala",
         "interaction": "Recorte da foto do produto aproxima no ponteiro"
       },
-      "effectsAvoided": [
-        "entrada lateral de texto",
-        "parallax",
-        "press agressivo"
-      ],
+      "effectsAvoided": ["entrada lateral de texto", "parallax", "press agressivo"],
       "performanceNote": "Zoom de hover só em transform; imagens já dimensionadas."
     },
     "jc-revestimentos": {
@@ -979,11 +967,7 @@
         "section": "Tabela de especificação revelada linha a linha pela esquerda",
         "interaction": "Linha recua e a etiqueta de acabamento desliza no ponteiro"
       },
-      "effectsAvoided": [
-        "stagger em grade",
-        "escala de cartões",
-        "contadores"
-      ],
+      "effectsAvoided": ["stagger em grade", "escala de cartões", "contadores"],
       "performanceNote": "Hero sem parallax; imagem de fundo estática para proteger o LCP."
     },
     "guaratuba-reparos-residenciais": {
@@ -996,11 +980,7 @@
         "section": "Checklist de reparos aparecendo item a item",
         "interaction": "Números 01–03 contando ao entrar, com leve elevação no ponteiro"
       },
-      "effectsAvoided": [
-        "máscara de imagem",
-        "parallax",
-        "entrada lateral"
-      ],
+      "effectsAvoided": ["máscara de imagem", "parallax", "entrada lateral"],
       "performanceNote": "Contador em requestAnimationFrame com parada imediata sob reduced motion."
     },
     "onda3": {
@@ -1050,11 +1030,7 @@
         "interaction": "Card eleva levemente e a borda ganha cor no ponteiro"
       },
       "motionIntensity": "SUBTLE",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1069,11 +1045,7 @@
         "interaction": "Perguntas do FAQ mudam de cor no foco e no ponteiro"
       },
       "motionIntensity": "SUBTLE",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1088,11 +1060,7 @@
         "interaction": "Linhas de ordem de serviço deslizam 4px e acendem a borda âmbar"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1107,11 +1075,7 @@
         "interaction": "Linha da tabela realça o fundo no ponteiro"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1126,11 +1090,7 @@
         "interaction": "Pílulas de aplicação ganham contorno de luz"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1145,11 +1105,7 @@
         "interaction": "Linhas da ficha do produto acendem em bege ao passar"
       },
       "motionIntensity": "SUBTLE",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1164,11 +1120,7 @@
         "interaction": "Etapas sobem uma a uma e as linhas destacam ao ponteiro"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1183,11 +1135,7 @@
         "interaction": "Etapas entram pela direita e o card ganha fundo branco no ponteiro"
       },
       "motionIntensity": "SUBTLE",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1202,11 +1150,7 @@
         "interaction": "Registros de campo deslizam ao entrar e elevam no ponteiro"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1221,11 +1165,7 @@
         "interaction": "Linhas da ficha da obra escurecem ao passar"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1240,11 +1180,7 @@
         "interaction": "Cartão de serviço eleva e ganha sombra"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1259,11 +1195,7 @@
         "interaction": "Card eleva e ganha sombra ao montar o pedido"
       },
       "motionIntensity": "EXPRESSIVE",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1278,11 +1210,7 @@
         "interaction": "Passos do pedido entrando pela direita, card com borda de destaque"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1297,11 +1225,7 @@
         "interaction": "Linha da cartela ganha véu claro no ponteiro"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "loops infinitos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Apenas transform/opacity/clip-path via primitives oficiais; sem JS adicional.",
       "accessibilityNotes": "Conteúdo presente no DOM sem JS; prefers-reduced-motion remove deslocamento.",
       "originalityNotes": "Assinatura derivada do próprio negócio; nenhum padrão repetido de outro projeto."
@@ -1316,12 +1240,7 @@
         "section": "Grade de seis serviços em stagger de grade; destaques com ✦ e cartão escuro",
         "interaction": "Galeria com revelação por máscara e lightbox com teclado (ESC, setas) e contador"
       },
-      "effectsAvoided": [
-        "parallax",
-        "scroll hijack",
-        "contadores",
-        "loops decorativos"
-      ],
+      "effectsAvoided": ["parallax", "scroll hijack", "contadores", "loops decorativos"],
       "performanceNote": "Somente transform/opacity/clip-path via primitives; hero WebP responsivo (768/1280/1920) como único LCP priority; galeria lazy com variantes 480/800."
     }
   }
