@@ -143,6 +143,19 @@
       "logoStatus": "LOGO_PENDING",
       "coverStatus": "GRAPHIC_COMPOSITION",
       "forbiddenSimilarities": ["guaratuba-oficina-nautica", "guaratuba-reparos-residenciais", "almeida-torres"]
+    },
+    "kitutes-na-mesa": {
+      "brandCharacter": ["acolhedor", "artesanal", "generoso", "alegre"],
+      "visualConcept": "Mesa editorial em camadas: etiquetas de menu, papel creme e blocos terracota para transformar variedade em convite.",
+      "heroComposition": "food-editorial-assimetrico-com-mesa",
+      "sectionRhythm": ["convite", "cardapio-em-faixas", "seletor-de-ocasiao", "briefing-de-encomenda"],
+      "typographicCharacter": "Serifa calorosa nos títulos, sans funcional no corpo e etiquetas monoespaceadas para organizar a encomenda.",
+      "colorBehavior": "Creme e papel como base, terracota como ação, cacau como contraste e blush como camada de afeto.",
+      "imageDirection": "Arte culinária conceitual com área negativa para texto; sem pessoas, cozinha, fachada ou evento inventado.",
+      "signatureElement": "Seletor de ocasião que destaca a mesa correspondente.",
+      "logoStatus": "CONCEPT_PENDING_APPROVAL",
+      "coverStatus": "BRAND_COMPOSITION",
+      "forbiddenSimilarities": ["mimo-salgados-doces", "confeitaria-sabor-da-realeza", "vila-da-capivara"]
     }
   }
 }

@@ -1102,6 +1102,23 @@
       "desktopBehavior": "hero abre da bancada para o espaço negativo; serviços entram como etapas do ritual",
       "tabletBehavior": "hero empilhado e trilho de serviços em três colunas",
       "mobileBehavior": "sem deslocamento no toque; CTA permanece visível após o hero"
+    },
+    "kitutes-na-mesa": {
+      "intensity": "BALANCED",
+      "preset": "WARM_VITRINE",
+      "heroMotion": "layered",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "mesa editorial em camadas; convite, sabores e briefing entram como pratos organizados",
+      "tabletBehavior": "hero empilhado e seletor de ocasião preservado em duas colunas",
+      "mobileBehavior": "sem deslocamento no toque; seleção por ocasião continua acessível por teclado"
     }
   },
   "decisions": {
@@ -1525,6 +1542,6 @@
       "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Somente transform/opacity; hero único com prioridade e menu carregado sob demanda.",
       "accessibilityNotes": "Conteúdo fica no DOM; reduced motion remove deslocamentos."
-    }
   }
+}
 }

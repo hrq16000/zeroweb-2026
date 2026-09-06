@@ -850,3 +850,17 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Rejeitado: importar telefone/WhatsApp público, depoimentos, alegação “24 horas” e
   atribuição de obras não comprovadas. WhatsApp permanece `NOT_CONFIGURED`.
 - Relatório: `docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md`.
+
+## 2026-09-06 — Kitutes na Mesa (novo portfolio)
+
+- Skills: 0web-skill-router → 0web-skill-discovery → 0web-design-system →
+  0web-portfolio-art-direction → imagegen → 0web-ui-quality-gates.
+- Entrega: página autoral `/portfolio/kitutes-na-mesa`, brief versionado,
+  identidade editorial “mesa posta”, hero/logo/social gerados sem telefone
+  incorporado, narrativa de orçamento sob encomenda e CTA seguro por funil.
+- Contratos atualizados: catálogo, cliente, assets, motion, quiz, identidade,
+  originalidade, experiência, capa, share copy e seed administrativo.
+- Validação: 80 projetos conformes; narrativas 80/80 distintas; contexto de funil
+  80/80 sem warnings; regional 80/80; seed 80/80; typecheck e gates restantes em execução.
+- Decisão de publicação: somente GitHub (`zeroweb-2026`); nenhuma hospedagem externa
+  ou domínio `chatgpt.site` foi usado.

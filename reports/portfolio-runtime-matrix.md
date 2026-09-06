@@ -6,8 +6,8 @@ As colunas abaixo indicam o consumo dentro do componente próprio de cada client
 Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 (composição autoral preservada) · `NOT_APPLICABLE` · `MISSING` (bloqueante).
 
-- Componentes de portfólio auditados: 77
-- Componentes com núcleo administrável: 77
+- Componentes de portfólio auditados: 78
+- Componentes com núcleo administrável: 78
 - Conexões faltando (MISSING): 0
 
 | Componente | Logo | Hero | Headline | Subheadline | CTA |
@@ -50,6 +50,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 | JcRevestimentosPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | JklMarcenariaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | JsEletricaManutencaoPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
+| KitutesNaMesaPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | LizMoraesNailDesignerPage.tsx | MANAGED | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | LjCleaningPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | LkAlvenariaPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
@@ -79,7 +80,7 @@ Legenda: `MANAGED` (admin altera a saída pública) · `HARDCODED_INTENTIONAL`
 | SaboresDaBaiaPage.tsx | NOT_APPLICABLE | NOT_APPLICABLE | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | SalaoDaMarciaPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
 | SantosMontadorDeMoveisPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
-| SimoneLacerdaVazPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL | HARDCODED_INTENTIONAL |
+| SimoneLacerdaVazPage.tsx | NOT_APPLICABLE | MANAGED | HARDCODED_INTENTIONAL | MANAGED | HARDCODED_INTENTIONAL |
 | SosPresentesCosmeticosPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |
 | SsConsPage.tsx | MANAGED | MANAGED | MANAGED | MANAGED | MANAGED |
 | StudioDeCiliosPage.tsx | NOT_APPLICABLE | MANAGED | MANAGED | MANAGED | HARDCODED_INTENTIONAL |

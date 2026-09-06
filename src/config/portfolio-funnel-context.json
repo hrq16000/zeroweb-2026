@@ -524,11 +524,39 @@
     "primaryCtaLabel": "Consultar produtos",
     "theme": "pink"
   },
+  "js-eletrica-manutencao": {
+    "intent": "orcamento",
+    "nextStepTitle": "Uma instalação segura começa com uma avaliação técnica.",
+    "nextStepBody": "Conte se precisa de elétrica, ar-condicionado ou sistema solar e informe a região do atendimento.",
+    "primaryCtaLabel": "Solicitar avaliação",
+    "theme": "navy"
+  },
+  "papelemi-personalizados": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu detalhe personalizado começa com uma boa ideia.",
+    "nextStepBody": "Conte a ocasião, o produto e a identidade visual que deseja criar para receber uma orientação inicial.",
+    "primaryCtaLabel": "Criar meu personalizado",
+    "theme": "pink"
+  },
+  "maximos-cabeleireiros": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu próximo cuidado começa com um horário reservado.",
+    "nextStepBody": "Conte o serviço que procura e a melhor janela para a equipe encontrar o atendimento ideal.",
+    "primaryCtaLabel": "Agendar atendimento",
+    "theme": "pink"
+  },
   "simone-lacerda-vaz": {
     "intent": "agendamento",
     "nextStepTitle": "Seu cuidado começa com uma conversa acolhedora.",
     "nextStepBody": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
     "primaryCtaLabel": "Conversar agora",
+    "theme": "pink"
+  },
+  "kitutes-na-mesa": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua mesa começa com uma conversa simples.",
+    "nextStepBody": "Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso.",
+    "primaryCtaLabel": "Montar orçamento",
     "theme": "pink"
   }
 }

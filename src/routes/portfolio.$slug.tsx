@@ -253,6 +253,11 @@ const SimoneLacerdaVazPage = lazy(() =>
     default: m.SimoneLacerdaVazPage,
   })),
 );
+const KitutesNaMesaPage = lazy(() =>
+  import("@/components/site/KitutesNaMesaPage").then((m) => ({
+    default: m.KitutesNaMesaPage,
+  })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -510,6 +515,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isMaximos = loaderData?.slug === "maximos-cabeleireiros";
     const isEmbalar = loaderData?.slug === "embalar-embalagens";
     const isSimoneLacerdaVaz = loaderData?.slug === "simone-lacerda-vaz";
+    const isKitutesNaMesa = loaderData?.slug === "kitutes-na-mesa";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -532,6 +538,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Embalar Embalagens em São José dos Pinhais: embalagens, descartáveis, produtos de limpeza, higiene e utilidades no Jardim Itália."
       : isSimoneLacerdaVaz
       ? "Simone Lacerda Vaz: atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação."
+      : isKitutesNaMesa
+      ? "Kitutes na Mesa: porções, salgados, mini lanches, doces e bolos caseiros para eventos, coffee breaks e comemorações sob encomenda."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1146,6 +1154,9 @@ function PortfolioPrototypePage() {
 
         ) : slug === "simone-lacerda-vaz" ? (
           <SimoneLacerdaVazPage />
+
+        ) : slug === "kitutes-na-mesa" ? (
+          <KitutesNaMesaPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

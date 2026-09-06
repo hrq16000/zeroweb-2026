@@ -988,5 +988,24 @@
       "source": "Serviços, nome profissional, telefone e arte fornecidos pelo cliente nesta conversa",
       "reference": "Arte fornecida pelo cliente nesta conversa"
     }
+  },
+  {
+    "clientKey": "kitutes-na-mesa",
+    "slug": "kitutes-na-mesa",
+    "siteName": "Kitutes na Mesa · Porções com Carinho",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/KitutesNaMesaPage.tsx",
+    "assetsDir": "public/images/kitutes-na-mesa",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/kitutes-na-mesa.md",
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Serviços, canais e arte de referência fornecidos pelo cliente nesta conversa",
+      "reference": "Arte fornecida pelo cliente nesta conversa"
+    }
   }
 ]

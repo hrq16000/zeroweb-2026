@@ -915,6 +915,19 @@
       "cardValid": true,
       "businessName": "Woodhouse Hambúrgueres",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "kitutes-na-mesa",
+      "asset": "public/images/kitutes-na-mesa/hero.png",
+      "catalogImage": "/images/kitutes-na-mesa/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "GENERATED_BRAND_ART",
+      "reviewedAt": null,
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Kitutes na Mesa",
+      "segment": "restaurantes"
     }
   ]
 }

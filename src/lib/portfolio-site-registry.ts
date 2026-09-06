@@ -532,6 +532,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "kitutes-na-mesa",
+    siteName: "Kitutes na Mesa · Porções com Carinho",
+    vertical: "restaurantes",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T09:52:41.038Z",
-    "audited": 79,
-    "pass": 76,
-    "warning": 3,
+    "generatedAt": "2026-09-06T18:12:13.669Z",
+    "audited": 80,
+    "pass": 80,
+    "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 21,
-      "orcamento": 26,
+      "orcamento": 27,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 7,
@@ -983,54 +983,39 @@
       "businessName": "JS Elétrica e Manutenção",
       "segment": "servicos",
       "intent": "orcamento",
-      "source": "SEGMENT_FALLBACK",
-      "nextStepTitle": "Fale com JS Elétrica e Manutenção sobre o que você precisa.",
-      "nextStepBody": "Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção.",
-      "primaryCtaLabel": "Fale com a empresa",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Uma instalação segura começa com uma avaliação técnica.",
+      "nextStepBody": "Conte se precisa de elétrica, ar-condicionado ou sistema solar e informe a região do atendimento.",
+      "primaryCtaLabel": "Solicitar avaliação",
       "whatsappIntent": "orcamento",
-      "status": "WARNING",
-      "issues": [
-        {
-          "code": "PORTFOLIO_FUNNEL_FALLBACK",
-          "detail": "sem contrato próprio — fallback neutro"
-        }
-      ]
+      "status": "PASS",
+      "issues": []
     },
     {
       "slug": "papelemi-personalizados",
       "businessName": "PapeLemi Papelaria Personalizada",
       "segment": "comercios",
       "intent": "pedido",
-      "source": "SEGMENT_FALLBACK",
-      "nextStepTitle": "Fale com PapeLemi Papelaria Personalizada sobre o que você precisa.",
-      "nextStepBody": "Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada.",
-      "primaryCtaLabel": "Fale com a empresa",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu detalhe personalizado começa com uma boa ideia.",
+      "nextStepBody": "Conte a ocasião, o produto e a identidade visual que deseja criar para receber uma orientação inicial.",
+      "primaryCtaLabel": "Criar meu personalizado",
       "whatsappIntent": "pedido",
-      "status": "WARNING",
-      "issues": [
-        {
-          "code": "PORTFOLIO_FUNNEL_FALLBACK",
-          "detail": "sem contrato próprio — fallback neutro"
-        }
-      ]
+      "status": "PASS",
+      "issues": []
     },
     {
       "slug": "maximos-cabeleireiros",
       "businessName": "Maximos Cabeleireiros",
       "segment": "beleza",
       "intent": "agendamento",
-      "source": "SEGMENT_FALLBACK",
-      "nextStepTitle": "Fale com Maximos Cabeleireiros sobre o que você precisa.",
-      "nextStepBody": "Conte sua necessidade e os detalhes importantes para Maximos Cabeleireiros.",
-      "primaryCtaLabel": "Fale com a empresa",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu próximo cuidado começa com um horário reservado.",
+      "nextStepBody": "Conte o serviço que procura e a melhor janela para a equipe encontrar o atendimento ideal.",
+      "primaryCtaLabel": "Agendar atendimento",
       "whatsappIntent": "agendamento",
-      "status": "WARNING",
-      "issues": [
-        {
-          "code": "PORTFOLIO_FUNNEL_FALLBACK",
-          "detail": "sem contrato próprio — fallback neutro"
-        }
-      ]
+      "status": "PASS",
+      "issues": []
     },
     {
       "slug": "embalar-embalagens",
@@ -1055,6 +1040,19 @@
       "nextStepBody": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
       "primaryCtaLabel": "Conversar agora",
       "whatsappIntent": "agendamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "kitutes-na-mesa",
+      "businessName": "Kitutes na Mesa · Porções com Carinho",
+      "segment": "restaurantes",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Sua mesa começa com uma conversa simples.",
+      "nextStepBody": "Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso.",
+      "primaryCtaLabel": "Montar orçamento",
+      "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
     }

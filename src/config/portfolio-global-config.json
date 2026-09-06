@@ -539,6 +539,19 @@
         "stepTitles": { "service": "Qual cuidado você procura?", "experience": "Em que momento você está?", "period": "Qual período facilita?", "timing": "Quando gostaria de começar?" },
         "notePlaceholder": "Ex.: objetivo, cirurgia planejada, rotina alimentar ou dúvida sobre amamentação."
       }
+    },
+    "kitutes-na-mesa": {
+      "contactFloating": { "theme": "pink", "recipientName": "a equipe Kitutes na Mesa", "label": "Fazer orçamento" },
+      "footer": { "variant": "light" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Salgados assados e fritos", "Mini lanches", "Doces e bolos caseiros", "Porções para eventos", "Coffee break e kits"],
+        "experienceOptions": ["Aniversário ou comemoração", "Casamento ou confraternização", "Coffee break empresarial", "Receber família e amigos"],
+        "periodOptions": ["Ainda vou definir a data", "Nos próximos 7 dias", "Nas próximas semanas", "Quero consultar disponibilidade"],
+        "timingOptions": ["Quero um orçamento", "Estou montando o cardápio", "Preciso de uma orientação"],
+        "stepTitles": { "service": "O que vai compor sua mesa?", "experience": "Qual é a ocasião?", "period": "Quando será?", "timing": "Qual próximo passo?" },
+        "notePlaceholder": "Ex.: data, número de pessoas, sabores desejados ou tipo de evento."
+      }
     }
   }
 }

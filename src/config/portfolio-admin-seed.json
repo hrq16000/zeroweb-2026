@@ -361,8 +361,8 @@
       "subtitle": "Diárias, pós-obra e organização",
       "image": "/images/bruna-diarista/hero.png",
       "icon": "/images/bruna-diarista/hero.png",
-      "socialImage": "/images/bruna-diarista/hero.png",
-      "socialVersion": "bruna-20260906",
+      "socialImage": "/images/bruna-diarista/hero-og.jpg",
+      "socialVersion": "57a87dcb",
       "componentFile": "src/components/site/BrunaDiaristaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/bruna-diarista",
@@ -371,14 +371,13 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/bruna-diarista/hero-og.jpg",
         "/images/bruna-diarista/hero.png"
       ],
       "shareCopy": "🧹 A Bruna Diarista ganhou uma vitrine nova para facilitar sua próxima diária!\n\nDiárias de 4, 6 ou 8 horas, pós-obra e organização de ambientes em Curitiba e Região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/bruna-diarista\n\n📲 Consulte horários e monte seu atendimento.\n\n#BrunaDiarista #LimpezaResidencial #PersonalOrganizer #Curitiba #0WEB",
       "published": true,
-      "status": "PARTIAL",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING"
-      ],
+      "status": "COMPLETE",
+      "issues": [],
       "blocking": []
     },
     {
@@ -392,8 +391,8 @@
       "subtitle": "Reformas internas e acabamentos",
       "image": "/images/btb-construcao/hero.png",
       "icon": "/images/btb-construcao/hero.png",
-      "socialImage": "/images/btb-construcao/hero.png",
-      "socialVersion": "btb-20260906",
+      "socialImage": "/images/btb-construcao/hero-og.jpg",
+      "socialVersion": "5a2a93c8",
       "componentFile": "src/components/site/BtbConstrucaoPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/btb-construcao",
@@ -402,14 +401,13 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/btb-construcao/hero-og.jpg",
         "/images/btb-construcao/hero.png"
       ],
       "shareCopy": "🔨 A BTB Construção ganhou uma presença digital nova!\n\nReformas internas, pintura, elétrica, hidráulica, drywall, revestimentos e iluminação LED em Curitiba e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/btb-construcao\n\n📲 Conte o que você quer transformar e solicite um orçamento.\n\n#BTBConstrucao #Reformas #Pintura #Drywall #Curitiba #0WEB",
       "published": true,
-      "status": "PARTIAL",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING"
-      ],
+      "status": "COMPLETE",
+      "issues": [],
       "blocking": []
     },
     {
@@ -686,8 +684,8 @@
       "subtitle": "Higienização a seco e impermeabilização",
       "image": "/images/easy-clean/hero.png",
       "icon": "/images/easy-clean/hero.png",
-      "socialImage": "/images/easy-clean/hero.png",
-      "socialVersion": "easy-clean-20260906",
+      "socialImage": "/images/easy-clean/hero-og.jpg",
+      "socialVersion": "1f3d9007",
       "componentFile": "src/components/site/EasyCleanPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/easy-clean",
@@ -696,14 +694,13 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/easy-clean/hero-og.jpg",
         "/images/easy-clean/hero.png"
       ],
       "shareCopy": "✨ A Easy Clean Higienização a Seco ganhou uma presença digital nova!\n\nLavagem a seco, higienização e impermeabilização de estofados, colchões e interiores de carro em Curitiba e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/easy-clean\n\n📲 Solicite um orçamento para cuidar do seu ambiente.\n\n#EasyClean #HigienizacaoASeco #Estofados #Impermeabilizacao #Curitiba #0WEB",
       "published": true,
-      "status": "PARTIAL",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING"
-      ],
+      "status": "COMPLETE",
+      "issues": [],
       "blocking": []
     },
     {
@@ -845,8 +842,8 @@
       "subtitle": "Embalagens, limpeza e utilidades para a rotina",
       "image": "/images/embalar-embalagens/hero.png",
       "icon": "/images/embalar-embalagens/logo.png",
-      "socialImage": "/images/embalar-embalagens/social.png",
-      "socialVersion": "embalar-20260906",
+      "socialImage": "/images/embalar-embalagens/social-og.jpg",
+      "socialVersion": "e77f6e62",
       "componentFile": "src/components/site/EmbalarEmbalagensPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/embalar-embalagens",
@@ -862,6 +859,7 @@
         "/images/embalar-embalagens/loja-03.png",
         "/images/embalar-embalagens/loja-04.png",
         "/images/embalar-embalagens/loja-05.png",
+        "/images/embalar-embalagens/social-og.jpg",
         "/images/embalar-embalagens/social.png"
       ],
       "shareCopy": "📦 A Embalar Embalagens ganhou uma presença digital nova!\n\nEmbalagens, descartáveis, limpeza, higiene e utilidades para casas, festas, comércios e revenda no Jardim Itália.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/embalar-embalagens\n\n📲 Consulte a equipe pelo WhatsApp.\n\n#EmbalarEmbalagens #SaoJoseDosPinhais #Embalagens #Utilidades #0WEB",
@@ -1197,8 +1195,8 @@
       "subtitle": "Revestimentos para pintura direto da fábrica",
       "image": "/images/jc-revestimentos/hero-v2.png",
       "icon": "/images/jc-revestimentos/logo.png",
-      "socialImage": "/images/jc-revestimentos/hero-v2.png",
-      "socialVersion": "85b6554c",
+      "socialImage": "/images/jc-revestimentos/hero-v2-og.jpg",
+      "socialVersion": "5032b4e1",
       "componentFile": "src/components/site/JcRevestimentosPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/jc-revestimentos",
@@ -1208,6 +1206,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/jc-revestimentos/hero-og.jpg",
+        "/images/jc-revestimentos/hero-v2-og.jpg",
         "/images/jc-revestimentos/hero-v2.png",
         "/images/jc-revestimentos/hero.webp",
         "/images/jc-revestimentos/logo.png",
@@ -1262,7 +1261,7 @@
       "image": "/images/js-eletrica-manutencao/hero.png",
       "icon": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
       "socialImage": "/images/js-eletrica-manutencao/social.jpg",
-      "socialVersion": "js-eletrica-20260906",
+      "socialVersion": "6890cb40",
       "componentFile": "src/components/site/JsEletricaManutencaoPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/js-eletrica-manutencao",
@@ -1277,6 +1276,38 @@
         "/images/js-eletrica-manutencao/social.jpg"
       ],
       "shareCopy": "⚡ A JS Elétrica e Manutenção ganhou uma presença digital nova!\n\nServiços elétricos residenciais, comerciais, prediais e industriais, padrão Copel, energia solar, ar-condicionado, motores, bombas e iluminação em Curitiba e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/js-eletrica-manutencao\n\n📲 Solicite uma orientação técnica pelo WhatsApp.\n\n#JSEletrica #Manutencao #EnergiaSolar #ArCondicionado #Curitiba #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
+      "slug": "kitutes-na-mesa",
+      "clientKey": "kitutes-na-mesa",
+      "title": "Kitutes na Mesa · Porções com Carinho",
+      "segment": "restaurantes",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Salgados, mini lanches, doces, bolos caseiros e porções para festas, coffee breaks, empresas e encontros sob encomenda.",
+      "subtitle": "Porções com carinho para sua celebração",
+      "image": "/images/kitutes-na-mesa/hero.png",
+      "icon": "/images/kitutes-na-mesa/logo.png",
+      "socialImage": "/images/kitutes-na-mesa/social-og.jpg",
+      "socialVersion": "872fab26",
+      "componentFile": "src/components/site/KitutesNaMesaPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/kitutes-na-mesa",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/kitutes-na-mesa/hero.png",
+        "/images/kitutes-na-mesa/logo.png",
+        "/images/kitutes-na-mesa/social-og.jpg",
+        "/images/kitutes-na-mesa/social.png"
+      ],
+      "shareCopy": "🍰 A Kitutes na Mesa ganhou uma presença digital nova!\n\nSalgados, mini lanches, doces e bolos caseiros para festas, coffee breaks e celebrações sob encomenda.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/kitutes-na-mesa\n\n📲 Monte seu orçamento pelo WhatsApp.\n\n#KitutesNaMesa #PorcoesComCarinho #Eventos #Curitiba #0WEB",
       "published": true,
       "status": "COMPLETE",
       "issues": [],
@@ -1584,8 +1615,8 @@
       "subtitle": "Cortes, cor e cuidados com intenção",
       "image": "/images/maximos-cabeleireiros/hero.png",
       "icon": "/images/maximos-cabeleireiros/logo.png",
-      "socialImage": "/images/maximos-cabeleireiros/social.png",
-      "socialVersion": "maximos-20260906",
+      "socialImage": "/images/maximos-cabeleireiros/social-og.jpg",
+      "socialVersion": "fb260275",
       "componentFile": "src/components/site/MaximosCabeleireirosPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/maximos-cabeleireiros",
@@ -1596,6 +1627,7 @@
       "gallery": [
         "/images/maximos-cabeleireiros/hero.png",
         "/images/maximos-cabeleireiros/logo.png",
+        "/images/maximos-cabeleireiros/social-og.jpg",
         "/images/maximos-cabeleireiros/social.png"
       ],
       "shareCopy": "✂️ O Maximos Cabeleireiros ganhou uma presença digital nova!\n\nCortes, coloração, tratamentos e beleza pensada para a sua rotina no Jardim Itália, em São José dos Pinhais.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/maximos-cabeleireiros\n\n📲 Agende seu horário pelo WhatsApp.\n\n#MaximosCabeleireiros #SaoJoseDosPinhais #Cabeleireiro #Beleza #0WEB",
@@ -1615,8 +1647,8 @@
       "subtitle": "Salgados, doces e copo da felicidade",
       "image": "/images/mimo-salgados-doces/hero-food.png",
       "icon": "/images/mimo-salgados-doces/logo.png",
-      "socialImage": "/images/mimo-salgados-doces/hero-food.png",
-      "socialVersion": "mimo-20260906",
+      "socialImage": "/images/mimo-salgados-doces/hero-food-og.jpg",
+      "socialVersion": "2cb68046",
       "componentFile": "src/components/site/MimoSalgadosDocesPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/mimo-salgados-doces",
@@ -1625,6 +1657,7 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/mimo-salgados-doces/hero-food-og.jpg",
         "/images/mimo-salgados-doces/hero-food.png",
         "/images/mimo-salgados-doces/logo.png",
         "/images/mimo-salgados-doces/menu-corrected.png"
@@ -1807,7 +1840,7 @@
       "image": "/images/papelemi-personalizados/hero.png",
       "icon": "/images/papelemi-personalizados/logo.png",
       "socialImage": "/images/papelemi-personalizados/social.jpg",
-      "socialVersion": "papelemi-20260906",
+      "socialVersion": "ff04b464",
       "componentFile": "src/components/site/PapelemiPersonalizadosPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/papelemi-personalizados",
@@ -1875,7 +1908,7 @@
       "image": "/images/paulo-mestre-de-obras/hero-v2.png",
       "icon": "/images/paulo-mestre-de-obras/logo.webp",
       "socialImage": "/images/paulo-mestre-de-obras/social-v2.jpg",
-      "socialVersion": "dffe9869",
+      "socialVersion": "9bcebda4",
       "componentFile": "src/components/site/PauloMestreDeObrasPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/paulo-mestre-de-obras",
@@ -1911,8 +1944,8 @@
       "subtitle": "Limpeza profissional para empresas e obras",
       "image": "/images/popys-conservacao-limpeza/hero-cleaning.png",
       "icon": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-      "socialVersion": "popys-20260906",
+      "socialImage": "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
+      "socialVersion": "37ea4b42",
       "componentFile": "src/components/site/PopysConservacaoLimpezaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/popys-conservacao-limpeza",
@@ -1921,14 +1954,13 @@
       "hasOwnDescription": false,
       "hasClientEntry": true,
       "gallery": [
+        "/images/popys-conservacao-limpeza/hero-cleaning-og.jpg",
         "/images/popys-conservacao-limpeza/hero-cleaning.png"
       ],
       "shareCopy": "✨ A POPYS Conservação e Limpeza ganhou uma presença digital nova!\n\nLimpeza e conservação para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/popys-conservacao-limpeza\n\n📲 Solicite um orçamento personalizado com a equipe.\n\n#Popys #Conservacao #LimpezaProfissional #PosObra #Curitiba #0WEB",
       "published": true,
-      "status": "PARTIAL",
-      "issues": [
-        "PORTFOLIO_HERO_MISSING"
-      ],
+      "status": "COMPLETE",
+      "issues": [],
       "blocking": []
     },
     {
@@ -2269,8 +2301,8 @@
       "subtitle": "Nutrição com escuta e estratégia",
       "image": "/images/simone-lacerda-vaz/hero.png",
       "icon": "/images/simone-lacerda-vaz/hero.png",
-      "socialImage": "/images/simone-lacerda-vaz/social.png",
-      "socialVersion": "simone-lacerda-vaz-20260906",
+      "socialImage": "/images/simone-lacerda-vaz/social-og.jpg",
+      "socialVersion": "0cc62164",
       "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/simone-lacerda-vaz",
@@ -2280,6 +2312,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/simone-lacerda-vaz/hero.png",
+        "/images/simone-lacerda-vaz/social-og.jpg",
         "/images/simone-lacerda-vaz/social.png"
       ],
       "shareCopy": "🌿 Simone Lacerda Vaz ganhou uma presença digital nova!\n\nAtendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/simone-lacerda-vaz\n\n📲 Converse pelo WhatsApp e organize seu próximo passo.\n\n#SimoneLacerdaVaz #Nutricao #Bioimpedancia #Amamentacao #0WEB",

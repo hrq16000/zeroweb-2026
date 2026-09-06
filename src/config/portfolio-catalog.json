@@ -1755,5 +1755,24 @@
     "fallbackImage": "/images/simone-lacerda-vaz/hero.png",
     "metrics": "Agendamento por WhatsApp",
     "summary": "Atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação."
+  },
+  {
+    "slug": "kitutes-na-mesa",
+    "clientKey": "kitutes-na-mesa",
+    "title": "Kitutes na Mesa · Porções com Carinho",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["salgados", "mini-lanches", "doces", "bolos-caseiros", "eventos"],
+    "live": true,
+    "subtitle": "Porções com carinho para sua celebração",
+    "location": "Curitiba — PR · somente sob encomenda",
+    "badge": "Projeto publicado",
+    "image": "/images/kitutes-na-mesa/hero.png",
+    "fallbackImage": "/images/kitutes-na-mesa/social.png",
+    "metrics": "Orçamento por WhatsApp",
+    "summary": "Salgados, mini lanches, doces, bolos caseiros e porções para festas, coffee breaks, empresas e encontros sob encomenda."
   }
 ]

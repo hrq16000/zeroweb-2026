@@ -647,5 +647,12 @@
     "coverSource": "public/images/simone-lacerda-vaz/hero.png",
     "coverFocal": { "x": 0.72, "y": 0.5 },
     "notes": "Arte fornecida e editada para retirar a faixa de contato rasterizada; preserva a identidade visual e a profissional retratada sem telefone no bundle público."
+  },
+  "kitutes-na-mesa": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverSource": "public/images/kitutes-na-mesa/hero.png",
+    "coverFocal": { "x": 0.72, "y": 0.5 },
+    "notes": "Composição de marca gerada sem texto, pessoas, telefone ou alegação documental; arte enviada não foi exposta no bundle por conter contato rasterizado."
   }
 }

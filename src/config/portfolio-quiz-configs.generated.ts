@@ -1060,6 +1060,41 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: equipamento, defeito, quantidade de pontos, foto do quadro ou prazo."
   },
+  "kitutes-na-mesa": {
+    "services": [
+      "Salgados assados e fritos",
+      "Mini lanches",
+      "Doces e bolos caseiros",
+      "Porções para eventos",
+      "Coffee break e kits"
+    ],
+    "experienceOptions": [
+      "Aniversário ou comemoração",
+      "Casamento ou confraternização",
+      "Coffee break empresarial",
+      "Receber família e amigos"
+    ],
+    "periodOptions": [
+      "Ainda vou definir a data",
+      "Nos próximos 7 dias",
+      "Nas próximas semanas",
+      "Quero consultar disponibilidade"
+    ],
+    "timingOptions": [
+      "Quero um orçamento",
+      "Estou montando o cardápio",
+      "Preciso de uma orientação"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que vai compor sua mesa?",
+      "experience": "Qual é a ocasião?",
+      "period": "Quando será?",
+      "timing": "Qual próximo passo?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: data, número de pessoas, sabores desejados ou tipo de evento."
+  },
   "liz-moraes-nail-designer": {
     "services": [
       "Manicure tradicional · R$ 45,00",
