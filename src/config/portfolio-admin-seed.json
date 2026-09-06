@@ -2013,7 +2013,7 @@
       "image": "/images/sscons/capa-card.jpg",
       "icon": "/images/sscons/logo.png",
       "socialImage": "/images/sscons/social.jpg",
-      "socialVersion": "sscons-v1",
+      "socialVersion": "2272c272",
       "componentFile": "src/components/site/SsConsPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/sscons",
