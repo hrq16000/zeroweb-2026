@@ -72,12 +72,13 @@
     "confeitaria-sabor-da-realeza": "PREMIUM",
     "sscons": "SIGNATURE",
     "mimo-salgados-doces": "SIGNATURE",
-    "popys-conservacao-limpeza": "SIGNATURE"
+    "popys-conservacao-limpeza": "SIGNATURE",
+    "bruna-diarista": "SIGNATURE"
   },
   "summary": {
-    "total": 71,
+    "total": 72,
     "premium": 33,
-    "signature": 22,
+    "signature": 23,
     "baseline": 16,
     "static": 0
   }

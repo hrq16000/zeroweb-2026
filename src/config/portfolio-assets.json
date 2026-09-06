@@ -872,6 +872,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "popys-20260906"
+    },
+    "bruna-diarista": {
+      "icon": "/images/bruna-diarista/hero.png",
+      "socialImage": "/images/bruna-diarista/hero.png",
+      "proof": {
+        "eyebrow": "Bruna Diarista",
+        "title": "Uma casa em ordem deixa a rotina mais leve.",
+        "description": "Diárias, pós-obra e organização em Curitiba e Região.",
+        "ctaLabel": "Conhecer serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "bruna-20260906"
     }
   }
 }

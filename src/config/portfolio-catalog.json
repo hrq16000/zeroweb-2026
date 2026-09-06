@@ -1601,5 +1601,24 @@
     "fallbackImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
     "metrics": "Atendimento personalizado",
     "summary": "Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região."
+  },
+  {
+    "slug": "bruna-diarista",
+    "clientKey": "bruna-diarista",
+    "title": "Bruna Diarista",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["diarista", "limpeza-residencial", "pos-obra", "personal-organizer"],
+    "live": true,
+    "subtitle": "Diárias, pós-obra e organização",
+    "location": "Curitiba e Região — PR",
+    "badge": "Novo projeto",
+    "image": "/images/bruna-diarista/hero.png",
+    "fallbackImage": "/images/bruna-diarista/hero.png",
+    "metrics": "4, 6 ou 8 horas",
+    "summary": "Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região."
   }
 ]

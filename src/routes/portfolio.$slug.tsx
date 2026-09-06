@@ -219,6 +219,9 @@ const MimoSalgadosDocesPage = lazy(() =>
 const PopysConservacaoLimpezaPage = lazy(() =>
   import("@/components/site/PopysConservacaoLimpezaPage").then((m) => ({ default: m.PopysConservacaoLimpezaPage })),
 );
+const BrunaDiaristaPage = lazy(() =>
+  import("@/components/site/BrunaDiaristaPage").then((m) => ({ default: m.BrunaDiaristaPage })),
+);
 const MimoSalgadosDocesPage = lazy(() =>
   import("@/components/site/MimoSalgadosDocesPage").then((m) => ({ default: m.MimoSalgadosDocesPage })),
 );
@@ -471,12 +474,15 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isSscons = loaderData?.slug === "sscons";
     const isMimo = loaderData?.slug === "mimo-salgados-doces";
     const isPopys = loaderData?.slug === "popys-conservacao-limpeza";
+    const isBruna = loaderData?.slug === "bruna-diarista";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
       ? "Mimo Salgados e Doces na Costeira, em São José dos Pinhais: salgados artesanais, doces e copo da felicidade por R$ 22,00."
       : isPopys
       ? "POPYS Conservação e Limpeza em Curitiba e Região: limpeza corporativa, escritórios, pós-obra, vidros, pisos e fachadas."
+      : isBruna
+      ? "Bruna Diarista em Curitiba e Região: diárias de 4, 6 ou 8 horas, limpeza pós-obra e organização de ambientes."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1069,6 +1075,9 @@ function PortfolioPrototypePage() {
 
         ) : slug === "popys-conservacao-limpeza" ? (
           <PopysConservacaoLimpezaPage />
+
+        ) : slug === "bruna-diarista" ? (
+          <BrunaDiaristaPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

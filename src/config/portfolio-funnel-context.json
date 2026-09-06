@@ -495,5 +495,12 @@
     "nextStepBody": "Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado.",
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "pink"
+  },
+  "bruna-diarista": {
+    "intent": "agendamento",
+    "nextStepTitle": "Sua casa em ordem começa com um bom horário.",
+    "nextStepBody": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
+    "primaryCtaLabel": "Consultar horários",
+    "theme": "pink"
   }
 }

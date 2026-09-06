@@ -949,6 +949,23 @@
       "desktopBehavior": "hero limpo com revelação de imagem e cards de solução em sequência",
       "tabletBehavior": "KEEP",
       "mobileBehavior": "SIMPLIFY"
+    },
+    "bruna-diarista": {
+      "intensity": "BALANCED",
+      "preset": "CARE_ROUTINE",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero residencial revelado em camadas e tabela de diárias em sequência",
+      "tabletBehavior": "KEEP",
+      "mobileBehavior": "SIMPLIFY"
     }
   },
   "decisions": {

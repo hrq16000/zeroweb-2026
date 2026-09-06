@@ -843,5 +843,23 @@
       "kind": "AUTHENTIC_MIGRATION",
       "source": "Material e briefing fornecidos pelo cliente nesta conversa"
     }
+  },
+  {
+    "clientKey": "bruna-diarista",
+    "slug": "bruna-diarista",
+    "siteName": "Bruna Diarista",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/BrunaDiaristaPage.tsx",
+    "assetsDir": "public/images/bruna-diarista",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": false,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/bruna-diarista.md",
+    "provenance": {
+      "kind": "AUTHENTIC_MIGRATION",
+      "source": "Materiais fornecidos pelo cliente nesta conversa"
+    }
   }
 ]

@@ -237,6 +237,39 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Semana inteira"
     ]
   },
+  "bruna-diarista": {
+    "services": [
+      "Diária de 4 horas · R$ 130 + deslocamento",
+      "Diária de 6 horas · R$ 160 + deslocamento",
+      "Diária de 8 horas · R$ 200 + deslocamento",
+      "Pós-obra ou personal organizer",
+      "Duas profissionais"
+    ],
+    "experienceOptions": [
+      "Casa ou apartamento",
+      "Escritório",
+      "Pós-obra",
+      "Organização de ambientes"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o endereço"
+    ],
+    "timingOptions": [
+      "Para esta semana",
+      "Atendimento periódico",
+      "Estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual diária você precisa?",
+      "experience": "Que ambiente vamos cuidar?",
+      "period": "Onde será o atendimento?",
+      "timing": "Quando pretende começar?"
+    },
+    "notePlaceholder": "Conte a metragem, frequência e detalhes do ambiente."
+  },
   "casa-nativa": {
     "stepTitles": {
       "service": "Que experiência procura?",
