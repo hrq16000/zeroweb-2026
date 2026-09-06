@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T08:25:23.840Z",
+  "generatedAt": "2026-09-06T08:52:17.837Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -62,6 +62,7 @@
     "miro-tech": "SIGNATURE",
     "btb-construcao": "PREMIUM",
     "js-eletrica-manutencao": "PREMIUM",
+    "papelemi-personalizados": "PREMIUM",
     "marmitaria-dom-diego": "PREMIUM",
     "toquinho-de-gente-brecho": "PREMIUM",
     "renata-beauty": "PREMIUM",
@@ -79,8 +80,8 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 75,
-    "premium": 38,
+    "total": 76,
+    "premium": 39,
     "signature": 21,
     "baseline": 16,
     "static": 0

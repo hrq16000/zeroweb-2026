@@ -920,6 +920,18 @@
         "ctaHref": "#servicos"
       },
       "socialVersion": "js-eletrica-20260906"
+    },
+    "papelemi-personalizados": {
+      "icon": "/images/papelemi-personalizados/logo.png",
+      "socialImage": "/images/papelemi-personalizados/social.jpg",
+      "proof": {
+        "eyebrow": "PapeLemi Papelaria Personalizada",
+        "title": "Papelaria com afeto para guardar o que importa.",
+        "description": "Conheça encadernações pessoais, mimos e brindes corporativos feitos para cada história.",
+        "ctaLabel": "Ver coleção",
+        "ctaHref": "#colecao"
+      },
+      "socialVersion": "papelemi-20260906"
     }
   }
 }

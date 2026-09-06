@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T08:31:59.440Z
+Gerado em 2026-09-06T08:52:19.444Z
 
-- Projetos auditados: **75**
-- PASS: **74** · WARNING: **1** · FAIL: **0**
-- Intenções: pedido (20) · orcamento (26) · solicitacao (1) · agendamento (12) · contato (6) · reserva (4) · diagnostico (6)
+- Projetos auditados: **76**
+- PASS: **74** · WARNING: **2** · FAIL: **0**
+- Intenções: pedido (21) · orcamento (26) · solicitacao (1) · agendamento (12) · contato (6) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -83,3 +83,4 @@ Gerado em 2026-09-06T08:31:59.440Z
 | btb-construcao | construcao | orcamento | Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | easy-clean | servicos | orcamento | Conte qual peça precisa de higienização e se deseja impermeabilização. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | js-eletrica-manutencao | servicos | orcamento | Conte sua necessidade e os detalhes importantes para JS Elétrica e Manutenção. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
+| papelemi-personalizados | comercios | pedido | Conte sua necessidade e os detalhes importantes para PapeLemi Papelaria Personalizada. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |

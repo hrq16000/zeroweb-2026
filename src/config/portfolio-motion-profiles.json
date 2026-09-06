@@ -1034,6 +1034,23 @@
       "desktopBehavior": "hero fotográfico revela o trabalho manual pela direita; cards de serviços entram em sequência",
       "tabletBehavior": "hero empilhado e grade em duas colunas",
       "mobileBehavior": "sem deslocamento no toque"
+    },
+    "papelemi-personalizados": {
+      "intensity": "BALANCED",
+      "preset": "ORGANIC",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero editorial abre o atelie pela direita; colecao entra em mosaico de pecas",
+      "tabletBehavior": "hero empilhado e grade 2 colunas",
+      "mobileBehavior": "sem deslocamento no toque"
     }
   },
   "decisions": {

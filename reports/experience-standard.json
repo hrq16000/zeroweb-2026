@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-06T08:25:23.840Z",
-  "totalCatalogProjects": 75,
-  "totalPages": 75,
+  "generatedAt": "2026-09-06T08:52:17.837Z",
+  "totalCatalogProjects": 76,
+  "totalPages": 76,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 38,
+  "premium": 39,
   "signature": 21,
   "baseline": 16,
   "static": 0,
@@ -14,7 +14,7 @@
     "clones": 6,
     "groups": 7,
     "signalFloor": 5,
-    "lowSignalPairs": 1344,
+    "lowSignalPairs": 1365,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -1993,6 +1993,42 @@
           "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope"
+        ]
+      }
+    },
+    {
+      "slug": "papelemi-personalizados",
+      "segment": "comercios",
+      "file": "src/components/site/PapelemiPersonalizadosPage.tsx",
+      "score": 58,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 18,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-500",
+          "h:group-hover:scale-105"
         ]
       }
     },

@@ -75,6 +75,7 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "popys-conservacao-limpeza",
   "bruna-diarista",
   "js-eletrica-manutencao",
+  "papelemi-personalizados",
 ] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 
