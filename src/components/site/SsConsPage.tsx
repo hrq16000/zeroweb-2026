@@ -70,7 +70,6 @@ const BRAND_VARS = {
   "--ss-display": "'Playfair Display', Georgia, 'Times New Roman', serif",
 } as CSSProperties;
 
-const CLIENT_KEY = "sscons" as const;
 const SITE_NAME = "S&S Construções";
 const RECIPIENT = "a equipe S&S";
 

@@ -1463,6 +1463,45 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: para quem é, cores, frase, tema, data e faixa de valor."
   },
+  "sscons": {
+    "services": [
+      "Carpintaria",
+      "Obras",
+      "Alvenaria",
+      "Pintura",
+      "Reforma",
+      "Azulejo"
+    ],
+    "experienceOptions": [
+      "Construção nova",
+      "Reforma residencial",
+      "Obra comercial",
+      "Manutenção ou reparo"
+    ],
+    "periodOptions": [
+      "Curitiba",
+      "Região Metropolitana",
+      "Vou confirmar o endereço"
+    ],
+    "timingOptions": [
+      "Preciso começar em breve",
+      "Nos próximos meses",
+      "Ainda estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual serviço você precisa?",
+      "experience": "Que tipo de obra é?",
+      "period": "Onde será a obra?",
+      "timing": "Quando pretende começar?",
+      "note": "Conte um pouco sobre o projeto"
+    },
+    "stepSubtitles": {
+      "service": "Escolha a frente principal — podemos combinar mais de uma.",
+      "note": "Metragem aproximada, ambientes e o que já está definido ajudam no orçamento."
+    },
+    "notePlaceholder": "Ex.: reforma de cozinha com troca de piso e pintura, cerca de 12 m²."
+  },
   "studio-de-cilios": {
     "services": [
       "Mega Brasileiro · R$ 130",
