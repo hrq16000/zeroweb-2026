@@ -8,6 +8,9 @@
   `socialVersion` derivados dos arquivos JPEG de 21 projetos.
 - A causa foi restrita a dados gerados desatualizados; nenhuma página, rota,
   identidade, funil, contato ou regra comercial foi alterada.
+- A validação integral também detectou `atendimento` fora do vocabulário
+  canônico de intenções no Centro Mega; o valor foi normalizado para `contato`,
+  preservando integralmente os textos e a experiência do funil existente.
 
 ## 2026-09-06 — auditoria geral de qualidade e sincronização
 
