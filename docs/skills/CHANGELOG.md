@@ -981,3 +981,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   explícita.
 - Falhas de carregamento devem ser corrigidas na origem/pipeline, preservando
   integralmente a arte original.
+## 2026-09-07 — contrato global de execução, SEO e publicação
+
+- Criado `docs/0WEB_EXECUTION_CONTRACT.md`, obrigatório para qualquer ferramenta
+  ou agente que altere o portal e seus portfólios.
+- Formalizados leitura prévia do Git, uso máximo de skills relevantes, SEO/LLM,
+  `/portfolio` como catálogo premium, identidade por projeto e evolução contínua.
+- Tornada obrigatória a validação, documentação e publicação imediata no GitHub
+  oficial por PR integrado em `main`.
