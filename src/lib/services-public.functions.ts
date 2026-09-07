@@ -246,7 +246,7 @@ function mapRow(
     keywords: asStringArray(row.keywords),
     ctaLabel: row.cta_label,
     imagePath: row.image_path,
-    imageUrl: imageUrl ?? RECOVERED_COVERS[row.slug] ?? null,
+    imageUrl: imageUrl ?? RECOVERED_COVERS[row.slug] ?? generatedServiceCover(row.slug, row.name, row.category),
     imageAlt: row.image_alt,
     seoTitle: row.seo_title,
     seoDescription: row.seo_description,
@@ -264,7 +264,7 @@ function mapRow(
     gallery,
     sections: asSections(row.sections),
     ogImagePath: row.og_image_path,
-    ogImageUrl: ogImageUrl ?? imageUrl ?? RECOVERED_COVERS[row.slug] ?? null,
+    ogImageUrl: ogImageUrl ?? imageUrl ?? RECOVERED_COVERS[row.slug] ?? generatedServiceCover(row.slug, row.name, row.category),
     ogType: row.og_type || "website",
     schemaJsonLd: asSchemaBlocks(row.schema_jsonld),
     richHtml: row.rich_html,
@@ -306,6 +306,7 @@ const RETIRED_SERVICE_SLUGS = new Set(["site-24h"]);
 // Recupera capas que já existem no projeto quando o painel perdeu a referência
 // do Storage. Cada fallback é explícito e semanticamente ligado ao produto.
 const RECOVERED_COVERS: Record<string, string> = {
+  "comunicacao-visual": "/images/services/comunicacao-visual.png",
   "site-express": coverSiteExpress,
   "trafego-pago": coverTrafegoPago,
   "trafego-pago-local": coverLocal,
@@ -318,6 +319,23 @@ const RECOVERED_COVERS: Record<string, string> = {
   "chatbot-whatsapp": blogChatbotCover,
   "gestao-redes-sociais": blogSocialCover,
 };
+
+const COVER_PALETTES = [
+  ["#dff8f0", "#0f766e"],
+  ["#e4edff", "#1d4ed8"],
+  ["#fff0d8", "#b45309"],
+  ["#f3e8ff", "#7e22ce"],
+  ["#e0f2fe", "#0369a1"],
+];
+
+function generatedServiceCover(slug: string, name: string, category: string): string {
+  const index = [...slug].reduce((sum, char) => sum + char.charCodeAt(0), 0) % COVER_PALETTES.length;
+  const [background, accent] = COVER_PALETTES[index];
+  const safeName = name.replace(/[&<>"']/g, "");
+  const safeCategory = category.replace(/[&<>"']/g, "").toUpperCase();
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640"><rect width="960" height="640" fill="${background}"/><circle cx="790" cy="90" r="220" fill="${accent}" opacity=".14"/><circle cx="130" cy="590" r="260" fill="${accent}" opacity=".1"/><path d="M0 480C190 390 285 530 470 455s300-175 490-40v225H0Z" fill="${accent}" opacity=".12"/><rect x="80" y="82" width="180" height="34" rx="17" fill="${accent}" opacity=".16"/><text x="170" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2" fill="${accent}">${safeCategory}</text><rect x="80" y="180" width="800" height="260" rx="38" fill="#fff" opacity=".78"/><circle cx="170" cy="310" r="62" fill="${accent}" opacity=".9"/><path d="M143 310h54M170 283v54" stroke="#fff" stroke-width="10" stroke-linecap="round"/><text x="280" y="300" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#172033">${safeName}</text><text x="280" y="345" font-family="Arial,sans-serif" font-size="19" fill="#526070">Produto digital 0WEB</text></svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
 
 // Sem fallbacks de imagem: capa vem 100% do painel administrativo
 // (coluna image_path da tabela services + bucket service-images).
