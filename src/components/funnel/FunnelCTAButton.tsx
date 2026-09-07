@@ -73,7 +73,7 @@ export function FunnelCTAButton({
     (portfolioCompany
       ? {
           purpose: "proposal" as const,
-          source: "portfolio-marido-de-aluguel",
+          source: `portfolio-${portfolioCompany}`,
           pagePath: currentPath,
           placement: "section" as const,
           companySlug: portfolioCompany,
