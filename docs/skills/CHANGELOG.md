@@ -1046,3 +1046,15 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Ativos:** logo Route 66, capa OG derivada da fachada real, versões WebP e fotos de referência vinculadas ao slug.
 - **Produto:** documentado `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md` como especificação/backlog de pesquisa, geração, leads, versões e pacotes de site.
 - **Validação:** executar gates de catálogo, assets, boundaries, scaffold, SEO, privacy, performance, conversão, testes e build antes do commit/publicação.
+
+## 2026-09-07 — correção do funil Route 66
+
+- Corrigida a concorrência entre o pop-up externo da 0WEB e o funil do cliente:
+  qualquer CTA de `/portfolio/<slug>` agora sinaliza a abertura do atendimento
+  antes de renderizar o modal individual.
+- Substituído o seed genérico de alimentação da Route 66 por perguntas próprias
+  de pedido, modalidade de atendimento e prazo; nenhum contato operacional é
+  exposto no bundle público.
+- Aplicados `0web-skill-router`, `0web-skill-discovery` e
+  `0web-ui-quality-gates`; validações de boundaries, scaffold, conversão, SEO,
+  privacidade e build executadas antes da publicação.

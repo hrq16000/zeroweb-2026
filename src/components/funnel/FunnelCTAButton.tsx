@@ -120,6 +120,11 @@ export function FunnelCTAButton({
     }, 400);
 
     e.preventDefault();
+    // Nas páginas de portfólio, o atendimento do cliente tem precedência
+    // sobre a captação da plataforma. Isso impede dois diálogos concorrentes.
+    if (portfolioCompany && currentPath.startsWith("/portfolio/")) {
+      window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open"));
+    }
     trackEvent("contact_cta_click", {
       label: "funnel_cta",
       location: location ?? `${resolvedPageType}_${serviceSlug ?? "page"}`,
