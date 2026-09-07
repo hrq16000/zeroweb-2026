@@ -4,6 +4,18 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { SERVICES, type ServiceData, type ServiceCategory } from "@/lib/services-data";
+import blogMarketingCover from "@/assets/blog-marketing.webp";
+import blogAutomacaoCover from "@/assets/blog-automacao-leads.jpg";
+import blogChatbotCover from "@/assets/blog-ia-whatsapp.jpg";
+import blogSocialCover from "@/assets/blog-meta-ads.jpg";
+import coverLocal from "@/assets/cover-local.jpg";
+import coverSeo from "@/assets/cover-seo.jpg";
+import coverSiteExpress from "@/assets/cover-site-express.jpg";
+import coverTrafegoPago from "@/assets/cover-trafego-pago.jpg";
+import googleAds299Cover from "@/assets/google-ads-299-capa.png.asset.json";
+import googleMeuNegocioCover from "@/assets/google-meu-negocio-capa.png.asset.json";
+import presencaDigitalCover from "@/assets/presenca-digital-google-capa.png.asset.json";
+import trafegoPagoCover from "@/assets/trafego-pago-499-capa.png.asset.json";
 import { isServiceSolution } from "@/lib/is-solution";
 import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
 
@@ -234,7 +246,7 @@ function mapRow(
     keywords: asStringArray(row.keywords),
     ctaLabel: row.cta_label,
     imagePath: row.image_path,
-    imageUrl,
+    imageUrl: imageUrl ?? RECOVERED_COVERS[row.slug] ?? null,
     imageAlt: row.image_alt,
     seoTitle: row.seo_title,
     seoDescription: row.seo_description,
@@ -252,7 +264,7 @@ function mapRow(
     gallery,
     sections: asSections(row.sections),
     ogImagePath: row.og_image_path,
-    ogImageUrl: ogImageUrl ?? imageUrl,
+    ogImageUrl: ogImageUrl ?? imageUrl ?? RECOVERED_COVERS[row.slug] ?? null,
     ogType: row.og_type || "website",
     schemaJsonLd: asSchemaBlocks(row.schema_jsonld),
     richHtml: row.rich_html,
@@ -290,6 +302,22 @@ const COLS =
   "slug,name,category,title,h1,description,service_type,problems,benefits,process,faq,keywords,cta_label,image_path,image_alt,seo_title,seo_description,display_order,price,price_period,delivery_days,conditions,show_in_menu,show_in_footer,show_in_home_featured,show_in_sitemap,is_solution,funnels,gallery,sections,og_image_path,og_type,schema_jsonld,rich_html";
 
 const RETIRED_SERVICE_SLUGS = new Set(["site-24h"]);
+
+// Recupera capas que já existem no projeto quando o painel perdeu a referência
+// do Storage. Cada fallback é explícito e semanticamente ligado ao produto.
+const RECOVERED_COVERS: Record<string, string> = {
+  "site-express": coverSiteExpress,
+  "trafego-pago": coverTrafegoPago,
+  "trafego-pago-local": coverLocal,
+  "google-ads-299": googleAds299Cover.url,
+  seo: coverSeo,
+  "google-meu-negocio": googleMeuNegocioCover.url,
+  "presenca-digital": presencaDigitalCover.url,
+  "marketing-digital": blogMarketingCover,
+  "automacao-com-ia": blogAutomacaoCover,
+  "chatbot-whatsapp": blogChatbotCover,
+  "gestao-redes-sociais": blogSocialCover,
+};
 
 // Sem fallbacks de imagem: capa vem 100% do painel administrativo
 // (coluna image_path da tabela services + bucket service-images).
