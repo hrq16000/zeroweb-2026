@@ -1,10 +1,10 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T23:28:02.622Z",
-    "audited": 83,
+    "generatedAt": "2026-09-07T03:53:28.129Z",
+    "audited": 84,
     "pass": 83,
     "warning": 0,
-    "fail": 0,
+    "fail": 1,
     "byIntent": {
       "pedido": 22,
       "orcamento": 29,
@@ -12,7 +12,8 @@
       "agendamento": 14,
       "contato": 7,
       "reserva": 4,
-      "diagnostico": 6
+      "diagnostico": 6,
+      "atendimento": 1
     }
   },
   "projects": [
@@ -1094,6 +1095,24 @@
       "whatsappIntent": "pedido",
       "status": "PASS",
       "issues": []
+    },
+    {
+      "slug": "centro-mega",
+      "businessName": "Centro Mega",
+      "segment": "prestadores-de-servicos",
+      "intent": "atendimento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
+      "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
+      "primaryCtaLabel": "Falar com a equipe",
+      "whatsappIntent": "atendimento",
+      "status": "FAIL",
+      "issues": [
+        {
+          "code": "PORTFOLIO_FUNNEL_INTENT_INVALID",
+          "detail": "atendimento"
+        }
+      ]
     }
   ]
 }
