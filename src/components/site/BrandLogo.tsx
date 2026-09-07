@@ -1,6 +1,5 @@
 import logoAsset from "@/assets/logo-0web.png.asset.json";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 type Props = {
   /**
@@ -25,16 +24,14 @@ export const LOGO_ASPECT_RATIO = 900 / 277;
 
 export function BrandLogo({ size = 32, className, alt = "0WEB", priority }: Props) {
   const width = Math.round(size * LOGO_ASPECT_RATIO);
-  const [src, setSrc] = useState(logoAsset.url);
   return (
     <img
-      src={src}
+      src={logoAsset.url}
       alt={alt}
       width={width}
       height={size}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
-      onError={() => setSrc("/0web-logo-fallback.svg")}
       className={cn("object-contain shrink-0 block max-w-full", className)}
       style={{ height: size, width, aspectRatio: `${width} / ${size}` }}
     />
