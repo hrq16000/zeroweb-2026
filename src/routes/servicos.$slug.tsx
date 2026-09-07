@@ -68,7 +68,14 @@ export const Route = createFileRoute("/servicos/$slug")({
   head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Serviço · 0WEB" }] };
     const url = absUrl(`/servicos/${params.slug}`);
-    const ogImage = loaderData.ogImageUrl || loaderData.imageUrl || DEFAULT_OG_IMAGE;
+    // Crawlers não resolvem `data:` nem caminhos relativos: só publicamos
+    // uma imagem social absoluta, senão caímos no share padrão da 0WEB.
+    const shareCandidates = [loaderData.ogImageUrl, loaderData.imageUrl];
+    const ogImage =
+      shareCandidates
+        .filter((c): c is string => typeof c === "string" && c.length > 0 && !c.startsWith("data:"))
+        .map((c) => (c.startsWith("http") ? c : c.startsWith("/") ? absUrl(c) : null))
+        .find((c): c is string => Boolean(c)) ?? DEFAULT_OG_IMAGE;
     const ogAlt = loaderData.imageAlt || loaderData.h1;
     const ogType = loaderData.ogType || "website";
     const baseGraph = [
