@@ -90,6 +90,7 @@ originalidade: nenhuma página pública mudou.
 | mary-diarista | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 58 | 58 | 0 | não | UNCHANGED | 0 | 2.5 |
 | mp-festas-eventos | studio-de-cilios | studio-de-cilios | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
 | no-brilho-higienizacao | eisenfer-tubos-acos | eisenfer-tubos-acos | 42 | 42 | 0 | não | UNCHANGED | 11.1 | 4.3 |
+| pastelaria-route-66 | mp-festas-eventos | mp-festas-eventos | 32 | 32 | 0 | não | UNCHANGED | 0 | 8.6 |
 | r_beauty | renata-beauty | renata-beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
 | renata-beauty | r_beauty | r_beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
 | rm-fretes | marido-de-aluguel | marido-de-aluguel | 35 | 35 | 0 | não | UNCHANGED | 0 | 1.7 |
