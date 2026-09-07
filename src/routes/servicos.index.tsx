@@ -158,7 +158,9 @@ export const Route = createFileRoute("/servicos/")({
     // Soluções e cadastros incompletos ficam fora da vitrine até serem preparados.
     const services = allServices.filter((s) => {
       const galleryCover = s.gallery.find((g) => Boolean(g.url));
-      const hasImage = Boolean(s.imageUrl || galleryCover?.url);
+      // A capa pode estar no campo principal, na galeria ou no OG próprio.
+      // O OG nunca deve ser substituído por imagem de outro produto/blog.
+      const hasImage = Boolean(s.imageUrl || galleryCover?.url || s.ogImageUrl);
       const hasPrice = typeof s.price === "number" && s.price > 0;
       return !s.isSolution && hasImage && hasPrice;
     });
@@ -239,6 +241,10 @@ function ServicosHub() {
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
   const safePage = Math.min(page, totalPages);
   const paginated = filtered.slice((safePage - 1) * PER_PAGE, safePage * PER_PAGE);
+  const changePage = (nextPage: number) => {
+    setPage(nextPage);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   // Index global (na lista filtrada) para badge "Novo" nos 3 primeiros.
   const newSet = new Set(filtered.slice(0, 3).map((s) => s.slug));
 
@@ -399,7 +405,7 @@ function ServicosHub() {
                   const galleryCover = Array.isArray(s.gallery)
                     ? (s.gallery.find((g: { url?: string | null; alt?: string | null }) => typeof g?.url === "string" && g.url) ?? null)
                     : null;
-                  const coverUrl = s.imageUrl || galleryCover?.url || null;
+                  const coverUrl = s.imageUrl || galleryCover?.url || s.ogImageUrl || null;
                   const coverAlt = s.imageAlt || galleryCover?.alt || s.name;
                   return (
                   <article
@@ -465,9 +471,9 @@ function ServicosHub() {
                 className="mt-10 flex items-center justify-center gap-2"
                 aria-label="Paginação do catálogo"
               >
-                <button
-                  type="button"
-                  onClick={() => setPage((p: number) => Math.max(1, p - 1))}
+                  <button
+                    type="button"
+                  onClick={() => changePage(Math.max(1, safePage - 1))}
                   disabled={safePage === 1}
                   className="px-3 h-9 rounded-full border border-border text-sm disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
@@ -477,7 +483,7 @@ function ServicosHub() {
                   <button
                     key={p}
                     type="button"
-                    onClick={() => setPage(p)}
+                  onClick={() => changePage(p)}
                     aria-current={p === safePage ? "page" : undefined}
                     className={`w-9 h-9 rounded-full border text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                       p === safePage
@@ -490,7 +496,7 @@ function ServicosHub() {
                 ))}
                 <button
                   type="button"
-                  onClick={() => setPage((p: number) => Math.min(totalPages, p + 1))}
+                  onClick={() => changePage(Math.min(totalPages, safePage + 1))}
                   disabled={safePage === totalPages}
                   className="px-3 h-9 rounded-full border border-border text-sm disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >

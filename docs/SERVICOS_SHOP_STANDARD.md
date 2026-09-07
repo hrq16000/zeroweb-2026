@@ -8,7 +8,7 @@ editorial nem uma listagem de páginas institucionais.
 
 Um produto só pode aparecer na vitrine quando tiver, no mínimo:
 
-- imagem própria cadastrada no produto ou na primeira imagem válida da galeria;
+- imagem própria cadastrada no produto, na primeira imagem válida da galeria ou no OG image do próprio produto;
 - preço numérico maior que zero;
 - nome e categoria;
 - descrição curta, adequada ao card;
