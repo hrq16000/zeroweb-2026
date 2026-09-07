@@ -18,9 +18,14 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Funis | `docs/PORTFOLIO_FUNNELS.md` |
 | Baseline congelado, política de regressão e manutenção do `/portfolio` | `docs/reports/PORTFOLIO-EXPERIENCE-FINAL-2026-09-05.md` §11 MAINTENANCE MODE |
 | Stack técnica, motion, performance e briefing de novos projetos | `docs/PORTFOLIO_TECH_STACK_PARAMETRIZATION.md` |
+| Contrato obrigatório de execução, SEO/LLM e publicação Git | `docs/0WEB_EXECUTION_CONTRACT.md` · `docs/BRAND_ASSET_POLICY.md` |
 
 Registre o uso de skills (tarefa, skills, achados, validação) no PR ou em
 `docs/skills/CHANGELOG.md`.
+
+Para toda tarefa, leia também `docs/0WEB_EXECUTION_CONTRACT.md`. Toda alteração
+concluída deve ser publicada no repositório oficial e integrada em `main` por PR;
+não deixar trabalho pendente em cópias locais ou hospedagens externas.
 
 # Regra oficial da zona de portfolios
 
