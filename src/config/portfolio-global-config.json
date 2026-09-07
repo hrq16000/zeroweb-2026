@@ -591,6 +591,19 @@
         "stepTitles": { "service": "O que vai deixar seu momento melhor?", "experience": "Qual é a ocasião?", "period": "Quando você precisa?", "timing": "Qual o próximo passo?" },
         "notePlaceholder": "Ex.: quantidade, sabores, endereço ou horário desejado."
       }
+    },
+    "centro-mega": {
+      "contactFloating": { "theme": "navy", "recipientName": "a equipe Centro Mega", "label": "Falar com a equipe" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Assistência técnica", "Acessórios", "Avaliação do aparelho", "Orientação de compra"],
+        "experienceOptions": ["Uso pessoal", "Família", "Empresa", "Ainda estou pesquisando"],
+        "periodOptions": ["Curitiba", "São José dos Pinhais", "Araucária", "Vou confirmar a unidade"],
+        "timingOptions": ["Quero atendimento", "Quero consultar disponibilidade", "Quero tirar uma dúvida"],
+        "stepTitles": { "service": "Como podemos ajudar?", "experience": "Para quem é a solução?", "period": "Qual região atende você?", "timing": "Qual o próximo passo?" },
+        "notePlaceholder": "Ex.: aparelho, acessório ou unidade de preferência."
+      }
     }
   }
 }

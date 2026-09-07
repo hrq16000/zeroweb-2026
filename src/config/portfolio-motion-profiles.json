@@ -1170,6 +1170,23 @@
       "desktopBehavior": "hero revela a caixa como convite; passos entram como sequência do pedido",
       "tabletBehavior": "split vira pilha preservando foto e cardápio",
       "mobileBehavior": "sem deslocamento no toque; botões de pedido ficam sempre alcançáveis"
+    },
+    "centro-mega": {
+      "intensity": "BALANCED",
+      "preset": "TECHNICAL",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "blueprint técnico com reveal lateral do hero",
+      "tabletBehavior": "split vira pilha preservando canais",
+      "mobileBehavior": "sem deslocamento no toque; âncoras permanecem acessíveis"
     }
   },
   "decisions": {
@@ -1593,6 +1610,16 @@
       "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Somente transform/opacity; hero único com prioridade e menu carregado sob demanda.",
       "accessibilityNotes": "Conteúdo fica no DOM; reduced motion remove deslocamentos."
+    },
+    "centro-mega": {
+      "wave": "MEGA_BLUEPRINT",
+      "segment": "prestadores-de-servicos",
+      "motionIntent": "DIAGNOSTICO TECNICO",
+      "whyThisMotion": "Linhas e reveals curtos sugerem conexão entre dispositivo, diagnóstico e solução.",
+      "signatureMoments": { "hero": "headline revela em máscara curta", "section": "cards entram em sequência de grade", "interaction": "âncoras conduzem pelos canais" },
+      "motionIntensity": "BALANCED",
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
+      "performanceNote": "Somente transform/opacity; hero único prioritário e imagens abaixo da dobra lazy."
+    }
   }
-}
 }

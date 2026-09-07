@@ -989,3 +989,19 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   `/portfolio` como catálogo premium, identidade por projeto e evolução contínua.
 - Tornada obrigatória a validação, documentação e publicação imediata no GitHub
   oficial por PR integrado em `main`.
+## 2026-09-07 — Centro Mega em `/portfolio/centro-mega`
+
+- Pesquisados Linktree, vhsys, Instagram, Facebook e publicação de inauguração;
+  Instagram foi mantido como link oficial porque o feed não estava acessível de
+  forma verificável para captura das seis últimas postagens.
+- Criada identidade técnica própria em azul-marinho, ciano e dourado, com
+  composição blueprint, logo e três assets fornecidos preservados no diretório
+  exclusivo do slug.
+- Adicionados catálogo, registry, funil, copy de compartilhamento, metadata,
+  imagem social, motion override e perfil de conversão individual.
+- CTA usa o funil seguro `centro-mega`; contatos operacionais não entram no
+  bundle público.
+- Skills aplicadas: router, discovery, art direction, design system, quality
+  gates, SEO/LLM, performance, acessibilidade e browser-QA planejado.
+- Validações atuais: boundaries 84, catálogo 84, scaffold 84, conversão 84,
+  runtime administrável sem MISSING, privacidade OK e TypeScript OK.

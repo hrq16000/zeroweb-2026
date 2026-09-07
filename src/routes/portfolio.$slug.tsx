@@ -273,6 +273,9 @@ const DonaLucySalgadosPage = lazy(() =>
     default: m.DonaLucySalgadosPage,
   })),
 );
+const CentroMegaPage = lazy(() =>
+  import("@/components/site/CentroMegaPage").then((m) => ({ default: m.CentroMegaPage })),
+);
 const EcommerceOnPage = lazy(() =>
   import("@/components/site/EcommerceOnPage").then((m) => ({ default: m.EcommerceOnPage })),
 );
@@ -534,6 +537,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEnoelPortas = loaderData?.slug === "enoel-portas";
     const isManiaDeLimpeza = loaderData?.slug === "mania-de-limpeza";
     const isDonaLucySalgados = loaderData?.slug === "dona-lucy-salgados";
+    const isCentroMega = loaderData?.slug === "centro-mega";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -564,6 +568,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Mania de Limpeza Higienização: combo família para sofás, colchões, tapetes e estofados em Curitiba e região."
       : isDonaLucySalgados
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
+      : isCentroMega
+      ? "Centro Mega: assistência técnica especializada e acessórios para tecnologia, com canais em Curitiba e Região Metropolitana."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isHbkIluminacaoLed
@@ -1188,6 +1194,8 @@ function PortfolioPrototypePage() {
           <ManiaDeLimpezaPage />
         ) : slug === "dona-lucy-salgados" ? (
           <DonaLucySalgadosPage />
+        ) : slug === "centro-mega" ? (
+          <CentroMegaPage />
 
         ) : slug === "ecommerce-on" ? (
           <EcommerceOnPage />

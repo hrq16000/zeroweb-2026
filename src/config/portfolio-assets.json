@@ -12,13 +12,12 @@
     "sos-presentes-cosmeticos": {
       "icon": "/images/sos-presentes-cosmeticos/logo.svg",
       "socialImage": "/images/sos-presentes-cosmeticos/hero-og.jpg",
-      "socialVersion": "0964bd9b",
       "proof": {
         "eyebrow": "SOS Presentes & Cosméticos",
-        "title": "Uma boa surpresa começa com uma escolha feita com carinho.",
-        "description": "Conheça cestas, presentes e personalizados para a sua ocasião.",
-        "ctaLabel": "Ver presentes",
-        "ctaHref": "#presentes"
+        "title": "SOS Presentes & Cosméticos com uma presença que explica o que faz.",
+        "description": "Cestas, presentes, cosméticos, acessórios e canecas personalizadas para datas especiais em São José dos Pinhais.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
       }
     },
     "dyzpromo": {
@@ -98,24 +97,22 @@
       "socialImage": "/images/rm-fretes/hero-og.jpg",
       "proof": {
         "eyebrow": "RM Fretes",
-        "title": "Transporte organizado para sua mudança ou carreto.",
-        "description": "Envie os detalhes do trajeto e receba uma orientação objetiva.",
-        "ctaLabel": "Conhecer fretes",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "3e7b0de1"
+        "title": "RM Fretes com uma presença que explica o que faz.",
+        "description": "Fretes, carretos e mudanças com coleta de informações para organizar cada trajeto.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "rj-servicos-drywall": {
       "icon": "/images/rj-servicos-drywall/logo.svg",
       "socialImage": "/images/rj-servicos-drywall/hero-og.jpg",
       "proof": {
         "eyebrow": "RJ Serviços de Drywall",
-        "title": "Ambientes bem resolvidos, com obra limpa e acabamento fino.",
-        "description": "Conte o que deseja transformar e receba uma avaliação inicial.",
-        "ctaLabel": "Conhecer serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "e0d2d68c"
+        "title": "RJ Serviços de Drywall com uma presença que explica o que faz.",
+        "description": "Site local para instalação, personalização e reparos em drywall, com funil de orçamento e experiência mobile-first.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "confeitaria-chyrley": {
       "icon": "/images/confeitaria-chyrley/capa.webp",
@@ -146,12 +143,11 @@
       "socialImage": "/images/studio-de-cilios/hero-og.jpg",
       "proof": {
         "eyebrow": "Studio de Cílios",
-        "title": "Seu olhar pode ganhar a presença que você imaginou.",
-        "description": "Escolha um estilo, conte sua preferência e encontre um horário para cuidar de você.",
-        "ctaLabel": "Conhecer estilos",
-        "ctaHref": "#estilos"
-      },
-      "socialVersion": "e7df36f0"
+        "title": "Studio de Cílios com uma presença que explica o que faz.",
+        "description": "Studio especializado em Mega Brasileiro, Mega Egípcio, Mega Fox Eyes e Fio a Fio, com atendimento personalizado.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "refrigeracao-maresia": {
       "icon": "/images/refrigeracao-maresia/logo.png",
@@ -182,24 +178,22 @@
       "socialImage": "/images/vila-da-capivara/hero-og.jpg",
       "proof": {
         "eyebrow": "Vila da Capivara",
-        "title": "Sua festa merece um sabor inesquecível.",
-        "description": "Escolha um kit, conte a ocasião e receba uma orientação para sua encomenda.",
-        "ctaLabel": "Ver kits",
-        "ctaHref": "#kits"
-      },
-      "socialVersion": "bef5e60a"
+        "title": "Vila da Capivara com uma presença que explica o que faz.",
+        "description": "Bolos personalizados, brigadeiros gourmet, salgados e kits festa da Vila da Capivara em Campo Comprido, Curitiba.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "lk-alvenaria": {
       "icon": "/images/lk-alvenaria/logo.svg",
       "socialImage": "/images/lk-alvenaria/hero-og.jpg",
       "proof": {
         "eyebrow": "LK Alvenaria",
-        "title": "Sua obra merece contrato, garantia e acabamento de qualidade.",
-        "description": "Conte a etapa do projeto e receba um próximo passo organizado.",
-        "ctaLabel": "Ver serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "aeb3c2a1"
+        "title": "LK Alvenaria com uma presença que explica o que faz.",
+        "description": "Empreiteiro de obra civil para fundação, alvenaria, concretagem, revestimentos, drywall, calçadas e reformas.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "lucas-arruma-maquina-lavar": {
       "icon": "/images/lucas-arruma-maquina-lavar/logo.svg",
@@ -253,25 +247,23 @@
       "icon": "/images/salao-da-marcia/logo.svg",
       "socialImage": "/images/salao-da-marcia/hero-og.jpg",
       "proof": {
-        "eyebrow": "Salão da Marcia · Cidade Jardim",
-        "title": "Seu momento de autocuidado começa com um horário reservado.",
-        "description": "Escolha o serviço e receba uma orientação para agendar.",
-        "ctaLabel": "Ver serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "275f1eef"
+        "eyebrow": "Salão da Marcia",
+        "title": "Salão da Marcia com uma presença que explica o que faz.",
+        "description": "Salão da Marcia com depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "espaco-cih-luh": {
       "icon": "/images/espaco-cih-luh/logo.svg",
       "socialImage": "/images/espaco-cih-luh/hero-og.jpg",
       "proof": {
-        "eyebrow": "CIH & LUH · O casal das unhas",
-        "title": "Mãos que transformam, pés que sustentam seus passos.",
-        "description": "Escolha seu cuidado e receba orientação para garantir um horário.",
-        "ctaLabel": "Ver serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "a16577f4"
+        "eyebrow": "Espaço CIH & LUH",
+        "title": "Espaço CIH & LUH com uma presença que explica o que faz.",
+        "description": "Espaço CIH & LUH com alongamento em gel, reconstruções, pedicure tradicional, pedicure em gel e cuidados podológicos.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "diego-montador-moveis": {
       "icon": "/images/diego-montador-moveis/capa.webp",
@@ -301,25 +293,23 @@
       "icon": "/images/eletrovale-eletromecanica/logo.svg",
       "socialImage": "/images/eletrovale-eletromecanica/hero-og.jpg",
       "proof": {
-        "eyebrow": "Eletrovale · Eletromecânica",
-        "title": "Confiança para manter sua operação em movimento.",
-        "description": "Conte o equipamento e receba um próximo passo técnico.",
-        "ctaLabel": "Conhecer soluções",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "b06d1932"
+        "eyebrow": "Eletrovale Eletromecânica",
+        "title": "Eletrovale Eletromecânica com uma presença que explica o que faz.",
+        "description": "Manutenção e rebobinamento de bombas, motores, motoredutores, motofreios e equipamentos eletromecânicos.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "eletro-solucoes-eficazes": {
       "icon": "/images/eletro-solucoes-eficazes/logo.svg",
       "socialImage": "/images/eletro-solucoes-eficazes/hero-og.jpg",
       "proof": {
-        "eyebrow": "Eletro Soluções · Pinhais",
-        "title": "Energia, segurança e tecnologia para sua rotina.",
-        "description": "Conte o desafio e receba um próximo passo profissional.",
-        "ctaLabel": "Conhecer soluções",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "5c7db630"
+        "eyebrow": "Eletro Soluções Eficazes",
+        "title": "Eletro Soluções Eficazes com uma presença que explica o que faz.",
+        "description": "Instalações, iluminação, manutenção elétrica, automação residencial, predial e industrial, consultoria e projetos.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "eisenfer-tubos-acos": {
       "icon": "/images/eisenfer-tubos-acos/capa-card.jpg",
@@ -337,13 +327,12 @@
       "icon": "/images/mary-diarista/logo.svg",
       "socialImage": "/images/mary-diarista/hero-og.jpg",
       "proof": {
-        "eyebrow": "Mary · Diarista",
-        "title": "Uma casa em ordem deixa a rotina mais leve.",
-        "description": "Conte sua necessidade e receba um próximo passo cuidadoso.",
-        "ctaLabel": "Conhecer serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "396467df"
+        "eyebrow": "Mary Diarista",
+        "title": "Mary Diarista com uma presença que explica o que faz.",
+        "description": "Diárias de até 4, 6 ou 8 horas, pós-obra, pós-mudança e personal organizer com agenda semanal, quinzenal ou esporádica.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "acai-total-araucaria": {
       "icon": "/images/acai-total-araucaria/logo.webp",
@@ -361,25 +350,23 @@
       "icon": "/images/jkl-marcenaria/logo.svg",
       "socialImage": "/images/jkl-marcenaria/hero-og.jpg",
       "proof": {
-        "eyebrow": "JKL Marcenaria · Curitiba",
-        "title": "Móveis sob medida que valorizam cada ambiente.",
-        "description": "Conte seu projeto e receba um próximo passo personalizado.",
-        "ctaLabel": "Ver soluções",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "837f4bd9"
+        "eyebrow": "JKL Marcenaria",
+        "title": "JKL Marcenaria com uma presença que explica o que faz.",
+        "description": "Móveis sob medida em MDF para cozinhas, dormitórios, cozinhas infantis, nichos, porta-tempero, banheiros e ambientes em geral.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "santos-montador-de-moveis": {
       "icon": "/images/santos-montador-de-moveis/logo.svg",
       "socialImage": "/images/santos-montador-de-moveis/hero-og.jpg",
       "proof": {
-        "eyebrow": "Santos · Serviços residenciais",
-        "title": "Tem algo para montar, instalar ou reparar?",
-        "description": "Organize o pedido em poucos passos e receba orientação para o orçamento.",
-        "ctaLabel": "Ver todos os serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "6d277fce"
+        "eyebrow": "Santos Montador de Móveis",
+        "title": "Santos Montador de Móveis com uma presença que explica o que faz.",
+        "description": "Montagem e desmontagem de móveis, pintura interna, pequenos reparos elétricos, limpeza de caixa d'água e instalação de cortinas e persianas.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "marmitaria-dom-diego": {
       "icon": "/images/marmitaria-dom-diego/capa.png",
@@ -643,7 +630,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "ad66a7b4"
+      "socialVersion": "c0b14f72"
     },
     "almeida-torres": {
       "icon": "/images/almeida-torres/logo.svg",
@@ -655,7 +642,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "dff94af4"
+      "socialVersion": "d625f885"
     },
     "casa-nativa": {
       "icon": "/images/casa-nativa/logo.svg",
@@ -667,7 +654,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "94286173"
+      "socialVersion": "5f54c1b3"
     },
     "guaratuba-sabores-da-baia": {
       "icon": "/images/guaratuba-sabores-da-baia/logo.svg",
@@ -679,7 +666,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "19783f50"
+      "socialVersion": "61e71569"
     },
     "guaratuba-oficina-nautica": {
       "icon": "/images/guaratuba-oficina-nautica/logo.svg",
@@ -691,7 +678,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "d6b33f0f"
+      "socialVersion": "45bf067a"
     },
     "guaratuba-atelie-presentes": {
       "icon": "/images/guaratuba-atelie-presentes/logo.svg",
@@ -703,7 +690,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "54ab9117"
+      "socialVersion": "fd500adf"
     },
     "guaratuba-reparos-residenciais": {
       "icon": "/images/guaratuba-reparos-residenciais/logo.svg",
@@ -715,7 +702,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "9ce96252"
+      "socialVersion": "c5aea586"
     },
     "mirassol-delicias-caseiras": {
       "icon": "/images/mirassol-delicias-caseiras/logo.svg",
@@ -727,7 +714,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "7c602bd4"
+      "socialVersion": "a9ed4230"
     },
     "mirassol-conserta-celular": {
       "icon": "/images/mirassol-conserta-celular/logo.svg",
@@ -739,7 +726,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "3a5d1969"
+      "socialVersion": "f499e1ea"
     },
     "bh-barreiro-marmitas": {
       "icon": "/images/bh-barreiro-marmitas/logo.svg",
@@ -751,7 +738,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "020bc638"
+      "socialVersion": "2f252a64"
     },
     "uberlandia-eletrica-residencial": {
       "icon": "/images/uberlandia-eletrica-residencial/logo.svg",
@@ -763,43 +750,40 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "f503255f"
+      "socialVersion": "28464214"
     },
     "denise-gomes-psicologa": {
       "icon": "/images/denise-gomes-psicologa/logo.svg",
       "socialImage": "/images/denise-gomes-psicologa/hero-og.jpg",
       "proof": {
         "eyebrow": "Denise Gomes · Psicóloga",
-        "title": "Cuidar da sua saúde mental é um ato de coragem e autocuidado.",
-        "description": "Atendimento e avaliação psicológica para adultos em São José dos Pinhais.",
-        "ctaLabel": "Entender o atendimento",
-        "ctaHref": "#como-funciona"
-      },
-      "socialVersion": "7013ead0"
+        "title": "Denise Gomes · Psicóloga com uma presença que explica o que faz.",
+        "description": "Atendimento e avaliação psicológica com Denise Gomes, CRP 08/22352, para adultos em São José dos Pinhais, com acolhimento para questões como ansiedade, burnout e relacionamentos.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "ton-e-cor": {
       "icon": "/images/ton-e-cor/logo.svg",
       "socialImage": "/images/ton-e-cor/hero-og.jpg",
       "proof": {
-        "eyebrow": "Ton & Cor",
-        "title": "Pintura e pequenos reparos em uma presença clara.",
-        "description": "Conheça os serviços e organize os detalhes para solicitar um orçamento.",
-        "ctaLabel": "Ver serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "c9172f9c"
+        "eyebrow": "Ton & Cor · Pintura e Pequenas Reformas",
+        "title": "Ton & Cor · Pintura e Pequenas Reformas com uma presença que explica o que faz.",
+        "description": "Presença digital da Ton & Cor para pintura em geral, pequenos serviços de alvenaria e hidráulica, limpeza de telhado e reparos em geral.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "raphael-construcoes": {
       "icon": "/images/raphael-construcoes/logo.svg",
       "socialImage": "/images/raphael-construcoes/hero-og.jpg",
       "proof": {
         "eyebrow": "Raphael Construções",
-        "title": "Uma visão completa para sua obra.",
-        "description": "Conheça as frentes de serviço e organize os detalhes para solicitar uma avaliação.",
-        "ctaLabel": "Ver serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "681a7910"
+        "title": "Raphael Construções com uma presença que explica o que faz.",
+        "description": "Raphael Construções apresenta soluções para construção, engenharia, impermeabilização, reformas, instalações, demolição, pintura e acabamentos.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "jc-revestimentos": {
       "icon": "/images/jc-revestimentos/logo.png",
@@ -866,48 +850,44 @@
       "socialImage": "/images/popys-conservacao-limpeza/hero-og.jpg",
       "proof": {
         "eyebrow": "POPYS Conservação e Limpeza",
-        "title": "Seu ambiente merece cuidado constante.",
-        "description": "Limpeza profissional para empresas, escritórios e obras em Curitiba e Região.",
-        "ctaLabel": "Conhecer soluções",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "d61905eb"
+        "title": "POPYS Conservação e Limpeza com uma presença que explica o que faz.",
+        "description": "Limpeza e conservação profissional para empresas, escritórios, pós-obra, vidros, pisos e fachadas em Curitiba e Região.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "bruna-diarista": {
       "icon": "/images/bruna-diarista/logo.svg",
       "socialImage": "/images/bruna-diarista/hero-og.jpg",
       "proof": {
         "eyebrow": "Bruna Diarista",
-        "title": "Uma casa em ordem deixa a rotina mais leve.",
-        "description": "Diárias, pós-obra e organização em Curitiba e Região.",
-        "ctaLabel": "Conhecer serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "dd665487"
+        "title": "Bruna Diarista com uma presença que explica o que faz.",
+        "description": "Diárias profissionais, limpeza pesada, pós-obra e personal organizer para casas, apartamentos e escritórios em Curitiba e Região.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "btb-construcao": {
       "icon": "/images/btb-construcao/logo.svg",
       "socialImage": "/images/btb-construcao/hero-og.jpg",
       "proof": {
         "eyebrow": "BTB Construção",
-        "title": "A próxima transformação começa na conversa.",
-        "description": "Reformas internas e acabamentos em Curitiba e região.",
-        "ctaLabel": "Planejar reforma",
-        "ctaHref": "#contato"
-      },
-      "socialVersion": "96e53c02"
+        "title": "BTB Construção com uma presença que explica o que faz.",
+        "description": "BTB Construção realiza reformas internas em Curitiba e região: pintura, elétrica, hidráulica, pisos, drywall, acabamentos e iluminação LED.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "easy-clean": {
       "icon": "/images/easy-clean/logo.svg",
       "socialImage": "/images/easy-clean/hero-og.jpg",
       "proof": {
         "eyebrow": "Easy Clean Higienização a Seco",
-        "title": "Conforto limpo começa com uma boa higienização.",
-        "description": "Lavagem a seco e impermeabilização em Curitiba e região.",
-        "ctaLabel": "Conhecer serviços",
-        "ctaHref": "#servicos"
-      },
-      "socialVersion": "316c6982"
+        "title": "Easy Clean Higienização a Seco com uma presença que explica o que faz.",
+        "description": "Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "js-eletrica-manutencao": {
       "icon": "/images/js-eletrica-manutencao/js-eletrica-marca.jpeg",
@@ -962,12 +942,11 @@
       "socialImage": "/images/simone-lacerda-vaz/hero-og.jpg",
       "proof": {
         "eyebrow": "Simone Lacerda Vaz · Nutricionista",
-        "title": "Seu cuidado merece um plano que caiba na vida.",
-        "description": "Atendimento nutricional, bioimpedância e acompanhamento especializado.",
-        "ctaLabel": "Conversar agora",
-        "ctaHref": "#contato"
-      },
-      "socialVersion": "33375c41"
+        "title": "Simone Lacerda Vaz · Nutricionista com uma presença que explica o que faz.",
+        "description": "Atendimento nutricional, bioimpedância, plano alimentar, acompanhamento pré e pós-bariátrica e consultoria em amamentação.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
     },
     "kitutes-na-mesa": {
       "icon": "/images/kitutes-na-mesa/logo.png",
@@ -1016,6 +995,18 @@
         "ctaHref": "#como-pedir"
       },
       "socialVersion": "ef6ba9f9"
+    },
+    "centro-mega": {
+      "icon": "/images/centro-mega/logo.png",
+      "socialImage": "/images/centro-mega/social-og.jpg",
+      "proof": {
+        "eyebrow": "Centro Mega · Assistência técnica",
+        "title": "Tecnologia que funciona. Atendimento que resolve.",
+        "description": "Consulte os canais oficiais e fale com a unidade mais conveniente.",
+        "ctaLabel": "Falar com a equipe",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "eda032de"
     }
   }
 }

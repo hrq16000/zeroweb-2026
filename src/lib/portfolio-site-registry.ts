@@ -560,6 +560,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "centro-mega",
+    vertical: "prestadores-de-servicos",
+    siteName: "Centro Mega · Assistência Técnica & Acessórios",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

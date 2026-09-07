@@ -1535,6 +1535,22 @@
       "logoFile": "/images/simone-lacerda-vaz/logo.svg",
       "socialFile": "/images/simone-lacerda-vaz/hero-og.jpg",
       "identityNote": "Marca dedicada criada para substituir foto/capa usada indevidamente como logo; aguarda troca apenas se o cliente fornecer marca oficial."
+    },
+    "centro-mega": {
+      "brandCharacter": "tecnica acessivel e confiavel",
+      "visualConcept": "Blueprint azul profundo com ciano de ação e dourado de destaque.",
+      "heroComposition": "technical-blueprint-split",
+      "sectionRhythm": "hero servicos canais redes",
+      "typographicCharacter": "Sans geométrica forte com suporte de leitura confortável.",
+      "colorBehavior": "Azul-marinho como confiança, ciano como ação e dourado como destaque.",
+      "imageDirection": "Artes e logos fornecidas pelo cliente; sem evidência inventada.",
+      "signatureElement": "Circuitos e canais oficiais organizados como mapa de solução.",
+      "logoStatus": "EXISTING_ASSET_DOCUMENTED",
+      "coverStatus": "SOCIAL_ASSET_DOCUMENTED",
+      "identityStatus": "DOCUMENTED_EXISTING_ASSET",
+      "logoFile": "/images/centro-mega/logo.png",
+      "socialFile": "/images/centro-mega/social-og.jpg",
+      "identityNote": "Assets fornecidos nesta solicitação e preservados no diretório exclusivo do slug."
     }
   }
 }

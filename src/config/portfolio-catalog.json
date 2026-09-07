@@ -1831,5 +1831,24 @@
     "fallbackImage": "/images/dona-lucy-salgados/social-og.jpg",
     "metrics": "Combos a partir de R$ 11,99",
     "summary": "Dona Lucy Salgados prepara salgados fritos e churros de doce de leite para delivery e encomendas em Araucária."
+  },
+  {
+    "slug": "centro-mega",
+    "clientKey": "centro-mega",
+    "title": "Centro Mega",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["assistencia-tecnica", "acessorios", "tecnologia", "curitiba"],
+    "live": true,
+    "subtitle": "Assistência técnica & acessórios",
+    "location": "Curitiba e Região Metropolitana — PR",
+    "badge": "Projeto publicado",
+    "image": "/images/centro-mega/hero.png",
+    "fallbackImage": "/images/centro-mega/social-og.jpg",
+    "metrics": "Canais oficiais e atendimento especializado",
+    "summary": "Centro Mega oferece assistência técnica especializada e acessórios para tecnologia, com canais oficiais em Curitiba e região."
   }
 ]
