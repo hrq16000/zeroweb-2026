@@ -205,7 +205,7 @@ function ServicosHub() {
           page: page > 1 ? page : undefined,
         }),
         replace: true,
-        resetScroll: true,
+        resetScroll: false,
       });
     }, 250);
     return () => clearTimeout(t);
@@ -245,12 +245,6 @@ function ServicosHub() {
     setPage(nextPage);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }, 0);
-    return () => window.clearTimeout(timer);
-  }, [safePage]);
   // Index global (na lista filtrada) para badge "Novo" nos 3 primeiros.
   const newSet = new Set(filtered.slice(0, 3).map((s) => s.slug));
 
