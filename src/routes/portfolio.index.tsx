@@ -300,6 +300,7 @@ type PortfolioSearch = {
   q?: string;
   sort?: string;
   type?: string;
+  regiao?: string;
 };
 
 export const Route = createFileRoute("/portfolio/")({
@@ -319,6 +320,7 @@ export const Route = createFileRoute("/portfolio/")({
     if (typeof search.q === "string") parsed.q = search.q;
     if (typeof search.sort === "string") parsed.sort = search.sort;
     if (typeof search.type === "string") parsed.type = search.type;
+    if (typeof search.regiao === "string") parsed.regiao = search.regiao;
     return parsed;
   },
   head: () => ({
@@ -399,7 +401,7 @@ function PortfolioPage() {
   );
   const [sort, setSort] = useState(routeSearch.sort ?? "recent");
   const [projectType, setProjectType] = useState(routeSearch.type ?? "todos");
-  const [region, setRegion] = useState("todas");
+  const [region, setRegion] = useState(routeSearch.regiao ?? "todas");
   const [visibleCount, setVisibleCount] = useState(12);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visitorCity, setVisitorCity] = useState<string | null>(null);
@@ -472,6 +474,7 @@ function PortfolioPage() {
     if (search) params.set("q", search);
     if (sort !== "recent") params.set("sort", sort);
     if (projectType !== "todos") params.set("type", projectType);
+    if (region !== "todas") params.set("regiao", region);
     window.history.replaceState(
       null,
       "",
@@ -504,6 +507,9 @@ function PortfolioPage() {
     setProjectType("todos");
     setSort("recent");
   };
+  useEffect(() => {
+    if (selectedIndex !== null && !filteredItems[selectedIndex]) setSelectedIndex(null);
+  }, [filteredItems, selectedIndex]);
 
   useEffect(() => {
     if (!selectedItem) return;
@@ -562,7 +568,7 @@ function PortfolioPage() {
             </div>
 
             <div className="mt-6 grid max-w-3xl grid-cols-3 gap-2 sm:gap-3" aria-label="Resumo do catálogo">
-              {[[String(portfolioCatalog.length), "projetos publicados"], [String(CATEGORIES.length - 1), "segmentos ativos"], ["100%", "com CTA e presença"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
+              {[[String(catalogItems.length), "projetos publicados"], [String(CATEGORIES.length - 1), "segmentos ativos"], ["CTA", "presença pronta"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
             </div>
 
             <div
