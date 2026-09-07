@@ -579,5 +579,12 @@
     "nextStepBody": "Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery.",
     "primaryCtaLabel": "Fazer pedido",
     "theme": "pink"
+  },
+  "centro-mega": {
+    "intent": "atendimento",
+    "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
+    "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
+    "primaryCtaLabel": "Falar com a equipe",
+    "theme": "navy"
   }
 }
