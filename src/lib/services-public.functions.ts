@@ -307,6 +307,7 @@ const RETIRED_SERVICE_SLUGS = new Set(["site-24h"]);
 // do Storage. Cada fallback é explícito e semanticamente ligado ao produto.
 const RECOVERED_COVERS: Record<string, string> = {
   "comunicacao-visual": "/images/services/comunicacao-visual.png",
+  "site-profissional-197": "/images/services/site-profissional-197.png",
   "site-express": coverSiteExpress,
   "trafego-pago": coverTrafegoPago,
   "trafego-pago-local": coverLocal,
