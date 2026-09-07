@@ -1011,3 +1011,12 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   social de `/portfolio/centro-mega` (3 Reels e 3 publicações).
 - Cada card abre a publicação original em nova aba, com rótulo acessível e sem
   copiar conteúdo do Instagram para o bundle.
+## 2026-09-07 — organização exclusiva da entrada `/portfolio`
+
+- Escopo deliberadamente limitado a `src/routes/portfolio.index.tsx`; nenhuma
+  rota `/portfolio/<slug>` ou outro endereço foi alterado.
+- Compactado o cabeçalho do catálogo e adicionados indicadores rápidos de
+  projetos, segmentos e presença/CTA.
+- Melhorada a semântica dos chips de segmento (`aria-pressed`) e a leitura do
+  estado de filtros, com limpar filtros em um único toque e chips ativos.
+- TypeScript, build e `git diff --check` aprovados.
