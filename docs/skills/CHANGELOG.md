@@ -29,6 +29,23 @@
   critério de aceite para transformar pendências em capas editoriais válidas,
   sem apresentar arte gerada como prova real do cliente.
 
+## 2026-09-06 — auditoria crítica de runtime e regressões
+
+- Reexecutada a inspeção de runtime em viewport mobile e desktop com Chromium
+  headless local: **83/83 páginas renderizadas, P0 = 0**; os quatro P0
+  anteriores eram evidência stale gerada quando o navegador não conseguia
+  iniciar no Windows.
+- Corrigida a dependência de logo 0WEB hospedada em `/__l5e`: existe agora
+  fallback SVG versionado no Git, usado também por `BrandLogo` e `Header`,
+  eliminando imagem quebrada em ambientes locais/CI.
+- Corrigido overflow mobile detectado em Paraíso do Hot Dog.
+- Regenerados e validados os registros de quizzes, seed administrativo,
+  originalidade, qualidade visual e runtime.
+- Gates atuais: typecheck OK; 83 catálogos/assets/logos; 222 rotas; privacidade
+  pública OK; performance de imagens OK; visual quality enforce com P0 = 0.
+- Permanecem como backlog P1 editorial: 14 crops severos, 12 capas sem
+  dedicação, 6 baixa resolução e 6 pares de composição com similaridade alta.
+
 ## 2026-09-02 — catálogo por segmentos e ramos existentes
 
 - A navegação de `/portfolio/` passou a derivar todos os segmentos diretamente do catálogo canônico.

@@ -43,6 +43,7 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [cartQty, setCartQty] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState(logoAsset.url);
   // WhatsApp removido do header; o botão flutuante mantém o canal.
   const headerRef = useRef<HTMLElement | null>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -127,7 +128,7 @@ export function Header() {
       >
         <Link to="/" aria-label="0WEB — Início" className="flex items-center">
           <img
-            src={logoAsset.url}
+            src={logoSrc}
             alt="0WEB — do zero ao digital"
             width={920}
             height={250}
@@ -135,6 +136,7 @@ export function Header() {
               scrolled ? "h-8 lg:h-10" : "h-12 lg:h-20"
             }`}
             fetchPriority="high"
+            onError={() => setLogoSrc("/0web-logo-fallback.svg")}
           />
         </Link>
 
