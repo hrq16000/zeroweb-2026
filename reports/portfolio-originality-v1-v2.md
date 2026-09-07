@@ -33,6 +33,7 @@ originalidade: nenhuma página pública mudou.
 | almeida-torres | guaratuba-atelie-presentes | guaratuba-atelie-presentes | 34 | 31 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | beto-pasteis | reuse-house-brecho | reuse-house-brecho | 33 | 30 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | bruna-diarista | easy-clean | popys-conservacao-limpeza | 69 | 66 | -3 | SIM | METRIC_CORRECTION | 100 | 15 |
+| centro-mega | mania-de-limpeza | mania-de-limpeza | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 11.2 |
 | embalar-embalagens | maximos-cabeleireiros | maximos-cabeleireiros | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |
 | galileu-locacao-brinquedos | lj-cleaning | lj-cleaning | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | guaratuba-atelie-presentes | mirassol-delicias-caseiras | mirassol-delicias-caseiras | 45 | 42 | -3 | não | METRIC_CORRECTION | 100 | 15 |
