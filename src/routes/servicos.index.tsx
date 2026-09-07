@@ -245,6 +245,10 @@ function ServicosHub() {
     setPage(nextPage);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  useEffect(() => {
+    if (page <= 1) return;
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
+  }, [page]);
   // Index global (na lista filtrada) para badge "Novo" nos 3 primeiros.
   const newSet = new Set(filtered.slice(0, 3).map((s) => s.slug));
 
