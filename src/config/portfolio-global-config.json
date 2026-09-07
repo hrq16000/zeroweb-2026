@@ -604,6 +604,19 @@
         "stepTitles": { "service": "Como podemos ajudar?", "experience": "Para quem é a solução?", "period": "Qual região atende você?", "timing": "Qual o próximo passo?" },
         "notePlaceholder": "Ex.: aparelho, acessório ou unidade de preferência."
       }
+    },
+    "pastelaria-route-66": {
+      "contactFloating": { "theme": "navy", "recipientName": "a equipe Route 66", "label": "Fazer um pedido" },
+      "footer": { "variant": "dark" },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": ["Café da manhã", "Salgados", "Almoço", "Entrega", "Retirada"],
+        "experienceOptions": ["Vou consumir no local", "Quero retirar", "Preciso de entrega", "Quero conhecer o cardápio"],
+        "periodOptions": ["Agora", "Hoje", "Durante a semana", "Estou planejando"],
+        "timingOptions": ["O quanto antes", "Pela manhã", "No horário do almoço", "Ainda vou confirmar"],
+        "stepTitles": { "service": "O que você quer pedir?", "experience": "Como prefere receber?", "period": "Quando você precisa?", "timing": "Qual o próximo passo?" },
+        "notePlaceholder": "Ex.: sabores, quantidade, endereço ou horário."
+      }
     }
   }
 }

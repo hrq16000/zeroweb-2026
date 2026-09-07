@@ -1851,4 +1851,23 @@
     "metrics": "Canais oficiais e atendimento especializado",
     "summary": "Centro Mega oferece assistência técnica especializada e acessórios para tecnologia, com canais oficiais em Curitiba e região."
   }
+  ,{
+    "slug": "pastelaria-route-66",
+    "clientKey": "pastelaria-route-66",
+    "title": "Pastelaria e Lanchonete Route 66",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": ["pastelaria", "lanches", "cafe-da-manha", "salgados", "almoco", "delivery"],
+    "live": true,
+    "subtitle": "Café da manhã, salgados e almoço no Prado Velho",
+    "location": "Prado Velho · Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/pastelaria-route-66/hero-og.jpg",
+    "fallbackImage": "/images/pastelaria-route-66/logo.svg",
+    "metrics": "Atendimento no local, retirada e entrega",
+    "summary": "Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho."
+  }
 ]

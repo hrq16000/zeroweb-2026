@@ -1187,6 +1187,23 @@
       "desktopBehavior": "blueprint técnico com reveal lateral do hero",
       "tabletBehavior": "split vira pilha preservando canais",
       "mobileBehavior": "sem deslocamento no toque; âncoras permanecem acessíveis"
+    },
+    "pastelaria-route-66": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "placa Route 66 desliza e revela a fachada real",
+      "tabletBehavior": "split vira pilha preservando foto",
+      "mobileBehavior": "sem deslocamento no toque; conteúdo segue acessível"
     }
   },
   "decisions": {

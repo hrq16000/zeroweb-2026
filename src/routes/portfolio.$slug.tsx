@@ -444,6 +444,9 @@ const HbkIluminacaoLedPage = lazy(() =>
 const HeloaGasPage = lazy(() =>
   import("@/components/site/HeloaGasPage").then((m) => ({ default: m.HeloaGasPage })),
 );
+const PastelariaRoute66Page = lazy(() =>
+  import("@/components/site/PastelariaRoute66Page").then((m) => ({ default: m.PastelariaRoute66Page })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -522,6 +525,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJcRevestimentos = loaderData?.slug === "jc-revestimentos";
     const isHbkIluminacaoLed = loaderData?.slug === "hbk-iluminacao-led";
     const isHeloaGas = loaderData?.slug === "heloa-gas";
+    const isPastelariaRoute66 = loaderData?.slug === "pastelaria-route-66";
     const isSscons = loaderData?.slug === "sscons";
     const isMimo = loaderData?.slug === "mimo-salgados-doces";
     const isPopys = loaderData?.slug === "popys-conservacao-limpeza";
@@ -572,6 +576,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Centro Mega: assistência técnica especializada e acessórios para tecnologia, com canais em Curitiba e Região Metropolitana."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
+      : isPastelariaRoute66
+      ? "Pastelaria e Lanchonete Route 66 no Prado Velho, Curitiba: café da manhã, salgados e almoço com atendimento no local, retirada e entrega, de segunda a sábado das 7h às 20h."
       : isHbkIluminacaoLed
       ? "HBK Iluminação LED Atacadão: produtos LED, orientação técnica e condições especiais para construção e reforma."
       : isJcRevestimentos
@@ -1110,6 +1116,8 @@ function PortfolioPrototypePage() {
           <HbkIluminacaoLedPage />
         ) : slug === "heloa-gas" ? (
           <HeloaGasPage />
+        ) : slug === "pastelaria-route-66" ? (
+          <PastelariaRoute66Page />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

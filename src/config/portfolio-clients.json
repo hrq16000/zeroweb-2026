@@ -1077,5 +1077,18 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/centro-mega.md"
+  },
+  {
+    "clientKey": "pastelaria-route-66",
+    "slug": "pastelaria-route-66",
+    "siteName": "Pastelaria e Lanchonete Route 66",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/PastelariaRoute66Page.tsx",
+    "assetsDir": "public/images/pastelaria-route-66",
+    "ctaMode": "quote",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/pastelaria-route-66.md"
   }
 ]

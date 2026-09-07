@@ -1038,3 +1038,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Regra:** a vitrine publica apenas produtos com imagem própria e preço numérico maior que zero.
 - **Interface:** cards compactos com imagem, nome, resumo curto, preço e ação; removidos blocos editoriais e complementares do índice.
 - **Documentação:** criado `docs/SERVICOS_SHOP_STANDARD.md` como contrato de publicação da loja.
+# 2026-09-07 — Pastelaria e Lanchonete Route 66
+
+- **Tarefa:** criação da rota pública `/portfolio/pastelaria-route-66` com informações verificadas pelo operador, fotos locais recebidas e funil individual.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`, `0web-portfolio-art-direction`, `0web-design-system`, `0web-ui-quality-gates`; padrões Client Standard, New Client Playbook, Conversion Intelligence e Conversion Narrative.
+- **Achados:** negócio real no Prado Velho, Curitiba; endereço, horário, modalidades de atendimento e fotos fornecidos. Não foram inventados preços, cardápio detalhado, avaliações ou cobertura de entrega.
+- **Ativos:** logo Route 66, capa OG derivada da fachada real, versões WebP e fotos de referência vinculadas ao slug.
+- **Produto:** documentado `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md` como especificação/backlog de pesquisa, geração, leads, versões e pacotes de site.
+- **Validação:** executar gates de catálogo, assets, boundaries, scaffold, SEO, privacy, performance, conversão, testes e build antes do commit/publicação.
