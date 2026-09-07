@@ -973,3 +973,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Privacidade:** nenhum telefone, endereço ou `wa.me` entrou nas imagens sociais ou no novo SVG de marca.
 - **Fechamento documental:** `scripts/document-all-portfolio-identities.mjs` registrou contratos individuais para os 68 projetos que já possuíam assets, totalizando identidade declarada em 83/83.
 - **Rodada visual P0:** auditoria renderizada identificou 21 projetos que exibiam foto/capa/anúncio como logo; `scripts/complete-logo-backlog.mjs` criou marcas dedicadas e capas sociais OG legíveis para todos, sem alterar assets oficiais já reconhecidos.
+## 2026-09-07 — proteção permanente de identidade visual
+
+- Documentada a política de proteção de marca em `docs/BRAND_ASSET_POLICY.md`.
+- A logo original da 0WEB e identidades dos portfólios não podem ser
+  substituídas por fallbacks, aproximações ou redesenhos sem autorização
+  explícita.
+- Falhas de carregamento devem ser corrigidas na origem/pipeline, preservando
+  integralmente a arte original.
