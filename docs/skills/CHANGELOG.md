@@ -1032,3 +1032,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Melhorada a semântica dos chips de segmento (`aria-pressed`) e a leitura do
   estado de filtros, com limpar filtros em um único toque e chips ativos.
 - TypeScript, build e `git diff --check` aprovados.
+# 2026-09-07 — `/servicos` como loja virtual compacta
+
+- **Escopo:** somente a rota raiz `/servicos/`; páginas `/servicos/<slug>` não foram alteradas.
+- **Regra:** a vitrine publica apenas produtos com imagem própria e preço numérico maior que zero.
+- **Interface:** cards compactos com imagem, nome, resumo curto, preço e ação; removidos blocos editoriais e complementares do índice.
+- **Documentação:** criado `docs/SERVICOS_SHOP_STANDARD.md` como contrato de publicação da loja.

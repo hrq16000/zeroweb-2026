@@ -1,18 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { ArrowRight, Sparkles, Search, AlertCircle, Timer } from "lucide-react";
+import { ArrowRight, Sparkles, Search, AlertCircle } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { SERVICES } from "@/lib/services-data";
-import { SocialProofBlock } from "@/components/site/SocialProofBlock";
-import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
-import { ServiceCTA } from "@/components/site/ServiceCTA";
-import { ProductActionGate } from "@/components/site/ProductActionGate";
-import { ShopHero } from "@/components/site/ShopHero";
-import { ServiceImageFallback } from "@/components/site/ServiceImageFallback";
 
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import {
@@ -21,29 +15,6 @@ import {
 } from "@/lib/site-express-faq";
 
 const SERVICE_LIST = Object.values(SERVICES);
-
-function sanitizeServicoHeroText(value: string | null): string | null {
-  if (!value) return value;
-  return value
-    .replace(/Site\s+Express\s+em\s+24h\s*·\s*a partir de R\$\s*499/gi, "Site Express · a partir de R$ 499")
-    .replace(/Site\s+profissional\s+pronto\s+em\s+24h/gi, "Site profissional turnkey")
-    .replace(/pronto\s+em\s+24h/gi, "pronto para vender")
-    .replace(/Entrega\s+24h/gi, "Turnkey profissional")
-    .replace(/em\s+24h/gi, "turnkey")
-    .replace(/24\s+horas/gi, "fluxo turnkey");
-}
-
-function sanitizeServicoHeroSlides<T extends { eyebrow: string | null; title: string; subtitle: string | null; badge: string | null; ctaLabel: string | null }>(slides: T[]): T[] {
-  return slides.map((s) => ({
-    ...s,
-    eyebrow: sanitizeServicoHeroText(s.eyebrow),
-    title: sanitizeServicoHeroText(s.title) ?? s.title,
-    subtitle: sanitizeServicoHeroText(s.subtitle),
-    badge: sanitizeServicoHeroText(s.badge),
-    ctaLabel: sanitizeServicoHeroText(s.ctaLabel),
-  }));
-}
-
 
 type ServicosSearch = { q?: string; cat?: string; sort?: SortKey; page?: number };
 
@@ -182,14 +153,16 @@ export const Route = createFileRoute("/servicos/")({
   },
   loader: async () => {
     const { listServicesPublic } = await import("@/lib/services-public.functions");
-    const { listHeroSlides } = await import("@/lib/hero-slides.functions");
-    const [{ services: allServices }, { slides }] = await Promise.all([
-      listServicesPublic(),
-      listHeroSlides({ data: { page: "servicos" } }),
-    ]);
-    // Catálogo /servicos lista apenas PRODUTOS. Soluções vão para /solucoes.
-    const services = allServices.filter((s) => !s.isSolution);
-    return { services, slides: sanitizeServicoHeroSlides(slides) };
+    const { services: allServices } = await listServicesPublic();
+    // /servicos é uma loja: produto publicado precisa ter capa e preço.
+    // Soluções e cadastros incompletos ficam fora da vitrine até serem preparados.
+    const services = allServices.filter((s) => {
+      const galleryCover = s.gallery.find((g) => Boolean(g.url));
+      const hasImage = Boolean(s.imageUrl || galleryCover?.url);
+      const hasPrice = typeof s.price === "number" && s.price > 0;
+      return !s.isSolution && hasImage && hasPrice;
+    });
+    return { services };
   },
   errorComponent: ({ error }) => (
     <div className="min-h-screen grid place-items-center p-8 text-center">
@@ -207,7 +180,7 @@ export const Route = createFileRoute("/servicos/")({
 type SortKey = "shop" | "recent" | "alpha" | "relevance";
 
 function ServicosHub() {
-  const { services, slides } = Route.useLoaderData();
+  const { services } = Route.useLoaderData();
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/servicos" });
   type Svc = (typeof services)[number];
@@ -273,47 +246,35 @@ function ServicosHub() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main className="pt-6">
-        <h1 className="sr-only">Loja de serviços 0WEB</h1>
-        <ShopHero slides={slides} />
-
-        <section className="px-5 pt-8">
-          <div className="mx-auto max-w-6xl rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p className="text-sm text-muted-foreground">
-              Projetos sem preço fechado foram movidos para a página de soluções consultivas.
-            </p>
-            <Link to="/solucoes" className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-              Ver Soluções <ArrowRight className="w-4 h-4" />
-            </Link>
+      <main>
+        <section className="border-b border-border bg-card/60">
+          <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Loja 0WEB</p>
+            <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-tight sm:text-5xl">Escolha o próximo avanço do seu negócio.</h1>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">Produtos digitais com escopo claro, preço publicado e contratação simples.</p>
+            <div className="mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-border pt-5 text-xs sm:gap-8 sm:text-sm">
+              <div><strong className="block text-lg text-foreground sm:text-xl">{services.length}</strong><span className="text-muted-foreground">produtos ativos</span></div>
+              <div><strong className="block text-lg text-foreground sm:text-xl">100%</strong><span className="text-muted-foreground">preço visível</span></div>
+              <div><strong className="block text-lg text-foreground sm:text-xl">On-line</strong><span className="text-muted-foreground">compra assistida</span></div>
+            </div>
           </div>
         </section>
 
-        {/* Busca inteligente agora vive no header sticky (servicos.tsx) e
-            permanece presente em todas as páginas da loja virtual. */}
-
-        {/* O banner de destaque do Site Express e o link da FAQ vivem apenas
-            na página dedicada do produto (/servicos/site-express) — a loja
-            fica neutra para não privilegiar visualmente um único item. */}
 
 
-
-
-
-
-
-        <section className="py-16" id="catalogo" aria-labelledby="catalogo-title">
+        <section className="py-10 sm:py-12" id="catalogo" aria-labelledby="catalogo-title">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <div className="mb-6 flex flex-col gap-5">
               <div>
                 <h2 id="catalogo-title" className="text-2xl sm:text-3xl font-bold">
-                  Catálogo de serviços
+                  Produtos disponíveis
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
                   {filtered.length} serviço{filtered.length === 1 ? "" : "s"} disponíve{filtered.length === 1 ? "l" : "is"}
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                <label className="relative flex-1 sm:w-72">
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <label className="relative flex-1">
                   <span className="sr-only">Buscar serviço</span>
                   <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                   <input
@@ -326,8 +287,8 @@ function ServicosHub() {
                         setPage(1);
                       });
                     }}
-                    placeholder="Buscar por nome, categoria..."
-                    className="w-full h-10 pl-9 pr-3 rounded-full border border-border bg-card text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    placeholder="Buscar produto..."
+                    className="h-11 w-full rounded-xl border border-border bg-background pl-9 pr-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   />
                 </label>
                 <label className="relative">
@@ -341,7 +302,7 @@ function ServicosHub() {
                         setPage(1);
                       });
                     }}
-                    className="h-10 px-3 rounded-full border border-border bg-card text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="h-11 rounded-xl border border-border bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <option value="shop">Vitrine</option>
                     <option value="recent">Mais recentes</option>
@@ -352,7 +313,7 @@ function ServicosHub() {
               </div>
             </div>
 
-            <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoria">
+            <div className="mb-8 flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filtrar por categoria">
               <button
                 type="button"
                 onClick={() => startTransition(() => { setActiveCat("all"); setPage(1); })}
@@ -440,7 +401,6 @@ function ServicosHub() {
                     : null;
                   const coverUrl = s.imageUrl || galleryCover?.url || null;
                   const coverAlt = s.imageAlt || galleryCover?.alt || s.name;
-                  const hasPrice = s.price != null && s.price > 0;
                   return (
                   <article
                     key={s.slug}
@@ -466,40 +426,17 @@ function ServicosHub() {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
-                      ) : (
-                        <ServiceImageFallback slug={s.slug} name={s.name} category={s.category} />
-                      )}
+                      ) : null}
                       <div className="p-3 sm:p-4 flex-1 flex flex-col">
                         <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-primary font-bold line-clamp-1">{s.category}</p>
                         <h4 className="mt-1 font-semibold text-sm sm:text-base leading-snug line-clamp-2">{s.name}</h4>
-                        <p className="mt-1 text-xs sm:text-sm text-muted-foreground line-clamp-2 hidden sm:block">{s.description}</p>
+                        <p className="mt-1 text-xs sm:text-sm text-muted-foreground line-clamp-2">{s.description}</p>
 
                         <div className="mt-auto pt-3">
-                          {(() => {
-                            const isTrafegoPago = s.slug === "trafego-pago";
-                            const isGmn = s.slug === "google-meu-negocio";
-                            const showPrice = isTrafegoPago || s.price != null;
-                            if (!showPrice && !s.deliveryDays) return null;
-                            return (
-                              <div className="flex flex-wrap items-center gap-1.5 text-xs mb-2">
-                                {showPrice && (
-                                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-primary/10 text-primary font-semibold">
-                                    {isTrafegoPago || s.price === 0
-                                      ? "Sob consulta"
-                                      : isGmn
-                                        ? `Plano Único R$ ${Number(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 0 })}`
-                                      : `R$ ${Number(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 0 })}`}
-                                    {!isTrafegoPago && !isGmn && s.pricePeriod ? <span className="font-medium">/{s.pricePeriod}</span> : null}
-                                  </span>
-                                )}
-                                {s.deliveryDays && (
-                                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                                    <Timer className="w-3 h-3" /> {s.deliveryDays}
-                                  </span>
-                                )}
-                              </div>
-                            );
-                          })()}
+                          <p className="text-base font-bold text-foreground">
+                            R$ {Number(s.price).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                            {s.pricePeriod ? <span className="ml-1 text-xs font-medium text-muted-foreground">/{s.pricePeriod}</span> : null}
+                          </p>
 
                           <span
                             className="inline-flex items-center justify-center w-full gap-1 text-sm font-semibold rounded-full bg-foreground text-background px-3 py-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
@@ -511,36 +448,17 @@ function ServicosHub() {
                         </div>
                       </div>
                     </Link>
-                    {hasPrice && (
-                      <div className="px-3 sm:px-4 pb-3 sm:pb-4 -mt-1">
-                        <ProductActionGate
-                          product={{
-                            slug: s.slug,
-                            name: s.name,
-                            price: typeof s.price === "number" ? s.price : undefined,
-                            pricePeriod: s.pricePeriod ?? undefined,
-                            imageUrl: coverUrl ?? undefined,
-                          }}
-                          intent={{
-                            purpose: "diagnosis",
-                            source: `shop_card_${s.slug}`,
-                            pagePath: "/servicos",
-                            placement: "section",
-                            serviceSlug: s.slug,
-                          }}
-                          label="Tirar dúvida"
-                          variant="outline"
-                          size="sm"
-                          className="w-full text-xs"
-                        />
-                      </div>
-                    )}
                   </article>
                   );
                 })}
 
               </div>
             )}
+
+            <div className="mt-10 flex flex-col items-start justify-between gap-3 rounded-xl border border-dashed border-border bg-muted/30 px-4 py-4 text-sm sm:flex-row sm:items-center">
+              <span className="text-muted-foreground">Precisa de algo sob medida ou ainda sem preço?</span>
+              <Link to="/solucoes" className="inline-flex items-center gap-1 font-semibold text-primary">Ver soluções consultivas <ArrowRight className="h-4 w-4" /></Link>
+            </div>
 
             {totalPages > 1 && (
               <nav
@@ -583,73 +501,6 @@ function ServicosHub() {
           </div>
         </section>
 
-        <section className="py-16 bg-muted/20" aria-labelledby="especialidades-title">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="text-center mb-10">
-              <h2 id="especialidades-title" className="text-2xl sm:text-3xl font-bold">
-                Especialidades complementares
-              </h2>
-              <p className="mt-2 text-muted-foreground">
-                Páginas dedicadas a frentes específicas de crescimento digital.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {[
-                { to: "/servicos/presenca-digital", title: "Presença Digital", desc: "Estratégia completa para sua marca existir e converter online." },
-                { to: "/servicos/trafego-pago", title: "Tráfego Pago", desc: "Campanhas Google Ads e Meta com foco em ROI." },
-                { to: "/servicos/trafego-pago-local", title: "Tráfego Pago Local", desc: "Anúncios geolocalizados para negócios físicos." },
-                { to: "/servicos/google-meu-negocio", title: "Google Meu Negócio", desc: "Otimização do seu perfil para aparecer nas buscas locais." },
-                { to: "/seo", title: "SEO", desc: "Posicionamento orgânico no Google de forma sustentável." },
-                { to: "/servicos/consultoria", title: "Consultoria", desc: "Diagnóstico estratégico para acelerar resultados digitais." },
-              ].map((s) => (
-                <Link
-                  key={s.to}
-                  to={s.to}
-                  className="group block rounded-2xl border border-border bg-card hover:border-primary transition-colors p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <h4 className="font-semibold text-lg">{s.title}</h4>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm text-primary font-semibold">
-                    Acessar página <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <SocialProofBlock ctxId="servicos_page" />
-
-        <RelatedLinksGrid
-          title="Continue explorando a 0WEB"
-          subtitle="Páginas pensadas para responder dúvidas e acelerar sua decisão."
-          only={["/planos", "/faq", "/cases", "/servicos/trafego-pago-local", "/servicos/seo", "/contato"]}
-        />
-
-        <section className="py-16">
-          <div className="mx-auto max-w-3xl px-5 lg:px-8">
-            <div className="text-center rounded-3xl border border-border bg-card/60 backdrop-blur p-8 lg:p-12">
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Receba uma proposta personalizada</h2>
-              <p className="mt-3 text-muted-foreground">Responda no WhatsApp em poucos minutos e te enviamos um plano sob medida.</p>
-              <div className="mt-6 flex justify-center">
-                <ServiceCTA
-                  serviceSlug="servicos"
-                  location="footer"
-                  label="Falar com um especialista"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-12 bg-muted/30">
-          <div className="mx-auto max-w-5xl px-5 lg:px-8 text-center">
-            <p className="text-muted-foreground">Procura serviço por cidade?</p>
-            <Link to="/cidades" className="mt-2 inline-flex items-center gap-2 text-primary font-semibold story-link">
-              Ver cidades atendidas <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </section>
       </main>
       <Footer />
       <WhatsAppFloat />
