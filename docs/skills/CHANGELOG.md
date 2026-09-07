@@ -1005,3 +1005,9 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   gates, SEO/LLM, performance, acessibilidade e browser-QA planejado.
 - Validações atuais: boundaries 84, catálogo 84, scaffold 84, conversão 84,
   runtime administrável sem MISSING, privacidade OK e TypeScript OK.
+## 2026-09-07 — feed social Centro Mega confirmado
+
+- Adicionadas as seis URLs individuais fornecidas pelo responsável ao bloco
+  social de `/portfolio/centro-mega` (3 Reels e 3 publicações).
+- Cada card abre a publicação original em nova aba, com rótulo acessível e sem
+  copiar conteúdo do Instagram para o bundle.
