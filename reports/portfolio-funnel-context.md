@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-07T03:57:52.337Z
+Gerado em 2026-09-07T20:11:54.893Z
 
-- Projetos auditados: **84**
-- PASS: **84** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (22) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (6)
+- Projetos auditados: **85**
+- PASS: **85** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (23) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -92,3 +92,4 @@ Gerado em 2026-09-07T03:57:52.337Z
 | mania-de-limpeza | servicos | orcamento | Conte os itens que deseja higienizar e monte o combo família com a equipe. | Montar meu combo | PROJECT_CONTRACT | PASS | — |
 | dona-lucy-salgados | restaurantes | pedido | Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. | Fazer pedido | PROJECT_CONTRACT | PASS | — |
 | centro-mega | prestadores-de-servicos | contato | Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. | Falar com a equipe | PROJECT_CONTRACT | PASS | — |
+| pastelaria-route-66 | restaurantes | pedido | Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa. | Pedir na Route 66 | PROJECT_CONTRACT | PASS | — |

@@ -1,12 +1,12 @@
 {
   "summary": {
-    "generatedAt": "2026-09-07T03:57:52.337Z",
-    "audited": 84,
-    "pass": 84,
+    "generatedAt": "2026-09-07T20:11:54.893Z",
+    "audited": 85,
+    "pass": 85,
     "warning": 0,
     "fail": 0,
     "byIntent": {
-      "pedido": 22,
+      "pedido": 23,
       "orcamento": 29,
       "solicitacao": 1,
       "agendamento": 14,
@@ -1105,6 +1105,19 @@
       "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
       "primaryCtaLabel": "Falar com a equipe",
       "whatsappIntent": "contato",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "pastelaria-route-66",
+      "businessName": "Pastelaria e Lanchonete Route 66",
+      "segment": "restaurantes",
+      "intent": "pedido",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Pastel na hora, café quente e almoço no Prado Velho.",
+      "nextStepBody": "Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa.",
+      "primaryCtaLabel": "Pedir na Route 66",
+      "whatsappIntent": "pedido",
       "status": "PASS",
       "issues": []
     }

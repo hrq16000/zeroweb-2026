@@ -17,20 +17,20 @@
     "clone": 81
   },
   "summary": {
-    "total": 84,
+    "total": 85,
     "original": 0,
-    "acceptable": 26,
+    "acceptable": 27,
     "attention": 52,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 23,
+    "placeholderLogos": 24,
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 45,
-    "coverPending": 39,
-    "coversAsSocialImage": 8,
+    "coverPending": 40,
+    "coversAsSocialImage": 9,
     "sharedCovers": 0,
     "severeCrop": 21,
     "invalidCrossClientAssets": 0,
@@ -2520,6 +2520,46 @@
       }
     },
     {
+      "slug": "pastelaria-route-66",
+      "title": "Pastelaria e Lanchonete Route 66",
+      "segment": "restaurantes",
+      "componentFile": "src/components/site/PastelariaRoute66Page.tsx",
+      "score": 32,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "mp-festas-eventos",
+      "nearestMatchScore": 32,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 46.4,
+        "SECTION_ORDER_SIMILARITY": 42.9,
+        "COMPONENT_SIMILARITY": 13.3,
+        "STYLE_SIMILARITY": 52.7,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 8.6,
+        "IDENTITY_SIMILARITY": 2.5
+      },
+      "reasons": [],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.9,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "cb121ead0a7c1346",
+        "structureHash": "893a34dd366a2400",
+        "sectionCount": 7,
+        "lines": 20
+      }
+    },
+    {
       "slug": "paulo-mestre-de-obras",
       "title": "Paulo Mestre de Obras",
       "segment": "servicos",
@@ -3908,7 +3948,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 3486,
+    "totalPairs": 3570,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -4961,6 +5001,23 @@
         {
           "slug": "refrigeracao-maresia",
           "score": 24,
+          "reason": "DISTINCT"
+        }
+      ],
+      "pastelaria-route-66": [
+        {
+          "slug": "mp-festas-eventos",
+          "score": 32,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "simone-lacerda-vaz",
+          "score": 31,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "dona-lucy-salgados",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -6101,6 +6158,18 @@
         "v2AssetPattern": 9
       },
       {
+        "slug": "pastelaria-route-66",
+        "v1Score": 32,
+        "v2Score": 32,
+        "delta": 0,
+        "v1Nearest": "mp-festas-eventos",
+        "v2Nearest": "mp-festas-eventos",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 8.6
+      },
+      {
         "slug": "paulo-mestre-de-obras",
         "v1Score": 56,
         "v2Score": 55,
@@ -6389,20 +6458,20 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 84,
+      "total": 85,
       "original": 0,
-      "acceptable": 26,
+      "acceptable": 27,
       "attention": 52,
       "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
-      "placeholderLogos": 23,
+      "placeholderLogos": 24,
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 45,
-      "coverPending": 39,
-      "coversAsSocialImage": 8,
+      "coverPending": 40,
+      "coversAsSocialImage": 9,
       "sharedCovers": 0,
       "severeCrop": 21,
       "invalidCrossClientAssets": 0,
@@ -6422,7 +6491,7 @@
         "key": "placeholderLogos",
         "label": "logos placeholder",
         "before": 0,
-        "after": 23
+        "after": 24
       },
       {
         "kind": "NEW_PROJECT",

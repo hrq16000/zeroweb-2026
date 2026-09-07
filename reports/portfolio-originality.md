@@ -18,20 +18,20 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 84 |
+| Total | 85 |
 | ORIGINAL | 0 |
-| ACCEPTABLE | 26 |
+| ACCEPTABLE | 27 |
 | ATTENTION | 52 |
 | HIGH_SIMILARITY | 6 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
 | Clusters | 0 |
-| Logos placeholder | 23 |
+| Logos placeholder | 24 |
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
 | Capas válidas (contrato canônico) | 45 |
-| Capas pendentes (contrato canônico) | 39 |
-| Capas usando imagem social | 8 |
+| Capas pendentes (contrato canônico) | 40 |
+| Capas usando imagem social | 9 |
 | Capas compartilhadas | 0 |
 | Crop severo | 21 |
 | Assets de marca cruzados (inválidos) | 0 |
@@ -147,6 +147,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | hbk-iluminacao-led | 32 | ACCEPTABLE | jc-revestimentos (32) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | jc-revestimentos | 32 | ACCEPTABLE | hbk-iluminacao-led (32) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | marmitaria-dom-diego | 32 | ACCEPTABLE | angel-mix-brecho (32) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| pastelaria-route-66 | 32 | ACCEPTABLE | mp-festas-eventos (32) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | almeida-torres | 31 | ACCEPTABLE | guaratuba-atelie-presentes (31) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | beto-pasteis | 30 | ACCEPTABLE | reuse-house-brecho (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-sabores-da-baia | 30 | ACCEPTABLE | heloa-gas (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
@@ -164,7 +165,7 @@ Nenhum asset percebido compartilhado entre clientes.
 Veredito: **FAIL**
 
 - COUNTER: {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":0,"after":6}
-- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":0,"after":23}
+- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":0,"after":24}
 - NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"bruna-diarista","status":"HIGH_SIMILARITY","score":66,"nearestMatch":"popys-conservacao-limpeza"}
 - NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"btb-construcao","status":"HIGH_SIMILARITY","score":69,"nearestMatch":"easy-clean"}
 - NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"easy-clean","status":"HIGH_SIMILARITY","score":69,"nearestMatch":"btb-construcao"}

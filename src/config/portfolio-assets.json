@@ -1034,12 +1034,12 @@
       "socialImage": "/images/pastelaria-route-66/hero-og.jpg",
       "proof": {
         "eyebrow": "Pastelaria e Lanchonete Route 66",
-        "title": "Uma parada gostosa no Prado Velho.",
-        "description": "Café da manhã, salgados e almoço com consumo no local, retirada e entrega.",
-        "ctaLabel": "Ver atendimento",
-        "ctaHref": "#atendimento"
+        "title": "Pastelaria e Lanchonete Route 66 com uma presença que explica o que faz.",
+        "description": "Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
       },
-      "socialVersion": "route66-20260907"
+      "socialVersion": "5f78d7a6"
     }
   }
 }

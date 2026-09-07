@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T03:54:58.117Z",
+  "generatedAt": "2026-09-07T20:11:29.399Z",
   "base": "http://localhost:8080",
   "viewports": [
     {
@@ -9812,6 +9812,125 @@
             {
               "color": "lab(100 0 0)",
               "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "pastelaria-route-66": {
+      "slug": "pastelaria-route-66",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 8,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/pastelaria-route-66/logo.svg",
+            "/images/pastelaria-route-66/fachada.webp",
+            "/images/pastelaria-route-66/interior.webp",
+            "/images/pastelaria-route-66/hero-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Tá com fome? Pega a estrada para a Route 66.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 989,
+            "backgroundImage": false,
+            "heading": "Tá com fome? Pega a estrada para a Route 66.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2349,
+          "text": "CARREGANDO Copiar divulgação Estou com fome PRADO VELHO · CURITIBA Tá com fome? Pega a estrada para a Route 66. Café da manhã, salgados e almoço para consumir no local, retirar ou receber em casa. Uma parada simples, gostosa e feita para a rotina do bairro. Quero pedir Ver atendimento Rua Comendador Roseira, 505 · Prado Velho ATENDIMENTO QUE CABE NO SEU DIA Escolha como quer viver a sua parada. A Route 66 atende quem passa pelo Prado Velho e quem prefere pedir de casa. O próximo passo é seu. No local Sente, faça sua pausa e aproveite o atendimento. Retirada Combine seu pedido e passe para buscar. Entrega Consulte a entrega pelo WhatsApp. UMA PARADA NO BAIRRO Café, salgado e almoço com jeito de vizinhança. Informações diretas para você decidir rápido: estamos no Prado Velho, de segunda a sábado, das 7h às 20h. PLANEJE SUA VISITA Horário e localização sem complicação. Segunda a sábado 7h às 20h Domingo: fechado Prado Velho Rua Comendador Roseira, 505 Curitiba — PR SUA PRÓXIMA PARADA Quando a fome apertar, a Route 66 está no caminho. Conte o que você precisa e escolha entre local, retirada ou entrega. Fazer um pedido SOBRE O PROJETO Pastel na hora, café quente e almoço no Prado Velho. Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho. Atendimento em Curitiba — PR. Como começar Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa. pastelaria lanches cafe da manha salgados Pedir na Route 66 KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Pastelaria e Lanchonete Route 66. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Pastelaria e Lanchonete Route 66 RESTAURANTES Pastelaria · Lanches · Cafe Da Manha · Salgados Curitiba — PR 0web.com.br/portfolio/pastelaria-route-66 Ilustração do cartão de visitas de Pastelaria e Lanchonete Route 66 PANFLETO DIGITAL PASTELARIA E LANCHONETE ROUTE 66 Conheça Pastelaria e Lanchonete Route 66. Pastelaria · Lanches · Cafe Da Manha · Salgados Ver a presença digital Ilustração do panfleto digital de Pastelaria e Lanchonete Route 66 © 2026 · Pastelaria e Lanchonete Route 66 Site desenvolvido por 0WEB Contato",
+          "docHeight": 5745,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(110, 31, 43)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 8,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/pastelaria-route-66/logo.svg",
+            "/images/pastelaria-route-66/fachada.webp",
+            "/images/pastelaria-route-66/interior.webp",
+            "/images/pastelaria-route-66/hero-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Tá com fome? Pega a estrada para a Route 66.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 663,
+            "backgroundImage": false,
+            "heading": "Tá com fome? Pega a estrada para a Route 66.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2390,
+          "text": "CARREGANDO Copiar divulgação Atendimento Horários Como chegar Estou com fome PRADO VELHO · CURITIBA Tá com fome? Pega a estrada para a Route 66. Café da manhã, salgados e almoço para consumir no local, retirar ou receber em casa. Uma parada simples, gostosa e feita para a rotina do bairro. Quero pedir Ver atendimento Rua Comendador Roseira, 505 · Prado Velho ATENDIMENTO QUE CABE NO SEU DIA Escolha como quer viver a sua parada. A Route 66 atende quem passa pelo Prado Velho e quem prefere pedir de casa. O próximo passo é seu. No local Sente, faça sua pausa e aproveite o atendimento. Retirada Combine seu pedido e passe para buscar. Entrega Consulte a entrega pelo WhatsApp. UMA PARADA NO BAIRRO Café, salgado e almoço com jeito de vizinhança. Informações diretas para você decidir rápido: estamos no Prado Velho, de segunda a sábado, das 7h às 20h. PLANEJE SUA VISITA Horário e localização sem complicação. Segunda a sábado 7h às 20h Domingo: fechado Prado Velho Rua Comendador Roseira, 505 Curitiba — PR SUA PRÓXIMA PARADA Quando a fome apertar, a Route 66 está no caminho. Conte o que você precisa e escolha entre local, retirada ou entrega. Fazer um pedido SOBRE O PROJETO Pastel na hora, café quente e almoço no Prado Velho. Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho. Atendimento em Curitiba — PR. Como começar Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa. pastelaria lanches cafe da manha salgados Pedir na Route 66 KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Pastelaria e Lanchonete Route 66. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Pastelaria e Lanchonete Route 66 RESTAURANTES Pastelaria · Lanches · Cafe Da Manha · Salgados Curitiba — PR 0web.com.br/portfolio/pastelaria-route-66 Ilustração do cartão de visitas de Pastelaria e Lanchonete Route 66 PANFLETO DIGITAL PASTELARIA E LANCHONETE ROUTE 66 Conheça Pastelaria e Lanchonete Route 66. Pastelaria · Lanches · Cafe Da Manha · Salgados Ver a presença digital Ilustração do panfleto digital de Pastelaria e Lanchonete Route 66 © 2026 · Pastelaria e Lanchonete Route 66 Site desenvolvido por 0WEB Fazer um pedido",
+          "docHeight": 3988,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 5
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(110, 31, 43)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
             }
           ]
         }
