@@ -495,6 +495,15 @@ function PortfolioPage() {
   }, [filteredItems.length]);
 
   const selectedItem = selectedIndex === null ? null : filteredItems[selectedIndex];
+  const hasActiveFilters = Boolean(search || activeCategory !== "todos" || activeBranch !== "todos" || projectType !== "todos" || region !== "todas");
+  const clearFilters = () => {
+    setSearch("");
+    setRegion("todas");
+    setActiveCategory("todos");
+    setActiveBranch("todos");
+    setProjectType("todos");
+    setSort("recent");
+  };
 
   useEffect(() => {
     if (!selectedItem) return;
@@ -531,9 +540,9 @@ function PortfolioPage() {
         </div>
 
         {/* Cabeçalho editorial da galeria */}
-        <section className="border-b border-border bg-muted/30 px-4 py-8 sm:py-12">
+        <section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
           <div className="mx-auto max-w-[1500px]">
-            <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl space-y-3">
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.18em] text-primary">
                   <Sparkles className="h-4 w-4" /> Galeria comercial 0WEB
@@ -552,13 +561,19 @@ function PortfolioPage() {
               />
             </div>
 
+            <div className="mt-6 grid max-w-3xl grid-cols-3 gap-2 sm:gap-3" aria-label="Resumo do catálogo">
+              {[[String(portfolioCatalog.length), "projetos publicados"], [String(CATEGORIES.length - 1), "segmentos ativos"], ["100%", "com CTA e presença"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
+            </div>
+
             <div
-              className="mt-7 flex gap-2 overflow-x-auto pb-1"
+              className="mt-6 flex gap-2 overflow-x-auto pb-1"
               aria-label="Segmentos em destaque"
             >
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat.id}
+                  type="button"
+                  aria-pressed={activeCategory === cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   className={`min-h-11 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                     activeCategory === cat.id
@@ -632,7 +647,22 @@ function PortfolioPage() {
                 >
                   {filteredItems.length} projetos
                 </p>
+                {hasActiveFilters ? (
+                  <button type="button" onClick={clearFilters} className="h-12 rounded-xl px-3 text-sm font-semibold text-primary hover:bg-primary/10">
+                    Limpar
+                  </button>
+                ) : null}
               </div>
+              {hasActiveFilters ? (
+                <div className="flex flex-wrap items-center gap-2 px-1 pt-2 text-xs text-muted-foreground" aria-live="polite">
+                  <span className="font-semibold text-foreground">Filtros ativos:</span>
+                  {activeCategory !== "todos" ? <span className="rounded-full bg-primary/10 px-2.5 py-1 text-primary">{SEGMENT_LABELS[activeCategory] ?? activeCategory}</span> : null}
+                  {activeBranch !== "todos" ? <span className="rounded-full bg-primary/10 px-2.5 py-1 text-primary">{activeBranch}</span> : null}
+                  {projectType !== "todos" ? <span className="rounded-full bg-primary/10 px-2.5 py-1 text-primary">{projectType}</span> : null}
+                  {region !== "todas" ? <span className="rounded-full bg-primary/10 px-2.5 py-1 text-primary">{region}</span> : null}
+                  {search ? <span className="max-w-[16rem] truncate rounded-full bg-primary/10 px-2.5 py-1 text-primary">“{search}”</span> : null}
+                </div>
+              ) : null}
             </div>
 
             <div className="grid gap-7 lg:grid-cols-[220px_minmax(0,1fr)]">
