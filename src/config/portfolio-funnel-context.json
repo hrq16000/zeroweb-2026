@@ -69,12 +69,33 @@
     "primaryCtaLabel": "Consultar peças",
     "theme": "gold"
   },
+  "bruna-diarista": {
+    "intent": "agendamento",
+    "nextStepTitle": "Sua casa em ordem começa com um bom horário.",
+    "nextStepBody": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
+    "primaryCtaLabel": "Consultar horários",
+    "theme": "pink"
+  },
+  "btb-construcao": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua reforma pode começar agora.",
+    "nextStepBody": "Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "default"
+  },
   "casa-nativa": {
     "intent": "reserva",
     "nextStepTitle": "Uma boa experiência à mesa começa antes da reserva.",
     "nextStepBody": "Conte a data, o número de pessoas e o horário que pretende visitar o bistrô.",
     "primaryCtaLabel": "Planejar minha visita",
     "theme": "gold"
+  },
+  "centro-mega": {
+    "intent": "contato",
+    "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
+    "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
+    "primaryCtaLabel": "Falar com a equipe",
+    "theme": "navy"
   },
   "clinica-integrada": {
     "intent": "agendamento",
@@ -118,12 +139,26 @@
     "primaryCtaLabel": "Explorar opções",
     "theme": "gold"
   },
+  "dona-lucy-salgados": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu pedido começa com uma escolha gostosa.",
+    "nextStepBody": "Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery.",
+    "primaryCtaLabel": "Fazer pedido",
+    "theme": "pink"
+  },
   "dyzpromo": {
     "intent": "solicitacao",
     "nextStepTitle": "Uma ação em campo começa com planejamento que aparece.",
     "nextStepBody": "Conte o objetivo, a região e o momento da sua campanha.",
     "primaryCtaLabel": "Planejar uma ação",
     "theme": "gold"
+  },
+  "easy-clean": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu conforto limpo começa com uma boa avaliação.",
+    "nextStepBody": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "navy"
   },
   "ecommerce-on": {
     "intent": "contato",
@@ -153,12 +188,26 @@
     "primaryCtaLabel": "Solicitar suporte técnico",
     "theme": "navy"
   },
+  "embalar-embalagens": {
+    "intent": "contato",
+    "nextStepTitle": "A compra certa começa por uma consulta simples.",
+    "nextStepBody": "Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade.",
+    "primaryCtaLabel": "Consultar produtos",
+    "theme": "pink"
+  },
   "emporio-lelecute": {
     "intent": "pedido",
     "nextStepTitle": "Pequenos detalhes podem guardar grandes memórias.",
     "nextStepBody": "Conte a ocasião, o estilo e a lembrança que quer criar.",
     "primaryCtaLabel": "Escolher lembrancinha",
     "theme": "pink"
+  },
+  "enoel-portas": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu projeto começa com uma boa conversa.",
+    "nextStepBody": "Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo.",
+    "primaryCtaLabel": "Pedir orçamento",
+    "theme": "gold"
   },
   "espaco-cih-luh": {
     "intent": "agendamento",
@@ -237,6 +286,20 @@
     "primaryCtaLabel": "Planejar móvel",
     "theme": "gold"
   },
+  "js-eletrica-manutencao": {
+    "intent": "orcamento",
+    "nextStepTitle": "Uma instalação segura começa com uma avaliação técnica.",
+    "nextStepBody": "Conte se precisa de elétrica, ar-condicionado ou sistema solar e informe a região do atendimento.",
+    "primaryCtaLabel": "Solicitar avaliação",
+    "theme": "navy"
+  },
+  "kitutes-na-mesa": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua mesa começa com uma conversa simples.",
+    "nextStepBody": "Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso.",
+    "primaryCtaLabel": "Montar orçamento",
+    "theme": "pink"
+  },
   "liz-moraes-nail-designer": {
     "intent": "agendamento",
     "nextStepTitle": "Seu momento de beleza começa com uma escolha feita para você.",
@@ -272,6 +335,13 @@
     "primaryCtaLabel": "Pedir diagnóstico",
     "theme": "navy"
   },
+  "mania-de-limpeza": {
+    "intent": "orcamento",
+    "nextStepTitle": "Sua casa mais leve começa por uma conversa.",
+    "nextStepBody": "Conte os itens que deseja higienizar e monte o combo família com a equipe.",
+    "primaryCtaLabel": "Montar meu combo",
+    "theme": "gold"
+  },
   "manu-pasteis": {
     "intent": "pedido",
     "nextStepTitle": "Seu pastel da noite começa no cardápio certo.",
@@ -298,6 +368,20 @@
     "nextStepTitle": "Uma rotina mais leve começa com a agenda certa.",
     "nextStepBody": "Conte o tipo de limpeza, a frequência e o melhor dia para você.",
     "primaryCtaLabel": "Consultar agenda",
+    "theme": "pink"
+  },
+  "maximos-cabeleireiros": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu próximo cuidado começa com um horário reservado.",
+    "nextStepBody": "Conte o serviço que procura e a melhor janela para a equipe encontrar o atendimento ideal.",
+    "primaryCtaLabel": "Agendar atendimento",
+    "theme": "pink"
+  },
+  "mimo-salgados-doces": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu pedido começa com um sabor.",
+    "nextStepBody": "Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos.",
+    "primaryCtaLabel": "Montar meu pedido",
     "theme": "pink"
   },
   "mirassol-conserta-celular": {
@@ -335,11 +419,25 @@
     "primaryCtaLabel": "Agendar higienização",
     "theme": "navy"
   },
+  "papelemi-personalizados": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu detalhe personalizado começa com uma boa ideia.",
+    "nextStepBody": "Conte a ocasião, o produto e a identidade visual que deseja criar para receber uma orientação inicial.",
+    "primaryCtaLabel": "Criar meu personalizado",
+    "theme": "pink"
+  },
   "paraiso-do-hot-dog": {
     "intent": "pedido",
     "nextStepTitle": "Escolher o próximo lanche pode ser simples.",
     "nextStepBody": "Veja as combinações e monte um pedido de acordo com sua fome.",
     "primaryCtaLabel": "Montar pedido",
+    "theme": "gold"
+  },
+  "pastelaria-route-66": {
+    "intent": "pedido",
+    "nextStepTitle": "Pastel na hora, café quente e almoço no Prado Velho.",
+    "nextStepBody": "Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa.",
+    "primaryCtaLabel": "Pedir na Route 66",
     "theme": "gold"
   },
   "paulo-mestre-de-obras": {
@@ -348,6 +446,13 @@
     "nextStepBody": "Conte o que deseja construir, reformar ou reparar.",
     "primaryCtaLabel": "Planejar minha obra",
     "theme": "gold"
+  },
+  "popys-conservacao-limpeza": {
+    "intent": "orcamento",
+    "nextStepTitle": "Seu ambiente merece cuidado constante.",
+    "nextStepBody": "Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "pink"
   },
   "premium-envelopamentos": {
     "intent": "orcamento",
@@ -419,12 +524,26 @@
     "primaryCtaLabel": "Organizar serviço",
     "theme": "navy"
   },
+  "simone-lacerda-vaz": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu cuidado começa com uma conversa acolhedora.",
+    "nextStepBody": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
+    "primaryCtaLabel": "Conversar agora",
+    "theme": "pink"
+  },
   "sos-presentes-cosmeticos": {
     "intent": "pedido",
     "nextStepTitle": "Uma surpresa começa por uma escolha com significado.",
     "nextStepBody": "Conte a ocasião, a ideia e quando você precisa do presente.",
     "primaryCtaLabel": "Montar um presente",
     "theme": "pink"
+  },
+  "sscons": {
+    "intent": "orcamento",
+    "nextStepTitle": "Da fundação ao acabamento, a obra começa com um bom planejamento.",
+    "nextStepBody": "Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "gold"
   },
   "studio-de-cilios": {
     "intent": "agendamento",
@@ -473,118 +592,6 @@
     "nextStepTitle": "Uma noite especial começa no primeiro pedido.",
     "nextStepBody": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
     "primaryCtaLabel": "Fazer meu pedido",
-    "theme": "navy"
-  },
-  "sscons": {
-    "intent": "orcamento",
-    "nextStepTitle": "Da fundação ao acabamento, a obra começa com um bom planejamento.",
-    "nextStepBody": "Conte o serviço, o tipo de obra e o prazo para a equipe da S&S preparar o orçamento.",
-    "primaryCtaLabel": "Solicitar orçamento",
-    "theme": "gold"
-  },
-  "mimo-salgados-doces": {
-    "intent": "pedido",
-    "nextStepTitle": "Seu pedido começa com um sabor.",
-    "nextStepBody": "Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos.",
-    "primaryCtaLabel": "Montar meu pedido",
-    "theme": "pink"
-  },
-  "popys-conservacao-limpeza": {
-    "intent": "orcamento",
-    "nextStepTitle": "Seu ambiente merece cuidado constante.",
-    "nextStepBody": "Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado.",
-    "primaryCtaLabel": "Solicitar orçamento",
-    "theme": "pink"
-  },
-  "bruna-diarista": {
-    "intent": "agendamento",
-    "nextStepTitle": "Sua casa em ordem começa com um bom horário.",
-    "nextStepBody": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
-    "primaryCtaLabel": "Consultar horários",
-    "theme": "pink"
-  },
-  "btb-construcao": {
-    "intent": "orcamento",
-    "nextStepTitle": "Sua reforma pode começar agora.",
-    "nextStepBody": "Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo.",
-    "primaryCtaLabel": "Solicitar orçamento",
-    "theme": "default"
-  },
-  "easy-clean": {
-    "intent": "orcamento",
-    "nextStepTitle": "Seu conforto limpo começa com uma boa avaliação.",
-    "nextStepBody": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
-    "primaryCtaLabel": "Solicitar orçamento",
-    "theme": "navy"
-  },
-  "embalar-embalagens": {
-    "intent": "contato",
-    "nextStepTitle": "A compra certa começa por uma consulta simples.",
-    "nextStepBody": "Conte o tipo de embalagem, quantidade e uso para a equipe Embalar orientar a disponibilidade.",
-    "primaryCtaLabel": "Consultar produtos",
-    "theme": "pink"
-  },
-  "js-eletrica-manutencao": {
-    "intent": "orcamento",
-    "nextStepTitle": "Uma instalação segura começa com uma avaliação técnica.",
-    "nextStepBody": "Conte se precisa de elétrica, ar-condicionado ou sistema solar e informe a região do atendimento.",
-    "primaryCtaLabel": "Solicitar avaliação",
-    "theme": "navy"
-  },
-  "papelemi-personalizados": {
-    "intent": "pedido",
-    "nextStepTitle": "Seu detalhe personalizado começa com uma boa ideia.",
-    "nextStepBody": "Conte a ocasião, o produto e a identidade visual que deseja criar para receber uma orientação inicial.",
-    "primaryCtaLabel": "Criar meu personalizado",
-    "theme": "pink"
-  },
-  "maximos-cabeleireiros": {
-    "intent": "agendamento",
-    "nextStepTitle": "Seu próximo cuidado começa com um horário reservado.",
-    "nextStepBody": "Conte o serviço que procura e a melhor janela para a equipe encontrar o atendimento ideal.",
-    "primaryCtaLabel": "Agendar atendimento",
-    "theme": "pink"
-  },
-  "simone-lacerda-vaz": {
-    "intent": "agendamento",
-    "nextStepTitle": "Seu cuidado começa com uma conversa acolhedora.",
-    "nextStepBody": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
-    "primaryCtaLabel": "Conversar agora",
-    "theme": "pink"
-  },
-  "kitutes-na-mesa": {
-    "intent": "orcamento",
-    "nextStepTitle": "Sua mesa começa com uma conversa simples.",
-    "nextStepBody": "Conte a ocasião, a data e os kitutes que imagina para a equipe organizar um orçamento sem compromisso.",
-    "primaryCtaLabel": "Montar orçamento",
-    "theme": "pink"
-  },
-  "enoel-portas": {
-    "intent": "orcamento",
-    "nextStepTitle": "Seu projeto começa com uma boa conversa.",
-    "nextStepBody": "Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo.",
-    "primaryCtaLabel": "Pedir orçamento",
-    "theme": "gold"
-  },
-  "mania-de-limpeza": {
-    "intent": "orcamento",
-    "nextStepTitle": "Sua casa mais leve começa por uma conversa.",
-    "nextStepBody": "Conte os itens que deseja higienizar e monte o combo família com a equipe.",
-    "primaryCtaLabel": "Montar meu combo",
-    "theme": "gold"
-  },
-  "dona-lucy-salgados": {
-    "intent": "pedido",
-    "nextStepTitle": "Seu pedido começa com uma escolha gostosa.",
-    "nextStepBody": "Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery.",
-    "primaryCtaLabel": "Fazer pedido",
-    "theme": "pink"
-  },
-  "centro-mega": {
-    "intent": "contato",
-    "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
-    "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
-    "primaryCtaLabel": "Falar com a equipe",
     "theme": "navy"
   }
 }
