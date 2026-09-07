@@ -591,11 +591,11 @@ function PortfolioPage() {
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="bg-background px-4 py-8 sm:py-10">
           <div className="mx-auto max-w-[1500px] space-y-8">
-            <div className="sticky top-16 z-30 rounded-2xl border border-border bg-card/95 p-3 shadow-soft backdrop-blur-md lg:top-20">
-              <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
-                <label className="relative min-w-0 flex-1">
+            <div className="sticky top-16 z-30 rounded-2xl border border-border bg-card/95 p-2.5 shadow-soft backdrop-blur-md sm:p-3 lg:top-20">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-3">
+                <label className="relative min-w-0 flex-1 lg:flex-[2]">
                   <Search
-                    className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                    className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground lg:left-4"
                     aria-hidden="true"
                   />
                   <input
@@ -603,55 +603,55 @@ function PortfolioPage() {
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Busque por negócio, serviço, cidade ou bairro"
                     aria-label="Buscar projetos do portfólio"
-                    className="h-12 w-full rounded-xl border border-border bg-background pl-11 pr-4 text-base outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30"
+                    className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30 lg:h-12 lg:rounded-xl lg:pl-11 lg:pr-4 lg:text-base"
                   />
                 </label>
-                <select
-                  aria-label="Filtrar por região"
-                  value={region}
-                  onChange={(e) => setRegion(e.target.value)}
-                  className="h-12 min-w-48 rounded-xl border border-border bg-background px-4 text-sm text-foreground"
-                >
-                  <option value="todas">Todas as regiões</option>
-                  {availableRegions.map((location) => (
-                    <option key={location} value={location}>
-                      {location}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  aria-label="Filtrar por ramo"
-                  value={activeBranch}
-                  onChange={(e) => setActiveBranch(e.target.value)}
-                  className="h-12 min-w-48 rounded-xl border border-border bg-background px-4 text-sm text-foreground"
-                >
-                  <option value="todos">Todos os ramos cadastrados</option>
-                  {availableBranches.map((branch) => (
-                    <option key={branch} value={branch}>
-                      {branch}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  aria-label="Ordenar projetos"
-                  value={sort}
-                  onChange={(e) => setSort(e.target.value)}
-                  className="h-12 rounded-xl border border-border bg-background px-4 text-sm text-foreground"
-                >
-                  <option value="recent">Mais recentes</option>
-                  <option value="az">Nome (A–Z)</option>
-                </select>
-                <p
-                  aria-live="polite"
-                  className="flex h-12 items-center justify-center rounded-xl bg-muted px-4 text-sm font-semibold text-foreground"
-                >
-                  {filteredItems.length} projetos
-                </p>
-                {hasActiveFilters ? (
-                  <button type="button" onClick={clearFilters} className="h-12 rounded-xl px-3 text-sm font-semibold text-primary hover:bg-primary/10">
-                    Limpar
-                  </button>
-                ) : null}
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:flex lg:items-center lg:gap-3">
+                  <select
+                    aria-label="Filtrar por região"
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-48 lg:rounded-xl lg:px-4"
+                  >
+                    <option value="todas">Todas as regiões</option>
+                    {availableRegions.map((location) => (
+                      <option key={location} value={location}>
+                        {location}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    aria-label="Filtrar por ramo"
+                    value={activeBranch}
+                    onChange={(e) => setActiveBranch(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-48 lg:rounded-xl lg:px-4"
+                  >
+                    <option value="todos">Todos os ramos</option>
+                    {availableBranches.map((branch) => (
+                      <option key={branch} value={branch}>
+                        {branch}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    aria-label="Ordenar projetos"
+                    value={sort}
+                    onChange={(e) => setSort(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:rounded-xl lg:px-4"
+                  >
+                    <option value="recent">Mais recentes</option>
+                    <option value="az">Nome (A–Z)</option>
+                  </select>
+                  {hasActiveFilters ? (
+                    <button
+                      type="button"
+                      onClick={clearFilters}
+                      className="h-9 rounded-lg px-2 text-xs font-semibold text-primary hover:bg-primary/10 sm:h-10 sm:text-sm lg:h-12 lg:px-3"
+                    >
+                      Limpar
+                    </button>
+                  ) : null}
+                </div>
               </div>
               {hasActiveFilters ? (
                 <div className="flex flex-wrap items-center gap-2 px-1 pt-2 text-xs text-muted-foreground" aria-live="polite">
