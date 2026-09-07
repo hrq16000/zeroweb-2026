@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-09-06T23:28:02.622Z",
-    "audited": 83,
-    "pass": 83,
+    "generatedAt": "2026-09-07T03:57:52.337Z",
+    "audited": 84,
+    "pass": 84,
     "warning": 0,
     "fail": 0,
     "byIntent": {
@@ -10,7 +10,7 @@
       "orcamento": 29,
       "solicitacao": 1,
       "agendamento": 14,
-      "contato": 7,
+      "contato": 8,
       "reserva": 4,
       "diagnostico": 6
     }
@@ -1092,6 +1092,19 @@
       "nextStepBody": "Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery.",
       "primaryCtaLabel": "Fazer pedido",
       "whatsappIntent": "pedido",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "centro-mega",
+      "businessName": "Centro Mega",
+      "segment": "prestadores-de-servicos",
+      "intent": "contato",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
+      "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
+      "primaryCtaLabel": "Falar com a equipe",
+      "whatsappIntent": "contato",
       "status": "PASS",
       "issues": []
     }

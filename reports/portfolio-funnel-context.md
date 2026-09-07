@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-06T23:28:02.622Z
+Gerado em 2026-09-07T03:57:52.337Z
 
-- Projetos auditados: **83**
-- PASS: **83** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (22) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (7) · reserva (4) · diagnostico (6)
+- Projetos auditados: **84**
+- PASS: **84** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (22) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (6)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -91,3 +91,4 @@ Gerado em 2026-09-06T23:28:02.622Z
 | enoel-portas | construcao | orcamento | Conte o ambiente, a medida aproximada e o serviço que precisa avaliar para a equipe orientar o próximo passo. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |
 | mania-de-limpeza | servicos | orcamento | Conte os itens que deseja higienizar e monte o combo família com a equipe. | Montar meu combo | PROJECT_CONTRACT | PASS | — |
 | dona-lucy-salgados | restaurantes | pedido | Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. | Fazer pedido | PROJECT_CONTRACT | PASS | — |
+| centro-mega | prestadores-de-servicos | contato | Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. | Falar com a equipe | PROJECT_CONTRACT | PASS | — |

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-06T23:48:08.129Z",
-  "base": "http://127.0.0.1:8080",
+  "generatedAt": "2026-09-07T03:54:58.117Z",
+  "base": "http://localhost:8080",
   "viewports": [
     {
       "name": "mobile",
@@ -9694,6 +9694,123 @@
             },
             {
               "color": "rgb(228, 163, 33)",
+              "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "centro-mega": {
+      "slug": "centro-mega",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/centro-mega/logo.png",
+            "/images/centro-mega/hero.png",
+            "/images/centro-mega/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Tecnologia que funciona. Atendimento que resolve.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 1,
+          "hero": {
+            "height": 904,
+            "backgroundImage": false,
+            "heading": "Tecnologia que funciona. Atendimento que resolve.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2522,
+          "text": "CARREGANDO Copiar divulgação Falar com a equipe ASSISTÊNCIA TÉCNICA & ACESSÓRIOS Tecnologia que funciona. Atendimento que resolve. A Centro Mega reúne assistência técnica especializada, acessórios e soluções para seus dispositivos em Curitiba e Região Metropolitana. Pedir atendimento Ver canais e lojas UM SÓ PONTO PARA CUIDAR DA SUA TECNOLOGIA Assistência, acessórios e orientação sem complicação. Assistência técnica Avaliação e suporte especializado para eletrônicos, com atendimento próximo e transparente. Acessórios Encontre acessórios e soluções para manter seus equipamentos prontos para a rotina. Lojas próximas Consulte a unidade mais conveniente pelos canais oficiais. ONDE ENCONTRAR Escolha o canal mais perto de você. O Linktree oficial concentra SAC e canais das unidades Centro Mega. Abrir Linktree oficial CANAIS OFICIAIS WhatsApp e telefone disponíveis no Linktree e no fluxo seguro de atendimento. Rua XV de Novembro, 1821 — Galeria Di Bruno PRESENÇA OFICIAL Conheça a Centro Mega nas redes. Instagram Facebook Acompanhe as publicações oficiais e veja novidades, produtos e serviços diretamente no Instagram. REEL · PUBLICAÇÃO 1 Abrir no Instagram REEL · PUBLICAÇÃO 2 Abrir no Instagram POST · PUBLICAÇÃO 3 Abrir no Instagram REEL · PUBLICAÇÃO 4 Abrir no Instagram POST · PUBLICAÇÃO 5 Abrir no Instagram POST · PUBLICAÇÃO 6 Abrir no Instagram Ver publicação de inauguração no Facebook SOBRE O PROJETO Seu próximo reparo começa com uma conversa clara. Centro Mega oferece assistência técnica especializada e acessórios para tecnologia, com canais oficiais em Curitiba e região. Atendimento em Curitiba — PR. Como começar Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. assistencia tecnica acessorios tecnologia curitiba Falar com a equipe KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Centro Mega. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Centro Mega PRESTADORES DE SERVICOS Assistencia Tecnica · Acessorios · Tecnologia · Curitiba Curitiba — PR 0web.com.br/portfolio/centro-mega Ilustração do cartão de visitas de Centro Mega PANFLETO DIGITAL CENTRO MEGA Conheça Centro Mega. Assistencia Tecnica · Acessorios · Tecnologia · Curitiba Ver a presença digital Ilustração do panfleto digital de Centro Mega © 2026 · Centro Mega Site desenvolvido por 0WEB Contato",
+          "docHeight": 6124,
+          "topColors": [
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+              "n": 7
+            },
+            {
+              "color": "rgb(7, 26, 53)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(53, 212, 237)",
+              "n": 3
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/__l5e/assets-v1/38984134-7c80-4b61-a9c0-6406c754bcb1/logo-0web.png",
+            "/images/centro-mega/logo.png",
+            "/images/centro-mega/hero.png",
+            "/images/centro-mega/social-og.jpg"
+          ],
+          "h1Count": 1,
+          "h1": "Tecnologia que funciona. Atendimento que resolve.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 747,
+            "backgroundImage": false,
+            "heading": "Tecnologia que funciona. Atendimento que resolve.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2556,
+          "text": "CARREGANDO Copiar divulgação SERVIÇOS LOJAS CONTATO Falar com a equipe ASSISTÊNCIA TÉCNICA & ACESSÓRIOS Tecnologia que funciona. Atendimento que resolve. A Centro Mega reúne assistência técnica especializada, acessórios e soluções para seus dispositivos em Curitiba e Região Metropolitana. Pedir atendimento Ver canais e lojas UM SÓ PONTO PARA CUIDAR DA SUA TECNOLOGIA Assistência, acessórios e orientação sem complicação. Assistência técnica Avaliação e suporte especializado para eletrônicos, com atendimento próximo e transparente. Acessórios Encontre acessórios e soluções para manter seus equipamentos prontos para a rotina. Lojas próximas Consulte a unidade mais conveniente pelos canais oficiais. ONDE ENCONTRAR Escolha o canal mais perto de você. O Linktree oficial concentra SAC e canais das unidades Centro Mega. Abrir Linktree oficial CANAIS OFICIAIS WhatsApp e telefone disponíveis no Linktree e no fluxo seguro de atendimento. Rua XV de Novembro, 1821 — Galeria Di Bruno PRESENÇA OFICIAL Conheça a Centro Mega nas redes. Instagram Facebook Acompanhe as publicações oficiais e veja novidades, produtos e serviços diretamente no Instagram. REEL · PUBLICAÇÃO 1 Abrir no Instagram REEL · PUBLICAÇÃO 2 Abrir no Instagram POST · PUBLICAÇÃO 3 Abrir no Instagram REEL · PUBLICAÇÃO 4 Abrir no Instagram POST · PUBLICAÇÃO 5 Abrir no Instagram POST · PUBLICAÇÃO 6 Abrir no Instagram Ver publicação de inauguração no Facebook SOBRE O PROJETO Seu próximo reparo começa com uma conversa clara. Centro Mega oferece assistência técnica especializada e acessórios para tecnologia, com canais oficiais em Curitiba e região. Atendimento em Curitiba — PR. Como começar Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. assistencia tecnica acessorios tecnologia curitiba Falar com a equipe KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Centro Mega. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Centro Mega PRESTADORES DE SERVICOS Assistencia Tecnica · Acessorios · Tecnologia · Curitiba Curitiba — PR 0web.com.br/portfolio/centro-mega Ilustração do cartão de visitas de Centro Mega PANFLETO DIGITAL CENTRO MEGA Conheça Centro Mega. Assistencia Tecnica · Acessorios · Tecnologia · Curitiba Ver a presença digital Ilustração do panfleto digital de Centro Mega © 2026 · Centro Mega Site desenvolvido por 0WEB Falar com a equipe",
+          "docHeight": 3796,
+          "topColors": [
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+              "n": 7
+            },
+            {
+              "color": "rgb(7, 26, 53)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(53, 212, 237)",
+              "n": 3
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
               "n": 2
             }
           ]
