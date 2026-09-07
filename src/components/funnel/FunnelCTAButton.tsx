@@ -73,7 +73,7 @@ export function FunnelCTAButton({
     (portfolioCompany
       ? {
           purpose: "proposal" as const,
-          source: "portfolio-marido-de-aluguel",
+          source: `portfolio-${portfolioCompany}`,
           pagePath: currentPath,
           placement: "section" as const,
           companySlug: portfolioCompany,
@@ -89,7 +89,14 @@ export function FunnelCTAButton({
 
   const clickingRef = useRef(false);
 
-  const fallbackHref = intent ? buildContactFallbackHref(intent) : "/contato";
+  // Páginas de portfólio nunca podem cair no /contato da 0WEB: sem JS o link
+  // abre o funil próprio do cliente em página cheia.
+  const isPortfolioFunnel = Boolean(portfolioCompany || formSlug);
+  const fallbackHref = isPortfolioFunnel
+    ? `/f/${funnelSlug}`
+    : intent
+      ? buildContactFallbackHref(intent)
+      : "/contato";
 
   const runtimeIntent: ContactIntent = effectiveIntent ?? {
     purpose: resolvedPageType === "service" ? "proposal" : "diagnosis",
