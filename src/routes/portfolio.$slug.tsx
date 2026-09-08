@@ -447,6 +447,9 @@ const HeloaGasPage = lazy(() =>
 const PastelariaRoute66Page = lazy(() =>
   import("@/components/site/PastelariaRoute66Page").then((m) => ({ default: m.PastelariaRoute66Page })),
 );
+const YourBrutusBurguerPage = lazy(() =>
+  import("@/components/site/YourBrutusBurguerPage").then((m) => ({ default: m.YourBrutusBurguerPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -1118,6 +1121,8 @@ function PortfolioPrototypePage() {
           <HeloaGasPage />
         ) : slug === "pastelaria-route-66" ? (
           <PastelariaRoute66Page />
+        ) : slug === "your-brutus-burguer" ? (
+          <YourBrutusBurguerPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (
