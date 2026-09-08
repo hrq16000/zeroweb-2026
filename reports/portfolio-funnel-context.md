@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-08T05:17:19.602Z
+Gerado em 2026-09-08T07:27:37.778Z
 
-- Projetos auditados: **86**
-- PASS: **86** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (24) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (6)
+- Projetos auditados: **87**
+- PASS: **87** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (24) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -94,3 +94,4 @@ Gerado em 2026-09-08T05:17:19.602Z
 | centro-mega | prestadores-de-servicos | contato | Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. | Falar com a equipe | PROJECT_CONTRACT | PASS | — |
 | pastelaria-route-66 | restaurantes | pedido | Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa. | Pedir na Route 66 | PROJECT_CONTRACT | PASS | — |
 | your-brutus-burguer | restaurantes | pedido | Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial. | Abrir cardápio | PROJECT_CONTRACT | PASS | — |
+| auto-socorro-dentinho | servicos | diagnostico | Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. | Descrever o problema | PROJECT_CONTRACT | PASS | — |

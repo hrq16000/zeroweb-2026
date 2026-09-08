@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-09-08T05:17:19.602Z",
-    "audited": 86,
-    "pass": 86,
+    "generatedAt": "2026-09-08T07:27:37.778Z",
+    "audited": 87,
+    "pass": 87,
     "warning": 0,
     "fail": 0,
     "byIntent": {
@@ -12,7 +12,7 @@
       "agendamento": 14,
       "contato": 8,
       "reserva": 4,
-      "diagnostico": 6
+      "diagnostico": 7
     }
   },
   "projects": [
@@ -1131,6 +1131,19 @@
       "nextStepBody": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
       "primaryCtaLabel": "Abrir cardápio",
       "whatsappIntent": "pedido",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "auto-socorro-dentinho",
+      "businessName": "Auto Socorro Dentinho",
+      "segment": "servicos",
+      "intent": "diagnostico",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu carro parou; o próximo passo não precisa parar junto.",
+      "nextStepBody": "Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento.",
+      "primaryCtaLabel": "Descrever o problema",
+      "whatsappIntent": "diagnostico",
       "status": "PASS",
       "issues": []
     }
