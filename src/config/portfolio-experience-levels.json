@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T09:49:06.849Z",
+  "generatedAt": "2026-09-08T04:20:29.381Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -12,6 +12,7 @@
     "salao-da-marcia": "BASELINE",
     "liz-moraes-nail-designer": "BASELINE",
     "mp-festas-eventos": "BASELINE",
+    "pastelaria-route-66": "BASELINE",
     "emporio-lelecute": "BASELINE",
     "lucas-arruma-maquina-lavar": "BASELINE",
     "marido-de-aluguel": "BASELINE",
@@ -22,12 +23,16 @@
     "denise-gomes-psicologa": "PREMIUM",
     "santos-montador-de-moveis": "PREMIUM",
     "dyzpromo": "PREMIUM",
+    "centro-mega": "SIGNATURE",
+    "your-brutus-burguer": "PREMIUM",
     "dlara-pizzaria": "PREMIUM",
     "mirassol-conserta-celular": "PREMIUM",
+    "mania-de-limpeza": "PREMIUM",
     "refrigeracao-maresia": "PREMIUM",
     "jkl-marcenaria": "PREMIUM",
     "r_beauty": "PREMIUM",
     "jc-revestimentos": "SIGNATURE",
+    "dona-lucy-salgados": "PREMIUM",
     "paraiso-do-hot-dog": "SIGNATURE",
     "bh-barreiro-marmitas": "PREMIUM",
     "simone-lacerda-vaz": "PREMIUM",
@@ -35,9 +40,11 @@
     "guaratuba-oficina-nautica": "PREMIUM",
     "uberlandia-eletrica-residencial": "PREMIUM",
     "thays-camilla": "PREMIUM",
+    "enoel-portas": "PREMIUM",
     "almeida-torres": "SIGNATURE",
     "eletrovale-eletromecanica": "SIGNATURE",
     "lj-cleaning": "PREMIUM",
+    "auto-socorro-dentinho": "SIGNATURE",
     "ag-electrical-services": "SIGNATURE",
     "galileu-locacao-brinquedos": "PREMIUM",
     "artesanatos-darleia-oliveira": "SIGNATURE",
@@ -53,6 +60,7 @@
     "popys-conservacao-limpeza": "PREMIUM",
     "beto-pasteis": "PREMIUM",
     "lolipa-arte-em-festas": "PREMIUM",
+    "kitutes-na-mesa": "PREMIUM",
     "sos-presentes-cosmeticos": "SIGNATURE",
     "ton-e-cor": "PREMIUM",
     "casa-nativa": "PREMIUM",
@@ -80,17 +88,13 @@
     "angel-mix-brecho": "PREMIUM",
     "reuse-house-brecho": "PREMIUM",
     "confeitaria-sabor-da-realeza": "PREMIUM",
-    "sscons": "SIGNATURE",
-    "kitutes-na-mesa": "SIGNATURE",
-    "enoel-portas": "SIGNATURE",
-    "mania-de-limpeza": "SIGNATURE",
-    "dona-lucy-salgados": "SIGNATURE"
+    "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 81,
-    "premium": 42,
+    "total": 87,
+    "premium": 47,
     "signature": 23,
-    "baseline": 16,
+    "baseline": 17,
     "static": 0
   }
 }

@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-09-08T01:48:52.514Z",
-    "audited": 85,
-    "pass": 85,
-    "warning": 0,
+    "generatedAt": "2026-09-08T04:21:45.684Z",
+    "audited": 87,
+    "pass": 86,
+    "warning": 1,
     "fail": 0,
     "byIntent": {
-      "pedido": 23,
+      "pedido": 24,
       "orcamento": 29,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 8,
       "reserva": 4,
-      "diagnostico": 6
+      "diagnostico": 7
     }
   },
   "projects": [
@@ -1118,6 +1118,37 @@
       "nextStepBody": "Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa.",
       "primaryCtaLabel": "Pedir na Route 66",
       "whatsappIntent": "pedido",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "your-brutus-burguer",
+      "businessName": "Your Brutus Burguer",
+      "segment": "restaurantes",
+      "intent": "pedido",
+      "source": "SEGMENT_FALLBACK",
+      "nextStepTitle": "Fale com Your Brutus Burguer sobre o que você precisa.",
+      "nextStepBody": "Conte sua necessidade e os detalhes importantes para Your Brutus Burguer.",
+      "primaryCtaLabel": "Fale com a empresa",
+      "whatsappIntent": "pedido",
+      "status": "WARNING",
+      "issues": [
+        {
+          "code": "PORTFOLIO_FUNNEL_FALLBACK",
+          "detail": "sem contrato próprio — fallback neutro"
+        }
+      ]
+    },
+    {
+      "slug": "auto-socorro-dentinho",
+      "businessName": "Auto Socorro Dentinho",
+      "segment": "servicos",
+      "intent": "diagnostico",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu carro parou; o próximo passo não precisa parar junto.",
+      "nextStepBody": "Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento.",
+      "primaryCtaLabel": "Descrever o problema",
+      "whatsappIntent": "diagnostico",
       "status": "PASS",
       "issues": []
     }

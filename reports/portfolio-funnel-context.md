@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-08T01:48:52.514Z
+Gerado em 2026-09-08T04:21:45.684Z
 
-- Projetos auditados: **85**
-- PASS: **85** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (23) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (6)
+- Projetos auditados: **87**
+- PASS: **86** · WARNING: **1** · FAIL: **0**
+- Intenções: pedido (24) · orcamento (29) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -93,3 +93,5 @@ Gerado em 2026-09-08T01:48:52.514Z
 | dona-lucy-salgados | restaurantes | pedido | Conte a ocasião, a quantidade e o horário para a equipe organizar seu delivery. | Fazer pedido | PROJECT_CONTRACT | PASS | — |
 | centro-mega | prestadores-de-servicos | contato | Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado. | Falar com a equipe | PROJECT_CONTRACT | PASS | — |
 | pastelaria-route-66 | restaurantes | pedido | Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa. | Pedir na Route 66 | PROJECT_CONTRACT | PASS | — |
+| your-brutus-burguer | restaurantes | pedido | Conte sua necessidade e os detalhes importantes para Your Brutus Burguer. | Fale com a empresa | SEGMENT_FALLBACK | WARNING | PORTFOLIO_FUNNEL_FALLBACK |
+| auto-socorro-dentinho | servicos | diagnostico | Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. | Descrever o problema | PROJECT_CONTRACT | PASS | — |

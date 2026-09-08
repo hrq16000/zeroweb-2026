@@ -2868,6 +2868,38 @@
       "status": "COMPLETE",
       "issues": [],
       "blocking": []
+    },
+    {
+      "slug": "your-brutus-burguer",
+      "clientKey": "your_brutus_burguer",
+      "title": "Your Brutus Burguer",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "Your Brutus Burguer é uma hamburgueria artesanal em São José dos Pinhais, com cardápio oficial, burgers, combos e porções.",
+      "subtitle": "Burgers artesanais, combos e porções",
+      "image": "/images/your-brutus-burguer/hero-og.png",
+      "icon": "/images/your-brutus-burguer/logo.svg",
+      "socialImage": "/images/your-brutus-burguer/hero-og.png",
+      "socialVersion": "brutus-v1",
+      "componentFile": "src/components/site/YourBrutusBurguerPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/your-brutus-burguer",
+      "ctaMode": "ordering",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/your-brutus-burguer/business-card-concept.png",
+        "/images/your-brutus-burguer/flyer-concept.png",
+        "/images/your-brutus-burguer/hero-og.png",
+        "/images/your-brutus-burguer/logo.svg"
+      ],
+      "shareCopy": "🍔 Your Brutus Burguer ganhou uma presença digital nova!\n\nBurgers artesanais, combos e porções agora estão organizados em uma rota direta para o cardápio oficial.\n\n🌐 Confira:\nhttps://0web.com.br/portfolio/your-brutus-burguer\n\n#YourBrutusBurguer #HamburgueriaArtesanal #SaoJoseDosPinhais #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
     }
   ]
 }

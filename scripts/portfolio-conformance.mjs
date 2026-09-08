@@ -74,7 +74,10 @@ export function buildRecords(root) {
     const issues = [];
 
     const client = clientBySlug.get(slug);
-    const assets = assetsCfg.clients?.[slug];
+    // Assets pertencem ao clientKey; o slug é o endereço público. A maioria
+    // dos projetos usa a mesma string para ambos, mas novos clientes podem
+    // ter uma chave interna distinta sem perder logo ou OG no catálogo.
+    const assets = assetsCfg.clients?.[item.clientKey] ?? assetsCfg.clients?.[slug];
     const assetsDir = path.join(root, "public/images", slug);
     const dirFiles = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
 

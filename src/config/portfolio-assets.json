@@ -1046,6 +1046,18 @@
         "ctaHref": "#presenca"
       },
       "socialVersion": "5f78d7a6"
+    },
+    "auto-socorro-dentinho": {
+    "icon": "/images/auto-socorro-dentinho/logo.svg",
+    "socialImage": "/images/auto-socorro-dentinho/hero.svg",
+    "proof": {
+      "eyebrow": "Auto Socorro Dentinho · Quatro Barras",
+      "title": "Seu carro parou. A solução continua.",
+      "description": "Auto mecânica, diagnóstico e socorro automotivo em Quatro Barras e região.",
+      "ctaLabel": "Pedir atendimento",
+      "ctaHref": "#inicio"
+    },
+    "socialVersion": "dentinho-v1"
     }
   }
 }

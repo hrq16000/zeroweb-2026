@@ -48,6 +48,13 @@
     "primaryCtaLabel": "Solicitar avaliação",
     "theme": "navy"
   },
+  "auto-socorro-dentinho": {
+    "intent": "diagnostico",
+    "nextStepTitle": "Seu carro parou; o próximo passo não precisa parar junto.",
+    "nextStepBody": "Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento.",
+    "primaryCtaLabel": "Descrever o problema",
+    "theme": "gold"
+  },
   "beto-pasteis": {
     "intent": "pedido",
     "nextStepTitle": "Um pastel bem escolhido muda o ritmo do dia.",

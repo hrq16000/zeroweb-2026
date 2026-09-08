@@ -1084,3 +1084,39 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Validação:** boundaries, catálogo, conversão, scaffold, logos, assets,
   ícones, performance, privacidade, contato no dist, funil, originalidade,
   experiência e qualidade visual executados no `main` atual.
+
+## 2026-09-08 — correção de publicação do Your Brutus Burguer
+
+- **Tarefa:** corrigir a projeção que torna `/portfolio/your-brutus-burguer`
+  visível na vitrine e na gestão pública.
+- **Skills:** `0web-skill-router` → `0web-skill-discovery` →
+  `0web-portfolio-art-direction` → `0web-design-system` →
+  `0web-ui-quality-gates`.
+- **Achado:** a rota e o catálogo canônico já estavam registrados, mas o seed
+  determinístico do catálogo estava desatualizado e a chave dos assets usava o
+  `clientKey` privado em vez do slug público.
+- **Correção:** resolução e conformidade de assets agora reconhecem tanto o
+  slug público quanto o `clientKey` interno, e o
+  `portfolio-admin-seed.json` foi regenerado com o projeto publicado, logo,
+  OG, Kit de Presença e status `COMPLETE`.
+
+## 2026-09-08 — Auto Socorro Dentinho
+
+- **Tarefa:** criação de `/portfolio/auto-socorro-dentinho` a partir dos
+  screenshots fornecidos, do prompt de negócio e do protótipo UXPilot.
+- **Skills:** `0web-skill-router` → `0web-skill-discovery` →
+  `0web-portfolio-art-direction` → `0web-design-system` →
+  `0web-ui-quality-gates`.
+- **Achados:** a referência tinha uma base clara de oficina, socorro 24h,
+  diagnóstico e atuação em Quatro Barras; a direção foi expandida para uma
+  narrativa própria de diagnóstico, com painel técnico e trilho de serviço,
+  sem copiar a composição quadrada do protótipo.
+- **Alterações:** componente autoral, brief v2, assets SVG de marca,
+  catálogo, registry, cliente, motion override, funil individual, share copy,
+  SEO e integração server-side por `clientKey`.
+- **Privacidade:** nenhum telefone, `wa.me` ou contato operacional foi
+  embutido no bundle público; a arte do hero é composição de marca e não
+  evidência documental.
+- **Validação:** boundaries, catálogo, scaffold, runtime overrides, meta,
+  privacidade, typecheck, funil e experiência executados; o bundle completo
+  foi tentado e parou apenas por limite de memória do Node.

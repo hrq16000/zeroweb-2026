@@ -450,6 +450,9 @@ const PastelariaRoute66Page = lazy(() =>
 const YourBrutusBurguerPage = lazy(() =>
   import("@/components/site/YourBrutusBurguerPage").then((m) => ({ default: m.YourBrutusBurguerPage })),
 );
+const AutoSocorroDentinhoPage = lazy(() =>
+  import("@/components/site/AutoSocorroDentinhoPage").then((m) => ({ default: m.AutoSocorroDentinhoPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -545,6 +548,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isManiaDeLimpeza = loaderData?.slug === "mania-de-limpeza";
     const isDonaLucySalgados = loaderData?.slug === "dona-lucy-salgados";
     const isCentroMega = loaderData?.slug === "centro-mega";
+    const isAutoSocorroDentinho = loaderData?.slug === "auto-socorro-dentinho";
     const description = isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
@@ -577,6 +581,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isCentroMega
       ? "Centro Mega: assistência técnica especializada e acessórios para tecnologia, com canais em Curitiba e Região Metropolitana."
+      : isAutoSocorroDentinho
+      ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
       : isHeloaGas
       ? "Heloá Gás em Piraquara — PR: botijão de gás 13kg e água mineral de 20 litros com entrega em Vila Vicente Macedo e região."
       : isPastelariaRoute66
@@ -1123,6 +1129,8 @@ function PortfolioPrototypePage() {
           <PastelariaRoute66Page />
         ) : slug === "your-brutus-burguer" ? (
           <YourBrutusBurguerPage />
+        ) : slug === "auto-socorro-dentinho" ? (
+          <AutoSocorroDentinhoPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (
