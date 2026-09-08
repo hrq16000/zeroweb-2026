@@ -323,13 +323,19 @@ export const Route = createFileRoute("/portfolio/")({
     if (typeof search.type === "string") parsed.type = search.type;
     return parsed;
   },
-  head: () => ({
+  head: ({ match }: any) => {
+    const query = typeof match?.search?.q === "string" ? match.search.q.trim().slice(0, 60) : "";
+    const TITLE_Q = query ? `${query} — projetos no portfólio da 0WEB` : TITLE;
+    const DESC_Q = query
+      ? `Resultados para "${query}" no portfólio da 0WEB: sites de clientes reais, com serviços de criação de site, SEO local e landing pages.`
+      : DESC;
+    return {
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
+      { title: TITLE_Q },
+      { name: "description", content: DESC_Q },
       { name: "robots", content: "index,follow,max-image-preview:large" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
+      { property: "og:title", content: TITLE_Q },
+      { property: "og:description", content: DESC_Q },
       { property: "og:type", content: "website" },
       { property: "og:url", content: URL },
       { property: "og:image", content: "https://0web.com.br/og-default.jpg" },
