@@ -36,6 +36,8 @@ import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
+import { searchItems } from "@/lib/portfolio-search";
+
 import {
   PORTFOLIO_SEGMENTS,
   PORTFOLIO_PLACES,
