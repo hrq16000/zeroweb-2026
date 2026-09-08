@@ -113,7 +113,7 @@ describe("inventário gerado", () => {
   it("cobre exatamente os projetos do catálogo", () => {
     const catalogSlugs = (catalog as { slug: string }[]).map((c) => c.slug).sort();
     expect(rows.map((r) => r.slug).sort()).toEqual(catalogSlugs);
-    expect(rows).toHaveLength(69);
+    expect(rows).toHaveLength(catalogSlugs.length);
   });
 
   it("pendências fecham com a soma dos reason codes", () => {
@@ -142,6 +142,6 @@ describe("inventário gerado", () => {
     }
     const s = summarizeCoverStatus(rows);
     expect(s.byStatus.NEEDS_CROP).toBe(0);
-    expect(s.total).toBe(69);
+    expect(s.total).toBe(rows.length);
   });
 });
