@@ -246,11 +246,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               name: "0WEB",
               inLanguage: "pt-BR",
               publisher: { "@id": "https://0web.com.br/#org" },
-              potentialAction: {
-                "@type": "SearchAction",
-                target: "https://0web.com.br/blog?q={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
+              potentialAction: [
+                {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: "https://0web.com.br/portfolio?q={search_term_string}",
+                  },
+                  "query-input": "required name=search_term_string",
+                },
+                {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: "https://0web.com.br/servicos?q={search_term_string}",
+                  },
+                  "query-input": "required name=search_term_string",
+                },
+              ],
             },
           ],
         }),
