@@ -1,5 +1,12 @@
 # Skill changelog / usage log
 
+## 2026-09-08 — Your Brutus Burguer
+
+- Criação de `/portfolio/your-brutus-burguer` com `0web-skill-router`, discovery, direção de arte, design system, quality gates e imagegen.
+- Direção: rota noturna editorial; as artes geradas são composição de marca, não prova documental.
+- Entregues: página própria, logo conceitual, OG, cartão, panfleto, catálogo, copy de divulgação, motion e funil individual server-side.
+- Gates executados: boundaries, catálogo, assets, scaffold, meta e build; avisos de rota legada não pertencem a esta entrega.
+
 ## 2026-09-07 — sincronização determinística do seed administrativo
 
 - Classificação: correção de build/governança; aplicado `0web-skill-router` e o
