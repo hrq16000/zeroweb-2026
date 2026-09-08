@@ -1173,3 +1173,27 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   R Beauty e o perfil de motion do Brutus; removido o asset social criado fora
   do escopo. O catálogo, o componente, os assets e o funil próprios do Brutus
   permanecem preservados.
+
+# 2026-09-08 — Pinturas Nunes: presença pública e funil individual
+
+- **Tarefa:** criar `/portfolio/pinturas-nunes` a partir do material original
+  fornecido pelo cliente, com identidade, SEO, presença visual e captação
+  próprios.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-portfolio-art-direction`, `0web-design-system` e
+  `0web-ui-quality-gates`; aplicados também Client Standard, New Client
+  Playbook, Presence Kit, Conversion Intelligence e Conversion Narrative.
+- **Direção:** sistema autoral “superfícies em transformação”, em azul-marinho
+  e dourado, com marca vetorial própria e o cartaz fornecido como material
+  original/OG. Foram rejeitadas fotos ou obras geradas que pudessem sugerir
+  execução não comprovada.
+- **Fatos registrados:** responsável Gabriel Nunes; pintura residencial e
+  predial, grafiato, texturas, pintura decorativa, telhados, calhas, grades,
+  portões, cadeirinhas e balancinhos. Cidade, preços, métricas e depoimentos
+  não foram inventados.
+- **Funil:** migration publicada com perguntas específicas por serviço e
+  ambiente; destinatário permanece server-side sob
+  `PORTFOLIO_WHATSAPP_PINTURAS_NUNES`, sem telefone no bundle público.
+- **Isolamento:** nenhuma peça de raiz, logo, fonte, header ou footer
+  institucional da 0WEB foi alterada. Os assets pertencem somente a
+  `public/images/pinturas-nunes/`.

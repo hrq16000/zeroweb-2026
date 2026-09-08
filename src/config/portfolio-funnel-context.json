@@ -607,5 +607,12 @@
     "nextStepBody": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
     "primaryCtaLabel": "Abrir cardápio",
     "theme": "gold"
+  },
+  "pinturas-nunes": {
+    "intent": "orcamento",
+    "nextStepTitle": "Um bom acabamento começa por uma superfície bem explicada.",
+    "nextStepBody": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "navy"
   }
 }

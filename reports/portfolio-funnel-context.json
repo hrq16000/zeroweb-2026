@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-08T18:20:07.113Z",
-    "audited": 87,
-    "pass": 87,
+    "generatedAt": "2026-09-08T19:57:20.873Z",
+    "audited": 88,
+    "pass": 88,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 24,
-      "orcamento": 29,
+      "orcamento": 30,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 8,
@@ -1144,6 +1144,19 @@
       "nextStepBody": "Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento.",
       "primaryCtaLabel": "Descrever o problema",
       "whatsappIntent": "diagnostico",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "pinturas-nunes",
+      "businessName": "Pinturas Nunes",
+      "segment": "servicos",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Um bom acabamento começa por uma superfície bem explicada.",
+      "nextStepBody": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
+      "primaryCtaLabel": "Solicitar orçamento",
+      "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
     }

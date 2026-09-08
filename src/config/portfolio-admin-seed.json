@@ -2160,6 +2160,37 @@
       "blocking": []
     },
     {
+      "slug": "pinturas-nunes",
+      "clientKey": "pinturas-nunes",
+      "title": "Pinturas Nunes",
+      "segment": "servicos",
+      "city": "Região a confirmar",
+      "state": "BR",
+      "summary": "Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões.",
+      "subtitle": "Pintura residencial, predial e acabamentos",
+      "image": "/images/pinturas-nunes/hero-og.jpg",
+      "icon": "/images/pinturas-nunes/logo.svg",
+      "socialImage": "/images/pinturas-nunes/hero-og.jpg",
+      "socialVersion": "5cbc6aac",
+      "componentFile": "src/components/site/PinturasNunesPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/pinturas-nunes",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/pinturas-nunes/hero-og.jpg",
+        "/images/pinturas-nunes/logo.svg",
+        "/images/pinturas-nunes/material-original.png"
+      ],
+      "shareCopy": "🎨 A Pinturas Nunes ganhou uma presença digital nova!\n\nPintura residencial e predial, grafiato, textura projetada, pintura decorativa e cuidados para telhados, calhas, grades e portões agora estão reunidos em uma página própria.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/pinturas-nunes\n\n🛠️ Conte qual ambiente ou acabamento precisa de atenção e organize seu orçamento.\n\nProjeto digital desenvolvido pela 0WEB.\n\n#PinturasNunes #PinturaResidencial #PinturaPredial #Grafiato #TexturaProjetada #PinturaDecorativa #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "popys-conservacao-limpeza",
       "clientKey": "popys-conservacao-limpeza",
       "title": "POPYS Conservação e Limpeza",

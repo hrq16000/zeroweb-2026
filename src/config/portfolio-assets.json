@@ -1058,6 +1058,18 @@
       "ctaHref": "#inicio"
     },
     "socialVersion": "dentinho-v2"
+    },
+    "pinturas-nunes": {
+      "icon": "/images/pinturas-nunes/logo.svg",
+      "socialImage": "/images/pinturas-nunes/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Pinturas Nunes · acabamentos e pintura",
+        "title": "Transformando ambientes, realizando sonhos.",
+        "description": "Pintura residencial e predial, grafiato, texturas e acabamentos organizados em uma presença própria.",
+        "ctaLabel": "Solicitar orçamento",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "5cbc6aac"
     }
   }
 }

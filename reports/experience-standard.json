@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-08T18:20:07.254Z",
-  "totalCatalogProjects": 87,
-  "totalPages": 87,
+  "generatedAt": "2026-09-08T19:57:21.108Z",
+  "totalCatalogProjects": 88,
+  "totalPages": 88,
   "auditCoverage": "100%",
   "missingSlugs": [],
   "premium": 47,
-  "signature": 23,
+  "signature": 24,
   "baseline": 17,
   "static": 0,
   "motion": {
@@ -14,7 +14,7 @@
     "clones": 10,
     "groups": 10,
     "signalFloor": 5,
-    "lowSignalPairs": 1725,
+    "lowSignalPairs": 1748,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -1743,6 +1743,39 @@
           "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope"
+        ]
+      }
+    },
+    {
+      "slug": "pinturas-nunes",
+      "segment": "servicos",
+      "file": "src/components/site/PinturasNunesPage.tsx",
+      "score": 49,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 9,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "título em máscara sobre a base azul e faixa dourada",
+        "sectionSignature": "linhas P01–P04 revelam alternadamente como uma régua técnica",
+        "interactionSignature": "CTA ganha elevação curta, sem loop ou deslocamento contínuo",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:left",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "c:[clip-path:polygon(24%_0,100%_0,100%_100%,0_100%)]"
         ]
       }
     },

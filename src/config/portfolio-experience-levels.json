@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T18:20:07.254Z",
+  "generatedAt": "2026-09-08T19:57:21.108Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -55,6 +55,7 @@
     "no-brilho-higienizacao": "SIGNATURE",
     "hbk-iluminacao-led": "SIGNATURE",
     "maximos-cabeleireiros": "PREMIUM",
+    "pinturas-nunes": "SIGNATURE",
     "heloa-gas": "SIGNATURE",
     "bruna-diarista": "PREMIUM",
     "popys-conservacao-limpeza": "PREMIUM",
@@ -91,9 +92,9 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 87,
+    "total": 88,
     "premium": 47,
-    "signature": 23,
+    "signature": 24,
     "baseline": 17,
     "static": 0
   }

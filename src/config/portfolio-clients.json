@@ -1122,5 +1122,24 @@
       "source": "Prompt, prints e protótipo UXPilot fornecidos nesta solicitação",
       "reference": "https://uxpilot.ai/s/8725896efb3e01ecb180fb55319390cb"
     }
+  },
+  {
+    "clientKey": "pinturas-nunes",
+    "slug": "pinturas-nunes",
+    "siteName": "Pinturas Nunes",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/PinturasNunesPage.tsx",
+    "assetsDir": "public/images/pinturas-nunes",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/pinturas-nunes.md",
+    "funnelRecipientConfigured": false,
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Cartaz enviado pelo cliente nesta solicitação",
+      "reference": "material-original.png"
+    }
   }
 ]

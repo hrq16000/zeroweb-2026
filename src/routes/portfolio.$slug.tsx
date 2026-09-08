@@ -453,6 +453,9 @@ const YourBrutusBurguerPage = lazy(() =>
 const AutoSocorroDentinhoPage = lazy(() =>
   import("@/components/site/AutoSocorroDentinhoPage").then((m) => ({ default: m.AutoSocorroDentinhoPage })),
 );
+const PinturasNunesPage = lazy(() =>
+  import("@/components/site/PinturasNunesPage").then((m) => ({ default: m.PinturasNunesPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -549,7 +552,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isDonaLucySalgados = loaderData?.slug === "dona-lucy-salgados";
     const isCentroMega = loaderData?.slug === "centro-mega";
     const isAutoSocorroDentinho = loaderData?.slug === "auto-socorro-dentinho";
-    const description = isSscons
+    const isPinturasNunes = loaderData?.slug === "pinturas-nunes";
+    const description = isPinturasNunes
+      ? "Pinturas Nunes: pintura residencial e predial, texturas, grafiato, acabamentos, telhados, grades e portões."
+      : isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
       : isMimo
       ? "Mimo Salgados e Doces na Costeira, em São José dos Pinhais: salgados artesanais, doces e copo da felicidade por R$ 22,00."
@@ -1131,6 +1137,8 @@ function PortfolioPrototypePage() {
           <YourBrutusBurguerPage />
         ) : slug === "auto-socorro-dentinho" ? (
           <AutoSocorroDentinhoPage />
+        ) : slug === "pinturas-nunes" ? (
+          <PinturasNunesPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

@@ -1238,6 +1238,23 @@
       "desktopBehavior": "painel de diagnóstico revela por máscara e trilho de serviço entra em sequência",
       "tabletBehavior": "painel empilha sobre a narrativa preservando a leitura",
       "mobileBehavior": "sem deslocamento no toque; ordem de serviço segue acessível"
+    },
+    "pinturas-nunes": {
+      "intensity": "BALANCED",
+      "preset": "FINISHING_STRIP",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "underline",
+      "depthBehavior": "flat",
+      "scrollBehavior": "progressive",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "faixa dourada de acabamento revela o material original; a régua de serviços entra por superfície",
+      "tabletBehavior": "cartaz empilha depois da narrativa, preservando proporção e legenda",
+      "mobileBehavior": "sem deslocamento no toque; régua e CTAs mantêm fluxo vertical"
     }
   },
   "decisions": {
@@ -1687,6 +1704,22 @@
       "performanceNote": "Somente transform/opacity/clip-path; arte SVG única prioritária e conteúdo sem JS.",
       "accessibilityNotes": "prefers-reduced-motion remove deslocamento e mantém conteúdo/ordem no DOM.",
       "originalityNotes": "Painel de diagnóstico e trilho de decisão próprios; não replica o blueprint do Centro Mega."
+    },
+    "pinturas-nunes": {
+      "wave": "PINTURAS_NUNES_FINISHING",
+      "segment": "pintura e acabamentos",
+      "motionIntent": "CAMADAS DE ACABAMENTO",
+      "whyThisMotion": "Faixas curtas de pigmento e a régua de acabamento ajudam a separar serviços por superfície sem simular obra ou resultado factual.",
+      "signatureMoments": {
+        "hero": "título em máscara sobre a base azul e faixa dourada",
+        "section": "linhas P01–P04 revelam alternadamente como uma régua técnica",
+        "interaction": "CTA ganha elevação curta, sem loop ou deslocamento contínuo"
+      },
+      "motionIntensity": "BALANCED",
+      "effectsAvoided": ["parallax", "scroll hijack", "contadores", "loops infinitos"],
+      "performanceNote": "Somente transform, opacity e clip-path; cartaz oficial é o único media prioritário.",
+      "accessibilityNotes": "prefers-reduced-motion elimina o deslocamento e preserva todas as informações no DOM.",
+      "originalityNotes": "Narrativa de superfície e régua de acabamento não reutiliza a cartela Ton & Cor nem a grade de obra da JC Revestimentos."
     }
   }
 }

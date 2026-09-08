@@ -1907,5 +1907,24 @@
     "fallbackImage": "/images/auto-socorro-dentinho/logo.svg",
     "metrics": "Atendimento por orçamento",
     "summary": "Auto Socorro Dentinho oferece manutenção mecânica, elétrica automotiva, diagnóstico e socorro em Quatro Barras e região."
+  },
+  {
+    "slug": "pinturas-nunes",
+    "clientKey": "pinturas-nunes",
+    "title": "Pinturas Nunes",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "city": "Região a confirmar",
+    "state": "BR",
+    "tags": ["pintura-residencial", "pintura-predial", "grafiato", "textura-projetada", "pintura-decorativa"],
+    "live": true,
+    "subtitle": "Pintura residencial, predial e acabamentos",
+    "location": "Atendimento por orçamento — região a confirmar",
+    "badge": "Projeto real",
+    "image": "/images/pinturas-nunes/hero-og.jpg",
+    "fallbackImage": "/images/pinturas-nunes/logo.svg",
+    "metrics": "Atendimento por orçamento",
+    "summary": "Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões."
   }
 ]

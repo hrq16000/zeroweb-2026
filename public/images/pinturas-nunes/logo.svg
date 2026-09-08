@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc">
+  <title id="title">Pinturas Nunes</title>
+  <desc id="desc">Marca em azul-marinho e dourado para serviços de pintura.</desc>
+  <rect width="900" height="300" rx="34" fill="#071C41"/>
+  <path d="M70 154 150 78l80 76v72H70Z" fill="none" stroke="#F8F4EA" stroke-width="13" stroke-linejoin="round"/>
+  <path d="M97 175h106M151 132v86" stroke="#F8F4EA" stroke-width="13" stroke-linecap="round"/>
+  <path d="M89 208h126" stroke="#D88A00" stroke-width="22" stroke-linecap="round"/>
+  <path d="M93 215v30m112-30v30" stroke="#D88A00" stroke-width="9" stroke-linecap="round"/>
+  <path d="M246 209h95" stroke="#D88A00" stroke-width="23" stroke-linecap="round"/>
+  <path d="M338 178v62m0-62h44v62m-44-31h44" fill="none" stroke="#D88A00" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="418" y="145" fill="#F8F4EA" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" letter-spacing="2">PINTURAS</text>
+  <text x="418" y="217" fill="#D88A00" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900" letter-spacing="1">NUNES</text>
+  <path d="M420 242h390" stroke="#D88A00" stroke-width="5"/>
+  <text x="421" y="274" fill="#F8F4EA" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="4">ACABAMENTOS E PINTURA</text>
+</svg>

@@ -576,6 +576,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "pinturas-nunes",
+    vertical: "prestadores-de-servicos",
+    siteName: "Pinturas Nunes · Pintura e acabamentos",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {
