@@ -1058,3 +1058,22 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Aplicados `0web-skill-router`, `0web-skill-discovery` e
   `0web-ui-quality-gates`; validações de boundaries, scaffold, conversão, SEO,
   privacidade e build executadas antes da publicação.
+
+## 2026-09-08 — auditoria do main e contrato cumulativo de discovery
+
+- **Tarefa:** auditoria do `main` após rodadas no Lovable e documentação do
+  processo “nome do negócio → pesquisa pública → página rica e funcional”.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-design-system` e `0web-ui-quality-gates`; `weise25/LocalSite-ai` foi
+  revisado como **REFERENCE_ONLY**, pois seu stack não substitui a arquitetura
+  e os gates do 0WEB.
+- **Achados:** 25 commits novos no remoto; 85 clientes, funis, logos e assets
+  passaram nos contratos estruturais. A auditoria visual deixou fila explícita
+  de 40 capas pendentes, 6 pares de alta similaridade e itens P1/P2.
+- **Alterações:** ampliado o padrão de prospecção com proveniência,
+  classificação de evidência, estados de publicação, pacotes de presença,
+  capacidades condicionais, não-regressão e limpeza local obrigatória; o padrão
+  foi roteado em `AGENTS.md` e no contrato de execução.
+- **Validação:** boundaries, catálogo, conversão, scaffold, logos, assets,
+  ícones, performance, privacidade, contato no dist, funil, originalidade,
+  experiência e qualidade visual executados no `main` atual.

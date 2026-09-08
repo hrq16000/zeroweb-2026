@@ -10,6 +10,12 @@ Antes de agir, ler `AGENTS.md`, este contrato, os padrões de portfólio
 relevantes e as skills roteadas. A execução deve continuar a partir do estado
 real do Git, nunca de memória ou de uma cópia externa.
 
+O Git remoto `origin/main` é a única fonte operacional de verdade. Cada ciclo
+começa com `git fetch origin --prune` e atualização fast-forward; cada ciclo
+termina com working tree limpo. Artefatos locais temporários, stashes, worktrees
+e cópias externas não podem se transformar em uma segunda fonte de conteúdo ou
+publicação.
+
 ## Padrão de qualidade
 
 Cada `/portfolio/<slug>` é um mini-site comercial independente e o `/portfolio`
@@ -47,3 +53,9 @@ Cada inspeção deve transformar achados em correções ou backlog priorizado e
 documentado. P0/P1 de segurança, funcionamento, acessibilidade, SEO e WhatsApp
 precedem polimento visual. Nenhuma alteração de logo ou identidade pode ocorrer
 sem autorização explícita — ver `docs/BRAND_ASSET_POLICY.md`.
+
+Capacidades e entendimentos são cumulativos: uma entrega não pode remover ou
+generalizar silenciosamente uma identidade, funil, fonte factual, SEO local,
+asset, Kit de Presença, requisito de privacidade ou mecanismo de conversão que
+já esteja aprovado. Para discovery por nome e pacotes comerciais, seguir
+`docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md`.
