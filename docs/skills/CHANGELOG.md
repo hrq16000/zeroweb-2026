@@ -1,5 +1,24 @@
 # Skill changelog / usage log
 
+## 2026-09-08 — restauração da marca 0WEB e reconstrução do Dentinho
+
+- **Tarefa:** corrigir a regressão visual posterior à publicação do Brutus sem
+  alterar conteúdo ou identidade de outros clientes.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-portfolio-art-direction`, `0web-design-system`,
+  `0web-ui-quality-gates` e `imagegen`.
+- **Marca raiz:** recuperado o arquivo PNG original da 0WEB (900×277),
+  versionado em `public/0web-logo.png`; removida a reconstrução SVG que havia
+  substituído a arte institucional. O manifesto de integridade agora protege
+  o arquivo original correto.
+- **Auto Socorro Dentinho:** removida a combinação inválida de variáveis CSS
+  que deixava o texto claro sem contraste; a página foi recomposta com
+  identidade naval/laranja, hierarquia própria, imagens conceituais exclusivas
+  de diagnóstico e funil individual preservado.
+- **Transparência de mídia:** as duas imagens novas são identificadas na página
+  como composição conceitual, sem alegar representar pessoas, oficina ou
+  serviços documentais do cliente.
+
 ## 2026-09-08 — Auto Socorro Dentinho
 
 - Projeto real integrado à `main` com identidade, capa, logo, funil, SEO e registro de catálogo próprios.
@@ -1125,7 +1144,7 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`.
 - **Achado:** `BrandLogo` dependia de um asset remoto `/__l5e`, permitindo que a
   arte exibida divergisse da versão original versionada.
-- **Alterações:** `BrandLogo` agora usa `public/0web-logo.svg`; manifesto SHA-256
+- **Alterações:** `BrandLogo` agora usa `public/0web-logo.png`; manifesto SHA-256
   e `validate:brand-integrity` tornam o asset institucional imutável durante o
   build. A política documenta isolamento entre raiz 0WEB e assets por slug.
 - **Validação:** manifesto de integridade executado com sucesso; diff revisado

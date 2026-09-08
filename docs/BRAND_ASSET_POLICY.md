@@ -27,7 +27,7 @@ informações de contato.
 
 ## Trava técnica da raiz institucional
 
-O wordmark oficial é servido exclusivamente por `public/0web-logo.svg` e
+O wordmark oficial é servido exclusivamente por `public/0web-logo.png` e
 referenciado por `src/assets/logo-0web.png.asset.json`. O manifesto
 `src/config/brand-integrity.json` fixa o SHA-256 do asset, e
 `validate:brand-integrity` é executado antes de cada build. Qualquer alteração

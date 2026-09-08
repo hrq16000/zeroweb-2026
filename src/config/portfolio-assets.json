@@ -1049,7 +1049,7 @@
     },
     "auto-socorro-dentinho": {
     "icon": "/images/auto-socorro-dentinho/logo.svg",
-    "socialImage": "/images/auto-socorro-dentinho/hero.svg",
+    "socialImage": "/images/auto-socorro-dentinho/hero-v2.png",
     "proof": {
       "eyebrow": "Auto Socorro Dentinho · Quatro Barras",
       "title": "Seu carro parou. A solução continua.",
@@ -1057,7 +1057,7 @@
       "ctaLabel": "Pedir atendimento",
       "ctaHref": "#inicio"
     },
-    "socialVersion": "dentinho-v1"
+    "socialVersion": "dentinho-v2"
     }
   }
 }

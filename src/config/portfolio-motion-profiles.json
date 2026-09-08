@@ -1177,7 +1177,7 @@
       "heroMotion": "layered",
       "sectionReveal": "up",
       "imageReveal": "clip",
-      "textReveal": "mask",
+      "textReveal": "line",
       "iconMotion": "none",
       "hoverBehavior": "depth",
       "depthBehavior": "flat",

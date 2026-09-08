@@ -258,6 +258,39 @@
       "blocking": []
     },
     {
+      "slug": "auto-socorro-dentinho",
+      "clientKey": "auto-socorro-dentinho",
+      "title": "Auto Socorro Dentinho",
+      "segment": "servicos",
+      "city": "Quatro Barras",
+      "state": "PR",
+      "summary": "Auto Socorro Dentinho oferece manutenção mecânica, elétrica automotiva, diagnóstico e socorro em Quatro Barras e região.",
+      "subtitle": "Auto mecânica, diagnóstico e socorro automotivo",
+      "image": "/images/auto-socorro-dentinho/hero-v2.png",
+      "icon": "/images/auto-socorro-dentinho/logo.svg",
+      "socialImage": "/images/auto-socorro-dentinho/hero-v2.png",
+      "socialVersion": "dentinho-v2",
+      "componentFile": "src/components/site/AutoSocorroDentinhoPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/auto-socorro-dentinho",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/auto-socorro-dentinho/diagnostic-v2.png",
+        "/images/auto-socorro-dentinho/hero-v2.png",
+        "/images/auto-socorro-dentinho/hero.svg",
+        "/images/auto-socorro-dentinho/logo-inverse.svg",
+        "/images/auto-socorro-dentinho/logo.svg"
+      ],
+      "shareCopy": "🔧 A Auto Socorro Dentinho ganhou uma presença digital nova!\n\nAuto mecânica, diagnóstico, elétrica automotiva e socorro para motoristas de Quatro Barras e região.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/auto-socorro-dentinho\n\n📲 Conte o que aconteceu e organize o próximo passo com a equipe.\n\n#AutoSocorroDentinho #AutoMecanica #QuatroBarras #SocorroAutomotivo #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "beto-pasteis",
       "clientKey": "beto-pasteis",
       "title": "Beto Pastéis",
@@ -2046,9 +2079,13 @@
       ],
       "shareCopy": "🌭 O Paraíso do Hot Dog ganhou um cardápio online para deixar a escolha do próximo lanche ainda mais fácil.\n\nCombinações, adicionais e opções para pedir estão reunidos em um só lugar.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/paraiso-do-hot-dog\n\n#ParaisoDoHotDog #HotDog #CardapioOnline #SJP #0WEB",
       "published": true,
-      "status": "COMPLETE",
-      "issues": [],
-      "blocking": []
+      "status": "LEGACY",
+      "issues": [
+        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+      ],
+      "blocking": [
+        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
+      ]
     },
     {
       "slug": "pastelaria-route-66",
@@ -2199,8 +2236,8 @@
       "subtitle": "Estética, spa e autocuidado",
       "image": "/images/r-beauty-cilios.jpg",
       "icon": "/images/r_beauty/logo.webp",
-      "socialImage": "/images/r_beauty/hero-og.jpg",
-      "socialVersion": "69d0fd70",
+      "socialImage": "/images/r-beauty-icon-og.jpg",
+      "socialVersion": "758635fe",
       "componentFile": "src/components/site/RBeautyEditorialView.tsx",
       "routeFile": "src/routes/portfolio.r_beauty.tsx",
       "assetsDir": "public/images",

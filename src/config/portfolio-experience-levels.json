@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T05:17:25.134Z",
+  "generatedAt": "2026-09-08T18:20:07.254Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -41,6 +41,7 @@
     "uberlandia-eletrica-residencial": "PREMIUM",
     "thays-camilla": "PREMIUM",
     "enoel-portas": "PREMIUM",
+    "auto-socorro-dentinho": "SIGNATURE",
     "almeida-torres": "SIGNATURE",
     "eletrovale-eletromecanica": "SIGNATURE",
     "lj-cleaning": "PREMIUM",
@@ -90,9 +91,9 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 86,
+    "total": 87,
     "premium": 47,
-    "signature": 22,
+    "signature": 23,
     "baseline": 17,
     "static": 0
   }

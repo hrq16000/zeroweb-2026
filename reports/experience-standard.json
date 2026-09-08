@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-08T05:17:25.134Z",
-  "totalCatalogProjects": 86,
-  "totalPages": 86,
+  "generatedAt": "2026-09-08T18:20:07.254Z",
+  "totalCatalogProjects": 87,
+  "totalPages": 87,
   "auditCoverage": "100%",
   "missingSlugs": [],
   "premium": 47,
-  "signature": 22,
+  "signature": 23,
   "baseline": 17,
   "static": 0,
   "motion": {
@@ -14,7 +14,7 @@
     "clones": 10,
     "groups": 10,
     "signalFloor": 5,
-    "lowSignalPairs": 1702,
+    "lowSignalPairs": 1725,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -1255,6 +1255,36 @@
           "p:MotionReveal",
           "p:MotionScope",
           "h:group-hover:scale-110"
+        ]
+      }
+    },
+    {
+      "slug": "auto-socorro-dentinho",
+      "segment": "servicos",
+      "file": "src/components/site/AutoSocorroDentinhoPage.tsx",
+      "score": 44,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 8,
+        "transitions": 4,
+        "hover": 8,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "headline revela em máscara curta sobre a grade técnica",
+        "sectionSignature": "serviços numerados entram em sequência de ordem de serviço",
+        "interactionSignature": "FAQ nativo abre respostas sem deslocamento agressivo",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
         ]
       }
     },

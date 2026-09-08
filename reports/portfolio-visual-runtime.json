@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T04:54:30.099Z",
+  "generatedAt": "2026-09-08T18:18:49.103Z",
   "base": "http://127.0.0.1:8080",
   "viewports": [
     {
@@ -10050,6 +10050,125 @@
             {
               "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
               "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "auto-socorro-dentinho": {
+      "slug": "auto-socorro-dentinho",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 8,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/auto-socorro-dentinho/logo.svg",
+            "/images/auto-socorro-dentinho/hero-v2.png",
+            "/images/auto-socorro-dentinho/diagnostic-v2.png",
+            "/images/auto-socorro-dentinho/logo-inverse.svg"
+          ],
+          "h1Count": 1,
+          "h1": "Seu carro parou.A solução continua.",
+          "h2Count": 7,
+          "sections": 9,
+          "smallTargets": 1,
+          "hero": {
+            "height": 741,
+            "backgroundImage": false,
+            "heading": "Seu carro parou.A solução continua.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3244,
+          "text": "CARREGANDO Copiar divulgação Pedir atendimento QUATRO BARRAS · PARANÁ Seu carro parou. A solução continua. Auto mecânica, diagnóstico e socorro automotivo para transformar uma parada inesperada em um próximo passo organizado. Descrever o problema Ver serviços Imagem conceitual de presença digital. Não representa fotos, equipe ou oficina documentais. ORDEM DE SERVIÇO / 01 Problema não é sentença. É ponto de partida. Você não precisa saber o nome da peça. Conte o sintoma, a situação e a urgência. A equipe organiza a conversa a partir daí. 01 Mecânica Revisão, motor, freios, suspensão e manutenção conforme o diagnóstico. 02 Elétrica automotiva Leitura de sinais, bateria, alternador, ignição e sistema elétrico. 03 Socorro e reboque Quando o veículo para, o atendimento começa pelo que está acontecendo. 04 Peças e acessórios Orientação para escolher itens e reposições de acordo com a necessidade. 05 Diagnóstico técnico Uma análise inicial para transformar sintomas em um próximo passo claro. 06 Atendimento Explique a situação no canal oficial para organizar o encaminhamento. Painel visual conceitual · diagnóstico automotivo DIAGNÓSTICO / 02 Menos adivinhação. Mais direção. O atendimento começa traduzindo o que o veículo está mostrando: não liga, acendeu uma luz, perdeu força ou precisa de revisão. Sintoma e contexto primeiro Diagnóstico e encaminhamento depois Orçamento e disponibilidade confirmados no canal oficial ROTA DE ATENDIMENTO / 03 Do sintoma ao próximo passo. 01 Conte o que aconteceu Carro não liga, luz no painel, falha, revisão ou necessidade de socorro. 02 Organize a triagem As primeiras respostas ajudam a direcionar a necessidade de atendimento. 03 Combine o atendimento A disponibilidade, orçamento e encaminhamento são confirmados com a equipe. QUANDO PRECISA RESOLVER Descreva o problema. A conversa começa aqui. Solicitar atendimento DÚVIDAS / 04 Antes de chamar, pode perguntar. Quais serviços a Auto Socorro Dentinho realiza? + Atende Quatro Barras e região? + Como começo o atendimento? + SOBRE O PROJETO Seu carro parou; o próximo passo não precisa parar junto. Auto Socorro Dentinho oferece manutenção mecânica, elétrica automotiva, diagnóstico e socorro em Quatro Barras e região. Atendimento em Quatro Barras — PR. Como começar Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. auto mecanica eletrica automotiva reboque diagnostico Descrever o problema KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Auto Socorro Dentinho. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Auto Socorro Dentinho SERVICOS Auto Mecanica · Eletrica Automotiva · Reboque · Diagnostico Quatro Barras — PR 0web.com.br/portfolio/auto-socorro-dentinho Ilustração do cartão de visitas de Auto Socorro Dentinho PANFLETO DIGITAL AUTO SOCORRO DENTINHO Conheça Auto Socorro Dentinho. Auto Mecanica · Eletrica Automotiva · Reboque · Diagnostico Ver a presença digital Ilustração do panfleto digital de Auto Socorro Dentinho © 2026 · Auto Socorro Dentinho Site desenvolvido por 0WEB Contato",
+          "docHeight": 7220,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 9
+            },
+            {
+              "color": "rgb(255, 101, 24)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(9, 21, 37)",
+              "n": 3
+            },
+            {
+              "color": "rgb(243, 240, 234)",
+              "n": 2
+            },
+            {
+              "color": "rgb(247, 244, 238)",
+              "n": 2
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 8,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/auto-socorro-dentinho/logo.svg",
+            "/images/auto-socorro-dentinho/hero-v2.png",
+            "/images/auto-socorro-dentinho/diagnostic-v2.png",
+            "/images/auto-socorro-dentinho/logo-inverse.svg"
+          ],
+          "h1Count": 1,
+          "h1": "Seu carro parou.A solução continua.",
+          "h2Count": 7,
+          "sections": 9,
+          "smallTargets": 4,
+          "hero": {
+            "height": 946,
+            "backgroundImage": false,
+            "heading": "Seu carro parou.A solução continua.",
+            "headingSize": 101,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3284,
+          "text": "CARREGANDO Copiar divulgação Serviços Diagnóstico Como funciona Pedir atendimento QUATRO BARRAS · PARANÁ Seu carro parou. A solução continua. Auto mecânica, diagnóstico e socorro automotivo para transformar uma parada inesperada em um próximo passo organizado. Descrever o problema Ver serviços Imagem conceitual de presença digital. Não representa fotos, equipe ou oficina documentais. ORDEM DE SERVIÇO / 01 Problema não é sentença. É ponto de partida. Você não precisa saber o nome da peça. Conte o sintoma, a situação e a urgência. A equipe organiza a conversa a partir daí. 01 Mecânica Revisão, motor, freios, suspensão e manutenção conforme o diagnóstico. 02 Elétrica automotiva Leitura de sinais, bateria, alternador, ignição e sistema elétrico. 03 Socorro e reboque Quando o veículo para, o atendimento começa pelo que está acontecendo. 04 Peças e acessórios Orientação para escolher itens e reposições de acordo com a necessidade. 05 Diagnóstico técnico Uma análise inicial para transformar sintomas em um próximo passo claro. 06 Atendimento Explique a situação no canal oficial para organizar o encaminhamento. Painel visual conceitual · diagnóstico automotivo DIAGNÓSTICO / 02 Menos adivinhação. Mais direção. O atendimento começa traduzindo o que o veículo está mostrando: não liga, acendeu uma luz, perdeu força ou precisa de revisão. Sintoma e contexto primeiro Diagnóstico e encaminhamento depois Orçamento e disponibilidade confirmados no canal oficial ROTA DE ATENDIMENTO / 03 Do sintoma ao próximo passo. 01 Conte o que aconteceu Carro não liga, luz no painel, falha, revisão ou necessidade de socorro. 02 Organize a triagem As primeiras respostas ajudam a direcionar a necessidade de atendimento. 03 Combine o atendimento A disponibilidade, orçamento e encaminhamento são confirmados com a equipe. QUANDO PRECISA RESOLVER Descreva o problema. A conversa começa aqui. Solicitar atendimento DÚVIDAS / 04 Antes de chamar, pode perguntar. Quais serviços a Auto Socorro Dentinho realiza? + Atende Quatro Barras e região? + Como começo o atendimento? + SOBRE O PROJETO Seu carro parou; o próximo passo não precisa parar junto. Auto Socorro Dentinho oferece manutenção mecânica, elétrica automotiva, diagnóstico e socorro em Quatro Barras e região. Atendimento em Quatro Barras — PR. Como começar Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. auto mecanica eletrica automotiva reboque diagnostico Descrever o problema KIT DE PRESENÇA E PAPELARIA Uma marca completa também se reconhece no papel. Veja as peças de presença preparadas, construídas com a logo e a imagem social de Auto Socorro Dentinho. O cartão e o panfleto mantêm o mesmo segmento, linguagem e região do projeto. Cartão + panfleto CARTÃO DE VISITAS Auto Socorro Dentinho SERVICOS Auto Mecanica · Eletrica Automotiva · Reboque · Diagnostico Quatro Barras — PR 0web.com.br/portfolio/auto-socorro-dentinho Ilustração do cartão de visitas de Auto Socorro Dentinho PANFLETO DIGITAL AUTO SOCORRO DENTINHO Conheça Auto Socorro Dentinho. Auto Mecanica · Eletrica Automotiva · Reboque · Diagnostico Ver a presença digital Ilustração do panfleto digital de Auto Socorro Dentinho © 2026 · Auto Socorro Dentinho Site desenvolvido por 0WEB Fale conosco",
+          "docHeight": 5196,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 9
+            },
+            {
+              "color": "rgb(255, 101, 24)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(9, 21, 37)",
+              "n": 3
+            },
+            {
+              "color": "rgb(243, 240, 234)",
+              "n": 2
+            },
+            {
+              "color": "rgb(247, 244, 238)",
+              "n": 2
             }
           ]
         }
