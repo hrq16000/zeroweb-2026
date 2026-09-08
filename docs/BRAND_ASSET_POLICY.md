@@ -24,3 +24,14 @@ Esta política se aplica à 0WEB e às marcas de todos os portfólios. Imagens
 sociais, logos de clientes e materiais fornecidos também devem ser preservados;
 recortes e adaptações só podem alterar enquadramento, jamais a identidade ou
 informações de contato.
+
+## Trava técnica da raiz institucional
+
+O wordmark oficial é servido exclusivamente por `public/0web-logo.svg` e
+referenciado por `src/assets/logo-0web.png.asset.json`. O manifesto
+`src/config/brand-integrity.json` fixa o SHA-256 do asset, e
+`validate:brand-integrity` é executado antes de cada build. Qualquer alteração
+na logo ou nesse arquivo protegido interrompe o build até haver autorização
+explícita e atualização registrada. Assets de clientes ficam isolados em
+`public/images/<slug>/`; nenhuma tarefa de portfólio pode editar a identidade
+institucional da raiz.

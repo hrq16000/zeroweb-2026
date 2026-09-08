@@ -1117,3 +1117,16 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Achados: a página ainda apontava CTAs para `menu.brendi.com.br`; o handoff moderno só consultava env e ignorava o destinatário privado administrável.
 - Alterações: todos os CTAs públicos do Brutus agora apontam para o funil próprio; o resolver server-only consulta a configuração privada de `portfolio_client_settings` (com env como precedência), sem expor telefone no bundle.
 - Validação: diff check, TypeScript e gates de catálogo/funil executados antes da publicação.
+
+# 2026-09-08 — proteção permanente da logo institucional 0WEB
+
+- **Tarefa:** restaurar a logo original exibida no cabeçalho e impedir novas
+  substituições acidentais na raiz do portal.
+- **Skills:** `0web-skill-router`, `0web-design-system`, `0web-ui-quality-gates`.
+- **Achado:** `BrandLogo` dependia de um asset remoto `/__l5e`, permitindo que a
+  arte exibida divergisse da versão original versionada.
+- **Alterações:** `BrandLogo` agora usa `public/0web-logo.svg`; manifesto SHA-256
+  e `validate:brand-integrity` tornam o asset institucional imutável durante o
+  build. A política documenta isolamento entre raiz 0WEB e assets por slug.
+- **Validação:** manifesto de integridade executado com sucesso; diff revisado
+  antes da publicação.
