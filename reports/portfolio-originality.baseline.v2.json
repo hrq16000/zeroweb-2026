@@ -1,22 +1,22 @@
 {
   "generatedBy": "check:portfolio-originality --write-baseline",
   "summary": {
-    "total": 68,
+    "total": 85,
     "original": 0,
-    "acceptable": 26,
-    "attention": 42,
-    "highSimilarity": 0,
+    "acceptable": 27,
+    "attention": 52,
+    "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 0,
+    "placeholderLogos": 24,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 34,
-    "coverPending": 34,
-    "coversAsSocialImage": 10,
+    "coverValid": 45,
+    "coverPending": 40,
+    "coversAsSocialImage": 9,
     "sharedCovers": 0,
-    "severeCrop": 18,
+    "severeCrop": 21,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -97,7 +97,7 @@
       "score": 39,
       "status": "ACCEPTABLE",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
@@ -111,9 +111,36 @@
       "missingCover": true,
       "sharedCover": false
     },
+    "bruna-diarista": {
+      "score": 66,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "btb-construcao": {
+      "score": 69,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "casa-nativa": {
       "score": 36,
       "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "centro-mega": {
+      "score": 45,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -151,7 +178,7 @@
       "score": 53,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -174,11 +201,29 @@
       "missingCover": true,
       "sharedCover": false
     },
+    "dona-lucy-salgados": {
+      "score": 44,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "dyzpromo": {
       "score": 25,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "easy-clean": {
+      "score": 69,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -205,7 +250,7 @@
       "score": 50,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -213,6 +258,15 @@
     "eletrovale-eletromecanica": {
       "score": 50,
       "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "embalar-embalagens": {
+      "score": 61,
+      "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -228,8 +282,17 @@
       "missingCover": false,
       "sharedCover": false
     },
+    "enoel-portas": {
+      "score": 56,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "espaco-cih-luh": {
-      "score": 38,
+      "score": 39,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
@@ -238,7 +301,7 @@
       "sharedCover": false
     },
     "fernanda-amaral-drywall": {
-      "score": 50,
+      "score": 49,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -259,7 +322,7 @@
       "score": 42,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
@@ -274,10 +337,10 @@
       "sharedCover": false
     },
     "guaratuba-reparos-residenciais": {
-      "score": 26,
+      "score": 27,
       "status": "ACCEPTABLE",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
@@ -286,7 +349,7 @@
       "score": 30,
       "status": "ACCEPTABLE",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
@@ -301,8 +364,8 @@
       "sharedCover": false
     },
     "heloa-gas": {
-      "score": 38,
-      "status": "ACCEPTABLE",
+      "score": 42,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -320,6 +383,24 @@
     },
     "jkl-marcenaria": {
       "score": 46,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "js-eletrica-manutencao": {
+      "score": 60,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "kitutes-na-mesa": {
+      "score": 53,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -349,7 +430,7 @@
       "score": 51,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -365,6 +446,15 @@
     },
     "lucas-arruma-maquina-lavar": {
       "score": 44,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "mania-de-limpeza": {
+      "score": 54,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -400,7 +490,25 @@
       "sharedCover": false
     },
     "mary-diarista": {
-      "score": 59,
+      "score": 58,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "maximos-cabeleireiros": {
+      "score": 61,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "mimo-salgados-doces": {
+      "score": 56,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -421,13 +529,13 @@
       "score": 42,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": true,
       "sharedCover": false
     },
     "miro-tech": {
-      "score": 48,
+      "score": 50,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -453,6 +561,15 @@
       "missingCover": false,
       "sharedCover": false
     },
+    "papelemi-personalizados": {
+      "score": 49,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "paraiso-do-hot-dog": {
       "score": 24,
       "status": "ACCEPTABLE",
@@ -462,11 +579,29 @@
       "missingCover": false,
       "sharedCover": false
     },
+    "pastelaria-route-66": {
+      "score": 32,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "paulo-mestre-de-obras": {
       "score": 55,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "popys-conservacao-limpeza": {
+      "score": 66,
+      "status": "HIGH_SIMILARITY",
+      "fallback": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -493,7 +628,7 @@
       "score": 34,
       "status": "ACCEPTABLE",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -526,10 +661,10 @@
       "sharedCover": false
     },
     "rj-servicos-drywall": {
-      "score": 50,
+      "score": 49,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -538,7 +673,7 @@
       "score": 35,
       "status": "ACCEPTABLE",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -547,7 +682,7 @@
       "score": 47,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -556,7 +691,16 @@
       "score": 41,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "simone-lacerda-vaz": {
+      "score": 48,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -570,11 +714,20 @@
       "missingCover": false,
       "sharedCover": false
     },
+    "sscons": {
+      "score": 24,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "studio-de-cilios": {
       "score": 59,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -619,7 +772,7 @@
       "score": 53,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false

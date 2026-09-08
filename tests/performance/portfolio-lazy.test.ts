@@ -47,7 +47,7 @@ describe("abstrações de performance", () => {
   const lazySection = read("src/components/portfolio/LazySection.tsx");
 
   test("PortfolioImage é lazy por padrão e eager apenas com priority", () => {
-    expect(image).toContain('loading={priority ? "eager" : "lazy"}');
+    expect(image).toContain('loading={priority ? "eager" : loading ?? "lazy"}');
     expect(image).toContain('fetchPriority={priority ? "high" : "auto"}');
     expect(image).toContain('decoding="async"');
   });

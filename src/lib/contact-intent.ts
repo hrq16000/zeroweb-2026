@@ -80,6 +80,33 @@ function optionalSlug(v: unknown): string | undefined {
 /** Funil comercial genérico. */
 const COMMON_FUNNEL = "funnel-common";
 
+/**
+ * Projetos de /portfolio que possuem funil próprio publicado. O atendimento
+ * do cliente sempre tem precedência sobre o funil comercial da 0WEB.
+ */
+const PORTFOLIO_FUNNEL_COMPANIES = new Set([
+  "angel-mix-brecho",
+  "beto-pasteis",
+  "brecho-sao-francisco",
+  "confeitaria-sabor-da-realeza",
+  "dlara-pizzaria",
+  "galileu-locacao-brinquedos",
+  "heloa-gas",
+  "lj-cleaning",
+  "lolipa-arte-em-festas",
+  "manu-pasteis",
+  "marmitaria-dom-diego",
+  "miro-tech",
+  "paraiso-hot-dog",
+  "pastelaria-route-66",
+  "premium-envelopamentos",
+  "reuse-house-brecho",
+  "rm-fretes",
+  "sscons",
+  "toquinho-de-gente-brecho",
+  "woodhouse-hamburgueres",
+]);
+
 /** Small, safe funnel allowlist. Nothing else may be resolved. */
 const ALLOWED_FUNNELS = new Set([
   "diagnostico-0web",
@@ -89,7 +116,7 @@ const ALLOWED_FUNNELS = new Set([
   "funnel-partner",
   "funnel-lgpd",
   "funnel-order-support",
-  "funnel-paraiso-hot-dog",
+  ...[...PORTFOLIO_FUNNEL_COMPANIES].map((c) => `funnel-${c}`),
 ]);
 
 /**
@@ -100,6 +127,10 @@ const ALLOWED_FUNNELS = new Set([
  * caller or the URL.
  */
 export function resolveFunnelFromIntent(intent: ContactIntent): string {
+  // Página de cliente: nunca cair no funil comercial da 0WEB.
+  if (intent.companySlug && PORTFOLIO_FUNNEL_COMPANIES.has(intent.companySlug)) {
+    return `funnel-${intent.companySlug}`;
+  }
   switch (intent.purpose) {
     case "lgpd":
       return "funnel-lgpd";
@@ -115,6 +146,7 @@ export function resolveFunnelFromIntent(intent: ContactIntent): string {
       return intent.serviceSlug ? "funnel-service" : COMMON_FUNNEL;
   }
 }
+
 
 
 /**
