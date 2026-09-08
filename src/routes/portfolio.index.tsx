@@ -352,11 +352,19 @@ export const Route = createFileRoute("/portfolio/")({
           {
             "@type": "CollectionPage",
             "@id": `${URL}#collection`,
-            url: URL,
-            name: TITLE,
-            description: DESC,
+            url: query ? `${URL}?q=${encodeURIComponent(query)}` : URL,
+            name: TITLE_Q,
+            description: DESC_Q,
             inLanguage: "pt-BR",
             isPartOf: { "@id": `${SITE_URL}/#organization` },
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: `${URL}?q={search_term_string}`,
+              },
+              "query-input": "required name=search_term_string",
+            },
           },
           ...PORTFOLIO_SEGMENTS.map((s) => serviceNode(s)),
           itemListNode(
