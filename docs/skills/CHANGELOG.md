@@ -1,5 +1,11 @@
 # Skill changelog / usage log
 
+## 2026-09-08 — Auto Socorro Dentinho
+
+- Projeto real integrado à `main` com identidade, capa, logo, funil, SEO e registro de catálogo próprios.
+- Skills aplicadas: `0web-skill-router`, discovery, direção de arte, design system e quality gates.
+- Publicação feita somente no repositório oficial `zeroweb-2026`.
+
 ## 2026-09-08 — Your Brutus Burguer
 
 - Criação de `/portfolio/your-brutus-burguer` com `0web-skill-router`, discovery, direção de arte, design system, quality gates e imagegen.

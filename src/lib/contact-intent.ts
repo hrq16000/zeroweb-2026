@@ -99,6 +99,7 @@ const PORTFOLIO_FUNNEL_COMPANIES = new Set([
   "miro-tech",
   "paraiso-hot-dog",
   "pastelaria-route-66",
+  "auto-socorro-dentinho",
   "premium-envelopamentos",
   "reuse-house-brecho",
   "rm-fretes",

@@ -1221,6 +1221,23 @@
       "desktopBehavior": "placa Route 66 desliza e revela a fachada real",
       "tabletBehavior": "split vira pilha preservando foto",
       "mobileBehavior": "sem deslocamento no toque; conteúdo segue acessível"
+    },
+    "auto-socorro-dentinho": {
+      "intensity": "EXPRESSIVE",
+      "preset": "TECHNICAL",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "painel de diagnóstico revela por máscara e trilho de serviço entra em sequência",
+      "tabletBehavior": "painel empilha sobre a narrativa preservando a leitura",
+      "mobileBehavior": "sem deslocamento no toque; ordem de serviço segue acessível"
     }
   },
   "decisions": {
@@ -1654,6 +1671,22 @@
       "motionIntensity": "BALANCED",
       "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
       "performanceNote": "Somente transform/opacity; hero único prioritário e imagens abaixo da dobra lazy."
+    },
+    "auto-socorro-dentinho": {
+      "wave": "DENTINHO_DIAGNOSTIC",
+      "segment": "prestadores-de-servicos",
+      "motionIntent": "DIAGNOSTICO E DIRECAO",
+      "whyThisMotion": "O movimento segue a lógica da oficina: sintomas entram, o painel organiza e a direção aparece sem interromper a leitura.",
+      "signatureMoments": {
+        "hero": "headline revela em máscara curta sobre a grade técnica",
+        "section": "serviços numerados entram em sequência de ordem de serviço",
+        "interaction": "FAQ nativo abre respostas sem deslocamento agressivo"
+      },
+      "motionIntensity": "EXPRESSIVE",
+      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
+      "performanceNote": "Somente transform/opacity/clip-path; arte SVG única prioritária e conteúdo sem JS.",
+      "accessibilityNotes": "prefers-reduced-motion remove deslocamento e mantém conteúdo/ordem no DOM.",
+      "originalityNotes": "Painel de diagnóstico e trilho de decisão próprios; não replica o blueprint do Centro Mega."
     }
   }
 }

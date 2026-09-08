@@ -1103,5 +1103,24 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/your-brutus-burguer.md"
+  },
+  {
+    "clientKey": "auto-socorro-dentinho",
+    "slug": "auto-socorro-dentinho",
+    "siteName": "Auto Socorro Dentinho",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AutoSocorroDentinhoPage.tsx",
+    "assetsDir": "public/images/auto-socorro-dentinho",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/auto-socorro-dentinho.md",
+    "funnelRecipientConfigured": false,
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Prompt, prints e protótipo UXPilot fornecidos nesta solicitação",
+      "reference": "https://uxpilot.ai/s/8725896efb3e01ecb180fb55319390cb"
+    }
   }
 ]

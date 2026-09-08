@@ -569,6 +569,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "auto-socorro-dentinho",
+    vertical: "prestadores-de-servicos",
+    siteName: "Auto Socorro Dentinho · Quatro Barras",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {
