@@ -1,5 +1,18 @@
 # Skill changelog / usage log
 
+## 2026-09-08 — zona institucional 0WEB congelada
+
+- **Decisão oficial:** logo, fonte, `Header`, `Footer`, `BrandLogo`, estilos
+  globais e respectivos manifests da 0WEB não podem ser alterados por ciclos
+  de portfólio ou manutenção de clientes.
+- **Skills aplicadas:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-design-system` e `0web-ui-quality-gates`.
+- **Trava técnica:** o manifesto de integridade agora protege o PNG original,
+  a referência do asset, os componentes institucionais e `src/styles.css`;
+  o gate roda no prebuild e no CI.
+- **Exceção:** somente autorização explícita do responsável, changelog e
+  revisão visual da raiz permitem atualizar essa zona.
+
 ## 2026-09-08 — restauração da marca 0WEB e reconstrução do Dentinho
 
 - **Tarefa:** corrigir a regressão visual posterior à publicação do Brutus sem

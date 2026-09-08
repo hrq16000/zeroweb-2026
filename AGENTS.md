@@ -30,6 +30,14 @@ não deixar trabalho pendente em cópias locais ou hospedagens externas.
 
 # Regra oficial da zona de portfolios
 
+## Zona institucional 0WEB — congelada
+
+Logo, fontes, `Header`, `Footer`, `BrandLogo`, `src/styles.css` e os manifests
+institucionais são imutáveis. Nunca os altere em tarefas de portfólio, catálogo,
+funil, SEO ou manutenção de cliente. Consulte `docs/BRAND_ASSET_POLICY.md` e
+execute `bun run validate:brand-integrity`; qualquer exceção exige autorização
+explícita do responsável, changelog e revisão visual da raiz.
+
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 `docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/PORTFOLIO_CAPABILITY_PALETTE.md` e execute `bun run validate:portfolio-boundaries`.

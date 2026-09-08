@@ -35,3 +35,21 @@ na logo ou nesse arquivo protegido interrompe o build até haver autorização
 explícita e atualização registrada. Assets de clientes ficam isolados em
 `public/images/<slug>/`; nenhuma tarefa de portfólio pode editar a identidade
 institucional da raiz.
+
+## Zona institucional congelada
+
+Por decisão oficial do responsável, os arquivos abaixo são uma zona congelada:
+
+- `public/0web-logo.png`;
+- `src/assets/logo-0web.png.asset.json`;
+- `src/components/site/BrandLogo.tsx`;
+- `src/components/site/Header.tsx` e `src/components/site/Footer.tsx`;
+- `src/styles.css`, inclusive as fontes institucionais `Space Grotesk` e
+  `Inter`.
+
+Esses arquivos têm hash registrado em `src/config/brand-integrity.json` e são
+validados no prebuild e no CI. Trabalho em `/portfolio`, assets de clientes,
+funis, catálogo ou qualquer melhoria comercial **não autoriza** tocá-los.
+Qualquer exceção só pode acontecer por autorização explícita do responsável,
+registrada no changelog, em um ciclo isolado de marca e com revisão visual da
+raiz em desktop e mobile.

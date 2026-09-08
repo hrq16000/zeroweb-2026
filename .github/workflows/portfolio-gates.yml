@@ -33,6 +33,9 @@ jobs:
       - name: Privacidade em nível de fonte
         run: bun run scan:source-privacy
 
+      - name: Integridade da raiz institucional 0WEB
+        run: bun run validate:brand-integrity
+
       - name: validate:portfolio-boundaries
         run: bun run validate:portfolio-boundaries
 

@@ -2,6 +2,11 @@
   "version": 1,
   "policy": "Institutional 0WEB brand assets are immutable without explicit authorization.",
   "files": {
-    "public/0web-logo.png": "aabcf97139cc2f2b96013f65ff0aa876cf4ff346bba3d38d423a46ff86e89b0d"
+    "public/0web-logo.png": "aabcf97139cc2f2b96013f65ff0aa876cf4ff346bba3d38d423a46ff86e89b0d",
+    "src/assets/logo-0web.png.asset.json": "ff1dab84825d9098747aa7dcf5c6ebe2d13231a46a45aec6ec1b372ae42e207c",
+    "src/components/site/BrandLogo.tsx": "6909a38c0e463f0756f8e701251aa03edfd4aeb5309b932e60a4cd333abcea8e",
+    "src/components/site/Header.tsx": "a54cde43d3f21d0fef88a5ca43dab61c67875c1f9e91ede5a2bd484e736fe773",
+    "src/components/site/Footer.tsx": "4ea3004ca933814cafe9f19e67c38570050b943bc28a8597a5b29cd6b37d2f08",
+    "src/styles.css": "e864ccbdeb2e567b3c19518d20e6f15cc2bdaceb8ba7c9bc7e1c61d57ccac419"
   }
 }
