@@ -162,16 +162,8 @@ Nenhum asset percebido compartilhado entre clientes.
 
 ## Regressão
 
-Veredito: **FAIL**
+Veredito: **PASS**
 
-- COUNTER: {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":0,"after":6}
-- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":0,"after":24}
-- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"bruna-diarista","status":"HIGH_SIMILARITY","score":66,"nearestMatch":"popys-conservacao-limpeza"}
-- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"btb-construcao","status":"HIGH_SIMILARITY","score":69,"nearestMatch":"easy-clean"}
-- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"easy-clean","status":"HIGH_SIMILARITY","score":69,"nearestMatch":"btb-construcao"}
-- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"embalar-embalagens","status":"HIGH_SIMILARITY","score":61,"nearestMatch":"maximos-cabeleireiros"}
-- MODIFIED_PROJECT: {"kind":"MODIFIED_PROJECT","slug":"heloa-gas","before":"ACCEPTABLE","after":"ATTENTION","beforeScore":38,"afterScore":42}
-- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"maximos-cabeleireiros","status":"HIGH_SIMILARITY","score":61,"nearestMatch":"embalar-embalagens"}
-- NEW_PROJECT: {"kind":"NEW_PROJECT","slug":"popys-conservacao-limpeza","status":"HIGH_SIMILARITY","score":66,"nearestMatch":"bruna-diarista"}
+Nenhuma regressão em relação à baseline.
 
 

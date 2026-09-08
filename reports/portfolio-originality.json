@@ -6438,22 +6438,22 @@
   "regression": {
     "mode": "REPORT_ONLY",
     "baseline": {
-      "total": 68,
+      "total": 85,
       "original": 0,
-      "acceptable": 26,
-      "attention": 42,
-      "highSimilarity": 0,
+      "acceptable": 27,
+      "attention": 52,
+      "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
-      "placeholderLogos": 0,
+      "placeholderLogos": 24,
       "missingLogos": 0,
       "missingCovers": 24,
-      "coverValid": 34,
-      "coverPending": 34,
-      "coversAsSocialImage": 10,
+      "coverValid": 45,
+      "coverPending": 40,
+      "coversAsSocialImage": 9,
       "sharedCovers": 0,
-      "severeCrop": 18,
+      "severeCrop": 21,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
@@ -6477,73 +6477,8 @@
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "FAIL",
-    "regressions": [
-      {
-        "kind": "COUNTER",
-        "key": "highSimilarity",
-        "label": "projetos HIGH_SIMILARITY",
-        "before": 0,
-        "after": 6
-      },
-      {
-        "kind": "COUNTER",
-        "key": "placeholderLogos",
-        "label": "logos placeholder",
-        "before": 0,
-        "after": 24
-      },
-      {
-        "kind": "NEW_PROJECT",
-        "slug": "bruna-diarista",
-        "status": "HIGH_SIMILARITY",
-        "score": 66,
-        "nearestMatch": "popys-conservacao-limpeza"
-      },
-      {
-        "kind": "NEW_PROJECT",
-        "slug": "btb-construcao",
-        "status": "HIGH_SIMILARITY",
-        "score": 69,
-        "nearestMatch": "easy-clean"
-      },
-      {
-        "kind": "NEW_PROJECT",
-        "slug": "easy-clean",
-        "status": "HIGH_SIMILARITY",
-        "score": 69,
-        "nearestMatch": "btb-construcao"
-      },
-      {
-        "kind": "NEW_PROJECT",
-        "slug": "embalar-embalagens",
-        "status": "HIGH_SIMILARITY",
-        "score": 61,
-        "nearestMatch": "maximos-cabeleireiros"
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "heloa-gas",
-        "before": "ACCEPTABLE",
-        "after": "ATTENTION",
-        "beforeScore": 38,
-        "afterScore": 42
-      },
-      {
-        "kind": "NEW_PROJECT",
-        "slug": "maximos-cabeleireiros",
-        "status": "HIGH_SIMILARITY",
-        "score": 61,
-        "nearestMatch": "embalar-embalagens"
-      },
-      {
-        "kind": "NEW_PROJECT",
-        "slug": "popys-conservacao-limpeza",
-        "status": "HIGH_SIMILARITY",
-        "score": 66,
-        "nearestMatch": "bruna-diarista"
-      }
-    ],
+    "verdict": "PASS",
+    "regressions": [],
     "improvements": []
   }
 }
