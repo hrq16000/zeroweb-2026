@@ -36,6 +36,8 @@ import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
+import { searchItems } from "@/lib/portfolio-search";
+
 import {
   PORTFOLIO_SEGMENTS,
   PORTFOLIO_PLACES,
@@ -435,7 +437,7 @@ function PortfolioPage() {
   }, []);
 
   const filteredItems = useMemo(() => {
-    const query = deferredSearch.trim().toLocaleLowerCase("pt-BR");
+    const query = deferredSearch.trim();
     const city = visitorCity
       ?.normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
@@ -450,20 +452,26 @@ function PortfolioPage() {
         ? 1
         : 0;
 
-    return catalogItems.filter(
+    const base = catalogItems.filter(
       (item) =>
         (activeCategory === "todos" || item.category === activeCategory) &&
         (activeBranch === "todos" || item.tags.includes(activeBranch)) &&
         (projectType === "todos" || item.projectType === projectType) &&
-        (region === "todas" || item.location === region) &&
-        `${item.title} ${item.subtitle ?? ""} ${item.location ?? ""} ${item.tags.join(" ")}`
-          .toLocaleLowerCase("pt-BR")
-          .includes(query),
-    ).sort((a, b) => {
+        (region === "todas" || item.location === region),
+    );
+
+    // Busca por intenção: "lanche", "pastel", "pedreiro" etc. encontram o
+    // projeto certo mesmo sem a palavra exata. A ordem por relevância só vale
+    // quando há busca; sem busca mantemos a ordenação escolhida.
+    const found = searchItems(query, base);
+    if (query && sort !== "az") return found;
+
+    return [...found].sort((a, b) => {
       if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
       return locationScore(b.location) - locationScore(a.location);
     });
   }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, sort, visitorCity]);
+
 
   useEffect(() => {
     const params = new URLSearchParams();
