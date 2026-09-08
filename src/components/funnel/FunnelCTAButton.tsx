@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { useFunnel, type FunnelPageType } from "@/hooks/useFunnel";
 import { FunnelModalWrapper } from "./FunnelModalWrapper";
@@ -88,6 +88,17 @@ export function FunnelCTAButton({
   const funnelSlug = funnelSlugOverride ?? formSlug ?? resolvedFunnelSlug;
 
   const clickingRef = useRef(false);
+
+  // Clique disparado antes da hidratação: o script inicial segura o slug e o
+  // modal do projeto abre assim que este componente monta.
+  useEffect(() => {
+    const w = window as unknown as { __0webPendingFunnel?: string };
+    if (w.__0webPendingFunnel && w.__0webPendingFunnel === funnelSlug) {
+      w.__0webPendingFunnel = undefined;
+      openFunnel();
+    }
+  }, [funnelSlug, openFunnel]);
+
 
   // Páginas de portfólio nunca podem cair no /contato da 0WEB: sem JS o link
   // abre o funil próprio do cliente em página cheia.
