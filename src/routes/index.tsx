@@ -104,14 +104,24 @@ export const Route = createFileRoute("/")({
               url: "https://0web.com.br",
               inLanguage: "pt-BR",
               publisher: { "@id": "https://0web.com.br/#org" },
-              potentialAction: {
-                "@type": "SearchAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: "https://0web.com.br/servicos?q={search_term_string}",
+              potentialAction: [
+                {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: "https://0web.com.br/portfolio?q={search_term_string}",
+                  },
+                  "query-input": "required name=search_term_string",
                 },
-                "query-input": "required name=search_term_string",
-              },
+                {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: "https://0web.com.br/servicos?q={search_term_string}",
+                  },
+                  "query-input": "required name=search_term_string",
+                },
+              ],
             },
             {
               "@type": "ItemList",
