@@ -27,6 +27,7 @@ import { Toaster } from "../components/ui/sonner";
 import { SpacingDebugOverlay } from "../components/site/SpacingDebugOverlay";
 import { logNotFound } from "../lib/route-404.functions";
 import { HYDRATION_GUARD_SCRIPT } from "@/lib/hydration-guard";
+import { FUNNEL_EARLY_CLICK_SCRIPT } from "@/lib/funnel-early-click";
 
 const NOT_FOUND_SERVICES: Array<{ slug: string; name: string; desc: string; Icon: typeof Globe }> = [
   { slug: "criacao-de-sites", name: "Criação de Sites", desc: "Sites profissionais, rápidos e prontos para converter.", Icon: Globe },
@@ -186,6 +187,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       { children: HYDRATION_GUARD_SCRIPT },
+      { children: FUNNEL_EARLY_CLICK_SCRIPT },
       {
         type: "application/ld+json",
         children: JSON.stringify({
