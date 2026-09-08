@@ -1130,3 +1130,14 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   build. A política documenta isolamento entre raiz 0WEB e assets por slug.
 - **Validação:** manifesto de integridade executado com sucesso; diff revisado
   antes da publicação.
+
+# 2026-09-08 — auditoria de escopo do publish Your Brutus Burguer
+
+- **Tarefa:** separar a publicação do Brutus de mudanças que não pertenciam ao
+  projeto e restaurar os registros não relacionados.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-ui-quality-gates`.
+- **Correção:** restauradas as referências anteriores de Paraíso do Hot Dog,
+  R Beauty e o perfil de motion do Brutus; removido o asset social criado fora
+  do escopo. O catálogo, o componente, os assets e o funil próprios do Brutus
+  permanecem preservados.
