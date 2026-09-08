@@ -175,7 +175,7 @@ describe("análise do portfólio real", () => {
   });
 
   it("a baseline versionada reflete o relatório atual", () => {
-    const baselinePath = path.join(root, "reports/portfolio-originality.baseline.json");
+    const baselinePath = path.join(root, "reports/portfolio-originality.baseline.v2.json");
     expect(fs.existsSync(baselinePath)).toBe(true);
     const baseline = JSON.parse(fs.readFileSync(baselinePath, "utf8"));
     expect(detectRegressions(report, baseline).verdict).toBe("PASS");
