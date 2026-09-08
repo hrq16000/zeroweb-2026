@@ -379,7 +379,8 @@ export const Route = createFileRoute("/portfolio/")({
         ]),
       },
     ],
-  }),
+    };
+  },
   component: PortfolioPage,
 });
 
