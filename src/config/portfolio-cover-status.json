@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-06",
+  "generatedAt": "2026-09-08",
   "summary": {
-    "total": 83,
+    "total": 85,
     "valid": 45,
-    "pending": 38,
+    "pending": 40,
     "byStatus": {
       "VALID": 45,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 5
+      "UNCERTAIN_ORIGIN": 7
     },
     "balanced": true
   },
@@ -187,6 +187,19 @@
       "cardValid": false,
       "businessName": "Casa Nativa Bistrô",
       "segment": "servicos"
+    },
+    {
+      "slug": "centro-mega",
+      "asset": "/images/centro-mega/hero.png",
+      "catalogImage": "/images/centro-mega/hero.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Centro Mega",
+      "segment": "prestadores-de-servicos"
     },
     {
       "slug": "clinica-integrada",
@@ -811,6 +824,19 @@
       "cardValid": true,
       "businessName": "Paraíso do Hot Dog",
       "segment": "servicos"
+    },
+    {
+      "slug": "pastelaria-route-66",
+      "asset": "/images/pastelaria-route-66/hero-og.jpg",
+      "catalogImage": "/images/pastelaria-route-66/hero-og.jpg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Pastelaria e Lanchonete Route 66",
+      "segment": "restaurantes"
     },
     {
       "slug": "paulo-mestre-de-obras",

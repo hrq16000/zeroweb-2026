@@ -582,7 +582,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
-      "canonicalCoverReason": null,
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.76,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
@@ -2545,7 +2545,7 @@
         "COVER_RATIO_MISMATCH"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
-      "canonicalCoverReason": null,
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.9,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
