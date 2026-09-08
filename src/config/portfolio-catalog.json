@@ -1869,5 +1869,24 @@
     "fallbackImage": "/images/pastelaria-route-66/logo.svg",
     "metrics": "Atendimento no local, retirada e entrega",
     "summary": "Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho."
+  },
+  {
+    "slug": "your-brutus-burguer",
+    "clientKey": "your_brutus_burguer",
+    "title": "Your Brutus Burguer",
+    "segment": "restaurantes",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["hamburgueria-artesanal", "burger", "cardapio-online", "sao-jose-dos-pinhais"],
+    "live": true,
+    "subtitle": "Burgers artesanais, combos e porções",
+    "location": "Centro · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/your-brutus-burguer/hero-og.png",
+    "fallbackImage": "/images/your-brutus-burguer/logo.svg",
+    "metrics": "Cardápio oficial online",
+    "summary": "Your Brutus Burguer é uma hamburgueria artesanal em São José dos Pinhais, com cardápio oficial, burgers, combos e porções."
   }
 ]

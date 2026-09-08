@@ -1029,6 +1029,12 @@
       },
       "socialVersion": "eda032de"
     },
+    "your_brutus_burguer": {
+      "icon": "/images/your-brutus-burguer/logo.svg",
+      "socialImage": "/images/your-brutus-burguer/hero-og.png",
+      "proof": { "eyebrow": "Your Brutus Burguer", "title": "A rota certa para um burger encorpado.", "description": "Consulte burgers, combos e porções diretamente no cardápio oficial.", "ctaLabel": "Abrir cardápio", "ctaHref": "https://menu.brendi.com.br/brutus-burguer-afonso-pena/" },
+      "socialVersion": "brutus-v1"
+    },
     "pastelaria-route-66": {
       "icon": "/images/pastelaria-route-66/logo.svg",
       "socialImage": "/images/pastelaria-route-66/hero-og.jpg",

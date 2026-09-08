@@ -105,6 +105,7 @@ const PORTFOLIO_FUNNEL_COMPANIES = new Set([
   "sscons",
   "toquinho-de-gente-brecho",
   "woodhouse-hamburgueres",
+  "your-brutus-burguer",
 ]);
 
 /** Small, safe funnel allowlist. Nothing else may be resolved. */

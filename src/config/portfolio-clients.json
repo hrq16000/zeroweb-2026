@@ -1090,5 +1090,18 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/pastelaria-route-66.md"
+  },
+  {
+    "clientKey": "your_brutus_burguer",
+    "slug": "your-brutus-burguer",
+    "siteName": "Your Brutus Burguer",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/YourBrutusBurguerPage.tsx",
+    "assetsDir": "public/images/your-brutus-burguer",
+    "ctaMode": "ordering",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/your-brutus-burguer.md"
   }
 ]

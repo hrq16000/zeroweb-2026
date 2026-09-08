@@ -11,6 +11,7 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
+  { slug: "your-brutus-burguer", vertical: "restaurantes", siteName: "Your Brutus Burguer · São José dos Pinhais", kind: "prototype", indexable: true },
   {
     slug: "sos-presentes-cosmeticos",
     vertical: "comercios",

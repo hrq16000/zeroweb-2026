@@ -1171,6 +1171,23 @@
       "tabletBehavior": "split vira pilha preservando foto e cardápio",
       "mobileBehavior": "sem deslocamento no toque; botões de pedido ficam sempre alcançáveis"
     },
+    "your-brutus-burguer": {
+      "intensity": "EXPRESSIVE",
+      "preset": "ROAD_POSTER",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "clip",
+      "textReveal": "mask",
+      "iconMotion": "none",
+      "hoverBehavior": "depth",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "título e rota entram em camadas curtas; arte permanece estável",
+      "tabletBehavior": "camadas preservadas sem deslocamento longo",
+      "mobileBehavior": "reveal reduzido para fade, sem animação no toque"
+    },
     "centro-mega": {
       "intensity": "BALANCED",
       "preset": "TECHNICAL",
