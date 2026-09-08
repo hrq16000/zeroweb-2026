@@ -17,10 +17,10 @@
     "clone": 81
   },
   "summary": {
-    "total": 85,
+    "total": 86,
     "original": 0,
     "acceptable": 27,
-    "attention": 52,
+    "attention": 53,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
@@ -29,8 +29,8 @@
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 45,
-    "coverPending": 40,
-    "coversAsSocialImage": 9,
+    "coverPending": 41,
+    "coversAsSocialImage": 10,
     "sharedCovers": 0,
     "severeCrop": 21,
     "invalidCrossClientAssets": 0,
@@ -3436,6 +3436,47 @@
         "sectionCount": 2,
         "lines": 152
       }
+    },
+    {
+      "slug": "your-brutus-burguer",
+      "title": "Your Brutus Burguer",
+      "segment": "restaurantes",
+      "componentFile": "src/components/site/YourBrutusBurguerPage.tsx",
+      "score": 45,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "mimo-salgados-doces",
+      "nearestMatchScore": 45,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 36.4,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 28.6,
+        "STYLE_SIMILARITY": 51.6,
+        "COPY_SIMILARITY": 2.8,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 3.3
+      },
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.9,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "cb3dc7636a760d31",
+        "structureHash": "8cdc5cdf2c3c4c32",
+        "sectionCount": 8,
+        "lines": 20
+      }
     }
   ],
   "clusters": [],
@@ -3948,7 +3989,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 3570,
+    "totalPairs": 3655,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -4093,12 +4134,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "mimo-salgados-doces",
-          "score": 37,
+          "slug": "your-brutus-burguer",
+          "score": 39,
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
+          "slug": "mimo-salgados-doces",
           "score": 37,
           "reason": "DISTINCT"
         }
@@ -5394,6 +5435,23 @@
           "score": 30,
           "reason": "DISTINCT"
         }
+      ],
+      "your-brutus-burguer": [
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "diego-montador-moveis",
+          "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "kitutes-na-mesa",
+          "score": 40,
+          "reason": "DISTINCT"
+        }
       ]
     }
   },
@@ -6154,7 +6212,7 @@
         "v2Nearest": "kitutes-na-mesa",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 33.3,
+        "v1AssetPattern": 30,
         "v2AssetPattern": 9
       },
       {
@@ -6432,11 +6490,23 @@
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
         "v2AssetPattern": 15
+      },
+      {
+        "slug": "your-brutus-burguer",
+        "v1Score": 44,
+        "v2Score": 45,
+        "delta": 1,
+        "v1Nearest": "mimo-salgados-doces",
+        "v2Nearest": "mimo-salgados-doces",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 5
       }
     ]
   },
   "regression": {
-    "mode": "REPORT_ONLY",
+    "mode": "NEW_OR_MODIFIED",
     "baseline": {
       "total": 85,
       "original": 0,
@@ -6458,10 +6528,10 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 85,
+      "total": 86,
       "original": 0,
       "acceptable": 27,
-      "attention": 52,
+      "attention": 53,
       "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
@@ -6470,8 +6540,8 @@
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 45,
-      "coverPending": 40,
-      "coversAsSocialImage": 9,
+      "coverPending": 41,
+      "coversAsSocialImage": 10,
       "sharedCovers": 0,
       "severeCrop": 21,
       "invalidCrossClientAssets": 0,

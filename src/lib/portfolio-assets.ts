@@ -1,9 +1,18 @@
 import assets from "@/config/portfolio-assets.json";
+import portfolioCatalog from "@/config/portfolio-catalog.json";
 
 export type PortfolioAssetConfig = (typeof assets.clients)[keyof typeof assets.clients];
 
-export function resolvePortfolioAssets(slug: string): PortfolioAssetConfig | undefined {
-  return assets.clients[slug as keyof typeof assets.clients];
+export function resolvePortfolioAssets(slugOrClientKey: string): PortfolioAssetConfig | undefined {
+  const record = (portfolioCatalog as Array<{ slug: string; clientKey?: string }>).find(
+    (item) => item.slug === slugOrClientKey || item.clientKey === slugOrClientKey,
+  );
+  const clientKey = record?.clientKey ?? slugOrClientKey;
+
+  return (
+    assets.clients[clientKey as keyof typeof assets.clients] ??
+    assets.clients[slugOrClientKey as keyof typeof assets.clients]
+  );
 }
 
 /**

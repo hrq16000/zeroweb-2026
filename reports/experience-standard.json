@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-06T09:49:06.849Z",
-  "totalCatalogProjects": 79,
-  "totalPages": 79,
+  "generatedAt": "2026-09-08T05:17:25.134Z",
+  "totalCatalogProjects": 86,
+  "totalPages": 86,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 42,
-  "signature": 21,
-  "baseline": 16,
+  "premium": 47,
+  "signature": 22,
+  "baseline": 17,
   "static": 0,
   "motion": {
     "cloneThreshold": 95,
     "groupThreshold": 85,
-    "clones": 7,
-    "groups": 8,
+    "clones": 10,
+    "groups": 10,
     "signalFloor": 5,
-    "lowSignalPairs": 1485,
+    "lowSignalPairs": 1702,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -50,6 +50,30 @@
         "signal": "COMPARABLE"
       },
       {
+        "a": "js-eletrica-manutencao",
+        "b": "kitutes-na-mesa",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "maximos-cabeleireiros",
+        "b": "kitutes-na-mesa",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
+        "a": "mania-de-limpeza",
+        "b": "dona-lucy-salgados",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
         "a": "popys-conservacao-limpeza",
         "b": "btb-construcao",
         "similarity": 95,
@@ -72,30 +96,6 @@
         "perceptual": 100,
         "tokens": 83,
         "signal": "COMPARABLE"
-      },
-      {
-        "a": "js-eletrica-manutencao",
-        "b": "embalar-embalagens",
-        "similarity": 93,
-        "perceptual": 100,
-        "tokens": 75,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "maximos-cabeleireiros",
-        "b": "embalar-embalagens",
-        "similarity": 93,
-        "perceptual": 100,
-        "tokens": 75,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "confeitaria-chyrley",
-        "b": "guaratuba-sabores-da-baia",
-        "similarity": 92,
-        "perceptual": 100,
-        "tokens": 73,
-        "signal": "COMPARABLE"
       }
     ],
     "groupMembers": [
@@ -108,7 +108,14 @@
       [
         "js-eletrica-manutencao",
         "maximos-cabeleireiros",
-        "embalar-embalagens"
+        "kitutes-na-mesa",
+        "embalar-embalagens",
+        "mania-de-limpeza",
+        "dona-lucy-salgados"
+      ],
+      [
+        "mania-de-limpeza",
+        "dona-lucy-salgados"
       ],
       [
         "confeitaria-chyrley",
@@ -121,6 +128,10 @@
         "lolipa-arte-em-festas",
         "premium-envelopamentos",
         "manu-pasteis"
+      ],
+      [
+        "papelemi-personalizados",
+        "enoel-portas"
       ],
       [
         "reuse-house-brecho",
@@ -385,6 +396,33 @@
       }
     },
     {
+      "slug": "pastelaria-route-66",
+      "segment": "restaurantes",
+      "file": "src/components/site/PastelariaRoute66Page.tsx",
+      "score": 8,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 4,
+        "hover": 4,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "d:duration-700",
+          "h:hover:scale-[1.02]"
+        ]
+      }
+    },
+    {
       "slug": "emporio-lelecute",
       "segment": "servicos",
       "file": "src/components/site/EmporioLelecutePage.tsx",
@@ -645,6 +683,37 @@
       }
     },
     {
+      "slug": "centro-mega",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/CentroMegaPage.tsx",
+      "score": 25,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 5,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "headline revela em máscara curta",
+        "sectionSignature": "cards entram em sequência de grade",
+        "interactionSignature": "âncoras conduzem pelos canais",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "h:group-hover:translate-x-1"
+        ]
+      }
+    },
+    {
       "slug": "dlara-pizzaria",
       "segment": "restaurantes",
       "file": "src/components/site/DlaraPizzariaPage.tsx",
@@ -706,6 +775,38 @@
           "i:intensity=\"SUBTLE\"",
           "p:MotionReveal",
           "d:duration-200"
+        ]
+      }
+    },
+    {
+      "slug": "mania-de-limpeza",
+      "segment": "servicos",
+      "file": "src/components/site/ManiaDeLimpezaPage.tsx",
+      "score": 36,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
         ]
       }
     },
@@ -834,6 +935,68 @@
           "d:duration-200",
           "d:duration-300",
           "h:group-hover:translate-x-1.5"
+        ]
+      }
+    },
+    {
+      "slug": "dona-lucy-salgados",
+      "segment": "restaurantes",
+      "file": "src/components/site/DonaLucySalgadosPage.tsx",
+      "score": 38,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 0,
+        "hover": 6,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
+      }
+    },
+    {
+      "slug": "your-brutus-burguer",
+      "segment": "restaurantes",
+      "file": "src/components/site/YourBrutusBurguerPage.tsx",
+      "score": 38,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 3,
+        "hover": 3,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope"
         ]
       }
     },
@@ -1059,6 +1222,39 @@
           "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal"
+        ]
+      }
+    },
+    {
+      "slug": "enoel-portas",
+      "segment": "construcao",
+      "file": "src/components/site/EnoelPortasPage.tsx",
+      "score": 43,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 8,
+        "transitions": 0,
+        "hover": 11,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "HOVER_SCALE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "h:group-hover:scale-110"
         ]
       }
     },
@@ -1680,6 +1876,40 @@
           "e:Reveal:h1",
           "i:intensity=\"EXPRESSIVE\"",
           "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope"
+        ]
+      }
+    },
+    {
+      "slug": "kitutes-na-mesa",
+      "segment": "restaurantes",
+      "file": "src/components/site/KitutesNaMesaPage.tsx",
+      "score": 52,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 12,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:mask",
+          "v:Reveal:right",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "i:intensity=\"EXPRESSIVE\"",
           "p:MotionReveal",
           "p:MotionScope"
         ]

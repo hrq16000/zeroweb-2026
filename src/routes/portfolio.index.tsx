@@ -467,6 +467,7 @@ function PortfolioPage() {
         ? 1
         : 0;
 
+    const recencyById = new Map(catalogItems.map((item, index) => [item.id, index]));
     const base = catalogItems.filter(
       (item) =>
         (activeCategory === "todos" || item.category === activeCategory) &&
@@ -483,7 +484,13 @@ function PortfolioPage() {
 
     return [...found].sort((a, b) => {
       if (sort === "az") return a.title.localeCompare(b.title, "pt-BR");
-      return locationScore(b.location) - locationScore(a.location);
+      const proximity = locationScore(b.location) - locationScore(a.location);
+      if (proximity !== 0) return proximity;
+
+      // O catálogo canônico é append-only: o último registro publicado é o
+      // mais recente. Sem este desempate, a tela dizia “Mais recentes”, mas
+      // preservava a ordem antiga e escondia clientes novos atrás do load-more.
+      return (recencyById.get(b.id) ?? -1) - (recencyById.get(a.id) ?? -1);
     });
   }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, sort, visitorCity]);
 

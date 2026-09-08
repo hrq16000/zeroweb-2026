@@ -425,6 +425,9 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
   const coverStatus = readJson("src/config/portfolio-cover-status.json");
   const coverStatusBySlug = new Map((coverStatus.projects ?? []).map((r) => [r.slug, r]));
   const clientBySlug = new Map(clients.map((c) => [c.slug ?? c.clientKey, c]));
+  // O endereço público é o slug, mas o contrato de assets pertence ao
+  // clientKey. Ambos precisam resolver para a mesma identidade de marca.
+  const assetsFor = (item) => assetsCfg.clients?.[item.clientKey] ?? assetsCfg.clients?.[item.slug] ?? {};
 
   // Template de vertical usado como fallback quando não há componente próprio.
   const verticalSource = fs.readFileSync(path.join(root, "src/routes/sites.$vertical.tsx"), "utf8");
@@ -441,7 +444,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
     assetUsage.get(key).add(slug);
   };
   for (const item of catalog) {
-    const a = assetsCfg.clients?.[item.slug];
+    const a = assetsFor(item);
     bump(item.image, item.slug);
     bump(a?.icon, item.slug);
     bump(a?.socialImage, item.slug);
@@ -459,7 +462,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
   const assetHashOwners = new Map(); // hash -> [{slug, kind, path}]
   const perSlugAssets = new Map();
   for (const item of catalog) {
-    const a = assetsCfg.clients?.[item.slug] ?? {};
+    const a = assetsFor(item);
     const entries = [
       ["BRAND", a.icon],
       ["COVER", item.image],
@@ -478,7 +481,7 @@ export function analyzePortfolio(root, { metricVersion = ORIGINALITY_METRIC_VERS
   for (const item of catalog) {
     const slug = item.slug;
     const client = clientBySlug.get(slug);
-    const assets = assetsCfg.clients?.[slug] ?? {};
+    const assets = assetsFor(item);
     const componentFile = client?.componentFile ?? "";
     const componentPath = componentFile ? path.join(root, componentFile) : "";
     const hasOwnComponent = Boolean(componentPath && fs.existsSync(componentPath));

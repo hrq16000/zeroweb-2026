@@ -57,7 +57,7 @@ originalidade: nenhuma página pública mudou.
 | liz-moraes-nail-designer | kitutes-na-mesa | mp-festas-eventos | 55 | 54 | -1 | SIM | METRIC_CORRECTION | 40 | 2.1 |
 | lolipa-arte-em-festas | confeitaria-sabor-da-realeza | confeitaria-sabor-da-realeza | 39 | 38 | -1 | não | METRIC_CORRECTION | 20 | 7.5 |
 | papelemi-personalizados | embalar-embalagens | embalar-embalagens | 50 | 49 | -1 | não | METRIC_CORRECTION | 28.6 | 3.8 |
-| paraiso-do-hot-dog | refrigeracao-maresia | kitutes-na-mesa | 25 | 24 | -1 | SIM | METRIC_CORRECTION | 33.3 | 9 |
+| paraiso-do-hot-dog | refrigeracao-maresia | kitutes-na-mesa | 25 | 24 | -1 | SIM | METRIC_CORRECTION | 30 | 9 |
 | paulo-mestre-de-obras | diego-montador-moveis | diego-montador-moveis | 56 | 55 | -1 | não | METRIC_CORRECTION | 20 | 4.3 |
 | popys-conservacao-limpeza | bruna-diarista | bruna-diarista | 67 | 66 | -1 | não | METRIC_CORRECTION | 50 | 15 |
 | premium-envelopamentos | lolipa-arte-em-festas | jc-revestimentos | 31 | 30 | -1 | SIM | METRIC_CORRECTION | 27.3 | 10 |
@@ -99,3 +99,4 @@ originalidade: nenhuma página pública mudou.
 | studio-de-cilios | mp-festas-eventos | mp-festas-eventos | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
 | confeitaria-chyrley | studio-de-cilios | studio-de-cilios | 55 | 56 | 1 | não | METRIC_SENSITIVITY | 0 | 8.6 |
 | mimo-salgados-doces | popys-conservacao-limpeza | popys-conservacao-limpeza | 55 | 56 | 1 | não | METRIC_SENSITIVITY | 0 | 5 |
+| your-brutus-burguer | mimo-salgados-doces | mimo-salgados-doces | 44 | 45 | 1 | não | METRIC_SENSITIVITY | 0 | 5 |

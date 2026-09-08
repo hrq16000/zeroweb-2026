@@ -74,7 +74,10 @@ export function buildRecords(root) {
     const issues = [];
 
     const client = clientBySlug.get(slug);
-    const assets = assetsCfg.clients?.[slug];
+    // Assets pertencem ao clientKey; o slug é o endereço público. A maioria
+    // dos projetos usa a mesma string para ambos, mas novos clientes podem
+    // ter uma chave interna distinta sem perder logo ou OG no catálogo.
+    const assets = assetsCfg.clients?.[item.clientKey] ?? assetsCfg.clients?.[slug];
     const assetsDir = path.join(root, "public/images", slug);
     const dirFiles = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
 
@@ -82,9 +85,24 @@ export function buildRecords(root) {
       issues.push(CODES.BRAND);
     }
 
-    const ownsPath = (value) =>
-      typeof value === "string" &&
-      (value.includes(`/images/${slug}/`) || value.includes(slug.split("-")[0]));
+    const ownsPath = (value) => {
+      if (typeof value !== "string") return false;
+      const identity = item.clientKey ?? slug;
+      const slugVariants = [
+        slug,
+        identity,
+        slug.replaceAll("_", "-"),
+        slug.replaceAll("-", "_"),
+        identity.replaceAll("_", "-"),
+        identity.replaceAll("-", "_"),
+      ];
+      return slugVariants.some(
+        (variant) =>
+          value.includes(`/images/${variant}/`) ||
+          value.includes(`/images/${variant}-`) ||
+          value.includes(`/images/${variant}.`),
+      );
+    };
 
     const icon = assets?.icon;
     if (!icon || !ownsPath(icon) || !fileExists(icon)) issues.push(CODES.LOGO);

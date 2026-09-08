@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 277" role="img" aria-labelledby="title">
+  <title>0WEB — Do zero ao digital</title>
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#165DFF"/>
+      <stop offset="1" stop-color="#00A8FF"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#blue)">
+    <rect x="26" y="58" width="34" height="34" rx="7"/>
+    <rect x="26" y="108" width="34" height="34" rx="7"/>
+    <rect x="26" y="158" width="34" height="34" rx="7"/>
+    <rect x="76" y="28" width="110" height="194" rx="31"/>
+  </g>
+  <path fill="#fff" d="M115 66h32c20 0 32 13 32 32v54c0 19-12 32-32 32h-32c-20 0-32-13-32-32V98c0-19 12-32 32-32Zm3 34v50h27V100h-27Z"/>
+  <text x="215" y="161" fill="#0B1535" font-family="Arial, Helvetica, sans-serif" font-size="134" font-weight="800" letter-spacing="-10">WEB</text>
+  <text x="221" y="218" fill="#315EFF" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing="8">DO ZERO AO DIGITAL</text>
+  <g fill="#315EFF">
+    <circle cx="225" cy="244" r="5"/><circle cx="241" cy="244" r="5"/><circle cx="257" cy="244" r="5"/>
+  </g>
+  <g fill="#0B1535" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1">
+    <text x="275" y="249">SITES</text><text x="347" y="249">MARKETING</text><text x="467" y="249">IA E AUTOMAÇÃO</text><text x="645" y="249">SAAS</text>
+  </g>
+</svg>

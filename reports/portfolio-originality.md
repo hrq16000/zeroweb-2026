@@ -1,7 +1,7 @@
 # Originalidade do portfólio
 
 Gerado por `bun run check:portfolio-originality --report`. Determinístico: mesmos
-arquivos produzem o mesmo resultado. Modo atual: **REPORT_ONLY**.
+arquivos produzem o mesmo resultado. Modo atual: **NEW_OR_MODIFIED**.
 
 ## Fórmula
 
@@ -18,10 +18,10 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 85 |
+| Total | 86 |
 | ORIGINAL | 0 |
 | ACCEPTABLE | 27 |
-| ATTENTION | 52 |
+| ATTENTION | 53 |
 | HIGH_SIMILARITY | 6 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
@@ -30,8 +30,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
 | Capas válidas (contrato canônico) | 45 |
-| Capas pendentes (contrato canônico) | 40 |
-| Capas usando imagem social | 9 |
+| Capas pendentes (contrato canônico) | 41 |
+| Capas usando imagem social | 10 |
 | Capas compartilhadas | 0 |
 | Crop severo | 21 |
 | Assets de marca cruzados (inválidos) | 0 |
@@ -119,6 +119,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | centro-mega | 45 | ATTENTION | mania-de-limpeza (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | galileu-locacao-brinquedos | 45 | ATTENTION | lj-cleaning (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | lj-cleaning | 45 | ATTENTION | galileu-locacao-brinquedos (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| your-brutus-burguer | 45 | ATTENTION | mimo-salgados-doces (45) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dona-lucy-salgados | 44 | ATTENTION | mania-de-limpeza (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | lucas-arruma-maquina-lavar | 44 | ATTENTION | denise-gomes-psicologa (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | thays-camilla | 44 | ATTENTION | sos-presentes-cosmeticos (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |

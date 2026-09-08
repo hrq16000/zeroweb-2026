@@ -1084,3 +1084,23 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Validação:** boundaries, catálogo, conversão, scaffold, logos, assets,
   ícones, performance, privacidade, contato no dist, funil, originalidade,
   experiência e qualidade visual executados no `main` atual.
+
+## 2026-09-08 — correção de publicação do Your Brutus Burguer
+
+- **Tarefa:** corrigir a projeção que torna `/portfolio/your-brutus-burguer`
+  visível na vitrine e na gestão pública.
+- **Skills:** `0web-skill-router` → `0web-skill-discovery` →
+  `0web-portfolio-art-direction` → `0web-design-system` →
+  `0web-ui-quality-gates`.
+- **Achado:** a rota e o catálogo canônico já estavam registrados, mas o seed
+  determinístico do catálogo estava desatualizado e o projeto possuía um
+  `clientKey` interno diferente do slug público.
+- **Correção:** resolução e conformidade de assets agora reconhecem tanto o
+  slug público quanto o `clientKey` interno, e o
+  `portfolio-admin-seed.json` foi regenerado com o projeto publicado, logo,
+  OG, Kit de Presença e status `COMPLETE`.
+- **Funil:** perfil de conversão exclusivo para cardápio, burger e porções;
+  sem herdar perguntas ou linguagem de outro negócio.
+- **Vitrine:** a ordenação “Mais recentes” agora respeita a ordem append-only
+  do catálogo canônico após a prioridade regional; novos projetos não ficam
+  escondidos atrás do carregamento progressivo.

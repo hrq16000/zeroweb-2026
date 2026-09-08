@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-07T20:11:29.399Z",
-  "base": "http://localhost:8080",
+  "generatedAt": "2026-09-08T04:54:30.099Z",
+  "base": "http://127.0.0.1:8080",
   "viewports": [
     {
       "name": "mobile",
@@ -9930,6 +9930,125 @@
             },
             {
               "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "your-brutus-burguer": {
+      "slug": "your-brutus-burguer",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo.svg",
+            "/images/your-brutus-burguer/logo.svg",
+            "/images/your-brutus-burguer/hero-og.png",
+            "/images/your-brutus-burguer/business-card-concept.png",
+            "/images/your-brutus-burguer/flyer-concept.png"
+          ],
+          "h1Count": 1,
+          "h1": "A rota certa para um burger encorpado.",
+          "h2Count": 6,
+          "sections": 7,
+          "smallTargets": 2,
+          "hero": {
+            "height": 971,
+            "backgroundImage": false,
+            "heading": "A rota certa para um burger encorpado.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2286,
+          "text": "CARREGANDO Copiar divulgação Abrir cardápio CENTRO · SÃO JOSÉ DOS PINHAIS A rota certa para um burger encorpado. Hamburgueria artesanal em ares caseiros, com sandubas encorpados, pães especiais e guarnições da casa. Ver cardápio oficial Montar meu pedido R. Colombo, 1981 · Centro · São José dos Pinhais Arte de presença digital · não é foto documental CARDÁPIO OFICIAL Escolhas que já nascem com personalidade. O cardápio público mostra burgers de costela, smash, combos e porções. A disponibilidade e os valores são consultados diretamente no canal oficial. Consultar opções e condições Smash e clássicos Uma porta de entrada para escolher seu burger no ritmo da fome. Costela e especiais Combinações da casa destacadas no cardápio oficial. Porções e bebidas Acompanhe seu pedido com as opções disponíveis no dia. JEITO BRUTUS Pedido bom não pede adivinhação. 01 · Abra o cardápio oficial. 02 · Escolha o que combina com a sua fome. 03 · Use o atendimento para organizar o próximo passo. KIT DE PRESENÇA A marca também ocupa a mesa. Estudos de cartão e panfleto criados para esta identidade. Conceitos sujeitos à aprovação do negócio. Cartão de visitas · conceito de presença e papelaria Panfleto digital · conceito de presença e papelaria Sua rota termina no cardápio. Confira opções, disponibilidade e condições no canal oficial. Abrir cardápio oficial SOBRE O PROJETO Seu burger encorpado começa por uma escolha bem servida. Your Brutus Burguer é uma hamburgueria artesanal em São José dos Pinhais, com cardápio oficial, burgers, combos e porções. Atendimento em São José dos Pinhais — PR. Como começar Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial. hamburgueria artesanal burger cardapio online sao jose dos pinhais Abrir cardápio © 2026 · Your Brutus Burguer Site desenvolvido por 0WEB Contato GOSTOU DESTA PÁGINA? Tenha seu site profissional com a 0WEB — esta página pode ser a sua também, com domínio .com.br próprio. Responda a 4 perguntas rápidas e receba um plano sob medida para o seu negócio, com prazo e valor na hora. Site no ar primeiro: você tem até 90 dias para começar a pagar. Redes sociais cuidadas por nós: artes e postagens a partir de 4 publicações por mês. Quero meu site — ver condições Agora não",
+          "docHeight": 5006,
+          "topColors": [
+            {
+              "color": "rgb(23, 29, 37)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 5
+            },
+            {
+              "color": "rgb(237, 106, 44)",
+              "n": 2
+            },
+            {
+              "color": "rgb(245, 184, 75)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 6,
+          "imageSrcs": [
+            "/0web-logo.svg",
+            "/images/your-brutus-burguer/logo.svg",
+            "/images/your-brutus-burguer/hero-og.png",
+            "/images/your-brutus-burguer/business-card-concept.png",
+            "/images/your-brutus-burguer/flyer-concept.png"
+          ],
+          "h1Count": 1,
+          "h1": "A rota certa para um burger encorpado.",
+          "h2Count": 5,
+          "sections": 7,
+          "smallTargets": 4,
+          "hero": {
+            "height": 756,
+            "backgroundImage": false,
+            "heading": "A rota certa para um burger encorpado.",
+            "headingSize": 72,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 1886,
+          "text": "CARREGANDO Copiar divulgação Cardápio Presença Abrir cardápio CENTRO · SÃO JOSÉ DOS PINHAIS A rota certa para um burger encorpado. Hamburgueria artesanal em ares caseiros, com sandubas encorpados, pães especiais e guarnições da casa. Ver cardápio oficial Montar meu pedido R. Colombo, 1981 · Centro · São José dos Pinhais Arte de presença digital · não é foto documental CARDÁPIO OFICIAL Escolhas que já nascem com personalidade. O cardápio público mostra burgers de costela, smash, combos e porções. A disponibilidade e os valores são consultados diretamente no canal oficial. Consultar opções e condições Smash e clássicos Uma porta de entrada para escolher seu burger no ritmo da fome. Costela e especiais Combinações da casa destacadas no cardápio oficial. Porções e bebidas Acompanhe seu pedido com as opções disponíveis no dia. JEITO BRUTUS Pedido bom não pede adivinhação. 01 · Abra o cardápio oficial. 02 · Escolha o que combina com a sua fome. 03 · Use o atendimento para organizar o próximo passo. KIT DE PRESENÇA A marca também ocupa a mesa. Estudos de cartão e panfleto criados para esta identidade. Conceitos sujeitos à aprovação do negócio. Cartão de visitas · conceito de presença e papelaria Panfleto digital · conceito de presença e papelaria Sua rota termina no cardápio. Confira opções, disponibilidade e condições no canal oficial. Abrir cardápio oficial SOBRE O PROJETO Seu burger encorpado começa por uma escolha bem servida. Your Brutus Burguer é uma hamburgueria artesanal em São José dos Pinhais, com cardápio oficial, burgers, combos e porções. Atendimento em São José dos Pinhais — PR. Como começar Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial. hamburgueria artesanal burger cardapio online sao jose dos pinhais Abrir cardápio © 2026 · Your Brutus Burguer Site desenvolvido por 0WEB Fale conosco",
+          "docHeight": 3167,
+          "topColors": [
+            {
+              "color": "rgb(23, 29, 37)",
+              "n": 6
+            },
+            {
+              "color": "lab(96.5174 -0.967264 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(237, 106, 44)",
+              "n": 2
+            },
+            {
+              "color": "rgb(245, 184, 75)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
               "n": 1
             }
           ]

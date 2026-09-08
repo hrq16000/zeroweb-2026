@@ -1,12 +1,12 @@
 {
   "summary": {
-    "generatedAt": "2026-09-08T01:48:52.514Z",
-    "audited": 85,
-    "pass": 85,
+    "generatedAt": "2026-09-08T05:17:19.602Z",
+    "audited": 86,
+    "pass": 86,
     "warning": 0,
     "fail": 0,
     "byIntent": {
-      "pedido": 23,
+      "pedido": 24,
       "orcamento": 29,
       "solicitacao": 1,
       "agendamento": 14,
@@ -1117,6 +1117,19 @@
       "nextStepTitle": "Pastel na hora, café quente e almoço no Prado Velho.",
       "nextStepBody": "Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa.",
       "primaryCtaLabel": "Pedir na Route 66",
+      "whatsappIntent": "pedido",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "your-brutus-burguer",
+      "businessName": "Your Brutus Burguer",
+      "segment": "restaurantes",
+      "intent": "pedido",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu burger encorpado começa por uma escolha bem servida.",
+      "nextStepBody": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
+      "primaryCtaLabel": "Abrir cardápio",
       "whatsappIntent": "pedido",
       "status": "PASS",
       "issues": []

@@ -593,5 +593,12 @@
     "nextStepBody": "Conte se procura hambúrguer, petisco ou uma experiência para compartilhar.",
     "primaryCtaLabel": "Fazer meu pedido",
     "theme": "navy"
+  },
+  "your-brutus-burguer": {
+    "intent": "pedido",
+    "nextStepTitle": "Seu burger encorpado começa por uma escolha bem servida.",
+    "nextStepBody": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
+    "primaryCtaLabel": "Abrir cardápio",
+    "theme": "gold"
   }
 }
