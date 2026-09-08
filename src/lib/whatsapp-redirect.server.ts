@@ -153,6 +153,39 @@ export function resolvePortfolioWhatsAppContact(
   return { digits: (process.env[envName] ?? "").replace(/\D/g, "") };
 }
 
+/**
+ * Resolve o destinatário também pela configuração privada administrável do
+ * projeto. A env continua tendo precedência; a tabela nunca é serializada ao
+ * cliente e só é consultada no servidor durante o handoff.
+ */
+export async function resolvePortfolioWhatsAppContactAsync(
+  clientKey?: string | null,
+): Promise<OperationalWhatsAppContact | null> {
+  const fromEnv = resolvePortfolioWhatsAppContact(clientKey);
+  if (fromEnv) return fromEnv;
+  if (!isPortfolioClientKey(clientKey)) return null;
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { data } = await (supabaseAdmin as any)
+    .from("portfolio_client_settings")
+    .select("funnel_recipient, funnel_enabled")
+    .eq("client_key", clientKey)
+    .maybeSingle();
+  if (!data?.funnel_enabled) return null;
+  const digits = String(data.funnel_recipient ?? "").replace(/\D/g, "");
+  if (digits.length < 10 || digits.length > 15) return null;
+  return { digits };
+}
+
+export async function getPortfolioWhatsAppChannelStateAsync(
+  clientKey?: string | null,
+): Promise<WhatsAppChannelState> {
+  if (resolvePortfolioWhatsAppContact(clientKey)) return "CONFIGURED";
+  if (!isPortfolioClientKey(clientKey)) return "NOT_CONFIGURED";
+  const contact = await resolvePortfolioWhatsAppContactAsync(clientKey);
+  return contact ? "CONFIGURED" : "NOT_CONFIGURED";
+}
+
 // ============================================================================
 // (2) createWhatsAppRedirectToken
 // ============================================================================

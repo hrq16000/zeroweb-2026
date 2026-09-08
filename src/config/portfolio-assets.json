@@ -1032,7 +1032,7 @@
     "your_brutus_burguer": {
       "icon": "/images/your-brutus-burguer/logo.svg",
       "socialImage": "/images/your-brutus-burguer/hero-og.png",
-      "proof": { "eyebrow": "Your Brutus Burguer", "title": "A rota certa para um burger encorpado.", "description": "Consulte burgers, combos e porções diretamente no cardápio oficial.", "ctaLabel": "Abrir cardápio", "ctaHref": "https://menu.brendi.com.br/brutus-burguer-afonso-pena/" },
+      "proof": { "eyebrow": "Your Brutus Burguer", "title": "A rota certa para um burger encorpado.", "description": "Consulte burgers, combos e porções diretamente com a equipe do Your Brutus Burguer.", "ctaLabel": "Falar com a equipe", "ctaHref": "/f/funnel-your-brutus-burguer" },
       "socialVersion": "brutus-v1"
     },
     "pastelaria-route-66": {

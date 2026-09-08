@@ -476,14 +476,14 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       .single();
     if (leadError || !lead) throw new Error("Não foi possível registrar a solicitação");
 
-    const { createWhatsAppRedirectToken, hashIp, makeProtocol, getPortfolioWhatsAppChannelState } =
+    const { createWhatsAppRedirectToken, hashIp, makeProtocol, getPortfolioWhatsAppChannelStateAsync } =
       await import("@/lib/whatsapp-redirect.server");
     const protocol = makeProtocol();
 
     // O lead já está salvo. O WhatsApp é apenas o passo seguinte: quando o
     // cliente ainda não tem número oficial cadastrado, devolvemos um estado
     // honesto em vez de gerar um redirect que termina em erro.
-    const channel = getPortfolioWhatsAppChannelState(data.clientKey);
+    const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
     if (channel !== "CONFIGURED") {
       const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
       await reportRoutingIncident({

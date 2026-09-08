@@ -23,7 +23,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
 
         const {
           resolveWhatsAppRedirectToken,
-          resolvePortfolioWhatsAppContact,
+          resolvePortfolioWhatsAppContactAsync,
           resolveOperationalWhatsAppContact,
           buildWhatsAppLeadMessage,
           consumeWhatsAppRedirectToken,
@@ -125,7 +125,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
 
           const clientKey = (lead.metadata_json as Record<string, unknown> | null)?.client_key;
           const clientContact =
-            typeof clientKey === "string" ? resolvePortfolioWhatsAppContact(clientKey) : null;
+            typeof clientKey === "string" ? await resolvePortfolioWhatsAppContactAsync(clientKey) : null;
           // Sites de clientes nunca podem cair no atendimento da 0WEB. Se a
           // variável privada estiver ausente, falhamos de forma explícita e
           // registramos o incidente para correção operacional.

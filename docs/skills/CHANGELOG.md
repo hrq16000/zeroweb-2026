@@ -1104,3 +1104,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Vitrine:** a ordenação “Mais recentes” agora respeita a ordem append-only
   do catálogo canônico após a prioridade regional; novos projetos não ficam
   escondidos atrás do carregamento progressivo.
+# 2026-09-08 — Brutus: funnel próprio e WhatsApp server-side
+
+- Tarefa: corrigir o funil do Your Brutus Burguer e eliminar o CTA externo do cardápio.
+- Skills: `0web-skill-router`, `0web-skill-discovery`, `0web-portfolio-art-direction`, `0web-design-system`, `0web-ui-quality-gates`.
+- Achados: a página ainda apontava CTAs para `menu.brendi.com.br`; o handoff moderno só consultava env e ignorava o destinatário privado administrável.
+- Alterações: todos os CTAs públicos do Brutus agora apontam para o funil próprio; o resolver server-only consulta a configuração privada de `portfolio_client_settings` (com env como precedência), sem expor telefone no bundle.
+- Validação: diff check, TypeScript e gates de catálogo/funil executados antes da publicação.
