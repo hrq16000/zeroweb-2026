@@ -1,4 +1,4 @@
-import { ArrowRight, CarFront, Check, CircleGauge, MapPin, MessageCircle, PhoneCall, ShieldCheck, Wrench } from "lucide-react";
+import { ArrowRight, CarFront, Check, CircleGauge, MapPin, MessageCircle, PhoneCall, ShieldCheck, Wrench, Package, Search, Timer } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
@@ -9,6 +9,9 @@ const services = [
   { icon: Wrench, code: "01", title: "Manutenção mecânica", text: "Reparos e revisão para manter o carro pronto para a próxima saída.", items: ["Motor e transmissão", "Suspensão e freios", "Óleo e filtros"] },
   { icon: CircleGauge, code: "02", title: "Elétrica automotiva", text: "Diagnóstico e reparos para os sinais que o carro está tentando mostrar.", items: ["Sistema de ignição", "Bateria e alternador", "Central elétrica"] },
   { icon: CarFront, code: "03", title: "Reboque e socorro", text: "Quando parar não estava nos planos, a equipe ajuda a organizar o próximo passo.", items: ["Atendimento emergencial", "Cobertura regional", "Orientação direta"] },
+  { icon: Package, code: "04", title: "Peças e acessórios", text: "Peças e itens para manter o veículo em ordem, conforme a necessidade identificada.", items: ["Peças para manutenção", "Itens de reposição", "Orientação na escolha"] },
+  { icon: Search, code: "05", title: "Diagnóstico técnico", text: "Uma leitura objetiva do problema para evitar tentativas e decisões no escuro.", items: ["Avaliação inicial", "Identificação do sintoma", "Próximo passo claro"] },
+  { icon: Timer, code: "06", title: "Atendimento rápido", text: "Conte o que aconteceu e receba uma orientação para encaminhar o atendimento.", items: ["Triagem pelo canal oficial", "Informações organizadas", "Orçamento sob consulta"] },
 ];
 
 const faqs = [

@@ -106,7 +106,7 @@ export function MaridoDeAluguelPage() {
       <main>
         <div className="mx-auto max-w-6xl px-5 pt-6 lg:px-8">
           <a
-            href="https://www.mestredosservicos.com.br/"
+            href="/f/funnel-marido-de-aluguel"
             target="_blank"
             rel="noreferrer"
             className="group relative block overflow-hidden rounded-3xl border border-slate-200 bg-[#102d50] shadow-sm"

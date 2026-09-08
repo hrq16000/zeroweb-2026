@@ -173,7 +173,7 @@ export function EletrovaleEletromecanicaPage() {
             </p>
             <p className="mt-1">Manutenção, rebobinamento e eficiência industrial.</p>
             <a
-              href="https://eletrovalemotores.com.br/"
+              href="/f/funnel-eletrovale-eletromecanica"
               target="_blank"
               rel="noreferrer"
               className="mt-2 inline-block text-[#e6ad2d] underline"

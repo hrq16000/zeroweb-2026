@@ -171,7 +171,7 @@ export function EisenferTubosAcosPage() {
             </p>
             <p className="mt-1">Av. das Américas, 116 · Três Marias · São José dos Pinhais — PR.</p>
             <a
-              href="https://eisenfer.com.br/"
+              href="/f/funnel-eisenfer-tubos-acos"
               target="_blank"
               rel="noreferrer"
               className="mt-2 inline-block text-[#2d8cff] underline"
