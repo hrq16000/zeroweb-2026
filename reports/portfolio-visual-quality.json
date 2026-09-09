@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T23:50:12.593Z",
+  "generatedAt": "2026-09-09T07:27:10.569Z",
   "weights": {
     "identity": 15,
     "logo": 10,
@@ -15,33 +15,33 @@
     "PREMIUM": 85,
     "STANDARD": 70
   },
-  "runtimeGeneratedAt": "2026-09-06T23:48:08.129Z",
+  "runtimeGeneratedAt": "2026-09-09T07:27:08.912Z",
   "summary": {
-    "total": 83,
-    "visuallyReviewed": 83,
+    "total": 89,
+    "visuallyReviewed": 89,
     "technical": {
-      "COMPLETE": 83,
+      "COMPLETE": 89,
       "PARTIAL": 0,
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 39,
-      "STANDARD": 43,
+      "PREMIUM": 33,
+      "STANDARD": 55,
       "NEEDS_UPGRADE": 1
     },
     "originality": {
-      "PASS": 26,
-      "WARNING": 51,
+      "PASS": 28,
+      "WARNING": 55,
       "FAIL": 6,
       "UNREVIEWED": 0
     },
     "issues": {
       "P0": 0,
-      "P1": 50,
-      "P2": 131,
-      "P3": 56
+      "P1": 76,
+      "P2": 144,
+      "P3": 63
     },
-    "averageScore": 89
+    "averageScore": 88
   },
   "projects": [
     {
@@ -55,10 +55,10 @@
       "technical": "COMPLETE",
       "published": true,
       "visual": "NEEDS_UPGRADE",
-      "score": 69,
+      "score": 57,
       "groupScores": {
-        "identity": 15,
-        "logo": 10,
+        "identity": 9,
+        "logo": 4,
         "cover": 14,
         "hero": 0,
         "images": 10,
@@ -82,8 +82,8 @@
       "assets": {
         "logo": {
           "path": "/images/btb-construcao/logo.svg",
-          "hash": "603a3047591d4373ae55be0764e79cf4f7a0a9a3",
-          "bytes": 946,
+          "hash": "145e7c4b9bef4974155dcc9b91c3a0bc69a358e1",
+          "bytes": 595,
           "width": 900,
           "height": 300
         },
@@ -96,8 +96,8 @@
         },
         "social": {
           "path": "/images/btb-construcao/hero-og.jpg",
-          "hash": "5f4d2b89ef119e41c88794b059ff01fa139daf42",
-          "bytes": 31764,
+          "hash": "a295c53f943acaee6a0cb8a52e0e4a726b3de794",
+          "bytes": 35158,
           "width": 1200,
           "height": 630
         },
@@ -116,11 +116,18 @@
       },
       "severities": {
         "P0": 0,
-        "P1": 3,
-        "P2": 2,
+        "P1": 4,
+        "P2": 3,
         "P3": 3
       },
       "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/btb-construcao/logo.svg"
+        },
         {
           "code": "COVER_NO_FOCAL_POINT",
           "severity": "P3",
@@ -176,6 +183,13 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "69 vs easy-clean"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
         }
       ],
       "priority": 2
@@ -218,8 +232,8 @@
       "assets": {
         "logo": {
           "path": "/images/mirassol-delicias-caseiras/logo.svg",
-          "hash": "c072a1c9989eac100d2b040d8c3c886141a606d7",
-          "bytes": 1255,
+          "hash": "3a83f215f020cb9bf1cd2b88bc698f2be25aba10",
+          "bytes": 1247,
           "width": 900,
           "height": 300
         },
@@ -432,6 +446,121 @@
       "priority": 2
     },
     {
+      "slug": "mary-diarista",
+      "businessName": "Mary Diarista",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/MaryDiaristaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 77,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 2,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 58,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "aguia-sul-sinalizacao",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tipo de limpeza, a frequência e o melhor dia para você.",
+      "funnelCta": "Consultar agenda",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/mary-diarista/logo.svg",
+          "hash": "634e629fe9d26bde472d1d839a5c461f27a2602c",
+          "bytes": 590,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/mary-diarista/servicos.webp",
+          "hash": "f240699b52580de2d3c16752988cda227c1b13f2",
+          "bytes": 44124,
+          "width": 720,
+          "height": 1280
+        },
+        "social": {
+          "path": "/images/mary-diarista/hero-og.jpg",
+          "hash": "6381e56222339a2f7e5049d36d35fe0b66fc5529",
+          "bytes": 36178,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Sua casa limpa. Sua rotina mais leve.",
+        "heroHeight": 1349,
+        "editorialChars": 2110,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 3,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/mary-diarista/logo.svg"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.56"
+        },
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "720x1280"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "58 vs aguia-sul-sinalizacao"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "guaratuba-atelie-presentes",
       "businessName": "Ateliê Encanto da Baía",
       "segment": "comercios",
@@ -469,8 +598,8 @@
       "assets": {
         "logo": {
           "path": "/images/guaratuba-atelie-presentes/logo.svg",
-          "hash": "65604d62147ad1c6035410e08be5fcbfd6adaa0c",
-          "bytes": 1250,
+          "hash": "f143b0c3bd17c2cf242cabea5181b95bf4b8ef26",
+          "bytes": 1242,
           "width": 900,
           "height": 300
         },
@@ -906,6 +1035,222 @@
       "priority": 2
     },
     {
+      "slug": "bruna-diarista",
+      "businessName": "Bruna Diarista",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/BrunaDiaristaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 80,
+      "groupScores": {
+        "identity": 9,
+        "logo": 4,
+        "cover": 14,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 66,
+      "originalityStatus": "FAIL",
+      "originalityNearest": "popys-conservacao-limpeza",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
+      "funnelCta": "Consultar horários",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/bruna-diarista/logo.svg",
+          "hash": "b7c03f8632652117f68e0ad61daa1b0e0b2516bb",
+          "bytes": 591,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/bruna-diarista/hero.png",
+          "hash": "6daaba903a26aa7a2db2664a88e6671f85fc89a8",
+          "bytes": 2025138,
+          "width": 1536,
+          "height": 1024
+        },
+        "social": {
+          "path": "/images/bruna-diarista/hero-og.jpg",
+          "hash": "7a4442e003369b83374d4e05c4349761059f416e",
+          "bytes": 36987,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Sua casa limpa. Sua rotina mais leve.",
+        "heroHeight": 856,
+        "editorialChars": 2319,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/bruna-diarista/logo.svg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "66 vs popys-conservacao-limpeza"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "easy-clean",
+      "businessName": "Easy Clean Higienização a Seco",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EasyCleanPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 80,
+      "groupScores": {
+        "identity": 9,
+        "logo": 4,
+        "cover": 14,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 69,
+      "originalityStatus": "FAIL",
+      "originalityNearest": "btb-construcao",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
+      "funnelCta": "Solicitar orçamento",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/easy-clean/logo.svg",
+          "hash": "464ca4cdf21101c785c1d558ac010c314f358afd",
+          "bytes": 610,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/easy-clean/hero.png",
+          "hash": "abd4d5776370340ae819d47c4d6057fcbb521c08",
+          "bytes": 1906911,
+          "width": 1536,
+          "height": 1024
+        },
+        "social": {
+          "path": "/images/easy-clean/hero-og.jpg",
+          "hash": "dcbceafaafac4d49093640687dc6d9cd2dae0e1f",
+          "bytes": 45323,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Conforto limpo, sem sair de casa.",
+        "heroHeight": 1017,
+        "editorialChars": 2356,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/easy-clean/logo.svg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "69 vs btb-construcao"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "guaratuba-sabores-da-baia",
       "businessName": "Sabores da Baía",
       "segment": "restaurantes",
@@ -943,8 +1288,8 @@
       "assets": {
         "logo": {
           "path": "/images/guaratuba-sabores-da-baia/logo.svg",
-          "hash": "85211cf36aa85d411a77f977dfd2f07326533379",
-          "bytes": 1243,
+          "hash": "2cc4ab1ff8c9e1cda075243b5df25841f7d1d50a",
+          "bytes": 1235,
           "width": 900,
           "height": 300
         },
@@ -1023,6 +1368,229 @@
           "group": "content",
           "label": "Serviços pouco explicados",
           "detail": "1 menções"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "popys-conservacao-limpeza",
+      "businessName": "POPYS Conservação e Limpeza",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/PopysConservacaoLimpezaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 80,
+      "groupScores": {
+        "identity": 9,
+        "logo": 4,
+        "cover": 14,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 66,
+      "originalityStatus": "FAIL",
+      "originalityNearest": "bruna-diarista",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado.",
+      "funnelCta": "Solicitar orçamento",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/popys-conservacao-limpeza/logo.svg",
+          "hash": "4f327e8a1b19d6eff4a679e2ed60345a4821a6cf",
+          "bytes": 607,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/popys-conservacao-limpeza/hero-cleaning.png",
+          "hash": "a3f605547abe3e493f484247b6f51af0620970c3",
+          "bytes": 1910189,
+          "width": 1536,
+          "height": 1024
+        },
+        "social": {
+          "path": "/images/popys-conservacao-limpeza/hero-og.jpg",
+          "hash": "91fb1934e11f1ade29f947bd61aab04ca644c99c",
+          "bytes": 41153,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Seu ambiente limpo, organizado e bem cuidado.",
+        "heroHeight": 950,
+        "editorialChars": 2605,
+        "smallTargets": 5,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/popys-conservacao-limpeza/logo.svg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "66 vs bruna-diarista"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "ton-e-cor",
+      "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
+      "segment": "servicos",
+      "city": "Região de Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/TonECorPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 80,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 11,
+        "hero": 5,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 34,
+      "originalityStatus": "PASS",
+      "originalityNearest": "raphael-construcoes",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
+      "funnelCta": "Pedir orçamento",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/ton-e-cor/logo.svg",
+          "hash": "128e9daa861d7727386e9a95239f83c560a3f65c",
+          "bytes": 626,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/ton-e-cor/hero-og.jpg",
+          "hash": "6f6129bac5c60197aa28bb710d45fbb5721ce379",
+          "bytes": 45438,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/ton-e-cor/hero-og.jpg",
+          "hash": "6f6129bac5c60197aa28bb710d45fbb5721ce379",
+          "bytes": 45438,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Sua casa renovada, com os reparos organizados em um só atendimento.",
+        "heroHeight": 465,
+        "editorialChars": 2373,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/ton-e-cor/logo.svg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/ton-e-cor/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_CTA",
+          "severity": "P1",
+          "group": "hero",
+          "label": "Hero sem CTA visível",
+          "detail": null
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
         }
       ],
       "priority": 2
@@ -1165,9 +1733,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 39,
+      "originalityScore": 40,
       "originalityStatus": "PASS",
-      "originalityNearest": "miro-tech",
+      "originalityNearest": "your-brutus-burguer",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -1180,8 +1748,8 @@
       "assets": {
         "logo": {
           "path": "/images/bh-barreiro-marmitas/logo.svg",
-          "hash": "3ae1fb84f9041c915e1a0a9d0f762a2e75a052bf",
-          "bytes": 1215,
+          "hash": "11e825e95e81e01204042cb19a45ef2926bd9439",
+          "bytes": 1207,
           "width": 900,
           "height": 300
         },
@@ -1280,7 +1848,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 51,
+      "originalityScore": 50,
       "originalityStatus": "WARNING",
       "originalityNearest": "sos-presentes-cosmeticos",
       "contentSimilarity": null,
@@ -1367,7 +1935,115 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs sos-presentes-cosmeticos"
+          "detail": "50 vs sos-presentes-cosmeticos"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "eletro-solucoes-eficazes",
+      "businessName": "Eletro Soluções Eficazes",
+      "segment": "servicos",
+      "city": "Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EletroSolucoesEficazesPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 7,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 50,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletrovale-eletromecanica",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, a instalação e o resultado que procura.",
+      "funnelCta": "Avaliar solução elétrica",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/eletro-solucoes-eficazes/logo.svg",
+          "hash": "85454dc68bdc855649369cdde9c75fbbebb2f605",
+          "bytes": 604,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/eletro-solucoes-eficazes/servicos.webp",
+          "hash": "0a9b19c25f2e8898da27230b4e0d353081267983",
+          "bytes": 83266,
+          "width": 1080,
+          "height": 1080
+        },
+        "social": {
+          "path": "/images/eletro-solucoes-eficazes/hero-og.jpg",
+          "hash": "37e9f8052f920a37f15bbd6ff812827d30267edb",
+          "bytes": 42841,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Energia para viver melhor.Tecnologia para evoluir.",
+        "heroHeight": 843,
+        "editorialChars": 2328,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/eletro-solucoes-eficazes/logo.svg"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 1.00"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "50 vs eletrovale-eletromecanica"
         }
       ],
       "priority": 2
@@ -1410,8 +2086,8 @@
       "assets": {
         "logo": {
           "path": "/images/guaratuba-oficina-nautica/logo.svg",
-          "hash": "7099cc0c5610100a06b7a5f565ed7699ea843d30",
-          "bytes": 1303,
+          "hash": "d98c7724fd8496515dce3903beab267cbb3efbef",
+          "bytes": 1295,
           "width": 900,
           "height": 300
         },
@@ -1525,8 +2201,8 @@
       "assets": {
         "logo": {
           "path": "/images/guaratuba-reparos-residenciais/logo.svg",
-          "hash": "9dec4b0717d63be76be1d2454f2d3f38623f5b40",
-          "bytes": 1252,
+          "hash": "ceac5cd4de60adee79d20b891109e76187e98108",
+          "bytes": 1244,
           "width": 900,
           "height": 300
         },
@@ -1718,6 +2394,222 @@
       "priority": 2
     },
     {
+      "slug": "salao-da-marcia",
+      "businessName": "Salão da Marcia",
+      "segment": "beleza",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/SalaoDaMarciaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 7,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 47,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "liz-moraes-nail-designer",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o serviço de cabelo, depilação ou beleza que procura.",
+      "funnelCta": "Reservar horário",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/salao-da-marcia/logo.svg",
+          "hash": "7c12699d67b3b54040fbd7af02501a99dde77b06",
+          "bytes": 592,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/salao-da-marcia/depilacao.webp",
+          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
+          "bytes": 143960,
+          "width": 1024,
+          "height": 1536
+        },
+        "social": {
+          "path": "/images/salao-da-marcia/hero-og.jpg",
+          "hash": "bc0b5b0c5b1225d331bdce41562820f02e0b7b6b",
+          "bytes": 38057,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 10
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Seu momento de se cuidar.",
+        "heroHeight": 865,
+        "editorialChars": 2018,
+        "smallTargets": 5,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/salao-da-marcia/logo.svg"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.67"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs liz-moraes-nail-designer"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "studio-de-cilios",
+      "businessName": "Studio de Cílios",
+      "segment": "beleza",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/StudioDeCiliosPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 82,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 7,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 59,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha um estilo ou conte o efeito que deseja alcançar.",
+      "funnelCta": "Escolher estilo",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/studio-de-cilios/logo.svg",
+          "hash": "83af6249ea4f3860817fa828dd01035e0a6dd986",
+          "bytes": 593,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/studio-de-cilios/portfolio-1.webp",
+          "hash": "ae424d5e511cdd7fdcd1b80fbbd1bfd973864c17",
+          "bytes": 65532,
+          "width": 900,
+          "height": 1600
+        },
+        "social": {
+          "path": "/images/studio-de-cilios/hero-og.jpg",
+          "hash": "5b4f904d2528294d382a03edd6d2538ae75cc6e3",
+          "bytes": 38130,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 8
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu olhar, sua assinatura.",
+        "heroHeight": 1318,
+        "editorialChars": 2703,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/studio-de-cilios/logo.svg"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.56"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "59 vs mp-festas-eventos"
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "uberlandia-eletrica-residencial",
       "businessName": "Elétrica Bairro Brasil",
       "segment": "prestadores-de-servicos",
@@ -1755,8 +2647,8 @@
       "assets": {
         "logo": {
           "path": "/images/uberlandia-eletrica-residencial/logo.svg",
-          "hash": "6309b32f75b2746ed079f6220d0b1fec901edc33",
-          "bytes": 1238,
+          "hash": "b6c02fdb06c909966cd15c27bffc3d08ba5d8b44",
+          "bytes": 1230,
           "width": 900,
           "height": 300
         },
@@ -1941,12 +2833,12 @@
       "priority": 2
     },
     {
-      "slug": "mary-diarista",
-      "businessName": "Mary Diarista",
-      "segment": "servicos",
-      "city": "Curitiba",
+      "slug": "simone-lacerda-vaz",
+      "businessName": "Simone Lacerda Vaz · Nutricionista",
+      "segment": "saude",
+      "city": "Brasil",
       "componentType": "custom",
-      "componentFile": "src/components/site/MaryDiaristaPage.tsx",
+      "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -1954,8 +2846,8 @@
       "score": 83,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 2,
+        "logo": 4,
+        "cover": 8,
         "hero": 15,
         "images": 10,
         "content": 10,
@@ -1963,50 +2855,50 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 58,
+      "originalityScore": 48,
       "originalityStatus": "WARNING",
-      "originalityNearest": "aguia-sul-sinalizacao",
+      "originalityNearest": "embalar-embalagens",
       "contentSimilarity": null,
       "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
+      "coverReview": "APPROVED",
       "funnelIntent": "agendamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o tipo de limpeza, a frequência e o melhor dia para você.",
-      "funnelCta": "Consultar agenda",
+      "funnelNextStep": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
+      "funnelCta": "Conversar agora",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/mary-diarista/logo.svg",
-          "hash": "e15f6bee9223ccac14cee1a8010eefb90ef20482",
-          "bytes": 946,
+          "path": "/images/simone-lacerda-vaz/logo.svg",
+          "hash": "9437f1f373a7a9337cd293bea18bbd823eca1539",
+          "bytes": 610,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/mary-diarista/servicos.webp",
-          "hash": "f240699b52580de2d3c16752988cda227c1b13f2",
-          "bytes": 44124,
-          "width": 720,
-          "height": 1280
+          "path": "/images/simone-lacerda-vaz/hero.png",
+          "hash": "caa5c586906019669c8a878cae77d96b2ffef2a6",
+          "bytes": 2151091,
+          "width": 1024,
+          "height": 1536
         },
         "social": {
-          "path": "/images/mary-diarista/hero-og.jpg",
-          "hash": "db5d4b5ef98221a1f95b472244c705f16ae1724e",
-          "bytes": 27896,
+          "path": "/images/simone-lacerda-vaz/hero-og.jpg",
+          "hash": "138f1fec369a68597ae4d4038804bff2c3d6c942",
+          "bytes": 44338,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 5
+        "galleryCount": 6
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
         "mobileImages": 5,
         "desktopImages": 5,
-        "heroHeadline": "Sua casa limpa. Sua rotina mais leve.",
-        "heroHeight": 1349,
-        "editorialChars": 2110,
+        "heroHeadline": "Seu cuidado merece um plano que caiba na vida.",
+        "heroHeight": 1250,
+        "editorialChars": 2477,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -2014,36 +2906,29 @@
         "P0": 0,
         "P1": 2,
         "P2": 1,
-        "P3": 1
+        "P3": 0
       },
       "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/simone-lacerda-vaz/logo.svg"
+        },
         {
           "code": "COVER_SEVERE_CROP",
           "severity": "P1",
           "group": "cover",
           "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.56"
-        },
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "720x1280"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
+          "detail": "ratio 0.67"
         },
         {
           "code": "ORIGINALITY_WARNING",
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "58 vs aguia-sul-sinalizacao"
+          "detail": "48 vs embalar-embalagens"
         }
       ],
       "priority": 2
@@ -2152,6 +3037,114 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "2 arquivo(s)"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "denise-gomes-psicologa",
+      "businessName": "Denise Gomes · Psicóloga",
+      "segment": "saude",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/DeniseGomesPsicologaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 53,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que motivou sua busca e escolha o melhor período para iniciar uma avaliação.",
+      "funnelCta": "Agendar avaliação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/denise-gomes-psicologa/logo.svg",
+          "hash": "bc192f88dbb22b0e5580c3f983684f45360950e0",
+          "bytes": 601,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
+          "hash": "45864a903bc11fbd44ee2450efaaafdd2bd2490a",
+          "bytes": 42917,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
+          "hash": "45864a903bc11fbd44ee2450efaaafdd2bd2490a",
+          "bytes": 42917,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 5
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Cuidar da mente é abrir espaço para viver com mais leveza.",
+        "heroHeight": 1306,
+        "editorialChars": 3091,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/denise-gomes-psicologa/logo.svg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/denise-gomes-psicologa/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "53 vs mp-festas-eventos"
         }
       ],
       "priority": 2
@@ -2366,6 +3359,208 @@
       "priority": 2
     },
     {
+      "slug": "eletrovale-eletromecanica",
+      "businessName": "Eletrovale Eletromecânica",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EletrovaleEletromecanicaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 11,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 50,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletro-solucoes-eficazes",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe o equipamento e o tipo de manutenção necessária.",
+      "funnelCta": "Solicitar suporte técnico",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/eletrovale-eletromecanica/logo.svg",
+          "hash": "4abc41900c44300c20f3cb633baffe789632083b",
+          "bytes": 603,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/eletrovale-eletromecanica/capa-card.jpg",
+          "hash": "4b4f5f27d3d55718e881913b1bb0a4d9a4183308",
+          "bytes": 195467,
+          "width": 1280,
+          "height": 800
+        },
+        "social": {
+          "path": "/images/eletrovale-eletromecanica/hero-og.jpg",
+          "hash": "846d199902ba01375d759c98938d6535132aec0c",
+          "bytes": 40460,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Seu equipamento merece confiabilidade.",
+        "heroHeight": 458,
+        "editorialChars": 2293,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/eletrovale-eletromecanica/logo.svg"
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "50 vs eletro-solucoes-eficazes"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "espaco-cih-luh",
+      "businessName": "Espaço CIH & LUH",
+      "segment": "beleza",
+      "city": "Manaus",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 7,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 39,
+      "originalityStatus": "PASS",
+      "originalityNearest": "kitutes-na-mesa",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "agendamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
+      "funnelCta": "Escolher atendimento",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/espaco-cih-luh/logo.svg",
+          "hash": "2f07b20ab54a52cd4575bc6586f8f3bd14c36f36",
+          "bytes": 601,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/espaco-cih-luh/promocao.webp",
+          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
+          "bytes": 88810,
+          "width": 1122,
+          "height": 1402
+        },
+        "social": {
+          "path": "/images/espaco-cih-luh/hero-og.jpg",
+          "hash": "c8ee65b1405d7db65c0a390d5f2a47ea1b456d6d",
+          "bytes": 37966,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Mãos que transformam. Pés que sustentam.",
+        "heroHeight": 885,
+        "editorialChars": 2268,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 0,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/espaco-cih-luh/logo.svg"
+        },
+        {
+          "code": "COVER_SEVERE_CROP",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com proporção incompatível com o card (corte severo)",
+          "detail": "ratio 0.80"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        }
+      ],
+      "priority": 2
+    },
+    {
       "slug": "fernanda-amaral-drywall",
       "businessName": "Fernanda & Amaral — Instalação de Drywall",
       "segment": "prestadores-de-servicos",
@@ -2469,6 +3664,107 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "49 vs rj-servicos-drywall"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "jkl-marcenaria",
+      "businessName": "JKL Marcenaria",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/JklMarcenariaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 11,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 46,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletro-solucoes-eficazes",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o ambiente, as medidas e a ideia que quer realizar.",
+      "funnelCta": "Planejar móvel",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/jkl-marcenaria/logo.svg",
+          "hash": "32fb2154e3af55f2b5a75c8f2b78ee5a254297f0",
+          "bytes": 591,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/jkl-marcenaria/capa-card.jpg",
+          "hash": "79cc4d2e300a70fd66debca025a11f57242dc48d",
+          "bytes": 56997,
+          "width": 1204,
+          "height": 753
+        },
+        "social": {
+          "path": "/images/jkl-marcenaria/hero-og.jpg",
+          "hash": "baaeb376197cf9885c44aee22d06b70b1e80165b",
+          "bytes": 36918,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Cada centímetrodesenhado para o seu ambiente.",
+        "heroHeight": 540,
+        "editorialChars": 2271,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/jkl-marcenaria/logo.svg"
+        },
+        {
+          "code": "HERO_NO_IMAGE",
+          "severity": "P2",
+          "group": "hero",
+          "label": "Hero sem imagem própria",
+          "detail": null
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "46 vs eletro-solucoes-eficazes"
         }
       ],
       "priority": 2
@@ -2619,8 +3915,8 @@
       "assets": {
         "logo": {
           "path": "/images/mirassol-conserta-celular/logo.svg",
-          "hash": "2985447ef1b7b61b33634d8a43e59c5cbecbd473",
-          "bytes": 1250,
+          "hash": "008408f0ebb45598306376869d22b02f9a376260",
+          "bytes": 1242,
           "width": 900,
           "height": 300
         },
@@ -2690,12 +3986,12 @@
       "priority": 2
     },
     {
-      "slug": "ton-e-cor",
-      "businessName": "Ton & Cor · Pintura e Pequenas Reformas",
+      "slug": "pinturas-nunes",
+      "businessName": "Pinturas Nunes",
       "segment": "servicos",
-      "city": "Região de Curitiba",
+      "city": "Região a confirmar",
       "componentType": "custom",
-      "componentFile": "src/components/site/TonECorPage.tsx",
+      "componentFile": "src/components/site/PinturasNunesPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -2703,60 +3999,60 @@
       "score": 86,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
+        "logo": 4,
         "cover": 11,
-        "hero": 5,
+        "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 10,
+        "originality": 6,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 34,
-      "originalityStatus": "PASS",
-      "originalityNearest": "raphael-construcoes",
+      "originalityScore": 46,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "NEEDS_REVIEW",
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
       "funnelIntent": "orcamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o serviço, o tipo de imóvel e os detalhes necessários para organizar o orçamento.",
-      "funnelCta": "Pedir orçamento",
+      "funnelNextStep": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
+      "funnelCta": "Solicitar orçamento",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/ton-e-cor/logo.svg",
-          "hash": "4a3750763db8c7f211d3ea82aa5ddb24df85c183",
-          "bytes": 1010,
+          "path": "/images/pinturas-nunes/logo.svg",
+          "hash": "dc728aae888aa72d034fb625741547ab038ad9fa",
+          "bytes": 591,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/ton-e-cor/hero-og.jpg",
-          "hash": "e7e4e47ebce823601b81177dfdb720a30189df38",
-          "bytes": 34424,
+          "path": "/images/pinturas-nunes/hero-og.jpg",
+          "hash": "ede72cbee336f67477c5910d5f2193efc723af3e",
+          "bytes": 39479,
           "width": 1200,
           "height": 630
         },
         "social": {
-          "path": "/images/ton-e-cor/hero-og.jpg",
-          "hash": "e7e4e47ebce823601b81177dfdb720a30189df38",
-          "bytes": 34424,
+          "path": "/images/pinturas-nunes/hero-og.jpg",
+          "hash": "ede72cbee336f67477c5910d5f2193efc723af3e",
+          "bytes": 39479,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 6
+        "galleryCount": 4
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Sua casa renovada, com os reparos organizados em um só atendimento.",
-        "heroHeight": 465,
-        "editorialChars": 2373,
-        "smallTargets": 2,
+        "mobileImages": 3,
+        "desktopImages": 3,
+        "heroHeadline": "Transformando ambientes. Realizando sonhos.",
+        "heroHeight": 937,
+        "editorialChars": 1974,
+        "smallTargets": 1,
         "consoleErrors": 0
       },
       "severities": {
@@ -2767,11 +4063,18 @@
       },
       "issues": [
         {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/pinturas-nunes/logo.svg"
+        },
+        {
           "code": "COVER_REUSES_SOCIAL",
           "severity": "P2",
           "group": "cover",
           "label": "Capa reaproveita a imagem social",
-          "detail": "/images/ton-e-cor/hero-og.jpg"
+          "detail": "/images/pinturas-nunes/hero-og.jpg"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -2781,10 +4084,111 @@
           "detail": null
         },
         {
-          "code": "HERO_NO_CTA",
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "46 vs eletro-solucoes-eficazes"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "raphael-construcoes",
+      "businessName": "Raphael Construções",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 86,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 11,
+        "hero": 11,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 34,
+      "originalityStatus": "PASS",
+      "originalityNearest": "ton-e-cor",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "NEEDS_REVIEW",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
+      "funnelCta": "Solicitar avaliação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/raphael-construcoes/logo.svg",
+          "hash": "6caa47dbe3401114a162e9a5bbebb5f90e9daeac",
+          "bytes": 598,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/raphael-construcoes/hero-og.jpg",
+          "hash": "76c4a659d9ec8fb7ab1f90e047776b22a79e949f",
+          "bytes": 38952,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/raphael-construcoes/hero-og.jpg",
+          "hash": "76c4a659d9ec8fb7ab1f90e047776b22a79e949f",
+          "bytes": 38952,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Uma visão completa para sua obra.",
+        "heroHeight": 584,
+        "editorialChars": 2397,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 2,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
           "severity": "P1",
-          "group": "hero",
-          "label": "Hero sem CTA visível",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/raphael-construcoes/logo.svg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/raphael-construcoes/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
           "detail": null
         },
         {
@@ -2793,6 +4197,114 @@
           "group": "hero",
           "label": "Hero sem imagem própria",
           "detail": null
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "centro-mega",
+      "businessName": "Centro Mega",
+      "segment": "prestadores-de-servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/CentroMegaPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 87,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 9,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 2
+      },
+      "originalityScore": 45,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "mania-de-limpeza",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "contato",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
+      "funnelCta": "Falar com a equipe",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/centro-mega/logo.png",
+          "hash": "01c92b76b15ebb5193ec8feae7e0aabf7f0f31f5",
+          "bytes": 165641,
+          "width": 500,
+          "height": 500
+        },
+        "cover": {
+          "path": "/images/centro-mega/hero.png",
+          "hash": "a7094b7b790fa7b60a0d032252ea88d8abbfdd6b",
+          "bytes": 291548,
+          "width": 882,
+          "height": 500
+        },
+        "social": {
+          "path": "/images/centro-mega/social-og.jpg",
+          "hash": "eda032de1b887a758240119181dd020e84fe88bb",
+          "bytes": 551639,
+          "width": 960,
+          "height": 651
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Tecnologia que funciona. Atendimento que resolve.",
+        "heroHeight": 904,
+        "editorialChars": 2478,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "882x500"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "SOCIAL_WRONG_RATIO",
+          "severity": "P1",
+          "group": "social",
+          "label": "Imagem social fora de 1200x630",
+          "detail": "960x651"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "45 vs mania-de-limpeza"
         }
       ],
       "priority": 2
@@ -2899,12 +4411,12 @@
       "priority": 2
     },
     {
-      "slug": "eletro-solucoes-eficazes",
-      "businessName": "Eletro Soluções Eficazes",
+      "slug": "paraiso-do-hot-dog",
+      "businessName": "Paraíso do Hot Dog",
       "segment": "servicos",
-      "city": "Pinhais",
+      "city": "São José dos Pinhais",
       "componentType": "custom",
-      "componentFile": "src/components/site/EletroSolucoesEficazesPage.tsx",
+      "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -2913,88 +4425,88 @@
       "groupScores": {
         "identity": 15,
         "logo": 10,
-        "cover": 7,
+        "cover": 12,
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
+        "originality": 10,
+        "mobile": 4,
+        "social": 2
       },
-      "originalityScore": 50,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "eletrovale-eletromecanica",
+      "originalityScore": 24,
+      "originalityStatus": "PASS",
+      "originalityNearest": "kitutes-na-mesa",
       "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "orcamento",
+      "charm": "MEDIUM",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o ambiente, a instalação e o resultado que procura.",
-      "funnelCta": "Avaliar solução elétrica",
+      "funnelNextStep": "Veja as combinações e monte um pedido de acordo com sua fome.",
+      "funnelCta": "Montar pedido",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/eletro-solucoes-eficazes/logo.svg",
-          "hash": "9e65fa1cb561b0eb4577ac1cc7cdacce3aa728d0",
-          "bytes": 985,
-          "width": 900,
-          "height": 300
+          "path": "/images/paraiso-do-hot-dog/logo.webp",
+          "hash": "71cd1dc19d16407d0018e3faef111c121b80502f",
+          "bytes": 152690,
+          "width": 1672,
+          "height": 941
         },
         "cover": {
-          "path": "/images/eletro-solucoes-eficazes/servicos.webp",
-          "hash": "0a9b19c25f2e8898da27230b4e0d353081267983",
-          "bytes": 83266,
-          "width": 1080,
-          "height": 1080
+          "path": "/images/paraiso-do-hot-dog/capa-card.jpg",
+          "hash": "d54c0a833c95952311580c12d0ed31045c980a10",
+          "bytes": 231074,
+          "width": 1506,
+          "height": 941
         },
         "social": {
-          "path": "/images/eletro-solucoes-eficazes/hero-og.jpg",
-          "hash": "ecafa89c5ab76d167c1ee54d52d5f78ec1ce2deb",
-          "bytes": 41306,
-          "width": 1200,
-          "height": 630
+          "path": "/images/paraiso-do-hot-dog/capa-card.jpg",
+          "hash": "d54c0a833c95952311580c12d0ed31045c980a10",
+          "bytes": 231074,
+          "width": 1506,
+          "height": 941
         },
-        "galleryCount": 5
+        "galleryCount": 4
       },
       "runtime": {
         "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Energia para viver melhor.Tecnologia para evoluir.",
-        "heroHeight": 843,
-        "editorialChars": 2328,
-        "smallTargets": 2,
+        "mobileOverflow": 301,
+        "mobileImages": 29,
+        "desktopImages": 29,
+        "heroHeadline": "Seu hot dog caprichado começa aqui.",
+        "heroHeight": 1045,
+        "editorialChars": 3943,
+        "smallTargets": 7,
         "consoleErrors": 0
       },
       "severities": {
         "P0": 0,
-        "P1": 1,
+        "P1": 2,
         "P2": 1,
-        "P3": 1
+        "P3": 0
       },
       "issues": [
         {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 1.00"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
+          "code": "COVER_REUSES_SOCIAL",
           "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs eletrovale-eletromecanica"
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/paraiso-do-hot-dog/capa-card.jpg"
+        },
+        {
+          "code": "SOCIAL_WRONG_RATIO",
+          "severity": "P1",
+          "group": "social",
+          "label": "Imagem social fora de 1200x630",
+          "detail": "1506x941"
+        },
+        {
+          "code": "MOBILE_OVERFLOW",
+          "severity": "P1",
+          "group": "mobile",
+          "label": "Overflow horizontal em 390px",
+          "detail": "301px · DIV. | DIV.mb-6.flex | DIV. | P.text-xs.font-bold | H2.mt-2.text-4xl"
         }
       ],
       "priority": 2
@@ -3101,122 +4613,21 @@
       "priority": 2
     },
     {
-      "slug": "salao-da-marcia",
-      "businessName": "Salão da Marcia",
-      "segment": "beleza",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/SalaoDaMarciaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 88,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 7,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 47,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "liz-moraes-nail-designer",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o serviço de cabelo, depilação ou beleza que procura.",
-      "funnelCta": "Reservar horário",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/salao-da-marcia/logo.svg",
-          "hash": "c076292ce1790ba83c81c83947ec03111e9680f4",
-          "bytes": 952,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/salao-da-marcia/depilacao.webp",
-          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
-          "bytes": 143960,
-          "width": 1024,
-          "height": 1536
-        },
-        "social": {
-          "path": "/images/salao-da-marcia/hero-og.jpg",
-          "hash": "533563620f0cfb2e9df8197882edaf854b5081d9",
-          "bytes": 27007,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 10
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Seu momento de se cuidar.",
-        "heroHeight": 865,
-        "editorialChars": 2018,
-        "smallTargets": 5,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.67"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs liz-moraes-nail-designer"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "studio-de-cilios",
-      "businessName": "Studio de Cílios",
-      "segment": "beleza",
+      "slug": "lk-alvenaria",
+      "businessName": "LK Alvenaria",
+      "segment": "servicos",
       "city": "Curitiba",
       "componentType": "custom",
-      "componentFile": "src/components/site/StudioDeCiliosPage.tsx",
+      "componentFile": "src/components/site/LkAlvenariaPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
       "visual": "STANDARD",
-      "score": 88,
+      "score": 89,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 7,
+        "logo": 4,
+        "cover": 14,
         "hero": 15,
         "images": 10,
         "content": 10,
@@ -3224,37 +4635,37 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 59,
+      "originalityScore": 51,
       "originalityStatus": "WARNING",
-      "originalityNearest": "mp-festas-eventos",
+      "originalityNearest": "ag-electrical-services",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
+      "funnelIntent": "orcamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Escolha um estilo ou conte o efeito que deseja alcançar.",
-      "funnelCta": "Escolher estilo",
+      "funnelNextStep": "Conte a fase da construção ou reforma que quer avaliar.",
+      "funnelCta": "Avaliar minha obra",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/studio-de-cilios/logo.svg",
-          "hash": "701c2db527e1dcf04e5e497fbac9aa8b47a14e33",
-          "bytes": 1013,
+          "path": "/images/lk-alvenaria/logo.svg",
+          "hash": "6ab7413ccd29f6f944e577a048c96bf5a53d4cae",
+          "bytes": 589,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/studio-de-cilios/portfolio-1.webp",
-          "hash": "ae424d5e511cdd7fdcd1b80fbbd1bfd973864c17",
-          "bytes": 65532,
-          "width": 900,
-          "height": 1600
+          "path": "/images/lk-alvenaria/portfolio.webp",
+          "hash": "946cc3e8b8b6df2f6e9fa4a7e62950493c400e16",
+          "bytes": 179140,
+          "width": 1280,
+          "height": 853
         },
         "social": {
-          "path": "/images/studio-de-cilios/hero-og.jpg",
-          "hash": "1afa766df8311bf254b8827054632de5d44507eb",
-          "bytes": 31756,
+          "path": "/images/lk-alvenaria/hero-og.jpg",
+          "hash": "e5e9f575e1785fd296c723351c110a10eb9f8870",
+          "bytes": 33017,
           "width": 1200,
           "height": 630
         },
@@ -3265,9 +4676,9 @@
         "mobileOverflow": 0,
         "mobileImages": 6,
         "desktopImages": 6,
-        "heroHeadline": "Seu olhar, sua assinatura.",
-        "heroHeight": 1318,
-        "editorialChars": 2703,
+        "heroHeadline": "Sua obra com contrato e garantia.",
+        "heroHeight": 940,
+        "editorialChars": 2273,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -3279,11 +4690,11 @@
       },
       "issues": [
         {
-          "code": "COVER_SEVERE_CROP",
+          "code": "LOGO_PLACEHOLDER",
           "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.56"
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/lk-alvenaria/logo.svg"
         },
         {
           "code": "COVER_NO_FOCAL_POINT",
@@ -3297,7 +4708,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "59 vs mp-festas-eventos"
+          "detail": "51 vs ag-electrical-services"
         }
       ],
       "priority": 2
@@ -3397,12 +4808,12 @@
       "priority": 2
     },
     {
-      "slug": "simone-lacerda-vaz",
-      "businessName": "Simone Lacerda Vaz · Nutricionista",
-      "segment": "saude",
-      "city": "Brasil",
+      "slug": "rm-fretes",
+      "businessName": "RM Fretes",
+      "segment": "servicos",
+      "city": "Curitiba",
       "componentType": "custom",
-      "componentFile": "src/components/site/SimoneLacerdaVazPage.tsx",
+      "componentFile": "src/components/site/RMFretesPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
@@ -3410,8 +4821,203 @@
       "score": 89,
       "groupScores": {
         "identity": 15,
-        "logo": 10,
-        "cover": 8,
+        "logo": 4,
+        "cover": 10,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 35,
+      "originalityStatus": "PASS",
+      "originalityNearest": "marido-de-aluguel",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Informe origem, destino, itens e a data que precisa atender.",
+      "funnelCta": "Organizar meu frete",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/rm-fretes/logo.svg",
+          "hash": "cbf55589d7b3d56d153290f53acba9f5450a3417",
+          "bytes": 586,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/rm-fretes/capa-card.jpg",
+          "hash": "88419e18aa05f7cd610f216e876ecc28bd2b6861",
+          "bytes": 59529,
+          "width": 832,
+          "height": 520
+        },
+        "social": {
+          "path": "/images/rm-fretes/hero-og.jpg",
+          "hash": "d93aecad236c420d2e615b39138ce34035492ae3",
+          "bytes": 30137,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 7
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu frete em movimento. Rápido.",
+        "heroHeight": 1214,
+        "editorialChars": 2386,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 0,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/rm-fretes/logo.svg"
+        },
+        {
+          "code": "COVER_LOW_RES",
+          "severity": "P1",
+          "group": "cover",
+          "label": "Capa com resolução insuficiente para o card",
+          "detail": "832x520"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "pastelaria-route-66",
+      "businessName": "Pastelaria e Lanchonete Route 66",
+      "segment": "restaurantes",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/PastelariaRoute66Page.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 32,
+      "originalityStatus": "PASS",
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Diga o que você quer hoje e se prefere comer no local, retirar ou receber em casa.",
+      "funnelCta": "Pedir na Route 66",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/pastelaria-route-66/logo.svg",
+          "hash": "31bda83d40f59758279106b76bc7b89b6a6d43c8",
+          "bytes": 614,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/pastelaria-route-66/hero-og.jpg",
+          "hash": "5f78d7a669fe407208d1fd2042c9f11ce869d946",
+          "bytes": 45806,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/pastelaria-route-66/hero-og.jpg",
+          "hash": "5f78d7a669fe407208d1fd2042c9f11ce869d946",
+          "bytes": 45806,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 7
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 8,
+        "desktopImages": 8,
+        "heroHeadline": "Tá com fome? Pega a estrada para a Route 66.",
+        "heroHeight": 989,
+        "editorialChars": 2312,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/pastelaria-route-66/logo.svg"
+        },
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/pastelaria-route-66/hero-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "rj-servicos-drywall",
+      "businessName": "RJ Serviços de Drywall",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/RjServicosDrywallPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
         "hero": 15,
         "images": 10,
         "content": 10,
@@ -3419,50 +5025,50 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 48,
+      "originalityScore": 49,
       "originalityStatus": "WARNING",
-      "originalityNearest": "embalar-embalagens",
+      "originalityNearest": "fernanda-amaral-drywall",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "APPROVED",
-      "funnelIntent": "agendamento",
+      "funnelIntent": "orcamento",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o atendimento que procura e o momento que está vivendo para organizar o próximo passo com Simone.",
-      "funnelCta": "Conversar agora",
+      "funnelNextStep": "Conte o espaço, o acabamento desejado e a etapa da obra.",
+      "funnelCta": "Avaliar ambiente",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/simone-lacerda-vaz/logo.svg",
-          "hash": "23116c248fa8823a410a0a05ad1039cfe1a6c2d7",
-          "bytes": 986,
+          "path": "/images/rj-servicos-drywall/logo.svg",
+          "hash": "84b867a04bba59c7bc2878eba36981a4ef65b547",
+          "bytes": 601,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/simone-lacerda-vaz/hero.png",
-          "hash": "caa5c586906019669c8a878cae77d96b2ffef2a6",
-          "bytes": 2151091,
-          "width": 1024,
-          "height": 1536
+          "path": "/images/rj-servicos-drywall/capa-card.jpg",
+          "hash": "a21d1287a08c98058ae2354183e29d65166dd7c2",
+          "bytes": 103265,
+          "width": 1506,
+          "height": 941
         },
         "social": {
-          "path": "/images/simone-lacerda-vaz/hero-og.jpg",
-          "hash": "af4f8f2bddeddc50426454595db244531c3740cf",
-          "bytes": 32758,
+          "path": "/images/rj-servicos-drywall/hero-og.jpg",
+          "hash": "6d342393f0ef88b0c5d8763c2dac38d181cac077",
+          "bytes": 38680,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 6
+        "galleryCount": 7
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Seu cuidado merece um plano que caiba na vida.",
-        "heroHeight": 1250,
-        "editorialChars": 2477,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "Seu espaço muda.A obra não pesa.",
+        "heroHeight": 843,
+        "editorialChars": 3416,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -3474,18 +5080,300 @@
       },
       "issues": [
         {
-          "code": "COVER_SEVERE_CROP",
+          "code": "LOGO_PLACEHOLDER",
           "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.67"
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/rj-servicos-drywall/logo.svg"
         },
         {
           "code": "ORIGINALITY_WARNING",
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "48 vs embalar-embalagens"
+          "detail": "49 vs fernanda-amaral-drywall"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "santos-montador-de-moveis",
+      "businessName": "Santos Montador de Móveis",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/SantosMontadorDeMoveisPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 41,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "diego-montador-moveis",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte o que precisa montar, instalar, pintar ou reparar.",
+      "funnelCta": "Organizar serviço",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/santos-montador-de-moveis/logo.svg",
+          "hash": "7335d3f9674d87db99907e28b55ecb28e0a6ab6f",
+          "bytes": 604,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/santos-montador-de-moveis/capa-card.jpg",
+          "hash": "31d7c0bf680365e32525132e9fa4730bb9ba30ca",
+          "bytes": 152749,
+          "width": 1536,
+          "height": 960
+        },
+        "social": {
+          "path": "/images/santos-montador-de-moveis/hero-og.jpg",
+          "hash": "65ae5f83b02e1b00d02bcf2eb33d436e18094f19",
+          "bytes": 42468,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Conte com quem entende do assunto.",
+        "heroHeight": 692,
+        "editorialChars": 3234,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/santos-montador-de-moveis/logo.svg"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "41 vs diego-montador-moveis"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "sos-presentes-cosmeticos",
+      "businessName": "SOS Presentes & Cosméticos",
+      "segment": "comercios",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/SosPresentesCosmeticosPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 50,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "confeitaria-sabor-da-realeza",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a ocasião, a ideia e quando você precisa do presente.",
+      "funnelCta": "Montar um presente",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/sos-presentes-cosmeticos/logo.svg",
+          "hash": "6d2c734cc7b089966dce11577b8b424ae6acbd83",
+          "bytes": 614,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/sos-presentes-cosmeticos/capa-card.jpg",
+          "hash": "6113f601c64cbc468eb2b6c046de660dabc98c26",
+          "bytes": 79383,
+          "width": 1200,
+          "height": 750
+        },
+        "social": {
+          "path": "/images/sos-presentes-cosmeticos/hero-og.jpg",
+          "hash": "fd46e2ecf153fdd559966b53fd0c8e3d6e75ec44",
+          "bytes": 44199,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 11
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 9,
+        "desktopImages": 9,
+        "heroHeadline": "Presentes que fazem alguém se sentir especial.",
+        "heroHeight": 1241,
+        "editorialChars": 2923,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/sos-presentes-cosmeticos/logo.svg"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "50 vs confeitaria-sabor-da-realeza"
+        }
+      ],
+      "priority": 2
+    },
+    {
+      "slug": "vila-da-capivara",
+      "businessName": "Vila da Capivara",
+      "segment": "servicos",
+      "city": "Curitiba",
+      "componentType": "custom",
+      "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "STANDARD",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 53,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "APPROVED",
+      "funnelIntent": "pedido",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Escolha a ocasião e conte quantas pessoas quer receber.",
+      "funnelCta": "Montar meu kit",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/vila-da-capivara/logo.svg",
+          "hash": "e82157187f6f66824cd15c9732b39e558d8b7613",
+          "bytes": 594,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/vila-da-capivara/capa-card.jpg",
+          "hash": "3f29ad52c4d78ecec16c8b639717e66c714281ad",
+          "bytes": 250623,
+          "width": 1220,
+          "height": 763
+        },
+        "social": {
+          "path": "/images/vila-da-capivara/hero-og.jpg",
+          "hash": "1f4e3214c67999b6d2900f3df108931ef54a7ae7",
+          "bytes": 37500,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 21
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Mais que sabores, criamos experiências.",
+        "heroHeight": 1105,
+        "editorialChars": 2748,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/vila-da-capivara/logo.svg"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "53 vs mp-festas-eventos"
         }
       ],
       "priority": 2
@@ -3580,382 +5468,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "51 vs lk-alvenaria"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "bruna-diarista",
-      "businessName": "Bruna Diarista",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/BrunaDiaristaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 66,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "popys-conservacao-limpeza",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna.",
-      "funnelCta": "Consultar horários",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/bruna-diarista/logo.svg",
-          "hash": "1f05ca27ed3b2c296d2d1df73eec20d205cad37a",
-          "bytes": 935,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/bruna-diarista/hero.png",
-          "hash": "6daaba903a26aa7a2db2664a88e6671f85fc89a8",
-          "bytes": 2025138,
-          "width": 1536,
-          "height": 1024
-        },
-        "social": {
-          "path": "/images/bruna-diarista/hero-og.jpg",
-          "hash": "512cf1494faae46bc12018144ec27644711ded5e",
-          "bytes": 27352,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Sua casa limpa. Sua rotina mais leve.",
-        "heroHeight": 856,
-        "editorialChars": 2319,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs popys-conservacao-limpeza"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "easy-clean",
-      "businessName": "Easy Clean Higienização a Seco",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EasyCleanPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 69,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "btb-construcao",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte qual peça precisa de higienização e se deseja impermeabilização.",
-      "funnelCta": "Solicitar orçamento",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/easy-clean/logo.svg",
-          "hash": "cbf22eebf01179b76e1505d7f4c7dd16e06c48ad",
-          "bytes": 971,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/easy-clean/hero.png",
-          "hash": "abd4d5776370340ae819d47c4d6057fcbb521c08",
-          "bytes": 1906911,
-          "width": 1536,
-          "height": 1024
-        },
-        "social": {
-          "path": "/images/easy-clean/hero-og.jpg",
-          "hash": "50ea4a777d6b9fd3a848b6f8ee93bbe3fef22f58",
-          "bytes": 34323,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Conforto limpo, sem sair de casa.",
-        "heroHeight": 1017,
-        "editorialChars": 2356,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "69 vs btb-construcao"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "espaco-cih-luh",
-      "businessName": "Espaço CIH & LUH",
-      "segment": "beleza",
-      "city": "Manaus",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EspacoCihLuhPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 7,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 39,
-      "originalityStatus": "PASS",
-      "originalityNearest": "kitutes-na-mesa",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Indique o cuidado que procura e a preferência de horário.",
-      "funnelCta": "Escolher atendimento",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/espaco-cih-luh/logo.svg",
-          "hash": "18261d2c000f3d69736e01d4cea9c097930ed9c9",
-          "bytes": 950,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/espaco-cih-luh/promocao.webp",
-          "hash": "8a7cc09754fb7457094d228f8abb2b3a01792c6c",
-          "bytes": 88810,
-          "width": 1122,
-          "height": 1402
-        },
-        "social": {
-          "path": "/images/espaco-cih-luh/hero-og.jpg",
-          "hash": "d0a17617e51ceb2d1e8928a8da74f0455e75d7c3",
-          "bytes": 30061,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Mãos que transformam. Pés que sustentam.",
-        "heroHeight": 885,
-        "editorialChars": 2268,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.80"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "popys-conservacao-limpeza",
-      "businessName": "POPYS Conservação e Limpeza",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/PopysConservacaoLimpezaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 66,
-      "originalityStatus": "FAIL",
-      "originalityNearest": "bruna-diarista",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado.",
-      "funnelCta": "Solicitar orçamento",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/popys-conservacao-limpeza/logo.svg",
-          "hash": "9a4249670aa9ef6bceb0a1e9869ff1c2069a33f4",
-          "bytes": 982,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-          "hash": "a3f605547abe3e493f484247b6f51af0620970c3",
-          "bytes": 1910189,
-          "width": 1536,
-          "height": 1024
-        },
-        "social": {
-          "path": "/images/popys-conservacao-limpeza/hero-og.jpg",
-          "hash": "c840f73980d2f3b0f54f7baabbbef232077bf1c9",
-          "bytes": 31618,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Seu ambiente limpo, organizado e bem cuidado.",
-        "heroHeight": 950,
-        "editorialChars": 2605,
-        "smallTargets": 5,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "66 vs bruna-diarista"
         }
       ],
       "priority": 2
@@ -4323,180 +5835,6 @@
       "priority": 2
     },
     {
-      "slug": "paraiso-do-hot-dog",
-      "businessName": "Paraíso do Hot Dog",
-      "segment": "servicos",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 94,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 10,
-        "mobile": 4,
-        "social": 5
-      },
-      "originalityScore": 24,
-      "originalityStatus": "PASS",
-      "originalityNearest": "kitutes-na-mesa",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Veja as combinações e monte um pedido de acordo com sua fome.",
-      "funnelCta": "Montar pedido",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/paraiso-do-hot-dog/logo.webp",
-          "hash": "71cd1dc19d16407d0018e3faef111c121b80502f",
-          "bytes": 152690,
-          "width": 1672,
-          "height": 941
-        },
-        "cover": {
-          "path": "/images/paraiso-do-hot-dog/capa-card.jpg",
-          "hash": "d54c0a833c95952311580c12d0ed31045c980a10",
-          "bytes": 231074,
-          "width": 1506,
-          "height": 941
-        },
-        "social": {
-          "path": "/images/paraiso-hot-dog-cover-og.jpg",
-          "hash": "9cb6e38f3b3cbd746feb6b3170ad5583a0be9969",
-          "bytes": 153064,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 301,
-        "mobileImages": 29,
-        "desktopImages": 29,
-        "heroHeadline": "Seu hot dog caprichado começa aqui.",
-        "heroHeight": 1045,
-        "editorialChars": 3943,
-        "smallTargets": 7,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "MOBILE_OVERFLOW",
-          "severity": "P1",
-          "group": "mobile",
-          "label": "Overflow horizontal em 390px",
-          "detail": "301px · DIV. | DIV.mb-6.flex | DIV. | P.text-xs.font-bold | H2.mt-2.text-4xl"
-        }
-      ],
-      "priority": 2
-    },
-    {
-      "slug": "rm-fretes",
-      "businessName": "RM Fretes",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/RMFretesPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "STANDARD",
-      "score": 95,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 10,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 10,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 35,
-      "originalityStatus": "PASS",
-      "originalityNearest": "marido-de-aluguel",
-      "contentSimilarity": null,
-      "charm": "MEDIUM",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe origem, destino, itens e a data que precisa atender.",
-      "funnelCta": "Organizar meu frete",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/rm-fretes/logo.svg",
-          "hash": "173a1e0fe450b3a82087a6445215b26e6a6ea8d8",
-          "bytes": 1003,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/rm-fretes/capa-card.jpg",
-          "hash": "88419e18aa05f7cd610f216e876ecc28bd2b6861",
-          "bytes": 59529,
-          "width": 832,
-          "height": 520
-        },
-        "social": {
-          "path": "/images/rm-fretes/hero-og.jpg",
-          "hash": "fb880dc9afbf785045faa84adbcebe6439963de0",
-          "bytes": 31283,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu frete em movimento. Rápido.",
-        "heroHeight": 1214,
-        "editorialChars": 2386,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 0,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "832x520"
-        }
-      ],
-      "priority": 2
-    },
-    {
       "slug": "angel-mix-brecho",
       "businessName": "Angel Mix Brechó",
       "segment": "comercios",
@@ -4634,9 +5972,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 43,
+      "originalityScore": 44,
       "originalityStatus": "WARNING",
-      "originalityNearest": "lk-alvenaria",
+      "originalityNearest": "sos-presentes-cosmeticos",
       "contentSimilarity": null,
       "charm": "LOW",
       "coverReview": "NEEDS_REVIEW",
@@ -4649,8 +5987,8 @@
       "assets": {
         "logo": {
           "path": "/images/clinica-integrada/logo.svg",
-          "hash": "8248a6a67f08b432a5a3cfc2a73b90199c3b334b",
-          "bytes": 1246,
+          "hash": "541dc9bc49ada85dd54b5dc7699f388649494f0a",
+          "bytes": 1238,
           "width": 900,
           "height": 300
         },
@@ -4721,7 +6059,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "43 vs lk-alvenaria"
+          "detail": "44 vs sos-presentes-cosmeticos"
         }
       ],
       "priority": 3
@@ -4749,9 +6087,9 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 31,
+      "originalityScore": 33,
       "originalityStatus": "PASS",
-      "originalityNearest": "guaratuba-atelie-presentes",
+      "originalityNearest": "estrutura-nacional",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "NEEDS_REVIEW",
@@ -4764,8 +6102,8 @@
       "assets": {
         "logo": {
           "path": "/images/almeida-torres/logo.svg",
-          "hash": "7e47dddfdd9dc7b0cdb57cadf52b54ca573dde35",
-          "bytes": 1271,
+          "hash": "9ac2708d342eb7e8bc701886f2ac5e3978f774af",
+          "bytes": 1263,
           "width": 900,
           "height": 300
         },
@@ -4879,8 +6217,8 @@
       "assets": {
         "logo": {
           "path": "/images/casa-nativa/logo.svg",
-          "hash": "d5365bae1171ddca55498ee5e67f89631bc0aaa5",
-          "bytes": 1250,
+          "hash": "9352fb4a97b423d2ff06e6d058642e3c0b75de6f",
+          "bytes": 1242,
           "width": 900,
           "height": 300
         },
@@ -5382,6 +6720,114 @@
       "priority": 3
     },
     {
+      "slug": "estrutura-nacional",
+      "businessName": "EN — Estrutura Nacional",
+      "segment": "construcao",
+      "city": "São José dos Pinhais",
+      "componentType": "custom",
+      "componentFile": "src/components/site/EstruturaNacionalPage.tsx",
+      "preset": null,
+      "technical": "COMPLETE",
+      "published": true,
+      "visual": "PREMIUM",
+      "score": 88,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 6,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityScore": 41,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "pinturas-nunes",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "orcamento",
+      "funnelStatus": "PASS",
+      "funnelSource": "PROJECT_CONTRACT",
+      "funnelNextStep": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
+      "funnelCta": "Iniciar solicitação",
+      "visuallyReviewed": true,
+      "assets": {
+        "logo": {
+          "path": "/images/estrutura-nacional/logo.svg",
+          "hash": "3aaa44ce2a4bf64b033648d417a7202702bd5fe0",
+          "bytes": 1221,
+          "width": 690,
+          "height": 160
+        },
+        "cover": {
+          "path": "/images/estrutura-nacional/social-og.jpg",
+          "hash": "5f4133924ce9698a20faa75213c3cd7e90a0dcc6",
+          "bytes": 79640,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/estrutura-nacional/social-og.jpg",
+          "hash": "5f4133924ce9698a20faa75213c3cd7e90a0dcc6",
+          "bytes": 79640,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 3
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 3,
+        "desktopImages": 3,
+        "heroHeadline": "A estrutura certa começa por uma boa conversa.",
+        "heroHeight": 1053,
+        "editorialChars": 3531,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 3,
+        "P3": 1
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/estrutura-nacional/social-og.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        },
+        {
+          "code": "FEW_IMAGES",
+          "severity": "P2",
+          "group": "images",
+          "label": "Poucas imagens próprias do cliente",
+          "detail": "3 arquivo(s)"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "41 vs pinturas-nunes"
+        }
+      ],
+      "priority": 3
+    },
+    {
       "slug": "brecho-sao-francisco",
       "businessName": "Brechó São Francisco",
       "segment": "comercios",
@@ -5584,295 +7030,6 @@
       "priority": 3
     },
     {
-      "slug": "denise-gomes-psicologa",
-      "businessName": "Denise Gomes · Psicóloga",
-      "segment": "saude",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/DeniseGomesPsicologaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 53,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "mp-festas-eventos",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "agendamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o que motivou sua busca e escolha o melhor período para iniciar uma avaliação.",
-      "funnelCta": "Agendar avaliação",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/denise-gomes-psicologa/logo.svg",
-          "hash": "fa1366a1fbe3b5c67188cf97d81b78c24ae519f7",
-          "bytes": 1019,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
-          "hash": "09116cef5a4ac144e5055d006a61d44c994b05f5",
-          "bytes": 32792,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/denise-gomes-psicologa/hero-og.jpg",
-          "hash": "09116cef5a4ac144e5055d006a61d44c994b05f5",
-          "bytes": 32792,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 5
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Cuidar da mente é abrir espaço para viver com mais leveza.",
-        "heroHeight": 1306,
-        "editorialChars": 3091,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/denise-gomes-psicologa/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "53 vs mp-festas-eventos"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "eletrovale-eletromecanica",
-      "businessName": "Eletrovale Eletromecânica",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/EletrovaleEletromecanicaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 11,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 50,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "eletro-solucoes-eficazes",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe o equipamento e o tipo de manutenção necessária.",
-      "funnelCta": "Solicitar suporte técnico",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/eletrovale-eletromecanica/logo.svg",
-          "hash": "8bd8efa7ee17b80fc19fef80d3d3a6c4c528d0a5",
-          "bytes": 965,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/eletrovale-eletromecanica/capa-card.jpg",
-          "hash": "4b4f5f27d3d55718e881913b1bb0a4d9a4183308",
-          "bytes": 195467,
-          "width": 1280,
-          "height": 800
-        },
-        "social": {
-          "path": "/images/eletrovale-eletromecanica/hero-og.jpg",
-          "hash": "467d134d9f207640ed1c3b2229eb43833db06b9d",
-          "bytes": 33540,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Seu equipamento merece confiabilidade.",
-        "heroHeight": 458,
-        "editorialChars": 2293,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "50 vs eletro-solucoes-eficazes"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "jkl-marcenaria",
-      "businessName": "JKL Marcenaria",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/JklMarcenariaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 92,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 11,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 46,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "eletro-solucoes-eficazes",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o ambiente, as medidas e a ideia que quer realizar.",
-      "funnelCta": "Planejar móvel",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/jkl-marcenaria/logo.svg",
-          "hash": "cdd0880522a960a235f1ff81a8ee43ae3657a56c",
-          "bytes": 946,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/jkl-marcenaria/capa-card.jpg",
-          "hash": "79cc4d2e300a70fd66debca025a11f57242dc48d",
-          "bytes": 56997,
-          "width": 1204,
-          "height": 753
-        },
-        "social": {
-          "path": "/images/jkl-marcenaria/hero-og.jpg",
-          "hash": "b29d6f8577302a6ef70c3c66bd210ce13873903c",
-          "bytes": 27236,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Cada centímetrodesenhado para o seu ambiente.",
-        "heroHeight": 540,
-        "editorialChars": 2271,
-        "smallTargets": 2,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 2,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "HERO_NO_IMAGE",
-          "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "46 vs eletro-solucoes-eficazes"
-        }
-      ],
-      "priority": 3
-    },
-    {
       "slug": "lucas-arruma-maquina-lavar",
       "businessName": "Lucas Arruma Máquina de Lavar",
       "segment": "servicos",
@@ -5910,8 +7067,8 @@
       "assets": {
         "logo": {
           "path": "/images/lucas-arruma-maquina-lavar/logo.svg",
-          "hash": "bf187a626bf9c4df92e2140d9165adb28513657a",
-          "bytes": 619,
+          "hash": "d6e61014613e9e3c868b4649118256050c7fc3f9",
+          "bytes": 612,
           "width": 320,
           "height": 320
         },
@@ -6004,8 +7161,8 @@
       "assets": {
         "logo": {
           "path": "/images/no-brilho-higienizacao/logo.svg",
-          "hash": "9cf1b0e768511e580650a5a2c4f5ba948d68a4fc",
-          "bytes": 591,
+          "hash": "1845aeb6929d1290b7948499f1244c4a262b4f24",
+          "bytes": 585,
           "width": 320,
           "height": 320
         },
@@ -6061,89 +7218,82 @@
       "priority": 3
     },
     {
-      "slug": "raphael-construcoes",
-      "businessName": "Raphael Construções",
-      "segment": "servicos",
-      "city": "Curitiba",
+      "slug": "your-brutus-burguer",
+      "businessName": "Your Brutus Burguer",
+      "segment": "restaurantes",
+      "city": "São José dos Pinhais",
       "componentType": "custom",
-      "componentFile": "src/components/site/RaphaelConstrucoesPage.tsx",
+      "componentFile": "src/components/site/YourBrutusBurguerPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
       "visual": "PREMIUM",
-      "score": 92,
+      "score": 93,
       "groupScores": {
         "identity": 15,
         "logo": 10,
-        "cover": 11,
-        "hero": 11,
+        "cover": 14,
+        "hero": 15,
         "images": 10,
-        "content": 10,
-        "originality": 10,
+        "content": 8,
+        "originality": 6,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 34,
-      "originalityStatus": "PASS",
-      "originalityNearest": "ton-e-cor",
+      "originalityScore": 45,
+      "originalityStatus": "WARNING",
+      "originalityNearest": "mimo-salgados-doces",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "orcamento",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "pedido",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Informe a necessidade principal, o tipo de imóvel, a região e o que já está disponível para organizar a avaliação.",
-      "funnelCta": "Solicitar avaliação",
+      "funnelNextStep": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
+      "funnelCta": "Abrir cardápio",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/raphael-construcoes/logo.svg",
-          "hash": "0029cc18e68b7ab3d4fb575bc89c1d286a46424b",
-          "bytes": 957,
-          "width": 900,
-          "height": 300
+          "path": "/images/your-brutus-burguer/logo.svg",
+          "hash": "0842e991bc29c72f54e420823b8bcc16fcd836c5",
+          "bytes": 626,
+          "width": 440,
+          "height": 120
         },
         "cover": {
-          "path": "/images/raphael-construcoes/hero-og.jpg",
-          "hash": "a105a5fef8ab1ed571cd059ce2d72a27943bdb19",
-          "bytes": 33496,
-          "width": 1200,
-          "height": 630
+          "path": "/images/your-brutus-burguer/hero-og.png",
+          "hash": "8b6cccfec6dc5266b8b02c06ff46d7d4491f7626",
+          "bytes": 2104180,
+          "width": 1731,
+          "height": 909
         },
         "social": {
-          "path": "/images/raphael-construcoes/hero-og.jpg",
-          "hash": "a105a5fef8ab1ed571cd059ce2d72a27943bdb19",
-          "bytes": 33496,
+          "path": "/images/your-brutus-burguer/hero-og-og.jpg",
+          "hash": "845b391717d10f4223d5bc75f9ddadce6a7ed4c7",
+          "bytes": 116735,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 6
+        "galleryCount": 5
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Uma visão completa para sua obra.",
-        "heroHeight": 584,
-        "editorialChars": 2397,
-        "smallTargets": 1,
+        "mobileImages": 6,
+        "desktopImages": 6,
+        "heroHeadline": "A rota certa para um burger encorpado.",
+        "heroHeight": 971,
+        "editorialChars": 1886,
+        "smallTargets": 2,
         "consoleErrors": 0
       },
       "severities": {
         "P0": 0,
         "P1": 0,
-        "P2": 2,
-        "P3": 1
+        "P2": 1,
+        "P3": 2
       },
       "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/raphael-construcoes/hero-og.jpg"
-        },
         {
           "code": "COVER_NO_FOCAL_POINT",
           "severity": "P3",
@@ -6152,11 +7302,18 @@
           "detail": null
         },
         {
-          "code": "HERO_NO_IMAGE",
+          "code": "CONTENT_SHORT_SERVICES",
+          "severity": "P3",
+          "group": "content",
+          "label": "Serviços pouco explicados",
+          "detail": "2 menções"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
           "severity": "P2",
-          "group": "hero",
-          "label": "Hero sem imagem própria",
-          "detail": null
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "45 vs mimo-salgados-doces"
         }
       ],
       "priority": 3
@@ -6357,100 +7514,6 @@
       "priority": 3
     },
     {
-      "slug": "lk-alvenaria",
-      "businessName": "LK Alvenaria",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/LkAlvenariaPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 95,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 51,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "ag-electrical-services",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "NEEDS_REVIEW",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte a fase da construção ou reforma que quer avaliar.",
-      "funnelCta": "Avaliar minha obra",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/lk-alvenaria/logo.svg",
-          "hash": "22425d52648d1cd01484cd6eb1de94749102ea0a",
-          "bytes": 948,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/lk-alvenaria/portfolio.webp",
-          "hash": "946cc3e8b8b6df2f6e9fa4a7e62950493c400e16",
-          "bytes": 179140,
-          "width": 1280,
-          "height": 853
-        },
-        "social": {
-          "path": "/images/lk-alvenaria/hero-og.jpg",
-          "hash": "68268c650dcbee0c9d394fa10f3777a047726359",
-          "bytes": 28680,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 8
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Sua obra com contrato e garantia.",
-        "heroHeight": 940,
-        "editorialChars": 2273,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 1,
-        "P3": 1
-      },
-      "issues": [
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs ag-electrical-services"
-        }
-      ],
-      "priority": 3
-    },
-    {
       "slug": "r_beauty",
       "businessName": "R_Beauty Studio & Spa",
       "segment": "beleza",
@@ -6501,9 +7564,9 @@
           "height": 800
         },
         "social": {
-          "path": "/images/r_beauty/hero-og.jpg",
-          "hash": "69d0fd70a1defe8e5b25d2b8ccc5e06bd8ca9f86",
-          "bytes": 39017,
+          "path": "/images/r-beauty-icon-og.jpg",
+          "hash": "758635fe90aaf59908f8000e3b06ddeb52892291",
+          "bytes": 128944,
           "width": 1200,
           "height": 630
         },
@@ -7502,267 +8565,6 @@
       "priority": 3
     },
     {
-      "slug": "rj-servicos-drywall",
-      "businessName": "RJ Serviços de Drywall",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/RjServicosDrywallPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 96,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 49,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "fernanda-amaral-drywall",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o espaço, o acabamento desejado e a etapa da obra.",
-      "funnelCta": "Avaliar ambiente",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/rj-servicos-drywall/logo.svg",
-          "hash": "29af2fd1f1348bbeaee85cd547bee0723d8d88ea",
-          "bytes": 967,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/rj-servicos-drywall/capa-card.jpg",
-          "hash": "a21d1287a08c98058ae2354183e29d65166dd7c2",
-          "bytes": 103265,
-          "width": 1506,
-          "height": 941
-        },
-        "social": {
-          "path": "/images/rj-servicos-drywall/hero-og.jpg",
-          "hash": "aebdb357dfa690cfa69f8f193ac8b81e3aacd55b",
-          "bytes": 32070,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 7
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 6,
-        "desktopImages": 6,
-        "heroHeadline": "Seu espaço muda.A obra não pesa.",
-        "heroHeight": 843,
-        "editorialChars": 3416,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 1,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "49 vs fernanda-amaral-drywall"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "santos-montador-de-moveis",
-      "businessName": "Santos Montador de Móveis",
-      "segment": "servicos",
-      "city": "Curitiba",
-      "componentType": "custom",
-      "componentFile": "src/components/site/SantosMontadorDeMoveisPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 96,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 41,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "diego-montador-moveis",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "orcamento",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte o que precisa montar, instalar, pintar ou reparar.",
-      "funnelCta": "Organizar serviço",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/santos-montador-de-moveis/logo.svg",
-          "hash": "4115bb26a25d8d013d945d33c6895926da2072c4",
-          "bytes": 973,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/santos-montador-de-moveis/capa-card.jpg",
-          "hash": "31d7c0bf680365e32525132e9fa4730bb9ba30ca",
-          "bytes": 152749,
-          "width": 1536,
-          "height": 960
-        },
-        "social": {
-          "path": "/images/santos-montador-de-moveis/hero-og.jpg",
-          "hash": "8699c6e246fabd16cbe47da17ff3fe5b94d4bb35",
-          "bytes": 32607,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 6
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Conte com quem entende do assunto.",
-        "heroHeight": 692,
-        "editorialChars": 3234,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 1,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs diego-montador-moveis"
-        }
-      ],
-      "priority": 3
-    },
-    {
-      "slug": "sos-presentes-cosmeticos",
-      "businessName": "SOS Presentes & Cosméticos",
-      "segment": "comercios",
-      "city": "São José dos Pinhais",
-      "componentType": "custom",
-      "componentFile": "src/components/site/SosPresentesCosmeticosPage.tsx",
-      "preset": null,
-      "technical": "COMPLETE",
-      "published": true,
-      "visual": "PREMIUM",
-      "score": 96,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 15,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityScore": 51,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "confeitaria-sabor-da-realeza",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
-      "funnelStatus": "PASS",
-      "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Conte a ocasião, a ideia e quando você precisa do presente.",
-      "funnelCta": "Montar um presente",
-      "visuallyReviewed": true,
-      "assets": {
-        "logo": {
-          "path": "/images/sos-presentes-cosmeticos/logo.svg",
-          "hash": "16c7fdfaa209fed610f79c14a55c23dd2f390845",
-          "bytes": 1006,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/sos-presentes-cosmeticos/capa-card.jpg",
-          "hash": "6113f601c64cbc468eb2b6c046de660dabc98c26",
-          "bytes": 79383,
-          "width": 1200,
-          "height": 750
-        },
-        "social": {
-          "path": "/images/sos-presentes-cosmeticos/hero-og.jpg",
-          "hash": "4fcacd3fef9a90e54e36582e7767f796f339d8d7",
-          "bytes": 34782,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 11
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 9,
-        "desktopImages": 9,
-        "heroHeadline": "Presentes que fazem alguém se sentir especial.",
-        "heroHeight": 1241,
-        "editorialChars": 2923,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 1,
-        "P3": 0
-      },
-      "issues": [
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs confeitaria-sabor-da-realeza"
-        }
-      ],
-      "priority": 3
-    },
-    {
       "slug": "thays-camilla",
       "businessName": "Thays Camilla",
       "segment": "comercios",
@@ -7785,7 +8587,7 @@
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 44,
+      "originalityScore": 46,
       "originalityStatus": "WARNING",
       "originalityNearest": "sos-presentes-cosmeticos",
       "contentSimilarity": null,
@@ -7844,94 +8646,94 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "44 vs sos-presentes-cosmeticos"
+          "detail": "46 vs sos-presentes-cosmeticos"
         }
       ],
       "priority": 3
     },
     {
-      "slug": "vila-da-capivara",
-      "businessName": "Vila da Capivara",
+      "slug": "auto-socorro-dentinho",
+      "businessName": "Auto Socorro Dentinho",
       "segment": "servicos",
-      "city": "Curitiba",
+      "city": "Quatro Barras",
       "componentType": "custom",
-      "componentFile": "src/components/site/VilaDaCapivaraPage.tsx",
+      "componentFile": "src/components/site/AutoSocorroDentinhoPage.tsx",
       "preset": null,
       "technical": "COMPLETE",
       "published": true,
       "visual": "PREMIUM",
-      "score": 96,
+      "score": 99,
       "groupScores": {
         "identity": 15,
         "logo": 10,
-        "cover": 15,
+        "cover": 14,
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 6,
+        "originality": 10,
         "mobile": 10,
         "social": 5
       },
-      "originalityScore": 53,
-      "originalityStatus": "WARNING",
-      "originalityNearest": "mp-festas-eventos",
+      "originalityScore": 38,
+      "originalityStatus": "PASS",
+      "originalityNearest": "mimo-salgados-doces",
       "contentSimilarity": null,
       "charm": "HIGH",
-      "coverReview": "APPROVED",
-      "funnelIntent": "pedido",
+      "coverReview": "UNREVIEWED",
+      "funnelIntent": "diagnostico",
       "funnelStatus": "PASS",
       "funnelSource": "PROJECT_CONTRACT",
-      "funnelNextStep": "Escolha a ocasião e conte quantas pessoas quer receber.",
-      "funnelCta": "Montar meu kit",
+      "funnelNextStep": "Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento.",
+      "funnelCta": "Descrever o problema",
       "visuallyReviewed": true,
       "assets": {
         "logo": {
-          "path": "/images/vila-da-capivara/logo.svg",
-          "hash": "07e517bdac36193d7e9b0e8a744765c4145c6853",
-          "bytes": 1038,
-          "width": 900,
-          "height": 300
+          "path": "/images/auto-socorro-dentinho/logo.svg",
+          "hash": "6e02aa1542e8442f69cfd65645fb4000126419e4",
+          "bytes": 527,
+          "width": 280,
+          "height": 70
         },
         "cover": {
-          "path": "/images/vila-da-capivara/capa-card.jpg",
-          "hash": "3f29ad52c4d78ecec16c8b639717e66c714281ad",
-          "bytes": 250623,
-          "width": 1220,
-          "height": 763
+          "path": "/images/auto-socorro-dentinho/hero-v2.png",
+          "hash": "bcf81e2e42fb69f2b285f12b64a8f23fe3b40715",
+          "bytes": 1759384,
+          "width": 1672,
+          "height": 941
         },
         "social": {
-          "path": "/images/vila-da-capivara/hero-og.jpg",
-          "hash": "7eb0f8155a81a4d849ab85c818e97918856c0795",
-          "bytes": 29683,
+          "path": "/images/auto-socorro-dentinho/hero-v2-og.jpg",
+          "hash": "8982578f679ae0fc9884f54acfb11f37c68a1281",
+          "bytes": 93953,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 21
+        "galleryCount": 6
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Mais que sabores, criamos experiências.",
-        "heroHeight": 1105,
-        "editorialChars": 2748,
-        "smallTargets": 2,
+        "mobileImages": 8,
+        "desktopImages": 8,
+        "heroHeadline": "Seu carro parou.A solução continua.",
+        "heroHeight": 741,
+        "editorialChars": 3206,
+        "smallTargets": 1,
         "consoleErrors": 0
       },
       "severities": {
         "P0": 0,
         "P1": 0,
-        "P2": 1,
-        "P3": 0
+        "P2": 0,
+        "P3": 1
       },
       "issues": [
         {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "53 vs mp-festas-eventos"
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
         }
       ],
       "priority": 3
