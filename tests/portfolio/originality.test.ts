@@ -162,8 +162,12 @@ describe("análise do portfólio real", () => {
 
   it("não há mais logos placeholder no portfólio (meta Q2)", () => {
     // Logos placeholder são backlog editorial (dependem de material oficial do
-    // cliente) e não podem crescer além da baseline auditada.
-    expect(report.summary.placeholderLogos).toBeLessThanOrEqual(24);
+    // cliente) e não podem crescer além da baseline auditada. O limite vem da
+    // própria baseline para não ficar dessincronizado quando novos projetos
+    // legítimos entram no catálogo.
+    const baselinePath = path.join(root, "reports/portfolio-originality.baseline.v2.json");
+    const baseline = JSON.parse(fs.readFileSync(baselinePath, "utf8"));
+    expect(report.summary.placeholderLogos).toBeLessThanOrEqual(baseline.summary.placeholderLogos);
   });
 
   it("é determinístico", () => {

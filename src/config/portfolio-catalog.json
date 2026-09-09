@@ -149,8 +149,8 @@
     "subtitle": "Cardápio de hot dogs e combinações",
     "location": "São José dos Pinhais — PR",
     "badge": "Pedido pelo cardápio",
-    "image": "/images/paraiso-hot-dog-cover.webp",
-    "fallbackImage": "/images/paraiso-hot-dog-menu.webp",
+    "image": "/images/paraiso-do-hot-dog/capa.webp",
+    "fallbackImage": "/images/paraiso-do-hot-dog/capa-card.jpg",
     "metrics": "Combinações e adicionais",
     "summary": "Cardápio de hot dogs com combinações, adicionais e opções para pedir em São José dos Pinhais."
   },
