@@ -27,3 +27,9 @@
 - [x] Validar testes e build final
 - [x] Publicação agendada após todos os gates passarem
 
+## Capas reais — prioridade por visitas
+- [x] Cruzar pendências editoriais com `portfolio_view` dos últimos 90 dias
+- [x] Substituir a composição provisória da Route 66 pela foto real do interior
+- [x] Criar capa editorial da Estrutura Nacional com a foto real tratada da sede
+- [ ] Continuar somente quando houver foto oficial verificável e segura para cada cliente pendente
+
