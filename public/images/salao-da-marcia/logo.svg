@@ -1,10 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Salao da Marcia">
-  <rect width="900" height="300" rx="48" fill="#24122f"/>
-  <path d="M150 52c46 20 74 58 74 100 0 46-34 84-74 96-40-12-74-50-74-96 0-42 28-80 74-100zm0 44c-26 16-42 38-42 60 0 26 18 46 42 56 24-10 42-30 42-56 0-22-16-44-42-60z" fill="#e879f9"/>
-  <path d="M150 124c16 10 26 22 26 34 0 14-10 26-26 32-16-6-26-18-26-32 0-12 10-24 26-34z" fill="#f5d0fe"/>
-  <path d="M280 92h96v28h-62v24h54v27h-54v28h64v29h-98z" fill="#ffffff"/>
-  <path d="M420 92h34l52 136h-36l-9-26h-50l-9 26h-36zm17 46l-15 42h30z" fill="#ffffff"/>
-  <path d="M530 92h34v106h60v30h-94z" fill="#ffffff"/>
-  <path d="M700 88c44 0 76 32 76 72s-32 72-76 72-76-32-76-72 32-72 76-72zm0 32c-24 0-42 18-42 40s18 40 42 40 42-18 42-40-18-40-42-40z" fill="#e879f9"/>
-  <path d="M800 92h34v136h-34z" fill="#e879f9"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <rect width="900" height="300" rx="52" fill="#24122f"/><circle cx="150" cy="150" r="94" fill="#e879f9"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#24122f">SDM</text>
+  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Salão da Marcia</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#e879f9">BELEZA</text>
+  </svg>

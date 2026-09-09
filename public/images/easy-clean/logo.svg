@@ -1,9 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Easy Clean">
-  <rect width="900" height="300" rx="150" fill="#f0fdfa"/>
-  <path d="M150 60c50 0 90 40 90 90s-40 90-90 90-90-40-90-90 40-90 90-90zm0 34c-31 0-56 25-56 56s25 56 56 56 56-25 56-56-25-56-56-56z" fill="#0ea5a4"/>
-  <path d="M150 108c23 0 42 19 42 42h-34c0-4-4-8-8-8z" fill="#22d3ee"/>
-  <path d="M280 92h108v30h-72v26h64v28h-64v30h74v30H280z" fill="#0f766e"/>
-  <path d="M470 92l58 144h-38l-10-27h-56l-10 27h-38l58-144zm-8 48l-16 44h32z" fill="#0f766e"/>
-  <path d="M540 92h40l30 54 30-54h40l-52 90v54h-36v-54z" fill="#0f766e"/>
-  <path d="M760 92c40 0 66 22 72 56h-38c-5-16-17-24-34-24-24 0-40 18-40 44s16 44 40 44c17 0 29-8 34-24h38c-6 34-32 56-72 56-46 0-78-32-78-76s32-76 78-76z" fill="#22d3ee"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <rect width="900" height="300" rx="52" fill="#20204a"/><circle cx="150" cy="150" r="94" fill="#facc15"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#20204a">ECH</text>
+  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Easy Clean Higienização a Seco</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#facc15">SERVICOS</text>
+  </svg>

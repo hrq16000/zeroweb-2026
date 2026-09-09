@@ -1,12 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Pastelaria e Lanchonete Route 66">
-  <rect width="900" height="300" rx="36" fill="#141414"/>
-  <path d="M150 44l88 30v70c0 56-36 96-88 112-52-16-88-56-88-112V74z" fill="#facc15"/>
-  <path d="M150 76l58 20v48c0 38-24 66-58 78-34-12-58-40-58-78V96z" fill="#b91c1c"/>
-  <path d="M112 150c0-16 12-26 26-26h26v20h-24c-6 0-8 3-8 7s2 7 8 7h12c18 0 28 10 28 26s-12 26-30 26h-32v-20h30c6 0 10-3 10-7s-4-6-10-6h-12c-15 0-24-10-24-27z" fill="#facc15"/>
-  <path d="M290 96h100v30h-66v22h58v28h-58v54h-34z" fill="#ffffff"/>
-  <path d="M410 96h34v100h64v34h-98z" fill="#ffffff"/>
-  <path d="M540 96h34v134h-34z" fill="#facc15"/>
-  <path d="M600 96h96v30h-96zM600 148h86v28h-86zM600 200h96v30h-96z" fill="#ffffff"/>
-  <path d="M730 96h44l-16 134h-44z" fill="#b91c1c"/>
-  <path d="M800 96h44l-16 134h-44z" fill="#b91c1c"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <rect width="900" height="300" rx="52" fill="#20204a"/><circle cx="150" cy="150" r="94" fill="#facc15"/><text x="150" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" font-weight="900" fill="#20204a">PEL</text>
+  <text x="290" y="142" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#fff">Pastelaria e Lanchonete Route 66</text><text x="294" y="192" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#facc15">RESTAURANTES</text>
+  </svg>

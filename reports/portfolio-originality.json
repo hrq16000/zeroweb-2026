@@ -30,9 +30,9 @@
     "missingCovers": 24,
     "coverValid": 45,
     "coverPending": 44,
-    "coversAsSocialImage": 12,
+    "coversAsSocialImage": 10,
     "sharedCovers": 0,
-    "severeCrop": 21,
+    "severeCrop": 20,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -534,12 +534,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
-      "coverRatio": 2,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -983,7 +982,7 @@
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
-      "coverRatio": 1.5,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -2618,13 +2617,11 @@
       "reasons": [],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
-      "coverRatio": 1.9,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -2701,13 +2698,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
       "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
-      "coverRatio": 1.9,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -3097,13 +3092,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "NO_REAL_ASSET",
       "canonicalCoverReason": "Não há fotografia ou material real apropriado.",
-      "coverRatio": 0.67,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -5776,14 +5769,14 @@
       },
       {
         "slug": "bruna-diarista",
-        "v1Score": 69,
+        "v1Score": 68,
         "v2Score": 66,
-        "delta": -3,
+        "delta": -2,
         "v1Nearest": "easy-clean",
         "v2Nearest": "popys-conservacao-limpeza",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
+        "v1AssetPattern": 80,
         "v2AssetPattern": 15
       },
       {
@@ -6011,7 +6004,7 @@
         "v2Nearest": "btb-construcao",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 14.3,
+        "v1AssetPattern": 12.5,
         "v2AssetPattern": 11.2
       },
       {
@@ -6035,7 +6028,7 @@
         "v2Nearest": "pinturas-nunes",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 16.7,
+        "v1AssetPattern": 14.3,
         "v2AssetPattern": 5
       },
       {
@@ -6443,7 +6436,7 @@
         "v2Nearest": "eletro-solucoes-eficazes",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 50,
+        "v1AssetPattern": 42.9,
         "v2AssetPattern": 9
       },
       {
@@ -6563,7 +6556,7 @@
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 8.3,
+        "v1AssetPattern": 7.7,
         "v2AssetPattern": 1.9
       },
       {
@@ -6748,9 +6741,9 @@
       "missingCovers": 24,
       "coverValid": 45,
       "coverPending": 44,
-      "coversAsSocialImage": 12,
+      "coversAsSocialImage": 10,
       "sharedCovers": 0,
-      "severeCrop": 21,
+      "severeCrop": 20,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },

@@ -31,7 +31,6 @@ originalidade: nenhuma página pública mudou.
 | guaratuba-oficina-nautica | casa-nativa | casa-nativa | 40 | 36 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | reuse-house-brecho | angel-mix-brecho | beto-pasteis | 34 | 30 | -4 | SIM | METRIC_CORRECTION | 100 | 15 |
 | beto-pasteis | reuse-house-brecho | reuse-house-brecho | 33 | 30 | -3 | não | METRIC_CORRECTION | 100 | 15 |
-| bruna-diarista | easy-clean | popys-conservacao-limpeza | 69 | 66 | -3 | SIM | METRIC_CORRECTION | 100 | 15 |
 | centro-mega | mania-de-limpeza | mania-de-limpeza | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 11.2 |
 | embalar-embalagens | maximos-cabeleireiros | maximos-cabeleireiros | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |
 | galileu-locacao-brinquedos | lj-cleaning | lj-cleaning | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 15 |
@@ -44,6 +43,7 @@ originalidade: nenhuma página pública mudou.
 | mirassol-delicias-caseiras | guaratuba-atelie-presentes | guaratuba-atelie-presentes | 45 | 42 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | uberlandia-eletrica-residencial | bh-barreiro-marmitas | bh-barreiro-marmitas | 40 | 37 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | assistencia-microondas-santos | liz-moraes-nail-designer | liz-moraes-nail-designer | 51 | 49 | -2 | não | METRIC_CORRECTION | 50 | 9 |
+| bruna-diarista | easy-clean | popys-conservacao-limpeza | 68 | 66 | -2 | SIM | METRIC_CORRECTION | 80 | 15 |
 | eletro-solucoes-eficazes | eletrovale-eletromecanica | eletrovale-eletromecanica | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
 | eletrovale-eletromecanica | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
 | kitutes-na-mesa | liz-moraes-nail-designer | liz-moraes-nail-designer | 55 | 53 | -2 | não | METRIC_CORRECTION | 40 | 9 |
@@ -58,7 +58,7 @@ originalidade: nenhuma página pública mudou.
 | papelemi-personalizados | embalar-embalagens | embalar-embalagens | 50 | 49 | -1 | não | METRIC_CORRECTION | 28.6 | 3.8 |
 | paraiso-do-hot-dog | refrigeracao-maresia | kitutes-na-mesa | 25 | 24 | -1 | SIM | METRIC_CORRECTION | 33.3 | 9 |
 | paulo-mestre-de-obras | diego-montador-moveis | diego-montador-moveis | 56 | 55 | -1 | não | METRIC_CORRECTION | 20 | 4.3 |
-| pinturas-nunes | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 47 | 46 | -1 | não | METRIC_CORRECTION | 50 | 9 |
+| pinturas-nunes | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 47 | 46 | -1 | não | METRIC_CORRECTION | 42.9 | 9 |
 | popys-conservacao-limpeza | bruna-diarista | bruna-diarista | 67 | 66 | -1 | não | METRIC_CORRECTION | 50 | 15 |
 | premium-envelopamentos | lolipa-arte-em-festas | jc-revestimentos | 31 | 30 | -1 | SIM | METRIC_CORRECTION | 27.3 | 10 |
 | refrigeracao-maresia | liz-moraes-nail-designer | liz-moraes-nail-designer | 51 | 50 | -1 | não | METRIC_CORRECTION | 37.5 | 3.8 |
@@ -78,9 +78,9 @@ originalidade: nenhuma página pública mudou.
 | ecommerce-on | acai-total-araucaria | acai-total-araucaria | 54 | 54 | 0 | não | UNCHANGED | 10 | 7.5 |
 | eisenfer-tubos-acos | no-brilho-higienizacao | no-brilho-higienizacao | 42 | 42 | 0 | não | UNCHANGED | 11.1 | 4.3 |
 | emporio-lelecute | assistencia-microondas-santos | assistencia-microondas-santos | 29 | 29 | 0 | não | UNCHANGED | 0 | 2.5 |
-| enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 14.3 | 11.2 |
+| enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 12.5 | 11.2 |
 | espaco-cih-luh | kitutes-na-mesa | kitutes-na-mesa | 39 | 39 | 0 | não | UNCHANGED | 0 | 4.3 |
-| estrutura-nacional | pinturas-nunes | pinturas-nunes | 41 | 41 | 0 | não | UNCHANGED | 16.7 | 5 |
+| estrutura-nacional | pinturas-nunes | pinturas-nunes | 41 | 41 | 0 | não | UNCHANGED | 14.3 | 5 |
 | guaratuba-sabores-da-baia | heloa-gas | heloa-gas | 30 | 30 | 0 | não | UNCHANGED | 14.3 | 3 |
 | heloa-gas | dona-lucy-salgados | dona-lucy-salgados | 42 | 42 | 0 | não | UNCHANGED | 12.5 | 15 |
 | js-eletrica-manutencao | maximos-cabeleireiros | maximos-cabeleireiros | 60 | 60 | 0 | não | UNCHANGED | 14.3 | 9 |
@@ -95,7 +95,7 @@ originalidade: nenhuma página pública mudou.
 | r_beauty | renata-beauty | renata-beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
 | renata-beauty | r_beauty | r_beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
 | rm-fretes | marido-de-aluguel | marido-de-aluguel | 35 | 35 | 0 | não | UNCHANGED | 0 | 1.7 |
-| salao-da-marcia | liz-moraes-nail-designer | liz-moraes-nail-designer | 47 | 47 | 0 | não | UNCHANGED | 8.3 | 1.9 |
+| salao-da-marcia | liz-moraes-nail-designer | liz-moraes-nail-designer | 47 | 47 | 0 | não | UNCHANGED | 7.7 | 1.9 |
 | sos-presentes-cosmeticos | confeitaria-sabor-da-realeza | confeitaria-sabor-da-realeza | 50 | 50 | 0 | não | UNCHANGED | 7.7 | 5 |
 | studio-de-cilios | mp-festas-eventos | mp-festas-eventos | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
 | thays-camilla | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 46 | 46 | 0 | não | UNCHANGED | 14.3 | 2.1 |
