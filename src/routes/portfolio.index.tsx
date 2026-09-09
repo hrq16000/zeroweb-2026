@@ -37,6 +37,10 @@ import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions"
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { searchItems } from "@/lib/portfolio-search";
+import {
+  trackPortfolioSearch,
+  trackPortfolioSearchClick,
+} from "@/lib/portfolio-search-tracking";
 
 import {
   PORTFOLIO_SEGMENTS,
@@ -494,6 +498,18 @@ function PortfolioPage() {
     });
   }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, sort, visitorCity]);
 
+  // Mede quem chega ao portfólio por busca ("pastel", "lanche", ...). Espera o
+  // usuário parar de digitar para não contar termos incompletos.
+  const resultCount = filteredItems.length;
+  useEffect(() => {
+    const term = deferredSearch.trim();
+    if (term.length < 3) return;
+    const timer = window.setTimeout(() => trackPortfolioSearch(term, resultCount), 900);
+    return () => window.clearTimeout(timer);
+  }, [deferredSearch, resultCount]);
+
+
+
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -802,11 +818,17 @@ function PortfolioPage() {
                           {/* Card Media Preview */}
                           <button
                             type="button"
-                            onClick={() =>
+                            onClick={() => {
+                              trackPortfolioSearchClick({
+                                rawTerm: deferredSearch,
+                                slug: item.slug,
+                                position: index + 1,
+                                target: "preview",
+                              });
                               setSelectedIndex(
                                 filteredItems.findIndex((entry) => entry.id === item.id),
-                              )
-                            }
+                              );
+                            }}
                             className="relative block aspect-[16/10] w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary"
                             aria-label={`Abrir preview de ${item.title}`}
                           >
@@ -892,6 +914,14 @@ function PortfolioPage() {
                             <div className="flex flex-wrap items-center gap-2 border-t border-border/60 pt-3">
                               <Link
                                 to={item.slug}
+                                onClick={() =>
+                                  trackPortfolioSearchClick({
+                                    rawTerm: deferredSearch,
+                                    slug: item.slug,
+                                    position: index + 1,
+                                    target: "site",
+                                  })
+                                }
                                 className="inline-flex min-h-10 items-center gap-1 text-primary font-bold text-xs hover:underline"
                               >
                                 Ver site <ExternalLink className="w-4 h-4" />

@@ -32,7 +32,7 @@
     "coverPending": 44,
     "coversAsSocialImage": 10,
     "sharedCovers": 0,
-    "severeCrop": 20,
+    "severeCrop": 19,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -94,20 +94,18 @@
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3.2,
-        "IDENTITY_SIMILARITY": 5.7
+        "IDENTITY_SIMILARITY": 5.6
       },
       "reasons": [
         "SAME_FAMILY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_LOGO",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "VALID",
       "canonicalCoverReason": null,
-      "coverRatio": 1.75,
+      "coverRatio": 1.6,
       "logoSignals": [],
       "assetSharing": [],
       "fingerprint": {
@@ -1737,13 +1735,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "VALID",
       "canonicalCoverReason": null,
-      "coverRatio": 0.75,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -1932,7 +1928,7 @@
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3.2,
-        "IDENTITY_SIMILARITY": 5.7
+        "IDENTITY_SIMILARITY": 5.6
       },
       "reasons": [
         "SAME_FAMILY"
@@ -6743,7 +6739,7 @@
       "coverPending": 44,
       "coversAsSocialImage": 10,
       "sharedCovers": 0,
-      "severeCrop": 20,
+      "severeCrop": 19,
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
