@@ -217,8 +217,8 @@ export function EstruturaNacionalPage() {
                     src="/images/estrutura-nacional/sede.webp"
                     alt="Fachada da EN Estrutura Nacional em São José dos Pinhais"
                     width={1400}
-                    height={1867}
-                    className="aspect-[5/6] w-full object-cover object-[center_40%]"
+                    height={1439}
+                    className="aspect-[5/4] w-full object-cover object-[center_30%] lg:aspect-[6/5]"
                   />
                   <div className="absolute bottom-6 left-6 max-w-[18rem] border-l-2 border-[#efb44f] bg-[#07172d]/90 px-4 py-3 text-xs leading-5 text-white/80 backdrop-blur-sm">
                     <strong className="block text-[#efb44f]">Base real da empresa</strong>Fotografia
