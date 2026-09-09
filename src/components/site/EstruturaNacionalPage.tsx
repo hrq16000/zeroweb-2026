@@ -23,24 +23,47 @@ const services = [
     "Estruturas metálicas",
     "Fabricação e montagem para projetos que precisam de uma solução em aço organizada desde o escopo.",
     Factory,
+    ["Galpões e coberturas", "Mezaninos", "Estruturas sob medida"],
   ],
   [
     "02",
     "Abrasivos e arames para solda",
     "Materiais para apoiar a rotina de soldagem e fabricação conforme a necessidade informada.",
     Wrench,
+    ["Arames de solda", "Eletrodos", "Abrasivos de corte e desbaste"],
   ],
   [
     "03",
     "Perfis estruturais",
     "Perfis e alternativas em aço para diferentes frentes de construção e indústria.",
     Layers3,
+    ["Perfis I, H, U e L", "Chapas", "Tubos estruturais"],
   ],
   [
     "04",
     "Soluções em aço",
     "Uma conversa técnica para entender o contexto e encaminhar o próximo passo do seu projeto.",
     Ruler,
+    ["Leitura do escopo", "Alternativas em aço", "Encaminhamento do atendimento"],
+  ],
+] as const;
+
+const challenges = [
+  [
+    "Escopo indefinido",
+    "Quando a demanda chega solta, o orçamento demora e volta cheio de suposições.",
+  ],
+  [
+    "Material errado",
+    "Perfil, arame ou abrasivo incompatível com o processo gera retrabalho na fabricação.",
+  ],
+  [
+    "Contato genérico",
+    "Um “fale conosco” sem contexto obriga a repetir tudo de novo na primeira conversa.",
+  ],
+  [
+    "Etapas desconectadas",
+    "Fabricação, transporte e montagem tratadas separadamente atrasam o cronograma da obra.",
   ],
 ] as const;
 const quizConfig = {
