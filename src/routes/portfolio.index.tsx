@@ -818,11 +818,17 @@ function PortfolioPage() {
                           {/* Card Media Preview */}
                           <button
                             type="button"
-                            onClick={() =>
+                            onClick={() => {
+                              trackPortfolioSearchClick({
+                                rawTerm: deferredSearch,
+                                slug: item.slug,
+                                position: index + 1,
+                                target: "preview",
+                              });
                               setSelectedIndex(
                                 filteredItems.findIndex((entry) => entry.id === item.id),
-                              )
-                            }
+                              );
+                            }}
                             className="relative block aspect-[16/10] w-full overflow-hidden bg-muted text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary"
                             aria-label={`Abrir preview de ${item.title}`}
                           >
@@ -908,6 +914,14 @@ function PortfolioPage() {
                             <div className="flex flex-wrap items-center gap-2 border-t border-border/60 pt-3">
                               <Link
                                 to={item.slug}
+                                onClick={() =>
+                                  trackPortfolioSearchClick({
+                                    rawTerm: deferredSearch,
+                                    slug: item.slug,
+                                    position: index + 1,
+                                    target: "site",
+                                  })
+                                }
                                 className="inline-flex min-h-10 items-center gap-1 text-primary font-bold text-xs hover:underline"
                               >
                                 Ver site <ExternalLink className="w-4 h-4" />
