@@ -1118,7 +1118,7 @@
     "coverPending": 44,
     "coversAsSocialImage": 10,
     "sharedCovers": 0,
-    "severeCrop": 20,
+    "severeCrop": 19,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -1186,12 +1186,10 @@
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3.2,
-        "IDENTITY_SIMILARITY": 5.7
+        "IDENTITY_SIMILARITY": 5.6
       },
       "coverSignals": [
-        "COVER_IS_LOGO",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [],
       "assetSharing": [],
@@ -3030,9 +3028,7 @@
         "IDENTITY_SIMILARITY": 4.5
       },
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
@@ -3254,7 +3250,7 @@
         "STYLE_SIMILARITY": 40.4,
         "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 3.2,
-        "IDENTITY_SIMILARITY": 5.7
+        "IDENTITY_SIMILARITY": 5.6
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
