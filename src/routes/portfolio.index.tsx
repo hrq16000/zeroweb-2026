@@ -581,8 +581,8 @@ function PortfolioPage() {
                   Sites reais para conhecer, comparar e divulgar.
                 </h1>
                 <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-                  Explore negócios por segmento e região. Cada projeto reúne presença digital,
-                  divulgação própria e Kit de Presença com cartão e panfleto.
+                  Explore negócios por segmento e região. Cada projeto reúne presença digital e
+                  divulgação própria.
                 </p>
               </div>
               <FunnelCTAButton
@@ -735,9 +735,6 @@ function PortfolioPage() {
                     <p className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-primary" /> Guia comercial nacional
                     </p>
-                    <p className="flex items-center gap-2">
-                      <PackageCheck className="h-4 w-4 text-primary" /> Kit de Presença incluído
-                    </p>
                   </div>
                 </div>
               </aside>
@@ -879,10 +876,6 @@ function PortfolioPage() {
                               <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
                                 {item.summary}
                               </p>
-
-                              <span className="inline-flex w-fit items-center rounded-full border border-border/70 bg-muted/50 px-2.5 py-1 text-[10px] font-semibold text-muted-foreground">
-                                Kit de Presença · cartão + panfleto
-                              </span>
 
                               <div className="flex flex-wrap gap-1.5 pt-1">
                                 {item.tags.slice(0, 3).map((tag, idx) => (
