@@ -372,13 +372,22 @@
       "notes": "Migração S&S (issue #60): recorte 16:10 do hero original do cliente. Sem PII, sem preço, sem marca de terceiros."
     },
     "pastelaria-route-66": {
-      "source": "public/images/pastelaria-route-66/capa-marca.jpg",
+      "source": "public/images/pastelaria-route-66/interior.webp",
       "focal": {
-        "x": 0.62,
-        "y": 0.5
+        "x": 0.5,
+        "y": 0.42
       },
       "issues": [],
-      "notes": "Composição de marca Route 66 com pastel e café; sem alegações factuais."
+      "notes": "Fotografia real do interior enviada para o projeto; recorte sem telefone, preço, QR code ou contato visível."
+    },
+    "estrutura-nacional": {
+      "source": "public/images/estrutura-nacional/sede.webp",
+      "focal": {
+        "x": 0.5,
+        "y": 0.42
+      },
+      "issues": [],
+      "notes": "Fotografia real da sede enviada para o projeto; dados operacionais visíveis na fachada foram tratados antes do recorte editorial."
     },
     "pinturas-nunes": {
       "source": "public/images/pinturas-nunes/capa-marca.jpg",

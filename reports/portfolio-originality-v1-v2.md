@@ -48,9 +48,10 @@ originalidade: nenhuma página pública mudou.
 | kitutes-na-mesa | liz-moraes-nail-designer | liz-moraes-nail-designer | 55 | 53 | -2 | não | METRIC_CORRECTION | 40 | 9 |
 | miro-tech | kitutes-na-mesa | kitutes-na-mesa | 52 | 50 | -2 | não | METRIC_CORRECTION | 40 | 2.1 |
 | acai-total-araucaria | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 59 | 58 | -1 | não | METRIC_CORRECTION | 20 | 7.5 |
-| almeida-torres | guaratuba-atelie-presentes | estrutura-nacional | 34 | 33 | -1 | SIM | METRIC_CORRECTION | 100 | 11.2 |
+| almeida-torres | guaratuba-atelie-presentes | estrutura-nacional | 34 | 33 | -1 | SIM | METRIC_CORRECTION | 100 | 6 |
 | bruna-diarista | easy-clean | popys-conservacao-limpeza | 67 | 66 | -1 | SIM | METRIC_CORRECTION | 66.7 | 15 |
 | clinica-integrada | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 45 | 44 | -1 | não | METRIC_CORRECTION | 27.3 | 6 |
+| estrutura-nacional | pinturas-nunes | pinturas-nunes | 42 | 41 | -1 | não | METRIC_CORRECTION | 25 | 9 |
 | fernanda-amaral-drywall | rj-servicos-drywall | rj-servicos-drywall | 50 | 49 | -1 | não | METRIC_CORRECTION | 9.1 | 3.3 |
 | jkl-marcenaria | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 47 | 46 | -1 | não | METRIC_CORRECTION | 37.5 | 9 |
 | liz-moraes-nail-designer | kitutes-na-mesa | mp-festas-eventos | 55 | 54 | -1 | SIM | METRIC_CORRECTION | 40 | 2.1 |
@@ -80,7 +81,6 @@ originalidade: nenhuma página pública mudou.
 | emporio-lelecute | assistencia-microondas-santos | assistencia-microondas-santos | 29 | 29 | 0 | não | UNCHANGED | 0 | 2.5 |
 | enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 11.1 | 11.2 |
 | espaco-cih-luh | kitutes-na-mesa | kitutes-na-mesa | 39 | 39 | 0 | não | UNCHANGED | 0 | 4.3 |
-| estrutura-nacional | pinturas-nunes | pinturas-nunes | 41 | 41 | 0 | não | UNCHANGED | 12.5 | 5 |
 | guaratuba-sabores-da-baia | heloa-gas | heloa-gas | 30 | 30 | 0 | não | UNCHANGED | 14.3 | 3 |
 | heloa-gas | dona-lucy-salgados | dona-lucy-salgados | 42 | 42 | 0 | não | UNCHANGED | 12.5 | 15 |
 | js-eletrica-manutencao | maximos-cabeleireiros | maximos-cabeleireiros | 60 | 60 | 0 | não | UNCHANGED | 14.3 | 9 |

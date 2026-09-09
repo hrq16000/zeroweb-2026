@@ -1,5 +1,18 @@
 # Skill changelog / usage log
 
+## 2026-09-09 — capas reais priorizadas por visita
+
+- **Tarefa:** continuar a substituição de capas provisórias usando a audiência
+  real do portfólio como critério de prioridade.
+- **Skills:** `0web-skill-router`, direção editorial de capas, privacidade de
+  mídia e quality gates do portfólio.
+- **Mudanças:** Route 66 passou a usar a fotografia real do interior já enviada;
+  Estrutura Nacional passou a usar a fotografia real tratada da sede.
+- **Autenticidade:** nenhuma arte gerada foi reclassificada como foto e nenhum
+  asset de outro cliente foi reutilizado. Itens sem fonte oficial segura seguem
+  no backlog editorial.
+- **Zona congelada:** nenhum arquivo institucional da 0WEB foi alterado.
+
 ## 2026-09-09 — correção determinística da trava de marca
 
 - **Tarefa:** corrigir a falha do `prebuild` na integridade institucional sem

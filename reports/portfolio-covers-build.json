@@ -1,46 +1,46 @@
 {
-  "generatedAt": "2026-09-09T19:08:01.686Z",
+  "generatedAt": "2026-09-09T21:58:28.439Z",
   "ok": 2,
   "failed": [],
   "results": [
     {
-      "slug": "jkl-marcenaria",
+      "slug": "pastelaria-route-66",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/jkl-marcenaria/cozinha.webp",
+      "source": "public/images/pastelaria-route-66/interior.webp",
       "crop": {
         "left": 0,
-        "top": 264,
-        "width": 1204,
-        "height": 753
+        "top": 347,
+        "width": 1400,
+        "height": 875
       },
       "focal": {
         "x": 0.5,
-        "y": 0.4
+        "y": 0.42
       },
-      "out": "/images/jkl-marcenaria/capa-card.jpg",
-      "bytes": 56997,
-      "dimensions": "1204x753",
+      "out": "/images/pastelaria-route-66/capa-card.jpg",
+      "bytes": 81628,
+      "dimensions": "1400x875",
       "lowRes": false
     },
     {
-      "slug": "ag-electrical-services",
+      "slug": "estrutura-nacional",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/ag-electrical-services/capa-marca.jpg",
+      "source": "public/images/estrutura-nacional/sede.webp",
       "crop": {
         "left": 0,
-        "top": 0,
-        "width": 1600,
-        "height": 1000
+        "top": 167,
+        "width": 1400,
+        "height": 875
       },
       "focal": {
         "x": 0.5,
-        "y": 0.5
+        "y": 0.42
       },
-      "out": "/images/ag-electrical-services/capa-card.jpg",
-      "bytes": 143114,
-      "dimensions": "1600x1000",
+      "out": "/images/estrutura-nacional/capa-card.jpg",
+      "bytes": 85616,
+      "dimensions": "1400x875",
       "lowRes": false
     }
   ]

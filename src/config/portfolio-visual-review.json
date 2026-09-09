@@ -1,5 +1,29 @@
 {
   "_readme": "Julgamento humano da qualidade visual. Ver docs/PORTFOLIO_VISUAL_QUALITY_STANDARD.md. Chaves: coverReview, coverDecision, coverBlockReason, coverMaterial, coverSource, coverFocal, originalityReview, charm, visualOverride, notes. coverBlockReason e obrigatorio quando coverMaterial=HAS_SAFE_REAL_MATERIAL e coverReview!=APPROVED. Override sem notes e divida de governanca.",
+  "pastelaria-route-66": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverMaterialEvidence": "Foto original do interior fornecida ao projeto e inspecionada visualmente em 2026-09-09.",
+    "coverSource": "public/images/pastelaria-route-66/interior.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.42
+    },
+    "notes": "Capa editorial 16:10 derivada da fotografia real do interior. Sem telefone, e-mail, endereço, preço ou QR code visível."
+  },
+  "estrutura-nacional": {
+    "coverReview": "APPROVED",
+    "coverDecision": "NEEDS_CROP_ONLY",
+    "coverMaterial": "HAS_SAFE_REAL_MATERIAL",
+    "coverMaterialEvidence": "Foto original da fachada fornecida ao projeto, com dados operacionais tratados, inspecionada em 2026-09-09.",
+    "coverSource": "public/images/estrutura-nacional/sede.webp",
+    "coverFocal": {
+      "x": 0.5,
+      "y": 0.42
+    },
+    "notes": "Capa editorial 16:10 da sede real. Telefone e endereço web da placa foram tratados antes do recorte; sem contato legível na capa."
+  },
   "acai-total-araucaria": {
     "coverReview": "APPROVED",
     "coverDecision": "NEEDS_CROP_ONLY",
