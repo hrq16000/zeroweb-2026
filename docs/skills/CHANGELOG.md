@@ -1197,3 +1197,12 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Isolamento:** nenhuma peça de raiz, logo, fonte, header ou footer
   institucional da 0WEB foi alterada. Os assets pertencem somente a
   `public/images/pinturas-nunes/`.
+
+# 2026-09-09 — EN — Estrutura Nacional: landing industrial exclusiva
+
+- **Tarefa:** criar `/portfolio/estrutura-nacional` com landing de conversão própria, SEO local e funil de orçamento individual.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`, `0web-portfolio-art-direction`, `0web-design-system` e `0web-ui-quality-gates`; aplicados Client Standard, New Client Playbook, Conversion Intelligence, Conversion Narrative e Funis.
+- **Direção:** composição industrial "malha estrutural", com azul aço, âmbar técnico, imagem pública fornecida da sede e arquitetura própria — sem reaproveitar o layout de outro cliente.
+- **Fatos:** fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço; foco em São José dos Pinhais e Região Metropolitana de Curitiba. Não foram adicionadas avaliações, métricas, certificações ou promessas não verificadas.
+- **Funil e privacidade:** todos os CTAs apontam para a captação `estrutura-nacional`; o WhatsApp é resolvido apenas no servidor pelo secret `PORTFOLIO_WHATSAPP_ESTRUTURA_NACIONAL`, sem número no bundle público.
+- **Isolamento:** nenhuma logo, tipografia, header, footer ou asset institucional da 0WEB foi alterado. Todos os arquivos visuais novos pertencem somente a `public/images/estrutura-nacional/`.

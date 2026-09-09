@@ -583,6 +583,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     kind: "prototype",
     indexable: true,
   },
+  {
+    slug: "estrutura-nacional",
+    vertical: "prestadores-de-servicos",
+    siteName: "EN — Estrutura Nacional · São José dos Pinhais",
+    kind: "prototype",
+    indexable: true,
+  },
 ];
 
 export function findPortfolioPrototype(slug: string) {

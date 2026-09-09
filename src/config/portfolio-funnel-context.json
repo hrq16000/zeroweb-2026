@@ -614,5 +614,12 @@
     "nextStepBody": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "navy"
+  },
+  "estrutura-nacional": {
+    "intent": "orcamento",
+    "nextStepTitle": "Uma solução em aço começa com um escopo bem explicado.",
+    "nextStepBody": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
+    "primaryCtaLabel": "Iniciar solicitação",
+    "theme": "navy"
   }
 }

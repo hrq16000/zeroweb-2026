@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T19:57:21.108Z",
+  "generatedAt": "2026-09-09T05:12:32.623Z",
   "generator": "scripts/check-experience-standard.mjs",
   "levels": {
     "ecommerce-on": "BASELINE",
@@ -68,6 +68,7 @@
     "eisenfer-tubos-acos": "SIGNATURE",
     "premium-envelopamentos": "PREMIUM",
     "easy-clean": "PREMIUM",
+    "estrutura-nacional": "SIGNATURE",
     "guaratuba-reparos-residenciais": "SIGNATURE",
     "guaratuba-atelie-presentes": "PREMIUM",
     "miro-tech": "SIGNATURE",
@@ -92,9 +93,9 @@
     "sscons": "SIGNATURE"
   },
   "summary": {
-    "total": 88,
+    "total": 89,
     "premium": 47,
-    "signature": 24,
+    "signature": 25,
     "baseline": 17,
     "static": 0
   }

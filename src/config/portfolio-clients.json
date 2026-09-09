@@ -1141,5 +1141,18 @@
       "source": "Cartaz enviado pelo cliente nesta solicitação",
       "reference": "material-original.png"
     }
+  },
+  {
+    "clientKey": "estrutura-nacional",
+    "slug": "estrutura-nacional",
+    "siteName": "EN — Estrutura Nacional",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/EstruturaNacionalPage.tsx",
+    "assetsDir": "public/images/estrutura-nacional",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/estrutura-nacional.md"
   }
 ]

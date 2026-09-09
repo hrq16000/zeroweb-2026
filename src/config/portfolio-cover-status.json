@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-08",
+  "generatedAt": "2026-09-09",
   "summary": {
-    "total": 85,
+    "total": 89,
     "valid": 45,
-    "pending": 40,
+    "pending": 44,
     "byStatus": {
       "VALID": 45,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 7
+      "UNCERTAIN_ORIGIN": 11
     },
     "balanced": true
   },
@@ -109,6 +109,19 @@
       "cardValid": true,
       "businessName": "Assistência Técnica Microondas Santos",
       "segment": "prestadores-de-servicos"
+    },
+    {
+      "slug": "auto-socorro-dentinho",
+      "asset": "/images/auto-socorro-dentinho/hero-v2.png",
+      "catalogImage": "/images/auto-socorro-dentinho/hero-v2.png",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Auto Socorro Dentinho",
+      "segment": "servicos"
     },
     {
       "slug": "beto-pasteis",
@@ -421,6 +434,19 @@
       "cardValid": false,
       "businessName": "Espaço CIH & LUH",
       "segment": "beleza"
+    },
+    {
+      "slug": "estrutura-nacional",
+      "asset": "/images/estrutura-nacional/social-og.jpg",
+      "catalogImage": "/images/estrutura-nacional/social-og.jpg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "EN — Estrutura Nacional",
+      "segment": "construcao"
     },
     {
       "slug": "fernanda-amaral-drywall",
@@ -852,6 +878,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "pinturas-nunes",
+      "asset": "/images/pinturas-nunes/hero-og.jpg",
+      "catalogImage": "/images/pinturas-nunes/hero-og.jpg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Pinturas Nunes",
+      "segment": "servicos"
+    },
+    {
       "slug": "popys-conservacao-limpeza",
       "asset": "/images/popys-conservacao-limpeza/hero-cleaning.png",
       "catalogImage": "/images/popys-conservacao-limpeza/hero-cleaning.png",
@@ -1122,6 +1161,19 @@
       "reason": null,
       "cardValid": true,
       "businessName": "Woodhouse Hambúrgueres",
+      "segment": "restaurantes"
+    },
+    {
+      "slug": "your-brutus-burguer",
+      "asset": "/images/your-brutus-burguer/hero-og.png",
+      "catalogImage": "/images/your-brutus-burguer/hero-og.png",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
     }
   ]

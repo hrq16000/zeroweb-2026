@@ -1926,5 +1926,24 @@
     "fallbackImage": "/images/pinturas-nunes/logo.svg",
     "metrics": "Atendimento por orçamento",
     "summary": "Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões."
+  },
+  {
+    "slug": "estrutura-nacional",
+    "clientKey": "estrutura-nacional",
+    "title": "EN — Estrutura Nacional",
+    "segment": "construcao",
+    "projectType": "landing",
+    "status": "published",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": ["estruturas-metalicas", "solucoes-em-aco", "perfis-estruturais", "solda", "industria"],
+    "live": true,
+    "subtitle": "Estruturas metálicas e soluções em aço",
+    "location": "São José dos Pinhais · Região Metropolitana de Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/estrutura-nacional/social-og.jpg",
+    "fallbackImage": "/images/estrutura-nacional/logo.svg",
+    "metrics": "Solicitação por escopo",
+    "summary": "EN — Estrutura Nacional atua com fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço em São José dos Pinhais."
   }
 ]

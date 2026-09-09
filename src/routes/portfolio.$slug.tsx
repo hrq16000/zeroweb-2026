@@ -456,6 +456,9 @@ const AutoSocorroDentinhoPage = lazy(() =>
 const PinturasNunesPage = lazy(() =>
   import("@/components/site/PinturasNunesPage").then((m) => ({ default: m.PinturasNunesPage })),
 );
+const EstruturaNacionalPage = lazy(() =>
+  import("@/components/site/EstruturaNacionalPage").then((m) => ({ default: m.EstruturaNacionalPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -553,7 +556,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCentroMega = loaderData?.slug === "centro-mega";
     const isAutoSocorroDentinho = loaderData?.slug === "auto-socorro-dentinho";
     const isPinturasNunes = loaderData?.slug === "pinturas-nunes";
-    const description = isPinturasNunes
+    const isEstruturaNacional = loaderData?.slug === "estrutura-nacional";
+    const description = isEstruturaNacional
+      ? "EN — Estrutura Nacional em São José dos Pinhais: fabricação e montagem de estruturas metálicas, perfis estruturais, abrasivos e arames para solda."
+      : isPinturasNunes
       ? "Pinturas Nunes: pintura residencial e predial, texturas, grafiato, acabamentos, telhados, grades e portões."
       : isSscons
       ? "S&S Construções em Curitiba e Região Metropolitana: carpintaria, obras, alvenaria, pintura, reforma e azulejo — da fundação ao acabamento, com orçamento personalizado."
@@ -779,6 +785,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
           name: "keywords",
           content: eff.keywords ?? (isSscons
             ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
+            : isEstruturaNacional
+            ? "Estrutura Nacional, estruturas metálicas São José dos Pinhais, fabricação de estruturas metálicas, montagem de estruturas metálicas, perfis estruturais, abrasivos, arames para solda, soluções em aço, Região Metropolitana de Curitiba"
             : isRjDrywall
             ? "drywall Curitiba, instalação de drywall, parede de drywall, forro de gesso, sanca, reparo drywall, gesso acartonado"
             : isMarido
@@ -1139,6 +1147,8 @@ function PortfolioPrototypePage() {
           <AutoSocorroDentinhoPage />
         ) : slug === "pinturas-nunes" ? (
           <PinturasNunesPage />
+        ) : slug === "estrutura-nacional" ? (
+          <EstruturaNacionalPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

@@ -1070,6 +1070,18 @@
         "ctaHref": "#contato"
       },
       "socialVersion": "5cbc6aac"
+    },
+    "estrutura-nacional": {
+      "icon": "/images/estrutura-nacional/logo.svg",
+      "socialImage": "/images/estrutura-nacional/social-og.jpg",
+      "proof": {
+        "eyebrow": "EN — Estrutura Nacional · soluções em aço",
+        "title": "A estrutura certa começa por uma boa conversa.",
+        "description": "Fabricação e montagem de estruturas metálicas, perfis estruturais, abrasivos, arames para solda e soluções em aço.",
+        "ctaLabel": "Iniciar solicitação",
+        "ctaHref": "#contato"
+      },
+      "socialVersion": "en-v1"
     }
   }
 }
