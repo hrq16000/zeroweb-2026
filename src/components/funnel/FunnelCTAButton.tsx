@@ -37,6 +37,11 @@ type Props = Partial<LegacyProps> & {
   context?: Record<string, string>;
   /** Rótulo como children (equivalente a `label`). */
   children?: React.ReactNode;
+  /**
+   * @deprecated Configuração de quiz local. As perguntas vêm do funil
+   * publicado no banco; a prop é aceita apenas por compatibilidade.
+   */
+  quizConfig?: unknown;
 };
 
 /**
