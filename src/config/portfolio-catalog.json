@@ -554,7 +554,7 @@
     "subtitle": "Depilação, cabelos e autocuidado",
     "location": "Cidade Jardim · São José dos Pinhais — PR",
     "badge": "Novo projeto",
-    "image": "/images/salao-da-marcia/depilacao.webp",
+    "image": "/images/salao-da-marcia/capa-marca.jpg",
     "fallbackImage": "/images/salao-da-marcia/progressiva.webp",
     "metrics": "Agendamento de horários",
     "summary": "Salão da Marcia com depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
@@ -1575,7 +1575,12 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": ["salgados", "doces", "copo-da-felicidade", "encomendas"],
+    "tags": [
+      "salgados",
+      "doces",
+      "copo-da-felicidade",
+      "encomendas"
+    ],
     "live": true,
     "subtitle": "Salgados, doces e copo da felicidade",
     "location": "Costeira · São José dos Pinhais — PR",
@@ -1594,7 +1599,13 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["limpeza", "conservacao", "pos-obra", "escritorios", "fachadas"],
+    "tags": [
+      "limpeza",
+      "conservacao",
+      "pos-obra",
+      "escritorios",
+      "fachadas"
+    ],
     "live": true,
     "subtitle": "Limpeza profissional para empresas e obras",
     "location": "Curitiba e Região — PR",
@@ -1613,7 +1624,12 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["diarista", "limpeza-residencial", "pos-obra", "personal-organizer"],
+    "tags": [
+      "diarista",
+      "limpeza-residencial",
+      "pos-obra",
+      "personal-organizer"
+    ],
     "live": true,
     "subtitle": "Diárias, pós-obra e organização",
     "location": "Curitiba e Região — PR",
@@ -1632,12 +1648,19 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["reformas", "pintura", "eletrica", "hidraulica", "drywall", "acabamentos"],
+    "tags": [
+      "reformas",
+      "pintura",
+      "eletrica",
+      "hidraulica",
+      "drywall",
+      "acabamentos"
+    ],
     "live": true,
     "subtitle": "Reformas internas e acabamentos",
     "location": "Curitiba e Região — PR",
     "badge": "Novo projeto",
-    "image": "/images/btb-construcao/hero.png",
+    "image": "/images/btb-construcao/capa-marca.jpg",
     "fallbackImage": "/images/btb-construcao/hero.png",
     "metrics": "Garantia de 90 dias",
     "summary": "BTB Construção realiza reformas internas em Curitiba e região: pintura, elétrica, hidráulica, pisos, drywall, acabamentos e iluminação LED."
@@ -1651,12 +1674,18 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["higienizacao", "lavagem-a-seco", "estofados", "impermeabilizacao", "colchoes"],
+    "tags": [
+      "higienizacao",
+      "lavagem-a-seco",
+      "estofados",
+      "impermeabilizacao",
+      "colchoes"
+    ],
     "live": true,
     "subtitle": "Higienização a seco e impermeabilização",
     "location": "Curitiba e Região — PR",
     "badge": "Novo projeto",
-    "image": "/images/easy-clean/hero.png",
+    "image": "/images/easy-clean/capa-marca.jpg",
     "fallbackImage": "/images/easy-clean/hero.png",
     "metrics": "Atendimento em domicílio",
     "summary": "Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro."
@@ -1670,7 +1699,15 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["eletrica", "manutencao", "ar-condicionado", "energia-solar", "padrao-copel", "motores-bombas", "guaira"],
+    "tags": [
+      "eletrica",
+      "manutencao",
+      "ar-condicionado",
+      "energia-solar",
+      "padrao-copel",
+      "motores-bombas",
+      "guaira"
+    ],
     "live": true,
     "subtitle": "Elétrica, manutenção, solar e climatização",
     "location": "Guaíra · Curitiba — PR · atendimento em Curitiba e região",
@@ -1689,7 +1726,13 @@
     "status": "published",
     "city": "Brasil",
     "state": "BR",
-    "tags": ["papelaria-criativa", "encadernacao", "brindes-corporativos", "personalizados", "presentes"],
+    "tags": [
+      "papelaria-criativa",
+      "encadernacao",
+      "brindes-corporativos",
+      "personalizados",
+      "presentes"
+    ],
     "live": true,
     "subtitle": "Papelaria criativa e brindes com afeto",
     "location": "Loja online — Brasil",
@@ -1708,7 +1751,14 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": ["cabeleireiro", "cortes", "coloracao", "tratamentos", "beleza", "jardim-italia"],
+    "tags": [
+      "cabeleireiro",
+      "cortes",
+      "coloracao",
+      "tratamentos",
+      "beleza",
+      "jardim-italia"
+    ],
     "live": true,
     "subtitle": "Cortes, cor e cuidados com intenção",
     "location": "Jardim Itália · São José dos Pinhais — PR",
@@ -1727,7 +1777,14 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": ["embalagens", "descartaveis", "limpeza", "higiene", "utilidades", "jardim-italia"],
+    "tags": [
+      "embalagens",
+      "descartaveis",
+      "limpeza",
+      "higiene",
+      "utilidades",
+      "jardim-italia"
+    ],
     "live": true,
     "subtitle": "Embalagens, limpeza e utilidades para a rotina",
     "location": "Jardim Itália · São José dos Pinhais — PR",
@@ -1746,7 +1803,13 @@
     "status": "published",
     "city": "Brasil",
     "state": "BR",
-    "tags": ["nutricao", "bioimpedancia", "plano-alimentar", "bariatrica", "amamentacao"],
+    "tags": [
+      "nutricao",
+      "bioimpedancia",
+      "plano-alimentar",
+      "bariatrica",
+      "amamentacao"
+    ],
     "live": true,
     "subtitle": "Nutrição com escuta e estratégia",
     "location": "Atendimento nutricional — Brasil",
@@ -1765,7 +1828,13 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["salgados", "mini-lanches", "doces", "bolos-caseiros", "eventos"],
+    "tags": [
+      "salgados",
+      "mini-lanches",
+      "doces",
+      "bolos-caseiros",
+      "eventos"
+    ],
     "live": true,
     "subtitle": "Porções com carinho para sua celebração",
     "location": "Curitiba — PR · somente sob encomenda",
@@ -1784,7 +1853,14 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["portas", "madeira", "instalacao", "regulagem", "caxilhos", "reforma"],
+    "tags": [
+      "portas",
+      "madeira",
+      "instalacao",
+      "regulagem",
+      "caxilhos",
+      "reforma"
+    ],
     "live": true,
     "subtitle": "Portas que valorizam seu espaço",
     "location": "Curitiba e região — PR",
@@ -1803,7 +1879,13 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["higienizacao", "sofas", "colchoes", "tapetes", "combo-familia"],
+    "tags": [
+      "higienizacao",
+      "sofas",
+      "colchoes",
+      "tapetes",
+      "combo-familia"
+    ],
     "live": true,
     "subtitle": "Sua casa mais leve",
     "location": "Curitiba e Região Metropolitana — PR",
@@ -1822,7 +1904,13 @@
     "status": "published",
     "city": "Araucária",
     "state": "PR",
-    "tags": ["salgados", "delivery", "churros", "encomendas", "araucaria"],
+    "tags": [
+      "salgados",
+      "delivery",
+      "churros",
+      "encomendas",
+      "araucaria"
+    ],
     "live": true,
     "subtitle": "Salgados delivery fritos na hora",
     "location": "Campina da Barra · Araucária — PR",
@@ -1841,7 +1929,12 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["assistencia-tecnica", "acessorios", "tecnologia", "curitiba"],
+    "tags": [
+      "assistencia-tecnica",
+      "acessorios",
+      "tecnologia",
+      "curitiba"
+    ],
     "live": true,
     "subtitle": "Assistência técnica & acessórios",
     "location": "Curitiba e Região Metropolitana — PR",
@@ -1850,8 +1943,8 @@
     "fallbackImage": "/images/centro-mega/social-og.jpg",
     "metrics": "Canais oficiais e atendimento especializado",
     "summary": "Centro Mega oferece assistência técnica especializada e acessórios para tecnologia, com canais oficiais em Curitiba e região."
-  }
-  ,{
+  },
+  {
     "slug": "pastelaria-route-66",
     "clientKey": "pastelaria-route-66",
     "title": "Pastelaria e Lanchonete Route 66",
@@ -1860,13 +1953,20 @@
     "status": "published",
     "city": "Curitiba",
     "state": "PR",
-    "tags": ["pastelaria", "lanches", "cafe-da-manha", "salgados", "almoco", "delivery"],
+    "tags": [
+      "pastelaria",
+      "lanches",
+      "cafe-da-manha",
+      "salgados",
+      "almoco",
+      "delivery"
+    ],
     "live": true,
     "subtitle": "Café da manhã, salgados e almoço no Prado Velho",
     "location": "Prado Velho · Curitiba — PR",
     "badge": "Projeto real",
-    "image": "/images/pastelaria-route-66/hero-og.jpg",
-    "fallbackImage": "/images/pastelaria-route-66/logo.svg",
+    "image": "/images/pastelaria-route-66/capa-marca.jpg",
+    "fallbackImage": "/images/pastelaria-route-66/capa-marca.jpg",
     "metrics": "Atendimento no local, retirada e entrega",
     "summary": "Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho."
   },
@@ -1879,7 +1979,12 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": ["hamburgueria-artesanal", "burger", "cardapio-online", "sao-jose-dos-pinhais"],
+    "tags": [
+      "hamburgueria-artesanal",
+      "burger",
+      "cardapio-online",
+      "sao-jose-dos-pinhais"
+    ],
     "live": true,
     "subtitle": "Burgers artesanais, combos e porções",
     "location": "Centro · São José dos Pinhais — PR",
@@ -1898,7 +2003,13 @@
     "status": "published",
     "city": "Quatro Barras",
     "state": "PR",
-    "tags": ["auto-mecanica", "eletrica-automotiva", "reboque", "diagnostico", "quatro-barras"],
+    "tags": [
+      "auto-mecanica",
+      "eletrica-automotiva",
+      "reboque",
+      "diagnostico",
+      "quatro-barras"
+    ],
     "live": true,
     "subtitle": "Auto mecânica, diagnóstico e socorro automotivo",
     "location": "Quatro Barras e Região Metropolitana — PR",
@@ -1917,13 +2028,19 @@
     "status": "published",
     "city": "Região a confirmar",
     "state": "BR",
-    "tags": ["pintura-residencial", "pintura-predial", "grafiato", "textura-projetada", "pintura-decorativa"],
+    "tags": [
+      "pintura-residencial",
+      "pintura-predial",
+      "grafiato",
+      "textura-projetada",
+      "pintura-decorativa"
+    ],
     "live": true,
     "subtitle": "Pintura residencial, predial e acabamentos",
     "location": "Atendimento por orçamento — região a confirmar",
     "badge": "Projeto real",
-    "image": "/images/pinturas-nunes/hero-og.jpg",
-    "fallbackImage": "/images/pinturas-nunes/logo.svg",
+    "image": "/images/pinturas-nunes/capa-marca.jpg",
+    "fallbackImage": "/images/pinturas-nunes/capa-marca.jpg",
     "metrics": "Atendimento por orçamento",
     "summary": "Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões."
   },
@@ -1936,7 +2053,13 @@
     "status": "published",
     "city": "São José dos Pinhais",
     "state": "PR",
-    "tags": ["estruturas-metalicas", "solucoes-em-aco", "perfis-estruturais", "solda", "industria"],
+    "tags": [
+      "estruturas-metalicas",
+      "solucoes-em-aco",
+      "perfis-estruturais",
+      "solda",
+      "industria"
+    ],
     "live": true,
     "subtitle": "Estruturas metálicas e soluções em aço",
     "location": "São José dos Pinhais · Região Metropolitana de Curitiba — PR",

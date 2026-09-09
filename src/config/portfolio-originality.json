@@ -151,14 +151,14 @@
       },
       {
         "slug": "bruna-diarista",
-        "v1Score": 69,
+        "v1Score": 68,
         "v2Score": 66,
-        "delta": -3,
+        "delta": -2,
         "v1Nearest": "easy-clean",
         "v2Nearest": "popys-conservacao-limpeza",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
+        "v1AssetPattern": 80,
         "v2AssetPattern": 15
       },
       {
@@ -386,7 +386,7 @@
         "v2Nearest": "btb-construcao",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 14.3,
+        "v1AssetPattern": 12.5,
         "v2AssetPattern": 11.2
       },
       {
@@ -410,7 +410,7 @@
         "v2Nearest": "pinturas-nunes",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 16.7,
+        "v1AssetPattern": 14.3,
         "v2AssetPattern": 5
       },
       {
@@ -818,7 +818,7 @@
         "v2Nearest": "eletro-solucoes-eficazes",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 50,
+        "v1AssetPattern": 42.9,
         "v2AssetPattern": 9
       },
       {
@@ -938,7 +938,7 @@
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 8.3,
+        "v1AssetPattern": 7.7,
         "v2AssetPattern": 1.9
       },
       {
@@ -1116,9 +1116,9 @@
     "missingCovers": 24,
     "coverValid": 45,
     "coverPending": 44,
-    "coversAsSocialImage": 12,
+    "coversAsSocialImage": 10,
     "sharedCovers": 0,
-    "severeCrop": 21,
+    "severeCrop": 20,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -1677,8 +1677,7 @@
         "IDENTITY_SIMILARITY": 9.7
       },
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
@@ -4021,9 +4020,7 @@
         "IDENTITY_SIMILARITY": 2.5
       },
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
@@ -4114,9 +4111,7 @@
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
@@ -4560,9 +4555,7 @@
         "IDENTITY_SIMILARITY": 8.8
       },
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH",
-        "COVER_SEVERE_CROP"
+        "COVER_NO_FOCAL_POINT"
       ],
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
