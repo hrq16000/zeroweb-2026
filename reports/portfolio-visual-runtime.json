@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T18:18:49.103Z",
+  "generatedAt": "2026-09-09T07:27:08.912Z",
   "base": "http://127.0.0.1:8080",
   "viewports": [
     {
@@ -10169,6 +10169,236 @@
             {
               "color": "rgb(247, 244, 238)",
               "n": 2
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "pinturas-nunes": {
+      "slug": "pinturas-nunes",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 3,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/pinturas-nunes/logo.svg",
+            "/images/pinturas-nunes/material-original.png"
+          ],
+          "h1Count": 1,
+          "h1": "Transformando ambientes. Realizando sonhos.",
+          "h2Count": 4,
+          "sections": 6,
+          "smallTargets": 1,
+          "hero": {
+            "height": 937,
+            "backgroundImage": false,
+            "heading": "Transformando ambientes. Realizando sonhos.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 1940,
+          "text": "CARREGANDO Copiar divulgação Pedir orçamento PINTURAS E ACABAMENTOS TRANSFORMANDO AMBIENTES. REALIZANDO SONHOS. Pintura residencial e predial, texturas, grafiato, acabamentos decorativos e cuidados para superfícies que pedem atenção. Organizar orçamento Ver serviços RESPONSÁVEL: GABRIEL NUNES MATERIAL ORIGINAL FORNECIDO 01 / ESCOPO DE TRABALHO CADA SUPERFÍCIE PEDE UMA LEITURA DIFERENTE ANTES DO ACABAMENTO. P01 Pinturas residencial e predial Pintura para casas e edificações conforme o escopo informado. P02 Texturas e grafiato Grafiato, textura e textura projetada para diferentes superfícies. P03 Pinturas decorativas Acabamentos decorativos para transformar a leitura do ambiente. P04 Telhados, calhas e grades Lavagem e pinturas de telhados, calhas, grades e portões. Também executa serviços em cadeirinhas e balancinhos. Descreva o contexto no atendimento para organizar a solicitação. Descrever serviço 02 / PRÓXIMO PASSO O ORÇAMENTO COMEÇA COM UM ESPAÇO BEM EXPLICADO. 01 Selecione o serviço Indique o acabamento, a superfície ou a pintura que você procura. 02 Contextualize o ambiente Conte se é casa, prédio, área externa ou outro espaço. 03 Organize o contato O funil encaminha os detalhes pelo canal privado da Pinturas Nunes. PINTURAS NUNES · ATENDIMENTO POR ORÇAMENTO QUALIDADE QUE VOCÊ VÊ, RESULTADO QUE VOCÊ SENTE. Conte o que precisa transformar e deixe o atendimento organizar o próximo passo. Solicitar orçamento SOBRE O PROJETO Um bom acabamento começa por uma superfície bem explicada. Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões. Atendimento em Região a confirmar — BR. Como começar Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento. pintura residencial pintura predial grafiato textura projetada Solicitar orçamento © 2026 · Pinturas Nunes Site desenvolvido por 0WEB Contato",
+          "docHeight": 4922,
+          "topColors": [
+            {
+              "color": "rgb(247, 244, 236)",
+              "n": 9
+            },
+            {
+              "color": "rgb(216, 138, 0)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(7, 28, 65)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 3,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/pinturas-nunes/logo.svg",
+            "/images/pinturas-nunes/material-original.png"
+          ],
+          "h1Count": 1,
+          "h1": "Transformando ambientes. Realizando sonhos.",
+          "h2Count": 4,
+          "sections": 6,
+          "smallTargets": 4,
+          "hero": {
+            "height": 758,
+            "backgroundImage": false,
+            "heading": "Transformando ambientes. Realizando sonhos.",
+            "headingSize": 96,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 1974,
+          "text": "CARREGANDO Copiar divulgação ESCOPO COMO FUNCIONA CONTATO Pedir orçamento PINTURAS E ACABAMENTOS TRANSFORMANDO AMBIENTES. REALIZANDO SONHOS. Pintura residencial e predial, texturas, grafiato, acabamentos decorativos e cuidados para superfícies que pedem atenção. Organizar orçamento Ver serviços RESPONSÁVEL: GABRIEL NUNES MATERIAL ORIGINAL FORNECIDO 01 / ESCOPO DE TRABALHO CADA SUPERFÍCIE PEDE UMA LEITURA DIFERENTE ANTES DO ACABAMENTO. P01 Pinturas residencial e predial Pintura para casas e edificações conforme o escopo informado. P02 Texturas e grafiato Grafiato, textura e textura projetada para diferentes superfícies. P03 Pinturas decorativas Acabamentos decorativos para transformar a leitura do ambiente. P04 Telhados, calhas e grades Lavagem e pinturas de telhados, calhas, grades e portões. Também executa serviços em cadeirinhas e balancinhos. Descreva o contexto no atendimento para organizar a solicitação. Descrever serviço 02 / PRÓXIMO PASSO O ORÇAMENTO COMEÇA COM UM ESPAÇO BEM EXPLICADO. 01 Selecione o serviço Indique o acabamento, a superfície ou a pintura que você procura. 02 Contextualize o ambiente Conte se é casa, prédio, área externa ou outro espaço. 03 Organize o contato O funil encaminha os detalhes pelo canal privado da Pinturas Nunes. PINTURAS NUNES · ATENDIMENTO POR ORÇAMENTO QUALIDADE QUE VOCÊ VÊ, RESULTADO QUE VOCÊ SENTE. Conte o que precisa transformar e deixe o atendimento organizar o próximo passo. Solicitar orçamento SOBRE O PROJETO Um bom acabamento começa por uma superfície bem explicada. Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões. Atendimento em Região a confirmar — BR. Como começar Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento. pintura residencial pintura predial grafiato textura projetada Solicitar orçamento © 2026 · Pinturas Nunes Site desenvolvido por 0WEB Fale conosco",
+          "docHeight": 3010,
+          "topColors": [
+            {
+              "color": "rgb(247, 244, 236)",
+              "n": 9
+            },
+            {
+              "color": "rgb(216, 138, 0)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "rgb(7, 28, 65)",
+              "n": 2
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "estrutura-nacional": {
+      "slug": "estrutura-nacional",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 3,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/estrutura-nacional/logo.svg",
+            "/images/estrutura-nacional/sede.webp"
+          ],
+          "h1Count": 1,
+          "h1": "A estrutura certa começa por uma boa conversa.",
+          "h2Count": 8,
+          "sections": 9,
+          "smallTargets": 1,
+          "hero": {
+            "height": 1053,
+            "backgroundImage": false,
+            "heading": "A estrutura certa começa por uma boa conversa.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3494,
+          "text": "CARREGANDO Copiar divulgação Solicitar contato SOLUÇÕES EM AÇO · SÃO JOSÉ DOS PINHAIS A estrutura certa começa por uma boa conversa. A EN — Estrutura Nacional reúne fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço. Conversar sobre o projeto Ver frentes de atuação Aço soluções por escopo EN estrutura nacional PR região metropolitana Base real da empresa Fotografia fornecida para esta presença digital. O QUE COSTUMA TRAVAR Boa parte do atraso nasce antes da primeira solda. Escopo indefinido Quando a demanda chega solta, o orçamento demora e volta cheio de suposições. Material errado Perfil, arame ou abrasivo incompatível com o processo gera retrabalho na fabricação. Contato genérico Um “fale conosco” sem contexto obriga a repetir tudo de novo na primeira conversa. Etapas desconectadas Fabricação, transporte e montagem tratadas separadamente atrasam o cronograma da obra. 01 / FRENTES DE ATUAÇÃO Aço que acompanha a escala e o contexto de cada demanda. 01 Estruturas metálicas Fabricação e montagem para projetos que precisam de uma solução em aço organizada desde o escopo. GALPÕES E COBERTURAS MEZANINOS ESTRUTURAS SOB MEDIDA 02 Abrasivos e arames para solda Materiais para apoiar a rotina de soldagem e fabricação conforme a necessidade informada. ARAMES DE SOLDA ELETRODOS ABRASIVOS DE CORTE E DESBASTE 03 Perfis estruturais Perfis e alternativas em aço para diferentes frentes de construção e indústria. PERFIS I, H, U E L CHAPAS TUBOS ESTRUTURAIS 04 Soluções em aço Uma conversa técnica para entender o contexto e encaminhar o próximo passo do seu projeto. LEITURA DO ESCOPO ALTERNATIVAS EM AÇO ENCAMINHAMENTO DO ATENDIMENTO Solicitar orçamento LEITURA DE PROJETO Do material à conversa que organiza o próximo passo. A marca EN identifica uma operação voltada a estruturas metálicas e soluções em aço. A apresentação reúne somente as áreas indicadas nos materiais e registros públicos da empresa. SÃO JOSÉ DOS PINHAIS · PR Uma página para explicar a necessidade antes de pedir orçamento. Em vez de um contato genérico, o funil organiza o tipo de solução, o contexto da obra ou indústria e os detalhes que ajudam o atendimento a entender a demanda. Como funciona 02 / COMECE COM CLAREZA Uma sequência curta para colocar a demanda em movimento. 01 Selecione a solução Indique se procura estrutura, material de solda, perfis ou outra frente em aço. 02 Contextualize o projeto Conte se a necessidade está ligada à indústria, comércio, obra ou outro contexto. 03 Envie os detalhes O canal seguro organiza a solicitação para o atendimento da EN. DÚVIDAS INICIAIS O que ajuda a encaminhar a conversa. Que informações posso enviar? A página informa preços ou prazos? Como começo o contato? SOLICITAÇÃO ORGANIZADA Seu projeto merece um ponto de partida claro. Explique a necessidade. A EN recebe o contexto e o atendimento segue pelo canal privado do projeto. Iniciar solicitação SOBRE O PROJETO Uma solução em aço começa com um escopo bem explicado. EN — Estrutura Nacional atua com fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço em São José dos Pinhais. Atendimento em São José dos Pinhais — PR. Como começar Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação. estruturas metalicas solucoes em aco perfis estruturais solda Iniciar solicitação © 2026 · EN — Estrutura Nacional Site desenvolvido por 0WEB Contato",
+          "docHeight": 7705,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 12
+            },
+            {
+              "color": "rgb(13, 36, 68)",
+              "n": 6
+            },
+            {
+              "color": "rgb(239, 180, 79)",
+              "n": 5
+            },
+            {
+              "color": "rgb(7, 23, 45)",
+              "n": 4
+            },
+            {
+              "color": "rgb(247, 249, 250)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 3,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/estrutura-nacional/logo.svg",
+            "/images/estrutura-nacional/sede.webp"
+          ],
+          "h1Count": 1,
+          "h1": "A estrutura certa começa por uma boa conversa.",
+          "h2Count": 8,
+          "sections": 9,
+          "smallTargets": 4,
+          "hero": {
+            "height": 856,
+            "backgroundImage": false,
+            "heading": "A estrutura certa começa por uma boa conversa.",
+            "headingSize": 93,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 3531,
+          "text": "CARREGANDO Copiar divulgação SOLUÇÕES A EMPRESA COMO COMEÇAR Solicitar contato SOLUÇÕES EM AÇO · SÃO JOSÉ DOS PINHAIS A estrutura certa começa por uma boa conversa. A EN — Estrutura Nacional reúne fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço. Conversar sobre o projeto Ver frentes de atuação Aço soluções por escopo EN estrutura nacional PR região metropolitana Base real da empresa Fotografia fornecida para esta presença digital. O QUE COSTUMA TRAVAR Boa parte do atraso nasce antes da primeira solda. Escopo indefinido Quando a demanda chega solta, o orçamento demora e volta cheio de suposições. Material errado Perfil, arame ou abrasivo incompatível com o processo gera retrabalho na fabricação. Contato genérico Um “fale conosco” sem contexto obriga a repetir tudo de novo na primeira conversa. Etapas desconectadas Fabricação, transporte e montagem tratadas separadamente atrasam o cronograma da obra. 01 / FRENTES DE ATUAÇÃO Aço que acompanha a escala e o contexto de cada demanda. 01 Estruturas metálicas Fabricação e montagem para projetos que precisam de uma solução em aço organizada desde o escopo. GALPÕES E COBERTURAS MEZANINOS ESTRUTURAS SOB MEDIDA 02 Abrasivos e arames para solda Materiais para apoiar a rotina de soldagem e fabricação conforme a necessidade informada. ARAMES DE SOLDA ELETRODOS ABRASIVOS DE CORTE E DESBASTE 03 Perfis estruturais Perfis e alternativas em aço para diferentes frentes de construção e indústria. PERFIS I, H, U E L CHAPAS TUBOS ESTRUTURAIS 04 Soluções em aço Uma conversa técnica para entender o contexto e encaminhar o próximo passo do seu projeto. LEITURA DO ESCOPO ALTERNATIVAS EM AÇO ENCAMINHAMENTO DO ATENDIMENTO Solicitar orçamento LEITURA DE PROJETO Do material à conversa que organiza o próximo passo. A marca EN identifica uma operação voltada a estruturas metálicas e soluções em aço. A apresentação reúne somente as áreas indicadas nos materiais e registros públicos da empresa. SÃO JOSÉ DOS PINHAIS · PR Uma página para explicar a necessidade antes de pedir orçamento. Em vez de um contato genérico, o funil organiza o tipo de solução, o contexto da obra ou indústria e os detalhes que ajudam o atendimento a entender a demanda. Como funciona 02 / COMECE COM CLAREZA Uma sequência curta para colocar a demanda em movimento. 01 Selecione a solução Indique se procura estrutura, material de solda, perfis ou outra frente em aço. 02 Contextualize o projeto Conte se a necessidade está ligada à indústria, comércio, obra ou outro contexto. 03 Envie os detalhes O canal seguro organiza a solicitação para o atendimento da EN. DÚVIDAS INICIAIS O que ajuda a encaminhar a conversa. Que informações posso enviar? A página informa preços ou prazos? Como começo o contato? SOLICITAÇÃO ORGANIZADA Seu projeto merece um ponto de partida claro. Explique a necessidade. A EN recebe o contexto e o atendimento segue pelo canal privado do projeto. Iniciar solicitação SOBRE O PROJETO Uma solução em aço começa com um escopo bem explicado. EN — Estrutura Nacional atua com fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço em São José dos Pinhais. Atendimento em São José dos Pinhais — PR. Como começar Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação. estruturas metalicas solucoes em aco perfis estruturais solda Iniciar solicitação © 2026 · EN — Estrutura Nacional Site desenvolvido por 0WEB Fale conosco",
+          "docHeight": 4808,
+          "topColors": [
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 12
+            },
+            {
+              "color": "rgb(13, 36, 68)",
+              "n": 6
+            },
+            {
+              "color": "rgb(239, 180, 79)",
+              "n": 5
+            },
+            {
+              "color": "rgb(7, 23, 45)",
+              "n": 4
+            },
+            {
+              "color": "rgb(247, 249, 250)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
             }
           ]
         }

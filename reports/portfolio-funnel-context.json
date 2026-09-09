@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-08T19:57:20.873Z",
-    "audited": 88,
-    "pass": 88,
+    "generatedAt": "2026-09-09T07:27:16.362Z",
+    "audited": 89,
+    "pass": 89,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 24,
-      "orcamento": 30,
+      "orcamento": 31,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 8,
@@ -1156,6 +1156,19 @@
       "nextStepTitle": "Um bom acabamento começa por uma superfície bem explicada.",
       "nextStepBody": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
       "primaryCtaLabel": "Solicitar orçamento",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "estrutura-nacional",
+      "businessName": "EN — Estrutura Nacional",
+      "segment": "construcao",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Uma solução em aço começa com um escopo bem explicado.",
+      "nextStepBody": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
+      "primaryCtaLabel": "Iniciar solicitação",
       "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []

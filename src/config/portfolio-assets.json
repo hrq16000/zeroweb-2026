@@ -83,7 +83,7 @@
     },
     "paraiso-do-hot-dog": {
       "icon": "/images/paraiso-do-hot-dog/logo.webp",
-      "socialImage": "/images/paraiso-hot-dog-cover-og.jpg",
+      "socialImage": "/images/paraiso-do-hot-dog/capa-card.jpg",
       "proof": {
         "eyebrow": "Paraíso do Hot Dog",
         "title": "Seu próximo pedido começa com um cardápio fácil de escolher.",
@@ -91,7 +91,7 @@
         "ctaLabel": "Ver cardápio",
         "ctaHref": "#cardapio"
       },
-      "socialVersion": "9cb6e38f"
+      "socialVersion": "d54c0a83"
     },
     "rm-fretes": {
       "icon": "/images/rm-fretes/logo.svg",
@@ -1031,9 +1031,15 @@
     },
     "your_brutus_burguer": {
       "icon": "/images/your-brutus-burguer/logo.svg",
-      "socialImage": "/images/your-brutus-burguer/hero-og.png",
-      "proof": { "eyebrow": "Your Brutus Burguer", "title": "A rota certa para um burger encorpado.", "description": "Consulte burgers, combos e porções diretamente com a equipe do Your Brutus Burguer.", "ctaLabel": "Falar com a equipe", "ctaHref": "/f/funnel-your-brutus-burguer" },
-      "socialVersion": "brutus-v1"
+      "socialImage": "/images/your-brutus-burguer/hero-og-og.jpg",
+      "proof": {
+        "eyebrow": "Your Brutus Burguer",
+        "title": "A rota certa para um burger encorpado.",
+        "description": "Consulte burgers, combos e porções diretamente com a equipe do Your Brutus Burguer.",
+        "ctaLabel": "Falar com a equipe",
+        "ctaHref": "/f/funnel-your-brutus-burguer"
+      },
+      "socialVersion": "845b3917"
     },
     "pastelaria-route-66": {
       "icon": "/images/pastelaria-route-66/logo.svg",
@@ -1048,28 +1054,28 @@
       "socialVersion": "5f78d7a6"
     },
     "auto-socorro-dentinho": {
-    "icon": "/images/auto-socorro-dentinho/logo.svg",
-    "socialImage": "/images/auto-socorro-dentinho/hero-v2.png",
-    "proof": {
-      "eyebrow": "Auto Socorro Dentinho · Quatro Barras",
-      "title": "Seu carro parou. A solução continua.",
-      "description": "Auto mecânica, diagnóstico e socorro automotivo em Quatro Barras e região.",
-      "ctaLabel": "Pedir atendimento",
-      "ctaHref": "#inicio"
-    },
-    "socialVersion": "dentinho-v2"
+      "icon": "/images/auto-socorro-dentinho/logo.svg",
+      "socialImage": "/images/auto-socorro-dentinho/hero-v2-og.jpg",
+      "proof": {
+        "eyebrow": "Auto Socorro Dentinho · Quatro Barras",
+        "title": "Seu carro parou. A solução continua.",
+        "description": "Auto mecânica, diagnóstico e socorro automotivo em Quatro Barras e região.",
+        "ctaLabel": "Pedir atendimento",
+        "ctaHref": "#inicio"
+      },
+      "socialVersion": "8982578f"
     },
     "pinturas-nunes": {
       "icon": "/images/pinturas-nunes/logo.svg",
       "socialImage": "/images/pinturas-nunes/hero-og.jpg",
       "proof": {
-        "eyebrow": "Pinturas Nunes · acabamentos e pintura",
-        "title": "Transformando ambientes, realizando sonhos.",
-        "description": "Pintura residencial e predial, grafiato, texturas e acabamentos organizados em uma presença própria.",
-        "ctaLabel": "Solicitar orçamento",
-        "ctaHref": "#contato"
+        "eyebrow": "Pinturas Nunes",
+        "title": "Pinturas Nunes com uma presença que explica o que faz.",
+        "description": "Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
       },
-      "socialVersion": "5cbc6aac"
+      "socialVersion": "ede72cbe"
     },
     "estrutura-nacional": {
       "icon": "/images/estrutura-nacional/logo.svg",
@@ -1081,7 +1087,7 @@
         "ctaLabel": "Iniciar solicitação",
         "ctaHref": "#contato"
       },
-      "socialVersion": "en-v1"
+      "socialVersion": "5f413392"
     }
   }
 }

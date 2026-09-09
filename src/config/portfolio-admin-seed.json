@@ -268,8 +268,8 @@
       "subtitle": "Auto mecânica, diagnóstico e socorro automotivo",
       "image": "/images/auto-socorro-dentinho/hero-v2.png",
       "icon": "/images/auto-socorro-dentinho/logo.svg",
-      "socialImage": "/images/auto-socorro-dentinho/hero-v2.png",
-      "socialVersion": "dentinho-v2",
+      "socialImage": "/images/auto-socorro-dentinho/hero-v2-og.jpg",
+      "socialVersion": "8982578f",
       "componentFile": "src/components/site/AutoSocorroDentinhoPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/auto-socorro-dentinho",
@@ -279,6 +279,7 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/auto-socorro-dentinho/diagnostic-v2.png",
+        "/images/auto-socorro-dentinho/hero-v2-og.jpg",
         "/images/auto-socorro-dentinho/hero-v2.png",
         "/images/auto-socorro-dentinho/hero.svg",
         "/images/auto-socorro-dentinho/logo-inverse.svg",
@@ -1070,6 +1071,37 @@
         "/images/espaco-cih-luh/social-source.svg"
       ],
       "shareCopy": "💅 O Espaço CIH & LUH ganhou uma nova casa digital para apresentar cuidados que valorizam mãos e pés.\n\nAlongamento em gel, pedicure e serviços especializados agora estão reunidos em uma vitrine leve e direta.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/espaco-cih-luh\n\n#EspacoCIHLUH #AlongamentoEmGel #Unhas #0WEB",
+      "published": true,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
+      "slug": "estrutura-nacional",
+      "clientKey": "estrutura-nacional",
+      "title": "EN — Estrutura Nacional",
+      "segment": "construcao",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "summary": "EN — Estrutura Nacional atua com fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço em São José dos Pinhais.",
+      "subtitle": "Estruturas metálicas e soluções em aço",
+      "image": "/images/estrutura-nacional/social-og.jpg",
+      "icon": "/images/estrutura-nacional/logo.svg",
+      "socialImage": "/images/estrutura-nacional/social-og.jpg",
+      "socialVersion": "5f413392",
+      "componentFile": "src/components/site/EstruturaNacionalPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/estrutura-nacional",
+      "ctaMode": "proposal",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/estrutura-nacional/logo.svg",
+        "/images/estrutura-nacional/sede.webp",
+        "/images/estrutura-nacional/social-og.jpg"
+      ],
+      "shareCopy": "🏗️ A EN — Estrutura Nacional ganhou uma presença digital nova!\n\nFabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço agora estão reunidos em uma página própria.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/estrutura-nacional\n\n📐 Conte o contexto do seu projeto e organize o próximo passo com a equipe.\n\n#EstruturaNacional #EstruturasMetalicas #SolucoesEmAco #SaoJoseDosPinhais #0WEB",
       "published": true,
       "status": "COMPLETE",
       "issues": [],
@@ -2060,10 +2092,10 @@
       "state": "PR",
       "summary": "Cardápio de hot dogs com combinações, adicionais e opções para pedir em São José dos Pinhais.",
       "subtitle": "Cardápio de hot dogs e combinações",
-      "image": "/images/paraiso-hot-dog-cover.webp",
+      "image": "/images/paraiso-do-hot-dog/capa.webp",
       "icon": "/images/paraiso-do-hot-dog/logo.webp",
-      "socialImage": "/images/paraiso-hot-dog-cover-og.jpg",
-      "socialVersion": "9cb6e38f",
+      "socialImage": "/images/paraiso-do-hot-dog/capa-card.jpg",
+      "socialVersion": "d54c0a83",
       "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/paraiso-do-hot-dog",
@@ -2079,13 +2111,9 @@
       ],
       "shareCopy": "🌭 O Paraíso do Hot Dog ganhou um cardápio online para deixar a escolha do próximo lanche ainda mais fácil.\n\nCombinações, adicionais e opções para pedir estão reunidos em um só lugar.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/paraiso-do-hot-dog\n\n#ParaisoDoHotDog #HotDog #CardapioOnline #SJP #0WEB",
       "published": true,
-      "status": "LEGACY",
-      "issues": [
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ],
-      "blocking": [
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ]
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
     },
     {
       "slug": "pastelaria-route-66",
@@ -2171,7 +2199,7 @@
       "image": "/images/pinturas-nunes/hero-og.jpg",
       "icon": "/images/pinturas-nunes/logo.svg",
       "socialImage": "/images/pinturas-nunes/hero-og.jpg",
-      "socialVersion": "5cbc6aac",
+      "socialVersion": "ede72cbe",
       "componentFile": "src/components/site/PinturasNunesPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/pinturas-nunes",
@@ -2182,7 +2210,8 @@
       "gallery": [
         "/images/pinturas-nunes/hero-og.jpg",
         "/images/pinturas-nunes/logo.svg",
-        "/images/pinturas-nunes/material-original.png"
+        "/images/pinturas-nunes/material-original.png",
+        "/images/pinturas-nunes/social-source.svg"
       ],
       "shareCopy": "🎨 A Pinturas Nunes ganhou uma presença digital nova!\n\nPintura residencial e predial, grafiato, textura projetada, pintura decorativa e cuidados para telhados, calhas, grades e portões agora estão reunidos em uma página própria.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/pinturas-nunes\n\n🛠️ Conte qual ambiente ou acabamento precisa de atenção e organize seu orçamento.\n\nProjeto digital desenvolvido pela 0WEB.\n\n#PinturasNunes #PinturaResidencial #PinturaPredial #Grafiato #TexturaProjetada #PinturaDecorativa #0WEB",
       "published": true,
@@ -2948,8 +2977,8 @@
       "subtitle": "Burgers artesanais, combos e porções",
       "image": "/images/your-brutus-burguer/hero-og.png",
       "icon": "/images/your-brutus-burguer/logo.svg",
-      "socialImage": "/images/your-brutus-burguer/hero-og.png",
-      "socialVersion": "brutus-v1",
+      "socialImage": "/images/your-brutus-burguer/hero-og-og.jpg",
+      "socialVersion": "845b3917",
       "componentFile": "src/components/site/YourBrutusBurguerPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/your-brutus-burguer",
@@ -2960,6 +2989,7 @@
       "gallery": [
         "/images/your-brutus-burguer/business-card-concept.png",
         "/images/your-brutus-burguer/flyer-concept.png",
+        "/images/your-brutus-burguer/hero-og-og.jpg",
         "/images/your-brutus-burguer/hero-og.png",
         "/images/your-brutus-burguer/logo.svg"
       ],
