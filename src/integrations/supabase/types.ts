@@ -2635,6 +2635,48 @@ export type Database = {
           },
         ]
       }
+      lgpd_requests: {
+        Row: {
+          created_at: string
+          document_hint: string | null
+          email: string | null
+          full_name: string
+          id: string
+          message: string | null
+          protocol: string
+          request_type: string
+          status: string
+          updated_at: string
+          whatsapp: string | null
+        }
+        Insert: {
+          created_at?: string
+          document_hint?: string | null
+          email?: string | null
+          full_name: string
+          id?: string
+          message?: string | null
+          protocol: string
+          request_type: string
+          status?: string
+          updated_at?: string
+          whatsapp?: string | null
+        }
+        Update: {
+          created_at?: string
+          document_hint?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          message?: string | null
+          protocol?: string
+          request_type?: string
+          status?: string
+          updated_at?: string
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
       lhci_runs: {
         Row: {
           accessibility: number | null
