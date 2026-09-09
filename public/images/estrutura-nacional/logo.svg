@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 160" role="img" aria-labelledby="title desc"><title id="title">EN Estrutura Nacional</title><desc id="desc">Marca conceitual para EN Estrutura Nacional</desc><rect width="690" height="160" fill="#07172d"/><path fill="#efb44f" d="M27 25h80v18H48v26h48v18H48v30h59v18H27z"/><path fill="#eef2f5" d="M124 25h20l47 72V25h21v110h-20l-47-72v72h-21z"/><path fill="#efb44f" d="M232 39h4v82h-4z"/><text x="261" y="77" fill="#eef2f5" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="800" letter-spacing="-2">ESTRUTURA</text><text x="264" y="116" fill="#efb44f" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="7">NACIONAL</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 160" role="img" aria-labelledby="enTitle enDesc">
+  <title id="enTitle">EN Estrutura Nacional</title>
+  <desc id="enDesc">Marca da EN Estrutura Nacional: perfil de galpão em aço ao lado das iniciais EN</desc>
+  <defs>
+    <linearGradient id="enSteel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2f6f9" />
+      <stop offset="1" stop-color="#9fb3c4" />
+    </linearGradient>
+  </defs>
+  <g fill="none">
+    <path d="M18 132V56L74 20l56 36v76" stroke="url(#enSteel)" stroke-width="13" stroke-linejoin="round" />
+    <path d="M46 132V78h56v54" stroke="#efb44f" stroke-width="11" stroke-linejoin="round" />
+  </g>
+  <g fill="#eef2f5" font-family="Arial, Helvetica, sans-serif" font-weight="800">
+    <text x="158" y="104" font-size="92" letter-spacing="-2">EN</text>
+  </g>
+  <rect x="330" y="34" width="3" height="76" fill="#efb44f" />
+  <text x="356" y="76" fill="#eef2f5" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" letter-spacing="1">ESTRUTURA</text>
+  <text x="358" y="112" fill="#efb44f" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="8">NACIONAL</text>
+</svg>

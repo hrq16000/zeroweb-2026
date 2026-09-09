@@ -23,24 +23,47 @@ const services = [
     "Estruturas metálicas",
     "Fabricação e montagem para projetos que precisam de uma solução em aço organizada desde o escopo.",
     Factory,
+    ["Galpões e coberturas", "Mezaninos", "Estruturas sob medida"],
   ],
   [
     "02",
     "Abrasivos e arames para solda",
     "Materiais para apoiar a rotina de soldagem e fabricação conforme a necessidade informada.",
     Wrench,
+    ["Arames de solda", "Eletrodos", "Abrasivos de corte e desbaste"],
   ],
   [
     "03",
     "Perfis estruturais",
     "Perfis e alternativas em aço para diferentes frentes de construção e indústria.",
     Layers3,
+    ["Perfis I, H, U e L", "Chapas", "Tubos estruturais"],
   ],
   [
     "04",
     "Soluções em aço",
     "Uma conversa técnica para entender o contexto e encaminhar o próximo passo do seu projeto.",
     Ruler,
+    ["Leitura do escopo", "Alternativas em aço", "Encaminhamento do atendimento"],
+  ],
+] as const;
+
+const challenges = [
+  [
+    "Escopo indefinido",
+    "Quando a demanda chega solta, o orçamento demora e volta cheio de suposições.",
+  ],
+  [
+    "Material errado",
+    "Perfil, arame ou abrasivo incompatível com o processo gera retrabalho na fabricação.",
+  ],
+  [
+    "Contato genérico",
+    "Um “fale conosco” sem contexto obriga a repetir tudo de novo na primeira conversa.",
+  ],
+  [
+    "Etapas desconectadas",
+    "Fabricação, transporte e montagem tratadas separadamente atrasam o cronograma da obra.",
   ],
 ] as const;
 const quizConfig = {
@@ -194,8 +217,8 @@ export function EstruturaNacionalPage() {
                     src="/images/estrutura-nacional/sede.webp"
                     alt="Fachada da EN Estrutura Nacional em São José dos Pinhais"
                     width={1400}
-                    height={1867}
-                    className="aspect-[5/6] w-full object-cover object-[center_40%]"
+                    height={1439}
+                    className="aspect-[5/4] w-full object-cover object-[center_30%] lg:aspect-[6/5]"
                   />
                   <div className="absolute bottom-6 left-6 max-w-[18rem] border-l-2 border-[#efb44f] bg-[#07172d]/90 px-4 py-3 text-xs leading-5 text-white/80 backdrop-blur-sm">
                     <strong className="block text-[#efb44f]">Base real da empresa</strong>Fotografia
@@ -203,6 +226,29 @@ export function EstruturaNacionalPage() {
                   </div>
                 </div>
               </MotionImageReveal>
+            </div>
+          </section>
+          <section
+            aria-label="Desafios comuns em projetos de aço"
+            className="bg-[#0d2444] px-5 py-14 text-white lg:px-8 lg:py-20"
+          >
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-6 border-b border-white/15 pb-8 md:grid-cols-[.7fr_1.3fr] md:items-end">
+                <p className="text-xs font-black uppercase tracking-[.25em] text-[#efb44f]">
+                  O que costuma travar
+                </p>
+                <h2 className="max-w-3xl text-3xl font-black leading-[.98] tracking-[-.05em] sm:text-5xl">
+                  Boa parte do atraso nasce antes da primeira solda.
+                </h2>
+              </div>
+              <ul className="mt-8 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
+                {challenges.map(([title, body]) => (
+                  <li key={title} className="bg-[#0d2444] p-6">
+                    <h3 className="text-lg font-black tracking-[-.03em] text-[#efb44f]">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/75">{body}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
           <section id="solucoes" className="bg-[#edf1f3] px-5 py-16 lg:px-8 lg:py-24">
@@ -216,20 +262,39 @@ export function EstruturaNacionalPage() {
                 </h2>
               </div>
               <div className="divide-y divide-[#a6b2bd]">
-                {services.map(([number, title, description, Icon], index) => (
+                {services.map(([number, title, description, Icon, bullets], index) => (
                   <MotionReveal
                     as="article"
                     key={title}
                     variant={index % 2 ? "left" : "right"}
                     delay={index * 70}
-                    className="grid gap-4 py-8 md:grid-cols-[92px_1fr_1.18fr_auto] md:items-center"
+                    className="grid gap-4 py-8 md:grid-cols-[92px_1fr_1.18fr_auto] md:items-start"
                   >
-                    <span className="font-mono text-sm font-bold text-[#345d8a]">{number}</span>
+                    <span className="font-mono text-sm font-bold text-[#345d8a] md:pt-2">
+                      {number}
+                    </span>
                     <h3 className="text-2xl font-black tracking-[-.04em]">{title}</h3>
-                    <p className="max-w-xl leading-7 text-[#36485b]">{description}</p>
-                    <Icon aria-hidden="true" className="h-8 w-8 text-[#b77919]" />
+                    <div className="max-w-xl">
+                      <p className="leading-7 text-[#36485b]">{description}</p>
+                      <ul className="mt-4 flex flex-wrap gap-2">
+                        {bullets.map((item) => (
+                          <li
+                            key={item}
+                            className="border border-[#a6b2bd] bg-white px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-[#345d8a]"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Icon aria-hidden="true" className="h-8 w-8 text-[#b77919] md:mt-1" />
                   </MotionReveal>
                 ))}
+              </div>
+              <div className="mt-10">
+                <EnCTA variant="outline" location="solucoes">
+                  Solicitar orçamento
+                </EnCTA>
               </div>
             </div>
           </section>
