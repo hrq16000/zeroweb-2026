@@ -228,6 +228,29 @@ export function EstruturaNacionalPage() {
               </MotionImageReveal>
             </div>
           </section>
+          <section
+            aria-label="Desafios comuns em projetos de aço"
+            className="bg-[#0d2444] px-5 py-14 text-white lg:px-8 lg:py-20"
+          >
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-6 border-b border-white/15 pb-8 md:grid-cols-[.7fr_1.3fr] md:items-end">
+                <p className="text-xs font-black uppercase tracking-[.25em] text-[#efb44f]">
+                  O que costuma travar
+                </p>
+                <h2 className="max-w-3xl text-3xl font-black leading-[.98] tracking-[-.05em] sm:text-5xl">
+                  Boa parte do atraso nasce antes da primeira solda.
+                </h2>
+              </div>
+              <ul className="mt-8 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
+                {challenges.map(([title, body]) => (
+                  <li key={title} className="bg-[#0d2444] p-6">
+                    <h3 className="text-lg font-black tracking-[-.03em] text-[#efb44f]">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/75">{body}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
           <section id="solucoes" className="bg-[#edf1f3] px-5 py-16 lg:px-8 lg:py-24">
             <div className="mx-auto max-w-7xl">
               <div className="grid gap-8 border-b border-[#a6b2bd] pb-9 md:grid-cols-[.7fr_1.3fr] md:items-end">
@@ -239,20 +262,39 @@ export function EstruturaNacionalPage() {
                 </h2>
               </div>
               <div className="divide-y divide-[#a6b2bd]">
-                {services.map(([number, title, description, Icon], index) => (
+                {services.map(([number, title, description, Icon, bullets], index) => (
                   <MotionReveal
                     as="article"
                     key={title}
                     variant={index % 2 ? "left" : "right"}
                     delay={index * 70}
-                    className="grid gap-4 py-8 md:grid-cols-[92px_1fr_1.18fr_auto] md:items-center"
+                    className="grid gap-4 py-8 md:grid-cols-[92px_1fr_1.18fr_auto] md:items-start"
                   >
-                    <span className="font-mono text-sm font-bold text-[#345d8a]">{number}</span>
+                    <span className="font-mono text-sm font-bold text-[#345d8a] md:pt-2">
+                      {number}
+                    </span>
                     <h3 className="text-2xl font-black tracking-[-.04em]">{title}</h3>
-                    <p className="max-w-xl leading-7 text-[#36485b]">{description}</p>
-                    <Icon aria-hidden="true" className="h-8 w-8 text-[#b77919]" />
+                    <div className="max-w-xl">
+                      <p className="leading-7 text-[#36485b]">{description}</p>
+                      <ul className="mt-4 flex flex-wrap gap-2">
+                        {bullets.map((item) => (
+                          <li
+                            key={item}
+                            className="border border-[#a6b2bd] bg-white px-3 py-1 text-xs font-bold uppercase tracking-[.08em] text-[#345d8a]"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Icon aria-hidden="true" className="h-8 w-8 text-[#b77919] md:mt-1" />
                   </MotionReveal>
                 ))}
+              </div>
+              <div className="mt-10">
+                <EnCTA variant="outline" location="solucoes">
+                  Solicitar orçamento
+                </EnCTA>
               </div>
             </div>
           </section>
