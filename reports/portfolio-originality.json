@@ -28,9 +28,9 @@
     "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 45,
-    "coverPending": 44,
-    "coversAsSocialImage": 10,
+    "coverValid": 47,
+    "coverPending": 42,
+    "coversAsSocialImage": 9,
     "sharedCovers": 0,
     "severeCrop": 19,
     "invalidCrossClientAssets": 0,
@@ -170,7 +170,7 @@
         "COMPONENT_SIMILARITY": 23.1,
         "STYLE_SIMILARITY": 20.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 11.2,
+        "ASSET_PATTERN_SIMILARITY": 6,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -1328,7 +1328,7 @@
         "COMPONENT_SIMILARITY": 38.5,
         "STYLE_SIMILARITY": 55.8,
         "COPY_SIMILARITY": 1.2,
-        "ASSET_PATTERN_SIMILARITY": 5,
+        "ASSET_PATTERN_SIMILARITY": 9,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
@@ -1336,13 +1336,11 @@
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_IS_SOCIAL_IMAGE",
-        "COVER_NO_FOCAL_POINT",
-        "COVER_RATIO_MISMATCH"
+        "COVER_NO_FOCAL_POINT"
       ],
-      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
-      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
-      "coverRatio": 1.9,
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
+      "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
         "LOGO_PLACEHOLDER"
@@ -2615,8 +2613,8 @@
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
       ],
-      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
-      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
+      "canonicalCoverStatus": "VALID",
+      "canonicalCoverReason": null,
       "coverRatio": 1.6,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
@@ -5677,7 +5675,7 @@
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 11.2
+        "v2AssetPattern": 6
       },
       {
         "slug": "angel-mix-brecho",
@@ -6017,15 +6015,15 @@
       },
       {
         "slug": "estrutura-nacional",
-        "v1Score": 41,
+        "v1Score": 42,
         "v2Score": 41,
-        "delta": 0,
+        "delta": -1,
         "v1Nearest": "pinturas-nunes",
         "v2Nearest": "pinturas-nunes",
         "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 12.5,
-        "v2AssetPattern": 5
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 25,
+        "v2AssetPattern": 9
       },
       {
         "slug": "fernanda-amaral-drywall",
@@ -6735,9 +6733,9 @@
       "placeholderLogos": 26,
       "missingLogos": 0,
       "missingCovers": 24,
-      "coverValid": 45,
-      "coverPending": 44,
-      "coversAsSocialImage": 10,
+      "coverValid": 47,
+      "coverPending": 42,
+      "coversAsSocialImage": 9,
       "sharedCovers": 0,
       "severeCrop": 19,
       "invalidCrossClientAssets": 0,
