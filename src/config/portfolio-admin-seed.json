@@ -2092,9 +2092,9 @@
       "state": "PR",
       "summary": "Cardápio de hot dogs com combinações, adicionais e opções para pedir em São José dos Pinhais.",
       "subtitle": "Cardápio de hot dogs e combinações",
-      "image": "/images/paraiso-hot-dog-cover.webp",
+      "image": "/images/paraiso-do-hot-dog/capa.webp",
       "icon": "/images/paraiso-do-hot-dog/logo.webp",
-      "socialImage": "/images/paraiso-hot-dog-cover-og.jpg",
+      "socialImage": "/images/paraiso-do-hot-dog/capa-card.jpg",
       "socialVersion": "9cb6e38f",
       "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
@@ -2111,13 +2111,9 @@
       ],
       "shareCopy": "🌭 O Paraíso do Hot Dog ganhou um cardápio online para deixar a escolha do próximo lanche ainda mais fácil.\n\nCombinações, adicionais e opções para pedir estão reunidos em um só lugar.\n\n🌐 Conheça:\nhttps://0web.com.br/portfolio/paraiso-do-hot-dog\n\n#ParaisoDoHotDog #HotDog #CardapioOnline #SJP #0WEB",
       "published": true,
-      "status": "LEGACY",
-      "issues": [
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ],
-      "blocking": [
-        "PORTFOLIO_SOCIAL_IMAGE_MISSING"
-      ]
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
     },
     {
       "slug": "pastelaria-route-66",

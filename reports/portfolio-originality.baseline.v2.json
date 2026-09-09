@@ -1,20 +1,20 @@
 {
   "generatedBy": "check:portfolio-originality --write-baseline",
   "summary": {
-    "total": 85,
+    "total": 89,
     "original": 0,
-    "acceptable": 27,
-    "attention": 52,
+    "acceptable": 28,
+    "attention": 55,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 24,
+    "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 45,
-    "coverPending": 40,
-    "coversAsSocialImage": 9,
+    "coverPending": 44,
+    "coversAsSocialImage": 12,
     "sharedCovers": 0,
     "severeCrop": 21,
     "invalidCrossClientAssets": 0,
@@ -49,7 +49,7 @@
       "sharedCover": false
     },
     "almeida-torres": {
-      "score": 31,
+      "score": 33,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
@@ -84,6 +84,15 @@
       "missingCover": true,
       "sharedCover": false
     },
+    "auto-socorro-dentinho": {
+      "score": 38,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "beto-pasteis": {
       "score": 30,
       "status": "ACCEPTABLE",
@@ -94,7 +103,7 @@
       "sharedCover": false
     },
     "bh-barreiro-marmitas": {
-      "score": 39,
+      "score": 40,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": true,
@@ -148,7 +157,7 @@
       "sharedCover": false
     },
     "clinica-integrada": {
-      "score": 43,
+      "score": 44,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -166,7 +175,7 @@
       "sharedCover": false
     },
     "confeitaria-sabor-da-realeza": {
-      "score": 51,
+      "score": 50,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -296,6 +305,15 @@
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "estrutura-nacional": {
+      "score": 41,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -597,6 +615,15 @@
       "missingCover": false,
       "sharedCover": false
     },
+    "pinturas-nunes": {
+      "score": 46,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "popys-conservacao-limpeza": {
       "score": 66,
       "status": "HIGH_SIMILARITY",
@@ -706,7 +733,7 @@
       "sharedCover": false
     },
     "sos-presentes-cosmeticos": {
-      "score": 51,
+      "score": 50,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -733,7 +760,7 @@
       "sharedCover": false
     },
     "thays-camilla": {
-      "score": 44,
+      "score": 46,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -784,6 +811,15 @@
       "placeholderLogo": false,
       "missingLogo": false,
       "missingCover": true,
+      "sharedCover": false
+    },
+    "your-brutus-burguer": {
+      "score": 45,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
       "sharedCover": false
     }
   }
