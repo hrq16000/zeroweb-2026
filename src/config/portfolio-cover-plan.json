@@ -58,10 +58,8 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP",
-        "COVER_IS_LOGO"
-      ]
+      "issues": [],
+      "notes": "Fotografia de marcenaria do próprio cliente com recorte focal curado."
     },
     "beto-pasteis": {
       "source": "public/images/beto-pasteis/capa.png",
@@ -186,14 +184,13 @@
       ]
     },
     "ag-electrical-services": {
-      "source": "public/images/ag-electrical-services/laserway-2.webp",
+      "source": "public/images/ag-electrical-services/capa-marca.jpg",
       "focal": {
         "x": 0.5,
-        "y": 0.4
+        "y": 0.5
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": [],
+      "notes": "Composição 16:10 feita exclusivamente com duas fotos técnicas do próprio cliente, sem contato público."
     },
     "assistencia-microondas-santos": {
       "source": "public/images/assistencia-microondas-santos/hero.png",

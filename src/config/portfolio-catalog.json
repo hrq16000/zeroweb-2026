@@ -377,8 +377,8 @@
     "subtitle": "Elétrica, infraestrutura e redes",
     "location": "Curitiba e Região Metropolitana — PR",
     "badge": "Novo projeto",
-    "image": "/images/ag-electrical-services/logo.webp",
-    "fallbackImage": "/images/ag-electrical-services/intro.webp",
+    "image": "/images/ag-electrical-services/capa-card.jpg",
+    "fallbackImage": "/images/ag-electrical-services/capa-marca.jpg",
     "metrics": "Orçamento técnico",
     "summary": "Soluções integradas em elétrica geral, cabeamento UTP, CFTV, implantação de redes e organização de racks."
   },
@@ -774,7 +774,7 @@
     "subtitle": "Móveis sob medida em MDF",
     "location": "Curitiba e região — PR",
     "badge": "Novo projeto",
-    "image": "/images/jkl-marcenaria/cozinha.webp",
+    "image": "/images/jkl-marcenaria/capa-card.jpg",
     "fallbackImage": "/images/jkl-marcenaria/cozinha.webp",
     "metrics": "Entrega em até 20 dias",
     "summary": "Móveis sob medida em MDF para cozinhas, dormitórios, cozinhas infantis, nichos, porta-tempero, banheiros e ambientes em geral."
