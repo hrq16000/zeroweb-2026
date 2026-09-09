@@ -23,6 +23,7 @@
 ## Capas autorais — lote prioritário
 - [x] Corrigir a composição vazia da capa Route 66 com pastel e café
 - [x] Registrar focal point e fonte dedicada para Route 66, Pinturas Nunes, BTB, Easy Clean e Salão da Márcia
-- [ ] Validar capas, originalidade, fronteiras e build
+- [x] Validar capas, originalidade e fronteiras
+- [ ] Validar testes e build final
 - [ ] Publicar após todos os gates passarem
 
