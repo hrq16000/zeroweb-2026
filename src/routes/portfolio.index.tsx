@@ -37,6 +37,10 @@ import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions"
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { searchItems } from "@/lib/portfolio-search";
+import {
+  trackPortfolioSearch,
+  trackPortfolioSearchClick,
+} from "@/lib/portfolio-search-tracking";
 
 import {
   PORTFOLIO_SEGMENTS,
