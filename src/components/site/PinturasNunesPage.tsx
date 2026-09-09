@@ -4,7 +4,6 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { PortfolioPresenceKit } from "@/components/portfolio/PortfolioPresenceKit";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const funnel = "funnel-pinturas-nunes";
@@ -266,8 +265,6 @@ export function PinturasNunesPage() {
               </ol>
             </div>
           </section>
-
-          <PortfolioPresenceKit slug="pinturas-nunes" />
 
           <section id="contato" className="bg-[#d88a00] px-5 py-16 text-[#071c41] lg:px-8 lg:py-20">
             <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.1fr_.9fr] md:items-end">
