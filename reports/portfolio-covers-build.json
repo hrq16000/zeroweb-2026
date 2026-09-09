@@ -1,26 +1,106 @@
 {
-  "generatedAt": "2026-09-06T04:57:29.604Z",
-  "ok": 1,
+  "generatedAt": "2026-09-09T19:03:35.073Z",
+  "ok": 5,
   "failed": [],
   "results": [
     {
-      "slug": "sscons",
+      "slug": "pastelaria-route-66",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/sscons/hero.jpg",
+      "source": "public/images/pastelaria-route-66/capa-marca.jpg",
       "crop": {
-        "left": 96,
-        "top": 0,
-        "width": 1728,
-        "height": 1080
+        "left": 0,
+        "top": 29,
+        "width": 1264,
+        "height": 790
+      },
+      "focal": {
+        "x": 0.62,
+        "y": 0.5
+      },
+      "out": "/images/pastelaria-route-66/capa-card.jpg",
+      "bytes": 162669,
+      "dimensions": "1264x790",
+      "lowRes": false
+    },
+    {
+      "slug": "pinturas-nunes",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/pinturas-nunes/capa-marca.jpg",
+      "crop": {
+        "left": 0,
+        "top": 1,
+        "width": 1200,
+        "height": 750
       },
       "focal": {
         "x": 0.5,
-        "y": 0.55
+        "y": 0.5
       },
-      "out": "/images/sscons/capa-card.jpg",
-      "bytes": 181303,
-      "dimensions": "1600x1000",
+      "out": "/images/pinturas-nunes/capa-card.jpg",
+      "bytes": 101894,
+      "dimensions": "1200x750",
+      "lowRes": false
+    },
+    {
+      "slug": "btb-construcao",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/btb-construcao/capa-marca.jpg",
+      "crop": {
+        "left": 0,
+        "top": 1,
+        "width": 1200,
+        "height": 750
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "out": "/images/btb-construcao/capa-card.jpg",
+      "bytes": 142438,
+      "dimensions": "1200x750",
+      "lowRes": false
+    },
+    {
+      "slug": "easy-clean",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/easy-clean/capa-marca.jpg",
+      "crop": {
+        "left": 0,
+        "top": 1,
+        "width": 1200,
+        "height": 750
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "out": "/images/easy-clean/capa-card.jpg",
+      "bytes": 31221,
+      "dimensions": "1200x750",
+      "lowRes": false
+    },
+    {
+      "slug": "salao-da-marcia",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/salao-da-marcia/capa-marca.jpg",
+      "crop": {
+        "left": 0,
+        "top": 1,
+        "width": 1200,
+        "height": 750
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "out": "/images/salao-da-marcia/capa-card.jpg",
+      "bytes": 108302,
+      "dimensions": "1200x750",
       "lowRes": false
     }
   ]

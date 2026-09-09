@@ -20,3 +20,9 @@
 - Número oficial de WhatsApp da S&S (estado `NOT_CONFIGURED` até recebimento)
 - Depoimentos só com fonte auditável (não migrados)
 - Direitos das fotos do hero (pessoas identificáveis) — confirmar com o cliente ou substituir por material oficial
+## Capas autorais — lote prioritário
+- [x] Corrigir a composição vazia da capa Route 66 com pastel e café
+- [x] Registrar focal point e fonte dedicada para Route 66, Pinturas Nunes, BTB, Easy Clean e Salão da Márcia
+- [ ] Validar capas, originalidade, fronteiras e build
+- [ ] Publicar após todos os gates passarem
+
