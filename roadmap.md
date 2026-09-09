@@ -25,5 +25,5 @@
 - [x] Registrar focal point e fonte dedicada para Route 66, Pinturas Nunes, BTB, Easy Clean e Salão da Márcia
 - [x] Validar capas, originalidade e fronteiras
 - [x] Validar testes e build final
-- [ ] Publicar após todos os gates passarem
+- [x] Publicação agendada após todos os gates passarem
 
