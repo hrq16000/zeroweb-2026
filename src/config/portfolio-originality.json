@@ -56,14 +56,14 @@
       {
         "slug": "almeida-torres",
         "v1Score": 34,
-        "v2Score": 31,
-        "delta": -3,
+        "v2Score": 33,
+        "delta": -1,
         "v1Nearest": "guaratuba-atelie-presentes",
-        "v2Nearest": "guaratuba-atelie-presentes",
-        "neighbourChanged": false,
+        "v2Nearest": "estrutura-nacional",
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 15
+        "v2AssetPattern": 11.2
       },
       {
         "slug": "angel-mix-brecho",
@@ -102,6 +102,18 @@
         "v2AssetPattern": 9
       },
       {
+        "slug": "auto-socorro-dentinho",
+        "v1Score": 37,
+        "v2Score": 38,
+        "delta": 1,
+        "v1Nearest": "mimo-salgados-doces",
+        "v2Nearest": "mimo-salgados-doces",
+        "neighbourChanged": false,
+        "reason": "METRIC_SENSITIVITY",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 5
+      },
+      {
         "slug": "beto-pasteis",
         "v1Score": 33,
         "v2Score": 30,
@@ -116,14 +128,14 @@
       {
         "slug": "bh-barreiro-marmitas",
         "v1Score": 40,
-        "v2Score": 39,
-        "delta": -1,
+        "v2Score": 40,
+        "delta": 0,
         "v1Nearest": "uberlandia-eletrica-residencial",
-        "v2Nearest": "miro-tech",
+        "v2Nearest": "your-brutus-burguer",
         "neighbourChanged": true,
-        "reason": "METRIC_CORRECTION",
+        "reason": "UNCHANGED",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 6
+        "v2AssetPattern": 5
       },
       {
         "slug": "brecho-sao-francisco",
@@ -187,15 +199,15 @@
       },
       {
         "slug": "clinica-integrada",
-        "v1Score": 44,
-        "v2Score": 43,
+        "v1Score": 45,
+        "v2Score": 44,
         "delta": -1,
-        "v1Nearest": "lk-alvenaria",
-        "v2Nearest": "lk-alvenaria",
+        "v1Nearest": "sos-presentes-cosmeticos",
+        "v2Nearest": "sos-presentes-cosmeticos",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 37.5,
-        "v2AssetPattern": 3.8
+        "v1AssetPattern": 27.3,
+        "v2AssetPattern": 6
       },
       {
         "slug": "confeitaria-chyrley",
@@ -211,8 +223,8 @@
       },
       {
         "slug": "confeitaria-sabor-da-realeza",
-        "v1Score": 51,
-        "v2Score": 51,
+        "v1Score": 50,
+        "v2Score": 50,
         "delta": 0,
         "v1Nearest": "sos-presentes-cosmeticos",
         "v2Nearest": "sos-presentes-cosmeticos",
@@ -388,6 +400,18 @@
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
         "v2AssetPattern": 4.3
+      },
+      {
+        "slug": "estrutura-nacional",
+        "v1Score": 41,
+        "v2Score": 41,
+        "delta": 0,
+        "v1Nearest": "pinturas-nunes",
+        "v2Nearest": "pinturas-nunes",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 16.7,
+        "v2AssetPattern": 5
       },
       {
         "slug": "fernanda-amaral-drywall",
@@ -758,7 +782,7 @@
         "v2Nearest": "kitutes-na-mesa",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 30,
+        "v1AssetPattern": 33.3,
         "v2AssetPattern": 9
       },
       {
@@ -784,6 +808,18 @@
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 20,
         "v2AssetPattern": 4.3
+      },
+      {
+        "slug": "pinturas-nunes",
+        "v1Score": 47,
+        "v2Score": 46,
+        "delta": -1,
+        "v1Nearest": "eletro-solucoes-eficazes",
+        "v2Nearest": "eletro-solucoes-eficazes",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 50,
+        "v2AssetPattern": 9
       },
       {
         "slug": "popys-conservacao-limpeza",
@@ -931,8 +967,8 @@
       },
       {
         "slug": "sos-presentes-cosmeticos",
-        "v1Score": 51,
-        "v2Score": 51,
+        "v1Score": 50,
+        "v2Score": 50,
         "delta": 0,
         "v1Nearest": "confeitaria-sabor-da-realeza",
         "v2Nearest": "confeitaria-sabor-da-realeza",
@@ -967,13 +1003,13 @@
       },
       {
         "slug": "thays-camilla",
-        "v1Score": 45,
-        "v2Score": 44,
-        "delta": -1,
+        "v1Score": 46,
+        "v2Score": 46,
+        "delta": 0,
         "v1Nearest": "sos-presentes-cosmeticos",
         "v2Nearest": "sos-presentes-cosmeticos",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
+        "reason": "UNCHANGED",
         "v1AssetPattern": 14.3,
         "v2AssetPattern": 2.1
       },
@@ -1039,15 +1075,15 @@
       },
       {
         "slug": "your-brutus-burguer",
-        "v1Score": 44,
+        "v1Score": 45,
         "v2Score": 45,
-        "delta": 1,
+        "delta": 0,
         "v1Nearest": "mimo-salgados-doces",
         "v2Nearest": "mimo-salgados-doces",
         "neighbourChanged": false,
-        "reason": "METRIC_SENSITIVITY",
+        "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 5
+        "v2AssetPattern": 7.5
       }
     ]
   },
@@ -1067,20 +1103,20 @@
     "clone": 81
   },
   "summary": {
-    "total": 86,
+    "total": 89,
     "original": 0,
-    "acceptable": 27,
-    "attention": 53,
+    "acceptable": 28,
+    "attention": 55,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 24,
+    "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 45,
-    "coverPending": 41,
-    "coversAsSocialImage": 10,
+    "coverPending": 44,
+    "coversAsSocialImage": 12,
     "sharedCovers": 0,
     "severeCrop": 21,
     "invalidCrossClientAssets": 0,
@@ -1225,18 +1261,18 @@
     },
     {
       "slug": "almeida-torres",
-      "score": 31,
+      "score": 33,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "guaratuba-atelie-presentes",
-      "nearestMatchScore": 31,
+      "nearestMatch": "estrutura-nacional",
+      "nearestMatchScore": 33,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 19.6,
-        "SECTION_ORDER_SIMILARITY": 42.9,
-        "COMPONENT_SIMILARITY": 66.7,
-        "STYLE_SIMILARITY": 24.7,
+        "STRUCTURE_SIMILARITY": 13.2,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 23.1,
+        "STYLE_SIMILARITY": 20.2,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 15,
+        "ASSET_PATTERN_SIMILARITY": 11.2,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -1250,6 +1286,11 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "estrutura-nacional",
+          "score": 33,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "guaratuba-atelie-presentes",
           "score": 31,
           "reason": "DISTINCT"
@@ -1257,11 +1298,6 @@
         {
           "slug": "eletro-solucoes-eficazes",
           "score": 28,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "bh-barreiro-marmitas",
-          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -1404,6 +1440,47 @@
       "fallbackVertical": null
     },
     {
+      "slug": "auto-socorro-dentinho",
+      "score": 38,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "mimo-salgados-doces",
+      "nearestMatchScore": 38,
+      "reasons": [],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 34.2,
+        "SECTION_ORDER_SIMILARITY": 62.5,
+        "COMPONENT_SIMILARITY": 46.2,
+        "STYLE_SIMILARITY": 42.2,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 10.7
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 38,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "kitutes-na-mesa",
+          "score": 37,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "marido-de-aluguel",
+          "score": 37,
+          "reason": "DISTINCT"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
       "slug": "beto-pasteis",
       "score": 30,
       "originalityStatus": "ACCEPTABLE",
@@ -1449,18 +1526,18 @@
     },
     {
       "slug": "bh-barreiro-marmitas",
-      "score": 39,
+      "score": 40,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "miro-tech",
-      "nearestMatchScore": 39,
+      "nearestMatch": "your-brutus-burguer",
+      "nearestMatchScore": 40,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 24.6,
+        "STRUCTURE_SIMILARITY": 21.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 25,
-        "STYLE_SIMILARITY": 39.8,
+        "COMPONENT_SIMILARITY": 37.5,
+        "STYLE_SIMILARITY": 37.4,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 6,
+        "ASSET_PATTERN_SIMILARITY": 5,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -1475,12 +1552,12 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "miro-tech",
-          "score": 39,
+          "slug": "your-brutus-burguer",
+          "score": 40,
           "reason": "DISTINCT"
         },
         {
-          "slug": "your-brutus-burguer",
+          "slug": "miro-tech",
           "score": 39,
           "reason": "DISTINCT"
         },
@@ -1718,20 +1795,20 @@
     },
     {
       "slug": "clinica-integrada",
-      "score": 43,
+      "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "lk-alvenaria",
-      "nearestMatchScore": 43,
+      "nearestMatch": "sos-presentes-cosmeticos",
+      "nearestMatchScore": 44,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 31.7,
+        "STRUCTURE_SIMILARITY": 31.3,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 33.3,
-        "STYLE_SIMILARITY": 47.1,
+        "COMPONENT_SIMILARITY": 35.7,
+        "STYLE_SIMILARITY": 48.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.8,
+        "ASSET_PATTERN_SIMILARITY": 6,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -1745,12 +1822,12 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "lk-alvenaria",
-          "score": 43,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
+          "slug": "lk-alvenaria",
           "score": 43,
           "reason": "SAME_FAMILY"
         },
@@ -1802,8 +1879,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 43,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1811,21 +1888,21 @@
     },
     {
       "slug": "confeitaria-sabor-da-realeza",
-      "score": 51,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "sos-presentes-cosmeticos",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 50,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 26.1,
+        "STRUCTURE_SIMILARITY": 27.9,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 64.3,
-        "STYLE_SIMILARITY": 71.1,
-        "COPY_SIMILARITY": 0.7,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 70.9,
+        "COPY_SIMILARITY": 0.9,
         "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 10.8
+        "IDENTITY_SIMILARITY": 8.8
       },
       "coverSignals": [
         "COVER_MISSING",
@@ -1839,7 +1916,7 @@
       "nearest": [
         {
           "slug": "sos-presentes-cosmeticos",
-          "score": 51,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
@@ -2487,6 +2564,53 @@
       "fallbackVertical": null
     },
     {
+      "slug": "estrutura-nacional",
+      "score": 41,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "pinturas-nunes",
+      "nearestMatchScore": 41,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 49.2,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 55.8,
+        "COPY_SIMILARITY": 1.2,
+        "ASSET_PATTERN_SIMILARITY": 5,
+        "IDENTITY_SIMILARITY": 0
+      },
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "pinturas-nunes",
+          "score": 41,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "embalar-embalagens",
+          "score": 35,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "galileu-locacao-brinquedos",
+          "score": 34,
+          "reason": "DISTINCT"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
       "slug": "fernanda-amaral-drywall",
       "score": 49,
       "originalityStatus": "ATTENTION",
@@ -2562,13 +2686,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 43,
+          "slug": "pinturas-nunes",
+          "score": 44,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 42,
+          "slug": "eletro-solucoes-eficazes",
+          "score": 43,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2609,13 +2733,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mirassol-conserta-celular",
-          "score": 33,
+          "slug": "pinturas-nunes",
+          "score": 34,
           "reason": "DISTINCT"
         },
         {
-          "slug": "almeida-torres",
-          "score": 31,
+          "slug": "mirassol-conserta-celular",
+          "score": 33,
           "reason": "DISTINCT"
         }
       ],
@@ -3148,12 +3272,12 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "clinica-integrada",
-          "score": 43,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
+          "slug": "clinica-integrada",
           "score": 43,
           "reason": "SAME_FAMILY"
         }
@@ -3370,13 +3494,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 36,
+          "slug": "auto-socorro-dentinho",
+          "score": 37,
           "reason": "DISTINCT"
         },
         {
-          "slug": "rm-fretes",
-          "score": 35,
+          "slug": "diego-montador-moveis",
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
@@ -3972,6 +4096,53 @@
       "fallbackVertical": null
     },
     {
+      "slug": "pinturas-nunes",
+      "score": 46,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "eletro-solucoes-eficazes",
+      "nearestMatchScore": 46,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 29.5,
+        "SECTION_ORDER_SIMILARITY": 100,
+        "COMPONENT_SIMILARITY": 55.6,
+        "STYLE_SIMILARITY": 37,
+        "COPY_SIMILARITY": 1.4,
+        "ASSET_PATTERN_SIMILARITY": 9,
+        "IDENTITY_SIMILARITY": 0
+      },
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "eletro-solucoes-eficazes",
+          "score": 46,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "embalar-embalagens",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
       "slug": "popys-conservacao-limpeza",
       "score": 66,
       "originalityStatus": "HIGH_SIMILARITY",
@@ -4358,13 +4529,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "rj-servicos-drywall",
+          "slug": "auto-socorro-dentinho",
           "score": 30,
           "reason": "DISTINCT"
         },
         {
-          "slug": "paulo-mestre-de-obras",
-          "score": 29,
+          "slug": "rj-servicos-drywall",
+          "score": 30,
           "reason": "DISTINCT"
         }
       ],
@@ -4511,21 +4682,21 @@
     },
     {
       "slug": "sos-presentes-cosmeticos",
-      "score": 51,
+      "score": 50,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 51,
+      "nearestMatchScore": 50,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 26.1,
+        "STRUCTURE_SIMILARITY": 27.9,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 64.3,
-        "STYLE_SIMILARITY": 71.1,
-        "COPY_SIMILARITY": 0.7,
+        "COMPONENT_SIMILARITY": 57.1,
+        "STYLE_SIMILARITY": 70.9,
+        "COPY_SIMILARITY": 0.9,
         "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 10.8
+        "IDENTITY_SIMILARITY": 8.8
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -4539,12 +4710,12 @@
       "nearest": [
         {
           "slug": "confeitaria-sabor-da-realeza",
-          "score": 51,
+          "score": 50,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "mp-festas-eventos",
-          "score": 50,
+          "score": 49,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4646,21 +4817,21 @@
     },
     {
       "slug": "thays-camilla",
-      "score": 44,
+      "score": 46,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "sos-presentes-cosmeticos",
-      "nearestMatchScore": 44,
+      "nearestMatchScore": 46,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 29.7,
+        "STRUCTURE_SIMILARITY": 32.1,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 46.7,
-        "STYLE_SIMILARITY": 39.4,
-        "COPY_SIMILARITY": 0.8,
+        "COMPONENT_SIMILARITY": 50,
+        "STYLE_SIMILARITY": 42.5,
+        "COPY_SIMILARITY": 1,
         "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 4.7
+        "IDENTITY_SIMILARITY": 5.1
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -4672,7 +4843,7 @@
       "nearest": [
         {
           "slug": "sos-presentes-cosmeticos",
-          "score": 44,
+          "score": 46,
           "reason": "SAME_FAMILY"
         },
         {
@@ -4925,11 +5096,11 @@
       "dimensions": {
         "STRUCTURE_SIMILARITY": 36.4,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 28.6,
+        "COMPONENT_SIMILARITY": 30.8,
         "STYLE_SIMILARITY": 51.6,
         "COPY_SIMILARITY": 2.8,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 3.3
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 3.4
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -4947,14 +5118,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "diego-montador-moveis",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "kitutes-na-mesa",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "kitutes-na-mesa",
-          "score": 40,
-          "reason": "DISTINCT"
+          "slug": "liz-moraes-nail-designer",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
