@@ -498,6 +498,18 @@ function PortfolioPage() {
     });
   }, [activeBranch, activeCategory, catalogItems, deferredSearch, projectType, region, sort, visitorCity]);
 
+  // Mede quem chega ao portfólio por busca ("pastel", "lanche", ...). Espera o
+  // usuário parar de digitar para não contar termos incompletos.
+  const resultCount = filteredItems.length;
+  useEffect(() => {
+    const term = deferredSearch.trim();
+    if (term.length < 3) return;
+    const timer = window.setTimeout(() => trackPortfolioSearch(term, resultCount), 900);
+    return () => window.clearTimeout(timer);
+  }, [deferredSearch, resultCount]);
+
+
+
 
   useEffect(() => {
     const params = new URLSearchParams();
