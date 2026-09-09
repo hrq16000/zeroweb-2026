@@ -2095,7 +2095,7 @@
       "image": "/images/paraiso-do-hot-dog/capa.webp",
       "icon": "/images/paraiso-do-hot-dog/logo.webp",
       "socialImage": "/images/paraiso-do-hot-dog/capa-card.jpg",
-      "socialVersion": "9cb6e38f",
+      "socialVersion": "d54c0a83",
       "componentFile": "src/components/site/ParaisoHotDogPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/paraiso-do-hot-dog",

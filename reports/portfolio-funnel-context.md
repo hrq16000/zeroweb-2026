@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-08T19:57:20.873Z
+Gerado em 2026-09-09T07:24:19.139Z
 
-- Projetos auditados: **88**
-- PASS: **88** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (24) · orcamento (30) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (7)
+- Projetos auditados: **89**
+- PASS: **89** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (24) · orcamento (31) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -96,3 +96,4 @@ Gerado em 2026-09-08T19:57:20.873Z
 | your-brutus-burguer | restaurantes | pedido | Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial. | Abrir cardápio | PROJECT_CONTRACT | PASS | — |
 | auto-socorro-dentinho | servicos | diagnostico | Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. | Descrever o problema | PROJECT_CONTRACT | PASS | — |
 | pinturas-nunes | servicos | orcamento | Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
+| estrutura-nacional | construcao | orcamento | Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação. | Iniciar solicitação | PROJECT_CONTRACT | PASS | — |

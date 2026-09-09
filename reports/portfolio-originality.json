@@ -6715,20 +6715,20 @@
   "regression": {
     "mode": "REPORT_ONLY",
     "baseline": {
-      "total": 85,
+      "total": 89,
       "original": 0,
-      "acceptable": 27,
-      "attention": 52,
+      "acceptable": 28,
+      "attention": 55,
       "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
-      "placeholderLogos": 24,
+      "placeholderLogos": 26,
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 45,
-      "coverPending": 40,
-      "coversAsSocialImage": 9,
+      "coverPending": 44,
+      "coversAsSocialImage": 12,
       "sharedCovers": 0,
       "severeCrop": 21,
       "invalidCrossClientAssets": 0,
@@ -6754,16 +6754,8 @@
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "FAIL",
-    "regressions": [
-      {
-        "kind": "COUNTER",
-        "key": "placeholderLogos",
-        "label": "logos placeholder",
-        "before": 24,
-        "after": 26
-      }
-    ],
+    "verdict": "PASS",
+    "regressions": [],
     "improvements": []
   }
 }

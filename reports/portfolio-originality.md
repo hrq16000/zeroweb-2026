@@ -166,8 +166,8 @@ Nenhum asset percebido compartilhado entre clientes.
 
 ## Regressão
 
-Veredito: **FAIL**
+Veredito: **PASS**
 
-- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":24,"after":26}
+Nenhuma regressão em relação à baseline.
 
 
