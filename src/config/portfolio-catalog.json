@@ -377,8 +377,8 @@
     "subtitle": "Elétrica, infraestrutura e redes",
     "location": "Curitiba e Região Metropolitana — PR",
     "badge": "Novo projeto",
-    "image": "/images/ag-electrical-services/logo.webp",
-    "fallbackImage": "/images/ag-electrical-services/intro.webp",
+    "image": "/images/ag-electrical-services/capa-card.jpg",
+    "fallbackImage": "/images/ag-electrical-services/capa-marca.jpg",
     "metrics": "Orçamento técnico",
     "summary": "Soluções integradas em elétrica geral, cabeamento UTP, CFTV, implantação de redes e organização de racks."
   },
@@ -554,8 +554,8 @@
     "subtitle": "Depilação, cabelos e autocuidado",
     "location": "Cidade Jardim · São José dos Pinhais — PR",
     "badge": "Novo projeto",
-    "image": "/images/salao-da-marcia/capa-marca.jpg",
-    "fallbackImage": "/images/salao-da-marcia/progressiva.webp",
+    "image": "/images/salao-da-marcia/capa-card.jpg",
+    "fallbackImage": "/images/salao-da-marcia/capa-marca.jpg",
     "metrics": "Agendamento de horários",
     "summary": "Salão da Marcia com depilação com cera, progressiva, cortes, hidratação, mechas, pé e mão."
   },
@@ -774,7 +774,7 @@
     "subtitle": "Móveis sob medida em MDF",
     "location": "Curitiba e região — PR",
     "badge": "Novo projeto",
-    "image": "/images/jkl-marcenaria/cozinha.webp",
+    "image": "/images/jkl-marcenaria/capa-card.jpg",
     "fallbackImage": "/images/jkl-marcenaria/cozinha.webp",
     "metrics": "Entrega em até 20 dias",
     "summary": "Móveis sob medida em MDF para cozinhas, dormitórios, cozinhas infantis, nichos, porta-tempero, banheiros e ambientes em geral."
@@ -1660,8 +1660,8 @@
     "subtitle": "Reformas internas e acabamentos",
     "location": "Curitiba e Região — PR",
     "badge": "Novo projeto",
-    "image": "/images/btb-construcao/capa-marca.jpg",
-    "fallbackImage": "/images/btb-construcao/hero.png",
+    "image": "/images/btb-construcao/capa-card.jpg",
+    "fallbackImage": "/images/btb-construcao/capa-marca.jpg",
     "metrics": "Garantia de 90 dias",
     "summary": "BTB Construção realiza reformas internas em Curitiba e região: pintura, elétrica, hidráulica, pisos, drywall, acabamentos e iluminação LED."
   },
@@ -1685,8 +1685,8 @@
     "subtitle": "Higienização a seco e impermeabilização",
     "location": "Curitiba e Região — PR",
     "badge": "Novo projeto",
-    "image": "/images/easy-clean/capa-marca.jpg",
-    "fallbackImage": "/images/easy-clean/hero.png",
+    "image": "/images/easy-clean/capa-card.jpg",
+    "fallbackImage": "/images/easy-clean/capa-marca.jpg",
     "metrics": "Atendimento em domicílio",
     "summary": "Easy Clean realiza lavagem a seco, higienização e impermeabilização de estofados, colchões, poltronas, cadeiras e interiores de carro."
   },
@@ -1965,7 +1965,7 @@
     "subtitle": "Café da manhã, salgados e almoço no Prado Velho",
     "location": "Prado Velho · Curitiba — PR",
     "badge": "Projeto real",
-    "image": "/images/pastelaria-route-66/capa-marca.jpg",
+    "image": "/images/pastelaria-route-66/capa-card.jpg",
     "fallbackImage": "/images/pastelaria-route-66/capa-marca.jpg",
     "metrics": "Atendimento no local, retirada e entrega",
     "summary": "Presença digital da Pastelaria e Lanchonete Route 66, com informações de horário, endereço e formas de atendimento no Prado Velho."
@@ -2039,7 +2039,7 @@
     "subtitle": "Pintura residencial, predial e acabamentos",
     "location": "Atendimento por orçamento — região a confirmar",
     "badge": "Projeto real",
-    "image": "/images/pinturas-nunes/capa-marca.jpg",
+    "image": "/images/pinturas-nunes/capa-card.jpg",
     "fallbackImage": "/images/pinturas-nunes/capa-marca.jpg",
     "metrics": "Atendimento por orçamento",
     "summary": "Pinturas Nunes oferece pintura residencial e predial, grafiato, texturas, acabamentos decorativos, telhados, calhas, grades e portões."

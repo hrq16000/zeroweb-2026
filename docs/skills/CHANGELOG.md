@@ -1220,3 +1220,12 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Fatos:** fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço; foco em São José dos Pinhais e Região Metropolitana de Curitiba. Não foram adicionadas avaliações, métricas, certificações ou promessas não verificadas.
 - **Funil e privacidade:** todos os CTAs apontam para a captação `estrutura-nacional`; o WhatsApp é resolvido apenas no servidor pelo secret `PORTFOLIO_WHATSAPP_ESTRUTURA_NACIONAL`, sem número no bundle público.
 - **Isolamento:** nenhuma logo, tipografia, header, footer ou asset institucional da 0WEB foi alterado. Todos os arquivos visuais novos pertencem somente a `public/images/estrutura-nacional/`.
+
+## 2026-09-09 — Capas autorais prioritárias e correção Route 66
+
+- Tarefa: corrigir a capa vazia da Pastelaria Route 66 e iniciar a remediação das capas provisórias prioritárias.
+- Skills/padrões: 0web-skill-router, 0web-portfolio-art-direction, PORTFOLIO_COVER_STANDARD e quality gates.
+- Alterações: Route 66 recebeu pastel e café como foco visual; Route 66, Pinturas Nunes, BTB Construção, Easy Clean e Salão da Márcia foram registrados no plano curado e ganharam `capa-card.jpg` 16:10 com focal point.
+- Autenticidade: todas são composições de marca sem texto, contato, depoimento, métrica ou falsa prova fotográfica.
+- Zona congelada: nenhum ativo institucional 0WEB foi alterado.
+- Validação: assets, logos, fronteiras, originalidade e qualidade visual passaram; testes/build executados na sequência.

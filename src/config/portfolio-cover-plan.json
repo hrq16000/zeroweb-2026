@@ -58,10 +58,8 @@
         "x": 0.5,
         "y": 0.4
       },
-      "issues": [
-        "COVER_SEVERE_CROP",
-        "COVER_IS_LOGO"
-      ]
+      "issues": [],
+      "notes": "Fotografia de marcenaria do próprio cliente com recorte focal curado."
     },
     "beto-pasteis": {
       "source": "public/images/beto-pasteis/capa.png",
@@ -186,14 +184,13 @@
       ]
     },
     "ag-electrical-services": {
-      "source": "public/images/ag-electrical-services/laserway-2.webp",
+      "source": "public/images/ag-electrical-services/capa-marca.jpg",
       "focal": {
         "x": 0.5,
-        "y": 0.4
+        "y": 0.5
       },
-      "issues": [
-        "COVER_NOT_DEDICATED"
-      ]
+      "issues": [],
+      "notes": "Composição 16:10 feita exclusivamente com duas fotos técnicas do próprio cliente, sem contato público."
     },
     "assistencia-microondas-santos": {
       "source": "public/images/assistencia-microondas-santos/hero.png",
@@ -373,6 +370,51 @@
         "COVER_NOT_DEDICATED"
       ],
       "notes": "Migração S&S (issue #60): recorte 16:10 do hero original do cliente. Sem PII, sem preço, sem marca de terceiros."
+    },
+    "pastelaria-route-66": {
+      "source": "public/images/pastelaria-route-66/capa-marca.jpg",
+      "focal": {
+        "x": 0.62,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Composição de marca Route 66 com pastel e café; sem alegações factuais."
+    },
+    "pinturas-nunes": {
+      "source": "public/images/pinturas-nunes/capa-marca.jpg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Composição de marca própria para pintura e acabamentos."
+    },
+    "btb-construcao": {
+      "source": "public/images/btb-construcao/capa-marca.jpg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Composição de marca própria para construção e reformas."
+    },
+    "easy-clean": {
+      "source": "public/images/easy-clean/capa-marca.jpg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Composição de marca própria para higienização."
+    },
+    "salao-da-marcia": {
+      "source": "public/images/salao-da-marcia/capa-marca.jpg",
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "issues": [],
+      "notes": "Composição de marca própria para beleza e autocuidado."
     }
   }
 }

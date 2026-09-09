@@ -1,25 +1,45 @@
 {
-  "generatedAt": "2026-09-06T04:57:29.604Z",
-  "ok": 1,
+  "generatedAt": "2026-09-09T19:08:01.686Z",
+  "ok": 2,
   "failed": [],
   "results": [
     {
-      "slug": "sscons",
+      "slug": "jkl-marcenaria",
       "status": "OK",
       "mode": "crop",
-      "source": "public/images/sscons/hero.jpg",
+      "source": "public/images/jkl-marcenaria/cozinha.webp",
       "crop": {
-        "left": 96,
-        "top": 0,
-        "width": 1728,
-        "height": 1080
+        "left": 0,
+        "top": 264,
+        "width": 1204,
+        "height": 753
       },
       "focal": {
         "x": 0.5,
-        "y": 0.55
+        "y": 0.4
       },
-      "out": "/images/sscons/capa-card.jpg",
-      "bytes": 181303,
+      "out": "/images/jkl-marcenaria/capa-card.jpg",
+      "bytes": 56997,
+      "dimensions": "1204x753",
+      "lowRes": false
+    },
+    {
+      "slug": "ag-electrical-services",
+      "status": "OK",
+      "mode": "crop",
+      "source": "public/images/ag-electrical-services/capa-marca.jpg",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1600,
+        "height": 1000
+      },
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "out": "/images/ag-electrical-services/capa-card.jpg",
+      "bytes": 143114,
       "dimensions": "1600x1000",
       "lowRes": false
     }
