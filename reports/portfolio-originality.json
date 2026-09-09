@@ -2611,7 +2611,7 @@
         "COMPONENT_SIMILARITY": 13.3,
         "STYLE_SIMILARITY": 52.7,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 8.6,
+        "ASSET_PATTERN_SIMILARITY": 5.6,
         "IDENTITY_SIMILARITY": 2.5
       },
       "reasons": [],
@@ -5769,14 +5769,14 @@
       },
       {
         "slug": "bruna-diarista",
-        "v1Score": 68,
+        "v1Score": 67,
         "v2Score": 66,
-        "delta": -2,
+        "delta": -1,
         "v1Nearest": "easy-clean",
         "v2Nearest": "popys-conservacao-limpeza",
         "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 80,
+        "v1AssetPattern": 66.7,
         "v2AssetPattern": 15
       },
       {
@@ -6004,7 +6004,7 @@
         "v2Nearest": "btb-construcao",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 12.5,
+        "v1AssetPattern": 11.1,
         "v2AssetPattern": 11.2
       },
       {
@@ -6028,7 +6028,7 @@
         "v2Nearest": "pinturas-nunes",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 14.3,
+        "v1AssetPattern": 12.5,
         "v2AssetPattern": 5
       },
       {
@@ -6413,7 +6413,7 @@
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 8.6
+        "v2AssetPattern": 5.6
       },
       {
         "slug": "paulo-mestre-de-obras",
@@ -6436,7 +6436,7 @@
         "v2Nearest": "eletro-solucoes-eficazes",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 42.9,
+        "v1AssetPattern": 37.5,
         "v2AssetPattern": 9
       },
       {
@@ -6556,7 +6556,7 @@
         "v2Nearest": "liz-moraes-nail-designer",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 7.7,
+        "v1AssetPattern": 7.1,
         "v2AssetPattern": 1.9
       },
       {
