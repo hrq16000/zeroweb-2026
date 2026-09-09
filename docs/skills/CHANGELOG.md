@@ -1,5 +1,19 @@
 # Skill changelog / usage log
 
+## 2026-09-09 — correção determinística da trava de marca
+
+- **Tarefa:** corrigir a falha do `prebuild` na integridade institucional sem
+  alterar a logo, o cabeçalho, o rodapé ou a aparência global da 0WEB.
+- **Causa comprovada:** cinco hashes foram gravados incorretamente no commit que
+  criou o congelamento; os arquivos atuais já possuíam esses mesmos conteúdos no
+  commit imediatamente anterior e não sofreram mudanças posteriores.
+- **Correção:** o manifesto foi sincronizado com os conteúdos legítimos já
+  existentes, preservando o hash correto do PNG oficial.
+- **Prevenção:** a mesma validação obrigatória do build/CI agora também roda no
+  pre-commit, sem bypass, para impedir que uma divergência chegue novamente à
+  etapa de publicação.
+- **Skills:** `0web-skill-router`; investigação de bug e governança de marca.
+
 ## 2026-09-08 — zona institucional 0WEB congelada
 
 - **Decisão oficial:** logo, fonte, `Header`, `Footer`, `BrandLogo`, estilos

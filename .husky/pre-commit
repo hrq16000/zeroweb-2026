@@ -1,6 +1,19 @@
 #!/usr/bin/env sh
 # Lovable / 0WEB pre-commit hook.
 
+# Bloqueia alterações acidentais na identidade institucional antes que elas
+# cheguem ao build/CI. Não há bypass: exceções exigem autorização explícita e
+# atualização auditada do manifesto conforme docs/BRAND_ASSET_POLICY.md.
+echo "[pre-commit] validating institutional brand integrity..."
+node scripts/validate-brand-integrity.mjs
+status=$?
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "✖ Pre-commit bloqueado: a zona institucional congelada foi alterada."
+  echo "  Restaure os arquivos protegidos ou siga a exceção formal da política de marca."
+  exit $status
+fi
+
 # Allow bypass: SKIP_SEO_IMAGE_CHECK=1 git commit ...
 if [ "$SKIP_SEO_IMAGE_CHECK" != "1" ]; then
   echo "[pre-commit] validating SEO images..."
