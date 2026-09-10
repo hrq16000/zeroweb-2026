@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T07:27:10.569Z",
+  "generatedAt": "2026-09-10T02:34:07.825Z",
   "runtimeGeneratedAt": "2026-09-09T07:27:08.912Z",
   "thresholds": {
     "PREMIUM": 85,
@@ -25,8 +25,8 @@
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 33,
-      "STANDARD": 55,
+      "PREMIUM": 34,
+      "STANDARD": 54,
       "NEEDS_UPGRADE": 1
     },
     "originality": {
@@ -37,9 +37,9 @@
     },
     "issues": {
       "P0": 0,
-      "P1": 76,
-      "P2": 144,
-      "P3": 63
+      "P1": 74,
+      "P2": 140,
+      "P3": 57
     },
     "averageScore": 88
   },
@@ -52,11 +52,11 @@
       "preset": null,
       "technical": "COMPLETE",
       "visual": "NEEDS_UPGRADE",
-      "score": 57,
+      "score": 58,
       "groupScores": {
         "identity": 9,
         "logo": 4,
-        "cover": 14,
+        "cover": 15,
         "hero": 0,
         "images": 10,
         "content": 3,
@@ -76,7 +76,7 @@
         "P0": 0,
         "P1": 4,
         "P2": 3,
-        "P3": 3
+        "P3": 2
       },
       "assets": {
         "logo": {
@@ -87,11 +87,11 @@
           "height": 300
         },
         "cover": {
-          "path": "/images/btb-construcao/hero.png",
-          "hash": "d7e0be10bb2c4707f51b230261b2c5cb58a60a9d",
-          "bytes": 2102738,
-          "width": 1774,
-          "height": 887
+          "path": "/images/btb-construcao/capa-card.jpg",
+          "hash": "d9b94dafea350cc850faa7931a50e0ed7f834104",
+          "bytes": 142438,
+          "width": 1200,
+          "height": 750
         },
         "social": {
           "path": "/images/btb-construcao/hero-og.jpg",
@@ -100,7 +100,7 @@
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 4
+        "galleryCount": 6
       },
       "runtime": {
         "statusCode": 200,
@@ -120,13 +120,6 @@
           "group": "logo",
           "label": "Logo aparenta ser placeholder/sintética",
           "detail": "/images/btb-construcao/logo.svg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
         },
         {
           "code": "HERO_NO_HEADLINE",
@@ -900,8 +893,8 @@
       "assets": {
         "logo": {
           "path": "/images/beto-pasteis/capa.png",
-          "hash": "a869dfecd31195056ce94af45bdfe8ce1d4078f2",
-          "bytes": 2201587,
+          "hash": "0e51a1ffa9fd6ac392d698afb9b64027a7dbe541",
+          "bytes": 691906,
           "width": 1730,
           "height": 909
         },
@@ -1060,106 +1053,6 @@
           "group": "originality",
           "label": "Similaridade estrutural em nível de clone",
           "detail": "66 vs popys-conservacao-limpeza"
-        },
-        {
-          "code": "IDENTITY_WEAK",
-          "severity": "P2",
-          "group": "identity",
-          "label": "Identidade pouco distinguível de outros projetos",
-          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
-        }
-      ]
-    },
-    {
-      "slug": "easy-clean",
-      "businessName": "Easy Clean Higienização a Seco",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 80,
-      "groupScores": {
-        "identity": 9,
-        "logo": 4,
-        "cover": 14,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 3,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "FAIL",
-      "originalityScore": 69,
-      "originalityNearest": "btb-construcao",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 1,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/easy-clean/logo.svg",
-          "hash": "464ca4cdf21101c785c1d558ac010c314f358afd",
-          "bytes": 610,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/easy-clean/hero.png",
-          "hash": "abd4d5776370340ae819d47c4d6057fcbb521c08",
-          "bytes": 1906911,
-          "width": 1536,
-          "height": 1024
-        },
-        "social": {
-          "path": "/images/easy-clean/hero-og.jpg",
-          "hash": "dcbceafaafac4d49093640687dc6d9cd2dae0e1f",
-          "bytes": 45323,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 5,
-        "desktopImages": 5,
-        "heroHeadline": "Conforto limpo, sem sair de casa.",
-        "heroHeight": 1017,
-        "editorialChars": 2356,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/easy-clean/logo.svg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_FAIL",
-          "severity": "P1",
-          "group": "originality",
-          "label": "Similaridade estrutural em nível de clone",
-          "detail": "69 vs btb-construcao"
         },
         {
           "code": "IDENTITY_WEAK",
@@ -1488,6 +1381,99 @@
           "group": "hero",
           "label": "Hero sem imagem própria",
           "detail": null
+        }
+      ]
+    },
+    {
+      "slug": "easy-clean",
+      "businessName": "Easy Clean Higienização a Seco",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 81,
+      "groupScores": {
+        "identity": 9,
+        "logo": 4,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 3,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "FAIL",
+      "originalityScore": 69,
+      "originalityNearest": "btb-construcao",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 2,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/easy-clean/logo.svg",
+          "hash": "464ca4cdf21101c785c1d558ac010c314f358afd",
+          "bytes": 610,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/easy-clean/capa-card.jpg",
+          "hash": "68c1b125bd8f527c49e26feead2a48300c650ea5",
+          "bytes": 31221,
+          "width": 1200,
+          "height": 750
+        },
+        "social": {
+          "path": "/images/easy-clean/hero-og.jpg",
+          "hash": "dcbceafaafac4d49093640687dc6d9cd2dae0e1f",
+          "bytes": 45323,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 5,
+        "desktopImages": 5,
+        "heroHeadline": "Conforto limpo, sem sair de casa.",
+        "heroHeight": 1017,
+        "editorialChars": 2356,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/easy-clean/logo.svg"
+        },
+        {
+          "code": "ORIGINALITY_FAIL",
+          "severity": "P1",
+          "group": "originality",
+          "label": "Similaridade estrutural em nível de clone",
+          "detail": "69 vs btb-construcao"
+        },
+        {
+          "code": "IDENTITY_WEAK",
+          "severity": "P2",
+          "group": "identity",
+          "label": "Identidade pouco distinguível de outros projetos",
+          "detail": "estrutura quase idêntica a outro projeto · marca fraca"
         }
       ]
     },
@@ -2234,106 +2220,6 @@
       ]
     },
     {
-      "slug": "salao-da-marcia",
-      "businessName": "Salão da Marcia",
-      "segment": "beleza",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 82,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 7,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 47,
-      "originalityNearest": "liz-moraes-nail-designer",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "NEEDS_REVIEW",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 2,
-        "P2": 1,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/salao-da-marcia/logo.svg",
-          "hash": "7c12699d67b3b54040fbd7af02501a99dde77b06",
-          "bytes": 592,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/salao-da-marcia/depilacao.webp",
-          "hash": "eed0da4a1e9ecbc6e6c42a287589b9fb17b2306d",
-          "bytes": 143960,
-          "width": 1024,
-          "height": 1536
-        },
-        "social": {
-          "path": "/images/salao-da-marcia/hero-og.jpg",
-          "hash": "bc0b5b0c5b1225d331bdce41562820f02e0b7b6b",
-          "bytes": 38057,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 10
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 7,
-        "desktopImages": 7,
-        "heroHeadline": "Seu momento de se cuidar.",
-        "heroHeight": 865,
-        "editorialChars": 2018,
-        "smallTargets": 5,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/salao-da-marcia/logo.svg"
-        },
-        {
-          "code": "COVER_SEVERE_CROP",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com proporção incompatível com o card (corte severo)",
-          "detail": "ratio 0.67"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "47 vs liz-moraes-nail-designer"
-        }
-      ]
-    },
-    {
       "slug": "studio-de-cilios",
       "businessName": "Studio de Cílios",
       "segment": "beleza",
@@ -2684,8 +2570,8 @@
         },
         "cover": {
           "path": "/images/simone-lacerda-vaz/hero.png",
-          "hash": "caa5c586906019669c8a878cae77d96b2ffef2a6",
-          "bytes": 2151091,
+          "hash": "f71aa7683623df7d7978caeefd4b0c20041fe998",
+          "bytes": 805852,
           "width": 1024,
           "height": 1536
         },
@@ -3549,8 +3435,8 @@
         },
         "cover": {
           "path": "/images/mimo-salgados-doces/hero-food.png",
-          "hash": "2bd977e949ae3539eb08b9ba0b1f471006027061",
-          "bytes": 2299816,
+          "hash": "f2961a42c8d9b1e52e37fbb009e00750550fd67c",
+          "bytes": 714593,
           "width": 1122,
           "height": 1402
         },
@@ -3702,106 +3588,6 @@
           "group": "images",
           "label": "Poucas imagens próprias do cliente",
           "detail": "3 arquivo(s)"
-        }
-      ]
-    },
-    {
-      "slug": "pinturas-nunes",
-      "businessName": "Pinturas Nunes",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 86,
-      "groupScores": {
-        "identity": 15,
-        "logo": 4,
-        "cover": 11,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 46,
-      "originalityNearest": "eletro-solucoes-eficazes",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 2,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/pinturas-nunes/logo.svg",
-          "hash": "dc728aae888aa72d034fb625741547ab038ad9fa",
-          "bytes": 591,
-          "width": 900,
-          "height": 300
-        },
-        "cover": {
-          "path": "/images/pinturas-nunes/hero-og.jpg",
-          "hash": "ede72cbee336f67477c5910d5f2193efc723af3e",
-          "bytes": 39479,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/pinturas-nunes/hero-og.jpg",
-          "hash": "ede72cbee336f67477c5910d5f2193efc723af3e",
-          "bytes": 39479,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 4
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 3,
-        "desktopImages": 3,
-        "heroHeadline": "Transformando ambientes. Realizando sonhos.",
-        "heroHeight": 937,
-        "editorialChars": 1974,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "LOGO_PLACEHOLDER",
-          "severity": "P1",
-          "group": "logo",
-          "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/pinturas-nunes/logo.svg"
-        },
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/pinturas-nunes/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "46 vs eletro-solucoes-eficazes"
         }
       ]
     },
@@ -4550,9 +4336,9 @@
       ]
     },
     {
-      "slug": "pastelaria-route-66",
-      "businessName": "Pastelaria e Lanchonete Route 66",
-      "segment": "restaurantes",
+      "slug": "pinturas-nunes",
+      "businessName": "Pinturas Nunes",
+      "segment": "servicos",
       "componentType": "custom",
       "preset": null,
       "technical": "COMPLETE",
@@ -4561,19 +4347,19 @@
       "groupScores": {
         "identity": 15,
         "logo": 4,
-        "cover": 11,
+        "cover": 15,
         "hero": 15,
         "images": 10,
         "content": 10,
-        "originality": 10,
+        "originality": 6,
         "mobile": 10,
         "social": 5
       },
-      "originalityStatus": "PASS",
-      "originalityScore": 32,
-      "originalityNearest": "mp-festas-eventos",
+      "originalityStatus": "WARNING",
+      "originalityScore": 46,
+      "originalityNearest": "eletro-solucoes-eficazes",
       "contentSimilarity": null,
-      "charm": "MEDIUM",
+      "charm": "LOW",
       "coverReview": "UNREVIEWED",
       "visuallyReviewed": true,
       "priority": 2,
@@ -4581,40 +4367,40 @@
         "P0": 0,
         "P1": 1,
         "P2": 1,
-        "P3": 1
+        "P3": 0
       },
       "assets": {
         "logo": {
-          "path": "/images/pastelaria-route-66/logo.svg",
-          "hash": "31bda83d40f59758279106b76bc7b89b6a6d43c8",
-          "bytes": 614,
+          "path": "/images/pinturas-nunes/logo.svg",
+          "hash": "dc728aae888aa72d034fb625741547ab038ad9fa",
+          "bytes": 591,
           "width": 900,
           "height": 300
         },
         "cover": {
-          "path": "/images/pastelaria-route-66/hero-og.jpg",
-          "hash": "5f78d7a669fe407208d1fd2042c9f11ce869d946",
-          "bytes": 45806,
+          "path": "/images/pinturas-nunes/capa-card.jpg",
+          "hash": "d9faf8ae2ae7ba6e5de009195b944ef6d93dc9e0",
+          "bytes": 101894,
           "width": 1200,
-          "height": 630
+          "height": 750
         },
         "social": {
-          "path": "/images/pastelaria-route-66/hero-og.jpg",
-          "hash": "5f78d7a669fe407208d1fd2042c9f11ce869d946",
-          "bytes": 45806,
+          "path": "/images/pinturas-nunes/hero-og.jpg",
+          "hash": "ede72cbee336f67477c5910d5f2193efc723af3e",
+          "bytes": 39479,
           "width": 1200,
           "height": 630
         },
-        "galleryCount": 7
+        "galleryCount": 6
       },
       "runtime": {
         "statusCode": 200,
         "mobileOverflow": 0,
-        "mobileImages": 8,
-        "desktopImages": 8,
-        "heroHeadline": "Tá com fome? Pega a estrada para a Route 66.",
-        "heroHeight": 989,
-        "editorialChars": 2312,
+        "mobileImages": 3,
+        "desktopImages": 3,
+        "heroHeadline": "Transformando ambientes. Realizando sonhos.",
+        "heroHeight": 937,
+        "editorialChars": 1974,
         "smallTargets": 1,
         "consoleErrors": 0
       },
@@ -4624,21 +4410,14 @@
           "severity": "P1",
           "group": "logo",
           "label": "Logo aparenta ser placeholder/sintética",
-          "detail": "/images/pastelaria-route-66/logo.svg"
+          "detail": "/images/pinturas-nunes/logo.svg"
         },
         {
-          "code": "COVER_REUSES_SOCIAL",
+          "code": "ORIGINALITY_WARNING",
           "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/pastelaria-route-66/hero-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "46 vs eletro-solucoes-eficazes"
         }
       ]
     },
@@ -4725,6 +4504,92 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "49 vs fernanda-amaral-drywall"
+        }
+      ]
+    },
+    {
+      "slug": "salao-da-marcia",
+      "businessName": "Salão da Marcia",
+      "segment": "beleza",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 90,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 47,
+      "originalityNearest": "liz-moraes-nail-designer",
+      "contentSimilarity": null,
+      "charm": "LOW",
+      "coverReview": "NEEDS_REVIEW",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/salao-da-marcia/logo.svg",
+          "hash": "7c12699d67b3b54040fbd7af02501a99dde77b06",
+          "bytes": 592,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/salao-da-marcia/capa-card.jpg",
+          "hash": "ff07f4b68e4dd0b11ea520dc6ba42ad18e0413e6",
+          "bytes": 108302,
+          "width": 1200,
+          "height": 750
+        },
+        "social": {
+          "path": "/images/salao-da-marcia/hero-og.jpg",
+          "hash": "bc0b5b0c5b1225d331bdce41562820f02e0b7b6b",
+          "bytes": 38057,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 12
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 7,
+        "desktopImages": 7,
+        "heroHeadline": "Seu momento de se cuidar.",
+        "heroHeight": 865,
+        "editorialChars": 2018,
+        "smallTargets": 5,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/salao-da-marcia/logo.svg"
+        },
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "47 vs liz-moraes-nail-designer"
         }
       ]
     },
@@ -4983,92 +4848,6 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "53 vs mp-festas-eventos"
-        }
-      ]
-    },
-    {
-      "slug": "ag-electrical-services",
-      "businessName": "A&G Electrical Services",
-      "segment": "servicos",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "STANDARD",
-      "score": 91,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 10,
-        "hero": 15,
-        "images": 10,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 51,
-      "originalityNearest": "lk-alvenaria",
-      "contentSimilarity": null,
-      "charm": "LOW",
-      "coverReview": "APPROVED",
-      "visuallyReviewed": true,
-      "priority": 2,
-      "severities": {
-        "P0": 0,
-        "P1": 1,
-        "P2": 1,
-        "P3": 0
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/ag-electrical-services/logo.webp",
-          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
-          "bytes": 38280,
-          "width": 1050,
-          "height": 600
-        },
-        "cover": {
-          "path": "/images/ag-electrical-services/capa-card.jpg",
-          "hash": "10efb23b3fb06d07d365c6dac42dd88a1024b3e3",
-          "bytes": 39879,
-          "width": 720,
-          "height": 450
-        },
-        "social": {
-          "path": "/images/ag-electrical-services/social-2026-og.jpg",
-          "hash": "511e01b25f487a81c040bffda7fafc562d73ffe6",
-          "bytes": 75761,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 18
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 9,
-        "desktopImages": 9,
-        "heroHeadline": "Energia e conectividade para sua operação.",
-        "heroHeight": 1022,
-        "editorialChars": 2541,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_LOW_RES",
-          "severity": "P1",
-          "group": "cover",
-          "label": "Capa com resolução insuficiente para o card",
-          "detail": "720x450"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "51 vs lk-alvenaria"
         }
       ]
     },
@@ -5403,6 +5182,85 @@
       ]
     },
     {
+      "slug": "pastelaria-route-66",
+      "businessName": "Pastelaria e Lanchonete Route 66",
+      "segment": "restaurantes",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "STANDARD",
+      "score": 94,
+      "groupScores": {
+        "identity": 15,
+        "logo": 4,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 32,
+      "originalityNearest": "mp-festas-eventos",
+      "contentSimilarity": null,
+      "charm": "MEDIUM",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 2,
+      "severities": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/pastelaria-route-66/logo.svg",
+          "hash": "31bda83d40f59758279106b76bc7b89b6a6d43c8",
+          "bytes": 614,
+          "width": 900,
+          "height": 300
+        },
+        "cover": {
+          "path": "/images/pastelaria-route-66/capa-card.jpg",
+          "hash": "7b31cbb876a32f91cd65ba0526b3956de183f96e",
+          "bytes": 81628,
+          "width": 1400,
+          "height": 875
+        },
+        "social": {
+          "path": "/images/pastelaria-route-66/hero-og.jpg",
+          "hash": "5f78d7a669fe407208d1fd2042c9f11ce869d946",
+          "bytes": 45806,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 9
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 8,
+        "desktopImages": 8,
+        "heroHeadline": "Tá com fome? Pega a estrada para a Route 66.",
+        "heroHeight": 989,
+        "editorialChars": 2312,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "LOGO_PLACEHOLDER",
+          "severity": "P1",
+          "group": "logo",
+          "label": "Logo aparenta ser placeholder/sintética",
+          "detail": "/images/pastelaria-route-66/logo.svg"
+        }
+      ]
+    },
+    {
       "slug": "angel-mix-brecho",
       "businessName": "Angel Mix Brechó",
       "segment": "comercios",
@@ -5439,8 +5297,8 @@
       "assets": {
         "logo": {
           "path": "/images/angel-mix-brecho/capa.png",
-          "hash": "e7cf199cf5a45ca3365c4910f54d0792e14e8b28",
-          "bytes": 2584088,
+          "hash": "2e304d29df526a0c4e6101cb55773ce1893100a3",
+          "bytes": 803445,
           "width": 1536,
           "height": 1024
         },
@@ -5867,8 +5725,8 @@
       "assets": {
         "logo": {
           "path": "/images/dlara-pizzaria/capa.png",
-          "hash": "643f1be82d4a2c639f7aaef10352c396b55cabf6",
-          "bytes": 2229525,
+          "hash": "2bc4839b935621b38c73105d80179b4c8d34c531",
+          "bytes": 684979,
           "width": 1536,
           "height": 1024
         },
@@ -5967,8 +5825,8 @@
       "assets": {
         "logo": {
           "path": "/images/reuse-house-brecho/capa.png",
-          "hash": "98b3f8f087200a4c5431a133cac8028dcf867d4d",
-          "bytes": 2712299,
+          "hash": "dce783db99affbc7e70b311254a17443457dcc2c",
+          "bytes": 795948,
           "width": 1536,
           "height": 1024
         },
@@ -6067,8 +5925,8 @@
       "assets": {
         "logo": {
           "path": "/images/toquinho-de-gente-brecho/capa.png",
-          "hash": "28bf3d4e2ad865963a6abfe3bfe6ace5b684389a",
-          "bytes": 2600281,
+          "hash": "244356941723a156881cce3ad1c06fa5d3c7f5bc",
+          "bytes": 757784,
           "width": 1536,
           "height": 1024
         },
@@ -6224,106 +6082,6 @@
       ]
     },
     {
-      "slug": "estrutura-nacional",
-      "businessName": "EN — Estrutura Nacional",
-      "segment": "construcao",
-      "componentType": "custom",
-      "preset": null,
-      "technical": "COMPLETE",
-      "visual": "PREMIUM",
-      "score": 88,
-      "groupScores": {
-        "identity": 15,
-        "logo": 10,
-        "cover": 11,
-        "hero": 15,
-        "images": 6,
-        "content": 10,
-        "originality": 6,
-        "mobile": 10,
-        "social": 5
-      },
-      "originalityStatus": "WARNING",
-      "originalityScore": 41,
-      "originalityNearest": "pinturas-nunes",
-      "contentSimilarity": null,
-      "charm": "HIGH",
-      "coverReview": "UNREVIEWED",
-      "visuallyReviewed": true,
-      "priority": 3,
-      "severities": {
-        "P0": 0,
-        "P1": 0,
-        "P2": 3,
-        "P3": 1
-      },
-      "assets": {
-        "logo": {
-          "path": "/images/estrutura-nacional/logo.svg",
-          "hash": "3aaa44ce2a4bf64b033648d417a7202702bd5fe0",
-          "bytes": 1221,
-          "width": 690,
-          "height": 160
-        },
-        "cover": {
-          "path": "/images/estrutura-nacional/social-og.jpg",
-          "hash": "5f4133924ce9698a20faa75213c3cd7e90a0dcc6",
-          "bytes": 79640,
-          "width": 1200,
-          "height": 630
-        },
-        "social": {
-          "path": "/images/estrutura-nacional/social-og.jpg",
-          "hash": "5f4133924ce9698a20faa75213c3cd7e90a0dcc6",
-          "bytes": 79640,
-          "width": 1200,
-          "height": 630
-        },
-        "galleryCount": 3
-      },
-      "runtime": {
-        "statusCode": 200,
-        "mobileOverflow": 0,
-        "mobileImages": 3,
-        "desktopImages": 3,
-        "heroHeadline": "A estrutura certa começa por uma boa conversa.",
-        "heroHeight": 1053,
-        "editorialChars": 3531,
-        "smallTargets": 1,
-        "consoleErrors": 0
-      },
-      "issues": [
-        {
-          "code": "COVER_REUSES_SOCIAL",
-          "severity": "P2",
-          "group": "cover",
-          "label": "Capa reaproveita a imagem social",
-          "detail": "/images/estrutura-nacional/social-og.jpg"
-        },
-        {
-          "code": "COVER_NO_FOCAL_POINT",
-          "severity": "P3",
-          "group": "cover",
-          "label": "Capa sem focal point definido",
-          "detail": null
-        },
-        {
-          "code": "FEW_IMAGES",
-          "severity": "P2",
-          "group": "images",
-          "label": "Poucas imagens próprias do cliente",
-          "detail": "3 arquivo(s)"
-        },
-        {
-          "code": "ORIGINALITY_WARNING",
-          "severity": "P2",
-          "group": "originality",
-          "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "41 vs pinturas-nunes"
-        }
-      ]
-    },
-    {
       "slug": "brecho-sao-francisco",
       "businessName": "Brechó São Francisco",
       "segment": "comercios",
@@ -6360,8 +6118,8 @@
       "assets": {
         "logo": {
           "path": "/images/brecho-sao-francisco/capa.png",
-          "hash": "4958eb96cb7cbe01ef0b7847d253d3a302098b8d",
-          "bytes": 2674602,
+          "hash": "abcb841527b4ea162a8e62ac96b856a57c243d4c",
+          "bytes": 841994,
           "width": 1536,
           "height": 1024
         },
@@ -6453,8 +6211,8 @@
       "assets": {
         "logo": {
           "path": "/images/marmitaria-dom-diego/capa.png",
-          "hash": "aa604e181447c7df681024372af241728b6beb19",
-          "bytes": 2325447,
+          "hash": "b561ad13adace71620caed6790216af029b65f9a",
+          "bytes": 617661,
           "width": 1536,
           "height": 1024
         },
@@ -6911,8 +6669,8 @@
         },
         "cover": {
           "path": "/images/papelemi-personalizados/hero.png",
-          "hash": "50ba4b67f71c847270e8bca9144a606dcd8e311f",
-          "bytes": 2117600,
+          "hash": "60d3711cf13baa609db2b41296da628f0f57520d",
+          "bytes": 680745,
           "width": 1672,
           "height": 941
         },
@@ -7119,6 +6877,85 @@
       ]
     },
     {
+      "slug": "ag-electrical-services",
+      "businessName": "A&G Electrical Services",
+      "segment": "servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 51,
+      "originalityNearest": "lk-alvenaria",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/ag-electrical-services/logo.webp",
+          "hash": "d78da8ec22ca1a69cf5081b04af1ad359be034df",
+          "bytes": 38280,
+          "width": 1050,
+          "height": 600
+        },
+        "cover": {
+          "path": "/images/ag-electrical-services/capa-card.jpg",
+          "hash": "d2cef382d569815b3024c8184800ce7e2a846f6c",
+          "bytes": 143114,
+          "width": 1600,
+          "height": 1000
+        },
+        "social": {
+          "path": "/images/ag-electrical-services/social-2026-og.jpg",
+          "hash": "511e01b25f487a81c040bffda7fafc562d73ffe6",
+          "bytes": 75761,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 19
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 9,
+        "desktopImages": 9,
+        "heroHeadline": "Energia e conectividade para sua operação.",
+        "heroHeight": 1022,
+        "editorialChars": 2541,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "51 vs lk-alvenaria"
+        }
+      ]
+    },
+    {
       "slug": "artesanatos-darleia-oliveira",
       "businessName": "Artesanatos Darléia Oliveira",
       "segment": "comercios",
@@ -7320,8 +7157,8 @@
         },
         "cover": {
           "path": "/images/dona-lucy-salgados/hero.png",
-          "hash": "bee51880ddeacb8632ba222b7f3e0a4d4da22524",
-          "bytes": 2345317,
+          "hash": "96fae8b4da7320e82c9e0e0ea036ce0883eab145",
+          "bytes": 697012,
           "width": 1672,
           "height": 941
         },
@@ -7431,6 +7268,85 @@
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
           "detail": "56 vs btb-construcao"
+        }
+      ]
+    },
+    {
+      "slug": "estrutura-nacional",
+      "businessName": "EN — Estrutura Nacional",
+      "segment": "construcao",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 15,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 6,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "WARNING",
+      "originalityScore": 41,
+      "originalityNearest": "pinturas-nunes",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "APPROVED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 0
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/estrutura-nacional/logo.svg",
+          "hash": "3aaa44ce2a4bf64b033648d417a7202702bd5fe0",
+          "bytes": 1221,
+          "width": 690,
+          "height": 160
+        },
+        "cover": {
+          "path": "/images/estrutura-nacional/capa-card.jpg",
+          "hash": "b52e080343a66214a63b7c3193fb74b205e42eb5",
+          "bytes": 85616,
+          "width": 1400,
+          "height": 875
+        },
+        "social": {
+          "path": "/images/estrutura-nacional/social-og.jpg",
+          "hash": "5f4133924ce9698a20faa75213c3cd7e90a0dcc6",
+          "bytes": 79640,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 4
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 3,
+        "desktopImages": 3,
+        "heroHeadline": "A estrutura certa começa por uma boa conversa.",
+        "heroHeight": 1053,
+        "editorialChars": 3531,
+        "smallTargets": 1,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "ORIGINALITY_WARNING",
+          "severity": "P2",
+          "group": "originality",
+          "label": "Similaridade estrutural alta com outro projeto",
+          "detail": "41 vs pinturas-nunes"
         }
       ]
     },
@@ -7636,8 +7552,8 @@
         },
         "cover": {
           "path": "/images/kitutes-na-mesa/hero.png",
-          "hash": "6c344f2a2a978b08557972175201b7cb00df2c10",
-          "bytes": 2324790,
+          "hash": "525ab24ecc40b83de6445060f0c9faf438ff1978",
+          "bytes": 798903,
           "width": 1672,
           "height": 941
         },
@@ -7945,8 +7861,8 @@
       "assets": {
         "logo": {
           "path": "/images/thays-camilla/logo.png",
-          "hash": "1706a7a528a2ba5136017e4119ee53574b0baaf5",
-          "bytes": 2173632,
+          "hash": "6dda5e34667cf2dfac4423b99d2b0f7735ce8cf8",
+          "bytes": 485146,
           "width": 1536,
           "height": 1024
         },
@@ -8110,8 +8026,8 @@
         },
         "cover": {
           "path": "/images/jc-revestimentos/hero-v2.png",
-          "hash": "492b45158e0d45ad04f3797419a82d616ac99873",
-          "bytes": 2413291,
+          "hash": "7b73066ca8ae181091143e5d482794fd936f50af",
+          "bytes": 764983,
           "width": 1774,
           "height": 887
         },
