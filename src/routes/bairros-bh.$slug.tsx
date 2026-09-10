@@ -9,6 +9,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ORIGIN, breadcrumbLd } from "@/lib/seo";
 import { findBHNeighborhood, nearbyBHNeighborhoods, type BHNeighborhood } from "@/lib/bh-neighborhoods";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { localDeliverables, localPortfolioProjects, localProcessSteps } from "@/lib/local-page-enrichment";
 
 const SERVICES = [
   { name: "Criação de Sites Profissionais", desc: "Sites rápidos, otimizados e prontos para converter visitantes em clientes." },
@@ -19,11 +20,15 @@ const SERVICES = [
   { name: "Landing Pages de Alta Conversão", desc: "Páginas focadas em uma única ação: virar lead." },
 ];
 
-function casesFor(n: BHNeighborhood) {
-  return n.typicalBusinesses.slice(0, 3).map((biz, i) => ({
-    title: `${biz[0].toUpperCase() + biz.slice(1)} em ${n.name}`,
-    result: ["+312% em leads orgânicos em 90 dias", "ROI 4,8x em Google Ads no 1º trimestre", "Top 3 no Google para 12 palavras-chave locais"][i],
-  }));
+function placeOf(n: BHNeighborhood) {
+  return {
+    slug: n.slug,
+    name: n.name,
+    city: "Belo Horizonte",
+    region: n.region,
+    vibe: n.vibe,
+    typicalBusinesses: n.typicalBusinesses,
+  };
 }
 
 function faqFor(n: BHNeighborhood) {
