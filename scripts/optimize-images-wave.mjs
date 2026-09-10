@@ -56,17 +56,29 @@ for (const file of candidates) {
     ? await pipeline.png({ compressionLevel: 9, effort: 10, palette: true, quality: 90 }).toBuffer()
     : await pipeline.jpeg({ quality: 84, mozjpeg: true }).toBuffer();
 
+  // Equivalência visual: MAE em miniatura 256px (grayscale).
+  const thumb = async (input) =>
+    sharp(input, { failOn: "none" }).resize(256, 256, { fit: "fill" }).greyscale().raw().toBuffer();
+  const [a, b] = await Promise.all([thumb(file.p), thumb(buf)]);
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff += Math.abs(a[i] - b[i]);
+  const mae = diff / a.length;
+  const visuallyEqual = mae <= 2;
+
   before += file.size;
   const gain = file.size - buf.length;
-  if (gain > file.size * 0.05 && !DRY) fs.writeFileSync(file.p, buf);
-  after += gain > file.size * 0.05 ? buf.length : file.size;
+  const accept = visuallyEqual && gain > file.size * 0.05;
+  if (accept && !DRY) fs.writeFileSync(file.p, buf);
+  after += accept ? buf.length : file.size;
   results.push({
     file: file.p,
     from: file.size,
     to: gain > file.size * 0.05 ? buf.length : file.size,
     dimensions: `${w}x${h}`,
     outDimensions: `${targetW}x${targetH}`,
-    applied: gain > file.size * 0.05 && !DRY,
+    mae: Number(mae.toFixed(3)),
+    visuallyEqual,
+    applied: accept && !DRY,
   });
 }
 
