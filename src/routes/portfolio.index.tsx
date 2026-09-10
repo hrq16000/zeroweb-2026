@@ -805,15 +805,10 @@ function PortfolioPage() {
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 gap-x-4 gap-y-7 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-                    <AnimatePresence>
+                    <>
                       {filteredItems.slice(0, visibleCount).map((item, index) => (
-                        <motion.div
+                        <div
                           key={item.id}
-                          layout
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ duration: 0.3 }}
                           className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft"
                         >
                           {/* Card Media Preview */}
