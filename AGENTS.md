@@ -8,6 +8,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
+| Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
@@ -40,7 +41,9 @@ explícita do responsável, changelog e revisão visual da raiz.
 
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 `docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
-`docs/PORTFOLIO_CAPABILITY_PALETTE.md` e execute `bun run validate:portfolio-boundaries`.
+`docs/PORTFOLIO_CAPABILITY_PALETTE.md`,
+`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` e execute
+`bun run validate:portfolio-boundaries`.
 
 ## Skills obrigatórias
 
