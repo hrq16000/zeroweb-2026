@@ -190,9 +190,9 @@
     },
     {
       "slug": "carecas-infotec",
-      "asset": "/images/carecas-infotec/hero-og.jpg",
-      "catalogImage": "/images/carecas-infotec/hero-og.jpg",
-      "catalogImageRole": "SOCIAL",
+      "asset": "/images/carecas-infotec/capa.jpg",
+      "catalogImage": "/images/carecas-infotec/capa.jpg",
+      "catalogImageRole": "EDITORIAL",
       "origin": "CATALOG",
       "reviewedAt": null,
       "status": "UNCERTAIN_ORIGIN",
