@@ -152,7 +152,12 @@ for (const client of clients) {
     /from "motion\/react"/.test(componentSource) ||
     /\banimate-/.test(componentSource) ||
     /\btransition\b|transition-/.test(componentSource) ||
-    /(?:group-)?hover:/.test(componentSource);
+    /(?:group-)?hover:/.test(componentSource) ||
+    // Projeto conduzido pelo Portfolio Blueprint: o motion é declarado por
+    // seção (`motion: { intensity | reveal | stagger }`) e executado pelo
+    // renderer compartilhado, que usa os primitives de `@/components/motion`.
+    (/PortfolioBlueprintRenderer/.test(componentSource) &&
+      /motion:\s*\{/.test(componentSource));
   if (!hasMotionSignal) {
     errors.push(`${label} sem nenhum sinal de experiência/motion (página estática)`);
   }
