@@ -142,7 +142,10 @@ export const Route = createFileRoute("/bairros-bh/$slug")({
 
 function BairroPage() {
   const { bairro: n } = Route.useLoaderData();
-  const cases = casesFor(n);
+  const place = placeOf(n);
+  const deliverables = localDeliverables(place);
+  const steps = localProcessSteps(place);
+  const projects = localPortfolioProjects("Belo Horizonte");
   const faq = faqFor(n);
   const nearby = nearbyBHNeighborhoods(n.slug, 6);
 
@@ -226,22 +229,62 @@ function BairroPage() {
           </div>
         </section>
 
-        {/* CASES */}
+        {/* ENTREGAS */}
         <section className="py-16">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-3xl font-bold font-display">Resultados reais em {n.name}</h2>
-            <p className="mt-3 text-muted-foreground">Casos típicos de negócios que crescem com a 0web no bairro.</p>
-            <div className="mt-10 grid md:grid-cols-3 gap-5">
-              {cases.map((c) => (
-                <div key={c.title} className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="text-3xl font-bold font-display">O que entregamos para negócios de {n.name}</h2>
+            <p className="mt-3 text-muted-foreground">Escopo montado a partir do comércio que existe no bairro.</p>
+            <div className="mt-10 grid md:grid-cols-2 gap-5">
+              {deliverables.map((d) => (
+                <div key={d.title} className="rounded-2xl border border-border bg-card p-6">
                   <TrendingUp className="w-6 h-6 text-accent" />
-                  <h3 className="mt-3 font-semibold">{c.title}</h3>
-                  <p className="mt-2 text-2xl font-bold font-display text-gradient">{c.result}</p>
+                  <h3 className="mt-3 font-semibold text-lg">{d.title}</h3>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">{d.body}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* PROCESSO */}
+        <section className="py-16 bg-muted/30">
+          <div className="mx-auto max-w-4xl px-5 lg:px-8">
+            <h2 className="text-3xl font-bold font-display">Como trabalhamos em {n.name}</h2>
+            <ol className="mt-8 space-y-5">
+              {steps.map((p) => (
+                <li key={p.step} className="rounded-2xl border border-border bg-card p-6">
+                  <h3 className="font-semibold text-lg">{p.step}</h3>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">{p.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {projects.length > 0 && (
+          <section className="py-16">
+            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+              <h2 className="text-3xl font-bold font-display">Sites no ar em Belo Horizonte</h2>
+              <p className="mt-3 text-muted-foreground">Projetos publicados pela 0web na mesma cidade de {n.name}.</p>
+              <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {projects.map((p) => (
+                  <Link
+                    key={p.slug}
+                    to="/portfolio/$slug"
+                    params={{ slug: p.slug }}
+                    className="rounded-2xl border border-border bg-card p-5 hover:border-primary transition"
+                  >
+                    <div className="font-semibold">{p.title}</div>
+                    {p.summary && <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{p.summary}</p>}
+                  </Link>
+                ))}
+              </div>
+              <Link to="/portfolio" className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+                Ver todo o portfólio <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+        )}
 
         {/* FAQ */}
         <section className="py-16 bg-muted/30">
