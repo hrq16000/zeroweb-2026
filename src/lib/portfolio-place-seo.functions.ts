@@ -1,6 +1,10 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { listPortfolioPlaceHubs, findPortfolioPlaceHub } from "@/lib/portfolio-places";
+import {
+  portfolioPlaceHubs,
+  findPortfolioPlaceHub,
+  type PortfolioPlaceHub,
+} from "@/lib/portfolio-places";
 
 /**
  * SEO editorial das páginas regionais do portfólio (`/portfolio-em/<local>`).
@@ -112,7 +116,7 @@ export const listPortfolioPlaceSeo = createServerFn({ method: "POST" })
       .limit(1000);
     const overrides = new Map((data ?? []).map((r: any) => [r.slug as string, r]));
 
-    return listPortfolioPlaceHubs().map((hub) => {
+    return portfolioPlaceHubs().map((hub: PortfolioPlaceHub) => {
       const row = overrides.get(hub.slug);
       return {
         slug: hub.slug,
