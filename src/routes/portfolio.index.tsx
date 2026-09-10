@@ -571,7 +571,7 @@ function PortfolioPage() {
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
           <div className="container mx-auto max-w-6xl px-4 py-2">
-            <Breadcrumbs items={[{ name: "Portfólio", path: "/portfolio" }]} />
+            <Breadcrumbs compact items={[{ name: "Portfólio", path: "/portfolio" }]} />
           </div>
         </div>
 
