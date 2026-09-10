@@ -42,7 +42,10 @@ export const Route = createFileRoute("/portfolio-em/$local")({
         .slice(0, 4)
         .map((p) => p.title)
         .join(", ")}. Veja cada página publicada e fale direto com a empresa.`;
-    const rawImage = hub.projects.map((p) => p.image).find((src) => typeof src === "string" && src.startsWith("/"));
+    const candidates = hub.projects
+      .map((p) => p.image)
+      .filter((src): src is string => typeof src === "string" && src.startsWith("/"));
+    const rawImage = candidates.find((src) => !/logo/i.test(src)) ?? candidates[0];
     const socialImage = rawImage ? `${SITE_URL}${rawImage}` : undefined;
     const lb = seo?.localBusiness;
     return {
