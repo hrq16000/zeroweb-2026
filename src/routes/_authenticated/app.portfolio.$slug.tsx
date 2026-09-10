@@ -17,6 +17,12 @@ import {
 } from "@/lib/portfolio-visual-quality";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { PortfolioFunnelPanel } from "@/components/admin/PortfolioFunnelPanel";
+import {
+  listPortfolioHostLeads,
+  updatePortfolioHostLeadStatus,
+  type HostLead,
+} from "@/lib/portfolio-host-leads.functions";
+import { HOST_LEAD_STATUSES, HOST_LEAD_STATUS_LABEL } from "@/lib/portfolio-host-leads";
 
 import {
   auditPortfolioFunnelContext,
