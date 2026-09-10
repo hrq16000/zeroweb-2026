@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T07:27:08.912Z",
-  "base": "http://127.0.0.1:8080",
+  "generatedAt": "2026-09-10T08:15:41.105Z",
+  "base": "http://localhost:8080",
   "viewports": [
     {
       "name": "mobile",
@@ -10399,6 +10399,123 @@
             {
               "color": "lab(96.5174 -0.967294 -2.82186)",
               "n": 4
+            }
+          ]
+        }
+      },
+      "consoleErrors": [],
+      "status": 200
+    },
+    "carecas-infotec": {
+      "slug": "carecas-infotec",
+      "viewports": {
+        "mobile": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 4,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/carecas-infotec/logo.png",
+            "/images/carecas-infotec/banner.webp",
+            "/images/carecas-infotec/servicos.webp"
+          ],
+          "h1Count": 1,
+          "h1": "Solução com qualidade, confiança e preço justo.",
+          "h2Count": 4,
+          "sections": 7,
+          "smallTargets": 2,
+          "hero": {
+            "height": 781,
+            "backgroundImage": false,
+            "heading": "Solução com qualidade, confiança e preço justo.",
+            "headingSize": 36,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2378,
+          "text": "CARREGANDO Copiar divulgação AGENDAR SERVIÇO ASSISTÊNCIA ESPECIALIZADA SOLUÇÃO COM QUALIDADE, CONFIANÇA E PREÇO JUSTO. Assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR. Tecnologia em boas mãos, sempre. AGENDE JÁ SEU SERVIÇO Ver aparelhos atendidos ASSISTÊNCIA TÉCNICA ESPECIALIZADA EM: CELULAR Troca de tela, bateria, conector de carga e limpeza interna. COMPUTADOR Formatação, limpeza, upgrade de memória e troca de peças. NOTEBOOK Teclado, dobradiça, tela, refrigeração e manutenção geral. IMPRESSORA Revisão, limpeza de cabeçote e configuração de rede. MONITOR Diagnóstico de imagem, fonte e conectores. TABLET Tela, bateria, botões e restauração do sistema. VIDEOGAME Console e controles: leitura de disco, HDMI e analógicos. RECARGAS Recarga de cartucho e toner com teste de impressão. COMO FUNCIONA DIAGNÓSTICO, ORÇAMENTO E REPARO. 1 Você conta qual é o aparelho e o que está acontecendo. 2 A equipe faz o diagnóstico e apresenta o orçamento. 3 Aprovado o orçamento, o reparo é executado e o aparelho testado. DESCREVER O PROBLEMA SERVIÇO DE QUALIDADE Diagnóstico antes do reparo e explicação do que precisa ser feito no seu aparelho. PROFISSIONAIS QUALIFICADOS Assistência técnica especializada, com atendimento direto de quem executa o serviço. PREÇO JUSTO Orçamento apresentado antes da execução, sem surpresa no momento da retirada. A LOJA CARECA'S INFOTEC — ASSISTÊNCIA QUE RESOLVE. Rua Margarida Petrelli Fogiatto, 118 — São José dos Pinhais/PR Atendimento rápido e eficiente: descreva o aparelho e o defeito pelo formulário e a equipe responde para combinar o atendimento. AGENDE JÁ SEU SERVIÇO Em poucos toques você informa o aparelho, o problema e o melhor momento para o atendimento. SOLICITAR ATENDIMENTO SOBRE O PROJETO Conte o aparelho e o defeito para receber o orçamento. Careca's Infotec faz assistência técnica especializada em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR. Atendimento em São José dos Pinhais — PR. Como começar A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo. assistencia tecnica conserto de celular conserto de notebook impressora Agendar serviço © 2026 · Careca's Infotec Site desenvolvido por 0WEB Também na região: São José dos Pinhais — PR Contato",
+          "docHeight": 5781,
+          "topColors": [
+            {
+              "color": "oklch(0.17 0.012 315)",
+              "n": 12
+            },
+            {
+              "color": "oklch(0.85 0.16 92)",
+              "n": 7
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "oklch(0.22 0.014 315)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
+        },
+        "desktop": {
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 4,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/carecas-infotec/logo.png",
+            "/images/carecas-infotec/banner.webp",
+            "/images/carecas-infotec/servicos.webp"
+          ],
+          "h1Count": 1,
+          "h1": "Solução com qualidade, confiança e preço justo.",
+          "h2Count": 4,
+          "sections": 7,
+          "smallTargets": 5,
+          "hero": {
+            "height": 643,
+            "backgroundImage": false,
+            "heading": "Solução com qualidade, confiança e preço justo.",
+            "headingSize": 60,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 2414,
+          "text": "CARREGANDO Copiar divulgação Aparelhos Como funciona A loja AGENDAR SERVIÇO ASSISTÊNCIA ESPECIALIZADA SOLUÇÃO COM QUALIDADE, CONFIANÇA E PREÇO JUSTO. Assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR. Tecnologia em boas mãos, sempre. AGENDE JÁ SEU SERVIÇO Ver aparelhos atendidos ASSISTÊNCIA TÉCNICA ESPECIALIZADA EM: CELULAR Troca de tela, bateria, conector de carga e limpeza interna. COMPUTADOR Formatação, limpeza, upgrade de memória e troca de peças. NOTEBOOK Teclado, dobradiça, tela, refrigeração e manutenção geral. IMPRESSORA Revisão, limpeza de cabeçote e configuração de rede. MONITOR Diagnóstico de imagem, fonte e conectores. TABLET Tela, bateria, botões e restauração do sistema. VIDEOGAME Console e controles: leitura de disco, HDMI e analógicos. RECARGAS Recarga de cartucho e toner com teste de impressão. COMO FUNCIONA DIAGNÓSTICO, ORÇAMENTO E REPARO. 1 Você conta qual é o aparelho e o que está acontecendo. 2 A equipe faz o diagnóstico e apresenta o orçamento. 3 Aprovado o orçamento, o reparo é executado e o aparelho testado. DESCREVER O PROBLEMA SERVIÇO DE QUALIDADE Diagnóstico antes do reparo e explicação do que precisa ser feito no seu aparelho. PROFISSIONAIS QUALIFICADOS Assistência técnica especializada, com atendimento direto de quem executa o serviço. PREÇO JUSTO Orçamento apresentado antes da execução, sem surpresa no momento da retirada. A LOJA CARECA'S INFOTEC — ASSISTÊNCIA QUE RESOLVE. Rua Margarida Petrelli Fogiatto, 118 — São José dos Pinhais/PR Atendimento rápido e eficiente: descreva o aparelho e o defeito pelo formulário e a equipe responde para combinar o atendimento. AGENDE JÁ SEU SERVIÇO Em poucos toques você informa o aparelho, o problema e o melhor momento para o atendimento. SOLICITAR ATENDIMENTO SOBRE O PROJETO Conte o aparelho e o defeito para receber o orçamento. Careca's Infotec faz assistência técnica especializada em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR. Atendimento em São José dos Pinhais — PR. Como começar A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo. assistencia tecnica conserto de celular conserto de notebook impressora Agendar serviço © 2026 · Careca's Infotec Site desenvolvido por 0WEB Também na região: São José dos Pinhais — PR Fale conosco",
+          "docHeight": 3230,
+          "topColors": [
+            {
+              "color": "oklch(0.17 0.012 315)",
+              "n": 12
+            },
+            {
+              "color": "oklch(0.85 0.16 92)",
+              "n": 7
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "oklch(0.22 0.014 315)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
             }
           ]
         }
