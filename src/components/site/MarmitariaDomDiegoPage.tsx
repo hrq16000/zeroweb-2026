@@ -65,9 +65,9 @@ function LinhaCardapio({
       style={{ opacity: drawn ? 1 : 0.35, transition: "opacity 420ms ease" }}
     >
       <div className="flex items-baseline gap-3">
-        <dt className="font-display text-lg font-bold transition-transform duration-200 group-hover:translate-x-1 md:text-xl">
+        <h3 className="font-display text-lg font-bold transition-transform duration-200 group-hover:translate-x-1 md:text-xl">
           {item}
-        </dt>
+        </h3>
         <span
           aria-hidden
           className="h-px flex-1 border-b border-dotted border-[var(--dd-ink)]/35 group-hover:border-[var(--dd-leaf)]"
