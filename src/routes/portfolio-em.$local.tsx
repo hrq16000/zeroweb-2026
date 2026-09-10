@@ -24,15 +24,26 @@ export const Route = createFileRoute("/portfolio-em/$local")({
     }
     const { hub, seo } = loaderData;
     const url = `${SITE_URL}${portfolioPlacePath(hub.slug)}`;
-    const title = seo?.metaTitle || `Sites publicados em ${hub.label} · Portfólio 0WEB`;
+    const count = hub.projects.length;
+    const plural = count === 1 ? "site no ar" : "sites no ar";
+    const segments = Array.from(
+      new Set(
+        hub.projects
+          .map((p) => (p.segment || "").replace(/-/g, " ").trim())
+          .filter((s) => s.length > 0),
+      ),
+    ).slice(0, 3);
+    const title = seo?.metaTitle || `${count} ${plural} em ${hub.label} · Portfólio 0WEB`;
     const description =
       seo?.metaDescription ||
-      `${hub.projects.length} ${
-        hub.projects.length === 1 ? "projeto publicado" : "projetos publicados"
-      } pela 0WEB em ${hub.label}: ${hub.projects
+      `${count} ${plural} criados pela 0WEB em ${hub.label}${
+        segments.length ? ` (${segments.join(", ")})` : ""
+      }: ${hub.projects
         .slice(0, 4)
         .map((p) => p.title)
-        .join(", ")}. Veja cada site no ar e fale com a empresa pelo funil da própria página.`;
+        .join(", ")}. Veja cada página publicada e fale direto com a empresa.`;
+    const rawImage = hub.projects.map((p) => p.image).find((src) => typeof src === "string" && src.startsWith("/"));
+    const socialImage = rawImage ? `${SITE_URL}${rawImage}` : undefined;
     const lb = seo?.localBusiness;
     return {
       meta: [
@@ -43,9 +54,16 @@ export const Route = createFileRoute("/portfolio-em/$local")({
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
+        { property: "og:locale", content: "pt_BR" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
+        ...(socialImage
+          ? [
+              { property: "og:image", content: socialImage },
+              { name: "twitter:image", content: socialImage },
+            ]
+          : []),
         { name: "geo.placename", content: hub.label },
         { name: "geo.region", content: `BR-${hub.state}` },
       ],
