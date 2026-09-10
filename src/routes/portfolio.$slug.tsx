@@ -459,6 +459,9 @@ const PinturasNunesPage = lazy(() =>
 const EstruturaNacionalPage = lazy(() =>
   import("@/components/site/EstruturaNacionalPage").then((m) => ({ default: m.EstruturaNacionalPage })),
 );
+const CarecasInfotecPage = lazy(() =>
+  import("@/components/site/CarecasInfotecPage").then((m) => ({ default: m.CarecasInfotecPage })),
+);
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }) => {
@@ -1149,6 +1152,8 @@ function PortfolioPrototypePage() {
           <PinturasNunesPage />
         ) : slug === "estrutura-nacional" ? (
           <EstruturaNacionalPage />
+        ) : slug === "carecas-infotec" ? (
+          <CarecasInfotecPage />
         ) : slug === "marmitaria-dom-diego" ? (
           <MarmitariaDomDiegoPage />
         ) : slug === "beto-pasteis" ? (

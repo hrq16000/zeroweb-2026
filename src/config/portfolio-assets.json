@@ -1088,6 +1088,18 @@
         "ctaHref": "#contato"
       },
       "socialVersion": "5f413392"
+    },
+    "carecas-infotec": {
+      "icon": "/images/carecas-infotec/logo.svg",
+      "socialImage": "/images/carecas-infotec/hero-og.jpg",
+      "proof": {
+        "eyebrow": "Careca's Infotec",
+        "title": "Careca's Infotec com uma presença que explica o que faz.",
+        "description": "Careca's Infotec faz assistência técnica especializada em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "cebd185b"
     }
   }
 }

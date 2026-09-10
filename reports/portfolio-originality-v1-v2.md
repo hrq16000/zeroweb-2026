@@ -50,9 +50,11 @@ originalidade: nenhuma página pública mudou.
 | acai-total-araucaria | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 59 | 58 | -1 | não | METRIC_CORRECTION | 20 | 7.5 |
 | almeida-torres | guaratuba-atelie-presentes | estrutura-nacional | 34 | 33 | -1 | SIM | METRIC_CORRECTION | 100 | 6 |
 | bruna-diarista | easy-clean | popys-conservacao-limpeza | 67 | 66 | -1 | SIM | METRIC_CORRECTION | 66.7 | 15 |
-| clinica-integrada | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 45 | 44 | -1 | não | METRIC_CORRECTION | 27.3 | 6 |
+| carecas-infotec | clinica-integrada | clinica-integrada | 46 | 45 | -1 | não | METRIC_CORRECTION | 50 | 4.3 |
+| clinica-integrada | carecas-infotec | carecas-infotec | 46 | 45 | -1 | não | METRIC_CORRECTION | 50 | 4.3 |
 | estrutura-nacional | pinturas-nunes | pinturas-nunes | 42 | 41 | -1 | não | METRIC_CORRECTION | 25 | 9 |
 | fernanda-amaral-drywall | rj-servicos-drywall | rj-servicos-drywall | 50 | 49 | -1 | não | METRIC_CORRECTION | 9.1 | 3.3 |
+| heloa-gas | carecas-infotec | carecas-infotec | 44 | 43 | -1 | não | METRIC_CORRECTION | 22.2 | 4.3 |
 | jkl-marcenaria | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 47 | 46 | -1 | não | METRIC_CORRECTION | 37.5 | 9 |
 | liz-moraes-nail-designer | kitutes-na-mesa | mp-festas-eventos | 55 | 54 | -1 | SIM | METRIC_CORRECTION | 40 | 2.1 |
 | lolipa-arte-em-festas | confeitaria-sabor-da-realeza | confeitaria-sabor-da-realeza | 39 | 38 | -1 | não | METRIC_CORRECTION | 20 | 7.5 |
@@ -70,7 +72,7 @@ originalidade: nenhuma página pública mudou.
 | vila-da-capivara | mp-festas-eventos | mp-festas-eventos | 54 | 53 | -1 | não | METRIC_CORRECTION | 20 | 5.6 |
 | ag-electrical-services | lk-alvenaria | lk-alvenaria | 51 | 51 | 0 | não | UNCHANGED | 0 | 3.2 |
 | aguia-sul-sinalizacao | acai-total-araucaria | diego-montador-moveis | 59 | 59 | 0 | SIM | UNCHANGED | 20 | 7.5 |
-| artesanatos-darleia-oliveira | lk-alvenaria | lk-alvenaria | 42 | 42 | 0 | não | UNCHANGED | 8.3 | 7.5 |
+| artesanatos-darleia-oliveira | carecas-infotec | carecas-infotec | 43 | 43 | 0 | não | UNCHANGED | 22.2 | 3.3 |
 | bh-barreiro-marmitas | uberlandia-eletrica-residencial | your-brutus-burguer | 40 | 40 | 0 | SIM | UNCHANGED | 100 | 5 |
 | confeitaria-sabor-da-realeza | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 50 | 50 | 0 | não | UNCHANGED | 7.7 | 5 |
 | denise-gomes-psicologa | mp-festas-eventos | mp-festas-eventos | 53 | 53 | 0 | não | UNCHANGED | 0 | 4.3 |
@@ -82,12 +84,11 @@ originalidade: nenhuma página pública mudou.
 | enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 11.1 | 11.2 |
 | espaco-cih-luh | kitutes-na-mesa | kitutes-na-mesa | 39 | 39 | 0 | não | UNCHANGED | 0 | 4.3 |
 | guaratuba-sabores-da-baia | heloa-gas | heloa-gas | 30 | 30 | 0 | não | UNCHANGED | 14.3 | 3 |
-| heloa-gas | dona-lucy-salgados | dona-lucy-salgados | 42 | 42 | 0 | não | UNCHANGED | 12.5 | 15 |
 | js-eletrica-manutencao | maximos-cabeleireiros | maximos-cabeleireiros | 60 | 60 | 0 | não | UNCHANGED | 14.3 | 9 |
 | lk-alvenaria | ag-electrical-services | ag-electrical-services | 51 | 51 | 0 | não | UNCHANGED | 0 | 3.2 |
 | lucas-arruma-maquina-lavar | denise-gomes-psicologa | denise-gomes-psicologa | 44 | 44 | 0 | não | UNCHANGED | 10 | 8.6 |
 | mania-de-limpeza | enoel-portas | js-eletrica-manutencao | 54 | 54 | 0 | SIM | UNCHANGED | 100 | 11.2 |
-| marido-de-aluguel | paulo-mestre-de-obras | paulo-mestre-de-obras | 38 | 38 | 0 | não | UNCHANGED | 10 | 1.9 |
+| marido-de-aluguel | auto-socorro-dentinho | auto-socorro-dentinho | 38 | 38 | 0 | não | UNCHANGED | 0 | 2.5 |
 | mary-diarista | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 58 | 58 | 0 | não | UNCHANGED | 0 | 2.5 |
 | mp-festas-eventos | studio-de-cilios | studio-de-cilios | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
 | no-brilho-higienizacao | eisenfer-tubos-acos | eisenfer-tubos-acos | 43 | 43 | 0 | não | UNCHANGED | 11.1 | 4.3 |
@@ -100,6 +101,6 @@ originalidade: nenhuma página pública mudou.
 | studio-de-cilios | mp-festas-eventos | mp-festas-eventos | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
 | thays-camilla | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 46 | 46 | 0 | não | UNCHANGED | 14.3 | 2.1 |
 | your-brutus-burguer | mimo-salgados-doces | mimo-salgados-doces | 45 | 45 | 0 | não | UNCHANGED | 0 | 7.5 |
-| auto-socorro-dentinho | mimo-salgados-doces | mimo-salgados-doces | 37 | 38 | 1 | não | METRIC_SENSITIVITY | 0 | 5 |
+| auto-socorro-dentinho | mimo-salgados-doces | mimo-salgados-doces | 39 | 40 | 1 | não | METRIC_SENSITIVITY | 0 | 5 |
 | confeitaria-chyrley | studio-de-cilios | studio-de-cilios | 55 | 56 | 1 | não | METRIC_SENSITIVITY | 0 | 8.6 |
 | mimo-salgados-doces | popys-conservacao-limpeza | popys-conservacao-limpeza | 55 | 56 | 1 | não | METRIC_SENSITIVITY | 0 | 5 |

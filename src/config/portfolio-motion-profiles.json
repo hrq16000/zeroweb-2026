@@ -1135,7 +1135,7 @@
       "reducedMotionFallback": "opacityOnly",
       "desktopBehavior": "a linha amarela abre o hero como um vão arquitetônico; os serviços entram como etapas de instalação",
       "tabletBehavior": "split vira pilha e preserva o contraste preto/amarelo",
-    "mobileBehavior": "sem deslocamento no toque; seletor de serviço mantém alvo mínimo e foco visível"
+      "mobileBehavior": "sem deslocamento no toque; seletor de serviço mantém alvo mínimo e foco visível"
     },
     "mania-de-limpeza": {
       "intensity": "BALANCED",
@@ -1272,6 +1272,23 @@
       "desktopBehavior": "Grade técnica e contornos de estrutura acompanham a composição; a fotografia documental aparece por máscara.",
       "tabletBehavior": "A fotografia segue após o manifesto e as linhas da planta tornam-se decoração de fundo.",
       "mobileBehavior": "Não há deslocamento por toque: ordem, texto e CTA permanecem no fluxo vertical."
+    },
+    "carecas-infotec": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
+      "imageReveal": "fade",
+      "textReveal": "line",
+      "iconMotion": "none",
+      "hoverBehavior": "border",
+      "depthBehavior": "flat",
+      "scrollBehavior": "none",
+      "staggerPattern": "grid",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "hero em camadas (selo → título → subtítulo → CTAs) e grade de oito aparelhos em stagger de grade",
+      "tabletBehavior": "mesma sequência com grade em 2 colunas",
+      "mobileBehavior": "revelações com distância menor; sem hover no toque"
     }
   },
   "decisions": {
@@ -1692,7 +1709,11 @@
         "interaction": "CTA de encomenda abre o funil com foco imediato"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "loops infinitos"
+      ],
       "performanceNote": "Somente transform/opacity; hero único com prioridade e menu carregado sob demanda.",
       "accessibilityNotes": "Conteúdo fica no DOM; reduced motion remove deslocamentos."
     },
@@ -1701,9 +1722,17 @@
       "segment": "prestadores-de-servicos",
       "motionIntent": "DIAGNOSTICO TECNICO",
       "whyThisMotion": "Linhas e reveals curtos sugerem conexão entre dispositivo, diagnóstico e solução.",
-      "signatureMoments": { "hero": "headline revela em máscara curta", "section": "cards entram em sequência de grade", "interaction": "âncoras conduzem pelos canais" },
+      "signatureMoments": {
+        "hero": "headline revela em máscara curta",
+        "section": "cards entram em sequência de grade",
+        "interaction": "âncoras conduzem pelos canais"
+      },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "loops infinitos"
+      ],
       "performanceNote": "Somente transform/opacity; hero único prioritário e imagens abaixo da dobra lazy."
     },
     "auto-socorro-dentinho": {
@@ -1717,7 +1746,11 @@
         "interaction": "FAQ nativo abre respostas sem deslocamento agressivo"
       },
       "motionIntensity": "EXPRESSIVE",
-      "effectsAvoided": ["parallax", "scroll hijack", "loops infinitos"],
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "loops infinitos"
+      ],
       "performanceNote": "Somente transform/opacity/clip-path; arte SVG única prioritária e conteúdo sem JS.",
       "accessibilityNotes": "prefers-reduced-motion remove deslocamento e mantém conteúdo/ordem no DOM.",
       "originalityNotes": "Painel de diagnóstico e trilho de decisão próprios; não replica o blueprint do Centro Mega."
@@ -1733,7 +1766,12 @@
         "interaction": "CTA ganha elevação curta, sem loop ou deslocamento contínuo"
       },
       "motionIntensity": "BALANCED",
-      "effectsAvoided": ["parallax", "scroll hijack", "contadores", "loops infinitos"],
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "contadores",
+        "loops infinitos"
+      ],
       "performanceNote": "Somente transform, opacity e clip-path; cartaz oficial é o único media prioritário.",
       "accessibilityNotes": "prefers-reduced-motion elimina o deslocamento e preserva todas as informações no DOM.",
       "originalityNotes": "Narrativa de superfície e régua de acabamento não reutiliza a cartela Ton & Cor nem a grade de obra da JC Revestimentos."
@@ -1749,10 +1787,33 @@
         "interaction": "Dúvidas usam details nativo e CTA mantém realce dourado de foco"
       },
       "motionIntensity": "IMMERSIVE",
-      "effectsAvoided": ["parallax", "scroll hijack", "contadores", "loops infinitos"],
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "contadores",
+        "loops infinitos"
+      ],
       "performanceNote": "Somente transform, opacity e clip-path; uma fotografia WebP prioritária e sem bibliotecas adicionais.",
       "accessibilityNotes": "prefers-reduced-motion preserva o conteúdo integral e remove deslocamentos.",
       "originalityNotes": "A planta estrutural e a régua de memorial técnico não repetem cartaz de obra, grade de serviços ou hero de acabamento dos vizinhos."
+    },
+    "carecas-infotec": {
+      "wave": "NEW_CLIENT_CARECAS_INFOTEC",
+      "segment": "assistência técnica de eletrônicos",
+      "motionIntent": "CONFIANCA",
+      "whyThisMotion": "A marca comunica ordem e precisão técnica: o movimento é curto e sequencial, como um checklist de diagnóstico, sem efeitos decorativos que competam com o amarelo da identidade.",
+      "signatureMoments": {
+        "hero": "Selo amarelo, título em caixa alta e CTAs entrando em camadas",
+        "section": "Grade de oito aparelhos revelada em stagger",
+        "interaction": "Cartões destacam a borda amarela no hover"
+      },
+      "effectsAvoided": [
+        "parallax",
+        "loops decorativos",
+        "contadores",
+        "scroll hijack"
+      ],
+      "performanceNote": "Somente transform/opacity; hero WebP único com priority."
     }
   }
 }

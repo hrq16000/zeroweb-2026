@@ -1154,5 +1154,18 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/estrutura-nacional.md"
+  },
+  {
+    "clientKey": "carecas-infotec",
+    "slug": "carecas-infotec",
+    "siteName": "Careca's Infotec",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/CarecasInfotecPage.tsx",
+    "assetsDir": "public/images/carecas-infotec",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/carecas-infotec.md"
   }
 ]
