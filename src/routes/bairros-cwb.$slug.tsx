@@ -5,8 +5,9 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ORIGIN, breadcrumbLd } from "@/lib/seo";
-import { findCWBNeighborhood, type CWBNeighborhood } from "@/lib/curitiba-neighborhoods";
+import { findCWBNeighborhood, CWB_NEIGHBORHOODS, type CWBNeighborhood } from "@/lib/curitiba-neighborhoods";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { localDeliverables, localFaq, localPortfolioProjects, localProcessSteps } from "@/lib/local-page-enrichment";
 
 const SERVICES = [
   { name: "Criação de Sites Profissionais", desc: "Sites rápidos, otimizados e prontos para converter visitantes em clientes." },
@@ -17,11 +18,13 @@ const SERVICES = [
   { name: "Landing Pages de Alta Conversão", desc: "Páginas focadas em uma única ação: virar lead." },
 ];
 
-function casesFor(n: CWBNeighborhood) {
-  return n.typicalBusinesses.slice(0, 3).map((biz, i) => ({
-    title: `${biz[0].toUpperCase() + biz.slice(1)} em ${n.name}`,
-    result: ["+287% em leads orgânicos em 90 dias", "ROI 5,2x em Google Ads no 1º trimestre", "Top 3 no Google para 14 palavras-chave locais"][i],
-  }));
+function nearbyCWB(n: CWBNeighborhood) {
+  return CWB_NEIGHBORHOODS.filter((o) => o.slug !== n.slug)
+    .sort((a, b) => {
+      const score = (x: CWBNeighborhood) => (x.city === n.city ? 0 : 1) + (x.region === n.region ? 0 : 2);
+      return score(a) - score(b);
+    })
+    .slice(0, 6);
 }
 
 export const Route = createFileRoute("/bairros-cwb/$slug")({
@@ -98,7 +101,11 @@ export const Route = createFileRoute("/bairros-cwb/$slug")({
 
 function BairroPage() {
   const { bairro: n } = Route.useLoaderData();
-  const cases = casesFor(n);
+  const deliverables = localDeliverables(n);
+  const process = localProcessSteps(n);
+  const faq = localFaq(n);
+  const projects = localPortfolioProjects(n.city);
+  const nearby = nearbyCWB(n);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -174,19 +181,107 @@ function BairroPage() {
 
         <section className="py-16">
           <div className="mx-auto max-w-5xl px-5 lg:px-8">
-            <h2 className="text-3xl font-bold font-display">Resultados reais em {n.name}</h2>
-            <p className="mt-3 text-muted-foreground">Casos típicos de negócios que crescem com a 0web no bairro.</p>
-            <div className="mt-10 grid md:grid-cols-3 gap-5">
-              {cases.map((c) => (
-                <div key={c.title} className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="text-3xl font-bold font-display">O que entregamos para negócios de {n.name}</h2>
+            <p className="mt-3 text-muted-foreground">Escopo montado a partir do comércio que existe no bairro.</p>
+            <div className="mt-10 grid md:grid-cols-2 gap-5">
+              {deliverables.map((d) => (
+                <div key={d.title} className="rounded-2xl border border-border bg-card p-6">
                   <TrendingUp className="w-6 h-6 text-accent" />
-                  <h3 className="mt-3 font-semibold">{c.title}</h3>
-                  <p className="mt-2 text-2xl font-bold font-display text-gradient">{c.result}</p>
+                  <h3 className="mt-3 font-semibold text-lg">{d.title}</h3>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">{d.body}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        <section className="py-16 bg-muted/30">
+          <div className="mx-auto max-w-4xl px-5 lg:px-8">
+            <h2 className="text-3xl font-bold font-display">Como trabalhamos em {n.name}</h2>
+            <ol className="mt-8 space-y-5">
+              {process.map((p) => (
+                <li key={p.step} className="rounded-2xl border border-border bg-card p-6">
+                  <h3 className="font-semibold text-lg">{p.step}</h3>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">{p.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {projects.length > 0 && (
+          <section className="py-16">
+            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+              <h2 className="text-3xl font-bold font-display">Sites no ar em {n.city}</h2>
+              <p className="mt-3 text-muted-foreground">Projetos publicados pela 0web na mesma cidade de {n.name}.</p>
+              <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {projects.map((p) => (
+                  <Link
+                    key={p.slug}
+                    to="/portfolio/$slug"
+                    params={{ slug: p.slug }}
+                    className="rounded-2xl border border-border bg-card p-5 hover:border-primary transition"
+                  >
+                    <div className="font-semibold">{p.title}</div>
+                    {p.summary && <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{p.summary}</p>}
+                  </Link>
+                ))}
+              </div>
+              <Link to="/portfolio" className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+                Ver todo o portfólio <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+        )}
+
+        <section className="py-16 bg-muted/30">
+          <div className="mx-auto max-w-3xl px-5 lg:px-8">
+            <h2 className="text-3xl font-bold font-display">Perguntas frequentes sobre marketing digital em {n.name}</h2>
+            <div className="mt-8 space-y-4">
+              {faq.map((f) => (
+                <details key={f.q} className="group rounded-2xl border border-border bg-card p-5">
+                  <summary className="cursor-pointer list-none font-semibold flex items-start justify-between gap-4">
+                    {f.q}
+                    <ArrowRight className="w-4 h-4 mt-1 shrink-0 text-primary group-open:rotate-90 transition" />
+                  </summary>
+                  <p className="mt-3 text-muted-foreground leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="mx-auto max-w-5xl px-5 lg:px-8">
+            <h2 className="text-3xl font-bold font-display">Também atendemos perto de {n.name}</h2>
+            <p className="mt-3 text-muted-foreground">Bairros e cidades vizinhas com página local dedicada.</p>
+            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {nearby.map((v) => (
+                <Link
+                  key={v.slug}
+                  to="/bairros-cwb/$slug"
+                  params={{ slug: v.slug }}
+                  className="group rounded-2xl border border-border bg-card p-5 hover:border-primary transition"
+                >
+                  <div className="flex items-center gap-2 text-primary">
+                    <MapPin className="w-4 h-4" />
+                    <span className="font-semibold">{v.name} · {v.city}</span>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{v.vibe}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
+              <Link to="/bairros-cwb" className="inline-flex items-center gap-1.5 text-primary hover:underline">
+                Ver todos os bairros de Curitiba e RMC <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link to="/areas-de-atendimento" className="inline-flex items-center gap-1.5 text-primary hover:underline">
+                Todas as áreas de atendimento <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
 
         <section className="py-20 bg-foreground text-background">
           <div className="mx-auto max-w-3xl px-5 lg:px-8 text-center">

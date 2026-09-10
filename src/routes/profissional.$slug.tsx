@@ -1,35 +1,101 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getProviderBySlug, createReview } from "@/lib/marketplace.functions";
 import { ORIGIN } from "@/lib/seo";
 
 export const Route = createFileRoute("/profissional/$slug")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `${params.slug} | Profissional verificado | 0WEB` },
-      { name: "description", content: `Perfil profissional ${params.slug} no marketplace 0WEB. Veja portfólio, especialidades, avaliações e entre em contato.` },
-      { property: "og:url", content: `${ORIGIN}/profissional/${params.slug}` },
-    ],
-    links: [{ rel: "canonical", href: `${ORIGIN}/profissional/${params.slug}` }],
-  }),
+  // SSR: o perfil já vem no HTML, com título e descrição do próprio profissional.
+  loader: async ({ params }) => getProviderBySlug({ data: { slug: params.slug } }),
+  head: ({ params, loaderData }) => {
+    const url = `${ORIGIN}/profissional/${params.slug}`;
+    const p: any = loaderData?.provider;
+    if (!p) {
+      return {
+        meta: [
+          { title: "Profissional não encontrado | Marketplace 0WEB" },
+          { name: "robots", content: "noindex, follow" },
+          { property: "og:url", content: url },
+        ],
+        links: [{ rel: "canonical", href: url }],
+      };
+    }
+    const place = [p.city, p.state].filter(Boolean).join(" — ");
+    const specialties = Array.isArray(p.specialties) ? p.specialties.slice(0, 4).join(", ") : "";
+    const title = `${p.display_name}${p.headline ? ` — ${p.headline}` : ""}${place ? ` | ${place}` : ""} | 0WEB`;
+    const description =
+      (p.bio ? String(p.bio).replace(/\s+/g, " ").slice(0, 155) : "") ||
+      `${p.display_name}${place ? ` em ${place}` : ""}${specialties ? `. Especialidades: ${specialties}` : ""}. Portfólio e avaliações no marketplace 0WEB.`;
+    const reviews = loaderData?.reviews ?? [];
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "profile" },
+        { property: "og:url", content: url },
+        { property: "og:locale", content: "pt_BR" },
+        { name: "robots", content: "index, follow, max-image-preview:large" },
+        ...(p.avatar_url && /^https?:\/\//.test(p.avatar_url)
+          ? [
+              { property: "og:image", content: p.avatar_url },
+              { name: "twitter:image", content: p.avatar_url },
+              { name: "twitter:card", content: "summary_large_image" },
+            ]
+          : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": `${url}#person`,
+            name: p.display_name,
+            description,
+            url,
+            ...(p.headline ? { jobTitle: p.headline } : {}),
+            ...(p.avatar_url ? { image: p.avatar_url } : {}),
+            ...(Array.isArray(p.specialties) && p.specialties.length ? { knowsAbout: p.specialties } : {}),
+            ...(p.city
+              ? {
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: p.city,
+                    ...(p.state ? { addressRegion: p.state } : {}),
+                    addressCountry: "BR",
+                  },
+                }
+              : {}),
+            ...(reviews.length > 0 && Number(p.rating_count) > 0
+              ? {
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: Number(p.rating_avg).toFixed(1),
+                    reviewCount: Number(p.rating_count),
+                  },
+                }
+              : {}),
+          }),
+        },
+      ],
+    };
+  },
   component: ProviderPage,
 });
 
 function ProviderPage() {
-  const { slug } = Route.useParams();
-  const fetchProvider = useServerFn(getProviderBySlug);
+  const data = Route.useLoaderData();
   const submitReview = useServerFn(createReview);
-  const [data, setData] = useState<any>(null);
   const [review, setReview] = useState({ rating: 5, comment: "", author_name: "", author_email: "" });
   const [sent, setSent] = useState(false);
 
-  useEffect(() => { void fetchProvider({ data: { slug } }).then(setData); }, [fetchProvider, slug]);
-
-  if (!data) return <div className="p-12 text-center text-muted-foreground">Carregando…</div>;
   if (!data.provider) return <div className="p-12 text-center"><h1 className="text-2xl font-display">Profissional não encontrado</h1><Link to="/servicos/marketplace" className="text-primary mt-4 inline-block">Voltar ao marketplace</Link></div>;
 
-  const p = data.provider;
+  const p: any = data.provider;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
