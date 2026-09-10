@@ -156,6 +156,16 @@ export function FunnelModalWrapper({
                 </div>
               </div>
             )}
+            {!loading && !error && funnel && !completed && !intent?.companySlug && (
+              <div className="border-b border-border bg-muted/40 px-5 py-3 sm:px-6">
+                <p className="text-sm font-medium text-foreground">
+                  A partir de R$ 99,99/mês
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Entrega do site em até 72 horas após a confirmação do pagamento.
+                </p>
+              </div>
+            )}
             {!loading && !error && funnel && !completed && (
               <div data-testid="funnel-modal" data-funnel-slug={funnel.slug}>
                 <FunnelRunner

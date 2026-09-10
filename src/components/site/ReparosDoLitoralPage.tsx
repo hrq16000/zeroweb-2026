@@ -1,5 +1,5 @@
 import { ManagedText } from "@/components/portfolio/ManagedText";
-import { MotionCounter, MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
+import { MotionCounter, MotionReveal, MotionScope } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
@@ -95,16 +95,19 @@ export function ReparosDoLitoralPage() {
         <section id="servicos" className="px-5 py-8 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-xl font-extrabold uppercase tracking-wide">Toca sem drama</h2>
-            <MotionStagger as="ul" variant="scale" step={45} className="mt-5 flex flex-wrap gap-2.5">
-              {CHIPS.map((c) => (
-                <li
+            <ul className="mt-5 flex flex-wrap gap-2.5">
+              {CHIPS.map((c, i) => (
+                <MotionReveal
+                  as="li"
                   key={c}
+                  variant="scale"
+                  delay={i * 45}
                   className="rounded-full border border-[#16243a]/12 bg-white px-4 py-2 text-sm font-semibold shadow-[0_1px_0_rgba(22,36,58,.08)] transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   {c}
-                </li>
+                </MotionReveal>
               ))}
-            </MotionStagger>
+            </ul>
             <p className="mt-4 text-sm text-[#5b6b82]">
               Não está na lista? Descreva mesmo assim — se não for serviço da equipe, você é avisado na hora.
             </p>
