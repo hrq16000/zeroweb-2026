@@ -13,10 +13,17 @@ const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 
 type Trigger = "timer" | "scroll" | "fallback";
 
-/** Guard de instância única por página (rota + componente do cliente). */
-const instanceGuard: { count: number } = ((globalThis as Record<string, unknown>)[
+/**
+ * Guard de instância única POR PROJETO (rota + componente do cliente).
+ *
+ * Regra universal: todo `/portfolio/<slug>` exibe exatamente um pop-up de
+ * captação da 0WEB. O guard é indexado pelo slug (não por contador global),
+ * porque um contador vazava entre navegações e silenciava o pop-up dos
+ * projetos seguintes na mesma sessão.
+ */
+const instanceGuard: { owners: Set<string> } = ((globalThis as Record<string, unknown>)[
   "__0webPortfolioUpsellGuard"
-] ??= { count: 0 }) as { count: number };
+] ??= { owners: new Set<string>() }) as { owners: Set<string> };
 
 
 /**
@@ -37,13 +44,16 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const triggerRef = useRef<Trigger>("timer");
   const funnelActiveRef = useRef(false);
-  const storageKey = `${STORAGE_KEY}:${pageName}`;
+  
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
   const slug = useMemo(() => portfolioSlugFromPath(routePath), [routePath]);
   const baseCfg = useMemo(() => resolvePortfolioUpsellConfig(slug), [slug]);
   const [cfg, setCfg] = useState(baseCfg);
   const telemetryRef = useRef({ sampleRate: 1, simulationEnabled: false });
+  // Chave por projeto: a casca e a página do cliente compartilham o mesmo
+  // estado "já exibido", e cada projeto novo volta a exibir uma vez.
+  const storageKey = `${STORAGE_KEY}:${slug || pageName}`;
 
   // Override em runtime vindo do painel administrativo (sem deploy).
   useEffect(() => {
@@ -90,17 +100,29 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     if (typeof window === "undefined") return;
     if (!cfg.enabled) return;
     if (shouldSuppressPortfolioHostOverlays()) return;
-    // Instância única: a rota /portfolio/* renderiza o pop-up por padrão e o
-    // site do cliente pode renderizá-lo também; só o primeiro assume.
-    if (instanceGuard.count > 0 && !ownerRef.current) return;
-    instanceGuard.count += 1;
+    // Instância única por projeto: a rota /portfolio/* renderiza o pop-up por
+    // padrão e o site do cliente pode renderizá-lo também; só o primeiro assume.
+    const ownerKey = slug || pageName;
+    if (instanceGuard.owners.has(ownerKey) && !ownerRef.current) return;
+    instanceGuard.owners.add(ownerKey);
     ownerRef.current = true;
 
+    const release = () => {
+      if (ownerRef.current) {
+        instanceGuard.owners.delete(ownerKey);
+        ownerRef.current = false;
+      }
+    };
+
+    let alreadyShown = false;
     try {
-      if (cfg.display.oncePerSession && sessionStorage.getItem(storageKey) === "1") return;
+      alreadyShown = cfg.display.oncePerSession && sessionStorage.getItem(storageKey) === "1";
     } catch {
       /* noop */
     }
+    // Importante: sempre devolver cleanup. Sem isso a posse vazava e os
+    // projetos seguintes da mesma sessão ficavam sem pop-up.
+    if (alreadyShown) return release;
 
     const fire = (trigger: Trigger) => {
       if (firedRef.current || funnelActiveRef.current) return;
@@ -124,16 +146,12 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     });
 
     return () => {
-      if (ownerRef.current) {
-        instanceGuard.count = Math.max(0, instanceGuard.count - 1);
-        ownerRef.current = false;
-      }
+      release();
       window.clearTimeout(t);
       window.clearTimeout(fb);
       unsub();
-
     };
-  }, [cfg, storageKey, trackingBase, track]);
+  }, [cfg, storageKey, trackingBase, track, slug, pageName]);
 
   // O funil do cliente tem prioridade absoluta sobre a captação da 0WEB.
   useEffect(() => {
