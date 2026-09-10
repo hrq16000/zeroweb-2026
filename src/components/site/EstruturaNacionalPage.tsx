@@ -41,10 +41,10 @@ const services = [
   ],
   [
     "04",
-    "Soluções em aço",
-    "Uma conversa técnica para entender o contexto e encaminhar o próximo passo do seu projeto.",
+    "Corte plasma e peças em aço",
+    "Fornecimento de peças e serviços de corte plasma conforme o escopo apresentado.",
     Ruler,
-    ["Leitura do escopo", "Alternativas em aço", "Encaminhamento do atendimento"],
+    ["Corte plasma", "Peças sob medida", "Leitura do escopo"],
   ],
 ] as const;
 
@@ -72,6 +72,7 @@ const quizConfig = {
     "Fabricação e montagem de estrutura metálica",
     "Abrasivos ou arames para solda",
     "Perfis estruturais",
+    "Corte plasma ou peças em aço",
     "Outra solução em aço",
   ],
   experienceOptions: ["Indústria", "Comércio", "Obra ou construção", "Outro contexto"],
