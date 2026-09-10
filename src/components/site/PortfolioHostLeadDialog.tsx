@@ -38,6 +38,22 @@ export function PortfolioHostLeadDialog({
   const startedAtRef = useRef<number>(Date.now());
   const cardRef = useRef<HTMLDivElement | null>(null);
 
+  // Lock de scroll: com o painel de proposta aberto a página de trás não pode
+  // rolar, para o lead em andamento não ser interrompido.
+  useEffect(() => {
+    if (!open || typeof document === "undefined") return;
+    const body = document.body;
+    const previousOverflow = body.style.overflow;
+    const previousPadding = body.style.paddingRight;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    body.style.overflow = "hidden";
+    if (scrollbar > 0) body.style.paddingRight = `${scrollbar}px`;
+    return () => {
+      body.style.overflow = previousOverflow;
+      body.style.paddingRight = previousPadding;
+    };
+  }, [open]);
+
   useEffect(() => {
     if (!open) return;
     startedAtRef.current = Date.now();
