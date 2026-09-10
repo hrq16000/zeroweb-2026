@@ -166,7 +166,7 @@ export const blueprint: PortfolioBlueprint = {
           { value: "8 tipos", label: "Aparelhos atendidos" },
           { value: "Antes do reparo", label: "Avaliação técnica" },
           { value: "Você aprova", label: "Orçamento" },
-          { value: "São José dos Pinhais", label: "Atendimento presencial" },
+          { value: "Presencial", label: "São José dos Pinhais — PR" },
         ],
       },
     },
