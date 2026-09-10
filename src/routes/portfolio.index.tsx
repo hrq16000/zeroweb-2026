@@ -1,6 +1,5 @@
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, AnimatePresence } from "motion/react";
 import {
   Sparkles,
   ExternalLink,
@@ -16,9 +15,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Search,
-  SlidersHorizontal,
-  MapPin,
-  LayoutGrid,
   PackageCheck,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
@@ -438,13 +434,6 @@ function PortfolioPage() {
       ).sort((a, b) => a.localeCompare(b, "pt-BR")),
     [catalogItems],
   );
-  const availableBranches = useMemo(
-    () =>
-      Array.from(new Set(catalogItems.flatMap((item) => item.tags)))
-        .filter(Boolean)
-        .sort((a, b) => a.localeCompare(b, "pt-BR")),
-    [catalogItems],
-  );
 
   useEffect(() => {
     let active = true;
@@ -578,11 +567,11 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-primary-foreground">
       <Header />
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1 pt-20">
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
           <div className="container mx-auto max-w-6xl px-4 py-2">
-            <Breadcrumbs items={[{ name: "Portfólio", path: "/portfolio" }]} />
+            <Breadcrumbs compact items={[{ name: "Portfólio", path: "/portfolio" }]} />
           </div>
         </div>
 
@@ -612,26 +601,6 @@ function PortfolioPage() {
               {[[String(portfolioCatalog.length), "projetos publicados"], [String(CATEGORIES.length - 1), "segmentos ativos"], ["100%", "com CTA e presença"]].map(([value, label]) => <div key={label} className="rounded-xl border border-border/70 bg-card/70 px-3 py-3 sm:px-4"><strong className="block text-lg font-black text-foreground sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.12em] text-muted-foreground sm:text-xs">{label}</span></div>)}
             </div>
 
-            <div
-              className="mt-6 flex gap-2 overflow-x-auto pb-1"
-              aria-label="Segmentos em destaque"
-            >
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat.id}
-                  type="button"
-                  aria-pressed={activeCategory === cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`min-h-11 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                    activeCategory === cat.id
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-card text-foreground hover:border-primary hover:text-primary"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -653,7 +622,30 @@ function PortfolioPage() {
                     className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30 lg:h-12 lg:rounded-xl lg:pl-11 lg:pr-4 lg:text-base"
                   />
                 </label>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:flex lg:items-center lg:gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:flex lg:items-center lg:gap-3">
+                  <select
+                    aria-label="Filtrar por segmento"
+                    value={activeCategory}
+                    onChange={(e) => setActiveCategory(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-44 lg:rounded-xl lg:px-4"
+                  >
+                    {CATEGORIES.map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.id === "todos" ? "Todos os segmentos" : cat.label}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    aria-label="Filtrar por tipo de presença"
+                    value={projectType}
+                    onChange={(e) => setProjectType(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-44 lg:rounded-xl lg:px-4"
+                  >
+                    <option value="todos">Todos os tipos</option>
+                    <option value="landing">Landing pages</option>
+                    <option value="catalog">Catálogos</option>
+                    <option value="institutional">Institucionais</option>
+                  </select>
                   <select
                     aria-label="Filtrar por região"
                     value={region}
@@ -664,19 +656,6 @@ function PortfolioPage() {
                     {availableRegions.map((location) => (
                       <option key={location} value={location}>
                         {location}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    aria-label="Filtrar por ramo"
-                    value={activeBranch}
-                    onChange={(e) => setActiveBranch(e.target.value)}
-                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-48 lg:rounded-xl lg:px-4"
-                  >
-                    <option value="todos">Todos os ramos</option>
-                    {availableBranches.map((branch) => (
-                      <option key={branch} value={branch}>
-                        {branch}
                       </option>
                     ))}
                   </select>
@@ -712,73 +691,13 @@ function PortfolioPage() {
               ) : null}
             </div>
 
-            <div className="grid gap-7 lg:grid-cols-[220px_minmax(0,1fr)]">
-              <aside className="hidden lg:block" aria-label="Filtros do catálogo">
-                <div className="sticky top-40 space-y-6 rounded-2xl border border-border bg-card p-5">
-                  <div className="flex items-center gap-2 border-b border-border pb-4 font-bold">
-                    <SlidersHorizontal className="h-4 w-4" /> Filtros
-                  </div>
-                  <fieldset className="space-y-3">
-                    <legend className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                      Tipo de presença
-                    </legend>
-                    {[
-                      { value: "todos", label: "Todos os projetos" },
-                      { value: "landing", label: "Landing pages" },
-                      { value: "catalog", label: "Catálogos" },
-                      { value: "institutional", label: "Institucionais" },
-                    ].map((option) => (
-                      <label
-                        key={option.value}
-                        className="flex min-h-11 cursor-pointer items-center gap-3 text-sm text-foreground"
-                      >
-                        <input
-                          type="radio"
-                          name="project-type"
-                          value={option.value}
-                          checked={projectType === option.value}
-                          onChange={() => setProjectType(option.value)}
-                          className="h-4 w-4 accent-primary"
-                        />{" "}
-                        {option.label}
-                      </label>
-                    ))}
-                  </fieldset>
-                  <div className="space-y-3 border-t border-border pt-5 text-sm text-muted-foreground">
-                    <p className="flex items-center gap-2">
-                      <LayoutGrid className="h-4 w-4 text-primary" /> {catalogItems.length}{" "}
-                      projetos publicados
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-primary" /> Guia comercial nacional
-                    </p>
-                  </div>
-                </div>
-              </aside>
-
+            <div>
               <div>
-                <details className="mb-5 rounded-xl border border-border bg-card p-4 lg:hidden">
-                  <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 font-semibold">
-                    <SlidersHorizontal className="h-4 w-4" /> Filtrar por tipo
-                  </summary>
-                  <div className="grid gap-2 pt-3 sm:grid-cols-2">
-                    {[
-                      { value: "todos", label: "Todos" },
-                      { value: "landing", label: "Landing pages" },
-                      { value: "catalog", label: "Catálogos" },
-                      { value: "institutional", label: "Institucionais" },
-                    ].map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setProjectType(option.value)}
-                        className={`min-h-11 rounded-xl border px-3 text-left text-sm ${projectType === option.value ? "border-primary bg-primary/10 text-primary" : "border-border text-foreground"}`}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </details>
+                <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
+                  {filteredItems.length}{" "}
+                  {filteredItems.length === 1 ? "projeto encontrado" : "projetos encontrados"}
+                </p>
+
 
                 {filteredItems.length === 0 ? (
                   <div className="grid min-h-72 place-items-center rounded-2xl border border-dashed border-border bg-muted/30 p-8 text-center">
@@ -805,15 +724,10 @@ function PortfolioPage() {
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 gap-x-4 gap-y-7 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-                    <AnimatePresence>
+                    <>
                       {filteredItems.slice(0, visibleCount).map((item, index) => (
-                        <motion.div
+                        <div
                           key={item.id}
-                          layout
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ duration: 0.3 }}
                           className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft"
                         >
                           {/* Card Media Preview */}
@@ -937,9 +851,9 @@ function PortfolioPage() {
                               />
                             </div>
                           </div>
-                        </motion.div>
+                        </div>
                       ))}
-                    </AnimatePresence>
+                    </>
                   </div>
                 )}
               </div>
