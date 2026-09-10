@@ -7,9 +7,8 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const today = new Date().toISOString().slice(0, 10);
         return renderSitemap(resolveBaseUrl(request), [
-          { path: "/", changefreq: "weekly", priority: "1.0", lastmod: today },
+          { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/servicos", changefreq: "weekly", priority: "0.95" },
           { path: "/criacao-de-site-institucional", changefreq: "weekly", priority: "0.95" },
           { path: "/sobre", changefreq: "monthly", priority: "0.7" },
@@ -41,10 +40,6 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
           { path: "/cidades", changefreq: "weekly", priority: "0.85" },
           { path: "/estados", changefreq: "weekly", priority: "0.75" },
 
-          { path: "/portfolio", changefreq: "weekly", priority: "0.9" },
-          { path: "/portfolio/renata-beauty", changefreq: "weekly", priority: "0.85" },
-          { path: "/portfolio/r_beauty", changefreq: "weekly", priority: "0.85" },
-          { path: "/portfolio/dyzpromo", changefreq: "weekly", priority: "0.85" },
           { path: "/cases", changefreq: "weekly", priority: "0.8" },
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
           { path: "/planos", changefreq: "monthly", priority: "0.8" },
