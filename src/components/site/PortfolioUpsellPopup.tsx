@@ -100,17 +100,29 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     if (typeof window === "undefined") return;
     if (!cfg.enabled) return;
     if (shouldSuppressPortfolioHostOverlays()) return;
-    // Instância única: a rota /portfolio/* renderiza o pop-up por padrão e o
-    // site do cliente pode renderizá-lo também; só o primeiro assume.
-    if (instanceGuard.count > 0 && !ownerRef.current) return;
-    instanceGuard.count += 1;
+    // Instância única por projeto: a rota /portfolio/* renderiza o pop-up por
+    // padrão e o site do cliente pode renderizá-lo também; só o primeiro assume.
+    const ownerKey = slug || pageName;
+    if (instanceGuard.owners.has(ownerKey) && !ownerRef.current) return;
+    instanceGuard.owners.add(ownerKey);
     ownerRef.current = true;
 
+    const release = () => {
+      if (ownerRef.current) {
+        instanceGuard.owners.delete(ownerKey);
+        ownerRef.current = false;
+      }
+    };
+
+    let alreadyShown = false;
     try {
-      if (cfg.display.oncePerSession && sessionStorage.getItem(storageKey) === "1") return;
+      alreadyShown = cfg.display.oncePerSession && sessionStorage.getItem(storageKey) === "1";
     } catch {
       /* noop */
     }
+    // Importante: sempre devolver cleanup. Sem isso a posse vazava e os
+    // projetos seguintes da mesma sessão ficavam sem pop-up.
+    if (alreadyShown) return release;
 
     const fire = (trigger: Trigger) => {
       if (firedRef.current || funnelActiveRef.current) return;
