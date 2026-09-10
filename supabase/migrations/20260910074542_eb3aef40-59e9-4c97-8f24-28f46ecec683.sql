@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.partners_guard_self_approval() FROM PUBLIC, anon, authenticated;
