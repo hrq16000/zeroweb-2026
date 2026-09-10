@@ -12,7 +12,12 @@
  * 4. tolerância a erro de digitação (distância de edição ≤ 2).
  */
 
+import { getDiscoveryDocument } from "@/lib/portfolio-discovery";
+
 export type SearchableItem = {
+  /** "carecas-infotec" ou "/portfolio/carecas-infotec" — liga o item ao índice de descoberta. */
+  slug?: string;
+  clientKey?: string;
   title: string;
   subtitle?: string;
   location?: string;
@@ -149,6 +154,34 @@ const SYNONYMS: Record<string, string[]> = {
   pet: ["animal", "petshop", "banho e tosa", "veterinario"],
   carro: ["automotivo", "oficina", "mecanica", "envelopamento"],
   mecanico: ["oficina", "automotivo", "carro", "manutencao"],
+
+  // informática e eletrônicos
+  informatica: ["assistencia tecnica", "computador", "notebook", "impressora", "tecnologia"],
+  assistencia: ["assistencia tecnica", "conserto", "manutencao", "reparo"],
+  tecnica: ["assistencia tecnica", "conserto", "manutencao"],
+  computador: ["pc", "desktop", "notebook", "informatica", "assistencia tecnica"],
+  pc: ["computador", "desktop", "notebook", "informatica"],
+  notebook: ["laptop", "computador", "informatica", "assistencia tecnica"],
+  laptop: ["notebook", "computador", "informatica"],
+  celular: ["smartphone", "telefone", "aparelho", "assistencia tecnica", "tela"],
+  smartphone: ["celular", "telefone", "aparelho"],
+  telefone: ["celular", "smartphone"],
+  tablet: ["celular", "tela", "assistencia tecnica"],
+  impressora: ["imprimir", "cartucho", "toner", "recarga", "assistencia tecnica"],
+  imprimir: ["impressora", "cartucho", "toner", "recarga"],
+  cartucho: ["recarga", "toner", "impressora"],
+  toner: ["recarga", "cartucho", "impressora"],
+  recarga: ["cartucho", "toner", "impressora"],
+  monitor: ["tela", "computador", "video"],
+  tela: ["monitor", "display", "celular", "notebook"],
+  videogame: ["console", "game", "controle", "playstation", "xbox"],
+  console: ["videogame", "game", "controle"],
+  game: ["videogame", "console", "jogo"],
+  bateria: ["carregar", "carregamento", "celular", "notebook"],
+  formatar: ["formatacao", "computador", "notebook", "manutencao"],
+  virus: ["manutencao", "computador", "notebook", "limpeza"],
+  lento: ["lentidao", "travando", "computador", "notebook", "manutencao"],
+  travando: ["lentidao", "lento", "computador", "notebook"],
 };
 
 const EXPANSIONS = new Map<string, string[]>();
@@ -174,23 +207,28 @@ function levenshtein(a: string, b: string, max = 2): number {
   return prev[b.length]!;
 }
 
-type Haystack = { strong: string[]; weak: string[] };
+/** Camadas de busca: cada campo pesa conforme o quanto responde à intenção. */
+type Layer = { terms: string[]; weight: number };
 
-function buildHaystack(item: SearchableItem): Haystack {
-  const strong = [item.title, item.tags.join(" "), item.segment ?? "", item.category ?? ""]
+function layer(weight: number, ...values: (string | string[] | undefined)[]): Layer {
+  const terms = values
+    .flatMap((v) => (Array.isArray(v) ? v : [v ?? ""]))
     .flatMap((v) => tokenize(v))
     .map(stem);
-  const weak = [
-    item.subtitle ?? "",
-    item.summary ?? "",
-    item.metrics ?? "",
-    item.location ?? "",
-    item.city ?? "",
-    item.state ?? "",
-  ]
-    .flatMap((v) => tokenize(v))
-    .map(stem);
-  return { strong, weak };
+  return { terms, weight };
+}
+
+function buildLayers(item: SearchableItem): Layer[] {
+  const doc = getDiscoveryDocument(item.slug ?? item.clientKey);
+  return [
+    layer(1, item.title, doc?.aliases),
+    layer(0.9, doc?.services, doc?.equipment, doc?.useCases),
+    layer(0.85, item.tags.join(" "), doc?.tags),
+    layer(0.8, item.segment, item.category, doc?.categories),
+    layer(0.75, doc?.problems),
+    layer(0.6, item.location, item.city, item.state, doc?.locality),
+    layer(0.5, item.subtitle, item.summary, item.metrics, doc?.keywords),
+  ].filter((l) => l.terms.length > 0);
 }
 
 function matchToken(token: string, hay: string[]): number {
@@ -206,22 +244,28 @@ function matchToken(token: string, hay: string[]): number {
   return best;
 }
 
+function bestAcrossLayers(token: string, layers: Layer[], factor = 1): number {
+  let best = 0;
+  for (const l of layers) best = Math.max(best, matchToken(token, l.terms) * l.weight * factor);
+  return best;
+}
+
 /**
  * Pontua o quanto um projeto responde à busca. `0` significa "não mostrar".
  */
 export function scoreItem(query: string, item: SearchableItem): number {
   const tokens = tokenize(query).map(stem);
   if (tokens.length === 0) return 1;
-  const hay = buildHaystack(item);
+  const layers = buildLayers(item);
 
   let total = 0;
   let matched = 0;
 
   for (const token of tokens) {
-    const direct = Math.max(matchToken(token, hay.strong) * 1, matchToken(token, hay.weak) * 0.6);
+    const direct = bestAcrossLayers(token, layers);
     let related = 0;
     for (const alt of EXPANSIONS.get(token) ?? []) {
-      related = Math.max(related, Math.max(matchToken(alt, hay.strong) * 0.75, matchToken(alt, hay.weak) * 0.45));
+      related = Math.max(related, bestAcrossLayers(alt, layers, 0.75));
     }
     const score = Math.max(direct, related);
     if (score > 0.25) matched += 1;

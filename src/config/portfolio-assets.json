@@ -1090,8 +1090,8 @@
       "socialVersion": "5f413392"
     },
     "carecas-infotec": {
-      "icon": "/images/carecas-infotec/logo.svg",
-      "socialImage": "/images/carecas-infotec/hero-og.jpg",
+      "icon": "/images/carecas-infotec/logo.png",
+      "socialImage": "/images/carecas-infotec/capa.jpg",
       "proof": {
         "eyebrow": "Careca's Infotec",
         "title": "Careca's Infotec com uma presença que explica o que faz.",
@@ -1099,7 +1099,7 @@
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
       },
-      "socialVersion": "cebd185b"
+      "socialVersion": "3fa39bd7"
     }
   }
 }
