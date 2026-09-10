@@ -46,6 +46,7 @@ Crawl-delay: 5
 Sitemap: https://0web.com.br/sitemap.xml
 Sitemap: https://0web.com.br/sitemap-portfolio.xml
 Sitemap: https://0web.com.br/sitemap-portfolio-locais.xml
+Sitemap: https://0web.com.br/sitemap-portfolio-prioritario.xml
 Sitemap: https://0web.com.br/sitemap-pages.xml
 Sitemap: https://0web.com.br/sitemap-services.xml
 Sitemap: https://0web.com.br/sitemap-solutions.xml
