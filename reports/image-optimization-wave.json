@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-10T02:48:25.736Z",
+  "generatedAt": "2026-09-10T02:49:39.260Z",
   "dryRun": false,
-  "minKb": 300,
+  "minKb": 250,
   "maxWidth": 1800,
-  "files": 60,
-  "bytesBefore": 51370432,
-  "bytesAfter": 33764291,
-  "savedBytes": 17606141,
-  "savedPercent": 34.3,
+  "files": 80,
+  "bytesBefore": 52946955,
+  "bytesAfter": 47401555,
+  "savedBytes": 5545400,
+  "savedPercent": 10.5,
   "results": [
     {
       "file": "public/images/maximos-cabeleireiros/logo.png",
@@ -20,196 +20,6 @@
       "applied": false
     },
     {
-      "file": "public/images/assistencia-microondas-santos/hero.png",
-      "from": 1156197,
-      "to": 492193,
-      "dimensions": "1220x1198",
-      "outDimensions": "1220x1198",
-      "mae": 0.538,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/hbk-iluminacao-led/logo.png",
-      "from": 1138374,
-      "to": 268729,
-      "dimensions": "1789x879",
-      "outDimensions": "1789x879",
-      "mae": 1.385,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/assistencia-microondas-santos/logo.png",
-      "from": 1130417,
-      "to": 342775,
-      "dimensions": "1768x890",
-      "outDimensions": "1768x890",
-      "mae": 0.371,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
-      "from": 1125637,
-      "to": 333471,
-      "dimensions": "1200x1600",
-      "outDimensions": "1200x1600",
-      "mae": 0.416,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/pinturas-nunes/material-original.png",
-      "from": 1121706,
-      "to": 415595,
-      "dimensions": "1180x954",
-      "outDimensions": "1180x954",
-      "mae": 0.359,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/mimo-salgados-doces/menu-corrected.png",
-      "from": 1090648,
-      "to": 485337,
-      "dimensions": "852x1846",
-      "outDimensions": "852x1846",
-      "mae": 0.561,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/no-brilho-higienizacao/capa.png",
-      "from": 1081295,
-      "to": 300953,
-      "dimensions": "1080x1080",
-      "outDimensions": "1080x1080",
-      "mae": 0.478,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/miro-tech/hero.png",
-      "from": 1074411,
-      "to": 359170,
-      "dimensions": "854x1281",
-      "outDimensions": "854x1281",
-      "mae": 0.439,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/studio-de-cilios/portfolio-2.png",
-      "from": 1074031,
-      "to": 350216,
-      "dimensions": "900x1600",
-      "outDimensions": "900x1600",
-      "mae": 0.323,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/portfolio-kit/stationery-base.png",
-      "from": 1072826,
-      "to": 867191,
-      "dimensions": "1731x909",
-      "outDimensions": "1731x909",
-      "mae": 0.355,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/enoel-portas/logo.png",
-      "from": 1071212,
-      "to": 128155,
-      "dimensions": "1536x1024",
-      "outDimensions": "1536x1024",
-      "mae": 0.338,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/dona-lucy-salgados/logo.png",
-      "from": 1066680,
-      "to": 315655,
-      "dimensions": "1535x1024",
-      "outDimensions": "1535x1024",
-      "mae": 0.138,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/jc-revestimentos/logo.png",
-      "from": 1059402,
-      "to": 233055,
-      "dimensions": "2091x752",
-      "outDimensions": "1800x647",
-      "mae": 1.513,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/refrigeracao-maresia/capa.png",
-      "from": 1043529,
-      "to": 326463,
-      "dimensions": "720x1002",
-      "outDimensions": "720x1002",
-      "mae": 0.598,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/lj-cleaning/logo.png",
-      "from": 980309,
-      "to": 249350,
-      "dimensions": "1774x887",
-      "outDimensions": "1774x887",
-      "mae": 0.541,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/studio-de-cilios/portfolio-1.png",
-      "from": 966428,
-      "to": 334971,
-      "dimensions": "900x1600",
-      "outDimensions": "900x1600",
-      "mae": 0.285,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/your-brutus-burguer/flyer-concept.png",
-      "from": 946169,
-      "to": 825142,
-      "dimensions": "1122x1402",
-      "outDimensions": "1122x1402",
-      "mae": 0.41,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/lolipa-arte-em-festas/decoracao-branca.png",
-      "from": 940857,
-      "to": 375158,
-      "dimensions": "1200x1600",
-      "outDimensions": "1200x1600",
-      "mae": 0.322,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/dyzpromo/logo-dyz-promo.png",
-      "from": 887256,
-      "to": 170501,
-      "dimensions": "2123x741",
-      "outDimensions": "1800x628",
-      "mae": 1.542,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/vila-da-capivara/revenda.png",
       "from": 875774,
       "to": 875774,
@@ -220,12 +30,12 @@
       "applied": false
     },
     {
-      "file": "public/images/lolipa-arte-em-festas/og.png",
-      "from": 853824,
-      "to": 798237,
-      "dimensions": "1728x910",
-      "outDimensions": "1728x910",
-      "mae": 0.259,
+      "file": "public/images/portfolio-kit/stationery-base.png",
+      "from": 867191,
+      "to": 728960,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.43,
       "visuallyEqual": true,
       "applied": true
     },
@@ -240,32 +50,12 @@
       "applied": false
     },
     {
-      "file": "public/images/raphael-construcoes/logo.png",
-      "from": 833787,
-      "to": 216097,
-      "dimensions": "1774x887",
-      "outDimensions": "1774x887",
-      "mae": 0.634,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/simone-lacerda-vaz/hero.png",
-      "from": 805852,
-      "to": 715333,
-      "dimensions": "1024x1536",
-      "outDimensions": "1024x1536",
-      "mae": 0.288,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/simone-lacerda-vaz/social.png",
-      "from": 805852,
-      "to": 715333,
-      "dimensions": "1024x1536",
-      "outDimensions": "1024x1536",
-      "mae": 0.288,
+      "file": "public/images/your-brutus-burguer/flyer-concept.png",
+      "from": 825142,
+      "to": 720185,
+      "dimensions": "1122x1402",
+      "outDimensions": "1122x1402",
+      "mae": 0.351,
       "visuallyEqual": true,
       "applied": true
     },
@@ -280,32 +70,12 @@
       "applied": false
     },
     {
-      "file": "public/images/kitutes-na-mesa/hero.png",
-      "from": 798903,
-      "to": 733610,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.276,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/kitutes-na-mesa/social.png",
-      "from": 798903,
-      "to": 733610,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.276,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/ecommerce-on/logo.png",
-      "from": 797086,
-      "to": 165050,
-      "dimensions": "1440x1440",
-      "outDimensions": "1440x1440",
-      "mae": 0.272,
+      "file": "public/images/lolipa-arte-em-festas/og.png",
+      "from": 798237,
+      "to": 741728,
+      "dimensions": "1728x910",
+      "outDimensions": "1728x910",
+      "mae": 0.32,
       "visuallyEqual": true,
       "applied": true
     },
@@ -320,16 +90,6 @@
       "applied": false
     },
     {
-      "file": "public/images/manu-pasteis/hero.png",
-      "from": 789749,
-      "to": 268710,
-      "dimensions": "720x1280",
-      "outDimensions": "720x1280",
-      "mae": 0.888,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/vila-da-capivara/kit-10.png",
       "from": 785809,
       "to": 785809,
@@ -338,26 +98,6 @@
       "mae": 0.252,
       "visuallyEqual": true,
       "applied": false
-    },
-    {
-      "file": "public/images/jc-revestimentos/hero-v2.png",
-      "from": 764983,
-      "to": 618614,
-      "dimensions": "1774x887",
-      "outDimensions": "1774x887",
-      "mae": 0.398,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/vila-da-capivara/kit-70.png",
-      "from": 758527,
-      "to": 703734,
-      "dimensions": "1086x1448",
-      "outDimensions": "1086x1448",
-      "mae": 0.307,
-      "visuallyEqual": true,
-      "applied": true
     },
     {
       "file": "public/images/toquinho-de-gente-brecho/capa.png",
@@ -370,26 +110,6 @@
       "applied": false
     },
     {
-      "file": "public/images/vila-da-capivara/kit-50.png",
-      "from": 754968,
-      "to": 713521,
-      "dimensions": "1086x1448",
-      "outDimensions": "1086x1448",
-      "mae": 0.289,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/artesanatos-darleia-oliveira/logo.png",
-      "from": 746370,
-      "to": 653749,
-      "dimensions": "1254x1254",
-      "outDimensions": "1254x1254",
-      "mae": 0.211,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/confeitaria-sabor-da-realeza/hero.png",
       "from": 745750,
       "to": 745750,
@@ -400,12 +120,22 @@
       "applied": false
     },
     {
-      "file": "public/images/your-brutus-burguer/hero-og.png",
-      "from": 724205,
-      "to": 651450,
-      "dimensions": "1731x909",
-      "outDimensions": "1731x909",
-      "mae": 0.337,
+      "file": "public/images/kitutes-na-mesa/hero.png",
+      "from": 733610,
+      "to": 682668,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.275,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/kitutes-na-mesa/social.png",
+      "from": 733610,
+      "to": 682668,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.275,
       "visuallyEqual": true,
       "applied": true
     },
@@ -420,12 +150,22 @@
       "applied": false
     },
     {
-      "file": "public/images/ag-electrical-services/laserway-2.png",
-      "from": 715342,
-      "to": 378702,
-      "dimensions": "720x1280",
-      "outDimensions": "720x1280",
-      "mae": 0.477,
+      "file": "public/images/simone-lacerda-vaz/hero.png",
+      "from": 715333,
+      "to": 614761,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.366,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/simone-lacerda-vaz/social.png",
+      "from": 715333,
+      "to": 614761,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.366,
       "visuallyEqual": true,
       "applied": true
     },
@@ -450,6 +190,16 @@
       "applied": false
     },
     {
+      "file": "public/images/vila-da-capivara/kit-50.png",
+      "from": 713521,
+      "to": 675640,
+      "dimensions": "1086x1448",
+      "outDimensions": "1086x1448",
+      "mae": 0.242,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
       "file": "public/images/artesanatos-darleia-oliveira/hero-og.png",
       "from": 709621,
       "to": 709621,
@@ -460,34 +210,14 @@
       "applied": false
     },
     {
-      "file": "public/images/thays-camilla/hero-og.png",
-      "from": 703582,
-      "to": 607492,
-      "dimensions": "1729x910",
-      "outDimensions": "1729x910",
-      "mae": 0.325,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/mania-de-limpeza/logo.png",
-      "from": 700062,
-      "to": 55091,
-      "dimensions": "1536x1024",
-      "outDimensions": "1536x1024",
-      "mae": 0.098,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/vila-da-capivara/kit-100.png",
-      "from": 698338,
-      "to": 659107,
+      "file": "public/images/vila-da-capivara/kit-70.png",
+      "from": 703734,
+      "to": 703734,
       "dimensions": "1086x1448",
       "outDimensions": "1086x1448",
-      "mae": 0.381,
+      "mae": 0.232,
       "visuallyEqual": true,
-      "applied": true
+      "applied": false
     },
     {
       "file": "public/images/dona-lucy-salgados/hero.png",
@@ -510,16 +240,6 @@
       "applied": false
     },
     {
-      "file": "public/images/vila-da-capivara/kit-20.png",
-      "from": 693876,
-      "to": 649517,
-      "dimensions": "1024x1536",
-      "outDimensions": "1024x1536",
-      "mae": 0.389,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/beto-pasteis/capa.png",
       "from": 691906,
       "to": 691906,
@@ -540,36 +260,6 @@
       "applied": false
     },
     {
-      "file": "public/images/auto-socorro-dentinho/diagnostic-v2.png",
-      "from": 685454,
-      "to": 635059,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.329,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/dlara-pizzaria/capa.png",
-      "from": 684979,
-      "to": 649499,
-      "dimensions": "1536x1024",
-      "outDimensions": "1536x1024",
-      "mae": 0.324,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/papelemi-personalizados/hero.png",
-      "from": 680745,
-      "to": 630881,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.306,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/confeitaria-chyrley/editorial-gerada.png",
       "from": 675862,
       "to": 675862,
@@ -580,32 +270,542 @@
       "applied": false
     },
     {
-      "file": "public/images/mimo-salgados-doces/logo.png",
-      "from": 672294,
-      "to": 219144,
-      "dimensions": "1131x1600",
-      "outDimensions": "1131x1600",
-      "mae": 0.072,
+      "file": "public/images/vila-da-capivara/kit-100.png",
+      "from": 659107,
+      "to": 659107,
+      "dimensions": "1086x1448",
+      "outDimensions": "1086x1448",
+      "mae": 0.159,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/artesanatos-darleia-oliveira/logo.png",
+      "from": 653749,
+      "to": 597048,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.134,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/your-brutus-burguer/hero-og.png",
+      "from": 651450,
+      "to": 586412,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.406,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/vila-da-capivara/kit-20.png",
+      "from": 649517,
+      "to": 649517,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.205,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/dlara-pizzaria/capa.png",
+      "from": 649499,
+      "to": 649499,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.303,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/your-brutus-burguer/business-card-concept.png",
+      "from": 648287,
+      "to": 526205,
+      "dimensions": "1586x992",
+      "outDimensions": "1586x992",
+      "mae": 0.344,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
+      "from": 647857,
+      "to": 647857,
+      "dimensions": "1200x1600",
+      "outDimensions": "1200x1600",
+      "mae": 0.2,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/r-beauty-icon.png",
+      "from": 645594,
+      "to": 560815,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.418,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/btb-construcao/hero.png",
+      "from": 644794,
+      "to": 592584,
+      "dimensions": "1774x887",
+      "outDimensions": "1774x887",
+      "mae": 0.322,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/paulo-mestre-de-obras/hero-v2.png",
+      "from": 642230,
+      "to": 554102,
+      "dimensions": "1122x1402",
+      "outDimensions": "1122x1402",
+      "mae": 0.441,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/sos-presentes-cosmeticos/canecas-combo.png",
+      "from": 641599,
+      "to": 641599,
+      "dimensions": "1200x1600",
+      "outDimensions": "1200x1600",
+      "mae": 0.262,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/services/site-profissional-197.png",
+      "from": 637880,
+      "to": 540339,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.332,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/salao-da-marcia/depilacao.png",
+      "from": 637443,
+      "to": 637443,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.236,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/auto-socorro-dentinho/diagnostic-v2.png",
+      "from": 635059,
+      "to": 590035,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.372,
       "visuallyEqual": true,
       "applied": true
     },
     {
       "file": "public/images/salao-da-marcia/progressiva.png",
-      "from": 669302,
-      "to": 634924,
+      "from": 634924,
+      "to": 592367,
       "dimensions": "1024x1536",
       "outDimensions": "1024x1536",
+      "mae": 0.349,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/concepts/almeida-torres-concept.png",
+      "from": 633194,
+      "to": 569684,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.445,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/papelemi-personalizados/hero.png",
+      "from": 630881,
+      "to": 630881,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.265,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/santos-montador-de-moveis/hero.png",
+      "from": 624858,
+      "to": 568034,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.401,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/assistencia-microondas-santos/hero-og.png",
+      "from": 623329,
+      "to": 495764,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.384,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/enoel-portas/hero.png",
+      "from": 620537,
+      "to": 507852,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.411,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/enoel-portas/social.png",
+      "from": 620537,
+      "to": 507852,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.411,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/jc-revestimentos/hero-v2.png",
+      "from": 618614,
+      "to": 517295,
+      "dimensions": "1774x887",
+      "outDimensions": "1774x887",
+      "mae": 0.425,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/marmitaria-dom-diego/capa.png",
+      "from": 617661,
+      "to": 617661,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.252,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/thays-camilla/hero-og.png",
+      "from": 607492,
+      "to": 521751,
+      "dimensions": "1729x910",
+      "outDimensions": "1729x910",
+      "mae": 0.403,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/thays-camilla/hero.png",
+      "from": 602520,
+      "to": 565901,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.36,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/fernanda-amaral-drywall/servicos-source.png",
+      "from": 592262,
+      "to": 592262,
+      "dimensions": "1086x1448",
+      "outDimensions": "1086x1448",
+      "mae": 0.205,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/mania-de-limpeza/hero.png",
+      "from": 591487,
+      "to": 555858,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.323,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/mania-de-limpeza/social.png",
+      "from": 591487,
+      "to": 555858,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.323,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/embalar-embalagens/loja-03.png",
+      "from": 590958,
+      "to": 194330,
+      "dimensions": "680x510",
+      "outDimensions": "680x510",
+      "mae": 1.185,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/renata-beauty-promo.png",
+      "from": 590027,
+      "to": 547380,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.237,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/bruna-diarista/hero.png",
+      "from": 588852,
+      "to": 588852,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.313,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/fernanda-amaral-drywall/logo-source.png",
+      "from": 585423,
+      "to": 479675,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.196,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/easy-clean/hero.png",
+      "from": 584709,
+      "to": 584709,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.23,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/js-eletrica-manutencao/hero.png",
+      "from": 581438,
+      "to": 524523,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
       "mae": 0.282,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/assistencia-microondas-santos/flyer.png",
-      "from": 666200,
-      "to": 243882,
-      "dimensions": "1040x545",
-      "outDimensions": "1040x545",
-      "mae": 0.748,
+      "file": "public/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
+      "from": 581176,
+      "to": 581176,
+      "dimensions": "1200x1600",
+      "outDimensions": "1200x1600",
+      "mae": 0.202,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/denise-gomes-psicologa/logo.png",
+      "from": 580633,
+      "to": 162044,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.309,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/services/comunicacao-visual.png",
+      "from": 580555,
+      "to": 550532,
+      "dimensions": "1122x1402",
+      "outDimensions": "1122x1402",
+      "mae": 0.315,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/paraiso-do-hot-dog/capa.png",
+      "from": 579311,
+      "to": 518418,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.193,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/paraiso-hot-dog-cover.png",
+      "from": 579311,
+      "to": 518418,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.193,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/maximos-cabeleireiros/hero.png",
+      "from": 576176,
+      "to": 497300,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.375,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/maximos-cabeleireiros/social.png",
+      "from": 576176,
+      "to": 497300,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.375,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/embalar-embalagens/loja-01.png",
+      "from": 575938,
+      "to": 173640,
+      "dimensions": "680x510",
+      "outDimensions": "680x510",
+      "mae": 1.221,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/popys-conservacao-limpeza/hero-cleaning.png",
+      "from": 572917,
+      "to": 572917,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.366,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/ag-electrical-services/rack-1.png",
+      "from": 571614,
+      "to": 240504,
+      "dimensions": "581x1032",
+      "outDimensions": "581x1032",
+      "mae": 0.648,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/auto-socorro-dentinho/hero-v2.png",
+      "from": 570626,
+      "to": 479939,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.376,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/miro-tech/logo.png",
+      "from": 569929,
+      "to": 103905,
+      "dimensions": "1983x793",
+      "outDimensions": "1800x720",
+      "mae": 0.9,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/sos-presentes-cosmeticos/cesta-pai-azul.png",
+      "from": 569573,
+      "to": 569573,
+      "dimensions": "1200x1600",
+      "outDimensions": "1200x1600",
+      "mae": 0.193,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/sos-presentes-cosmeticos/cesta-pai.png",
+      "from": 568761,
+      "to": 568761,
+      "dimensions": "1200x1600",
+      "outDimensions": "1200x1600",
+      "mae": 0.243,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/premium-envelopamentos/logo.png",
+      "from": 565455,
+      "to": 140065,
+      "dimensions": "1983x793",
+      "outDimensions": "1800x720",
+      "mae": 0.477,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/confeitaria-chyrley/bolos.png",
+      "from": 565060,
+      "to": 565060,
+      "dimensions": "899x1599",
+      "outDimensions": "899x1599",
+      "mae": 0.158,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/ag-electrical-services/social-2026.png",
+      "from": 562484,
+      "to": 464691,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.403,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/ag-electrical-services/rack-2.png",
+      "from": 562120,
+      "to": 260360,
+      "dimensions": "581x1032",
+      "outDimensions": "581x1032",
+      "mae": 0.628,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/rm-fretes-hero.png",
+      "from": 559925,
+      "to": 559925,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.27,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/salao-da-marcia/servicos.png",
+      "from": 558384,
+      "to": 521006,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.302,
       "visuallyEqual": true,
       "applied": true
     }
