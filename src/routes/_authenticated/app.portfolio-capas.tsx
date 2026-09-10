@@ -86,7 +86,7 @@ function PortfolioCoversPage() {
 
   const viewsBySlug = useMemo(() => {
     const map = new Map<string, number>();
-    for (const r of metrics.data?.rows ?? []) map.set(r.slug, r.views ?? 0);
+    for (const r of metrics.data?.projects ?? []) map.set(r.slug, r.views ?? 0);
     return map;
   }, [metrics.data]);
 
