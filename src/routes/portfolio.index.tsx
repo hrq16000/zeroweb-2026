@@ -1,6 +1,5 @@
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, AnimatePresence } from "motion/react";
 import {
   Sparkles,
   ExternalLink,
@@ -16,9 +15,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Search,
-  SlidersHorizontal,
-  MapPin,
-  LayoutGrid,
   PackageCheck,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
