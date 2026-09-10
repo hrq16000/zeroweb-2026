@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ImageOff, ImageIcon, ShieldAlert } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { ImageOff, ImageIcon, ShieldAlert, TrendingUp } from "lucide-react";
 import coverStatus from "@/config/portfolio-cover-status.json";
+import { getPortfolioFunnelMetrics } from "@/lib/portfolio-funnel-metrics.functions";
+
 
 export const Route = createFileRoute("/_authenticated/app/portfolio-capas")({
   component: PortfolioCoversPage,
