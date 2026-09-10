@@ -932,9 +932,9 @@ function PortfolioPage() {
                               />
                             </div>
                           </div>
-                        </motion.div>
+                        </div>
                       ))}
-                    </AnimatePresence>
+                    </>
                   </div>
                 )}
               </div>
