@@ -10,8 +10,11 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const today = new Date().toISOString().slice(0, 10);
         const children = [
-          "sitemap-pages.xml",
+          // Portfólio primeiro: é a prioridade de rastreamento atual.
+          "sitemap-portfolio.xml",
+          "sitemap-portfolio-locais.xml",
           "sitemap-services.xml",
+          "sitemap-pages.xml",
           "sitemap-solutions.xml",
           "sitemap-cities.xml",
           "sitemap-city-services.xml",
@@ -22,7 +25,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           "sitemap-bh-neighborhoods.xml",
           "sitemap-cwb-neighborhoods.xml",
           "sitemap-skyscraper.xml",
-          "sitemap-portfolio.xml",
           "sitemap-institucional.xml",
         ];
 

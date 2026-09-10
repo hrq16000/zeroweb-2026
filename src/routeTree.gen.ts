@@ -69,6 +69,7 @@ import { Route as SitemapEditorialDotxmlRouteImport } from './routes/sitemap-edi
 import { Route as SitemapInstitucionalDotxmlRouteImport } from './routes/sitemap-institucional[.]xml'
 import { Route as SitemapMarketplaceDotxmlRouteImport } from './routes/sitemap-marketplace[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
+import { Route as SitemapPortfolioLocaisDotxmlRouteImport } from './routes/sitemap-portfolio-locais[.]xml'
 import { Route as SitemapPortfolioDotxmlRouteImport } from './routes/sitemap-portfolio[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
 import { Route as SitemapSkyscraperDotxmlRouteImport } from './routes/sitemap-skyscraper[.]xml'
@@ -113,6 +114,8 @@ import { Route as EstadosStateRouteImport } from './routes/estados.$state'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
 import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.historico-jobs'
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
+import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
+import { Route as PortfolioEmLocalRouteImport } from './routes/portfolio-em.$local'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PortfolioDyzpromoRouteImport } from './routes/portfolio.dyzpromo'
@@ -537,6 +540,12 @@ const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
   path: '/sitemap-pages.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapPortfolioLocaisDotxmlRoute =
+  SitemapPortfolioLocaisDotxmlRouteImport.update({
+    id: '/sitemap-portfolio-locais.xml',
+    path: '/sitemap-portfolio-locais.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SitemapPortfolioDotxmlRoute = SitemapPortfolioDotxmlRouteImport.update({
   id: '/sitemap-portfolio.xml',
   path: '/sitemap-portfolio.xml',
@@ -757,6 +766,16 @@ const PainelHistoricoJobsRoute = PainelHistoricoJobsRouteImport.update({
 const PedidoIdRoute = PedidoIdRouteImport.update({
   id: '/pedido/$id',
   path: '/pedido/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioEmIndexRoute = PortfolioEmIndexRouteImport.update({
+  id: '/portfolio-em/',
+  path: '/portfolio-em/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioEmLocalRoute = PortfolioEmLocalRouteImport.update({
+  id: '/portfolio-em/$local',
+  path: '/portfolio-em/$local',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
@@ -1483,6 +1502,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio-locais.xml': typeof SitemapPortfolioLocaisDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
@@ -1521,6 +1541,7 @@ export interface FileRoutesByFullPath {
   '/f/$slug': typeof FSlugRoute
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
+  '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -1547,6 +1568,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
   '/criacao-de-site-institucional/': typeof CriacaoDeSiteInstitucionalIndexRoute
+  '/portfolio-em/': typeof PortfolioEmIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
@@ -1704,6 +1726,7 @@ export interface FileRoutesByTo {
   '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio-locais.xml': typeof SitemapPortfolioLocaisDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
@@ -1741,6 +1764,7 @@ export interface FileRoutesByTo {
   '/f/$slug': typeof FSlugRoute
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
+  '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -1767,6 +1791,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/cases': typeof CasesIndexRoute
   '/criacao-de-site-institucional': typeof CriacaoDeSiteInstitucionalIndexRoute
+  '/portfolio-em': typeof PortfolioEmIndexRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/servicos': typeof ServicosIndexRoute
   '/sites-robustos': typeof SitesRobustosIndexRoute
@@ -1927,6 +1952,7 @@ export interface FileRoutesById {
   '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio-locais.xml': typeof SitemapPortfolioLocaisDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
@@ -1965,6 +1991,7 @@ export interface FileRoutesById {
   '/f/$slug': typeof FSlugRoute
   '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
+  '/portfolio-em/$local': typeof PortfolioEmLocalRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/dyzpromo': typeof PortfolioDyzpromoRoute
   '/portfolio/r_beauty': typeof PortfolioR_beautyRoute
@@ -1991,6 +2018,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/cases/': typeof CasesIndexRoute
   '/criacao-de-site-institucional/': typeof CriacaoDeSiteInstitucionalIndexRoute
+  '/portfolio-em/': typeof PortfolioEmIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/sites-robustos/': typeof SitesRobustosIndexRoute
@@ -2152,6 +2180,7 @@ export interface FileRouteTypes {
     | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio-locais.xml'
     | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
@@ -2190,6 +2219,7 @@ export interface FileRouteTypes {
     | '/f/$slug'
     | '/painel/historico-jobs'
     | '/pedido/$id'
+    | '/portfolio-em/$local'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
@@ -2216,6 +2246,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/cases/'
     | '/criacao-de-site-institucional/'
+    | '/portfolio-em/'
     | '/portfolio/'
     | '/servicos/'
     | '/sites-robustos/'
@@ -2373,6 +2404,7 @@ export interface FileRouteTypes {
     | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio-locais.xml'
     | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
@@ -2410,6 +2442,7 @@ export interface FileRouteTypes {
     | '/f/$slug'
     | '/painel/historico-jobs'
     | '/pedido/$id'
+    | '/portfolio-em/$local'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
@@ -2436,6 +2469,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/cases'
     | '/criacao-de-site-institucional'
+    | '/portfolio-em'
     | '/portfolio'
     | '/servicos'
     | '/sites-robustos'
@@ -2595,6 +2629,7 @@ export interface FileRouteTypes {
     | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio-locais.xml'
     | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
@@ -2633,6 +2668,7 @@ export interface FileRouteTypes {
     | '/f/$slug'
     | '/painel_/historico-jobs'
     | '/pedido/$id'
+    | '/portfolio-em/$local'
     | '/portfolio/$slug'
     | '/portfolio/dyzpromo'
     | '/portfolio/r_beauty'
@@ -2659,6 +2695,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/cases/'
     | '/criacao-de-site-institucional/'
+    | '/portfolio-em/'
     | '/portfolio/'
     | '/servicos/'
     | '/sites-robustos/'
@@ -2820,6 +2857,7 @@ export interface RootRouteChildren {
   SitemapInstitucionalDotxmlRoute: typeof SitemapInstitucionalDotxmlRoute
   SitemapMarketplaceDotxmlRoute: typeof SitemapMarketplaceDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
+  SitemapPortfolioLocaisDotxmlRoute: typeof SitemapPortfolioLocaisDotxmlRoute
   SitemapPortfolioDotxmlRoute: typeof SitemapPortfolioDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapSkyscraperDotxmlRoute: typeof SitemapSkyscraperDotxmlRoute
@@ -2855,6 +2893,7 @@ export interface RootRouteChildren {
   FSlugRoute: typeof FSlugRoute
   PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
+  PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioDyzpromoRoute: typeof PortfolioDyzpromoRoute
   PortfolioR_beautyRoute: typeof PortfolioR_beautyRoute
@@ -2869,6 +2908,7 @@ export interface RootRouteChildren {
   BlogSkyscraperIndexRoute: typeof BlogSkyscraperIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   CasesIndexRoute: typeof CasesIndexRoute
+  PortfolioEmIndexRoute: typeof PortfolioEmIndexRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   SitesRobustosIndexRoute: typeof SitesRobustosIndexRoute
   SitesIndexRoute: typeof SitesIndexRoute
@@ -3321,6 +3361,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapPagesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap-portfolio-locais.xml': {
+      id: '/sitemap-portfolio-locais.xml'
+      path: '/sitemap-portfolio-locais.xml'
+      fullPath: '/sitemap-portfolio-locais.xml'
+      preLoaderRoute: typeof SitemapPortfolioLocaisDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap-portfolio.xml': {
       id: '/sitemap-portfolio.xml'
       path: '/sitemap-portfolio.xml'
@@ -3627,6 +3674,20 @@ declare module '@tanstack/react-router' {
       path: '/pedido/$id'
       fullPath: '/pedido/$id'
       preLoaderRoute: typeof PedidoIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-em/': {
+      id: '/portfolio-em/'
+      path: '/portfolio-em'
+      fullPath: '/portfolio-em/'
+      preLoaderRoute: typeof PortfolioEmIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio-em/$local': {
+      id: '/portfolio-em/$local'
+      path: '/portfolio-em/$local'
+      fullPath: '/portfolio-em/$local'
+      preLoaderRoute: typeof PortfolioEmLocalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/': {
@@ -4832,6 +4893,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapInstitucionalDotxmlRoute: SitemapInstitucionalDotxmlRoute,
   SitemapMarketplaceDotxmlRoute: SitemapMarketplaceDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
+  SitemapPortfolioLocaisDotxmlRoute: SitemapPortfolioLocaisDotxmlRoute,
   SitemapPortfolioDotxmlRoute: SitemapPortfolioDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapSkyscraperDotxmlRoute: SitemapSkyscraperDotxmlRoute,
@@ -4867,6 +4929,7 @@ const rootRouteChildren: RootRouteChildren = {
   FSlugRoute: FSlugRoute,
   PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
+  PortfolioEmLocalRoute: PortfolioEmLocalRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioDyzpromoRoute: PortfolioDyzpromoRoute,
   PortfolioR_beautyRoute: PortfolioR_beautyRoute,
@@ -4881,6 +4944,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSkyscraperIndexRoute: BlogSkyscraperIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   CasesIndexRoute: CasesIndexRoute,
+  PortfolioEmIndexRoute: PortfolioEmIndexRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
   SitesRobustosIndexRoute: SitesRobustosIndexRoute,
   SitesIndexRoute: SitesIndexRoute,
