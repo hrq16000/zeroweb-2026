@@ -1,9 +1,7 @@
 import { motion } from "motion/react";
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Sparkles, Zap, Store } from "lucide-react";
+import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { trackConversion, trackEvent } from "@/lib/analytics";
-import { useExperiment, trackExperimentEvent } from "@/lib/ab-testing";
 import { useWaFunnel } from "@/components/site/WaFunnelModal";
 import heroDashboard from "@/assets/hero-dashboard.webp";
 
@@ -14,43 +12,22 @@ const stats = [
   { label: "Suporte", value: "Nacional" },
 ];
 
-const HERO_VARIANTS = {
-  A: {
-    headline: "Sua empresa merece mais que",
-    accent: "apenas um site.",
-    sub: "Sites, automações e estratégia digital que viram crescimento real — mais clientes, mais vendas, todo mês.",
-  },
-  B: {
-    headline: "Mais clientes. Menos esforço.",
-    accent: "Tudo no mesmo time.",
-    sub: "Tecnologia, IA e marketing performam juntos para multiplicar seus leads em até 312% nos primeiros 90 dias.",
-  },
+// Título e CTA unificados: uma única promessa, um único caminho (funil).
+const HERO_COPY = {
+  headline: "Site profissional que traz clientes",
+  accent: "a partir de R$ 99,99/mês.",
+  sub: "Criação de site, automações e marketing digital em um só time. Você fala com um especialista e recebe o orçamento com escopo e prazo antes de fechar.",
 } as const;
 
-const CTA_VARIANTS = {
-  A: { label: "Solicitar Diagnóstico Gratuito", icon: ArrowRight },
-  B: { label: "Quero Mais Clientes Agora", icon: Zap },
-} as const;
-
-// Teste A/B do CTA primário do hero (label do botão que leva a /servicos).
-const PRIMARY_CTA_VARIANTS = {
-  A: "Ver Serviços",
-  B: "Ver Catálogo Completo",
-} as const;
+const PRIMARY_CTA_LABEL = "Pedir meu orçamento";
 
 export function Hero() {
-  const heroVariant = useExperiment("hero_copy", ["A", "B"] as const);
-  const ctaVariant = useExperiment("hero_cta", ["A", "B"] as const);
-  const primaryCtaVariant = useExperiment("hero_primary_cta", ["A", "B"] as const);
-  const copy = HERO_VARIANTS[heroVariant];
-  const cta = CTA_VARIANTS[ctaVariant];
-  const primaryCtaLabel = PRIMARY_CTA_VARIANTS[primaryCtaVariant];
-  const CtaIcon = cta.icon;
+  const copy = HERO_COPY;
+  const primaryCtaLabel = PRIMARY_CTA_LABEL;
   const { open: openFunnel } = useWaFunnel();
   const sectionViewedRef = useRef(false);
 
-  // Fire um evento único quando a próxima seção alvo (logo abaixo do hero) entra na viewport,
-  // permitindo cruzar com cliques no CTA "Ver Serviços" por rota/período.
+  // Evento único quando a seção logo abaixo do hero entra na viewport.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const target =
@@ -67,7 +44,6 @@ export function Hero() {
               section: target.id || "next_after_hero",
               location: "post_hero",
               route: window.location.pathname,
-              experiment_primary_cta: primaryCtaVariant,
             });
             io.disconnect();
             break;
@@ -78,24 +54,20 @@ export function Hero() {
     );
     io.observe(target);
     return () => io.disconnect();
-  }, [primaryCtaVariant]);
+  }, []);
 
   const handlePrimaryCtaClick = () => {
     const route = typeof window !== "undefined" ? window.location.pathname : "ssr";
+    trackConversion("contact_cta_click", { location: "hero" });
     trackEvent("cta_click", {
-      label: "ver_servicos",
+      label: "pedir_orcamento",
       cta_text: primaryCtaLabel,
       location: "hero",
       route,
-      experiment_hero: heroVariant,
-      experiment_cta: ctaVariant,
-      experiment_primary_cta: primaryCtaVariant,
     });
-    trackExperimentEvent("click", "hero_primary_cta", primaryCtaVariant, {
-      label: "ver_servicos",
-      route,
-    });
+    openFunnel("hero");
   };
+
 
   return (
     <section id="inicio" className="relative pt-28 lg:pt-32 pb-24 bg-hero overflow-hidden">
@@ -114,7 +86,7 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            key={heroVariant}
+            
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
@@ -136,45 +108,24 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-8 flex flex-col items-start gap-3"
           >
-            <Link
-              to="/servicos"
+            <button
+              type="button"
               onClick={handlePrimaryCtaClick}
-              aria-label={`${primaryCtaLabel} — abrir catálogo de serviços`}
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-6 py-3.5 shadow-glow-primary hover:opacity-95 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background min-h-11"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground font-semibold px-7 py-4 shadow-glow-primary hover:opacity-95 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background min-h-12"
             >
-              <Store className="w-4 h-4" aria-hidden="true" />
+              <MessageCircle className="w-4 h-4" aria-hidden="true" />
               <span>{primaryCtaLabel}</span>
               <ArrowRight
                 className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
                 aria-hidden="true"
               />
-            </Link>
-            <button
-              type="button"
-              onClick={() => {
-                trackConversion("contact_cta_click", { location: "hero", experiment_hero: heroVariant });
-                openFunnel("hero");
-              }}
-              className="inline-flex items-center gap-2 rounded-full bg-foreground text-background font-semibold px-6 py-3.5 hover:bg-foreground/90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background min-h-11"
-            >
-              <MessageCircle className="w-4 h-4 text-accent" aria-hidden="true" />
-              Falar com especialista
             </button>
-            <a
-              href="#diagnostico"
-              onClick={() =>
-                trackEvent("cta_click", {
-                  label: "solicitar_diagnostico",
-                  location: "hero_secondary",
-                })
-              }
-              className="inline-flex items-center gap-2 rounded-full border border-border text-foreground/80 hover:text-foreground font-medium px-5 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background min-h-11"
-            >
-              {cta.label}
-              <CtaIcon className="w-4 h-4" aria-hidden="true" />
-            </a>
+            <p className="text-sm text-muted-foreground">
+              Planos a partir de R$ 99,99/mês. Escopo, valor e prazo confirmados no orçamento, sem
+              compromisso.
+            </p>
           </motion.div>
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
