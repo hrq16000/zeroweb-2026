@@ -51,6 +51,9 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const baseCfg = useMemo(() => resolvePortfolioUpsellConfig(slug), [slug]);
   const [cfg, setCfg] = useState(baseCfg);
   const telemetryRef = useRef({ sampleRate: 1, simulationEnabled: false });
+  // Chave por projeto: a casca e a página do cliente compartilham o mesmo
+  // estado "já exibido", e cada projeto novo volta a exibir uma vez.
+  const storageKey = `${STORAGE_KEY}:${slug || pageName}`;
 
   // Override em runtime vindo do painel administrativo (sem deploy).
   useEffect(() => {
