@@ -44,3 +44,17 @@ User-agent: SemrushBot
 Crawl-delay: 5
 
 Sitemap: https://0web.com.br/sitemap.xml
+Sitemap: https://0web.com.br/sitemap-pages.xml
+Sitemap: https://0web.com.br/sitemap-portfolio.xml
+Sitemap: https://0web.com.br/sitemap-services.xml
+Sitemap: https://0web.com.br/sitemap-solutions.xml
+Sitemap: https://0web.com.br/sitemap-cities.xml
+Sitemap: https://0web.com.br/sitemap-city-services.xml
+Sitemap: https://0web.com.br/sitemap-blog.xml
+Sitemap: https://0web.com.br/sitemap-cases.xml
+Sitemap: https://0web.com.br/sitemap-marketplace.xml
+Sitemap: https://0web.com.br/sitemap-editorial.xml
+Sitemap: https://0web.com.br/sitemap-bh-neighborhoods.xml
+Sitemap: https://0web.com.br/sitemap-cwb-neighborhoods.xml
+Sitemap: https://0web.com.br/sitemap-skyscraper.xml
+Sitemap: https://0web.com.br/sitemap-institucional.xml
