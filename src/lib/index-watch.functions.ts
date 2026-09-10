@@ -100,3 +100,79 @@ export const setIndexWatchState = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { ok: true };
   });
+
+/**
+ * Atualiza o estado de indexação lendo a Inspeção de URL do Google.
+ *
+ * Não pede rastreamento nem teste ao vivo: apenas lê o que o Google já tem
+ * indexado. Prioriza as URLs ainda não indexadas e as verificadas há mais
+ * tempo, em lotes pequenos para respeitar a cota da API.
+ */
+export const refreshIndexWatchFromGsc = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((d: { section?: string; limit?: number }) =>
+    z
+      .object({
+        section: z.string().min(1).max(40).optional(),
+        limit: z.number().int().min(1).max(25).optional(),
+      })
+      .parse(d ?? {}),
+  )
+  .handler(async ({ data, context }) => {
+    const { supabase, userId } = context as { supabase: any; userId: string };
+    await assertIndexWatchAdmin(supabase, userId);
+
+    const section = data.section ?? "portfolio";
+    const limit = data.limit ?? 15;
+
+    const { resolveSiteUrl, inspectUrl, explainCoverage } = await import("@/lib/gsc.server");
+    const property = await resolveSiteUrl("https://0web.com.br/");
+    if (property.status !== "selected") {
+      return { status: property.status, checked: 0, indexed: 0, rows: [] as unknown[] };
+    }
+
+    const { data: pending, error } = await supabase
+      .from("url_index_watch")
+      .select("url,indexed,last_checked_at")
+      .eq("section", section)
+      .order("indexed", { ascending: true })
+      .order("last_checked_at", { ascending: true, nullsFirst: true })
+      .limit(limit);
+    if (error) throw new Error(error.message);
+
+    const results: Array<{ url: string; indexed: boolean; coverageState: string }> = [];
+    for (const row of pending ?? []) {
+      try {
+        const inspection: any = await inspectUrl(property.siteUrl, row.url);
+        const verdict = inspection?.inspectionResult?.indexStatusResult?.verdict ?? "UNKNOWN";
+        const { coverageState, probableCause } = explainCoverage(inspection);
+        const indexed = verdict === "PASS";
+        await supabase
+          .from("url_index_watch")
+          .update({
+            indexed,
+            indexed_at: indexed ? new Date().toISOString() : null,
+            coverage_state: coverageState || verdict,
+            notes: indexed ? null : probableCause,
+            last_checked_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          })
+          .eq("url", row.url);
+        results.push({ url: row.url, indexed, coverageState: coverageState || verdict });
+      } catch (e) {
+        results.push({
+          url: row.url,
+          indexed: false,
+          coverageState: e instanceof Error ? e.message.slice(0, 80) : "erro",
+        });
+      }
+    }
+
+    return {
+      status: "ok",
+      property: property.siteUrl,
+      checked: results.length,
+      indexed: results.filter((r) => r.indexed).length,
+      rows: results,
+    };
+  });
