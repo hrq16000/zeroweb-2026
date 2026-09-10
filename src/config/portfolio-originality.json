@@ -79,15 +79,15 @@
       },
       {
         "slug": "artesanatos-darleia-oliveira",
-        "v1Score": 43,
-        "v2Score": 43,
+        "v1Score": 42,
+        "v2Score": 42,
         "delta": 0,
-        "v1Nearest": "carecas-infotec",
-        "v2Nearest": "carecas-infotec",
+        "v1Nearest": "lk-alvenaria",
+        "v2Nearest": "lk-alvenaria",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 22.2,
-        "v2AssetPattern": 3.3
+        "v1AssetPattern": 8.3,
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "assistencia-microondas-santos",
@@ -175,15 +175,15 @@
       },
       {
         "slug": "carecas-infotec",
-        "v1Score": 46,
-        "v2Score": 45,
-        "delta": -1,
-        "v1Nearest": "clinica-integrada",
-        "v2Nearest": "clinica-integrada",
+        "v1Score": 11,
+        "v2Score": 8,
+        "delta": -3,
+        "v1Nearest": "angel-mix-brecho",
+        "v2Nearest": "angel-mix-brecho",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 50,
-        "v2AssetPattern": 4.3
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "casa-nativa",
@@ -211,15 +211,15 @@
       },
       {
         "slug": "clinica-integrada",
-        "v1Score": 46,
-        "v2Score": 45,
+        "v1Score": 45,
+        "v2Score": 44,
         "delta": -1,
-        "v1Nearest": "carecas-infotec",
-        "v2Nearest": "carecas-infotec",
+        "v1Nearest": "sos-presentes-cosmeticos",
+        "v2Nearest": "sos-presentes-cosmeticos",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 50,
-        "v2AssetPattern": 4.3
+        "v1AssetPattern": 27.3,
+        "v2AssetPattern": 6
       },
       {
         "slug": "confeitaria-chyrley",
@@ -511,15 +511,15 @@
       },
       {
         "slug": "heloa-gas",
-        "v1Score": 44,
-        "v2Score": 43,
-        "delta": -1,
-        "v1Nearest": "carecas-infotec",
-        "v2Nearest": "carecas-infotec",
+        "v1Score": 42,
+        "v2Score": 42,
+        "delta": 0,
+        "v1Nearest": "dona-lucy-salgados",
+        "v2Nearest": "dona-lucy-salgados",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 22.2,
-        "v2AssetPattern": 4.3
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 12.5,
+        "v2AssetPattern": 15
       },
       {
         "slug": "jc-revestimentos",
@@ -1116,9 +1116,9 @@
   },
   "summary": {
     "total": 90,
-    "original": 0,
+    "original": 1,
     "acceptable": 28,
-    "attention": 56,
+    "attention": 55,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
@@ -1361,21 +1361,21 @@
     },
     {
       "slug": "artesanatos-darleia-oliveira",
-      "score": 43,
+      "score": 42,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "carecas-infotec",
-      "nearestMatchScore": 43,
+      "nearestMatch": "lk-alvenaria",
+      "nearestMatchScore": 42,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 31.6,
+        "STRUCTURE_SIMILARITY": 20.6,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 35.7,
-        "STYLE_SIMILARITY": 38.5,
+        "COMPONENT_SIMILARITY": 42.9,
+        "STYLE_SIMILARITY": 47,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 3.3,
-        "IDENTITY_SIMILARITY": 4
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 2.6
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -1386,17 +1386,17 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "carecas-infotec",
-          "score": 43,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "lk-alvenaria",
           "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
           "slug": "ag-electrical-services",
+          "score": 39,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "mp-festas-eventos",
           "score": 39,
           "reason": "DISTINCT"
         }
@@ -1715,21 +1715,19 @@
     },
     {
       "slug": "carecas-infotec",
-      "score": 45,
-      "originalityStatus": "ATTENTION",
-      "nearestMatch": "clinica-integrada",
-      "nearestMatchScore": 45,
-      "reasons": [
-        "SAME_FAMILY"
-      ],
+      "score": 8,
+      "originalityStatus": "ORIGINAL",
+      "nearestMatch": "angel-mix-brecho",
+      "nearestMatchScore": 8,
+      "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.8,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 45.3,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 5.3
+        "STRUCTURE_SIMILARITY": 6.7,
+        "SECTION_ORDER_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 16.7,
+        "STYLE_SIMILARITY": 23.3,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 1.9,
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -1742,19 +1740,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "clinica-integrada",
-          "score": 45,
-          "reason": "SAME_FAMILY"
+          "slug": "angel-mix-brecho",
+          "score": 8,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "confeitaria-sabor-da-realeza",
-          "score": 45,
-          "reason": "SAME_FAMILY"
+          "slug": "brecho-sao-francisco",
+          "score": 7,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 44,
-          "reason": "SAME_FAMILY"
+          "slug": "dlara-pizzaria",
+          "score": 7,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -1850,21 +1848,21 @@
     },
     {
       "slug": "clinica-integrada",
-      "score": 45,
+      "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "carecas-infotec",
-      "nearestMatchScore": 45,
+      "nearestMatch": "sos-presentes-cosmeticos",
+      "nearestMatchScore": 44,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25.8,
+        "STRUCTURE_SIMILARITY": 31.3,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 45.3,
-        "COPY_SIMILARITY": 0.6,
-        "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 5.3
+        "COMPONENT_SIMILARITY": 35.7,
+        "STYLE_SIMILARITY": 48.8,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -1877,11 +1875,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "carecas-infotec",
-          "score": 45,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "sos-presentes-cosmeticos",
           "score": 44,
           "reason": "SAME_FAMILY"
@@ -1889,6 +1882,11 @@
         {
           "slug": "lk-alvenaria",
           "score": 43,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "ag-electrical-services",
+          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1975,13 +1973,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "carecas-infotec",
+          "slug": "miro-tech",
           "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
-          "score": 45,
+          "slug": "mp-festas-eventos",
+          "score": 44,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2964,13 +2962,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "carecas-infotec",
+          "slug": "ton-e-cor",
           "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "ton-e-cor",
-          "score": 26,
+          "slug": "raphael-construcoes",
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -2978,21 +2976,21 @@
     },
     {
       "slug": "heloa-gas",
-      "score": 43,
+      "score": 42,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "carecas-infotec",
-      "nearestMatchScore": 43,
+      "nearestMatch": "dona-lucy-salgados",
+      "nearestMatchScore": 42,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 62.5,
-        "SECTION_ORDER_SIMILARITY": 25,
-        "COMPONENT_SIMILARITY": 58.3,
-        "STYLE_SIMILARITY": 59,
-        "COPY_SIMILARITY": 2.8,
-        "ASSET_PATTERN_SIMILARITY": 4.3,
-        "IDENTITY_SIMILARITY": 30
+        "STRUCTURE_SIMILARITY": 50.9,
+        "SECTION_ORDER_SIMILARITY": 57.1,
+        "COMPONENT_SIMILARITY": 41.2,
+        "STYLE_SIMILARITY": 53.8,
+        "COPY_SIMILARITY": 0.4,
+        "ASSET_PATTERN_SIMILARITY": 15,
+        "IDENTITY_SIMILARITY": 20
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -3005,11 +3003,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "carecas-infotec",
-          "score": 43,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "dona-lucy-salgados",
           "score": 42,
           "reason": "SAME_FAMILY"
@@ -3017,6 +3010,11 @@
         {
           "slug": "miro-tech",
           "score": 38,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 36,
           "reason": "DISTINCT"
         }
       ],
@@ -3283,7 +3281,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "carecas-infotec",
+          "slug": "jkl-marcenaria",
           "score": 31,
           "reason": "DISTINCT"
         }
@@ -4091,7 +4089,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "carecas-infotec",
+          "slug": "dona-lucy-salgados",
           "score": 30,
           "reason": "DISTINCT"
         }
@@ -4357,7 +4355,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "carecas-infotec",
+          "slug": "hbk-iluminacao-led",
           "score": 25,
           "reason": "DISTINCT"
         }
@@ -4892,13 +4890,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "carecas-infotec",
-          "score": 43,
+          "slug": "denise-gomes-psicologa",
+          "score": 42,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "denise-gomes-psicologa",
-          "score": 42,
+          "slug": "ag-electrical-services",
+          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],

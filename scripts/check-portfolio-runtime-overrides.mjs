@@ -51,19 +51,19 @@ for (const file of files) {
   rows.push({
     component: file,
     logo:
-      has(/managedField="logoUrl"/) || has(/useManagedValue\("logoUrl"/)
+      has(/managedField[:=]\s*"logoUrl"/) || has(/useManagedValue\("logoUrl"/)
         ? "MANAGED"
         : /\blogo\b/i.test(src) // "catálogo" não é logo
           ? "MISSING"
           : "NOT_APPLICABLE",
     hero:
-      has(/managedField="heroImageUrl"/) || has(/useManagedValue\("heroImageUrl"/)
+      has(/managedField[:=]\s*"heroImageUrl"/) || has(/useManagedValue\("heroImageUrl"/)
         ? "MANAGED"
         : has(/<PortfolioImage(?![^>]*managedField)[^>]*priority/)
           ? "MISSING"
           : "NOT_APPLICABLE",
-    headline: has(/field="heroHeadline"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
-    subheadline: has(/field="heroSubheadline"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
+    headline: has(/(?:field="heroHeadline"|headlineField:\s*"heroHeadline")/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
+    subheadline: has(/(?:field="heroSubheadline"|subheadlineField:\s*"heroSubheadline")/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
     cta: has(/field="ctaLabel"/) ? "MANAGED" : "HARDCODED_INTENTIONAL",
   });
 }

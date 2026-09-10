@@ -17,6 +17,7 @@ import { PortfolioRuntimeProvider } from "@/components/portfolio/PortfolioRuntim
 import { getManagedProject } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
+import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
@@ -1091,6 +1092,19 @@ function PortfolioPrototypePage() {
     { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
     overrides,
   );
+  // Projeto com Blueprint próprio: composição vem de `sections[]` (opt-in).
+  const BlueprintPage = getBlueprintPage(slug);
+  if (BlueprintPage) {
+    return (
+      <PortfolioRuntimeProvider value={effective}>
+        <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
+          <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+            <BlueprintPage />
+          </Suspense>
+        </PortfolioStandardShell>
+      </PortfolioRuntimeProvider>
+    );
+  }
   // Projeto criado pelo painel: mesma casca comercial, conteúdo 100% do cliente.
   if (managed) {
     return (
