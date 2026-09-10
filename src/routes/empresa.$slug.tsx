@@ -1,35 +1,95 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getCompanyBySlug, createReview } from "@/lib/marketplace.functions";
 import { ORIGIN } from "@/lib/seo";
 
 export const Route = createFileRoute("/empresa/$slug")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `${params.slug} | Empresa verificada | 0WEB` },
-      { name: "description", content: `Perfil da empresa ${params.slug} no marketplace 0WEB. Categorias, áreas atendidas, avaliações e contato.` },
-      { property: "og:url", content: `${ORIGIN}/empresa/${params.slug}` },
-    ],
-    links: [{ rel: "canonical", href: `${ORIGIN}/empresa/${params.slug}` }],
-  }),
+  // SSR: o perfil já vem no HTML, com título e descrição do próprio negócio.
+  loader: async ({ params }) => getCompanyBySlug({ data: { slug: params.slug } }),
+  head: ({ params, loaderData }) => {
+    const url = `${ORIGIN}/empresa/${params.slug}`;
+    const c: any = loaderData?.company;
+    if (!c) {
+      return {
+        meta: [
+          { title: "Empresa não encontrada | Marketplace 0WEB" },
+          { name: "robots", content: "noindex, follow" },
+          { property: "og:url", content: url },
+        ],
+        links: [{ rel: "canonical", href: url }],
+      };
+    }
+    const place = [c.city, c.state].filter(Boolean).join(" — ");
+    const title = `${c.trade_name}${place ? ` — ${place}` : ""} | Marketplace 0WEB`;
+    const description =
+      (c.description ? String(c.description).replace(/\s+/g, " ").slice(0, 155) : "") ||
+      `${c.trade_name}${place ? ` em ${place}` : ""}: categorias atendidas, regiões de atuação e avaliações no marketplace 0WEB.`;
+    const reviews = loaderData?.reviews ?? [];
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "profile" },
+        { property: "og:url", content: url },
+        { property: "og:locale", content: "pt_BR" },
+        { name: "robots", content: "index, follow, max-image-preview:large" },
+        ...(c.logo_url && /^https?:\/\//.test(c.logo_url)
+          ? [
+              { property: "og:image", content: c.logo_url },
+              { name: "twitter:image", content: c.logo_url },
+              { name: "twitter:card", content: "summary_large_image" },
+            ]
+          : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": `${url}#business`,
+            name: c.trade_name,
+            description,
+            url,
+            ...(c.logo_url ? { image: c.logo_url } : {}),
+            ...(c.website ? { sameAs: [c.website] } : {}),
+            address: {
+              "@type": "PostalAddress",
+              ...(c.city ? { addressLocality: c.city } : {}),
+              ...(c.state ? { addressRegion: c.state } : {}),
+              addressCountry: "BR",
+            },
+            ...(reviews.length > 0 && Number(c.rating_count) > 0
+              ? {
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: Number(c.rating_avg).toFixed(1),
+                    reviewCount: Number(c.rating_count),
+                  },
+                }
+              : {}),
+          }),
+        },
+      ],
+    };
+  },
   component: CompanyPage,
 });
 
 function CompanyPage() {
-  const { slug } = Route.useParams();
-  const fetchCompany = useServerFn(getCompanyBySlug);
+  const data = Route.useLoaderData();
   const submitReview = useServerFn(createReview);
-  const [data, setData] = useState<any>(null);
   const [review, setReview] = useState({ rating: 5, comment: "", author_name: "", author_email: "" });
   const [sent, setSent] = useState(false);
 
-  useEffect(() => { void fetchCompany({ data: { slug } }).then(setData); }, [fetchCompany, slug]);
-
-  if (!data) return <div className="p-12 text-center text-muted-foreground">Carregando…</div>;
   if (!data.company) return <div className="p-12 text-center"><h1 className="text-2xl font-display">Empresa não encontrada</h1><Link to="/servicos/marketplace" className="text-primary mt-4 inline-block">Voltar ao marketplace</Link></div>;
 
-  const c = data.company;
+  const c: any = data.company;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
