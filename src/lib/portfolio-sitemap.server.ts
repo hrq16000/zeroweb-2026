@@ -56,14 +56,15 @@ export function buildApprovedPortfolioEntries(
   });
 
   return [
-    { path: "/portfolio", changefreq: "weekly", priority: "0.9" },
+    { path: "/portfolio", changefreq: "daily", priority: "1.0" },
+    { path: "/portfolio-em", changefreq: "weekly", priority: "0.8" },
     ...slugs.sort().map((slug) => {
       const updatedAt = runtime.get(slug)?.updated_at;
       return {
         path: `/portfolio/${slug}`,
         ...(updatedAt ? { lastmod: updatedAt } : {}),
-        changefreq: "monthly" as const,
-        priority: "0.8",
+        changefreq: "weekly" as const,
+        priority: "0.9",
       };
     }),
   ];
