@@ -80,9 +80,9 @@ function LinhaCardapio({
           }}
         />
       </div>
-      <dd className="mt-2 max-w-[64ch] text-sm leading-[1.85] text-[var(--dd-ink)]/70">
+      <p className="mt-2 max-w-[64ch] text-sm leading-[1.85] text-[var(--dd-ink)]/70">
         {detalhe}
-      </dd>
+      </p>
     </div>
   );
 }
@@ -153,11 +153,11 @@ export function MarmitariaDomDiegoPage() {
             </p>
           </div>
 
-          <dl className="mt-2">
+          <div className="mt-2">
             {cardapio.map((linha, i) => (
               <LinhaCardapio key={linha.item} index={i} item={linha.item} detalhe={linha.detalhe} />
             ))}
-          </dl>
+          </div>
 
 
           <p className="mt-6 max-w-[60ch] text-base leading-[1.8] text-[var(--dd-ink)]/75">

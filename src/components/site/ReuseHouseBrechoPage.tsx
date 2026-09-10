@@ -87,7 +87,7 @@ export function ReuseHouseBrechoPage() {
           <p className="font-mono text-[0.68rem] uppercase tracking-[0.4em] text-[var(--rh-deep)]/55">
             Índice do garimpo
           </p>
-          <MotionStagger as="dl" variant="left" className="mt-5" step={110}>
+          <MotionStagger as="div" variant="left" className="mt-5" step={110}>
             {indice.map((item) => (
               <div
                 key={item.codigo}
@@ -96,12 +96,12 @@ export function ReuseHouseBrechoPage() {
                 <span className="font-mono text-sm text-[var(--rh-moss)] transition-transform duration-200 group-hover:translate-x-1">
                   {item.codigo}
                 </span>
-                <dt className="font-display text-lg font-bold uppercase tracking-wide transition-colors duration-200 group-hover:text-[var(--rh-moss)]">
+                <h3 className="font-display text-lg font-bold uppercase tracking-wide transition-colors duration-200 group-hover:text-[var(--rh-moss)]">
                   {item.titulo}
-                </dt>
-                <dd className="col-start-2 text-sm leading-relaxed text-[var(--rh-deep)]/70 md:col-start-3">
+                </h3>
+                <p className="col-start-2 text-sm leading-relaxed text-[var(--rh-deep)]/70 md:col-start-3">
                   {item.detalhe}
-                </dd>
+                </p>
               </div>
             ))}
           </MotionStagger>
