@@ -65,9 +65,9 @@ function LinhaCardapio({
       style={{ opacity: drawn ? 1 : 0.35, transition: "opacity 420ms ease" }}
     >
       <div className="flex items-baseline gap-3">
-        <dt className="font-display text-lg font-bold transition-transform duration-200 group-hover:translate-x-1 md:text-xl">
+        <h3 className="font-display text-lg font-bold transition-transform duration-200 group-hover:translate-x-1 md:text-xl">
           {item}
-        </dt>
+        </h3>
         <span
           aria-hidden
           className="h-px flex-1 border-b border-dotted border-[var(--dd-ink)]/35 group-hover:border-[var(--dd-leaf)]"
@@ -80,9 +80,9 @@ function LinhaCardapio({
           }}
         />
       </div>
-      <dd className="mt-2 max-w-[64ch] text-sm leading-[1.85] text-[var(--dd-ink)]/70">
+      <p className="mt-2 max-w-[64ch] text-sm leading-[1.85] text-[var(--dd-ink)]/70">
         {detalhe}
-      </dd>
+      </p>
     </div>
   );
 }
@@ -153,11 +153,11 @@ export function MarmitariaDomDiegoPage() {
             </p>
           </div>
 
-          <dl className="mt-2">
+          <div className="mt-2">
             {cardapio.map((linha, i) => (
               <LinhaCardapio key={linha.item} index={i} item={linha.item} detalhe={linha.detalhe} />
             ))}
-          </dl>
+          </div>
 
 
           <p className="mt-6 max-w-[60ch] text-base leading-[1.8] text-[var(--dd-ink)]/75">

@@ -361,7 +361,7 @@
       "nearestMatch": "reuse-house-brecho",
       "nearestMatchScore": 30,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 3.1,
+        "STRUCTURE_SIMILARITY": 2.9,
         "SECTION_ORDER_SIMILARITY": 66.7,
         "COMPONENT_SIMILARITY": 55.6,
         "STYLE_SIMILARITY": 29.2,
@@ -1037,12 +1037,12 @@
       "title": "Eisenfer Tubos e Aços",
       "segment": "construcao",
       "componentFile": "src/components/site/EisenferTubosAcosPage.tsx",
-      "score": 42,
+      "score": 43,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "no-brilho-higienizacao",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 43,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 46.3,
+        "STRUCTURE_SIMILARITY": 51.9,
         "SECTION_ORDER_SIMILARITY": 37.5,
         "COMPONENT_SIMILARITY": 83.3,
         "STYLE_SIMILARITY": 36.9,
@@ -1066,8 +1066,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "aa82afbee064b3fc",
-        "structureHash": "2f0df1060cf727bd",
+        "skeletonHash": "83ea8e51f8d8fa00",
+        "structureHash": "c8e60c354266151b",
         "sectionCount": 7,
         "lines": 202
       }
@@ -1546,7 +1546,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "c3c256ae71ce4eec",
+        "skeletonHash": "b813d0074a8bed28",
         "structureHash": "7ecca2eff875d293",
         "sectionCount": 8,
         "lines": 177
@@ -2152,16 +2152,16 @@
       "title": "Marmitaria Dom Diego",
       "segment": "restaurantes",
       "componentFile": "src/components/site/MarmitariaDomDiegoPage.tsx",
-      "score": 32,
+      "score": 31,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 32,
+      "nearestMatch": "woodhouse-hamburgueres",
+      "nearestMatchScore": 31,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 25,
-        "SECTION_ORDER_SIMILARITY": 33.3,
+        "STRUCTURE_SIMILARITY": 6.5,
+        "SECTION_ORDER_SIMILARITY": 50,
         "COMPONENT_SIMILARITY": 71.4,
-        "STYLE_SIMILARITY": 29.8,
-        "COPY_SIMILARITY": 1.9,
+        "STYLE_SIMILARITY": 35.7,
+        "COPY_SIMILARITY": 0,
         "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
@@ -2180,8 +2180,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "e96d9d8aba124495",
-        "structureHash": "0b45af06bbe4e2d6",
+        "skeletonHash": "d247eebfbede5bd5",
+        "structureHash": "c8b219f4ae7998f2",
         "sectionCount": 3,
         "lines": 200
       }
@@ -2478,12 +2478,12 @@
       "title": "No Brilho Higienização",
       "segment": "servicos",
       "componentFile": "src/components/site/NoBrilhoHigienizacaoPage.tsx",
-      "score": 42,
+      "score": 43,
       "originalityStatus": "ATTENTION",
       "nearestMatch": "eisenfer-tubos-acos",
-      "nearestMatchScore": 42,
+      "nearestMatchScore": 43,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 46.3,
+        "STRUCTURE_SIMILARITY": 51.9,
         "SECTION_ORDER_SIMILARITY": 37.5,
         "COMPONENT_SIMILARITY": 83.3,
         "STYLE_SIMILARITY": 36.9,
@@ -2954,7 +2954,7 @@
       "nearestMatch": "beto-pasteis",
       "nearestMatchScore": 30,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 3.1,
+        "STRUCTURE_SIMILARITY": 2.9,
         "SECTION_ORDER_SIMILARITY": 66.7,
         "COMPONENT_SIMILARITY": 55.6,
         "STYLE_SIMILARITY": 29.2,
@@ -2977,8 +2977,8 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "0f47aba02666f171",
-        "structureHash": "c82791ac42e7f3c2",
+        "skeletonHash": "0ec7d5e0126bf027",
+        "structureHash": "3c0e1fe910d42e71",
         "sectionCount": 5,
         "lines": 162
       }
@@ -4526,18 +4526,18 @@
       "eisenfer-tubos-acos": [
         {
           "slug": "no-brilho-higienizacao",
-          "score": 42,
+          "score": 43,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "ag-electrical-services",
+          "score": 40,
+          "reason": "DISTINCT"
         },
         {
           "slug": "jkl-marcenaria",
-          "score": 41,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "lk-alvenaria",
-          "score": 41,
-          "reason": "SAME_FAMILY"
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "eletro-solucoes-eficazes": [
@@ -5001,18 +5001,18 @@
       ],
       "marmitaria-dom-diego": [
         {
-          "slug": "angel-mix-brecho",
-          "score": 32,
+          "slug": "woodhouse-hamburgueres",
+          "score": 31,
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
+          "slug": "angel-mix-brecho",
           "score": 30,
           "reason": "DISTINCT"
         },
         {
           "slug": "toquinho-de-gente-brecho",
-          "score": 27,
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -5138,7 +5138,7 @@
       "no-brilho-higienizacao": [
         {
           "slug": "eisenfer-tubos-acos",
-          "score": 42,
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
@@ -5347,11 +5347,11 @@
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 28,
+          "score": 27,
           "reason": "DISTINCT"
         },
         {
-          "slug": "woodhouse-hamburgueres",
+          "slug": "lolipa-arte-em-festas",
           "score": 23,
           "reason": "DISTINCT"
         }
@@ -5539,7 +5539,7 @@
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 27,
+          "score": 28,
           "reason": "DISTINCT"
         }
       ],
@@ -5590,7 +5590,7 @@
         },
         {
           "slug": "marmitaria-dom-diego",
-          "score": 30,
+          "score": 31,
           "reason": "DISTINCT"
         }
       ],
@@ -5931,8 +5931,8 @@
       },
       {
         "slug": "eisenfer-tubos-acos",
-        "v1Score": 42,
-        "v2Score": 42,
+        "v1Score": 43,
+        "v2Score": 43,
         "delta": 0,
         "v1Nearest": "no-brilho-higienizacao",
         "v2Nearest": "no-brilho-higienizacao",
@@ -6267,11 +6267,11 @@
       },
       {
         "slug": "marmitaria-dom-diego",
-        "v1Score": 38,
-        "v2Score": 32,
+        "v1Score": 37,
+        "v2Score": 31,
         "delta": -6,
-        "v1Nearest": "angel-mix-brecho",
-        "v2Nearest": "angel-mix-brecho",
+        "v1Nearest": "woodhouse-hamburgueres",
+        "v2Nearest": "woodhouse-hamburgueres",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
@@ -6363,8 +6363,8 @@
       },
       {
         "slug": "no-brilho-higienizacao",
-        "v1Score": 42,
-        "v2Score": 42,
+        "v1Score": 43,
+        "v2Score": 43,
         "delta": 0,
         "v1Nearest": "eisenfer-tubos-acos",
         "v2Nearest": "eisenfer-tubos-acos",

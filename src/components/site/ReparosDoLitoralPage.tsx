@@ -95,7 +95,7 @@ export function ReparosDoLitoralPage() {
         <section id="servicos" className="px-5 py-8 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-xl font-extrabold uppercase tracking-wide">Toca sem drama</h2>
-            <MotionStagger variant="scale" step={45} className="mt-5 flex flex-wrap gap-2.5">
+            <MotionStagger as="ul" variant="scale" step={45} className="mt-5 flex flex-wrap gap-2.5">
               {CHIPS.map((c) => (
                 <li
                   key={c}

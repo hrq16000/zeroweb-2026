@@ -127,21 +127,21 @@ export function EisenferTubosAcosPage() {
             <h2 className="font-display text-2xl font-black uppercase tracking-tight text-[#f5b51b] sm:text-3xl">
               Onde o aço da Eisenfer trabalha
             </h2>
-            <dl className="mt-8 divide-y divide-white/10 border-y border-white/10">
+            <div className="mt-8 divide-y divide-white/10 border-y border-white/10">
               {[
                 ["01", "Resistência", "Materiais selecionados para estruturas que precisam durar."],
                 ["02", "Agilidade", "Entrega no prazo combinado em São José dos Pinhais e Curitiba."],
                 ["03", "Parceria", "Atendimento especializado para encontrar medida e espessura certas."],
               ].map(([n, t, d]) => (
                 <MotionReveal key={n} variant="up" className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:gap-8">
-                  <dt className="font-mono text-3xl font-black text-[#2d8cff] sm:w-24">{n}</dt>
+                  <span aria-hidden className="font-mono text-3xl font-black text-[#2d8cff] sm:w-24">{n}</span>
                   <div className="sm:flex-1">
                     <p className="font-display text-xl font-bold">{t}</p>
-                    <dd className="mt-1 max-w-2xl text-sm leading-6 text-white/60">{d}</dd>
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-white/60">{d}</p>
                   </div>
                 </MotionReveal>
               ))}
-            </dl>
+            </div>
           </div>
         </section>
 
