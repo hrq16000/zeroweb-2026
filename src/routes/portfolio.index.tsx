@@ -1052,11 +1052,42 @@ function PortfolioPage() {
               </div>
             </section>
 
+            <section className="mt-12" aria-labelledby="portfolio-por-local">
+              <h2 id="portfolio-por-local" className="text-xl font-semibold text-foreground">
+                Projetos por cidade e bairro
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Páginas regionais com os sites publicados em cada local.
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {portfolioCityHubs().map((hub) => (
+                  <li key={hub.slug}>
+                    <Link
+                      to="/portfolio-em/$local"
+                      params={{ local: hub.slug }}
+                      className="inline-flex rounded-full border border-border px-3 py-1.5 text-sm text-foreground transition-colors hover:border-primary/50"
+                    >
+                      {hub.label} ({hub.projects.length})
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    to="/portfolio-em"
+                    className="inline-flex rounded-full border border-primary/40 px-3 py-1.5 text-sm text-primary"
+                  >
+                    Ver todos os locais
+                  </Link>
+                </li>
+              </ul>
+            </section>
+
             <InternalLinkCluster
               links={portfolioClusterLinks({ segmentSlug: "beleza-estetica", limit: 10 })}
               title="Hubs, serviços e guias relacionados"
               description="Links internos automáticos que conectam portfólio, serviços e conteúdo."
             />
+
           </div>
         </section>
       </main>
