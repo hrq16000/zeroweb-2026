@@ -5,8 +5,9 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { ORIGIN, breadcrumbLd } from "@/lib/seo";
-import { findCWBNeighborhood, type CWBNeighborhood } from "@/lib/curitiba-neighborhoods";
+import { findCWBNeighborhood, CWB_NEIGHBORHOODS, type CWBNeighborhood } from "@/lib/curitiba-neighborhoods";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { localDeliverables, localFaq, localPortfolioProjects, localProcessSteps } from "@/lib/local-page-enrichment";
 
 const SERVICES = [
   { name: "Criação de Sites Profissionais", desc: "Sites rápidos, otimizados e prontos para converter visitantes em clientes." },
@@ -17,11 +18,13 @@ const SERVICES = [
   { name: "Landing Pages de Alta Conversão", desc: "Páginas focadas em uma única ação: virar lead." },
 ];
 
-function casesFor(n: CWBNeighborhood) {
-  return n.typicalBusinesses.slice(0, 3).map((biz, i) => ({
-    title: `${biz[0].toUpperCase() + biz.slice(1)} em ${n.name}`,
-    result: ["+287% em leads orgânicos em 90 dias", "ROI 5,2x em Google Ads no 1º trimestre", "Top 3 no Google para 14 palavras-chave locais"][i],
-  }));
+function nearbyCWB(n: CWBNeighborhood) {
+  return CWB_NEIGHBORHOODS.filter((o) => o.slug !== n.slug)
+    .sort((a, b) => {
+      const score = (x: CWBNeighborhood) => (x.city === n.city ? 0 : 1) + (x.region === n.region ? 0 : 2);
+      return score(a) - score(b);
+    })
+    .slice(0, 6);
 }
 
 export const Route = createFileRoute("/bairros-cwb/$slug")({
