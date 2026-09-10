@@ -13,10 +13,17 @@ const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
 
 type Trigger = "timer" | "scroll" | "fallback";
 
-/** Guard de instância única por página (rota + componente do cliente). */
-const instanceGuard: { count: number } = ((globalThis as Record<string, unknown>)[
+/**
+ * Guard de instância única POR PROJETO (rota + componente do cliente).
+ *
+ * Regra universal: todo `/portfolio/<slug>` exibe exatamente um pop-up de
+ * captação da 0WEB. O guard é indexado pelo slug (não por contador global),
+ * porque um contador vazava entre navegações e silenciava o pop-up dos
+ * projetos seguintes na mesma sessão.
+ */
+const instanceGuard: { owners: Set<string> } = ((globalThis as Record<string, unknown>)[
   "__0webPortfolioUpsellGuard"
-] ??= { count: 0 }) as { count: number };
+] ??= { owners: new Set<string>() }) as { owners: Set<string> };
 
 
 /**
