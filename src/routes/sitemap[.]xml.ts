@@ -8,9 +8,11 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const today = new Date().toISOString().slice(0, 10);
+        // Sem lastmod sintético: uma data "hoje" em todos os filhos é sinal falso
+        // de frescor e faz o Google desconfiar do mapa inteiro.
         const children = [
           // Portfólio primeiro: é a prioridade de rastreamento atual.
+          "sitemap-portfolio-prioritario.xml",
           "sitemap-portfolio.xml",
           "sitemap-portfolio-locais.xml",
           "sitemap-services.xml",
@@ -31,10 +33,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const xml = [
           `<?xml version="1.0" encoding="UTF-8"?>`,
           `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
-          ...children.map(
-            (c) =>
-              `  <sitemap><loc>${BASE_URL}/${c}</loc><lastmod>${today}</lastmod></sitemap>`,
-          ),
+          ...children.map((c) => `  <sitemap><loc>${BASE_URL}/${c}</loc></sitemap>`),
           `</sitemapindex>`,
         ].join("\n");
         return new Response(xml, {
