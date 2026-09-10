@@ -633,7 +633,30 @@ function PortfolioPage() {
                     className="h-10 w-full rounded-lg border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary focus-visible:ring-2 focus-visible:ring-primary/30 lg:h-12 lg:rounded-xl lg:pl-11 lg:pr-4 lg:text-base"
                   />
                 </label>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:flex lg:items-center lg:gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:flex lg:items-center lg:gap-3">
+                  <select
+                    aria-label="Filtrar por segmento"
+                    value={activeCategory}
+                    onChange={(e) => setActiveCategory(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-44 lg:rounded-xl lg:px-4"
+                  >
+                    {CATEGORIES.map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.id === "todos" ? "Todos os segmentos" : cat.label}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    aria-label="Filtrar por tipo de presença"
+                    value={projectType}
+                    onChange={(e) => setProjectType(e.target.value)}
+                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-44 lg:rounded-xl lg:px-4"
+                  >
+                    <option value="todos">Todos os tipos</option>
+                    <option value="landing">Landing pages</option>
+                    <option value="catalog">Catálogos</option>
+                    <option value="institutional">Institucionais</option>
+                  </select>
                   <select
                     aria-label="Filtrar por região"
                     value={region}
