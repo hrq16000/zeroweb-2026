@@ -1,6 +1,18 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { FunnelRunner } from "@/components/funnel/FunnelRunner";
 import { getPublicFunnel } from "@/lib/dynamic-funnel.functions";
+import { isPortfolioClientKey } from "@/lib/portfolio-client-keys";
+
+/**
+ * Um funil aberto em rota própria (`/f/funnel-<cliente>`) precisa continuar
+ * pertencendo ao cliente. Sem isso o lead cai no canal institucional da 0WEB.
+ * A chave só é aceita quando existe na allowlist de clientes do portfólio.
+ */
+function clientKeyFromFunnelSlug(slug: string): string | undefined {
+  const candidate = slug.replace(/^funnel-/, "");
+  return isPortfolioClientKey(candidate) ? candidate : undefined;
+}
+
 
 export const Route = createFileRoute("/f/$slug")({
   ssr: false,
