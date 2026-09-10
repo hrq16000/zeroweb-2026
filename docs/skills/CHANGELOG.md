@@ -1255,3 +1255,11 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Validação: tsgo, brand-integrity (6 assets), portfolio-boundaries (89), visual-quality (34 PREMIUM / 54 STANDARD / 1 NEEDS_UPGRADE),
   `bun test` 395/0, `bun run build` OK, Playwright 393px e 1440px (reduced motion) sem imagem quebrada, sem overflow e sem erro novo de console.
 - Security scan: 0 findings ativos em todos os scanners (agent, supabase, supply chain, MCP, connectors).
+
+## 2026-09-10 — Ondas de imagem 2-4 + hubs regionais reversos
+- Otimização aplicada em mais 200 imagens (public/images: 257 MB → ~102 MB), gate de equivalência visual MAE ≤ 2; 1 arquivo reprovado e mantido original (maximos-cabeleireiros/logo.png).
+- `/app/portfolio-capas` passou a ordenar as capas pendentes pelo tráfego real dos últimos 30 dias (`portfolio_view`) e link adicionado em `/app/portfolio`.
+- `portfolioPlaceHubsForProject()` + rodapé canônico: cada `/portfolio/<slug>` agora aponta para os hubs de cidade e bairro (`/portfolio-em/<local>`), fechando o ciclo de interlink regional.
+- Auditoria: 89 projetos com title, description e og:image absolutos, únicos, sem duplicidade.
+- Validação: tsgo 0, 395 testes, build 495 arquivos limpos, marca/boundaries OK, Playwright 393px e 1440px sem imagem quebrada nem overflow.
+- Publicado; IndexNow 200 com 190 URLs (portfólio + regionais); sitemap regional enviado ao Search Console (portfólio: 151 URLs, 0 erros).
