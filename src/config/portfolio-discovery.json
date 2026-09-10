@@ -1,0 +1,65 @@
+{
+  "doc": "Índice de descoberta do /portfolio. NÃO é fonte canônica: o catálogo continua sendo a verdade sobre cada projeto. Aqui ficam apenas termos de intenção (serviços, equipamentos, problemas, casos de uso e apelidos) usados para ranquear a busca interna. Só cadastre termos realmente associados ao negócio — relação falsa aqui vira resultado falso na busca.",
+  "projects": {
+    "carecas-infotec": {
+      "aliases": ["Careca's Infotec", "Carecas Infotec", "Careca Infotec", "Careca's", "Infotec"],
+      "categories": ["assistência técnica", "informática", "tecnologia", "eletrônicos"],
+      "services": [
+        "assistência técnica",
+        "conserto",
+        "manutenção",
+        "reparo de equipamentos",
+        "avaliação técnica",
+        "orçamento antes do reparo",
+        "recarga de cartucho",
+        "recarga de toner"
+      ],
+      "equipment": [
+        "celular",
+        "smartphone",
+        "computador",
+        "pc",
+        "desktop",
+        "notebook",
+        "laptop",
+        "impressora",
+        "monitor",
+        "tela",
+        "tablet",
+        "videogame",
+        "console",
+        "controle",
+        "cartucho",
+        "toner"
+      ],
+      "problems": [
+        "não liga",
+        "computador não liga",
+        "notebook não liga",
+        "celular não liga",
+        "lentidão",
+        "travamento",
+        "reinicia sozinho",
+        "superaquecimento",
+        "tela quebrada",
+        "tela sem imagem",
+        "não carrega",
+        "bateria viciada",
+        "não imprime",
+        "impressão falhada",
+        "não lê o jogo",
+        "controle com falha"
+      ],
+      "useCases": [
+        "consertar notebook",
+        "consertar computador",
+        "consertar celular",
+        "consertar impressora",
+        "recarregar cartucho",
+        "recarregar toner",
+        "assistência para videogame"
+      ],
+      "keywords": ["informática", "eletrônica", "manutenção de computadores", "assistência de celular"]
+    }
+  }
+}

@@ -87,6 +87,15 @@ const theme = {
   "--ring": "oklch(0.85 0.16 92)",
 } as CSSProperties;
 
+/**
+ * Regra editorial deste projeto:
+ * - a única fotografia real disponível é `banner.webp` (faixa oficial). Ela
+ *   aparece UMA vez, no hero. Nenhum recorte dela é reaproveitado para simular
+ *   galeria;
+ * - as demais seções são compostas com tipografia, ícones e composição;
+ * - endereço, bairro, horário, garantia, prazo, marcas, avaliações e redes
+ *   sociais seguem não confirmados e por isso não são publicados como fato.
+ */
 export const blueprint: PortfolioBlueprint = {
   slug: "carecas-infotec",
   identity: {
@@ -94,14 +103,14 @@ export const blueprint: PortfolioBlueprint = {
     logo: {
       src: "/images/carecas-infotec/logo.png",
       alt: "Careca's Infotec — assistência especializada",
-      width: 535,
-      height: 170,
+      width: 1016,
+      height: 347,
       managedField: "logoUrl",
     },
     nav: [
-      { label: "Bancada", href: "#bancada" },
+      { label: "Equipamentos", href: "#equipamentos" },
+      { label: "Quando procurar", href: "#quando-procurar" },
       { label: "Como funciona", href: "#como-funciona" },
-      { label: "A loja", href: "#loja" },
       { label: "Dúvidas", href: "#duvidas" },
     ],
   },
@@ -138,26 +147,26 @@ export const blueprint: PortfolioBlueprint = {
       order: 10,
       motion: { intensity: "IMMERSIVE", reveal: "up", stagger: 90 },
       content: {
-        eyebrow: "Assistência especializada · São José dos Pinhais",
+        eyebrow: "Assistência especializada · São José dos Pinhais — PR",
         headline: "Solução com qualidade, confiança e preço justo.",
         headlineField: "heroHeadline",
         subheadline:
-          "Assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR. Tecnologia em boas mãos, sempre.",
+          "Celular, computador, notebook, impressora, monitor, tablet e videogame. Descreva o aparelho e o que está acontecendo: a avaliação técnica vem antes de qualquer reparo.",
         subheadlineField: "heroSubheadline",
         image: {
           src: "/images/carecas-infotec/banner.webp",
-          alt: "Comunicação da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
+          alt: "Faixa oficial da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
           width: 1240,
           height: 550,
           managedField: "heroImageUrl",
         },
         ctaLabel: "Agende já seu serviço",
-        secondary: { label: "Ver a bancada", href: "#bancada" },
+        secondary: { label: "Ver equipamentos atendidos", href: "#equipamentos" },
         stats: [
           { value: "8 tipos", label: "Aparelhos atendidos" },
-          { value: "Antes do reparo", label: "Diagnóstico" },
+          { value: "Antes do reparo", label: "Avaliação técnica" },
           { value: "Você aprova", label: "Orçamento" },
-          { value: "Loja física", label: "São José dos Pinhais" },
+          { value: "Presencial", label: "São José dos Pinhais — PR" },
         ],
       },
     },
@@ -168,43 +177,74 @@ export const blueprint: PortfolioBlueprint = {
       motion: { reveal: "fade", stagger: 60 },
       content: {
         items: [
-          { title: "Serviço de qualidade", text: "Diagnóstico antes do reparo.", icon: ShieldCheck },
+          { title: "Serviço de qualidade", text: "Avaliação antes do reparo.", icon: ShieldCheck },
           { title: "Profissionais qualificados", text: "Atendimento de quem executa.", icon: BadgeCheck },
           { title: "Preço justo", text: "Orçamento antes da execução.", icon: ThumbsUp },
           { title: "Tecnologia em boas mãos", text: "Aparelho testado na entrega.", icon: Wrench },
         ],
+        note: "Compromissos comunicados pela própria Careca's Infotec.",
       },
     },
     {
       type: "offers",
       variant: "featured",
       order: 30,
-      id: "bancada",
+      id: "equipamentos",
       motion: { reveal: "up", stagger: 60 },
       content: {
-        eyebrow: "Na bancada",
-        title: "O que entra para conserto",
+        eyebrow: "Equipamentos atendidos",
+        title: "O que entra para avaliação",
         intro:
-          "Cada aparelho passa por diagnóstico antes de qualquer peça ser trocada. Você recebe o orçamento e decide.",
+          "Cada aparelho passa por avaliação técnica antes de qualquer serviço. Você recebe o orçamento e decide se autoriza.",
         items: [
           {
-            title: "Celular",
-            text: "Troca de tela, bateria, conector de carga e limpeza interna, com teste final antes da retirada.",
-            icon: Smartphone,
-            image: {
-              src: "/images/carecas-infotec/servicos.webp",
-              alt: "Aparelhos atendidos pela assistência técnica da Careca's Infotec",
-              width: 670,
-              height: 350,
-            },
+            title: "Computador",
+            text: "Não liga, liga e desliga sozinho, fica lento, trava ou não completa a inicialização? Traga para avaliação.",
+            icon: Monitor,
+            meta: "Desktop",
           },
-          { title: "Computador", text: "Formatação, limpeza, upgrade de memória e troca de peças.", icon: Monitor },
-          { title: "Notebook", text: "Teclado, dobradiça, tela, refrigeração e manutenção geral.", icon: Laptop },
-          { title: "Impressora", text: "Revisão, limpeza de cabeçote e configuração de rede.", icon: Printer },
-          { title: "Monitor", text: "Diagnóstico de imagem, fonte e conectores.", icon: Monitor },
-          { title: "Tablet", text: "Tela, bateria, botões e restauração do sistema.", icon: Tablet },
-          { title: "Videogame", text: "Console e controles: leitura de disco, HDMI e analógicos.", icon: Gamepad2 },
-          { title: "Recargas", text: "Recarga de cartucho e toner com teste de impressão.", icon: Printer },
+          {
+            title: "Notebook",
+            text: "Não liga, aquece demais, desliga sem aviso, tela sem imagem ou dobradiça danificada.",
+            icon: Laptop,
+            meta: "Portátil",
+          },
+          {
+            title: "Celular",
+            text: "Tela quebrada, não carrega, bateria acabando rápido, molhou ou parou de dar sinal de vida.",
+            icon: Smartphone,
+            meta: "Smartphone",
+          },
+          {
+            title: "Tablet",
+            text: "Tela sem resposta ao toque, não liga, não carrega ou o sistema não inicia.",
+            icon: Tablet,
+            meta: "Tablet",
+          },
+          {
+            title: "Impressora",
+            text: "Não imprime, puxa papel errado, sai borrado, com falhas ou perdeu a conexão.",
+            icon: Printer,
+            meta: "Jato de tinta e laser",
+          },
+          {
+            title: "Recarga de cartucho e toner",
+            text: "Recarga de cartucho e de toner para quem quer voltar a imprimir sem trocar o suprimento.",
+            icon: Printer,
+            meta: "Suprimentos",
+          },
+          {
+            title: "Monitor",
+            text: "Sem imagem, imagem tremida, manchas, cores erradas ou não reconhece o cabo.",
+            icon: Monitor,
+            meta: "Vídeo",
+          },
+          {
+            title: "Videogame",
+            text: "Console que não liga, superaquece, não lê o jogo, sem imagem na TV ou controle com falha.",
+            icon: Gamepad2,
+            meta: "Console e controle",
+          },
         ],
         ctaLabel: "Descrever o meu aparelho",
       },
@@ -213,86 +253,84 @@ export const blueprint: PortfolioBlueprint = {
       type: "useCases",
       variant: "editorial",
       order: 40,
-      id: "como-funciona",
+      id: "quando-procurar",
       motion: { reveal: "right", stagger: 110 },
       content: {
-        eyebrow: "Como funciona",
-        title: "Diagnóstico, orçamento e reparo.",
+        eyebrow: "Quando procurar a assistência",
+        title: "Sinais de que o aparelho pede avaliação técnica.",
         intro:
-          "Três passos simples, sem surpresa no momento da retirada: você só aprova o serviço depois de saber o que precisa ser feito e quanto custa.",
+          "Você não precisa saber a causa. Descrever o comportamento já adianta o trabalho da bancada — o defeito é identificado na avaliação, não no palpite.",
         items: [
           {
-            title: "Você conta o que aconteceu",
-            text: "Pelo formulário, informe o aparelho, a marca, o modelo e o defeito percebido. Isso adianta o diagnóstico.",
+            title: "Computador e notebook",
+            text: "Não liga, reinicia sozinho, demora muito para abrir programas, trava no meio do uso, faz barulho fora do normal ou esquenta demais.",
           },
           {
-            title: "A equipe diagnostica e orça",
-            text: "O aparelho é avaliado na bancada e o orçamento é apresentado antes de qualquer reparo.",
+            title: "Celular e tablet",
+            text: "Tela trincada ou sem toque, aparelho que não carrega, bateria que dura pouco, aquecimento durante a carga ou queda que mudou o comportamento.",
           },
           {
-            title: "Aprovado, o reparo é executado",
-            text: "O serviço é feito e o aparelho é testado antes de voltar para as suas mãos.",
+            title: "Impressora, cartucho e toner",
+            text: "Impressão falhada ou borrada, papel que enrosca, impressora que sumiu da rede ou suprimento no fim — a recarga de cartucho e toner é feita na loja.",
+          },
+          {
+            title: "Monitor e videogame",
+            text: "Tela sem imagem, sinal que some, console que não lê o jogo, desliga sozinho durante a partida ou controle que não responde.",
           },
         ],
-        aside: {
-          src: "/images/carecas-infotec/servicos.webp",
-          alt: "Lista de aparelhos atendidos pela assistência técnica da Careca's Infotec",
-          width: 670,
-          height: 350,
-        },
-      },
-    },
-    {
-      type: "authority",
-      variant: "split",
-      order: 50,
-      id: "loja",
-      motion: { reveal: "left" },
-      content: {
-        eyebrow: "A loja",
-        title: "Careca's Infotec — assistência que resolve.",
-        paragraphs: [
-          "Atendimento direto de quem executa o serviço, com explicação do que precisa ser feito no seu aparelho.",
-          "Descreva o aparelho e o defeito pelo formulário: a equipe responde para combinar o atendimento na loja.",
-        ],
-        points: [
-          { title: "Endereço", text: "Rua Margarida Petrelli Fogiatto, 118 — São José dos Pinhais/PR", icon: MapPin },
-          { title: "Atendimento", text: "Leve na loja ou combine antes pelo formulário.", icon: Wrench },
-        ],
-        image: {
-          src: "/images/carecas-infotec/banner.webp",
-          alt: "Fachada e comunicação visual da Careca's Infotec",
-          width: 1240,
-          height: 550,
-        },
-        ctaLabel: "Combinar atendimento",
       },
     },
     {
       type: "offers",
       variant: "alternating",
-      order: 60,
+      order: 50,
+      id: "como-funciona",
       motion: { reveal: "up", stagger: 80 },
       content: {
-        eyebrow: "Compromissos",
-        title: "O que você pode esperar da bancada",
+        eyebrow: "Como funciona a avaliação",
+        title: "Do relato ao aparelho testado",
+        intro:
+          "Sem surpresa na retirada: o serviço só é executado depois que você sabe o que precisa ser feito e quanto custa.",
         items: [
           {
-            title: "Serviço de qualidade",
-            text: "Diagnóstico antes do reparo e explicação do que precisa ser feito no seu aparelho.",
-            meta: "Diagnóstico",
+            title: "1. Você conta o que aconteceu",
+            text: "Pelo formulário desta página, informe o aparelho, a marca, o modelo e o comportamento que percebeu. Se não souber o defeito, existe a opção “ainda não sei”.",
+            meta: "Relato",
           },
           {
-            title: "Profissionais qualificados",
-            text: "Assistência técnica especializada, com atendimento direto de quem executa o serviço.",
-            meta: "Equipe",
+            title: "2. A bancada avalia e orça",
+            text: "O aparelho é avaliado pela assistência e o orçamento é apresentado antes de qualquer reparo.",
+            meta: "Avaliação",
           },
           {
-            title: "Preço justo",
-            text: "Orçamento apresentado antes da execução, sem surpresa no momento da retirada.",
-            meta: "Orçamento",
+            title: "3. Com a sua aprovação, o serviço é feito",
+            text: "Aprovado o orçamento, o serviço é executado e o aparelho é testado antes de voltar para as suas mãos.",
+            meta: "Execução",
           },
         ],
+        ctaLabel: "Começar pelo relato",
+      },
+    },
+    {
+      type: "authority",
+      variant: "split",
+      order: 60,
+      id: "loja",
+      motion: { reveal: "left" },
+      content: {
+        eyebrow: "Careca's Infotec em São José dos Pinhais",
+        title: "Assistência técnica especializada, com atendimento de quem executa.",
+        paragraphs: [
+          "A Careca's Infotec atende celular, computador, notebook, impressora, monitor, tablet e videogame, além de recarga de cartucho e toner, em São José dos Pinhais — PR.",
+          "O primeiro contato é feito pelo formulário desta página: você descreve o aparelho e o defeito percebido, e a equipe responde para combinar o atendimento.",
+        ],
+        points: [
+          { title: "Onde", text: "São José dos Pinhais — PR.", icon: MapPin },
+          { title: "Como começar", text: "Envie o relato pelo formulário e combine o atendimento.", icon: Wrench },
+        ],
+        footnote:
+          "Endereço completo, horário de funcionamento e canais oficiais serão publicados assim que confirmados pelo próprio negócio.",
+        ctaLabel: "Combinar atendimento",
       },
     },
     {
@@ -303,14 +341,8 @@ export const blueprint: PortfolioBlueprint = {
       content: {
         eyebrow: "Agende já seu serviço",
         title: "Tecnologia em boas mãos.",
-        text: "Em poucos toques você informa o aparelho, o problema e o melhor momento para o atendimento.",
+        text: "Em poucos toques você informa o aparelho, o que está acontecendo e o melhor momento para o atendimento.",
         ctaLabel: "Solicitar atendimento",
-        image: {
-          src: "/images/carecas-infotec/banner.webp",
-          alt: "Comunicação visual da Careca's Infotec",
-          width: 1240,
-          height: 550,
-        },
       },
     },
     {
@@ -329,19 +361,23 @@ export const blueprint: PortfolioBlueprint = {
           },
           {
             q: "Preciso saber qual é o defeito?",
-            a: "Não. Basta descrever o que está acontecendo — no formulário há a opção “ainda não sei o defeito”. O diagnóstico é feito na bancada.",
+            a: "Não. Descreva o comportamento do aparelho — no formulário há a opção “ainda não sei o defeito”. A identificação é feita na avaliação técnica.",
           },
           {
-            q: "O orçamento vem antes do conserto?",
-            a: "Sim. O orçamento é apresentado antes da execução e o reparo só acontece depois da sua aprovação.",
+            q: "O orçamento vem antes do serviço?",
+            a: "Sim. O orçamento é apresentado antes da execução e o serviço só acontece depois da sua aprovação.",
           },
           {
-            q: "Onde fica a loja?",
-            a: "Na Rua Margarida Petrelli Fogiatto, 118, em São José dos Pinhais — PR.",
+            q: "Meu notebook não liga. Vale levar?",
+            a: "Vale. Aparelho que não liga é um dos casos mais comuns de avaliação: só depois de avaliado é possível dizer o que está acontecendo e quanto custa resolver.",
+          },
+          {
+            q: "Vocês recarregam cartucho e toner?",
+            a: "Sim, recarga de cartucho e de toner faz parte dos serviços da assistência.",
           },
           {
             q: "Como faço o primeiro contato?",
-            a: "Pelo formulário desta página: você informa o aparelho, o defeito e o melhor momento, e a equipe responde para combinar o atendimento.",
+            a: "Pelo formulário desta página: você informa o aparelho, o que está acontecendo e o melhor momento, e a equipe responde para combinar o atendimento.",
           },
         ],
         ctaLabel: "Enviar meu caso",

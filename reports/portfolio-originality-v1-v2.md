@@ -31,7 +31,7 @@ originalidade: nenhuma página pública mudou.
 | guaratuba-oficina-nautica | casa-nativa | casa-nativa | 40 | 36 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | reuse-house-brecho | angel-mix-brecho | beto-pasteis | 34 | 30 | -4 | SIM | METRIC_CORRECTION | 100 | 15 |
 | beto-pasteis | reuse-house-brecho | reuse-house-brecho | 33 | 30 | -3 | não | METRIC_CORRECTION | 100 | 15 |
-| carecas-infotec | angel-mix-brecho | angel-mix-brecho | 11 | 8 | -3 | não | METRIC_CORRECTION | 0 | 1.9 |
+| carecas-infotec | angel-mix-brecho | angel-mix-brecho | 11 | 8 | -3 | não | METRIC_CORRECTION | 0 | 6 |
 | centro-mega | mania-de-limpeza | mania-de-limpeza | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 11.2 |
 | embalar-embalagens | maximos-cabeleireiros | maximos-cabeleireiros | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |
 | galileu-locacao-brinquedos | lj-cleaning | lj-cleaning | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 15 |

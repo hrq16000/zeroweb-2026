@@ -297,6 +297,14 @@
         "hsl(220 20% 8%)"
       ],
       "notes": "Composição de marca gerada a partir do wordmark do site de origem (sem invenção de símbolo). Protegida contra regeneração automática (authored=true)."
+    },
+    "carecas-infotec": {
+      "brandOrigin": "CLIENT_PROVIDED",
+      "brandReview": "APPROVED",
+      "classification": "REAL_BRAND_VALID",
+      "authored": true,
+      "logo": "/images/carecas-infotec/logo.png",
+      "notes": "Marca real da faixa oficial enviada pelo negócio (banner.webp). Normalização fiel por scripts/build-carecas-identity.mjs: recorte do bloco do logotipo, remoção do ruído da lona e redução às três tintas reais (amarelo, carvão e descritor claro). Nenhuma reinterpretação, nenhum símbolo novo. Vetorização fiel não foi feita: a única fonte é fotográfica, então a marca segue em raster limpo. A identidade roxa gerada (logo.svg/CI, social-source.svg, hero-og.jpg) foi removida."
     }
   }
 }

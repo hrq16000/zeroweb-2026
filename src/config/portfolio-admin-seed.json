@@ -460,10 +460,10 @@
       "state": "PR",
       "summary": "Careca's Infotec faz assistência técnica especializada em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR.",
       "subtitle": "Assistência técnica em celular, computador e notebook",
-      "image": "/images/carecas-infotec/hero-og.jpg",
-      "icon": "/images/carecas-infotec/logo.svg",
-      "socialImage": "/images/carecas-infotec/hero-og.jpg",
-      "socialVersion": "cebd185b",
+      "image": "/images/carecas-infotec/capa.jpg",
+      "icon": "/images/carecas-infotec/logo.png",
+      "socialImage": "/images/carecas-infotec/capa.jpg",
+      "socialVersion": "0dd39b67",
       "componentFile": "src/components/site/CarecasInfotecPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/carecas-infotec",
@@ -473,11 +473,8 @@
       "hasClientEntry": true,
       "gallery": [
         "/images/carecas-infotec/banner.webp",
-        "/images/carecas-infotec/hero-og.jpg",
-        "/images/carecas-infotec/logo.png",
-        "/images/carecas-infotec/logo.svg",
-        "/images/carecas-infotec/servicos.webp",
-        "/images/carecas-infotec/social-source.svg"
+        "/images/carecas-infotec/capa.jpg",
+        "/images/carecas-infotec/logo.png"
       ],
       "shareCopy": "🛠️ A Careca's Infotec está de site novo!\n\nAssistência técnica especializada em celular, computador, notebook, impressora, monitor, tablet, videogame e recarga de cartucho e toner, em São José dos Pinhais — PR.\n\n🌐 Confira:\nhttps://0web.com.br/portfolio/carecas-infotec\n\n📲 Descreva o aparelho e o defeito pelo site e agende seu atendimento.\n\n#CarecasInfotec #AssistenciaTecnica #SaoJoseDosPinhais #0WEB",
       "published": true,

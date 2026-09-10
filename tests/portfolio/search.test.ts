@@ -45,4 +45,23 @@ describe("busca inteligente do portfólio", () => {
     const outro = items.find((i) => i.segment !== "restaurantes")!;
     expect(scoreItem("pastel", route66)).toBeGreaterThan(scoreItem("pastel", outro));
   });
+
+  it.each([
+    "careca",
+    "carecas infotec",
+    "assistência técnica",
+    "conserto de notebook",
+    "meu computador não liga",
+    "recarga de toner",
+    "impressora não imprime",
+    "tela de celular quebrada",
+    "informática são josé dos pinhais",
+    "videogame",
+  ])("%s encontra a Careca's Infotec", (q) => {
+    expect(slugs(q)).toContain("carecas-infotec");
+  });
+
+  it("intenção de tecnologia ranqueia a Careca's Infotec em primeiro", () => {
+    expect(slugs("conserto de notebook")[0]).toBe("carecas-infotec");
+  });
 });
