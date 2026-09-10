@@ -44,6 +44,8 @@ function PortfolioAdminList() {
   const [visual, setVisual] = useState("all");
   const [cover, setCover] = useState("all");
   const [experience, setExperience] = useState("all");
+  const [region, setRegion] = useState("all");
+  const [branch, setBranch] = useState("all");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -66,6 +68,33 @@ function PortfolioAdminList() {
     void fetchData();
   }, [fetchData]);
 
+  const norm = (v: string) =>
+    v
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+
+  const regionOptions = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          rows
+            .map((r) => [r.city, r.state].filter(Boolean).join(" — ").trim())
+            .filter((v) => v.length > 0),
+        ),
+      ).sort((a, b) => a.localeCompare(b, "pt-BR")),
+    [rows],
+  );
+
+  const branchOptions = useMemo(
+    () =>
+      Array.from(new Set(rows.map((r) => (r.segment ?? "").trim()).filter(Boolean))).sort((a, b) =>
+        a.localeCompare(b, "pt-BR"),
+      ),
+    [rows],
+  );
+
   const filtered = useMemo(
     () =>
       rows.filter((r) => {
@@ -81,16 +110,16 @@ function PortfolioAdminList() {
           if ((vq?.coverReview ?? "UNREVIEWED") !== cover) return false;
         }
         if (experience !== "all" && getExperienceLevel(r.slug) !== experience) return false;
+        if (region !== "all" && [r.city, r.state].filter(Boolean).join(" — ").trim() !== region)
+          return false;
+        if (branch !== "all" && (r.segment ?? "").trim() !== branch) return false;
         if (!query.trim()) return true;
-        const q = query.trim().toLowerCase();
-        return (
-          r.slug.includes(q) ||
-          r.displayName.toLowerCase().includes(q) ||
-          r.segment.toLowerCase().includes(q) ||
-          r.city.toLowerCase().includes(q)
-        );
+        const q = norm(query);
+        return [r.slug, r.displayName, r.segment, r.city, r.state]
+          .filter(Boolean)
+          .some((field) => norm(String(field)).includes(q));
       }),
-    [rows, query, status, visual, cover, experience],
+    [rows, query, status, visual, cover, experience, region, branch],
   );
 
   const onImport = async () => {
@@ -148,6 +177,32 @@ function PortfolioAdminList() {
             className="min-h-11 w-72 rounded-md border border-input bg-background pl-9 pr-3 text-sm"
           />
         </div>
+        <select
+          aria-label="Filtrar por região"
+          value={region}
+          onChange={(e) => setRegion(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todas as regiões</option>
+          {regionOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+        <select
+          aria-label="Filtrar por ramo"
+          value={branch}
+          onChange={(e) => setBranch(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todos os ramos</option>
+          {branchOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
         <select
           aria-label="Filtrar por conformidade"
           value={status}
