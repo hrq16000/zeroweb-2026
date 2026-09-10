@@ -44,7 +44,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const triggerRef = useRef<Trigger>("timer");
   const funnelActiveRef = useRef(false);
-  const storageKey = `${STORAGE_KEY}:${pageName}`;
+  
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
   const slug = useMemo(() => portfolioSlugFromPath(routePath), [routePath]);
