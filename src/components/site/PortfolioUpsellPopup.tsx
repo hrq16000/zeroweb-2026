@@ -146,16 +146,12 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     });
 
     return () => {
-      if (ownerRef.current) {
-        instanceGuard.count = Math.max(0, instanceGuard.count - 1);
-        ownerRef.current = false;
-      }
+      release();
       window.clearTimeout(t);
       window.clearTimeout(fb);
       unsub();
-
     };
-  }, [cfg, storageKey, trackingBase, track]);
+  }, [cfg, storageKey, trackingBase, track, slug, pageName]);
 
   // O funil do cliente tem prioridade absoluta sobre a captação da 0WEB.
   useEffect(() => {
