@@ -12,9 +12,9 @@ export const Route = createFileRoute("/sitemap.xml")({
         // de frescor e faz o Google desconfiar do mapa inteiro.
         const children = [
           // Portfólio primeiro: é a prioridade de rastreamento atual.
-          "sitemap-portfolio-prioritario.xml",
+          // Mapa único — projetos, cidades e bairros no mesmo arquivo, para
+          // não dividir o orçamento de rastreio entre arquivos duplicados.
           "sitemap-portfolio.xml",
-          "sitemap-portfolio-locais.xml",
           "sitemap-services.xml",
           "sitemap-pages.xml",
           "sitemap-solutions.xml",
