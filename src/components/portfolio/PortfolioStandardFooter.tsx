@@ -44,6 +44,28 @@ export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredi
           />
         ) : null}
       </div>
+      {places.length > 0 ? (
+        <nav
+          aria-label="Projetos na mesma região"
+          className={
+            "mx-auto mt-3 flex max-w-6xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] sm:justify-start " +
+            (dark ? "text-slate-400" : "text-slate-500")
+          }
+        >
+          <span>Também na região:</span>
+          {places.map((hub) => (
+            <Link
+              key={hub.slug}
+              to="/portfolio-em/$local"
+              params={{ local: hub.slug }}
+              className="underline underline-offset-4 hover:opacity-80"
+            >
+              {hub.kind === "neighborhood" ? `${hub.name} · ${hub.city}` : hub.label}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
+
     </footer>
   );
 }
