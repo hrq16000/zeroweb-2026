@@ -10,9 +10,11 @@
 export const FUNNEL_EARLY_CLICK_SCRIPT = `(function(){
   if (window.__0webFunnelEarlyClick) return; window.__0webFunnelEarlyClick = 1;
   document.addEventListener('click', function(e){
+    // Depois da hidratação o React já cuida do clique: nunca agendar navegação.
+    if (window.__0webFunnelReady) return;
     if (e.defaultPrevented) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-    var el = e.target && e.target.closest ? e.target.closest('[data-funnel-slug]') : null;
+    var el = e.target && e.target.closest ? e.target.closest('a[data-funnel-slug]') : null;
     if (!el) return;
     var slug = el.getAttribute('data-funnel-slug');
     if (!slug) return;
