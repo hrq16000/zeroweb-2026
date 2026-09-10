@@ -178,6 +178,32 @@ function PortfolioAdminList() {
           />
         </div>
         <select
+          aria-label="Filtrar por região"
+          value={region}
+          onChange={(e) => setRegion(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todas as regiões</option>
+          {regionOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+        <select
+          aria-label="Filtrar por ramo"
+          value={branch}
+          onChange={(e) => setBranch(e.target.value)}
+          className="min-h-11 rounded-md border border-input bg-background px-3 text-sm"
+        >
+          <option value="all">Todos os ramos</option>
+          {branchOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+        <select
           aria-label="Filtrar por conformidade"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
