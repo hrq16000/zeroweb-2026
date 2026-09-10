@@ -30,6 +30,7 @@ import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { PortfolioShareButton } from "@/components/site/PortfolioShareButton";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { InternalLinkCluster } from "@/components/site/InternalLinkCluster";
+import { portfolioCityHubs } from "@/lib/portfolio-places";
 import { getIpGeo } from "@/lib/geo-location";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
