@@ -702,73 +702,13 @@ function PortfolioPage() {
               ) : null}
             </div>
 
-            <div className="grid gap-7 lg:grid-cols-[220px_minmax(0,1fr)]">
-              <aside className="hidden lg:block" aria-label="Filtros do catálogo">
-                <div className="sticky top-40 space-y-6 rounded-2xl border border-border bg-card p-5">
-                  <div className="flex items-center gap-2 border-b border-border pb-4 font-bold">
-                    <SlidersHorizontal className="h-4 w-4" /> Filtros
-                  </div>
-                  <fieldset className="space-y-3">
-                    <legend className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                      Tipo de presença
-                    </legend>
-                    {[
-                      { value: "todos", label: "Todos os projetos" },
-                      { value: "landing", label: "Landing pages" },
-                      { value: "catalog", label: "Catálogos" },
-                      { value: "institutional", label: "Institucionais" },
-                    ].map((option) => (
-                      <label
-                        key={option.value}
-                        className="flex min-h-11 cursor-pointer items-center gap-3 text-sm text-foreground"
-                      >
-                        <input
-                          type="radio"
-                          name="project-type"
-                          value={option.value}
-                          checked={projectType === option.value}
-                          onChange={() => setProjectType(option.value)}
-                          className="h-4 w-4 accent-primary"
-                        />{" "}
-                        {option.label}
-                      </label>
-                    ))}
-                  </fieldset>
-                  <div className="space-y-3 border-t border-border pt-5 text-sm text-muted-foreground">
-                    <p className="flex items-center gap-2">
-                      <LayoutGrid className="h-4 w-4 text-primary" /> {catalogItems.length}{" "}
-                      projetos publicados
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-primary" /> Guia comercial nacional
-                    </p>
-                  </div>
-                </div>
-              </aside>
-
+            <div>
               <div>
-                <details className="mb-5 rounded-xl border border-border bg-card p-4 lg:hidden">
-                  <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 font-semibold">
-                    <SlidersHorizontal className="h-4 w-4" /> Filtrar por tipo
-                  </summary>
-                  <div className="grid gap-2 pt-3 sm:grid-cols-2">
-                    {[
-                      { value: "todos", label: "Todos" },
-                      { value: "landing", label: "Landing pages" },
-                      { value: "catalog", label: "Catálogos" },
-                      { value: "institutional", label: "Institucionais" },
-                    ].map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setProjectType(option.value)}
-                        className={`min-h-11 rounded-xl border px-3 text-left text-sm ${projectType === option.value ? "border-primary bg-primary/10 text-primary" : "border-border text-foreground"}`}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </details>
+                <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
+                  {filteredItems.length}{" "}
+                  {filteredItems.length === 1 ? "projeto encontrado" : "projetos encontrados"}
+                </p>
+
 
                 {filteredItems.length === 0 ? (
                   <div className="grid min-h-72 place-items-center rounded-2xl border border-dashed border-border bg-muted/30 p-8 text-center">
