@@ -4406,6 +4406,42 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_place_seo: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          intro: string | null
+          local_business: Json | null
+          meta_description: string | null
+          meta_title: string | null
+          published: boolean
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          intro?: string | null
+          local_business?: Json | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          intro?: string | null
+          local_business?: Json | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       portfolio_web_vitals: {
         Row: {
           captured_at: string

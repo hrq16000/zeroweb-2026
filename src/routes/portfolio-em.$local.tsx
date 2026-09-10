@@ -9,26 +9,31 @@ import {
   portfolioPlacePath,
 } from "@/lib/portfolio-places";
 import { SITE_URL, breadcrumbNode, graph, itemListNode, organizationNode } from "@/lib/portfolio-seo";
+import { getPortfolioPlaceSeo } from "@/lib/portfolio-place-seo.functions";
 
 export const Route = createFileRoute("/portfolio-em/$local")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const hub = findPortfolioPlaceHub(params.local);
     if (!hub) throw notFound();
-    return { hub };
+    const seo = await getPortfolioPlaceSeo({ data: { slug: hub.slug } }).catch(() => null);
+    return { hub, seo };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Local indisponível · 0WEB" }, { name: "robots", content: "noindex" }] };
     }
-    const { hub } = loaderData;
+    const { hub, seo } = loaderData;
     const url = `${SITE_URL}${portfolioPlacePath(hub.slug)}`;
-    const title = `Sites publicados em ${hub.label} · Portfólio 0WEB`;
-    const description = `${hub.projects.length} ${
-      hub.projects.length === 1 ? "projeto publicado" : "projetos publicados"
-    } pela 0WEB em ${hub.label}: ${hub.projects
-      .slice(0, 4)
-      .map((p) => p.title)
-      .join(", ")}. Veja cada site no ar e fale com a empresa pelo funil da própria página.`;
+    const title = seo?.metaTitle || `Sites publicados em ${hub.label} · Portfólio 0WEB`;
+    const description =
+      seo?.metaDescription ||
+      `${hub.projects.length} ${
+        hub.projects.length === 1 ? "projeto publicado" : "projetos publicados"
+      } pela 0WEB em ${hub.label}: ${hub.projects
+        .slice(0, 4)
+        .map((p) => p.title)
+        .join(", ")}. Veja cada site no ar e fale com a empresa pelo funil da própria página.`;
+    const lb = seo?.localBusiness;
     return {
       meta: [
         { title },
@@ -50,6 +55,23 @@ export const Route = createFileRoute("/portfolio-em/$local")({
           type: "application/ld+json",
           children: graph([
             organizationNode(),
+            {
+              "@type": "ProfessionalService",
+              "@id": `${url}#localbusiness`,
+              name: lb?.name || `0WEB — Sites publicados em ${hub.label}`,
+              url,
+              ...(lb?.description ? { description: lb.description } : {}),
+              ...(lb?.telephone ? { telephone: lb.telephone } : {}),
+              priceRange: lb?.priceRange || "$$",
+              parentOrganization: { "@id": `${SITE_URL}/#organization` },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: hub.city,
+                addressRegion: hub.state,
+                addressCountry: "BR",
+              },
+              areaServed: { "@type": "Place", name: lb?.areaServed || hub.label },
+            },
             itemListNode(
               `${url}#projetos`,
               `Projetos da 0WEB em ${hub.label}`,
@@ -70,7 +92,7 @@ export const Route = createFileRoute("/portfolio-em/$local")({
 });
 
 function PlacePage() {
-  const { hub } = Route.useLoaderData();
+  const { hub, seo } = Route.useLoaderData();
   const related =
     hub.kind === "city"
       ? portfolioNeighborhoodHubs(hub.city)
@@ -95,13 +117,23 @@ function PlacePage() {
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
           Sites publicados em {hub.label}
         </h1>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
-          {hub.projects.length === 1
-            ? "1 projeto publicado"
-            : `${hub.projects.length} projetos publicados`}{" "}
-          pela 0WEB neste local. Cada página é o site do próprio cliente, com catálogo, contato e
-          funil próprios.
-        </p>
+        {seo?.intro ? (
+          <div className="mt-3 max-w-2xl space-y-3 text-muted-foreground">
+            {seo.intro
+              .split(/\n{2,}/)
+              .map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+          </div>
+        ) : (
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            {hub.projects.length === 1
+              ? "1 projeto publicado"
+              : `${hub.projects.length} projetos publicados`}{" "}
+            pela 0WEB neste local. Cada página é o site do próprio cliente, com catálogo, contato e
+            funil próprios.
+          </p>
+        )}
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {hub.projects.map((project) => (
