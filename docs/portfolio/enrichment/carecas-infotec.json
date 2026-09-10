@@ -1,0 +1,66 @@
+{
+  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Substitui a conclusão anterior de que não havia presença digital: essa conclusão foi retirada por falta de pesquisa suficiente, não por evidência de ausência.",
+  "slug": "carecas-infotec",
+  "lastResearchAt": "2026-09-10",
+  "identity": {
+    "name": { "value": "Careca's Infotec", "sourceType": "OWNER_SUPPLIED", "source": "faixa/comunicação oficial da loja enviada pelo proprietário (public/images/carecas-infotec/banner.webp)", "confidence": "HIGH", "verifiedAt": "2026-09-08" },
+    "category": { "value": "Assistência técnica de informática", "sourceType": "OWNER_SUPPLIED", "confidence": "HIGH", "verifiedAt": "2026-09-08" },
+    "city": { "value": "São José dos Pinhais - PR", "sourceType": "OWNER_SUPPLIED", "confidence": "MEDIUM", "verifiedAt": "2026-09-08" }
+  },
+  "services": {
+    "value": ["celular", "computador", "notebook", "impressora", "monitor", "tablet", "videogame", "recarga de cartucho", "recarga de toner"],
+    "sourceType": "OWNER_SUPPLIED",
+    "source": "banner.webp",
+    "confidence": "HIGH",
+    "verifiedAt": "2026-09-08"
+  },
+  "google": {
+    "status": "REPORTED_BY_OWNER_PENDING_API_VERIFICATION",
+    "reportedByOwner": {
+      "rating": 4.9,
+      "reviewCount": 43,
+      "category": "assistência técnica de informática",
+      "hasPhotos": true,
+      "hasPublicAddress": true,
+      "hasPublicPhone": true,
+      "hasOpeningHours": true,
+      "hasLinkedInstagram": true
+    },
+    "placeId": null,
+    "googleMapsUri": null,
+    "note": "O conector google_maps (Places API New) não está vinculado a este projeto, e a busca web pública não retornou o perfil. Nada do bloco reportedByOwner pode ser publicado antes de resolução por Places API ou envio do link/Place ID pelo proprietário.",
+    "providerStatus": { "GooglePlacesProvider": "UNAVAILABLE_NO_CONNECTION", "SearchProvider": "NO_MATCH" }
+  },
+  "social": {
+    "instagram": { "status": "REPORTED_BY_OWNER", "url": null, "handle": null, "confidence": "LOW", "evidence": "citado pelo proprietário como vinculado ao perfil Google; não confirmado publicamente nesta rodada" },
+    "facebook": { "status": "NOT_FOUND" },
+    "tiktok": { "status": "NOT_SEARCHED_RELEVANT" },
+    "youtube": { "status": "NOT_FOUND" },
+    "linkedin": { "status": "NOT_FOUND" }
+  },
+  "website": { "status": "NOT_FOUND", "note": "nenhum site oficial identificado; a landing 0WEB é hoje a presença web do negócio" },
+  "location": { "address": null, "neighborhood": null, "phone": null, "openingHours": null, "status": "UNVERIFIED_PUBLIC" },
+  "reviews": { "usable": [], "status": "PENDING_SOURCE", "policy": "só podem ser exibidas via Places API, com autoria, atribuição ao Google Maps, link para a origem e lastVerifiedAt" },
+  "media": {
+    "existing": [
+      { "file": "public/images/carecas-infotec/banner.webp", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "enviado pelo proprietário", "confidence": "HIGH", "suggestedUsage": "hero" },
+      { "file": "public/images/carecas-infotec/logo.png", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "derivado normalizado do banner", "confidence": "HIGH", "suggestedUsage": "identidade/header" },
+      { "file": "public/images/carecas-infotec/capa.jpg", "type": "GENERATED_ILLUSTRATION", "owner": "0WEB", "rights": "composição autoral", "confidence": "HIGH", "suggestedUsage": "capa/OG (brand-led)" }
+    ],
+    "missing": ["fachada real", "interior/bancada real", "balcão", "equipamentos em atendimento"],
+    "strategyBySection": {
+      "hero": "REAL",
+      "equipamentos": "GENERATED",
+      "quando-procurar": "GENERATED",
+      "como-funciona": "GRAPHIC",
+      "loja-identidade": "REAL (pendente de foto oficial da fachada/interior)",
+      "prova-social": "GOOGLE (bloqueado até resolver Places)",
+      "cta": "GRAPHIC"
+    }
+  },
+  "cover": { "strategy": "brand-led", "current": "public/images/carecas-infotec/capa.jpg", "semanticCheck": "informática/assistência técnica perceptível pelo line-art de notebook, celular, impressora e placa" },
+  "generatedAssets": { "planned": ["bancada técnica contextual", "notebook aberto em manutenção", "placa eletrônica em detalhe", "smartphone em diagnóstico"], "rule": "ILUSTRATIVAS — nunca rotuladas como fachada, equipe, loja ou trabalho executado" },
+  "facts": ["nome", "categoria", "lista de equipamentos e serviços atendidos"],
+  "unverified": ["endereço", "telefone", "horário", "Place ID", "rating", "número de avaliações", "Instagram", "CNPJ", "site"],
+  "conflicts": []
+}
