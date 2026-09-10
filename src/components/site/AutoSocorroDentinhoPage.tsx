@@ -361,6 +361,10 @@ export function AutoSocorroDentinhoPage() {
               loading="lazy"
             />
             <p className="mt-3 text-sm">Auto mecânica e socorro automotivo · Quatro Barras — PR</p>
+            <p className="mt-2 flex items-center gap-2 text-sm text-slate-200">
+              <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+              Rua Vicente Vidolin, 800 · Palmitazinho · Quatro Barras — PR
+            </p>
           </div>
           <div className="flex flex-col gap-4 sm:items-end">
             <DentinhoCTA location="dentinho_footer">Iniciar atendimento</DentinhoCTA>

@@ -142,7 +142,8 @@ export function BeautyBookingQuiz({
   const [savedProtocol, setSavedProtocol] = useState<string | null>(null);
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const look = THEMES[theme];
+  // Tema desconhecido (config inválida) não pode derrubar o SSR do projeto.
+  const look = THEMES[theme] ?? THEMES.navy;
   const { accent, accentText, optionClass, primaryClass, panel, titleClass } = look;
   // Funil unificado: base canônica do cliente + ajustes locais desta chamada.
   const quizConfig = useMemo(
