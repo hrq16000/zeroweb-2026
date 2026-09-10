@@ -17,7 +17,7 @@ originalidade: nenhuma página pública mudou.
 | brecho-sao-francisco | toquinho-de-gente-brecho | toquinho-de-gente-brecho | 31 | 24 | -7 | não | METRIC_CORRECTION | 100 | 15 |
 | hbk-iluminacao-led | jc-revestimentos | jc-revestimentos | 38 | 32 | -6 | não | METRIC_CORRECTION | 66.7 | 12 |
 | jc-revestimentos | hbk-iluminacao-led | hbk-iluminacao-led | 38 | 32 | -6 | não | METRIC_CORRECTION | 66.7 | 12 |
-| marmitaria-dom-diego | angel-mix-brecho | angel-mix-brecho | 38 | 32 | -6 | não | METRIC_CORRECTION | 100 | 15 |
+| marmitaria-dom-diego | woodhouse-hamburgueres | woodhouse-hamburgueres | 37 | 31 | -6 | não | METRIC_CORRECTION | 100 | 15 |
 | raphael-construcoes | ton-e-cor | ton-e-cor | 40 | 34 | -6 | não | METRIC_CORRECTION | 100 | 10 |
 | ton-e-cor | raphael-construcoes | raphael-construcoes | 40 | 34 | -6 | não | METRIC_CORRECTION | 100 | 10 |
 | toquinho-de-gente-brecho | woodhouse-hamburgueres | woodhouse-hamburgueres | 52 | 46 | -6 | não | METRIC_CORRECTION | 100 | 15 |
@@ -77,7 +77,7 @@ originalidade: nenhuma página pública mudou.
 | diego-montador-moveis | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 59 | 59 | 0 | não | UNCHANGED | 0 | 7.5 |
 | dyzpromo | marido-de-aluguel | marido-de-aluguel | 25 | 25 | 0 | não | UNCHANGED | 0 | 1.7 |
 | ecommerce-on | acai-total-araucaria | acai-total-araucaria | 54 | 54 | 0 | não | UNCHANGED | 10 | 7.5 |
-| eisenfer-tubos-acos | no-brilho-higienizacao | no-brilho-higienizacao | 42 | 42 | 0 | não | UNCHANGED | 11.1 | 4.3 |
+| eisenfer-tubos-acos | no-brilho-higienizacao | no-brilho-higienizacao | 43 | 43 | 0 | não | UNCHANGED | 11.1 | 4.3 |
 | emporio-lelecute | assistencia-microondas-santos | assistencia-microondas-santos | 29 | 29 | 0 | não | UNCHANGED | 0 | 2.5 |
 | enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 11.1 | 11.2 |
 | espaco-cih-luh | kitutes-na-mesa | kitutes-na-mesa | 39 | 39 | 0 | não | UNCHANGED | 0 | 4.3 |
@@ -90,7 +90,7 @@ originalidade: nenhuma página pública mudou.
 | marido-de-aluguel | paulo-mestre-de-obras | paulo-mestre-de-obras | 38 | 38 | 0 | não | UNCHANGED | 10 | 1.9 |
 | mary-diarista | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 58 | 58 | 0 | não | UNCHANGED | 0 | 2.5 |
 | mp-festas-eventos | studio-de-cilios | studio-de-cilios | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
-| no-brilho-higienizacao | eisenfer-tubos-acos | eisenfer-tubos-acos | 42 | 42 | 0 | não | UNCHANGED | 11.1 | 4.3 |
+| no-brilho-higienizacao | eisenfer-tubos-acos | eisenfer-tubos-acos | 43 | 43 | 0 | não | UNCHANGED | 11.1 | 4.3 |
 | pastelaria-route-66 | mp-festas-eventos | mp-festas-eventos | 32 | 32 | 0 | não | UNCHANGED | 0 | 5.6 |
 | r_beauty | renata-beauty | renata-beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
 | renata-beauty | r_beauty | r_beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
