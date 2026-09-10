@@ -128,7 +128,7 @@ export const refreshIndexWatchFromGsc = createServerFn({ method: "POST" })
     const { resolveSiteUrl, inspectUrl, explainCoverage } = await import("@/lib/gsc.server");
     const property = await resolveSiteUrl("https://0web.com.br/");
     if (property.status !== "selected") {
-      return { status: property.status, checked: 0, indexed: 0, rows: [] as unknown[] };
+      return { status: property.status, checked: 0, indexed: 0, rows: [] as Array<{ url: string; indexed: boolean; coverageState: string }> };
     }
 
     const { data: pending, error } = await supabase
