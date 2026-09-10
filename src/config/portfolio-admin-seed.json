@@ -494,7 +494,7 @@
       "image": "/images/centro-mega/hero.png",
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
-      "socialVersion": "eda032de",
+      "socialVersion": "9e729e85",
       "componentFile": "src/components/site/CentroMegaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/centro-mega",
