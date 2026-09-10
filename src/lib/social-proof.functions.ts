@@ -63,7 +63,14 @@ function actionForLead(args: {
 
 export const getSocialProofFeed = createServerFn({ method: "GET" }).handler(
   async (): Promise<{ items: SocialProofItem[] }> => {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    let supabaseAdmin;
+    try {
+      ({ supabaseAdmin } = await import("@/integrations/supabase/client.server"));
+      // Falha cedo e de forma controlada quando a chave server-only não existe.
+      void supabaseAdmin.from("services");
+    } catch {
+      return { items: [] };
+    }
 
     const [leadsRes, servicesRes] = await Promise.all([
       supabaseAdmin

@@ -97,7 +97,10 @@ export function FunnelCTAButton({
   // Clique disparado antes da hidratação: o script inicial segura o slug e o
   // modal do projeto abre assim que este componente monta.
   useEffect(() => {
-    const w = window as unknown as { __0webPendingFunnel?: string };
+    const w = window as unknown as { __0webPendingFunnel?: string; __0webFunnelReady?: boolean };
+    // A partir daqui o React responde aos cliques; o script pré-hidratação
+    // para de agendar qualquer navegação de fallback.
+    w.__0webFunnelReady = true;
     if (w.__0webPendingFunnel && w.__0webPendingFunnel === funnelSlug) {
       w.__0webPendingFunnel = undefined;
       openFunnel();
