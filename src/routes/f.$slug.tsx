@@ -49,5 +49,6 @@ export const Route = createFileRoute("/f/$slug")({
 
 function FunnelPage() {
   const { funnel } = Route.useLoaderData();
-  return <FunnelRunner funnel={funnel} />;
+  const { slug } = Route.useParams();
+  return <FunnelRunner funnel={funnel} clientKey={clientKeyFromFunnelSlug(slug)} />;
 }
