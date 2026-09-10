@@ -3,7 +3,9 @@
 Status: **obrigatório**. Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md`,
 `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` e
 `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` (estrutura, seções,
-parametrização e ordem narrativa da landing).
+parametrização e ordem narrativa da landing) e
+`docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` (pesquisa da entidade, fontes,
+provas, mídia e `ENTITY_ENRICHMENT_GATE` — etapa anterior ao Blueprint).
 
 Objetivo: todo projeto novo nasce tecnicamente completo **sem virar um template
 visual da 0WEB**.
