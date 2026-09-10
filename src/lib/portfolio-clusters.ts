@@ -183,6 +183,22 @@ export function allPortfolioCombos(): { segment: PortfolioSegment; place: Portfo
   );
 }
 
+/**
+ * Uma combinação só tem conteúdo próprio quando existe pelo menos um projeto
+ * real do catálogo naquele bairro/cidade. Sem isso a página repete o texto do
+ * segmento e apenas dilui o rastreamento.
+ */
+export function comboHasOwnContent(segment: PortfolioSegment, place: PortfolioPlace): boolean {
+  const projects = portfolioProjectsAtPlace(place);
+  if (projects.length === 0) return false;
+  return projects.some((project) => !project.segment || project.segment === segment.slug) || projects.length > 0;
+}
+
+/** Combinações com conteúdo próprio — as únicas que entram no mapa do site. */
+export function portfolioCombosWithContent() {
+  return allPortfolioCombos().filter(({ segment, place }) => comboHasOwnContent(segment, place));
+}
+
 export function portfolioComboPath(segmentSlug: string, placeSlug: string) {
   return `/portfolio/${segmentSlug}/${placeSlug}`;
 }
