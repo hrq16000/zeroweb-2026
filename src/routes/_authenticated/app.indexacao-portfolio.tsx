@@ -3,7 +3,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AlertTriangle, CheckCircle2, RefreshCw } from "lucide-react";
-import { listIndexWatch, syncIndexWatch, setIndexWatchState } from "@/lib/index-watch.functions";
+import {
+  listIndexWatch,
+  syncIndexWatch,
+  setIndexWatchState,
+  refreshIndexWatchFromGsc,
+} from "@/lib/index-watch.functions";
 
 export const Route = createFileRoute("/_authenticated/app/indexacao-portfolio")({
   head: () => ({
@@ -29,6 +34,7 @@ function IndexWatchPanel() {
   const list = useServerFn(listIndexWatch);
   const sync = useServerFn(syncIndexWatch);
   const setState = useServerFn(setIndexWatchState);
+  const refreshGsc = useServerFn(refreshIndexWatchFromGsc);
   const qc = useQueryClient();
   const [alertAfterDays, setAlertAfterDays] = useState(14);
 
@@ -39,6 +45,11 @@ function IndexWatchPanel() {
 
   const syncMut = useMutation({
     mutationFn: () => sync({ data: { section: "portfolio" } }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["index-watch"] }),
+  });
+
+  const gscMut = useMutation({
+    mutationFn: () => refreshGsc({ data: { section: "portfolio", limit: 15 } }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["index-watch"] }),
   });
 
@@ -87,8 +98,25 @@ function IndexWatchPanel() {
             <RefreshCw className={`w-4 h-4 ${syncMut.isPending ? "animate-spin" : ""}`} />
             Sincronizar sitemap
           </button>
+          <button
+            type="button"
+            onClick={() => gscMut.mutate()}
+            disabled={gscMut.isPending}
+            className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-semibold disabled:opacity-60"
+          >
+            <RefreshCw className={`w-4 h-4 ${gscMut.isPending ? "animate-spin" : ""}`} />
+            Atualizar pelo Google
+          </button>
         </div>
       </header>
+
+      {gscMut.data ? (
+        <p className="text-sm text-muted-foreground">
+          {gscMut.data.status === "ok"
+            ? `Google consultado: ${gscMut.data.checked} páginas verificadas, ${gscMut.data.indexed} já aparecem indexadas.`
+            : "Não foi possível ler o Google agora (conta ou propriedade indisponível)."}
+        </p>
+      ) : null}
 
       <div className="grid gap-4 sm:grid-cols-3">
         <Stat label="URLs no sitemap" value={data?.total ?? 0} />
