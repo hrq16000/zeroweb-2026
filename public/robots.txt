@@ -45,4 +45,3 @@ Crawl-delay: 5
 
 # Um índice único: concentra o rastreamento em vez de dividi-lo em 17 mapas.
 Sitemap: https://0web.com.br/sitemap.xml
-Sitemap: https://0web.com.br/sitemap-portfolio-prioritario.xml
