@@ -8,6 +8,7 @@ import {
 } from "@/lib/portfolio-admin.functions";
 import type { MergedProject } from "@/lib/portfolio-admin";
 import { PortfolioFunnelPanel } from "@/components/admin/PortfolioFunnelPanel";
+import { PortfolioCityConversionPanel } from "@/components/admin/PortfolioCityConversionPanel";
 
 import {
   getVisualQuality,
