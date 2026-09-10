@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-10T03:44:50.282Z",
+  "generatedAt": "2026-09-10T04:09:59.922Z",
   "dryRun": false,
-  "minKb": 150,
+  "minKb": 120,
   "maxWidth": 1800,
   "files": 120,
-  "bytesBefore": 61238141,
-  "bytesAfter": 58996626,
-  "savedBytes": 2241515,
-  "savedPercent": 3.7,
+  "bytesBefore": 59657712,
+  "bytesAfter": 58912688,
+  "savedBytes": 745024,
+  "savedPercent": 1.2,
   "results": [
     {
       "file": "public/images/maximos-cabeleireiros/logo.png",
@@ -410,16 +410,6 @@
       "applied": false
     },
     {
-      "file": "public/images/vila-da-capivara/kit-50.png",
-      "from": 563788,
-      "to": 523365,
-      "dimensions": "1086x1448",
-      "outDimensions": "1086x1448",
-      "mae": 0.363,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/your-brutus-burguer/flyer-concept.png",
       "from": 562044,
       "to": 562044,
@@ -520,6 +510,16 @@
       "applied": false
     },
     {
+      "file": "public/images/vila-da-capivara/kit-50.png",
+      "from": 523365,
+      "to": 523365,
+      "dimensions": "1086x1448",
+      "outDimensions": "1086x1448",
+      "mae": 0.161,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
       "file": "public/images/paraiso-do-hot-dog/capa.png",
       "from": 518418,
       "to": 518418,
@@ -570,26 +570,6 @@
       "applied": false
     },
     {
-      "file": "public/images/btb-construcao/hero.png",
-      "from": 510809,
-      "to": 454947,
-      "dimensions": "1774x887",
-      "outDimensions": "1774x887",
-      "mae": 0.373,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/thays-camilla/hero.png",
-      "from": 508527,
-      "to": 480675,
-      "dimensions": "1254x1254",
-      "outDimensions": "1254x1254",
-      "mae": 0.398,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/espaco-cih-luh/promocao.png",
       "from": 503887,
       "to": 503887,
@@ -620,16 +600,6 @@
       "applied": false
     },
     {
-      "file": "public/images/santos-montador-de-moveis/hero.png",
-      "from": 492987,
-      "to": 465034,
-      "dimensions": "1536x1024",
-      "outDimensions": "1536x1024",
-      "mae": 0.32,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/concepts/almeida-torres-concept.png",
       "from": 491681,
       "to": 491681,
@@ -638,16 +608,6 @@
       "mae": 0.349,
       "visuallyEqual": true,
       "applied": false
-    },
-    {
-      "file": "public/images/your-brutus-burguer/hero-og.png",
-      "from": 482655,
-      "to": 456800,
-      "dimensions": "1731x909",
-      "outDimensions": "1731x909",
-      "mae": 0.239,
-      "visuallyEqual": true,
-      "applied": true
     },
     {
       "file": "public/images/r-beauty-icon.png",
@@ -660,12 +620,12 @@
       "applied": false
     },
     {
-      "file": "public/images/services/comunicacao-visual.png",
-      "from": 473210,
-      "to": 426698,
-      "dimensions": "1122x1402",
-      "outDimensions": "1122x1402",
-      "mae": 0.381,
+      "file": "public/images/thays-camilla/hero.png",
+      "from": 480675,
+      "to": 452481,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.294,
       "visuallyEqual": true,
       "applied": true
     },
@@ -688,6 +648,16 @@
       "mae": 0.194,
       "visuallyEqual": true,
       "applied": false
+    },
+    {
+      "file": "public/images/santos-montador-de-moveis/hero.png",
+      "from": 465034,
+      "to": 439405,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.4,
+      "visuallyEqual": true,
+      "applied": true
     },
     {
       "file": "public/images/lk-alvenaria/portfolio.png",
@@ -730,54 +700,44 @@
       "applied": false
     },
     {
+      "file": "public/images/your-brutus-burguer/hero-og.png",
+      "from": 456800,
+      "to": 432918,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.326,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/btb-construcao/hero.png",
+      "from": 454947,
+      "to": 454947,
+      "dimensions": "1774x887",
+      "outDimensions": "1774x887",
+      "mae": 0.214,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
       "file": "public/images/jc-revestimentos/hero-v2.png",
-      "from": 457085,
+      "from": 431812,
       "to": 431812,
       "dimensions": "1774x887",
       "outDimensions": "1774x887",
-      "mae": 0.334,
+      "mae": 0.331,
       "visuallyEqual": true,
-      "applied": true
+      "applied": false
     },
     {
-      "file": "public/images/renata-beauty-promo.png",
-      "from": 447243,
-      "to": 410616,
-      "dimensions": "1024x1536",
-      "outDimensions": "1024x1536",
-      "mae": 0.234,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/premium-envelopamentos/galeria-oficina.png",
-      "from": 438325,
-      "to": 405211,
-      "dimensions": "1536x1024",
-      "outDimensions": "1536x1024",
-      "mae": 0.39,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/paulo-mestre-de-obras/hero-v2.png",
-      "from": 436204,
-      "to": 381212,
+      "file": "public/images/services/comunicacao-visual.png",
+      "from": 426698,
+      "to": 426698,
       "dimensions": "1122x1402",
       "outDimensions": "1122x1402",
-      "mae": 0.493,
+      "mae": 0.307,
       "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/renata-beauty-icon.png",
-      "from": 431740,
-      "to": 395007,
-      "dimensions": "1254x1254",
-      "outDimensions": "1254x1254",
-      "mae": 0.202,
-      "visuallyEqual": true,
-      "applied": true
+      "applied": false
     },
     {
       "file": "public/images/premium-envelopamentos/hero.png",
@@ -790,104 +750,34 @@
       "applied": false
     },
     {
-      "file": "public/images/services/site-profissional-197.png",
-      "from": 418247,
-      "to": 346584,
-      "dimensions": "1254x1254",
-      "outDimensions": "1254x1254",
-      "mae": 0.397,
+      "file": "public/images/renata-beauty-promo.png",
+      "from": 410616,
+      "to": 374004,
+      "dimensions": "1024x1536",
+      "outDimensions": "1024x1536",
+      "mae": 0.209,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/maximos-cabeleireiros/hero.png",
-      "from": 412655,
-      "to": 368673,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.266,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/maximos-cabeleireiros/social.png",
-      "from": 412655,
-      "to": 368673,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.266,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/enoel-portas/hero.png",
-      "from": 412407,
-      "to": 374957,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.326,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/enoel-portas/social.png",
-      "from": 412407,
-      "to": 374957,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.326,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/your-brutus-burguer/business-card-concept.png",
-      "from": 410578,
-      "to": 381839,
-      "dimensions": "1586x992",
-      "outDimensions": "1586x992",
-      "mae": 0.254,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/assistencia-microondas-santos/hero.png",
-      "from": 406566,
-      "to": 370887,
-      "dimensions": "1220x1198",
-      "outDimensions": "1220x1198",
-      "mae": 0.456,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/auto-socorro-dentinho/hero-v2.png",
-      "from": 401424,
-      "to": 374119,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.388,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/thays-camilla/logo.png",
-      "from": 394244,
-      "to": 354042,
+      "file": "public/images/premium-envelopamentos/galeria-oficina.png",
+      "from": 405211,
+      "to": 381694,
       "dimensions": "1536x1024",
       "outDimensions": "1536x1024",
-      "mae": 0.534,
+      "mae": 0.354,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/refrigeracao-maresia/hero-og.png",
-      "from": 392679,
-      "to": 355652,
-      "dimensions": "1731x909",
-      "outDimensions": "1731x909",
-      "mae": 0.319,
+      "file": "public/images/renata-beauty-icon.png",
+      "from": 395007,
+      "to": 395007,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.118,
       "visuallyEqual": true,
-      "applied": true
+      "applied": false
     },
     {
       "file": "public/images/js-eletrica-manutencao/hero.png",
@@ -910,22 +800,82 @@
       "applied": false
     },
     {
-      "file": "public/images/kitutes-na-mesa/logo.png",
-      "from": 383075,
-      "to": 318766,
-      "dimensions": "1254x1254",
-      "outDimensions": "1254x1254",
-      "mae": 0.383,
+      "file": "public/images/your-brutus-burguer/business-card-concept.png",
+      "from": 381839,
+      "to": 345181,
+      "dimensions": "1586x992",
+      "outDimensions": "1586x992",
+      "mae": 0.222,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/assistencia-microondas-santos/hero-og.png",
-      "from": 372092,
-      "to": 334939,
-      "dimensions": "1731x909",
-      "outDimensions": "1731x909",
-      "mae": 0.479,
+      "file": "public/images/paulo-mestre-de-obras/hero-v2.png",
+      "from": 381212,
+      "to": 381212,
+      "dimensions": "1122x1402",
+      "outDimensions": "1122x1402",
+      "mae": 0.141,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/enoel-portas/hero.png",
+      "from": 374957,
+      "to": 374957,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.326,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/enoel-portas/social.png",
+      "from": 374957,
+      "to": 374957,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.326,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/auto-socorro-dentinho/hero-v2.png",
+      "from": 374119,
+      "to": 374119,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.252,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/assistencia-microondas-santos/hero.png",
+      "from": 370887,
+      "to": 351304,
+      "dimensions": "1220x1198",
+      "outDimensions": "1220x1198",
+      "mae": 0.429,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/maximos-cabeleireiros/hero.png",
+      "from": 368673,
+      "to": 344073,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.34,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/maximos-cabeleireiros/social.png",
+      "from": 368673,
+      "to": 344073,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.34,
       "visuallyEqual": true,
       "applied": true
     },
@@ -940,64 +890,64 @@
       "applied": false
     },
     {
-      "file": "public/images/liz-moraes-nail-designer/hero.png",
-      "from": 365966,
-      "to": 340384,
-      "dimensions": "1080x1234",
-      "outDimensions": "1080x1234",
-      "mae": 0.288,
+      "file": "public/images/refrigeracao-maresia/hero-og.png",
+      "from": 355652,
+      "to": 321486,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.265,
       "visuallyEqual": true,
       "applied": true
+    },
+    {
+      "file": "public/images/thays-camilla/logo.png",
+      "from": 354042,
+      "to": 330596,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.37,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/services/site-profissional-197.png",
+      "from": 346584,
+      "to": 346584,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.198,
+      "visuallyEqual": true,
+      "applied": false
     },
     {
       "file": "public/images/mimo-salgados-doces/menu-corrected.png",
-      "from": 364193,
-      "to": 342502,
+      "from": 342502,
+      "to": 243706,
       "dimensions": "852x1846",
       "outDimensions": "852x1846",
-      "mae": 0.124,
+      "mae": 0.08,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/pinturas-nunes/material-original.png",
-      "from": 363207,
-      "to": 321594,
-      "dimensions": "1180x954",
-      "outDimensions": "1180x954",
-      "mae": 0.308,
+      "file": "public/images/liz-moraes-nail-designer/hero.png",
+      "from": 340384,
+      "to": 319423,
+      "dimensions": "1080x1234",
+      "outDimensions": "1080x1234",
+      "mae": 0.364,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/ag-electrical-services/social-2026.png",
-      "from": 362437,
-      "to": 313356,
+      "file": "public/images/assistencia-microondas-santos/hero-og.png",
+      "from": 334939,
+      "to": 334939,
       "dimensions": "1731x909",
       "outDimensions": "1731x909",
-      "mae": 0.506,
+      "mae": 0.166,
       "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/lolipa-arte-em-festas/decoracao-branca.png",
-      "from": 350369,
-      "to": 326458,
-      "dimensions": "1200x1600",
-      "outDimensions": "1200x1600",
-      "mae": 0.174,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/manu-pasteis/logo.png",
-      "from": 346874,
-      "to": 301487,
-      "dimensions": "1672x941",
-      "outDimensions": "1672x941",
-      "mae": 0.441,
-      "visuallyEqual": true,
-      "applied": true
+      "applied": false
     },
     {
       "file": "public/images/fernanda-amaral-drywall/logo-source.png",
@@ -1010,16 +960,6 @@
       "applied": false
     },
     {
-      "file": "public/images/miro-tech/hero.png",
-      "from": 334157,
-      "to": 308771,
-      "dimensions": "854x1281",
-      "outDimensions": "854x1281",
-      "mae": 0.227,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
       "file": "public/images/lolipa-arte-em-festas/decoracao-infantil.png",
       "from": 333471,
       "to": 333471,
@@ -1028,6 +968,16 @@
       "mae": 0.114,
       "visuallyEqual": true,
       "applied": false
+    },
+    {
+      "file": "public/images/lolipa-arte-em-festas/decoracao-branca.png",
+      "from": 326458,
+      "to": 304768,
+      "dimensions": "1200x1600",
+      "outDimensions": "1200x1600",
+      "mae": 0.173,
+      "visuallyEqual": true,
+      "applied": true
     },
     {
       "file": "public/images/refrigeracao-maresia/hero.png",
@@ -1040,92 +990,52 @@
       "applied": false
     },
     {
-      "file": "public/images/ag-electrical-services/laserway-2.png",
-      "from": 320550,
-      "to": 273733,
-      "dimensions": "720x1280",
-      "outDimensions": "720x1280",
-      "mae": 0.459,
+      "file": "public/images/pinturas-nunes/material-original.png",
+      "from": 321594,
+      "to": 288571,
+      "dimensions": "1180x954",
+      "outDimensions": "1180x954",
+      "mae": 0.316,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/studio-de-cilios/portfolio-2.png",
-      "from": 317396,
-      "to": 293193,
-      "dimensions": "900x1600",
-      "outDimensions": "900x1600",
-      "mae": 0.237,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/dona-lucy-salgados/logo.png",
-      "from": 315655,
-      "to": 110881,
-      "dimensions": "1535x1024",
-      "outDimensions": "1535x1024",
-      "mae": 0.374,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/embalar-embalagens/logo.png",
-      "from": 314862,
-      "to": 285092,
+      "file": "public/images/kitutes-na-mesa/logo.png",
+      "from": 318766,
+      "to": 291212,
       "dimensions": "1254x1254",
       "outDimensions": "1254x1254",
-      "mae": 0.368,
+      "mae": 0.236,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/studio-de-cilios/portfolio-1.png",
-      "from": 308702,
-      "to": 277820,
-      "dimensions": "900x1600",
-      "outDimensions": "900x1600",
-      "mae": 0.249,
+      "file": "public/images/ag-electrical-services/social-2026.png",
+      "from": 313356,
+      "to": 313356,
+      "dimensions": "1731x909",
+      "outDimensions": "1731x909",
+      "mae": 0.21,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/miro-tech/hero.png",
+      "from": 308771,
+      "to": 285867,
+      "dimensions": "854x1281",
+      "outDimensions": "854x1281",
+      "mae": 0.264,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/galileu-locacao-brinquedos/logo.png",
-      "from": 307939,
-      "to": 281844,
-      "dimensions": "1536x1024",
-      "outDimensions": "1536x1024",
-      "mae": 0.26,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/refrigeracao-maresia/capa.png",
-      "from": 307270,
-      "to": 289610,
-      "dimensions": "720x1002",
-      "outDimensions": "720x1002",
-      "mae": 0.31,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/reuse-house-brecho/capa-card.jpg",
-      "from": 306897,
-      "to": 288704,
-      "dimensions": "1536x960",
-      "outDimensions": "1536x960",
-      "mae": 0.345,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/assistencia-microondas-santos/logo.png",
-      "from": 301889,
-      "to": 261150,
-      "dimensions": "1768x890",
-      "outDimensions": "1768x890",
-      "mae": 0.308,
+      "file": "public/images/manu-pasteis/logo.png",
+      "from": 301487,
+      "to": 271934,
+      "dimensions": "1672x941",
+      "outDimensions": "1672x941",
+      "mae": 0.385,
       "visuallyEqual": true,
       "applied": true
     },
@@ -1140,62 +1050,72 @@
       "applied": false
     },
     {
-      "file": "public/images/rm-fretes/anuncio-oficial.png",
-      "from": 298698,
-      "to": 89781,
-      "dimensions": "338x509",
-      "outDimensions": "338x509",
-      "mae": 0.731,
+      "file": "public/images/studio-de-cilios/portfolio-2.png",
+      "from": 293193,
+      "to": 270882,
+      "dimensions": "900x1600",
+      "outDimensions": "900x1600",
+      "mae": 0.223,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/centro-mega/hero.png",
-      "from": 291548,
-      "to": 89064,
-      "dimensions": "882x500",
-      "outDimensions": "882x500",
-      "mae": 0.288,
+      "file": "public/images/refrigeracao-maresia/capa.png",
+      "from": 289610,
+      "to": 269707,
+      "dimensions": "720x1002",
+      "outDimensions": "720x1002",
+      "mae": 0.339,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/toquinho-de-gente-brecho/capa-card.jpg",
-      "from": 280330,
-      "to": 263923,
+      "file": "public/images/reuse-house-brecho/capa-card.jpg",
+      "from": 288704,
+      "to": 288704,
       "dimensions": "1536x960",
       "outDimensions": "1536x960",
-      "mae": 0.323,
+      "mae": 0.108,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/embalar-embalagens/logo.png",
+      "from": 285092,
+      "to": 262073,
+      "dimensions": "1254x1254",
+      "outDimensions": "1254x1254",
+      "mae": 0.338,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/brecho-sao-francisco/capa-card.jpg",
+      "file": "public/images/galileu-locacao-brinquedos/logo.png",
+      "from": 281844,
+      "to": 254071,
+      "dimensions": "1536x1024",
+      "outDimensions": "1536x1024",
+      "mae": 0.317,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/studio-de-cilios/portfolio-1.png",
       "from": 277820,
-      "to": 261942,
-      "dimensions": "1536x960",
-      "outDimensions": "1536x960",
-      "mae": 0.302,
+      "to": 248101,
+      "dimensions": "900x1600",
+      "outDimensions": "900x1600",
+      "mae": 0.204,
       "visuallyEqual": true,
       "applied": true
     },
     {
-      "file": "public/images/confeitaria-sabor-da-realeza/logo.png",
-      "from": 273628,
-      "to": 78231,
-      "dimensions": "936x303",
-      "outDimensions": "936x303",
-      "mae": 1.392,
-      "visuallyEqual": true,
-      "applied": true
-    },
-    {
-      "file": "public/images/angel-mix-brecho/capa-card.jpg",
-      "from": 269012,
-      "to": 254501,
-      "dimensions": "1536x960",
-      "outDimensions": "1536x960",
-      "mae": 0.319,
+      "file": "public/images/ag-electrical-services/laserway-2.png",
+      "from": 273733,
+      "to": 247472,
+      "dimensions": "720x1280",
+      "outDimensions": "720x1280",
+      "mae": 0.41,
       "visuallyEqual": true,
       "applied": true
     },
@@ -1208,6 +1128,86 @@
       "mae": 0.187,
       "visuallyEqual": true,
       "applied": false
+    },
+    {
+      "file": "public/images/manu-pasteis/hero.png",
+      "from": 268710,
+      "to": 268710,
+      "dimensions": "720x1280",
+      "outDimensions": "720x1280",
+      "mae": 0.292,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/toquinho-de-gente-brecho/capa-card.jpg",
+      "from": 263923,
+      "to": 263923,
+      "dimensions": "1536x960",
+      "outDimensions": "1536x960",
+      "mae": 0.089,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/brecho-sao-francisco/capa-card.jpg",
+      "from": 261942,
+      "to": 261942,
+      "dimensions": "1536x960",
+      "outDimensions": "1536x960",
+      "mae": 0.057,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/assistencia-microondas-santos/logo.png",
+      "from": 261150,
+      "to": 261150,
+      "dimensions": "1768x890",
+      "outDimensions": "1768x890",
+      "mae": 0.16,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/ag-electrical-services/rack-2.png",
+      "from": 260360,
+      "to": 235171,
+      "dimensions": "581x1032",
+      "outDimensions": "581x1032",
+      "mae": 0.42,
+      "visuallyEqual": true,
+      "applied": true
+    },
+    {
+      "file": "public/images/angel-mix-brecho/capa-card.jpg",
+      "from": 254501,
+      "to": 254501,
+      "dimensions": "1536x960",
+      "outDimensions": "1536x960",
+      "mae": 0.058,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/vila-da-capivara/capa-card.jpg",
+      "from": 250623,
+      "to": 250623,
+      "dimensions": "1220x763",
+      "outDimensions": "1220x763",
+      "mae": 0.417,
+      "visuallyEqual": true,
+      "applied": false
+    },
+    {
+      "file": "public/images/lj-cleaning/logo.png",
+      "from": 249350,
+      "to": 233869,
+      "dimensions": "1774x887",
+      "outDimensions": "1774x887",
+      "mae": 0.228,
+      "visuallyEqual": true,
+      "applied": true
     }
   ]
 }
