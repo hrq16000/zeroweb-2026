@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { resolveBaseUrl, renderSitemap } from "@/lib/sitemap-utils";
-import { allPortfolioCombos, portfolioComboPath } from "@/lib/portfolio-clusters";
+import { portfolioCombosWithContent, portfolioComboPath } from "@/lib/portfolio-clusters";
 import { getApprovedPortfolioSitemapEntries } from "@/lib/portfolio-sitemap.server";
 import { portfolioPlaceHubs, portfolioPlacePath } from "@/lib/portfolio-places";
 
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/sitemap-portfolio.xml")({
             changefreq: "weekly" as const,
             priority: hub.kind === "city" ? "0.8" : "0.7",
           })),
-          ...allPortfolioCombos().map(({ segment, place }) => ({
+          ...portfolioCombosWithContent().map(({ segment, place }) => ({
             path: portfolioComboPath(segment.slug, place.slug),
             changefreq: "monthly" as const,
             priority: "0.6",
