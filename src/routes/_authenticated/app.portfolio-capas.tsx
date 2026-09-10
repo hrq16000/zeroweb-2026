@@ -124,9 +124,13 @@ function PortfolioCoversPage() {
         </h1>
         <p className="text-sm text-muted-foreground">
           {rows.length} projetos · {rows.length - pendingTotal} com capa publicada ·{" "}
-          {pendingTotal} aguardando material. Cada linha mostra o motivo e o que
-          precisa chegar do cliente.
+          {pendingTotal} aguardando material. A lista vem ordenada pelos projetos
+          mais visitados nos últimos 30 dias, então o material que chega primeiro
+          resolve quem mais recebe gente.
+          {metrics.isLoading ? " Carregando as visitas…" : ""}
+          {metrics.isError ? " Não foi possível carregar as visitas agora." : ""}
         </p>
+
       </header>
 
       <section className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
