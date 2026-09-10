@@ -671,19 +671,6 @@ function PortfolioPage() {
                     ))}
                   </select>
                   <select
-                    aria-label="Filtrar por ramo"
-                    value={activeBranch}
-                    onChange={(e) => setActiveBranch(e.target.value)}
-                    className="h-9 truncate rounded-lg border border-border bg-background px-2.5 text-xs text-foreground sm:h-10 sm:text-sm lg:h-12 lg:min-w-48 lg:rounded-xl lg:px-4"
-                  >
-                    <option value="todos">Todos os ramos</option>
-                    {availableBranches.map((branch) => (
-                      <option key={branch} value={branch}>
-                        {branch}
-                      </option>
-                    ))}
-                  </select>
-                  <select
                     aria-label="Ordenar projetos"
                     value={sort}
                     onChange={(e) => setSort(e.target.value)}
