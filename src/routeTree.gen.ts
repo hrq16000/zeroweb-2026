@@ -69,6 +69,7 @@ import { Route as SitemapEditorialDotxmlRouteImport } from './routes/sitemap-edi
 import { Route as SitemapInstitucionalDotxmlRouteImport } from './routes/sitemap-institucional[.]xml'
 import { Route as SitemapMarketplaceDotxmlRouteImport } from './routes/sitemap-marketplace[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
+import { Route as SitemapPortfolioLocaisDotxmlRouteImport } from './routes/sitemap-portfolio-locais[.]xml'
 import { Route as SitemapPortfolioDotxmlRouteImport } from './routes/sitemap-portfolio[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
 import { Route as SitemapSkyscraperDotxmlRouteImport } from './routes/sitemap-skyscraper[.]xml'
@@ -539,6 +540,12 @@ const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
   path: '/sitemap-pages.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapPortfolioLocaisDotxmlRoute =
+  SitemapPortfolioLocaisDotxmlRouteImport.update({
+    id: '/sitemap-portfolio-locais.xml',
+    path: '/sitemap-portfolio-locais.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SitemapPortfolioDotxmlRoute = SitemapPortfolioDotxmlRouteImport.update({
   id: '/sitemap-portfolio.xml',
   path: '/sitemap-portfolio.xml',
@@ -1495,6 +1502,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio-locais.xml': typeof SitemapPortfolioLocaisDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
@@ -1718,6 +1726,7 @@ export interface FileRoutesByTo {
   '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio-locais.xml': typeof SitemapPortfolioLocaisDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
@@ -1943,6 +1952,7 @@ export interface FileRoutesById {
   '/sitemap-institucional.xml': typeof SitemapInstitucionalDotxmlRoute
   '/sitemap-marketplace.xml': typeof SitemapMarketplaceDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
+  '/sitemap-portfolio-locais.xml': typeof SitemapPortfolioLocaisDotxmlRoute
   '/sitemap-portfolio.xml': typeof SitemapPortfolioDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap-skyscraper.xml': typeof SitemapSkyscraperDotxmlRoute
@@ -2170,6 +2180,7 @@ export interface FileRouteTypes {
     | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio-locais.xml'
     | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
@@ -2393,6 +2404,7 @@ export interface FileRouteTypes {
     | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio-locais.xml'
     | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
@@ -2617,6 +2629,7 @@ export interface FileRouteTypes {
     | '/sitemap-institucional.xml'
     | '/sitemap-marketplace.xml'
     | '/sitemap-pages.xml'
+    | '/sitemap-portfolio-locais.xml'
     | '/sitemap-portfolio.xml'
     | '/sitemap-services.xml'
     | '/sitemap-skyscraper.xml'
@@ -2844,6 +2857,7 @@ export interface RootRouteChildren {
   SitemapInstitucionalDotxmlRoute: typeof SitemapInstitucionalDotxmlRoute
   SitemapMarketplaceDotxmlRoute: typeof SitemapMarketplaceDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
+  SitemapPortfolioLocaisDotxmlRoute: typeof SitemapPortfolioLocaisDotxmlRoute
   SitemapPortfolioDotxmlRoute: typeof SitemapPortfolioDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapSkyscraperDotxmlRoute: typeof SitemapSkyscraperDotxmlRoute
@@ -3345,6 +3359,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-pages.xml'
       fullPath: '/sitemap-pages.xml'
       preLoaderRoute: typeof SitemapPagesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-portfolio-locais.xml': {
+      id: '/sitemap-portfolio-locais.xml'
+      path: '/sitemap-portfolio-locais.xml'
+      fullPath: '/sitemap-portfolio-locais.xml'
+      preLoaderRoute: typeof SitemapPortfolioLocaisDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-portfolio.xml': {
@@ -4872,6 +4893,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapInstitucionalDotxmlRoute: SitemapInstitucionalDotxmlRoute,
   SitemapMarketplaceDotxmlRoute: SitemapMarketplaceDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
+  SitemapPortfolioLocaisDotxmlRoute: SitemapPortfolioLocaisDotxmlRoute,
   SitemapPortfolioDotxmlRoute: SitemapPortfolioDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapSkyscraperDotxmlRoute: SitemapSkyscraperDotxmlRoute,
