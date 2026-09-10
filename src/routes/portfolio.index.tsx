@@ -567,7 +567,7 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-primary-foreground">
       <Header />
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1 pt-20">
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
           <div className="container mx-auto max-w-6xl px-4 py-2">
