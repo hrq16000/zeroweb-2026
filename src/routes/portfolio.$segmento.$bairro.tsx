@@ -14,6 +14,7 @@ import {
   portfolioClusterLinks,
   portfolioComboPath,
   portfolioProjectsAtPlace,
+  comboHasOwnContent,
 } from "@/lib/portfolio-clusters";
 import {
   SITE_URL,
@@ -30,13 +31,13 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
     const segment = findPortfolioSegment(params.segmento);
     const place = findPortfolioPlace(params.bairro);
     if (!segment || !place) throw notFound();
-    return { segment, place };
+    return { segment, place, hasOwnContent: comboHasOwnContent(segment, place) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Página indisponível · 0WEB" }, { name: "robots", content: "noindex" }] };
     }
-    const { segment, place } = loaderData;
+    const { segment, place, hasOwnContent } = loaderData;
     const path = portfolioComboPath(segment.slug, place.slug);
     const url = `${SITE_URL}${path}`;
     const title = `${segment.name} em ${place.name}, ${place.city} · Criação de Sites 0WEB`;
@@ -45,7 +46,10 @@ export const Route = createFileRoute("/portfolio/$segmento/$bairro")({
       meta: [
         { title },
         { name: "description", content: description },
-        { name: "robots", content: "index,follow,max-image-preview:large" },
+        {
+          name: "robots",
+          content: hasOwnContent ? "index,follow,max-image-preview:large" : "noindex,follow",
+        },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
