@@ -170,6 +170,7 @@ import { Route as AuthenticatedAppParceiroRouteImport } from './routes/_authenti
 import { Route as AuthenticatedAppPedidosRouteImport } from './routes/_authenticated/app.pedidos'
 import { Route as AuthenticatedAppPortalsRouteImport } from './routes/_authenticated/app.portals'
 import { Route as AuthenticatedAppPortfolioBuscasRouteImport } from './routes/_authenticated/app.portfolio-buscas'
+import { Route as AuthenticatedAppPortfolioCapasRouteImport } from './routes/_authenticated/app.portfolio-capas'
 import { Route as AuthenticatedAppProfileRouteImport } from './routes/_authenticated/app.profile'
 import { Route as AuthenticatedAppProjectsRouteImport } from './routes/_authenticated/app.projects'
 import { Route as AuthenticatedAppRankingLocalRouteImport } from './routes/_authenticated/app.ranking-local'
@@ -1073,6 +1074,12 @@ const AuthenticatedAppPortfolioBuscasRoute =
     path: '/portfolio-buscas',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPortfolioCapasRoute =
+  AuthenticatedAppPortfolioCapasRouteImport.update({
+    id: '/portfolio-capas',
+    path: '/portfolio-capas',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppProfileRoute = AuthenticatedAppProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -1602,6 +1609,7 @@ export interface FileRoutesByFullPath {
   '/app/pedidos': typeof AuthenticatedAppPedidosRoute
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/portfolio-buscas': typeof AuthenticatedAppPortfolioBuscasRoute
+  '/app/portfolio-capas': typeof AuthenticatedAppPortfolioCapasRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
@@ -1824,6 +1832,7 @@ export interface FileRoutesByTo {
   '/app/pedidos': typeof AuthenticatedAppPedidosRoute
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/portfolio-buscas': typeof AuthenticatedAppPortfolioBuscasRoute
+  '/app/portfolio-capas': typeof AuthenticatedAppPortfolioCapasRoute
   '/app/profile': typeof AuthenticatedAppProfileRoute
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
@@ -2052,6 +2061,7 @@ export interface FileRoutesById {
   '/_authenticated/app/pedidos': typeof AuthenticatedAppPedidosRoute
   '/_authenticated/app/portals': typeof AuthenticatedAppPortalsRoute
   '/_authenticated/app/portfolio-buscas': typeof AuthenticatedAppPortfolioBuscasRoute
+  '/_authenticated/app/portfolio-capas': typeof AuthenticatedAppPortfolioCapasRoute
   '/_authenticated/app/profile': typeof AuthenticatedAppProfileRoute
   '/_authenticated/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
   '/_authenticated/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
@@ -2280,6 +2290,7 @@ export interface FileRouteTypes {
     | '/app/pedidos'
     | '/app/portals'
     | '/app/portfolio-buscas'
+    | '/app/portfolio-capas'
     | '/app/profile'
     | '/app/projects'
     | '/app/ranking-local'
@@ -2502,6 +2513,7 @@ export interface FileRouteTypes {
     | '/app/pedidos'
     | '/app/portals'
     | '/app/portfolio-buscas'
+    | '/app/portfolio-capas'
     | '/app/profile'
     | '/app/projects'
     | '/app/ranking-local'
@@ -2729,6 +2741,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/pedidos'
     | '/_authenticated/app/portals'
     | '/_authenticated/app/portfolio-buscas'
+    | '/_authenticated/app/portfolio-capas'
     | '/_authenticated/app/profile'
     | '/_authenticated/app/projects'
     | '/_authenticated/app/ranking-local'
@@ -4068,6 +4081,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppPortfolioBuscasRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/portfolio-capas': {
+      id: '/_authenticated/app/portfolio-capas'
+      path: '/portfolio-capas'
+      fullPath: '/app/portfolio-capas'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioCapasRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/profile': {
       id: '/_authenticated/app/profile'
       path: '/profile'
@@ -4661,6 +4681,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPedidosRoute: typeof AuthenticatedAppPedidosRoute
   AuthenticatedAppPortalsRoute: typeof AuthenticatedAppPortalsRoute
   AuthenticatedAppPortfolioBuscasRoute: typeof AuthenticatedAppPortfolioBuscasRoute
+  AuthenticatedAppPortfolioCapasRoute: typeof AuthenticatedAppPortfolioCapasRoute
   AuthenticatedAppProfileRoute: typeof AuthenticatedAppProfileRoute
   AuthenticatedAppProjectsRoute: typeof AuthenticatedAppProjectsRouteWithChildren
   AuthenticatedAppRankingLocalRoute: typeof AuthenticatedAppRankingLocalRoute
@@ -4722,6 +4743,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppPedidosRoute: AuthenticatedAppPedidosRoute,
   AuthenticatedAppPortalsRoute: AuthenticatedAppPortalsRoute,
   AuthenticatedAppPortfolioBuscasRoute: AuthenticatedAppPortfolioBuscasRoute,
+  AuthenticatedAppPortfolioCapasRoute: AuthenticatedAppPortfolioCapasRoute,
   AuthenticatedAppProfileRoute: AuthenticatedAppProfileRoute,
   AuthenticatedAppProjectsRoute: AuthenticatedAppProjectsRouteWithChildren,
   AuthenticatedAppRankingLocalRoute: AuthenticatedAppRankingLocalRoute,
