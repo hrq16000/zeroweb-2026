@@ -164,3 +164,10 @@ export function portfolioNeighborhoodHubs(city?: string): PortfolioPlaceHub[] {
     (hub) => hub.kind === "neighborhood" && (!city || hub.city === city),
   );
 }
+
+/** Hubs regionais (cidade e bairro) que contêm um projeto específico. */
+export function portfolioPlaceHubsForProject(slug: string): PortfolioPlaceHub[] {
+  return portfolioPlaceHubs()
+    .filter((hub) => hub.projects.some((project) => project.slug === slug))
+    .sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "neighborhood" ? -1 : 1));
+}

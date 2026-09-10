@@ -1,11 +1,15 @@
+import { Link } from "@tanstack/react-router";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import type { SurfaceVariant } from "@/lib/portfolio-global-config";
+import { portfolioPlaceHubsForProject } from "@/lib/portfolio-places";
 
 type Props = {
   siteName: string;
   variant: SurfaceVariant;
   showYear: boolean;
   hostCredit: boolean;
+  /** Slug do projeto: liga a página aos hubs regionais da plataforma. */
+  slug?: string;
 };
 
 /**
@@ -13,7 +17,9 @@ type Props = {
  * É neutro de identidade: nome do cliente + crédito discreto da 0WEB.
  * O shell garante que ele seja a última seção de conteúdo da página.
  */
-export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredit }: Props) {
+export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredit, slug }: Props) {
+  const places = slug ? portfolioPlaceHubsForProject(slug) : [];
+
   const dark = variant === "dark";
   return (
     <footer
@@ -38,6 +44,28 @@ export function PortfolioStandardFooter({ siteName, variant, showYear, hostCredi
           />
         ) : null}
       </div>
+      {places.length > 0 ? (
+        <nav
+          aria-label="Projetos na mesma região"
+          className={
+            "mx-auto mt-3 flex max-w-6xl flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] sm:justify-start " +
+            (dark ? "text-slate-400" : "text-slate-500")
+          }
+        >
+          <span>Também na região:</span>
+          {places.map((hub) => (
+            <Link
+              key={hub.slug}
+              to="/portfolio-em/$local"
+              params={{ local: hub.slug }}
+              className="underline underline-offset-4 hover:opacity-80"
+            >
+              {hub.kind === "neighborhood" ? `${hub.name} · ${hub.city}` : hub.label}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
+
     </footer>
   );
 }

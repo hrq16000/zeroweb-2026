@@ -87,7 +87,9 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
           variant={standards.footer.variant}
           showYear={standards.footer.showYear}
           hostCredit={standards.footer.hostCredit}
+          slug={slug}
         />
+
       ) : null}
 
       {standards.contactFloating.enabled && clientKey ? (

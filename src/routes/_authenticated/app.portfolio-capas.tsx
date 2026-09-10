@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ImageOff, ImageIcon, ShieldAlert } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { ImageOff, ImageIcon, ShieldAlert, TrendingUp } from "lucide-react";
 import coverStatus from "@/config/portfolio-cover-status.json";
+import { getPortfolioFunnelMetrics } from "@/lib/portfolio-funnel-metrics.functions";
+
 
 export const Route = createFileRoute("/_authenticated/app/portfolio-capas")({
   component: PortfolioCoversPage,
@@ -72,6 +76,20 @@ function PortfolioCoversPage() {
 
   const pendingTotal = rows.filter((r) => r.status !== "VALID").length;
 
+  // Prioridade = tráfego real do projeto nos últimos 30 dias (analytics_events).
+  const fetchMetrics = useServerFn(getPortfolioFunnelMetrics);
+  const metrics = useQuery({
+    queryKey: ["portfolio-cover-traffic", 30],
+    queryFn: () => fetchMetrics({ data: { days: 30 } }),
+    staleTime: 5 * 60_000,
+  });
+
+  const viewsBySlug = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const r of metrics.data?.projects ?? []) map.set(r.slug, r.views ?? 0);
+    return map;
+  }, [metrics.data]);
+
   const visible = useMemo(() => {
     const t = term.trim().toLowerCase();
     return rows
@@ -89,8 +107,14 @@ function PortfolioCoversPage() {
           (r.businessName ?? "").toLowerCase().includes(t) ||
           (r.segment ?? "").toLowerCase().includes(t),
       )
-      .sort((a, b) => a.status.localeCompare(b.status) || a.slug.localeCompare(b.slug));
-  }, [rows, filter, term]);
+      .sort(
+        (a, b) =>
+          (viewsBySlug.get(b.slug) ?? 0) - (viewsBySlug.get(a.slug) ?? 0) ||
+          a.status.localeCompare(b.status) ||
+          a.slug.localeCompare(b.slug),
+      );
+  }, [rows, filter, term, viewsBySlug]);
+
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6">
@@ -100,9 +124,13 @@ function PortfolioCoversPage() {
         </h1>
         <p className="text-sm text-muted-foreground">
           {rows.length} projetos · {rows.length - pendingTotal} com capa publicada ·{" "}
-          {pendingTotal} aguardando material. Cada linha mostra o motivo e o que
-          precisa chegar do cliente.
+          {pendingTotal} aguardando material. A lista vem ordenada pelos projetos
+          mais visitados nos últimos 30 dias, então o material que chega primeiro
+          resolve quem mais recebe gente.
+          {metrics.isLoading ? " Carregando as visitas…" : ""}
+          {metrics.isError ? " Não foi possível carregar as visitas agora." : ""}
         </p>
+
       </header>
 
       <section className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -167,10 +195,19 @@ function PortfolioCoversPage() {
               <p className="truncate font-semibold">
                 {row.businessName ?? row.slug}
               </p>
-              <p className="text-xs text-muted-foreground">
-                {row.slug}
-                {row.segment ? ` · ${row.segment}` : ""}
+              <p className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <span>
+                  {row.slug}
+                  {row.segment ? ` · ${row.segment}` : ""}
+                </span>
+                {viewsBySlug.has(row.slug) && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-0.5 font-medium">
+                    <TrendingUp className="h-3 w-3" aria-hidden />
+                    {viewsBySlug.get(row.slug)} visitas em 30 dias
+                  </span>
+                )}
               </p>
+
               <p className="mt-1 text-sm text-muted-foreground">
                 {row.reason ?? "Capa aprovada e publicada."}
               </p>
