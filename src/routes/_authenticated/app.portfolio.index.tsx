@@ -118,13 +118,22 @@ function PortfolioAdminList() {
             são editáveis aqui. Contatos de clientes continuam apenas no funil, no servidor.
           </p>
         </div>
-        <Link
-          to="/app/portfolio/novo"
-          search={{ slug: undefined }}
-          className="min-h-11 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
-        >
-          Novo projeto
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            to="/app/portfolio-capas"
+            className="min-h-11 rounded-md border border-border px-4 py-2 text-sm font-semibold"
+          >
+            Capas pendentes
+          </Link>
+          <Link
+            to="/app/portfolio/novo"
+            search={{ slug: undefined }}
+            className="min-h-11 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+          >
+            Novo projeto
+          </Link>
+        </div>
+
       </div>
 
 
