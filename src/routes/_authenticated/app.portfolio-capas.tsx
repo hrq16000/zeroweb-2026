@@ -76,6 +76,20 @@ function PortfolioCoversPage() {
 
   const pendingTotal = rows.filter((r) => r.status !== "VALID").length;
 
+  // Prioridade = tráfego real do projeto nos últimos 30 dias (analytics_events).
+  const fetchMetrics = useServerFn(getPortfolioFunnelMetrics);
+  const metrics = useQuery({
+    queryKey: ["portfolio-cover-traffic", 30],
+    queryFn: () => fetchMetrics({ data: { days: 30 } }),
+    staleTime: 5 * 60_000,
+  });
+
+  const viewsBySlug = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const r of metrics.data?.rows ?? []) map.set(r.slug, r.views ?? 0);
+    return map;
+  }, [metrics.data]);
+
   const visible = useMemo(() => {
     const t = term.trim().toLowerCase();
     return rows
@@ -93,8 +107,14 @@ function PortfolioCoversPage() {
           (r.businessName ?? "").toLowerCase().includes(t) ||
           (r.segment ?? "").toLowerCase().includes(t),
       )
-      .sort((a, b) => a.status.localeCompare(b.status) || a.slug.localeCompare(b.slug));
-  }, [rows, filter, term]);
+      .sort(
+        (a, b) =>
+          (viewsBySlug.get(b.slug) ?? 0) - (viewsBySlug.get(a.slug) ?? 0) ||
+          a.status.localeCompare(b.status) ||
+          a.slug.localeCompare(b.slug),
+      );
+  }, [rows, filter, term, viewsBySlug]);
+
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-6">
