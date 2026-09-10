@@ -529,6 +529,7 @@ function PortfolioAdminDetail() {
       <FunnelContextPanel slug={project.slug} name={project.displayName} />
 
       <VisualQualityPanel slug={project.slug} />
+      <ProjectLeadsPanel slug={project.slug} />
       <PortfolioFunnelPanel slug={project.slug} title="Desempenho" />
 
     </div>
