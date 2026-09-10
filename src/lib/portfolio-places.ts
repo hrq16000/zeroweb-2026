@@ -70,6 +70,7 @@ function extractNeighborhood(location: string | undefined, city: string): string
   if (!normalized || normalized === slugifyPlace(city)) return undefined;
   // Descarta descrições genéricas ("Curitiba e região", "Loja online", ...).
   if (/(regiao|region|online|atendimento|brasil|litoral|metropolitana)/.test(normalized)) return undefined;
+  if (clean.includes(",")) return undefined;
   if (clean.split(/\s+/).length > 4) return undefined;
   return clean.replace(/^Bairro\s+/i, "").trim();
 }
@@ -90,6 +91,8 @@ export function portfolioPlaceHubs(): PortfolioPlaceHub[] {
     const city = (raw.city ?? "").trim();
     const state = (raw.state ?? "").trim();
     if (!city || !state) continue;
+    // Rótulos genéricos ("Brasil", "região a confirmar") não viram hub regional.
+    if (/(regiao|brasil|confirmar)/.test(slugifyPlace(city))) continue;
     const neighborhood = extractNeighborhood(raw.location, city);
     const project: PortfolioPlaceProject = {
       slug: raw.slug,
