@@ -17,6 +17,12 @@ import {
 } from "@/lib/portfolio-visual-quality";
 import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { PortfolioFunnelPanel } from "@/components/admin/PortfolioFunnelPanel";
+import {
+  listPortfolioHostLeads,
+  updatePortfolioHostLeadStatus,
+  type HostLead,
+} from "@/lib/portfolio-host-leads.functions";
+import { HOST_LEAD_STATUSES, HOST_LEAD_STATUS_LABEL } from "@/lib/portfolio-host-leads";
 
 import {
   auditPortfolioFunnelContext,
@@ -529,6 +535,7 @@ function PortfolioAdminDetail() {
       <FunnelContextPanel slug={project.slug} name={project.displayName} />
 
       <VisualQualityPanel slug={project.slug} />
+      <ProjectLeadsPanel slug={project.slug} />
       <PortfolioFunnelPanel slug={project.slug} title="Desempenho" />
 
     </div>
@@ -922,6 +929,96 @@ function VisualQualityPanel({ slug }: { slug: string }) {
           </li>
         )}
       </ul>
+    </section>
+  );
+}
+
+/**
+ * Leads deste projeto: solicitações salvas pelo pop-up comercial da 0WEB
+ * nesta página, com data, hora e status de atendimento no WhatsApp.
+ */
+function ProjectLeadsPanel({ slug }: { slug: string }) {
+  const fetchLeads = useServerFn(listPortfolioHostLeads);
+  const setStatus = useServerFn(updatePortfolioHostLeadStatus);
+  const [leads, setLeads] = useState<HostLead[] | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const load = useCallback(() => {
+    setLoading(true);
+    fetchLeads({ data: { days: 90, slug, limit: 100 } })
+      .then((r) => setLeads(r.leads))
+      .catch(() => setLeads([]))
+      .finally(() => setLoading(false));
+  }, [fetchLeads, slug]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  const onStatus = async (id: string, status: string) => {
+    await setStatus({ data: { leadId: id, status } });
+    load();
+  };
+
+  return (
+    <section aria-labelledby="project-leads" className="mt-6 rounded-xl border border-border bg-card p-5">
+      <h2 id="project-leads" className="text-lg font-semibold">
+        Leads deste projeto
+      </h2>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Solicitações recebidas nos últimos 90 dias. Atualize o status conforme o atendimento no WhatsApp.
+      </p>
+
+      {loading ? (
+        <p className="mt-4 text-sm text-muted-foreground">Carregando…</p>
+      ) : !leads || leads.length === 0 ? (
+        <p className="mt-4 text-sm text-muted-foreground">Nenhuma solicitação registrada neste período.</p>
+      ) : (
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[640px] text-sm">
+            <thead className="text-left text-xs uppercase text-muted-foreground">
+              <tr>
+                <th className="py-2 pr-3">Data e hora</th>
+                <th className="py-2 pr-3">Nome</th>
+                <th className="py-2 pr-3">WhatsApp</th>
+                <th className="py-2 pr-3">Cidade</th>
+                <th className="py-2 pr-3">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {leads.map((lead) => (
+                <tr key={lead.id} className="border-t border-border/60">
+                  <td className="py-2 pr-3 whitespace-nowrap">
+                    {lead.createdAt
+                      ? new Date(lead.createdAt).toLocaleString("pt-BR", {
+                          dateStyle: "short",
+                          timeStyle: "short",
+                        })
+                      : "—"}
+                  </td>
+                  <td className="py-2 pr-3">{lead.name || "—"}</td>
+                  <td className="py-2 pr-3">{lead.phone || "—"}</td>
+                  <td className="py-2 pr-3">{lead.city || "—"}</td>
+                  <td className="py-2 pr-3">
+                    <select
+                      className="rounded-md border border-border bg-background px-2 py-1 text-xs"
+                      value={lead.status ?? ""}
+                      onChange={(e) => void onStatus(lead.id, e.target.value)}
+                      aria-label={`Status do lead ${lead.name || lead.id}`}
+                    >
+                      {HOST_LEAD_STATUSES.map((s) => (
+                        <option key={s} value={s}>
+                          {HOST_LEAD_STATUS_LABEL[s] ?? s}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </section>
   );
 }
