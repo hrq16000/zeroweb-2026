@@ -467,11 +467,11 @@
         "v2Score": 27,
         "delta": -3,
         "v1Nearest": "bh-barreiro-marmitas",
-        "v2Nearest": "bruna-diarista",
-        "neighbourChanged": true,
+        "v2Nearest": "bh-barreiro-marmitas",
+        "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 100,
-        "v2AssetPattern": 6
+        "v2AssetPattern": 15
       },
       {
         "slug": "guaratuba-sabores-da-baia",
@@ -2788,16 +2788,16 @@
       "slug": "guaratuba-reparos-residenciais",
       "score": 27,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "bruna-diarista",
+      "nearestMatch": "bh-barreiro-marmitas",
       "nearestMatchScore": 27,
       "reasons": [],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 11.1,
-        "SECTION_ORDER_SIMILARITY": 62.5,
-        "COMPONENT_SIMILARITY": 28.6,
-        "STYLE_SIMILARITY": 36.9,
+        "STRUCTURE_SIMILARITY": 11.5,
+        "SECTION_ORDER_SIMILARITY": 44.4,
+        "COMPONENT_SIMILARITY": 37.5,
+        "STYLE_SIMILARITY": 50.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 6,
+        "ASSET_PATTERN_SIMILARITY": 15,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [
@@ -2812,17 +2812,17 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "bruna-diarista",
-          "score": 27,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "btb-construcao",
-          "score": 27,
-          "reason": "DISTINCT"
-        },
-        {
           "slug": "bh-barreiro-marmitas",
+          "score": 27,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "maximos-cabeleireiros",
+          "score": 27,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "bruna-diarista",
           "score": 26,
           "reason": "DISTINCT"
         }

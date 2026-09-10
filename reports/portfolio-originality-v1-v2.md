@@ -35,7 +35,7 @@ originalidade: nenhuma página pública mudou.
 | embalar-embalagens | maximos-cabeleireiros | maximos-cabeleireiros | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |
 | galileu-locacao-brinquedos | lj-cleaning | lj-cleaning | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | guaratuba-atelie-presentes | mirassol-delicias-caseiras | mirassol-delicias-caseiras | 45 | 42 | -3 | não | METRIC_CORRECTION | 100 | 15 |
-| guaratuba-reparos-residenciais | bh-barreiro-marmitas | bruna-diarista | 30 | 27 | -3 | SIM | METRIC_CORRECTION | 100 | 6 |
+| guaratuba-reparos-residenciais | bh-barreiro-marmitas | bh-barreiro-marmitas | 30 | 27 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | lj-cleaning | galileu-locacao-brinquedos | galileu-locacao-brinquedos | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | manu-pasteis | miro-tech | miro-tech | 42 | 39 | -3 | não | METRIC_CORRECTION | 75 | 2.1 |
 | maximos-cabeleireiros | embalar-embalagens | embalar-embalagens | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |

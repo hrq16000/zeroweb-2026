@@ -123,8 +123,8 @@ export function Hero() {
               />
             </button>
             <p className="text-sm text-muted-foreground">
-              Planos a partir de R$ 99,99/mês. Escopo, valor e prazo confirmados no orçamento, sem
-              compromisso.
+              Planos a partir de R$ 99,99/mês, com entrega em até 72 horas após a confirmação do
+              pagamento. Escopo e valor confirmados no orçamento, sem compromisso.
             </p>
           </motion.div>
 
