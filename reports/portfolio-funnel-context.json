@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-09-10T07:27:38.445Z",
-    "audited": 89,
-    "pass": 89,
+    "generatedAt": "2026-09-10T08:17:49.980Z",
+    "audited": 90,
+    "pass": 90,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 24,
-      "orcamento": 31,
+      "orcamento": 32,
       "solicitacao": 1,
       "agendamento": 14,
       "contato": 8,
@@ -1169,6 +1169,19 @@
       "nextStepTitle": "Uma solução em aço começa com um escopo bem explicado.",
       "nextStepBody": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
       "primaryCtaLabel": "Iniciar solicitação",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "carecas-infotec",
+      "businessName": "Careca's Infotec",
+      "segment": "prestadores-de-servicos",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Conte o aparelho e o defeito para receber o orçamento.",
+      "nextStepBody": "A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo.",
+      "primaryCtaLabel": "Agendar serviço",
       "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []

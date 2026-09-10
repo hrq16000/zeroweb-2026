@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-10T07:27:38.445Z
+Gerado em 2026-09-10T08:17:49.980Z
 
-- Projetos auditados: **89**
-- PASS: **89** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (24) · orcamento (31) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (7)
+- Projetos auditados: **90**
+- PASS: **90** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (24) · orcamento (32) · solicitacao (1) · agendamento (14) · contato (8) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -97,3 +97,4 @@ Gerado em 2026-09-10T07:27:38.445Z
 | auto-socorro-dentinho | servicos | diagnostico | Conte onde você está, o que aconteceu e se precisa de diagnóstico, reparo ou socorro para organizar o atendimento. | Descrever o problema | PROJECT_CONTRACT | PASS | — |
 | pinturas-nunes | servicos | orcamento | Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | estrutura-nacional | construcao | orcamento | Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação. | Iniciar solicitação | PROJECT_CONTRACT | PASS | — |
+| carecas-infotec | prestadores-de-servicos | orcamento | A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo. | Agendar serviço | PROJECT_CONTRACT | PASS | — |

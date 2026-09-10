@@ -305,6 +305,44 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Conte os ambientes, metragem aproximada e o que você quer transformar."
   },
+  "carecas-infotec": {
+    "proposalKind": "service",
+    "services": [
+      "Celular",
+      "Computador",
+      "Notebook",
+      "Impressora",
+      "Monitor",
+      "Tablet",
+      "Videogame",
+      "Recarga de cartucho ou toner"
+    ],
+    "experienceOptions": [
+      "Não liga",
+      "Tela quebrada",
+      "Lentidão ou travamento",
+      "Bateria / carregamento",
+      "Não imprime",
+      "Ainda não sei o defeito"
+    ],
+    "periodOptions": [
+      "Levo na loja",
+      "Prefiro combinar antes",
+      "Quero só um orçamento"
+    ],
+    "timingOptions": [
+      "Hoje",
+      "Esta semana",
+      "Sem pressa"
+    ],
+    "stepTitles": {
+      "service": "Qual aparelho precisa de atendimento?",
+      "experience": "O que está acontecendo com ele?",
+      "period": "Como prefere resolver?",
+      "timing": "Para quando você precisa?"
+    },
+    "notePlaceholder": "Conte a marca, o modelo e o que aconteceu com o aparelho."
+  },
   "casa-nativa": {
     "stepTitles": {
       "service": "Que experiência procura?",
