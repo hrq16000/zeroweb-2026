@@ -92,7 +92,7 @@ export const Route = createFileRoute("/portfolio-em/$local")({
 });
 
 function PlacePage() {
-  const { hub } = Route.useLoaderData();
+  const { hub, seo } = Route.useLoaderData();
   const related =
     hub.kind === "city"
       ? portfolioNeighborhoodHubs(hub.city)
@@ -117,13 +117,23 @@ function PlacePage() {
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
           Sites publicados em {hub.label}
         </h1>
-        <p className="mt-3 max-w-2xl text-muted-foreground">
-          {hub.projects.length === 1
-            ? "1 projeto publicado"
-            : `${hub.projects.length} projetos publicados`}{" "}
-          pela 0WEB neste local. Cada página é o site do próprio cliente, com catálogo, contato e
-          funil próprios.
-        </p>
+        {seo?.intro ? (
+          <div className="mt-3 max-w-2xl space-y-3 text-muted-foreground">
+            {seo.intro
+              .split(/\n{2,}/)
+              .map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+          </div>
+        ) : (
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            {hub.projects.length === 1
+              ? "1 projeto publicado"
+              : `${hub.projects.length} projetos publicados`}{" "}
+            pela 0WEB neste local. Cada página é o site do próprio cliente, com catálogo, contato e
+            funil próprios.
+          </p>
+        )}
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {hub.projects.map((project) => (
