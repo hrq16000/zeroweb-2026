@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-10T02:27:20.613Z",
-  "dryRun": true,
+  "generatedAt": "2026-09-10T02:30:46.017Z",
+  "dryRun": false,
   "minKb": 300,
   "maxWidth": 1800,
   "files": 40,
@@ -17,7 +17,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.587,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/capa.png",
@@ -27,7 +27,7 @@
       "outDimensions": "1220x1097",
       "mae": 1.118,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/reuse-house-brecho/capa.png",
@@ -37,7 +37,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.921,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/brecho-sao-francisco/capa.png",
@@ -47,7 +47,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.788,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/portfolio-kit/stationery-base.png",
@@ -57,7 +57,7 @@
       "outDimensions": "1731x909",
       "mae": 0.312,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/kit-10.png",
@@ -67,7 +67,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.682,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/toquinho-de-gente-brecho/capa.png",
@@ -77,7 +77,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.949,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/angel-mix-brecho/capa.png",
@@ -87,7 +87,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.805,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/your-brutus-burguer/flyer-concept.png",
@@ -97,7 +97,7 @@
       "outDimensions": "1122x1402",
       "mae": 0.449,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/r-beauty-icon.png",
@@ -107,7 +107,7 @@
       "outDimensions": "1254x1254",
       "mae": 1.019,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/kit-50.png",
@@ -117,7 +117,7 @@
       "outDimensions": "1086x1448",
       "mae": 0.506,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/kit-70.png",
@@ -127,7 +127,7 @@
       "outDimensions": "1086x1448",
       "mae": 0.541,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/editorial.png",
@@ -137,7 +137,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.714,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/jc-revestimentos/hero-v2.png",
@@ -147,7 +147,7 @@
       "outDimensions": "1774x887",
       "mae": 0.363,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/confeitaria-sabor-da-realeza/hero.png",
@@ -157,7 +157,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.739,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/kit-100.png",
@@ -167,7 +167,7 @@
       "outDimensions": "1086x1448",
       "mae": 0.44,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/dona-lucy-salgados/hero.png",
@@ -177,7 +177,7 @@
       "outDimensions": "1672x941",
       "mae": 0.653,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/dona-lucy-salgados/social.png",
@@ -187,7 +187,7 @@
       "outDimensions": "1672x941",
       "mae": 0.653,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/your-brutus-burguer/business-card-concept.png",
@@ -197,7 +197,7 @@
       "outDimensions": "1586x992",
       "mae": 0.328,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/sos-presentes-cosmeticos/cestas-feliz-aniversario.png",
@@ -207,7 +207,7 @@
       "outDimensions": "1200x1600",
       "mae": 0.989,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/marmitaria-dom-diego/capa.png",
@@ -217,7 +217,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.873,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/kitutes-na-mesa/hero.png",
@@ -227,7 +227,7 @@
       "outDimensions": "1672x941",
       "mae": 0.587,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/kitutes-na-mesa/social.png",
@@ -237,7 +237,7 @@
       "outDimensions": "1672x941",
       "mae": 0.587,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/mimo-salgados-doces/hero-food.png",
@@ -247,7 +247,7 @@
       "outDimensions": "1122x1402",
       "mae": 0.665,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/vila-da-capivara/kit-20.png",
@@ -257,7 +257,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.406,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/artesanatos-darleia-oliveira/hero-og.png",
@@ -267,7 +267,7 @@
       "outDimensions": "1730x909",
       "mae": 0.617,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/confeitaria-chyrley/editorial-gerada.png",
@@ -277,7 +277,7 @@
       "outDimensions": "1672x941",
       "mae": 0.764,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/confeitaria-chyrley/bolos.png",
@@ -287,7 +287,7 @@
       "outDimensions": "899x1599",
       "mae": 1.212,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/dlara-pizzaria/capa.png",
@@ -297,7 +297,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.629,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/services/site-profissional-197.png",
@@ -307,7 +307,7 @@
       "outDimensions": "1254x1254",
       "mae": 0.343,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/beto-pasteis/capa.png",
@@ -317,7 +317,7 @@
       "outDimensions": "1730x909",
       "mae": 0.74,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/concepts/casa-nativa-concept.png",
@@ -327,7 +327,7 @@
       "outDimensions": "1730x909",
       "mae": 0.74,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/lolipa-arte-em-festas/og.png",
@@ -337,7 +337,7 @@
       "outDimensions": "1728x910",
       "mae": 0.536,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/thays-camilla/logo.png",
@@ -347,7 +347,7 @@
       "outDimensions": "1536x1024",
       "mae": 0.791,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/auto-socorro-dentinho/diagnostic-v2.png",
@@ -357,7 +357,7 @@
       "outDimensions": "1672x941",
       "mae": 0.612,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/simone-lacerda-vaz/hero.png",
@@ -367,7 +367,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.395,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/simone-lacerda-vaz/social.png",
@@ -377,7 +377,7 @@
       "outDimensions": "1024x1536",
       "mae": 0.395,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/sos-presentes-cosmeticos/cesta-lilas.png",
@@ -387,7 +387,7 @@
       "outDimensions": "1200x1600",
       "mae": 0.992,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/sos-presentes-cosmeticos/canecas-combo.png",
@@ -397,7 +397,7 @@
       "outDimensions": "1200x1600",
       "mae": 0.752,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     },
     {
       "file": "public/images/papelemi-personalizados/hero.png",
@@ -407,7 +407,7 @@
       "outDimensions": "1672x941",
       "mae": 0.578,
       "visuallyEqual": true,
-      "applied": false
+      "applied": true
     }
   ]
 }
