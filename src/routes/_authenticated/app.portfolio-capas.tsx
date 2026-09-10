@@ -191,10 +191,19 @@ function PortfolioCoversPage() {
               <p className="truncate font-semibold">
                 {row.businessName ?? row.slug}
               </p>
-              <p className="text-xs text-muted-foreground">
-                {row.slug}
-                {row.segment ? ` · ${row.segment}` : ""}
+              <p className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <span>
+                  {row.slug}
+                  {row.segment ? ` · ${row.segment}` : ""}
+                </span>
+                {viewsBySlug.has(row.slug) && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-0.5 font-medium">
+                    <TrendingUp className="h-3 w-3" aria-hidden />
+                    {viewsBySlug.get(row.slug)} visitas em 30 dias
+                  </span>
+                )}
               </p>
+
               <p className="mt-1 text-sm text-muted-foreground">
                 {row.reason ?? "Capa aprovada e publicada."}
               </p>
