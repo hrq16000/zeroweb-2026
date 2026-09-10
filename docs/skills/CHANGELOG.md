@@ -1242,3 +1242,16 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Autenticidade: todas são composições de marca sem texto, contato, depoimento, métrica ou falsa prova fotográfica.
 - Zona congelada: nenhum ativo institucional 0WEB foi alterado.
 - Validação: assets, logos, fronteiras, originalidade e qualidade visual passaram; testes/build executados na sequência.
+
+## 2026-09-10 — Onda 1 de performance de imagem + inventário de capas
+- Tarefa: otimizar imagens preservando aparência, criar acompanhamento de capas pendentes, medir funil e revisar security scan.
+- Skills: 0web-ui-quality-gates, 0web-design-system, 0web-portfolio-art-direction (leitura), performance.
+- Execução:
+  - `scripts/optimize-images-wave.mjs`: recompressão in-place (mesmo caminho, mesmo formato, downscale só acima de 1800px),
+    com gate de equivalência visual por MAE ≤ 2/255 em miniatura 256px. Onda 1: 40 arquivos, 90,7 MB → 27,8 MB (−69,3%),
+    0 reprovações visuais. Relatório: `reports/image-optimization-wave.json`. Restam ~120 arquivos > 300 KB (IMAGE_PERFORMANCE segue ABERTO).
+  - `/app/portfolio-capas`: página administrativa com status e motivo de cada capa (89 projetos, 47 publicadas, 42 pendentes).
+  - `scripts/report-portfolio-cover-backlog.mjs` → `docs/PORTFOLIO_COVER_BACKLOG.md`: plano por cliente (foto? logo? variantes? o que falta).
+- Validação: tsgo, brand-integrity (6 assets), portfolio-boundaries (89), visual-quality (34 PREMIUM / 54 STANDARD / 1 NEEDS_UPGRADE),
+  `bun test` 395/0, `bun run build` OK, Playwright 393px e 1440px (reduced motion) sem imagem quebrada, sem overflow e sem erro novo de console.
+- Security scan: 0 findings ativos em todos os scanners (agent, supabase, supply chain, MCP, connectors).
