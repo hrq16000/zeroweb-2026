@@ -40,6 +40,17 @@ if (/get\(["']preview["']\)/.test(previewSource)) {
   );
 }
 
+// A casca padrão é a dona única da camada de captação da hospedagem.
+const shellPath = resolve(root, "src/components/portfolio/PortfolioStandardShell.tsx");
+const shellSource = existsSync(shellPath) ? readFileSync(shellPath, "utf8") : "";
+const shellOwnsUpsell = /<PortfolioUpsellPopup/.test(shellSource);
+if (!shellOwnsUpsell) {
+  errors.push("casca padrão do portfólio não monta o pop-up de captação da 0WEB");
+}
+if (!/isPortfolioEmbedded/.test(previewSource)) {
+  errors.push("supressão de overlays não reconhece pré-visualização embutida (iframe)");
+}
+
 const keys = new Set();
 const slugs = new Set();
 const forbiddenImports = ["@/components/site/Header", "@/components/site/Footer"];
