@@ -143,8 +143,8 @@
       "status": "PASS"
     },
     {
-      "section": "offers.alternating (Como funciona)",
-      "visualRole": "bancada real apoiando o processo",
+      "section": "offers.featured (O que entra para avaliação) — Notebook",
+      "visualRole": "bancada real apoiando a família de notebooks",
       "mediaDecision": "GOOGLE_USER_MEDIA",
       "asset": "/images/carecas-infotec/google-notebook-bancada.jpg",
       "provenance": "foto pública Google Maps ingerida via SerpApi",

@@ -328,7 +328,7 @@
       "avaliacoes": "4 avaliações públicas com autor, nota, texto, mês e link para a ficha; atribuição explícita ao Google",
       "onde-estamos": "endereço, bairro, CEP, horários e telefone verificados + link 'como chegar' por Place ID",
       "authority": "foto pública de placa eletrônica ao microscópio (Google via SerpApi)",
-      "como-funciona": "foto pública de notebook aberto em bancada (Google via SerpApi)",
+      "o-que-entra-para-avaliacao": "foto pública de notebook aberto em bancada (Google via SerpApi)",
       "quando-procurar": "foto pública de notebook em manutenção (Google via SerpApi)",
       "onde-estamos": "foto pública do interior/balcão (Google via SerpApi)"
     },

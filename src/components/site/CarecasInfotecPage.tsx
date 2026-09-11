@@ -241,6 +241,12 @@ export const blueprint: PortfolioBlueprint = {
             text: "Não liga, aquece demais, desliga sem aviso, tela sem imagem ou dobradiça danificada.",
             icon: Laptop,
             meta: "Portátil",
+            image: {
+              src: "/images/carecas-infotec/google-notebook-bancada.jpg",
+              alt: "Notebook aberto sobre bancada em imagem pública da Careca's Infotec no Google",
+              width: 1800,
+              height: 810,
+            },
           },
           {
             title: "Celular",
@@ -292,7 +298,7 @@ export const blueprint: PortfolioBlueprint = {
         eyebrow: "Quando procurar a assistência",
         title: "Sinais de que o aparelho pede avaliação técnica.",
         intro:
-          "Você não precisa saber a causa. Descrever o comportamento já adianta o trabalho da bancada — o defeito é identificado na avaliação, não no palpite.",
+          "Você não precisa saber a causa. Descrever o comportamento já adianta o trabalho da bancada — o defeito é identificado na avaliação, não no palpite. Imagem pública do serviço no Google, via SerpApi.",
         items: [
           {
             title: "Computador e notebook",
@@ -381,12 +387,6 @@ export const blueprint: PortfolioBlueprint = {
         title: "Do relato ao aparelho testado",
         intro:
           "Sem surpresa na retirada: o serviço só é executado depois que você sabe o que precisa ser feito e quanto custa.",
-        image: {
-          src: "/images/carecas-infotec/google-notebook-bancada.jpg",
-          alt: "Notebook aberto sobre bancada em imagem pública da Careca's Infotec no Google",
-          width: 1800,
-          height: 810,
-        },
         items: [
           {
             title: "1. Você conta o que aconteceu",
