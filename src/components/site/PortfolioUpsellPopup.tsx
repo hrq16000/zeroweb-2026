@@ -126,7 +126,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
     let alreadyShown = false;
     try {
-      alreadyShown = cfg.display.oncePerSession && sessionStorage.getItem(storageKey) === "1";
+      alreadyShown = oncePerSession && sessionStorage.getItem(storageKey) === "1";
     } catch {
       /* noop */
     }
