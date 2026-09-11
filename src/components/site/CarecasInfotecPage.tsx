@@ -185,7 +185,7 @@ export const blueprint: PortfolioBlueprint = {
       type: "hero",
       variant: "fullBleed",
       order: 10,
-      motion: { intensity: "IMMERSIVE", reveal: "up", stagger: 90 },
+      motion: { intensity: "IMMERSIVE", reveal: "up", stagger: 90, parallax: 22 },
       content: {
         eyebrow: "Assistência especializada · Santo Antônio, São José dos Pinhais — PR",
         headline: "Solução com qualidade, confiança e preço justo.",
@@ -206,7 +206,12 @@ export const blueprint: PortfolioBlueprint = {
         stats: [
           /** Nota e contagem: ficha pública do Google, verificadas na ingestão. */
           { value: "4,9", label: "Nota no Google · 43 avaliações" },
-          { value: "8 tipos", label: "Aparelhos atendidos" },
+          {
+            value: "43 avaliações",
+            countTo: 43,
+            countSuffix: " avaliações",
+            label: "Ficha pública no Google",
+          },
           { value: "Antes do reparo", label: "Avaliação técnica" },
           { value: "Seg a sáb", label: "Santo Antônio — São José dos Pinhais" },
         ],
