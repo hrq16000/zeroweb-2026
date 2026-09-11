@@ -35,6 +35,7 @@ import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
+import { MotionReveal, MotionScope } from "@/components/motion";
 import {
   trackPortfolioSearch,
   trackPortfolioSearchClick,
@@ -577,6 +578,7 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-primary-foreground">
       <Header />
 
+      <MotionScope intensity="SUBTLE">
       <main className="flex-1 pt-20">
         {/* Breadcrumbs */}
         <div className="border-b border-border/40 bg-muted/20">
@@ -586,7 +588,7 @@ function PortfolioPage() {
         </div>
 
         {/* Cabeçalho editorial da galeria */}
-        <section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
+        <MotionReveal as="section" className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
           <div className="mx-auto max-w-[1500px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl space-y-3">
@@ -951,7 +953,7 @@ function PortfolioPage() {
                 </div>
               </section>
             )}
-            <section aria-labelledby="silo-title" className="space-y-6">
+            <MotionReveal as="section" aria-labelledby="silo-title" className="space-y-6">
               <h2 id="silo-title" className="text-2xl sm:text-3xl font-bold text-foreground">
                 Criação de sites por segmento e bairro
               </h2>
@@ -977,7 +979,7 @@ function PortfolioPage() {
               </div>
             </section>
 
-            <section className="mt-12" aria-labelledby="portfolio-por-local">
+            <MotionReveal as="section" className="mt-12" aria-labelledby="portfolio-por-local">
               <h2 id="portfolio-por-local" className="text-xl font-semibold text-foreground">
                 Projetos por cidade e bairro
               </h2>
@@ -1016,6 +1018,7 @@ function PortfolioPage() {
           </div>
         </section>
       </main>
+      </MotionScope>
 
       <Footer />
       <WhatsAppFloat />
