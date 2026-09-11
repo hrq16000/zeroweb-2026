@@ -339,7 +339,7 @@ export function MotionCounter({
 /* ------------------------------------------------------------------ */
 
 /** true quando a viewport é de desktop — motion pesado não desce para mobile (§12). */
-export function useDesktopViewport(minWidth = 768): boolean {
+export function useDesktopViewport(minWidth = MOTION_MOBILE.desktopMinWidth): boolean {
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia(`(min-width: ${minWidth}px)`);
