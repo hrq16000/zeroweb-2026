@@ -1,9 +1,9 @@
 # Roadmap — trabalhos ativos
 
 ## P0 Careca's — contato e mídia
-- [ ] Remover telefone clicável e confirmar todos os CTAs no funil próprio
-- [ ] Remover a placa da landing e aplicar mídia real do enrichment com atribuição
-- [ ] Endurecer CONTACT_FUNNEL_GATE e MEDIA_PURPOSE_GATE com regressões
+- [x] Remover telefone clicável e confirmar todos os CTAs no funil próprio
+- [x] Remover a placa da landing e aplicar mídia real do enrichment com atribuição
+- [x] Endurecer CONTACT_FUNNEL_GATE e MEDIA_PURPOSE_GATE com regressões
 - [ ] Validar 390px, 768px, desktop, build, testes e publicação
 
 # Migração S&S Construções → /portfolio/sscons (issue #60)

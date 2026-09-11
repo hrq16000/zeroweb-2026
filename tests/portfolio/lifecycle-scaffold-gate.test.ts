@@ -9,6 +9,7 @@ import { describe, expect, it } from "bun:test";
 import { evaluateMatrix, evaluatePolicyGates, DIMENSIONS } from "../../scripts/check-portfolio-landing-quality.mjs";
 import manifests from "../../src/config/portfolio-project-manifests.json";
 import clients from "../../src/config/portfolio-clients.json";
+import { readFileSync } from "node:fs";
 
 /** Igual ao stub gerado por scripts/scaffold-portfolio-client.mjs. */
 const scaffoldStub = {
@@ -95,5 +96,28 @@ describe("contact and media purpose gates", () => {
     });
     expect(result.status).toBe("FAIL");
     expect(result.failures.some((failure: string) => failure.includes("MEDIA_PURPOSE_GATE"))).toBe(true);
+  });
+
+  it("Carecas funnelOnly não expõe tel: nem usa a placa como mídia editorial", () => {
+    const client = (clients as Array<{ slug: string; contactMode?: string; componentFile: string }>).find(
+      (item) => item.slug === "carecas-infotec",
+    );
+    expect(client?.contactMode).toBe("funnelOnly");
+    const source = readFileSync(client!.componentFile, "utf8");
+    const result = evaluatePolicyGates({
+      slug: "carecas-infotec",
+      client,
+      componentSource: source,
+      mediaPlan: {
+        inventory: {
+          referenceOnlyAssets: [
+            { file: "public/images/carecas-infotec/banner.webp", editorialAllowed: false },
+          ],
+        },
+      },
+    });
+    expect(result.status).toBe("PASS");
+    expect(source).not.toContain("tel:");
+    expect(source).not.toContain("/images/carecas-infotec/banner.webp");
   });
 });

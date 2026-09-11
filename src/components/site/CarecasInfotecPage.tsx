@@ -312,10 +312,10 @@ export const blueprint: PortfolioBlueprint = {
           },
         ],
         aside: {
-          src: "/images/carecas-infotec/gen-diagnostico-aside.jpg",
-          alt: "Ilustração técnica: celular aberto, placa e ferramentas de precisão em bancada escura",
-          width: 960,
-          height: 1200,
+          src: "/images/carecas-infotec/google-notebook-manutencao.jpg",
+          alt: "Interior de notebook em manutenção em imagem pública da Careca's Infotec no Google",
+          width: 1800,
+          height: 810,
         },
       },
 
@@ -381,6 +381,12 @@ export const blueprint: PortfolioBlueprint = {
         title: "Do relato ao aparelho testado",
         intro:
           "Sem surpresa na retirada: o serviço só é executado depois que você sabe o que precisa ser feito e quanto custa.",
+        image: {
+          src: "/images/carecas-infotec/google-notebook-bancada.jpg",
+          alt: "Notebook aberto sobre bancada em imagem pública da Careca's Infotec no Google",
+          width: 1800,
+          height: 810,
+        },
         items: [
           {
             title: "1. Você conta o que aconteceu",

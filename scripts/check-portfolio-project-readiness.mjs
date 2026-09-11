@@ -16,7 +16,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { evaluateMatrix } from "./check-portfolio-landing-quality.mjs";
+import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -155,7 +155,7 @@ function evaluate(slug, manifest) {
 
   // --- qualityMatrixPass (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md)
   const matrix = readJson(`docs/portfolio/quality-matrix/${slug}.json`, null);
-  const matrixResult = evaluateMatrix(slug, matrix);
+  const matrixResult = evaluateProjectQuality(slug, matrix);
   checks.qualityMatrixPass = matrixResult.status === "PASS";
   if (!checks.qualityMatrixPass) {
     blockers.push(...matrixResult.failures.map((f) => `quality matrix — ${f}`));

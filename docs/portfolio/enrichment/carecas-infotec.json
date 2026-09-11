@@ -203,15 +203,15 @@
   },
   "media": {
     "state": "MEDIA_ENRICHMENT_COMPLETE",
-    "reason": "plano de mídia executado em 2026-09-11: a única fotografia real permanece exclusiva do hero e as demais seções receberam mídia contextual gerada com função editorial própria, sem recortes repetidos do banner.",
+    "reason": "plano de mídia executado: hero editorial premium, quatro fotos públicas Google com função narrativa e placa original restrita a BRAND_REFERENCE/EVIDENCE_ONLY.",
     "existing": [
       {
         "file": "public/images/carecas-infotec/banner.webp",
-        "type": "REAL_BUSINESS_MEDIA",
+        "type": "BRAND_REFERENCE / EVIDENCE_ONLY",
         "owner": "cliente",
         "rights": "enviado pelo proprietário",
         "confidence": "HIGH",
-        "suggestedUsage": "hero"
+        "suggestedUsage": "resolução de identidade; uso editorial proibido"
       },
       {
         "file": "public/images/carecas-infotec/logo.png",
@@ -259,15 +259,26 @@
       }
     ],
     "generatedMediaPolicy": "imagens geradas são ilustração técnica e nunca evidência comercial: não representam a loja, a bancada, funcionários, clientes, produtos vendidos ou serviços executados.",
-    "missing": [
-      "fachada real",
-      "bancada/interior real",
-      "atendimento",
-      "fotos do Google com atribuição"
+    "externalApplied": [
+      {
+        "files": [
+          "public/images/carecas-infotec/google-interior-balcao.jpg",
+          "public/images/carecas-infotec/google-notebook-bancada.jpg",
+          "public/images/carecas-infotec/google-placa-microscopio.jpg",
+          "public/images/carecas-infotec/google-notebook-manutencao.jpg"
+        ],
+        "type": "GOOGLE_USER_MEDIA",
+        "source": "Google Maps via SerpApi",
+        "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+        "owner": "autores originais no Google",
+        "attribution": "Google — via SerpApi",
+        "appliedAt": "2026-09-11"
+      }
     ],
+    "missing": ["foto própria da fachada"],
     "mediaMixPlan": {
-      "hero": "REAL_BUSINESS_MEDIA",
-      "identidade-loja": "REAL_BUSINESS_MEDIA ou GOOGLE_MEDIA quando permitido",
+      "hero": "GENERATED_CONTEXTUAL_MEDIA premium",
+      "identidade-loja": "GOOGLE_USER_MEDIA com atribuição",
       "equipamentos": "GENERATED_CONTEXTUAL_MEDIA ou LICENSED_MEDIA",
       "problemas": "GENERATED_CONTEXTUAL_MEDIA / GRAPHIC",
       "como-funciona": "GRAPHIC / ORIGINAL_ILLUSTRATION",
@@ -316,7 +327,10 @@
       "hero": "stat '4,9 · 43 avaliações' (GOOGLE_MAPS_SOURCE via SerpApi)",
       "avaliacoes": "4 avaliações públicas com autor, nota, texto, mês e link para a ficha; atribuição explícita ao Google",
       "onde-estamos": "endereço, bairro, CEP, horários e telefone verificados + link 'como chegar' por Place ID",
-      "authority": "endereço verificado + banner.webp como evidência real única"
+      "authority": "foto pública de placa eletrônica ao microscópio (Google via SerpApi)",
+      "como-funciona": "foto pública de notebook aberto em bancada (Google via SerpApi)",
+      "quando-procurar": "foto pública de notebook em manutenção (Google via SerpApi)",
+      "onde-estamos": "foto pública do interior/balcão (Google via SerpApi)"
     },
     "editorialPolicy": [
       "textos das avaliações reproduzidos como escritos pelos autores; quando encurtados, apenas por corte final, sem reescrita nem alteração de sentido",
@@ -324,9 +338,8 @@
       "JSON-LD do projeto usa ComputerStore/LocalBusiness sem Review nem aggregateRating (decisão explícita)"
     ],
     "notPublished": [
-      "fotos do Google (indisponíveis)",
       "site oficial (inexistente)",
-      "Instagram (handle não resolvido)"
+      "Instagram como CTA comercial (perfil @carecasinfotec verificado, mas funil permanece obrigatório)"
     ]
   }
 }

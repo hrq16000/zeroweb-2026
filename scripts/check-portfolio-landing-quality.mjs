@@ -150,31 +150,35 @@ export function evaluatePolicyGates({ slug, client, componentSource = "", mediaP
   };
 }
 
+export function evaluateProjectQuality(slug, matrix) {
+  const matrixResult = evaluateMatrix(slug, matrix);
+  const clients = readJson("src/config/portfolio-clients.json", []);
+  const client = clients.find((item) => item.slug === slug);
+  const componentSource = client?.componentFile
+    ? readFileSync(path.resolve(root, client.componentFile), "utf8")
+    : "";
+  const policyResult = evaluatePolicyGates({
+    slug,
+    client,
+    componentSource,
+    mediaPlan: readJson(`docs/portfolio/media-plans/${slug}.json`, null),
+  });
+  return {
+    ...matrixResult,
+    status: matrixResult.status === "PASS" && policyResult.status === "PASS" ? "PASS" : "FAIL",
+    failures: [...matrixResult.failures, ...policyResult.failures],
+    policyGates: policyResult,
+  };
+}
+
 const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isCli) {
   const manifests = readJson("src/config/portfolio-project-manifests.json", { projects: {} }).projects ?? {};
   const slugs = Object.keys(manifests).filter((s) => !onlySlug || s === onlySlug);
-  const clients = readJson("src/config/portfolio-clients.json", []);
-  const results = slugs.map((slug) => {
-    const matrixResult = evaluateMatrix(slug, readJson(`docs/portfolio/quality-matrix/${slug}.json`, null));
-    const client = clients.find((item) => item.slug === slug);
-    const componentSource = client?.componentFile
-      ? readFileSync(path.resolve(root, client.componentFile), "utf8")
-      : "";
-    const policyResult = evaluatePolicyGates({
-      slug,
-      client,
-      componentSource,
-      mediaPlan: readJson(`docs/portfolio/media-plans/${slug}.json`, null),
-    });
-    return {
-      ...matrixResult,
-      status: matrixResult.status === "PASS" && policyResult.status === "PASS" ? "PASS" : "FAIL",
-      failures: [...matrixResult.failures, ...policyResult.failures],
-      policyGates: policyResult,
-    };
-  });
+  const results = slugs.map((slug) =>
+    evaluateProjectQuality(slug, readJson(`docs/portfolio/quality-matrix/${slug}.json`, null)),
+  );
 
   if (asJson) {
     console.log(JSON.stringify({ results }, null, 2));
