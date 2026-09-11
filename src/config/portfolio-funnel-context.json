@@ -635,5 +635,12 @@
     "nextStepBody": "A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo.",
     "primaryCtaLabel": "Agendar serviço",
     "theme": "gold"
+  },
+  "jkl-decor": {
+    "intent": "orcamento",
+    "nextStepTitle": "Conte qual ambiente você quer planejar para receber o orçamento.",
+    "nextStepBody": "A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local.",
+    "primaryCtaLabel": "Pedir orçamento",
+    "theme": "gold"
   }
 }

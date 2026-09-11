@@ -152,16 +152,71 @@
     },
     "jkl-decor": {
       "aliases": [
-        "JKL Decor"
+        "JKL Decor",
+        "JKL Decor móveis planejados",
+        "JKL Decor marcenaria",
+        "JKL móveis sob medida",
+        "jkl decor sjp"
       ],
-      "categories": [],
-      "services": [],
+      "categories": [
+        "marcenaria",
+        "marceneiro",
+        "móveis planejados",
+        "móveis sob medida",
+        "móveis em MDF"
+      ],
+      "services": [
+        "cozinha planejada",
+        "guarda-roupa planejado",
+        "closet sob medida",
+        "painel de TV",
+        "rack e estante",
+        "home office planejado",
+        "gabinete de banheiro",
+        "armário de lavanderia",
+        "projeto de móvel sob medida",
+        "instalação de móveis planejados"
+      ],
       "equipment": [],
-      "products": [],
-      "problems": [],
-      "useCases": [],
-      "locality": [],
-      "keywords": []
+      "products": [
+        "cozinha infantil em MDF",
+        "porta-tempero",
+        "nichos para quarto",
+        "nichos para banheiro",
+        "balcão sob medida",
+        "bancada em MDF"
+      ],
+      "problems": [
+        "não acho móvel do tamanho do meu ambiente",
+        "cozinha pequena mal aproveitada",
+        "quarto sem espaço de armário",
+        "canto vazio da sala",
+        "banheiro sem gabinete",
+        "móvel pronto não encaixa na parede"
+      ],
+      "useCases": [
+        "mobiliar apartamento novo",
+        "reformar a cozinha",
+        "planejar o quarto do bebê",
+        "montar home office em casa",
+        "aproveitar espaço apertado"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "Agaraú",
+        "Curitiba",
+        "região metropolitana de Curitiba",
+        "Paraná",
+        "SJP"
+      ],
+      "keywords": [
+        "móveis planejados são josé dos pinhais",
+        "marcenaria curitiba e região",
+        "cozinha planejada em mdf sjp",
+        "móveis sob medida curitiba",
+        "orçamento de móveis planejados",
+        "marceneiro perto de mim são josé dos pinhais"
+      ]
     }
   }
 }

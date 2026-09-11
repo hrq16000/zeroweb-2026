@@ -1,19 +1,19 @@
 {
-  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Stub do scaffold: nenhuma pesquisa realizada ainda.",
+  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Normalizado a partir de docs/portfolio/enrichment/serpapi/jkl-decor.json.",
   "slug": "jkl-decor",
-  "lastResearchAt": null,
+  "lastResearchAt": "2026-09-11",
   "researchLedger": {
     "googleEntity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "website": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -22,7 +22,7 @@
       "usable": false
     },
     "instagram": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -31,7 +31,7 @@
       "usable": false
     },
     "facebook": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -40,7 +40,7 @@
       "usable": false
     },
     "otherSocial": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -49,7 +49,7 @@
       "usable": false
     },
     "directories": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -58,124 +58,349 @@
       "usable": false
     },
     "phone": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "address": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "hours": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "services": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
+      "searched": true,
+      "found": true,
+      "resolved": true,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "products": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
+      "searched": true,
+      "found": true,
+      "resolved": true,
       "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "media": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "reviews": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "identity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     }
   },
-  "identity": {},
+  "identity": {
+    "name": "JKL Decor",
+    "category": "Marceneiro",
+    "typeIds": [
+      "carpenter"
+    ],
+    "logo": null,
+    "logoStatus": "NO_PUBLIC_BRAND_ASSET"
+  },
   "entity": {
-    "candidates": [],
-    "resolutionStatus": "UNRESOLVED",
-    "resolutionSignals": [],
+    "candidates": [
+      {
+        "name": "JKL Decor móveis planejados",
+        "placeId": "ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+        "match": "EXACT"
+      }
+    ],
+    "resolutionStatus": "VERIFIED",
+    "resolutionSignals": [
+      "Place ID resolvido a partir do link compartilhado pelo responsável",
+      "nome, telefone e categoria coincidentes",
+      "data ID e CID confirmados pelo provedor"
+    ],
     "unresolvedJustification": null
   },
-  "evidence": [],
-  "sources": [],
+  "evidence": [
+    {
+      "fact": "Nota 5,0 com 3 avaliações públicas",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Categoria pública: Marceneiro",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Endereço R. Durval Moletta — Agaraú — São José dos Pinhais — PR — 83149-899",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Telefone (41) 99142-5088",
+      "source": "Google Maps (ficha pública) via SerpApi; também informado pelo responsável",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Horário segunda a sexta 08:00–18:00; sábado e domingo fechado",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "20 fotos públicas de ambientes entregues na ficha",
+      "source": "Google Maps Photos via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Orçamento à distância descrito como preciso e rápido, cozinha 100% MDF e prazo de 20 dias cumprido",
+      "source": "avaliação pública de cliente (Fabio JCP) no Google",
+      "collectedAt": "2026-09-11",
+      "confidence": "MEDIUM"
+    },
+    {
+      "fact": "Condições comerciais: 12x sem juros, desconto à vista, entrega em até 20 dias, garantia, 100% MDF; atendimento em Curitiba e região; cozinha infantil, porta-tempero e nichos",
+      "source": "informação declarada pelo responsável do negócio ao contratante (não auditada por terceiro)",
+      "collectedAt": "2026-09-11",
+      "confidence": "CLIENT_DECLARED"
+    }
+  ],
+  "sources": [
+    {
+      "provider": "serpapi",
+      "engine": "google_maps",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google_maps_reviews",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google_maps_photos",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google social profile discovery",
+      "collectedAt": "2026-09-11"
+    }
+  ],
   "google": {
-    "placeId": null,
-    "dataId": null,
-    "cid": null,
-    "status": "not_searched"
+    "placeId": "ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+    "dataId": "0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8",
+    "cid": "16637680144145821368",
+    "kgmid": null,
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=JKL%20Decor%20m%C3%B3veis%20planejados&query_place_id=ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+    "claimed": false,
+    "status": "GOOGLE_ENTITY_RESOLVED"
   },
   "reviews": {
-    "items": [],
-    "status": "NOT_SEARCHED"
+    "rating": 5.0,
+    "count": 3,
+    "distribution": {
+      "5": 3,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": [
+      {
+        "author": "Fabio JCP",
+        "rating": 5,
+        "date": "há 4 meses",
+        "usedOnLanding": true
+      },
+      {
+        "author": "Edilaine marques",
+        "rating": 5,
+        "date": "há 3 semanas",
+        "usedOnLanding": true
+      },
+      {
+        "author": "Tiago Barbosa",
+        "rating": 5,
+        "date": "há 1 semana",
+        "usedOnLanding": true
+      }
+    ],
+    "attribution": "Avaliações públicas no Google, com autor, nota e link para a origem",
+    "status": "REVIEWS_INGESTED"
   },
   "photos": {
-    "items": [],
-    "status": "NOT_SEARCHED"
+    "items": 20,
+    "selected": 6,
+    "classification": "GOOGLE_USER_MEDIA",
+    "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+    "status": "MEDIA_INGESTED_THIRD_PARTY_SOURCE_DECLARED",
+    "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+    "rightsHolder": "autores individuais das fotos publicadas na ficha pública do Google",
+    "ownerConsentRelevance": "autorização do proprietário do negócio não transfere direito autoral de foto de terceiro"
   },
   "social": {
     "instagram": {
-      "searched": false
+      "searched": true,
+      "candidate": null,
+      "confidence": 0,
+      "status": "UNRESOLVED",
+      "usedOnLanding": false,
+      "note": "descoberta social retornou erro 503 do provedor; ausência não comprovada"
     },
     "facebook": {
-      "searched": false
+      "searched": true,
+      "status": "UNRESOLVED",
+      "note": "sem resultado do provedor; ausência não comprovada"
     },
     "other": []
   },
   "website": {
-    "searched": false,
-    "url": null
+    "searched": true,
+    "url": null,
+    "status": "NO_PUBLIC_WEBSITE_FOUND"
   },
-  "location": {},
-  "services": [],
+  "location": {
+    "street": "R. Durval Moletta",
+    "neighborhood": "Agaraú",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "postalCode": "83149-899",
+    "country": "BR",
+    "lat": -25.6551465,
+    "lng": -49.2302301
+  },
+  "services": [
+    {
+      "name": "Marcenaria / móveis planejados sob medida",
+      "source": "categoria oficial da ficha do Google",
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Cozinha planejada em MDF",
+      "source": "fotos públicas da ficha e avaliação de cliente",
+      "confidence": "MEDIUM"
+    },
+    {
+      "name": "Guarda-roupa, painel de TV, home office e gabinete de banheiro",
+      "source": "fotos públicas de ambientes entregues",
+      "confidence": "MEDIUM"
+    },
+    {
+      "name": "Cozinha infantil em MDF, porta-tempero e nichos",
+      "source": "informação declarada pelo responsável",
+      "confidence": "CLIENT_DECLARED"
+    },
+    {
+      "name": "Orçamento à distância",
+      "source": "avaliação pública de cliente",
+      "confidence": "MEDIUM"
+    }
+  ],
   "media": {
     "discovery": {
-      "searched": false
+      "searched": true,
+      "result": "20 mídias públicas; 6 selecionadas"
     },
-    "assets": []
+    "assets": [
+      "public/images/jkl-decor/google-estante-iluminada.jpg",
+      "public/images/jkl-decor/google-cozinha-marmore.jpg",
+      "public/images/jkl-decor/google-painel-tv.jpg",
+      "public/images/jkl-decor/google-home-office.jpg",
+      "public/images/jkl-decor/google-cozinha-verde.jpg",
+      "public/images/jkl-decor/google-banheiro.jpg",
+      "public/images/jkl-decor/capa.jpg",
+      "public/images/jkl-decor/logo.png"
+    ]
   },
-  "facts": [],
-  "conflicts": [],
-  "unverified": [],
-  "providerCalls": []
+  "facts": [
+    "Categoria: marceneiro",
+    "Telefone institucional: (41) 99142-5088 (exibido só como texto)",
+    "Ficha não reivindicada pelo proprietário até a coleta",
+    "Sem site próprio"
+  ],
+  "conflicts": [
+    "Telefone informado pelo responsável com um dígito a menos (41 9142-5088) foi confirmado como (41) 99142-5088 pela ficha pública e pela decisão explícita do responsável",
+    "Projeto legado /portfolio/jkl-marcenaria refere-se ao mesmo negócio; por decisão do responsável, o endereço antigo redireciona para /portfolio/jkl-decor"
+  ],
+  "unverified": [
+    "perfis em Instagram e Facebook (descoberta bloqueada por erro do provedor)",
+    "condições comerciais declaradas pelo cliente (prazo, parcelamento, garantia) — publicadas com autoria explícita, sem auditoria de terceiro",
+    "autoria individual das fotos públicas do Google (não divulgada pelo provedor); uso atual é editorial com fonte e atribuição"
+  ],
+  "providerCalls": [
+    {
+      "stage": "mapsPlace",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "reviews",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "photos",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "googleSearch",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "socialDiscovery",
+      "status": "FAILED"
+    },
+    {
+      "stage": "instagram",
+      "status": "NO_RESULTS"
+    },
+    {
+      "stage": "facebook",
+      "status": "NO_RESULTS"
+    }
+  ]
 }

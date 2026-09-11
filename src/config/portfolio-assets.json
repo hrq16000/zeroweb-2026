@@ -1112,6 +1112,18 @@
         "ctaHref": "#presenca"
       },
       "socialVersion": "01b2bfd4"
+    },
+    "jkl-decor": {
+      "icon": "/images/jkl-decor/logo.png",
+      "socialImage": "/images/jkl-decor/capa.jpg",
+      "proof": {
+        "eyebrow": "JKL Decor",
+        "title": "JKL Decor com um site que mostra os ambientes entregues.",
+        "description": "Marcenaria de móveis planejados sob medida em MDF em São José dos Pinhais, atendendo Curitiba e região, com pedido de orçamento pelo formulário.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      },
+      "socialVersion": "jkl20260911"
     }
   }
 }

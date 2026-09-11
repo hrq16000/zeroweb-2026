@@ -2117,5 +2117,30 @@
     "fallbackImage": "/images/carecas-infotec/logo.png",
     "metrics": "Atendimento pelo formulário",
     "summary": "Careca's Infotec faz assistência técnica especializada em celular, computador, notebook, impressora, monitor, tablet e videogame em São José dos Pinhais — PR."
+  },
+  {
+    "slug": "jkl-decor",
+    "clientKey": "jkl-decor",
+    "title": "JKL Decor",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "moveis-planejados",
+      "marcenaria",
+      "mdf",
+      "cozinha-planejada",
+      "curitiba"
+    ],
+    "subtitle": "Móveis planejados sob medida em MDF",
+    "location": "São José dos Pinhais — PR · Curitiba e região",
+    "badge": "Projeto real",
+    "image": "/images/jkl-decor/capa.jpg",
+    "fallbackImage": "/images/jkl-decor/google-cozinha-marmore.jpg",
+    "metrics": "Nota 5,0 no Google",
+    "summary": "JKL Decor é uma marcenaria de São José dos Pinhais que projeta, fabrica e instala móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região."
   }
 ]

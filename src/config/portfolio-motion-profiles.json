@@ -1307,6 +1307,24 @@
       "desktopBehavior": "hero em camadas (selo → título → subtítulo → CTAs) e grade de oito aparelhos em stagger de grade",
       "tabletBehavior": "mesma sequência com grade em 2 colunas",
       "mobileBehavior": "revelações com distância menor; sem hover no toque"
+    },
+    "jkl-decor": {
+      "intensity": "BALANCED",
+      "preset": "CRAFT",
+      "heroMotion": "fullBleed",
+      "sectionReveal": "up",
+      "imageReveal": "scale",
+      "textReveal": "line",
+      "iconMotion": "subtle",
+      "hoverBehavior": "lift",
+      "depthBehavior": "layered",
+      "scrollBehavior": "progress",
+      "staggerPattern": "sequence",
+      "reducedMotionFallback": "opacityOnly",
+      "narrative": "movimento de marcenaria: peças que assentam no lugar; fotos revelam em escala curta e o roteiro do projeto se preenche como um móvel montado etapa por etapa",
+      "desktopBehavior": "parallax curto na foto do hero, hover de gaveta nos ambientes e progresso no roteiro do projeto",
+      "tabletBehavior": "mesma sequência em coluna única, sem parallax",
+      "mobileBehavior": "entradas curtas em opacidade, sem parallax e sem hover no toque"
     }
   },
   "decisions": {
