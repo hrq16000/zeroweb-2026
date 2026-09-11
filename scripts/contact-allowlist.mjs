@@ -24,12 +24,16 @@ export const BUSINESS_ALLOWED_DIGITS = new Set(["554198755277"]);
  * `5541997940764` — telefone público da Moreira Auto Mecânica, confirmado na
  * ficha pública do Google (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk). Aparece só
  * como texto e no JSON-LD da vitrine: nunca como `tel:`, WhatsApp ou botão.
+ * `5541991425088` — telefone público da JKL Decor, confirmado na ficha pública
+ * do Google (Place ID ChIJX_1YSWLIYqoRuK5h3vDp5OY) e pelo responsável. Aparece
+ * só como texto e no JSON-LD: nunca como `tel:`, WhatsApp ou botão.
  */
 export const CLIENT_ALLOWED_DIGITS = new Set([
   "554196048639",
   "554198755277",
   "5541995072700",
   "5541997940764",
+  "5541991425088",
 ]);
 
 /** Prefixos de chunks que são páginas-vitrine de clientes. */
@@ -45,11 +49,13 @@ export const CLIENT_CHUNK_PREFIXES = [
   "portfolio.carecas-infotec",
   "MoreiraAutoMecanicaPage",
   "portfolio.moreira-auto-mecanica",
+  "JklDecorPage",
+  "portfolio.jkl-decor",
 ];
 
 /** Telefone formatado de cliente autorizado ou do contato comercial oficial. */
 export const CLIENT_ALLOWED_PHONE =
-  /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277|9507-?2700|9794-?0764))$/;
+  /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277|9507-?2700|9794-?0764|9142-?5088))$/;
 
 /** Chunks do painel autenticado (leaks viram warning, não erro). */
 export const ADMIN_CHUNK_PREFIXES = [
