@@ -16,6 +16,8 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractSkeleton, skeletonSimilarity, SKELETON_SIMILARITY_LIMIT } from "./portfolio-skeleton.mjs";
+import { evaluateStructuralOriginality } from "./portfolio-structural-originality.mjs";
+
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
