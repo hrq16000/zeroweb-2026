@@ -103,8 +103,17 @@ for (const client of clients) {
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
     errors.push(`${label}: mecanismo de prova social ausente`);
   }
-  if (!combined.includes("PortfolioUpsellPopup")) {
+  // Camada obrigatória da hospedagem: a casca padrão monta o pop-up para todo
+  // /portfolio/<slug>. Landings do pipeline atual (contactMode=funnelOnly) não
+  // podem montar uma segunda cópia — duplicar a instância era a origem de
+  // exibições silenciadas e de posse ambígua entre casca e conteúdo.
+  if (!shellOwnsUpsell && !combined.includes("PortfolioUpsellPopup")) {
     errors.push(`${label}: pop-up de captação da 0WEB ausente`);
+  }
+  if (shellOwnsUpsell && client.contactMode === "funnelOnly" && /<PortfolioUpsellPopup/.test(component)) {
+    errors.push(
+      `${label}: pop-up de captação montado manualmente na landing (a camada é da casca padrão)`,
+    );
   }
   if (!component.includes("PortfolioHostCredit")) {
     errors.push(`${label}: crédito universal com link da 0WEB ausente`);
