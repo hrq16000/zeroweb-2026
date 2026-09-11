@@ -1,0 +1,55 @@
+{
+  "doc": "Manifestos de ciclo de vida dos projetos /portfolio/:slug. Documento mestre: docs/PORTFOLIO_PROJECT_LIFECYCLE.md. Projetos SEM entrada aqui são legado e continuam sob os gates antigos — o readiness gate não os avalia.",
+  "contractVersion": 1,
+  "projects": {
+    "carecas-infotec": {
+      "slug": "carecas-infotec",
+      "lifecycleContract": 1,
+      "stage": "published",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "in_progress",
+        "content": "in_progress",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "in_progress",
+        "qa": "complete",
+        "publish": "complete"
+      },
+      "blockers": [
+        "MEDIA_ENRICHMENT_INCOMPLETE: apenas 1 fotografia oficial real (banner.webp); seções de serviços, autoridade e processo ainda sem mídia própria executada",
+        "COVER_APPROVAL_PENDING: capa gráfica derivada da mesma faixa; falta aprovação formal do cover gate (identityMatch/segmentMatch/smallCardReadability)"
+      ],
+      "warnings": [
+        "GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER: entidade resolvida (Place ID confirmado), ingestão aguardando provider Google Places",
+        "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED: bloqueia apenas a integração de Instagram, não a página",
+        "REVIEWS_PENDING_PROVIDER: 4.9/43 observadas como evidência do proprietário; não publicáveis como prova até ingestão real"
+      ],
+      "ownerRequired": [
+        "fornecer fotos reais da loja/fachada e de atendimentos (mídia própria)",
+        "confirmar o @ oficial do Instagram",
+        "confirmar prazo e garantia praticados, se quiser publicá-los"
+      ],
+      "searchQa": [
+        { "query": "carecas infotec", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
+        { "query": "assistência técnica de informática", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
+        { "query": "conserto de notebook", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
+        { "query": "recarga de cartucho", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
+        { "query": "impressora não imprime", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
+        { "query": "são josé dos pinhais", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
+        { "query": "buffet de casamento", "expect": "must_not_rank_high", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" }
+      ],
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/carecas-infotec.json",
+        "mediaPlan": "docs/portfolio/media-plans/carecas-infotec.json",
+        "report": "docs/reports/ENTITY-ENRICHMENT-CARECAS-2026-09-10.md"
+      },
+      "lastUpdatedAt": "2026-09-11"
+    }
+  }
+}

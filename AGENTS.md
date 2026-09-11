@@ -40,6 +40,14 @@ funil, SEO ou manutenção de cliente. Consulte `docs/BRAND_ASSET_POLICY.md` e
 execute `bun run validate:brand-integrity`; qualquer exceção exige autorização
 explícita do responsável, changelog e revisão visual da raiz.
 
+## Ciclo de vida obrigatório de projetos novos
+
+Antes de criar ou publicar qualquer novo `/portfolio/:slug`, seguir
+obrigatoriamente `docs/PORTFOLIO_PROJECT_LIFECYCLE.md` (documento mestre).
+Um projeto novo não é considerado concluído enquanto o readiness gate
+(`bun run check:portfolio-project-readiness`) não estiver aprovado.
+Dado ausente pode ser aceitável; pesquisa não realizada, não.
+
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 `docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/PORTFOLIO_CAPABILITY_PALETTE.md`,

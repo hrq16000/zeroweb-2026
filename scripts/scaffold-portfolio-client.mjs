@@ -181,6 +181,146 @@ write(creativeBriefFile, creativeBriefSource);
 write(`${assetsDir}/.gitkeep`, "");
 write(`supabase/migrations/${migrationName}`, migrationSource);
 
+// --- Ciclo de vida oficial (docs/PORTFOLIO_PROJECT_LIFECYCLE.md) -----------
+const today = new Date().toISOString().slice(0, 10);
+
+// Enrichment stub: pesquisa ainda não realizada, sem dados fictícios.
+write(
+  `docs/portfolio/enrichment/${slug}.json`,
+  `${JSON.stringify(
+    {
+      doc: "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Stub do scaffold: nenhuma pesquisa realizada ainda.",
+      slug,
+      lastResearchAt: null,
+      researchLedger: Object.fromEntries(
+        [
+          "googleEntity",
+          "website",
+          "instagram",
+          "facebook",
+          "otherSocial",
+          "directories",
+          "phone",
+          "address",
+          "hours",
+          "services",
+          "products",
+          "media",
+          "reviews",
+          "identity",
+        ].map((k) => [
+          k,
+          {
+            searched: false,
+            found: false,
+            resolved: false,
+            verified: false,
+            accessible: false,
+            ingestable: false,
+            usable: false,
+          },
+        ]),
+      ),
+      identity: {},
+      evidence: [],
+      google: { placeId: null, status: "not_searched" },
+      reviews: { items: [], status: "NOT_SEARCHED" },
+      photos: { items: [], status: "NOT_SEARCHED" },
+      social: {},
+    },
+    null,
+    2,
+  )}\n`,
+);
+
+// Media plan stub: nenhuma seção pode ficar silenciosamente sem mídia.
+write(
+  `docs/portfolio/media-plans/${slug}.json`,
+  `${JSON.stringify(
+    {
+      doc: "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Preencher antes de fechar o Blueprint.",
+      slug,
+      status: "MEDIA_ENRICHMENT_NOT_STARTED",
+      inventory: {
+        realBusinessPhotos: [],
+        officialBrandAssets: [],
+        externalMedia: [],
+        licensedMedia: [],
+        generatedMedia: [],
+        graphicMedia: [],
+        missingMedia: [],
+      },
+      sections: [],
+      cover: { asset: null, strategy: null, approved: false, checks: {} },
+      lastUpdatedAt: today,
+    },
+    null,
+    2,
+  )}\n`,
+);
+
+// Discovery stub no índice de busca.
+const discoveryPath = resolve(root, "src/config/portfolio-discovery.json");
+if (existsSync(discoveryPath)) {
+  const discovery = JSON.parse(readFileSync(discoveryPath, "utf8"));
+  discovery.projects ??= {};
+  if (!discovery.projects[slug]) {
+    discovery.projects[slug] = {
+      aliases: [siteName],
+      categories: [],
+      services: [],
+      equipment: [],
+      products: [],
+      problems: [],
+      useCases: [],
+      locality: [],
+      keywords: [],
+    };
+    if (!dryRun) writeFileSync(discoveryPath, `${JSON.stringify(discovery, null, 2)}\n`, "utf8");
+    written.push("src/config/portfolio-discovery.json");
+  }
+}
+
+// Manifesto do ciclo de vida: nasce draft, nunca ready/published.
+const manifestPath = resolve(root, "src/config/portfolio-project-manifests.json");
+if (existsSync(manifestPath)) {
+  const manifests = JSON.parse(readFileSync(manifestPath, "utf8"));
+  manifests.projects ??= {};
+  if (!manifests.projects[slug]) {
+    manifests.projects[slug] = {
+      slug,
+      lifecycleContract: 1,
+      stage: "draft",
+      lifecycle: {
+        intake: "complete",
+        entityDiscovery: "not_started",
+        entityResolution: "not_started",
+        evidence: "not_started",
+        media: "not_started",
+        content: "not_started",
+        discovery: "not_started",
+        blueprint: "not_started",
+        seo: "not_started",
+        funnel: "not_started",
+        cover: "not_started",
+        qa: "not_started",
+        publish: "not_started",
+      },
+      blockers: [],
+      warnings: [],
+      ownerRequired: [],
+      searchQa: [],
+      notes: {
+        enrichment: `docs/portfolio/enrichment/${slug}.json`,
+        mediaPlan: `docs/portfolio/media-plans/${slug}.json`,
+      },
+      lastUpdatedAt: today,
+    };
+    if (!dryRun) writeFileSync(manifestPath, `${JSON.stringify(manifests, null, 2)}\n`, "utf8");
+    written.push("src/config/portfolio-project-manifests.json");
+  }
+}
+
 // Registro central de clientes
 const registryPath = resolve(root, "src/config/portfolio-clients.json");
 const registry = JSON.parse(readFileSync(registryPath, "utf8"));
