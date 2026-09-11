@@ -225,36 +225,10 @@ export const blueprint: PortfolioBlueprint = {
   theme: {},
   layout: {
     headerCtaLabel: "${ctaLabel}",
-    // TODO(autonomia §10): decidir explicitamente — { mode: "enabled", label: "<contextual>" }
-    // ou { mode: "disabled", reason: "<razão editorial>" }. O destino é sempre o funil.
-    floatingConversion: { mode: "disabled", reason: "SCAFFOLD: decisão pendente" },
+    ${scaffoldFloating}
   },
   sections: [
-    {
-      // TODO(direção criativa): escolher variant a partir do brief.
-      type: "hero",
-      variant: "editorial",
-      order: 10,
-      // TODO(direção criativa): definir gramática de motion própria do cliente.
-      motion: { intensity: "SUBTLE", reveal: "up" },
-      content: {
-        eyebrow: SCAFFOLD_STATE,
-        headline: "${siteName}",
-        subheadline:
-          "Composição pendente: substituir por narrativa real do cliente depois de entity resolution, enrichment e media discovery.",
-        ctaLabel: "${ctaLabel}",
-      },
-    },
-    {
-      type: "cta",
-      variant: "banner",
-      order: 90,
-      content: {
-        title: "Pendente de direção criativa",
-        text: "Preencher ${creativeBriefFile} e o media plan antes de compor esta seção.",
-        ctaLabel: "${ctaLabel}",
-      },
-    },
+${scaffoldSections}
   ],
   renderCta: ({ children, className, placement }: CtaRenderOptions) => (
     <FunnelCTAButton
