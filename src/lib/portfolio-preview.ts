@@ -38,3 +38,19 @@ export function shouldSuppressPortfolioHostOverlays(): boolean {
   if (isPortfolioEmbedded()) return true;
   return isPortfolioPreviewMode(window.location.search);
 }
+
+/**
+ * QA determinístico da camada institucional 0WEB (PLATFORM_0WEB_LAYER).
+ *
+ * `?force_0web_popup_qa=1` (ou `window.FORCE_0WEB_POPUP_QA = true`) ignora
+ * APENAS a regra de frequência e antecipa o gatilho, para que o gate possa
+ * observar MOUNTED → TRIGGERED → VISIBLE → DISMISSIBLE em navegador.
+ * Não altera nada para o visitante real: sem o parâmetro, o comportamento,
+ * o cooldown e a cota por sessão permanecem exatamente os mesmos.
+ */
+export function isPortfolioPopupQaMode(): boolean {
+  if (typeof window === "undefined") return false;
+  if ((window as unknown as Record<string, unknown>)["FORCE_0WEB_POPUP_QA"] === true) return true;
+  const params = new URLSearchParams(window.location.search);
+  return params.get("force_0web_popup_qa") === "1";
+}
