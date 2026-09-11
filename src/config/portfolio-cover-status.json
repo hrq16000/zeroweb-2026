@@ -579,17 +579,17 @@
       "segment": "construcao"
     },
     {
-      "slug": "jkl-marcenaria",
-      "asset": "public/images/jkl-marcenaria/cozinha.webp",
-      "catalogImage": "/images/jkl-marcenaria/capa-card.jpg",
+      "slug": "jkl-decor",
+      "asset": "public/images/jkl-decor/google-cozinha-marmore.jpg",
+      "catalogImage": "/images/jkl-decor/capa.jpg",
       "catalogImageRole": "EDITORIAL",
       "origin": "VISUAL_REVIEW",
       "reviewedAt": null,
       "status": "VALID",
       "reason": null,
       "cardValid": true,
-      "businessName": "JKL Marcenaria",
-      "segment": "servicos"
+      "businessName": "JKL Decor",
+      "segment": "prestadores-de-servicos"
     },
     {
       "slug": "js-eletrica-manutencao",
@@ -1201,19 +1201,6 @@
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
-    },
-    {
-      "slug": "jkl-decor",
-      "asset": "/images/jkl-decor/capa.jpg",
-      "catalogImage": "/images/jkl-decor/capa.jpg",
-      "catalogImageRole": "EDITORIAL",
-      "origin": "VISUAL_REVIEW",
-      "reviewedAt": "2026-09-11",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
-      "businessName": "JKL Decor",
-      "segment": "prestadores-de-servicos"
     }
   ]
 }
