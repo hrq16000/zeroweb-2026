@@ -118,29 +118,33 @@ export function evaluateMatrix(slug, matrix) {
   };
 }
 
-const manifests = readJson("src/config/portfolio-project-manifests.json", { projects: {} }).projects ?? {};
-const slugs = Object.keys(manifests).filter((s) => !onlySlug || s === onlySlug);
-const results = slugs.map((slug) =>
-  evaluateMatrix(slug, readJson(`docs/portfolio/quality-matrix/${slug}.json`, null)),
-);
+const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
-if (asJson) {
-  console.log(JSON.stringify({ results }, null, 2));
-} else {
-  console.log(`\n[quality-matrix] ${results.length} projeto(s) gerenciado(s)\n`);
-  for (const r of results) {
-    console.log(`${r.status === "PASS" ? "✅" : "⛔"} ${r.slug} — score=${r.score ?? "n/a"} technical=${r.technicalPass} editorial=${r.editorialPass}`);
-    for (const f of r.failures) console.log(`     FAIL     ${f}`);
-    for (const w of r.warnings) console.log(`     warning  ${w}`);
-    for (const o of r.ownerRequired ?? []) console.log(`     OWNER_REQUIRED  ${o}`);
-    console.log("");
+if (isCli) {
+  const manifests = readJson("src/config/portfolio-project-manifests.json", { projects: {} }).projects ?? {};
+  const slugs = Object.keys(manifests).filter((s) => !onlySlug || s === onlySlug);
+  const results = slugs.map((slug) =>
+    evaluateMatrix(slug, readJson(`docs/portfolio/quality-matrix/${slug}.json`, null)),
+  );
+
+  if (asJson) {
+    console.log(JSON.stringify({ results }, null, 2));
+  } else {
+    console.log(`\n[quality-matrix] ${results.length} projeto(s) gerenciado(s)\n`);
+    for (const r of results) {
+      console.log(`${r.status === "PASS" ? "✅" : "⛔"} ${r.slug} — score=${r.score ?? "n/a"} technical=${r.technicalPass} editorial=${r.editorialPass}`);
+      for (const f of r.failures) console.log(`     FAIL     ${f}`);
+      for (const w of r.warnings) console.log(`     warning  ${w}`);
+      for (const o of r.ownerRequired ?? []) console.log(`     OWNER_REQUIRED  ${o}`);
+      console.log("");
+    }
   }
-}
 
-const failing = results.filter((r) => r.status !== "PASS");
-const enforce = process.env.PORTFOLIO_QUALITY_ENFORCE === "1";
-if (failing.length && enforce) {
-  console.error(`[quality-matrix] ${failing.length} projeto(s) reprovado(s).`);
-  process.exit(1);
+  const failing = results.filter((r) => r.status !== "PASS");
+  const enforce = process.env.PORTFOLIO_QUALITY_ENFORCE === "1";
+  if (failing.length && enforce) {
+    console.error(`[quality-matrix] ${failing.length} projeto(s) reprovado(s).`);
+    process.exit(1);
+  }
+  process.exit(0);
 }
-process.exit(0);
