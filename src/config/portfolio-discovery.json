@@ -149,6 +149,19 @@
         "Região Metropolitana de Curitiba",
         "Rua Margarida Petrelli Fogiatto"
       ]
+    },
+    "jkl-decor": {
+      "aliases": [
+        "JKL Decor"
+      ],
+      "categories": [],
+      "services": [],
+      "equipment": [],
+      "products": [],
+      "problems": [],
+      "useCases": [],
+      "locality": [],
+      "keywords": []
     }
   }
 }

@@ -1,0 +1,562 @@
+{
+  "slug": "jkl-decor",
+  "placeId": "ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+  "generatedAt": "2026-09-11T16:10:30.551Z",
+  "provider": "serpapi",
+  "google": {
+    "placeId": "ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+    "dataId": "0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8",
+    "cid": "16637680144145821368",
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnX5wxF42l2augx3zsmvJ4lokZA5uOuUBgHK6MwzSmSvN1VGY-xk3WJz1z4fHsGsngwfzlVqqfWeJxgNNombX6JBi3PdSxUWoEvC_uJ-xU14DcXpAdVqou07esJNUyVw5WpglqD-gSWSvnP=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnX5wxF42l2augx3zsmvJ4lokZA5uOuUBgHK6MwzSmSvN1VGY-xk3WJz1z4fHsGsngwfzlVqqfWeJxgNNombX6JBi3PdSxUWoEvC_uJ-xU14DcXpAdVqou07esJNUyVw5WpglqD-gSWSvnP=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 1,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWndqbOEnkpbPFHOFD3iN_7g7yfy6qhcu6qpZfUoVYFzo0kgmNApnB_BnHr3ZIX7Rg6beR6OkqD_NxGOBycwXl4GvpcIXeI5gqjLMitng3TZ61HFbqTUlqCdQw-skJrXMxAS303SoULq4jUJ=w1080-h1920-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWndqbOEnkpbPFHOFD3iN_7g7yfy6qhcu6qpZfUoVYFzo0kgmNApnB_BnHr3ZIX7Rg6beR6OkqD_NxGOBycwXl4GvpcIXeI5gqjLMitng3TZ61HFbqTUlqCdQw-skJrXMxAS303SoULq4jUJ=w203-h360-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 2,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnXH-S82TCFRUkx0eQeF_fZpgz12blyGfWrfSmmKyEjuJmOH41F4HrhKsofu3oNia1hWGa-OoEL09iK6TAVK2CQyoxQsfAYmYAFBGUVLTLzJLzmVthALTad-ztWX0tshQvLWVYVVZTjNHE=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnXH-S82TCFRUkx0eQeF_fZpgz12blyGfWrfSmmKyEjuJmOH41F4HrhKsofu3oNia1hWGa-OoEL09iK6TAVK2CQyoxQsfAYmYAFBGUVLTLzJLzmVthALTad-ztWX0tshQvLWVYVVZTjNHE=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 3,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnryw2zjFQsTrdXkoI_x5OarICeCvZ6X99njuvu67XhG4X9LefGQlMcoXHLI4QFG1HIKMrTc4BYjedF0iXEyxL_6539sbQZwVIYh5XxJN3bIpOyU9veVc1QFQ_09L-Q89qJhTAk6NPOBVsE=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnryw2zjFQsTrdXkoI_x5OarICeCvZ6X99njuvu67XhG4X9LefGQlMcoXHLI4QFG1HIKMrTc4BYjedF0iXEyxL_6539sbQZwVIYh5XxJN3bIpOyU9veVc1QFQ_09L-Q89qJhTAk6NPOBVsE=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 4,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlz92g4zWFvncFqSHVE2ScNhvGqN3vfwCBLC-WiJdxUqeTBjocSNO107dl0097zLYAVEkzHPLQTZyc24siXHUFeF3qDLggL9XnMKzgqfTpZjV4SzqlrZ4v_GhEmJpWfuiDK57TTk0NDe9Es=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlz92g4zWFvncFqSHVE2ScNhvGqN3vfwCBLC-WiJdxUqeTBjocSNO107dl0097zLYAVEkzHPLQTZyc24siXHUFeF3qDLggL9XnMKzgqfTpZjV4SzqlrZ4v_GhEmJpWfuiDK57TTk0NDe9Es=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 5,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnBbFf7bMn6hoU-d_qyriCDm-dvk438CbXZgB4WxovmcI9ZWwSFKi2JPobRQ84NuVO6jb73WYxJx4-3ZRkFKPcEp9DYCOsBtGJrEVIVb08EtS8oowI4MlCpcnjWw_rvcw7TCShZ-d-vVwtY=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnBbFf7bMn6hoU-d_qyriCDm-dvk438CbXZgB4WxovmcI9ZWwSFKi2JPobRQ84NuVO6jb73WYxJx4-3ZRkFKPcEp9DYCOsBtGJrEVIVb08EtS8oowI4MlCpcnjWw_rvcw7TCShZ-d-vVwtY=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 6,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkwnOuEQmoMdZ4dlIZMAlDAni9pO1atRIj5rI5DCsFeOsx6kYYUvLu9Ui_GVgNwMiQFv0ukVQOKcELds6WsqcK_Ri-e90A3cAPHBcPs1DW4LHRCVocaJ_xerzyM8V_Sk4s4U-o31qCen0w=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkwnOuEQmoMdZ4dlIZMAlDAni9pO1atRIj5rI5DCsFeOsx6kYYUvLu9Ui_GVgNwMiQFv0ukVQOKcELds6WsqcK_Ri-e90A3cAPHBcPs1DW4LHRCVocaJ_xerzyM8V_Sk4s4U-o31qCen0w=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 7,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm9yFHEqCpOTDy7CpBcCzJkKZP2DxUCd58YdO4F79WySZP3wfED8Ad9e12kGFGHVFaDuw9QAtLSt9B8vFsiifoX22eV2RL3B_2ASBjQgBVn7juTCt6XLrO1HZLVKhGBMouTgbAt4bNqHKI=w1080-h1920-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm9yFHEqCpOTDy7CpBcCzJkKZP2DxUCd58YdO4F79WySZP3wfED8Ad9e12kGFGHVFaDuw9QAtLSt9B8vFsiifoX22eV2RL3B_2ASBjQgBVn7juTCt6XLrO1HZLVKhGBMouTgbAt4bNqHKI=w203-h360-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 8,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnDngUtIL0NzRJVB9udRIealo6GP8e2YQpJ6T4k8L-f55BdKRAMp9P8ydGc_VG1AP2U7gsT8KvyF_gGU5gH9MhZl_4AFNTiSSOZw0qJZ9BFpD_KLi_y2sPA67XbrgzvikFWvAHLF3gsKRU=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnDngUtIL0NzRJVB9udRIealo6GP8e2YQpJ6T4k8L-f55BdKRAMp9P8ydGc_VG1AP2U7gsT8KvyF_gGU5gH9MhZl_4AFNTiSSOZw0qJZ9BFpD_KLi_y2sPA67XbrgzvikFWvAHLF3gsKRU=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 9,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkGi-tsMpQJfqBVcJoN8v9KRI1qowp0LNmNl4UXsgi7FmosnLT38CijvZ8cz3JgoLlMIczjEGAq58pWI_9N-p_G8rWjCcHGPcTAlo9pgY9Ucg7nVq1Nii3izIL8zNgBcay3v5nnbkLePBk=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkGi-tsMpQJfqBVcJoN8v9KRI1qowp0LNmNl4UXsgi7FmosnLT38CijvZ8cz3JgoLlMIczjEGAq58pWI_9N-p_G8rWjCcHGPcTAlo9pgY9Ucg7nVq1Nii3izIL8zNgBcay3v5nnbkLePBk=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 10,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmzL2o9QGVE0P0mm9acZe3mgAIqExrlQjTvIJNgt_-ncrEidV6LXApRu29Adl13rGcKJ3zuGDwH0e4M2yXOqWuFTL2B5zggUmGVAYivThYonDE8B5znk5AHPwjH9KiXMRNqv64fq8inli_A=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmzL2o9QGVE0P0mm9acZe3mgAIqExrlQjTvIJNgt_-ncrEidV6LXApRu29Adl13rGcKJ3zuGDwH0e4M2yXOqWuFTL2B5zggUmGVAYivThYonDE8B5znk5AHPwjH9KiXMRNqv64fq8inli_A=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 11,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkjyfLuJdeKurGmSy8AcIJ_IA3mUNTCnrLZq3TpBGmt0ILARDGAe03VIZ-Mqu-xPx1XWKv7eaKtf4KYnQyoPWRmKsIQ-s_F1tXp4o8qxbO9dcUET69RBD1PiUM1VxDSJriWOlUrcTOESg4=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkjyfLuJdeKurGmSy8AcIJ_IA3mUNTCnrLZq3TpBGmt0ILARDGAe03VIZ-Mqu-xPx1XWKv7eaKtf4KYnQyoPWRmKsIQ-s_F1tXp4o8qxbO9dcUET69RBD1PiUM1VxDSJriWOlUrcTOESg4=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 12,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnnqgUFWOEiYt1iIn6amFaM8GCTbBbczsT4f6O_x0aD60JIyaWR4K2evzLY3NMNkyYXBrOC3McUIQrnPpzxNk83oH7DSSXNxnNwSPO1qKUbSjpaWKDqW8sXEgOMExn0EjVrWuLfyF4cISAj=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnnqgUFWOEiYt1iIn6amFaM8GCTbBbczsT4f6O_x0aD60JIyaWR4K2evzLY3NMNkyYXBrOC3McUIQrnPpzxNk83oH7DSSXNxnNwSPO1qKUbSjpaWKDqW8sXEgOMExn0EjVrWuLfyF4cISAj=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 13,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn0KrkAjGfD_YFVfEvbChY4tBPPVNgYCuHqSmI-uLDomxwdPDUOQSpcNunYWHnWpg1W27fOXpj5f9qpNkbYyX3u1CRfGZOvpTB4Ft76w5SpujiDt4xKH3p8r5eBLpvC3UqDs2SGVUjiKU3H=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn0KrkAjGfD_YFVfEvbChY4tBPPVNgYCuHqSmI-uLDomxwdPDUOQSpcNunYWHnWpg1W27fOXpj5f9qpNkbYyX3u1CRfGZOvpTB4Ft76w5SpujiDt4xKH3p8r5eBLpvC3UqDs2SGVUjiKU3H=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 14,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmLY3KT4Q2AreD3xhegmRZMFIxsPbwhWYLX3WNgQfsX2VyuC_O8QPFCoXnUZ2ePlOPPxeq8M24kWqDFBoWWd990TSLJIzS8cNHXQ-K7rUcyPPC__UrQOj4gg2fQvm39jeS__qfvqKyspvYT=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmLY3KT4Q2AreD3xhegmRZMFIxsPbwhWYLX3WNgQfsX2VyuC_O8QPFCoXnUZ2ePlOPPxeq8M24kWqDFBoWWd990TSLJIzS8cNHXQ-K7rUcyPPC__UrQOj4gg2fQvm39jeS__qfvqKyspvYT=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 15,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4Mo6ySUSTGOHxwzHcULQ29LksaZZyF39WJBzTn-4ERG3zdLEgKu3NcnpNMzPPAaFBoy_StQSPg1DbhBUgLL3beQRBHOOVSn-L1nNBX0EGfUO1lcXE-4QcOdHl6ljKLWMdS6_1IvU7YT4=w4080-h3072-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4Mo6ySUSTGOHxwzHcULQ29LksaZZyF39WJBzTn-4ERG3zdLEgKu3NcnpNMzPPAaFBoy_StQSPg1DbhBUgLL3beQRBHOOVSn-L1nNBX0EGfUO1lcXE-4QcOdHl6ljKLWMdS6_1IvU7YT4=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 16,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkJYzVIcmbaeV7CnryEBsJjaDfk0YSZiv-dlk58gyGr_x6Bmlpd8L6bGdo-6EY2s5HIjfj88pu_2AePqqOA7ZzwSkZSlzPXinI7eM41ieVPnnHJ1k38OSYzBaNFHebkW0mC7HqVKDl4hiFT=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkJYzVIcmbaeV7CnryEBsJjaDfk0YSZiv-dlk58gyGr_x6Bmlpd8L6bGdo-6EY2s5HIjfj88pu_2AePqqOA7ZzwSkZSlzPXinI7eM41ieVPnnHJ1k38OSYzBaNFHebkW0mC7HqVKDl4hiFT=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 17,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmjJqbAHkAiVnt14xmI8Ln9omBokaoiYlksjc3T6OfsR-yfsR7t3qZ28cHkX1gQe19duurlR8w7UBbD6BfPjsk2BKaTzFYtXt3oRbTrHy7AWegB_EbLzwT1L-VwBpCRTtJVhIs2rd-Fa-k=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmjJqbAHkAiVnt14xmI8Ln9omBokaoiYlksjc3T6OfsR-yfsR7t3qZ28cHkX1gQe19duurlR8w7UBbD6BfPjsk2BKaTzFYtXt3oRbTrHy7AWegB_EbLzwT1L-VwBpCRTtJVhIs2rd-Fa-k=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 18,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl7qyeuZLCUnS2t9z0YV4TF1-ZUMzD2wD7OeotWxbwWsFO0Msay3U4xLGKrOsr2EiU_ZT9qdPIFBzBzCWw38dwhMCvO7oHDljMrNYrAtcXTh9_qfbxopfsjNcPdXYDBYjxudziEmfrEMX8=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl7qyeuZLCUnS2t9z0YV4TF1-ZUMzD2wD7OeotWxbwWsFO0Msay3U4xLGKrOsr2EiU_ZT9qdPIFBzBzCWw38dwhMCvO7oHDljMrNYrAtcXTh9_qfbxopfsjNcPdXYDBYjxudziEmfrEMX8=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 19,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnwDB5I9OCQVEI4tcJRRbv_EF5hQb-J3by_T7rIExQkeA7Vgy_wkf-m6h7QQQR30t6Z_KWcgFhXbOE00XwAfEnXy-A8gY5J53FslxCeyVaQ4f_60Fy4rySck9V7PtTPtvLn-yPJXuczLTs=w3072-h4080-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnwDB5I9OCQVEI4tcJRRbv_EF5hQb-J3by_T7rIExQkeA7Vgy_wkf-m6h7QQQR30t6Z_KWcgFhXbOE00XwAfEnXy-A8gY5J53FslxCeyVaQ4f_60Fy4rySck9V7PtTPtvLn-yPJXuczLTs=w203-h269-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 20,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      }
+    ]
+  },
+  "place": {
+    "placeId": "ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+    "dataId": "0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8",
+    "cid": "16637680144145821368",
+    "name": "JKL Decor móveis planejados",
+    "category": "Marceneiro",
+    "description": null,
+    "address": "R. Durval Moletta - Agaraú, São José dos Pinhais - PR, 83149-899",
+    "phone": "(41) 99142-5088",
+    "website": null,
+    "hours": {
+      "sexta_feira": "08:00–18:00",
+      "sábado": "Fechado",
+      "domingo": "Fechado",
+      "segunda_feira": "08:00–18:00",
+      "terça_feira": "08:00–18:00",
+      "quarta_feira": "08:00–18:00",
+      "quinta_feira": "08:00–18:00"
+    },
+    "rating": 5,
+    "reviewCount": 3,
+    "latitude": -25.655146499999997,
+    "longitude": -49.2302301,
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "reviewsLink": "https://serpapi.com/search.json?data_id=0xaa62c8624958fd5f%3A0xe6e4e9f0de61aeb8&engine=google_maps_reviews&hl=pt-br",
+    "photosLink": "https://serpapi.com/search.json?data_id=0xaa62c8624958fd5f%3A0xe6e4e9f0de61aeb8&engine=google_maps_photos&hl=pt-br",
+    "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnX5wxF42l2augx3zsmvJ4lokZA5uOuUBgHK6MwzSmSvN1VGY-xk3WJz1z4fHsGsngwfzlVqqfWeJxgNNombX6JBi3PdSxUWoEvC_uJ-xU14DcXpAdVqou07esJNUyVw5WpglqD-gSWSvnP=w1000-h1000-c-n",
+    "links": null,
+    "serviceOptions": null,
+    "photos": [],
+    "extraFields": {
+      "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+      "provider_id": "/g/11yljt4lkg",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/pzlXfHicHcTRToMwFADQL-qAATMx8YE5HakRiRWKvhjtysWstOCltPYnffZvlngezt_vsCwTXkeRGtINGANKWpTfwuhF6mUjzBjBhEQgwagon-sXrrvc-ftsq7YfFnwacFxppsz5rcjtk232UD7sHl1gI1urpD2-En9OOQ1JyPoSj6jB9UG189xzST1UlRk_ux3df6X1ifmGm7v19t1S4pskO4huKk7tbGx8JZFWzU_rcj6Bmg8EGGerrm9cEscxGf4XRF8AWCBJcg",
+      "rating_summary": [
+        {
+          "stars": 1,
+          "amount": 0
+        },
+        {
+          "stars": 2,
+          "amount": 0
+        },
+        {
+          "stars": 3,
+          "amount": 0
+        },
+        {
+          "stars": 4,
+          "amount": 0
+        },
+        {
+          "stars": 5,
+          "amount": 3
+        }
+      ],
+      "country": "Brasil",
+      "open_state": "Aberto · Fecha 18:00",
+      "plus_code": "8QV9+WW Agaraú, São José dos Pinhais - PR",
+      "user_reviews": {
+        "summary": [
+          {
+            "snippet": "\"Gostamos demais do trabalho, com certeza iremos fazer mais coisas com vcs.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocI9XfvA7Zznhs_DuxWNVwbWs0u7b5hFP6IYztcQfmQGtsWjzA=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Com qualidade de todo material, sendo o nossa cozinha 100% MDF.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUgyr4aTiAdnk3_Oa9dPy94XVFhG_xDcrMXjT44tJycR-HRnOmi=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Muito bom o serviço, recomendo\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocI8a7f-4mBPEsmTrhhLv1hV7lz0EU_P_MRRFQXAZLpL46QHFw=s40-k-cc-rp-mo"
+          }
+        ],
+        "most_relevant": [
+          {
+            "username": "Fabio JCP",
+            "rating": 5,
+            "contributor_id": "102173879511818125679",
+            "user_review_count": 19,
+            "user_photo_count": 5,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUgyr4aTiAdnk3_Oa9dPy94XVFhG_xDcrMXjT44tJycR-HRnOmi=s120-c-rp-mo-ba12-br100",
+            "description": "O Jeferson e sua empresa surpreenderam desde o primeiro contato, com orçamento à distância de forma precisa e rápida. Com qualidade de todo material, sendo o nossa cozinha 100% MDF. Além do melhor preço que encontrei, outra surpresa foi o prazo prometido de 20 dias montado, e entregou antes do prometido para nossa felicidade e conforto, pois tínhamos também pressa para a mudança. Super recomendo, com certeza teremos novas negociações para demais cômodos da casa. Grande abraço e sucesso sempre!!!!!!",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21VeWNWUmlkbEpLZEdsblpWOTJXakZzTlhGQmNHYxAB!2m1!1s0x0:0xe6e4e9f0de61aeb8!3m1!1s2@1:CAIQACodChtycF9oOmUycVRidlJKdGlnZV92WjFsNXFBcGc%7C%7C?hl=pt-BR",
+            "date": "4 meses atrás",
+            "date_iso8601": "2026-04-16T00:24:46+00:00"
+          },
+          {
+            "username": "Tiago Barbosa",
+            "rating": 5,
+            "contributor_id": "113815700544031118126",
+            "user_review_count": 2,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocI8a7f-4mBPEsmTrhhLv1hV7lz0EU_P_MRRFQXAZLpL46QHFw=s120-c-rp-mo-br100",
+            "description": "Muito bom o serviço, recomendo",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21OelkyWnZiVVE1VTI1aU0xaE5PSGMyUjJOcWNsRRAB!2m1!1s0x0:0xe6e4e9f0de61aeb8!3m1!1s2@1:CAIQACodChtycF9oOmNzY2ZvbUQ5U25iM1hNOHc2R2NqclE%7C%7C?hl=pt-BR",
+            "date": "uma semana atrás",
+            "date_iso8601": "2026-08-28T17:56:07+00:00"
+          },
+          {
+            "username": "Edilaine marques",
+            "rating": 5,
+            "contributor_id": "115947257623564728908",
+            "user_review_count": 6,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocI9XfvA7Zznhs_DuxWNVwbWs0u7b5hFP6IYztcQfmQGtsWjzA=s120-c-rp-mo-br100",
+            "description": "Gostamos demais do trabalho, com certeza iremos fazer mais coisas com vcs. Foi tudo no prazo combinado, serviço muito bem feito! Além da Super Educação do proprietário…",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25SeWFXTnRWV2d4ZVRWWFpsOXRiMkZ2WVc5UGEwRRAB!2m1!1s0x0:0xe6e4e9f0de61aeb8!3m1!1s2@1:CAIQACodChtycF9oOnRyaWNtVWgxeTVXZl9tb2FvYW9Pa0E%7C%7C?hl=pt-BR",
+            "date": "3 semanas atrás",
+            "date_iso8601": "2026-08-18T19:24:52+00:00"
+          }
+        ]
+      }
+    },
+    "provenance": {
+      "provider": "serpapi",
+      "engine": "google_maps",
+      "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=place&place_id=ChIJX_1YSWLIYqoRuK5h3vDp5OY&hl=pt-br&gl=br",
+      "fetchedAt": "2026-09-11T16:08:30.285Z",
+      "sourceUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8!8m2!3d0!4d0!16s?hl=pt-br&gl=br"
+    }
+  },
+  "reviews": {
+    "items": [
+      {
+        "author": "Fabio JCP",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/102173879511818125679?hl=pt-BR",
+        "rating": 5,
+        "text": "O Jeferson e sua empresa surpreenderam desde o primeiro contato, com orçamento à distância de forma precisa e rápida. Com qualidade de todo material, sendo o nossa cozinha 100% MDF. Além do melhor preço que encontrei, outra surpresa foi o prazo prometido de 20 dias montado, e entregou antes do prometido para nossa felicidade e conforto, pois tínhamos também pressa para a mudança. Super recomendo, com certeza teremos novas negociações para demais cômodos da casa. Grande abraço e sucesso sempre!!!!!!",
+        "publishedAtLabel": "4 meses atrás",
+        "publishedAtIso": "2026-04-16T00:24:46Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21VeWNWUmlkbEpLZEdsblpWOTJXakZzTlhGQmNHYxAB!2m1!1s0x0:0xe6e4e9f0de61aeb8!3m1!1s2@1:CAIQACodChtycF9oOmUycVRidlJKdGlnZV92WjFsNXFBcGc%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Tiago Barbosa",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/113815700544031118126?hl=pt-BR",
+        "rating": 5,
+        "text": "Muito bom o serviço, recomendo",
+        "publishedAtLabel": "uma semana atrás",
+        "publishedAtIso": "2026-08-28T17:56:07Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21OelkyWnZiVVE1VTI1aU0xaE5PSGMyUjJOcWNsRRAB!2m1!1s0x0:0xe6e4e9f0de61aeb8!3m1!1s2@1:CAIQACodChtycF9oOmNzY2ZvbUQ5U25iM1hNOHc2R2NqclE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Edilaine marques",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/115947257623564728908?hl=pt-BR",
+        "rating": 5,
+        "text": "Gostamos demais do trabalho, com certeza iremos fazer mais coisas com vcs. Foi tudo no prazo combinado, serviço muito bem feito! Além da Super Educação do proprietário…",
+        "publishedAtLabel": "3 semanas atrás",
+        "publishedAtIso": "2026-08-18T19:24:52Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25SeWFXTnRWV2d4ZVRWWFpsOXRiMkZ2WVc5UGEwRRAB!2m1!1s0x0:0xe6e4e9f0de61aeb8!3m1!1s2@1:CAIQACodChtycF9oOnRyaWNtVWgxeTVXZl9tb2FvYW9Pa0E%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      }
+    ],
+    "ratingSummary": {
+      "rating": 5,
+      "reviewCount": 3
+    },
+    "provenance": {
+      "provider": "serpapi",
+      "engine": "google_maps_reviews",
+      "requestUrl": "https://serpapi.com/search.json?engine=google_maps_reviews&place_id=ChIJX_1YSWLIYqoRuK5h3vDp5OY&hl=pt-br&sort_by=qualityScore",
+      "fetchedAt": "2026-09-11T16:08:30.313Z",
+      "sourceUrl": null
+    }
+  },
+  "knowledgeGraph": {
+    "title": "JKL Decor móveis planejados",
+    "type": "Marceneiro no Paraná",
+    "entity_type": "local_nav",
+    "kgmid": "/g/11yljt4lkg",
+    "knowledge_graph_search_link": "https://www.google.com.br/search?kgmid=/g/11yljt4lkg&hl=pt-BR&q=JKL+Decor+m%C3%B3veis+planejados",
+    "serpapi_knowledge_graph_search_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=br&google_domain=google.com.br&hl=pt-BR&kgmid=%2Fg%2F11yljt4lkg&location=Sao+Jose+dos+Pinhais%2C+State+of+Parana%2C+Brazil&q=JKL+Decor+m%C3%B3veis+planejados",
+    "place_id": "ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+    "local_map": {
+      "image": "https://serpapi.com/searches/6aa4274171577f8401c7837f/images/Ui6G3ZQY5FTi4OXhOpCM6ZhAdYlgQdQoBDQThl8HuU8.webp",
+      "link": "https://www.google.com.br/maps/place/JKL+Decor+m%C3%B3veis+planejados/data=!4m2!3m1!1s0x0:0xe6e4e9f0de61aeb8?sa=X&ved=2ahUKEwjGtcna9OaWAxVJqZUCHd4CAXcQ_BJ6BAgWEAA&hl=pt-br&gl=br"
+    },
+    "rating": 5,
+    "review_count": 3,
+    "endereço": "R. Durval Moletta - Agaraú, São José dos Pinhais - PR, 83149-899",
+    "endereço_links": [
+      {
+        "text": "Endereço",
+        "link": "https://www.google.com.br/search?sca_esv=c130cae6dad1d85e&hl=pt-br&gl=br&q=jkl+decor+m%C3%B3veis+planejados+s%C3%A3o+jos%C3%A9+dos+pinhais+endere%C3%A7o&ludocid=16637680144145821368&sa=X&ved=2ahUKEwjGtcna9OaWAxVJqZUCHd4CAXcQ6BN6BAgmEAI"
+      }
+    ],
+    "telefone": "(41) 99142-5088",
+    "raw_hours": "Aberto · Fecha 18 - 00",
+    "hours": {
+      "sexta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sábado": {
+        "opens": "Fechado"
+      },
+      "domingo": {
+        "opens": "Fechado"
+      },
+      "segunda_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "terça_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "quarta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "quinta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    },
+    "unclaimed_listing": true
+  },
+  "socialProfiles": [],
+  "instagram": null,
+  "facebook": null,
+  "website": {
+    "url": null,
+    "status": "NO_OFFICIAL_WEBSITE"
+  },
+  "stages": {
+    "mapsPlace": "SUCCESS",
+    "reviews": "SUCCESS",
+    "photos": "SUCCESS",
+    "googleSearch": "SUCCESS",
+    "socialDiscovery": "FAILED",
+    "instagram": "NO_RESULTS",
+    "facebook": "NO_RESULTS"
+  },
+  "callLog": [
+    {
+      "engine": "google_maps",
+      "query": "ChIJX_1YSWLIYqoRuK5h3vDp5OY"
+    },
+    {
+      "engine": "google_maps_reviews",
+      "query": "ChIJX_1YSWLIYqoRuK5h3vDp5OY"
+    },
+    {
+      "engine": "google_maps_photos",
+      "query": "0xaa62c8624958fd5f:0xe6e4e9f0de61aeb8"
+    },
+    {
+      "engine": "google",
+      "query": "\"JKL Decor móveis planejados\" São José dos Pinhais"
+    },
+    {
+      "engine": "google",
+      "query": "site:instagram.com \"JKL Decor móveis planejados\" OR \"+55 41 99142-5088\""
+    },
+    {
+      "engine": "google",
+      "query": "site:facebook.com \"JKL Decor móveis planejados\" São José dos Pinhais"
+    }
+  ],
+  "callCount": 6,
+  "errors": [
+    "socialDiscovery: SerpApi google: Google hasn't returned any results for this query.",
+    "socialDiscovery: SerpApi google falhou [503]: {\n  \"search_metadata\": {\n    \"id\": \"6aa4279ca8dce68b2cd3e722\",\n    \"status\": \"Error\",\n    \"json_endpoint\": \"https://serpapi.com/searches/2dY7ky-R7NoFJxowAM8xVM0NfysFExuE74-LQ6CJ5zc/6aa4279ca8dce68b2cd3e722.json\",\n    \"markdown_endpoint\": \"https://serpapi.com/searches/2dY7ky-R7NoFJxowAM8xVM0NfysFExuE74-LQ6CJ5zc/6aa4279ca8dce68b2cd3e722.md\",\n    \"created_at\": \"2026-09-11 16:09:00 UTC\",\n    \"processed_at\": \"2026-09-11 16:09:00 UTC\",\n    \"google_url\": \"https://www.google.com.br/search?q=site%3Afaceb"
+  ],
+  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google são GOOGLE_USER_MEDIA e exigem verificação de direitos e atribuição (nunca apresentadas como mídia própria); telefone e endereço permanecem server-side."
+}

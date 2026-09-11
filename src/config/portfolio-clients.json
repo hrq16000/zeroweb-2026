@@ -1184,5 +1184,20 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/moreira-auto-mecanica.md"
+  },
+  {
+    "clientKey": "jkl-decor",
+    "slug": "jkl-decor",
+    "siteName": "JKL Decor",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/JklDecorPage.tsx",
+    "assetsDir": "public/images/jkl-decor",
+    "ctaMode": "proposal",
+    "funnelType": "orcamento",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/jkl-decor.md"
   }
 ]

@@ -9,12 +9,16 @@ import type { PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /** Módulos com o Blueprint estático — usados pelo gate de validação. */
 export const blueprintModules: Record<string, () => Promise<{ blueprint: PortfolioBlueprint }>> = {
+  "jkl-decor": () => import("@/components/site/JklDecorPage"),
   "moreira-auto-mecanica": () => import("@/components/site/MoreiraAutoMecanicaPage"),
   "carecas-infotec": () => import("@/components/site/CarecasInfotecPage"),
 };
 
 /** Páginas renderizadas pelo motor de Blueprint (carregamento sob demanda). */
 export const blueprintPages: Record<string, LazyExoticComponent<ComponentType>> = {
+  "jkl-decor": lazy(() =>
+    import("@/components/site/JklDecorPage").then((m) => ({ default: m.JklDecorPage })),
+  ),
   "moreira-auto-mecanica": lazy(() =>
     import("@/components/site/MoreiraAutoMecanicaPage").then((m) => ({ default: m.MoreiraAutoMecanicaPage })),
   ),
