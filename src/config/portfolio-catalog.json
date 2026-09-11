@@ -2070,6 +2070,30 @@
     "summary": "EN — Estrutura Nacional atua com fabricação e montagem de estruturas metálicas, abrasivos e arames para solda, perfis estruturais e soluções em aço em São José dos Pinhais."
   },
   {
+  {
+    "slug": "moreira-auto-mecanica",
+    "clientKey": "moreira-auto-mecanica",
+    "title": "Moreira Auto Mecânica",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "draft",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "oficina-mecanica",
+      "mecanica-para-carros",
+      "suspensao",
+      "manutencao-automotiva",
+      "agendamento"
+    ],
+    "subtitle": "Mecânica para carros no Cidade Jardim",
+    "location": "São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/moreira-auto-mecanica/capa.jpg",
+    "fallbackImage": "/images/moreira-auto-mecanica/google-fachada.jpg",
+    "metrics": "Agendamento pelo formulário",
+    "summary": "Moreira Auto Mecânica é uma oficina de mecânica para carros no bairro Cidade Jardim, em São José dos Pinhais — PR, com avaliação presencial do veículo e agendamento pelo formulário do site."
+  },
     "slug": "carecas-infotec",
     "clientKey": "carecas-infotec",
     "title": "Careca's Infotec",

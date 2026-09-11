@@ -622,6 +622,13 @@
     "primaryCtaLabel": "Iniciar solicitação",
     "theme": "navy"
   },
+  "moreira-auto-mecanica": {
+    "intent": "agendamento",
+    "nextStepTitle": "Conte o que o carro está apresentando para agendar a avaliação.",
+    "nextStepBody": "A equipe da Moreira Auto Mecânica recebe a descrição do veículo e combina o melhor dia para você levar o carro na oficina.",
+    "primaryCtaLabel": "Agendar avaliação",
+    "theme": "steel"
+  },
   "carecas-infotec": {
     "intent": "orcamento",
     "nextStepTitle": "Conte o aparelho e o defeito para receber o orçamento.",
