@@ -1,36 +1,288 @@
 {
-  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Preencher antes de fechar o Blueprint.",
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7 e PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM §11).",
   "slug": "jkl-decor",
-  "status": "MEDIA_ENRICHMENT_NOT_STARTED",
+  "status": "MEDIA_ENRICHMENT_COMPLETE_THIRD_PARTY_SOURCE_DECLARED",
   "inventory": {
-    "realBusinessPhotos": [],
+    "realBusinessPhotos": [
+      {
+        "asset": "public/images/jkl-decor/google-estante-iluminada.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 1,
+        "attribution": "Foto pública da ficha da JKL Decor no Google (via SerpApi)",
+        "mediaNarrative": "ESTABLISH_CONTEXT",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
+      },
+      {
+        "asset": "public/images/jkl-decor/google-cozinha-marmore.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 4,
+        "attribution": "Foto pública da ficha da JKL Decor no Google (via SerpApi)",
+        "mediaNarrative": "SHOW_REALITY",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
+      },
+      {
+        "asset": "public/images/jkl-decor/google-painel-tv.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 6,
+        "attribution": "Foto pública da ficha da JKL Decor no Google (via SerpApi)",
+        "mediaNarrative": "SHOW_REALITY",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
+      },
+      {
+        "asset": "public/images/jkl-decor/google-home-office.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 9,
+        "attribution": "Foto pública da ficha da JKL Decor no Google (via SerpApi)",
+        "mediaNarrative": "EXPLAIN_SERVICE",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
+      },
+      {
+        "asset": "public/images/jkl-decor/google-cozinha-verde.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 12,
+        "attribution": "Foto pública da ficha da JKL Decor no Google (via SerpApi)",
+        "mediaNarrative": "BREAK_VISUAL_RHYTHM",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
+      },
+      {
+        "asset": "public/images/jkl-decor/google-banheiro.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 15,
+        "attribution": "Foto pública da ficha da JKL Decor no Google (via SerpApi)",
+        "mediaNarrative": "PROVE_CAPABILITY",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
+      }
+    ],
     "officialBrandAssets": [],
     "externalMedia": [],
     "licensedMedia": [],
     "generatedMedia": [],
-    "graphicMedia": [],
-    "missingMedia": []
+    "graphicMedia": [
+      {
+        "asset": "public/images/jkl-decor/logo.png",
+        "purpose": "BRAND_ASSET",
+        "source": "GENERATED_BRAND_ASSET",
+        "composition": "wordmark 'JKL DECOR' + linha 'MÓVEIS PLANEJADOS SOB MEDIDA', verde profundo e dourado, fundo transparente",
+        "rights": "0WEB_CREATED",
+        "mediaNarrative": "BRAND_RECALL",
+        "usageMode": "OWNED_FOR_CLIENT_PRESENTATION"
+      },
+      {
+        "asset": "public/images/jkl-decor/capa.jpg",
+        "purpose": "COVER_MEDIA + OG_MEDIA",
+        "source": "PHOTO_DERIVED",
+        "base": "public/images/jkl-decor/google-cozinha-marmore.jpg",
+        "composition": "cozinha real + painel verde escuro à esquerda + tipografia factual (nome, segmento e praça)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE (herda a foto base)",
+        "mediaNarrative": "BRAND_RECALL",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE"
+      }
+    ],
+    "missingMedia": [
+      "logotipo oficial da marcenaria (não publicado em nenhuma fonte pública)",
+      "fotos próprias em alta resolução fornecidas pelo proprietário",
+      "foto da equipe com autorização de imagem"
+    ]
   },
   "discovery": {
-    "searched": false,
+    "searched": true,
+    "searchedAt": "2026-09-11",
     "sources": [
-      "OWNER_SUPPLIED",
       "GOOGLE_PUBLIC_MEDIA",
       "OFFICIAL_SOCIAL",
       "OFFICIAL_WEBSITE",
-      "OFFICIAL_BRAND",
-      "LICENSED_MEDIA",
-      "GENERATED_CONTEXTUAL_MEDIA"
+      "OFFICIAL_BRAND"
     ],
-    "result": null
+    "result": "20 mídias públicas na ficha do Google; 6 selecionadas por qualidade, iluminação, composição e papel narrativo distinto (um ambiente por papel). Fotos repetidas do mesmo ângulo e fotos escuras/desfocadas descartadas. Sem site, sem logotipo público e sem rede social resolvida."
   },
-  "referenceOnlyAssets": [],
-  "sections": [],
+  "referenceOnlyAssets": [
+    {
+      "asset": "Fotos duplicadas do mesmo ambiente em ângulos próximos",
+      "purpose": "BRAND_REFERENCE",
+      "reason": "repetição não acrescenta narrativa; manteria a grade monótona"
+    },
+    {
+      "asset": "Fotos com baixa iluminação ou móvel parcialmente montado",
+      "purpose": "EVIDENCE_ONLY",
+      "reason": "qualidade insuficiente para uso editorial premium (regra: mídia real só vence quando tem qualidade)"
+    }
+  ],
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "context-hero",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/jkl-decor/google-estante-iluminada.jpg",
+      "mediaNarrative": "ESTABLISH_CONTEXT",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "useCases",
+      "requiredMediaRole": "reality-grid",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "6 fotos reais de ambientes entregues",
+      "mediaNarrative": "SHOW_REALITY",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "capabilities",
+      "requiredMediaRole": "background-band",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/jkl-decor/google-cozinha-verde.jpg",
+      "mediaNarrative": "BREAK_VISUAL_RHYTHM",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "offers",
+      "requiredMediaRole": "none",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "oferta alternada com ícones: mídia competiria com a grade de ambientes logo acima"
+    },
+    {
+      "section": "trust",
+      "requiredMediaRole": "none",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "faixa de condições declaradas pelo cliente — precisa de leitura rápida, não de imagem"
+    },
+    {
+      "section": "proof",
+      "requiredMediaRole": "none",
+      "sourceType": "TEXT_EVIDENCE",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    },
+    {
+      "section": "process",
+      "requiredMediaRole": "none",
+      "sourceType": "SURFACE_RHYTHM",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "timeline com progresso de scroll é a própria quebra de ritmo"
+    },
+    {
+      "section": "cta",
+      "requiredMediaRole": "closing-panel",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/jkl-decor/google-home-office.jpg",
+      "mediaNarrative": "SUPPORT_CONVERSION",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "location",
+      "requiredMediaRole": "place-anchor",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/jkl-decor/google-cozinha-marmore.jpg",
+      "mediaNarrative": "SUPPORT_CONVERSION",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "faq",
+      "requiredMediaRole": "none",
+      "sourceType": "TEXT_ONLY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    }
+  ],
   "cover": {
-    "asset": null,
-    "strategy": null,
-    "approved": false,
-    "checks": {}
+    "asset": "public/images/jkl-decor/capa.jpg",
+    "strategy": "PHOTO_DERIVED (BRAND_LED sobre foto real de projeto)",
+    "approved": true,
+    "approvedAt": "2026-09-11",
+    "composition": "cozinha real em MDF branco com mármore + painel verde profundo + 'JKL DECOR', 'MÓVEIS PLANEJADOS SOB MEDIDA EM MDF' e 'SÃO JOSÉ DOS PINHAIS · CURITIBA E REGIÃO'; sem telefone e sem endereço",
+    "checks": {
+      "identityMatch": "pass",
+      "segmentMatch": "pass",
+      "smallCardReadability": "pass",
+      "contrast": "pass",
+      "focalPoint": "pass",
+      "crop": "pass",
+      "visualQuality": "pass",
+      "genericPenalty": "pass",
+      "duplicatePenalty": "pass"
+    },
+    "answer": "Sim: o card mostra um ambiente real entregue com o nome do negócio e a praça."
   },
-  "lastUpdatedAt": "2026-09-11"
+  "warnings": [
+    "MEDIA_RIGHTS_THIRD_PARTY: as fotos vêm da ficha pública do Google e foram publicadas por terceiros. Autorização do proprietário do negócio NÃO cria licença sobre elas; o uso atual é editorial com fonte e atribuição declaradas.",
+    "PUBLICAÇÃO NÃO DEPENDE DESSAS FOTOS: se o uso atribuído deixar de ser adequado, substituir por foto enviada pelo cliente sem alterar a narrativa das seções."
+  ],
+  "lastUpdatedAt": "2026-09-11",
+  "heroMedia": {
+    "asset": "public/images/jkl-decor/google-estante-iluminada.jpg",
+    "source": "Ficha pública do Google (Place ID ChIJX_1YSWLIYqoRuK5h3vDp5OY)",
+    "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO — terceiro publicador, exibida com atribuição",
+    "narrativeRole": "ESTABLISH_CONTEXT — estante iluminada de nichos comunica marcenaria sob medida e nível de acabamento na primeira dobra",
+    "crop": "portrait 3:4 em full-bleed, conteúdo sobreposto",
+    "focalPoint": "centro: nichos com iluminação embutida",
+    "mobileStrategy": "altura contida em 390px, texto sobre gradiente, sem parallax"
+  },
+  "brandIdentity": {
+    "decision": "WORDMARK_CREATED",
+    "asset": "public/images/jkl-decor/logo.png",
+    "provenance": "GENERATED_BRAND_ASSET",
+    "evidence": "Pesquisa pública (Google Maps, Google Search, Knowledge Graph, redes) não encontrou logotipo da marcenaria.",
+    "disclosure": "Identidade criada pela 0WEB para apresentação digital; não é marca histórica nem foi fornecida pelo proprietário. Logo real posterior substitui este asset."
+  }
 }
