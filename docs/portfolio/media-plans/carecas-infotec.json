@@ -1,0 +1,44 @@
+{
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Nenhuma imagem gerada pode representar estabelecimento, funcionário, cliente, trabalho executado ou produto real.",
+  "slug": "carecas-infotec",
+  "status": "MEDIA_ENRICHMENT_INCOMPLETE",
+  "inventory": {
+    "realBusinessPhotos": ["public/images/carecas-infotec/banner.webp"],
+    "officialBrandAssets": ["public/images/carecas-infotec/logo.png"],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": ["public/images/carecas-infotec/capa.jpg"],
+    "missingMedia": [
+      "fachada da loja",
+      "bancada/oficina de atendimento",
+      "equipamentos atendidos (fotos reais)",
+      "fotos do Google (aguardando provider e verificação de direitos)"
+    ]
+  },
+  "sections": [
+    { "section": "hero", "requiredMediaRole": "real-business-photo", "sourceType": "OWNER_SUPPLIED", "asset": "public/images/carecas-infotec/banner.webp", "status": "done" },
+    { "section": "services", "requiredMediaRole": "generated-contextual", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": null, "status": "planned", "resolution": "generate" },
+    { "section": "authority", "requiredMediaRole": "real-business-photo", "sourceType": "OWNER_SUPPLIED", "asset": null, "status": "blocked", "resolution": "owner-required" },
+    { "section": "process", "requiredMediaRole": "graphic", "sourceType": "ORIGINAL_GRAPHIC", "asset": null, "status": "planned", "resolution": "graphic" },
+    { "section": "reviews", "requiredMediaRole": "external-evidence", "sourceType": "GOOGLE", "asset": null, "status": "blocked", "resolution": "waiting_for_provider" },
+    { "section": "cta", "requiredMediaRole": "brand-graphic", "sourceType": "ORIGINAL_GRAPHIC", "asset": "public/images/carecas-infotec/capa.jpg", "status": "partial", "resolution": "graphic" }
+  ],
+  "cover": {
+    "asset": "public/images/carecas-infotec/capa.jpg",
+    "strategy": "BRAND_LED + SERVICE_LED (HYBRID)",
+    "approved": false,
+    "checks": {
+      "identityMatch": "pass",
+      "segmentMatch": "review",
+      "smallCardReadability": "review",
+      "contrast": "pass",
+      "focalPoint": "review",
+      "crop": "pass",
+      "visualQuality": "review",
+      "genericPenalty": "review",
+      "duplicatePenalty": "pass"
+    }
+  },
+  "lastUpdatedAt": "2026-09-11"
+}
