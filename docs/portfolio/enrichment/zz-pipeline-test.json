@@ -1,0 +1,181 @@
+{
+  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Stub do scaffold: nenhuma pesquisa realizada ainda.",
+  "slug": "zz-pipeline-test",
+  "lastResearchAt": null,
+  "researchLedger": {
+    "googleEntity": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "website": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "instagram": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "facebook": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "otherSocial": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "phone": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "address": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "hours": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "services": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "products": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "media": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "reviews": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "identity": {
+      "searched": false,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    }
+  },
+  "identity": {},
+  "entity": {
+    "candidates": [],
+    "resolutionStatus": "UNRESOLVED",
+    "resolutionSignals": [],
+    "unresolvedJustification": null
+  },
+  "evidence": [],
+  "sources": [],
+  "google": {
+    "placeId": null,
+    "dataId": null,
+    "cid": null,
+    "status": "not_searched"
+  },
+  "reviews": {
+    "items": [],
+    "status": "NOT_SEARCHED"
+  },
+  "photos": {
+    "items": [],
+    "status": "NOT_SEARCHED"
+  },
+  "social": {
+    "instagram": {
+      "searched": false
+    },
+    "facebook": {
+      "searched": false
+    },
+    "other": []
+  },
+  "website": {
+    "searched": false,
+    "url": null
+  },
+  "location": {},
+  "services": [],
+  "media": {
+    "discovery": {
+      "searched": false
+    },
+    "assets": []
+  },
+  "facts": [],
+  "conflicts": [],
+  "unverified": [],
+  "providerCalls": []
+}

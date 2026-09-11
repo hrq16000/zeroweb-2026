@@ -87,6 +87,19 @@
         "Região Metropolitana de Curitiba",
         "Rua Margarida Petrelli Fogiatto"
       ]
+    },
+    "zz-pipeline-test": {
+      "aliases": [
+        "ZZ Pipeline Test"
+      ],
+      "categories": [],
+      "services": [],
+      "equipment": [],
+      "products": [],
+      "problems": [],
+      "useCases": [],
+      "locality": [],
+      "keywords": []
     }
   }
 }

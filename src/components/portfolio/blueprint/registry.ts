@@ -9,11 +9,15 @@ import type { PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /** Módulos com o Blueprint estático — usados pelo gate de validação. */
 export const blueprintModules: Record<string, () => Promise<{ blueprint: PortfolioBlueprint }>> = {
+  "zz-pipeline-test": () => import("@/components/site/ZzPipelineTestPage"),
   "carecas-infotec": () => import("@/components/site/CarecasInfotecPage"),
 };
 
 /** Páginas renderizadas pelo motor de Blueprint (carregamento sob demanda). */
 export const blueprintPages: Record<string, LazyExoticComponent<ComponentType>> = {
+  "zz-pipeline-test": lazy(() =>
+    import("@/components/site/ZzPipelineTestPage").then((m) => ({ default: m.ZzPipelineTestPage })),
+  ),
   "carecas-infotec": lazy(() =>
     import("@/components/site/CarecasInfotecPage").then((m) => ({ default: m.CarecasInfotecPage })),
   ),
