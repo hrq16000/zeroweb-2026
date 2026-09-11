@@ -11,24 +11,22 @@
         "entityDiscovery": "complete",
         "entityResolution": "complete",
         "evidence": "complete",
-        "media": "in_progress",
-        "content": "in_progress",
+        "media": "complete",
+        "content": "complete",
         "discovery": "complete",
         "blueprint": "complete",
         "seo": "complete",
         "funnel": "complete",
-        "cover": "in_progress",
+        "cover": "complete",
         "qa": "complete",
         "publish": "complete"
       },
-      "blockers": [
-        "MEDIA_ENRICHMENT_INCOMPLETE: apenas 1 fotografia oficial real (banner.webp); seções de serviços, autoridade e processo ainda sem mídia própria executada",
-        "COVER_APPROVAL_PENDING: capa gráfica derivada da mesma faixa; falta aprovação formal do cover gate (identityMatch/segmentMatch/smallCardReadability)"
-      ],
+      "blockers": [],
       "warnings": [
         "GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER: entidade resolvida (Place ID confirmado), ingestão aguardando provider Google Places",
         "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED: bloqueia apenas a integração de Instagram, não a página",
-        "REVIEWS_PENDING_PROVIDER: 4.9/43 observadas como evidência do proprietário; não publicáveis como prova até ingestão real"
+        "REVIEWS_PENDING_PROVIDER: 4.9/43 observadas como evidência do proprietário; não publicáveis como prova até ingestão real",
+        "REAL_STORE_PHOTOS_PENDING_OWNER: fotos reais da loja continuam desejáveis; mídia contextual gerada cobre as seções sem simular evidência"
       ],
       "ownerRequired": [
         "fornecer fotos reais da loja/fachada e de atendimentos (mídia própria)",
@@ -36,13 +34,48 @@
         "confirmar prazo e garantia praticados, se quiser publicá-los"
       ],
       "searchQa": [
-        { "query": "carecas infotec", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
-        { "query": "assistência técnica de informática", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
-        { "query": "conserto de notebook", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
-        { "query": "recarga de cartucho", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
-        { "query": "impressora não imprime", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
-        { "query": "são josé dos pinhais", "expect": "must_find", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" },
-        { "query": "buffet de casamento", "expect": "must_not_rank_high", "slug": "carecas-infotec", "verifiedAt": "2026-09-11" }
+        {
+          "query": "carecas infotec",
+          "expect": "must_find",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "query": "assistência técnica de informática",
+          "expect": "must_find",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "query": "conserto de notebook",
+          "expect": "must_find",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "query": "recarga de cartucho",
+          "expect": "must_find",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "query": "impressora não imprime",
+          "expect": "must_find",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "query": "são josé dos pinhais",
+          "expect": "must_find",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        },
+        {
+          "query": "buffet de casamento",
+          "expect": "must_not_rank_high",
+          "slug": "carecas-infotec",
+          "verifiedAt": "2026-09-11"
+        }
       ],
       "notes": {
         "enrichment": "docs/portfolio/enrichment/carecas-infotec.json",
