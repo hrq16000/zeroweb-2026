@@ -52,6 +52,7 @@ const STEPS = [
   "entityResolution",
   "evidence",
   "media",
+  "mediaPlan",
   "content",
   "discovery",
   "blueprint",
@@ -63,7 +64,18 @@ const STEPS = [
 ];
 
 /** Etapas que, se não pesquisadas, reprovam mesmo com dado ausente. */
-const RESEARCH_STEPS = ["entityDiscovery", "entityResolution", "evidence"];
+const RESEARCH_STEPS = ["entityDiscovery", "entityResolution", "evidence", "media"];
+
+const COVER_STRATEGIES = [
+  "REAL_PHOTO",
+  "BRAND_LED",
+  "SERVICE_LED",
+  "PRODUCT_LED",
+  "HYBRID",
+  "GENERATED_EDITORIAL",
+];
+const RESOLUTION_OK = new Set(["RESOLVED", "VERIFIED", "resolved", "verified"]);
+const VISUAL_QA = new Set(["PASS", "FAIL", "NOT_EXECUTED", "BLOCKED_ENVIRONMENT"]);
 
 function evaluate(slug, manifest) {
   const blockers = [];
