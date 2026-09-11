@@ -155,12 +155,13 @@
       ],
       "visualQa": {
         "status": "PASS",
-        "notes": "Render real coletado em 390/768/1440: status 200, overflow 0, 8 imagens sem quebra, 0 erros de console, nenhum link de telefone ou atalho de mensageiro.",
+        "notes": "Render real coletado em 390/768/1440: status 200, overflow 0, 8 imagens sem quebra, 0 erros de console, nenhum link de telefone ou atalho de mensageiro. Reauditado com o motion ativo (parallax, contador, hover e progresso do agendamento): overflow 0, 8 imagens, 0 erros.",
         "evaluatedAt": "2026-09-11"
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/moreira-auto-mecanica.json",
-        "mediaPlan": "docs/portfolio/media-plans/moreira-auto-mecanica.json"
+        "mediaPlan": "docs/portfolio/media-plans/moreira-auto-mecanica.json",
+        "motion": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md — motion profile 'mechanical-contained' declarado no Blueprint e avaliado na quality matrix (MOTION_DESIGN)."
       },
       "lastUpdatedAt": "2026-09-11"
     }
