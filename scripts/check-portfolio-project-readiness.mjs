@@ -108,6 +108,26 @@ function evaluate(slug, manifest) {
     if (state === "not_started") blockers.push(`pesquisa não realizada: ${step} = not_started`);
   }
 
+  // --- entityResolutionRecorded (FOUND/RESOLVED/VERIFIED/UNRESOLVED/CONFLICT)
+  const resolutionStatus =
+    enrichment?.entity?.resolutionStatus ?? enrichment?.entityResolution?.status ?? enrichment?.google?.status ?? null;
+  checks.entityResolutionRecorded = Boolean(resolutionStatus);
+  if (!resolutionStatus) blockers.push("entity resolution não registrada (FOUND/RESOLVED/VERIFIED/UNRESOLVED/CONFLICT)");
+  else if (String(resolutionStatus).toUpperCase() === "CONFLICT") blockers.push("entity resolution em CONFLICT: homônimos não desambiguados");
+  else if (!RESOLUTION_OK.has(resolutionStatus)) {
+    const justified = enrichment?.entity?.unresolvedJustification ?? enrichment?.notes?.unresolvedJustification;
+    if (justified) warnings.push(`entidade não resolvida com justificativa registrada: ${justified}`);
+    else blockers.push(`entity resolution pendente (${resolutionStatus}) e sem justificativa registrada`);
+  }
+
+  // --- enrichmentExecuted: pesquisa profunda ocorreu e ficou persistida (cache/custo)
+  const serpSnapshot = readJson(`docs/portfolio/enrichment/serpapi/${slug}.json`, null);
+  const providerCalls = enrichment?.providerCalls ?? serpSnapshot?.callLog ?? null;
+  const lastResearchAt = enrichment?.lastResearchAt ?? serpSnapshot?.generatedAt ?? null;
+  checks.enrichmentExecuted = Boolean(lastResearchAt);
+  if (!lastResearchAt) blockers.push("public enrichment não executado (lastResearchAt ausente)");
+  if (!providerCalls) warnings.push("providerCalls não registrado: sem rastro de custo/cache do provider");
+
   // --- evidenceRecorded
   checks.evidenceRecorded = Boolean(enrichment?.identity && Object.keys(enrichment.identity).length > 0);
   if (!checks.evidenceRecorded) blockers.push("evidence registry vazio (sem procedência dos fatos)");
@@ -133,6 +153,13 @@ function evaluate(slug, manifest) {
   checks.coverApproved = Boolean(mediaPlan?.cover?.approved) && Boolean(coverAsset && existsSync(path.resolve(root, coverAsset)));
   if (!coverAsset || !existsSync(path.resolve(root, coverAsset))) blockers.push("capa ausente no catálogo/disco");
   else if (!mediaPlan?.cover?.approved) warnings.push("cover gate ainda não aprovado no media plan");
+
+  // --- coverStrategyValid (COVER GATE): capa nasce depois de identidade + mídia
+  const coverStrategy = String(mediaPlan?.cover?.strategy ?? "");
+  checks.coverStrategyValid = COVER_STRATEGIES.some((s) => coverStrategy.includes(s));
+  if (!checks.coverStrategyValid) {
+    blockers.push(`cover sem estratégia declarada (${COVER_STRATEGIES.join(" | ")})`);
+  }
 
   // --- discoveryIndexPresent
   const doc = discovery[slug];
@@ -161,9 +188,29 @@ function evaluate(slug, manifest) {
   checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource);
   if (!checks.funnelValid) blockers.push("funil próprio não encontrado no componente do cliente");
 
+  // --- contactMode / funnelType (canal comercial é sempre o funil individual)
+  checks.contactModeDeclared = client?.contactMode === "funnelOnly";
+  if (!checks.contactModeDeclared) blockers.push('contactMode ausente: projeto gerenciado exige "funnelOnly"');
+  checks.funnelTypeDeclared = Boolean(client?.funnelType);
+  if (!checks.funnelTypeDeclared) blockers.push("funnelType não declarado (orçamento, pedido, agendamento, diagnóstico, reserva…)");
+
+  // --- direção visual consciente: scaffold não pode chegar a ready
+  checks.creativeDirectionDone = !/CREATIVE_BRIEF_REQUIRED/.test(componentSource);
+  if (!checks.creativeDirectionDone) blockers.push("workbench de scaffold ainda presente (direção criativa não definida)");
+  checks.blueprintDriven = blueprintRegistry.includes(`"${slug}"`);
+  if (!checks.blueprintDriven) blockers.push("projeto novo deve rodar pelo PortfolioBlueprintRenderer (ausente no registry)");
+
   // --- qaDone
   checks.qaDone = SATISFIED.has(manifest.lifecycle?.qa);
   if (!checks.qaDone) blockers.push("QA (mobile/desktop/a11y) não concluído no manifesto");
+
+  // --- visualQA nunca é presumido aprovado
+  const visualQa = manifest.visualQa?.status;
+  checks.visualQaHonest = VISUAL_QA.has(visualQa);
+  if (!VISUAL_QA.has(visualQa)) blockers.push("visualQA não declarado (PASS | FAIL | NOT_EXECUTED | BLOCKED_ENVIRONMENT)");
+  else if (visualQa === "FAIL") blockers.push("visualQA = FAIL");
+  else if (visualQa === "NOT_EXECUTED") blockers.push("visualQA = NOT_EXECUTED (não pode ser considerado aprovado)");
+  else if (visualQa === "BLOCKED_ENVIRONMENT") warnings.push("visualQA = BLOCKED_ENVIRONMENT (≠ PASS): reexecutar em ambiente com navegador");
 
   // --- qualityMatrixPass (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md)
   const matrix = readJson(`docs/portfolio/quality-matrix/${slug}.json`, null);
