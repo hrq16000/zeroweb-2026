@@ -1100,6 +1100,45 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Conte a metragem, ambiente e acabamento desejado."
   },
+  "jkl-decor": {
+    "proposalKind": "service",
+    "services": [
+      "Cozinha planejada",
+      "Guarda-roupa ou closet",
+      "Painel e rack de TV",
+      "Home office ou escritório",
+      "Banheiro e lavanderia",
+      "Cozinha infantil, nichos e porta-tempero",
+      "Mais de um ambiente"
+    ],
+    "experienceOptions": [
+      "Já tenho as medidas",
+      "Tenho projeto ou planta",
+      "Tenho só uma ideia e fotos",
+      "O ambiente ainda está em obra",
+      "Quero renovar um móvel existente"
+    ],
+    "periodOptions": [
+      "São José dos Pinhais",
+      "Curitiba",
+      "Região metropolitana",
+      "Vou confirmar o endereço"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Nas próximas semanas",
+      "Estou planejando",
+      "Só levantando preço"
+    ],
+    "stepTitles": {
+      "service": "Qual ambiente você quer planejar?",
+      "experience": "Como está o projeto hoje?",
+      "period": "Onde o móvel vai ser instalado?",
+      "timing": "Para quando você precisa?",
+      "note": "Quer contar mais alguma coisa?"
+    },
+    "notePlaceholder": "Conte as medidas aproximadas, as cores que gosta e como usa o ambiente."
+  },
   "jkl-marcenaria": {
     "stepTitles": {
       "service": "Qual ambiente você quer transformar?",

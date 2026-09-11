@@ -113,7 +113,12 @@
             "Manutenção preventiva",
             "Ainda estou avaliando"
           ],
-          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Fim de semana",
+            "Tenho flexibilidade"
+          ],
           "timingOptions": [
             "É urgente",
             "Ainda nesta semana",
@@ -201,8 +206,18 @@
             "Quero indicação do que pedir",
             "Pedido para um grupo"
           ],
-          "periodOptions": ["Agora", "Mais tarde hoje", "Amanhã", "Ainda estou decidindo"],
-          "timingOptions": ["O quanto antes", "Em até 1 hora", "Em horário marcado", "Sem pressa"],
+          "periodOptions": [
+            "Agora",
+            "Mais tarde hoje",
+            "Amanhã",
+            "Ainda estou decidindo"
+          ],
+          "timingOptions": [
+            "O quanto antes",
+            "Em até 1 hora",
+            "Em horário marcado",
+            "Sem pressa"
+          ],
           "stepTitles": {
             "service": "Como você quer pedir?",
             "experience": "Como podemos te ajudar?",
@@ -232,7 +247,12 @@
             "Outro estado",
             "Ainda estou avaliando"
           ],
-          "periodOptions": ["Manhã", "Tarde", "Fim de semana", "Tenho flexibilidade"],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Fim de semana",
+            "Tenho flexibilidade"
+          ],
           "timingOptions": [
             "Nos próximos dias",
             "Ainda nesta semana",
@@ -320,7 +340,12 @@
           "Limpeza de telhado",
           "Reparos em geral"
         ],
-        "experienceOptions": ["Casa", "Apartamento", "Comércio", "Outro espaço"],
+        "experienceOptions": [
+          "Casa",
+          "Apartamento",
+          "Comércio",
+          "Outro espaço"
+        ],
         "periodOptions": [
           "Tenho fotos do local",
           "Posso explicar o reparo",
@@ -362,7 +387,13 @@
           "Pintura e acabamentos",
           "Engenharia e acompanhamento"
         ],
-        "experienceOptions": ["Casa", "Apartamento", "Comércio", "Condomínio", "Outro imóvel"],
+        "experienceOptions": [
+          "Casa",
+          "Apartamento",
+          "Comércio",
+          "Condomínio",
+          "Outro imóvel"
+        ],
         "periodOptions": [
           "Tenho projeto ou medidas",
           "Tenho fotos do local",
@@ -384,8 +415,14 @@
       }
     },
     "jc-revestimentos": {
-      "contactFloating": { "theme": "navy", "recipientName": "JC", "label": "Solicitar orçamento" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "JC",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
         "services": [
@@ -403,7 +440,11 @@
           "Obra em andamento",
           "Outro projeto"
         ],
-        "periodOptions": ["Sei a metragem", "Tenho fotos do ambiente", "Preciso de orientação"],
+        "periodOptions": [
+          "Sei a metragem",
+          "Tenho fotos do ambiente",
+          "Preciso de orientação"
+        ],
         "timingOptions": [
           "O quanto antes",
           "Nos próximos dias",
@@ -420,188 +461,623 @@
       }
     },
     "hbk-iluminacao-led": {
-      "contactFloating": { "theme": "navy", "recipientName": "HBK", "label": "Solicitar cotação" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "HBK",
+        "label": "Solicitar cotação"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Iluminação LED residencial", "Iluminação LED comercial", "Lâmpadas e luminárias LED", "Spots e perfis LED", "Projetos de iluminação", "Orientação técnica"],
-        "experienceOptions": ["Residência", "Condomínio", "Comércio", "Obra em andamento", "Outro projeto"],
-        "periodOptions": ["Tenho projeto ou planta", "Sei os ambientes", "Preciso de orientação"],
-        "timingOptions": ["O quanto antes", "Nos próximos dias", "Ainda neste mês", "Estou planejando"],
-        "stepTitles": { "service": "Qual solução LED você procura?", "experience": "Onde será instalado?", "period": "Como podemos orientar?", "timing": "Quando pretende comprar ou instalar?" },
+        "services": [
+          "Iluminação LED residencial",
+          "Iluminação LED comercial",
+          "Lâmpadas e luminárias LED",
+          "Spots e perfis LED",
+          "Projetos de iluminação",
+          "Orientação técnica"
+        ],
+        "experienceOptions": [
+          "Residência",
+          "Condomínio",
+          "Comércio",
+          "Obra em andamento",
+          "Outro projeto"
+        ],
+        "periodOptions": [
+          "Tenho projeto ou planta",
+          "Sei os ambientes",
+          "Preciso de orientação"
+        ],
+        "timingOptions": [
+          "O quanto antes",
+          "Nos próximos dias",
+          "Ainda neste mês",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual solução LED você procura?",
+          "experience": "Onde será instalado?",
+          "period": "Como podemos orientar?",
+          "timing": "Quando pretende comprar ou instalar?"
+        },
         "notePlaceholder": "Conte os ambientes, a metragem e o que deseja iluminar."
       }
     },
     "sscons": {
-      "contactFloating": { "theme": "gold", "recipientName": "a equipe S&S", "label": "Solicitar orçamento" },
-      "footer": { "variant": "dark" }
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe S&S",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      }
     },
     "mimo-salgados-doces": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe Mimo", "label": "Pedir agora" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe Mimo",
+        "label": "Pedir agora"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Salgados", "Doces", "Copo da Felicidade · R$ 22,00", "Encomenda para festa"],
-        "experienceOptions": ["Para mim", "Festa ou evento", "Presente", "Encomenda para a família"],
-        "periodOptions": ["Retirar na Costeira", "Combinar entrega", "Ainda preciso confirmar"],
-        "timingOptions": ["Para hoje", "Para esta semana", "Estou planejando"],
-        "stepTitles": { "service": "O que você quer pedir?", "experience": "Para qual ocasião?", "period": "Como prefere receber?", "timing": "Para quando precisa?" },
+        "services": [
+          "Salgados",
+          "Doces",
+          "Copo da Felicidade · R$ 22,00",
+          "Encomenda para festa"
+        ],
+        "experienceOptions": [
+          "Para mim",
+          "Festa ou evento",
+          "Presente",
+          "Encomenda para a família"
+        ],
+        "periodOptions": [
+          "Retirar na Costeira",
+          "Combinar entrega",
+          "Ainda preciso confirmar"
+        ],
+        "timingOptions": [
+          "Para hoje",
+          "Para esta semana",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "O que você quer pedir?",
+          "experience": "Para qual ocasião?",
+          "period": "Como prefere receber?",
+          "timing": "Para quando precisa?"
+        },
         "notePlaceholder": "Conte a quantidade, sabores e data do pedido."
       }
     },
     "popys-conservacao-limpeza": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe POPYS", "label": "Solicitar orçamento" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe POPYS",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Limpeza e conservação", "Escritório ou ambiente comercial", "Limpeza pós-obra", "Vidros, pisos e fachadas", "Serviço periódico personalizado"],
-        "experienceOptions": ["Empresa ou escritório", "Condomínio", "Obra em andamento", "Casa ou apartamento"],
-        "periodOptions": ["Curitiba", "Região Metropolitana", "Ainda preciso confirmar o local"],
-        "timingOptions": ["Preciso avaliar com urgência", "Nos próximos dias", "Serviço periódico", "Estou planejando"],
-        "stepTitles": { "service": "Qual limpeza você precisa?", "experience": "Que tipo de ambiente?", "period": "Onde será o serviço?", "timing": "Quando pretende começar?" },
+        "services": [
+          "Limpeza e conservação",
+          "Escritório ou ambiente comercial",
+          "Limpeza pós-obra",
+          "Vidros, pisos e fachadas",
+          "Serviço periódico personalizado"
+        ],
+        "experienceOptions": [
+          "Empresa ou escritório",
+          "Condomínio",
+          "Obra em andamento",
+          "Casa ou apartamento"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "Região Metropolitana",
+          "Ainda preciso confirmar o local"
+        ],
+        "timingOptions": [
+          "Preciso avaliar com urgência",
+          "Nos próximos dias",
+          "Serviço periódico",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual limpeza você precisa?",
+          "experience": "Que tipo de ambiente?",
+          "period": "Onde será o serviço?",
+          "timing": "Quando pretende começar?"
+        },
         "notePlaceholder": "Conte a metragem, frequência e detalhes do ambiente."
       }
     },
     "bruna-diarista": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe da Bruna", "label": "Consultar horários" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe da Bruna",
+        "label": "Consultar horários"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Diária de 4 horas · R$ 130 + deslocamento", "Diária de 6 horas · R$ 160 + deslocamento", "Diária de 8 horas · R$ 200 + deslocamento", "Pós-obra ou personal organizer", "Duas profissionais"],
-        "experienceOptions": ["Casa ou apartamento", "Escritório", "Pós-obra", "Organização de ambientes"],
-        "periodOptions": ["Curitiba", "Região Metropolitana", "Vou confirmar o endereço"],
-        "timingOptions": ["Para esta semana", "Atendimento periódico", "Estou planejando"],
-        "stepTitles": { "service": "Qual diária você precisa?", "experience": "Que ambiente vamos cuidar?", "period": "Onde será o atendimento?", "timing": "Quando pretende começar?" },
+        "services": [
+          "Diária de 4 horas · R$ 130 + deslocamento",
+          "Diária de 6 horas · R$ 160 + deslocamento",
+          "Diária de 8 horas · R$ 200 + deslocamento",
+          "Pós-obra ou personal organizer",
+          "Duas profissionais"
+        ],
+        "experienceOptions": [
+          "Casa ou apartamento",
+          "Escritório",
+          "Pós-obra",
+          "Organização de ambientes"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "Região Metropolitana",
+          "Vou confirmar o endereço"
+        ],
+        "timingOptions": [
+          "Para esta semana",
+          "Atendimento periódico",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual diária você precisa?",
+          "experience": "Que ambiente vamos cuidar?",
+          "period": "Onde será o atendimento?",
+          "timing": "Quando pretende começar?"
+        },
         "notePlaceholder": "Conte a metragem, frequência e detalhes do ambiente."
       }
     },
     "btb-construcao": {
-      "contactFloating": { "theme": "default", "recipientName": "a equipe da BTB", "label": "Solicitar orçamento" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "default",
+        "recipientName": "a equipe da BTB",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Pintura", "Elétrica", "Hidráulica", "Pisos e revestimentos", "Drywall e forro", "Acabamentos", "Iluminação em LED"],
-        "experienceOptions": ["Reforma interna", "Ambiente comercial", "Construção nova", "Manutenção ou reparo"],
-        "periodOptions": ["Curitiba", "Região Metropolitana", "Ainda preciso confirmar o local"],
-        "timingOptions": ["Preciso começar em breve", "Nos próximos meses", "Ainda estou planejando"],
-        "stepTitles": { "service": "Qual frente da obra você precisa?", "experience": "Que tipo de reforma é?", "period": "Onde será o serviço?", "timing": "Quando pretende começar?" },
+        "services": [
+          "Pintura",
+          "Elétrica",
+          "Hidráulica",
+          "Pisos e revestimentos",
+          "Drywall e forro",
+          "Acabamentos",
+          "Iluminação em LED"
+        ],
+        "experienceOptions": [
+          "Reforma interna",
+          "Ambiente comercial",
+          "Construção nova",
+          "Manutenção ou reparo"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "Região Metropolitana",
+          "Ainda preciso confirmar o local"
+        ],
+        "timingOptions": [
+          "Preciso começar em breve",
+          "Nos próximos meses",
+          "Ainda estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual frente da obra você precisa?",
+          "experience": "Que tipo de reforma é?",
+          "period": "Onde será o serviço?",
+          "timing": "Quando pretende começar?"
+        },
         "notePlaceholder": "Conte os ambientes, metragem aproximada e o que você quer transformar."
       }
     },
     "easy-clean": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe Easy Clean", "label": "Solicitar orçamento" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe Easy Clean",
+        "label": "Solicitar orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Sofá ou estofado", "Colchão", "Poltrona, cadeira ou puff", "Banco ou teto de carro", "Impermeabilização"],
-        "experienceOptions": ["Minha casa", "Empresa ou escritório", "Veículo", "Condomínio"],
-        "periodOptions": ["Curitiba", "Região Metropolitana", "Ainda preciso confirmar o local"],
-        "timingOptions": ["Preciso agendar em breve", "Nos próximos dias", "Ainda estou planejando"],
-        "stepTitles": { "service": "O que precisa higienizar?", "experience": "Onde será o atendimento?", "period": "Qual região?", "timing": "Quando pretende começar?" },
+        "services": [
+          "Sofá ou estofado",
+          "Colchão",
+          "Poltrona, cadeira ou puff",
+          "Banco ou teto de carro",
+          "Impermeabilização"
+        ],
+        "experienceOptions": [
+          "Minha casa",
+          "Empresa ou escritório",
+          "Veículo",
+          "Condomínio"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "Região Metropolitana",
+          "Ainda preciso confirmar o local"
+        ],
+        "timingOptions": [
+          "Preciso agendar em breve",
+          "Nos próximos dias",
+          "Ainda estou planejando"
+        ],
+        "stepTitles": {
+          "service": "O que precisa higienizar?",
+          "experience": "Onde será o atendimento?",
+          "period": "Qual região?",
+          "timing": "Quando pretende começar?"
+        },
         "notePlaceholder": "Conte a quantidade de peças, tecido e se deseja impermeabilização."
       }
     },
     "maximos-cabeleireiros": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe Maximos", "label": "Agendar horário" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe Maximos",
+        "label": "Agendar horário"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Corte feminino", "Corte masculino", "Coloração e mechas", "Escova e finalização", "Tratamentos capilares", "Produção para evento"],
-        "experienceOptions": ["Quero mudar o visual", "Manutenção do corte", "Cor ou iluminação", "Tratamento e cuidado"],
-        "periodOptions": ["Jardim Itália", "São José dos Pinhais", "Vou confirmar o horário"],
-        "timingOptions": ["Quero agendar nesta semana", "Nos próximos dias", "Estou planejando"],
-        "stepTitles": { "service": "Qual cuidado você procura?", "experience": "O que você quer transformar?", "period": "Onde fica melhor para você?", "timing": "Quando gostaria de vir?" },
+        "services": [
+          "Corte feminino",
+          "Corte masculino",
+          "Coloração e mechas",
+          "Escova e finalização",
+          "Tratamentos capilares",
+          "Produção para evento"
+        ],
+        "experienceOptions": [
+          "Quero mudar o visual",
+          "Manutenção do corte",
+          "Cor ou iluminação",
+          "Tratamento e cuidado"
+        ],
+        "periodOptions": [
+          "Jardim Itália",
+          "São José dos Pinhais",
+          "Vou confirmar o horário"
+        ],
+        "timingOptions": [
+          "Quero agendar nesta semana",
+          "Nos próximos dias",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "Qual cuidado você procura?",
+          "experience": "O que você quer transformar?",
+          "period": "Onde fica melhor para você?",
+          "timing": "Quando gostaria de vir?"
+        },
         "notePlaceholder": "Ex.: comprimento atual, referência de corte, cor desejada ou ocasião."
       }
     },
     "embalar-embalagens": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe Embalar", "label": "Consultar produtos" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe Embalar",
+        "label": "Consultar produtos"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Embalagens para alimentos", "Descartáveis e festas", "Produtos de limpeza", "Higiene e utilidades", "Sacos, caixas e papelaria"],
-        "experienceOptions": ["Minha casa", "Meu comércio", "Festa ou evento", "Compra para revenda"],
-        "periodOptions": ["Jardim Itália", "São José dos Pinhais", "Vou confirmar a retirada"],
-        "timingOptions": ["Quero consultar agora", "Para esta semana", "Estou planejando"],
-        "stepTitles": { "service": "O que você procura?", "experience": "Para qual uso?", "period": "Onde será a retirada?", "timing": "Quando precisa?" },
+        "services": [
+          "Embalagens para alimentos",
+          "Descartáveis e festas",
+          "Produtos de limpeza",
+          "Higiene e utilidades",
+          "Sacos, caixas e papelaria"
+        ],
+        "experienceOptions": [
+          "Minha casa",
+          "Meu comércio",
+          "Festa ou evento",
+          "Compra para revenda"
+        ],
+        "periodOptions": [
+          "Jardim Itália",
+          "São José dos Pinhais",
+          "Vou confirmar a retirada"
+        ],
+        "timingOptions": [
+          "Quero consultar agora",
+          "Para esta semana",
+          "Estou planejando"
+        ],
+        "stepTitles": {
+          "service": "O que você procura?",
+          "experience": "Para qual uso?",
+          "period": "Onde será a retirada?",
+          "timing": "Quando precisa?"
+        },
         "notePlaceholder": "Ex.: quantidade, tamanho da embalagem, tipo de produto ou data do evento."
       }
     },
     "simone-lacerda-vaz": {
-      "contactFloating": { "theme": "pink", "recipientName": "Simone Lacerda Vaz", "label": "Conversar agora" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "Simone Lacerda Vaz",
+        "label": "Conversar agora"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Atendimento nutricional", "Bioimpedância e plano alimentar", "Pré e pós-bariátrica", "Laudo nutricional para cirurgia", "Consultoria em amamentação"],
-        "experienceOptions": ["Quero organizar minha alimentação", "Estou no pré-operatório", "Estou no pós-operatório", "Tenho dúvidas sobre amamentação"],
-        "periodOptions": ["Manhã", "Tarde", "Noite", "Tenho flexibilidade"],
-        "timingOptions": ["Quero conversar agora", "Nesta semana", "Estou me organizando"],
-        "stepTitles": { "service": "Qual cuidado você procura?", "experience": "Em que momento você está?", "period": "Qual período facilita?", "timing": "Quando gostaria de começar?" },
+        "services": [
+          "Atendimento nutricional",
+          "Bioimpedância e plano alimentar",
+          "Pré e pós-bariátrica",
+          "Laudo nutricional para cirurgia",
+          "Consultoria em amamentação"
+        ],
+        "experienceOptions": [
+          "Quero organizar minha alimentação",
+          "Estou no pré-operatório",
+          "Estou no pós-operatório",
+          "Tenho dúvidas sobre amamentação"
+        ],
+        "periodOptions": [
+          "Manhã",
+          "Tarde",
+          "Noite",
+          "Tenho flexibilidade"
+        ],
+        "timingOptions": [
+          "Quero conversar agora",
+          "Nesta semana",
+          "Estou me organizando"
+        ],
+        "stepTitles": {
+          "service": "Qual cuidado você procura?",
+          "experience": "Em que momento você está?",
+          "period": "Qual período facilita?",
+          "timing": "Quando gostaria de começar?"
+        },
         "notePlaceholder": "Ex.: objetivo, cirurgia planejada, rotina alimentar ou dúvida sobre amamentação."
       }
     },
     "kitutes-na-mesa": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe Kitutes na Mesa", "label": "Fazer orçamento" },
-      "footer": { "variant": "light" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe Kitutes na Mesa",
+        "label": "Fazer orçamento"
+      },
+      "footer": {
+        "variant": "light"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Salgados assados e fritos", "Mini lanches", "Doces e bolos caseiros", "Porções para eventos", "Coffee break e kits"],
-        "experienceOptions": ["Aniversário ou comemoração", "Casamento ou confraternização", "Coffee break empresarial", "Receber família e amigos"],
-        "periodOptions": ["Ainda vou definir a data", "Nos próximos 7 dias", "Nas próximas semanas", "Quero consultar disponibilidade"],
-        "timingOptions": ["Quero um orçamento", "Estou montando o cardápio", "Preciso de uma orientação"],
-        "stepTitles": { "service": "O que vai compor sua mesa?", "experience": "Qual é a ocasião?", "period": "Quando será?", "timing": "Qual próximo passo?" },
+        "services": [
+          "Salgados assados e fritos",
+          "Mini lanches",
+          "Doces e bolos caseiros",
+          "Porções para eventos",
+          "Coffee break e kits"
+        ],
+        "experienceOptions": [
+          "Aniversário ou comemoração",
+          "Casamento ou confraternização",
+          "Coffee break empresarial",
+          "Receber família e amigos"
+        ],
+        "periodOptions": [
+          "Ainda vou definir a data",
+          "Nos próximos 7 dias",
+          "Nas próximas semanas",
+          "Quero consultar disponibilidade"
+        ],
+        "timingOptions": [
+          "Quero um orçamento",
+          "Estou montando o cardápio",
+          "Preciso de uma orientação"
+        ],
+        "stepTitles": {
+          "service": "O que vai compor sua mesa?",
+          "experience": "Qual é a ocasião?",
+          "period": "Quando será?",
+          "timing": "Qual próximo passo?"
+        },
         "notePlaceholder": "Ex.: data, número de pessoas, sabores desejados ou tipo de evento."
       }
     },
     "enoel-portas": {
-      "contactFloating": { "theme": "gold", "recipientName": "a equipe Enoel Portas", "label": "Pedir orçamento" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe Enoel Portas",
+        "label": "Pedir orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Colocação de portas de madeira", "Regulagem de portas", "Vistas e guarnições", "Caxilhos em geral", "Avaliar um projeto"],
-        "experienceOptions": ["Casa ou apartamento", "Reforma em andamento", "Obra nova", "Ainda estou planejando"],
-        "periodOptions": ["Curitiba", "São José dos Pinhais", "Região Metropolitana", "Vou confirmar o local"],
-        "timingOptions": ["Quero um orçamento", "Preciso resolver em breve", "Estou pesquisando opções"],
-        "stepTitles": { "service": "O que precisa resolver?", "experience": "Em qual contexto?", "period": "Onde será?", "timing": "Qual o próximo passo?" },
+        "services": [
+          "Colocação de portas de madeira",
+          "Regulagem de portas",
+          "Vistas e guarnições",
+          "Caxilhos em geral",
+          "Avaliar um projeto"
+        ],
+        "experienceOptions": [
+          "Casa ou apartamento",
+          "Reforma em andamento",
+          "Obra nova",
+          "Ainda estou planejando"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "São José dos Pinhais",
+          "Região Metropolitana",
+          "Vou confirmar o local"
+        ],
+        "timingOptions": [
+          "Quero um orçamento",
+          "Preciso resolver em breve",
+          "Estou pesquisando opções"
+        ],
+        "stepTitles": {
+          "service": "O que precisa resolver?",
+          "experience": "Em qual contexto?",
+          "period": "Onde será?",
+          "timing": "Qual o próximo passo?"
+        },
         "notePlaceholder": "Ex.: medida aproximada, modelo da porta, quantidade ou fase da obra."
       }
     },
     "mania-de-limpeza": {
-      "contactFloating": { "theme": "gold", "recipientName": "a equipe Mania de Limpeza", "label": "Montar meu combo" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe Mania de Limpeza",
+        "label": "Montar meu combo"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Combo família · 3 ou mais itens", "Higienização de sofá", "Higienização de colchão", "Higienização de tapete", "Quero avaliar outros itens"],
-        "experienceOptions": ["Minha casa", "Apartamento", "Empresa ou comércio", "Ainda estou pesquisando"],
-        "periodOptions": ["Curitiba", "Região Metropolitana", "Vou confirmar o local"],
-        "timingOptions": ["Quero aproveitar o combo", "Quero um orçamento", "Estou pesquisando opções"],
-        "stepTitles": { "service": "O que você quer higienizar?", "experience": "Onde será o atendimento?", "period": "Em qual região?", "timing": "Qual o próximo passo?" },
+        "services": [
+          "Combo família · 3 ou mais itens",
+          "Higienização de sofá",
+          "Higienização de colchão",
+          "Higienização de tapete",
+          "Quero avaliar outros itens"
+        ],
+        "experienceOptions": [
+          "Minha casa",
+          "Apartamento",
+          "Empresa ou comércio",
+          "Ainda estou pesquisando"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "Região Metropolitana",
+          "Vou confirmar o local"
+        ],
+        "timingOptions": [
+          "Quero aproveitar o combo",
+          "Quero um orçamento",
+          "Estou pesquisando opções"
+        ],
+        "stepTitles": {
+          "service": "O que você quer higienizar?",
+          "experience": "Onde será o atendimento?",
+          "period": "Em qual região?",
+          "timing": "Qual o próximo passo?"
+        },
         "notePlaceholder": "Ex.: quantidade de itens, tipo de tecido, manchas ou prazo desejado."
       }
     },
     "dona-lucy-salgados": {
-      "contactFloating": { "theme": "pink", "recipientName": "a equipe Dona Lucy", "label": "Fazer pedido" },
-      "footer": { "variant": "light" },
+      "contactFloating": {
+        "theme": "pink",
+        "recipientName": "a equipe Dona Lucy",
+        "label": "Fazer pedido"
+      },
+      "footer": {
+        "variant": "light"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Combo de salgados a partir de R$ 11,99", "Salgados fritos", "Churros de doce de leite", "Encomenda para evento", "Entrega agendada"],
-        "experienceOptions": ["Domingo em família", "Festa ou comemoração", "Reunião ou encontro", "Quero só experimentar"],
-        "periodOptions": ["Hoje", "Terça a domingo", "Quero agendar outro horário"],
-        "timingOptions": ["Quero pedir agora", "Quero consultar o cardápio", "Quero fazer uma encomenda"],
-        "stepTitles": { "service": "O que vai deixar seu momento melhor?", "experience": "Qual é a ocasião?", "period": "Quando você precisa?", "timing": "Qual o próximo passo?" },
+        "services": [
+          "Combo de salgados a partir de R$ 11,99",
+          "Salgados fritos",
+          "Churros de doce de leite",
+          "Encomenda para evento",
+          "Entrega agendada"
+        ],
+        "experienceOptions": [
+          "Domingo em família",
+          "Festa ou comemoração",
+          "Reunião ou encontro",
+          "Quero só experimentar"
+        ],
+        "periodOptions": [
+          "Hoje",
+          "Terça a domingo",
+          "Quero agendar outro horário"
+        ],
+        "timingOptions": [
+          "Quero pedir agora",
+          "Quero consultar o cardápio",
+          "Quero fazer uma encomenda"
+        ],
+        "stepTitles": {
+          "service": "O que vai deixar seu momento melhor?",
+          "experience": "Qual é a ocasião?",
+          "period": "Quando você precisa?",
+          "timing": "Qual o próximo passo?"
+        },
         "notePlaceholder": "Ex.: quantidade, sabores, endereço ou horário desejado."
       }
     },
     "centro-mega": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe Centro Mega", "label": "Falar com a equipe" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe Centro Mega",
+        "label": "Falar com a equipe"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Assistência técnica", "Acessórios", "Avaliação do aparelho", "Orientação de compra"],
-        "experienceOptions": ["Uso pessoal", "Família", "Empresa", "Ainda estou pesquisando"],
-        "periodOptions": ["Curitiba", "São José dos Pinhais", "Araucária", "Vou confirmar a unidade"],
-        "timingOptions": ["Quero atendimento", "Quero consultar disponibilidade", "Quero tirar uma dúvida"],
-        "stepTitles": { "service": "Como podemos ajudar?", "experience": "Para quem é a solução?", "period": "Qual região atende você?", "timing": "Qual o próximo passo?" },
+        "services": [
+          "Assistência técnica",
+          "Acessórios",
+          "Avaliação do aparelho",
+          "Orientação de compra"
+        ],
+        "experienceOptions": [
+          "Uso pessoal",
+          "Família",
+          "Empresa",
+          "Ainda estou pesquisando"
+        ],
+        "periodOptions": [
+          "Curitiba",
+          "São José dos Pinhais",
+          "Araucária",
+          "Vou confirmar a unidade"
+        ],
+        "timingOptions": [
+          "Quero atendimento",
+          "Quero consultar disponibilidade",
+          "Quero tirar uma dúvida"
+        ],
+        "stepTitles": {
+          "service": "Como podemos ajudar?",
+          "experience": "Para quem é a solução?",
+          "period": "Qual região atende você?",
+          "timing": "Qual o próximo passo?"
+        },
         "notePlaceholder": "Ex.: aparelho, acessório ou unidade de preferência."
       }
     },
@@ -611,14 +1087,44 @@
         "recipientName": "a equipe da Moreira Auto Mecânica",
         "label": "Agendar avaliação"
       },
-      "footer": { "variant": "dark" },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Barulho ou ruído", "Suspensão", "Motor", "Freios", "Revisão geral", "Luz acesa no painel", "Ainda não sei dizer"],
-        "experienceOptions": ["Aparece o tempo todo", "Só quando o carro esquenta", "Só em buraco ou lombada", "Só ao frear", "Começou depois de outro serviço", "Prefiro explicar na oficina"],
-        "periodOptions": ["Manhã (08h–12h)", "Tarde (13h–18h30)", "Tanto faz"],
-        "timingOptions": ["Esta semana", "Semana que vem", "Ainda estou me organizando"],
-        "stepTitles": { "service": "O que está acontecendo com o carro?", "experience": "Quando o problema aparece?", "period": "Qual período fica melhor para levar?", "timing": "Para quando você precisa?" },
+        "services": [
+          "Barulho ou ruído",
+          "Suspensão",
+          "Motor",
+          "Freios",
+          "Revisão geral",
+          "Luz acesa no painel",
+          "Ainda não sei dizer"
+        ],
+        "experienceOptions": [
+          "Aparece o tempo todo",
+          "Só quando o carro esquenta",
+          "Só em buraco ou lombada",
+          "Só ao frear",
+          "Começou depois de outro serviço",
+          "Prefiro explicar na oficina"
+        ],
+        "periodOptions": [
+          "Manhã (08h–12h)",
+          "Tarde (13h–18h30)",
+          "Tanto faz"
+        ],
+        "timingOptions": [
+          "Esta semana",
+          "Semana que vem",
+          "Ainda estou me organizando"
+        ],
+        "stepTitles": {
+          "service": "O que está acontecendo com o carro?",
+          "experience": "Quando o problema aparece?",
+          "period": "Qual período fica melhor para levar?",
+          "timing": "Para quando você precisa?"
+        },
         "notePlaceholder": "Conte o modelo, o ano e como o carro está se comportando."
       }
     },
@@ -628,28 +1134,139 @@
         "recipientName": "a equipe da Careca's Infotec",
         "label": "Solicitar avaliação"
       },
-      "footer": { "variant": "dark" },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Celular", "Computador", "Notebook", "Impressora", "Monitor", "Tablet", "Videogame", "Recarga de cartucho ou toner"],
-        "experienceOptions": ["Não liga", "Tela quebrada", "Lentidão ou travamento", "Bateria ou carregamento", "Não imprime", "Ainda não sei o defeito"],
-        "periodOptions": ["Levo na loja", "Prefiro combinar antes", "Quero só um orçamento"],
-        "timingOptions": ["Hoje", "Esta semana", "Sem pressa"],
-        "stepTitles": { "service": "Qual aparelho precisa de atendimento?", "experience": "O que está acontecendo com ele?", "period": "Como prefere resolver?", "timing": "Para quando você precisa?" },
+        "services": [
+          "Celular",
+          "Computador",
+          "Notebook",
+          "Impressora",
+          "Monitor",
+          "Tablet",
+          "Videogame",
+          "Recarga de cartucho ou toner"
+        ],
+        "experienceOptions": [
+          "Não liga",
+          "Tela quebrada",
+          "Lentidão ou travamento",
+          "Bateria ou carregamento",
+          "Não imprime",
+          "Ainda não sei o defeito"
+        ],
+        "periodOptions": [
+          "Levo na loja",
+          "Prefiro combinar antes",
+          "Quero só um orçamento"
+        ],
+        "timingOptions": [
+          "Hoje",
+          "Esta semana",
+          "Sem pressa"
+        ],
+        "stepTitles": {
+          "service": "Qual aparelho precisa de atendimento?",
+          "experience": "O que está acontecendo com ele?",
+          "period": "Como prefere resolver?",
+          "timing": "Para quando você precisa?"
+        },
         "notePlaceholder": "Conte a marca, o modelo e o que aconteceu com o aparelho."
       }
     },
     "pastelaria-route-66": {
-      "contactFloating": { "theme": "navy", "recipientName": "a equipe Route 66", "label": "Fazer um pedido" },
-      "footer": { "variant": "dark" },
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe Route 66",
+        "label": "Fazer um pedido"
+      },
+      "footer": {
+        "variant": "dark"
+      },
       "quizConfig": {
         "proposalKind": "service",
-        "services": ["Café da manhã", "Salgados", "Almoço", "Entrega", "Retirada"],
-        "experienceOptions": ["Vou consumir no local", "Quero retirar", "Preciso de entrega", "Quero conhecer o cardápio"],
-        "periodOptions": ["Agora", "Hoje", "Durante a semana", "Estou planejando"],
-        "timingOptions": ["O quanto antes", "Pela manhã", "No horário do almoço", "Ainda vou confirmar"],
-        "stepTitles": { "service": "O que você quer pedir?", "experience": "Como prefere receber?", "period": "Quando você precisa?", "timing": "Qual o próximo passo?" },
+        "services": [
+          "Café da manhã",
+          "Salgados",
+          "Almoço",
+          "Entrega",
+          "Retirada"
+        ],
+        "experienceOptions": [
+          "Vou consumir no local",
+          "Quero retirar",
+          "Preciso de entrega",
+          "Quero conhecer o cardápio"
+        ],
+        "periodOptions": [
+          "Agora",
+          "Hoje",
+          "Durante a semana",
+          "Estou planejando"
+        ],
+        "timingOptions": [
+          "O quanto antes",
+          "Pela manhã",
+          "No horário do almoço",
+          "Ainda vou confirmar"
+        ],
+        "stepTitles": {
+          "service": "O que você quer pedir?",
+          "experience": "Como prefere receber?",
+          "period": "Quando você precisa?",
+          "timing": "Qual o próximo passo?"
+        },
         "notePlaceholder": "Ex.: sabores, quantidade, endereço ou horário."
+      }
+    },
+    "jkl-decor": {
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "o Jeferson, da JKL Decor",
+        "label": "Pedir orçamento"
+      },
+      "footer": {
+        "variant": "dark"
+      },
+      "quizConfig": {
+        "proposalKind": "service",
+        "services": [
+          "Cozinha planejada",
+          "Guarda-roupa ou closet",
+          "Painel e rack de TV",
+          "Home office ou escritório",
+          "Banheiro e lavanderia",
+          "Cozinha infantil, nichos e porta-tempero",
+          "Mais de um ambiente"
+        ],
+        "experienceOptions": [
+          "Já tenho as medidas",
+          "Tenho projeto ou planta",
+          "Tenho só uma ideia e fotos",
+          "O ambiente ainda está em obra",
+          "Quero renovar um móvel existente"
+        ],
+        "periodOptions": [
+          "São José dos Pinhais",
+          "Curitiba",
+          "Região metropolitana",
+          "Vou confirmar o endereço"
+        ],
+        "timingOptions": [
+          "O quanto antes",
+          "Nas próximas semanas",
+          "Estou planejando",
+          "Só levantando preço"
+        ],
+        "stepTitles": {
+          "service": "Qual ambiente você quer planejar?",
+          "experience": "Como está o projeto hoje?",
+          "period": "Onde o móvel vai ser instalado?",
+          "timing": "Para quando você precisa?"
+        },
+        "notePlaceholder": "Conte as medidas aproximadas, as cores que gosta e como usa o ambiente."
       }
     }
   }
