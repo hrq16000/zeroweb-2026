@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "doc": "docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md · GlobalMotionContract rodadas 3-4",
+  "note": "Coreografias por CONTEXTO. O contrato global define qualidade/limites/acessibilidade; aqui define-se a gramática de cada superfície pública. Proibido aplicar a mesma sequência fade-up em tudo: o gate de variedade exige pelo menos 4 variantes distintas por superfície e nenhuma repetição em blocos consecutivos.",
+  "rules": {
+    "minDistinctVariantsPerSurface": 4,
+    "forbidConsecutiveRepeat": true,
+    "maxSequentialStaggerSteps": 6
+  },
+  "surfaces": {
+    "root-editorial": {
+      "intensity": "BALANCED",
+      "roles": {
+        "hero": { "variant": "mask", "intensity": "BALANCED" },
+        "signal": { "variant": "down", "intensity": "SUBTLE" },
+        "tension": { "variant": "left", "intensity": "BALANCED" },
+        "answer": { "variant": "right", "intensity": "BALANCED" },
+        "instrument": { "variant": "scale", "intensity": "SUBTLE" },
+        "showcase": { "variant": "mask", "intensity": "BALANCED" },
+        "offer": { "variant": "up", "intensity": "BALANCED" },
+        "proof": { "variant": "down", "intensity": "SUBTLE" },
+        "closing": { "variant": "scale", "intensity": "EXPRESSIVE" }
+      }
+    },
+    "catalog-showcase": {
+      "intensity": "SUBTLE",
+      "roles": {
+        "header": { "variant": "mask", "intensity": "BALANCED" },
+        "filters": { "variant": "down", "intensity": "SUBTLE" },
+        "result": { "variant": "fade", "intensity": "SUBTLE" },
+        "card": { "variant": "up", "intensity": "SUBTLE" },
+        "callout": { "variant": "scale", "intensity": "BALANCED" },
+        "silo": { "variant": "left", "intensity": "SUBTLE" },
+        "places": { "variant": "right", "intensity": "SUBTLE" },
+        "viewer": { "variant": "scale", "intensity": "BALANCED" }
+      },
+      "cardCycle": ["up", "scale", "left"],
+      "cardStaggerMs": 55,
+      "cardStaggerMaxSteps": 6
+    }
+  }
+}
