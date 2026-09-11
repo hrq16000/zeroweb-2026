@@ -15,7 +15,7 @@ import { resolve } from "node:path";
 import sharp from "sharp";
 
 const dir = resolve("public/images/carecas-infotec");
-const BG = resolve(dir, "cover-bg-source.jpg");
+const BG = resolve("assets-source/carecas-infotec/cover-bg-source.jpg");
 const LOGO = resolve(dir, "logo.png");
 const OUT = resolve(dir, "capa.jpg");
 
