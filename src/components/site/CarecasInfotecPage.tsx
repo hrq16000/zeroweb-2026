@@ -96,8 +96,13 @@ const theme = {
  * - o hero e os apoios usam GENERATED_CONTEXTUAL_MEDIA autoral (bancada
  *   técnica, carvão/amarelo), coerente com a capa aprovada. Nenhuma delas
  *   representa a loja, a bancada, funcionários, clientes ou serviços reais;
- * - endereço, bairro, horário, garantia, prazo, marcas, avaliações e redes
- *   sociais seguem não confirmados e por isso não são publicados como fato.
+ * - endereço, bairro, telefone, horários, nota e avaliações passam a ser
+ *   publicados como FATO VERIFICADO: vêm da ficha pública do Google
+ *   (Place ID ChIJjxhi67_73JQRgGgv4G2-G18), ingerida server-side em
+ *   docs/portfolio/enrichment/serpapi/carecas-infotec.json, com autoria,
+ *   data, link de origem e atribuição preservados;
+ * - garantia, prazo, marcas e redes sociais seguem não confirmados e por isso
+ *   não são publicados como fato.
  */
 
 export const blueprint: PortfolioBlueprint = {
@@ -115,7 +120,8 @@ export const blueprint: PortfolioBlueprint = {
       { label: "Equipamentos", href: "#equipamentos" },
       { label: "Quando procurar", href: "#quando-procurar" },
       { label: "Atendimento", href: "#atendimento" },
-      { label: "Como funciona", href: "#como-funciona" },
+      { label: "Avaliações", href: "#avaliacoes" },
+      { label: "Onde estamos", href: "#onde-estamos" },
       { label: "Dúvidas", href: "#duvidas" },
     ],
   },
