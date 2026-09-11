@@ -14,7 +14,6 @@ export const blueprintModules: Record<string, () => Promise<{ blueprint: Portfol
 
 /** Páginas renderizadas pelo motor de Blueprint (carregamento sob demanda). */
 export const blueprintPages: Record<string, LazyExoticComponent<ComponentType>> = {
-  ),
   "carecas-infotec": lazy(() =>
     import("@/components/site/CarecasInfotecPage").then((m) => ({ default: m.CarecasInfotecPage })),
   ),
