@@ -562,7 +562,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isPinturasNunes = loaderData?.slug === "pinturas-nunes";
     const isEstruturaNacional = loaderData?.slug === "estrutura-nacional";
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
-    const description = isCarecasInfotec
+    const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
+    const description = isMoreiraAutoMecanica
+      ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais — PR: oficina de mecânica para carros com avaliação presencial do veículo e agendamento pelo formulário do site."
+      : isCarecasInfotec
       ? "Careca's Infotec no Santo Antônio, São José dos Pinhais — PR: assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame, com recarga de cartucho e toner e avaliação antes do reparo."
       : isEstruturaNacional
       ? "EN — Estrutura Nacional em São José dos Pinhais: fabricação e montagem de estruturas metálicas, perfis estruturais, abrasivos e arames para solda."
