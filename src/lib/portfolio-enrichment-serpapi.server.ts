@@ -465,7 +465,11 @@ export async function buildEnrichmentSnapshot(
       knowledgeGraph = search.knowledgeGraph;
       stages['googleSearch'] = knowledgeGraph || search.organicResults.length ? "SUCCESS" : "NO_RESULTS";
 
-      const kgProfiles = (knowledgeGraph?.['profiles'] ?? []) as any[];
+      // o Knowledge Graph localiza a chave ("profiles" em en, "perfis" em pt-BR)
+      const kgProfiles = (knowledgeGraph?.['profiles'] ??
+        knowledgeGraph?.['perfis'] ??
+        knowledgeGraph?.['profils'] ??
+        []) as any[];
       for (const p of Array.isArray(kgProfiles) ? kgProfiles : []) {
         const link = typeof p?.link === "string" ? p.link : null;
         if (!link) continue;
