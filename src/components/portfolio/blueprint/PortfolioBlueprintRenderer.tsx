@@ -10,7 +10,8 @@ import { MotionScope } from "@/components/motion";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { BlueprintFloatingCta } from "./BlueprintFloatingCta";
 import { renderBlueprintSection, type SectionContext } from "./sections";
-import type { PortfolioBlueprint } from "@/lib/portfolio-blueprint";
+import { usePortfolioRuntime } from "@/components/portfolio/PortfolioRuntimeContext";
+import type { BlueprintSectionMotion, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 import { cn } from "@/lib/utils";
 
 export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: PortfolioBlueprint }) {
@@ -58,7 +59,7 @@ export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: Portfolio
         style={blueprint.theme}
         data-blueprint={blueprint.slug}
         data-motion="scope"
-        data-motion-intensity={layout.motionIntensity ?? "BALANCED"}
+        data-motion-intensity={intensity}
       >
         <header className="sticky top-0 z-30 border-b border-border bg-background/85 px-5 backdrop-blur md:px-10">
           <div className={cn("mx-auto flex min-h-20 items-center justify-between gap-4", maxWidth)}>
