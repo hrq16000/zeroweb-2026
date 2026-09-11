@@ -326,6 +326,7 @@ function PortfolioAdminList() {
       </section>
 
       <PortfolioFunnelPanel title="Desempenho por projeto" />
+      <PortfolioDestinationPanel />
       <PortfolioCityConversionPanel />
 
 
