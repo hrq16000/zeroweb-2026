@@ -31,6 +31,23 @@ const ctaMode = flag("cta") ?? "proposal";
 const clientKey = flag("client-key") ?? slug;
 const dryRun = args.includes("--dry-run");
 
+/** Canal comercial: o funil individual nasce com o tipo do negócio. */
+const FUNNEL_TYPES = {
+  orcamento: "Solicitar orçamento",
+  pedido: "Fazer pedido",
+  agendamento: "Agendar atendimento",
+  diagnostico: "Solicitar diagnóstico",
+  reserva: "Consultar disponibilidade",
+  solicitacao: "Solicitar atendimento",
+  contato: "Iniciar contato",
+};
+const funnelType = flag("funnel-type") ?? "orcamento";
+if (!FUNNEL_TYPES[funnelType]) {
+  console.error(`[scaffold] --funnel-type inválido. Use: ${Object.keys(FUNNEL_TYPES).join(", ")}`);
+  process.exit(1);
+}
+const ctaLabel = FUNNEL_TYPES[funnelType];
+
 if (!slug || !siteName) {
   console.error("Uso: node scripts/scaffold-portfolio-client.mjs --slug <slug> --name \"<Nome>\"");
   process.exit(1);
