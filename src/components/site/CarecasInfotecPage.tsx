@@ -237,7 +237,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "featured",
       order: 30,
       id: "equipamentos",
-      motion: { reveal: "up", stagger: 60 },
+      motion: { reveal: "up", stagger: 60, hover: "lift" },
       content: {
         eyebrow: "Equipamentos atendidos",
         title: "O que entra para avaliação",
@@ -366,7 +366,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "imageGrid",
       order: 45,
       id: "atendimento",
-      motion: { reveal: "up", stagger: 90 },
+      motion: { reveal: "up", stagger: 90, hover: "lift" },
       content: {
         eyebrow: "Frentes de atendimento",
         title: "Três frentes, a mesma avaliação técnica.",
@@ -409,7 +409,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "alternating",
       order: 50,
       id: "como-funciona",
-      motion: { reveal: "up", stagger: 80 },
+      motion: { reveal: "up", stagger: 80, hover: "lift" },
       content: {
         eyebrow: "Como funciona a avaliação",
         title: "Do relato ao aparelho testado",
@@ -446,7 +446,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "reviews",
       order: 55,
       id: "avaliacoes",
-      motion: { reveal: "up", stagger: 80 },
+      motion: { reveal: "up", stagger: 80, hover: "glow" },
       content: {
         eyebrow: "Avaliações públicas",
         title: "O que os clientes registraram no Google.",
@@ -503,7 +503,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "split",
       order: 60,
       id: "loja",
-      motion: { reveal: "left" },
+      motion: { reveal: "left", parallax: 18 },
       content: {
         eyebrow: "Careca's Infotec em São José dos Pinhais",
         title: "Assistência técnica especializada, com atendimento de quem executa.",
