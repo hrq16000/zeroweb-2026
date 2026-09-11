@@ -181,8 +181,11 @@ export function evaluatePolicyGates({ slug, client, componentSource = "", mediaP
   };
 }
 
-export function evaluateProjectQuality(slug, matrix) {
-  const matrixResult = evaluateMatrix(slug, matrix);
+export function evaluateProjectQuality(slug, matrix, options = {}) {
+  const manifests = readJson("src/config/portfolio-project-manifests.json", { projects: {} }).projects ?? {};
+  const contractVersion =
+    options.contractVersion ?? manifests[slug]?.contractVersion ?? matrix?.contractVersion ?? 0;
+  const matrixResult = evaluateMatrix(slug, matrix, { contractVersion });
   const clients = readJson("src/config/portfolio-clients.json", []);
   const client = clients.find((item) => item.slug === slug);
   const componentSource = client?.componentFile
