@@ -179,7 +179,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Suspense fallback={null}><ScrollTracker /></Suspense>
       <Header />
-      <MotionScope intensity="SUBTLE" profile="0web-institucional">
+      <MotionScope intensity="SUBTLE">
       <main>
         {on("hero") && <Hero />}
         {on("trustbar") && <TrustBar />}
