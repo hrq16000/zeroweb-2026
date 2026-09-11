@@ -28,7 +28,6 @@ import {
   CreditCard,
   Hammer,
   Images,
-  MapPin,
   PencilRuler,
   Ruler,
   ShieldCheck,
