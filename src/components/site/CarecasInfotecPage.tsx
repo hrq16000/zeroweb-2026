@@ -23,7 +23,6 @@ import {
 import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /**
@@ -154,7 +153,6 @@ export const blueprint: PortfolioBlueprint = {
           />
         </div>
       </footer>
-      <PortfolioUpsellPopup pageName="portfolio-carecas-infotec" />
     </>
   ),
   sections: [

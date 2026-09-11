@@ -37,7 +37,6 @@ import {
 import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /** Ficha pública confirmada por Place ID — usada para "como chegar" e atribuição. */
@@ -546,7 +545,6 @@ export const blueprint: PortfolioBlueprint = {
   afterContent: (
     <>
       <PortfolioHostCredit />
-      <PortfolioUpsellPopup />
     </>
   ),
 };
