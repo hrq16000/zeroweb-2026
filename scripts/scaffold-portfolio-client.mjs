@@ -314,6 +314,22 @@ write(
         graphicMedia: [],
         missingMedia: [],
       },
+      discovery: {
+        searched: false,
+        sources: [
+          "OWNER_SUPPLIED",
+          "GOOGLE_PUBLIC_MEDIA",
+          "OFFICIAL_SOCIAL",
+          "OFFICIAL_WEBSITE",
+          "OFFICIAL_BRAND",
+          "LICENSED_MEDIA",
+          "GENERATED_CONTEXTUAL_MEDIA",
+        ],
+        result: null,
+      },
+      /** Material recebido só para identificar/confirmar dado. Nunca vira Hero/capa automaticamente. */
+      referenceOnlyAssets: [],
+      /** section | mediaRole | source | asset | provenance | status */
       sections: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
@@ -388,6 +404,7 @@ if (existsSync(manifestPath)) {
         entityResolution: "not_started",
         evidence: "not_started",
         media: "not_started",
+        mediaPlan: "not_started",
         content: "not_started",
         discovery: "not_started",
         blueprint: "not_started",
@@ -401,6 +418,7 @@ if (existsSync(manifestPath)) {
       warnings: [],
       ownerRequired: [],
       searchQa: [],
+      visualQa: { status: "NOT_EXECUTED", notes: null, evaluatedAt: null },
       notes: {
         enrichment: `docs/portfolio/enrichment/${slug}.json`,
         mediaPlan: `docs/portfolio/media-plans/${slug}.json`,
