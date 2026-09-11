@@ -1,66 +1,116 @@
 {
-  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Substitui a conclusão anterior de que não havia presença digital: essa conclusão foi retirada por falta de pesquisa suficiente, não por evidência de ausência.",
+  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Correção 2026-09-11: a entidade do Google FOI localizada e resolvida por Place ID confirmado. O estado anterior GOOGLE_PROFILE_NOT_FOUND está retirado — era falta de provider de ingestão, não ausência de entidade.",
   "slug": "carecas-infotec",
-  "lastResearchAt": "2026-09-10",
-  "identity": {
-    "name": { "value": "Careca's Infotec", "sourceType": "OWNER_SUPPLIED", "source": "faixa/comunicação oficial da loja enviada pelo proprietário (public/images/carecas-infotec/banner.webp)", "confidence": "HIGH", "verifiedAt": "2026-09-08" },
-    "category": { "value": "Assistência técnica de informática", "sourceType": "OWNER_SUPPLIED", "confidence": "HIGH", "verifiedAt": "2026-09-08" },
-    "city": { "value": "São José dos Pinhais - PR", "sourceType": "OWNER_SUPPLIED", "confidence": "MEDIUM", "verifiedAt": "2026-09-08" }
+  "lastResearchAt": "2026-09-11",
+  "researchLedger": {
+    "googleEntity": { "searched": true, "found": true, "resolved": true, "verified": true, "accessible": false, "ingestable": false, "usable": false, "blocker": "provider Google Places ausente no projeto" },
+    "instagram": { "searched": true, "found": true, "resolved": false, "verified": false, "accessible": false, "ingestable": false, "usable": false, "blocker": "handle exato não confirmado publicamente" },
+    "website": { "searched": true, "found": false, "resolved": false, "verified": false, "accessible": false, "ingestable": false, "usable": false },
+    "media": { "searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true, "note": "apenas 1 fotografia oficial (banner.webp) — MEDIA_ENRICHMENT_INCOMPLETE" }
   },
-  "services": {
-    "value": ["celular", "computador", "notebook", "impressora", "monitor", "tablet", "videogame", "recarga de cartucho", "recarga de toner"],
-    "sourceType": "OWNER_SUPPLIED",
-    "source": "banner.webp",
-    "confidence": "HIGH",
-    "verifiedAt": "2026-09-08"
+  "identity": {
+    "name": { "value": "Careca's Infotec", "sourceType": "OWNER_SUPPLIED", "source": "faixa oficial da loja (public/images/carecas-infotec/banner.webp) + ficha pública do Google confirmada pelo proprietário", "confidence": "HIGH", "verifiedAt": "2026-09-11" },
+    "category": { "value": "Assistência Técnica de Informática", "sourceType": "GOOGLE_BUSINESS", "confidence": "HIGH", "verifiedAt": "2026-09-11" },
+    "city": { "value": "São José dos Pinhais - PR", "sourceType": "GOOGLE_BUSINESS", "confidence": "HIGH", "verifiedAt": "2026-09-11" }
   },
   "google": {
-    "status": "REPORTED_BY_OWNER_PENDING_API_VERIFICATION",
-    "reportedByOwner": {
+    "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+    "status": "resolved",
+    "state": ["GOOGLE_ENTITY_RESOLVED", "PLACE_ID_CONFIRMED", "GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER"],
+    "resolutionSignals": ["nome", "categoria pública", "telefone", "endereço", "horário", "correspondência com a evidência visual enviada pelo proprietário"],
+    "observed": {
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "note": "valores observados em captura de ficha pública fornecida pelo proprietário; auxiliam entity resolution, NÃO substituem ingestão por API. Não publicar como dado verificado por provider.",
+      "name": "Careca´s Infotec",
+      "category": "Assistência Técnica de Informática",
       "rating": 4.9,
       "reviewCount": 43,
-      "category": "assistência técnica de informática",
-      "hasPhotos": true,
-      "hasPublicAddress": true,
-      "hasPublicPhone": true,
-      "hasOpeningHours": true,
-      "hasLinkedInstagram": true
+      "phone": "+55 41 99507-2700",
+      "address": "Rua Margarida Petrelli Fogiatto, 118 — Santo Antônio — São José dos Pinhais — PR — 83020-600",
+      "hours": { "mon_fri": "08:00–18:00", "sat": "09:00–18:00" },
+      "observedAt": "2026-09-11"
     },
-    "placeId": null,
-    "googleMapsUri": null,
-    "note": "O conector google_maps (Places API New) não está vinculado a este projeto, e a busca web pública não retornou o perfil. Nada do bloco reportedByOwner pode ser publicado antes de resolução por Places API ou envio do link/Place ID pelo proprietário.",
-    "providerStatus": { "GooglePlacesProvider": "UNAVAILABLE_NO_CONNECTION", "SearchProvider": "NO_MATCH" }
+    "ingestion": {
+      "provider": "unavailable",
+      "requiredCapability": "Google Places",
+      "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+      "status": "waiting_for_provider",
+      "contract": {
+        "placeId": null, "name": null, "rating": null, "reviewCount": null, "category": null,
+        "address": null, "phone": null, "hours": null, "mapsUrl": null,
+        "reviews": [], "photos": [], "lastVerifiedAt": null
+      },
+      "note": "campos permanecem null até ingestão real por provider oficial. Proibido scraper de HTML do Google ou contorno de bloqueios."
+    }
+  },
+  "reviews": {
+    "schema": { "source": "string", "author": "string", "rating": "number", "text": "string", "publishedAt": "string?", "sourceUrl": "string?", "attribution": "string?" },
+    "items": [],
+    "status": "PENDING_PROVIDER",
+    "policy": "somente avaliações reais com autoria e atribuição à fonte; resumo editorial nunca vira review; proibido inventar autor ou comentário."
+  },
+  "photos": {
+    "schema": { "source": "string", "reference": "string", "attribution": "string", "width": "number?", "height": "number?", "subject": "string?", "suggestedUsage": "string?", "lastVerifiedAt": "string" },
+    "items": [],
+    "status": "PENDING_PROVIDER",
+    "policy": "foto do Google não é asset do cliente; não versionar permanentemente sem verificar o modelo de uso permitido."
   },
   "social": {
-    "instagram": { "status": "REPORTED_BY_OWNER", "url": null, "handle": null, "confidence": "LOW", "evidence": "citado pelo proprietário como vinculado ao perfil Google; não confirmado publicamente nesta rodada" },
-    "facebook": { "status": "NOT_FOUND" },
+    "instagram": { "status": "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED", "url": null, "handle": null, "evidence": "ficha pública do Google exibe link de Instagram (evidência do proprietário); busca por nome, telefone e endereço não retornou o perfil. Proibido associar homônimo.", "searchedAt": "2026-09-11" },
+    "facebook": { "status": "NOT_FOUND", "searchedAt": "2026-09-11" },
     "tiktok": { "status": "NOT_SEARCHED_RELEVANT" },
     "youtube": { "status": "NOT_FOUND" },
     "linkedin": { "status": "NOT_FOUND" }
   },
-  "website": { "status": "NOT_FOUND", "note": "nenhum site oficial identificado; a landing 0WEB é hoje a presença web do negócio" },
-  "location": { "address": null, "neighborhood": null, "phone": null, "openingHours": null, "status": "UNVERIFIED_PUBLIC" },
-  "reviews": { "usable": [], "status": "PENDING_SOURCE", "policy": "só podem ser exibidas via Places API, com autoria, atribuição ao Google Maps, link para a origem e lastVerifiedAt" },
+  "website": { "status": "NOT_FOUND", "note": "a landing 0WEB é hoje a presença web do negócio" },
+  "location": {
+    "address": "Rua Margarida Petrelli Fogiatto, 118 — Santo Antônio — São José dos Pinhais — PR — 83020-600",
+    "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+    "status": "RESOLVED_PENDING_PROVIDER_VERIFICATION",
+    "publicationRule": "endereço e telefone não vão para o bundle público; contato permanece server-side."
+  },
+  "services": {
+    "value": ["celular", "computador", "notebook", "impressora", "monitor", "tablet", "videogame", "recarga de cartucho", "recarga de toner"],
+    "sourceType": "OWNER_SUPPLIED",
+    "source": "banner.webp + presença pública indexada associada ao mesmo telefone",
+    "confidence": "HIGH",
+    "verifiedAt": "2026-09-11"
+  },
   "media": {
+    "state": "MEDIA_ENRICHMENT_INCOMPLETE",
+    "reason": "apenas uma fotografia real disponível; Blueprint não pode ser considerado editorialmente concluído nessa condição.",
     "existing": [
-      { "file": "public/images/carecas-infotec/banner.webp", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "enviado pelo proprietário", "confidence": "HIGH", "suggestedUsage": "hero" },
-      { "file": "public/images/carecas-infotec/logo.png", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "derivado normalizado do banner", "confidence": "HIGH", "suggestedUsage": "identidade/header" },
-      { "file": "public/images/carecas-infotec/capa.jpg", "type": "GENERATED_ILLUSTRATION", "owner": "0WEB", "rights": "composição autoral", "confidence": "HIGH", "suggestedUsage": "capa/OG (brand-led)" }
+      { "file": "public/images/carecas-infotec/banner.webp", "type": "REAL_BUSINESS_MEDIA", "owner": "cliente", "rights": "enviado pelo proprietário", "confidence": "HIGH", "suggestedUsage": "hero" },
+      { "file": "public/images/carecas-infotec/logo.png", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "derivado normalizado do banner", "confidence": "HIGH", "suggestedUsage": "identidade" },
+      { "file": "public/images/carecas-infotec/capa.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "composição autoral", "confidence": "HIGH", "suggestedUsage": "capa/OG provisória" }
     ],
-    "missing": ["fachada real", "interior/bancada real", "balcão", "equipamentos em atendimento"],
-    "strategyBySection": {
-      "hero": "REAL",
-      "equipamentos": "GENERATED",
-      "quando-procurar": "GENERATED",
-      "como-funciona": "GRAPHIC",
-      "loja-identidade": "REAL (pendente de foto oficial da fachada/interior)",
-      "prova-social": "GOOGLE (bloqueado até resolver Places)",
-      "cta": "GRAPHIC"
+    "missing": ["fachada real", "bancada/interior real", "atendimento", "fotos do Google com atribuição"],
+    "mediaMixPlan": {
+      "hero": "REAL_BUSINESS_MEDIA",
+      "identidade-loja": "REAL_BUSINESS_MEDIA ou GOOGLE_MEDIA quando permitido",
+      "equipamentos": "GENERATED_CONTEXTUAL_MEDIA ou LICENSED_MEDIA",
+      "problemas": "GENERATED_CONTEXTUAL_MEDIA / GRAPHIC",
+      "como-funciona": "GRAPHIC / ORIGINAL_ILLUSTRATION",
+      "reviews": "GOOGLE_EVIDENCE",
+      "cta": "BRAND_GRAPHIC"
+    },
+    "generationCapability": {
+      "status": "IMAGE_GENERATION_CAPABILITY_AVAILABLE",
+      "tool": "imagegen (geração e edição de imagem do ambiente Lovable)",
+      "output": "arquivo gravado diretamente no projeto (ex.: public/images/carecas-infotec/*.jpg|.png)",
+      "formats": ["jpg (fotográfico/OG)", "png (transparência para logo/ícone)"],
+      "resolution": "512–1920 px por lado; capa/OG 1200×630; seções 1280×800 ou 1024×1024",
+      "provenance": "cada arquivo gerado é registrado aqui como GENERATED_CONTEXTUAL_MEDIA com prompt-intent, data e uso pretendido; nunca rotulado como foto real do Carecas",
+      "note": "capacidade confirmada; nenhuma imagem foi gerada nesta rodada."
     }
   },
-  "cover": { "strategy": "brand-led", "current": "public/images/carecas-infotec/capa.jpg", "semanticCheck": "informática/assistência técnica perceptível pelo line-art de notebook, celular, impressora e placa" },
-  "generatedAssets": { "planned": ["bancada técnica contextual", "notebook aberto em manutenção", "placa eletrônica em detalhe", "smartphone em diagnóstico"], "rule": "ILUSTRATIVAS — nunca rotuladas como fachada, equipe, loja ou trabalho executado" },
-  "facts": ["nome", "categoria", "lista de equipamentos e serviços atendidos"],
-  "unverified": ["endereço", "telefone", "horário", "Place ID", "rating", "número de avaliações", "Instagram", "CNPJ", "site"],
+  "cover": {
+    "strategy": "BRAND_LED + SERVICE_LED (HYBRID)",
+    "current": "public/images/carecas-infotec/capa.jpg",
+    "target": "logo/mascote real + carvão + amarelo + informática reconhecível (notebook/componentes), legível em card pequeno, sem telefone e sem endereço",
+    "status": "PROPOSTA_PENDENTE — não executada nesta rodada"
+  },
+  "facts": ["nome", "categoria", "cidade", "lista de equipamentos e serviços atendidos", "Place ID confirmado"],
+  "unverified": ["rating por provider", "reviewCount por provider", "reviews individuais", "fotos do Google", "handle do Instagram", "CNPJ", "site"],
   "conflicts": []
 }

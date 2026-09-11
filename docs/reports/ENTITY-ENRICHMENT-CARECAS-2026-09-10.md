@@ -1,71 +1,95 @@
-# Relatório de Entity Enrichment — Careca's Infotec (2026-09-10)
+# Relatório de Entity Enrichment — Careca's Infotec
 
-Rodada de pesquisa apenas. Nenhum redesign, geração de imagens em massa,
-migração, CMS, painel ou publicação foi executado.
+Rodada inicial: 2026-09-10. **Correção aplicada em 2026-09-11.**
+Nenhum redesign, geração de imagens, migração, CMS, painel ou publicação foi executado.
 
-## 1. Correção da rodada anterior
+## 1. Correção da conclusão anterior
 
-A conclusão anterior ("nenhuma presença digital encontrada") está **retirada**.
-Ela foi produzida por pesquisa insuficiente e não constitui evidência de
-ausência. Este registro passa a ser a fonte de verdade
-(`docs/portfolio/enrichment/carecas-infotec.json`).
+A conclusão `GOOGLE_PROFILE_NOT_FOUND` está **retirada e proibida** para este projeto.
+A entidade foi localizada e resolvida externamente. O estado correto é:
 
-## 2. Resultado da pesquisa desta rodada
+```text
+GOOGLE_ENTITY_RESOLVED
+PLACE_ID_CONFIRMED
+GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER
+```
 
-| Item | Status |
-|---|---|
-| Conector oficial `google_maps` | **Indisponível** — nenhuma conexão vinculada ao projeto |
-| Places API (Place ID, nota, avaliações, fotos, telefone, endereço, horário) | Não consultado — sem conexão |
-| Busca web `"Careca's Infotec"` | Sem correspondência: só homônimos (Infotec São Caetano, Mogi Guaçu, Breves/PA, Cachoeirinha/RS, Arapongas/PR, Peru/Índia) |
-| Busca web + cidade | Retorna apenas `INFOTEC - Soluções Tecnológicas` (CNPJ 43.362.951/0001-13, Afonso Pena, SJP) — **empresa distinta**, consultoria em TI, não Careca's |
-| Instagram | Nenhum perfil atribuível encontrado por busca |
-| Site oficial | Não encontrado |
-| Avaliações públicas | Nenhuma atribuível encontrada |
+Provider indisponível bloqueia **CONTENT INGESTION**; não converte entidade
+resolvida em “não encontrada”.
 
-Regra aplicada: nome parecido não é identidade. Sem dois sinais convergentes,
-o candidato é rejeitado.
+## 2. Entidade confirmada
 
-## 3. O que o proprietário afirma (lead, não fato)
+| Campo | Valor | Origem |
+|---|---|---|
+| Nome | Careca´s Infotec | ficha pública + faixa oficial |
+| Place ID | `ChIJjxhi67_73JQRgGgv4G2-G18` | confirmado |
+| Categoria | Assistência Técnica de Informática | ficha pública |
+| Avaliação observada | 4.9 · 43 avaliações | `OWNER_SUPPLIED_PUBLIC_EVIDENCE` |
+| Telefone | +55 41 99507-2700 | ficha pública (server-side, nunca no bundle) |
+| Endereço | Rua Margarida Petrelli Fogiatto, 118 — Santo Antônio — SJP/PR — 83020-600 | ficha pública |
+| Horário | seg–sex 08:00–18:00 · sáb 09:00–18:00 | ficha pública |
 
-Nota 4,9 · 43 avaliações · categoria assistência técnica de informática ·
-endereço, telefone, horário e fotos públicos · Instagram vinculado.
-Registrado como `REPORTED_BY_OWNER_PENDING_API_VERIFICATION`. Nada disso pode
-aparecer na landing antes de resolução por Places API ou envio do link do perfil.
+Sinais convergentes: nome, categoria, telefone, endereço, horário e correspondência
+com a evidência visual do proprietário.
 
-## 4. Desbloqueio necessário (uma das duas opções)
+## 3. Ledger de pesquisa
 
-1. Vincular o conector Google Maps Platform ao projeto — resolvo Place ID, nota,
-   número de avaliações, endereço, telefone, horário, fotos e reviews com
-   atribuição correta ao Google Maps.
-2. O proprietário enviar o link do perfil no Google Maps (ou o Place ID) e o
-   @ do Instagram.
+```text
+Google entity  → FOUND yes · RESOLVED yes · VERIFIED yes · INGESTABLE no (provider ausente)
+Instagram      → FOUND yes (link na ficha) · RESOLVED no · handle não confirmado
+Website        → FOUND no
+Mídia real     → FOUND yes, porém insuficiente (1 fotografia)
+```
 
-## 5. Mapa seção → fonte → evidência
+## 4. Capacidade de acesso ao Google Places
 
-| Seção | Fonte | Conteúdo | Evidência |
-|---|---|---|---|
-| Hero | REAL | manchete + arte oficial | `banner.webp` (proprietário) |
-| Equipamentos atendidos | GENERATED + FACT | 8 itens confirmados | banner |
-| Quando procurar | GENERATED + EDITORIAL | sinais de falha por equipamento | conhecimento técnico genérico, sem alegar caso real |
-| Como funciona | GRAPHIC + EDITORIAL | avaliação → orçamento → reparo | escopo declarado no banner |
-| Loja e identidade | REAL (pendente) | fachada/bancada | requer foto oficial |
-| Prova social | GOOGLE | nota, contagem, reviews com autoria e link | **bloqueado** até resolver Places |
-| CTA | GRAPHIC | funil próprio | funil `funnel-carecas-infotec` |
+Conexões disponíveis no workspace: Resend, Google Search Console e Google Sheets.
+Nenhuma conexão Google Maps/Places.
 
-## 6. Estratégia definitiva de capa
+```text
+provider: unavailable
+requiredCapability: Google Places
+placeId: ChIJjxhi67_73JQRgGgv4G2-G18
+status: waiting_for_provider
+```
 
-`brand-led`. A capa atual (`capa.jpg`, composição autoral 1200×630) permanece
-válida e é semanticamente legível como assistência técnica. Ela só deve ser
-substituída por `real-photo` quando existir fotografia oficial de fachada,
-bancada ou atendimento — nunca por imagem gerada apresentada como foto real.
+Proibido scraper de HTML do Google ou contorno de bloqueios. Desbloqueio: vincular
+o conector Google Maps Platform.
 
-## 7. Mídia gerada planejada (ilustrativa)
+## 5. Instagram
 
-Bancada técnica contextual, notebook aberto em manutenção, placa eletrônica em
-detalhe e smartphone em diagnóstico — todas marcadas como ilustrativas, jamais
-apresentadas como fachada, equipe, loja ou serviço executado.
+`INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED`. Buscas por nome, telefone e endereço
+retornaram apenas homônimos (Infotec de Londrina, Linhares, Barbacena e a
+INFOTEC — Soluções Tecnológicas de SJP, CNPJ 43.362.951/0001-13, empresa distinta).
+Nenhum perfil homônimo será associado.
 
-## 8. Fim da rodada
+## 6. Contrato de ingestão preparado
 
-Entregue: `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md`,
-`docs/portfolio/enrichment/carecas-infotec.json` e este relatório.
+O registro `docs/portfolio/enrichment/carecas-infotec.json` já contém os campos
+`google.ingestion.contract` (placeId, name, rating, reviewCount, category, address,
+phone, hours, mapsUrl, reviews[], photos[], lastVerifiedAt) com `null`/vazio, além
+dos schemas de `reviews[]` e `photos[]`. Nada preenchido artificialmente.
+
+## 7. Mídia
+
+`MEDIA_ENRICHMENT_INCOMPLETE`. Existe uma única fotografia real (`banner.webp`).
+Media mix alvo registrado por seção no enrichment (hero real, equipamentos e
+problemas com mídia contextual gerada, como-funciona gráfico, reviews como
+evidência Google, CTA brand graphic).
+
+## 8. Capacidade de geração de imagens
+
+`IMAGE_GENERATION_CAPABILITY_AVAILABLE` — ferramenta de geração/edição de imagem
+do ambiente, gravando arquivo utilizável direto no projeto (jpg/png, 512–1920 px;
+capa 1200×630). Provenance registrado como `GENERATED_CONTEXTUAL_MEDIA` com data e
+uso pretendido. **Nenhuma imagem foi gerada nesta rodada.**
+
+## 9. Capa
+
+Estratégia definitiva: `BRAND_LED + SERVICE_LED (HYBRID)` — logo/mascote real,
+carvão + amarelo, informática reconhecível, boa leitura pequena, sem telefone e sem
+endereço. Proposta pendente, não executada.
+
+## 10. Fim da rodada
+
+Sem publicação, sem redesign, sem alteração em outros projetos.
