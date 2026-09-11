@@ -89,6 +89,7 @@ export function PortfolioFunnelPanel({ slug, title = "Desempenho" }: { slug?: st
               <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
                 <th scope="col" className="px-3 py-2">Projeto</th>
                 <th scope="col" className="px-3 py-2">Views</th>
+                <th scope="col" className="px-3 py-2" title="Aberturas do site do cliente dentro da vitrine /portfolio">Embed</th>
                 <th scope="col" className="px-3 py-2">CTA</th>
                 <th scope="col" className="px-3 py-2">Pop-up</th>
                 <th scope="col" className="px-3 py-2">Leads</th>
@@ -102,6 +103,7 @@ export function PortfolioFunnelPanel({ slug, title = "Desempenho" }: { slug?: st
                 <tr key={r.slug} className="border-b border-border/60">
                   <Cell className="font-medium">{r.slug}</Cell>
                   <Cell>{r.views}</Cell>
+                  <Cell>{r.embedOpens}</Cell>
                   <Cell>{r.ctaClicks}</Cell>
                   <Cell>{r.popupViews}</Cell>
                   <Cell>{r.leads}</Cell>
@@ -122,6 +124,7 @@ export function PortfolioFunnelPanel({ slug, title = "Desempenho" }: { slug?: st
                 <tr className="text-sm font-semibold">
                   <Cell>Total</Cell>
                   <Cell>{data.totals.views}</Cell>
+                  <Cell>{data.totals.embedOpens}</Cell>
                   <Cell>{data.totals.ctaClicks}</Cell>
                   <Cell>{data.totals.popupViews}</Cell>
                   <Cell>{data.totals.leads}</Cell>
