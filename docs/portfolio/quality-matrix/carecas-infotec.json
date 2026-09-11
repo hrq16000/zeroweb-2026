@@ -22,7 +22,7 @@
   "dimensions": {
     "ENTITY": {
       "status": "PASS",
-      "notes": "Entidade resolvida: Place ID ChIJjxhi67_73JQRgGgv4G2-G18 confirmado, ficha Google lida via provider SerpApi server-side (nome, categoria, endereço, telefone, horário, 4.9/43). Instagram presente porém handle não resolvido — ausência de rede não é falha; a pesquisa foi feita e registrada."
+      "notes": "Entidade resolvida: Place ID ChIJjxhi67_73JQRgGgv4G2-G18 confirmado, ficha Google lida via provider SerpApi server-side (nome, categoria, endereço, telefone, horário, 4.9/43). Instagram @carecasinfotec resolvido automaticamente com confiança 100%."
     },
     "CONTENT": {
       "status": "PASS",
@@ -30,7 +30,7 @@
     },
     "MEDIA": {
       "status": "WARNING",
-      "notes": "Mix dominado por GENERATED_CONTEXTUAL_MEDIA autoral; única foto real (faixa oficial) preservada como evidência secundária. Fotos reais da loja seguem desejáveis (ownerRequired)."
+      "notes": "Mix híbrido: hero e frentes com GENERATED_CONTEXTUAL_MEDIA autoral; quatro fotos públicas reais do Google distribuídas por função narrativa. A placa original permanece somente como BRAND_REFERENCE/EVIDENCE_ONLY."
     },
     "VISUAL_COMPOSITION": {
       "status": "PASS",
