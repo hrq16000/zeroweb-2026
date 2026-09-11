@@ -33,9 +33,6 @@ import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-bluep
 const GOOGLE_PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Careca%27s%20Infotec&query_place_id=ChIJjxhi67_73JQRgGgv4G2-G18";
 
-/** Telefone público do próprio cliente (vitrine do cliente, não da 0WEB). */
-const PHONE_HREF = "tel:+5541995072700";
-
 const quizConfig = {
   proposalKind: "service" as const,
   services: [
@@ -99,10 +96,9 @@ const theme = {
 
 /**
  * Regra editorial deste projeto (ver docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7.1):
- * - mídia real tem prioridade, mas não prioridade cega. A única fotografia real
- *   disponível (`banner.webp`) é uma faixa promocional achatada e com texto
- *   embutido: reprovada como hero (`heroMedia = unsuitable`) e preservada como
- *   evidência institucional na seção "loja";
+ * - mídia real tem prioridade, mas não prioridade cega. A faixa promocional
+ *   enviada pelo proprietário é BRAND_REFERENCE / EVIDENCE_ONLY e não aparece
+ *   em nenhuma posição editorial;
  * - o hero e os apoios usam GENERATED_CONTEXTUAL_MEDIA autoral (bancada
  *   técnica, carvão/amarelo), coerente com a capa aprovada. Nenhuma delas
  *   representa a loja, a bancada, funcionários, clientes ou serviços reais;
@@ -182,7 +178,7 @@ export const blueprint: PortfolioBlueprint = {
           managedField: "heroImageUrl",
         },
 
-        ctaLabel: "Agende já seu serviço",
+         ctaLabel: "Solicitar avaliação",
         secondary: { label: "Ver equipamentos atendidos", href: "#equipamentos" },
         stats: [
           /** Nota e contagem: ficha pública do Google, verificadas na ingestão. */
@@ -283,7 +279,7 @@ export const blueprint: PortfolioBlueprint = {
             meta: "Console e controle",
           },
         ],
-        ctaLabel: "Descrever o meu aparelho",
+         ctaLabel: "Informar o problema",
       },
     },
     {
@@ -402,7 +398,7 @@ export const blueprint: PortfolioBlueprint = {
             meta: "Execução",
           },
         ],
-        ctaLabel: "Começar pelo relato",
+         ctaLabel: "Informar o problema",
       },
     },
     {
@@ -465,7 +461,7 @@ export const blueprint: PortfolioBlueprint = {
         ],
         attribution:
           "Avaliações públicas no Google, atribuídas aos autores originais. Nota 4,9 com 43 avaliações registradas na ficha pública em setembro de 2026.",
-        ctaLabel: "Falar com a assistência",
+         ctaLabel: "Solicitar avaliação",
       },
     },
     {
@@ -489,20 +485,16 @@ export const blueprint: PortfolioBlueprint = {
           },
           { title: "Como começar", text: "Envie o relato pelo formulário e combine o atendimento.", icon: Wrench },
         ],
-        /**
-         * Única fotografia real do negócio (faixa oficial enviada pelo
-         * proprietário). Papel secundário: evidência institucional de
-         * identidade, não abertura da página.
-         */
+        /** GOOGLE_USER_MEDIA — foto pública do serviço, com atribuição abaixo. */
         image: {
-          src: "/images/carecas-infotec/banner.webp",
-          alt: "Faixa oficial da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
-          width: 1240,
-          height: 550,
+          src: "/images/carecas-infotec/google-placa-microscopio.jpg",
+          alt: "Placa eletrônica observada ao microscópio em imagem pública da Careca's Infotec no Google",
+          width: 1800,
+          height: 1013,
         },
         footnote:
-          "Endereço, telefone e horários conferem com a ficha pública da Careca's Infotec no Google. Garantia, prazos e marcas atendidas não são publicados enquanto não forem confirmados pelo próprio negócio.",
-        ctaLabel: "Combinar atendimento",
+          "Imagem pública do estabelecimento no Google, via SerpApi. Endereço, telefone e horários conferidos na mesma ficha em setembro de 2026.",
+        ctaLabel: "Solicitar avaliação",
       },
     },
     {
@@ -528,17 +520,17 @@ export const blueprint: PortfolioBlueprint = {
           { days: "Domingo", hours: "Fechado" },
         ],
         contact: [
-          { label: "Telefone", value: "(41) 99507-2700", href: PHONE_HREF },
+          { label: "Telefone", value: "(41) 99507-2700" },
         ],
         mapsLink: { label: "Como chegar", href: GOOGLE_PLACE_URL },
         image: {
-          src: "/images/carecas-infotec/gen-hardware-diagnostico.jpg",
-          alt: "Ilustração técnica: placa-mãe com memórias, chave de precisão e pinça sobre bancada escura",
-          width: 1600,
-          height: 1008,
+          src: "/images/carecas-infotec/google-interior-balcao.jpg",
+          alt: "Interior e balcão da Careca's Infotec em imagem pública do estabelecimento no Google",
+          width: 1012,
+          height: 1800,
         },
-        note: "Endereço, telefone e horários conferidos na ficha pública da Careca's Infotec no Google em setembro de 2026.",
-        ctaLabel: "Enviar o relato antes de ir",
+        note: "Imagem pública do estabelecimento no Google, via SerpApi. Endereço, telefone e horários conferidos na ficha em setembro de 2026.",
+        ctaLabel: "Informar o problema antes de ir",
       },
     },
     {
@@ -550,7 +542,7 @@ export const blueprint: PortfolioBlueprint = {
         eyebrow: "Agende já seu serviço",
         title: "Tecnologia em boas mãos.",
         text: "Em poucos toques você informa o aparelho, o que está acontecendo e o melhor momento para o atendimento.",
-        ctaLabel: "Solicitar atendimento",
+        ctaLabel: "Solicitar avaliação",
         /** GENERATED_CONTEXTUAL_MEDIA — textura de fundo, não evidência. */
         image: {
           src: "/images/carecas-infotec/gen-cta-textura.jpg",

@@ -605,6 +605,23 @@
         "notePlaceholder": "Ex.: aparelho, acessório ou unidade de preferência."
       }
     },
+    "carecas-infotec": {
+      "contactFloating": {
+        "theme": "gold",
+        "recipientName": "a equipe da Careca's Infotec",
+        "label": "Solicitar avaliação",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": ["Celular", "Computador", "Notebook", "Impressora", "Monitor", "Tablet", "Videogame", "Recarga de cartucho ou toner"],
+          "experienceOptions": ["Não liga", "Tela quebrada", "Lentidão ou travamento", "Bateria ou carregamento", "Não imprime", "Ainda não sei o defeito"],
+          "periodOptions": ["Levo na loja", "Prefiro combinar antes", "Quero só um orçamento"],
+          "timingOptions": ["Hoje", "Esta semana", "Sem pressa"],
+          "stepTitles": { "service": "Qual aparelho precisa de atendimento?", "experience": "O que está acontecendo com ele?", "period": "Como prefere resolver?", "timing": "Para quando você precisa?" },
+          "notePlaceholder": "Conte a marca, o modelo e o que aconteceu com o aparelho."
+        }
+      },
+      "footer": { "variant": "dark" }
+    },
     "pastelaria-route-66": {
       "contactFloating": { "theme": "navy", "recipientName": "a equipe Route 66", "label": "Fazer um pedido" },
       "footer": { "variant": "dark" },
