@@ -13,7 +13,7 @@
  *   node scripts/check-portfolio-project-readiness.mjs --slug=carecas-infotec
  *   node scripts/check-portfolio-project-readiness.mjs --json
  */
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
