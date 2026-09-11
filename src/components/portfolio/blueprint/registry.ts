@@ -9,6 +9,7 @@ import type { PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /** Módulos com o Blueprint estático — usados pelo gate de validação. */
 export const blueprintModules: Record<string, () => Promise<{ blueprint: PortfolioBlueprint }>> = {
+  "zz-motion-template-check": () => import("@/components/site/ZzMotionTemplateCheckPage"),
   "jkl-decor": () => import("@/components/site/JklDecorPage"),
   "moreira-auto-mecanica": () => import("@/components/site/MoreiraAutoMecanicaPage"),
   "carecas-infotec": () => import("@/components/site/CarecasInfotecPage"),
@@ -16,6 +17,9 @@ export const blueprintModules: Record<string, () => Promise<{ blueprint: Portfol
 
 /** Páginas renderizadas pelo motor de Blueprint (carregamento sob demanda). */
 export const blueprintPages: Record<string, LazyExoticComponent<ComponentType>> = {
+  "zz-motion-template-check": lazy(() =>
+    import("@/components/site/ZzMotionTemplateCheckPage").then((m) => ({ default: m.ZzMotionTemplateCheckPage })),
+  ),
   "jkl-decor": lazy(() =>
     import("@/components/site/JklDecorPage").then((m) => ({ default: m.JklDecorPage })),
   ),

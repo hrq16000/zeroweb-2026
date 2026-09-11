@@ -217,6 +217,19 @@
         "orçamento de móveis planejados",
         "marceneiro perto de mim são josé dos pinhais"
       ]
+    },
+    "zz-motion-template-check": {
+      "aliases": [
+        "ZZ Template Check"
+      ],
+      "categories": [],
+      "services": [],
+      "equipment": [],
+      "products": [],
+      "problems": [],
+      "useCases": [],
+      "locality": [],
+      "keywords": []
     }
   }
 }
