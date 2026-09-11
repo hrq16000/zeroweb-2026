@@ -115,6 +115,8 @@ export const blueprint: PortfolioBlueprint = {
       type: "hero",
       variant: "editorial",
       order: 10,
+      // TODO(direção criativa): definir gramática de motion própria do cliente.
+      motion: { intensity: "SUBTLE", reveal: "up" },
       content: {
         eyebrow: SCAFFOLD_STATE,
         headline: "${siteName}",
