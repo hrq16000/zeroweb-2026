@@ -1163,6 +1163,7 @@
     "componentFile": "src/components/site/CarecasInfotecPage.tsx",
     "assetsDir": "public/images/carecas-infotec",
     "ctaMode": "proposal",
+    "contactMode": "funnelOnly",
     "socialProofRequired": false,
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,

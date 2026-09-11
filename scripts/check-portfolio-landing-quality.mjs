@@ -118,13 +118,66 @@ export function evaluateMatrix(slug, matrix) {
   };
 }
 
+export function evaluatePolicyGates({ slug, client, componentSource = "", mediaPlan }) {
+  const failures = [];
+  const contactMode = client?.contactMode;
+  if (contactMode === "funnelOnly") {
+    if (/href\s*=\s*["'`]tel:/i.test(componentSource) || /tel:\+?\d/i.test(componentSource)) {
+      failures.push("CONTACT_FUNNEL_GATE: contactMode=funnelOnly proíbe tel:");
+    }
+    if (/href\s*=\s*["'`](?:https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)/i.test(componentSource)) {
+      failures.push("CONTACT_FUNNEL_GATE: contato comercial bypassa o funil");
+    }
+    if (!/PortfolioCTAQuiz|FunnelCTAButton|useFunnel|renderCta/.test(componentSource)) {
+      failures.push("CONTACT_FUNNEL_GATE: mecanismo de funil não encontrado");
+    }
+  }
+
+  const referenceOnly = mediaPlan?.inventory?.referenceOnlyAssets ?? [];
+  for (const asset of referenceOnly) {
+    if (asset?.editorialAllowed === true) continue;
+    const publicPath = String(asset?.file ?? "").replace(/^public/, "");
+    if (publicPath && componentSource.includes(publicPath)) {
+      failures.push(`MEDIA_PURPOSE_GATE: asset ${publicPath} é EVIDENCE_ONLY/BRAND_REFERENCE e está em posição editorial`);
+    }
+  }
+
+  return {
+    slug,
+    status: failures.length ? "FAIL" : "PASS",
+    failures,
+    contactMode,
+  };
+}
+
+export function evaluateProjectQuality(slug, matrix) {
+  const matrixResult = evaluateMatrix(slug, matrix);
+  const clients = readJson("src/config/portfolio-clients.json", []);
+  const client = clients.find((item) => item.slug === slug);
+  const componentSource = client?.componentFile
+    ? readFileSync(path.resolve(root, client.componentFile), "utf8")
+    : "";
+  const policyResult = evaluatePolicyGates({
+    slug,
+    client,
+    componentSource,
+    mediaPlan: readJson(`docs/portfolio/media-plans/${slug}.json`, null),
+  });
+  return {
+    ...matrixResult,
+    status: matrixResult.status === "PASS" && policyResult.status === "PASS" ? "PASS" : "FAIL",
+    failures: [...matrixResult.failures, ...policyResult.failures],
+    policyGates: policyResult,
+  };
+}
+
 const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isCli) {
   const manifests = readJson("src/config/portfolio-project-manifests.json", { projects: {} }).projects ?? {};
   const slugs = Object.keys(manifests).filter((s) => !onlySlug || s === onlySlug);
   const results = slugs.map((slug) =>
-    evaluateMatrix(slug, readJson(`docs/portfolio/quality-matrix/${slug}.json`, null)),
+    evaluateProjectQuality(slug, readJson(`docs/portfolio/quality-matrix/${slug}.json`, null)),
   );
 
   if (asJson) {

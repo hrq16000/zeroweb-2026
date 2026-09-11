@@ -77,6 +77,15 @@ for (const client of clients) {
   const component = readFileSync(componentPath, "utf8");
   const combined = `${route}\n${component}`;
 
+  if (client.contactMode === "funnelOnly") {
+    if (/href\s*=\s*["'`]tel:/i.test(component) || /tel:\+?\d/i.test(component)) {
+      errors.push(`${label}: CONTACT_FUNNEL_GATE — contactMode=funnelOnly proíbe tel:`);
+    }
+    if (/href\s*=\s*["'`](?:https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)/i.test(component)) {
+      errors.push(`${label}: CONTACT_FUNNEL_GATE — contato comercial bypassa o funil`);
+    }
+  }
+
   const routeRequirements = [
     [/rel:\s*["']canonical["']/, "canonical próprio"],
     [/property:\s*["']og:site_name["']/, "og:site_name próprio"],

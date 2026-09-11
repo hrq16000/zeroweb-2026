@@ -4,7 +4,16 @@
   "status": "MEDIA_ENRICHMENT_COMPLETE",
   "inventory": {
     "realBusinessPhotos": [
-      "public/images/carecas-infotec/banner.webp"
+      "public/images/carecas-infotec/google-interior-balcao.jpg",
+      "public/images/carecas-infotec/google-placa-microscopio.jpg"
+    ],
+    "referenceOnlyAssets": [
+      {
+        "file": "public/images/carecas-infotec/banner.webp",
+        "classification": ["BRAND_REFERENCE", "EVIDENCE_ONLY"],
+        "editorialAllowed": false,
+        "reason": "placa promocional usada apenas para resolução de identidade e serviços"
+      }
     ],
     "officialBrandAssets": [
       "public/images/carecas-infotec/logo.png"
@@ -13,7 +22,7 @@
     "licensedMedia": [],
     "generatedMedia": [
       {
-        "file": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+        "file": "public/images/carecas-infotec/gen-hero-editorial.jpg",
         "provenance": "GENERATED_CONTEXTUAL_MEDIA",
         "purpose": "abertura premium da landing, coerente com a capa aprovada (carvão/amarelo, bancada técnica)",
         "section": "hero",
@@ -115,14 +124,12 @@
       "public/images/carecas-infotec/capa.jpg"
     ],
     "missingMedia": [
-      "fachada da loja (owner-required, não bloqueia)",
-      "bancada/oficina real (owner-required, não bloqueia)",
-      "fotos do Google (aguardando provider e verificação de direitos)"
+      "fachada da loja (owner-required, não bloqueia)"
     ]
   },
   "heroMedia": {
     "decision": "GENERATED_CONTEXTUAL_MEDIA",
-    "asset": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+    "asset": "public/images/carecas-infotec/gen-hero-editorial.jpg",
     "rejected": {
       "asset": "public/images/carecas-infotec/banner.webp",
       "verdict": "unsuitable",
@@ -133,7 +140,7 @@
         "composition",
         "notImprovised"
       ],
-      "preservedAs": "evidência institucional na seção 'loja' (papel secundário)"
+      "preservedAs": "BRAND_REFERENCE / EVIDENCE_ONLY fora da landing"
     },
     "checks": {
       "quality": "pass",
@@ -153,10 +160,10 @@
       "section": "hero",
       "requiredMediaRole": "editorial-hero",
       "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
-      "asset": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+      "asset": "public/images/carecas-infotec/gen-hero-editorial.jpg",
       "status": "done",
       "resolution": "generate",
-      "note": "foto real reprovada como hero (heroMedia.rejected) e preservada na seção 'loja'"
+      "note": "hero editorial premium venceu a comparação com a foto vertical do interior; a placa permanece fora da landing"
     },
     {
       "section": "equipamentos",
@@ -196,12 +203,21 @@
     },
     {
       "section": "authority",
-      "requiredMediaRole": "real-business-photo",
-      "sourceType": "OWNER_SUPPLIED",
-      "asset": "public/images/carecas-infotec/banner.webp",
+      "requiredMediaRole": "real-service-photo",
+      "sourceType": "GOOGLE_USER_MEDIA",
+      "asset": "public/images/carecas-infotec/google-placa-microscopio.jpg",
       "status": "done",
       "resolution": "real-media",
-      "note": "papel secundário: evidência de identidade do negócio"
+      "note": "imagem pública do serviço, atribuída ao Google via SerpApi"
+    },
+    {
+      "section": "location",
+      "requiredMediaRole": "real-business-photo",
+      "sourceType": "GOOGLE_USER_MEDIA",
+      "asset": "public/images/carecas-infotec/google-interior-balcao.jpg",
+      "status": "done",
+      "resolution": "real-media",
+      "note": "interior público do estabelecimento, atribuído ao Google via SerpApi"
     },
     {
       "section": "reviews",
@@ -262,6 +278,6 @@
     "regeneratedAt": "2026-09-11"
   },
   "notes": [
-    "2026-09-11: hero passou para gen-hero-editorial.jpg; banner.webp segue como evidência real única na seção 'loja'. Capa regenerada sobre o fundo v2."
+    "2026-09-11: hero premium gen-hero-editorial.jpg mantido após comparação; banner.webp reclassificado como BRAND_REFERENCE / EVIDENCE_ONLY e removido da landing; fotos públicas Google aplicadas em authority e location com atribuição."
   ]
 }

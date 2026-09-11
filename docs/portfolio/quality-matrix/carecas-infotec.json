@@ -22,7 +22,7 @@
   "dimensions": {
     "ENTITY": {
       "status": "PASS",
-      "notes": "Entidade resolvida: Place ID ChIJjxhi67_73JQRgGgv4G2-G18 confirmado, ficha Google lida via provider SerpApi server-side (nome, categoria, endereço, telefone, horário, 4.9/43). Instagram presente porém handle não resolvido — ausência de rede não é falha; a pesquisa foi feita e registrada."
+      "notes": "Entidade resolvida: Place ID ChIJjxhi67_73JQRgGgv4G2-G18 confirmado, ficha Google lida via provider SerpApi server-side (nome, categoria, endereço, telefone, horário, 4.9/43). Instagram @carecasinfotec resolvido automaticamente com confiança 100%."
     },
     "CONTENT": {
       "status": "PASS",
@@ -30,7 +30,7 @@
     },
     "MEDIA": {
       "status": "WARNING",
-      "notes": "Mix dominado por GENERATED_CONTEXTUAL_MEDIA autoral; única foto real (faixa oficial) preservada como evidência secundária. Fotos reais da loja seguem desejáveis (ownerRequired)."
+      "notes": "Mix híbrido: hero e frentes com GENERATED_CONTEXTUAL_MEDIA autoral; quatro fotos públicas reais do Google distribuídas por função narrativa. A placa original permanece somente como BRAND_REFERENCE/EVIDENCE_ONLY."
     },
     "VISUAL_COMPOSITION": {
       "status": "PASS",
@@ -100,7 +100,7 @@
       "section": "hero",
       "visualRole": "abertura imersiva",
       "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
-      "asset": "/images/carecas-infotec/gen-hero-bancada.jpg",
+      "asset": "/images/carecas-infotec/gen-hero-editorial.jpg",
       "provenance": "gerada 0WEB — ilustrativa, não representa loja/equipe/serviço real",
       "quality": "alta",
       "status": "PASS"
@@ -127,9 +127,9 @@
     {
       "section": "useCases.editorial (Sinais de que o aparelho pede avaliação)",
       "visualRole": "aside de apoio",
-      "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
-      "asset": "/images/carecas-infotec/gen-diagnostico-aside.jpg",
-      "provenance": "gerada 0WEB — ilustrativa",
+      "mediaDecision": "GOOGLE_USER_MEDIA",
+      "asset": "/images/carecas-infotec/google-notebook-manutencao.jpg",
+      "provenance": "foto pública Google Maps ingerida via SerpApi; atribuição no contexto editorial",
       "quality": "alta",
       "status": "PASS"
     },
@@ -143,12 +143,30 @@
       "status": "PASS"
     },
     {
+      "section": "offers.featured (O que entra para avaliação) — Notebook",
+      "visualRole": "bancada real apoiando a família de notebooks",
+      "mediaDecision": "GOOGLE_USER_MEDIA",
+      "asset": "/images/carecas-infotec/google-notebook-bancada.jpg",
+      "provenance": "foto pública Google Maps ingerida via SerpApi",
+      "quality": "alta — enquadramento técnico e função narrativa",
+      "status": "PASS"
+    },
+    {
       "section": "authority.split (loja)",
-      "visualRole": "evidência institucional secundária",
-      "mediaDecision": "REAL_BUSINESS_MEDIA",
-      "asset": "/images/carecas-infotec/banner.webp",
-      "provenance": "faixa oficial fornecida pelo proprietário",
-      "quality": "média — reprovada como hero, adequada como evidência",
+      "visualRole": "diagnóstico real em bancada",
+      "mediaDecision": "GOOGLE_USER_MEDIA",
+      "asset": "/images/carecas-infotec/google-placa-microscopio.jpg",
+      "provenance": "foto pública Google Maps ingerida via SerpApi; placa promocional EVIDENCE_ONLY removida",
+      "quality": "alta — serviço reconhecível",
+      "status": "PASS"
+    },
+    {
+      "section": "location (Onde estamos)",
+      "visualRole": "interior real do estabelecimento",
+      "mediaDecision": "GOOGLE_USER_MEDIA",
+      "asset": "/images/carecas-infotec/google-interior-balcao.jpg",
+      "provenance": "foto pública Google Maps ingerida via SerpApi",
+      "quality": "alta — autentica o negócio e a identidade",
       "status": "PASS"
     },
     {
@@ -189,21 +207,20 @@
     }
   ],
   "mediaSourceMix": {
-    "real": 1,
-    "external_verified": 0,
+    "real": 0,
+    "external_verified": 4,
     "licensed": 0,
-    "generated": 6,
+    "generated": 5,
     "graphic": 2
   },
   "p0": [],
   "warnings": [
     "GOOGLE_CONTENT_APPLIED: rating 4,9/43 e 4 avaliações públicas ingeridas via SerpApi e publicadas com atribuição",
-    "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED",
-    "REAL_STORE_PHOTOS_PENDING_OWNER"
+    "INSTAGRAM_VERIFIED_AUTOMATICALLY: @carecasinfotec (não usado como CTA comercial)",
+    "GOOGLE_USER_MEDIA: atribuição preservada; origem externa registrada"
   ],
   "ownerRequired": [
-    "fornecer fotos reais da loja/fachada e de atendimentos",
-    "confirmar o @ oficial do Instagram",
+    "fornecer foto própria da fachada, caso queira substituir mídia pública externa",
     "confirmar prazo e garantia praticados, se quiser publicá-los"
   ]
 }
