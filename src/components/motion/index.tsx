@@ -259,15 +259,25 @@ export function MotionImageReveal({
   useEffect(() => setArmed(true), []);
   const active = !armed || seen || reduced;
   const hidden = direction === "left" ? "inset(0 100% 0 0)" : "inset(0 0 100% 0)";
+  const zoomScale = Math.min(tune.scale, MOTION_LIMITS.maxZoomScale);
+  const zoomDuration = Math.max(tune.duration + 240, MOTION_LIMITS.minZoomDurationMs);
   return (
-    <div ref={ref} className={cn("overflow-hidden", className)}>
+    <div
+      ref={ref}
+      className={cn("overflow-hidden", className)}
+      {...motionDataAttrs(
+        "imageReveal",
+        reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed",
+        intensity ?? scopeIntensity,
+      )}
+    >
       <div
         style={{
           clipPath: reduced ? undefined : active ? "inset(0 0 0 0)" : hidden,
-          transform: active || reduced ? "scale(1)" : `scale(${tune.scale})`,
+          transform: active || reduced ? "scale(1)" : `scale(${zoomScale})`,
           transition: reduced
             ? "none"
-            : `clip-path ${tune.duration + 120}ms cubic-bezier(0.22,1,0.36,1), transform ${tune.duration + 240}ms cubic-bezier(0.22,1,0.36,1)`,
+            : `clip-path ${tune.duration + 120}ms ${ENTER}, transform ${zoomDuration}ms ${ENTER}`,
         }}
       >
         {children}
