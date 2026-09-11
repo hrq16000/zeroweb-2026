@@ -31,6 +31,23 @@ const ctaMode = flag("cta") ?? "proposal";
 const clientKey = flag("client-key") ?? slug;
 const dryRun = args.includes("--dry-run");
 
+/** Canal comercial: o funil individual nasce com o tipo do negócio. */
+const FUNNEL_TYPES = {
+  orcamento: "Solicitar orçamento",
+  pedido: "Fazer pedido",
+  agendamento: "Agendar atendimento",
+  diagnostico: "Solicitar diagnóstico",
+  reserva: "Consultar disponibilidade",
+  solicitacao: "Solicitar atendimento",
+  contato: "Iniciar contato",
+};
+const funnelType = flag("funnel-type") ?? "orcamento";
+if (!FUNNEL_TYPES[funnelType]) {
+  console.error(`[scaffold] --funnel-type inválido. Use: ${Object.keys(FUNNEL_TYPES).join(", ")}`);
+  process.exit(1);
+}
+const ctaLabel = FUNNEL_TYPES[funnelType];
+
 if (!slug || !siteName) {
   console.error("Uso: node scripts/scaffold-portfolio-client.mjs --slug <slug> --name \"<Nome>\"");
   process.exit(1);
@@ -67,46 +84,79 @@ const write = (relPath, content) => {
 };
 
 const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /**
- * WORKBENCH de ${siteName} (/portfolio/${slug}).
+ * WORKBENCH de ${siteName} (/portfolio/${slug}) — Portfolio Blueprint.
  *
- * NÃO PUBLICAR enquanto data-portfolio-scaffold="CREATIVE_BRIEF_REQUIRED" existir.
- * Antes do layout, preencher ${creativeBriefFile} e seguir
- * docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md.
+ * NÃO PUBLICAR enquanto o marcador CREATIVE_BRIEF_REQUIRED existir.
+ *
+ * Regras do pipeline (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
+ *  - hero, ordem, variants, densidade, mídia e motion são ESCOLHA consciente;
+ *    "hero split + offers grid + authority split + cta banner" é fallback
+ *    técnico, não direção criativa;
+ *  - nada de conteúdo inventado: sem avaliação, endereço, telefone, garantia,
+ *    número de anos, equipe, certificação ou métrica sem fonte auditável;
+ *  - todo contato comercial passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
  */
-export function ${componentName}() {
-  return (
-    <div
-      data-client-slug="${slug}"
-      data-portfolio-scaffold="CREATIVE_BRIEF_REQUIRED"
-      className="min-h-dvh bg-background text-foreground"
+const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
+
+export const blueprint: PortfolioBlueprint = {
+  slug: "${slug}",
+  identity: { name: "${siteName}" },
+  theme: {},
+  layout: { headerCtaLabel: "${ctaLabel}" },
+  sections: [
+    {
+      // TODO(direção criativa): escolher variant a partir do brief.
+      type: "hero",
+      variant: "editorial",
+      order: 10,
+      // TODO(direção criativa): definir gramática de motion própria do cliente.
+      motion: { intensity: "SUBTLE", reveal: "up" },
+      content: {
+        eyebrow: SCAFFOLD_STATE,
+        headline: "${siteName}",
+        subheadline:
+          "Composição pendente: substituir por narrativa real do cliente depois de entity resolution, enrichment e media discovery.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },
+    {
+      type: "cta",
+      variant: "banner",
+      order: 90,
+      content: {
+        title: "Pendente de direção criativa",
+        text: "Preencher ${creativeBriefFile} e o media plan antes de compor esta seção.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },
+  ],
+  renderCta: ({ children, className, placement }: CtaRenderOptions) => (
+    <FunnelCTAButton
+      clientKey="${clientKey}"
+      companySlug="${slug}"
+      formSlug="${funnelSlug}"
+      location={\`${slug}_\${placement}\`}
+      className={className}
     >
-      <main>
-        <section aria-labelledby="${slug}-workbench-title" className="mx-auto max-w-3xl px-4 py-20 md:py-28">
-          <p className="text-sm font-medium text-muted-foreground">Direção criativa pendente</p>
-          <h1 id="${slug}-workbench-title" className="mt-3 text-3xl font-semibold md:text-5xl">
-            ${siteName}
-          </h1>
-          <p className="mt-5 max-w-[65ch] text-muted-foreground">
-            Este componente é somente a base técnica. Substitua esta composição por uma direção autoral do cliente antes de publicar.
-          </p>
-          <div className="mt-8 transition-opacity">
-            <FunnelCTAButton
-              clientKey="${clientKey}"
-              companySlug="${slug}"
-              formSlug="${funnelSlug}"
-              location="${slug}_workbench"
-            >
-              Iniciar contato
-            </FunnelCTAButton>
-          </div>
-        </section>
-      </main>
+      {children}
+    </FunnelCTAButton>
+  ),
+  afterContent: (
+    <>
       <PortfolioHostCredit />
-    </div>
-  );
+      <PortfolioUpsellPopup />
+    </>
+  ),
+};
+
+export function ${componentName}() {
+  return <PortfolioBlueprintRenderer blueprint={blueprint} />;
 }
 `;
 
@@ -222,11 +272,27 @@ write(
         ]),
       ),
       identity: {},
+      entity: {
+        candidates: [],
+        resolutionStatus: "UNRESOLVED",
+        resolutionSignals: [],
+        unresolvedJustification: null,
+      },
       evidence: [],
-      google: { placeId: null, status: "not_searched" },
+      sources: [],
+      google: { placeId: null, dataId: null, cid: null, status: "not_searched" },
       reviews: { items: [], status: "NOT_SEARCHED" },
       photos: { items: [], status: "NOT_SEARCHED" },
-      social: {},
+      social: { instagram: { searched: false }, facebook: { searched: false }, other: [] },
+      website: { searched: false, url: null },
+      location: {},
+      services: [],
+      media: { discovery: { searched: false }, assets: [] },
+      facts: [],
+      conflicts: [],
+      unverified: [],
+      /** Controle de custo: cada chamada do provider fica registrada aqui. */
+      providerCalls: [],
     },
     null,
     2,
@@ -250,6 +316,22 @@ write(
         graphicMedia: [],
         missingMedia: [],
       },
+      discovery: {
+        searched: false,
+        sources: [
+          "OWNER_SUPPLIED",
+          "GOOGLE_PUBLIC_MEDIA",
+          "OFFICIAL_SOCIAL",
+          "OFFICIAL_WEBSITE",
+          "OFFICIAL_BRAND",
+          "LICENSED_MEDIA",
+          "GENERATED_CONTEXTUAL_MEDIA",
+        ],
+        result: null,
+      },
+      /** Material recebido só para identificar/confirmar dado. Nunca vira Hero/capa automaticamente. */
+      referenceOnlyAssets: [],
+      /** section | mediaRole | source | asset | provenance | status */
       sections: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
@@ -324,6 +406,7 @@ if (existsSync(manifestPath)) {
         entityResolution: "not_started",
         evidence: "not_started",
         media: "not_started",
+        mediaPlan: "not_started",
         content: "not_started",
         discovery: "not_started",
         blueprint: "not_started",
@@ -337,6 +420,7 @@ if (existsSync(manifestPath)) {
       warnings: [],
       ownerRequired: [],
       searchQa: [],
+      visualQa: { status: "NOT_EXECUTED", notes: null, evaluatedAt: null },
       notes: {
         enrichment: `docs/portfolio/enrichment/${slug}.json`,
         mediaPlan: `docs/portfolio/media-plans/${slug}.json`,
@@ -360,6 +444,8 @@ if (!registry.some((c) => c.slug === slug)) {
     componentFile,
     assetsDir,
     ctaMode,
+    funnelType,
+    contactMode: "funnelOnly",
     socialProofRequired: false,
     hostCaptureRequired: true,
     creativeContractVersion: 2,
@@ -380,11 +466,37 @@ if (existsSync(keysPath)) {
   }
 }
 
+// Projeto novo nasce rodando pelo PortfolioBlueprintRenderer (legado intacto).
+const blueprintRegistryPath = resolve(root, "src/components/portfolio/blueprint/registry.ts");
+if (existsSync(blueprintRegistryPath)) {
+  const source = readFileSync(blueprintRegistryPath, "utf8");
+  if (!source.includes(`"${slug}"`)) {
+    const patched = source
+      .replace(
+        /(export const blueprintModules[\s\S]*?= \{\n)/,
+        `$1  "${slug}": () => import("@/components/site/${componentName}"),\n`,
+      )
+      .replace(
+        /(export const blueprintPages[\s\S]*?= \{\n)/,
+        `$1  "${slug}": lazy(() =>\n    import("@/components/site/${componentName}").then((m) => ({ default: m.${componentName} })),\n  ),\n`,
+      );
+    if (!dryRun) writeFileSync(blueprintRegistryPath, patched, "utf8");
+    written.push("src/components/portfolio/blueprint/registry.ts");
+  }
+}
+
 console.log(`\n[scaffold:v2] ${siteName} → /portfolio/${slug}`);
 for (const file of written) console.log(`  + ${file}`);
 
 console.log(`
+Pipeline obrigatório (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
+  intake → entity discovery → entity resolution → public enrichment →
+  media discovery → content → search discovery → blueprint → funnel → seo →
+  cover/OG → qa → ready → publish
+
 Próximos passos obrigatórios:
+  0. Entity discovery + resolution e, só então, enrichment público
+     (node scripts/ingest-portfolio-serpapi.mjs --slug ${slug} --place-id <id>).
   1. Preencher ${creativeBriefFile} ANTES de desenhar a página.
   2. Substituir o workbench por composição autoral e remover CREATIVE_BRIEF_REQUIRED.
   3. Registrar catálogo + site registry + rota lazy.

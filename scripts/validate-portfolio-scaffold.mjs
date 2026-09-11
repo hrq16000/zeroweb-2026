@@ -19,6 +19,9 @@ const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p
 const errors = [];
 
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
+const lifecycleManifests =
+  JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
+const blueprintRegistrySource = read("src/components/portfolio/blueprint/registry.ts");
 const motionProfiles = JSON.parse(read("src/config/portfolio-motion-profiles.json") || "{}");
 const catalogProjects = (() => {
   const c = JSON.parse(read("src/config/portfolio-catalog.json") || "[]");
@@ -110,6 +113,20 @@ for (const client of clients) {
   }
   if (!/clientKey=["'`]/.test(componentSource) && !/data-portfolio-external-cta=["'`]/.test(componentSource)) {
     errors.push(`${label} CTA sem clientKey (roteamento privado de WhatsApp)`);
+  }
+
+  // --- Pipeline oficial de projetos NOVOS (lifecycle gerenciado) ---------
+  // Legado protegido: só vale para slugs com manifesto de ciclo de vida.
+  if (lifecycleManifests[client.slug]) {
+    if (client.contactMode !== "funnelOnly") {
+      errors.push(`${label} projeto gerenciado sem contactMode="funnelOnly"`);
+    }
+    if (!client.funnelType) {
+      errors.push(`${label} projeto gerenciado sem funnelType (canal comercial do negócio)`);
+    }
+    if (!blueprintRegistrySource.includes(`"${client.slug}"`)) {
+      errors.push(`${label} projeto gerenciado fora do PortfolioBlueprintRenderer (registry)`);
+    }
   }
 
   // --- Creative contract v2 ---------------------------------------------

@@ -28,7 +28,10 @@ export const LIFECYCLE_STEPS = [
   "entityDiscovery",
   "entityResolution",
   "evidence",
+  /** MEDIA DISCOVERY: procurar mídia real depois da entidade resolvida. */
   "media",
+  /** MEDIA PLAN: intenção visual por seção (source/provenance/status). */
+  "mediaPlan",
   "content",
   "discovery",
   "blueprint",
@@ -40,6 +43,23 @@ export const LIFECYCLE_STEPS = [
 ] as const;
 
 export type LifecycleStep = (typeof LIFECYCLE_STEPS)[number];
+
+/**
+ * QA visual nunca é presumido. `BLOCKED_ENVIRONMENT` registra que o navegador
+ * não pôde ser executado — e não equivale a `PASS`.
+ */
+export const VISUAL_QA_STATUSES = ["PASS", "FAIL", "NOT_EXECUTED", "BLOCKED_ENVIRONMENT"] as const;
+export type VisualQaStatus = (typeof VISUAL_QA_STATUSES)[number];
+
+/** Estados de resolução de entidade (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). */
+export const ENTITY_RESOLUTION_STATUSES = [
+  "FOUND",
+  "RESOLVED",
+  "VERIFIED",
+  "UNRESOLVED",
+  "CONFLICT",
+] as const;
+export type EntityResolutionStatus = (typeof ENTITY_RESOLUTION_STATUSES)[number];
 
 export type SearchQaCase = {
   query: string;
@@ -57,6 +77,7 @@ export type PortfolioProjectManifest = {
   warnings: string[];
   ownerRequired: string[];
   searchQa: SearchQaCase[];
+  visualQa?: { status: VisualQaStatus; notes?: string; evaluatedAt?: string | null };
   notes?: Record<string, string>;
   lastUpdatedAt: string;
 };

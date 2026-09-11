@@ -1,6 +1,6 @@
 {
   "doc": "Manifestos de ciclo de vida dos projetos /portfolio/:slug. Documento mestre: docs/PORTFOLIO_PROJECT_LIFECYCLE.md. Projetos SEM entrada aqui são legado e continuam sob os gates antigos — o readiness gate não os avalia.",
-  "contractVersion": 1,
+  "contractVersion": 2,
   "projects": {
     "carecas-infotec": {
       "slug": "carecas-infotec",
@@ -12,6 +12,7 @@
         "entityResolution": "complete",
         "evidence": "complete",
         "media": "complete",
+        "mediaPlan": "complete",
         "content": "complete",
         "discovery": "complete",
         "blueprint": "complete",
@@ -81,7 +82,12 @@
         "mediaPlan": "docs/portfolio/media-plans/carecas-infotec.json",
         "report": "docs/reports/ENTITY-ENRICHMENT-CARECAS-2026-09-10.md"
       },
-      "lastUpdatedAt": "2026-09-11"
+      "lastUpdatedAt": "2026-09-11",
+      "visualQa": {
+        "status": "BLOCKED_ENVIRONMENT",
+        "notes": "QA visual em produção não pôde ser executado: runtime de navegador indisponível no ambiente. QA local 390/768/1440 executado antes da publicação.",
+        "evaluatedAt": "2026-09-11"
+      }
     }
   }
 }

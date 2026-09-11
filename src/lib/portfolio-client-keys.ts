@@ -1,20 +1,20 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-
-
-
-  
-  
-  
-  
-  
-  
-  
-
-
-
-  
-  "carecas-infotec","estrutura-nacional","pinturas-nunes","your_brutus_burguer","pastelaria-route-66","centro-mega","auto-socorro-dentinho","dona-lucy-salgados","mania-de-limpeza","enoel-portas","easy-clean","btb-construcao","heloa-gas","hbk-iluminacao-led","jc-revestimentos","raphael-construcoes","ton-e-cor","denise-gomes-psicologa","embalar-embalagens","simone-lacerda-vaz",
+  "denise-gomes-psicologa",
+  "ton-e-cor",
+  "raphael-construcoes",
+  "jc-revestimentos",
+  "hbk-iluminacao-led",
+  "heloa-gas",
+  "btb-construcao",
+  "easy-clean",
+  "embalar-embalagens",
+  "simone-lacerda-vaz",
+  "enoel-portas",
+  "mania-de-limpeza",
+  "dona-lucy-salgados",
+  "centro-mega",
+  "pastelaria-route-66",
   "fernanda-amaral-drywall",
   "manu-pasteis",
   "lj-cleaning",
@@ -85,6 +85,11 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "papelemi-personalizados",
   "maximos-cabeleireiros",
   "kitutes-na-mesa",
+  "your_brutus_burguer",
+  "auto-socorro-dentinho",
+  "pinturas-nunes",
+  "estrutura-nacional",
+  "carecas-infotec",
 ] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 

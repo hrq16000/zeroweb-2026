@@ -292,3 +292,68 @@ Regras permanentes aplicáveis a todo `/portfolio/:slug` novo:
 
 Gates obrigatórios: `CONTACT_FUNNEL_GATE` e `MEDIA_PURPOSE_GATE`
 (`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21.4 e §22.5).
+
+## 13. Pipeline canônico de projetos NOVOS (piloto Careca's promovido a padrão)
+
+Fluxo obrigatório, sem etapa pulada em silêncio:
+
+```text
+INTAKE → ENTITY DISCOVERY → ENTITY RESOLUTION → PUBLIC ENRICHMENT →
+MEDIA DISCOVERY → MEDIA PLAN → CONTENT → SEARCH DISCOVERY → BLUEPRINT →
+FUNNEL → SEO → COVER/OG → QA → READY → PUBLISH
+```
+
+Não existe segundo pipeline: este é o mesmo lifecycle/scaffold/readiness já
+existente, agora com as etapas do piloto integradas. Legado sem manifesto
+continua fora do gate.
+
+### 13.1 Entity discovery e resolution
+
+Um projeto novo nasce com `entityDiscovery = not_started`. A descoberta procura,
+quando aplicável: Google Maps, Google Search, Knowledge Graph, site, Instagram,
+Facebook, outras redes, diretórios e material do proprietário. A resolução
+registra `FOUND | RESOLVED | VERIFIED | UNRESOLVED | CONFLICT` em
+`enrichment.entity.resolutionStatus`, com os sinais usados (nome, telefone,
+endereço, cidade, logo, serviços, redes, site). `CONFLICT` reprova; `UNRESOLVED`
+só passa com `unresolvedJustification`.
+
+### 13.2 Provider e custo
+
+O provider ativo é o SerpApi server-side já implementado
+(`src/lib/portfolio-enrichment-serpapi.server.ts` +
+`scripts/ingest-portfolio-serpapi.mjs`), em escada:
+`google_maps → reviews → photos → google/Knowledge Graph → social discovery →
+Instagram/Facebook`. A pesquisa ocorre na criação, no enriquecimento manual ou
+em revalidação pedida — nunca por visita à landing. `lastResearchAt` e
+`providerCalls` são obrigatórios como rastro de cache e custo.
+
+### 13.3 Ausência de dado
+
+`searched = true` + `result = NO_RESULTS` é resultado válido.
+`searched = false` nunca conclui uma etapa.
+
+### 13.4 Condições adicionais de readiness
+
+Além das existentes, `scripts/check-portfolio-project-readiness.mjs` reprova:
+
+- entity resolution não registrada, em `CONFLICT`, ou pendente sem justificativa;
+- enrichment público não executado (`lastResearchAt` ausente);
+- media discovery `not_started` (agora é etapa de pesquisa obrigatória);
+- capa sem estratégia declarada
+  (`REAL_PHOTO | BRAND_LED | SERVICE_LED | PRODUCT_LED | HYBRID | GENERATED_EDITORIAL`);
+- `contactMode` diferente de `funnelOnly` ou `funnelType` ausente;
+- workbench de scaffold ainda presente (direção criativa indefinida);
+- projeto gerenciado fora do `PortfolioBlueprintRenderer`;
+- `visualQA` ausente, `FAIL` ou `NOT_EXECUTED`.
+  `BLOCKED_ENVIRONMENT` nunca equivale a `PASS`: passa como aviso explícito.
+
+### 13.5 O que o scaffold gera (sempre draft)
+
+Blueprint inicial rodando pelo renderer (com marcador
+`CREATIVE_BRIEF_REQUIRED`), creative brief, enrichment stub com
+`researchLedger`/`entity`/`providerCalls`, media plan stub com fontes de
+descoberta e `referenceOnlyAssets`, quality matrix stub, discovery stub,
+funil `draft`, manifesto `stage=draft` com `visualQa=NOT_EXECUTED`, registro do
+cliente com `contactMode=funnelOnly` e `funnelType`, e entrada no registry do
+Blueprint. Nenhum stub inventa avaliação, endereço, telefone, garantia, tempo de
+mercado, equipe, número ou certificação.
