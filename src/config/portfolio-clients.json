@@ -1169,5 +1169,20 @@
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/carecas-infotec.md",
     "funnelType": "diagnostico"
+  },
+  {
+    "clientKey": "moreira-auto-mecanica",
+    "slug": "moreira-auto-mecanica",
+    "siteName": "Moreira Auto Mecânica",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/MoreiraAutoMecanicaPage.tsx",
+    "assetsDir": "public/images/moreira-auto-mecanica",
+    "ctaMode": "booking",
+    "funnelType": "agendamento",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/moreira-auto-mecanica.md"
   }
 ]

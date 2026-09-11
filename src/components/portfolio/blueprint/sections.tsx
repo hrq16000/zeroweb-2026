@@ -16,12 +16,15 @@ import type {
   BlueprintImage,
   BlueprintSection,
   BlueprintSectionMotion,
+  CapabilitiesSection,
   CtaSection,
   FaqSection,
   HeroSection,
   LocationSection,
   OffersSection,
+  ProcessSection,
   ProofSection,
+  SignalsSection,
   TrustSection,
   UseCasesSection,
 } from "@/lib/portfolio-blueprint";
@@ -167,6 +170,116 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
             </dl>
           ) : null}
         </div>
+      </section>
+    );
+  }
+
+  /**
+   * `asymmetric` — mídia dominante à direita, painel de texto deslocado que
+   * atravessa a imagem, régua de sinais colada à base. Registro tipográfico
+   * em caixa mista e serifa técnica; nada de faixa central de banner.
+   */
+  if (section.variant === "asymmetric") {
+    return (
+      <section id={section.id} className="relative overflow-hidden pb-0 pt-24 md:pt-28">
+        <div className="mx-auto grid max-w-[1500px] items-end gap-10 px-6 md:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-0 lg:px-12">
+          <div className="relative z-10 lg:pb-24 lg:pr-10">
+            {c.eyebrow ? (
+              <p className="flex items-center gap-3 text-[0.7rem] font-bold uppercase tracking-[.34em] text-primary">
+                <span aria-hidden className="h-px w-10 bg-primary" />
+                {c.eyebrow}
+              </p>
+            ) : null}
+            <MotionReveal
+              as="h1"
+              variant="up"
+              intensity="EXPRESSIVE"
+              className="mt-7 max-w-[15ch] text-[clamp(2.5rem,5.4vw,4.4rem)] font-semibold leading-[1.02] tracking-[-0.035em]"
+            >
+              {headline}
+            </MotionReveal>
+            {sub ? (
+              <Reveal
+                ctx={ctx}
+                delay={110}
+                as="p"
+                className="mt-6 max-w-[48ch] border-l-2 border-primary/60 pl-5 text-base leading-8 text-muted-foreground"
+              >
+                {sub}
+              </Reveal>
+            ) : null}
+            {c.highlights?.length ? (
+              <ul className="mt-7 flex flex-wrap gap-2">
+                {c.highlights.map((item, i) => (
+                  <Reveal
+                    ctx={ctx}
+                    key={item}
+                    delay={step(ctx, i)}
+                    as="li"
+                    className="rounded-sm border border-border px-3 py-1.5 text-xs font-medium tracking-wide text-muted-foreground"
+                  >
+                    {item}
+                  </Reveal>
+                ))}
+              </ul>
+            ) : null}
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              {c.ctaLabel
+                ? ctx.renderCta({
+                    placement: "hero",
+                    children: c.ctaLabel,
+                    className:
+                      "inline-flex min-h-13 items-center rounded-sm bg-primary px-8 text-sm font-bold uppercase tracking-[.14em] text-primary-foreground transition hover:translate-y-[-2px]",
+                  })
+                : null}
+              {c.secondary ? (
+                <a
+                  href={c.secondary.href}
+                  className="text-sm font-semibold underline decoration-primary/50 underline-offset-8 hover:text-primary"
+                >
+                  {c.secondary.label}
+                </a>
+              ) : null}
+            </div>
+          </div>
+
+          {c.image ? (
+            <Reveal
+              ctx={ctx}
+              delay={80}
+              className="relative -mx-6 overflow-hidden md:-mx-10 lg:mx-0 lg:-ml-16"
+            >
+              <Img
+                image={{ ...c.image, priority: true }}
+                className="h-[52vh] w-full object-cover lg:h-[76vh]"
+              />
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,transparent_38%),linear-gradient(0deg,var(--background)_2%,transparent_35%)]"
+              />
+            </Reveal>
+          ) : null}
+        </div>
+
+        {c.stats?.length ? (
+          <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12">
+            <dl className="grid grid-cols-2 border-t border-border md:grid-cols-4">
+              {c.stats.map((stat, i) => (
+                <Reveal
+                  ctx={ctx}
+                  key={stat.label}
+                  delay={step(ctx, i)}
+                  className="border-b border-border px-1 py-6 md:border-b-0 md:border-r md:px-6 md:last:border-r-0 md:first:pl-0"
+                >
+                  <dd className="text-2xl font-semibold tracking-tight md:text-3xl">{stat.value}</dd>
+                  <dt className="mt-1 text-xs uppercase tracking-[.18em] text-muted-foreground">
+                    {stat.label}
+                  </dt>
+                </Reveal>
+              ))}
+            </dl>
+          </div>
+        ) : null}
       </section>
     );
   }
@@ -363,6 +476,69 @@ function Offers({ section, ctx }: { section: OffersSection; ctx: SectionContext 
                 children: c.ctaLabel,
                 className:
                   "inline-flex min-h-12 items-center rounded-full border border-primary px-7 text-sm font-black uppercase tracking-[.12em] text-primary transition hover:bg-primary hover:text-primary-foreground",
+              })}
+            </div>
+          ) : null}
+        </div>
+      </section>
+    );
+  }
+
+  /**
+   * `list` — oferta como índice editorial numerado (linhas largas, sem grade
+   * de cards). Boa quando o valor está na descrição e não em ícones.
+   */
+  if (section.variant === "list") {
+    return (
+      <section id={section.id} className="px-6 py-20 md:px-10 md:py-28 lg:px-12">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+            <div>
+              {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
+              <h2 className="mt-4 max-w-[16ch] text-[clamp(1.8rem,3.6vw,2.9rem)] font-semibold leading-[1.05] tracking-[-0.03em]">
+                {c.title}
+              </h2>
+            </div>
+            {c.intro ? (
+              <p className="max-w-[60ch] self-end text-sm leading-8 text-muted-foreground md:text-base">
+                {c.intro}
+              </p>
+            ) : null}
+          </div>
+
+          <ul className="mt-14 border-t border-border">
+            {c.items.map((item, i) => (
+              <Reveal
+                ctx={ctx}
+                key={item.title}
+                delay={step(ctx, i)}
+                as="li"
+                className="group grid gap-3 border-b border-border py-7 md:grid-cols-[5rem_minmax(0,22ch)_minmax(0,1fr)] md:items-baseline md:gap-8"
+              >
+                <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
+                <span className="flex items-center gap-3 text-lg font-semibold tracking-tight md:text-xl">
+                  {item.icon ? <item.icon className="h-5 w-5 shrink-0 text-primary" /> : null}
+                  {item.title}
+                </span>
+                <span className="block text-sm leading-7 text-muted-foreground">
+                  {item.text}
+                  {item.meta ? (
+                    <span className="mt-2 block text-xs uppercase tracking-[.16em] text-primary/80">
+                      {item.meta}
+                    </span>
+                  ) : null}
+                </span>
+              </Reveal>
+            ))}
+          </ul>
+
+          {c.ctaLabel ? (
+            <div className="mt-10">
+              {ctx.renderCta({
+                placement: "offers",
+                children: c.ctaLabel,
+                className:
+                  "inline-flex min-h-12 items-center rounded-sm bg-primary px-8 text-sm font-bold uppercase tracking-[.14em] text-primary-foreground transition hover:translate-y-[-2px]",
               })}
             </div>
           ) : null}
@@ -614,6 +790,52 @@ function Cta({ section, ctx }: { section: CtaSection; ctx: SectionContext }) {
               className:
                 "inline-flex min-h-14 items-center rounded-full bg-primary px-10 text-sm font-black uppercase tracking-[.14em] text-primary-foreground transition hover:scale-[1.02]",
             })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  /**
+   * `panel` — bloco de conversão assimétrico: mídia real de um lado, painel
+   * de decisão do outro. Continua chamando o funil individual do projeto.
+   */
+  if (section.variant === "panel") {
+    return (
+      <section id={section.id} className="border-y border-border">
+        <div className="mx-auto grid max-w-[1500px] items-stretch lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)]">
+          {c.image ? (
+            <div className="relative min-h-[240px] overflow-hidden lg:min-h-[420px]">
+              <Img image={c.image} className="absolute inset-0 h-full w-full object-cover" />
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_35%,transparent),color-mix(in_oklab,var(--background)_82%,transparent))] lg:bg-[linear-gradient(90deg,color-mix(in_oklab,var(--background)_30%,transparent),var(--background))]"
+              />
+            </div>
+          ) : null}
+          <div className="flex flex-col justify-center px-6 py-16 md:px-12 md:py-20">
+            {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
+            <MotionReveal
+              as="h2"
+              variant="up"
+              intensity="EXPRESSIVE"
+              className="mt-4 max-w-[18ch] text-[clamp(1.9rem,4vw,3.1rem)] font-semibold leading-[1.04] tracking-[-0.03em]"
+            >
+              {c.title}
+            </MotionReveal>
+            {c.text ? (
+              <p className="mt-5 max-w-[52ch] text-sm leading-8 text-muted-foreground md:text-base">
+                {c.text}
+              </p>
+            ) : null}
+            <div className="mt-8">
+              {ctx.renderCta({
+                placement: "cta",
+                children: c.ctaLabel,
+                className:
+                  "inline-flex min-h-14 items-center rounded-sm bg-primary px-9 text-sm font-bold uppercase tracking-[.14em] text-primary-foreground transition hover:translate-y-[-2px]",
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -883,6 +1105,153 @@ function Location({ section, ctx }: { section: LocationSection; ctx: SectionCont
   );
 }
 
+/* --------------------------------------------------------------- signals */
+
+/** Faixa curta de sinais verificados (adendo §4). Conteúdo 100% do projeto. */
+function Signals({ section, ctx }: { section: SignalsSection; ctx: SectionContext }) {
+  const c = section.content;
+  return (
+    <section id={section.id} className="border-y border-border bg-card/60">
+      <div className="mx-auto max-w-[1500px] px-6 py-8 md:px-12">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {c.items.map((item, i) => (
+            <Reveal
+              ctx={ctx}
+              key={item.label}
+              delay={step(ctx, i)}
+              as="li"
+              className="flex items-start gap-3"
+            >
+              {item.icon ? <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" /> : null}
+              <span>
+                <span className="block text-base font-semibold tracking-tight">{item.value}</span>
+                <span className="mt-0.5 block text-xs leading-5 text-muted-foreground">
+                  {item.label}
+                </span>
+              </span>
+            </Reveal>
+          ))}
+        </ul>
+        {c.attribution ? (
+          <p className="mt-5 text-[0.7rem] leading-5 text-muted-foreground">{c.attribution}</p>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------- capabilities */
+
+/** Autoridade operacional (adendo §5): o que a operação comporta, com fato. */
+function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: SectionContext }) {
+  const c = section.content;
+  return (
+    <section id={section.id} className="relative isolate overflow-hidden px-6 py-20 md:px-12 md:py-24">
+      {c.image ? (
+        <>
+          <Img image={c.image} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+          <span
+            aria-hidden
+            className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_88%,transparent),color-mix(in_oklab,var(--background)_96%,transparent))]"
+          />
+        </>
+      ) : null}
+      <div className="mx-auto max-w-[1400px]">
+        {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
+        <h2 className="mt-4 max-w-[20ch] text-[clamp(1.7rem,3.4vw,2.6rem)] font-semibold leading-[1.06] tracking-[-0.03em]">
+          {c.title}
+        </h2>
+        {c.intro ? (
+          <p className="mt-4 max-w-[64ch] text-sm leading-8 text-muted-foreground">{c.intro}</p>
+        ) : null}
+        <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-3">
+          {c.groups.map((group, i) => (
+            <Reveal
+              ctx={ctx}
+              key={group.title}
+              delay={step(ctx, i)}
+              className="bg-background/85 p-6 backdrop-blur-sm"
+            >
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.18em] text-primary">
+                {group.icon ? <group.icon className="h-4 w-4" /> : null}
+                {group.title}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm leading-6 text-muted-foreground">
+                {group.items.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span aria-hidden className="mt-2.5 h-px w-3 shrink-0 bg-primary/70" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+        {c.note ? <p className="mt-6 text-xs leading-6 text-muted-foreground">{c.note}</p> : null}
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------- process */
+
+/** Processo em linha do tempo vertical (adendo §9), não quatro cards iguais. */
+function Process({ section, ctx }: { section: ProcessSection; ctx: SectionContext }) {
+  const c = section.content;
+  return (
+    <section id={section.id} className="px-6 py-20 md:px-12 md:py-28">
+      <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
+          <h2 className="mt-4 max-w-[14ch] text-[clamp(1.8rem,3.6vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.03em]">
+            {c.title}
+          </h2>
+          {c.intro ? (
+            <p className="mt-4 max-w-[46ch] text-sm leading-8 text-muted-foreground">{c.intro}</p>
+          ) : null}
+          {c.ctaLabel ? (
+            <div className="mt-8">
+              {ctx.renderCta({
+                placement: "inline",
+                children: c.ctaLabel,
+                className:
+                  "inline-flex min-h-12 items-center rounded-sm border border-primary px-7 text-sm font-bold uppercase tracking-[.14em] text-primary transition hover:bg-primary hover:text-primary-foreground",
+              })}
+            </div>
+          ) : null}
+        </div>
+
+        <ol className="relative border-l border-border pl-8">
+          {c.steps.map((item, i) => (
+            <Reveal
+              ctx={ctx}
+              key={item.title}
+              delay={step(ctx, i)}
+              as="li"
+              className="relative pb-10 last:pb-0"
+            >
+              <span
+                aria-hidden
+                className="absolute -left-[2.15rem] top-1 flex h-6 w-6 items-center justify-center rounded-full border border-primary bg-background font-mono text-[0.65rem] text-primary"
+              >
+                {i + 1}
+              </span>
+              <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
+              {item.meta ? (
+                <p className="mt-1 text-xs uppercase tracking-[.16em] text-primary/80">{item.meta}</p>
+              ) : null}
+              <p className="mt-2 max-w-[56ch] text-sm leading-7 text-muted-foreground">{item.text}</p>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+      {c.note ? (
+        <p className="mx-auto mt-8 max-w-[1400px] text-xs leading-6 text-muted-foreground">{c.note}</p>
+      ) : null}
+    </section>
+  );
+}
+
 /* -------------------------------------------------------------- registry */
 
 export function renderBlueprintSection(section: BlueprintSection, ctx: SectionContext): ReactNode {
@@ -892,6 +1261,12 @@ export function renderBlueprintSection(section: BlueprintSection, ctx: SectionCo
       return <Hero section={section} ctx={scoped} />;
     case "trust":
       return <Trust section={section} ctx={scoped} />;
+    case "signals":
+      return <Signals section={section} ctx={scoped} />;
+    case "capabilities":
+      return <Capabilities section={section} ctx={scoped} />;
+    case "process":
+      return <Process section={section} ctx={scoped} />;
     case "offers":
       return <Offers section={section} ctx={scoped} />;
     case "useCases":

@@ -87,6 +87,19 @@
         "Região Metropolitana de Curitiba",
         "Rua Margarida Petrelli Fogiatto"
       ]
+    },
+    "moreira-auto-mecanica": {
+      "aliases": [
+        "Moreira Auto Mecânica"
+      ],
+      "categories": [],
+      "services": [],
+      "equipment": [],
+      "products": [],
+      "problems": [],
+      "useCases": [],
+      "locality": [],
+      "keywords": []
     }
   }
 }

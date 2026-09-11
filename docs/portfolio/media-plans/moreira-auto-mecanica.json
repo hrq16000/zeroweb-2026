@@ -1,0 +1,36 @@
+{
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Preencher antes de fechar o Blueprint.",
+  "slug": "moreira-auto-mecanica",
+  "status": "MEDIA_ENRICHMENT_NOT_STARTED",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": [],
+    "missingMedia": []
+  },
+  "discovery": {
+    "searched": false,
+    "sources": [
+      "OWNER_SUPPLIED",
+      "GOOGLE_PUBLIC_MEDIA",
+      "OFFICIAL_SOCIAL",
+      "OFFICIAL_WEBSITE",
+      "OFFICIAL_BRAND",
+      "LICENSED_MEDIA",
+      "GENERATED_CONTEXTUAL_MEDIA"
+    ],
+    "result": null
+  },
+  "referenceOnlyAssets": [],
+  "sections": [],
+  "cover": {
+    "asset": null,
+    "strategy": null,
+    "approved": false,
+    "checks": {}
+  },
+  "lastUpdatedAt": "2026-09-11"
+}
