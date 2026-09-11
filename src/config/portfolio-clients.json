@@ -1167,5 +1167,18 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/carecas-infotec.md"
+  },
+  {
+    "clientKey": "zz-lifecycle-test",
+    "slug": "zz-lifecycle-test",
+    "siteName": "ZZ Lifecycle Test",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ZzLifecycleTestPage.tsx",
+    "assetsDir": "public/images/zz-lifecycle-test",
+    "ctaMode": "proposal",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/zz-lifecycle-test.md"
   }
 ]

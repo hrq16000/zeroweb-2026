@@ -1,0 +1,22 @@
+{
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Preencher antes de fechar o Blueprint.",
+  "slug": "zz-lifecycle-test",
+  "status": "MEDIA_ENRICHMENT_NOT_STARTED",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": [],
+    "missingMedia": []
+  },
+  "sections": [],
+  "cover": {
+    "asset": null,
+    "strategy": null,
+    "approved": false,
+    "checks": {}
+  },
+  "lastUpdatedAt": "2026-09-11"
+}
