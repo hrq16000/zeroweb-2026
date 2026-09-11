@@ -1,37 +1,299 @@
 {
   "slug": "carecas-infotec",
   "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
-  "generatedAt": "2026-09-11T02:46:54.355Z",
+  "generatedAt": "2026-09-11T03:49:26.910Z",
   "provider": "serpapi",
+  "google": {
+    "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+    "dataId": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880",
+    "cid": "6853280637096257664",
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmiBwYoQUo2v0CW29J_ifpMViUzLdEeiCv1UqrsLZdVI2bRrhpANvz5vajMZOZBBX5kviqh6cIG2x9wZTXKaPiWU9OwoLJrVVM7fe8ajKjHPE1p8R4Z7f-WQ4XO5YhQLbGkqTg6SD5djK-w=w2340-h4160-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmiBwYoQUo2v0CW29J_ifpMViUzLdEeiCv1UqrsLZdVI2bRrhpANvz5vajMZOZBBX5kviqh6cIG2x9wZTXKaPiWU9OwoLJrVVM7fe8ajKjHPE1p8R4Z7f-WQ4XO5YhQLbGkqTg6SD5djK-w=w203-h360-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 1,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlaapIwdXTc0oAOVYWf3sucKnETCRc3rOa6ic7jM5W-L8Ilw2cipayiLHq2VleSbTdD_aDIovu6hrg8_acMbbHERzS3rdV1y4_ZwGBcKQ27C5sxL23efxonNey_hasDRvYNHKs=w1920-h864-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlaapIwdXTc0oAOVYWf3sucKnETCRc3rOa6ic7jM5W-L8Ilw2cipayiLHq2VleSbTdD_aDIovu6hrg8_acMbbHERzS3rdV1y4_ZwGBcKQ27C5sxL23efxonNey_hasDRvYNHKs=w222-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 2,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklCBaO5wa38ZZsJpu_dMnjBTTO7C6dss0ZMeGPtmaEEOtCVP9ToNjPRKxTleKx907FRUQwCO0P9HKdyQS3wKL5_-2Q9UjylwjHZbTz4p-5_4JYxl0KA4hQlFCpVarahCZHYBFzHvxf2pB-=w1024-h1536-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklCBaO5wa38ZZsJpu_dMnjBTTO7C6dss0ZMeGPtmaEEOtCVP9ToNjPRKxTleKx907FRUQwCO0P9HKdyQS3wKL5_-2Q9UjylwjHZbTz4p-5_4JYxl0KA4hQlFCpVarahCZHYBFzHvxf2pB-=w203-h304-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 3,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk0WzJ0djjtS0sYvkds-YqCcZeVql5_6oTSB-OYCg3VUb7z9zzBoHJ2qdwOGM9xQH3SRZ0xlyoD_j8eGZeK6xadT-lxwsdjV56nBk5Wdc_3-M7ZkpJTXUvFmzRyS9z_t1bXoUKn=w864-h1920-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk0WzJ0djjtS0sYvkds-YqCcZeVql5_6oTSB-OYCg3VUb7z9zzBoHJ2qdwOGM9xQH3SRZ0xlyoD_j8eGZeK6xadT-lxwsdjV56nBk5Wdc_3-M7ZkpJTXUvFmzRyS9z_t1bXoUKn=w203-h451-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 4,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4RZUHlL04VtRc204uSR7RDjPPlkz_-PecWKOFYq8k-OvOmSvZmgSS_w_Bbq7axa7eZxwQkoagMPR0qBA4qWgjHlYAHjjvB4H90LBPjdLs-lI7YTitugRxyGfuV2dTWqA2KnTmSGTNcPiG=w1152-h1600-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4RZUHlL04VtRc204uSR7RDjPPlkz_-PecWKOFYq8k-OvOmSvZmgSS_w_Bbq7axa7eZxwQkoagMPR0qBA4qWgjHlYAHjjvB4H90LBPjdLs-lI7YTitugRxyGfuV2dTWqA2KnTmSGTNcPiG=w203-h281-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 5,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk71hiuQl3u0EhXvWGc4iajn3xWo9siZy_8IdHtIipmbEPkKka0sZNeYSx7YobkzXp808-Dc5wIExt8hz0U8a0WZsl60UKYv26MDiT1EStJB7wH5VqRNU2XqGsXFul124Dyd2U=w4096-h2304-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk71hiuQl3u0EhXvWGc4iajn3xWo9siZy_8IdHtIipmbEPkKka0sZNeYSx7YobkzXp808-Dc5wIExt8hz0U8a0WZsl60UKYv26MDiT1EStJB7wH5VqRNU2XqGsXFul124Dyd2U=w203-h114-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 6,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6zEXANFYEvIYfuL5NW800aHX_gTafsvgujHzO8Ktye-c05S5oZIw3H_4hjFp_4T-gp0VLLpNDAFKTUYbxVQKEhxE3KwwkC9I4bKsxe5ZQBEnEMf5dAw72BMSZwy34Qqiz-CmV=w1280-h1280-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6zEXANFYEvIYfuL5NW800aHX_gTafsvgujHzO8Ktye-c05S5oZIw3H_4hjFp_4T-gp0VLLpNDAFKTUYbxVQKEhxE3KwwkC9I4bKsxe5ZQBEnEMf5dAw72BMSZwy34Qqiz-CmV=w203-h203-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 7,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzKdTUs4FxpnGErFU4rOVIH4RP1gNLysBjmt3UaPiXQVvO1RBzA7V0FNRyW-BHX1XTcnIeF9CprEUqZ_0wjnUTclcwbF7gQ76wLI1tpDnXp2G-BQOUpJkXprJIyCo4Q5kNyUTJi6RearOh=w920-h436-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzKdTUs4FxpnGErFU4rOVIH4RP1gNLysBjmt3UaPiXQVvO1RBzA7V0FNRyW-BHX1XTcnIeF9CprEUqZ_0wjnUTclcwbF7gQ76wLI1tpDnXp2G-BQOUpJkXprJIyCo4Q5kNyUTJi6RearOh=w211-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 8,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlX3t1gvNSw4O06YxRDWwEU5f3_qROw1A_NhoEZLsX4pRY0-XEqzXHLCakmF8io3qtesAuNnvzMqkl4q-yRSxKhHYuTSpH8sByU70ykWI0l4n4aEMtSPNk9nsChu02f9JoV89Pw=w1280-h426-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlX3t1gvNSw4O06YxRDWwEU5f3_qROw1A_NhoEZLsX4pRY0-XEqzXHLCakmF8io3qtesAuNnvzMqkl4q-yRSxKhHYuTSpH8sByU70ykWI0l4n4aEMtSPNk9nsChu02f9JoV89Pw=w300-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 9,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4CwGyMROdS0Eg7ClqUoKF_p1VFoTDcCwmQmzTTaDXu0a_-p8z2L6TIinsOmx6qDxY8AR3V_Xu7VHMGvxA5bqze_jQY59u7KY44mATywWK0LbBO3JHeQLciePCWye_eu_JqswJjA=w3264-h1468-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4CwGyMROdS0Eg7ClqUoKF_p1VFoTDcCwmQmzTTaDXu0a_-p8z2L6TIinsOmx6qDxY8AR3V_Xu7VHMGvxA5bqze_jQY59u7KY44mATywWK0LbBO3JHeQLciePCWye_eu_JqswJjA=w222-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 10,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      }
+    ]
+  },
   "place": {
     "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
     "dataId": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880",
+    "cid": "6853280637096257664",
     "name": "Careca´s Infotec",
     "category": "Assistência Técnica de Informática",
+    "description": null,
     "address": "Rua Margarida Petrelli Fogiatto 118 - Santo Antônio, São José dos Pinhais - PR, 83020-600",
     "phone": "(41) 99507-2700",
     "website": null,
     "hours": {
-      "quinta_feira": "08:00–18:00",
       "sexta_feira": "08:00–18:00",
       "sábado": "09:00–18:00",
       "domingo": "Fechado",
       "segunda_feira": "08:00–18:00",
       "terça_feira": "08:00–18:00",
-      "quarta_feira": "08:00–18:00"
+      "quarta_feira": "08:00–18:00",
+      "quinta_feira": "08:00–18:00"
     },
     "rating": 4.9,
     "reviewCount": 43,
     "latitude": -25.562065099999998,
     "longitude": -49.2024137,
     "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "reviewsLink": "https://serpapi.com/search.json?data_id=0x94dcfbbfeb62188f%3A0x5f1bbe6de02f6880&engine=google_maps_reviews&hl=pt-br",
+    "photosLink": "https://serpapi.com/search.json?data_id=0x94dcfbbfeb62188f%3A0x5f1bbe6de02f6880&engine=google_maps_photos&hl=pt-br",
+    "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmiBwYoQUo2v0CW29J_ifpMViUzLdEeiCv1UqrsLZdVI2bRrhpANvz5vajMZOZBBX5kviqh6cIG2x9wZTXKaPiWU9OwoLJrVVM7fe8ajKjHPE1p8R4Z7f-WQ4XO5YhQLbGkqTg6SD5djK-w=w1000-h1000-c-n",
+    "links": null,
     "serviceOptions": null,
     "photos": [],
+    "extraFields": {
+      "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJjxhi67_73JQRgGgv4G2-G18",
+      "provider_id": "/g/11l2x7l15v",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/FmmNG3icHcTJjoIwAADQL6osIyomcxA1LsCwyGYvEyyFFpUWiq3xJz3P30ziO7y_NxlHLpaadiNfk4ax5oYfAg-IdSPuxglid63hAiABhLbax2GS36mjzixKmSn1dW7ax19acz-j6curtpiupZH2g_BglR3MSzwQvvqRL0uWrQ8D6DiFdZW0JzN02JlPW8GkcMuQ5qkdKOYdhyzz5zVelK3b7sOtwRfxFM5rkEfTIrDOJPIuu2ufNLPTxqpaF6hvZei6DshnBLp_6UFHUg",
+      "rating_summary": [
+        {
+          "stars": 1,
+          "amount": 1
+        },
+        {
+          "stars": 2,
+          "amount": 0
+        },
+        {
+          "stars": 3,
+          "amount": 0
+        },
+        {
+          "stars": 4,
+          "amount": 0
+        },
+        {
+          "stars": 5,
+          "amount": 42
+        }
+      ],
+      "country": "Brasil",
+      "open_state": "Fechado · Abre às 08:00",
+      "plus_code": "CQQX+52 Santo Antônio, São José dos Pinhais - PR",
+      "user_reviews": {
+        "summary": [
+          {
+            "snippet": "\"Excelentes produtos, entregou no conforto da minha casa e um preço justo!\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjVVdu0TPud3ClVPiELWQ66PFUS6dt8PPsqQel5091JuQjgpoHo=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Fiz alguns serviços nessa loja de celulares e o atendimento foi impecável.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjWU_gANNYoYZRT1GqYPdKbPxxROJR-T_wO0d6QlyWRrRxrhFIqiTw=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Local com ótimo atendimento e preço e condições de pagamento muito bom.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjV3R7oTp3JXTWYGdNkRiltrJfK2to1pFlXN7-h8OE6Jv1ZhhmPjTw=s40-k-cc-rp-mo"
+          }
+        ],
+        "most_relevant": [
+          {
+            "username": "Daniel Strapasson",
+            "rating": 5,
+            "contributor_id": "107674603037105440746",
+            "user_review_count": 100,
+            "user_photo_count": 27,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjWU_gANNYoYZRT1GqYPdKbPxxROJR-T_wO0d6QlyWRrRxrhFIqiTw=s120-c-rp-mo-ba12-br100",
+            "description": "Excelente experiência! Fiz alguns serviços nessa loja de celulares e o atendimento foi impecável. Resolveram tudo com rapidez, qualidade e transparência. Hoje é difícil encontrar lugares assim, mas aqui realmente passam confiança. Recomendo de olhos fechados!  E sem contar que o pós serviço funciona perfeitamente na questão de dúvidas E GARANTIA. .",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210VVJqSnpaRFpWVWxsZlJTMXhUREp3TVZwRExWRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOmtURjJzZDZVUllfRS1xTDJwMVpDLVE%7C%7C?hl=pt-BR",
+            "date": "6 meses atrás",
+            "date_iso8601": "2026-03-02T21:40:42+00:00"
+          },
+          {
+            "username": "Wesley Rodrigues",
+            "rating": 5,
+            "contributor_id": "107024481116782464716",
+            "user_review_count": 7,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUCXSbcDic-iM6UEzSycelnrN7RAvHycaIeGbawgsPgflPyiqY=s120-c-rp-mo-br100",
+            "description": "Precisei trocar a tela do meu celular e ficou impecável a qualidade do serviço, super recomendo 🙏",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT201V2QwYzNMVlZpVVdWTkxXUlNSV000UW5ab2QxRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOm5Wd0c3LVViUWVNLWRSRWM4QnZod1E%7C%7C?hl=pt-BR",
+            "date": "6 meses atrás",
+            "date_iso8601": "2026-03-05T14:09:47+00:00"
+          },
+          {
+            "username": "Samuel Kolonck",
+            "rating": 5,
+            "contributor_id": "111315730685767749310",
+            "user_review_count": 2,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocIcpvFLYhxQN-TG2rb26KNaefJ2D1L7yr-WVFpOTiDG1Zg7ZA=s120-c-rp-mo-br100",
+            "description": "Troquei a tela do meu cllr, já fiz três serviços com ele\nSe precisar indico!",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21SWFNqQjVSbXRzWkhObk1GRkhUM2xsT1VWTlJGRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOmRXSjB5RmtsZHNnMFFHT3llOUVNRFE%7C%7C?hl=pt-BR",
+            "date": "6 meses atrás",
+            "date_iso8601": "2026-02-23T17:21:12+00:00"
+          },
+          {
+            "username": "Nutrigene Do Brasil",
+            "rating": 5,
+            "contributor_id": "110047757024190514611",
+            "user_review_count": 1,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocLWBF10Tbj5u6QL7-Pd8NxZnwrL9apKXTG1QqL8OjpOhxqI=s120-c-rp-mo-br100",
+            "description": "Fui muito bem atendida, serviço rápido e profissional.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pabVVrODRjV2syU21WSlJsOVdTVFZXYUdkTGIxRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOjZmUk84cWk2SmVJRl9WSTVWaGdLb1E%7C%7C?hl=pt-BR",
+            "date": "4 meses atrás",
+            "date_iso8601": "2026-04-30T14:12:00+00:00"
+          },
+          {
+            "username": "Paola Cereja",
+            "rating": 5,
+            "contributor_id": "117760076365870859713",
+            "user_review_count": 1,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocJuTKaQGjumx-JXhtrCl-Ou6ZmRVXLTnXUNvq1nhdElnZH2ig=s120-c-rp-mo-br100",
+            "description": "Ótimo atendimento nota 10 super indico ótimo profissional amei o trabalho muito obrigada",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURWaTREM2ZnEAE!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgIDVi4D3fg%7C%7C?hl=pt-BR",
+            "date": "2 anos atrás",
+            "date_iso8601": "2023-12-15T23:16:44+00:00"
+          }
+        ]
+      }
+    },
     "provenance": {
       "provider": "serpapi",
       "engine": "google_maps",
       "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=place&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&gl=br",
-      "fetchedAt": "2026-09-11T02:46:54.335Z",
+      "fetchedAt": "2026-09-11T03:49:22.182Z",
       "sourceUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br"
     }
   },
@@ -86,36 +348,6 @@
         "publishedAtIso": "2023-12-15T23:16:44Z",
         "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURWaTREM2ZnEAE!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgIDVi4D3fg%7C%7C?hl=pt-BR",
         "attribution": "Google — via SerpApi"
-      },
-      {
-        "author": "Neri Paulo Galdino",
-        "authorProfileUrl": "https://www.google.com/maps/contrib/111382910029341742450?hl=pt-BR",
-        "rating": 5,
-        "text": "Exelente atendimento e trabalho ficou ótimo eu recomendo.",
-        "publishedAtLabel": "2 anos atrás",
-        "publishedAtIso": "2024-02-01T20:43:24Z",
-        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUN0XzZPZTZnRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgICt_6Oe6gE%7C%7C?hl=pt-BR",
-        "attribution": "Google — via SerpApi"
-      },
-      {
-        "author": "Rafael Venicio",
-        "authorProfileUrl": "https://www.google.com/maps/contrib/100847030970130611936?hl=pt-BR",
-        "rating": 5,
-        "text": "Local com ótimo atendimento e preço e condições de pagamento muito bom. Recomento com toda a certeza",
-        "publishedAtLabel": "2 anos atrás",
-        "publishedAtIso": "2023-11-13T15:56:16Z",
-        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNsNk5HVTZRRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgICl6NGU6QE%7C%7C?hl=pt-BR",
-        "attribution": "Google — via SerpApi"
-      },
-      {
-        "author": "sandra friedrich",
-        "authorProfileUrl": "https://www.google.com/maps/contrib/114677035023585345138?hl=pt-BR",
-        "rating": 5,
-        "text": "Gostei muito, realmente ótimo, moro em curitiba,  motoboy veio buscar e trazer  o celular,  perfeito,  rápido  e  excelente  serviço,  podem confiar",
-        "publishedAtLabel": "2 anos atrás",
-        "publishedAtIso": "2023-11-20T22:04:01Z",
-        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNsc2JLR2h3RRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgIClsbKGhwE%7C%7C?hl=pt-BR",
-        "attribution": "Google — via SerpApi"
       }
     ],
     "ratingSummary": {
@@ -126,21 +358,409 @@
       "provider": "serpapi",
       "engine": "google_maps_reviews",
       "requestUrl": "https://serpapi.com/search.json?engine=google_maps_reviews&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&sort_by=qualityScore",
-      "fetchedAt": "2026-09-11T02:46:54.355Z",
+      "fetchedAt": "2026-09-11T03:49:22.897Z",
       "sourceUrl": null
     }
   },
-  "errors": [],
-  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google exigem verificação de direitos; telefone e endereço permanecem server-side.",
-  "appliedToLanding": {
-    "appliedAt": "2026-09-11",
-    "slug": "carecas-infotec",
-    "reviewsPublished": [
-      "Daniel Strapasson",
-      "Wesley Rodrigues",
-      "Nutrigene Do Brasil",
-      "sandra friedrich"
+  "knowledgeGraph": {
+    "title": "Careca´s Infotec",
+    "type": "Assistência técnica de informática em São José dos Pinhais, Paraná",
+    "entity_type": "local_nav",
+    "kgmid": "/g/11l2x7l15v",
+    "knowledge_graph_search_link": "https://www.google.com.br/search?kgmid=/g/11l2x7l15v&hl=pt-BR&q=Careca%C2%B4s+Infotec",
+    "serpapi_knowledge_graph_search_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=br&google_domain=google.com.br&hl=pt-BR&kgmid=%2Fg%2F11l2x7l15v&location=Sao+Jose+dos+Pinhais%2C+State+of+Parana%2C+Brazil&q=Careca%C2%B4s+Infotec",
+    "place_id": "ChIJjxhi67_73JQRgGgv4G2-G18",
+    "local_map": {
+      "image": "https://serpapi.com/searches/6aa37979f9aa73e4f4dae3ec/images/OFdjyqrRUs4IsjR06U5BzZYZlviJ2lWHkUr3iNTR25g.webp",
+      "link": "https://www.google.com.br/maps/place/Careca%C2%B4s+Infotec/data=!4m2!3m1!1s0x0:0x5f1bbe6de02f6880?sa=X&ved=2ahUKEwiMhYnszuWWAxV-NlkFHcIuCQgQ_BJ6BAgsEAA&hl=pt-br&gl=br"
+    },
+    "rating": 4.9,
+    "review_count": 43,
+    "endereço": "Rua Margarida Petrelli Fogiatto 118 - Santo Antônio, São José dos Pinhais - PR, 83020-600",
+    "endereço_links": [
+      {
+        "text": "Endereço",
+        "link": "https://www.google.com.br/search?sca_esv=3af28261fd404a58&hl=pt-br&gl=br&sxsrf=APpeQntTBp4tsQioRUfjvcIkob0PoE9Xqw:1789098381695&q=careca%C2%B4s+infotec+s%C3%A3o+jos%C3%A9+dos+pinhais+endere%C3%A7o&ludocid=6853280637096257664&sa=X&ved=2ahUKEwiMhYnszuWWAxV-NlkFHcIuCQgQ6BN6BAgqEAI"
+      }
     ],
-    "note": "snapshot bruto preservado; a landing consome apenas os campos listados em docs/portfolio/enrichment/carecas-infotec.json#appliedToLanding"
-  }
+    "telefone": "(41) 99507-2700",
+    "telefone_links": [
+      {
+        "text": "Telefone",
+        "link": "https://www.google.com.br/search?sca_esv=3af28261fd404a58&hl=pt-br&gl=br&sxsrf=APpeQntTBp4tsQioRUfjvcIkob0PoE9Xqw:1789098381695&q=careca%C2%B4s+infotec+s%C3%A3o+jos%C3%A9+dos+pinhais+telefone&ludocid=6853280637096257664&sa=X&ved=2ahUKEwiMhYnszuWWAxV-NlkFHcIuCQgQ6BN6BAgmEAI"
+      }
+    ],
+    "raw_hours": "Fechado · Abre às 08 - 00",
+    "hours": {
+      "sexta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sábado": {
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "domingo": {
+        "opens": "Fechado"
+      },
+      "segunda_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "terça_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "quarta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "quinta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    },
+    "merchant_description": "\"Careca's Infotec Assistência em : * Celulares * Tablets * Computadores * Impressoras * Monitores *Video Games Recargas: * Toner * Cartucho 41 995072700\"",
+    "unclaimed_listing": true,
+    "perfis": [
+      {
+        "name": "Instagram",
+        "link": "https://www.instagram.com/carecasinfotec",
+        "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=br&google_domain=google.com.br&hl=pt-br&location=Sao+Jose+dos+Pinhais%2C+State+of+Parana%2C+Brazil&q=%22Careca%C2%B4s+Infotec%22+S%C3%A3o+Jos%C3%A9+dos+Pinhais",
+        "image": "https://serpapi.com/searches/6aa37979f9aa73e4f4dae3ec/images/OFdjyqrRUs4IsjR06U5BzSNyitDH6bPwZsqalduVfQ0.png"
+      }
+    ]
+  },
+  "socialProfiles": [
+    {
+      "platform": "instagram",
+      "handle": "carecasinfotec",
+      "url": "https://www.instagram.com/carecasinfotec",
+      "source": "GOOGLE_KNOWLEDGE_GRAPH",
+      "confidence": 100,
+      "status": "VERIFIED_AUTOMATICALLY",
+      "signals": [
+        "knowledge_graph_profile",
+        "exact_name"
+      ]
+    }
+  ],
+  "instagram": {
+    "search_metadata": {
+      "id": "6aa37a43970121c4eaa91ea7",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/ZS4JPEQfmUbpI0bSsKHUO0QPOaIbmIgn1JjUfdfzHrw/6aa37a43970121c4eaa91ea7.json",
+      "markdown_endpoint": "https://serpapi.com/searches/ZS4JPEQfmUbpI0bSsKHUO0QPOaIbmIgn1JjUfdfzHrw/6aa37a43970121c4eaa91ea7.md",
+      "created_at": "2026-09-11 03:49:23 UTC",
+      "processed_at": "2026-09-11 03:49:23 UTC",
+      "instagram_profile_url": "https://www.instagram.com/carecasinfotec",
+      "raw_html_file": "https://serpapi.com/searches/ZS4JPEQfmUbpI0bSsKHUO0QPOaIbmIgn1JjUfdfzHrw/6aa37a43970121c4eaa91ea7.html",
+      "prettify_html_file": "https://serpapi.com/searches/ZS4JPEQfmUbpI0bSsKHUO0QPOaIbmIgn1JjUfdfzHrw/6aa37a43970121c4eaa91ea7.prettify",
+      "total_time_taken": 3.84
+    },
+    "search_parameters": {
+      "engine": "instagram_profile",
+      "profile_id": "carecasinfotec"
+    },
+    "profile_results": {
+      "biography": "Careca's Info Assistência em: * Celulares * Tablets * Computadores * Impressoras * Monitores * Vídeo Games 41 995072700",
+      "bio_links": [
+        {
+          "url": "https://g.page/r/CYBoL-BtvhtfEAE/review",
+          "title": "Avaliação Google",
+          "redirect_url": "https://l.instagram.com/?u=https%3A%2F%2Fg.page%2Fr%2FCYBoL-BtvhtfEAE%2Freview&e=AUC0JeekZezTrj842_5HmRwpY7QCh3Qjp94tXYGiozRtt-xL2z_4nWn0cQfW8IueyAmk5AZ08Sd2IjF1ISXD17EPi42yaAigtYfPDJxKsuZyNu8inK7P3eUV6lVFtR0cqztWB8h9jWDWVZAceq3FbaZVqzwdGqbaqfKSWtoy628",
+          "link_type": "external"
+        }
+      ],
+      "external_url": "https://g.page/r/CYBoL-BtvhtfEAE/review",
+      "followers": 269,
+      "following": 450,
+      "full_name": "Careca's Infotec",
+      "id": "62662205187",
+      "is_professional_account": false,
+      "is_private": false,
+      "is_verified": false,
+      "profile_pic_url": "https://scontent.cdninstagram.com/v/t51.2885-19/481898034_470200536171259_7411683115932938149_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=107&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=EAzyd124C3cQ7kNvwFh3bOH&_nc_oc=AdqAofnTKOXRymazQR1LKsWhKO-GbUZbQ6-3no58Lh_Fma-rKHh1PQsNK-K-jDWj4UbQn7714NMweG2ojXI-KluR&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b689&oh=00_AQIVpXM3OuKVOGGss9KmSanY-xQLjf_QnrkNBzxUb3Vt3Q&oe=6AA94D01",
+      "serpapi_profile_pic_url": "https://serpapi.com/images/url/MIoVz3icdZDbjpswAETVjylvBF-5VLIqtumyFBIKbS7Ni4UNhCXB0Ni7CfxopX5NV9nnPox0NCONNPP3w5_WmFF_chwtB2VqZRayUs9Km_J4KfuFHHrn1TEULpDvUxsGDvGhH_gAE048gACg2IUeRDTgHoHQ9TGENMAowD4kAVeLbjx-1mZklTb2G3MNKbi9iRvjWlxJLkvDIPAsKQXzbHr39HPFGk9KSa26ObJ6-oYOO9oJVJz3uGgPU-zG6mES6DCKaNvI6NylqsLVRG6r5fGanlZzrMBHvLy3Da1kX8N5qiAiX7DMvdP69frYYpE9veeShdXvcGjUzyTbF1NfznkB00Tv2iSzI7E5iNy1sRqon7b8sS_tS_LUwu-5Xid2YnfLXUc2IleeB8l6da0jNHT72E7OL8W9fzYMkTu1hv335_fhmnnC9QNraBkAPMzj7bhf4ewl2WZRpHWQ9D9K9cu-5WnX8FxdTuuH-bYReGtwbg01c8MwIEsA_wH7z5k-",
+      "username": "carecasinfotec",
+      "has_reels": true,
+      "has_threads_profile": false,
+      "posts": [
+        {
+          "id": "3976620137422505426",
+          "shortcode": "DcvyvIpu8XS",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/790912302_1728913858192039_2599341423412824781_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=_Hfp3UisaHUQ7kNvwF4hseD&_nc_oc=Adpo4ndlkY3-fke3tukd3xcvSySSobgJ3ggmbZB1BNSH1RTT9kdgq9fmub96WavDTf9oGfZyYtCt0SpKcdyx--rT&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJAIaBF_5yWKvj_Z7DKRH0EvZCqbbafvWnACq6DyunGmA&oe=6AA9318A",
+          "serpapi_display_url": "https://serpapi.com/images/url/tm1jR3ichZDNjtowFIWlrvsazS7gn_zYlawqwAQmlKkYYBDZWImdBAhxwtgJhEft0xSl3Vc69-jo3quz-H5_-Xo0ptHfx2MtamUyZWyZKWTDkZDqpLRJis-kGom6Gndj48KRD4lPbOiOfQooRBggDn1EKMTEJZAigClHLqXYgQ56GiLI8QnkanRuih_aNExqYz8zz7DLteeA-3O4MZ7FleAiMQwCbAmRMt92h50-SQaJzHzHyvKCZX10iSuZy3moXs_1aQ3u0S5ctYfq4yFD2qT7UMUfFIrqruK9064fq1O-_oZnTw199VEwvsgbvDvpZLFb--Vbdwudo87-3QULZFM7Sl7KA7bzMsOmLSW-i27TbzZ1WkS4KKo0nsDJ22YB37dbWsriSvOqTam3T7rZNqf1PI_7g5kasGmWQvZ32_7cDv0PwxAe0tGw_2Ef_oonAZz-9G6Pl9v5lzeD0epyORhP3_4C0sxPPUKt-sgA4ME6Cl6TScjdfr_szjz2Z8v3BXjp4uk1TZO826tgevVmfavmVWDVGfOCgGJIgj9GhKvp",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on September 01, 2026. May be an image of poster, banner and text.",
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/790912302_1728913858192039_2599341423412824781_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=_Hfp3UisaHUQ7kNvwF4hseD&_nc_oc=Adpo4ndlkY3-fke3tukd3xcvSySSobgJ3ggmbZB1BNSH1RTT9kdgq9fmub96WavDTf9oGfZyYtCt0SpKcdyx--rT&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJAIaBF_5yWKvj_Z7DKRH0EvZCqbbafvWnACq6DyunGmA&oe=6AA9318A",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/tm1jR3ichZDNjtowFIWlrvsazS7gn_zYlawqwAQmlKkYYBDZWImdBAhxwtgJhEft0xSl3Vc69-jo3quz-H5_-Xo0ptHfx2MtamUyZWyZKWTDkZDqpLRJis-kGom6Gndj48KRD4lPbOiOfQooRBggDn1EKMTEJZAigClHLqXYgQ56GiLI8QnkanRuih_aNExqYz8zz7DLteeA-3O4MZ7FleAiMQwCbAmRMt92h50-SQaJzHzHyvKCZX10iSuZy3moXs_1aQ3u0S5ctYfq4yFD2qT7UMUfFIrqruK9064fq1O-_oZnTw199VEwvsgbvDvpZLFb--Vbdwudo87-3QULZFM7Sl7KA7bzMsOmLSW-i27TbzZ1WkS4KKo0nsDJ22YB37dbWsriSvOqTam3T7rZNqf1PI_7g5kasGmWQvZ32_7cDv0PwxAe0tGw_2Ef_oonAZz-9G6Pl9v5lzeD0epyORhP3_4C0sxPPUKt-sgA4ME6Cl6TScjdfr_szjz2Z8v3BXjp4uk1TZO826tgevVmfavmVWDVGfOCgGJIgj9GhKvp",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/790912302_1728913858192039_2599341423412824781_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=_Hfp3UisaHUQ7kNvwF4hseD&_nc_oc=Adpo4ndlkY3-fke3tukd3xcvSySSobgJ3ggmbZB1BNSH1RTT9kdgq9fmub96WavDTf9oGfZyYtCt0SpKcdyx--rT&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJAIaBF_5yWKvj_Z7DKRH0EvZCqbbafvWnACq6DyunGmA&oe=6AA9318A",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/tm1jR3ichZDNjtowFIWlrvsazS7gn_zYlawqwAQmlKkYYBDZWImdBAhxwtgJhEft0xSl3Vc69-jo3quz-H5_-Xo0ptHfx2MtamUyZWyZKWTDkZDqpLRJis-kGom6Gndj48KRD4lPbOiOfQooRBggDn1EKMTEJZAigClHLqXYgQ56GiLI8QnkanRuih_aNExqYz8zz7DLteeA-3O4MZ7FleAiMQwCbAmRMt92h50-SQaJzHzHyvKCZX10iSuZy3moXs_1aQ3u0S5ctYfq4yFD2qT7UMUfFIrqruK9064fq1O-_oZnTw199VEwvsgbvDvpZLFb--Vbdwudo87-3QULZFM7Sl7KA7bzMsOmLSW-i27TbzZ1WkS4KKo0nsDJ22YB37dbWsriSvOqTam3T7rZNqf1PI_7g5kasGmWQvZ32_7cDv0PwxAe0tGw_2Ef_oonAZz-9G6Pl9v5lzeD0epyORhP3_4C0sxPPUKt-sgA4ME6Cl6TScjdfr_szjz2Z8v3BXjp4uk1TZO826tgevVmfavmVWDVGfOCgGJIgj9GhKvp",
+          "product_type": "clips"
+        },
+        {
+          "id": "3973889305140986302",
+          "shortcode": "DcmF0S5pwG-",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/784874514_1715753909717967_3516255931603119857_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ScQnGvl73lgQ7kNvwEbC1iR&_nc_oc=AdqyXNRgiaCxzUlWfqfvmZ276DcDGAby82zdMA47HqYEHMT4r5ZvbE0TXx-ml1IOXgH8qk8J1oQbljmFInwnDgf3&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJKqclQVGX6tzNb01migsOUcEgH-vJ0bbbs8oeehkK3ig&oe=6AA95BD4",
+          "serpapi_display_url": "https://serpapi.com/images/url/HVFVQXichZDdjqJAFISTvd7XWO9QGugfNuls2EFUZtAwO_5xQ-wGGhQane4B5VH3adboA2xyKqlUndTF9_fb91Lrs_o5mSjeSp1LbWS5tAww5pmspNIH8XloxrxtJt1EQzDGgGBiADjBxCHYgcBJAQYQQ9s1XQywi3BqQ4AsCF0bINMGwCUQp3J8PItfSp9pprRx92luw1Qhx7zelWqNRqnkKT9oCkwy4pxRbMBHpqqMApLl2BnlhaD5LayTJiuyWSAXx7aKzWu4DqKvfbMZssA9s20gk40LeHOVydb5ioeoKuIftn-_x15bcvqHx3LW1diuRYxPy66fshdQvT97Tr3sctst30V1eLkO63pbXIquSSyMfO7PPHYj1pBFnoPnl_10Hn04nzDp2NT82F2NpgaL1U7MyeVEQtDGrD42wUL20heF_dgfNLWertT0f9gff-JOwGZvqB-m_XGFfBBGdb3XSPVPQIpihog7aktqmqkXh68XXseb2Q7pYclM0FRCrdZ8KuZGF5qMMUXaPC9Pr3YlRm1Okee58Lfv_AOR1KtA",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on August 28, 2026. May be an image of battery, tablet, screen and text that says 'CARECAS INFOTEC AESPECIALIZA Manutenção ManutençãopreventivaPS tenção preventiva PS4 FAT'.",
+          "media_captions": [
+            "Careca's Infotec \nCelulares\nComputador \nImpressora \nNotebook \nVídeo game \nControles"
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/784874514_1715753909717967_3516255931603119857_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ScQnGvl73lgQ7kNvwEbC1iR&_nc_oc=AdqyXNRgiaCxzUlWfqfvmZ276DcDGAby82zdMA47HqYEHMT4r5ZvbE0TXx-ml1IOXgH8qk8J1oQbljmFInwnDgf3&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJKqclQVGX6tzNb01migsOUcEgH-vJ0bbbs8oeehkK3ig&oe=6AA95BD4",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/HVFVQXichZDdjqJAFISTvd7XWO9QGugfNuls2EFUZtAwO_5xQ-wGGhQane4B5VH3adboA2xyKqlUndTF9_fb91Lrs_o5mSjeSp1LbWS5tAww5pmspNIH8XloxrxtJt1EQzDGgGBiADjBxCHYgcBJAQYQQ9s1XQywi3BqQ4AsCF0bINMGwCUQp3J8PItfSp9pprRx92luw1Qhx7zelWqNRqnkKT9oCkwy4pxRbMBHpqqMApLl2BnlhaD5LayTJiuyWSAXx7aKzWu4DqKvfbMZssA9s20gk40LeHOVydb5ioeoKuIftn-_x15bcvqHx3LW1diuRYxPy66fshdQvT97Tr3sctst30V1eLkO63pbXIquSSyMfO7PPHYj1pBFnoPnl_10Hn04nzDp2NT82F2NpgaL1U7MyeVEQtDGrD42wUL20heF_dgfNLWertT0f9gff-JOwGZvqB-m_XGFfBBGdb3XSPVPQIpihog7aktqmqkXh68XXseb2Q7pYclM0FRCrdZ8KuZGF5qMMUXaPC9Pr3YlRm1Okee58Lfv_AOR1KtA",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/784874514_1715753909717967_3516255931603119857_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ScQnGvl73lgQ7kNvwEbC1iR&_nc_oc=AdqyXNRgiaCxzUlWfqfvmZ276DcDGAby82zdMA47HqYEHMT4r5ZvbE0TXx-ml1IOXgH8qk8J1oQbljmFInwnDgf3&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJKqclQVGX6tzNb01migsOUcEgH-vJ0bbbs8oeehkK3ig&oe=6AA95BD4",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/HVFVQXichZDdjqJAFISTvd7XWO9QGugfNuls2EFUZtAwO_5xQ-wGGhQane4B5VH3adboA2xyKqlUndTF9_fb91Lrs_o5mSjeSp1LbWS5tAww5pmspNIH8XloxrxtJt1EQzDGgGBiADjBxCHYgcBJAQYQQ9s1XQywi3BqQ4AsCF0bINMGwCUQp3J8PItfSp9pprRx92luw1Qhx7zelWqNRqnkKT9oCkwy4pxRbMBHpqqMApLl2BnlhaD5LayTJiuyWSAXx7aKzWu4DqKvfbMZssA9s20gk40LeHOVydb5ioeoKuIftn-_x15bcvqHx3LW1diuRYxPy66fshdQvT97Tr3sctst30V1eLkO63pbXIquSSyMfO7PPHYj1pBFnoPnl_10Hn04nzDp2NT82F2NpgaL1U7MyeVEQtDGrD42wUL20heF_dgfNLWertT0f9gff-JOwGZvqB-m_XGFfBBGdb3XSPVPQIpihog7aktqmqkXh68XXseb2Q7pYclM0FRCrdZ8KuZGF5qMMUXaPC9Pr3YlRm1Okee58Lfv_AOR1KtA",
+          "product_type": "clips"
+        },
+        {
+          "id": "3972247446502487956",
+          "shortcode": "DcgQgG4u7eU",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/786453308_1599180685200779_7564698343386429880_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ZUTn5buLlTIQ7kNvwGMDdPk&_nc_oc=AdrKDBlo6--3N7vZHXzNnV1gK7ViFWl4laMVQLCU5ZNISefgRWlD08kMtPMwsBZ4cFn25R1uz2JEUgJW2YTrGFMN&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKAwd_3_1GPNURMmpNrhdirq48QcnB1Pr_VArxDMfwOYw&oe=6AA93805",
+          "serpapi_display_url": "https://serpapi.com/images/url/kxn1QnichZDrrppAFIWT_u5r1H_oDMNcaDJpsBysFzhiFSt_JjqDeIHBwiiWR-3TlHgeoMneycreKysr399Pn0_G3Jqvo1EjK20ybSyVaduCQ6n0WTdmn9f7ciircvQYGQyHFDLKLIhHlBEHIwSYgNh1IQOEYRsASl1BMXGIy5CDUG-yXcaA0MPLLf_WmBtXjbF6LTKERUMc8OxXGEMGQksh94ZD4A6kPHBq4detOSsOmcqoM8iOOc_-zIq0VEc1CfT0Up1j8JxtgvC-K5NOBe7tsA10mrhQlk-dbp173IXnY_wF-f288qqT5OlmrfHhvijW05heo0c7CX21vH78JfdUPffHRUUsC0X0kf741UU6gfmcJudgWzjFPkzixfcNTqPpz77Ualv4gF1DswzbZpw6MtA2XsF7Z8_eNvlsa-_W9SQIo1d-Z7iNXupk-P-wv3x5TwAdFqTt3trLO_HhLCyKnSFN-wGo4fRAmDuoThwA4cVzr1UCCThZRptVWN6i-qTO9W-HxVKP4bIWiVc__fDYvu_aQZVx4nkuYgD_A3VYqcc",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on August 26, 2026. May be a meme of costume and text that says 'CARECAS INFOTEC CARECAS AESPE ALIZADA AD INCELL Orig. Orig.China China Diferença Diferençadetelas... de telas...'.",
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/786453308_1599180685200779_7564698343386429880_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ZUTn5buLlTIQ7kNvwGMDdPk&_nc_oc=AdrKDBlo6--3N7vZHXzNnV1gK7ViFWl4laMVQLCU5ZNISefgRWlD08kMtPMwsBZ4cFn25R1uz2JEUgJW2YTrGFMN&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKAwd_3_1GPNURMmpNrhdirq48QcnB1Pr_VArxDMfwOYw&oe=6AA93805",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/kxn1QnichZDrrppAFIWT_u5r1H_oDMNcaDJpsBysFzhiFSt_JjqDeIHBwiiWR-3TlHgeoMneycreKysr399Pn0_G3Jqvo1EjK20ybSyVaduCQ6n0WTdmn9f7ciircvQYGQyHFDLKLIhHlBEHIwSYgNh1IQOEYRsASl1BMXGIy5CDUG-yXcaA0MPLLf_WmBtXjbF6LTKERUMc8OxXGEMGQksh94ZD4A6kPHBq4detOSsOmcqoM8iOOc_-zIq0VEc1CfT0Up1j8JxtgvC-K5NOBe7tsA10mrhQlk-dbp173IXnY_wF-f288qqT5OlmrfHhvijW05heo0c7CX21vH78JfdUPffHRUUsC0X0kf741UU6gfmcJudgWzjFPkzixfcNTqPpz77Ualv4gF1DswzbZpw6MtA2XsF7Z8_eNvlsa-_W9SQIo1d-Z7iNXupk-P-wv3x5TwAdFqTt3trLO_HhLCyKnSFN-wGo4fRAmDuoThwA4cVzr1UCCThZRptVWN6i-qTO9W-HxVKP4bIWiVc__fDYvu_aQZVx4nkuYgD_A3VYqcc",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/786453308_1599180685200779_7564698343386429880_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ZUTn5buLlTIQ7kNvwGMDdPk&_nc_oc=AdrKDBlo6--3N7vZHXzNnV1gK7ViFWl4laMVQLCU5ZNISefgRWlD08kMtPMwsBZ4cFn25R1uz2JEUgJW2YTrGFMN&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKAwd_3_1GPNURMmpNrhdirq48QcnB1Pr_VArxDMfwOYw&oe=6AA93805",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/kxn1QnichZDrrppAFIWT_u5r1H_oDMNcaDJpsBysFzhiFSt_JjqDeIHBwiiWR-3TlHgeoMneycreKysr399Pn0_G3Jqvo1EjK20ybSyVaduCQ6n0WTdmn9f7ciircvQYGQyHFDLKLIhHlBEHIwSYgNh1IQOEYRsASl1BMXGIy5CDUG-yXcaA0MPLLf_WmBtXjbF6LTKERUMc8OxXGEMGQksh94ZD4A6kPHBq4detOSsOmcqoM8iOOc_-zIq0VEc1CfT0Up1j8JxtgvC-K5NOBe7tsA10mrhQlk-dbp173IXnY_wF-f288qqT5OlmrfHhvijW05heo0c7CX21vH78JfdUPffHRUUsC0X0kf741UU6gfmcJudgWzjFPkzixfcNTqPpz77Ualv4gF1DswzbZpw6MtA2XsF7Z8_eNvlsa-_W9SQIo1d-Z7iNXupk-P-wv3x5TwAdFqTt3trLO_HhLCyKnSFN-wGo4fRAmDuoThwA4cVzr1UCCThZRptVWN6i-qTO9W-HxVKP4bIWiVc__fDYvu_aQZVx4nkuYgD_A3VYqcc",
+          "product_type": "clips"
+        },
+        {
+          "id": "3961738301427650735",
+          "shortcode": "Db66_61p5Cv",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/770729765_1302901465042779_2429789148009578388_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=6-Z1pQFyFmYQ7kNvwHuE9RS&_nc_oc=AdpX-8kuQbqcrmbLIdTdK84q8Ot0eqS-SeRhUSHnHFSTqugToxTqtzwFYn3sX9GYOWLxQZL50cm44ums_GLnVM7j&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQI-ZjAibFqLSSITIHG319YHs9hhqXrSjtUgN5NQ2MZllg&oe=6AA93B93",
+          "serpapi_display_url": "https://serpapi.com/images/url/_1VMAnichZDbjpswGISlXvc1mjsSm5PtSlZFtUsOJYlYyAFuULAJhA0GYrNkedQ-TRH7AJXml0b_jObi-_vte6FUI38uFpLVQmVCaTwTugbnjIubkOqSPy7VnNXV4mOhLDhHECOsQWuBEEA6QbaVQAPoBEDTtoCpI0QS3RwDTKCJASAWwgbGiZiXTf5LqoZyqbTRJ5lhJdI2wXO8RCl7lgiWsIuiEOgzxlKKNGv6yRunEPMMmbPsmtPsc3OPK37lS1esy_rmg-fm4G67qDoO3CVNenJFfCSQVU8Rn8zOH7a3q__DeBk17dUFo7YWw8Z3P90q8tH77qNfda_kLfjKGXV4c9bwe-enLXtUqbfmIf-DzRbvFcjaQAuyt-IQrMTKDcK2y8P6GbZq6N1IGPJMltH-5D392LMAq0yzq2Sy9MRxi8ppf1BUNyZXKPo_7FMvHwkYqWf3w2tf7u0XuNne75GyZf8FSFKU2pjM6oICkDj-WotL55a6rRcE63C9WhqQRCtJiqI9P4JSHfKdtfP1bXy_57M6o7bjEOM3Mf4BhsuqvQ",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on August 11, 2026. May be an image of ‎capacitor, battery and ‎text that says '‎3.ヶ M 80 MeHaAa ಕೋತತ CARECAS INFOTEC ASSISTÊNC CIAESPECIALIZAD4 لل ប៉ាម់ Manutenção Manute ção preventiva com impeza... CHEMA!‎'‎‎.",
+          "media_captions": [
+            "Careca's Infotec \n\nComputador \nImpressora \nNotebook \nCelular \nTablet\nVídeo game \nChama....\n41 99507-2700"
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/770729765_1302901465042779_2429789148009578388_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=6-Z1pQFyFmYQ7kNvwHuE9RS&_nc_oc=AdpX-8kuQbqcrmbLIdTdK84q8Ot0eqS-SeRhUSHnHFSTqugToxTqtzwFYn3sX9GYOWLxQZL50cm44ums_GLnVM7j&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQI-ZjAibFqLSSITIHG319YHs9hhqXrSjtUgN5NQ2MZllg&oe=6AA93B93",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/_1VMAnichZDbjpswGISlXvc1mjsSm5PtSlZFtUsOJYlYyAFuULAJhA0GYrNkedQ-TRH7AJXml0b_jObi-_vte6FUI38uFpLVQmVCaTwTugbnjIubkOqSPy7VnNXV4mOhLDhHECOsQWuBEEA6QbaVQAPoBEDTtoCpI0QS3RwDTKCJASAWwgbGiZiXTf5LqoZyqbTRJ5lhJdI2wXO8RCl7lgiWsIuiEOgzxlKKNGv6yRunEPMMmbPsmtPsc3OPK37lS1esy_rmg-fm4G67qDoO3CVNenJFfCSQVU8Rn8zOH7a3q__DeBk17dUFo7YWw8Z3P90q8tH77qNfda_kLfjKGXV4c9bwe-enLXtUqbfmIf-DzRbvFcjaQAuyt-IQrMTKDcK2y8P6GbZq6N1IGPJMltH-5D392LMAq0yzq2Sy9MRxi8ppf1BUNyZXKPo_7FMvHwkYqWf3w2tf7u0XuNne75GyZf8FSFKU2pjM6oICkDj-WotL55a6rRcE63C9WhqQRCtJiqI9P4JSHfKdtfP1bXy_57M6o7bjEOM3Mf4BhsuqvQ",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/770729765_1302901465042779_2429789148009578388_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=6-Z1pQFyFmYQ7kNvwHuE9RS&_nc_oc=AdpX-8kuQbqcrmbLIdTdK84q8Ot0eqS-SeRhUSHnHFSTqugToxTqtzwFYn3sX9GYOWLxQZL50cm44ums_GLnVM7j&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQI-ZjAibFqLSSITIHG319YHs9hhqXrSjtUgN5NQ2MZllg&oe=6AA93B93",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/_1VMAnichZDbjpswGISlXvc1mjsSm5PtSlZFtUsOJYlYyAFuULAJhA0GYrNkedQ-TRH7AJXml0b_jObi-_vte6FUI38uFpLVQmVCaTwTugbnjIubkOqSPy7VnNXV4mOhLDhHECOsQWuBEEA6QbaVQAPoBEDTtoCpI0QS3RwDTKCJASAWwgbGiZiXTf5LqoZyqbTRJ5lhJdI2wXO8RCl7lgiWsIuiEOgzxlKKNGv6yRunEPMMmbPsmtPsc3OPK37lS1esy_rmg-fm4G67qDoO3CVNenJFfCSQVU8Rn8zOH7a3q__DeBk17dUFo7YWw8Z3P90q8tH77qNfda_kLfjKGXV4c9bwe-enLXtUqbfmIf-DzRbvFcjaQAuyt-IQrMTKDcK2y8P6GbZq6N1IGPJMltH-5D392LMAq0yzq2Sy9MRxi8ppf1BUNyZXKPo_7FMvHwkYqWf3w2tf7u0XuNne75GyZf8FSFKU2pjM6oICkDj-WotL55a6rRcE63C9WhqQRCtJiqI9P4JSHfKdtfP1bXy_57M6o7bjEOM3Mf4BhsuqvQ",
+          "product_type": "clips"
+        },
+        {
+          "id": "3892253341865570137",
+          "shortcode": "DYED8rZuW9Z",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/688437793_817716377705822_4935468368280544732_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=JEZ9jbjUfKAQ7kNvwE_FGLQ&_nc_oc=AdrjGtYVHaMMlgxdh5JHPTrP4Yw7jqEeygJVKTGradc97Y1J7hBje_Ae4nhC4gaBT494rb4SMdtT8Uf5Pm0H4v_p&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLeYZb0Ug-IoWezOSgoY2dmFWMlJJhsqWxLIzCNNxYF3A&oe=6AA955AF",
+          "serpapi_display_url": "https://serpapi.com/images/url/yS8YEHichZDbbqMwFEWlee13DG8EDL4xkjWibUhCQxrUXEReLLAdCA0mDW5C-dR-zUTpB4x0jrS0z9F-WN-_HipjTt0fx-lEq43SxpZKezYYCakPujN5ec6bkWgb5-IYBEYEUEJtgBxMKfQJCXxOASEA35i4iHoeh4GPIKY-ph51EYTE97ge1afyb2dOTHbGvjFXPuIdhm5_W24MtrgWXOSGAZdYQhSM2OiedQfJAJWKQEvtS6a-4uOukXs5ifSsbg-p28frKPnMms0go-BUbCO92wRANL3ebeFnOiSHffrbf77Nva-tBIvHu6Au6vX-JUzJ--JyHfNoMk9_7oKF8lxPTLaZ5klyLHtZoXi6XJ2XMLuS-mOsvsp487KanHMpApKBmFSPteKhgrp6gmX-uIIBPBfwLZFmRdd7tGzcKbzw071_MMzz71QZ9j_r97_yZsAv5vg6jK_1K34GcXI8ZgZ31x9BHSMFpoHVVsx1eZjOVbYr3HVpz9qtGl7fyjbzZBNtk2McV93Htp_PhqfFos8iP7RaxXAYBgiF0T-glqpH",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on May 07, 2026.",
+          "media_captions": [
+            "Recuperação de carcaça, troca de peças, upgrade.\n\nNa Careca's Infotec, você encontra toda assistência necessária para seu eletrônico.\n\n* Notebook \n* Computador \n* Impressora \n* Celular\n* Vídeo game \n\n41 995072700"
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/688437793_817716377705822_4935468368280544732_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=JEZ9jbjUfKAQ7kNvwE_FGLQ&_nc_oc=AdrjGtYVHaMMlgxdh5JHPTrP4Yw7jqEeygJVKTGradc97Y1J7hBje_Ae4nhC4gaBT494rb4SMdtT8Uf5Pm0H4v_p&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLeYZb0Ug-IoWezOSgoY2dmFWMlJJhsqWxLIzCNNxYF3A&oe=6AA955AF",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/yS8YEHichZDbbqMwFEWlee13DG8EDL4xkjWibUhCQxrUXEReLLAdCA0mDW5C-dR-zUTpB4x0jrS0z9F-WN-_HipjTt0fx-lEq43SxpZKezYYCakPujN5ec6bkWgb5-IYBEYEUEJtgBxMKfQJCXxOASEA35i4iHoeh4GPIKY-ph51EYTE97ge1afyb2dOTHbGvjFXPuIdhm5_W24MtrgWXOSGAZdYQhSM2OiedQfJAJWKQEvtS6a-4uOukXs5ifSsbg-p28frKPnMms0go-BUbCO92wRANL3ebeFnOiSHffrbf77Nva-tBIvHu6Au6vX-JUzJ--JyHfNoMk9_7oKF8lxPTLaZ5klyLHtZoXi6XJ2XMLuS-mOsvsp487KanHMpApKBmFSPteKhgrp6gmX-uIIBPBfwLZFmRdd7tGzcKbzw071_MMzz71QZ9j_r97_yZsAv5vg6jK_1K34GcXI8ZgZ31x9BHSMFpoHVVsx1eZjOVbYr3HVpz9qtGl7fyjbzZBNtk2McV93Htp_PhqfFos8iP7RaxXAYBgiF0T-glqpH",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/688437793_817716377705822_4935468368280544732_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=JEZ9jbjUfKAQ7kNvwE_FGLQ&_nc_oc=AdrjGtYVHaMMlgxdh5JHPTrP4Yw7jqEeygJVKTGradc97Y1J7hBje_Ae4nhC4gaBT494rb4SMdtT8Uf5Pm0H4v_p&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLeYZb0Ug-IoWezOSgoY2dmFWMlJJhsqWxLIzCNNxYF3A&oe=6AA955AF",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/yS8YEHichZDbbqMwFEWlee13DG8EDL4xkjWibUhCQxrUXEReLLAdCA0mDW5C-dR-zUTpB4x0jrS0z9F-WN-_HipjTt0fx-lEq43SxpZKezYYCakPujN5ec6bkWgb5-IYBEYEUEJtgBxMKfQJCXxOASEA35i4iHoeh4GPIKY-ph51EYTE97ge1afyb2dOTHbGvjFXPuIdhm5_W24MtrgWXOSGAZdYQhSM2OiedQfJAJWKQEvtS6a-4uOukXs5ifSsbg-p28frKPnMms0go-BUbCO92wRANL3ebeFnOiSHffrbf77Nva-tBIvHu6Au6vX-JUzJ--JyHfNoMk9_7oKF8lxPTLaZ5klyLHtZoXi6XJ2XMLuS-mOsvsp487KanHMpApKBmFSPteKhgrp6gmX-uIIBPBfwLZFmRdd7tGzcKbzw071_MMzz71QZ9j_r97_yZsAv5vg6jK_1K34GcXI8ZgZ31x9BHSMFpoHVVsx1eZjOVbYr3HVpz9qtGl7fyjbzZBNtk2McV93Htp_PhqfFos8iP7RaxXAYBgiF0T-glqpH",
+          "product_type": "clips"
+        },
+        {
+          "id": "3887521265153058330",
+          "shortcode": "DXzP_5iOaYa",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/683048309_1244406137490479_5697478274134611676_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=4TCrcsW3GnIQ7kNvwFbB1FQ&_nc_oc=AdrgXdXkzetXnCfQA6oGVw4v8o3AhOc77dQAKjBMo9S3zxcISX4vVLqGWWTT7wPwwSnnSdXN-1Nxxsrew7dAnn5x&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLe_CeuuaGOi3tTfpP7rdKFYfNMWUT0DskQwgM3ErUl4Q&oe=6AA94D37",
+          "serpapi_display_url": "https://serpapi.com/images/url/URVkR3ichZDdrqIwFIWTuZ7XGO9QaksLkzQTjh6MHtFDREFviLTlx5_i0CoMjzpPM4TzAJOslazsvbIuvr_fvhdaP9TPyUSxSmohtcGFnBpgzLgspdLnvD7fx6y6T14TbYExATaxDWBNsA1N1NtJwBQhZGIACXJMRJzEwg5BxJ4SBCDCAGCCEzm-PPJfSj8oV9rocyKglSiMzLZ3ojUeJZIl7KwpAGDEWEqJYQ03VXIKbC4IGoksp-LP6na684wvPLm8VGVgtqu95z-P90PHPeeRRp48HRzA7q08RegZdH6ZBT_gvNewVxWMonBWMxXBhVwG5Lp5NV76Brzg68-oy-s85vG1EzqWsyxwcbU4NOhlV9AttowQHrgflze_cnawa9lyF6PXYf17EUVhSJrPptlJuePxxgCbtlW1aAh3pbTaYb_TdAqHVGj6P-xDL-8JwHSNm-69uWzxHKz82-2osWq-AClKUmw7o6qgppm4wVokM_F8nhfbEuowe3ySmn94x2zjR_vQnKtr0OQ-fK_3NxSMKkGx6zpoDsk_qTCrdA",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on May 01, 2026.",
+          "media_captions": [
+            "Qualidade e Confiabilidade.\n\nCareca's Infotec \n\n41 9 95072700\n\nL"
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/683048309_1244406137490479_5697478274134611676_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=4TCrcsW3GnIQ7kNvwFbB1FQ&_nc_oc=AdrgXdXkzetXnCfQA6oGVw4v8o3AhOc77dQAKjBMo9S3zxcISX4vVLqGWWTT7wPwwSnnSdXN-1Nxxsrew7dAnn5x&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLe_CeuuaGOi3tTfpP7rdKFYfNMWUT0DskQwgM3ErUl4Q&oe=6AA94D37",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/URVkR3ichZDdrqIwFIWTuZ7XGO9QaksLkzQTjh6MHtFDREFviLTlx5_i0CoMjzpPM4TzAJOslazsvbIuvr_fvhdaP9TPyUSxSmohtcGFnBpgzLgspdLnvD7fx6y6T14TbYExATaxDWBNsA1N1NtJwBQhZGIACXJMRJzEwg5BxJ4SBCDCAGCCEzm-PPJfSj8oV9rocyKglSiMzLZ3ojUeJZIl7KwpAGDEWEqJYQ03VXIKbC4IGoksp-LP6na684wvPLm8VGVgtqu95z-P90PHPeeRRp48HRzA7q08RegZdH6ZBT_gvNewVxWMonBWMxXBhVwG5Lp5NV76Brzg68-oy-s85vG1EzqWsyxwcbU4NOhlV9AttowQHrgflze_cnawa9lyF6PXYf17EUVhSJrPptlJuePxxgCbtlW1aAh3pbTaYb_TdAqHVGj6P-xDL-8JwHSNm-69uWzxHKz82-2osWq-AClKUmw7o6qgppm4wVokM_F8nhfbEuowe3ySmn94x2zjR_vQnKtr0OQ-fK_3NxSMKkGx6zpoDsk_qTCrdA",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/683048309_1244406137490479_5697478274134611676_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=4TCrcsW3GnIQ7kNvwFbB1FQ&_nc_oc=AdrgXdXkzetXnCfQA6oGVw4v8o3AhOc77dQAKjBMo9S3zxcISX4vVLqGWWTT7wPwwSnnSdXN-1Nxxsrew7dAnn5x&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLe_CeuuaGOi3tTfpP7rdKFYfNMWUT0DskQwgM3ErUl4Q&oe=6AA94D37",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/URVkR3ichZDdrqIwFIWTuZ7XGO9QaksLkzQTjh6MHtFDREFviLTlx5_i0CoMjzpPM4TzAJOslazsvbIuvr_fvhdaP9TPyUSxSmohtcGFnBpgzLgspdLnvD7fx6y6T14TbYExATaxDWBNsA1N1NtJwBQhZGIACXJMRJzEwg5BxJ4SBCDCAGCCEzm-PPJfSj8oV9rocyKglSiMzLZ3ojUeJZIl7KwpAGDEWEqJYQ03VXIKbC4IGoksp-LP6na684wvPLm8VGVgtqu95z-P90PHPeeRRp48HRzA7q08RegZdH6ZBT_gvNewVxWMonBWMxXBhVwG5Lp5NV76Brzg68-oy-s85vG1EzqWsyxwcbU4NOhlV9AttowQHrgflze_cnawa9lyF6PXYf17EUVhSJrPptlJuePxxgCbtlW1aAh3pbTaYb_TdAqHVGj6P-xDL-8JwHSNm-69uWzxHKz82-2osWq-AClKUmw7o6qgppm4wVokM_F8nhfbEuowe3ySmn94x2zjR_vQnKtr0OQ-fK_3NxSMKkGx6zpoDsk_qTCrdA",
+          "product_type": "clips"
+        },
+        {
+          "id": "3886838368591107479",
+          "shortcode": "DXw0ucjO1WX",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/683778307_1467428678514461_5102059598736696105_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=TxeK0-P75KYQ7kNvwGxTUj4&_nc_oc=Adq1zB2pt0BAWDLvQoooGUcm90bohq8hj_5eg7SZ1NItPKG3RbfLKRQTUNoz3GFFYL4uSoCZjhLpFa0cCyASpzuN&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJ3hxS1-tpC0HEPgnMDVPSGYUmDmz68A2C563Ifh2r2mA&oe=6AA94747",
+          "serpapi_display_url": "https://serpapi.com/images/url/zzvMyXichZDfbqJAGMWTvd7XWO_QGeYvTSYbqoVV0UoVDd4QGRBkZYaWUSmPuk-zxj5Ak-8kJ-d8ORe_fz9-lsY07dNo1EqtTK6MleXKtuBQZuqkWnMoPg71UOp6dB0ZAocMcsYtSEaUI8Y4AiyBmDJsc8o4gRhTmBAIbEAc4nCGKHUoBCRRw6opfremEVlrrLtPckSSlmLQ3ZUYQweJkok8GAEBGEiZCmaRR9aeMgF5ljM8yI-FyD9n532dHTPfU9NKn0LQzSJvcYnrbZ95TpPuPLXfOlDWndrv8CXsF6dj-AtN7vfY06UUmy6fA2vFyDwO2d_l9eZ3m6jCX70UbvYO-2e7MeDZ3U2Ca6i19iNZOyDV5Tsvq4TkBVvv4XJqVnMfvaXHYP4WbqKl7pHveXGAL2s93ldl0HgHIMef7rrpL8vHfm-EjR6uNOI77I-_4k4ApQG99S-36pVO4GxxPseGtrcvQK1gKeXOQJcCgMQNZ6js1tAyzRj8eVkVajHZrtZ-HNWTuqfctceEoumxtD_s2h3oXFDXdTDD7D-YF6jJ",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on April 30, 2026.",
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/683778307_1467428678514461_5102059598736696105_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=TxeK0-P75KYQ7kNvwGxTUj4&_nc_oc=Adq1zB2pt0BAWDLvQoooGUcm90bohq8hj_5eg7SZ1NItPKG3RbfLKRQTUNoz3GFFYL4uSoCZjhLpFa0cCyASpzuN&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJ3hxS1-tpC0HEPgnMDVPSGYUmDmz68A2C563Ifh2r2mA&oe=6AA94747",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/zzvMyXichZDfbqJAGMWTvd7XWO_QGeYvTSYbqoVV0UoVDd4QGRBkZYaWUSmPuk-zxj5Ak-8kJ-d8ORe_fz9-lsY07dNo1EqtTK6MleXKtuBQZuqkWnMoPg71UOp6dB0ZAocMcsYtSEaUI8Y4AiyBmDJsc8o4gRhTmBAIbEAc4nCGKHUoBCRRw6opfremEVlrrLtPckSSlmLQ3ZUYQweJkok8GAEBGEiZCmaRR9aeMgF5ljM8yI-FyD9n532dHTPfU9NKn0LQzSJvcYnrbZ95TpPuPLXfOlDWndrv8CXsF6dj-AtN7vfY06UUmy6fA2vFyDwO2d_l9eZ3m6jCX70UbvYO-2e7MeDZ3U2Ca6i19iNZOyDV5Tsvq4TkBVvv4XJqVnMfvaXHYP4WbqKl7pHveXGAL2s93ldl0HgHIMef7rrpL8vHfm-EjR6uNOI77I-_4k4ApQG99S-36pVO4GxxPseGtrcvQK1gKeXOQJcCgMQNZ6js1tAyzRj8eVkVajHZrtZ-HNWTuqfctceEoumxtD_s2h3oXFDXdTDD7D-YF6jJ",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/683778307_1467428678514461_5102059598736696105_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=TxeK0-P75KYQ7kNvwGxTUj4&_nc_oc=Adq1zB2pt0BAWDLvQoooGUcm90bohq8hj_5eg7SZ1NItPKG3RbfLKRQTUNoz3GFFYL4uSoCZjhLpFa0cCyASpzuN&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJ3hxS1-tpC0HEPgnMDVPSGYUmDmz68A2C563Ifh2r2mA&oe=6AA94747",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/zzvMyXichZDfbqJAGMWTvd7XWO_QGeYvTSYbqoVV0UoVDd4QGRBkZYaWUSmPuk-zxj5Ak-8kJ-d8ORe_fz9-lsY07dNo1EqtTK6MleXKtuBQZuqkWnMoPg71UOp6dB0ZAocMcsYtSEaUI8Y4AiyBmDJsc8o4gRhTmBAIbEAc4nCGKHUoBCRRw6opfremEVlrrLtPckSSlmLQ3ZUYQweJkok8GAEBGEiZCmaRR9aeMgF5ljM8yI-FyD9n532dHTPfU9NKn0LQzSJvcYnrbZ95TpPuPLXfOlDWndrv8CXsF6dj-AtN7vfY06UUmy6fA2vFyDwO2d_l9eZ3m6jCX70UbvYO-2e7MeDZ3U2Ca6i19iNZOyDV5Tsvq4TkBVvv4XJqVnMfvaXHYP4WbqKl7pHveXGAL2s93ldl0HgHIMef7rrpL8vHfm-EjR6uNOI77I-_4k4ApQG99S-36pVO4GxxPseGtrcvQK1gKeXOQJcCgMQNZ6js1tAyzRj8eVkVajHZrtZ-HNWTuqfctceEoumxtD_s2h3oXFDXdTDD7D-YF6jJ",
+          "product_type": "clips"
+        },
+        {
+          "id": "3871898088452585499",
+          "shortcode": "DW7vswYuvgb",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.82787-15/669716181_17957080446093188_8036466050172760415_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Zz2P-4A-OVYQ7kNvwHdVgDK&_nc_oc=Adr1dlU3a8cBXjyAjLzKXIvS2XpJbWKTS8Lziob0dZWlZmIOejPPz8f5lWtBAqsR9f2FD8Ma8uDFRx7kIjA94-Yv&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKNvocLlXfOx2HDNWvrwtbwUvYqFvnQsvRCsyjvAmSP-A&oe=6AA93249",
+          "serpapi_display_url": "https://serpapi.com/images/url/A9IVrXichZDvjqIwFMWT_b6PsX5DWyht2aSZMMuy43_RUdQvRFpQGCiOrYA86j7NEucBNrknObn35uTk9_fb94vWV_VzNFK8kjqR2hCJNA045EJmUunT-XYqh7wqR_VI23BITUKJAe0Rxg6BGFIYQeLYBFCAEAaOBSmNKLAwwhjYABKTYICgHclhfj2_KH1lQmmj91Fi2ZHCCLS9Iq3xIJI84ifNIEADzmNGDPu5U5lgkIqEoEGSnlnymBTHUqTijy_HeZUFoJ1s_fn9UO464TvXOPTlcedAXrbyGKJ70M2zNPhhef0886oLZ8fOXBnINZa7Q0A-FnXzJnZnb_p158wVNyiKrXWi_HWfP9x81k3343pj7q-TOJy-b-isy6oYiGPYdxkvk3y16mhqF6F-dT_V2klN36PzE717_rolH-PcdZBxqJ_5nWam9XQXzf7H_fl37glY8Qw33e8mX2IPTuZFcdBYNV-AFCMxps6gujAAIjeYLuqKz4p9umzNN28R1rdGx822Pnz6tQxUvf6lHnntlpuV4Q6qhGHXdSwTOf8AKemrVg",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on April 09, 2026.",
+          "media_captions": [
+            "Troca de tampa traseira + bateria iPhone 14 Pró Max \n\nGarantia 1 ano\n\nChama no ZAP  41 995072700"
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.82787-15/669716181_17957080446093188_8036466050172760415_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Zz2P-4A-OVYQ7kNvwHdVgDK&_nc_oc=Adr1dlU3a8cBXjyAjLzKXIvS2XpJbWKTS8Lziob0dZWlZmIOejPPz8f5lWtBAqsR9f2FD8Ma8uDFRx7kIjA94-Yv&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKNvocLlXfOx2HDNWvrwtbwUvYqFvnQsvRCsyjvAmSP-A&oe=6AA93249",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/A9IVrXichZDvjqIwFMWT_b6PsX5DWyht2aSZMMuy43_RUdQvRFpQGCiOrYA86j7NEucBNrknObn35uTk9_fb94vWV_VzNFK8kjqR2hCJNA045EJmUunT-XYqh7wqR_VI23BITUKJAe0Rxg6BGFIYQeLYBFCAEAaOBSmNKLAwwhjYABKTYICgHclhfj2_KH1lQmmj91Fi2ZHCCLS9Iq3xIJI84ifNIEADzmNGDPu5U5lgkIqEoEGSnlnymBTHUqTijy_HeZUFoJ1s_fn9UO464TvXOPTlcedAXrbyGKJ70M2zNPhhef0886oLZ8fOXBnINZa7Q0A-FnXzJnZnb_p158wVNyiKrXWi_HWfP9x81k3343pj7q-TOJy-b-isy6oYiGPYdxkvk3y16mhqF6F-dT_V2klN36PzE717_rolH-PcdZBxqJ_5nWam9XQXzf7H_fl37glY8Qw33e8mX2IPTuZFcdBYNV-AFCMxps6gujAAIjeYLuqKz4p9umzNN28R1rdGx822Pnz6tQxUvf6lHnntlpuV4Q6qhGHXdSwTOf8AKemrVg",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.82787-15/669716181_17957080446093188_8036466050172760415_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Zz2P-4A-OVYQ7kNvwHdVgDK&_nc_oc=Adr1dlU3a8cBXjyAjLzKXIvS2XpJbWKTS8Lziob0dZWlZmIOejPPz8f5lWtBAqsR9f2FD8Ma8uDFRx7kIjA94-Yv&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKNvocLlXfOx2HDNWvrwtbwUvYqFvnQsvRCsyjvAmSP-A&oe=6AA93249",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/A9IVrXichZDvjqIwFMWT_b6PsX5DWyht2aSZMMuy43_RUdQvRFpQGCiOrYA86j7NEucBNrknObn35uTk9_fb94vWV_VzNFK8kjqR2hCJNA045EJmUunT-XYqh7wqR_VI23BITUKJAe0Rxg6BGFIYQeLYBFCAEAaOBSmNKLAwwhjYABKTYICgHclhfj2_KH1lQmmj91Fi2ZHCCLS9Iq3xIJI84ifNIEADzmNGDPu5U5lgkIqEoEGSnlnymBTHUqTijy_HeZUFoJ1s_fn9UO464TvXOPTlcedAXrbyGKJ70M2zNPhhef0886oLZ8fOXBnINZa7Q0A-FnXzJnZnb_p158wVNyiKrXWi_HWfP9x81k3343pj7q-TOJy-b-isy6oYiGPYdxkvk3y16mhqF6F-dT_V2klN36PzE717_rolH-PcdZBxqJ_5nWam9XQXzf7H_fl37glY8Qw33e8mX2IPTuZFcdBYNV-AFCMxps6gujAAIjeYLuqKz4p9umzNN28R1rdGx822Pnz6tQxUvf6lHnntlpuV4Q6qhGHXdSwTOf8AKemrVg",
+          "product_type": "clips"
+        },
+        {
+          "id": "3864927265892081528",
+          "shortcode": "DWi-t7-OB94",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/657668171_1592886735276437_9102255490531722891_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ytdRLV4PvmsQ7kNvwGjUswK&_nc_oc=AdpE8XL_H1PWvk427wLbXkvleomvldDt5gKYaZB4vWQve9u0mAQ663UHxVlvpP1sCEcNMbSWT-zgDDvcSR-aQEvt&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJMJ9X8aMNk23tTP_y3kQGeZ6BxVZ-YWJERDhNHCjXxKQ&oe=6AA950F2",
+          "serpapi_display_url": "https://serpapi.com/images/url/zzjHi3ichZBbjuIwFESl-Z5tDH-B2IntpCVrRHd4TCAMoRsC-bESO4RHXmobJ7DUWU1H9AJGuiWV7q1bH-ffj58npRr5MhpJXlcqq5QhsgoaYMhFda6kSvLPpBzyuhzpkUJgSIBDHAOgEUYEYwcQwAByoeNgYiFIsG0R5gITQoRs10QWIBA6LmDV8NLkv6VqqJDK6D3LLMQkts2uF1MKD1jFGU8U7b8HnKeUGOi5k2dBgSMyYg-yY06zu1_EpTiK2bT6c6nPodn522lwO5S7h5i6TRpNq3jnAl52VRzZt_ARnI_hL8vr59lXnzi9K7FZ7uy1LmVIrivdzi5b2S6-75yORTNx9ks2B-tIX21I2mW6v-oiq0tdCE-hfHFI4ldbR6HO3JtZjkOMre282xW6WQP5NuGrIH2PPoxH7nmav2-MJJxo9ex_KAqtpzsp-j_sz1zeE7DSJW4fk_byF3vAD4rioLBsvwFJSlLsuIP6RE2TjUM_8N29kwSrK7TUx5rdrWs4y2L82u1i4xD5k413Ws3fLvtuEQ7qjOLx2EXmFH4BCVGquw",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on March 31, 2026.",
+          "media_captions": [
+            "Notebook Lenovo:\n\n* Troca de tela\n* Troca de teclado\n* Manutenção preventiva \n* Instalação Windows 10 \n* 6 meses de garantia\n\nWhats 41 995072700"
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/657668171_1592886735276437_9102255490531722891_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ytdRLV4PvmsQ7kNvwGjUswK&_nc_oc=AdpE8XL_H1PWvk427wLbXkvleomvldDt5gKYaZB4vWQve9u0mAQ663UHxVlvpP1sCEcNMbSWT-zgDDvcSR-aQEvt&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJMJ9X8aMNk23tTP_y3kQGeZ6BxVZ-YWJERDhNHCjXxKQ&oe=6AA950F2",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/zzjHi3ichZBbjuIwFESl-Z5tDH-B2IntpCVrRHd4TCAMoRsC-bESO4RHXmobJ7DUWU1H9AJGuiWV7q1bH-ffj58npRr5MhpJXlcqq5QhsgoaYMhFda6kSvLPpBzyuhzpkUJgSIBDHAOgEUYEYwcQwAByoeNgYiFIsG0R5gITQoRs10QWIBA6LmDV8NLkv6VqqJDK6D3LLMQkts2uF1MKD1jFGU8U7b8HnKeUGOi5k2dBgSMyYg-yY06zu1_EpTiK2bT6c6nPodn522lwO5S7h5i6TRpNq3jnAl52VRzZt_ARnI_hL8vr59lXnzi9K7FZ7uy1LmVIrivdzi5b2S6-75yORTNx9ks2B-tIX21I2mW6v-oiq0tdCE-hfHFI4ldbR6HO3JtZjkOMre282xW6WQP5NuGrIH2PPoxH7nmav2-MJJxo9ex_KAqtpzsp-j_sz1zeE7DSJW4fk_byF3vAD4rioLBsvwFJSlLsuIP6RE2TjUM_8N29kwSrK7TUx5rdrWs4y2L82u1i4xD5k413Ws3fLvtuEQ7qjOLx2EXmFH4BCVGquw",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/657668171_1592886735276437_9102255490531722891_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ytdRLV4PvmsQ7kNvwGjUswK&_nc_oc=AdpE8XL_H1PWvk427wLbXkvleomvldDt5gKYaZB4vWQve9u0mAQ663UHxVlvpP1sCEcNMbSWT-zgDDvcSR-aQEvt&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJMJ9X8aMNk23tTP_y3kQGeZ6BxVZ-YWJERDhNHCjXxKQ&oe=6AA950F2",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/zzjHi3ichZBbjuIwFESl-Z5tDH-B2IntpCVrRHd4TCAMoRsC-bESO4RHXmobJ7DUWU1H9AJGuiWV7q1bH-ffj58npRr5MhpJXlcqq5QhsgoaYMhFda6kSvLPpBzyuhzpkUJgSIBDHAOgEUYEYwcQwAByoeNgYiFIsG0R5gITQoRs10QWIBA6LmDV8NLkv6VqqJDK6D3LLMQkts2uF1MKD1jFGU8U7b8HnKeUGOi5k2dBgSMyYg-yY06zu1_EpTiK2bT6c6nPodn522lwO5S7h5i6TRpNq3jnAl52VRzZt_ARnI_hL8vr59lXnzi9K7FZ7uy1LmVIrivdzi5b2S6-75yORTNx9ks2B-tIX21I2mW6v-oiq0tdCE-hfHFI4ldbR6HO3JtZjkOMre282xW6WQP5NuGrIH2PPoxH7nmav2-MJJxo9ex_KAqtpzsp-j_sz1zeE7DSJW4fk_byF3vAD4rioLBsvwFJSlLsuIP6RE2TjUM_8N29kwSrK7TUx5rdrWs4y2L82u1i4xD5k413Ws3fLvtuEQ7qjOLx2EXmFH4BCVGquw",
+          "product_type": "clips"
+        },
+        {
+          "id": "3862088113177867031",
+          "shortcode": "DWY5K09ObMX",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/658126396_946816574592412_8538601025949509460_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=MMzul2aXFsEQ7kNvwH4waMt&_nc_oc=Ado0PBuib7gFNOD9jCmrfttOl_XzZVOcbkyn00t95R5Nhssjk_Qhp0a8o67frhUX6xPt9DQKNuvPLQA5HCIPX40G&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJA3bdzYEMvLLIsfP3YvccOeOo-FK2RDeEHVT5gyWO-KQ&oe=6AA958E9",
+          "serpapi_display_url": "https://serpapi.com/images/url/ICFahXichZDbjpswGISl3vY5yh2JDdjgSlZFl7A5EWDVzenGAnPKARPFDiQ8ap-miH2ASvNLo39Gc_H9_fa9Uuomf06nkjdC5ULpWS4MHU54Jk5CqqS8J_WEN_W0nSoEJzZ0bEeHaIqRAw1sEsyIhR2IkW0hYljQYA4yHQwgMBCxCAJDDJiYnG_lL6luNJNKHzzLTcQktsBzOKYU1pjgjCeKQgA1zlNq62j8yVNGoZPltqXlRUnz1_J6rLMie_fF4tycYvBcfvrB41Bv-8wnt3Tni-OWQF4_xXFnPeI-OBXxD9MbNO41FadB0D-uRrL35Sy2L5u2m1tdEqivnFM3a0D0-3FK7dLfhB45v9X3Qqnwyvb9cRvy9PISACiCPtCmkvJ8YXF1A4nTYLu4V597_IwU8eLV5tFG69hF87dFtLfA-7jfK2qYo6sU_R_1sVcOBMx0jbt-1p1D7MFlcL0eFJbdFyBJ7RQ7RGsqCgBz46Vrpll_mAXter2QRWQeWs7DPGx0f2V8ePlsvv2Dytcu1Fex1uQUuy5Bzoz8AyfQqho",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on March 27, 2026.",
+          "media_captions": [
+            "Troca de tela Samsung S10 Plus \n\n1 ano de garantia \n\nChama...."
+          ],
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/658126396_946816574592412_8538601025949509460_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=MMzul2aXFsEQ7kNvwH4waMt&_nc_oc=Ado0PBuib7gFNOD9jCmrfttOl_XzZVOcbkyn00t95R5Nhssjk_Qhp0a8o67frhUX6xPt9DQKNuvPLQA5HCIPX40G&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJA3bdzYEMvLLIsfP3YvccOeOo-FK2RDeEHVT5gyWO-KQ&oe=6AA958E9",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/ICFahXichZDbjpswGISl3vY5yh2JDdjgSlZFl7A5EWDVzenGAnPKARPFDiQ8ap-miH2ASvNLo39Gc_H9_fa9Uuomf06nkjdC5ULpWS4MHU54Jk5CqqS8J_WEN_W0nSoEJzZ0bEeHaIqRAw1sEsyIhR2IkW0hYljQYA4yHQwgMBCxCAJDDJiYnG_lL6luNJNKHzzLTcQktsBzOKYU1pjgjCeKQgA1zlNq62j8yVNGoZPltqXlRUnz1_J6rLMie_fF4tycYvBcfvrB41Bv-8wnt3Tni-OWQF4_xXFnPeI-OBXxD9MbNO41FadB0D-uRrL35Sy2L5u2m1tdEqivnFM3a0D0-3FK7dLfhB45v9X3Qqnwyvb9cRvy9PISACiCPtCmkvJ8YXF1A4nTYLu4V597_IwU8eLV5tFG69hF87dFtLfA-7jfK2qYo6sU_R_1sVcOBMx0jbt-1p1D7MFlcL0eFJbdFyBJ7RQ7RGsqCgBz46Vrpll_mAXter2QRWQeWs7DPGx0f2V8ePlsvv2Dytcu1Fex1uQUuy5Bzoz8AyfQqho",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/658126396_946816574592412_8538601025949509460_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=MMzul2aXFsEQ7kNvwH4waMt&_nc_oc=Ado0PBuib7gFNOD9jCmrfttOl_XzZVOcbkyn00t95R5Nhssjk_Qhp0a8o67frhUX6xPt9DQKNuvPLQA5HCIPX40G&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQJA3bdzYEMvLLIsfP3YvccOeOo-FK2RDeEHVT5gyWO-KQ&oe=6AA958E9",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/ICFahXichZDbjpswGISl3vY5yh2JDdjgSlZFl7A5EWDVzenGAnPKARPFDiQ8ap-miH2ASvNLo39Gc_H9_fa9Uuomf06nkjdC5ULpWS4MHU54Jk5CqqS8J_WEN_W0nSoEJzZ0bEeHaIqRAw1sEsyIhR2IkW0hYljQYA4yHQwgMBCxCAJDDJiYnG_lL6luNJNKHzzLTcQktsBzOKYU1pjgjCeKQgA1zlNq62j8yVNGoZPltqXlRUnz1_J6rLMie_fF4tycYvBcfvrB41Bv-8wnt3Tni-OWQF4_xXFnPeI-OBXxD9MbNO41FadB0D-uRrL35Sy2L5u2m1tdEqivnFM3a0D0-3FK7dLfhB45v9X3Qqnwyvb9cRvy9PISACiCPtCmkvJ8YXF1A4nTYLu4V597_IwU8eLV5tFG69hF87dFtLfA-7jfK2qYo6sU_R_1sVcOBMx0jbt-1p1D7MFlcL0eFJbdFyBJ7RQ7RGsqCgBz46Vrpll_mAXter2QRWQeWs7DPGx0f2V8ePlsvv2Dytcu1Fex1uQUuy5Bzoz8AyfQqho",
+          "product_type": "clips"
+        },
+        {
+          "id": "3839725245263909340",
+          "shortcode": "DVJccRPDhHc",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/641980122_1220783463369750_9196674095389784223_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Z6noJe8HFHoQ7kNvwH4j_B8&_nc_oc=AdpiO-q8cjap3pbW3Ef3jJoev9-Y2dSjUQfqSdL_BeAx28izQVQPZuRjLjRT_2nSPC_o-RvzKxcumLbKL1TFI5jI&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLQZfd5wPggIJ3KCkgtGM6hx1Jpus3OmhHsEbldHP2OrA&oe=6AA94CE7",
+          "serpapi_display_url": "https://serpapi.com/images/url/3POxt3ichZDbbtpAFEWlPvc3ypvB47HnUmlUOQQHHFMwJET4ZYRnfA0eO5kBXH9qv6YW-YBKZ0tb5xyth_X32_fSmE7_nM20aJXJlLFkphwLTIVUldLmVHyemqlom9l1ZjwwxYBgYgFvhlxAiQ0ch4-xMYEughBR7NmcAooQdm3qQUIxcR0HcjWtu-KXNh2T2lhj5xn0uEau3Y_hxqAJV4KLk2HAtidCpAxb3n2nK8kAkRl2J1lesOxPeE4amcunQK3qtortPnwN1pdjcxhkQLv0LVDJgQLR9Cp5cy_xsK7y-Ad8HOfOa0vBEqTaMCPLYNnG-P339bZ0a_5Avu6C-bKrNtYHEfWpgyMRLnJYh212pdbRkfv6Nc4_9jLiD5nfO6Qa4kO8TS67Oqp3L9xR--2ct9buOjz34tJE6XMEXoKVV6_u_MEwB95badj_tN__itEATCN0Gxa3eoMeQbg-n48G6duXIM1wigidtCWzbe7HUZzk0rtti2IVwuf5e2Ge1qjsQdhdNNw05VIv0rNcbp3Npz9pM4Z8n7rzBf4HIamqtQ",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on February 24, 2026.",
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/641980122_1220783463369750_9196674095389784223_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Z6noJe8HFHoQ7kNvwH4j_B8&_nc_oc=AdpiO-q8cjap3pbW3Ef3jJoev9-Y2dSjUQfqSdL_BeAx28izQVQPZuRjLjRT_2nSPC_o-RvzKxcumLbKL1TFI5jI&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLQZfd5wPggIJ3KCkgtGM6hx1Jpus3OmhHsEbldHP2OrA&oe=6AA94CE7",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/3POxt3ichZDbbtpAFEWlPvc3ypvB47HnUmlUOQQHHFMwJET4ZYRnfA0eO5kBXH9qv6YW-YBKZ0tb5xyth_X32_fSmE7_nM20aJXJlLFkphwLTIVUldLmVHyemqlom9l1ZjwwxYBgYgFvhlxAiQ0ch4-xMYEughBR7NmcAooQdm3qQUIxcR0HcjWtu-KXNh2T2lhj5xn0uEau3Y_hxqAJV4KLk2HAtidCpAxb3n2nK8kAkRl2J1lesOxPeE4amcunQK3qtortPnwN1pdjcxhkQLv0LVDJgQLR9Cp5cy_xsK7y-Ad8HOfOa0vBEqTaMCPLYNnG-P339bZ0a_5Avu6C-bKrNtYHEfWpgyMRLnJYh212pdbRkfv6Nc4_9jLiD5nfO6Qa4kO8TS67Oqp3L9xR--2ct9buOjz34tJE6XMEXoKVV6_u_MEwB95badj_tN__itEATCN0Gxa3eoMeQbg-n48G6duXIM1wigidtCWzbe7HUZzk0rtti2IVwuf5e2Ge1qjsQdhdNNw05VIv0rNcbp3Npz9pM4Z8n7rzBf4HIamqtQ",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/641980122_1220783463369750_9196674095389784223_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Z6noJe8HFHoQ7kNvwH4j_B8&_nc_oc=AdpiO-q8cjap3pbW3Ef3jJoev9-Y2dSjUQfqSdL_BeAx28izQVQPZuRjLjRT_2nSPC_o-RvzKxcumLbKL1TFI5jI&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQLQZfd5wPggIJ3KCkgtGM6hx1Jpus3OmhHsEbldHP2OrA&oe=6AA94CE7",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/3POxt3ichZDbbtpAFEWlPvc3ypvB47HnUmlUOQQHHFMwJET4ZYRnfA0eO5kBXH9qv6YW-YBKZ0tb5xyth_X32_fSmE7_nM20aJXJlLFkphwLTIVUldLmVHyemqlom9l1ZjwwxYBgYgFvhlxAiQ0ch4-xMYEughBR7NmcAooQdm3qQUIxcR0HcjWtu-KXNh2T2lhj5xn0uEau3Y_hxqAJV4KLk2HAtidCpAxb3n2nK8kAkRl2J1lesOxPeE4amcunQK3qtortPnwN1pdjcxhkQLv0LVDJgQLR9Cp5cy_xsK7y-Ad8HOfOa0vBEqTaMCPLYNnG-P339bZ0a_5Avu6C-bKrNtYHEfWpgyMRLnJYh212pdbRkfv6Nc4_9jLiD5nfO6Qa4kO8TS67Oqp3L9xR--2ct9buOjz34tJE6XMEXoKVV6_u_MEwB95badj_tN__itEATCN0Gxa3eoMeQbg-n48G6duXIM1wigidtCWzbe7HUZzk0rtti2IVwuf5e2Ge1qjsQdhdNNw05VIv0rNcbp3Npz9pM4Z8n7rzBf4HIamqtQ",
+          "product_type": "clips"
+        },
+        {
+          "id": "3839653733714501407",
+          "shortcode": "DVJMLo6jh8f",
+          "display_url": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/641210922_881613921446065_8430988397699582531_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=0cw5tBUabMQQ7kNvwH3ug0m&_nc_oc=AdoahedaSYqUR6M_KsmjN17wINOeureP_XAD0RwQeGoN_wr0zbEJy5qapAeQXyc_GpFwu1IOgZouEIYzd_f6DY69&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKBrN8XC-K0STHsOYVqbynh7rvnUfoLUmMfWqYpr7T64A&oe=6AA954EB",
+          "serpapi_display_url": "https://serpapi.com/images/url/upN3CXichZDbjpswGISl3vY5mjsSm4OxK1kVaQ6bZEmW3c2B3FhgDCQNhmATEh61T9OIfYBK_0ijmV9z8f399j3XulI_RyPFS6mF1EYipGnAIU_kSSodZXVUDHlZjG4j7cChC7GLDeiMkA1NCIhpMowhghYxoW0jgByGbQsQjC3iIkIcbDoWZHJ4rrJfSlc0Udp4eiYshylkg_tTTGs0YJIzHmkKgT3gPKau4fSZOiUU4kS49kCkGRWP5eVYJGkyn8nFuTwF4L7czvwmLHZdMiNVvJ_J445AXtzlcW83Qeef0uCHNXlev1fmnALeOnq8jWI_CNw_61v7YjUZKL56Tr2kjHKRRB_hdfuOfLZSxXkN3Xax3oimFm_s4E3AexuIeblmbQ26eLp8ONeo8kRweHA2r2ZtAxeb7Fg200XYJSxFkxCRfr_T1LR6l2v6P-r9X_YkYMWvqO2m7XmDJnDpXy6hRqr9AqSoGyNMBmVOAWBesBrXa3z4bazAx-eL2oS7a_yQuVvf5DYtX7eFn-6vYVW7n8j2BqWgyPOIY0_H_wCwzauu",
+          "owner": {
+            "id": "17841462795612775",
+            "username": "carecasinfotec"
+          },
+          "is_video": true,
+          "accessibility_caption": "Video by Careca's Infotec on February 24, 2026.",
+          "thumbnail_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/641210922_881613921446065_8430988397699582531_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=0cw5tBUabMQQ7kNvwH3ug0m&_nc_oc=AdoahedaSYqUR6M_KsmjN17wINOeureP_XAD0RwQeGoN_wr0zbEJy5qapAeQXyc_GpFwu1IOgZouEIYzd_f6DY69&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKBrN8XC-K0STHsOYVqbynh7rvnUfoLUmMfWqYpr7T64A&oe=6AA954EB",
+          "serpapi_thumbnail_src": "https://serpapi.com/images/url/upN3CXichZDbjpswGISl3vY5mjsSm4OxK1kVaQ6bZEmW3c2B3FhgDCQNhmATEh61T9OIfYBK_0ijmV9z8f399j3XulI_RyPFS6mF1EYipGnAIU_kSSodZXVUDHlZjG4j7cChC7GLDeiMkA1NCIhpMowhghYxoW0jgByGbQsQjC3iIkIcbDoWZHJ4rrJfSlc0Udp4eiYshylkg_tTTGs0YJIzHmkKgT3gPKau4fSZOiUU4kS49kCkGRWP5eVYJGkyn8nFuTwF4L7czvwmLHZdMiNVvJ_J445AXtzlcW83Qeef0uCHNXlev1fmnALeOnq8jWI_CNw_61v7YjUZKL56Tr2kjHKRRB_hdfuOfLZSxXkN3Xax3oimFm_s4E3AexuIeblmbQ26eLp8ONeo8kRweHA2r2ZtAxeb7Fg200XYJSxFkxCRfr_T1LR6l2v6P-r9X_YkYMWvqO2m7XmDJnDpXy6hRqr9AqSoGyNMBmVOAWBesBrXa3z4bazAx-eL2oS7a_yQuVvf5DYtX7eFn-6vYVW7n8j2BqWgyPOIY0_H_wCwzauu",
+          "thumbnail_tall_src": "https://scontent-den2-1.cdninstagram.com/v/t51.71878-15/641210922_881613921446065_8430988397699582531_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=0cw5tBUabMQQ7kNvwH3ug0m&_nc_oc=AdoahedaSYqUR6M_KsmjN17wINOeureP_XAD0RwQeGoN_wr0zbEJy5qapAeQXyc_GpFwu1IOgZouEIYzd_f6DY69&_nc_zt=23&_nc_ht=scontent-den2-1.cdninstagram.com&_nc_gid=3bL6wzEwjO6D1JMllYt6sw&_nc_ss=7b689&oh=00_AQKBrN8XC-K0STHsOYVqbynh7rvnUfoLUmMfWqYpr7T64A&oe=6AA954EB",
+          "serpapi_thumbnail_tall_src": "https://serpapi.com/images/url/upN3CXichZDbjpswGISl3vY5mjsSm4OxK1kVaQ6bZEmW3c2B3FhgDCQNhmATEh61T9OIfYBK_0ijmV9z8f399j3XulI_RyPFS6mF1EYipGnAIU_kSSodZXVUDHlZjG4j7cChC7GLDeiMkA1NCIhpMowhghYxoW0jgByGbQsQjC3iIkIcbDoWZHJ4rrJfSlc0Udp4eiYshylkg_tTTGs0YJIzHmkKgT3gPKau4fSZOiUU4kS49kCkGRWP5eVYJGkyn8nFuTwF4L7czvwmLHZdMiNVvJ_J445AXtzlcW83Qeef0uCHNXlev1fmnALeOnq8jWI_CNw_61v7YjUZKL56Tr2kjHKRRB_hdfuOfLZSxXkN3Xax3oimFm_s4E3AexuIeblmbQ26eLp8ONeo8kRweHA2r2ZtAxeb7Fg200XYJSxFkxCRfr_T1LR6l2v6P-r9X_YkYMWvqO2m7XmDJnDpXy6hRqr9AqSoGyNMBmVOAWBesBrXa3z4bazAx-eL2oS7a_yQuVvf5DYtX7eFn-6vYVW7n8j2BqWgyPOIY0_H_wCwzauu",
+          "product_type": "clips"
+        }
+      ]
+    },
+    "serpapi_pagination": {
+      "next_page_token": "NOpl2HicBcFRCoIwGADgC3QZzTl9VFopIqYYmC8y5z8dabNtEfXcSQJfegg6Trfp-54L5QbUrw7yqGSx1vUx7QEl0x1MctJ-VnRDNcZoInUhpiQTPR1ugaTmkjZ4Qw68wCS4QtXm8AhLZs9rEoKM5M4btnuvwS7tX6L7WthzLMe1sY9cy8YYvWcluRihEd2HUQWManHm0gBbuFDarP6n8jbs",
+      "next": "https://serpapi.com/search.json?engine=instagram_profile&next_page_token=NOpl2HicBcFRCoIwGADgC3QZzTl9VFopIqYYmC8y5z8dabNtEfXcSQJfegg6Trfp-54L5QbUrw7yqGSx1vUx7QEl0x1MctJ-VnRDNcZoInUhpiQTPR1ugaTmkjZ4Qw68wCS4QtXm8AhLZs9rEoKM5M4btnuvwS7tX6L7WthzLMe1sY9cy8YYvWcluRihEd2HUQWManHm0gBbuFDarP6n8jbs&profile_id=carecasinfotec"
+    }
+  },
+  "facebook": null,
+  "website": {
+    "url": null,
+    "status": "NO_OFFICIAL_WEBSITE"
+  },
+  "stages": {
+    "mapsPlace": "SUCCESS",
+    "reviews": "SUCCESS",
+    "photos": "SUCCESS",
+    "googleSearch": "SUCCESS",
+    "socialDiscovery": "FAILED",
+    "instagram": "SUCCESS",
+    "facebook": "NO_RESULTS"
+  },
+  "callLog": [
+    {
+      "engine": "google_maps",
+      "query": "ChIJjxhi67_73JQRgGgv4G2-G18"
+    },
+    {
+      "engine": "google_maps_reviews",
+      "query": "ChIJjxhi67_73JQRgGgv4G2-G18"
+    },
+    {
+      "engine": "google_maps_photos",
+      "query": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880"
+    },
+    {
+      "engine": "google",
+      "query": "\"Careca´s Infotec\" São José dos Pinhais"
+    },
+    {
+      "engine": "google",
+      "query": "site:facebook.com \"Careca´s Infotec\" São José dos Pinhais"
+    },
+    {
+      "engine": "instagram_profile",
+      "query": "carecasinfotec"
+    }
+  ],
+  "callCount": 6,
+  "errors": [
+    "socialDiscovery: SerpApi google: Google hasn't returned any results for this query."
+  ],
+  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google são GOOGLE_USER_MEDIA e exigem verificação de direitos e atribuição (nunca apresentadas como mídia própria); telefone e endereço permanecem server-side."
 }
