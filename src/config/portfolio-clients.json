@@ -1167,6 +1167,7 @@
     "socialProofRequired": false,
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
-    "creativeBriefFile": "docs/portfolio/briefs/carecas-infotec.md"
+    "creativeBriefFile": "docs/portfolio/briefs/carecas-infotec.md",
+    "funnelType": "diagnostico"
   }
 ]
