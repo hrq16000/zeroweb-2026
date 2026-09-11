@@ -12,6 +12,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
+| Contato sempre pelo funil (sem `tel:`/`wa.me`) e finalidade obrigatória de cada asset | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21–§22 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §18–§20 |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
 | Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` |

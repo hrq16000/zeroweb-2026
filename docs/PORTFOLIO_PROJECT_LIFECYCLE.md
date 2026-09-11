@@ -274,3 +274,21 @@ faltam ENTITY, CONTENT, MEDIA, DISCOVERY, DESIGN, SEO, FUNNEL, COVER e QA.
 
 Nem todo projeto terá Google, reviews, Instagram, endereço ou galeria — isso não
 impede publicar. O que não pode faltar é a verificação de cada possibilidade.
+
+## 12. Adendo — contato pelo funil e finalidade de mídia
+
+Regras permanentes aplicáveis a todo `/portfolio/:slug` novo:
+
+1. **Contato sempre pelo funil individual.** Telefone confirmado pode ser
+   exibido como informação; nunca como `tel:`, botão "Ligar", `wa.me` ou CTA
+   principal. CTA com nexo ao negócio, nunca genérico.
+2. **Evidência não é design.** Todo asset declara finalidade
+   (`EVIDENCE_ONLY`, `BRAND_REFERENCE`, `REAL_BUSINESS_MEDIA`,
+   `EDITORIAL_MEDIA`, `COVER_MEDIA`, `OG_MEDIA`,
+   `GENERATED_CONTEXTUAL_MEDIA`). Foto de placa/banner enviada pelo cliente é
+   referência, não Hero.
+3. **Encantamento é requisito**, não bônus: a etapa de QA inclui a avaliação
+   editorial descrita em `PORTFOLIO_LANDING_QUALITY_MATRIX.md` §20.
+
+Gates obrigatórios: `CONTACT_FUNNEL_GATE` e `MEDIA_PURPOSE_GATE`
+(`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21.4 e §22.5).

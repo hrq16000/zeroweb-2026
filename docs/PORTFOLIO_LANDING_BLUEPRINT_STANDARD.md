@@ -300,3 +300,125 @@ Motor compartilhado + blueprint parametrizado
 + funil individual + experiência visual individual
 = landing pages escaláveis sem aparência de template clonado
 ```
+
+## 21. Adendo obrigatório — contato sempre pelo funil
+
+O contato de um `/portfolio/:slug` acontece **prioritariamente e
+obrigatoriamente** pelo funil individual do projeto. Cada projeto tem contexto
+próprio (serviço, necessidade, equipamento, produto, modalidade, localização,
+prazo, dados específicos) e o visitante não pode ser retirado desse contexto por
+um telefone ou WhatsApp clicável genérico.
+
+```text
+landing → CTA contextual → funil individual → coleta → continuidade de contato
+```
+
+### 21.1 Telefone é informação, não atalho
+
+Telefone público confirmado pode aparecer como informação institucional
+(ex.: `Telefone: (41) 99507-2700`). Por padrão, em `/portfolio/:slug`:
+
+- não usar `<a href="tel:...">`;
+- não usar o número como CTA principal;
+- não criar botão "Ligar", WhatsApp direto, `wa.me` ou qualquer link que
+  contorne o funil.
+
+A existência pública do número não altera a arquitetura de conversão.
+
+### 21.2 CTA precisa ter nexo com o negócio
+
+Evitar "Entrar em contato", "Fale conosco", "Chamar no WhatsApp" quando houver
+ação contextual possível:
+
+| Segmento | CTA contextual |
+|---|---|
+| Assistência técnica | Solicitar avaliação · Informar o problema · Agendar atendimento |
+| Construção | Solicitar orçamento · Informar a obra |
+| Alimentação | Fazer pedido · Consultar cardápio |
+| Serviço profissional | Solicitar atendimento · Agendar consulta |
+
+Todo CTA leva ao funil apropriado.
+
+### 21.3 O funil é parte do produto do cliente
+
+O funil é a ponte `interesse → necessidade → lead contextualizado`. Componentes
+genéricos não podem injetar automaticamente links diretos de telefone/WhatsApp
+que destruam esse fluxo.
+
+### 21.4 CONTACT_FUNNEL_GATE
+
+```text
+[ ] CTA principal aponta para o funil correto
+[ ] CTAs intermediários preservam o contexto do projeto
+[ ] telefone não possui link `tel:` por padrão
+[ ] WhatsApp direto não bypassa o funil
+[ ] mensagem final contém contexto coletado
+[ ] nenhum componente genérico criou contato paralelo
+```
+
+## 22. Adendo obrigatório — evidência não é material de design
+
+Imagem enviada pelo proprietário para comprovar identidade, informação ou
+contexto **não vira automaticamente** mídia principal da landing. Foto de placa,
+banner, panfleto, cartão, fachada, tela ou anúncio costuma ser ótima evidência e
+péssima mídia editorial.
+
+### 22.1 Finalidade obrigatória do asset
+
+```text
+EVIDENCE_ONLY · BRAND_REFERENCE · REAL_BUSINESS_MEDIA · EDITORIAL_MEDIA
+COVER_MEDIA · OG_MEDIA · GENERATED_CONTEXTUAL_MEDIA
+```
+
+Uma foto usada para extrair logo, cores e serviços é `BRAND_REFERENCE`; isso não
+a torna `EDITORIAL_MEDIA`.
+
+### 22.2 Prioridade visual
+
+```text
+1. foto real de alta qualidade diretamente relacionada
+2. foto pública real corretamente atribuída
+3. asset oficial da marca em boa qualidade
+4. mídia editorial produzida especificamente para a página
+5. mídia contextual licenciada
+6. composição gráfica própria
+7. material de referência de baixa qualidade
+```
+
+Material de referência só aparece quando tiver valor documental real e não
+houver alternativa melhor. Quando surgirem alternativas melhores (fotos reais do
+Google, do estabelecimento, equipamentos, bancada, identidade limpa, mídia
+editorial própria), a foto de referência sai da apresentação principal.
+
+### 22.3 "Real" não é sinônimo de "bom"
+
+Avaliar qualidade, enquadramento, resolução, ruído, perspectiva, legibilidade,
+função narrativa, impacto e adequação ao layout. Foto real ruim pode ser
+preservada como evidência, mas sai do Hero e dos grandes blocos visuais.
+
+### 22.4 Avaliação editorial de encantamento
+
+Ter Hero, cards, texto, imagens e testes verdes não conclui o Blueprint. É
+preciso responder: *a página transmite um site profissional, rico, autêntico e
+criado especificamente para aquele negócio?* Avaliar impacto visual, riqueza de
+mídia, ritmo, composição, hierarquia, profundidade, identidade, variedade,
+motion, coerência e percepção premium.
+
+### 22.5 MEDIA_PURPOSE_GATE
+
+```text
+[ ] nenhuma imagem de referência fraca domina a página sem justificativa
+[ ] fotos reais de melhor qualidade foram priorizadas
+[ ] crops repetidos não simulam variedade
+[ ] mídia gerada está corretamente classificada
+[ ] capa representa o segmento
+[ ] Hero utiliza o melhor asset disponível
+[ ] material de placa/banner não está sendo usado apenas porque foi fornecido primeiro
+```
+
+### 22.6 Filosofia
+
+- Contato: exibir informação não é abrir atalho que bypassa o funil.
+- Mídia: existir como evidência não é merecer destaque visual.
+- Qualidade: usar o melhor material disponível — real, público, editorial ou
+  gerado — sem confundir evidência com decoração.
