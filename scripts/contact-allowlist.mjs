@@ -43,11 +43,13 @@ export const CLIENT_CHUNK_PREFIXES = [
   "portfolio.dyzpromo",
   "CarecasInfotecPage",
   "portfolio.carecas-infotec",
+  "MoreiraAutoMecanicaPage",
+  "portfolio.moreira-auto-mecanica",
 ];
 
 /** Telefone formatado de cliente autorizado ou do contato comercial oficial. */
 export const CLIENT_ALLOWED_PHONE =
-  /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277|9507-?2700))$/;
+  /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277|9507-?2700|9794-?0764))$/;
 
 /** Chunks do painel autenticado (leaks viram warning, não erro). */
 export const ADMIN_CHUNK_PREFIXES = [
