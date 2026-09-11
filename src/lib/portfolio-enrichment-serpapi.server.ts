@@ -146,7 +146,7 @@ export async function fetchPlace(placeId: string): Promise<NormalizedPlace> {
     placeId: r['place_id'] ?? placeId,
     dataId: r['data_id'] ?? null,
     name: r['title'] ?? null,
-    category: r['type'] ?? (Array.isArray(r['types']) ? r['types'][0] : null) ?? null,
+    category: Array.isArray(r['type']) ? r['type'].join(", ") : (r['type'] ?? r['category'] ?? null),
     address: r['address'] ?? null,
     phone: r['phone'] ?? null,
     website: r['website'] ?? null,

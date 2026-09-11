@@ -1,15 +1,13 @@
 {
   "slug": "carecas-infotec",
   "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
-  "generatedAt": "2026-09-11T02:46:38.620Z",
+  "generatedAt": "2026-09-11T02:46:54.355Z",
   "provider": "serpapi",
   "place": {
     "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
     "dataId": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880",
     "name": "Careca´s Infotec",
-    "category": [
-      "Assistência Técnica de Informática"
-    ],
+    "category": "Assistência Técnica de Informática",
     "address": "Rua Margarida Petrelli Fogiatto 118 - Santo Antônio, São José dos Pinhais - PR, 83020-600",
     "phone": "(41) 99507-2700",
     "website": null,
@@ -33,7 +31,7 @@
       "provider": "serpapi",
       "engine": "google_maps",
       "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=place&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&gl=br",
-      "fetchedAt": "2026-09-11T02:46:37.419Z",
+      "fetchedAt": "2026-09-11T02:46:54.335Z",
       "sourceUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br"
     }
   },
@@ -128,7 +126,7 @@
       "provider": "serpapi",
       "engine": "google_maps_reviews",
       "requestUrl": "https://serpapi.com/search.json?engine=google_maps_reviews&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&sort_by=qualityScore",
-      "fetchedAt": "2026-09-11T02:46:38.620Z",
+      "fetchedAt": "2026-09-11T02:46:54.355Z",
       "sourceUrl": null
     }
   },
