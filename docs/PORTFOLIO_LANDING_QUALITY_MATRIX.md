@@ -293,3 +293,21 @@ Complementos avaliados nessas dimensões: `experience.visualRhythm`,
 `experience.signatureMoments[]`, `mediaNarrative` por asset, `qualityProfile` e
 continuidade de conversão (CTA contextual em todos os pontos, sempre pelo funil
 individual).
+
+## 22. Dimensão de motion (adendo)
+
+Definida em `docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md`:
+
+```text
+MOTION_DESIGN
+```
+
+Além da dimensão, `docs/portfolio/quality-matrix/<slug>.json` passa a conter o
+bloco `motion` com `profile` (motion profile do projeto), `narrativeRoles`,
+`gate` (MOTION_QUALITY_GATE, 13 itens) e `qualityProfile` de motion
+(`motionIntensity`, `motionPurpose`, `interactionDensity`, `scrollExperience`,
+`microinteractionQuality`, `reducedMotionCoverage`, `motionPerformance`).
+
+Ausência ou checklist incompleta é **warning** com `contractVersion < 3` e
+**FAIL** a partir de `contractVersion >= 3`. Nenhum projeto legado é migrado
+por causa desta dimensão.

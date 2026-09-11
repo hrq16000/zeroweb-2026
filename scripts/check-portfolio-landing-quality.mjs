@@ -63,6 +63,101 @@ export const EXPERIENCE_DIMENSIONS = [
 
 const EXPERIENCE_REQUIRED_FROM_CONTRACT = 3;
 
+/**
+ * Motion — docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md.
+ * Dimensão de matriz + MOTION_QUALITY_GATE (§15).
+ */
+export const MOTION_DIMENSION = "MOTION_DESIGN";
+
+export const MOTION_PROFILE_FIELDS = [
+  "intensity",
+  "personality",
+  "entrance",
+  "scroll",
+  "hover",
+  "typography",
+  "media",
+  "transitions",
+  "signatureEffects",
+  "reducedMotionStrategy",
+];
+
+export const MOTION_GATE_CHECKS = [
+  "motionProfileDefined",
+  "effectsMatchBrand",
+  "entranceNotRepetitive",
+  "contextualMicrointeraction",
+  "signatureMotion",
+  "ctaFeedback",
+  "mobileAdapted",
+  "reducedMotionCovered",
+  "contentAccessibleWithoutMotion",
+  "noTransformOverflow",
+  "noHeavyDependency",
+  "noPerformanceRegression",
+  "noAggressiveLoop",
+];
+
+export const MOTION_QUALITY_PROFILE_KEYS = [
+  "motionIntensity",
+  "motionPurpose",
+  "interactionDensity",
+  "scrollExperience",
+  "microinteractionQuality",
+  "reducedMotionCoverage",
+  "motionPerformance",
+];
+
+/** Retorna { failures, warnings } do MOTION_QUALITY_GATE. */
+export function evaluateMotion(matrix, contractVersion) {
+  const failures = [];
+  const warnings = [];
+  const required = Number(contractVersion) >= EXPERIENCE_REQUIRED_FROM_CONTRACT;
+  const push = (msg) => (required ? failures : warnings).push(msg);
+
+  const motion = matrix?.motion;
+  if (!motion) {
+    push("motion: bloco ausente na matriz (adendo de motion §15)");
+    return { failures, warnings };
+  }
+
+  const profile = motion.profile;
+  if (!profile) {
+    push("motion: motionProfile não declarado (adendo de motion §4)");
+  } else {
+    for (const field of MOTION_PROFILE_FIELDS) {
+      const value = profile[field];
+      const empty =
+        value === undefined ||
+        value === null ||
+        (typeof value === "string" && !value.trim()) ||
+        (Array.isArray(value) && value.length === 0);
+      if (empty) push(`motion: motionProfile.${field} vazio`);
+    }
+    const signature = profile.signatureEffects;
+    if (Array.isArray(signature) && signature.length > 3) {
+      push("motion: mais de 3 signatureEffects (adendo de motion §5)");
+    }
+  }
+
+  for (const check of MOTION_GATE_CHECKS) {
+    const entry = motion.gate?.[check];
+    const status = typeof entry === "string" ? entry : entry?.status;
+    if (!status) {
+      push(`MOTION_QUALITY_GATE: item não avaliado — ${check}`);
+      continue;
+    }
+    if (status === "FAIL") failures.push(`MOTION_QUALITY_GATE: ${check} FAIL`);
+    if (status === "WARNING") warnings.push(`MOTION_QUALITY_GATE: ${check} warning`);
+  }
+
+  for (const key of MOTION_QUALITY_PROFILE_KEYS) {
+    if (!motion.qualityProfile?.[key]) push(`motion: qualityProfile.${key} ausente (adendo de motion §14)`);
+  }
+
+  return { failures, warnings };
+}
+
 const STATUSES = new Set(["PASS", "WARNING", "FAIL", "NOT_APPLICABLE"]);
 
 export function evaluateMatrix(slug, matrix, options = {}) {
@@ -105,6 +200,25 @@ export function evaluateMatrix(slug, matrix, options = {}) {
   }
 
 
+
+  {
+    const entry = matrix.dimensions?.[MOTION_DIMENSION];
+    if (!entry || !STATUSES.has(entry.status)) {
+      const message = `dimensão não avaliada: ${MOTION_DIMENSION} (adendo de motion §15)`;
+      if (contractVersion >= EXPERIENCE_REQUIRED_FROM_CONTRACT) failures.push(message);
+      else warnings.push(message);
+    } else if (entry.status === "FAIL") {
+      failures.push(`${MOTION_DIMENSION}: FAIL — ${entry.notes ?? "sem nota"}`);
+    } else if (entry.status === "WARNING") {
+      warnings.push(`${MOTION_DIMENSION}: ${entry.notes ?? "warning"}`);
+    }
+  }
+
+  {
+    const motion = evaluateMotion(matrix, contractVersion);
+    failures.push(...motion.failures);
+    warnings.push(...motion.warnings);
+  }
 
   // Hero e Cover são avaliados separadamente (§7 e §8).
   for (const key of ["hero", "cover"]) {
