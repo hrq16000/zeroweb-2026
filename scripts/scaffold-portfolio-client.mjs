@@ -157,9 +157,25 @@ ${heroImageBlock}        ctaLabel: "${ctaLabel}",
     },`;
       }
       return `${base}
+      const body = {
+        capabilities: `        groups: [
+          { title: "TODO: eixo real", items: ["TODO: capacidade verificada"] },
+        ],`,
+        useCases: `        items: [
+          {
+            title: "TODO: caso real",
+            text: "TODO: descrever o que foi feito, sem inventar resultado.",
+          },
+        ],`,
+        process: `        steps: [
+          { title: "TODO: etapa 1", text: "TODO: como o atendimento começa.", meta: "01" },
+        ],`,
+      }[slot.type] ?? "";
+      return `${base}
       content: {
         title: "TODO: título real desta seção",
         intro: "TODO: conteúdo real — sem prova, número ou prazo sem fonte.",
+${body}
       },
     },`;
     })
