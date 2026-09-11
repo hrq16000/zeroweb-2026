@@ -110,6 +110,7 @@ export const blueprint: PortfolioBlueprint = {
     nav: [
       { label: "Equipamentos", href: "#equipamentos" },
       { label: "Quando procurar", href: "#quando-procurar" },
+      { label: "Atendimento", href: "#atendimento" },
       { label: "Como funciona", href: "#como-funciona" },
       { label: "Dúvidas", href: "#duvidas" },
     ],
