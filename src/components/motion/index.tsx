@@ -167,17 +167,33 @@ export function MotionReveal({
       {...motionDataAttrs("reveal", state, resolved)}
       style={{
         opacity: active ? 1 : 0,
-        transform: active || reduced ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
+        transform:
+          horizontal || active || reduced
+            ? "none"
+            : hiddenTransform(variant, tune.distance, tune.scale),
         clipPath: useMask ? (active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)") : undefined,
         transition: reduced
           ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
           : `opacity ${tune.duration}ms ${ENTER} ${delay}ms, transform ${tune.duration}ms ${ENTER} ${delay}ms, clip-path ${tune.duration}ms ${ENTER} ${delay}ms`,
-        overflowX: horizontal && !active && !reduced ? "clip" : undefined,
+        // O deslocamento horizontal acontece em um filho recortado: assim o
+        // bloco nunca empurra a largura da página (§zero overflow lateral).
+        overflowX: horizontal ? "clip" : undefined,
         willChange: active ? undefined : "transform, opacity",
         ...style,
       }}
     >
-      {children}
+      {horizontal && !reduced ? (
+        <div
+          style={{
+            transform: active ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
+            transition: `transform ${tune.duration}ms ${ENTER} ${delay}ms`,
+          }}
+        >
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </Tag>
   );
 }
