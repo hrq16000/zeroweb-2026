@@ -1,6 +1,6 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-11T03:32:29.863Z
+Gerado em 2026-09-11T05:38:32.546Z
 
 - Projetos auditados: **90**
 - PASS: **90** · WARNING: **0** · FAIL: **0**
