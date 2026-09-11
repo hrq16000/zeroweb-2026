@@ -1273,6 +1273,24 @@
       "tabletBehavior": "A fotografia segue após o manifesto e as linhas da planta tornam-se decoração de fundo.",
       "mobileBehavior": "Não há deslocamento por toque: ordem, texto e CTA permanecem no fluxo vertical."
     },
+    "moreira-auto-mecanica": {
+      "intensity": "BALANCED",
+      "preset": "INDUSTRIAL",
+      "heroMotion": "asymmetric",
+      "sectionReveal": "up",
+      "imageReveal": "scale",
+      "textReveal": "block",
+      "iconMotion": "none",
+      "hoverBehavior": "border",
+      "depthBehavior": "layered",
+      "scrollBehavior": "sticky",
+      "staggerPattern": "sequence",
+      "reducedMotionFallback": "opacityOnly",
+      "narrative": "linguagem de oficina: entradas retas e sequenciais, sem flutuação; a linha do tempo do agendamento avança da esquerda para a direita como uma esteira",
+      "desktopBehavior": "hero assimétrico com painel de texto entrando antes da mídia; processo com coluna fixa e passos em sequência",
+      "tabletBehavior": "mesma sequência em coluna única, sem sticky",
+      "mobileBehavior": "revelações curtas, sem parallax e sem hover no toque"
+    },
     "carecas-infotec": {
       "intensity": "BALANCED",
       "preset": "EDITORIAL",
