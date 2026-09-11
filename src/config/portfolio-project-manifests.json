@@ -169,31 +169,66 @@
       "slug": "jkl-decor",
       "lifecycleContract": 1,
       "contractVersion": 3,
-      "stage": "draft",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
-        "entityDiscovery": "not_started",
-        "entityResolution": "not_started",
-        "evidence": "not_started",
-        "media": "not_started",
-        "mediaPlan": "not_started",
-        "content": "not_started",
-        "discovery": "not_started",
-        "blueprint": "not_started",
-        "seo": "not_started",
-        "funnel": "not_started",
-        "cover": "not_started",
-        "qa": "not_started",
-        "publish": "not_started"
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "complete",
+        "publish": "complete"
       },
       "blockers": [],
-      "warnings": [],
-      "ownerRequired": [],
-      "searchQa": [],
+      "warnings": [
+        "fotos de terceiros na ficha pública do Google: uso editorial atribuído; autorização do proprietário não cria licença",
+        "condições comerciais são informação declarada pelo cliente, publicadas com autoria explícita por autorização do responsável",
+        "nenhum perfil social resolvido (descoberta bloqueada por erro do provedor)"
+      ],
+      "ownerRequired": [
+        "enviar fotos próprias em alta resolução para substituir as fotos de terceiros",
+        "confirmar perfil oficial nas redes sociais",
+        "enviar logotipo oficial, se existir",
+        "confirmar por escrito prazo, parcelamento e cobertura da garantia"
+      ],
+      "searchQa": [
+        {
+          "query": "JKL Decor",
+          "expect": "must_find",
+          "slug": "jkl-decor"
+        },
+        {
+          "query": "móveis planejados",
+          "expect": "must_find",
+          "slug": "jkl-decor"
+        },
+        {
+          "query": "cozinha planejada em MDF",
+          "expect": "must_find",
+          "slug": "jkl-decor"
+        },
+        {
+          "query": "nichos para quarto",
+          "expect": "must_find",
+          "slug": "jkl-decor"
+        },
+        {
+          "query": "São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "jkl-decor"
+        }
+      ],
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": null,
-        "evaluatedAt": null
+        "status": "PASS",
+        "notes": "Render real em 390/768/1440: status 200, sem overflow, imagens íntegras, sem erros de console.",
+        "evaluatedAt": "2026-09-11"
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/jkl-decor.json",
