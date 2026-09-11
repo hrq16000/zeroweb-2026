@@ -181,8 +181,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-
-
 /* Entrada progressiva dos projetos do portfólio: a seção só ganha movimento
    quando se aproxima da viewport. O fallback mantém a página totalmente
    visível em navegadores sem scroll-driven animations. */
