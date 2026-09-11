@@ -87,7 +87,7 @@
     "zz-lifecycle-test": {
       "slug": "zz-lifecycle-test",
       "lifecycleContract": 1,
-      "stage": "draft",
+      "stage": "ready",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "not_started",
