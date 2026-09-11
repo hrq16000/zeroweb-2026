@@ -396,6 +396,69 @@ export const blueprint: PortfolioBlueprint = {
       },
     },
     {
+      /**
+       * Prova social VERIFICADA. Nota, contagem e textos vêm da ficha pública
+       * do Google (Place ID ChIJjxhi67_73JQRgGgv4G2-G18), ingerida server-side.
+       * Nada é reescrito: autoria, texto, mês da publicação e origem são os do
+       * próprio Google. A nota agregada não é publicada em Schema.org.
+       */
+      type: "proof",
+      variant: "reviews",
+      order: 55,
+      id: "avaliacoes",
+      motion: { reveal: "up", stagger: 80 },
+      content: {
+        eyebrow: "Avaliações públicas",
+        title: "O que os clientes registraram no Google.",
+        intro:
+          "Avaliações públicas da ficha da Careca's Infotec no Google, exibidas como foram escritas pelos próprios clientes.",
+        summary: {
+          value: "4,9",
+          count: "43 avaliações",
+          label: "Assistência Técnica de Informática",
+          sourceLabel: "Ver a ficha no Google",
+          sourceHref: GOOGLE_PLACE_URL,
+        },
+        items: [
+          {
+            author: "Daniel Strapasson",
+            rating: 5,
+            text: "Excelente experiência! Fiz alguns serviços nessa loja de celulares e o atendimento foi impecável. Resolveram tudo com rapidez, qualidade e transparência. Hoje é difícil encontrar lugares assim, mas aqui realmente passam confiança. Recomendo de olhos fechados!",
+            date: "março de 2026",
+            sourceLabel: "Ver no Google",
+            sourceHref: GOOGLE_PLACE_URL,
+          },
+          {
+            author: "Wesley Rodrigues",
+            rating: 5,
+            text: "Precisei trocar a tela do meu celular e ficou impecável a qualidade do serviço, super recomendo",
+            date: "março de 2026",
+            sourceLabel: "Ver no Google",
+            sourceHref: GOOGLE_PLACE_URL,
+          },
+          {
+            author: "Nutrigene Do Brasil",
+            rating: 5,
+            text: "Fui muito bem atendida, serviço rápido e profissional.",
+            date: "abril de 2026",
+            sourceLabel: "Ver no Google",
+            sourceHref: GOOGLE_PLACE_URL,
+          },
+          {
+            author: "sandra friedrich",
+            rating: 5,
+            text: "Gostei muito, realmente ótimo, moro em curitiba, motoboy veio buscar e trazer o celular, perfeito, rápido e excelente serviço, podem confiar",
+            date: "novembro de 2023",
+            sourceLabel: "Ver no Google",
+            sourceHref: GOOGLE_PLACE_URL,
+          },
+        ],
+        attribution:
+          "Avaliações públicas no Google, atribuídas aos autores originais. Nota 4,9 com 43 avaliações registradas na ficha pública em setembro de 2026.",
+        ctaLabel: "Falar com a assistência",
+      },
+    },
+    {
       type: "authority",
       variant: "split",
       order: 60,
@@ -405,11 +468,15 @@ export const blueprint: PortfolioBlueprint = {
         eyebrow: "Careca's Infotec em São José dos Pinhais",
         title: "Assistência técnica especializada, com atendimento de quem executa.",
         paragraphs: [
-          "A Careca's Infotec atende celular, computador, notebook, impressora, monitor, tablet e videogame, além de recarga de cartucho e toner, em São José dos Pinhais — PR.",
+          "A Careca's Infotec atende celular, computador, notebook, impressora, monitor, tablet e videogame, além de recarga de cartucho e toner, no bairro Santo Antônio, em São José dos Pinhais — PR.",
           "O primeiro contato é feito pelo formulário desta página: você descreve o aparelho e o defeito percebido, e a equipe responde para combinar o atendimento.",
         ],
         points: [
-          { title: "Onde", text: "São José dos Pinhais — PR.", icon: MapPin },
+          {
+            title: "Onde",
+            text: "Rua Margarida Petrelli Fogiatto, 118 — Santo Antônio, São José dos Pinhais — PR.",
+            icon: MapPin,
+          },
           { title: "Como começar", text: "Envie o relato pelo formulário e combine o atendimento.", icon: Wrench },
         ],
         /**
@@ -424,8 +491,44 @@ export const blueprint: PortfolioBlueprint = {
           height: 550,
         },
         footnote:
-          "Endereço completo, horário de funcionamento e canais oficiais serão publicados assim que confirmados pelo próprio negócio.",
+          "Endereço, telefone e horários conferem com a ficha pública da Careca's Infotec no Google. Garantia, prazos e marcas atendidas não são publicados enquanto não forem confirmados pelo próprio negócio.",
         ctaLabel: "Combinar atendimento",
+      },
+    },
+    {
+      /** Localização e horários — ficha pública do Google, verificada. */
+      type: "location",
+      variant: "panel",
+      order: 65,
+      id: "onde-estamos",
+      motion: { reveal: "up", stagger: 80 },
+      content: {
+        eyebrow: "Onde estamos",
+        title: "Atendimento presencial no Santo Antônio.",
+        intro:
+          "A loja fica em São José dos Pinhais e atende de segunda a sábado. Você pode enviar o relato antes pelo formulário e levar o aparelho já com o atendimento combinado.",
+        address: [
+          "Rua Margarida Petrelli Fogiatto, 118",
+          "Santo Antônio — São José dos Pinhais — PR",
+          "CEP 83020-600",
+        ],
+        hours: [
+          { days: "Segunda a sexta", hours: "08:00 – 18:00" },
+          { days: "Sábado", hours: "09:00 – 18:00" },
+          { days: "Domingo", hours: "Fechado" },
+        ],
+        contact: [
+          { label: "Telefone", value: "(41) 99507-2700", href: PHONE_HREF },
+        ],
+        mapsLink: { label: "Como chegar", href: GOOGLE_PLACE_URL },
+        image: {
+          src: "/images/carecas-infotec/gen-hardware-diagnostico.jpg",
+          alt: "Ilustração técnica: placa-mãe com memórias, chave de precisão e pinça sobre bancada escura",
+          width: 1600,
+          height: 1008,
+        },
+        note: "Endereço, telefone e horários conferidos na ficha pública da Careca's Infotec no Google em setembro de 2026.",
+        ctaLabel: "Enviar o relato antes de ir",
       },
     },
     {
