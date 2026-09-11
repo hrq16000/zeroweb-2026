@@ -34,6 +34,8 @@ export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: Portfolio
         className="min-h-dvh bg-background text-foreground"
         style={blueprint.theme}
         data-blueprint={blueprint.slug}
+        data-motion="scope"
+        data-motion-intensity={layout.motionIntensity ?? "BALANCED"}
       >
         <header className="sticky top-0 z-30 border-b border-border bg-background/85 px-5 backdrop-blur md:px-10">
           <div className={cn("mx-auto flex min-h-20 items-center justify-between gap-4", maxWidth)}>
