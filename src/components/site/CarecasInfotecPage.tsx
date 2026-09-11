@@ -391,6 +391,17 @@ export const blueprint: PortfolioBlueprint = {
           { title: "Onde", text: "São José dos Pinhais — PR.", icon: MapPin },
           { title: "Como começar", text: "Envie o relato pelo formulário e combine o atendimento.", icon: Wrench },
         ],
+        /**
+         * Única fotografia real do negócio (faixa oficial enviada pelo
+         * proprietário). Papel secundário: evidência institucional de
+         * identidade, não abertura da página.
+         */
+        image: {
+          src: "/images/carecas-infotec/banner.webp",
+          alt: "Faixa oficial da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
+          width: 1240,
+          height: 550,
+        },
         footnote:
           "Endereço completo, horário de funcionamento e canais oficiais serão publicados assim que confirmados pelo próprio negócio.",
         ctaLabel: "Combinar atendimento",
@@ -406,7 +417,15 @@ export const blueprint: PortfolioBlueprint = {
         title: "Tecnologia em boas mãos.",
         text: "Em poucos toques você informa o aparelho, o que está acontecendo e o melhor momento para o atendimento.",
         ctaLabel: "Solicitar atendimento",
+        /** GENERATED_CONTEXTUAL_MEDIA — textura de fundo, não evidência. */
+        image: {
+          src: "/images/carecas-infotec/gen-cta-textura.jpg",
+          alt: "",
+          width: 1920,
+          height: 900,
+        },
       },
+
     },
     {
       type: "faq",
