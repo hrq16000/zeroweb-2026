@@ -101,7 +101,12 @@ function evaluate(slug, manifest) {
     const notSearched = Object.entries(enrichment.researchLedger)
       .filter(([, v]) => v && v.searched === false)
       .map(([k]) => k);
-    if (notSearched.length) blockers.push(`pesquisa não realizada: ${notSearched.join(", ")}`);
+    if (notSearched.length) {
+      // searched=false NUNCA conclui a etapa (ausência de dado é válida;
+      // ausência de pesquisa não é).
+      checks.entityResearchDone = false;
+      blockers.push(`pesquisa não realizada: ${notSearched.join(", ")}`);
+    }
   }
   for (const step of RESEARCH_STEPS) {
     const state = manifest.lifecycle?.[step];
