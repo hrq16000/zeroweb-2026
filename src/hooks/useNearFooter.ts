@@ -22,7 +22,9 @@ export function useNearFooter(): boolean {
       const footer =
         document.querySelector("[data-portfolio-canonical-footer]") ??
         document.querySelector("footer.bg-foreground") ??
-        document.querySelector("footer");
+        document.querySelector("footer") ??
+        // Landings Blueprint terminam no crédito da hospedagem, sem <footer>.
+        document.querySelector("[data-portfolio-host-credit]");
       if (!footer) return false;
       observer = new IntersectionObserver(([entry]) => setNearFooter(entry.isIntersecting), {
         threshold: 0.05,
