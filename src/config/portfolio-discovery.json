@@ -2,19 +2,8 @@
   "doc": "Índice de descoberta do /portfolio. NÃO é fonte canônica: o catálogo continua sendo a verdade sobre cada projeto. Aqui ficam apenas termos de intenção (serviços, equipamentos, problemas, casos de uso e apelidos) usados para ranquear a busca interna. Só cadastre termos realmente associados ao negócio — relação falsa aqui vira resultado falso na busca.",
   "projects": {
     "carecas-infotec": {
-      "aliases": [
-        "Careca's Infotec",
-        "Carecas Infotec",
-        "Careca Infotec",
-        "Careca's",
-        "Infotec"
-      ],
-      "categories": [
-        "assistência técnica",
-        "informática",
-        "tecnologia",
-        "eletrônicos"
-      ],
+      "aliases": ["Careca's Infotec", "Carecas Infotec", "Careca Infotec", "Careca's", "Infotec"],
+      "categories": ["assistência técnica", "informática", "tecnologia", "eletrônicos"],
       "services": [
         "assistência técnica",
         "conserto",
@@ -70,25 +59,7 @@
         "recarregar toner",
         "assistência para videogame"
       ],
-      "keywords": [
-        "informática",
-        "eletrônica",
-        "manutenção de computadores",
-        "assistência de celular"
-      ]
-    },
-    "zz-lifecycle-test": {
-      "aliases": [
-        "ZZ Lifecycle Test"
-      ],
-      "categories": [],
-      "services": [],
-      "equipment": [],
-      "products": [],
-      "problems": [],
-      "useCases": [],
-      "locality": [],
-      "keywords": []
+      "keywords": ["informática", "eletrônica", "manutenção de computadores", "assistência de celular"]
     }
   }
 }
