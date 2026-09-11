@@ -84,7 +84,9 @@ export type CtaPlacement =
   | "location"
   | "cta"
   | "faq"
-  | "inline";
+  | "inline"
+  /** Acesso persistente ao funil (adendo de autonomia §10). */
+  | "floating";
 
 export type CtaRenderOptions = {
   children: ReactNode;
@@ -357,6 +359,15 @@ export type PortfolioBlueprint = {
     /** Largura de leitura padrão das seções que não são full bleed. */
     maxWidth?: string;
     headerCtaLabel?: string;
+    /**
+     * Acesso persistente ao funil (adendo de autonomia §10–§13).
+     * Decisão explícita: `enabled` com rótulo contextual ou desativado com
+     * razão registrada. O destino é sempre o funil individual do projeto —
+     * nunca telefone, WhatsApp ou link externo.
+     */
+    floatingConversion?:
+      | { mode: "enabled"; label: string; hint?: string }
+      | { mode: "disabled"; reason: string };
   };
   sections: BlueprintSection[];
   renderCta: BlueprintCtaRenderer;

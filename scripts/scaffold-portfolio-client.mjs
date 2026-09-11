@@ -108,7 +108,12 @@ export const blueprint: PortfolioBlueprint = {
   slug: "${slug}",
   identity: { name: "${siteName}" },
   theme: {},
-  layout: { headerCtaLabel: "${ctaLabel}" },
+  layout: {
+    headerCtaLabel: "${ctaLabel}",
+    // TODO(autonomia §10): decidir explicitamente — { mode: "enabled", label: "<contextual>" }
+    // ou { mode: "disabled", reason: "<razão editorial>" }. O destino é sempre o funil.
+    floatingConversion: { mode: "disabled", reason: "SCAFFOLD: decisão pendente" },
+  },
   sections: [
     {
       // TODO(direção criativa): escolher variant a partir do brief.
@@ -412,6 +417,28 @@ write(
         interactionLevel: null,
         localContext: null,
         conversionIntensity: null,
+      },
+      /**
+       * Adendo de autonomia — docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md.
+       * IDENTITY_COMPLETENESS_GATE · ABOVE_THE_FOLD_GATE ·
+       * MOTION_PRESENCE_GATE · STRUCTURAL_SKELETON_SIMILARITY ·
+       * PORTFOLIO_EMBED_GATE. Nenhum destes é opcional para contrato >= 3.
+       */
+      autonomy: {
+        doc: "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+        identity: {
+          // REAL_LOGO | NORMALIZED_LOGO | WORDMARK_CREATED | BRANDMARK_CREATED | TEXT_ONLY_INTENTIONAL
+          decision: null,
+          asset: null,
+          provenance: null,
+          evidence: null,
+        },
+        aboveTheFold: { status: null, visualStrategy: null, notes: null },
+        // MOTION_DECLARED | MOTION_IMPLEMENTED | MOTION_OBSERVED
+        motionPresence: { state: null, evidence: [] },
+        floatingConversion: { mode: null, label: null, destination: "funnel", reason: null },
+        embed: { status: null, checkedAt: null, notes: null },
+        structuralSkeleton: { topology: [], rationale: null },
       },
       hero: { status: null, criteria: {} },
       cover: { status: null, criteria: {} },

@@ -8,6 +8,7 @@
 import { Fragment } from "react";
 import { MotionScope } from "@/components/motion";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { BlueprintFloatingCta } from "./BlueprintFloatingCta";
 import { renderBlueprintSection, type SectionContext } from "./sections";
 import type { PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 import { cn } from "@/lib/utils";
@@ -84,6 +85,14 @@ export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: Portfolio
             </Fragment>
           ))}
         </main>
+
+        {layout.floatingConversion?.mode === "enabled" ? (
+          <BlueprintFloatingCta
+            renderCta={blueprint.renderCta}
+            label={layout.floatingConversion.label}
+            hint={layout.floatingConversion.hint}
+          />
+        ) : null}
 
         {blueprint.afterContent}
       </div>

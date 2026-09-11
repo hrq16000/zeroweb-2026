@@ -226,6 +226,17 @@ function evaluate(slug, manifest) {
   }
   warnings.push(...matrixResult.warnings.map((w) => `quality matrix — ${w}`));
 
+  // --- adendo de autonomia (docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md §31)
+  // As mensagens detalhadas vêm do quality gate; aqui ficam os estados visíveis.
+  const autonomy = matrix?.autonomy ?? {};
+  checks.identityCompleteness = Boolean(autonomy.identity?.decision);
+  checks.aboveTheFoldValid = autonomy.aboveTheFold?.status === "PASS";
+  checks.motionPresence = ["MOTION_IMPLEMENTED", "MOTION_OBSERVED"].includes(autonomy.motionPresence?.state);
+  checks.structuralSkeletonOriginal = !matrixResult.failures.some((f) => f.startsWith("STRUCTURAL_SKELETON"));
+  checks.portfolioEmbedValid =
+    autonomy.embed?.status === "PASS" && !matrixResult.failures.some((f) => f.includes("PORTFOLIO_EMBED"));
+  checks.floatingConversionDecided = Boolean(autonomy.floatingConversion?.mode);
+
   // --- estados do manifesto: blocked reprova, in_progress vira aviso
   for (const step of STEPS) {
     const state = manifest.lifecycle?.[step];

@@ -227,5 +227,21 @@
     "MEDIA_RIGHTS_THIRD_PARTY: as fotos vêm da ficha pública do Google e foram publicadas por terceiros. Autorização do proprietário do negócio NÃO cria licença sobre elas; o uso atual é editorial com fonte e atribuição declaradas.",
     "PUBLICAÇÃO NÃO DEPENDE DESSAS FOTOS: se o uso atribuído deixar de ser adequado, substituir por foto enviada pelo cliente ou por mídia contextual própria, sem alterar a narrativa das seções."
   ],
-  "lastUpdatedAt": "2026-09-11"
+  "lastUpdatedAt": "2026-09-11",
+  "heroMedia": {
+    "asset": "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+    "source": "Ficha pública do Google (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk)",
+    "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO — terceiro publicador, exibida com atribuição",
+    "narrativeRole": "ESTABLISH_CONTEXT — galpão real com carros em manutenção comunica segmento e atmosfera na primeira dobra",
+    "crop": "landscape 4:3, recorte assimétrico à direita do conteúdo",
+    "focalPoint": "centro-esquerda: elevador com veículo suspenso",
+    "mobileStrategy": "imagem acima do bloco de texto em 390px, altura contida, sem parallax"
+  },
+  "brandIdentity": {
+    "decision": "WORDMARK_CREATED",
+    "asset": "public/images/moreira-auto-mecanica/logo.png",
+    "provenance": "GENERATED_BRAND_ASSET",
+    "evidence": "Pesquisa pública (Google Maps, Google Search, Knowledge Graph, redes) não encontrou logotipo da oficina.",
+    "disclosure": "Identidade criada pela 0WEB para apresentação digital; não é marca histórica nem foi fornecida pelo proprietário. Logo real posterior substitui este asset."
+  }
 }

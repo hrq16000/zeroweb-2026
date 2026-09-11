@@ -15,6 +15,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { extractSkeleton, skeletonSimilarity, SKELETON_SIMILARITY_LIMIT } from "./portfolio-skeleton.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -159,6 +160,128 @@ export function evaluateMotion(matrix, contractVersion) {
 }
 
 const STATUSES = new Set(["PASS", "WARNING", "FAIL", "NOT_APPLICABLE"]);
+
+/**
+ * Adendo de autonomia (docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md).
+ * IDENTITY_COMPLETENESS_GATE · ABOVE_THE_FOLD_GATE · MOTION_PRESENCE_GATE ·
+ * STRUCTURAL_SKELETON_SIMILARITY · PORTFOLIO_EMBED_GATE.
+ */
+export const IDENTITY_DECISIONS = [
+  "REAL_LOGO",
+  "NORMALIZED_LOGO",
+  "WORDMARK_CREATED",
+  "BRANDMARK_CREATED",
+  "TEXT_ONLY_INTENTIONAL",
+];
+
+export const MOTION_PRESENCE_STATES = ["MOTION_DECLARED", "MOTION_IMPLEMENTED", "MOTION_OBSERVED"];
+
+export function evaluateAutonomy({
+  slug,
+  matrix,
+  componentSource = "",
+  catalogItem,
+  manifest,
+  peers = [],
+  contractVersion = 0,
+}) {
+  const failures = [];
+  const warnings = [];
+  const required = Number(contractVersion) >= EXPERIENCE_REQUIRED_FROM_CONTRACT;
+  const push = (msg) => (required ? failures : warnings).push(msg);
+  const autonomy = matrix?.autonomy;
+
+  if (!autonomy) {
+    push("autonomy: bloco ausente na matriz (adendo de autonomia §31)");
+    return { failures, warnings };
+  }
+
+  // IDENTITY_COMPLETENESS_GATE (§3–§6)
+  const identity = autonomy.identity ?? {};
+  if (!IDENTITY_DECISIONS.includes(identity.decision)) {
+    push(`IDENTITY_COMPLETENESS_GATE: decisão ausente/inválida (${IDENTITY_DECISIONS.join(" | ")})`);
+  } else if (identity.decision !== "TEXT_ONLY_INTENTIONAL") {
+    if (!identity.asset) push("IDENTITY_COMPLETENESS_GATE: decisão declara asset, mas nenhum arquivo registrado");
+    else if (!componentSource.includes(String(identity.asset).replace(/^public/, ""))) {
+      push("IDENTITY_COMPLETENESS_GATE: asset de identidade não é usado pela landing");
+    }
+    const generated = ["WORDMARK_CREATED", "BRANDMARK_CREATED"].includes(identity.decision);
+    if (generated && identity.provenance !== "GENERATED_BRAND_ASSET") {
+      push("IDENTITY_COMPLETENESS_GATE: identidade criada precisa de provenance GENERATED_BRAND_ASSET (§5)");
+    }
+  } else if (!identity.justification) {
+    push("IDENTITY_COMPLETENESS_GATE: TEXT_ONLY_INTENTIONAL exige justificativa editorial");
+  }
+
+  // ABOVE_THE_FOLD_GATE (§7–§9)
+  const atf = autonomy.aboveTheFold ?? {};
+  if (!STATUSES.has(atf.status)) push("ABOVE_THE_FOLD_GATE: não avaliado");
+  else if (atf.status === "FAIL") failures.push(`ABOVE_THE_FOLD_GATE: FAIL — ${atf.notes ?? "sem nota"}`);
+  else if (atf.status === "WARNING") warnings.push(`ABOVE_THE_FOLD_GATE: ${atf.notes ?? "warning"}`);
+  const heroMedia = matrix?.mediaPlanHeroMedia ?? autonomy.heroMedia;
+  if (atf.status === "PASS" && !heroMedia?.asset && atf.visualStrategy !== "TEXT_LED_JUSTIFIED") {
+    push("ABOVE_THE_FOLD_GATE: heroMedia não registrado (§9)");
+  }
+
+  // MOTION_PRESENCE_GATE (§14–§17)
+  const presence = autonomy.motionPresence ?? {};
+  if (!MOTION_PRESENCE_STATES.includes(presence.state)) {
+    push(`MOTION_PRESENCE_GATE: estado ausente (${MOTION_PRESENCE_STATES.join(" | ")})`);
+  } else if (presence.state === "MOTION_DECLARED") {
+    push("MOTION_PRESENCE_GATE: motion apenas declarado, sem consumo no runtime (§14)");
+  }
+  if (presence.state && presence.state !== "MOTION_DECLARED") {
+    const evidence = Array.isArray(presence.evidence) ? presence.evidence : [];
+    if (!evidence.length) push("MOTION_PRESENCE_GATE: sem evidência de comportamento executado (§15)");
+    if (!/motion:\s*\{/.test(componentSource)) {
+      push("MOTION_PRESENCE_GATE: nenhuma seção do Blueprint configura motion");
+    }
+  }
+
+  // STRUCTURAL_SKELETON_SIMILARITY (§18–§22) — medido no código, não declarado
+  const own = extractSkeleton(componentSource);
+  if (!own.length) push("STRUCTURAL_SKELETON: não foi possível extrair a topologia do componente");
+  for (const peer of peers) {
+    if (peer.slug === slug || !peer.skeleton?.length) continue;
+    const ratio = skeletonSimilarity(own, peer.skeleton);
+    if (ratio >= SKELETON_SIMILARITY_LIMIT) {
+      failures.push(
+        `STRUCTURAL_SKELETON_SIMILARITY: topologia ${(ratio * 100).toFixed(0)}% igual a ${peer.slug} (limite ${(SKELETON_SIMILARITY_LIMIT * 100).toFixed(0)}%)`,
+      );
+    } else if (ratio >= SKELETON_SIMILARITY_LIMIT - 0.1) {
+      warnings.push(`STRUCTURAL_SKELETON: ${(ratio * 100).toFixed(0)}% de proximidade com ${peer.slug}`);
+    }
+  }
+
+  // Conversão persistente (§10–§13)
+  const floating = autonomy.floatingConversion ?? {};
+  if (floating.mode === "enabled") {
+    if (!/floatingConversion:\s*\{[\s\S]{0,200}mode:\s*"enabled"/.test(componentSource)) {
+      push("floatingConversion declarado como enabled, mas ausente no Blueprint");
+    }
+    if (floating.destination && floating.destination !== "funnel") {
+      failures.push("floating CTA precisa apontar para o funil individual (§11)");
+    }
+  } else if (floating.mode === "disabled") {
+    if (!floating.reason) push("floatingConversion desativado sem razão registrada (§10)");
+  } else {
+    push("floatingConversion não avaliado (enabled | disabled-with-reason)");
+  }
+
+  // PORTFOLIO_EMBED_GATE (§23–§27)
+  const embed = autonomy.embed ?? {};
+  if (!STATUSES.has(embed.status)) push("PORTFOLIO_EMBED_GATE: não avaliado");
+  else if (embed.status === "FAIL") failures.push("P0 PORTFOLIO_EMBED_FAILURE: página vazia dentro de /portfolio (§25)");
+  const embeddable =
+    catalogItem?.live === true ||
+    catalogItem?.status === "published" ||
+    ["ready", "published"].includes(manifest?.stage ?? "");
+  if (!embeddable) {
+    failures.push("PORTFOLIO_EMBED_GATE: o card do catálogo não abriria a página no visualizador interno");
+  }
+
+  return { failures, warnings };
+}
 
 export function evaluateMatrix(slug, matrix, options = {}) {
   const failures = [];
@@ -305,16 +428,42 @@ export function evaluateProjectQuality(slug, matrix, options = {}) {
   const componentSource = client?.componentFile
     ? readFileSync(path.resolve(root, client.componentFile), "utf8")
     : "";
+  const mediaPlan = readJson(`docs/portfolio/media-plans/${slug}.json`, null);
   const policyResult = evaluatePolicyGates({
     slug,
     client,
     componentSource,
-    mediaPlan: readJson(`docs/portfolio/media-plans/${slug}.json`, null),
+    mediaPlan,
   });
+
+  // Adendo de autonomia: gates comparativos precisam do catálogo e dos pares.
+  const catalogRaw = readJson("src/config/portfolio-catalog.json", []);
+  const catalog = catalogRaw.projects ?? catalogRaw;
+  const peers = Object.keys(manifests)
+    .filter((peerSlug) => peerSlug !== slug)
+    .map((peerSlug) => {
+      const peerClient = clients.find((item) => item.slug === peerSlug);
+      const file = peerClient?.componentFile ? path.resolve(root, peerClient.componentFile) : null;
+      const source = file && existsSync(file) ? readFileSync(file, "utf8") : "";
+      return { slug: peerSlug, skeleton: extractSkeleton(source) };
+    });
+
+  const autonomyResult = evaluateAutonomy({
+    slug,
+    matrix: matrix ? { ...matrix, mediaPlanHeroMedia: mediaPlan?.heroMedia } : matrix,
+    componentSource,
+    catalogItem: catalog.find((item) => item.slug === slug),
+    manifest: manifests[slug],
+    peers,
+    contractVersion,
+  });
+
+  const failures = [...matrixResult.failures, ...policyResult.failures, ...autonomyResult.failures];
   return {
     ...matrixResult,
-    status: matrixResult.status === "PASS" && policyResult.status === "PASS" ? "PASS" : "FAIL",
-    failures: [...matrixResult.failures, ...policyResult.failures],
+    status: failures.length ? "FAIL" : "PASS",
+    failures,
+    warnings: [...matrixResult.warnings, ...autonomyResult.warnings],
     policyGates: policyResult,
   };
 }

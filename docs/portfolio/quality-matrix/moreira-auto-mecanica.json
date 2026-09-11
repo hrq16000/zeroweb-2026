@@ -329,5 +329,71 @@
       "reducedMotionCoverage": "FULL",
       "motionPerformance": "transform/opacity apenas; sem regressão observada"
     }
+  },
+  "autonomy": {
+    "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+    "identity": {
+      "decision": "WORDMARK_CREATED",
+      "asset": "public/images/moreira-auto-mecanica/logo.png",
+      "provenance": "GENERATED_BRAND_ASSET",
+      "evidence": "Sem logotipo público encontrado na pesquisa de entidade; wordmark original criado a partir de nome, segmento, personalidade e paleta do projeto."
+    },
+    "aboveTheFold": {
+      "status": "PASS",
+      "visualStrategy": "MEDIA_LED_ASYMMETRIC",
+      "notes": "Primeira dobra com wordmark, foto real do galpão, categoria, praça, nota pública e CTA do funil."
+    },
+    "motionPresence": {
+      "state": "MOTION_OBSERVED",
+      "evidence": [
+        "seções do Blueprint com bloco motion consumido pelo renderer",
+        "MotionReveal via IntersectionObserver (transform/opacity)",
+        "parallax de 26px no hero, apenas desktop",
+        "MotionCounter das 105 avaliações verificadas",
+        "scrollProgress na linha do tempo do atendimento",
+        "hover lift/zoom em ofertas e fotos"
+      ],
+      "observedAt": "2026-09-11",
+      "viewports": [
+        "390",
+        "768",
+        "1440"
+      ]
+    },
+    "floatingConversion": {
+      "mode": "enabled",
+      "label": "Descrever o problema",
+      "destination": "funnel",
+      "notes": "Aparece após 60% da primeira dobra, respeita safe-area, sem CLS; nunca telefone ou WhatsApp."
+    },
+    "embed": {
+      "status": "PASS",
+      "checkedAt": "2026-09-11",
+      "notes": "Card do catálogo abre a landing no visualizador interno; correção feita na abstração do catálogo (projeto gerenciado em ready é embutível), sem exceção por slug."
+    },
+    "structuralSkeleton": {
+      "topology": [
+        "hero.asymmetric",
+        "proof.reviews",
+        "useCases.imageGrid",
+        "offers.list",
+        "process.timeline",
+        "capabilities.band",
+        "signals.strip",
+        "location.panel",
+        "cta.panel",
+        "faq.accordion"
+      ],
+      "rationale": "Narrativa autoridade-primeiro: a oficina é indicada por vizinhos, então a prova pública abre a página, seguida dos sinais do problema, do que a oficina resolve e do fluxo de agendamento."
+    },
+    "heroMedia": {
+      "asset": "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+      "source": "Ficha pública do Google (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk)",
+      "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO — terceiro publicador, exibida com atribuição",
+      "narrativeRole": "ESTABLISH_CONTEXT — galpão real com carros em manutenção comunica segmento e atmosfera na primeira dobra",
+      "crop": "landscape 4:3, recorte assimétrico à direita do conteúdo",
+      "focalPoint": "centro-esquerda: elevador com veículo suspenso",
+      "mobileStrategy": "imagem acima do bloco de texto em 390px, altura contida, sem parallax"
+    }
   }
 }
