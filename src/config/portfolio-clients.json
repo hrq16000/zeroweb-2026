@@ -1188,20 +1188,5 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/jkl-decor.md"
-  },
-  {
-    "clientKey": "zz-motion-template-check",
-    "slug": "zz-motion-template-check",
-    "siteName": "ZZ Template Check",
-    "routeFile": "src/routes/portfolio.$slug.tsx",
-    "componentFile": "src/components/site/ZzMotionTemplateCheckPage.tsx",
-    "assetsDir": "public/images/zz-motion-template-check",
-    "ctaMode": "proposal",
-    "funnelType": "orcamento",
-    "contactMode": "funnelOnly",
-    "socialProofRequired": false,
-    "hostCaptureRequired": true,
-    "creativeContractVersion": 2,
-    "creativeBriefFile": "docs/portfolio/briefs/zz-motion-template-check.md"
   }
 ]

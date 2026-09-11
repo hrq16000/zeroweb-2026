@@ -2,8 +2,7 @@
 export const PORTFOLIO_CLIENT_KEYS = [
   
   
-  
-  "zz-motion-template-check","jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
+  "jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
   "ton-e-cor",
   "raphael-construcoes",
   "jc-revestimentos",
