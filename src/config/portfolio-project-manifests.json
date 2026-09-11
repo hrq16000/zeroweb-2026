@@ -164,6 +164,42 @@
         "motion": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md — motion profile 'mechanical-contained' declarado no Blueprint e avaliado na quality matrix (MOTION_DESIGN)."
       },
       "lastUpdatedAt": "2026-09-11"
+    },
+    "jkl-decor": {
+      "slug": "jkl-decor",
+      "lifecycleContract": 1,
+      "contractVersion": 3,
+      "stage": "draft",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "not_started",
+        "entityResolution": "not_started",
+        "evidence": "not_started",
+        "media": "not_started",
+        "mediaPlan": "not_started",
+        "content": "not_started",
+        "discovery": "not_started",
+        "blueprint": "not_started",
+        "seo": "not_started",
+        "funnel": "not_started",
+        "cover": "not_started",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "blockers": [],
+      "warnings": [],
+      "ownerRequired": [],
+      "searchQa": [],
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": null,
+        "evaluatedAt": null
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/jkl-decor.json",
+        "mediaPlan": "docs/portfolio/media-plans/jkl-decor.json"
+      },
+      "lastUpdatedAt": "2026-09-11"
     }
   }
 }
