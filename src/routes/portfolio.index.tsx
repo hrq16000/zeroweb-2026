@@ -35,6 +35,7 @@ import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
+import { trackEvent } from "@/lib/analytics";
 import { MotionCard, MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
 import {
   trackPortfolioSearch,
