@@ -24,11 +24,14 @@ export const PORTFOLIO_METRIC_SOURCES = {
   POPUP_OPEN_SOURCE: "analytics_events:popup_view",
   LEAD_SOURCE: "dynamic_form_leads.metadata_json.page_url|client_key",
   WHATSAPP_SOURCE: "whatsapp_redirect_tokens.used_at",
+  EMBED_OPEN_SOURCE: "analytics_events:portfolio_embed_open(location=slug)",
 } as const;
 
 export type PortfolioFunnelRow = {
   slug: string;
   views: number;
+  /** Aberturas do site do cliente dentro da vitrine /portfolio (iframe). */
+  embedOpens: number;
   ctaClicks: number;
   popupViews: number;
   leads: number;
@@ -86,6 +89,7 @@ function emptyRow(slug: string): PortfolioFunnelRow {
   return {
     slug,
     views: 0,
+    embedOpens: 0,
     ctaClicks: 0,
     popupViews: 0,
     leads: 0,
@@ -120,13 +124,21 @@ export const getPortfolioFunnelMetrics = createServerFn({ method: "GET" })
     // 1) Eventos de comportamento (view, CTA do cliente, pop-up da 0WEB).
     const { data: events, error: eventsError } = await context.supabase
       .from("analytics_events")
-      .select("event_name, path")
-      .in("event_name", Object.keys(EVENT_FIELD))
+      .select("event_name, path, location")
+      .in("event_name", [...Object.keys(EVENT_FIELD), "portfolio_embed_open"])
       .gte("created_at", since)
       .limit(50000);
     if (eventsError) throw new Error(eventsError.message);
 
     for (const row of events ?? []) {
+      // O embed é aberto em /portfolio; o slug vem de `location`.
+      if (row.event_name === "portfolio_embed_open") {
+        const embedSlug = typeof row.location === "string" ? row.location.trim() : "";
+        if (!embedSlug) continue;
+        if (data.slug && embedSlug !== data.slug) continue;
+        ensure(embedSlug).embedOpens += 1;
+        continue;
+      }
       const slug = slugFromPath((row.path as string) ?? "");
       if (!slug) continue;
       if (data.slug && slug !== data.slug) continue;
