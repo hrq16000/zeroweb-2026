@@ -47,9 +47,25 @@ export const DIMENSIONS = [
   "QA",
 ];
 
+/**
+ * Dimensões de experiência — docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md §19.
+ * FAIL sempre reprova. Ausência é warning enquanto contractVersion < 3.
+ */
+export const EXPERIENCE_DIMENSIONS = [
+  "CONTENT_DEPTH",
+  "VISUAL_RHYTHM",
+  "MEDIA_NARRATIVE",
+  "SECTION_VARIETY",
+  "SIGNATURE_MOMENTS",
+  "PROOF_DENSITY",
+  "CONVERSION_CONTINUITY",
+];
+
+const EXPERIENCE_REQUIRED_FROM_CONTRACT = 3;
+
 const STATUSES = new Set(["PASS", "WARNING", "FAIL", "NOT_APPLICABLE"]);
 
-export function evaluateMatrix(slug, matrix) {
+export function evaluateMatrix(slug, matrix, options = {}) {
   const failures = [];
   const warnings = [];
 
