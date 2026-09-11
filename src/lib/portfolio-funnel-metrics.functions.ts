@@ -210,6 +210,7 @@ export const getPortfolioFunnelMetrics = createServerFn({ method: "GET" })
     const totalViews = sum((r) => r.views);
     const totals = {
       views: totalViews,
+      embedOpens: sum((r) => r.embedOpens),
       ctaClicks: sum((r) => r.ctaClicks),
       popupViews: sum((r) => r.popupViews),
       leads: sum((r) => r.leads),
