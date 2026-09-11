@@ -1008,6 +1008,61 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       },
                     ]
                   : []),
+                /**
+                 * Moreira Auto Mecânica: dados da ficha pública do Google
+                 * (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk). Sem
+                 * aggregateRating/Review no schema — a prova social aparece na
+                 * página, com autoria e link para a origem.
+                 */
+                ...(isMoreiraAutoMecanica
+                  ? [
+                      {
+                        "@type": "AutoRepair",
+                        "@id": `${url}#localbusiness`,
+                        name: "Moreira Auto Mecânica",
+                        description,
+                        url,
+                        image: socialImage,
+                        telephone: "+55 41 99794-0764",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "R. Padre Alberto Müler, 279",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83035-070",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.5276571,
+                          longitude: -49.2128353,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "Neighborhood", name: "Cidade Jardim" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=Moreira%20Auto%20Mec%C3%A2nica&query_place_id=ChIJgYYezAz63JQRk2SRKP5Usqk",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:30",
+                          },
+                        ],
+                        paymentAccepted: "Cartão de crédito, cartão de débito, pagamento por aproximação (NFC)",
+                        makesOffer: [
+                          "Mecânica para carros",
+                          "Avaliação presencial do veículo",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
                 ...(isHeloaGas
                   ? [
                       {
