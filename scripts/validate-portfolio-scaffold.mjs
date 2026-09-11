@@ -19,6 +19,9 @@ const read = (p) => (existsSync(resolve(root, p)) ? readFileSync(resolve(root, p
 const errors = [];
 
 const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
+const lifecycleManifests =
+  JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
+const blueprintRegistrySource = read("src/components/portfolio/blueprint/registry.ts");
 const motionProfiles = JSON.parse(read("src/config/portfolio-motion-profiles.json") || "{}");
 const catalogProjects = (() => {
   const c = JSON.parse(read("src/config/portfolio-catalog.json") || "[]");

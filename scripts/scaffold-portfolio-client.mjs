@@ -487,7 +487,14 @@ console.log(`\n[scaffold:v2] ${siteName} → /portfolio/${slug}`);
 for (const file of written) console.log(`  + ${file}`);
 
 console.log(`
+Pipeline obrigatório (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
+  intake → entity discovery → entity resolution → public enrichment →
+  media discovery → content → search discovery → blueprint → funnel → seo →
+  cover/OG → qa → ready → publish
+
 Próximos passos obrigatórios:
+  0. Entity discovery + resolution e, só então, enrichment público
+     (node scripts/ingest-portfolio-serpapi.mjs --slug ${slug} --place-id <id>).
   1. Preencher ${creativeBriefFile} ANTES de desenhar a página.
   2. Substituir o workbench por composição autoral e remover CREATIVE_BRIEF_REQUIRED.
   3. Registrar catálogo + site registry + rota lazy.
