@@ -1,19 +1,19 @@
 {
-  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Stub do scaffold: nenhuma pesquisa realizada ainda.",
+  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Normalizado a partir de docs/portfolio/enrichment/serpapi/moreira-auto-mecanica.json.",
   "slug": "moreira-auto-mecanica",
-  "lastResearchAt": null,
+  "lastResearchAt": "2026-09-11",
   "researchLedger": {
     "googleEntity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "website": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -22,8 +22,8 @@
       "usable": false
     },
     "instagram": {
-      "searched": false,
-      "found": false,
+      "searched": true,
+      "found": true,
       "resolved": false,
       "verified": false,
       "accessible": false,
@@ -31,7 +31,7 @@
       "usable": false
     },
     "facebook": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -40,7 +40,7 @@
       "usable": false
     },
     "otherSocial": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -49,7 +49,7 @@
       "usable": false
     },
     "directories": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -58,124 +58,201 @@
       "usable": false
     },
     "phone": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "address": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "hours": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "services": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "products": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "media": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     },
     "reviews": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "identity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true
     }
   },
-  "identity": {},
+  "identity": {
+    "name": "Moreira Auto Mecânica",
+    "category": "Mecânica para carros",
+    "typeIds": ["car_repair"],
+    "logo": null,
+    "logoStatus": "NO_PUBLIC_BRAND_ASSET"
+  },
   "entity": {
-    "candidates": [],
-    "resolutionStatus": "UNRESOLVED",
-    "resolutionSignals": [],
+    "candidates": [
+      {
+        "name": "Moreira Auto Mecânica",
+        "placeId": "ChIJgYYezAz63JQRk2SRKP5Usqk",
+        "match": "EXACT"
+      }
+    ],
+    "resolutionStatus": "VERIFIED",
+    "resolutionSignals": [
+      "Place ID confirmado a partir do link oficial compartilhado pelo responsável",
+      "nome, endereço, telefone e categoria coincidentes",
+      "kgmid /g/1tq6l6nh resolvido para a mesma ficha"
+    ],
     "unresolvedJustification": null
   },
-  "evidence": [],
-  "sources": [],
+  "evidence": [
+    {
+      "fact": "Nota 4,8 com 105 avaliações públicas (93×5, 8×4, 0×3, 1×2, 3×1)",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Endereço R. Padre Alberto Müler, 279 — Cidade Jardim — São José dos Pinhais — PR — 83035-070",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Horário segunda a sexta 08:00–18:30; sábado e domingo fechado",
+      "source": "Google Maps (ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    },
+    {
+      "fact": "Pagamentos: cartão de crédito, cartão de débito e NFC; entrada com acessibilidade para cadeira de rodas",
+      "source": "Google Maps (extensões da ficha pública) via SerpApi",
+      "collectedAt": "2026-09-11",
+      "confidence": "HIGH"
+    }
+  ],
+  "sources": [
+    {
+      "provider": "serpapi",
+      "engine": "google_maps",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google_maps_reviews",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google_maps_photos",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google",
+      "collectedAt": "2026-09-11"
+    },
+    {
+      "provider": "serpapi",
+      "engine": "google_instagram/facebook profile discovery",
+      "collectedAt": "2026-09-11"
+    }
+  ],
   "google": {
-    "placeId": null,
-    "dataId": null,
-    "cid": null,
-    "status": "not_searched"
+    "placeId": "ChIJgYYezAz63JQRk2SRKP5Usqk",
+    "dataId": "0x94dcfa0ccc1e8681:a9b254fe28916493",
+    "cid": "12227929388843361427",
+    "kgmid": "/g/1tq6l6nh",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Moreira%20Auto%20Mec%C3%A2nica&query_place_id=ChIJgYYezAz63JQRk2SRKP5Usqk",
+    "claimed": false,
+    "status": "GOOGLE_ENTITY_RESOLVED"
   },
   "reviews": {
-    "items": [],
-    "status": "NOT_SEARCHED"
+    "rating": 4.8,
+    "count": 105,
+    "distribution": { "5": 93, "4": 8, "3": 0, "2": 1, "1": 3 },
+    "items": [
+      { "author": "Vitor H.", "rating": 5, "date": "há 4 meses", "usedOnLanding": true },
+      { "author": "Antonio Francisco Ulrich", "rating": 5, "date": "há 9 meses", "usedOnLanding": true },
+      { "author": "joao pedro sabatke", "rating": 5, "date": "há 1 ano", "usedOnLanding": true },
+      { "author": "Aramis Machado", "rating": 5, "date": "há 9 meses", "usedOnLanding": true },
+      { "author": "Wellington Pedroso", "rating": 1, "date": "há 5 anos", "usedOnLanding": false, "note": "avaliação negativa sobre retrabalho em suspensão; não exibida como depoimento, mas contabilizada na distribuição publicada e citada na atribuição" }
+    ],
+    "attribution": "Avaliações públicas no Google, com autor, nota e link para a origem",
+    "status": "REVIEWS_INGESTED"
   },
   "photos": {
-    "items": [],
-    "status": "NOT_SEARCHED"
+    "items": 10,
+    "selected": 4,
+    "classification": "GOOGLE_USER_MEDIA",
+    "rights": "UNVERIFIED",
+    "status": "MEDIA_INGESTED_RIGHTS_PENDING"
   },
   "social": {
     "instagram": {
-      "searched": false
+      "searched": true,
+      "candidate": "https://www.instagram.com/moreiraautomecanica/",
+      "confidence": 60,
+      "status": "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED",
+      "usedOnLanding": false
     },
     "facebook": {
-      "searched": false
+      "searched": true,
+      "status": "UNRESOLVED",
+      "note": "provider não retornou resultado; ausência não comprovada"
     },
     "other": []
   },
-  "website": {
-    "searched": false,
-    "url": null
+  "website": { "searched": true, "url": null, "status": "NO_PUBLIC_WEBSITE_FOUND" },
+  "location": {
+    "street": "R. Padre Alberto Müler, 279",
+    "neighborhood": "Cidade Jardim",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "postalCode": "83035-070",
+    "country": "BR",
+    "lat": -25.5276571,
+    "lng": -49.2128353
   },
-  "location": {},
-  "services": [],
+  "services": [
+    { "name": "Mecânica para carros", "source": "categoria oficial da ficha do Google", "confidence": "HIGH" },
+    { "name": "Suspensão e ruídos", "source": "avaliações públicas de clientes", "confidence": "MEDIUM" },
+    { "name": "Avaliação presencial do veículo", "source": "modelo de atendimento presencial declarado na ficha", "confidence": "MEDIUM" }
+  ],
   "media": {
-    "discovery": {
-      "searched": false
-    },
-    "assets": []
+    "discovery": { "searched": true, "result": "10 mídias públicas; 4 selecionadas" },
+    "assets": [
+      "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+      "public/images/moreira-auto-mecanica/google-fachada.jpg",
+      "public/images/moreira-auto-mecanica/google-motor-aberto.jpg",
+      "public/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
+      "public/images/moreira-auto-mecanica/capa.jpg"
+    ]
   },
-  "facts": [],
-  "conflicts": [],
-  "unverified": [],
-  "providerCalls": []
+  "facts": [
+    "Categoria: mecânica para carros (car_repair)",
+    "Telefone institucional: +55 41 99794-0764 (exibido só como texto)",
+    "Ficha não reivindicada pelo proprietário até a coleta"
+  ],
+  "conflicts": [
+    "Homônimos em outras cidades foram descartados por endereço e Place ID"
+  ],
+  "unverified": [
+    "perfil do Instagram (confiança 60)",
+    "existência de página no Facebook",
+    "direitos de uso das fotos públicas do Google",
+    "tempo de mercado citado por um cliente ('mais de 15 anos') — usado apenas como citação atribuída, nunca como dado institucional"
+  ],
+  "providerCalls": [
+    { "stage": "mapsPlace", "status": "SUCCESS" },
+    { "stage": "reviews", "status": "SUCCESS" },
+    { "stage": "photos", "status": "SUCCESS" },
+    { "stage": "googleSearch", "status": "SUCCESS" },
+    { "stage": "socialDiscovery", "status": "SUCCESS" },
+    { "stage": "instagram", "status": "UNRESOLVED" },
+    { "stage": "facebook", "status": "FAILED" }
+  ]
 }

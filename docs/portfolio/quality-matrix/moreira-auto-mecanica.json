@@ -3,42 +3,218 @@
   "slug": "moreira-auto-mecanica",
   "matrixVersion": 2,
   "contractVersion": 3,
-  "evaluatedAt": null,
-  "technicalPass": false,
-  "editorialPass": false,
+  "evaluatedAt": "2026-09-11",
+  "technicalPass": true,
+  "editorialPass": true,
   "score": {
-    "total": null,
-    "byDimension": {}
+    "total": 90,
+    "byDimension": {
+      "ENTITY": 10,
+      "CONTENT": 8,
+      "MEDIA": 7,
+      "VISUAL_COMPOSITION": 9,
+      "ORIGINALITY": 9,
+      "DISCOVERY": 8,
+      "SEO": 8,
+      "CONVERSION": 8,
+      "PROOF": 9,
+      "RESPONSIVENESS": 9,
+      "PERFORMANCE": 7,
+      "ACCESSIBILITY": 7,
+      "QA": 9
+    }
   },
-  "dimensions": {},
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "note": "Place ID, data ID e CID confirmados; identidade verificada na ficha pública."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "note": "Todo texto deriva de fato verificado ou de avaliação atribuída; sem preço, prazo ou garantia."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "note": "4 fotos reais do Google com atribuição; direitos de uso ainda UNVERIFIED (revisão do proprietário)."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "note": "Hero assimétrico, índice numerado, banda fotográfica e inversão para superfície clara no processo."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "note": "Paleta grafite/laranja, ritmo e narrativa exclusivos; nenhuma seção copiada do Careca's."
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "note": "Índice com aliases, categoria, sintomas, localidade e termos de intenção."
+    },
+    "SEO": {
+      "status": "PASS",
+      "note": "Título, descrição, keywords e JSON-LD AutoRepair sem Review/aggregateRating."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "note": "contactMode funnelOnly; CTAs contextuais de agendamento em hero, oferta, processo, prova, localização, CTA e FAQ."
+    },
+    "PROOF": {
+      "status": "PASS",
+      "note": "4 avaliações reais com autor, nota, data e link, mais a distribuição completa das 105 notas."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "note": "Sem overflow horizontal nos três viewports verificados em navegador."
+    },
+    "PERFORMANCE": {
+      "status": "PASS",
+      "note": "5 imagens, hero com priority, demais sem prioridade; sem biblioteca nova."
+    },
+    "ACCESSIBILITY": {
+      "status": "PASS",
+      "note": "Alt descritivo nas fotos com conteúdo, alt vazio nas decorativas, contraste alto nas duas superfícies, reduced-motion via primitives."
+    },
+    "QA": {
+      "status": "PASS",
+      "note": "Render real em 390/768/1440: status 200, overflow 0, imagens íntegras, sem erros de console."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "note": "10 seções com função distinta: contexto, sinais, oferta, realidade, capacidades, processo, prova, lugar, fechamento e dúvidas."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "note": "Alternância assimétrico → faixa → lista → grade de mídia → banda fotográfica → superfície clara → painéis."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "note": "Cada asset declara papel narrativo no media plan; nenhuma imagem decorativa sem função."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "note": "Nenhuma repetição de container central com grade de três cards iguais."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "note": "Três momentos declarados no brief e implementados."
+    },
+    "PROOF_DENSITY": {
+      "status": "PASS",
+      "note": "Prova aparece cedo (faixa de sinais) e em profundidade (seção de avaliações)."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "note": "Funil disponível em todas as etapas da leitura, sempre pelo mesmo mecanismo."
+    }
+  },
   "experience": {
-    "visualRhythm": null,
-    "signatureMoments": [],
-    "motionNarrative": null,
-    "heroArchetype": null
+    "visualRhythm": "hero assimétrico → faixa de sinais → índice editorial → grade de mídia real → banda fotográfica → bloco claro com timeline → prova → painel de lugar → CTA em painel → FAQ",
+    "signatureMoments": [
+      "hero assimétrico com o galpão real sangrando na borda",
+      "índice editorial numerado de atendimento, sem cartões iguais",
+      "linha do tempo do agendamento em superfície clara com coluna fixa"
+    ],
+    "motionNarrative": "linguagem de oficina: entradas retas e sequenciais, sem flutuação; reduced-motion mantém todo o conteúdo",
+    "heroArchetype": "asymmetric"
   },
   "qualityProfile": {
-    "visualDensity": null,
-    "editorialDepth": null,
-    "motionIntensity": null,
-    "mediaRichness": null,
-    "proofLevel": null,
-    "interactionLevel": null,
-    "localContext": null,
-    "conversionIntensity": null
+    "visualDensity": "média-alta",
+    "editorialDepth": "alta",
+    "motionIntensity": "BALANCED",
+    "mediaRichness": "alta",
+    "proofLevel": "alto",
+    "interactionLevel": "médio",
+    "localContext": "alto",
+    "conversionIntensity": "média-alta"
   },
   "hero": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS",
+    "criteria": {
+      "identityMatch": "pass",
+      "segmentMatch": "pass",
+      "realMedia": "pass",
+      "contrast": "pass",
+      "noGenericStock": "pass",
+      "noContactShortcut": "pass"
+    }
   },
   "cover": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS",
+    "criteria": {
+      "identityMatch": "pass",
+      "segmentMatch": "pass",
+      "smallCardReadability": "pass",
+      "contrast": "pass",
+      "genericPenalty": "pass",
+      "duplicatePenalty": "pass"
+    }
   },
-  "coverage": [],
+  "coverage": [
+    {
+      "section": "hero",
+      "visual": "real-photo",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — foto do galpão coberto (Google, atribuída)"
+    },
+    {
+      "section": "signals",
+      "visual": "structured-data",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — faixa tipográfica de dados verificados"
+    },
+    {
+      "section": "offers",
+      "visual": "numbered-editorial",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — índice numerado, ritmo de texto"
+    },
+    {
+      "section": "useCases",
+      "visual": "real-photo-grid",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — motor aberto e atendimento (Google, atribuídas)"
+    },
+    {
+      "section": "capabilities",
+      "visual": "photo-band",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — fachada em banda horizontal"
+    },
+    {
+      "section": "process",
+      "visual": "light-surface-timeline",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — inversão de superfície substitui imagem"
+    },
+    {
+      "section": "proof",
+      "visual": "review-cards",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — prova é texto atribuído ao Google"
+    },
+    {
+      "section": "location",
+      "visual": "panel-with-photo",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — fachada apoia o reconhecimento do endereço"
+    },
+    {
+      "section": "cta",
+      "visual": "split-panel",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — painel cromático de fechamento"
+    },
+    {
+      "section": "faq",
+      "visual": "accordion",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — leitura funcional"
+    }
+  ],
   "deadZones": [],
-  "mediaSourceMix": {},
+  "mediaSourceMix": {
+    "GOOGLE_PUBLIC_MEDIA": 4,
+    "PHOTO_DERIVED": 1,
+    "GENERATED_CONTEXTUAL_MEDIA": 0,
+    "STOCK": 0
+  },
   "p0": [],
-  "warnings": [],
-  "ownerRequired": []
+  "warnings": [
+    "Direitos das fotos públicas do Google pendentes de confirmação com o proprietário.",
+    "Instagram candidato não verificado — não usado como canal oficial."
+  ],
+  "ownerRequired": [
+    "Confirmar uso das fotos públicas e, se possível, enviar fotos próprias em alta resolução",
+    "Confirmar o perfil oficial nas redes sociais",
+    "Enviar logotipo, se existir"
+  ]
 }

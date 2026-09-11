@@ -1098,7 +1098,8 @@
         "description": "Oficina de mecânica para carros no Cidade Jardim, em São José dos Pinhais — PR, com agendamento de avaliação pelo formulário.",
         "ctaLabel": "Conhecer a presença",
         "ctaHref": "#presenca"
-      }
+      },
+      "socialVersion": "88b9c53f"
     },
     "carecas-infotec": {
       "icon": "/images/carecas-infotec/logo.png",

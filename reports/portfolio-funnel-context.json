@@ -1,15 +1,15 @@
 {
   "summary": {
-    "generatedAt": "2026-09-11T05:38:32.546Z",
-    "audited": 90,
-    "pass": 90,
+    "generatedAt": "2026-09-11T07:23:20.454Z",
+    "audited": 91,
+    "pass": 91,
     "warning": 0,
     "fail": 0,
     "byIntent": {
       "pedido": 24,
       "orcamento": 32,
       "solicitacao": 1,
-      "agendamento": 14,
+      "agendamento": 15,
       "contato": 8,
       "reserva": 4,
       "diagnostico": 7
@@ -1170,6 +1170,19 @@
       "nextStepBody": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
       "primaryCtaLabel": "Iniciar solicitação",
       "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "moreira-auto-mecanica",
+      "businessName": "Moreira Auto Mecânica",
+      "segment": "prestadores-de-servicos",
+      "intent": "agendamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Conte o que o carro está apresentando para agendar a avaliação.",
+      "nextStepBody": "A equipe da Moreira Auto Mecânica recebe a descrição do veículo e combina o melhor dia para você levar o carro na oficina.",
+      "primaryCtaLabel": "Agendar avaliação",
+      "whatsappIntent": "agendamento",
       "status": "PASS",
       "issues": []
     },

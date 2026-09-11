@@ -31,7 +31,7 @@ originalidade: nenhuma página pública mudou.
 | guaratuba-oficina-nautica | casa-nativa | casa-nativa | 40 | 36 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | reuse-house-brecho | angel-mix-brecho | beto-pasteis | 34 | 30 | -4 | SIM | METRIC_CORRECTION | 100 | 15 |
 | beto-pasteis | reuse-house-brecho | reuse-house-brecho | 33 | 30 | -3 | não | METRIC_CORRECTION | 100 | 15 |
-| carecas-infotec | angel-mix-brecho | angel-mix-brecho | 11 | 8 | -3 | não | METRIC_CORRECTION | 0 | 1.5 |
+| carecas-infotec | moreira-auto-mecanica | moreira-auto-mecanica | 21 | 18 | -3 | não | METRIC_CORRECTION | 5 | 6.7 |
 | centro-mega | mania-de-limpeza | mania-de-limpeza | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 11.2 |
 | embalar-embalagens | maximos-cabeleireiros | maximos-cabeleireiros | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |
 | galileu-locacao-brinquedos | lj-cleaning | lj-cleaning | 48 | 45 | -3 | não | METRIC_CORRECTION | 100 | 15 |
@@ -42,6 +42,7 @@ originalidade: nenhuma página pública mudou.
 | maximos-cabeleireiros | embalar-embalagens | embalar-embalagens | 64 | 61 | -3 | não | METRIC_CORRECTION | 80 | 7.5 |
 | mirassol-conserta-celular | mirassol-delicias-caseiras | mirassol-delicias-caseiras | 38 | 35 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | mirassol-delicias-caseiras | guaratuba-atelie-presentes | guaratuba-atelie-presentes | 45 | 42 | -3 | não | METRIC_CORRECTION | 100 | 15 |
+| moreira-auto-mecanica | carecas-infotec | carecas-infotec | 21 | 18 | -3 | não | METRIC_CORRECTION | 5 | 6.7 |
 | uberlandia-eletrica-residencial | bh-barreiro-marmitas | bh-barreiro-marmitas | 40 | 37 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | assistencia-microondas-santos | liz-moraes-nail-designer | liz-moraes-nail-designer | 51 | 49 | -2 | não | METRIC_CORRECTION | 50 | 9 |
 | eletro-solucoes-eficazes | eletrovale-eletromecanica | eletrovale-eletromecanica | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
