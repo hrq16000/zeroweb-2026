@@ -4269,6 +4269,7 @@ export type Database = {
           id: string
           lifecycle_status: string
           logo_url: string
+          motion_settings: Json | null
           preset: string
           project_kind: string
           published: boolean
@@ -4312,6 +4313,7 @@ export type Database = {
           id?: string
           lifecycle_status?: string
           logo_url?: string
+          motion_settings?: Json | null
           preset?: string
           project_kind?: string
           published?: boolean
@@ -4355,6 +4357,7 @@ export type Database = {
           id?: string
           lifecycle_status?: string
           logo_url?: string
+          motion_settings?: Json | null
           preset?: string
           project_kind?: string
           published?: boolean
