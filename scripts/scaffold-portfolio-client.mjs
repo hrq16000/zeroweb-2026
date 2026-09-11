@@ -588,7 +588,26 @@ if (existsSync(manifestPath)) {
       lifecycleContract: 1,
       /** >= 3 exige as dimensões de experiência (adendo §19) na quality matrix. */
       contractVersion: 3,
+      /** >= 1 ativa o STRUCTURAL_ORIGINALITY_GATE como bloqueio (adendo estrutural §7). */
+      structuralContract: 1,
+      /**
+       * Composição autoral obrigatória: preencher com IDs de
+       * src/config/portfolio-structural-families.json antes de READY.
+       * Herdar a assinatura de outro projeto é reprovação (§6).
+       */
+      structuralSignature: {
+        segment: null,
+        layoutFamily: null,
+        heroFamily: null,
+        sectionRhythm: null,
+        proofStyle: null,
+        mediaNarrative: null,
+        ctaStyle: null,
+        motionProfile: null,
+      },
+      structuralOriginalityReview: { approved: false, reviewedAt: null, notes: null },
       stage: "draft",
+
       lifecycle: {
         intake: "complete",
         entityDiscovery: "not_started",
