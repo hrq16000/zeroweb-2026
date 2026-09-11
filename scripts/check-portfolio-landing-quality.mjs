@@ -445,7 +445,15 @@ export function evaluateProjectQuality(slug, matrix, options = {}) {
       const peerClient = clients.find((item) => item.slug === peerSlug);
       const file = peerClient?.componentFile ? path.resolve(root, peerClient.componentFile) : null;
       const source = file && existsSync(file) ? readFileSync(file, "utf8") : "";
-      return { slug: peerSlug, skeleton: extractSkeleton(source) };
+      const skeleton = extractSkeleton(source);
+      return {
+        slug: peerSlug,
+        skeleton,
+        sectionOrder: skeleton,
+        signature: manifests[peerSlug]?.structuralSignature ?? null,
+        segment: manifests[peerSlug]?.structuralSignature?.segment ?? catalog.find((i) => i.slug === peerSlug)?.segment,
+        lastUpdatedAt: manifests[peerSlug]?.lastUpdatedAt,
+      };
     });
 
   const autonomyResult = evaluateAutonomy({
@@ -458,15 +466,29 @@ export function evaluateProjectQuality(slug, matrix, options = {}) {
     contractVersion,
   });
 
-  const failures = [...matrixResult.failures, ...policyResult.failures, ...autonomyResult.failures];
+  const structuralResult = evaluateStructuralOriginality({
+    slug,
+    manifest: manifests[slug],
+    sectionOrder: extractSkeleton(componentSource),
+    peers,
+  });
+
+  const failures = [
+    ...matrixResult.failures,
+    ...policyResult.failures,
+    ...autonomyResult.failures,
+    ...structuralResult.failures,
+  ];
   return {
     ...matrixResult,
     status: failures.length ? "FAIL" : "PASS",
     failures,
-    warnings: [...matrixResult.warnings, ...autonomyResult.warnings],
+    warnings: [...matrixResult.warnings, ...autonomyResult.warnings, ...structuralResult.warnings],
     policyGates: policyResult,
+    structuralOriginality: structuralResult,
   };
 }
+
 
 const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
