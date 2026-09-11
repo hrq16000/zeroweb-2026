@@ -5,63 +5,62 @@
       "aliases": [
         "Moreira Auto Mecânica",
         "Moreira Auto Mecanica",
-        "Moreira Mecânica",
+        "Mecânica Moreira",
         "Auto Mecânica Moreira",
-        "Oficina Moreira"
+        "moreira mecanica sjp"
       ],
       "categories": [
         "mecânica para carros",
         "oficina mecânica",
-        "mecânica automotiva",
-        "manutenção de veículos"
+        "auto mecânica",
+        "manutenção automotiva",
+        "reparo de veículos"
       ],
       "services": [
-        "mecânica para carros",
-        "manutenção mecânica",
-        "avaliação do veículo",
-        "atendimento presencial na oficina",
-        "agendamento de avaliação"
+        "manutenção preventiva",
+        "manutenção corretiva",
+        "revisão do carro",
+        "suspensão",
+        "freios",
+        "motor",
+        "diagnóstico de ruídos",
+        "troca de peças",
+        "avaliação presencial do veículo"
       ],
       "equipment": [
-        "carro",
-        "veículo",
-        "automóvel",
-        "motor",
-        "suspensão",
-        "freios"
+        "elevador automotivo",
+        "ferramentas de oficina"
       ],
       "products": [],
       "problems": [
-        "barulho na suspensão",
-        "barulho no carro",
-        "ruído ao passar em buraco",
-        "ruído ao frear",
         "carro fazendo barulho",
-        "luz acesa no painel",
-        "problema no motor",
-        "revisão do carro"
+        "barulho na suspensão",
+        "ruído ao passar em buraco",
+        "freio rangendo",
+        "carro falhando",
+        "motor com problema",
+        "carro puxando para o lado",
+        "luz do painel acesa"
       ],
       "useCases": [
-        "levar o carro na oficina",
-        "agendar avaliação mecânica",
-        "descobrir de onde vem o barulho",
-        "oficina de confiança perto de casa"
+        "revisão antes de viagem",
+        "segunda opinião de orçamento",
+        "manutenção periódica",
+        "carro que precisa de reparo em São José dos Pinhais"
       ],
       "locality": [
         "São José dos Pinhais",
-        "SJP",
         "Cidade Jardim",
-        "Rua Padre Alberto Müler",
+        "região metropolitana de Curitiba",
         "Paraná",
-        "PR",
-        "região de Curitiba"
+        "SJP"
       ],
       "keywords": [
         "oficina mecânica são josé dos pinhais",
-        "mecânica para carros cidade jardim",
-        "oficina de confiança sjp",
-        "mecânico perto de mim são josé dos pinhais",
-        "barulho na suspensão oficina sjp"
+        "mecânica de confiança sjp",
+        "auto mecânica cidade jardim",
+        "agendar revisão do carro sjp",
+        "mecânico perto de mim são josé dos pinhais"
       ]
     },
     "carecas-infotec": {
@@ -150,19 +149,6 @@
         "Região Metropolitana de Curitiba",
         "Rua Margarida Petrelli Fogiatto"
       ]
-    },
-    "moreira-auto-mecanica": {
-      "aliases": [
-        "Moreira Auto Mecânica"
-      ],
-      "categories": [],
-      "services": [],
-      "equipment": [],
-      "products": [],
-      "problems": [],
-      "useCases": [],
-      "locality": [],
-      "keywords": []
     }
   }
 }
