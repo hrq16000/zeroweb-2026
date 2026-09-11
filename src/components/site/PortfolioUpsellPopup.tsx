@@ -147,31 +147,60 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
       setVisible(true);
       track("popup_view", { ...trackingBase, trigger });
     };
+    fireRef.current = fire;
 
-    const t = window.setTimeout(() => fire("timer"), cfg.display.timerMs);
+    const t = window.setTimeout(() => fire("timer"), timerMs);
     // Fallback: páginas curtas (sem scroll possível) ou leitura longa sem rolar.
-    const fb = window.setTimeout(() => fire("fallback"), cfg.display.fallbackMs);
+    const fb = window.setTimeout(() => fire("fallback"), fallbackMs);
     const unsub = subscribeScroll((s) => {
-      if (s.pct >= cfg.display.scrollPct) fire("scroll");
+      if (s.pct >= scrollPct) fire("scroll");
     });
 
     return () => {
       release();
+      fireRef.current = null;
       window.clearTimeout(t);
       window.clearTimeout(fb);
       unsub();
     };
-  }, [cfg, storageKey, trackingBase, track, slug, pageName]);
+  }, [
+    enabled,
+    timerMs,
+    fallbackMs,
+    scrollPct,
+    oncePerSession,
+    storageKey,
+    trackingBase,
+    track,
+    slug,
+    pageName,
+  ]);
 
   // O funil do cliente tem prioridade absoluta sobre a captação da 0WEB.
+  // Ao FECHAR o funil, a captação é rearmada após um intervalo — antes ela
+  // ficava bloqueada pelo resto da visita, mesmo com o funil já encerrado.
   useEffect(() => {
     if (typeof window === "undefined") return;
+    let rearm = 0;
     const onFunnelOpen = () => {
+      window.clearTimeout(rearm);
       funnelActiveRef.current = true;
       setVisible(false);
     };
+    const onFunnelClose = () => {
+      window.clearTimeout(rearm);
+      rearm = window.setTimeout(() => {
+        funnelActiveRef.current = false;
+        if (!firedRef.current) fireRef.current?.("fallback");
+      }, FUNNEL_REARM_MS);
+    };
     window.addEventListener("0web:portfolio-funnel-open", onFunnelOpen);
-    return () => window.removeEventListener("0web:portfolio-funnel-open", onFunnelOpen);
+    window.addEventListener("0web:portfolio-funnel-close", onFunnelClose);
+    return () => {
+      window.clearTimeout(rearm);
+      window.removeEventListener("0web:portfolio-funnel-open", onFunnelOpen);
+      window.removeEventListener("0web:portfolio-funnel-close", onFunnelClose);
+    };
   }, []);
 
   const close = useCallback(
