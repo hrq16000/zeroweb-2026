@@ -1243,7 +1243,7 @@ function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: Sec
               ctx={ctx}
               key={group.title}
               delay={step(ctx, i)}
-              className="bg-background/85 p-6 backdrop-blur-sm"
+              className="bg-background/95 p-6 backdrop-blur-sm"
             >
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.18em] text-primary">
                 {group.icon ? <group.icon className="h-4 w-4" /> : null}
