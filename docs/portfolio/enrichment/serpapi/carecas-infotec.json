@@ -1,0 +1,135 @@
+{
+  "slug": "carecas-infotec",
+  "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+  "generatedAt": "2026-09-11T02:46:54.355Z",
+  "provider": "serpapi",
+  "place": {
+    "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+    "dataId": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880",
+    "name": "Careca´s Infotec",
+    "category": "Assistência Técnica de Informática",
+    "address": "Rua Margarida Petrelli Fogiatto 118 - Santo Antônio, São José dos Pinhais - PR, 83020-600",
+    "phone": "(41) 99507-2700",
+    "website": null,
+    "hours": {
+      "quinta_feira": "08:00–18:00",
+      "sexta_feira": "08:00–18:00",
+      "sábado": "09:00–18:00",
+      "domingo": "Fechado",
+      "segunda_feira": "08:00–18:00",
+      "terça_feira": "08:00–18:00",
+      "quarta_feira": "08:00–18:00"
+    },
+    "rating": 4.9,
+    "reviewCount": 43,
+    "latitude": -25.562065099999998,
+    "longitude": -49.2024137,
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "serviceOptions": null,
+    "photos": [],
+    "provenance": {
+      "provider": "serpapi",
+      "engine": "google_maps",
+      "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=place&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&gl=br",
+      "fetchedAt": "2026-09-11T02:46:54.335Z",
+      "sourceUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br"
+    }
+  },
+  "reviews": {
+    "items": [
+      {
+        "author": "Daniel Strapasson",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/107674603037105440746?hl=pt-BR",
+        "rating": 5,
+        "text": "Excelente experiência! Fiz alguns serviços nessa loja de celulares e o atendimento foi impecável. Resolveram tudo com rapidez, qualidade e transparência. Hoje é difícil encontrar lugares assim, mas aqui realmente passam confiança. Recomendo de olhos fechados!  E sem contar que o pós serviço funciona perfeitamente na questão de dúvidas E GARANTIA. .",
+        "publishedAtLabel": "6 meses atrás",
+        "publishedAtIso": "2026-03-02T21:40:42Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210VVJqSnpaRFpWVWxsZlJTMXhUREp3TVZwRExWRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOmtURjJzZDZVUllfRS1xTDJwMVpDLVE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Wesley Rodrigues",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/107024481116782464716?hl=pt-BR",
+        "rating": 5,
+        "text": "Precisei trocar a tela do meu celular e ficou impecável a qualidade do serviço, super recomendo 🙏",
+        "publishedAtLabel": "6 meses atrás",
+        "publishedAtIso": "2026-03-05T14:09:47Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT201V2QwYzNMVlZpVVdWTkxXUlNSV000UW5ab2QxRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOm5Wd0c3LVViUWVNLWRSRWM4QnZod1E%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Samuel Kolonck",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/111315730685767749310?hl=pt-BR",
+        "rating": 5,
+        "text": "Troquei a tela do meu cllr, já fiz três serviços com ele\nSe precisar indico!",
+        "publishedAtLabel": "6 meses atrás",
+        "publishedAtIso": "2026-02-23T17:21:12Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21SWFNqQjVSbXRzWkhObk1GRkhUM2xsT1VWTlJGRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOmRXSjB5RmtsZHNnMFFHT3llOUVNRFE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Nutrigene Do Brasil",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/110047757024190514611?hl=pt-BR",
+        "rating": 5,
+        "text": "Fui muito bem atendida, serviço rápido e profissional.",
+        "publishedAtLabel": "4 meses atrás",
+        "publishedAtIso": "2026-04-30T14:12:00Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pabVVrODRjV2syU21WSlJsOVdTVFZXYUdkTGIxRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOjZmUk84cWk2SmVJRl9WSTVWaGdLb1E%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Paola Cereja",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/117760076365870859713?hl=pt-BR",
+        "rating": 5,
+        "text": "Ótimo atendimento nota 10 super indico ótimo profissional amei o trabalho muito obrigada",
+        "publishedAtLabel": "2 anos atrás",
+        "publishedAtIso": "2023-12-15T23:16:44Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURWaTREM2ZnEAE!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgIDVi4D3fg%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Neri Paulo Galdino",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/111382910029341742450?hl=pt-BR",
+        "rating": 5,
+        "text": "Exelente atendimento e trabalho ficou ótimo eu recomendo.",
+        "publishedAtLabel": "2 anos atrás",
+        "publishedAtIso": "2024-02-01T20:43:24Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUN0XzZPZTZnRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgICt_6Oe6gE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Rafael Venicio",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/100847030970130611936?hl=pt-BR",
+        "rating": 5,
+        "text": "Local com ótimo atendimento e preço e condições de pagamento muito bom. Recomento com toda a certeza",
+        "publishedAtLabel": "2 anos atrás",
+        "publishedAtIso": "2023-11-13T15:56:16Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNsNk5HVTZRRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgICl6NGU6QE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "sandra friedrich",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/114677035023585345138?hl=pt-BR",
+        "rating": 5,
+        "text": "Gostei muito, realmente ótimo, moro em curitiba,  motoboy veio buscar e trazer  o celular,  perfeito,  rápido  e  excelente  serviço,  podem confiar",
+        "publishedAtLabel": "2 anos atrás",
+        "publishedAtIso": "2023-11-20T22:04:01Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNsc2JLR2h3RRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgIClsbKGhwE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      }
+    ],
+    "ratingSummary": {
+      "rating": 4.9,
+      "reviewCount": 43
+    },
+    "provenance": {
+      "provider": "serpapi",
+      "engine": "google_maps_reviews",
+      "requestUrl": "https://serpapi.com/search.json?engine=google_maps_reviews&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&sort_by=qualityScore",
+      "fetchedAt": "2026-09-11T02:46:54.355Z",
+      "sourceUrl": null
+    }
+  },
+  "errors": [],
+  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google exigem verificação de direitos; telefone e endereço permanecem server-side."
+}
