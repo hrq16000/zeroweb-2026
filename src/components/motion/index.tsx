@@ -136,7 +136,8 @@ export function MotionReveal({
   children,
 }: RevealProps) {
   const scopeIntensity = useMotionIntensity();
-  const tune = TUNING[intensity ?? scopeIntensity];
+  const resolved = intensity ?? scopeIntensity;
+  const tune = TUNING[resolved];
   const reduced = usePrefersReducedMotion();
   const [armed, setArmed] = useState(false);
   const { ref, seen } = useInViewOnce<HTMLDivElement>();
@@ -147,18 +148,20 @@ export function MotionReveal({
 
   const active = !armed || seen || reduced;
   const useMask = variant === "mask" && !reduced;
+  const state = reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed";
 
   return (
     <Tag
       ref={ref}
       className={cn(useMask && "overflow-hidden", className)}
+      {...motionDataAttrs("reveal", state, resolved)}
       style={{
         opacity: active ? 1 : 0,
         transform: active || reduced ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
         clipPath: useMask ? (active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)") : undefined,
         transition: reduced
-          ? "opacity 160ms linear"
-          : `opacity ${tune.duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform ${tune.duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, clip-path ${tune.duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+          ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
+          : `opacity ${tune.duration}ms ${ENTER} ${delay}ms, transform ${tune.duration}ms ${ENTER} ${delay}ms, clip-path ${tune.duration}ms ${ENTER} ${delay}ms`,
         willChange: active ? undefined : "transform, opacity",
         ...style,
       }}
