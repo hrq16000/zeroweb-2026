@@ -614,7 +614,7 @@ function PortfolioPage() {
             </div>
 
           </div>
-        </section>
+        </section></MotionReveal>
 
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="bg-background px-4 py-8 sm:py-10">
@@ -977,7 +977,7 @@ function PortfolioPage() {
                   </div>
                 ))}
               </div>
-            </section>
+            </section></MotionReveal>
 
             <MotionReveal><section className="mt-12" aria-labelledby="portfolio-por-local">
               <h2 id="portfolio-por-local" className="text-xl font-semibold text-foreground">
@@ -1007,7 +1007,7 @@ function PortfolioPage() {
                   </Link>
                 </li>
               </ul>
-            </section>
+            </section></MotionReveal>
 
             <InternalLinkCluster
               links={portfolioClusterLinks({ segmentSlug: "beleza-estetica", limit: 10 })}
