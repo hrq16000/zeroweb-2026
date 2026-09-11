@@ -123,8 +123,8 @@ export const blueprint: PortfolioBlueprint = {
       motion: { reveal: "up", stagger: 80 },
       content: {
         items: [
-          { value: "000 amostra", label: "Contador de teste", icon: Gauge, countTo: 0, countSuffix: " amostra" },
-          { value: "12 amostra", label: "Contador de teste", icon: Activity, countTo: 12, countSuffix: " amostra" },
+          { value: "000 amostra", label: "Contador em zero", icon: Gauge, countTo: 0, countSuffix: " amostra" },
+          { value: "12 amostra", label: "Contador crescente", icon: Activity, countTo: 12, countSuffix: " amostra" },
           { value: "480 ms", label: "Duração alvo", icon: Timer, countTo: 480, countSuffix: " ms" },
         ],
         attribution: "Números fictícios de laboratório. Nenhuma métrica real.",
