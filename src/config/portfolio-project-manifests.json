@@ -156,7 +156,7 @@
       ],
       "visualQa": {
         "status": "BLOCKED_ENVIRONMENT",
-        "notes": "Chromium indisponível no ambiente (libglib ausente). HTML servido verificado: sem tel:, sem wa.me, mídias corretas. Reexecutar QA visual em ambiente com navegador.",
+        "notes": "Chromium indisponível no ambiente (libglib ausente). HTML servido verificado: sem link de telefone, sem atalho de mensageiro e com as mídias corretas. Reexecutar QA visual em ambiente com navegador.",
         "evaluatedAt": "2026-09-11"
       },
       "notes": {
