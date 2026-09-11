@@ -1,0 +1,71 @@
+/**
+ * Regressão do pipeline de novos /portfolio/:slug.
+ *
+ * Um projeto recém-scaffoldado (stubs vazios) NUNCA pode passar no quality gate,
+ * e projetos legados (sem manifesto) continuam fora do gate.
+ */
+import { describe, expect, it } from "bun:test";
+// @ts-expect-error — gate em .mjs sem tipos
+import { evaluateMatrix, DIMENSIONS } from "../../scripts/check-portfolio-landing-quality.mjs";
+import manifests from "../../src/config/portfolio-project-manifests.json";
+import clients from "../../src/config/portfolio-clients.json";
+
+/** Igual ao stub gerado por scripts/scaffold-portfolio-client.mjs. */
+const scaffoldStub = {
+  slug: "zz-lifecycle-test",
+  matrixVersion: 1,
+  evaluatedAt: null,
+  technicalPass: false,
+  editorialPass: false,
+  score: { total: null, byDimension: {} },
+  dimensions: {},
+  hero: { status: null, criteria: {} },
+  cover: { status: null, criteria: {} },
+  coverage: [],
+  deadZones: [],
+  mediaSourceMix: {},
+  p0: [],
+  warnings: [],
+  ownerRequired: [],
+};
+
+describe("quality matrix gate", () => {
+  it("reprova um projeto recém-scaffoldado", () => {
+    const r = evaluateMatrix("zz-lifecycle-test", scaffoldStub);
+    expect(r.status).toBe("FAIL");
+    for (const dim of DIMENSIONS) {
+      expect(r.failures).toContain(`dimensão não avaliada: ${dim}`);
+    }
+    expect(r.failures).toContain("hero matrix não avaliada");
+    expect(r.failures).toContain("cover matrix não avaliada");
+    expect(r.failures).toContain("coverage visual matrix vazia");
+    expect(r.failures).toContain("technicalPass não confirmado");
+    expect(r.failures).toContain("editorialPass não confirmado");
+  });
+
+  it("reprova quando a matriz não existe", () => {
+    expect(evaluateMatrix("inexistente", null).status).toBe("MISSING");
+  });
+
+  it("reprova dead zone aberta e coverage sem mediaDecision", () => {
+    const r = evaluateMatrix("x", {
+      ...scaffoldStub,
+      technicalPass: true,
+      editorialPass: true,
+      dimensions: Object.fromEntries(DIMENSIONS.map((d: string) => [d, { status: "PASS" }])),
+      hero: { status: "PASS" },
+      cover: { status: "PASS" },
+      coverage: [{ section: "hero" }],
+      deadZones: [{ section: "offers", viewport: "390px", resolved: false }],
+    });
+    expect(r.failures).toContain("coverage sem mediaDecision: hero");
+    expect(r.failures).toContain("VISUAL_DEAD_ZONE aberta: offers (390px)");
+  });
+
+  it("não aplica o lifecycle retroativamente ao legado", () => {
+    const managed = Object.keys((manifests as { projects: Record<string, unknown> }).projects);
+    const legacy = (clients as { slug: string }[]).filter((c) => !managed.includes(c.slug));
+    expect(managed).toContain("carecas-infotec");
+    expect(legacy.length).toBeGreaterThan(0);
+  });
+});
