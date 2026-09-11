@@ -10,6 +10,7 @@ import { evaluateMatrix, evaluatePolicyGates, DIMENSIONS } from "../../scripts/c
 import manifests from "../../src/config/portfolio-project-manifests.json";
 import clients from "../../src/config/portfolio-clients.json";
 import { readFileSync } from "node:fs";
+import { LIFECYCLE_STEPS, VISUAL_QA_STATUSES } from "../../src/lib/portfolio-project-lifecycle";
 
 /** Igual ao stub gerado por scripts/scaffold-portfolio-client.mjs. */
 const scaffoldStub = {
@@ -119,5 +120,45 @@ describe("contact and media purpose gates", () => {
     expect(result.status).toBe("PASS");
     expect(source).not.toContain("tel:");
     expect(source).not.toContain("/images/carecas-infotec/banner.webp");
+  });
+});
+
+describe("pipeline canônico de projetos novos", () => {
+  const managed = (manifests as { projects: Record<string, Record<string, unknown>> }).projects;
+
+  it("todo projeto gerenciado declara visualQa com estado válido (BLOCKED_ENVIRONMENT ≠ PASS)", () => {
+    for (const [slug, manifest] of Object.entries(managed)) {
+      const status = (manifest as { visualQa?: { status?: string } }).visualQa?.status;
+      expect(VISUAL_QA_STATUSES).toContain(status as (typeof VISUAL_QA_STATUSES)[number]);
+      expect(`${slug}:${status}`).not.toContain("undefined");
+    }
+  });
+
+  it("o lifecycle inclui as etapas de media discovery e media plan", () => {
+    expect(LIFECYCLE_STEPS).toContain("media");
+    expect(LIFECYCLE_STEPS).toContain("mediaPlan");
+    for (const manifest of Object.values(managed)) {
+      const lifecycle = (manifest as { lifecycle: Record<string, string> }).lifecycle;
+      for (const step of LIFECYCLE_STEPS) expect(lifecycle[step]).toBeDefined();
+    }
+  });
+
+  it("projeto gerenciado nasce funnelOnly, com funnelType e rodando pelo Blueprint", () => {
+    const registry = readFileSync("src/components/portfolio/blueprint/registry.ts", "utf8");
+    for (const slug of Object.keys(managed)) {
+      const client = (clients as Array<Record<string, unknown>>).find((c) => c.slug === slug);
+      expect(client?.contactMode).toBe("funnelOnly");
+      expect(typeof client?.funnelType).toBe("string");
+      expect(registry).toContain(`"${slug}"`);
+    }
+  });
+
+  it("o scaffold nunca gera conteúdo factual inventado", () => {
+    const scaffold = readFileSync("scripts/scaffold-portfolio-client.mjs", "utf8");
+    for (const forbidden of ["anos de experiência", "aggregateRating", "tel:", "wa.me"]) {
+      expect(scaffold).not.toContain(forbidden);
+    }
+    expect(scaffold).toContain("CREATIVE_BRIEF_REQUIRED");
+    expect(scaffold).toContain('contactMode: "funnelOnly"');
   });
 });
