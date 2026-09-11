@@ -1,0 +1,76 @@
+{
+  "doc": "STRUCTURAL_ORIGINALITY — docs/PORTFOLIO_STRUCTURAL_ORIGINALITY_ADDENDUM.md. Vocabulário de composição das landings /portfolio/:slug. O Blueprint é motor de composições autorais: escolher aqui é decisão criativa por projeto, nunca default herdado.",
+  "version": 1,
+  "layoutFamilies": [
+    { "id": "editorial-premium", "label": "Editorial Premium", "notes": "Tipografia dominante, respiros largos, mídia como pausa." },
+    { "id": "local-de-bairro", "label": "Local de Bairro", "notes": "Presença física, região e rotina de atendimento no centro." },
+    { "id": "industrial-institucional", "label": "Industrial/Institucional", "notes": "Capacidade, estrutura e aplicações antes da prova." },
+    { "id": "servico-tecnico", "label": "Serviço Técnico", "notes": "Sintoma, diagnóstico e resolução como espinha dorsal." },
+    { "id": "showcase-visual", "label": "Showcase Visual", "notes": "Mídia domina; texto é legenda contextual." },
+    { "id": "processo-e-etapas", "label": "Processo e Etapas", "notes": "Dramaturgia sequencial: o como conduz a página." },
+    { "id": "autoridade-e-prova", "label": "Autoridade e Prova", "notes": "Prova e reputação assumem a primeira dobra." },
+    { "id": "catalogo-capacidades", "label": "Catálogo/Capacidades", "notes": "Linhas de serviço e escopo como grade navegável." }
+  ],
+  "heroFamilies": [
+    { "id": "split-editorial", "label": "Split editorial", "notes": "Texto dominante + imagem secundária." },
+    { "id": "cinematic-fullbleed", "label": "Cinemático full-bleed", "notes": "Imagem em tela cheia + texto sobreposto." },
+    { "id": "media-led", "label": "Guiado por mídia", "notes": "Mídia primeiro, texto apoiando." },
+    { "id": "centered-institutional", "label": "Centrado institucional", "notes": "Composição centralizada e sóbria." },
+    { "id": "proof-first", "label": "Prova social na dobra", "notes": "Avaliação, números e confiança já no topo." },
+    { "id": "process-first", "label": "Processo na dobra", "notes": "Como funciona abre a página." },
+    { "id": "catalog-first", "label": "Catálogo na dobra", "notes": "Linhas de serviço abrem a página." },
+    { "id": "local-narrative", "label": "Narrativo/local", "notes": "Bairro, região e presença física abrem a narrativa." }
+  ],
+  "sectionRhythms": [
+    { "id": "dense-technical", "label": "Denso técnico" },
+    { "id": "airy-editorial", "label": "Arejado editorial" },
+    { "id": "alternating-contrast", "label": "Alternância clara/escura" },
+    { "id": "crescendo", "label": "Crescendo até o fechamento" },
+    { "id": "modular-grid", "label": "Modular em grade" },
+    { "id": "long-scroll-immersive", "label": "Rolagem longa imersiva" }
+  ],
+  "proofStyles": [
+    { "id": "trust-bar", "label": "Barra de confiança" },
+    { "id": "highlighted-rating", "label": "Avaliação destacada" },
+    { "id": "review-cards", "label": "Depoimentos em cards" },
+    { "id": "animated-numbers", "label": "Números animados" },
+    { "id": "local-seal", "label": "Selo local" },
+    { "id": "why-they-search", "label": "Por que procuram esta empresa" },
+    { "id": "service-timeline", "label": "Timeline de atendimento" },
+    { "id": "situation-compare", "label": "Comparativo de situações" },
+    { "id": "captioned-gallery", "label": "Galeria com legenda contextual" }
+  ],
+  "mediaNarratives": [
+    { "id": "hero-full-image", "label": "Hero full image" },
+    { "id": "mosaic-gallery", "label": "Galeria em mosaico" },
+    { "id": "editorial-band", "label": "Faixa editorial" },
+    { "id": "technical-collage", "label": "Colagem técnica" },
+    { "id": "photo-cards", "label": "Cards com fotos reais" },
+    { "id": "before-after", "label": "Comparativo antes/depois" },
+    { "id": "media-timeline", "label": "Timeline com mídia" },
+    { "id": "storefront-proof", "label": "Prova local/fachada" },
+    { "id": "environment-portrait", "label": "Retrato de ambiente" },
+    { "id": "service-in-action", "label": "Serviço em execução" }
+  ],
+  "ctaStyles": [
+    { "id": "hero-primary", "label": "CTA no hero" },
+    { "id": "mid-banner", "label": "Banner intermediário" },
+    { "id": "post-proof", "label": "Contextual após prova" },
+    { "id": "floating-persistent", "label": "Fixo flutuante" },
+    { "id": "immersive-close", "label": "Fechamento imersivo" },
+    { "id": "next-step-block", "label": "Bloco de próximo passo" }
+  ],
+  "comparisonWindow": {
+    "recentProjects": 12,
+    "sameLayoutFamily": 5,
+    "sameSegment": 5
+  },
+  "thresholds": {
+    "heroSignatureMaxRepeatsInWindow": 0,
+    "sectionOrderSimilarityFail": 0.8,
+    "sectionOrderSimilarityWarn": 0.7,
+    "axisRepeatWarn": 2,
+    "skinSwapMinDistinctAxes": 3
+  },
+  "axes": ["layoutFamily", "heroFamily", "sectionRhythm", "proofStyle", "mediaNarrative", "ctaStyle"]
+}

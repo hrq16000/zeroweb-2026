@@ -233,6 +233,11 @@ function evaluate(slug, manifest) {
   checks.aboveTheFoldValid = autonomy.aboveTheFold?.status === "PASS";
   checks.motionPresence = ["MOTION_IMPLEMENTED", "MOTION_OBSERVED"].includes(autonomy.motionPresence?.state);
   checks.structuralSkeletonOriginal = !matrixResult.failures.some((f) => f.startsWith("STRUCTURAL_SKELETON"));
+  // STRUCTURAL_ORIGINALITY_GATE (docs/PORTFOLIO_STRUCTURAL_ORIGINALITY_ADDENDUM.md §7)
+  checks.structuralOriginality = matrixResult.structuralOriginality
+    ? matrixResult.structuralOriginality.status !== "FAIL"
+    : true;
+
   checks.portfolioEmbedValid =
     autonomy.embed?.status === "PASS" && !matrixResult.failures.some((f) => f.includes("PORTFOLIO_EMBED"));
   checks.floatingConversionDecided = Boolean(autonomy.floatingConversion?.mode);

@@ -87,6 +87,18 @@
         "status": "BLOCKED_ENVIRONMENT",
         "notes": "QA visual em produção não pôde ser executado: runtime de navegador indisponível no ambiente. QA local 390/768/1440 executado antes da publicação.",
         "evaluatedAt": "2026-09-11"
+      },
+      "structuralSignature": {
+        "segment": "assistencia-tecnica-informatica",
+        "layoutFamily": "editorial-premium",
+        "heroFamily": "cinematic-fullbleed",
+        "sectionRhythm": "alternating-contrast",
+        "proofStyle": "trust-bar",
+        "mediaNarrative": "editorial-band",
+        "ctaStyle": "immersive-close",
+        "motionProfile": "technical-calm",
+        "baseline": true,
+        "notes": "Assinatura registrada retroativamente como baseline de comparacao (adendo estrutural §10). Projeto publicado nao e reavaliado nem redesenhado."
       }
     },
     "moreira-auto-mecanica": {
@@ -163,7 +175,19 @@
         "mediaPlan": "docs/portfolio/media-plans/moreira-auto-mecanica.json",
         "motion": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md — motion profile 'mechanical-contained' declarado no Blueprint e avaliado na quality matrix (MOTION_DESIGN)."
       },
-      "lastUpdatedAt": "2026-09-11"
+      "lastUpdatedAt": "2026-09-11",
+      "structuralSignature": {
+        "segment": "oficina-mecanica",
+        "layoutFamily": "servico-tecnico",
+        "heroFamily": "split-editorial",
+        "sectionRhythm": "dense-technical",
+        "proofStyle": "animated-numbers",
+        "mediaNarrative": "photo-cards",
+        "ctaStyle": "floating-persistent",
+        "motionProfile": "mechanical-contained",
+        "baseline": true,
+        "notes": "Assinatura registrada retroativamente como baseline de comparacao (adendo estrutural §10)."
+      }
     },
     "jkl-decor": {
       "slug": "jkl-decor",
@@ -234,7 +258,19 @@
         "enrichment": "docs/portfolio/enrichment/jkl-decor.json",
         "mediaPlan": "docs/portfolio/media-plans/jkl-decor.json"
       },
-      "lastUpdatedAt": "2026-09-11"
+      "lastUpdatedAt": "2026-09-11",
+      "structuralSignature": {
+        "segment": "marcenaria",
+        "layoutFamily": "showcase-visual",
+        "heroFamily": "media-led",
+        "sectionRhythm": "long-scroll-immersive",
+        "proofStyle": "review-cards",
+        "mediaNarrative": "mosaic-gallery",
+        "ctaStyle": "post-proof",
+        "motionProfile": "cabinetry-settling",
+        "baseline": true,
+        "notes": "Assinatura registrada retroativamente como baseline de comparacao (adendo estrutural §10)."
+      }
     }
   }
 }
