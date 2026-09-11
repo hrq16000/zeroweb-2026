@@ -3,21 +3,87 @@
   "slug": "carecas-infotec",
   "lastResearchAt": "2026-09-11",
   "researchLedger": {
-    "googleEntity": { "searched": true, "found": true, "resolved": true, "verified": true, "accessible": false, "ingestable": false, "usable": false, "blocker": "provider Google Places ausente no projeto" },
-    "instagram": { "searched": true, "found": true, "resolved": false, "verified": false, "accessible": false, "ingestable": false, "usable": false, "blocker": "handle exato não confirmado publicamente" },
-    "website": { "searched": true, "found": false, "resolved": false, "verified": false, "accessible": false, "ingestable": false, "usable": false },
-    "media": { "searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true, "note": "apenas 1 fotografia oficial (banner.webp) — MEDIA_ENRICHMENT_INCOMPLETE" }
+    "googleEntity": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "blocker": null,
+      "provider": "SerpApi (server-side)",
+      "ingestedAt": "2026-09-11",
+      "snapshot": "docs/portfolio/enrichment/serpapi/carecas-infotec.json"
+    },
+    "instagram": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "blocker": "handle exato não confirmado publicamente"
+    },
+    "website": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "media": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "apenas 1 fotografia oficial (banner.webp) — MEDIA_ENRICHMENT_INCOMPLETE"
+    }
   },
   "identity": {
-    "name": { "value": "Careca's Infotec", "sourceType": "OWNER_SUPPLIED", "source": "faixa oficial da loja (public/images/carecas-infotec/banner.webp) + ficha pública do Google confirmada pelo proprietário", "confidence": "HIGH", "verifiedAt": "2026-09-11" },
-    "category": { "value": "Assistência Técnica de Informática", "sourceType": "GOOGLE_BUSINESS", "confidence": "HIGH", "verifiedAt": "2026-09-11" },
-    "city": { "value": "São José dos Pinhais - PR", "sourceType": "GOOGLE_BUSINESS", "confidence": "HIGH", "verifiedAt": "2026-09-11" }
+    "name": {
+      "value": "Careca's Infotec",
+      "sourceType": "OWNER_SUPPLIED",
+      "source": "faixa oficial da loja (public/images/carecas-infotec/banner.webp) + ficha pública do Google confirmada pelo proprietário",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-09-11"
+    },
+    "category": {
+      "value": "Assistência Técnica de Informática",
+      "sourceType": "GOOGLE_BUSINESS",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-09-11"
+    },
+    "city": {
+      "value": "São José dos Pinhais - PR",
+      "sourceType": "GOOGLE_BUSINESS",
+      "confidence": "HIGH",
+      "verifiedAt": "2026-09-11"
+    }
   },
   "google": {
     "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
     "status": "resolved",
-    "state": ["GOOGLE_ENTITY_RESOLVED", "PLACE_ID_CONFIRMED", "GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER"],
-    "resolutionSignals": ["nome", "categoria pública", "telefone", "endereço", "horário", "correspondência com a evidência visual enviada pelo proprietário"],
+    "state": [
+      "GOOGLE_ENTITY_RESOLVED",
+      "PLACE_ID_CONFIRMED",
+      "GOOGLE_CONTENT_INGESTED_VIA_SERPAPI",
+      "GOOGLE_PHOTOS_UNAVAILABLE"
+    ],
+    "resolutionSignals": [
+      "nome",
+      "categoria pública",
+      "telefone",
+      "endereço",
+      "horário",
+      "correspondência com a evidência visual enviada pelo proprietário"
+    ],
     "observed": {
       "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
       "note": "valores observados em captura de ficha pública fornecida pelo proprietário; auxiliam entity resolution, NÃO substituem ingestão por API. Não publicar como dado verificado por provider.",
@@ -27,42 +93,91 @@
       "reviewCount": 43,
       "phone": "+55 41 99507-2700",
       "address": "Rua Margarida Petrelli Fogiatto, 118 — Santo Antônio — São José dos Pinhais — PR — 83020-600",
-      "hours": { "mon_fri": "08:00–18:00", "sat": "09:00–18:00" },
+      "hours": {
+        "mon_fri": "08:00–18:00",
+        "sat": "09:00–18:00"
+      },
       "observedAt": "2026-09-11"
     },
     "ingestion": {
-      "provider": "unavailable",
-      "requiredCapability": "Google Places",
-      "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
-      "status": "waiting_for_provider",
-      "contract": {
-        "placeId": null, "name": null, "rating": null, "reviewCount": null, "category": null,
-        "address": null, "phone": null, "hours": null, "mapsUrl": null,
-        "reviews": [], "photos": [], "lastVerifiedAt": null
-      },
-      "note": "campos permanecem null até ingestão real por provider oficial. Proibido scraper de HTML do Google ou contorno de bloqueios."
+      "provider": "SerpApi",
+      "engines": [
+        "google_maps",
+        "google_maps_reviews"
+      ],
+      "snapshot": "docs/portfolio/enrichment/serpapi/carecas-infotec.json",
+      "ingestedAt": "2026-09-11",
+      "fieldsIngested": [
+        "name",
+        "category",
+        "address",
+        "phone",
+        "coordinates",
+        "hours",
+        "rating",
+        "reviewsCount",
+        "reviews",
+        "sourceLinks"
+      ],
+      "photos": "nenhuma foto retornada pelo provider (photos = [])",
+      "website": "não retornado"
     }
   },
   "reviews": {
-    "schema": { "source": "string", "author": "string", "rating": "number", "text": "string", "publishedAt": "string?", "sourceUrl": "string?", "attribution": "string?" },
+    "schema": {
+      "source": "string",
+      "author": "string",
+      "rating": "number",
+      "text": "string",
+      "publishedAt": "string?",
+      "sourceUrl": "string?",
+      "attribution": "string?"
+    },
     "items": [],
     "status": "PENDING_PROVIDER",
     "policy": "somente avaliações reais com autoria e atribuição à fonte; resumo editorial nunca vira review; proibido inventar autor ou comentário."
   },
   "photos": {
-    "schema": { "source": "string", "reference": "string", "attribution": "string", "width": "number?", "height": "number?", "subject": "string?", "suggestedUsage": "string?", "lastVerifiedAt": "string" },
+    "schema": {
+      "source": "string",
+      "reference": "string",
+      "attribution": "string",
+      "width": "number?",
+      "height": "number?",
+      "subject": "string?",
+      "suggestedUsage": "string?",
+      "lastVerifiedAt": "string"
+    },
     "items": [],
     "status": "PENDING_PROVIDER",
     "policy": "foto do Google não é asset do cliente; não versionar permanentemente sem verificar o modelo de uso permitido."
   },
   "social": {
-    "instagram": { "status": "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED", "url": null, "handle": null, "evidence": "ficha pública do Google exibe link de Instagram (evidência do proprietário); busca por nome, telefone e endereço não retornou o perfil. Proibido associar homônimo.", "searchedAt": "2026-09-11" },
-    "facebook": { "status": "NOT_FOUND", "searchedAt": "2026-09-11" },
-    "tiktok": { "status": "NOT_SEARCHED_RELEVANT" },
-    "youtube": { "status": "NOT_FOUND" },
-    "linkedin": { "status": "NOT_FOUND" }
+    "instagram": {
+      "status": "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED",
+      "url": null,
+      "handle": null,
+      "evidence": "ficha pública do Google exibe link de Instagram (evidência do proprietário); busca por nome, telefone e endereço não retornou o perfil. Proibido associar homônimo.",
+      "searchedAt": "2026-09-11"
+    },
+    "facebook": {
+      "status": "NOT_FOUND",
+      "searchedAt": "2026-09-11"
+    },
+    "tiktok": {
+      "status": "NOT_SEARCHED_RELEVANT"
+    },
+    "youtube": {
+      "status": "NOT_FOUND"
+    },
+    "linkedin": {
+      "status": "NOT_FOUND"
+    }
   },
-  "website": { "status": "NOT_FOUND", "note": "a landing 0WEB é hoje a presença web do negócio" },
+  "website": {
+    "status": "NOT_FOUND",
+    "note": "a landing 0WEB é hoje a presença web do negócio"
+  },
   "location": {
     "address": "Rua Margarida Petrelli Fogiatto, 118 — Santo Antônio — São José dos Pinhais — PR — 83020-600",
     "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
@@ -70,7 +185,17 @@
     "publicationRule": "endereço e telefone não vão para o bundle público; contato permanece server-side."
   },
   "services": {
-    "value": ["celular", "computador", "notebook", "impressora", "monitor", "tablet", "videogame", "recarga de cartucho", "recarga de toner"],
+    "value": [
+      "celular",
+      "computador",
+      "notebook",
+      "impressora",
+      "monitor",
+      "tablet",
+      "videogame",
+      "recarga de cartucho",
+      "recarga de toner"
+    ],
     "sourceType": "OWNER_SUPPLIED",
     "source": "banner.webp + presença pública indexada associada ao mesmo telefone",
     "confidence": "HIGH",
@@ -80,15 +205,66 @@
     "state": "MEDIA_ENRICHMENT_COMPLETE",
     "reason": "plano de mídia executado em 2026-09-11: a única fotografia real permanece exclusiva do hero e as demais seções receberam mídia contextual gerada com função editorial própria, sem recortes repetidos do banner.",
     "existing": [
-      { "file": "public/images/carecas-infotec/banner.webp", "type": "REAL_BUSINESS_MEDIA", "owner": "cliente", "rights": "enviado pelo proprietário", "confidence": "HIGH", "suggestedUsage": "hero" },
-      { "file": "public/images/carecas-infotec/logo.png", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "derivado normalizado do banner", "confidence": "HIGH", "suggestedUsage": "identidade e capa" },
-      { "file": "public/images/carecas-infotec/capa.jpg", "type": "ORIGINAL_GRAPHIC", "owner": "0WEB", "rights": "composição autoral (logo real + fundo gerado)", "confidence": "HIGH", "suggestedUsage": "capa do card e OG", "generatedAt": "2026-09-11" },
-      { "file": "public/images/carecas-infotec/gen-notebook-bancada.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "geração própria", "confidence": "HIGH", "suggestedUsage": "seção atendimento — computador e notebook", "generatedAt": "2026-09-11" },
-      { "file": "public/images/carecas-infotec/gen-celular-tablet.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "geração própria", "confidence": "HIGH", "suggestedUsage": "seção atendimento — celular e tablet", "generatedAt": "2026-09-11" },
-      { "file": "public/images/carecas-infotec/gen-impressora-toner.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "geração própria", "confidence": "HIGH", "suggestedUsage": "seção atendimento — impressora, cartucho e toner", "generatedAt": "2026-09-11" }
+      {
+        "file": "public/images/carecas-infotec/banner.webp",
+        "type": "REAL_BUSINESS_MEDIA",
+        "owner": "cliente",
+        "rights": "enviado pelo proprietário",
+        "confidence": "HIGH",
+        "suggestedUsage": "hero"
+      },
+      {
+        "file": "public/images/carecas-infotec/logo.png",
+        "type": "OFFICIAL_BRAND_ASSET",
+        "owner": "cliente",
+        "rights": "derivado normalizado do banner",
+        "confidence": "HIGH",
+        "suggestedUsage": "identidade e capa"
+      },
+      {
+        "file": "public/images/carecas-infotec/capa.jpg",
+        "type": "ORIGINAL_GRAPHIC",
+        "owner": "0WEB",
+        "rights": "composição autoral (logo real + fundo gerado)",
+        "confidence": "HIGH",
+        "suggestedUsage": "capa do card e OG",
+        "generatedAt": "2026-09-11"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-notebook-bancada.jpg",
+        "type": "GENERATED_CONTEXTUAL_MEDIA",
+        "owner": "0WEB",
+        "rights": "geração própria",
+        "confidence": "HIGH",
+        "suggestedUsage": "seção atendimento — computador e notebook",
+        "generatedAt": "2026-09-11"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-celular-tablet.jpg",
+        "type": "GENERATED_CONTEXTUAL_MEDIA",
+        "owner": "0WEB",
+        "rights": "geração própria",
+        "confidence": "HIGH",
+        "suggestedUsage": "seção atendimento — celular e tablet",
+        "generatedAt": "2026-09-11"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-impressora-toner.jpg",
+        "type": "GENERATED_CONTEXTUAL_MEDIA",
+        "owner": "0WEB",
+        "rights": "geração própria",
+        "confidence": "HIGH",
+        "suggestedUsage": "seção atendimento — impressora, cartucho e toner",
+        "generatedAt": "2026-09-11"
+      }
     ],
     "generatedMediaPolicy": "imagens geradas são ilustração técnica e nunca evidência comercial: não representam a loja, a bancada, funcionários, clientes, produtos vendidos ou serviços executados.",
-    "missing": ["fachada real", "bancada/interior real", "atendimento", "fotos do Google com atribuição"],
+    "missing": [
+      "fachada real",
+      "bancada/interior real",
+      "atendimento",
+      "fotos do Google com atribuição"
+    ],
     "mediaMixPlan": {
       "hero": "REAL_BUSINESS_MEDIA",
       "identidade-loja": "REAL_BUSINESS_MEDIA ou GOOGLE_MEDIA quando permitido",
@@ -102,7 +278,10 @@
       "status": "IMAGE_GENERATION_CAPABILITY_AVAILABLE",
       "tool": "imagegen (geração e edição de imagem do ambiente Lovable)",
       "output": "arquivo gravado diretamente no projeto (ex.: public/images/carecas-infotec/*.jpg|.png)",
-      "formats": ["jpg (fotográfico/OG)", "png (transparência para logo/ícone)"],
+      "formats": [
+        "jpg (fotográfico/OG)",
+        "png (transparência para logo/ícone)"
+      ],
       "resolution": "512–1920 px por lado; capa/OG 1200×630; seções 1280×800 ou 1024×1024",
       "provenance": "cada arquivo gerado é registrado aqui como GENERATED_CONTEXTUAL_MEDIA com prompt-intent, data e uso pretendido; nunca rotulado como foto real do Carecas",
       "note": "capacidade confirmada; nenhuma imagem foi gerada nesta rodada."
@@ -114,7 +293,40 @@
     "target": "logo/mascote real + carvão + amarelo + informática reconhecível (notebook/componentes), legível em card pequeno, sem telefone e sem endereço",
     "status": "PROPOSTA_PENDENTE — não executada nesta rodada"
   },
-  "facts": ["nome", "categoria", "cidade", "lista de equipamentos e serviços atendidos", "Place ID confirmado"],
-  "unverified": ["rating por provider", "reviewCount por provider", "reviews individuais", "fotos do Google", "handle do Instagram", "CNPJ", "site"],
-  "conflicts": []
+  "facts": [
+    "nome",
+    "categoria",
+    "cidade",
+    "lista de equipamentos e serviços atendidos",
+    "Place ID confirmado"
+  ],
+  "unverified": [
+    "rating por provider",
+    "reviewCount por provider",
+    "reviews individuais",
+    "fotos do Google",
+    "handle do Instagram",
+    "CNPJ",
+    "site"
+  ],
+  "conflicts": [],
+  "appliedToLanding": {
+    "appliedAt": "2026-09-11",
+    "sections": {
+      "hero": "stat '4,9 · 43 avaliações' (GOOGLE_MAPS_SOURCE via SerpApi)",
+      "avaliacoes": "4 avaliações públicas com autor, nota, texto, mês e link para a ficha; atribuição explícita ao Google",
+      "onde-estamos": "endereço, bairro, CEP, horários e telefone verificados + link 'como chegar' por Place ID",
+      "authority": "endereço verificado + banner.webp como evidência real única"
+    },
+    "editorialPolicy": [
+      "textos das avaliações reproduzidos como escritos pelos autores; quando encurtados, apenas por corte final, sem reescrita nem alteração de sentido",
+      "não publicamos claims de garantia/prazo mencionados por clientes, porque não foram confirmados pelo cliente",
+      "JSON-LD do projeto usa ComputerStore/LocalBusiness sem Review nem aggregateRating (decisão explícita)"
+    ],
+    "notPublished": [
+      "fotos do Google (indisponíveis)",
+      "site oficial (inexistente)",
+      "Instagram (handle não resolvido)"
+    ]
+  }
 }

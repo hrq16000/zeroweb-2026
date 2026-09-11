@@ -19,7 +19,9 @@ import type {
   CtaSection,
   FaqSection,
   HeroSection,
+  LocationSection,
   OffersSection,
+  ProofSection,
   TrustSection,
   UseCasesSection,
 } from "@/lib/portfolio-blueprint";
@@ -681,6 +683,206 @@ function Faq({ section, ctx }: { section: FaqSection; ctx: SectionContext }) {
   );
 }
 
+/* ----------------------------------------------------------------- proof */
+
+function Stars({ rating }: { rating: number }) {
+  const full = Math.round(Math.max(0, Math.min(5, rating)));
+  return (
+    <span className="text-sm tracking-[.2em] text-primary" aria-label={`${rating} de 5`}>
+      <span aria-hidden>{"★".repeat(full)}</span>
+      <span aria-hidden className="opacity-30">
+        {"★".repeat(5 - full)}
+      </span>
+    </span>
+  );
+}
+
+function Proof({ section, ctx }: { section: ProofSection; ctx: SectionContext }) {
+  const c = section.content;
+  return (
+    <section id={section.id} className="border-y border-border bg-card px-6 py-20 md:px-12 md:py-28 lg:px-20">
+      <div className={cn("mx-auto grid gap-12 lg:grid-cols-[0.85fr_1.15fr]", ctx.maxWidth)}>
+        <div>
+          {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
+          <h2 className="mt-4 text-[clamp(1.7rem,3.6vw,2.8rem)] font-black uppercase leading-[1] tracking-[-0.02em]">
+            {c.title}
+          </h2>
+          {c.intro ? (
+            <p className="mt-4 max-w-[52ch] text-sm leading-7 text-muted-foreground">{c.intro}</p>
+          ) : null}
+          {c.summary ? (
+            <Reveal ctx={ctx} className="mt-8 rounded-3xl border border-border bg-background p-7">
+              <p className="text-[clamp(2.6rem,6vw,3.6rem)] font-black leading-none">{c.summary.value}</p>
+              <div className="mt-2">
+                <Stars rating={Number(c.summary.value.replace(",", ".")) || 5} />
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                {c.summary.count}
+                {c.summary.label ? ` · ${c.summary.label}` : ""}
+              </p>
+              {c.summary.sourceHref ? (
+                <a
+                  href={c.summary.sourceHref}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="mt-4 inline-flex text-xs font-black uppercase tracking-[.14em] text-primary underline underline-offset-4"
+                >
+                  {c.summary.sourceLabel}
+                </a>
+              ) : (
+                <p className="mt-4 text-xs font-black uppercase tracking-[.14em] text-primary">
+                  {c.summary.sourceLabel}
+                </p>
+              )}
+            </Reveal>
+          ) : null}
+          {c.ctaLabel ? (
+            <div className="mt-7">
+              {ctx.renderCta({
+                placement: "proof",
+                children: c.ctaLabel,
+                className:
+                  "inline-flex min-h-12 items-center rounded-full border border-primary px-7 text-sm font-black uppercase tracking-[.12em] text-primary transition hover:bg-primary hover:text-primary-foreground",
+              })}
+            </div>
+          ) : null}
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {c.items.map((item, i) => (
+            <Reveal
+              ctx={ctx}
+              key={`${item.author}-${i}`}
+              delay={step(ctx, i)}
+              as="figure"
+              className="flex h-full flex-col rounded-3xl border border-border bg-background p-6"
+            >
+              <Stars rating={item.rating} />
+              <blockquote className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">
+                “{item.text}”
+              </blockquote>
+              <figcaption className="mt-5 border-t border-border pt-4 text-xs uppercase tracking-[.14em]">
+                <span className="font-black">{item.author}</span>
+                {item.date ? <span className="text-muted-foreground"> · {item.date}</span> : null}
+                {item.sourceHref ? (
+                  <a
+                    href={item.sourceHref}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="mt-2 block text-primary underline underline-offset-4"
+                  >
+                    {item.sourceLabel ?? "Ver origem"}
+                  </a>
+                ) : item.sourceLabel ? (
+                  <span className="mt-2 block text-muted-foreground">{item.sourceLabel}</span>
+                ) : null}
+              </figcaption>
+            </Reveal>
+          ))}
+          <p className="sm:col-span-2 text-xs leading-6 text-muted-foreground">{c.attribution}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------- location */
+
+function Location({ section, ctx }: { section: LocationSection; ctx: SectionContext }) {
+  const c = section.content;
+  return (
+    <section id={section.id} className="px-6 py-20 md:px-12 md:py-28 lg:px-20">
+      <div className={cn("mx-auto grid items-stretch gap-10 lg:grid-cols-2", ctx.maxWidth)}>
+        <div>
+          {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
+          <h2 className="mt-4 text-[clamp(1.7rem,3.6vw,2.8rem)] font-black uppercase leading-[1] tracking-[-0.02em]">
+            {c.title}
+          </h2>
+          {c.intro ? (
+            <p className="mt-4 max-w-[54ch] text-sm leading-7 text-muted-foreground">{c.intro}</p>
+          ) : null}
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <Reveal ctx={ctx} className="rounded-3xl border border-border bg-card p-6">
+              <p className="text-xs font-black uppercase tracking-[.18em] text-primary">Endereço</p>
+              <address className="mt-3 not-italic text-sm leading-7 text-muted-foreground">
+                {c.address.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+              {c.mapsLink ? (
+                <a
+                  href={c.mapsLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="mt-4 inline-flex min-h-11 items-center rounded-full border border-primary px-5 text-xs font-black uppercase tracking-[.14em] text-primary transition hover:bg-primary hover:text-primary-foreground"
+                >
+                  {c.mapsLink.label}
+                </a>
+              ) : null}
+            </Reveal>
+
+            <Reveal ctx={ctx} delay={step(ctx, 1)} className="rounded-3xl border border-border bg-card p-6">
+              <p className="text-xs font-black uppercase tracking-[.18em] text-primary">Horários</p>
+              <dl className="mt-3 space-y-2 text-sm text-muted-foreground">
+                {c.hours.map((h) => (
+                  <div key={h.days} className="flex items-baseline justify-between gap-4">
+                    <dt>{h.days}</dt>
+                    <dd className="font-bold text-foreground">{h.hours}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
+            {c.contact?.length ? (
+              <Reveal
+                ctx={ctx}
+                delay={step(ctx, 2)}
+                className="rounded-3xl border border-border bg-card p-6 sm:col-span-2"
+              >
+                <p className="text-xs font-black uppercase tracking-[.18em] text-primary">Contato</p>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  {c.contact.map((item) => (
+                    <li key={item.label}>
+                      <span>{item.label}: </span>
+                      {item.href ? (
+                        <a className="font-bold text-foreground underline underline-offset-4" href={item.href}>
+                          {item.value}
+                        </a>
+                      ) : (
+                        <span className="font-bold text-foreground">{item.value}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ) : null}
+          </div>
+
+          {c.note ? <p className="mt-6 text-xs leading-6 text-muted-foreground">{c.note}</p> : null}
+          {c.ctaLabel ? (
+            <div className="mt-7">
+              {ctx.renderCta({
+                placement: "location",
+                children: c.ctaLabel,
+                className:
+                  "inline-flex min-h-12 items-center rounded-full bg-primary px-8 text-sm font-black uppercase tracking-[.12em] text-primary-foreground transition hover:opacity-90",
+              })}
+            </div>
+          ) : null}
+        </div>
+
+        {c.image ? (
+          <Reveal ctx={ctx} delay={step(ctx, 1)} className="overflow-hidden rounded-[2rem] border border-border">
+            <Img image={c.image} className="h-full min-h-[320px] w-full object-cover" />
+          </Reveal>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
 /* -------------------------------------------------------------- registry */
 
 export function renderBlueprintSection(section: BlueprintSection, ctx: SectionContext): ReactNode {
@@ -696,6 +898,10 @@ export function renderBlueprintSection(section: BlueprintSection, ctx: SectionCo
       return <UseCases section={section} ctx={scoped} />;
     case "authority":
       return <Authority section={section} ctx={scoped} />;
+    case "proof":
+      return <Proof section={section} ctx={scoped} />;
+    case "location":
+      return <Location section={section} ctx={scoped} />;
     case "cta":
       return <Cta section={section} ctx={scoped} />;
     case "faq":

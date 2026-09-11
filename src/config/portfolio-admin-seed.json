@@ -463,7 +463,7 @@
       "image": "/images/carecas-infotec/capa.jpg",
       "icon": "/images/carecas-infotec/logo.png",
       "socialImage": "/images/carecas-infotec/capa.jpg",
-      "socialVersion": "03dc574e",
+      "socialVersion": "01b2bfd4",
       "componentFile": "src/components/site/CarecasInfotecPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/carecas-infotec",
@@ -478,7 +478,9 @@
         "/images/carecas-infotec/gen-cta-textura.jpg",
         "/images/carecas-infotec/gen-desktop-avaliacao.jpg",
         "/images/carecas-infotec/gen-diagnostico-aside.jpg",
+        "/images/carecas-infotec/gen-hardware-diagnostico.jpg",
         "/images/carecas-infotec/gen-hero-bancada.jpg",
+        "/images/carecas-infotec/gen-hero-editorial.jpg",
         "/images/carecas-infotec/gen-impressora-toner.jpg",
         "/images/carecas-infotec/gen-notebook-bancada.jpg",
         "/images/carecas-infotec/logo.png"

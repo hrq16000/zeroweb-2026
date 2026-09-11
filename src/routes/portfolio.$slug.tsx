@@ -561,7 +561,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAutoSocorroDentinho = loaderData?.slug === "auto-socorro-dentinho";
     const isPinturasNunes = loaderData?.slug === "pinturas-nunes";
     const isEstruturaNacional = loaderData?.slug === "estrutura-nacional";
-    const description = isEstruturaNacional
+    const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
+    const description = isCarecasInfotec
+      ? "Careca's Infotec no Santo Antônio, São José dos Pinhais — PR: assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame, com recarga de cartucho e toner e avaliação antes do reparo."
+      : isEstruturaNacional
       ? "EN — Estrutura Nacional em São José dos Pinhais: fabricação e montagem de estruturas metálicas, perfis estruturais, abrasivos e arames para solda."
       : isPinturasNunes
       ? "Pinturas Nunes: pintura residencial e predial, texturas, grafiato, acabamentos, telhados, grades e portões."
@@ -787,7 +790,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isSscons
+          content: eff.keywords ?? (isCarecasInfotec
+            ? "Careca's Infotec, assistência técnica São José dos Pinhais, conserto de celular São José dos Pinhais, conserto de notebook, conserto de impressora, recarga de cartucho, recarga de toner, Santo Antônio"
+            : isSscons
             ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
             : isEstruturaNacional
             ? "Estrutura Nacional, estruturas metálicas São José dos Pinhais, fabricação de estruturas metálicas, montagem de estruturas metálicas, perfis estruturais, abrasivos, arames para solda, soluções em aço, Região Metropolitana de Curitiba"
@@ -929,6 +934,71 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           "@type": "Question",
                           name: faq.q,
                           acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                /**
+                 * Careca's Infotec: dados verificados na ficha pública do
+                 * Google (Place ID confirmado). Sem aggregateRating/Review no
+                 * schema — a prova social é exibida com atribuição na página.
+                 */
+                ...(isCarecasInfotec
+                  ? [
+                      {
+                        "@type": "ComputerStore",
+                        "@id": `${url}#localbusiness`,
+                        name: "Careca's Infotec",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/carecas-infotec/logo.png"),
+                        telephone: "+55 41 99507-2700",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Margarida Petrelli Fogiatto, 118",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83020-600",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.5620651,
+                          longitude: -49.2024137,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "Neighborhood", name: "Santo Antônio" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=Careca%27s%20Infotec&query_place_id=ChIJjxhi67_73JQRgGgv4G2-G18",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:00",
+                          },
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Saturday"],
+                            opens: "09:00",
+                            closes: "18:00",
+                          },
+                        ],
+                        makesOffer: [
+                          "Assistência técnica de celular",
+                          "Assistência técnica de computador e notebook",
+                          "Assistência técnica de impressora",
+                          "Assistência técnica de monitor",
+                          "Assistência técnica de tablet",
+                          "Assistência técnica de videogame",
+                          "Recarga de cartucho e toner",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
                         })),
                       },
                     ]

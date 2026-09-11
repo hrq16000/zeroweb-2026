@@ -48,6 +48,8 @@ export type CtaPlacement =
   | "hero"
   | "offers"
   | "authority"
+  | "proof"
+  | "location"
   | "cta"
   | "faq"
   | "inline";
@@ -164,12 +166,67 @@ export type FaqSection = SectionBase & {
   };
 };
 
+/**
+ * Prova social verificada.
+ *
+ * Aditiva: só existe quando o projeto tem avaliação pública com origem,
+ * autoria e link auditáveis (ver PORTFOLIO_ENTITY_ENRICHMENT_STANDARD).
+ * O renderer não inventa nota, contagem nem atribuição: tudo vem do conteúdo.
+ */
+export type ProofSection = SectionBase & {
+  type: "proof";
+  variant: "reviews";
+  content: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    summary?: {
+      value: string;
+      count: string;
+      label?: string;
+      sourceLabel: string;
+      sourceHref?: string;
+    };
+    items: {
+      author: string;
+      rating: number;
+      text: string;
+      date?: string;
+      sourceLabel?: string;
+      sourceHref?: string;
+    }[];
+    /** Atribuição obrigatória da origem (ex.: "Avaliações públicas no Google"). */
+    attribution: string;
+    ctaLabel?: string;
+  };
+};
+
+/** Localização, horários e contato público do próprio cliente. */
+export type LocationSection = SectionBase & {
+  type: "location";
+  variant: "panel";
+  content: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    address: string[];
+    hours: { days: string; hours: string }[];
+    contact?: { label: string; value: string; href?: string }[];
+    mapsLink?: BlueprintLink;
+    image?: BlueprintImage;
+    note?: string;
+    ctaLabel?: string;
+  };
+};
+
 export type BlueprintSection =
   | HeroSection
   | TrustSection
   | OffersSection
   | UseCasesSection
   | AuthoritySection
+  | ProofSection
+  | LocationSection
   | CtaSection
   | FaqSection;
 
@@ -182,6 +239,8 @@ export const BLUEPRINT_SECTION_VARIANTS = {
   offers: ["grid", "featured", "alternating"],
   useCases: ["imageGrid", "editorial"],
   authority: ["split", "media"],
+  proof: ["reviews"],
+  location: ["panel"],
   cta: ["banner", "immersive"],
   faq: ["accordion"],
 } as const satisfies Record<BlueprintSectionType, readonly string[]>;

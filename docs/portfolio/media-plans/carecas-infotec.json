@@ -82,6 +82,33 @@
         "provenance": "gerada pela 0WEB em 2026-09-11; ilustrativa, não representa loja, bancada, equipe, clientes ou serviços executados",
         "distinctFrom": "gen-notebook-bancada.jpg (composição diferente: gabinete desktop aberto, não notebook)",
         "createdAt": "2026-09-11"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-hero-editorial.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "hero editorial v2 (substitui gen-hero-bancada como abertura), coerente com a capa v2",
+        "section": "hero",
+        "dimensions": "1920x1088",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: notebook aberto com a tampa removida, celular desmontado, placa e ferramentas de precisão em bancada escura sob luz âmbar"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-hardware-diagnostico.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "apoio visual da seção de localização/atendimento presencial",
+        "section": "onde-estamos",
+        "dimensions": "1600x1008",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: placa-mãe com memórias, chave de precisão e pinça sobre bancada escura"
+      },
+      {
+        "file": "assets-source/carecas-infotec/cover-bg-source-v2.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "fundo da capa v2 (fonte, não servida publicamente)",
+        "section": "cover",
+        "dimensions": "1920x1280",
+        "generatedAt": "2026-09-11",
+        "alt": ""
       }
     ],
     "graphicMedia": [
@@ -223,5 +250,18 @@
     },
     "answer": "Sim: o card mostra a marca real e o descritor 'assistência técnica de informática' com notebook e placa eletrônica."
   },
-  "lastUpdatedAt": "2026-09-11"
+  "lastUpdatedAt": "2026-09-11",
+  "coverStrategy": {
+    "file": "public/images/carecas-infotec/capa.jpg",
+    "mode": "BRAND_LED + SERVICE_LED",
+    "usage": "card do /portfolio e imagem social (OG/Twitter)",
+    "dimensions": "1200x630",
+    "builtBy": "scripts/build-carecas-cover.mjs",
+    "background": "assets-source/carecas-infotec/cover-bg-source-v2.jpg",
+    "content": "logo real do cliente + descritor de serviço + cidade verificada (São José dos Pinhais — PR)",
+    "regeneratedAt": "2026-09-11"
+  },
+  "notes": [
+    "2026-09-11: hero passou para gen-hero-editorial.jpg; banner.webp segue como evidência real única na seção 'loja'. Capa regenerada sobre o fundo v2."
+  ]
 }

@@ -15,7 +15,7 @@ import { resolve } from "node:path";
 import sharp from "sharp";
 
 const dir = resolve("public/images/carecas-infotec");
-const BG = resolve("assets-source/carecas-infotec/cover-bg-source.jpg");
+const BG = resolve("assets-source/carecas-infotec/cover-bg-source-v2.jpg");
 const LOGO = resolve(dir, "logo.png");
 const OUT = resolve(dir, "capa.jpg");
 
@@ -47,12 +47,19 @@ async function logoWithAlpha() {
 }
 
 const label = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
-  <rect x="0" y="0" width="${W}" height="${H}" fill="#0d0b10" opacity="0.34"/>
-  <rect x="0" y="0" width="470" height="${H}" fill="#0d0b10" opacity="0.5"/>
+  <defs>
+    <linearGradient id="veil" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d0b10" stop-opacity="0.92"/>
+      <stop offset="0.52" stop-color="#0d0b10" stop-opacity="0.68"/>
+      <stop offset="1" stop-color="#0d0b10" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="${W}" height="${H}" fill="url(#veil)"/>
   <rect x="72" y="392" width="14" height="60" rx="7" fill="#f2c44a"/>
   <text x="104" y="418" font-family="Arial Black, Arial, sans-serif" font-size="30" font-weight="900" fill="#ffffff" letter-spacing="1">ASSISTÊNCIA TÉCNICA</text>
   <text x="104" y="452" font-family="Arial Black, Arial, sans-serif" font-size="30" font-weight="900" fill="#f2c44a" letter-spacing="1">DE INFORMÁTICA</text>
-  <text x="74" y="512" font-family="Arial, sans-serif" font-size="21" fill="#d9d5e0" letter-spacing="2">CELULAR · NOTEBOOK · IMPRESSORA</text>
+  <text x="74" y="508" font-family="Arial, sans-serif" font-size="20" fill="#d9d5e0" letter-spacing="2">CELULAR · NOTEBOOK · IMPRESSORA</text>
+  <text x="74" y="544" font-family="Arial, sans-serif" font-size="20" fill="#9c98a6" letter-spacing="2">SÃO JOSÉ DOS PINHAIS — PR</text>
 </svg>`);
 
 const logo = await logoWithAlpha();

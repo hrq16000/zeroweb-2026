@@ -16,8 +16,17 @@
  */
 export const BUSINESS_ALLOWED_DIGITS = new Set(["554198755277"]);
 
-/** Dígitos (E.164 sem "+") de contatos de clientes autorizados em vitrines. */
-export const CLIENT_ALLOWED_DIGITS = new Set(["554196048639", "554198755277"]);
+/**
+ * Dígitos (E.164 sem "+") de contatos de clientes autorizados em vitrines.
+ * `5541995072700` — telefone público da Careca's Infotec, confirmado na ficha
+ * pública do Google (Place ID ChIJjxhi67_73JQRgGgv4G2-G18) e exibido na
+ * própria vitrine do cliente.
+ */
+export const CLIENT_ALLOWED_DIGITS = new Set([
+  "554196048639",
+  "554198755277",
+  "5541995072700",
+]);
 
 /** Prefixos de chunks que são páginas-vitrine de clientes. */
 export const CLIENT_CHUNK_PREFIXES = [
@@ -28,10 +37,13 @@ export const CLIENT_CHUNK_PREFIXES = [
   "portfolio.r_beauty",
   "DyzPromoPage",
   "portfolio.dyzpromo",
+  "CarecasInfotecPage",
+  "portfolio.carecas-infotec",
 ];
 
 /** Telefone formatado de cliente autorizado ou do contato comercial oficial. */
-export const CLIENT_ALLOWED_PHONE = /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277))$/;
+export const CLIENT_ALLOWED_PHONE =
+  /^(?:\+?55[- ]?\(?41\)?[- ]?9?(?:9604-?8639|9875-?5277|9507-?2700))$/;
 
 /** Chunks do painel autenticado (leaks viram warning, não erro). */
 export const ADMIN_CHUNK_PREFIXES = [
