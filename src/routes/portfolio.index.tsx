@@ -588,7 +588,7 @@ function PortfolioPage() {
         </div>
 
         {/* Cabeçalho editorial da galeria */}
-        <MotionReveal as="section" className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
+        <MotionReveal><section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
           <div className="mx-auto max-w-[1500px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl space-y-3">
@@ -953,7 +953,7 @@ function PortfolioPage() {
                 </div>
               </section>
             )}
-            <MotionReveal as="section" aria-labelledby="silo-title" className="space-y-6">
+            <MotionReveal><section aria-labelledby="silo-title" className="space-y-6">
               <h2 id="silo-title" className="text-2xl sm:text-3xl font-bold text-foreground">
                 Criação de sites por segmento e bairro
               </h2>
@@ -979,7 +979,7 @@ function PortfolioPage() {
               </div>
             </section>
 
-            <MotionReveal as="section" className="mt-12" aria-labelledby="portfolio-por-local">
+            <MotionReveal><section className="mt-12" aria-labelledby="portfolio-por-local">
               <h2 id="portfolio-por-local" className="text-xl font-semibold text-foreground">
                 Projetos por cidade e bairro
               </h2>
