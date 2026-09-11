@@ -321,7 +321,11 @@ export function MotionCounter({
   }, [seen, reduced, value, durationMs]);
 
   return (
-    <span ref={ref} className={className}>
+    <span
+      ref={ref}
+      className={className}
+      {...motionDataAttrs("counter", reduced ? "static" : seen ? "played" : "armed")}
+    >
       {prefix}
       {display}
       {suffix}
