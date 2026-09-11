@@ -181,22 +181,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tokens do GlobalMotionContract (src/config/global-motion-contract.json).
-   Toda a experiência pública usa esta mesma linguagem de movimento. */
-:root {
-  --motion-duration-micro: 160ms;
-  --motion-duration-element: 260ms;
-  --motion-duration-section: 420ms;
-  --motion-duration-page: 520ms;
-  --motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
-  --motion-ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
-  --motion-distance-subtle: 8px;
-  --motion-distance-balanced: 16px;
-  --motion-distance-expressive: 26px;
-  --motion-distance-immersive: 38px;
-  --motion-parallax-max: 32px;
-  --motion-zoom-max: 1.06;
-}
+
 
 /* Entrada progressiva dos projetos do portfólio: a seção só ganha movimento
    quando se aproxima da viewport. O fallback mantém a página totalmente
