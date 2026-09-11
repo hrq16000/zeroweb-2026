@@ -152,6 +152,19 @@ export function evaluateStructuralOriginality({
     }
   }
 
+  // Abertura e fechamento repetidos são o sinal mais visível de "mesmo esqueleto".
+  const edge = (list, side) => (side === "start" ? list.slice(0, 2) : list.slice(-3)).join(" > ");
+  for (const peer of windowPeers) {
+    if (!peer.sectionOrder?.length || sectionOrder.length < 3) continue;
+    if (edge(sectionOrder, "start") === edge(peer.sectionOrder, "start")) {
+      fail("sectionOrderDiverse", `abertura idêntica à de ${peer.slug} (${edge(sectionOrder, "start")})`);
+    }
+    if (edge(sectionOrder, "end") === edge(peer.sectionOrder, "end")) {
+      fail("sectionOrderDiverse", `fechamento idêntico ao de ${peer.slug} (${edge(sectionOrder, "end")})`);
+    }
+  }
+
+
   // Eixos de composição: repetição excessiva na janela.
   const axisCheck = {
     mediaNarrative: "mediaNarrativeDistinct",
