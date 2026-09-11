@@ -159,12 +159,13 @@ export const blueprint: PortfolioBlueprint = {
           "Celular, computador, notebook, impressora, monitor, tablet e videogame. Descreva o aparelho e o que está acontecendo: a avaliação técnica vem antes de qualquer reparo.",
         subheadlineField: "heroSubheadline",
         image: {
-          src: "/images/carecas-infotec/banner.webp",
-          alt: "Faixa oficial da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
-          width: 1240,
-          height: 550,
+          src: "/images/carecas-infotec/gen-hero-bancada.jpg",
+          alt: "Ilustração técnica: notebook aberto com componentes e ferramentas de precisão em bancada escura sob luz âmbar",
+          width: 1920,
+          height: 1088,
           managedField: "heroImageUrl",
         },
+
         ctaLabel: "Agende já seu serviço",
         secondary: { label: "Ver equipamentos atendidos", href: "#equipamentos" },
         stats: [
