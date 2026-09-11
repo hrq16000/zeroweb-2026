@@ -16,6 +16,8 @@ import { cn } from "@/lib/utils";
 export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: PortfolioBlueprint }) {
   const { identity, layout, sections } = blueprint;
   const maxWidth = layout.maxWidth ?? "max-w-6xl";
+  const runtime = usePortfolioRuntime();
+  const tuning = runtime?.motion;
 
   const ctx: SectionContext = {
     renderCta: blueprint.renderCta,
@@ -23,13 +25,34 @@ export function PortfolioBlueprintRenderer({ blueprint }: { blueprint: Portfolio
     motion: undefined,
   };
 
+  const intensity = tuning?.intensity ?? layout.motionIntensity ?? "BALANCED";
+
+  /**
+   * Regulagem do painel de motion sobre a composição da landing: só limita ou
+   * desliga o que já existe. Nunca cria efeito que o projeto não declarou.
+   */
+  const tune = (motion: BlueprintSectionMotion | undefined) => {
+    if (!tuning || !motion) return motion;
+    const next: BlueprintSectionMotion = { ...motion };
+    if (typeof tuning.parallaxMax === "number" && typeof next.parallax === "number") {
+      next.parallax = Math.min(next.parallax, tuning.parallaxMax);
+    }
+    if (tuning.hover === false) next.hover = "none";
+    if (tuning.counters === false) next.counters = false;
+    if (typeof tuning.speed === "number" && typeof next.stagger === "number") {
+      next.stagger = Math.round(next.stagger * tuning.speed);
+    }
+    return next;
+  };
+
   const ordered = sections
     .filter((section) => section.enabled !== false)
     .slice()
-    .sort((a, b) => a.order - b.order);
+    .sort((a, b) => a.order - b.order)
+    .map((section) => (tuning ? { ...section, motion: tune(section.motion) } : section));
 
   return (
-    <MotionScope intensity={layout.motionIntensity ?? "BALANCED"}>
+    <MotionScope intensity={intensity}>
       <div
         className="min-h-dvh bg-background text-foreground"
         style={blueprint.theme}
