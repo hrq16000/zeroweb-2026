@@ -96,9 +96,15 @@
         "proofStyle": "trust-bar",
         "mediaNarrative": "editorial-band",
         "ctaStyle": "immersive-close",
-        "motionProfile": "technical-calm",
+        "motionProfile": "bench-diagnostic",
         "baseline": true,
         "notes": "Assinatura registrada retroativamente como baseline de comparacao (adendo estrutural §10). Projeto publicado nao e reavaliado nem redesenhado."
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-09-12",
+        "reviewer": "0WEB editorial",
+        "notes": "Revisao editorial 2026-09-12: assinatura baseline conferida contra Moreira e JKL. Hero cinematografico, prova em barra de confianca e fechamento imersivo divergem dos pares em pelo menos quatro eixos; similaridade de ordem medida abaixo do limite. Projeto publicado, sem redesign (adendo §10)."
       }
     },
     "moreira-auto-mecanica": {
@@ -187,6 +193,12 @@
         "motionProfile": "mechanical-contained",
         "baseline": true,
         "notes": "Assinatura registrada retroativamente como baseline de comparacao (adendo estrutural §10)."
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-09-12",
+        "reviewer": "0WEB editorial",
+        "notes": "Revisao editorial 2026-09-12: hero assimetrico, prova em cards e CTA em painel divergem de Careca's e JKL em quatro eixos; similaridade de ordem medida abaixo do limite."
       }
     },
     "jkl-decor": {
@@ -270,6 +282,12 @@
         "motionProfile": "cabinetry-settling",
         "baseline": true,
         "notes": "Assinatura registrada retroativamente como baseline de comparacao (adendo estrutural §10)."
+      },
+      "structuralOriginalityReview": {
+        "approved": true,
+        "reviewedAt": "2026-09-12",
+        "reviewer": "0WEB editorial",
+        "notes": "Revisao editorial 2026-09-12: narrativa de midia em mosaico, prova com galeria legendada e ritmo de rolagem longa divergem dos pares em quatro eixos; similaridade de ordem medida abaixo do limite."
       }
     }
   }

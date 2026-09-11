@@ -131,10 +131,35 @@ export const blueprint: PortfolioBlueprint = {
     ],
   },
   theme,
+  /**
+   * Motion profile próprio (docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md §4).
+   * Nada copiado de outro cliente: aqui o movimento é de bancada — a peça
+   * entra em foco, o diagnóstico se revela linha a linha e a nota pública
+   * é contada como um número conferido, não como enfeite.
+   */
+  motionProfile: {
+    intensity: "EXPRESSIVE",
+    personality: "bench-diagnostic",
+    entrance: ["fade", "slide", "stagger"],
+    scroll: ["scrollReveal", "imageParallax"],
+    hover: ["hoverLift", "imageZoom"],
+    typography: ["textReveal"],
+    media: ["imageReveal", "imageParallax"],
+    transitions: ["colorTransition"],
+    signatureEffects: ["verified-rating-counter", "bench-focus-parallax"],
+    reducedMotionStrategy: "instant-with-opacity",
+    mobileStrategy: "sem parallax e sem hover; entradas curtas e scroll natural",
+  },
   layout: {
     motionIntensity: "EXPRESSIVE",
     maxWidth: "max-w-[1400px]",
     headerCtaLabel: "Agendar serviço",
+    /** Acesso persistente ao funil individual — nunca telefone ou WhatsApp. */
+    floatingConversion: {
+      mode: "enabled",
+      label: "Descrever o aparelho",
+      hint: "Avaliação técnica",
+    },
   },
   renderCta,
   afterContent: (
@@ -160,7 +185,7 @@ export const blueprint: PortfolioBlueprint = {
       type: "hero",
       variant: "fullBleed",
       order: 10,
-      motion: { intensity: "IMMERSIVE", reveal: "up", stagger: 90 },
+      motion: { intensity: "IMMERSIVE", reveal: "up", stagger: 90, parallax: 22 },
       content: {
         eyebrow: "Assistência especializada · Santo Antônio, São José dos Pinhais — PR",
         headline: "Solução com qualidade, confiança e preço justo.",
@@ -181,7 +206,12 @@ export const blueprint: PortfolioBlueprint = {
         stats: [
           /** Nota e contagem: ficha pública do Google, verificadas na ingestão. */
           { value: "4,9", label: "Nota no Google · 43 avaliações" },
-          { value: "8 tipos", label: "Aparelhos atendidos" },
+          {
+            value: "43 avaliações",
+            countTo: 43,
+            countSuffix: " avaliações",
+            label: "Ficha pública no Google",
+          },
           { value: "Antes do reparo", label: "Avaliação técnica" },
           { value: "Seg a sáb", label: "Santo Antônio — São José dos Pinhais" },
         ],
@@ -207,7 +237,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "featured",
       order: 30,
       id: "equipamentos",
-      motion: { reveal: "up", stagger: 60 },
+      motion: { reveal: "up", stagger: 60, hover: "lift" },
       content: {
         eyebrow: "Equipamentos atendidos",
         title: "O que entra para avaliação",
@@ -336,7 +366,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "imageGrid",
       order: 45,
       id: "atendimento",
-      motion: { reveal: "up", stagger: 90 },
+      motion: { reveal: "up", stagger: 90, hover: "lift" },
       content: {
         eyebrow: "Frentes de atendimento",
         title: "Três frentes, a mesma avaliação técnica.",
@@ -379,7 +409,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "alternating",
       order: 50,
       id: "como-funciona",
-      motion: { reveal: "up", stagger: 80 },
+      motion: { reveal: "up", stagger: 80, hover: "lift" },
       content: {
         eyebrow: "Como funciona a avaliação",
         title: "Do relato ao aparelho testado",
@@ -416,7 +446,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "reviews",
       order: 55,
       id: "avaliacoes",
-      motion: { reveal: "up", stagger: 80 },
+      motion: { reveal: "up", stagger: 80, hover: "glow" },
       content: {
         eyebrow: "Avaliações públicas",
         title: "O que os clientes registraram no Google.",
@@ -473,7 +503,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "split",
       order: 60,
       id: "loja",
-      motion: { reveal: "left" },
+      motion: { reveal: "left", parallax: 18 },
       content: {
         eyebrow: "Careca's Infotec em São José dos Pinhais",
         title: "Assistência técnica especializada, com atendimento de quem executa.",

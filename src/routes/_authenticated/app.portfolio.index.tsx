@@ -156,6 +156,12 @@ function PortfolioAdminList() {
             Capas pendentes
           </Link>
           <Link
+            to="/app/portfolio-motion"
+            className="min-h-11 rounded-md border border-border px-4 py-2 text-sm font-semibold"
+          >
+            Movimento
+          </Link>
+          <Link
             to="/app/portfolio/novo"
             search={{ slug: undefined }}
             className="min-h-11 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"

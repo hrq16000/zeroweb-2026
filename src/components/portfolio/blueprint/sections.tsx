@@ -183,7 +183,15 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
                     {stat.label}
                   </dt>
                   <dd className="mt-2 text-xl font-black uppercase tracking-tight md:text-2xl">
-                    {stat.value}
+                    {typeof stat.countTo === "number" && ctx.motion?.counters !== false ? (
+                      <MotionCounter
+                        value={stat.countTo}
+                        prefix={stat.countPrefix ?? ""}
+                        suffix={stat.countSuffix ?? ""}
+                      />
+                    ) : (
+                      stat.value
+                    )}
                   </dd>
                 </Reveal>
               ))}
@@ -293,7 +301,17 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
                   delay={step(ctx, i)}
                   className="border-b border-border px-1 py-6 md:border-b-0 md:border-r md:px-6 md:last:border-r-0 md:first:pl-0"
                 >
-                  <dd className="text-2xl font-semibold tracking-tight md:text-3xl">{stat.value}</dd>
+                  <dd className="text-2xl font-semibold tracking-tight md:text-3xl">
+                    {typeof stat.countTo === "number" && ctx.motion?.counters !== false ? (
+                      <MotionCounter
+                        value={stat.countTo}
+                        prefix={stat.countPrefix ?? ""}
+                        suffix={stat.countSuffix ?? ""}
+                      />
+                    ) : (
+                      stat.value
+                    )}
+                  </dd>
                   <dt className="mt-1 text-xs uppercase tracking-[.18em] text-muted-foreground">
                     {stat.label}
                   </dt>

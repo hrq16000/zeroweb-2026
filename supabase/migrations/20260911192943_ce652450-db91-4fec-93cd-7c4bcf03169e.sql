@@ -1,0 +1,1 @@
+ALTER TABLE public.portfolio_client_settings ADD COLUMN IF NOT EXISTS motion_settings jsonb;
