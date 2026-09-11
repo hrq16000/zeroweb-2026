@@ -134,6 +134,26 @@ export const blueprint: PortfolioBlueprint = {
       { label: "Onde fica", href: "#onde-fica" },
     ],
   },
+  /**
+   * Motion profile desta oficina (docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md §4).
+   * Nada copiado: o movimento é mecânico e contido — a mídia real tem leve
+   * profundidade, a contagem revela um número verificado, as linhas de
+   * atendimento respondem ao cursor e o agendamento se preenche conforme
+   * o scroll avança, como uma etapa concluída na bancada.
+   */
+  motionProfile: {
+    intensity: "BALANCED",
+    personality: "mechanical-contained",
+    entrance: ["fade", "slide", "stagger", "maskReveal"],
+    scroll: ["scrollReveal", "imageParallax", "scrollProgress", "stickyScroll"],
+    hover: ["hoverLift", "iconMotion", "imageZoom"],
+    typography: ["textReveal"],
+    media: ["imageReveal", "imageParallax"],
+    transitions: ["colorTransition"],
+    signatureEffects: ["mechanical-step-progress", "verified-review-counter"],
+    reducedMotionStrategy: "instant-with-opacity",
+    mobileStrategy: "sem parallax e sem efeitos de hover; entradas curtas e scroll natural",
+  },
   theme,
   layout: {
     motionIntensity: "BALANCED",
@@ -146,7 +166,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "asymmetric",
       order: 10,
       id: "inicio-oficina",
-      motion: { intensity: "BALANCED", reveal: "up", stagger: 80 },
+      motion: { intensity: "BALANCED", reveal: "up", stagger: 80, parallax: 26 },
       content: {
         eyebrow: "Mecânica para carros · São José dos Pinhais — PR",
         headline: "A oficina do bairro que o cliente indica para o vizinho.",
@@ -172,7 +192,13 @@ export const blueprint: PortfolioBlueprint = {
       content: {
         items: [
           { value: "4,8 de 5", label: "Nota pública no Google", icon: Star },
-          { value: "105 avaliações", label: "93 delas com cinco estrelas", icon: ClipboardList },
+          {
+            value: "105 avaliações",
+            countTo: 105,
+            countSuffix: " avaliações",
+            label: "93 delas com cinco estrelas",
+            icon: ClipboardList,
+          },
           { value: "Seg a sex · 08h–18h30", label: "Sábado e domingo fechado", icon: CalendarClock },
           { value: "Cidade Jardim", label: "R. Padre Alberto Müler, 279 — SJP/PR", icon: MapPin },
         ],
@@ -185,7 +211,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "list",
       order: 30,
       id: "atendimento",
-      motion: { reveal: "up", stagger: 70 },
+      motion: { reveal: "up", stagger: 70, hover: "lift" },
       content: {
         eyebrow: "Atendimento",
         title: "O que chega até a oficina",
@@ -222,7 +248,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "imageGrid",
       order: 40,
       id: "a-oficina",
-      motion: { reveal: "scale", stagger: 90 },
+      motion: { reveal: "scale", stagger: 90, hover: "lift" },
       content: {
         eyebrow: "A oficina por dentro",
         title: "Estrutura real, sem cenário montado",
@@ -311,7 +337,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "timeline",
       order: 60,
       theme: lightSurface,
-      motion: { reveal: "left", stagger: 90 },
+      motion: { reveal: "left", stagger: 90, scrollProgress: true },
       content: {
         eyebrow: "Agendamento",
         title: "Como marcar sua avaliação por aqui",

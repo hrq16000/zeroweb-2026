@@ -27,6 +27,38 @@ export type BlueprintSectionMotion = {
   reveal?: BlueprintRevealVariant;
   /** Atraso incremental entre itens da seção, em ms. */
   stagger?: number;
+  /**
+   * Adendo de motion (docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md):
+   * capacidades opt-in por seção. Ausente = seção estática, sem efeito.
+   */
+  /** Amplitude do parallax da mídia da seção, em px (desktop, sem reduced motion). */
+  parallax?: number;
+  /** Microinteração de card/linha ao hover. */
+  hover?: "none" | "lift" | "glow";
+  /** Progresso visual ligado ao scroll (ex.: linha do tempo preenchendo). */
+  scrollProgress?: boolean;
+};
+
+/**
+ * Motion profile do projeto — declaração consciente de movimento
+ * (docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md §4). Cada projeto define o seu;
+ * copiar o de outro cliente é reprovação de originalidade.
+ */
+export type BlueprintMotionProfile = {
+  intensity: BlueprintMotionIntensity;
+  /** Personalidade do movimento, em uma expressão própria do negócio. */
+  personality: string;
+  entrance: string[];
+  scroll: string[];
+  hover: string[];
+  typography: string[];
+  media: string[];
+  transitions: string[];
+  /** 1–3 movimentos assinatura, ligados ao negócio. */
+  signatureEffects: string[];
+  reducedMotionStrategy: string;
+  /** Como o motion é simplificado no mobile (§12). */
+  mobileStrategy?: string;
 };
 
 export type BlueprintIcon = ComponentType<{ className?: string }>;
@@ -228,7 +260,18 @@ export type SignalsSection = SectionBase & {
   type: "signals";
   variant: "strip";
   content: {
-    items: { value: string; label: string; icon?: BlueprintIcon }[];
+    items: {
+      value: string;
+      label: string;
+      icon?: BlueprintIcon;
+      /**
+       * Número real e comprovado para contagem animada (adendo de motion §2).
+       * `value` continua sendo o texto completo exibido sem JS.
+       */
+      countTo?: number;
+      countPrefix?: string;
+      countSuffix?: string;
+    }[];
     attribution?: string;
   };
 };
@@ -307,6 +350,8 @@ export type PortfolioBlueprint = {
   };
   /** Tokens locais do cliente (CSS custom properties). */
   theme: CSSProperties;
+  /** Estratégia de movimento do projeto (adendo de motion §4). */
+  motionProfile?: BlueprintMotionProfile;
   layout: {
     motionIntensity?: BlueprintMotionIntensity;
     /** Largura de leitura padrão das seções que não são full bleed. */

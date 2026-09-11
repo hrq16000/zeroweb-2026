@@ -1,5 +1,5 @@
 {
-  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md). Avaliar antes de readiness/publish.",
+  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md + docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md). Avaliar antes de readiness/publish.",
   "slug": "moreira-auto-mecanica",
   "matrixVersion": 2,
   "contractVersion": 3,
@@ -104,6 +104,10 @@
     "CONVERSION_CONTINUITY": {
       "status": "PASS",
       "note": "Funil disponível em todas as etapas da leitura, sempre pelo mesmo mecanismo."
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "note": "Motion profile próprio (mechanical-contained): parallax leve só no hero desktop, contador do número real de avaliações, hover lift no índice de atendimento e na banda fotográfica, e linha do agendamento se preenchendo com o scroll. Reveal varia entre up/fade/scale/left/right."
     }
   },
   "experience": {
@@ -216,5 +220,113 @@
     "Confirmar uso das fotos públicas e, se possível, enviar fotos próprias em alta resolução",
     "Confirmar o perfil oficial nas redes sociais",
     "Enviar logotipo, se existir"
-  ]
+  ],
+  "motion": {
+    "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+    "profile": {
+      "intensity": "BALANCED",
+      "personality": "mechanical-contained",
+      "entrance": [
+        "fade",
+        "slide",
+        "stagger",
+        "maskReveal"
+      ],
+      "scroll": [
+        "scrollReveal",
+        "imageParallax",
+        "scrollProgress",
+        "stickyScroll"
+      ],
+      "hover": [
+        "hoverLift",
+        "iconMotion",
+        "imageZoom"
+      ],
+      "typography": [
+        "textReveal"
+      ],
+      "media": [
+        "imageReveal",
+        "imageParallax"
+      ],
+      "transitions": [
+        "colorTransition"
+      ],
+      "signatureEffects": [
+        "mechanical-step-progress",
+        "verified-review-counter"
+      ],
+      "reducedMotionStrategy": "instant-with-opacity",
+      "mobileStrategy": "sem parallax e sem hover; entradas curtas e scroll natural"
+    },
+    "narrativeRoles": {
+      "hero.imageParallax": "INTRODUCE",
+      "signals.counter": "PROVE",
+      "offers.hoverLift": "GUIDE_ATTENTION",
+      "useCases.imageZoom": "REVEAL",
+      "process.scrollProgress": "EXPLAIN",
+      "cta.hover": "REINFORCE_CTA"
+    },
+    "gate": {
+      "motionProfileDefined": "PASS",
+      "effectsMatchBrand": {
+        "status": "PASS",
+        "notes": "Movimento mecânico e contido; nada decorativo ou orgânico."
+      },
+      "entranceNotRepetitive": {
+        "status": "PASS",
+        "notes": "Reveal alterna up, fade, scale, left e right entre as seções."
+      },
+      "contextualMicrointeraction": {
+        "status": "PASS",
+        "notes": "Hover lift nas linhas de atendimento e zoom sutil nas fotos reais da oficina."
+      },
+      "signatureMotion": {
+        "status": "PASS",
+        "notes": "2 assinaturas: linha do agendamento preenchendo com o scroll e contagem das 105 avaliações verificadas."
+      },
+      "ctaFeedback": {
+        "status": "PASS",
+        "notes": "CTA do funil com elevação no hover e foco visível; sem pulsação contínua."
+      },
+      "mobileAdapted": {
+        "status": "PASS",
+        "notes": "MotionParallax é desktop-only; hover não carrega informação."
+      },
+      "reducedMotionCovered": {
+        "status": "PASS",
+        "notes": "prefers-reduced-motion desliga parallax, contador, progresso e transformações."
+      },
+      "contentAccessibleWithoutMotion": {
+        "status": "PASS",
+        "notes": "Todo texto e número existem no DOM em SSR; nada depende de animação."
+      },
+      "noTransformOverflow": {
+        "status": "PASS",
+        "notes": "Auditoria de runtime em 390/768/1440: overflow 0."
+      },
+      "noHeavyDependency": {
+        "status": "PASS",
+        "notes": "Sem GSAP, Lottie ou vídeo; só CSS + IntersectionObserver do sistema de motion."
+      },
+      "noPerformanceRegression": {
+        "status": "PASS",
+        "notes": "Animações restritas a transform/opacity, com rAF e listeners passivos."
+      },
+      "noAggressiveLoop": {
+        "status": "PASS",
+        "notes": "Nenhum loop infinito na página."
+      }
+    },
+    "qualityProfile": {
+      "motionIntensity": "BALANCED",
+      "motionPurpose": "hierarquia, prova e explicação do agendamento",
+      "interactionDensity": "MEDIUM",
+      "scrollExperience": "reveal + progresso mecânico, sem pinning",
+      "microinteractionQuality": "GOOD",
+      "reducedMotionCoverage": "FULL",
+      "motionPerformance": "transform/opacity apenas; sem regressão observada"
+    }
+  }
 }

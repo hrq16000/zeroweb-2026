@@ -350,7 +350,7 @@ write(
   `docs/portfolio/quality-matrix/${slug}.json`,
   `${JSON.stringify(
     {
-      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md). Avaliar antes de readiness/publish.",
+      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md + docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md). Avaliar antes de readiness/publish.",
       slug,
       matrixVersion: 2,
       contractVersion: 3,
@@ -370,6 +370,38 @@ write(
         signatureMoments: [],
         motionNarrative: null,
         heroArchetype: null,
+      },
+      /**
+       * MOTION_QUALITY_GATE — docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md §15.
+       * Preencher com a estratégia real de movimento deste negócio; copiar o
+       * motion profile de outro cliente é reprovação de originalidade.
+       */
+      motion: {
+        doc: "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+        profile: {
+          intensity: null,
+          personality: null,
+          entrance: [],
+          scroll: [],
+          hover: [],
+          typography: [],
+          media: [],
+          transitions: [],
+          signatureEffects: [],
+          reducedMotionStrategy: null,
+          mobileStrategy: null,
+        },
+        narrativeRoles: {},
+        gate: {},
+        qualityProfile: {
+          motionIntensity: null,
+          motionPurpose: null,
+          interactionDensity: null,
+          scrollExperience: null,
+          microinteractionQuality: null,
+          reducedMotionCoverage: null,
+          motionPerformance: null,
+        },
       },
       qualityProfile: {
         visualDensity: null,

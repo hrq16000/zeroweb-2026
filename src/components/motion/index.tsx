@@ -310,3 +310,99 @@ export function MotionCounter({
     </span>
   );
 }
+
+/* ------------------------------------------------------------------ */
+/* Adendo de motion (docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md)        */
+/* Primitives genéricas, opt-in. Nada aqui é específico de um cliente. */
+/* ------------------------------------------------------------------ */
+
+/** true quando a viewport é de desktop — motion pesado não desce para mobile (§12). */
+export function useDesktopViewport(minWidth = 768): boolean {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${minWidth}px)`);
+    setIsDesktop(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [minWidth]);
+  return isDesktop;
+}
+
+/**
+ * useScrollProgress — progresso (0..1) da travessia do elemento pela viewport.
+ * Retorna 1 sem JS, com reduced motion ou antes da montagem: nenhum conteúdo
+ * pode depender da conclusão do scroll.
+ */
+export function useScrollProgress<T extends HTMLElement>(enabled = true) {
+  const ref = useRef<T | null>(null);
+  const reduced = usePrefersReducedMotion();
+  const [progress, setProgress] = useState(1);
+
+  useEffect(() => {
+    if (!enabled || reduced) {
+      setProgress(1);
+      return;
+    }
+    const node = ref.current;
+    if (!node) return;
+    let raf = 0;
+    const measure = () => {
+      raf = 0;
+      const rect = node.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const total = rect.height + vh * 0.6;
+      const travelled = vh * 0.85 - rect.top;
+      setProgress(Math.min(1, Math.max(0, travelled / Math.max(1, total))));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(measure);
+    };
+    measure();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [enabled, reduced]);
+
+  return { ref, progress };
+}
+
+/**
+ * MotionParallax — deslocamento sutil ligado ao scroll (só `transform`).
+ * Desligado com `prefers-reduced-motion` e em viewport móvel (§12/§13).
+ */
+export function MotionParallax({
+  speed = 24,
+  className,
+  desktopOnly = true,
+  children,
+}: {
+  /** Amplitude máxima do deslocamento vertical, em px. */
+  speed?: number;
+  className?: string;
+  desktopOnly?: boolean;
+  children: ReactNode;
+}) {
+  const reduced = usePrefersReducedMotion();
+  const isDesktop = useDesktopViewport();
+  const enabled = !reduced && (!desktopOnly || isDesktop);
+  const { ref, progress } = useScrollProgress<HTMLDivElement>(enabled);
+  const offset = enabled ? (0.5 - progress) * 2 * speed : 0;
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        transform: enabled ? `translate3d(0, ${offset.toFixed(2)}px, 0)` : undefined,
+        willChange: enabled ? "transform" : undefined,
+      }}
+    >
+      {children}
+    </div>
+  );
+}

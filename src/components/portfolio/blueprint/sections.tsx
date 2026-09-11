@@ -6,7 +6,12 @@
  * Blueprint do cliente.
  */
 import type { ReactNode } from "react";
-import { MotionReveal } from "@/components/motion";
+import {
+  MotionCounter,
+  MotionParallax,
+  MotionReveal,
+  useScrollProgress,
+} from "@/components/motion";
 import { ManagedText } from "@/components/portfolio/ManagedText";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { cn } from "@/lib/utils";
@@ -63,6 +68,21 @@ function Reveal({
 
 function step(ctx: SectionContext, index: number) {
   return index * (ctx.motion?.stagger ?? 70);
+}
+
+/**
+ * Microinteração de hover declarada pelo Blueprint (adendo de motion §2).
+ * Só `transform`/`opacity`/cor; ausência = comportamento estático anterior.
+ */
+function hoverClass(ctx: SectionContext): string | undefined {
+  switch (ctx.motion?.hover) {
+    case "lift":
+      return "transition duration-300 ease-out will-change-transform hover:-translate-y-1 hover:border-primary/60 focus-within:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none";
+    case "glow":
+      return "transition duration-300 ease-out hover:border-primary/70 hover:shadow-[0_0_0_1px_color-mix(in_oklab,var(--primary)_45%,transparent)] motion-reduce:transition-none";
+    default:
+      return undefined;
+  }
 }
 
 function Img({ image, className }: { image: BlueprintImage; className?: string }) {
@@ -249,10 +269,12 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
               delay={80}
               className="relative -mx-6 overflow-hidden md:-mx-10 lg:mx-0 lg:-ml-16"
             >
-              <Img
-                image={{ ...c.image, priority: true }}
-                className="h-[52vh] w-full object-cover lg:h-[76vh]"
-              />
+              <MotionParallax speed={ctx.motion?.parallax ?? 0} className="h-[52vh] lg:h-[76vh]">
+                <Img
+                  image={{ ...c.image, priority: true }}
+                  className="h-[52vh] w-full scale-[1.06] object-cover lg:h-[76vh]"
+                />
+              </MotionParallax>
               <span
                 aria-hidden
                 className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,transparent_38%),linear-gradient(0deg,var(--background)_2%,transparent_35%)]"
@@ -513,7 +535,10 @@ function Offers({ section, ctx }: { section: OffersSection; ctx: SectionContext 
                 key={item.title}
                 delay={step(ctx, i)}
                 as="li"
-                className="group grid gap-3 border-b border-border py-7 md:grid-cols-[5rem_minmax(0,22ch)_minmax(0,1fr)] md:items-baseline md:gap-8"
+                className={cn(
+                  "group grid gap-3 border-b border-border py-7 md:grid-cols-[5rem_minmax(0,22ch)_minmax(0,1fr)] md:items-baseline md:gap-8",
+                  hoverClass(ctx),
+                )}
               >
                 <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
                 <span className="flex items-center gap-3 text-lg font-semibold tracking-tight md:text-xl">
@@ -626,8 +651,19 @@ function UseCases({ section, ctx }: { section: UseCasesSection; ctx: SectionCont
           </h2>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {c.items.map((item, i) => (
-              <Reveal ctx={ctx} key={item.title} delay={step(ctx, i)} as="figure" className="overflow-hidden rounded-2xl border border-border bg-card">
-                {item.image ? <Img image={item.image} className="h-56 w-full object-cover" /> : null}
+              <Reveal
+                ctx={ctx}
+                key={item.title}
+                delay={step(ctx, i)}
+                as="figure"
+                className={cn("group overflow-hidden rounded-2xl border border-border bg-card", hoverClass(ctx))}
+              >
+                {item.image ? (
+                  <Img
+                    image={item.image}
+                    className="h-56 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
+                  />
+                ) : null}
                 <figcaption className="p-6">
                   <h3 className="text-base font-black uppercase tracking-wide">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.text}</p>
@@ -1124,7 +1160,17 @@ function Signals({ section, ctx }: { section: SignalsSection; ctx: SectionContex
             >
               {item.icon ? <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" /> : null}
               <span>
-                <span className="block text-base font-semibold tracking-tight">{item.value}</span>
+                <span className="block text-base font-semibold tracking-tight">
+                  {typeof item.countTo === "number" ? (
+                    <MotionCounter
+                      value={item.countTo}
+                      prefix={item.countPrefix ?? ""}
+                      suffix={item.countSuffix ?? ""}
+                    />
+                  ) : (
+                    item.value
+                  )}
+                </span>
                 <span className="mt-0.5 block text-xs leading-5 text-muted-foreground">
                   {item.label}
                 </span>
@@ -1198,6 +1244,13 @@ function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: Sec
 /** Processo em linha do tempo vertical (adendo §9), não quatro cards iguais. */
 function Process({ section, ctx }: { section: ProcessSection; ctx: SectionContext }) {
   const c = section.content;
+  /**
+   * Signature motion opcional (adendo de motion §5): a linha do tempo se
+   * preenche conforme o scroll avança. Sem JS ou com reduced motion o traço
+   * já nasce completo e nenhum passo depende da animação para ser lido.
+   */
+  const showProgress = ctx.motion?.scrollProgress === true;
+  const { ref: progressRef, progress } = useScrollProgress<HTMLOListElement>(showProgress);
   return (
     <section id={section.id} className="px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
@@ -1221,7 +1274,18 @@ function Process({ section, ctx }: { section: ProcessSection; ctx: SectionContex
           ) : null}
         </div>
 
-        <ol className="relative border-l border-border pl-8">
+        <ol ref={showProgress ? progressRef : undefined} className="relative border-l border-border pl-8">
+          {showProgress ? (
+            <span
+              aria-hidden
+              className="absolute -left-px top-0 w-px origin-top bg-primary"
+              style={{
+                height: "100%",
+                transform: `scaleY(${progress.toFixed(3)})`,
+                transition: "transform 220ms linear",
+              }}
+            />
+          ) : null}
           {c.steps.map((item, i) => (
             <Reveal
               ctx={ctx}
