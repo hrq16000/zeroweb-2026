@@ -131,10 +131,35 @@ export const blueprint: PortfolioBlueprint = {
     ],
   },
   theme,
+  /**
+   * Motion profile próprio (docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md §4).
+   * Nada copiado de outro cliente: aqui o movimento é de bancada — a peça
+   * entra em foco, o diagnóstico se revela linha a linha e a nota pública
+   * é contada como um número conferido, não como enfeite.
+   */
+  motionProfile: {
+    intensity: "EXPRESSIVE",
+    personality: "bench-diagnostic",
+    entrance: ["fade", "slide", "stagger"],
+    scroll: ["scrollReveal", "imageParallax"],
+    hover: ["hoverLift", "imageZoom"],
+    typography: ["textReveal"],
+    media: ["imageReveal", "imageParallax"],
+    transitions: ["colorTransition"],
+    signatureEffects: ["verified-rating-counter", "bench-focus-parallax"],
+    reducedMotionStrategy: "instant-with-opacity",
+    mobileStrategy: "sem parallax e sem hover; entradas curtas e scroll natural",
+  },
   layout: {
     motionIntensity: "EXPRESSIVE",
     maxWidth: "max-w-[1400px]",
     headerCtaLabel: "Agendar serviço",
+    /** Acesso persistente ao funil individual — nunca telefone ou WhatsApp. */
+    floatingConversion: {
+      mode: "enabled",
+      label: "Descrever o aparelho",
+      hint: "Avaliação técnica",
+    },
   },
   renderCta,
   afterContent: (
