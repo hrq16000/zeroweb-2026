@@ -2,6 +2,7 @@
 /** Valida isolamento, recursos obrigatórios e privacidade dos sites de clientes. */
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { CLIENT_ALLOWED_DIGITS } from "./contact-allowlist.mjs";
 
 const root = process.cwd();
 const registryPath = resolve(root, "src/config/portfolio-clients.json");
