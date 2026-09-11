@@ -422,3 +422,15 @@ motion, coerência e percepção premium.
 - Mídia: existir como evidência não é merecer destaque visual.
 - Qualidade: usar o melhor material disponível — real, público, editorial ou
   gerado — sem confundir evidência com decoração.
+
+---
+
+## 23. Adendo de experiência (normativo para projetos novos)
+
+`docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md` adiciona — sem substituir nada
+deste documento — `experience.visualRhythm`, arquétipos de Hero,
+`experience.signatureMoments[]`, `capabilities`, `results`,
+`businessInfrastructure`, oferta com profundidade, `mediaNarrative`,
+`motionNarrative`, `qualityProfile`, CTA não-botão e as dimensões
+`CONTENT_DEPTH · VISUAL_RHYTHM · MEDIA_NARRATIVE · SECTION_VARIETY ·
+SIGNATURE_MOMENTS · PROOF_DENSITY · CONVERSION_CONTINUITY` do quality gate.

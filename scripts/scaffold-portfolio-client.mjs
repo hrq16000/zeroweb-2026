@@ -331,7 +331,11 @@ write(
       },
       /** Material recebido só para identificar/confirmar dado. Nunca vira Hero/capa automaticamente. */
       referenceOnlyAssets: [],
-      /** section | mediaRole | source | asset | provenance | status */
+      /**
+       * section | mediaRole | source | asset | provenance | status | mediaNarrative
+       * mediaNarrative (adendo §11): ESTABLISH_CONTEXT · SHOW_REALITY · EXPLAIN_SERVICE ·
+       * PROVE_CAPABILITY · CREATE_EMOTION · BREAK_VISUAL_RHYTHM · SUPPORT_CONVERSION · BRAND_RECALL
+       */
       sections: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
@@ -346,14 +350,37 @@ write(
   `docs/portfolio/quality-matrix/${slug}.json`,
   `${JSON.stringify(
     {
-      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md). Avaliar antes de readiness/publish.",
+      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md). Avaliar antes de readiness/publish.",
       slug,
-      matrixVersion: 1,
+      matrixVersion: 2,
+      contractVersion: 3,
       evaluatedAt: null,
       technicalPass: false,
       editorialPass: false,
       score: { total: null, byDimension: {} },
+      /**
+       * Além das 13 dimensões clássicas, avaliar as de experiência (adendo §19):
+       * CONTENT_DEPTH · VISUAL_RHYTHM · MEDIA_NARRATIVE · SECTION_VARIETY ·
+       * SIGNATURE_MOMENTS · PROOF_DENSITY · CONVERSION_CONTINUITY
+       */
       dimensions: {},
+      /** adendo §2/§13/§14/§21 — direção declarada, não default técnico. */
+      experience: {
+        visualRhythm: null,
+        signatureMoments: [],
+        motionNarrative: null,
+        heroArchetype: null,
+      },
+      qualityProfile: {
+        visualDensity: null,
+        editorialDepth: null,
+        motionIntensity: null,
+        mediaRichness: null,
+        proofLevel: null,
+        interactionLevel: null,
+        localContext: null,
+        conversionIntensity: null,
+      },
       hero: { status: null, criteria: {} },
       cover: { status: null, criteria: {} },
       coverage: [],
@@ -399,6 +426,8 @@ if (existsSync(manifestPath)) {
     manifests.projects[slug] = {
       slug,
       lifecycleContract: 1,
+      /** >= 3 exige as dimensões de experiência (adendo §19) na quality matrix. */
+      contractVersion: 3,
       stage: "draft",
       lifecycle: {
         intake: "complete",

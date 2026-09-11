@@ -47,9 +47,25 @@ export const DIMENSIONS = [
   "QA",
 ];
 
+/**
+ * Dimensões de experiência — docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md §19.
+ * FAIL sempre reprova. Ausência é warning enquanto contractVersion < 3.
+ */
+export const EXPERIENCE_DIMENSIONS = [
+  "CONTENT_DEPTH",
+  "VISUAL_RHYTHM",
+  "MEDIA_NARRATIVE",
+  "SECTION_VARIETY",
+  "SIGNATURE_MOMENTS",
+  "PROOF_DENSITY",
+  "CONVERSION_CONTINUITY",
+];
+
+const EXPERIENCE_REQUIRED_FROM_CONTRACT = 3;
+
 const STATUSES = new Set(["PASS", "WARNING", "FAIL", "NOT_APPLICABLE"]);
 
-export function evaluateMatrix(slug, matrix) {
+export function evaluateMatrix(slug, matrix, options = {}) {
   const failures = [];
   const warnings = [];
 
@@ -74,6 +90,21 @@ export function evaluateMatrix(slug, matrix) {
     if (entry.status === "FAIL") failures.push(`${dim}: FAIL — ${entry.notes ?? "sem nota"}`);
     if (entry.status === "WARNING") warnings.push(`${dim}: ${entry.notes ?? "warning"}`);
   }
+
+  const contractVersion = Number(options.contractVersion ?? matrix.contractVersion ?? 0);
+  for (const dim of EXPERIENCE_DIMENSIONS) {
+    const entry = matrix.dimensions?.[dim];
+    if (!entry || !STATUSES.has(entry.status)) {
+      const message = `dimensão de experiência não avaliada: ${dim} (adendo §19)`;
+      if (contractVersion >= EXPERIENCE_REQUIRED_FROM_CONTRACT) failures.push(message);
+      else warnings.push(message);
+      continue;
+    }
+    if (entry.status === "FAIL") failures.push(`${dim}: FAIL — ${entry.notes ?? "sem nota"}`);
+    if (entry.status === "WARNING") warnings.push(`${dim}: ${entry.notes ?? "warning"}`);
+  }
+
+
 
   // Hero e Cover são avaliados separadamente (§7 e §8).
   for (const key of ["hero", "cover"]) {
@@ -150,8 +181,11 @@ export function evaluatePolicyGates({ slug, client, componentSource = "", mediaP
   };
 }
 
-export function evaluateProjectQuality(slug, matrix) {
-  const matrixResult = evaluateMatrix(slug, matrix);
+export function evaluateProjectQuality(slug, matrix, options = {}) {
+  const manifests = readJson("src/config/portfolio-project-manifests.json", { projects: {} }).projects ?? {};
+  const contractVersion =
+    options.contractVersion ?? manifests[slug]?.contractVersion ?? matrix?.contractVersion ?? 0;
+  const matrixResult = evaluateMatrix(slug, matrix, { contractVersion });
   const clients = readJson("src/config/portfolio-clients.json", []);
   const client = clients.find((item) => item.slug === slug);
   const componentSource = client?.componentFile
