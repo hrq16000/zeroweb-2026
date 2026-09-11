@@ -91,6 +91,21 @@ export function evaluateMatrix(slug, matrix, options = {}) {
     if (entry.status === "WARNING") warnings.push(`${dim}: ${entry.notes ?? "warning"}`);
   }
 
+  const contractVersion = Number(options.contractVersion ?? matrix.contractVersion ?? 0);
+  for (const dim of EXPERIENCE_DIMENSIONS) {
+    const entry = matrix.dimensions?.[dim];
+    if (!entry || !STATUSES.has(entry.status)) {
+      const message = `dimensão de experiência não avaliada: ${dim} (adendo §19)`;
+      if (contractVersion >= EXPERIENCE_REQUIRED_FROM_CONTRACT) failures.push(message);
+      else warnings.push(message);
+      continue;
+    }
+    if (entry.status === "FAIL") failures.push(`${dim}: FAIL — ${entry.notes ?? "sem nota"}`);
+    if (entry.status === "WARNING") warnings.push(`${dim}: ${entry.notes ?? "warning"}`);
+  }
+
+
+
   // Hero e Cover são avaliados separadamente (§7 e §8).
   for (const key of ["hero", "cover"]) {
     const status = matrix[key]?.status;
