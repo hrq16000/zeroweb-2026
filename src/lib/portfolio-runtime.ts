@@ -39,6 +39,22 @@ export type PortfolioRuntimeRow = {
   published?: boolean | null;
   archived_at?: string | null;
   content_version?: number | null;
+  motion_settings?: unknown;
+};
+
+/**
+ * Ajuste fino de movimento por landing (painel de motion).
+ * É regulagem, não redesign: intensidade, teto de parallax e liga/desliga de
+ * efeitos. Nada aqui inventa animação nova nem altera conteúdo.
+ */
+export type PortfolioMotionSettings = {
+  intensity?: "SUBTLE" | "BALANCED" | "EXPRESSIVE" | "IMMERSIVE";
+  /** Deslocamento máximo de parallax em px (0 desliga). */
+  parallaxMax?: number;
+  hover?: boolean;
+  counters?: boolean;
+  /** Multiplicador de duração/stagger, 0.5x a 2x. */
+  speed?: number;
 };
 
 /** Overrides já sanitizados: só entra aqui o que pode ir ao runtime público. */
@@ -61,6 +77,7 @@ export type PortfolioRuntimeOverrides = {
   lifecycle: PortfolioLifecycle;
   published: boolean;
   contentVersion: number;
+  motion?: PortfolioMotionSettings;
 };
 
 /** Valores derivados dos registries/rota, usados como fallback. */
@@ -86,6 +103,8 @@ export type PortfolioRuntimeEffective = PortfolioRuntimeBase & {
   published: boolean;
   indexable: boolean;
   robots: string;
+  /** Regulagem de movimento vinda do painel; ausente = perfil da landing. */
+  motion?: PortfolioMotionSettings;
   /** Campos que vieram do banco (para a matriz de suporte e para o gate). */
   overriddenFields: string[];
 };
@@ -105,6 +124,27 @@ function asset(value: unknown): string | undefined {
   const v = text(value, 300);
   if (!v) return undefined;
   return isSafeAssetPath(v) ? v : undefined;
+}
+
+const INTENSITIES = ["SUBTLE", "BALANCED", "EXPRESSIVE", "IMMERSIVE"] as const;
+
+/** Nada entra sem estar dentro dos limites do contrato global de movimento. */
+export function sanitizeMotionSettings(value: unknown): PortfolioMotionSettings | undefined {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
+  const raw = value as Record<string, unknown>;
+  const out: PortfolioMotionSettings = {};
+  if (typeof raw.intensity === "string" && (INTENSITIES as readonly string[]).includes(raw.intensity)) {
+    out.intensity = raw.intensity as PortfolioMotionSettings["intensity"];
+  }
+  if (typeof raw.parallaxMax === "number" && Number.isFinite(raw.parallaxMax)) {
+    out.parallaxMax = Math.max(0, Math.min(48, Math.round(raw.parallaxMax)));
+  }
+  if (typeof raw.hover === "boolean") out.hover = raw.hover;
+  if (typeof raw.counters === "boolean") out.counters = raw.counters;
+  if (typeof raw.speed === "number" && Number.isFinite(raw.speed)) {
+    out.speed = Math.max(0.5, Math.min(2, Math.round(raw.speed * 100) / 100));
+  }
+  return Object.keys(out).length ? out : undefined;
 }
 
 function lifecycleOf(row: PortfolioRuntimeRow): PortfolioLifecycle {
@@ -167,6 +207,7 @@ export function sanitizePortfolioRuntimeRow(
     lifecycle: lifecycleOf(row),
     published: Boolean(row.published),
     contentVersion: Number(row.content_version ?? 0),
+    motion: sanitizeMotionSettings(row.motion_settings),
   };
 }
 
