@@ -1,20 +1,20 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-
-
-
-  
-  
-  
-  
-  
-  
-  
-
-
-
-  
-  
+  "denise-gomes-psicologa",
+  "ton-e-cor",
+  "raphael-construcoes",
+  "jc-revestimentos",
+  "hbk-iluminacao-led",
+  "heloa-gas",
+  "btb-construcao",
+  "easy-clean",
+  "embalar-embalagens",
+  "simone-lacerda-vaz",
+  "enoel-portas",
+  "mania-de-limpeza",
+  "dona-lucy-salgados",
+  "centro-mega",
+  "pastelaria-route-66",
   "fernanda-amaral-drywall",
   "manu-pasteis",
   "lj-cleaning",
@@ -85,6 +85,11 @@ export const PORTFOLIO_CLIENT_KEYS = [
   "papelemi-personalizados",
   "maximos-cabeleireiros",
   "kitutes-na-mesa",
+  "your_brutus_burguer",
+  "auto-socorro-dentinho",
+  "pinturas-nunes",
+  "estrutura-nacional",
+  "carecas-infotec",
 ] as const;
 export type PortfolioClientKey = (typeof PORTFOLIO_CLIENT_KEYS)[number];
 
