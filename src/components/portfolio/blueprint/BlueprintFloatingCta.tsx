@@ -7,8 +7,7 @@
  * - no mobile respeita safe-area, não cobre conteúdo permanentemente e
  *   só aparece depois da primeira dobra (sem CLS: é `fixed`).
  */
-import { useEffect, useState } from "react";
-import { useNearFooter } from "@/hooks/useNearFooter";
+import { useFloatingConversionVisibility } from "@/hooks/useFloatingConversionVisibility";
 import type { BlueprintCtaRenderer } from "@/lib/portfolio-blueprint";
 
 export function BlueprintFloatingCta({
@@ -20,23 +19,16 @@ export function BlueprintFloatingCta({
   label: string;
   hint?: string;
 }) {
-  const [scrolled, setScrolled] = useState(false);
-  const nearFooter = useNearFooter();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Some no rodapé: nunca cobrir cidade, créditos ou avisos legais.
-  const visible = scrolled && !nearFooter;
+  // Ciclo único do contrato global: aparece após a dobra, some no rodapé —
+  // nunca cobre cidade, créditos ou avisos legais.
+  const visible = useFloatingConversionVisibility();
 
   return (
     <div
       aria-hidden={!visible}
       data-blueprint-floating-cta={visible ? "visible" : "hidden"}
+      data-motion="floatingConversion"
+      data-motion-state={visible ? "played" : "idle"}
       className={`pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center px-4 transition-all duration-300 motion-reduce:transition-none ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
