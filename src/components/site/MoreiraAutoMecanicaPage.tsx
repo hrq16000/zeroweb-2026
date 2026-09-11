@@ -371,7 +371,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "reviews",
       order: 70,
       id: "avaliacoes",
-      motion: { reveal: "up", stagger: 80 },
+      motion: { reveal: "right", stagger: 80, hover: "glow" },
       content: {
         eyebrow: "Avaliações",
         title: "O que os clientes escreveram no Google",
@@ -432,7 +432,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "panel",
       order: 80,
       id: "onde-fica",
-      motion: { reveal: "up", stagger: 70 },
+      motion: { reveal: "left", stagger: 70 },
       content: {
         eyebrow: "Onde fica",
         title: "Cidade Jardim, São José dos Pinhais",
@@ -484,7 +484,7 @@ export const blueprint: PortfolioBlueprint = {
       type: "faq",
       variant: "accordion",
       order: 100,
-      motion: { reveal: "up", stagger: 60 },
+      motion: { reveal: "fade", stagger: 60 },
       content: {
         eyebrow: "Perguntas frequentes",
         title: "Antes de levar o carro",

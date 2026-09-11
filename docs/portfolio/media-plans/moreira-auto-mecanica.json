@@ -1,7 +1,7 @@
 {
   "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7 e PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM §11).",
   "slug": "moreira-auto-mecanica",
-  "status": "MEDIA_ENRICHMENT_COMPLETE_WITH_RIGHTS_WARNING",
+  "status": "MEDIA_ENRICHMENT_COMPLETE_THIRD_PARTY_SOURCE_DECLARED",
   "inventory": {
     "realBusinessPhotos": [
       {
@@ -10,8 +10,15 @@
         "source": "GOOGLE_PUBLIC_MEDIA",
         "sourceIndex": 2,
         "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
-        "rights": "UNVERIFIED",
-        "mediaNarrative": "ESTABLISH_CONTEXT"
+        "mediaNarrative": "ESTABLISH_CONTEXT",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
       },
       {
         "asset": "public/images/moreira-auto-mecanica/google-fachada.jpg",
@@ -19,8 +26,15 @@
         "source": "GOOGLE_PUBLIC_MEDIA",
         "sourceIndex": 3,
         "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
-        "rights": "UNVERIFIED",
-        "mediaNarrative": "SHOW_REALITY"
+        "mediaNarrative": "SHOW_REALITY",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
       },
       {
         "asset": "public/images/moreira-auto-mecanica/google-motor-aberto.jpg",
@@ -28,8 +42,15 @@
         "source": "GOOGLE_PUBLIC_MEDIA",
         "sourceIndex": 7,
         "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
-        "rights": "UNVERIFIED",
-        "mediaNarrative": "EXPLAIN_SERVICE"
+        "mediaNarrative": "EXPLAIN_SERVICE",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
       },
       {
         "asset": "public/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
@@ -37,8 +58,15 @@
         "source": "GOOGLE_PUBLIC_MEDIA",
         "sourceIndex": 9,
         "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
-        "rights": "UNVERIFIED",
-        "mediaNarrative": "PROVE_CAPABILITY"
+        "mediaNarrative": "PROVE_CAPABILITY",
+        "provenance": "GOOGLE_PUBLIC_LISTING_PHOTO",
+        "publishedBy": "terceiro (colaborador da ficha pública do Google); o provedor não divulga a autoria individual",
+        "authorAttribution": "UNKNOWN_INDIVIDUAL",
+        "rightsHolder": "autor da fotografia (não o estabelecimento)",
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+        "ownerConsentRelevance": "o consentimento do proprietário do negócio não transfere direito autoral de foto publicada por terceiro",
+        "replacementPlan": "substituir por foto enviada diretamente pelo cliente ou por mídia contextual própria classificada, caso o uso editorial atribuído deixe de ser adequado"
       }
     ],
     "officialBrandAssets": [],
@@ -52,8 +80,9 @@
         "source": "PHOTO_DERIVED",
         "base": "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
         "composition": "foto do galpão + overlay grafite + tipografia factual (nome e cidade)",
-        "rights": "UNVERIFIED (herda a foto base)",
-        "mediaNarrative": "BRAND_RECALL"
+        "rights": "THIRD_PARTY_PUBLIC_SOURCE (herda a foto base)",
+        "mediaNarrative": "BRAND_RECALL",
+        "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE"
       }
     ],
     "missingMedia": [
@@ -195,7 +224,8 @@
     "answer": "Sim: o card mostra o galpão real da oficina com o nome do negócio e a cidade."
   },
   "warnings": [
-    "MEDIA_RIGHTS_UNVERIFIED: as fotos vêm da ficha pública do Google e precisam de confirmação de uso com o proprietário antes da publicação."
+    "MEDIA_RIGHTS_THIRD_PARTY: as fotos vêm da ficha pública do Google e foram publicadas por terceiros. Autorização do proprietário do negócio NÃO cria licença sobre elas; o uso atual é editorial com fonte e atribuição declaradas.",
+    "PUBLICAÇÃO NÃO DEPENDE DESSAS FOTOS: se o uso atribuído deixar de ser adequado, substituir por foto enviada pelo cliente ou por mídia contextual própria, sem alterar a narrativa das seções."
   ],
   "lastUpdatedAt": "2026-09-11"
 }

@@ -88,7 +88,9 @@
   "identity": {
     "name": "Moreira Auto Mecânica",
     "category": "Mecânica para carros",
-    "typeIds": ["car_repair"],
+    "typeIds": [
+      "car_repair"
+    ],
     "logo": null,
     "logoStatus": "NO_PUBLIC_BRAND_ASSET"
   },
@@ -173,13 +175,45 @@
   "reviews": {
     "rating": 4.8,
     "count": 105,
-    "distribution": { "5": 93, "4": 8, "3": 0, "2": 1, "1": 3 },
+    "distribution": {
+      "5": 93,
+      "4": 8,
+      "3": 0,
+      "2": 1,
+      "1": 3
+    },
     "items": [
-      { "author": "Vitor H.", "rating": 5, "date": "há 4 meses", "usedOnLanding": true },
-      { "author": "Antonio Francisco Ulrich", "rating": 5, "date": "há 9 meses", "usedOnLanding": true },
-      { "author": "joao pedro sabatke", "rating": 5, "date": "há 1 ano", "usedOnLanding": true },
-      { "author": "Aramis Machado", "rating": 5, "date": "há 9 meses", "usedOnLanding": true },
-      { "author": "Wellington Pedroso", "rating": 1, "date": "há 5 anos", "usedOnLanding": false, "note": "avaliação negativa sobre retrabalho em suspensão; não exibida como depoimento, mas contabilizada na distribuição publicada e citada na atribuição" }
+      {
+        "author": "Vitor H.",
+        "rating": 5,
+        "date": "há 4 meses",
+        "usedOnLanding": true
+      },
+      {
+        "author": "Antonio Francisco Ulrich",
+        "rating": 5,
+        "date": "há 9 meses",
+        "usedOnLanding": true
+      },
+      {
+        "author": "joao pedro sabatke",
+        "rating": 5,
+        "date": "há 1 ano",
+        "usedOnLanding": true
+      },
+      {
+        "author": "Aramis Machado",
+        "rating": 5,
+        "date": "há 9 meses",
+        "usedOnLanding": true
+      },
+      {
+        "author": "Wellington Pedroso",
+        "rating": 1,
+        "date": "há 5 anos",
+        "usedOnLanding": false,
+        "note": "avaliação negativa sobre retrabalho em suspensão; não exibida como depoimento, mas contabilizada na distribuição publicada e citada na atribuição"
+      }
     ],
     "attribution": "Avaliações públicas no Google, com autor, nota e link para a origem",
     "status": "REVIEWS_INGESTED"
@@ -188,8 +222,11 @@
     "items": 10,
     "selected": 4,
     "classification": "GOOGLE_USER_MEDIA",
-    "rights": "UNVERIFIED",
-    "status": "MEDIA_INGESTED_RIGHTS_PENDING"
+    "rights": "THIRD_PARTY_PUBLIC_SOURCE",
+    "status": "MEDIA_INGESTED_THIRD_PARTY_SOURCE_DECLARED",
+    "usageMode": "ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE",
+    "rightsHolder": "autores individuais das fotos publicadas na ficha pública do Google",
+    "ownerConsentRelevance": "autorização do proprietário do negócio não transfere direito autoral de foto de terceiro"
   },
   "social": {
     "instagram": {
@@ -206,7 +243,11 @@
     },
     "other": []
   },
-  "website": { "searched": true, "url": null, "status": "NO_PUBLIC_WEBSITE_FOUND" },
+  "website": {
+    "searched": true,
+    "url": null,
+    "status": "NO_PUBLIC_WEBSITE_FOUND"
+  },
   "location": {
     "street": "R. Padre Alberto Müler, 279",
     "neighborhood": "Cidade Jardim",
@@ -218,12 +259,27 @@
     "lng": -49.2128353
   },
   "services": [
-    { "name": "Mecânica para carros", "source": "categoria oficial da ficha do Google", "confidence": "HIGH" },
-    { "name": "Suspensão e ruídos", "source": "avaliações públicas de clientes", "confidence": "MEDIUM" },
-    { "name": "Avaliação presencial do veículo", "source": "modelo de atendimento presencial declarado na ficha", "confidence": "MEDIUM" }
+    {
+      "name": "Mecânica para carros",
+      "source": "categoria oficial da ficha do Google",
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Suspensão e ruídos",
+      "source": "avaliações públicas de clientes",
+      "confidence": "MEDIUM"
+    },
+    {
+      "name": "Avaliação presencial do veículo",
+      "source": "modelo de atendimento presencial declarado na ficha",
+      "confidence": "MEDIUM"
+    }
   ],
   "media": {
-    "discovery": { "searched": true, "result": "10 mídias públicas; 4 selecionadas" },
+    "discovery": {
+      "searched": true,
+      "result": "10 mídias públicas; 4 selecionadas"
+    },
     "assets": [
       "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
       "public/images/moreira-auto-mecanica/google-fachada.jpg",
@@ -243,16 +299,37 @@
   "unverified": [
     "perfil do Instagram (confiança 60)",
     "existência de página no Facebook",
-    "direitos de uso das fotos públicas do Google",
-    "tempo de mercado citado por um cliente ('mais de 15 anos') — usado apenas como citação atribuída, nunca como dado institucional"
+    "tempo de mercado citado por um cliente ('mais de 15 anos') — usado apenas como citação atribuída, nunca como dado institucional",
+    "autoria individual das fotos públicas do Google (não divulgada pelo provedor); uso atual é editorial com fonte e atribuição"
   ],
   "providerCalls": [
-    { "stage": "mapsPlace", "status": "SUCCESS" },
-    { "stage": "reviews", "status": "SUCCESS" },
-    { "stage": "photos", "status": "SUCCESS" },
-    { "stage": "googleSearch", "status": "SUCCESS" },
-    { "stage": "socialDiscovery", "status": "SUCCESS" },
-    { "stage": "instagram", "status": "UNRESOLVED" },
-    { "stage": "facebook", "status": "FAILED" }
+    {
+      "stage": "mapsPlace",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "reviews",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "photos",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "googleSearch",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "socialDiscovery",
+      "status": "SUCCESS"
+    },
+    {
+      "stage": "instagram",
+      "status": "UNRESOLVED"
+    },
+    {
+      "stage": "facebook",
+      "status": "FAILED"
+    }
   ]
 }

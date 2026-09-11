@@ -59,16 +59,25 @@ interactionLevel: médio · localContext: alto · conversionIntensity: média-al
 ## 7. Mídia
 
 Somente fotos públicas da ficha do Google, com atribuição visível
-(`GOOGLE_USER_MEDIA`, direitos `UNVERIFIED` — revisão do proprietário pendente).
-Street View descartado. Fotos com placa/telefone rebaixadas a referência.
-Nenhuma imagem gerada representa a oficina, a equipe ou serviços executados.
-Capa `PHOTO_DERIVED`: foto do galpão com overlay e tipografia factual.
+(`GOOGLE_PUBLIC_LISTING_PHOTO`, `rights: THIRD_PARTY_PUBLIC_SOURCE`,
+`usageMode: ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE`). Essas fotos foram
+publicadas por terceiros: autorização do proprietário do negócio **não**
+transfere direito autoral nem cria licença. O uso é editorial, com fonte e
+atribuição declaradas, e existe plano de substituição por foto enviada pelo
+cliente ou mídia contextual própria. Street View descartado. Fotos com
+placa/telefone rebaixadas a referência. Nenhuma imagem gerada representa a
+oficina, a equipe ou serviços executados. Capa `PHOTO_DERIVED`: foto do galpão
+com overlay e tipografia factual.
 
 ## 8. Motion narrative
 
-Linguagem de oficina: entradas retas e sequenciais, sem flutuação. A linha do
-tempo avança como esteira. `prefers-reduced-motion` remove deslocamento e
-mantém todo o conteúdo (fallback `opacityOnly`).
+Linguagem de oficina: entradas retas e sequenciais, sem flutuação, variando o
+sentido de entrada por seção (up, fade, scale, left, right). A foto do hero
+ganha profundidade leve só no desktop, o número verificado de avaliações é
+revelado por contagem, os cartões respondem ao cursor e a linha do tempo avança
+como esteira conforme o scroll. `prefers-reduced-motion` remove deslocamento,
+parallax, contagem e progresso, mantendo todo o conteúdo (fallback
+`opacityOnly`).
 
 ## 9. Conversão
 

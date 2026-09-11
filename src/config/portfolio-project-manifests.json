@@ -112,11 +112,11 @@
       },
       "blockers": [],
       "warnings": [
-        "direitos das fotos públicas do Google pendentes de confirmação com o proprietário",
+        "fotos de terceiros na ficha pública do Google: uso editorial atribuído; autorização do proprietário não cria licença",
         "Instagram candidato não verificado (confiança 60) — não usado como canal"
       ],
       "ownerRequired": [
-        "confirmar uso das fotos públicas ou enviar fotos próprias",
+        "enviar fotos próprias em alta resolução para substituir as fotos de terceiros",
         "confirmar perfil oficial nas redes sociais",
         "enviar logotipo, se existir",
         "confirmar prazo e garantia se quiser publicá-los"

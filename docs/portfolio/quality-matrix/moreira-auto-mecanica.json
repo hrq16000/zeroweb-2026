@@ -34,8 +34,8 @@
       "note": "Todo texto deriva de fato verificado ou de avaliação atribuída; sem preço, prazo ou garantia."
     },
     "MEDIA": {
-      "status": "WARNING",
-      "note": "4 fotos reais do Google com atribuição; direitos de uso ainda UNVERIFIED (revisão do proprietário)."
+      "status": "PASS",
+      "note": "4 fotos reais da ficha pública do Google, publicadas por terceiros, usadas em modo editorial com fonte e atribuição declaradas (usageMode ATTRIBUTED_EDITORIAL_USE_FROM_PUBLIC_SOURCE). Autorização do proprietário não é tratada como licença."
     },
     "VISUAL_COMPOSITION": {
       "status": "PASS",
@@ -213,11 +213,11 @@
   },
   "p0": [],
   "warnings": [
-    "Direitos das fotos públicas do Google pendentes de confirmação com o proprietário.",
+    "Fotos de terceiros na ficha pública do Google: uso editorial atribuído, sem licença exclusiva. Plano de substituição registrado no media plan.",
     "Instagram candidato não verificado — não usado como canal oficial."
   ],
   "ownerRequired": [
-    "Confirmar uso das fotos públicas e, se possível, enviar fotos próprias em alta resolução",
+    "Enviar fotos próprias em alta resolução (substituem as fotos de terceiros quando disponíveis)",
     "Confirmar o perfil oficial nas redes sociais",
     "Enviar logotipo, se existir"
   ],
@@ -266,7 +266,8 @@
       "offers.hoverLift": "GUIDE_ATTENTION",
       "useCases.imageZoom": "REVEAL",
       "process.scrollProgress": "EXPLAIN",
-      "cta.hover": "REINFORCE_CTA"
+      "cta.hover": "REINFORCE_CTA",
+      "proof.hoverGlow": "REINFORCE_CTA"
     },
     "gate": {
       "motionProfileDefined": "PASS",
@@ -276,11 +277,11 @@
       },
       "entranceNotRepetitive": {
         "status": "PASS",
-        "notes": "Reveal alterna up, fade, scale, left e right entre as seções."
+        "notes": "Reveal alterna up, fade, scale, left, right e fade entre as dez seções; nenhuma repetição consecutiva."
       },
       "contextualMicrointeraction": {
         "status": "PASS",
-        "notes": "Hover lift nas linhas de atendimento e zoom sutil nas fotos reais da oficina."
+        "notes": "Hover lift nas linhas de atendimento e nas fotos, hover glow nos cartões de avaliação, ícone e elevação no CTA do funil."
       },
       "signatureMotion": {
         "status": "PASS",
