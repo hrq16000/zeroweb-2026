@@ -43,7 +43,8 @@ function declaredFor(url) {
 }
 
 const { chromium } = await import("playwright");
-const browser = await chromium.launch();
+const executablePath = process.env.MOTION_AUDIT_CHROMIUM ?? "/opt/ms-playwright/chromium-1194/chrome-linux/chrome";
+const browser = await chromium.launch({ executablePath });
 const results = [];
 
 for (const url of urls) {
