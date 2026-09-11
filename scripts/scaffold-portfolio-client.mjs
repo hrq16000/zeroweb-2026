@@ -84,46 +84,77 @@ const write = (relPath, content) => {
 };
 
 const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
+import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /**
- * WORKBENCH de ${siteName} (/portfolio/${slug}).
+ * WORKBENCH de ${siteName} (/portfolio/${slug}) — Portfolio Blueprint.
  *
- * NÃO PUBLICAR enquanto data-portfolio-scaffold="CREATIVE_BRIEF_REQUIRED" existir.
- * Antes do layout, preencher ${creativeBriefFile} e seguir
- * docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md.
+ * NÃO PUBLICAR enquanto o marcador CREATIVE_BRIEF_REQUIRED existir.
+ *
+ * Regras do pipeline (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
+ *  - hero, ordem, variants, densidade, mídia e motion são ESCOLHA consciente;
+ *    "hero split + offers grid + authority split + cta banner" é fallback
+ *    técnico, não direção criativa;
+ *  - nada de conteúdo inventado: sem avaliação, endereço, telefone, garantia,
+ *    número de anos, equipe, certificação ou métrica sem fonte auditável;
+ *  - todo contato comercial passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
  */
-export function ${componentName}() {
-  return (
-    <div
-      data-client-slug="${slug}"
-      data-portfolio-scaffold="CREATIVE_BRIEF_REQUIRED"
-      className="min-h-dvh bg-background text-foreground"
+const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
+
+export const blueprint: PortfolioBlueprint = {
+  slug: "${slug}",
+  identity: { name: "${siteName}" },
+  theme: {},
+  layout: { headerCtaLabel: "${ctaLabel}" },
+  sections: [
+    {
+      // TODO(direção criativa): escolher variant a partir do brief.
+      type: "hero",
+      variant: "editorial",
+      order: 10,
+      content: {
+        eyebrow: SCAFFOLD_STATE,
+        headline: "${siteName}",
+        subheadline:
+          "Composição pendente: substituir por narrativa real do cliente depois de entity resolution, enrichment e media discovery.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },
+    {
+      type: "cta",
+      variant: "banner",
+      order: 90,
+      content: {
+        title: "Pendente de direção criativa",
+        text: "Preencher ${creativeBriefFile} e o media plan antes de compor esta seção.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },
+  ],
+  renderCta: ({ children, className, placement }: CtaRenderOptions) => (
+    <FunnelCTAButton
+      clientKey="${clientKey}"
+      companySlug="${slug}"
+      formSlug="${funnelSlug}"
+      location={\`${slug}_\${placement}\`}
+      className={className}
     >
-      <main>
-        <section aria-labelledby="${slug}-workbench-title" className="mx-auto max-w-3xl px-4 py-20 md:py-28">
-          <p className="text-sm font-medium text-muted-foreground">Direção criativa pendente</p>
-          <h1 id="${slug}-workbench-title" className="mt-3 text-3xl font-semibold md:text-5xl">
-            ${siteName}
-          </h1>
-          <p className="mt-5 max-w-[65ch] text-muted-foreground">
-            Este componente é somente a base técnica. Substitua esta composição por uma direção autoral do cliente antes de publicar.
-          </p>
-          <div className="mt-8 transition-opacity">
-            <FunnelCTAButton
-              clientKey="${clientKey}"
-              companySlug="${slug}"
-              formSlug="${funnelSlug}"
-              location="${slug}_workbench"
-            >
-              Iniciar contato
-            </FunnelCTAButton>
-          </div>
-        </section>
-      </main>
+      {children}
+    </FunnelCTAButton>
+  ),
+  afterContent: (
+    <>
       <PortfolioHostCredit />
-    </div>
-  );
+      <PortfolioUpsellPopup />
+    </>
+  ),
+};
+
+export function ${componentName}() {
+  return <PortfolioBlueprintRenderer blueprint={blueprint} />;
 }
 `;
 
