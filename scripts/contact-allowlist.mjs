@@ -21,11 +21,15 @@ export const BUSINESS_ALLOWED_DIGITS = new Set(["554198755277"]);
  * `5541995072700` — telefone público da Careca's Infotec, confirmado na ficha
  * pública do Google (Place ID ChIJjxhi67_73JQRgGgv4G2-G18) e exibido na
  * própria vitrine do cliente.
+ * `5541997940764` — telefone público da Moreira Auto Mecânica, confirmado na
+ * ficha pública do Google (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk). Aparece só
+ * como texto e no JSON-LD da vitrine: nunca como `tel:`, WhatsApp ou botão.
  */
 export const CLIENT_ALLOWED_DIGITS = new Set([
   "554196048639",
   "554198755277",
   "5541995072700",
+  "5541997940764",
 ]);
 
 /** Prefixos de chunks que são páginas-vitrine de clientes. */
