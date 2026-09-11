@@ -152,6 +152,15 @@ function evaluate(slug, manifest) {
   checks.qaDone = SATISFIED.has(manifest.lifecycle?.qa);
   if (!checks.qaDone) blockers.push("QA (mobile/desktop/a11y) não concluído no manifesto");
 
+  // --- qualityMatrixPass (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md)
+  const matrix = readJson(`docs/portfolio/quality-matrix/${slug}.json`, null);
+  const matrixResult = evaluateMatrix(slug, matrix);
+  checks.qualityMatrixPass = matrixResult.status === "PASS";
+  if (!checks.qualityMatrixPass) {
+    blockers.push(...matrixResult.failures.map((f) => `quality matrix — ${f}`));
+  }
+  warnings.push(...matrixResult.warnings.map((w) => `quality matrix — ${w}`));
+
   // --- estados do manifesto: blocked reprova, in_progress vira aviso
   for (const step of STEPS) {
     const state = manifest.lifecycle?.[step];
