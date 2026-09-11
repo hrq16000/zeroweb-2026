@@ -938,6 +938,71 @@ export const Route = createFileRoute("/portfolio/$slug")({
                       },
                     ]
                   : []),
+                /**
+                 * Careca's Infotec: dados verificados na ficha pública do
+                 * Google (Place ID confirmado). Sem aggregateRating/Review no
+                 * schema — a prova social é exibida com atribuição na página.
+                 */
+                ...(isCarecasInfotec
+                  ? [
+                      {
+                        "@type": "ComputerStore",
+                        "@id": `${url}#localbusiness`,
+                        name: "Careca's Infotec",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/carecas-infotec/logo.png"),
+                        telephone: "+55 41 99507-2700",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Margarida Petrelli Fogiatto, 118",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83020-600",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.5620651,
+                          longitude: -49.2024137,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "Neighborhood", name: "Santo Antônio" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=Careca%27s%20Infotec&query_place_id=ChIJjxhi67_73JQRgGgv4G2-G18",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:00",
+                          },
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Saturday"],
+                            opens: "09:00",
+                            closes: "18:00",
+                          },
+                        ],
+                        makesOffer: [
+                          "Assistência técnica de celular",
+                          "Assistência técnica de computador e notebook",
+                          "Assistência técnica de impressora",
+                          "Assistência técnica de monitor",
+                          "Assistência técnica de tablet",
+                          "Assistência técnica de videogame",
+                          "Recarga de cartucho e toner",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
                 ...(isHeloaGas
                   ? [
                       {
