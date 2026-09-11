@@ -18,19 +18,19 @@
   },
   "summary": {
     "total": 91,
-    "original": 2,
+    "original": 1,
     "acceptable": 28,
-    "attention": 55,
+    "attention": 56,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 26,
+    "placeholderLogos": 25,
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 47,
     "coverPending": 44,
-    "coversAsSocialImage": 11,
+    "coversAsSocialImage": 12,
     "sharedCovers": 0,
     "severeCrop": 19,
     "invalidCrossClientAssets": 0,
@@ -556,7 +556,7 @@
       "componentFile": "src/components/site/CarecasInfotecPage.tsx",
       "score": 18,
       "originalityStatus": "ORIGINAL",
-      "nearestMatch": "moreira-auto-mecanica",
+      "nearestMatch": "jkl-decor",
       "nearestMatchScore": 18,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 0,
@@ -564,7 +564,7 @@
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 0,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 8.3,
+        "ASSET_PATTERN_SIMILARITY": 6.7,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -583,8 +583,8 @@
       "assetSharing": [],
       "fingerprint": {
         "skeletonHash": "78eec667889179be",
-        "structureHash": "b940328c2db59754",
-        "sectionCount": 1,
+        "structureHash": "888977c288f0e5f0",
+        "sectionCount": 12,
         "lines": 606
       }
     },
@@ -1750,43 +1750,44 @@
       }
     },
     {
-      "slug": "jkl-marcenaria",
-      "title": "JKL Marcenaria",
-      "segment": "servicos",
-      "componentFile": "src/components/site/JklMarcenariaPage.tsx",
-      "score": 46,
+      "slug": "jkl-decor",
+      "title": "JKL Decor",
+      "segment": "prestadores-de-servicos",
+      "componentFile": "src/components/site/JklDecorPage.tsx",
+      "score": 45,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "eletro-solucoes-eficazes",
-      "nearestMatchScore": 46,
+      "nearestMatch": "moreira-auto-mecanica",
+      "nearestMatchScore": 45,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 30.5,
-        "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 45.6,
-        "COPY_SIMILARITY": 1.5,
-        "ASSET_PATTERN_SIMILARITY": 9,
-        "IDENTITY_SIMILARITY": 4.5
+        "STRUCTURE_SIMILARITY": 0,
+        "SECTION_ORDER_SIMILARITY": 5.9,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 100,
+        "COPY_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 12.5,
+        "IDENTITY_SIMILARITY": 0
       },
       "reasons": [
-        "SAME_FAMILY"
+        "EXCESSIVE_COPY_SIMILARITY"
       ],
       "fallbackVertical": null,
       "coverSignals": [
-        "COVER_NO_FOCAL_POINT"
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
       ],
       "canonicalCoverStatus": "VALID",
       "canonicalCoverReason": null,
-      "coverRatio": 1.6,
+      "coverRatio": 1.9,
       "logoSignals": [
-        "LOGO_NO_CONTRAST_VARIANT",
-        "LOGO_PLACEHOLDER"
+        "LOGO_NO_CONTRAST_VARIANT"
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "dc304d4551295507",
-        "structureHash": "1376e81723138771",
-        "sectionCount": 7,
-        "lines": 189
+        "skeletonHash": "01b2a8f489459859",
+        "structureHash": "27c5133fb2113ff4",
+        "sectionCount": 10,
+        "lines": 616
       }
     },
     {
@@ -2475,20 +2476,22 @@
       "title": "Moreira Auto Mecânica",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/MoreiraAutoMecanicaPage.tsx",
-      "score": 18,
-      "originalityStatus": "ORIGINAL",
-      "nearestMatch": "carecas-infotec",
-      "nearestMatchScore": 18,
+      "score": 45,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "jkl-decor",
+      "nearestMatchScore": 45,
       "dimensions": {
         "STRUCTURE_SIMILARITY": 0,
-        "SECTION_ORDER_SIMILARITY": 0,
+        "SECTION_ORDER_SIMILARITY": 5.9,
         "COMPONENT_SIMILARITY": 100,
-        "STYLE_SIMILARITY": 0,
-        "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 8.3,
+        "STYLE_SIMILARITY": 100,
+        "COPY_SIMILARITY": 100,
+        "ASSET_PATTERN_SIMILARITY": 12.5,
         "IDENTITY_SIMILARITY": 0
       },
-      "reasons": [],
+      "reasons": [
+        "EXCESSIVE_COPY_SIMILARITY"
+      ],
       "fallbackVertical": null,
       "coverSignals": [
         "COVER_IS_LOGO",
@@ -2505,8 +2508,8 @@
       "assetSharing": [],
       "fingerprint": {
         "skeletonHash": "647afeb0d4f2751c",
-        "structureHash": "da39a3ee5e6b4b0d",
-        "sectionCount": 0,
+        "structureHash": "213c72c920e6b642",
+        "sectionCount": 10,
         "lines": 557
       }
     },
@@ -4400,17 +4403,17 @@
       ],
       "carecas-infotec": [
         {
+          "slug": "jkl-decor",
+          "score": 18,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "moreira-auto-mecanica",
           "score": 18,
           "reason": "DISTINCT"
         },
         {
           "slug": "angel-mix-brecho",
-          "score": 8,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "brecho-sao-francisco",
           "score": 7,
           "reason": "DISTINCT"
         }
@@ -4631,7 +4634,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "jkl-marcenaria",
+          "slug": "lk-alvenaria",
           "score": 40,
           "reason": "DISTINCT"
         }
@@ -4908,21 +4911,21 @@
           "reason": "DISTINCT"
         }
       ],
-      "jkl-marcenaria": [
+      "jkl-decor": [
         {
-          "slug": "eletro-solucoes-eficazes",
-          "score": 46,
-          "reason": "SAME_FAMILY"
+          "slug": "moreira-auto-mecanica",
+          "score": 45,
+          "reason": "EXCESSIVE_COPY_SIMILARITY"
         },
         {
-          "slug": "embalar-embalagens",
-          "score": 46,
-          "reason": "SAME_FAMILY"
+          "slug": "carecas-infotec",
+          "score": 18,
+          "reason": "DISTINCT"
         },
         {
-          "slug": "acai-total-araucaria",
-          "score": 44,
-          "reason": "SAME_FAMILY"
+          "slug": "brecho-sao-francisco",
+          "score": 4,
+          "reason": "DISTINCT"
         }
       ],
       "js-eletrica-manutencao": [
@@ -4988,7 +4991,7 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "jkl-marcenaria",
+          "slug": "mary-diarista",
           "score": 31,
           "reason": "DISTINCT"
         }
@@ -5216,17 +5219,17 @@
       ],
       "moreira-auto-mecanica": [
         {
+          "slug": "jkl-decor",
+          "score": 45,
+          "reason": "EXCESSIVE_COPY_SIMILARITY"
+        },
+        {
           "slug": "carecas-infotec",
           "score": 18,
           "reason": "DISTINCT"
         },
         {
           "slug": "brecho-sao-francisco",
-          "score": 4,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "guaratuba-oficina-nautica",
           "score": 4,
           "reason": "DISTINCT"
         }
@@ -5903,12 +5906,12 @@
         "v1Score": 21,
         "v2Score": 18,
         "delta": -3,
-        "v1Nearest": "moreira-auto-mecanica",
-        "v2Nearest": "moreira-auto-mecanica",
+        "v1Nearest": "jkl-decor",
+        "v2Nearest": "jkl-decor",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 10,
-        "v2AssetPattern": 8.3
+        "v1AssetPattern": 9.1,
+        "v2AssetPattern": 6.7
       },
       {
         "slug": "casa-nativa",
@@ -6259,16 +6262,16 @@
         "v2AssetPattern": 12
       },
       {
-        "slug": "jkl-marcenaria",
-        "v1Score": 47,
-        "v2Score": 46,
-        "delta": -1,
-        "v1Nearest": "eletro-solucoes-eficazes",
-        "v2Nearest": "eletro-solucoes-eficazes",
+        "slug": "jkl-decor",
+        "v1Score": 48,
+        "v2Score": 45,
+        "delta": -3,
+        "v1Nearest": "moreira-auto-mecanica",
+        "v2Nearest": "moreira-auto-mecanica",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 37.5,
-        "v2AssetPattern": 9
+        "v1AssetPattern": 16.7,
+        "v2AssetPattern": 12.5
       },
       {
         "slug": "js-eletrica-manutencao",
@@ -6476,15 +6479,15 @@
       },
       {
         "slug": "moreira-auto-mecanica",
-        "v1Score": 21,
-        "v2Score": 18,
+        "v1Score": 48,
+        "v2Score": 45,
         "delta": -3,
-        "v1Nearest": "carecas-infotec",
-        "v2Nearest": "carecas-infotec",
+        "v1Nearest": "jkl-decor",
+        "v2Nearest": "jkl-decor",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 10,
-        "v2AssetPattern": 8.3
+        "v1AssetPattern": 16.7,
+        "v2AssetPattern": 12.5
       },
       {
         "slug": "mp-festas-eventos",
@@ -6860,19 +6863,19 @@
     },
     "current": {
       "total": 91,
-      "original": 2,
+      "original": 1,
       "acceptable": 28,
-      "attention": 55,
+      "attention": 56,
       "highSimilarity": 6,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
-      "placeholderLogos": 26,
+      "placeholderLogos": 25,
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 47,
       "coverPending": 44,
-      "coversAsSocialImage": 11,
+      "coversAsSocialImage": 12,
       "sharedCovers": 0,
       "severeCrop": 19,
       "invalidCrossClientAssets": 0,
@@ -6880,6 +6883,14 @@
     },
     "verdict": "PASS",
     "regressions": [],
-    "improvements": []
+    "improvements": [
+      {
+        "kind": "COUNTER",
+        "key": "placeholderLogos",
+        "label": "logos placeholder",
+        "before": 26,
+        "after": 25
+      }
+    ]
   }
 }
