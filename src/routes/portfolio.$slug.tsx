@@ -790,7 +790,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isSscons
+          content: eff.keywords ?? (isCarecasInfotec
+            ? "Careca's Infotec, assistência técnica São José dos Pinhais, conserto de celular São José dos Pinhais, conserto de notebook, conserto de impressora, recarga de cartucho, recarga de toner, Santo Antônio"
+            : isSscons
             ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
             : isEstruturaNacional
             ? "Estrutura Nacional, estruturas metálicas São José dos Pinhais, fabricação de estruturas metálicas, montagem de estruturas metálicas, perfis estruturais, abrasivos, arames para solda, soluções em aço, Região Metropolitana de Curitiba"
