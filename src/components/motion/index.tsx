@@ -411,17 +411,21 @@ export function MotionParallax({
 }) {
   const reduced = usePrefersReducedMotion();
   const isDesktop = useDesktopViewport();
-  const enabled = !reduced && (!desktopOnly || isDesktop);
-  const { ref, progress } = useScrollProgress<HTMLDivElement>(enabled);
-  const offset = enabled ? (0.5 - progress) * 2 * speed : 0;
+  // Mobile/touch e reduced motion nunca recebem parallax (contrato global).
+  const enabled = !reduced && (!desktopOnly || isDesktop) && MOTION_MOBILE.parallax !== undefined;
+  const capped = Math.min(speed, MOTION_LIMITS.maxParallaxOffsetPx);
+  const active = enabled && (isDesktop || !desktopOnly);
+  const { ref, progress } = useScrollProgress<HTMLDivElement>(active);
+  const offset = active ? (0.5 - progress) * 2 * capped : 0;
 
   return (
     <div
       ref={ref}
       className={className}
+      {...motionDataAttrs("parallax", reduced ? "static" : active ? "played" : "idle")}
       style={{
-        transform: enabled ? `translate3d(0, ${offset.toFixed(2)}px, 0)` : undefined,
-        willChange: enabled ? "transform" : undefined,
+        transform: active ? `translate3d(0, ${offset.toFixed(2)}px, 0)` : undefined,
+        willChange: active ? "transform" : undefined,
       }}
     >
       {children}
