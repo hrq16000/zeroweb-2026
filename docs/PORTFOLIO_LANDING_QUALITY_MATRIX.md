@@ -3,7 +3,8 @@
 Camada de avaliação **editorial e visual** de um `/portfolio/:slug`.
 Complementa — não substitui — `docs/PORTFOLIO_PROJECT_LIFECYCLE.md`,
 `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` e
-`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`.
+`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` e
+`docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md`.
 
 Não é um sistema paralelo: a matriz é uma etapa do lifecycle, executada
 **depois da implementação e antes de `readiness` / `publish`**.
@@ -273,3 +274,22 @@ profissional, rico, autêntico e criado especificamente para aquele negócio?*
 Avaliar impacto visual, riqueza de mídia, ritmo, composição, hierarquia,
 profundidade, identidade, variedade, motion, coerência e percepção premium.
 Passar nos testes não substitui esta avaliação.
+
+## 21. Dimensões de experiência (adendo)
+
+Definidas em `docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md`:
+
+```text
+CONTENT_DEPTH · VISUAL_RHYTHM · MEDIA_NARRATIVE · SECTION_VARIETY ·
+SIGNATURE_MOMENTS · PROOF_DENSITY · CONVERSION_CONTINUITY
+```
+
+Mesmos estados das demais dimensões. `FAIL` reprova sempre. Ausência de
+avaliação é **warning** enquanto o manifesto tiver `contractVersion < 3` e
+**FAIL** a partir de `contractVersion >= 3`, evitando reprovar retroativamente
+projetos já aprovados.
+
+Complementos avaliados nessas dimensões: `experience.visualRhythm`,
+`experience.signatureMoments[]`, `mediaNarrative` por asset, `qualityProfile` e
+continuidade de conversão (CTA contextual em todos os pontos, sempre pelo funil
+individual).
