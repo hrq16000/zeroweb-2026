@@ -86,7 +86,6 @@ const write = (relPath, content) => {
 const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
 /**
@@ -152,12 +151,9 @@ export const blueprint: PortfolioBlueprint = {
       {children}
     </FunnelCTAButton>
   ),
-  afterContent: (
-    <>
-      <PortfolioHostCredit />
-      <PortfolioUpsellPopup />
-    </>
-  ),
+  // A captação da 0WEB é camada da hospedagem (PortfolioStandardShell):
+  // nenhuma landing monta o pop-up manualmente.
+  afterContent: <PortfolioHostCredit />,
 };
 
 export function ${componentName}() {

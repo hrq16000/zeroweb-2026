@@ -21,7 +21,12 @@ const shotDir = resolve(process.cwd(), "seo-reports/popup-shots");
 mkdirSync(shotDir, { recursive: true });
 
 const clients = JSON.parse(readFileSync(resolve(process.cwd(), "src/config/portfolio-clients.json"), "utf8"));
-const slugs = clients.map((c) => c.slug);
+// `POPUP_SLUGS=a,b` limita a execução (auditoria pontual); vazio = todos.
+const only = (process.env.POPUP_SLUGS || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+const slugs = clients.map((c) => c.slug).filter((s) => only.length === 0 || only.includes(s));
 
 const bundled = chromium.executablePath();
 const root = "/opt/ms-playwright";

@@ -40,6 +40,17 @@ if (/get\(["']preview["']\)/.test(previewSource)) {
   );
 }
 
+// A casca padrão é a dona única da camada de captação da hospedagem.
+const shellPath = resolve(root, "src/components/portfolio/PortfolioStandardShell.tsx");
+const shellSource = existsSync(shellPath) ? readFileSync(shellPath, "utf8") : "";
+const shellOwnsUpsell = /<PortfolioUpsellPopup/.test(shellSource);
+if (!shellOwnsUpsell) {
+  errors.push("casca padrão do portfólio não monta o pop-up de captação da 0WEB");
+}
+if (!/isPortfolioEmbedded/.test(previewSource)) {
+  errors.push("supressão de overlays não reconhece pré-visualização embutida (iframe)");
+}
+
 const keys = new Set();
 const slugs = new Set();
 const forbiddenImports = ["@/components/site/Header", "@/components/site/Footer"];
@@ -103,8 +114,17 @@ for (const client of clients) {
   if (client.socialProofRequired && !component.includes("PortfolioSocialProofPopup")) {
     errors.push(`${label}: mecanismo de prova social ausente`);
   }
-  if (!combined.includes("PortfolioUpsellPopup")) {
+  // Camada obrigatória da hospedagem: a casca padrão monta o pop-up para todo
+  // /portfolio/<slug>. Landings do pipeline atual (contactMode=funnelOnly) não
+  // podem montar uma segunda cópia — duplicar a instância era a origem de
+  // exibições silenciadas e de posse ambígua entre casca e conteúdo.
+  if (!shellOwnsUpsell && !combined.includes("PortfolioUpsellPopup")) {
     errors.push(`${label}: pop-up de captação da 0WEB ausente`);
+  }
+  if (shellOwnsUpsell && client.contactMode === "funnelOnly" && /<PortfolioUpsellPopup/.test(component)) {
+    errors.push(
+      `${label}: pop-up de captação montado manualmente na landing (a camada é da casca padrão)`,
+    );
   }
   if (!component.includes("PortfolioHostCredit")) {
     errors.push(`${label}: crédito universal com link da 0WEB ausente`);
