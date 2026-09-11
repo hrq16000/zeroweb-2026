@@ -126,6 +126,20 @@ export const blueprint: PortfolioBlueprint = {
   slug: "moreira-auto-mecanica",
   identity: {
     name: "Moreira Auto Mecânica",
+    /**
+     * IDENTITY_COMPLETENESS_GATE = WORDMARK_CREATED (adendo de autonomia §3–§6).
+     * A pesquisa pública não encontrou logotipo da oficina. Este wordmark foi
+     * criado pela 0WEB para a apresentação digital (GENERATED_BRAND_ASSET);
+     * não é, e não pode ser apresentado como, marca histórica do cliente. Uma
+     * logo real enviada pelo proprietário substitui este asset.
+     */
+    logo: {
+      src: "/images/moreira-auto-mecanica/logo.png",
+      alt: "Moreira Auto Mecânica",
+      width: 1536,
+      height: 512,
+      managedField: "logoUrl",
+    },
     tagline: "Mecânica para carros — Cidade Jardim, São José dos Pinhais — PR",
     nav: [
       { label: "Atendimento", href: "#atendimento" },
@@ -159,6 +173,12 @@ export const blueprint: PortfolioBlueprint = {
     motionIntensity: "BALANCED",
     maxWidth: "max-w-[1500px]",
     headerCtaLabel: "Agendar avaliação",
+    /** Acesso persistente ao funil da oficina (adendo de autonomia §10–§13). */
+    floatingConversion: {
+      mode: "enabled",
+      label: "Descrever o problema",
+      hint: "Agendamento",
+    },
   },
   sections: [
     {
@@ -187,7 +207,7 @@ export const blueprint: PortfolioBlueprint = {
     {
       type: "signals",
       variant: "strip",
-      order: 20,
+      order: 60,
       motion: { reveal: "fade", stagger: 60 },
       content: {
         items: [
@@ -246,7 +266,7 @@ export const blueprint: PortfolioBlueprint = {
     {
       type: "useCases",
       variant: "imageGrid",
-      order: 40,
+      order: 20,
       id: "a-oficina",
       motion: { reveal: "scale", stagger: 90, hover: "lift" },
       content: {
@@ -335,7 +355,7 @@ export const blueprint: PortfolioBlueprint = {
     {
       type: "process",
       variant: "timeline",
-      order: 60,
+      order: 40,
       theme: lightSurface,
       motion: { reveal: "left", stagger: 90, scrollProgress: true },
       content: {
@@ -369,7 +389,7 @@ export const blueprint: PortfolioBlueprint = {
     {
       type: "proof",
       variant: "reviews",
-      order: 70,
+      order: 15,
       id: "avaliacoes",
       motion: { reveal: "right", stagger: 80, hover: "glow" },
       content: {

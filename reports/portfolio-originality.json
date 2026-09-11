@@ -564,7 +564,7 @@
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 0,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 6.7,
+        "ASSET_PATTERN_SIMILARITY": 8.3,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2485,7 +2485,7 @@
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 0,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 6.7,
+        "ASSET_PATTERN_SIMILARITY": 8.3,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2504,10 +2504,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "3c2c7ec1de2df873",
+        "skeletonHash": "647afeb0d4f2751c",
         "structureHash": "da39a3ee5e6b4b0d",
         "sectionCount": 0,
-        "lines": 537
+        "lines": 557
       }
     },
     {
@@ -5907,8 +5907,8 @@
         "v2Nearest": "moreira-auto-mecanica",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 5,
-        "v2AssetPattern": 6.7
+        "v1AssetPattern": 10,
+        "v2AssetPattern": 8.3
       },
       {
         "slug": "casa-nativa",
@@ -6483,8 +6483,8 @@
         "v2Nearest": "carecas-infotec",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 5,
-        "v2AssetPattern": 6.7
+        "v1AssetPattern": 10,
+        "v2AssetPattern": 8.3
       },
       {
         "slug": "mp-festas-eventos",

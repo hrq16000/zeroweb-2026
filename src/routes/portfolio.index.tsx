@@ -33,6 +33,7 @@ import portfolioCoverPlan from "@/config/portfolio-cover-plan.json";
 import { listPublishedManagedProjects } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
+import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
 import {
   trackPortfolioSearch,
@@ -293,7 +294,16 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = portfolioCatalog.map((canonical) => {
     objectPosition: coverFor(canonical.slug)?.objectPosition,
     fallbackImage:
       canonical.fallbackImage ?? assetConfig?.icon ?? assetConfig?.socialImage ?? "/og-default.jpg",
-    live: canonical.live ?? canonical.status === "published",
+    /**
+     * PORTFOLIO_EMBED_GATE (adendo de autonomia §24–§26): o visualizador do
+     * catálogo precisa abrir toda página que já tem rota própria funcionando.
+     * Projeto gerenciado em `ready` (ainda não publicado) também é embutível —
+     * sem isso o card abre um modal vazio, classificado como P0.
+     */
+    live:
+      canonical.live ??
+      (canonical.status === "published" ||
+        ["ready", "published"].includes(getProjectManifest(canonical.slug)?.stage ?? "")),
   } as PortfolioItem;
 });
 
