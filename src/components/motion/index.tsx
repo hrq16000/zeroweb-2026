@@ -65,8 +65,8 @@ export function usePrefersReducedMotion(): boolean {
   return reduced;
 }
 
-/** Observa a entrada na viewport uma única vez. */
-export function useInViewOnce<T extends HTMLElement>(rootMargin = "0px 0px -12% 0px") {
+/** Observa a entrada na viewport uma única vez (thresholds do contrato global). */
+export function useInViewOnce<T extends HTMLElement>(rootMargin = MOTION_OBSERVER.rootMargin) {
   const ref = useRef<T | null>(null);
   const [seen, setSeen] = useState(false);
   useEffect(() => {
@@ -85,7 +85,7 @@ export function useInViewOnce<T extends HTMLElement>(rootMargin = "0px 0px -12% 
           }
         }
       },
-      { rootMargin, threshold: 0.05 },
+      { rootMargin, threshold: MOTION_OBSERVER.threshold },
     );
     io.observe(node);
     return () => io.disconnect();
