@@ -331,7 +331,11 @@ write(
       },
       /** Material recebido só para identificar/confirmar dado. Nunca vira Hero/capa automaticamente. */
       referenceOnlyAssets: [],
-      /** section | mediaRole | source | asset | provenance | status */
+      /**
+       * section | mediaRole | source | asset | provenance | status | mediaNarrative
+       * mediaNarrative (adendo §11): ESTABLISH_CONTEXT · SHOW_REALITY · EXPLAIN_SERVICE ·
+       * PROVE_CAPABILITY · CREATE_EMOTION · BREAK_VISUAL_RHYTHM · SUPPORT_CONVERSION · BRAND_RECALL
+       */
       sections: [],
       cover: { asset: null, strategy: null, approved: false, checks: {} },
       lastUpdatedAt: today,
