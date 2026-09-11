@@ -350,14 +350,37 @@ write(
   `docs/portfolio/quality-matrix/${slug}.json`,
   `${JSON.stringify(
     {
-      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md). Avaliar antes de readiness/publish.",
+      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md). Avaliar antes de readiness/publish.",
       slug,
-      matrixVersion: 1,
+      matrixVersion: 2,
+      contractVersion: 3,
       evaluatedAt: null,
       technicalPass: false,
       editorialPass: false,
       score: { total: null, byDimension: {} },
+      /**
+       * Além das 13 dimensões clássicas, avaliar as de experiência (adendo §19):
+       * CONTENT_DEPTH · VISUAL_RHYTHM · MEDIA_NARRATIVE · SECTION_VARIETY ·
+       * SIGNATURE_MOMENTS · PROOF_DENSITY · CONVERSION_CONTINUITY
+       */
       dimensions: {},
+      /** adendo §2/§13/§14/§21 — direção declarada, não default técnico. */
+      experience: {
+        visualRhythm: null,
+        signatureMoments: [],
+        motionNarrative: null,
+        heroArchetype: null,
+      },
+      qualityProfile: {
+        visualDensity: null,
+        editorialDepth: null,
+        motionIntensity: null,
+        mediaRichness: null,
+        proofLevel: null,
+        interactionLevel: null,
+        localContext: null,
+        conversionIntensity: null,
+      },
       hero: { status: null, criteria: {} },
       cover: { status: null, criteria: {} },
       coverage: [],
