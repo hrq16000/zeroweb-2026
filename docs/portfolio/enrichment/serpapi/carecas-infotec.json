@@ -131,5 +131,16 @@
     }
   },
   "errors": [],
-  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google exigem verificação de direitos; telefone e endereço permanecem server-side."
+  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google exigem verificação de direitos; telefone e endereço permanecem server-side.",
+  "appliedToLanding": {
+    "appliedAt": "2026-09-11",
+    "slug": "carecas-infotec",
+    "reviewsPublished": [
+      "Daniel Strapasson",
+      "Wesley Rodrigues",
+      "Nutrigene Do Brasil",
+      "sandra friedrich"
+    ],
+    "note": "snapshot bruto preservado; a landing consome apenas os campos listados em docs/portfolio/enrichment/carecas-infotec.json#appliedToLanding"
+  }
 }
