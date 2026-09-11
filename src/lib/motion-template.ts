@@ -30,7 +30,7 @@ export type MotionTemplateCoverage = {
   reducedMotion: { rule: string };
 };
 
-export const motionTemplateCoverage = coverage as MotionTemplateCoverage;
+export const motionTemplateCoverage = coverage as unknown as MotionTemplateCoverage;
 
 /** Slots exigidos por qualquer landing gerada a partir do template. */
 export const motionTemplateSlots = motionTemplateCoverage.slots;
