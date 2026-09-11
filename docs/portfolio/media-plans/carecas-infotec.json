@@ -13,7 +13,7 @@
     "licensedMedia": [],
     "generatedMedia": [
       {
-        "file": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+        "file": "public/images/carecas-infotec/gen-hero-editorial.jpg",
         "provenance": "GENERATED_CONTEXTUAL_MEDIA",
         "purpose": "abertura premium da landing, coerente com a capa aprovada (carvão/amarelo, bancada técnica)",
         "section": "hero",
@@ -122,7 +122,7 @@
   },
   "heroMedia": {
     "decision": "GENERATED_CONTEXTUAL_MEDIA",
-    "asset": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+    "asset": "public/images/carecas-infotec/gen-hero-editorial.jpg",
     "rejected": {
       "asset": "public/images/carecas-infotec/banner.webp",
       "verdict": "unsuitable",
@@ -153,7 +153,7 @@
       "section": "hero",
       "requiredMediaRole": "editorial-hero",
       "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
-      "asset": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+      "asset": "public/images/carecas-infotec/gen-hero-editorial.jpg",
       "status": "done",
       "resolution": "generate",
       "note": "foto real reprovada como hero (heroMedia.rejected) e preservada na seção 'loja'"

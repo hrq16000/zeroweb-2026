@@ -43,7 +43,7 @@
       "accessible": true,
       "ingestable": true,
       "usable": true,
-      "note": "apenas 1 fotografia oficial (banner.webp) — MEDIA_ENRICHMENT_INCOMPLETE"
+      "note": "apenas 1 fotografia oficial (banner.webp) — MEDIA_ENRICHMENT_COMPLETE"
     }
   },
   "identity": {
@@ -74,7 +74,7 @@
       "GOOGLE_ENTITY_RESOLVED",
       "PLACE_ID_CONFIRMED",
       "GOOGLE_CONTENT_INGESTED_VIA_SERPAPI",
-      "GOOGLE_PHOTOS_UNAVAILABLE"
+      "GOOGLE_PHOTOS_RESOLVED"
     ],
     "resolutionSignals": [
       "nome",
@@ -119,7 +119,7 @@
         "reviews",
         "sourceLinks"
       ],
-      "photos": "nenhuma foto retornada pelo provider (photos = [])",
+      "photos": "10 fotografias ingeridas via SerpApi (ver snapshot)",
       "website": "não retornado"
     }
   },
