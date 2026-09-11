@@ -1,0 +1,209 @@
+{
+  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md). Primeiro projeto avaliado pela matriz.",
+  "slug": "carecas-infotec",
+  "matrixVersion": 1,
+  "evaluatedAt": "2026-09-11",
+  "technicalPass": true,
+  "editorialPass": true,
+  "score": {
+    "total": 88,
+    "byDimension": {
+      "ENTITY": 9,
+      "CONTENT": 9,
+      "MEDIA": 12,
+      "VISUAL_COMPOSITION": 14,
+      "ORIGINALITY": 10,
+      "DISCOVERY": 10,
+      "SEO": 9,
+      "CONVERSION": 10,
+      "RESPONSIVE_QA": 5
+    }
+  },
+  "dimensions": {
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Entidade resolvida: Place ID ChIJjxhi67_73JQRgGgv4G2-G18 confirmado, ficha Google lida via provider SerpApi server-side (nome, categoria, endereço, telefone, horário, 4.9/43). Instagram presente porém handle não resolvido — ausência de rede não é falha; a pesquisa foi feita e registrada."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Responde quem é, o que oferece, quais problemas resolve, para quem, como funciona, por que considerar, como contratar e dúvidas. Garantia, prazo e marcas continuam fora por falta de fonte."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Mix dominado por GENERATED_CONTEXTUAL_MEDIA autoral; única foto real (faixa oficial) preservada como evidência secundária. Fotos reais da loja seguem desejáveis (ownerRequired)."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Dead zone do bloco 'Computador' em 'O que entra para avaliação' corrigida com mídia própria da seção. Ritmo alterna hero, faixa de confiança, grid featured, editorial com aside, imageGrid, processo numerado, FAQ e CTA texturizado."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Hero, ordem de seções, capa, paleta carvão/âmbar, motion e narrativa próprios; nenhum layout herdado de outro cliente."
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Busca testada por nome, alias, segmento, serviço, equipamento, problema, localização e consulta negativa (ver searchQa do manifesto)."
+    },
+    "SEO": {
+      "status": "PASS",
+      "notes": "Title, description, H1 único, canonical, OG/capa própria, alts descritivos, locality e serviços coerentes com a entidade. Rating/reviewCount não publicados enquanto a ingestão não for editorialmente liberada."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Funil próprio (PortfolioCTAQuiz) no header, no grid de equipamentos e no CTA final; WhatsApp resolvido server-side por clientKey."
+    },
+    "PROOF": {
+      "status": "NOT_APPLICABLE",
+      "notes": "4.9/43 observadas e ingeridas em snapshot, porém não publicadas: aguardando liberação editorial e verificação de direitos. Nenhuma prova artificial na página."
+    },
+    "RESPONSIVENESS": { "status": "PASS", "notes": "390px, 768px e desktop verificados: sem overflow, hierarquia e crops mantidos." },
+    "PERFORMANCE": { "status": "PASS", "notes": "Mídia gerada em JPG dimensionado; imagens abaixo da dobra em lazy; sem dependência nova." },
+    "ACCESSIBILITY": { "status": "PASS", "notes": "Alt descritivo em toda mídia, contraste âmbar/carvão adequado, foco visível, prefers-reduced-motion respeitado pelo Reveal." },
+    "QA": { "status": "PASS", "notes": "types, testes, gates de assets/boundaries/brand e build executados nesta rodada." }
+  },
+  "hero": {
+    "status": "PASS",
+    "notes": "GENERATED_CONTEXTUAL_MEDIA de bancada técnica substituiu a faixa promocional fotografada.",
+    "criteria": {
+      "brandMatch": "PASS",
+      "segmentMatch": "PASS",
+      "visualImpact": "PASS",
+      "premiumFeel": "PASS",
+      "legibility": "PASS",
+      "contrast": "PASS",
+      "composition": "PASS",
+      "mediaQuality": "PASS",
+      "CTAVisibility": "PASS",
+      "mobileCrop": "PASS",
+      "desktopCrop": "PASS",
+      "originality": "PASS"
+    }
+  },
+  "cover": {
+    "status": "PASS",
+    "notes": "Capa 1200x630 com logo real sobre composição carvão/âmbar; aprovada e preservada nesta rodada.",
+    "criteria": {
+      "identityMatch": "PASS",
+      "segmentMatch": "PASS",
+      "smallCardReadability": "PASS",
+      "contrast": "PASS",
+      "focalPoint": "PASS",
+      "crop": "PASS",
+      "visualQuality": "PASS",
+      "genericPenalty": "PASS",
+      "duplicatePenalty": "PASS",
+      "portfolioRecognition": "PASS"
+    }
+  },
+  "coverage": [
+    {
+      "section": "hero",
+      "visualRole": "abertura imersiva",
+      "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "/images/carecas-infotec/gen-hero-bancada.jpg",
+      "provenance": "gerada 0WEB — ilustrativa, não representa loja/equipe/serviço real",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "trust.bar",
+      "visualRole": "faixa de compromissos",
+      "mediaDecision": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "provenance": "ícones lucide + tipografia",
+      "quality": "adequada",
+      "status": "PASS"
+    },
+    {
+      "section": "offers.featured (O que entra para avaliação)",
+      "visualRole": "bloco principal 'Computador' + lista de equipamentos",
+      "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "/images/carecas-infotec/gen-desktop-avaliacao.jpg",
+      "provenance": "gerada 0WEB nesta rodada — composição exclusiva desta seção (gabinete aberto), distinta de gen-notebook-bancada.jpg",
+      "quality": "alta",
+      "status": "PASS",
+      "notes": "Corrige a VISUAL_DEAD_ZONE detectada no desktop."
+    },
+    {
+      "section": "useCases.editorial (Sinais de que o aparelho pede avaliação)",
+      "visualRole": "aside de apoio",
+      "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "/images/carecas-infotec/gen-diagnostico-aside.jpg",
+      "provenance": "gerada 0WEB — ilustrativa",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "useCases.imageGrid (Frentes de atendimento)",
+      "visualRole": "três frentes de serviço",
+      "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "gen-notebook-bancada.jpg · gen-celular-tablet.jpg · gen-impressora-toner.jpg",
+      "provenance": "geradas 0WEB — ilustrativas",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "authority.split (loja)",
+      "visualRole": "evidência institucional secundária",
+      "mediaDecision": "REAL_BUSINESS_MEDIA",
+      "asset": "/images/carecas-infotec/banner.webp",
+      "provenance": "faixa oficial fornecida pelo proprietário",
+      "quality": "média — reprovada como hero, adequada como evidência",
+      "status": "PASS"
+    },
+    {
+      "section": "process (Como funciona)",
+      "visualRole": "processo numerado",
+      "mediaDecision": "EDITORIAL_TYPOGRAPHY",
+      "asset": null,
+      "provenance": "composição tipográfica autoral",
+      "quality": "adequada",
+      "status": "PASS"
+    },
+    {
+      "section": "faq (Dúvidas)",
+      "visualRole": "conteúdo textual",
+      "mediaDecision": "NO_MEDIA_NEEDED",
+      "asset": null,
+      "provenance": "conteúdo editorial",
+      "quality": "adequada",
+      "status": "PASS"
+    },
+    {
+      "section": "cta final",
+      "visualRole": "fechamento de conversão",
+      "mediaDecision": "GRAPHIC_MEDIA",
+      "asset": "/images/carecas-infotec/gen-cta-textura.jpg",
+      "provenance": "textura gerada 0WEB",
+      "quality": "adequada",
+      "status": "PASS"
+    }
+  ],
+  "deadZones": [
+    {
+      "section": "offers.featured — bloco 'Computador'",
+      "viewport": "desktop",
+      "signal": "coluna grande ocupada apenas por ícone pequeno + parágrafo curto; composição esperava mídia",
+      "resolved": true,
+      "resolution": "gen-desktop-avaliacao.jpg aplicada como fundo do bloco principal, com gradiente existente preservando a legibilidade"
+    }
+  ],
+  "mediaSourceMix": {
+    "real": 1,
+    "external_verified": 0,
+    "licensed": 0,
+    "generated": 6,
+    "graphic": 2
+  },
+  "p0": [],
+  "warnings": [
+    "GOOGLE_CONTENT_IMPORT_PENDING_EDITORIAL: snapshot SerpApi ingerido, publicação de rating/reviews ainda não liberada",
+    "INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED",
+    "REAL_STORE_PHOTOS_PENDING_OWNER"
+  ],
+  "ownerRequired": [
+    "fornecer fotos reais da loja/fachada e de atendimentos",
+    "confirmar o @ oficial do Instagram",
+    "confirmar prazo e garantia praticados, se quiser publicá-los"
+  ]
+}
