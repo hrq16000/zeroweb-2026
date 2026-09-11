@@ -103,7 +103,15 @@ for (const client of clients) {
     if (component.includes(forbidden)) errors.push(`${label}: dependência proibida (${forbidden})`);
   }
   for (const [pattern, description] of publicContactPatterns) {
-    if (pattern.test(combined)) errors.push(`${label}: ${description} exposto no código público`);
+    const match = combined.match(pattern);
+    if (!match) continue;
+    // Telefone público do PRÓPRIO cliente, explicitamente autorizado na
+    // allowlist compartilhada (scripts/contact-allowlist.mjs), é conteúdo
+    // legítimo da vitrine dele — não vazamento de contato operacional da 0WEB.
+    const digits = match[0].replace(/\D/g, "");
+    const e164 = digits.length === 11 ? `55${digits}` : digits;
+    if (CLIENT_ALLOWED_DIGITS.has(e164)) continue;
+    errors.push(`${label}: ${description} exposto no código público`);
   }
 }
 
