@@ -49,6 +49,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const triggerRef = useRef<Trigger>("timer");
   const funnelActiveRef = useRef(false);
+  const fireRef = useRef<((trigger: Trigger) => void) | null>(null);
   
 
   const routePath = typeof window === "undefined" ? "/portfolio" : window.location.pathname;
