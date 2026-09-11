@@ -66,7 +66,7 @@
     "sameSegment": 5
   },
   "thresholds": {
-    "heroSignatureMaxRepeatsInWindow": 1,
+    "heroSignatureMaxRepeatsInWindow": 0,
     "sectionOrderSimilarityFail": 0.8,
     "sectionOrderSimilarityWarn": 0.7,
     "axisRepeatWarn": 2,
