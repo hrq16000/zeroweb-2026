@@ -172,5 +172,4 @@ Veredito: **PASS**
 
 Nenhuma regressão em relação à baseline.
 
-Melhorias:
-- {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":26,"after":25}
+

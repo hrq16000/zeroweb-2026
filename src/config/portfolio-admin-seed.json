@@ -1458,7 +1458,7 @@
       "image": "/images/jkl-decor/capa.jpg",
       "icon": "/images/jkl-decor/logo.png",
       "socialImage": "/images/jkl-decor/capa.jpg",
-      "socialVersion": "jkl20260911",
+      "socialVersion": "c7ce9078",
       "componentFile": "src/components/site/JklDecorPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/jkl-decor",

@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-09-11T08:09:12.946Z",
+    "generatedAt": "2026-09-11T16:37:35.957Z",
     "audited": 91,
     "pass": 91,
     "warning": 0,
@@ -429,19 +429,6 @@
       "nextStepBody": "Escolha o tamanho, os cremes e os complementos que mais gosta.",
       "primaryCtaLabel": "Escolher meu açaí",
       "whatsappIntent": "pedido",
-      "status": "PASS",
-      "issues": []
-    },
-    {
-      "slug": "jkl-marcenaria",
-      "businessName": "JKL Marcenaria",
-      "segment": "servicos",
-      "intent": "orcamento",
-      "source": "PROJECT_CONTRACT",
-      "nextStepTitle": "Móveis sob medida começam entendendo como você vive o espaço.",
-      "nextStepBody": "Conte o ambiente, as medidas e a ideia que quer realizar.",
-      "primaryCtaLabel": "Planejar móvel",
-      "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
     },
@@ -1195,6 +1182,19 @@
       "nextStepTitle": "Conte o aparelho e o defeito para receber o orçamento.",
       "nextStepBody": "A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo.",
       "primaryCtaLabel": "Agendar serviço",
+      "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "jkl-decor",
+      "businessName": "JKL Decor",
+      "segment": "prestadores-de-servicos",
+      "intent": "orcamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Conte qual ambiente você quer planejar para receber o orçamento.",
+      "nextStepBody": "A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local.",
+      "primaryCtaLabel": "Pedir orçamento",
       "whatsappIntent": "orcamento",
       "status": "PASS",
       "issues": []
