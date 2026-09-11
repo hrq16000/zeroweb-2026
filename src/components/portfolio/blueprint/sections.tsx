@@ -183,7 +183,7 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
                     {stat.label}
                   </dt>
                   <dd className="mt-2 text-xl font-black uppercase tracking-tight md:text-2xl">
-                    {typeof stat.countTo === "number" ? (
+                    {typeof stat.countTo === "number" && ctx.motion?.counters !== false ? (
                       <MotionCounter
                         value={stat.countTo}
                         prefix={stat.countPrefix ?? ""}
@@ -302,7 +302,7 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
                   className="border-b border-border px-1 py-6 md:border-b-0 md:border-r md:px-6 md:last:border-r-0 md:first:pl-0"
                 >
                   <dd className="text-2xl font-semibold tracking-tight md:text-3xl">
-                    {typeof stat.countTo === "number" ? (
+                    {typeof stat.countTo === "number" && ctx.motion?.counters !== false ? (
                       <MotionCounter
                         value={stat.countTo}
                         prefix={stat.countPrefix ?? ""}

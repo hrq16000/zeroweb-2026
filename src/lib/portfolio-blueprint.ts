@@ -35,6 +35,8 @@ export type BlueprintSectionMotion = {
   parallax?: number;
   /** Microinteração de card/linha ao hover. */
   hover?: "none" | "lift" | "glow";
+  /** `false` desliga contadores animados desta seção (regulagem do painel). */
+  counters?: boolean;
   /** Progresso visual ligado ao scroll (ex.: linha do tempo preenchendo). */
   scrollProgress?: boolean;
 };
