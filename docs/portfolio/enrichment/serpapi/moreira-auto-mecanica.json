@@ -1,0 +1,1702 @@
+{
+  "slug": "moreira-auto-mecanica",
+  "placeId": "ChIJgYYezAz63JQRk2SRKP5Usqk",
+  "generatedAt": "2026-09-11T06:46:42.416Z",
+  "provider": "serpapi",
+  "google": {
+    "placeId": "ChIJgYYezAz63JQRk2SRKP5Usqk",
+    "dataId": "0x94dcfa0ccc1e8681:0xa9b254fe28916493",
+    "cid": "12227929388843361427",
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfa0ccc1e8681:0xa9b254fe28916493!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlTekvuCrRiJcup_I0slyuRIPGs0Dh0XigTFsRBQPLaJZPQbsgL2ManA2cFcMeHrm1ThQ7vZFIWhFbLwhiDS5c0MZG6EauRIbhwngVaZlYjz_CzoCfDoDm5aijV7VssEccfePFc=w1200-h1600-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlTekvuCrRiJcup_I0slyuRIPGs0Dh0XigTFsRBQPLaJZPQbsgL2ManA2cFcMeHrm1ThQ7vZFIWhFbLwhiDS5c0MZG6EauRIbhwngVaZlYjz_CzoCfDoDm5aijV7VssEccfePFc=w203-h270-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 1,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm_BzOI3t_TAtI2N_bgj9VW4LQjNfiYA-pBG-iIifeYzg1pGqhcAikVnLdMkbFDU7vgUvyeOIR4mFjzkA_Y5RweO92hLRw79-SLFUVEcFvZ0Raewsql7SHkwqJGBjP0wFtdpBzc=w1600-h1200-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm_BzOI3t_TAtI2N_bgj9VW4LQjNfiYA-pBG-iIifeYzg1pGqhcAikVnLdMkbFDU7vgUvyeOIR4mFjzkA_Y5RweO92hLRw79-SLFUVEcFvZ0Raewsql7SHkwqJGBjP0wFtdpBzc=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 2,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkTt0pM_cdPHF8eBU7NIQqI6mUSRjR2tn9vlJKYfzYtk6jvyPvlWeM9N4gBejJzyLG_UzeoFnxYJk8e-3lVlQIpjhfOrtr9HjzZ5QVIqqVqnLoc7nHujqaoxznPVLlAtbEWVb1D=w1160-h868-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkTt0pM_cdPHF8eBU7NIQqI6mUSRjR2tn9vlJKYfzYtk6jvyPvlWeM9N4gBejJzyLG_UzeoFnxYJk8e-3lVlQIpjhfOrtr9HjzZ5QVIqqVqnLoc7nHujqaoxznPVLlAtbEWVb1D=w203-h151-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 3,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnAQD7ecWd3rsPu84UYkhOvkvye4s7dJXWI56moGxS5cd4T5hobBwm1YLqdrw0dY2K91F40uxJLo6kdKdJECyPyw-NXvkVnbJ2nUb7csX5cf3mdJpX27g2hUjp3YQuozW-Os_WF4Q=w4608-h3456-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnAQD7ecWd3rsPu84UYkhOvkvye4s7dJXWI56moGxS5cd4T5hobBwm1YLqdrw0dY2K91F40uxJLo6kdKdJECyPyw-NXvkVnbJ2nUb7csX5cf3mdJpX27g2hUjp3YQuozW-Os_WF4Q=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 4,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmyTHsFDrwxSiTfjH8_UGPeOxCTyruhpSzJMXk1JAo5k8x_o8_1xbsCUclGTGxtieWlKblGuwwf6uPV_tTkuhb1UiijOi3JJU9_1pJFIOd_KhoABZjCb3qa9YIY42D2VgXbZLRG=w4608-h3456-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmyTHsFDrwxSiTfjH8_UGPeOxCTyruhpSzJMXk1JAo5k8x_o8_1xbsCUclGTGxtieWlKblGuwwf6uPV_tTkuhb1UiijOi3JJU9_1pJFIOd_KhoABZjCb3qa9YIY42D2VgXbZLRG=w203-h152-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 5,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkVQi38t4uFGOSmvKQya3zYwGFItob3Zg_OK51-dvYGOJGL349TKZNUho_8LJwLL-IqoIz9CHUbWF8e3Mc5ARmeFe_CXML09pvaqV8BGoNi8JaxH5MieJ6WNzpAC_6MDrZu7lrA=w1468-h3264-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkVQi38t4uFGOSmvKQya3zYwGFItob3Zg_OK51-dvYGOJGL349TKZNUho_8LJwLL-IqoIz9CHUbWF8e3Mc5ARmeFe_CXML09pvaqV8BGoNi8JaxH5MieJ6WNzpAC_6MDrZu7lrA=w203-h451-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 6,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlmUrv8mo1WdIsxubZjMzTrHb9pWSSo_ETXsHv8yYs8Y7eUff2COwxh-BrHC3-uuP-uU9lUbr4nn3ZdDCFlTfNeiMgSjroEDZeIiDzd__YJkt53KpdvwGd7_1gbnpsdc13SqB5T4g=w3264-h1468-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlmUrv8mo1WdIsxubZjMzTrHb9pWSSo_ETXsHv8yYs8Y7eUff2COwxh-BrHC3-uuP-uU9lUbr4nn3ZdDCFlTfNeiMgSjroEDZeIiDzd__YJkt53KpdvwGd7_1gbnpsdc13SqB5T4g=w222-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 7,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmSCgGwhLaLliswn0EPshyP2kFDPRrywO96p30IPOADhmRr8HdiZg5QyAykTYmw1bArlJaZZcvnIcWp2asqGJdIOkIxuq6eWfQM8yVmZndIZAKHmUeRCQKzn3-mUFRg9_kwuKwHtw=w2000-h4000-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmSCgGwhLaLliswn0EPshyP2kFDPRrywO96p30IPOADhmRr8HdiZg5QyAykTYmw1bArlJaZZcvnIcWp2asqGJdIOkIxuq6eWfQM8yVmZndIZAKHmUeRCQKzn3-mUFRg9_kwuKwHtw=w203-h406-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 8,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlns1WPzoHGmJjHG2262JpTBJfDwyHHdKPABZ145P_ISenUXoz8h6TB9JS5Y0dQgkz7eC1qvvUKp6nz_0H5gCnVZG7zUihNpbQgEmFJFvu2vMJvGXmEtX25448A-rR3NdictL6q=w1200-h1600-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlns1WPzoHGmJjHG2262JpTBJfDwyHHdKPABZ145P_ISenUXoz8h6TB9JS5Y0dQgkz7eC1qvvUKp6nz_0H5gCnVZG7zUihNpbQgEmFJFvu2vMJvGXmEtX25448A-rR3NdictL6q=w203-h270-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 9,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=cOsf5nxJtcL0LDoo6Lvb7Q&cb_client=maps_sv.tactile.gps&w=10000&h=10000&yaw=98.0114&pitch=0&thumbfov=100",
+        "thumbnail": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=cOsf5nxJtcL0LDoo6Lvb7Q&cb_client=maps_sv.tactile.gps&w=203&h=100&yaw=98.0114&pitch=0&thumbfov=100",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 10,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      }
+    ]
+  },
+  "place": {
+    "placeId": "ChIJgYYezAz63JQRk2SRKP5Usqk",
+    "dataId": "0x94dcfa0ccc1e8681:0xa9b254fe28916493",
+    "cid": "12227929388843361427",
+    "name": "Moreira Auto Mecânica",
+    "category": "Mecânica para carros",
+    "description": null,
+    "address": "R. Padre Alberto Müler, 279 - Cidade Jardim, São José dos Pinhais - PR, 83035-070",
+    "phone": "(41) 99794-0764",
+    "website": null,
+    "hours": {
+      "sexta_feira": "08:00–18:30",
+      "sábado": "Fechado",
+      "domingo": "Fechado",
+      "segunda_feira": "08:00–18:30",
+      "terça_feira": "08:00–18:30",
+      "quarta_feira": "08:00–18:30",
+      "quinta_feira": "08:00–18:30"
+    },
+    "rating": 4.8,
+    "reviewCount": 105,
+    "latitude": -25.5276571,
+    "longitude": -49.212835299999995,
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfa0ccc1e8681:0xa9b254fe28916493!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "reviewsLink": "https://serpapi.com/search.json?data_id=0x94dcfa0ccc1e8681%3A0xa9b254fe28916493&engine=google_maps_reviews&hl=pt-br",
+    "photosLink": "https://serpapi.com/search.json?data_id=0x94dcfa0ccc1e8681%3A0xa9b254fe28916493&engine=google_maps_photos&hl=pt-br",
+    "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlTekvuCrRiJcup_I0slyuRIPGs0Dh0XigTFsRBQPLaJZPQbsgL2ManA2cFcMeHrm1ThQ7vZFIWhFbLwhiDS5c0MZG6EauRIbhwngVaZlYjz_CzoCfDoDm5aijV7VssEccfePFc=w1000-h1000-c-n",
+    "links": null,
+    "serviceOptions": null,
+    "photos": [
+      {
+        "url": "https://serpapi.com/images/url/7NMcHHicHczRCoIwFADQLzJXYUHQQ2krQ2GaWPkS87I2a27i1aR-sG_ob4pezuP5vFXXNbhwXa2mI2mt1KJH0YI1nTDdCGztygYdQAfd1S5l2VFn4v7o_Tat9tA3l5CgfvZpyLZIAkVOlcwopuuERXxfsKREGU1iblYToBCLXVuPM5XMHwUNj4qW0aCq4OABiYvtbMN_T6kGI3Ne6PPtdfFf1r8GNqg9Xt3yeY64AbgKRmE5jAkhjvoLjvkC3vNGKg",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlTekvuCrRiJcup_I0slyuRIPGs0Dh0XigTFsRBQPLaJZPQbsgL2ManA2cFcMeHrm1ThQ7vZFIWhFbLwhiDS5c0MZG6EauRIbhwngVaZlYjz_CzoCfDoDm5aijV7VssEccfePFc=w1000-h1000-c-n",
+        "title": "Tudo",
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 1,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://serpapi.com/images/url/mHcm63icHcTbDoIgAADQLyLpNmdbD7jCbJZFqbMXV0TgHYNk-YN9Q3_T1nk434_QWqqFZVViOuJtyyv2UuxJ20azRo9oW1tcKkAVUBbakMM5qTN3CP2pzs5I-5N9duOFEyez4FjsH3mKgHQ9kPv5g6UDH0uvExTlZdwE9115w6vI7nnUv1nok1mNi6FEWTonhoXORATE2A44BTiK1xT3F0iuzKiusk-b0nRbzy0O0GB9l-5Al2YMIQTiPwXND37aRUc",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm_BzOI3t_TAtI2N_bgj9VW4LQjNfiYA-pBG-iIifeYzg1pGqhcAikVnLdMkbFDU7vgUvyeOIR4mFjzkA_Y5RweO92hLRw79-SLFUVEcFvZ0Raewsql7SHkwqJGBjP0wFtdpBzc=w1000-h1000-c-n",
+        "title": "Do proprietário",
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 2,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://serpapi.com/images/url/uptu-HicHc1LCsIwEADQ22RnPqVqKwQ3rqQgnqCkMW0H0mRwxrTexmt5G8F3gff9zMxIJ6WInyFwgbAibCHSDp2ccp5icAgkfV5UMYrn1zIkB_GMLmV4WH-jcZ-2K_tOd5ecD10Zjnfhh95HCInt4pB6KpKdZ4hBTkhitVVVi9lWbSPebrVtI7UxtUBgP1st_suYizVa_wCNJznQ",
+        "thumbnail": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=cOsf5nxJtcL0LDoo6Lvb7Q&cb_client=maps_sv.tactile.gps&w=224&h=298&yaw=98.0114&pitch=0&thumbfov=100",
+        "title": "Street View e 360°",
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 3,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      }
+    ],
+    "extraFields": {
+      "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJgYYezAz63JQRk2SRKP5Usqk",
+      "provider_id": "/g/1tq6l6nh",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/7NMcHHicHczRCoIwFADQLzJXYUHQQ2krQ2GaWPkS87I2a27i1aR-sG_ob4pezuP5vFXXNbhwXa2mI2mt1KJH0YI1nTDdCGztygYdQAfd1S5l2VFn4v7o_Tat9tA3l5CgfvZpyLZIAkVOlcwopuuERXxfsKREGU1iblYToBCLXVuPM5XMHwUNj4qW0aCq4OABiYvtbMN_T6kGI3Ne6PPtdfFf1r8GNqg9Xt3yeY64AbgKRmE5jAkhjvoLjvkC3vNGKg",
+      "rating_summary": [
+        {
+          "stars": 1,
+          "amount": 3
+        },
+        {
+          "stars": 2,
+          "amount": 1
+        },
+        {
+          "stars": 3,
+          "amount": 0
+        },
+        {
+          "stars": 4,
+          "amount": 8
+        },
+        {
+          "stars": 5,
+          "amount": 93
+        }
+      ],
+      "type_ids": [
+        "car_repair"
+      ],
+      "extensions": [
+        {
+          "accessibility": [
+            "Entrada com acessibilidade para pessoas em cadeira de rodas"
+          ]
+        },
+        {
+          "payments": [
+            "Cartão de crédito",
+            "Cartão de débito",
+            "Pagamentos por dispositivo móvel via NFC"
+          ]
+        }
+      ],
+      "country": "Brasil",
+      "open_state": "Fechado · Abre às 08:00",
+      "plus_code": "FQCP+WV Cidade Jardim, São José dos Pinhais - PR",
+      "user_reviews": {
+        "summary": [
+          {
+            "snippet": "\"Prestação de serviço profissional muito bom com preços acessíveis!!!\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocJZROxuG2lxOqfzpyVVg9-QcoSqZg6fXLJDXh1eGPodyjC4bA=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Meu falecido pai me mostrou o caminho: só levava os carros nesta oficina.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocKOZSv3RWBpfw1yogMH0VnNcuiB1KHFtm1eGxvhVNUr3nNqgQ=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Diagnóstico é um dos mais certeiros, com a mão de obra que vale a pena!\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUU5otwDaSA6sYuUhKcO-JvXcWnhv2F2iDfaFa7GWKi0k3Nr165=s40-k-cc-rp-mo"
+          }
+        ],
+        "most_relevant": [
+          {
+            "username": "Vitor H.",
+            "rating": 5,
+            "contributor_id": "115928268390033724136",
+            "user_review_count": 9,
+            "user_photo_count": 4,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjU2p3FYiq-jKpAcg6jClbQJ5jnvvK3HiLOrZFwWIp_7Wcf7BwNR=s120-c-rp-mo-br100",
+            "description": "Conheci a oficina através de uma indicação de um amigo meu falando a seguinte frase: Vou te levar em um lugar que não vão te enganar. E ele estava certo. O atendimento de toda a equipe é sensacional.  são extremamente sinceros com a questão do carro e justos no quesito valor também. Resolveram o problema do meu carro de forma rápida e eficaz. Agora sim meu carro está 100%, Sem orçamentos duvidosos ou algo do gênero. agora achei uma oficina na qual posso confiar. Obrigado Claudia e equipe.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poVFgyYzVZemx1T1dJMVoxRnRTRUpwZWtFelZYYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOjhTX2c5YzluOWI1Z1FtSEJpekEzVXc%7C%7C?hl=pt-BR",
+            "date": "4 meses atrás",
+            "date_iso8601": "2026-05-01T00:20:12+00:00"
+          },
+          {
+            "username": "Aramis Machado",
+            "rating": 5,
+            "contributor_id": "113193951096526876734",
+            "user_review_count": 60,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocJZROxuG2lxOqfzpyVVg9-QcoSqZg6fXLJDXh1eGPodyjC4bA=s120-c-rp-mo-ba12-br100",
+            "description": "Prestação de serviço profissional muito bom com preços acessíveis!!!",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t0a2QydHRNbk5vTld0d1dWb3RObVJMTUhKTlZsRRAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOktkd2ttMnNoNWtwWVotNmRLMHJNVlE%7C%7C?hl=pt-BR",
+            "date": "9 meses atrás",
+            "date_iso8601": "2025-12-06T10:10:09+00:00"
+          },
+          {
+            "username": "joao pedro sabatke",
+            "rating": 5,
+            "contributor_id": "116980305733452592268",
+            "user_review_count": 11,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocKOZSv3RWBpfw1yogMH0VnNcuiB1KHFtm1eGxvhVNUr3nNqgQ=s120-c-rp-mo-br100",
+            "description": "Meu falecido pai me mostrou o caminho: só levava os carros nesta oficina. Quando precisei, levei e fui igualmente bem atendido. (O difícil é não ficar 3 horas conversando com o povo que é muito querido, especialmente a claudia).",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KV1JUYzNXVWR6UVVkSk0yRkZkRFoxVFd0emVYYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOmJWRTc3WUdzQUdJM2FFdDZ1TWtzeXc%7C%7C?hl=pt-BR",
+            "date": "um ano atrás",
+            "date_iso8601": "2025-07-10T14:28:10+00:00"
+          },
+          {
+            "username": "Antonio Francisco Ulrich",
+            "rating": 5,
+            "contributor_id": "112055306609638094785",
+            "user_review_count": 7,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjVU1rA-oo3VOyryZdP9M2O2wRBIN6ScEIVTU5Z0ZuMHot7tXYs=s120-c-rp-mo-br100",
+            "description": "Sou cliente ha mais de 15 anos e sempre que me pedem informações sobre oficina mecânica, recomendo sempre a Moreira Auto Mecânica.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2twa2R6bDZhbU5PY1hoa2J6VkNaMXB6TmxkNFJHYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOkpkdzl6amNOcXhkbzVCZ1pzNld4RGc%7C%7C?hl=pt-BR",
+            "date": "9 meses atrás",
+            "date_iso8601": "2025-11-19T13:20:01+00:00"
+          },
+          {
+            "username": "Wellington Pedroso",
+            "rating": 1,
+            "contributor_id": "100057648172746285404",
+            "user_review_count": 4,
+            "user_photo_count": 3,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUyiDqv4r8WX9idLT7N3T59_NTw1LbMoNpCfZsPaiv0g16DdgFd=s120-c-rp-mo-br100",
+            "description": "Levei meu carro com uma queixa de barulho na suspensão, após deixar lá alguns dias, me retornaram dizendo que o problema era nas buchas da balança, pedi então que trocassem, depois de pegar o carro fui viajar. Ao chegar percebi que um barulho novo apareceu, mais alto e insuportável, levei o carro novamente para olharem, depois de mais 3 dias sem carro, me retornaram dizendo que as buchas que trocaram tinha \"corrido\" da balança e que iriam prensa-las novamente sem me cobrar nada, e que fora isso meu carro não tinha mais nenhum problema a ser arrumado, mas ao dar uma volta na quadra, o barulho insuportável retornou. Agora vou levar meu carro em outra oficina pra ver se resolvem meu problema.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUN5MlozeHlBRRAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CIHM0ogKEICAgICy2Z3xyAE%7C%7C?hl=pt-BR",
+            "date": "5 anos atrás",
+            "date_iso8601": "2021-02-05T10:10:09+00:00"
+          },
+          {
+            "username": "Leoncio Reis",
+            "rating": 5,
+            "contributor_id": "104542248867748555347",
+            "user_review_count": 7,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjXGR4hSD3mnmr3JzJf6a7HK2QMN7AVXeL7RAC9hC-xqzebOX_I=s120-c-rp-mo-br100",
+            "description": "Resolveram um problema na minha Kombi no horário combinado, e o rapaz nem queria cobrar nada. Empreendimento familiar: toda a família envolvida e trabalhando sério e profissionalmente. Tem que valorizar muito esse tipo de negócio! Super recomendo.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNpdGFlRDZBRRAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CIHM0ogKEICAgICitaeD6AE%7C%7C?hl=pt-BR",
+            "date": "5 anos atrás",
+            "date_iso8601": "2020-11-10T12:57:01+00:00"
+          },
+          {
+            "username": "6it total",
+            "rating": 5,
+            "contributor_id": "102364641233541242058",
+            "user_review_count": 9,
+            "user_photo_count": 1,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocIwZ-py0iqZI_0j6sysqJsxQJoZ4fyg_U2kkP4dCdkBAXrOYg=s120-c-rp-mo-br100",
+            "description": "Meu nome é Rafael a anos que conheço a mecânica em especial a Claudia uma pessoa muito simpática e profissional são de extrema confiança super indico profissionais verdadeiros não engana cliente somente troca peças se necessário pode confiar neles sabem o que estão fazendo e serviços com garantia sempre. Nota 10",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURHdjhPRVJREAE!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CIHM0ogKEICAgIDGv8OERQ%7C%7C?hl=pt-BR",
+            "date": "4 anos atrás",
+            "date_iso8601": "2021-12-14T11:24:49+00:00"
+          },
+          {
+            "username": "Luiz Eduardo Lima Rodrigues",
+            "rating": 5,
+            "contributor_id": "117199176383870710631",
+            "user_review_count": 12,
+            "user_photo_count": 2,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocLasxUDQ8tLXat_S_Pp5UB4L5JCyzctGPGlLBIrBx9dAMNkp5A=s120-c-rp-mo-br100",
+            "description": "Mecânica excelente, pessoal muito profissional e honesto e com preço justo.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25OblVtUXRWVEJxY1ZwRVdGQjZWWEI2YUdSbFpuYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOnNnUmQtVTBqcVpEWFB6VXB6aGRlZnc%7C%7C?hl=pt-BR",
+            "date": "10 meses atrás",
+            "date_iso8601": "2025-10-17T21:26:01+00:00"
+          }
+        ]
+      },
+      "people_also_search_for": [
+        {
+          "search_term": "Outras pessoas pesquisaram",
+          "local_results": [
+            {
+              "position": 1,
+              "title": "Mecânica Nei",
+              "data_id": "0x0:0x83937fb759810607",
+              "data_cid": "9481062066002396679",
+              "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x83937fb759810607&engine=google_maps_reviews&hl=pt-br",
+              "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x83937fb759810607&engine=google_maps_photos&hl=pt-br",
+              "gps_coordinates": {
+                "latitude": -25.5269141,
+                "longitude": -49.2128212
+              },
+              "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x83937fb759810607%218m2%213d-25.5269141%214d-49.2128212&engine=google_maps&gl=br&google_domain=google.com&hl=pt-br&type=place",
+              "rating": 4.8,
+              "reviews": 32,
+              "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnb2QxvdwekVljHk71d1eXmetBK997anku9YWpHgcdOmRBY_AqFAuqv-KDhaN6WTWaZGgoMjQIh0Mr_GSmYflX2oKznktNargaaMbWtpqPb7DgXfQ4NK6zRPoHXjYpc-LyMEd2BWezjczU=w156-h156-n-k-no",
+              "type": [
+                "Oficina mecânica"
+              ]
+            },
+            {
+              "position": 2,
+              "title": "Oficina Mecânica Multimarcas",
+              "data_id": "0x0:0xa04796745420eebe",
+              "data_cid": "11549365195786743486",
+              "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0xa04796745420eebe&engine=google_maps_reviews&hl=pt-br",
+              "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0xa04796745420eebe&engine=google_maps_photos&hl=pt-br",
+              "gps_coordinates": {
+                "latitude": -25.5272155,
+                "longitude": -49.207427700000004
+              },
+              "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0xa04796745420eebe%218m2%213d-25.5272155%214d-49.207427700000004&engine=google_maps&gl=br&google_domain=google.com&hl=pt-br&type=place",
+              "rating": 4.9,
+              "reviews": 32,
+              "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklQcUO6ytOL-PrTAOa0HH7ZBW_RSohfbnh7Matybad3wSU1VyBxCjhV4U_lErnEhnrXmmnurbJjNCNqntc0_jRP1gqLMXAjmY2fe-ba8J4qsqJ5P-Epaf2d6SMbf5ltYMUIKxg=w156-h156-n-k-no",
+              "type": [
+                "Oficina mecânica"
+              ]
+            },
+            {
+              "position": 3,
+              "title": "Auto Mecânica Ferreira",
+              "data_id": "0x0:0xa293a10307e77e19",
+              "data_cid": "11714884090110377497",
+              "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0xa293a10307e77e19&engine=google_maps_reviews&hl=pt-br",
+              "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0xa293a10307e77e19&engine=google_maps_photos&hl=pt-br",
+              "gps_coordinates": {
+                "latitude": -25.5260207,
+                "longitude": -49.202813899999995
+              },
+              "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0xa293a10307e77e19%218m2%213d-25.5260207%214d-49.202813899999995&engine=google_maps&gl=br&google_domain=google.com&hl=pt-br&type=place",
+              "rating": 4.2,
+              "reviews": 5,
+              "thumbnail": "https://www.google.com/maps/vt/data=0pT2mxFoHYMSBzZoG_oxmzvabWvHfWVCbl89VFggLW1bLBSUHeaI4oPsntYG0jnmSCOhBWCOhtzLN66EuCN6X4wgmTsdQ5n7hQ0h7oXpsmceaedr2Kp83cnMMv5jk37RLoH5wCXZphcyoGy0wZqVuRNTvoPmTaCe",
+              "type": [
+                "Oficina mecânica"
+              ]
+            },
+            {
+              "position": 4,
+              "title": "AUTO MECÂNICA ROCHA´S",
+              "data_id": "0x0:0x19c3d6286ae3ffd2",
+              "data_cid": "1856562940487139282",
+              "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x19c3d6286ae3ffd2&engine=google_maps_reviews&hl=pt-br",
+              "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x19c3d6286ae3ffd2&engine=google_maps_photos&hl=pt-br",
+              "gps_coordinates": {
+                "latitude": -25.538144199999998,
+                "longitude": -49.1572629
+              },
+              "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x19c3d6286ae3ffd2%218m2%213d-25.538144199999998%214d-49.1572629&engine=google_maps&gl=br&google_domain=google.com&hl=pt-br&type=place",
+              "rating": 5,
+              "reviews": 36,
+              "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkgdNTUhJWlp9mwD-3HGV9mMd9Uc13G8C0ajYCDT_Wj0kxtMjI8j2Z3Cz-Q6eFAEOgLmfarfaSXZ6R-iptxg7CZxf-bK2B0LAd3O6No0fw-MM1Bee2Fni5k4upD23ijiQpGeL0D=w156-h156-n-k-no",
+              "type": [
+                "Oficina mecânica",
+                "Mecânica para carros"
+              ]
+            },
+            {
+              "position": 5,
+              "title": "OFICICAR - MECÂNICA AUTOMOTIVA",
+              "data_id": "0x0:0xccd960c13d6a31d2",
+              "data_cid": "14760935636758835666",
+              "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0xccd960c13d6a31d2&engine=google_maps_reviews&hl=pt-br",
+              "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0xccd960c13d6a31d2&engine=google_maps_photos&hl=pt-br",
+              "gps_coordinates": {
+                "latitude": -25.5061923,
+                "longitude": -49.174361499999996
+              },
+              "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0xccd960c13d6a31d2%218m2%213d-25.5061923%214d-49.174361499999996&engine=google_maps&gl=br&google_domain=google.com&hl=pt-br&type=place",
+              "rating": 4.7,
+              "reviews": 20,
+              "thumbnail": "https://www.google.com/maps/vt/data=SHo3Lfus2XwHdDNmYrWaVO4axBY5y3Ncp9ef95k4y7Qxg5pyXFJ1-EtAx94KoNvpHAm-iGhV-5Cv0ipn_L6ouFKm-s4lLJP9S7vzS8N3q7JcFrbUlOtNC6NKF6khRhh7gt6VDSPz6PvQMLG6rdJXE_g9VEjN4uVa",
+              "type": [
+                "Oficina mecânica",
+                "Mecânica para carros",
+                "Mecânico"
+              ]
+            }
+          ]
+        }
+      ],
+      "popular_times": {
+        "current_day": "friday",
+        "live_hash": {
+          "time_spent": "As pessoas costumam ficar 5-45 min aqui"
+        },
+        "graph_results": {
+          "monday": [
+            {
+              "time": "06:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "07:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "08:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "09:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 50
+            },
+            {
+              "time": "10:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 53
+            },
+            {
+              "time": "11:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 53
+            },
+            {
+              "time": "12:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 65
+            },
+            {
+              "time": "13:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 78
+            },
+            {
+              "time": "14:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 81
+            },
+            {
+              "time": "15:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 84
+            },
+            {
+              "time": "16:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 81
+            },
+            {
+              "time": "17:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 75
+            },
+            {
+              "time": "18:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 68
+            },
+            {
+              "time": "19:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "20:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "21:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "22:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "23:00",
+              "busyness_score": 0
+            }
+          ],
+          "tuesday": [
+            {
+              "time": "06:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "07:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "08:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 40
+            },
+            {
+              "time": "09:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 50
+            },
+            {
+              "time": "10:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 46
+            },
+            {
+              "time": "11:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 46
+            },
+            {
+              "time": "12:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 50
+            },
+            {
+              "time": "13:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 81
+            },
+            {
+              "time": "14:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 78
+            },
+            {
+              "time": "15:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 75
+            },
+            {
+              "time": "16:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 62
+            },
+            {
+              "time": "17:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "18:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 40
+            },
+            {
+              "time": "19:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "20:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "21:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "22:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "23:00",
+              "busyness_score": 0
+            }
+          ],
+          "wednesday": [
+            {
+              "time": "06:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "07:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "08:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 40
+            },
+            {
+              "time": "09:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 37
+            },
+            {
+              "time": "10:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 46
+            },
+            {
+              "time": "11:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 50
+            },
+            {
+              "time": "12:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 68
+            },
+            {
+              "time": "13:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 84
+            },
+            {
+              "time": "14:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 100
+            },
+            {
+              "time": "15:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 87
+            },
+            {
+              "time": "16:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 87
+            },
+            {
+              "time": "17:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 65
+            },
+            {
+              "time": "18:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 56
+            },
+            {
+              "time": "19:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "20:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "21:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "22:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "23:00",
+              "busyness_score": 0
+            }
+          ],
+          "thursday": [
+            {
+              "time": "06:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "07:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "08:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "09:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 65
+            },
+            {
+              "time": "10:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 65
+            },
+            {
+              "time": "11:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "12:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "13:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "14:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "15:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 46
+            },
+            {
+              "time": "16:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 59
+            },
+            {
+              "time": "17:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 62
+            },
+            {
+              "time": "18:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 68
+            },
+            {
+              "time": "19:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "20:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "21:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "22:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "23:00",
+              "busyness_score": 0
+            }
+          ],
+          "friday": [
+            {
+              "time": "06:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "07:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "08:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 37
+            },
+            {
+              "time": "09:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 46
+            },
+            {
+              "time": "10:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 56
+            },
+            {
+              "time": "11:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 50
+            },
+            {
+              "time": "12:00",
+              "info": "Geralmente não muito movimentado",
+              "busyness_score": 46
+            },
+            {
+              "time": "13:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 65
+            },
+            {
+              "time": "14:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 81
+            },
+            {
+              "time": "15:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 96
+            },
+            {
+              "time": "16:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 90
+            },
+            {
+              "time": "17:00",
+              "info": "Geralmente é o horário mais movimentado",
+              "busyness_score": 90
+            },
+            {
+              "time": "18:00",
+              "info": "Geralmente um pouco movimentado",
+              "busyness_score": 71
+            },
+            {
+              "time": "19:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "20:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "21:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "22:00",
+              "busyness_score": 0
+            },
+            {
+              "time": "23:00",
+              "busyness_score": 0
+            }
+          ]
+        }
+      },
+      "web_results_link": "https://www.google.com/search?q=local+guide+program&ibp=gwp;0,26,OjgKNiIyTW9yZWlyYSBBdXRvIE1lY8OibmljYSBTw6NvIEpvc8OpIGRvcyBQaW5oYWlzIC0gUFIoAg&pcl=lp",
+      "serpapi_web_results_link": "https://serpapi.com/search.json?device=desktop&engine=google&google_domain=google.com&ibp=gwp%3B0%2C26%2COjgKNiIyTW9yZWlyYSBBdXRvIE1lY8OibmljYSBTw6NvIEpvc8OpIGRvcyBQaW5oYWlzIC0gUFIoAg&q=local+guide+program"
+    },
+    "provenance": {
+      "provider": "serpapi",
+      "engine": "google_maps",
+      "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=place&place_id=ChIJgYYezAz63JQRk2SRKP5Usqk&hl=pt-br&gl=br",
+      "fetchedAt": "2026-09-11T06:45:15.784Z",
+      "sourceUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfa0ccc1e8681:0xa9b254fe28916493!8m2!3d0!4d0!16s?hl=pt-br&gl=br"
+    }
+  },
+  "reviews": {
+    "items": [
+      {
+        "author": "Vitor H.",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/115928268390033724136?hl=pt-BR",
+        "rating": 5,
+        "text": "Conheci a oficina através de uma indicação de um amigo meu falando a seguinte frase: Vou te levar em um lugar que não vão te enganar. E ele estava certo. O atendimento de toda a equipe é sensacional.  são extremamente sinceros com a questão do carro e justos no quesito valor também. Resolveram o problema do meu carro de forma rápida e eficaz. Agora sim meu carro está 100%, Sem orçamentos duvidosos ou algo do gênero. agora achei uma oficina na qual posso confiar. Obrigado Claudia e equipe.",
+        "publishedAtLabel": "4 meses atrás",
+        "publishedAtIso": "2026-05-01T00:20:12Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poVFgyYzVZemx1T1dJMVoxRnRTRUpwZWtFelZYYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOjhTX2c5YzluOWI1Z1FtSEJpekEzVXc%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Aramis Machado",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/113193951096526876734?hl=pt-BR",
+        "rating": 5,
+        "text": "Prestação de serviço profissional muito bom com preços acessíveis!!!",
+        "publishedAtLabel": "9 meses atrás",
+        "publishedAtIso": "2025-12-06T10:10:09Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t0a2QydHRNbk5vTld0d1dWb3RObVJMTUhKTlZsRRAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOktkd2ttMnNoNWtwWVotNmRLMHJNVlE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "joao pedro sabatke",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/116980305733452592268?hl=pt-BR",
+        "rating": 5,
+        "text": "Meu falecido pai me mostrou o caminho: só levava os carros nesta oficina. Quando precisei, levei e fui igualmente bem atendido. (O difícil é não ficar 3 horas conversando com o povo que é muito querido, especialmente a claudia).",
+        "publishedAtLabel": "um ano atrás",
+        "publishedAtIso": "2025-07-10T14:28:10Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KV1JUYzNXVWR6UVVkSk0yRkZkRFoxVFd0emVYYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOmJWRTc3WUdzQUdJM2FFdDZ1TWtzeXc%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Antonio Francisco Ulrich",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/112055306609638094785?hl=pt-BR",
+        "rating": 5,
+        "text": "Sou cliente ha mais de 15 anos e sempre que me pedem informações sobre oficina mecânica, recomendo sempre a Moreira Auto Mecânica.",
+        "publishedAtLabel": "9 meses atrás",
+        "publishedAtIso": "2025-11-19T13:20:01Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2twa2R6bDZhbU5PY1hoa2J6VkNaMXB6TmxkNFJHYxAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CAIQACodChtycF9oOkpkdzl6amNOcXhkbzVCZ1pzNld4RGc%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      },
+      {
+        "author": "Wellington Pedroso",
+        "authorProfileUrl": "https://www.google.com/maps/contrib/100057648172746285404?hl=pt-BR",
+        "rating": 1,
+        "text": "Levei meu carro com uma queixa de barulho na suspensão, após deixar lá alguns dias, me retornaram dizendo que o problema era nas buchas da balança, pedi então que trocassem, depois de pegar o carro fui viajar. Ao chegar percebi que um barulho novo apareceu, mais alto e insuportável, levei o carro novamente para olharem, depois de mais 3 dias sem carro, me retornaram dizendo que as buchas que trocaram tinha \"corrido\" da balança e que iriam prensa-las novamente sem me cobrar nada, e que fora isso meu carro não tinha mais nenhum problema a ser arrumado, mas ao dar uma volta na quadra, o barulho insuportável retornou. Agora vou levar meu carro em outra oficina pra ver se resolvem meu problema.",
+        "publishedAtLabel": "5 anos atrás",
+        "publishedAtIso": "2021-02-05T10:09:25Z",
+        "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUN5MlozeHlBRRAB!2m1!1s0x0:0xa9b254fe28916493!3m1!1s2@1:CIHM0ogKEICAgICy2Z3xyAE%7C%7C?hl=pt-BR",
+        "attribution": "Google — via SerpApi"
+      }
+    ],
+    "ratingSummary": {
+      "rating": 4.8,
+      "reviewCount": 105
+    },
+    "provenance": {
+      "provider": "serpapi",
+      "engine": "google_maps_reviews",
+      "requestUrl": "https://serpapi.com/search.json?engine=google_maps_reviews&place_id=ChIJgYYezAz63JQRk2SRKP5Usqk&hl=pt-br&sort_by=qualityScore",
+      "fetchedAt": "2026-09-11T06:45:16.376Z",
+      "sourceUrl": null
+    }
+  },
+  "knowledgeGraph": {
+    "title": "Moreira Auto Mecânica",
+    "type": "Mecânica para carros em São José dos Pinhais, Paraná",
+    "entity_type": "local_nav",
+    "kgmid": "/g/1tq6l6nh",
+    "knowledge_graph_search_link": "https://www.google.com.br/search?kgmid=/g/1tq6l6nh&hl=pt-BR&q=Moreira+Auto+Mec%C3%A2nica",
+    "serpapi_knowledge_graph_search_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=br&google_domain=google.com.br&hl=pt-BR&kgmid=%2Fg%2F1tq6l6nh&location=Sao+Jose+dos+Pinhais%2C+State+of+Parana%2C+Brazil&q=Moreira+Auto+Mec%C3%A2nica",
+    "place_id": "ChIJgYYezAz63JQRk2SRKP5Usqk",
+    "local_map": {
+      "image": "https://serpapi.com/searches/6aa3a37c421b08ee57d72ad9/images/Ux1zS27XT9OCuDeKucEcHAW3zZ0NHdg8e7PG357FqPc.webp",
+      "link": "https://www.google.com.br/maps/place/Moreira+Auto+Mec%C3%A2nica/data=!4m2!3m1!1s0x0:0xa9b254fe28916493?sa=X&ved=2ahUKEwi3tcL79uWWAxVvmmoFHfV7LJcQ_BJ6BAg-EAA&hl=pt-br&gl=br"
+    },
+    "rating": 4.8,
+    "review_count": 105,
+    "endereço": "R. Padre Alberto Müler, 279 - Cidade Jardim, São José dos Pinhais - PR, 83035-070",
+    "endereço_links": [
+      {
+        "text": "Endereço",
+        "link": "https://www.google.com.br/search?sca_esv=a3692ea1bb4078b3&hl=pt-br&gl=br&q=moreira+auto+mec%C3%A2nica+s%C3%A3o+jos%C3%A9+dos+pinhais+endere%C3%A7o&ludocid=12227929388843361427&sa=X&ved=2ahUKEwi3tcL79uWWAxVvmmoFHfV7LJcQ6BN6BAg1EAI"
+      }
+    ],
+    "telefone": "(41) 99794-0764",
+    "telefone_links": [
+      {
+        "text": "Telefone",
+        "link": "https://www.google.com.br/search?sca_esv=a3692ea1bb4078b3&hl=pt-br&gl=br&q=moreira+auto+mec%C3%A2nica+s%C3%A3o+jos%C3%A9+dos+pinhais+telefone&ludocid=12227929388843361427&sa=X&ved=2ahUKEwi3tcL79uWWAxVvmmoFHfV7LJcQ6BN6BAg2EAI"
+      }
+    ],
+    "raw_hours": "Fechado · Abre às 08 - 00",
+    "hours": {
+      "sexta_feira": {
+        "opens": "08:00",
+        "closes": "18:30"
+      },
+      "sábado": {
+        "opens": "Fechado"
+      },
+      "domingo": {
+        "opens": "Fechado"
+      },
+      "segunda_feira": {
+        "opens": "08:00",
+        "closes": "18:30"
+      },
+      "terça_feira": {
+        "opens": "08:00",
+        "closes": "18:30"
+      },
+      "quarta_feira": {
+        "opens": "08:00",
+        "closes": "18:30"
+      },
+      "quinta_feira": {
+        "opens": "08:00",
+        "closes": "18:30"
+      }
+    },
+    "popular_times": {
+      "live": {
+        "time": "15:00",
+        "info": "Geralmente é o horário mais movimentado"
+      },
+      "graph_results": {
+        "monday": [
+          {
+            "time": "06:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "07:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "08:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "09:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 50
+          },
+          {
+            "time": "10:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 53
+          },
+          {
+            "time": "11:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 53
+          },
+          {
+            "time": "12:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 65
+          },
+          {
+            "time": "13:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 78
+          },
+          {
+            "time": "14:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 81
+          },
+          {
+            "time": "15:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 84
+          },
+          {
+            "time": "16:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 81
+          },
+          {
+            "time": "17:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 75
+          },
+          {
+            "time": "18:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 68
+          },
+          {
+            "time": "19:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "20:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "21:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "22:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "23:00",
+            "busyness_score": 0
+          }
+        ],
+        "tuesday": [
+          {
+            "time": "06:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "07:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "08:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 40
+          },
+          {
+            "time": "09:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 50
+          },
+          {
+            "time": "10:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 46
+          },
+          {
+            "time": "11:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 46
+          },
+          {
+            "time": "12:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 50
+          },
+          {
+            "time": "13:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 81
+          },
+          {
+            "time": "14:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 78
+          },
+          {
+            "time": "15:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 75
+          },
+          {
+            "time": "16:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 62
+          },
+          {
+            "time": "17:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "18:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 40
+          },
+          {
+            "time": "19:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "20:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "21:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "22:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "23:00",
+            "busyness_score": 0
+          }
+        ],
+        "wednesday": [
+          {
+            "time": "06:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "07:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "08:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 40
+          },
+          {
+            "time": "09:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 37
+          },
+          {
+            "time": "10:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 46
+          },
+          {
+            "time": "11:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 50
+          },
+          {
+            "time": "12:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 68
+          },
+          {
+            "time": "13:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 84
+          },
+          {
+            "time": "14:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 100
+          },
+          {
+            "time": "15:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 87
+          },
+          {
+            "time": "16:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 87
+          },
+          {
+            "time": "17:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 65
+          },
+          {
+            "time": "18:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 56
+          },
+          {
+            "time": "19:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "20:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "21:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "22:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "23:00",
+            "busyness_score": 0
+          }
+        ],
+        "thursday": [
+          {
+            "time": "06:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "07:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "08:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "09:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 65
+          },
+          {
+            "time": "10:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 65
+          },
+          {
+            "time": "11:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "12:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "13:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "14:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "15:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 46
+          },
+          {
+            "time": "16:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 59
+          },
+          {
+            "time": "17:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 62
+          },
+          {
+            "time": "18:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 68
+          },
+          {
+            "time": "19:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "20:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "21:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "22:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "23:00",
+            "busyness_score": 0
+          }
+        ],
+        "friday": [
+          {
+            "time": "06:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "07:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "08:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 37
+          },
+          {
+            "time": "09:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 46
+          },
+          {
+            "time": "10:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 56
+          },
+          {
+            "time": "11:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 50
+          },
+          {
+            "time": "12:00",
+            "info": "Geralmente não muito movimentado",
+            "busyness_score": 46
+          },
+          {
+            "time": "13:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 65
+          },
+          {
+            "time": "14:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 81
+          },
+          {
+            "time": "15:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 96
+          },
+          {
+            "time": "16:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 90
+          },
+          {
+            "time": "17:00",
+            "info": "Geralmente é o horário mais movimentado",
+            "busyness_score": 90
+          },
+          {
+            "time": "18:00",
+            "info": "Geralmente um pouco movimentado",
+            "busyness_score": 71
+          },
+          {
+            "time": "19:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "20:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "21:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "22:00",
+            "busyness_score": 0
+          },
+          {
+            "time": "23:00",
+            "busyness_score": 0
+          }
+        ]
+      }
+    },
+    "merchant_description": "\"prestadora de serviços a mais de 30 anos,trabalhamos c veiculos nacionais e importados.\"",
+    "unclaimed_listing": true
+  },
+  "socialProfiles": [
+    {
+      "platform": "instagram",
+      "handle": "moreiraautomecanica",
+      "url": "https://www.instagram.com/moreiraautomecanica/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 60,
+      "status": "UNVERIFIED",
+      "signals": [
+        "exact_name"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DXKBVl_Byrn/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 60,
+      "status": "UNVERIFIED",
+      "signals": [
+        "exact_name"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "popular",
+      "url": "https://www.instagram.com/popular/esquenta-gama/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 60,
+      "status": "UNVERIFIED",
+      "signals": [
+        "exact_name"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "p",
+      "url": "https://www.instagram.com/p/C9V8rLwtRnW/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 60,
+      "status": "UNVERIFIED",
+      "signals": [
+        "exact_name"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "jotaautoeletrica",
+      "url": "https://www.facebook.com/jotaautoeletrica/?locale=pt_BR",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "diascarlataria",
+      "url": "https://www.facebook.com/diascarlataria/?locale=pt_BR",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "silasautoeletrica",
+      "url": "https://www.facebook.com/silasautoeletrica/?locale=pt_BR",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "p",
+      "url": "https://www.facebook.com/p/Mec%C3%A2nica-Nei-Moreira-100083195804322/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 70,
+      "status": "PROBABLE",
+      "signals": [
+        "exact_name",
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "www.sotelascolombo.com.br",
+      "url": "https://www.facebook.com/www.sotelascolombo.com.br/videos/cerca-modelo-palanque-reto-com-viga-na-bases%C3%A3o-jos%C3%A9-dos-pinhais/622696788194731/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "pages",
+      "url": "https://www.facebook.com/pages/Doraci-Terezinha-Moreira-Oficina-Mecanica/176053753137486?locale=nn_NO",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 70,
+      "status": "PROBABLE",
+      "signals": [
+        "exact_name",
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "Sherington",
+      "url": "https://www.facebook.com/Sherington/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "LucianoHangOficial",
+      "url": "https://www.facebook.com/LucianoHangOficial/videos/mais-uma-havan-em-s%C3%A3o-jos%C3%A9-dos-pinhais-pr-hoje-fui-visitar-a-obra-da-nossa-segun/1323563899628012/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "mkautopecas",
+      "url": "https://www.facebook.com/mkautopecas/?locale=pt_BR",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    },
+    {
+      "platform": "facebook",
+      "handle": "p",
+      "url": "https://www.facebook.com/p/Rota-da-%C3%93leo-SJP-100093113736221/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 50,
+      "status": "UNVERIFIED",
+      "signals": [
+        "locality_match"
+      ]
+    }
+  ],
+  "instagram": null,
+  "facebook": null,
+  "website": {
+    "url": null,
+    "status": "NO_OFFICIAL_WEBSITE"
+  },
+  "stages": {
+    "mapsPlace": "SUCCESS",
+    "reviews": "SUCCESS",
+    "photos": "SUCCESS",
+    "googleSearch": "SUCCESS",
+    "socialDiscovery": "SUCCESS",
+    "instagram": "UNRESOLVED",
+    "facebook": "FAILED"
+  },
+  "callLog": [
+    {
+      "engine": "google_maps",
+      "query": "ChIJgYYezAz63JQRk2SRKP5Usqk"
+    },
+    {
+      "engine": "google_maps_reviews",
+      "query": "ChIJgYYezAz63JQRk2SRKP5Usqk"
+    },
+    {
+      "engine": "google_maps_photos",
+      "query": "0x94dcfa0ccc1e8681:0xa9b254fe28916493"
+    },
+    {
+      "engine": "google",
+      "query": "\"Moreira Auto Mecânica\" São José dos Pinhais"
+    },
+    {
+      "engine": "google",
+      "query": "site:instagram.com \"Moreira Auto Mecânica\" OR \"+55 41 99794-0764\""
+    },
+    {
+      "engine": "google",
+      "query": "site:facebook.com \"Moreira Auto Mecânica\" São José dos Pinhais"
+    },
+    {
+      "engine": "facebook_profile",
+      "query": "p"
+    }
+  ],
+  "callCount": 7,
+  "errors": [
+    "facebook: SerpApi facebook_profile: Facebook Profile hasn't returned any results for this query."
+  ],
+  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google são GOOGLE_USER_MEDIA e exigem verificação de direitos e atribuição (nunca apresentadas como mídia própria); telefone e endereço permanecem server-side."
+}

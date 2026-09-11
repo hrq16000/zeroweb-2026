@@ -73,7 +73,7 @@ type SectionBase = {
 
 export type HeroSection = SectionBase & {
   type: "hero";
-  variant: "split" | "fullBleed" | "editorial";
+  variant: "split" | "fullBleed" | "editorial" | "asymmetric";
   content: {
     eyebrow?: string;
     headline: string;
@@ -107,7 +107,7 @@ export type OfferItem = {
 
 export type OffersSection = SectionBase & {
   type: "offers";
-  variant: "grid" | "featured" | "alternating";
+  variant: "grid" | "featured" | "alternating" | "list";
   content: {
     eyebrow?: string;
     title: string;
@@ -145,7 +145,7 @@ export type AuthoritySection = SectionBase & {
 
 export type CtaSection = SectionBase & {
   type: "cta";
-  variant: "banner" | "immersive";
+  variant: "banner" | "immersive" | "panel";
   content: {
     eyebrow?: string;
     title: string;
@@ -219,9 +219,57 @@ export type LocationSection = SectionBase & {
   };
 };
 
+/**
+ * Faixa curta de sinais verificados logo no início da página
+ * (docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md §4). Só existe quando cada
+ * item tem evidência auditável — o renderer não calcula nem infere nada.
+ */
+export type SignalsSection = SectionBase & {
+  type: "signals";
+  variant: "strip";
+  content: {
+    items: { value: string; label: string; icon?: BlueprintIcon }[];
+    attribution?: string;
+  };
+};
+
+/**
+ * Autoridade operacional antes da oferta (adendo §5): estrutura, marcas,
+ * equipamentos, meios de pagamento, especialidades — sempre factual.
+ */
+export type CapabilitiesSection = SectionBase & {
+  type: "capabilities";
+  variant: "band";
+  content: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    groups: { title: string; items: string[]; icon?: BlueprintIcon }[];
+    image?: BlueprintImage;
+    note?: string;
+  };
+};
+
+/** Processo como narrativa (adendo §9), não como quatro cards iguais. */
+export type ProcessSection = SectionBase & {
+  type: "process";
+  variant: "timeline";
+  content: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    steps: { title: string; text: string; meta?: string }[];
+    ctaLabel?: string;
+    note?: string;
+  };
+};
+
 export type BlueprintSection =
   | HeroSection
   | TrustSection
+  | SignalsSection
+  | CapabilitiesSection
+  | ProcessSection
   | OffersSection
   | UseCasesSection
   | AuthoritySection
@@ -234,14 +282,17 @@ export type BlueprintSectionType = BlueprintSection["type"];
 
 /** Vocabulário implementado nesta fase — usado pelo renderer e pelo gate. */
 export const BLUEPRINT_SECTION_VARIANTS = {
-  hero: ["split", "fullBleed", "editorial"],
+  hero: ["split", "fullBleed", "editorial", "asymmetric"],
   trust: ["bar", "cards"],
-  offers: ["grid", "featured", "alternating"],
+  signals: ["strip"],
+  capabilities: ["band"],
+  process: ["timeline"],
+  offers: ["grid", "featured", "alternating", "list"],
   useCases: ["imageGrid", "editorial"],
   authority: ["split", "media"],
   proof: ["reviews"],
   location: ["panel"],
-  cta: ["banner", "immersive"],
+  cta: ["banner", "immersive", "panel"],
   faq: ["accordion"],
 } as const satisfies Record<BlueprintSectionType, readonly string[]>;
 

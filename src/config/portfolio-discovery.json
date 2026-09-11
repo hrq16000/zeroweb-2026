@@ -1,6 +1,69 @@
 {
   "doc": "Índice de descoberta do /portfolio. NÃO é fonte canônica: o catálogo continua sendo a verdade sobre cada projeto. Aqui ficam apenas termos de intenção (serviços, equipamentos, problemas, casos de uso e apelidos) usados para ranquear a busca interna. Só cadastre termos realmente associados ao negócio — relação falsa aqui vira resultado falso na busca.",
   "projects": {
+    "moreira-auto-mecanica": {
+      "aliases": [
+        "Moreira Auto Mecânica",
+        "Moreira Auto Mecanica",
+        "Moreira Mecânica",
+        "Auto Mecânica Moreira",
+        "Oficina Moreira"
+      ],
+      "categories": [
+        "mecânica para carros",
+        "oficina mecânica",
+        "mecânica automotiva",
+        "manutenção de veículos"
+      ],
+      "services": [
+        "mecânica para carros",
+        "manutenção mecânica",
+        "avaliação do veículo",
+        "atendimento presencial na oficina",
+        "agendamento de avaliação"
+      ],
+      "equipment": [
+        "carro",
+        "veículo",
+        "automóvel",
+        "motor",
+        "suspensão",
+        "freios"
+      ],
+      "products": [],
+      "problems": [
+        "barulho na suspensão",
+        "barulho no carro",
+        "ruído ao passar em buraco",
+        "ruído ao frear",
+        "carro fazendo barulho",
+        "luz acesa no painel",
+        "problema no motor",
+        "revisão do carro"
+      ],
+      "useCases": [
+        "levar o carro na oficina",
+        "agendar avaliação mecânica",
+        "descobrir de onde vem o barulho",
+        "oficina de confiança perto de casa"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "SJP",
+        "Cidade Jardim",
+        "Rua Padre Alberto Müler",
+        "Paraná",
+        "PR",
+        "região de Curitiba"
+      ],
+      "keywords": [
+        "oficina mecânica são josé dos pinhais",
+        "mecânica para carros cidade jardim",
+        "oficina de confiança sjp",
+        "mecânico perto de mim são josé dos pinhais",
+        "barulho na suspensão oficina sjp"
+      ]
+    },
     "carecas-infotec": {
       "aliases": [
         "Careca's Infotec",
@@ -87,6 +150,19 @@
         "Região Metropolitana de Curitiba",
         "Rua Margarida Petrelli Fogiatto"
       ]
+    },
+    "moreira-auto-mecanica": {
+      "aliases": [
+        "Moreira Auto Mecânica"
+      ],
+      "categories": [],
+      "services": [],
+      "equipment": [],
+      "products": [],
+      "problems": [],
+      "useCases": [],
+      "locality": [],
+      "keywords": []
     }
   }
 }

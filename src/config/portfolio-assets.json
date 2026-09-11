@@ -1089,6 +1089,17 @@
       },
       "socialVersion": "5f413392"
     },
+    "moreira-auto-mecanica": {
+      "icon": "/images/moreira-auto-mecanica/capa.jpg",
+      "socialImage": "/images/moreira-auto-mecanica/capa.jpg",
+      "proof": {
+        "eyebrow": "Moreira Auto Mecânica",
+        "title": "Moreira Auto Mecânica com um site que explica o atendimento.",
+        "description": "Oficina de mecânica para carros no Cidade Jardim, em São José dos Pinhais — PR, com agendamento de avaliação pelo formulário.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
+      }
+    },
     "carecas-infotec": {
       "icon": "/images/carecas-infotec/logo.png",
       "socialImage": "/images/carecas-infotec/capa.jpg",

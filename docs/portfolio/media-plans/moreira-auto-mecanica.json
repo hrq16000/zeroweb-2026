@@ -1,0 +1,201 @@
+{
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7 e PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM §11).",
+  "slug": "moreira-auto-mecanica",
+  "status": "MEDIA_ENRICHMENT_COMPLETE_WITH_RIGHTS_WARNING",
+  "inventory": {
+    "realBusinessPhotos": [
+      {
+        "asset": "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 2,
+        "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
+        "rights": "UNVERIFIED",
+        "mediaNarrative": "ESTABLISH_CONTEXT"
+      },
+      {
+        "asset": "public/images/moreira-auto-mecanica/google-fachada.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 3,
+        "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
+        "rights": "UNVERIFIED",
+        "mediaNarrative": "SHOW_REALITY"
+      },
+      {
+        "asset": "public/images/moreira-auto-mecanica/google-motor-aberto.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 7,
+        "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
+        "rights": "UNVERIFIED",
+        "mediaNarrative": "EXPLAIN_SERVICE"
+      },
+      {
+        "asset": "public/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
+        "purpose": "REAL_BUSINESS_MEDIA",
+        "source": "GOOGLE_PUBLIC_MEDIA",
+        "sourceIndex": 9,
+        "attribution": "Foto pública da ficha da oficina no Google (via SerpApi)",
+        "rights": "UNVERIFIED",
+        "mediaNarrative": "PROVE_CAPABILITY"
+      }
+    ],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [],
+    "graphicMedia": [
+      {
+        "asset": "public/images/moreira-auto-mecanica/capa.jpg",
+        "purpose": "COVER_MEDIA + OG_MEDIA",
+        "source": "PHOTO_DERIVED",
+        "base": "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+        "composition": "foto do galpão + overlay grafite + tipografia factual (nome e cidade)",
+        "rights": "UNVERIFIED (herda a foto base)",
+        "mediaNarrative": "BRAND_RECALL"
+      }
+    ],
+    "missingMedia": [
+      "logotipo oficial da oficina (não publicado em nenhuma fonte pública)",
+      "fotos internas em alta resolução fornecidas pelo proprietário",
+      "foto da equipe com autorização de imagem"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "searchedAt": "2026-09-11",
+    "sources": [
+      "GOOGLE_PUBLIC_MEDIA",
+      "OFFICIAL_SOCIAL",
+      "OFFICIAL_WEBSITE",
+      "OFFICIAL_BRAND"
+    ],
+    "result": "10 mídias públicas na ficha do Google; 4 selecionadas por qualidade, composição e papel narrativo. Street View descartado como mídia editorial. Fotos com placa/telefone legíveis rebaixadas a referência. Sem site, sem logotipo público e sem rede social verificada."
+  },
+  "referenceOnlyAssets": [
+    {
+      "asset": "Google photo #1 (Street View da rua)",
+      "purpose": "BRAND_REFERENCE",
+      "reason": "captura automática de rua, sem valor editorial e sem foco na oficina"
+    },
+    {
+      "asset": "Fotos com placa/telefone legível na fachada",
+      "purpose": "EVIDENCE_ONLY",
+      "reason": "contato direto não pode aparecer na landing (contactMode funnelOnly)"
+    }
+  ],
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "context-hero",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/moreira-auto-mecanica/google-oficina-coberta.jpg",
+      "mediaNarrative": "ESTABLISH_CONTEXT",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "signals",
+      "requiredMediaRole": "none",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "faixa numérica curta: mídia competiria com o dado"
+    },
+    {
+      "section": "offers",
+      "requiredMediaRole": "none",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "índice editorial numerado — decisão de ritmo, não vazio visual"
+    },
+    {
+      "section": "useCases",
+      "requiredMediaRole": "reality-grid",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "google-mecanico-atendimento.jpg + google-motor-aberto.jpg + google-fachada.jpg",
+      "mediaNarrative": "SHOW_REALITY",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "capabilities",
+      "requiredMediaRole": "background-band",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/moreira-auto-mecanica/google-motor-aberto.jpg",
+      "mediaNarrative": "BREAK_VISUAL_RHYTHM",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "process",
+      "requiredMediaRole": "none",
+      "sourceType": "SURFACE_INVERSION",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "bloco claro é a própria quebra de ritmo"
+    },
+    {
+      "section": "proof",
+      "requiredMediaRole": "none",
+      "sourceType": "TEXT_EVIDENCE",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    },
+    {
+      "section": "location",
+      "requiredMediaRole": "place-anchor",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/moreira-auto-mecanica/google-fachada.jpg",
+      "mediaNarrative": "SUPPORT_CONVERSION",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "cta",
+      "requiredMediaRole": "closing-panel",
+      "sourceType": "GOOGLE_PUBLIC_MEDIA",
+      "asset": "public/images/moreira-auto-mecanica/google-mecanico-atendimento.jpg",
+      "mediaNarrative": "SUPPORT_CONVERSION",
+      "status": "done",
+      "resolution": "real-media"
+    },
+    {
+      "section": "faq",
+      "requiredMediaRole": "none",
+      "sourceType": "TEXT_ONLY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    }
+  ],
+  "cover": {
+    "asset": "public/images/moreira-auto-mecanica/capa.jpg",
+    "strategy": "PHOTO_DERIVED (BRAND_LED sobre foto real da oficina)",
+    "approved": true,
+    "approvedAt": "2026-09-11",
+    "composition": "galpão real + overlay grafite + nome da oficina e 'São José dos Pinhais · Paraná'; sem telefone, sem endereço, sem ícone genérico",
+    "checks": {
+      "identityMatch": "pass",
+      "segmentMatch": "pass",
+      "smallCardReadability": "pass",
+      "contrast": "pass",
+      "focalPoint": "pass",
+      "crop": "pass",
+      "visualQuality": "pass",
+      "genericPenalty": "pass",
+      "duplicatePenalty": "pass"
+    },
+    "answer": "Sim: o card mostra o galpão real da oficina com o nome do negócio e a cidade."
+  },
+  "warnings": [
+    "MEDIA_RIGHTS_UNVERIFIED: as fotos vêm da ficha pública do Google e precisam de confirmação de uso com o proprietário antes da publicação."
+  ],
+  "lastUpdatedAt": "2026-09-11"
+}

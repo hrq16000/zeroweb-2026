@@ -465,6 +465,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     indexable: true,
   },
   {
+    slug: "moreira-auto-mecanica",
+    vertical: "prestadores-de-servicos",
+    siteName: "Moreira Auto Mecânica · São José dos Pinhais — PR",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
     slug: "carecas-infotec",
     vertical: "prestadores-de-servicos",
     siteName: "Careca's Infotec · São José dos Pinhais — PR",

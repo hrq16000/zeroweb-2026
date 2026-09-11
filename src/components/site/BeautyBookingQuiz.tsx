@@ -17,7 +17,7 @@ import {
   type PortfolioQuizAnswers,
 } from "@/lib/portfolio-quiz-copy";
 
-type Theme = "pink" | "gold" | "navy";
+type Theme = "pink" | "gold" | "navy" | "steel";
 type Answers = PortfolioQuizAnswers;
 
 export type PortfolioQuizConfig = {
@@ -115,6 +115,15 @@ const THEMES: Record<Theme, { accent: string; accentText: string; optionClass: s
     optionClass: "border-[#f7c948]/35 bg-[#f7c948]/10 hover:border-[#f7c948]/80 hover:bg-[#f7c948]/20",
     primaryClass: "bg-[#f7c948] text-[#10295d] hover:bg-[#ffe08a]",
     panel: "bg-[#071b49]",
+    titleClass: "font-sans",
+  },
+  /** Oficina/industrial: grafite azulado com laranja de sinalização. */
+  steel: {
+    accent: "#eb5820",
+    accentText: "text-[#f2794a]",
+    optionClass: "border-[#eb5820]/35 bg-[#eb5820]/10 hover:border-[#eb5820]/80 hover:bg-[#eb5820]/20",
+    primaryClass: "bg-[#eb5820] text-white hover:bg-[#ff7440]",
+    panel: "bg-[#0d151d]",
     titleClass: "font-sans",
   },
 };
