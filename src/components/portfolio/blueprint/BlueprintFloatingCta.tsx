@@ -27,7 +27,7 @@ export function BlueprintFloatingCta({
     <div
       aria-hidden={!visible}
       // `inert` remove foco, clique e leitura por AT enquanto o CTA está oculto.
-      {...(visible ? {} : { inert: "" as unknown as boolean })}
+      inert={!visible}
       data-blueprint-floating-cta={visible ? "visible" : "hidden"}
       data-motion="floatingConversion"
       data-motion-state={visible ? "played" : "idle"}
