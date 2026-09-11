@@ -898,6 +898,10 @@ export function renderBlueprintSection(section: BlueprintSection, ctx: SectionCo
       return <UseCases section={section} ctx={scoped} />;
     case "authority":
       return <Authority section={section} ctx={scoped} />;
+    case "proof":
+      return <Proof section={section} ctx={scoped} />;
+    case "location":
+      return <Location section={section} ctx={scoped} />;
     case "cta":
       return <Cta section={section} ctx={scoped} />;
     case "faq":
