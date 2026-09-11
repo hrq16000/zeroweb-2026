@@ -1,13 +1,163 @@
 {
   "slug": "carecas-infotec",
   "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
-  "generatedAt": "2026-09-11T02:46:54.355Z",
+  "generatedAt": "2026-09-11T03:48:15.265Z",
   "provider": "serpapi",
+  "google": {
+    "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
+    "dataId": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880",
+    "cid": "6853280637096257664",
+    "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "photos": [
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmiBwYoQUo2v0CW29J_ifpMViUzLdEeiCv1UqrsLZdVI2bRrhpANvz5vajMZOZBBX5kviqh6cIG2x9wZTXKaPiWU9OwoLJrVVM7fe8ajKjHPE1p8R4Z7f-WQ4XO5YhQLbGkqTg6SD5djK-w=w2340-h4160-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmiBwYoQUo2v0CW29J_ifpMViUzLdEeiCv1UqrsLZdVI2bRrhpANvz5vajMZOZBBX5kviqh6cIG2x9wZTXKaPiWU9OwoLJrVVM7fe8ajKjHPE1p8R4Z7f-WQ4XO5YhQLbGkqTg6SD5djK-w=w203-h360-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 1,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlaapIwdXTc0oAOVYWf3sucKnETCRc3rOa6ic7jM5W-L8Ilw2cipayiLHq2VleSbTdD_aDIovu6hrg8_acMbbHERzS3rdV1y4_ZwGBcKQ27C5sxL23efxonNey_hasDRvYNHKs=w1920-h864-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlaapIwdXTc0oAOVYWf3sucKnETCRc3rOa6ic7jM5W-L8Ilw2cipayiLHq2VleSbTdD_aDIovu6hrg8_acMbbHERzS3rdV1y4_ZwGBcKQ27C5sxL23efxonNey_hasDRvYNHKs=w222-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 2,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklCBaO5wa38ZZsJpu_dMnjBTTO7C6dss0ZMeGPtmaEEOtCVP9ToNjPRKxTleKx907FRUQwCO0P9HKdyQS3wKL5_-2Q9UjylwjHZbTz4p-5_4JYxl0KA4hQlFCpVarahCZHYBFzHvxf2pB-=w1024-h1536-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklCBaO5wa38ZZsJpu_dMnjBTTO7C6dss0ZMeGPtmaEEOtCVP9ToNjPRKxTleKx907FRUQwCO0P9HKdyQS3wKL5_-2Q9UjylwjHZbTz4p-5_4JYxl0KA4hQlFCpVarahCZHYBFzHvxf2pB-=w203-h304-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 3,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk0WzJ0djjtS0sYvkds-YqCcZeVql5_6oTSB-OYCg3VUb7z9zzBoHJ2qdwOGM9xQH3SRZ0xlyoD_j8eGZeK6xadT-lxwsdjV56nBk5Wdc_3-M7ZkpJTXUvFmzRyS9z_t1bXoUKn=w864-h1920-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk0WzJ0djjtS0sYvkds-YqCcZeVql5_6oTSB-OYCg3VUb7z9zzBoHJ2qdwOGM9xQH3SRZ0xlyoD_j8eGZeK6xadT-lxwsdjV56nBk5Wdc_3-M7ZkpJTXUvFmzRyS9z_t1bXoUKn=w203-h451-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 4,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4RZUHlL04VtRc204uSR7RDjPPlkz_-PecWKOFYq8k-OvOmSvZmgSS_w_Bbq7axa7eZxwQkoagMPR0qBA4qWgjHlYAHjjvB4H90LBPjdLs-lI7YTitugRxyGfuV2dTWqA2KnTmSGTNcPiG=w1152-h1600-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4RZUHlL04VtRc204uSR7RDjPPlkz_-PecWKOFYq8k-OvOmSvZmgSS_w_Bbq7axa7eZxwQkoagMPR0qBA4qWgjHlYAHjjvB4H90LBPjdLs-lI7YTitugRxyGfuV2dTWqA2KnTmSGTNcPiG=w203-h281-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 5,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk71hiuQl3u0EhXvWGc4iajn3xWo9siZy_8IdHtIipmbEPkKka0sZNeYSx7YobkzXp808-Dc5wIExt8hz0U8a0WZsl60UKYv26MDiT1EStJB7wH5VqRNU2XqGsXFul124Dyd2U=w4096-h2304-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk71hiuQl3u0EhXvWGc4iajn3xWo9siZy_8IdHtIipmbEPkKka0sZNeYSx7YobkzXp808-Dc5wIExt8hz0U8a0WZsl60UKYv26MDiT1EStJB7wH5VqRNU2XqGsXFul124Dyd2U=w203-h114-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 6,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6zEXANFYEvIYfuL5NW800aHX_gTafsvgujHzO8Ktye-c05S5oZIw3H_4hjFp_4T-gp0VLLpNDAFKTUYbxVQKEhxE3KwwkC9I4bKsxe5ZQBEnEMf5dAw72BMSZwy34Qqiz-CmV=w1280-h1280-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn6zEXANFYEvIYfuL5NW800aHX_gTafsvgujHzO8Ktye-c05S5oZIw3H_4hjFp_4T-gp0VLLpNDAFKTUYbxVQKEhxE3KwwkC9I4bKsxe5ZQBEnEMf5dAw72BMSZwy34Qqiz-CmV=w203-h203-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 7,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzKdTUs4FxpnGErFU4rOVIH4RP1gNLysBjmt3UaPiXQVvO1RBzA7V0FNRyW-BHX1XTcnIeF9CprEUqZ_0wjnUTclcwbF7gQ76wLI1tpDnXp2G-BQOUpJkXprJIyCo4Q5kNyUTJi6RearOh=w920-h436-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzKdTUs4FxpnGErFU4rOVIH4RP1gNLysBjmt3UaPiXQVvO1RBzA7V0FNRyW-BHX1XTcnIeF9CprEUqZ_0wjnUTclcwbF7gQ76wLI1tpDnXp2G-BQOUpJkXprJIyCo4Q5kNyUTJi6RearOh=w211-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 8,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlX3t1gvNSw4O06YxRDWwEU5f3_qROw1A_NhoEZLsX4pRY0-XEqzXHLCakmF8io3qtesAuNnvzMqkl4q-yRSxKhHYuTSpH8sByU70ykWI0l4n4aEMtSPNk9nsChu02f9JoV89Pw=w1280-h426-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlX3t1gvNSw4O06YxRDWwEU5f3_qROw1A_NhoEZLsX4pRY0-XEqzXHLCakmF8io3qtesAuNnvzMqkl4q-yRSxKhHYuTSpH8sByU70ykWI0l4n4aEMtSPNk9nsChu02f9JoV89Pw=w300-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 9,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      },
+      {
+        "url": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4CwGyMROdS0Eg7ClqUoKF_p1VFoTDcCwmQmzTTaDXu0a_-p8z2L6TIinsOmx6qDxY8AR3V_Xu7VHMGvxA5bqze_jQY59u7KY44mATywWK0LbBO3JHeQLciePCWye_eu_JqswJjA=w3264-h1468-k-no",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWn4CwGyMROdS0Eg7ClqUoKF_p1VFoTDcCwmQmzTTaDXu0a_-p8z2L6TIinsOmx6qDxY8AR3V_Xu7VHMGvxA5bqze_jQY59u7KY44mATywWK0LbBO3JHeQLciePCWye_eu_JqswJjA=w222-h100-k-no",
+        "title": null,
+        "category": null,
+        "author": null,
+        "authorLink": null,
+        "photoDataId": null,
+        "photoMetaLink": null,
+        "position": 10,
+        "classification": "GOOGLE_USER_MEDIA",
+        "attribution": "Google — via SerpApi",
+        "rights": "UNVERIFIED — verificar modelo de uso antes de publicar"
+      }
+    ]
+  },
   "place": {
     "placeId": "ChIJjxhi67_73JQRgGgv4G2-G18",
     "dataId": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880",
+    "cid": "6853280637096257664",
     "name": "Careca´s Infotec",
     "category": "Assistência Técnica de Informática",
+    "description": null,
     "address": "Rua Margarida Petrelli Fogiatto 118 - Santo Antônio, São José dos Pinhais - PR, 83020-600",
     "phone": "(41) 99507-2700",
     "website": null,
@@ -25,13 +175,125 @@
     "latitude": -25.562065099999998,
     "longitude": -49.2024137,
     "mapsUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br",
+    "reviewsLink": "https://serpapi.com/search.json?data_id=0x94dcfbbfeb62188f%3A0x5f1bbe6de02f6880&engine=google_maps_reviews&hl=pt-br",
+    "photosLink": "https://serpapi.com/search.json?data_id=0x94dcfbbfeb62188f%3A0x5f1bbe6de02f6880&engine=google_maps_photos&hl=pt-br",
+    "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmiBwYoQUo2v0CW29J_ifpMViUzLdEeiCv1UqrsLZdVI2bRrhpANvz5vajMZOZBBX5kviqh6cIG2x9wZTXKaPiWU9OwoLJrVVM7fe8ajKjHPE1p8R4Z7f-WQ4XO5YhQLbGkqTg6SD5djK-w=w1000-h1000-c-n",
+    "links": null,
     "serviceOptions": null,
     "photos": [],
+    "extraFields": {
+      "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJjxhi67_73JQRgGgv4G2-G18",
+      "provider_id": "/g/11l2x7l15v",
+      "serpapi_thumbnail": "https://serpapi.com/images/url/FmmNG3icHcTJjoIwAADQL6osIyomcxA1LsCwyGYvEyyFFpUWiq3xJz3P30ziO7y_NxlHLpaadiNfk4ax5oYfAg-IdSPuxglid63hAiABhLbax2GS36mjzixKmSn1dW7ax19acz-j6curtpiupZH2g_BglR3MSzwQvvqRL0uWrQ8D6DiFdZW0JzN02JlPW8GkcMuQ5qkdKOYdhyzz5zVelK3b7sOtwRfxFM5rkEfTIrDOJPIuu2ufNLPTxqpaF6hvZei6DshnBLp_6UFHUg",
+      "rating_summary": [
+        {
+          "stars": 1,
+          "amount": 1
+        },
+        {
+          "stars": 2,
+          "amount": 0
+        },
+        {
+          "stars": 3,
+          "amount": 0
+        },
+        {
+          "stars": 4,
+          "amount": 0
+        },
+        {
+          "stars": 5,
+          "amount": 42
+        }
+      ],
+      "country": "Brasil",
+      "open_state": "Fechado · Abre sex. às 08:00",
+      "plus_code": "CQQX+52 Santo Antônio, São José dos Pinhais - PR",
+      "user_reviews": {
+        "summary": [
+          {
+            "snippet": "\"Excelentes produtos, entregou no conforto da minha casa e um preço justo!\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjVVdu0TPud3ClVPiELWQ66PFUS6dt8PPsqQel5091JuQjgpoHo=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Fiz alguns serviços nessa loja de celulares e o atendimento foi impecável.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjWU_gANNYoYZRT1GqYPdKbPxxROJR-T_wO0d6QlyWRrRxrhFIqiTw=s40-k-cc-rp-mo"
+          },
+          {
+            "snippet": "\"Local com ótimo atendimento e preço e condições de pagamento muito bom.\"",
+            "thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjV3R7oTp3JXTWYGdNkRiltrJfK2to1pFlXN7-h8OE6Jv1ZhhmPjTw=s40-k-cc-rp-mo"
+          }
+        ],
+        "most_relevant": [
+          {
+            "username": "Daniel Strapasson",
+            "rating": 5,
+            "contributor_id": "107674603037105440746",
+            "user_review_count": 100,
+            "user_photo_count": 27,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjWU_gANNYoYZRT1GqYPdKbPxxROJR-T_wO0d6QlyWRrRxrhFIqiTw=s120-c-rp-mo-ba12-br100",
+            "description": "Excelente experiência! Fiz alguns serviços nessa loja de celulares e o atendimento foi impecável. Resolveram tudo com rapidez, qualidade e transparência. Hoje é difícil encontrar lugares assim, mas aqui realmente passam confiança. Recomendo de olhos fechados!  E sem contar que o pós serviço funciona perfeitamente na questão de dúvidas E GARANTIA. .",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210VVJqSnpaRFpWVWxsZlJTMXhUREp3TVZwRExWRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOmtURjJzZDZVUllfRS1xTDJwMVpDLVE%7C%7C?hl=pt-BR",
+            "date": "6 meses atrás",
+            "date_iso8601": "2026-03-02T21:40:42+00:00"
+          },
+          {
+            "username": "Wesley Rodrigues",
+            "rating": 5,
+            "contributor_id": "107024481116782464716",
+            "user_review_count": 7,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUCXSbcDic-iM6UEzSycelnrN7RAvHycaIeGbawgsPgflPyiqY=s120-c-rp-mo-br100",
+            "description": "Precisei trocar a tela do meu celular e ficou impecável a qualidade do serviço, super recomendo 🙏",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT201V2QwYzNMVlZpVVdWTkxXUlNSV000UW5ab2QxRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOm5Wd0c3LVViUWVNLWRSRWM4QnZod1E%7C%7C?hl=pt-BR",
+            "date": "6 meses atrás",
+            "date_iso8601": "2026-03-05T14:09:47+00:00"
+          },
+          {
+            "username": "Samuel Kolonck",
+            "rating": 5,
+            "contributor_id": "111315730685767749310",
+            "user_review_count": 2,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocIcpvFLYhxQN-TG2rb26KNaefJ2D1L7yr-WVFpOTiDG1Zg7ZA=s120-c-rp-mo-br100",
+            "description": "Troquei a tela do meu cllr, já fiz três serviços com ele\nSe precisar indico!",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21SWFNqQjVSbXRzWkhObk1GRkhUM2xsT1VWTlJGRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOmRXSjB5RmtsZHNnMFFHT3llOUVNRFE%7C%7C?hl=pt-BR",
+            "date": "6 meses atrás",
+            "date_iso8601": "2026-02-23T17:21:12+00:00"
+          },
+          {
+            "username": "Nutrigene Do Brasil",
+            "rating": 5,
+            "contributor_id": "110047757024190514611",
+            "user_review_count": 1,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocLWBF10Tbj5u6QL7-Pd8NxZnwrL9apKXTG1QqL8OjpOhxqI=s120-c-rp-mo-br100",
+            "description": "Fui muito bem atendida, serviço rápido e profissional.",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pabVVrODRjV2syU21WSlJsOVdTVFZXYUdkTGIxRRAB!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CAIQACodChtycF9oOjZmUk84cWk2SmVJRl9WSTVWaGdLb1E%7C%7C?hl=pt-BR",
+            "date": "4 meses atrás",
+            "date_iso8601": "2026-04-30T14:12:00+00:00"
+          },
+          {
+            "username": "Paola Cereja",
+            "rating": 5,
+            "contributor_id": "117760076365870859713",
+            "user_review_count": 1,
+            "user_photo_count": 0,
+            "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocJuTKaQGjumx-JXhtrCl-Ou6ZmRVXLTnXUNvq1nhdElnZH2ig=s120-c-rp-mo-br100",
+            "description": "Ótimo atendimento nota 10 super indico ótimo profissional amei o trabalho muito obrigada",
+            "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURWaTREM2ZnEAE!2m1!1s0x0:0x5f1bbe6de02f6880!3m1!1s2@1:CIHM0ogKEICAgIDVi4D3fg%7C%7C?hl=pt-BR",
+            "date": "2 anos atrás",
+            "date_iso8601": "2023-12-15T23:16:44+00:00"
+          }
+        ]
+      }
+    },
     "provenance": {
       "provider": "serpapi",
       "engine": "google_maps",
       "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=place&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&gl=br",
-      "fetchedAt": "2026-09-11T02:46:54.335Z",
+      "fetchedAt": "2026-09-11T03:46:00.630Z",
       "sourceUrl": "https://www.google.com/maps/place///data=!4m6!3m5!1s0x94dcfbbfeb62188f:0x5f1bbe6de02f6880!8m2!3d0!4d0!16s?hl=pt-br&gl=br"
     }
   },
@@ -126,21 +388,235 @@
       "provider": "serpapi",
       "engine": "google_maps_reviews",
       "requestUrl": "https://serpapi.com/search.json?engine=google_maps_reviews&place_id=ChIJjxhi67_73JQRgGgv4G2-G18&hl=pt-br&sort_by=qualityScore",
-      "fetchedAt": "2026-09-11T02:46:54.355Z",
+      "fetchedAt": "2026-09-11T03:46:00.643Z",
       "sourceUrl": null
     }
   },
-  "errors": [],
-  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google exigem verificação de direitos; telefone e endereço permanecem server-side.",
-  "appliedToLanding": {
-    "appliedAt": "2026-09-11",
-    "slug": "carecas-infotec",
-    "reviewsPublished": [
-      "Daniel Strapasson",
-      "Wesley Rodrigues",
-      "Nutrigene Do Brasil",
-      "sandra friedrich"
+  "knowledgeGraph": {
+    "title": "Careca´s Infotec",
+    "type": "Assistência técnica de informática em São José dos Pinhais, Paraná",
+    "entity_type": "local_nav",
+    "kgmid": "/g/11l2x7l15v",
+    "knowledge_graph_search_link": "https://www.google.com.br/search?kgmid=/g/11l2x7l15v&hl=pt-BR&q=Careca%C2%B4s+Infotec",
+    "serpapi_knowledge_graph_search_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=br&google_domain=google.com.br&hl=pt-BR&kgmid=%2Fg%2F11l2x7l15v&location=Sao+Jose+dos+Pinhais%2C+State+of+Parana%2C+Brazil&q=Careca%C2%B4s+Infotec",
+    "place_id": "ChIJjxhi67_73JQRgGgv4G2-G18",
+    "local_map": {
+      "image": "https://serpapi.com/searches/6aa37979f9aa73e4f4dae3ec/images/OFdjyqrRUs4IsjR06U5BzZYZlviJ2lWHkUr3iNTR25g.webp",
+      "link": "https://www.google.com.br/maps/place/Careca%C2%B4s+Infotec/data=!4m2!3m1!1s0x0:0x5f1bbe6de02f6880?sa=X&ved=2ahUKEwiMhYnszuWWAxV-NlkFHcIuCQgQ_BJ6BAgsEAA&hl=pt-br&gl=br"
+    },
+    "rating": 4.9,
+    "review_count": 43,
+    "endereço": "Rua Margarida Petrelli Fogiatto 118 - Santo Antônio, São José dos Pinhais - PR, 83020-600",
+    "endereço_links": [
+      {
+        "text": "Endereço",
+        "link": "https://www.google.com.br/search?sca_esv=3af28261fd404a58&hl=pt-br&gl=br&sxsrf=APpeQntTBp4tsQioRUfjvcIkob0PoE9Xqw:1789098381695&q=careca%C2%B4s+infotec+s%C3%A3o+jos%C3%A9+dos+pinhais+endere%C3%A7o&ludocid=6853280637096257664&sa=X&ved=2ahUKEwiMhYnszuWWAxV-NlkFHcIuCQgQ6BN6BAgqEAI"
+      }
     ],
-    "note": "snapshot bruto preservado; a landing consome apenas os campos listados em docs/portfolio/enrichment/carecas-infotec.json#appliedToLanding"
-  }
+    "telefone": "(41) 99507-2700",
+    "telefone_links": [
+      {
+        "text": "Telefone",
+        "link": "https://www.google.com.br/search?sca_esv=3af28261fd404a58&hl=pt-br&gl=br&sxsrf=APpeQntTBp4tsQioRUfjvcIkob0PoE9Xqw:1789098381695&q=careca%C2%B4s+infotec+s%C3%A3o+jos%C3%A9+dos+pinhais+telefone&ludocid=6853280637096257664&sa=X&ved=2ahUKEwiMhYnszuWWAxV-NlkFHcIuCQgQ6BN6BAgmEAI"
+      }
+    ],
+    "raw_hours": "Fechado · Abre às 08 - 00",
+    "hours": {
+      "sexta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sábado": {
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "domingo": {
+        "opens": "Fechado"
+      },
+      "segunda_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "terça_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "quarta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "quinta_feira": {
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    },
+    "merchant_description": "\"Careca's Infotec Assistência em : * Celulares * Tablets * Computadores * Impressoras * Monitores *Video Games Recargas: * Toner * Cartucho 41 995072700\"",
+    "unclaimed_listing": true,
+    "perfis": [
+      {
+        "name": "Instagram",
+        "link": "https://www.instagram.com/carecasinfotec",
+        "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=br&google_domain=google.com.br&hl=pt-br&location=Sao+Jose+dos+Pinhais%2C+State+of+Parana%2C+Brazil&q=%22Careca%C2%B4s+Infotec%22+S%C3%A3o+Jos%C3%A9+dos+Pinhais",
+        "image": "https://serpapi.com/searches/6aa37979f9aa73e4f4dae3ec/images/OFdjyqrRUs4IsjR06U5BzSNyitDH6bPwZsqalduVfQ0.png"
+      }
+    ]
+  },
+  "socialProfiles": [
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/Dbq2QRaMHbk/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DcO6WMCpQug/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DTlGv-JkZh_/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/Dbd-UIvJBmH/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/C8cy6LEvFC5/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DcRkSwTsGnv/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "p",
+      "url": "https://www.instagram.com/p/DU_1jsAjyi8/?hl=ml",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DctcyuchtCU/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DclZnRayX2O/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    },
+    {
+      "platform": "instagram",
+      "handle": "reel",
+      "url": "https://www.instagram.com/reel/DYCPlYQArAY/",
+      "source": "GOOGLE_SEARCH_TARGETED",
+      "confidence": 65,
+      "status": "UNVERIFIED",
+      "signals": [
+        "phone_match"
+      ]
+    }
+  ],
+  "instagram": null,
+  "facebook": null,
+  "website": {
+    "url": null,
+    "status": "NO_OFFICIAL_WEBSITE"
+  },
+  "stages": {
+    "mapsPlace": "SUCCESS",
+    "reviews": "SUCCESS",
+    "photos": "SUCCESS",
+    "googleSearch": "SUCCESS",
+    "socialDiscovery": "FAILED",
+    "instagram": "UNRESOLVED",
+    "facebook": "NO_RESULTS"
+  },
+  "callLog": [
+    {
+      "engine": "google_maps",
+      "query": "ChIJjxhi67_73JQRgGgv4G2-G18"
+    },
+    {
+      "engine": "google_maps_reviews",
+      "query": "ChIJjxhi67_73JQRgGgv4G2-G18"
+    },
+    {
+      "engine": "google_maps_photos",
+      "query": "0x94dcfbbfeb62188f:0x5f1bbe6de02f6880"
+    },
+    {
+      "engine": "google",
+      "query": "\"Careca´s Infotec\" São José dos Pinhais"
+    },
+    {
+      "engine": "google",
+      "query": "site:instagram.com \"Careca´s Infotec\" OR \"(41) 99507-2700\""
+    },
+    {
+      "engine": "google",
+      "query": "site:facebook.com \"Careca´s Infotec\" São José dos Pinhais"
+    }
+  ],
+  "callCount": 6,
+  "errors": [
+    "socialDiscovery: SerpApi google: Google hasn't returned any results for this query."
+  ],
+  "publicationPolicy": "Ingestão bruta com provenance. Publicar somente após revisão editorial: reviews exigem autoria + atribuição; fotos do Google são GOOGLE_USER_MEDIA e exigem verificação de direitos e atribuição (nunca apresentadas como mídia própria); telefone e endereço permanecem server-side."
 }
