@@ -115,6 +115,20 @@ for (const client of clients) {
     errors.push(`${label} CTA sem clientKey (roteamento privado de WhatsApp)`);
   }
 
+  // --- Pipeline oficial de projetos NOVOS (lifecycle gerenciado) ---------
+  // Legado protegido: só vale para slugs com manifesto de ciclo de vida.
+  if (lifecycleManifests[client.slug]) {
+    if (client.contactMode !== "funnelOnly") {
+      errors.push(`${label} projeto gerenciado sem contactMode="funnelOnly"`);
+    }
+    if (!client.funnelType) {
+      errors.push(`${label} projeto gerenciado sem funnelType (canal comercial do negócio)`);
+    }
+    if (!blueprintRegistrySource.includes(`"${client.slug}"`)) {
+      errors.push(`${label} projeto gerenciado fora do PortfolioBlueprintRenderer (registry)`);
+    }
+  }
+
   // --- Creative contract v2 ---------------------------------------------
   if (isCreativeV2) {
     if (!client.creativeBriefFile) {
