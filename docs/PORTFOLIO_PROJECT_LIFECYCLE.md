@@ -110,6 +110,46 @@ nunca silenciosamente vazia.
 Imagem gerada é sempre `GENERATED_CONTEXTUAL_MEDIA` e nunca representa
 estabelecimento, funcionário, cliente, trabalho executado ou produto real.
 
+### 7.1 Prioridade da mídia real **não** é prioridade cega
+
+Regra oficial:
+
+> Se existe foto real de **alta qualidade e adequada ao papel da seção**, use.
+> Se não for adequada, **preserve como evidência** e use mídia editorial melhor
+> no hero.
+
+Lógica proibida: “existe foto real ⇒ use no topo”.
+
+Uma foto real fraca, improvisada, torta, mal iluminada, ruidosa, de baixa
+resolução, com texto embutido ou pouco premium **não** deve liderar a
+experiência visual. Nesses casos a ordem passa a ser: imagem gerada contextual →
+composição editorial original → mídia licenciada → graphic media → layout que
+não dependa da foto.
+
+A mídia real continua valiosa como prova contextual, apoio institucional, seção
+secundária, galeria, evidência de existência física ou bloco “identidade/local”.
+
+### 7.2 Critério de qualidade do hero (`heroMedia`)
+
+O hero avalia obrigatoriamente: `quality`, `relevance`, `premiumFeel`,
+`legibilityUnderText`, `composition`, `contrast`, `brandCoherence`,
+`notImprovised` e `notRawSnapshot` (a estética de foto crua só passa quando for
+intencional e declarada no brief).
+
+Falhando qualquer critério, registrar `heroMedia = unsuitable` **mesmo sendo
+mídia real**, e resolver o hero por mídia editorial.
+
+### 7.3 Toda seção precisa de resolução visual
+
+Nem toda seção precisa de foto; toda seção precisa de uma **solução visual
+intencional**: real business media, generated contextual media, graphic media,
+licensed media, iconografia estruturada, tipografia editorial, diagrama/processo
+ou seção deliberadamente text-led.
+
+Inválido: grande área vazia/escura sem função declarada — “ficou assim porque
+faltou preencher” reprova a seção.
+
+
 ## 8. Cover gate
 
 Verificar `identityMatch, segmentMatch, smallCardReadability, contrast,
