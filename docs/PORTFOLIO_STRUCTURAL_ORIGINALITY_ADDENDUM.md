@@ -98,3 +98,33 @@ observado, estrutura distinta pelo gate, QA visual real e
 
 Os três projetos publicados receberam assinatura retroativa marcada com
 `baseline: true` apenas para alimentar a janela de comparação.
+
+## 11. Diagnóstico que originou o adendo (2026-09-11)
+
+Topologia medida diretamente no código:
+
+- Careca's: hero.fullBleed > trust.bar > offers.featured > useCases.editorial > useCases.imageGrid > offers.alternating > proof.reviews > authority.split > location.panel > cta.immersive > faq.accordion
+- Moreira: hero.asymmetric > proof.reviews > useCases.imageGrid > offers.list > process.timeline > capabilities.band > signals.strip > location.panel > cta.panel > faq.accordion
+- JKL: hero.fullBleed > signals.strip > useCases.imageGrid > capabilities.band > offers.alternating > trust.cards > proof.reviews > process.timeline > cta.immersive > location.panel > faq.accordion
+
+Similaridade por tipo de seção: 55% entre todos os pares. Por type.variant:
+Careca's×JKL 55%, Moreira×JKL 36%, Careca's×Moreira 27%.
+
+Varia de verdade hoje: paleta, conteúdo, provas, fotos, motion profile, busca,
+SEO, funil e a ordem intermediária das seções.
+
+Ainda é gramática compartilhada: mídia sempre em `useCases.imageGrid`, prova
+sempre em `proof.reviews` no miolo, `location.panel` sempre perto do fim,
+`faq.accordion` sempre por último, CTA sempre como faixa larga e hero sempre
+como bloco texto+mídia no topo. É essa recorrência de abertura, fechamento e
+papel dos blocos que produz a leitura de "template com skin", mesmo com
+conteúdo 100% distinto.
+
+EN — Estrutura Nacional é página autoral legada (não Blueprint) e permanece
+fora do escopo: serve de contraprova de que composições próprias não parecem
+o mesmo esqueleto.
+
+Correção arquitetural aplicada: assinatura estrutural obrigatória, vocabulário
+de famílias, janela comparativa e o `STRUCTURAL_ORIGINALITY_GATE`, que agora
+também reprova abertura (2 primeiras seções) e fechamento (3 últimas) idênticos
+a um par da janela.
