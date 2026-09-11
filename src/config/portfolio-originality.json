@@ -183,7 +183,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 2.1
+        "v2AssetPattern": 1.9
       },
       {
         "slug": "casa-nativa",
@@ -1726,7 +1726,7 @@
         "COMPONENT_SIMILARITY": 16.7,
         "STYLE_SIMILARITY": 23.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
+        "ASSET_PATTERN_SIMILARITY": 1.9,
         "IDENTITY_SIMILARITY": 0
       },
       "coverSignals": [

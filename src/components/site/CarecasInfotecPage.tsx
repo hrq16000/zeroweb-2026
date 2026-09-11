@@ -204,10 +204,24 @@ export const blueprint: PortfolioBlueprint = {
           "Cada aparelho passa por avaliação técnica antes de qualquer serviço. Você recebe o orçamento e decide se autoriza.",
         items: [
           {
+            /**
+             * Bloco principal da composição "featured": ocupava uma área grande
+             * apenas com ícone + texto (VISUAL_DEAD_ZONE detectada pela quality
+             * matrix). Recebe GENERATED_CONTEXTUAL_MEDIA própria desta seção —
+             * composição diferente de `gen-notebook-bancada.jpg`, mesma família
+             * visual (carvão + âmbar). Não representa a loja, a bancada,
+             * equipe, clientes nem serviços executados pela Careca's Infotec.
+             */
             title: "Computador",
             text: "Não liga, liga e desliga sozinho, fica lento, trava ou não completa a inicialização? Traga para avaliação.",
             icon: Monitor,
             meta: "Desktop",
+            image: {
+              src: "/images/carecas-infotec/gen-desktop-avaliacao.jpg",
+              alt: "Ilustração técnica: gabinete de computador aberto mostrando placa-mãe, memórias, placa de vídeo e ferramentas sobre bancada escura",
+              width: 1600,
+              height: 1200,
+            },
           },
           {
             title: "Notebook",

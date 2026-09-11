@@ -3,8 +3,12 @@
   "slug": "carecas-infotec",
   "status": "MEDIA_ENRICHMENT_COMPLETE",
   "inventory": {
-    "realBusinessPhotos": ["public/images/carecas-infotec/banner.webp"],
-    "officialBrandAssets": ["public/images/carecas-infotec/logo.png"],
+    "realBusinessPhotos": [
+      "public/images/carecas-infotec/banner.webp"
+    ],
+    "officialBrandAssets": [
+      "public/images/carecas-infotec/logo.png"
+    ],
     "externalMedia": [],
     "licensedMedia": [],
     "generatedMedia": [
@@ -70,9 +74,19 @@
         "dimensions": "1200x630",
         "generatedAt": "2026-09-11",
         "alt": "Composição tecnológica em carvão e amarelo"
+      },
+      {
+        "asset": "public/images/carecas-infotec/gen-desktop-avaliacao.jpg",
+        "classification": "GENERATED_CONTEXTUAL_MEDIA",
+        "role": "bloco principal 'Computador' da seção 'O que entra para avaliação'",
+        "provenance": "gerada pela 0WEB em 2026-09-11; ilustrativa, não representa loja, bancada, equipe, clientes ou serviços executados",
+        "distinctFrom": "gen-notebook-bancada.jpg (composição diferente: gabinete desktop aberto, não notebook)",
+        "createdAt": "2026-09-11"
       }
     ],
-    "graphicMedia": ["public/images/carecas-infotec/capa.jpg"],
+    "graphicMedia": [
+      "public/images/carecas-infotec/capa.jpg"
+    ],
     "missingMedia": [
       "fachada da loja (owner-required, não bloqueia)",
       "bancada/oficina real (owner-required, não bloqueia)",
@@ -86,7 +100,12 @@
       "asset": "public/images/carecas-infotec/banner.webp",
       "verdict": "unsuitable",
       "reason": "faixa promocional achatada (1240x550), com texto embutido, composição de banner e sensação não-premium sob o título do hero",
-      "failedCriteria": ["premiumFeel", "legibilityUnderText", "composition", "notImprovised"],
+      "failedCriteria": [
+        "premiumFeel",
+        "legibilityUnderText",
+        "composition",
+        "notImprovised"
+      ],
       "preservedAs": "evidência institucional na seção 'loja' (papel secundário)"
     },
     "checks": {
@@ -103,16 +122,87 @@
     "rule": "docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7.1–§7.2"
   },
   "sections": [
-    { "section": "hero", "requiredMediaRole": "editorial-hero", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": "public/images/carecas-infotec/gen-hero-bancada.jpg", "status": "done", "resolution": "generate", "note": "foto real reprovada como hero (heroMedia.rejected) e preservada na seção 'loja'" },
-    { "section": "equipamentos", "requiredMediaRole": "none", "sourceType": "STRUCTURED_ICONOGRAPHY", "asset": null, "status": "done", "resolution": "no-media-needed", "note": "grade de 8 cartões com iconografia estruturada — decisão intencional, não vazio" },
-    { "section": "quando-procurar", "requiredMediaRole": "generated-contextual", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": "public/images/carecas-infotec/gen-diagnostico-aside.jpg", "status": "done", "resolution": "generate", "note": "aside visual resolve o bloco antes text-only" },
-    { "section": "atendimento", "requiredMediaRole": "generated-contextual", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": "public/images/carecas-infotec/gen-notebook-bancada.jpg, public/images/carecas-infotec/gen-celular-tablet.jpg, public/images/carecas-infotec/gen-impressora-toner.jpg", "status": "done", "resolution": "generate", "note": "referência de qualidade da landing — preservada sem alteração" },
-    { "section": "como-funciona", "requiredMediaRole": "none", "sourceType": "EDITORIAL", "asset": null, "status": "done", "resolution": "no-media-needed", "note": "processo numerado em 3 passos, text-led intencional com marcação de etapa" },
-    { "section": "authority", "requiredMediaRole": "real-business-photo", "sourceType": "OWNER_SUPPLIED", "asset": "public/images/carecas-infotec/banner.webp", "status": "done", "resolution": "real-media", "note": "papel secundário: evidência de identidade do negócio" },
-    { "section": "reviews", "requiredMediaRole": "external-evidence", "sourceType": "GOOGLE", "asset": null, "status": "blocked", "resolution": "waiting_for_provider", "note": "warning, não blocker — reviews fora da UI" },
-    { "section": "cta", "requiredMediaRole": "generated-contextual", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": "public/images/carecas-infotec/gen-cta-textura.jpg", "status": "done", "resolution": "generate", "note": "textura decorativa (alt vazio)" }
+    {
+      "section": "hero",
+      "requiredMediaRole": "editorial-hero",
+      "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+      "status": "done",
+      "resolution": "generate",
+      "note": "foto real reprovada como hero (heroMedia.rejected) e preservada na seção 'loja'"
+    },
+    {
+      "section": "equipamentos",
+      "requiredMediaRole": "none",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "grade de 8 cartões com iconografia estruturada — decisão intencional, não vazio"
+    },
+    {
+      "section": "quando-procurar",
+      "requiredMediaRole": "generated-contextual",
+      "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "public/images/carecas-infotec/gen-diagnostico-aside.jpg",
+      "status": "done",
+      "resolution": "generate",
+      "note": "aside visual resolve o bloco antes text-only"
+    },
+    {
+      "section": "atendimento",
+      "requiredMediaRole": "generated-contextual",
+      "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "public/images/carecas-infotec/gen-notebook-bancada.jpg, public/images/carecas-infotec/gen-celular-tablet.jpg, public/images/carecas-infotec/gen-impressora-toner.jpg",
+      "status": "done",
+      "resolution": "generate",
+      "note": "referência de qualidade da landing — preservada sem alteração"
+    },
+    {
+      "section": "como-funciona",
+      "requiredMediaRole": "none",
+      "sourceType": "EDITORIAL",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "processo numerado em 3 passos, text-led intencional com marcação de etapa"
+    },
+    {
+      "section": "authority",
+      "requiredMediaRole": "real-business-photo",
+      "sourceType": "OWNER_SUPPLIED",
+      "asset": "public/images/carecas-infotec/banner.webp",
+      "status": "done",
+      "resolution": "real-media",
+      "note": "papel secundário: evidência de identidade do negócio"
+    },
+    {
+      "section": "reviews",
+      "requiredMediaRole": "external-evidence",
+      "sourceType": "GOOGLE",
+      "asset": null,
+      "status": "blocked",
+      "resolution": "waiting_for_provider",
+      "note": "warning, não blocker — reviews fora da UI"
+    },
+    {
+      "section": "cta",
+      "requiredMediaRole": "generated-contextual",
+      "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "public/images/carecas-infotec/gen-cta-textura.jpg",
+      "status": "done",
+      "resolution": "generate",
+      "note": "textura decorativa (alt vazio)"
+    },
+    {
+      "section": "offers.featured — O que entra para avaliação",
+      "visualRole": "bloco principal com fundo contextual + gradiente",
+      "mediaDecision": "GENERATED_CONTEXTUAL_MEDIA",
+      "asset": "/images/carecas-infotec/gen-desktop-avaliacao.jpg",
+      "resolution": "VISUAL_DEAD_ZONE corrigida (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md §6.1)",
+      "status": "done"
+    }
   ],
-
   "cover": {
     "asset": "public/images/carecas-infotec/capa.jpg",
     "strategy": "BRAND_LED + SERVICE_LED (HYBRID)",

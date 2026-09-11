@@ -259,6 +259,33 @@ write(
   )}\n`,
 );
 
+// Quality matrix stub: avaliada DEPOIS da implementação e ANTES do readiness.
+write(
+  `docs/portfolio/quality-matrix/${slug}.json`,
+  `${JSON.stringify(
+    {
+      doc: "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md). Avaliar antes de readiness/publish.",
+      slug,
+      matrixVersion: 1,
+      evaluatedAt: null,
+      technicalPass: false,
+      editorialPass: false,
+      score: { total: null, byDimension: {} },
+      dimensions: {},
+      hero: { status: null, criteria: {} },
+      cover: { status: null, criteria: {} },
+      coverage: [],
+      deadZones: [],
+      mediaSourceMix: {},
+      p0: [],
+      warnings: [],
+      ownerRequired: [],
+    },
+    null,
+    2,
+  )}\n`,
+);
+
 // Discovery stub no índice de busca.
 const discoveryPath = resolve(root, "src/config/portfolio-discovery.json");
 if (existsSync(discoveryPath)) {
