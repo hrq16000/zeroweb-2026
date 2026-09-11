@@ -158,15 +158,15 @@ export const blueprint: PortfolioBlueprint = {
       order: 10,
       motion: { intensity: "IMMERSIVE", reveal: "up", stagger: 90 },
       content: {
-        eyebrow: "Assistência especializada · São José dos Pinhais — PR",
+        eyebrow: "Assistência especializada · Santo Antônio, São José dos Pinhais — PR",
         headline: "Solução com qualidade, confiança e preço justo.",
         headlineField: "heroHeadline",
         subheadline:
           "Celular, computador, notebook, impressora, monitor, tablet e videogame. Descreva o aparelho e o que está acontecendo: a avaliação técnica vem antes de qualquer reparo.",
         subheadlineField: "heroSubheadline",
         image: {
-          src: "/images/carecas-infotec/gen-hero-bancada.jpg",
-          alt: "Ilustração técnica: notebook aberto com componentes e ferramentas de precisão em bancada escura sob luz âmbar",
+          src: "/images/carecas-infotec/gen-hero-editorial.jpg",
+          alt: "Ilustração técnica: notebook aberto com a tampa removida, celular desmontado, placa e ferramentas de precisão em bancada escura sob luz âmbar",
           width: 1920,
           height: 1088,
           managedField: "heroImageUrl",
@@ -175,10 +175,11 @@ export const blueprint: PortfolioBlueprint = {
         ctaLabel: "Agende já seu serviço",
         secondary: { label: "Ver equipamentos atendidos", href: "#equipamentos" },
         stats: [
+          /** Nota e contagem: ficha pública do Google, verificadas na ingestão. */
+          { value: "4,9", label: "Nota no Google · 43 avaliações" },
           { value: "8 tipos", label: "Aparelhos atendidos" },
           { value: "Antes do reparo", label: "Avaliação técnica" },
-          { value: "Você aprova", label: "Orçamento" },
-          { value: "Presencial", label: "São José dos Pinhais — PR" },
+          { value: "Seg a sáb", label: "Santo Antônio — São José dos Pinhais" },
         ],
       },
     },
