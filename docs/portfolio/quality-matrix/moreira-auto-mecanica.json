@@ -75,7 +75,7 @@
     },
     "QA": {
       "status": "WARNING",
-      "note": "QA visual em navegador não executado — Chromium indisponível no ambiente. Não presumido como PASS."
+      "note": "QA visual em navegador bloqueado no ambiente (Chromium sem libglib); HTML servido verificado sem tel:, sem wa.me e com as mídias corretas."
     },
     "CONTENT_DEPTH": {
       "status": "PASS",
@@ -149,16 +149,56 @@
     }
   },
   "coverage": [
-    { "section": "hero", "visual": "real-photo" },
-    { "section": "signals", "visual": "structured-data" },
-    { "section": "offers", "visual": "numbered-editorial" },
-    { "section": "useCases", "visual": "real-photo-grid" },
-    { "section": "capabilities", "visual": "photo-band" },
-    { "section": "process", "visual": "light-surface-timeline" },
-    { "section": "proof", "visual": "review-cards" },
-    { "section": "location", "visual": "panel-with-photo" },
-    { "section": "cta", "visual": "split-panel" },
-    { "section": "faq", "visual": "accordion" }
+    {
+      "section": "hero",
+      "visual": "real-photo",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — foto do galpão coberto (Google, atribuída)"
+    },
+    {
+      "section": "signals",
+      "visual": "structured-data",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — faixa tipográfica de dados verificados"
+    },
+    {
+      "section": "offers",
+      "visual": "numbered-editorial",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — índice numerado, ritmo de texto"
+    },
+    {
+      "section": "useCases",
+      "visual": "real-photo-grid",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — motor aberto e atendimento (Google, atribuídas)"
+    },
+    {
+      "section": "capabilities",
+      "visual": "photo-band",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — fachada em banda horizontal"
+    },
+    {
+      "section": "process",
+      "visual": "light-surface-timeline",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — inversão de superfície substitui imagem"
+    },
+    {
+      "section": "proof",
+      "visual": "review-cards",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — prova é texto atribuído ao Google"
+    },
+    {
+      "section": "location",
+      "visual": "panel-with-photo",
+      "mediaDecision": "REAL_BUSINESS_MEDIA — fachada apoia o reconhecimento do endereço"
+    },
+    {
+      "section": "cta",
+      "visual": "split-panel",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — painel cromático de fechamento"
+    },
+    {
+      "section": "faq",
+      "visual": "accordion",
+      "mediaDecision": "NO_MEDIA_BY_DESIGN — leitura funcional"
+    }
   ],
   "deadZones": [],
   "mediaSourceMix": {
