@@ -17,8 +17,8 @@
     "clone": 81
   },
   "summary": {
-    "total": 90,
-    "original": 1,
+    "total": 91,
+    "original": 2,
     "acceptable": 28,
     "attention": 55,
     "highSimilarity": 6,
@@ -29,8 +29,8 @@
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 47,
-    "coverPending": 43,
-    "coversAsSocialImage": 10,
+    "coverPending": 44,
+    "coversAsSocialImage": 11,
     "sharedCovers": 0,
     "severeCrop": 19,
     "invalidCrossClientAssets": 0,
@@ -554,17 +554,17 @@
       "title": "Careca's Infotec",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/CarecasInfotecPage.tsx",
-      "score": 8,
+      "score": 18,
       "originalityStatus": "ORIGINAL",
-      "nearestMatch": "angel-mix-brecho",
-      "nearestMatchScore": 8,
+      "nearestMatch": "moreira-auto-mecanica",
+      "nearestMatchScore": 18,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 6.7,
+        "STRUCTURE_SIMILARITY": 0,
         "SECTION_ORDER_SIMILARITY": 0,
-        "COMPONENT_SIMILARITY": 16.7,
-        "STYLE_SIMILARITY": 23.3,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 0,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 1.5,
+        "ASSET_PATTERN_SIMILARITY": 6.7,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -2471,6 +2471,46 @@
       }
     },
     {
+      "slug": "moreira-auto-mecanica",
+      "title": "Moreira Auto Mecânica",
+      "segment": "prestadores-de-servicos",
+      "componentFile": "src/components/site/MoreiraAutoMecanicaPage.tsx",
+      "score": 18,
+      "originalityStatus": "ORIGINAL",
+      "nearestMatch": "carecas-infotec",
+      "nearestMatchScore": 18,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 0,
+        "SECTION_ORDER_SIMILARITY": 0,
+        "COMPONENT_SIMILARITY": 100,
+        "STYLE_SIMILARITY": 0,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 6.7,
+        "IDENTITY_SIMILARITY": 0
+      },
+      "reasons": [],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_LOGO",
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
+      "coverRatio": 1.9,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "d654c1270c5188df",
+        "structureHash": "da39a3ee5e6b4b0d",
+        "sectionCount": 0,
+        "lines": 511
+      }
+    },
+    {
       "slug": "mp-festas-eventos",
       "title": "MP Festas e Eventos",
       "segment": "servicos",
@@ -4135,7 +4175,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 4005,
+    "totalPairs": 4095,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -4360,17 +4400,17 @@
       ],
       "carecas-infotec": [
         {
+          "slug": "moreira-auto-mecanica",
+          "score": 18,
+          "reason": "DISTINCT"
+        },
+        {
           "slug": "angel-mix-brecho",
           "score": 8,
           "reason": "DISTINCT"
         },
         {
           "slug": "brecho-sao-francisco",
-          "score": 7,
-          "reason": "DISTINCT"
-        },
-        {
-          "slug": "dlara-pizzaria",
           "score": 7,
           "reason": "DISTINCT"
         }
@@ -5174,6 +5214,23 @@
           "reason": "SAME_FAMILY"
         }
       ],
+      "moreira-auto-mecanica": [
+        {
+          "slug": "carecas-infotec",
+          "score": 18,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "brecho-sao-francisco",
+          "score": 4,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "guaratuba-oficina-nautica",
+          "score": 4,
+          "reason": "DISTINCT"
+        }
+      ],
       "mp-festas-eventos": [
         {
           "slug": "studio-de-cilios",
@@ -5843,15 +5900,15 @@
       },
       {
         "slug": "carecas-infotec",
-        "v1Score": 11,
-        "v2Score": 8,
+        "v1Score": 21,
+        "v2Score": 18,
         "delta": -3,
-        "v1Nearest": "angel-mix-brecho",
-        "v2Nearest": "angel-mix-brecho",
+        "v1Nearest": "moreira-auto-mecanica",
+        "v2Nearest": "moreira-auto-mecanica",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 0,
-        "v2AssetPattern": 1.5
+        "v1AssetPattern": 5,
+        "v2AssetPattern": 6.7
       },
       {
         "slug": "casa-nativa",
@@ -6418,6 +6475,18 @@
         "v2AssetPattern": 2.1
       },
       {
+        "slug": "moreira-auto-mecanica",
+        "v1Score": 21,
+        "v2Score": 18,
+        "delta": -3,
+        "v1Nearest": "carecas-infotec",
+        "v2Nearest": "carecas-infotec",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 5,
+        "v2AssetPattern": 6.7
+      },
+      {
         "slug": "mp-festas-eventos",
         "v1Score": 59,
         "v2Score": 59,
@@ -6790,8 +6859,8 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 90,
-      "original": 1,
+      "total": 91,
+      "original": 2,
       "acceptable": 28,
       "attention": 55,
       "highSimilarity": 6,
@@ -6802,8 +6871,8 @@
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 47,
-      "coverPending": 43,
-      "coversAsSocialImage": 10,
+      "coverPending": 44,
+      "coversAsSocialImage": 11,
       "sharedCovers": 0,
       "severeCrop": 19,
       "invalidCrossClientAssets": 0,
