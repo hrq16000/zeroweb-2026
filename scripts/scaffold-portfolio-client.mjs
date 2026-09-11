@@ -399,6 +399,8 @@ if (existsSync(manifestPath)) {
     manifests.projects[slug] = {
       slug,
       lifecycleContract: 1,
+      /** >= 3 exige as dimensões de experiência (adendo §19) na quality matrix. */
+      contractVersion: 3,
       stage: "draft",
       lifecycle: {
         intake: "complete",
