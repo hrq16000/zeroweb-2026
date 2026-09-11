@@ -176,7 +176,11 @@ export const blueprint: PortfolioBlueprint = {
     typography: ["textReveal"],
     media: ["imageReveal", "imageParallax"],
     transitions: ["colorTransition"],
-    signatureEffects: ["drawer-slide-ambientes", "assembly-progress-roteiro"],
+    signatureEffects: [
+      "drawer-slide-ambientes",
+      "assembly-progress-roteiro",
+      "verified-google-counter",
+    ],
     reducedMotionStrategy: "instant-with-opacity",
     mobileStrategy: "sem parallax e sem hover; entradas curtas em opacidade e deslocamento mínimo",
   },
