@@ -127,7 +127,7 @@ const motionSlotSections = () =>
       if (slot.type === "hero") {
         return `${base}
       content: {
-        eyebrow: "${segment || "TODO: segmento real"}",
+        eyebrow: ${segment ? `"${segment}"` : "SCAFFOLD_STATE"},
         headline: "${siteName}",
         subheadline:
           "TODO: narrativa real do cliente, escrita após entity resolution e enrichment.",
