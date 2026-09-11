@@ -216,6 +216,36 @@ interno precisa distinguir `FACT`, `REAL MEDIA`, `EXTERNAL MEDIA`,
 Cada seção declara sua fonte: `REAL | GOOGLE | LICENSED | GENERATED | GRAPHIC |
 NO_MEDIA_NEEDED`.
 
+### 8.1 MEDIA_ENRICHMENT_INCOMPLETE
+
+Um Blueprint com **uma única fotografia real reutilizada** não é editorialmente
+concluído. Nesse estado o registro marca `MEDIA_ENRICHMENT_INCOMPLETE`.
+
+Media mix obrigatório = estratégia completa, não “muitas fotos reais”. Exemplo:
+
+```text
+hero              → REAL_BUSINESS_MEDIA
+identidade/loja   → REAL_BUSINESS_MEDIA ou GOOGLE_MEDIA quando permitido
+equipamentos      → GENERATED_CONTEXTUAL_MEDIA ou LICENSED_MEDIA
+problemas         → GENERATED_CONTEXTUAL_MEDIA / GRAPHIC
+como funciona     → GRAPHIC / ORIGINAL_ILLUSTRATION
+reviews           → GOOGLE_EVIDENCE
+CTA               → BRAND_GRAPHIC
+```
+
+### 8.2 Geração de imagem
+
+Ausência de fotografia não justifica página vazia: quando houver ferramenta de
+geração visual, produzir mídia editorial original **por papel de seção** — nunca
+uma imagem genérica reutilizada em tudo. Toda peça é classificada
+`GENERATED_CONTEXTUAL_MEDIA`: apoio editorial, nunca loja, funcionário, bancada,
+cliente ou serviço realmente executado.
+
+Antes de gerar, confirmar e registrar: ferramenta disponível, arquivo utilizável
+no projeto, formato/resolução e como a provenance será gravada. Sem ferramenta,
+registrar `IMAGE_GENERATION_CAPABILITY_UNAVAILABLE` — jamais afirmar “imagem
+criada”.
+
 ## 9. Capa
 
 A capa nasce do media enrichment, com estratégia explícita: `real-photo |
