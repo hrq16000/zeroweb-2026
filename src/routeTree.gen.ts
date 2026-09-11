@@ -113,6 +113,7 @@ import { Route as CriacaoDeSiteInstitucionalCidadeRouteImport } from './routes/c
 import { Route as EmpresaSlugRouteImport } from './routes/empresa.$slug'
 import { Route as EstadosStateRouteImport } from './routes/estados.$state'
 import { Route as FSlugRouteImport } from './routes/f.$slug'
+import { Route as LabMotionPilotRouteImport } from './routes/lab.motion-pilot'
 import { Route as PainelHistoricoJobsRouteImport } from './routes/painel_.historico-jobs'
 import { Route as PedidoIdRouteImport } from './routes/pedido.$id'
 import { Route as PortfolioEmIndexRouteImport } from './routes/portfolio-em.index'
@@ -765,6 +766,11 @@ const EstadosStateRoute = EstadosStateRouteImport.update({
 const FSlugRoute = FSlugRouteImport.update({
   id: '/f/$slug',
   path: '/f/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabMotionPilotRoute = LabMotionPilotRouteImport.update({
+  id: '/lab/motion-pilot',
+  path: '/lab/motion-pilot',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PainelHistoricoJobsRoute = PainelHistoricoJobsRouteImport.update({
@@ -1561,6 +1567,7 @@ export interface FileRoutesByFullPath {
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
+  '/lab/motion-pilot': typeof LabMotionPilotRoute
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
@@ -1787,6 +1794,7 @@ export interface FileRoutesByTo {
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
+  '/lab/motion-pilot': typeof LabMotionPilotRoute
   '/painel/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
@@ -2017,6 +2025,7 @@ export interface FileRoutesById {
   '/empresa/$slug': typeof EmpresaSlugRoute
   '/estados/$state': typeof EstadosStateRoute
   '/f/$slug': typeof FSlugRoute
+  '/lab/motion-pilot': typeof LabMotionPilotRoute
   '/painel_/historico-jobs': typeof PainelHistoricoJobsRoute
   '/pedido/$id': typeof PedidoIdRoute
   '/portfolio-em/$local': typeof PortfolioEmLocalRoute
@@ -2248,6 +2257,7 @@ export interface FileRouteTypes {
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
+    | '/lab/motion-pilot'
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
@@ -2474,6 +2484,7 @@ export interface FileRouteTypes {
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
+    | '/lab/motion-pilot'
     | '/painel/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
@@ -2703,6 +2714,7 @@ export interface FileRouteTypes {
     | '/empresa/$slug'
     | '/estados/$state'
     | '/f/$slug'
+    | '/lab/motion-pilot'
     | '/painel_/historico-jobs'
     | '/pedido/$id'
     | '/portfolio-em/$local'
@@ -2931,6 +2943,7 @@ export interface RootRouteChildren {
   CidadeSlugRoute: typeof CidadeSlugRoute
   EmpresaSlugRoute: typeof EmpresaSlugRoute
   FSlugRoute: typeof FSlugRoute
+  LabMotionPilotRoute: typeof LabMotionPilotRoute
   PainelHistoricoJobsRoute: typeof PainelHistoricoJobsRoute
   PedidoIdRoute: typeof PedidoIdRoute
   PortfolioEmLocalRoute: typeof PortfolioEmLocalRoute
@@ -3707,6 +3720,13 @@ declare module '@tanstack/react-router' {
       path: '/f/$slug'
       fullPath: '/f/$slug'
       preLoaderRoute: typeof FSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lab/motion-pilot': {
+      id: '/lab/motion-pilot'
+      path: '/lab/motion-pilot'
+      fullPath: '/lab/motion-pilot'
+      preLoaderRoute: typeof LabMotionPilotRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/painel_/historico-jobs': {
@@ -4995,6 +5015,7 @@ const rootRouteChildren: RootRouteChildren = {
   CidadeSlugRoute: CidadeSlugRoute,
   EmpresaSlugRoute: EmpresaSlugRoute,
   FSlugRoute: FSlugRoute,
+  LabMotionPilotRoute: LabMotionPilotRoute,
   PainelHistoricoJobsRoute: PainelHistoricoJobsRoute,
   PedidoIdRoute: PedidoIdRoute,
   PortfolioEmLocalRoute: PortfolioEmLocalRoute,
