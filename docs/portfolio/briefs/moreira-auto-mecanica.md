@@ -1,49 +1,84 @@
 # Creative brief — Moreira Auto Mecânica
 
-Contrato: v2 · Slug: `moreira-auto-mecanica` · Client key: `moreira-auto-mecanica`
+- Slug: `moreira-auto-mecanica`
+- Contrato: `contractVersion 3` (Blueprint + adendo de experiência)
+- Estágio: `ready` (não publicado nesta rodada)
+- Última atualização: 2026-09-11
 
-> Preencher antes de construir a interface. Nenhum campo pode permanecer como
-> `[PREENCHER]` quando o projeto estiver `published`.
+## 1. Entidade
 
-- businessTruth: [PREENCHER]
-- audience: [PREENCHER]
-- singleGoal: [PREENCHER]
-- brandPersonality: [PREENCHER]
-- visualMetaphor: [PREENCHER]
-- layoutTopology: [PREENCHER]
-- heroArchetype: [PREENCHER]
-- navigationArchetype: [PREENCHER]
-- sectionRhythm: [PREENCHER]
-- typePairing: [PREENCHER]
-- colorRoles: [PREENCHER]
-- imageStrategy: [PREENCHER]
-- iconStrategy: [PREENCHER]
-- motionGrammar: [PREENCHER]
-- interactionSignature: [PREENCHER]
-- conversionNarrative: [PREENCHER]
-- proofStrategy: [PREENCHER]
-- nearestPortfolioRisks: [PREENCHER]
-- antiTemplateDecisions: [PREENCHER]
+Oficina de mecânica para carros no bairro Cidade Jardim, em São José dos
+Pinhais — PR. Entidade resolvida por Place ID confirmado
+(`ChIJgYYezAz63JQRk2SRKP5Usqk`, data ID `0x94dcfa0ccc1e8681:a9b254fe28916493`,
+CID `12227929388843361427`). Sem site próprio e sem descrição publicada.
 
-## Assets oficiais recebidos
+## 2. Leitura do negócio
 
-[PREENCHER]
+O que a evidência pública mostra não é "oficina completa com N serviços": é
+**confiança de bairro**. As avaliações falam de indicação entre amigos, de pai
+para filho, sinceridade sobre o problema e preço justo. Há também uma avaliação
+negativa antiga sobre retrabalho em suspensão — a página não pode prometer
+resultado, prazo ou garantia.
 
-## Skills selecionadas
+Consequência editorial: a página vende **como levar o carro até lá**, não uma
+lista inventada de especialidades.
 
-[PREENCHER]
+## 3. Direção criativa (anti-template)
 
-## Skills rejeitadas e motivo
+- Paleta local: grafite azulado de galpão (`oklch(0.16 0.017 249)`) com laranja
+  de sinalização (`oklch(0.67 0.187 41)`). Nada do carvão/amarelo do Careca's.
+- Tipografia: pesos altos e tracking negativo em títulos curtos; corpo em
+  linhas longas e claras. Sem fonte global nova.
+- Ritmo (`visualRhythm`): hero assimétrico → faixa de sinais → índice editorial
+  numerado (sem grade de cards) → grade de mídia real → banda de capacidades
+  com fundo fotográfico → **bloco claro** com linha do tempo → prova →
+  painel de localização → CTA em painel → FAQ.
+- A inversão para superfície clara no processo é a quebra de ritmo principal.
 
-[PREENCHER]
+## 4. Hero
 
-## Validação final
+Arquétipo `asymmetric`: mídia dominante do galpão à direita, painel de texto
+deslocado à esquerda. Não é banner centralizado. Headline fala de indicação
+("a oficina do bairro que o cliente indica para o vizinho"), sustentada pelas
+avaliações públicas citadas na própria página.
 
-- [ ] identidade escopada ao cliente
-- [ ] override de motion próprio
-- [ ] hero/composição distintos dos portfolios mais próximos
-- [ ] imagens classificadas corretamente
-- [ ] funil individual funcional
-- [ ] secret server-side configurado quando houver contato oficial
-- [ ] mobile/desktop/teclado/reduced-motion
-- [ ] originality + a11y + performance + privacy + build
+## 5. `signatureMoments`
+
+1. Hero assimétrico com o galpão real sangrando na borda.
+2. Índice editorial numerado de atendimento, sem cartões iguais.
+3. Linha do tempo do agendamento em superfície clara, com coluna fixa.
+
+## 6. `qualityProfile`
+
+```text
+visualDensity: média-alta · editorialDepth: alta · motionIntensity: BALANCED
+mediaRichness: alta (4 fotos reais) · proofLevel: alto (105 avaliações públicas)
+interactionLevel: médio · localContext: alto · conversionIntensity: média-alta
+```
+
+## 7. Mídia
+
+Somente fotos públicas da ficha do Google, com atribuição visível
+(`GOOGLE_USER_MEDIA`, direitos `UNVERIFIED` — revisão do proprietário pendente).
+Street View descartado. Fotos com placa/telefone rebaixadas a referência.
+Nenhuma imagem gerada representa a oficina, a equipe ou serviços executados.
+Capa `PHOTO_DERIVED`: foto do galpão com overlay e tipografia factual.
+
+## 8. Motion narrative
+
+Linguagem de oficina: entradas retas e sequenciais, sem flutuação. A linha do
+tempo avança como esteira. `prefers-reduced-motion` remove deslocamento e
+mantém todo o conteúdo (fallback `opacityOnly`).
+
+## 9. Conversão
+
+`contactMode: funnelOnly`, `funnelType: agendamento`. Telefone aparece como
+informação institucional, jamais `tel:`, WhatsApp ou botão de ligar. Única
+exceção de link externo: Google Maps. CTAs contextuais: "Descrever o problema
+do carro", "Começar o agendamento", "Falar sobre o meu carro".
+
+## 10. Proibições assumidas
+
+Sem preço, prazo, garantia, tempo de mercado institucional, marcas atendidas,
+número de clientes, depoimento escrito por nós ou Instagram como canal oficial
+(candidato `moreiraautomecanica` segue `UNVERIFIED`).
