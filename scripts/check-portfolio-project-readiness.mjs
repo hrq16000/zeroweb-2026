@@ -145,7 +145,7 @@ function evaluate(slug, manifest) {
 
   // --- funnelValid
   const componentSource = client?.componentFile ? read(client.componentFile) : "";
-  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA/.test(componentSource);
+  checks.funnelValid = /FunnelCTAButton|useFunnel|FloatingFunnelCTA|PortfolioCTAQuiz|renderCta/.test(componentSource);
   if (!checks.funnelValid) blockers.push("funil próprio não encontrado no componente do cliente");
 
   // --- qaDone
