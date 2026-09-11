@@ -1012,7 +1012,10 @@ function Proof({ section, ctx }: { section: ProofSection; ctx: SectionContext })
               key={`${item.author}-${i}`}
               delay={step(ctx, i)}
               as="figure"
-              className="flex h-full flex-col rounded-3xl border border-border bg-background p-6"
+              className={cn(
+                "flex h-full flex-col rounded-3xl border border-border bg-background p-6",
+                hoverClass(ctx),
+              )}
             >
               <Stars rating={item.rating} />
               <blockquote className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">
