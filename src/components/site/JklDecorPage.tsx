@@ -24,12 +24,15 @@
 import type { CSSProperties } from "react";
 import {
   BadgeCheck,
+  CalendarClock,
   CreditCard,
   Hammer,
+  Images,
   PencilRuler,
   Ruler,
   ShieldCheck,
   Sparkles,
+  Star,
   Truck,
 } from "lucide-react";
 import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
@@ -172,7 +175,11 @@ export const blueprint: PortfolioBlueprint = {
     typography: ["textReveal"],
     media: ["imageReveal", "imageParallax"],
     transitions: ["colorTransition"],
-    signatureEffects: ["drawer-slide-ambientes", "assembly-progress-roteiro"],
+    signatureEffects: [
+      "drawer-slide-ambientes",
+      "assembly-progress-roteiro",
+      "verified-google-counter",
+    ],
     reducedMotionStrategy: "instant-with-opacity",
     mobileStrategy: "sem parallax e sem hover; entradas curtas em opacidade e deslocamento mínimo",
   },
@@ -214,6 +221,45 @@ export const blueprint: PortfolioBlueprint = {
         ],
         ctaLabel: "Pedir orçamento sem compromisso",
         secondary: { label: "Ver ambientes entregues", href: "#ambientes" },
+      },
+    },
+    {
+      /**
+       * Faixa de sinais verificados. Todos os números vêm da ficha pública do
+       * Google resolvida por Place ID — a contagem animada só existe sobre
+       * valores auditáveis (MOTION: "verified-google-counter").
+       */
+      type: "signals",
+      variant: "strip",
+      order: 15,
+      id: "sinais-jkl",
+      motion: { reveal: "up", stagger: 60 },
+      content: {
+        items: [
+          { value: "5,0 de 5", label: "Nota pública no Google", icon: Star },
+          {
+            value: "3 avaliações",
+            countTo: 3,
+            countSuffix: " avaliações",
+            label: "Todas de cinco estrelas, com autor e link de origem",
+            icon: BadgeCheck,
+          },
+          {
+            value: "20 fotos",
+            countTo: 20,
+            countSuffix: " fotos",
+            label: "Projetos publicados na ficha pública da marcenaria",
+            icon: Images,
+          },
+          {
+            value: "Seg a sex · 08h–18h",
+            label: "Sábado e domingo fechado",
+            icon: CalendarClock,
+          },
+          
+        ],
+        attribution:
+          "Dados da ficha pública da JKL Decor no Google (Place ID confirmado), coletados em 11/09/2026.",
       },
     },
     {

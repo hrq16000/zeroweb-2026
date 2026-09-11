@@ -83,38 +83,106 @@ const write = (relPath, content) => {
   written.push(relPath);
 };
 
-const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
-import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
-
 /**
- * WORKBENCH de ${siteName} (/portfolio/${slug}) — Portfolio Blueprint.
+ * Template de motion (src/config/motion-template-coverage.json).
  *
- * NÃO PUBLICAR enquanto o marcador CREATIVE_BRIEF_REQUIRED existir.
- *
- * Regras do pipeline (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
- *  - hero, ordem, variants, densidade, mídia e motion são ESCOLHA consciente;
- *    "hero split + offers grid + authority split + cta banner" é fallback
- *    técnico, não direção criativa;
- *  - nada de conteúdo inventado: sem avaliação, endereço, telefone, garantia,
- *    número de anos, equipe, certificação ou métrica sem fonte auditável;
- *  - todo contato comercial passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
+ * Com `--motion-template`, o scaffold nasce com a MESMA cobertura de motion
+ * validada em /lab/motion-pilot — hero com parallax, faixa de contagem,
+ * hover, zoom, timeline com progresso e CTA flutuante — já preenchida com
+ * nome, segmento, hero e funil reais. Conteúdo continua TODO: o template
+ * entrega engenharia, não direção criativa nem fato inventado.
  */
-const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
+const useMotionTemplate = args.includes("--motion-template");
+const segment = flag("segment") ?? "";
+const heroImage = flag("hero") ?? "";
 
-export const blueprint: PortfolioBlueprint = {
-  slug: "${slug}",
-  identity: { name: "${siteName}" },
-  theme: {},
-  layout: {
-    headerCtaLabel: "${ctaLabel}",
-    // TODO(autonomia §10): decidir explicitamente — { mode: "enabled", label: "<contextual>" }
-    // ou { mode: "disabled", reason: "<razão editorial>" }. O destino é sempre o funil.
-    floatingConversion: { mode: "disabled", reason: "SCAFFOLD: decisão pendente" },
-  },
-  sections: [
-    {
+const coverage = JSON.parse(
+  readFileSync(resolve(root, "src/config/motion-template-coverage.json"), "utf8"),
+);
+
+const heroImageBlock = heroImage
+  ? `        image: {
+          src: "${heroImage}",
+          // TODO(media plan): alt descritivo do que a foto REALMENTE mostra.
+          alt: "TODO: descrever a foto real de ${siteName}",
+          width: 1600,
+          height: 1200,
+          priority: true,
+        },
+`
+  : `        // TODO(media plan): hero exige mídia real classificada antes de READY.
+`;
+
+const motionSlotSections = () =>
+  coverage.slots
+    .map((slot) => {
+      const motion = JSON.stringify(slot.motion).replace(/"([a-zA-Z]+)":/g, "$1: ").replace(/"/g, '"');
+      const base = `    {
+      // ${slot.purpose}
+      // TODO(direção criativa): variant e ordem são ESCOLHA — revise a partir do brief.
+      type: "${slot.type}",
+      variant: "${slot.defaultVariant}",
+      order: ${slot.order},
+      motion: ${motion},`;
+      if (slot.type === "hero") {
+        return `${base}
+      content: {
+        eyebrow: ${segment ? `"${segment}"` : "SCAFFOLD_STATE"},
+        headline: "${siteName}",
+        subheadline:
+          "TODO: narrativa real do cliente, escrita após entity resolution e enrichment.",
+${heroImageBlock}        ctaLabel: "${ctaLabel}",
+      },
+    },`;
+      }
+      if (slot.type === "signals") {
+        return `${base}
+      content: {
+        // A contagem animada SÓ pode existir sobre fato auditável (ficha
+        // pública, documento ou material oficial). Sem fonte, remova o countTo.
+        items: [
+          { value: "TODO", label: "TODO: sinal verificado", countTo: 0 },
+        ],
+        attribution: "TODO: fonte e data da coleta.",
+      },
+    },`;
+      }
+      if (slot.type === "cta") {
+        return `${base}
+      content: {
+        title: "TODO: fechamento próprio do cliente",
+        text: "Toda conversão passa pelo funil ${funnelSlug}.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },`;
+      }
+      const body = {
+        capabilities: `        groups: [
+          { title: "TODO: eixo real", items: ["TODO: capacidade verificada"] },
+        ],`,
+        useCases: `        items: [
+          {
+            title: "TODO: caso real",
+            text: "TODO: descrever o que foi feito, sem inventar resultado.",
+          },
+        ],`,
+        process: `        steps: [
+          { title: "TODO: etapa 1", text: "TODO: como o atendimento começa.", meta: "01" },
+        ],`,
+      }[slot.type] ?? "";
+      return `${base}
+      content: {
+        title: "TODO: título real desta seção",
+        intro: "TODO: conteúdo real — sem prova, número ou prazo sem fonte.",
+${body}
+      },
+    },`;
+    })
+    .join("\n");
+
+const scaffoldSections = useMotionTemplate
+  ? motionSlotSections()
+  : `    {
       // TODO(direção criativa): escolher variant a partir do brief.
       type: "hero",
       variant: "editorial",
@@ -138,7 +206,44 @@ export const blueprint: PortfolioBlueprint = {
         text: "Preencher ${creativeBriefFile} e o media plan antes de compor esta seção.",
         ctaLabel: "${ctaLabel}",
       },
-    },
+    },`;
+
+const scaffoldFloating = useMotionTemplate
+  ? `floatingConversion: { mode: "enabled", label: "${ctaLabel}", hint: "TODO: contexto curto" },`
+  : `// TODO(autonomia §10): decidir explicitamente — { mode: "enabled", label: "<contextual>" }
+    // ou { mode: "disabled", reason: "<razão editorial>" }. O destino é sempre o funil.
+    floatingConversion: { mode: "disabled", reason: "SCAFFOLD: decisão pendente" },`;
+
+const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
+
+/**
+ * WORKBENCH de ${siteName} (/portfolio/${slug}) — Portfolio Blueprint.
+ *
+ * NÃO PUBLICAR enquanto o marcador CREATIVE_BRIEF_REQUIRED existir.
+ *
+ * Regras do pipeline (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
+ *  - hero, ordem, variants, densidade, mídia e motion são ESCOLHA consciente;
+ *    "hero split + offers grid + authority split + cta banner" é fallback
+ *    técnico, não direção criativa;
+ *  - nada de conteúdo inventado: sem avaliação, endereço, telefone, garantia,
+ *    número de anos, equipe, certificação ou métrica sem fonte auditável;
+ *  - todo contato comercial passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
+ */
+export const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
+
+export const blueprint: PortfolioBlueprint = {
+  slug: "${slug}",
+  identity: { name: "${siteName}" },
+  theme: {},
+  layout: {
+    headerCtaLabel: "${ctaLabel}",
+    ${scaffoldFloating}
+  },
+  sections: [
+${scaffoldSections}
   ],
   renderCta: ({ children, className, placement }: CtaRenderOptions) => (
     <FunnelCTAButton

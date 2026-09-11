@@ -3086,7 +3086,7 @@
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 0,
-        "SECTION_ORDER_SIMILARITY": 5.9,
+        "SECTION_ORDER_SIMILARITY": 5.6,
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 100,
         "COPY_SIMILARITY": 100,
@@ -3898,7 +3898,7 @@
       ],
       "dimensions": {
         "STRUCTURE_SIMILARITY": 0,
-        "SECTION_ORDER_SIMILARITY": 5.9,
+        "SECTION_ORDER_SIMILARITY": 5.6,
         "COMPONENT_SIMILARITY": 100,
         "STYLE_SIMILARITY": 100,
         "COPY_SIMILARITY": 100,
