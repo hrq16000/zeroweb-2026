@@ -26,6 +26,16 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
 
+/**
+ * Ficha pública do cliente no Google (Place ID confirmado). Usada para
+ * atribuição de avaliações e para o link "como chegar".
+ */
+const GOOGLE_PLACE_URL =
+  "https://www.google.com/maps/search/?api=1&query=Careca%27s%20Infotec&query_place_id=ChIJjxhi67_73JQRgGgv4G2-G18";
+
+/** Telefone público do próprio cliente (vitrine do cliente, não da 0WEB). */
+const PHONE_HREF = "tel:+5541995072700";
+
 const quizConfig = {
   proposalKind: "service" as const,
   services: [
