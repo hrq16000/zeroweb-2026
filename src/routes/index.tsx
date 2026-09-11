@@ -7,7 +7,7 @@ import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/SocialProof";
 import { TrustStrip } from "@/components/site/TrustStrip";
 import { Footer } from "@/components/site/Footer";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionChoreo, MotionScope } from "@/components/motion";
 
 import { getPageSections } from "@/lib/site-sections.functions";
 import { servicesNavQuery } from "@/lib/services-nav-query";
@@ -179,32 +179,32 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Suspense fallback={null}><ScrollTracker /></Suspense>
       <Header />
-      <MotionScope intensity="SUBTLE">
+      <MotionScope intensity="BALANCED">
       <main>
         {on("hero") && <Hero />}
         {on("trustbar") && <TrustBar />}
         {on("trust_strip") !== false && <TrustStrip variant="compact" />}
         {/* Cada seção lazy tem seu próprio boundary: evita mismatch de
             hidratação quando os chunks resolvem em ordens diferentes. */}
-        {on("problems") && <MotionReveal><Suspense key="problems" fallback={<Skel />}><Problems /></Suspense></MotionReveal>}
-        {on("loss_calculator") && <MotionReveal><Suspense key="loss_calculator" fallback={<Skel />}><LossCalculator /></Suspense></MotionReveal>}
-        {on("solutions") && <MotionReveal><Suspense key="solutions" fallback={<Skel />}><Solutions /></Suspense></MotionReveal>}
-        <MotionReveal><Suspense key="highlight_trio" fallback={<Skel />}><HighlightTrio /></Suspense></MotionReveal>
-        <MotionReveal><Suspense key="home_spotlight" fallback={<Skel />}><HomeSpotlight /></Suspense></MotionReveal>
-        <MotionReveal><Suspense key="feature_showcase" fallback={<Skel />}><FeatureShowcase /></Suspense></MotionReveal>
-        {on("featured_services") && <MotionReveal><Suspense key="featured_services" fallback={<Skel />}><FeaturedServices /></Suspense></MotionReveal>}
-        {on("ai_section") && <MotionReveal><Suspense key="ai_section" fallback={<Skel />}><AISection /></Suspense></MotionReveal>}
-        {on("diagnostic_form") && <MotionReveal><Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense></MotionReveal>}
-        {on("differentials") && <MotionReveal><Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense></MotionReveal>}
-        {on("cases") && <MotionReveal><Suspense key="cases" fallback={<Skel />}><Cases /></Suspense></MotionReveal>}
-        <MotionReveal><Suspense key="projetos_no_ar" fallback={<Skel />}><ProjetosNoAr /></Suspense></MotionReveal>
+        {on("problems") && <MotionChoreo surface="root-editorial" role="tension"><Suspense key="problems" fallback={<Skel />}><Problems /></Suspense></MotionChoreo>}
+        {on("loss_calculator") && <MotionChoreo surface="root-editorial" role="instrument"><Suspense key="loss_calculator" fallback={<Skel />}><LossCalculator /></Suspense></MotionChoreo>}
+        {on("solutions") && <MotionChoreo surface="root-editorial" role="answer"><Suspense key="solutions" fallback={<Skel />}><Solutions /></Suspense></MotionChoreo>}
+        <MotionChoreo surface="root-editorial" role="signal"><Suspense key="highlight_trio" fallback={<Skel />}><HighlightTrio /></Suspense></MotionChoreo>
+        <MotionChoreo surface="root-editorial" role="showcase"><Suspense key="home_spotlight" fallback={<Skel />}><HomeSpotlight /></Suspense></MotionChoreo>
+        <MotionChoreo surface="root-editorial" role="showcase"><Suspense key="feature_showcase" fallback={<Skel />}><FeatureShowcase /></Suspense></MotionChoreo>
+        {on("featured_services") && <MotionChoreo surface="root-editorial" role="offer"><Suspense key="featured_services" fallback={<Skel />}><FeaturedServices /></Suspense></MotionChoreo>}
+        {on("ai_section") && <MotionChoreo surface="root-editorial" role="instrument"><Suspense key="ai_section" fallback={<Skel />}><AISection /></Suspense></MotionChoreo>}
+        {on("diagnostic_form") && <MotionChoreo surface="root-editorial" role="answer"><Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense></MotionChoreo>}
+        {on("differentials") && <MotionChoreo surface="root-editorial" role="tension"><Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense></MotionChoreo>}
+        {on("cases") && <MotionChoreo surface="root-editorial" role="showcase"><Suspense key="cases" fallback={<Skel />}><Cases /></Suspense></MotionChoreo>}
+        <MotionChoreo surface="root-editorial" role="showcase"><Suspense key="projetos_no_ar" fallback={<Skel />}><ProjetosNoAr /></Suspense></MotionChoreo>
 
-        <MotionReveal><Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense></MotionReveal>
-        {on("plans") && <MotionReveal><Suspense key="plans" fallback={<Skel />}><Plans /></Suspense></MotionReveal>}
-        {on("process") && <MotionReveal><Suspense key="process" fallback={<Skel />}><Process /></Suspense></MotionReveal>}
-        <MotionReveal><Suspense key="testimonials" fallback={<Skel />}><Testimonials /></Suspense></MotionReveal>
-        {on("social_proof") && <MotionReveal><Suspense key="social_proof" fallback={<Skel />}><SocialProofSection /></Suspense></MotionReveal>}
-        {on("cta") && <MotionReveal><Suspense key="cta" fallback={<Skel />}><CTA /></Suspense></MotionReveal>}
+        <MotionChoreo surface="root-editorial" role="proof"><Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense></MotionChoreo>
+        {on("plans") && <MotionChoreo surface="root-editorial" role="offer"><Suspense key="plans" fallback={<Skel />}><Plans /></Suspense></MotionChoreo>}
+        {on("process") && <MotionChoreo surface="root-editorial" role="signal"><Suspense key="process" fallback={<Skel />}><Process /></Suspense></MotionChoreo>}
+        <MotionChoreo surface="root-editorial" role="proof"><Suspense key="testimonials" fallback={<Skel />}><Testimonials /></Suspense></MotionChoreo>
+        {on("social_proof") && <MotionChoreo surface="root-editorial" role="proof"><Suspense key="social_proof" fallback={<Skel />}><SocialProofSection /></Suspense></MotionChoreo>}
+        {on("cta") && <MotionChoreo surface="root-editorial" role="closing"><Suspense key="cta" fallback={<Skel />}><CTA /></Suspense></MotionChoreo>}
 
 
       </main>

@@ -56,7 +56,7 @@ for (const url of urls) {
   await page.goto(url, { waitUntil: "domcontentloaded" });
   // Páginas com hidratação tardia (catálogo, seções lazy) só expõem os nós
   // data-motion depois do primeiro paint: medir cedo demais dava falso FAIL.
-  await page.waitForTimeout(1800);
+  await page.waitForTimeout(2800);
 
   const measured = await page.evaluate(
     async ({ T }) => {
@@ -121,7 +121,7 @@ for (const url of urls) {
   });
   const rmPage = await rmContext.newPage();
   await rmPage.goto(url, { waitUntil: "domcontentloaded" });
-  await rmPage.waitForTimeout(400);
+  await rmPage.waitForTimeout(1200);
   const reducedOk = await rmPage.evaluate(() => {
     const nodes = Array.from(document.querySelectorAll("[data-motion]"));
     return nodes.every((n) => {

@@ -19,6 +19,7 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
+import { cardChoreography, roleChoreography, type SurfaceId } from "@/lib/motion-choreography";
 import {
   INTENSITY_TUNING,
   MOTION_EASING,
@@ -54,7 +55,13 @@ export function useMotionIntensity(): MotionIntensity {
 }
 
 export function usePrefersReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false);
+  // Lê a preferência já no primeiro render do cliente: esperar o efeito deixava
+  // um frame de conteúdo oculto para quem pediu movimento reduzido.
+  const [reduced, setReduced] = useState(() =>
+    typeof window !== "undefined" && typeof window.matchMedia === "function"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false,
+  );
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReduced(mq.matches);
@@ -148,6 +155,9 @@ export function MotionReveal({
 
   const active = !armed || seen || reduced;
   const useMask = variant === "mask" && !reduced;
+  // Variantes horizontais deslocam o bloco inteiro: sem clip, a página ganha
+  // 16px de rolagem lateral enquanto o reveal está armado (§zero overflow).
+  const horizontal = variant === "left" || variant === "right";
   const state = reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed";
 
   return (
@@ -157,16 +167,33 @@ export function MotionReveal({
       {...motionDataAttrs("reveal", state, resolved)}
       style={{
         opacity: active ? 1 : 0,
-        transform: active || reduced ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
+        transform:
+          horizontal || active || reduced
+            ? "none"
+            : hiddenTransform(variant, tune.distance, tune.scale),
         clipPath: useMask ? (active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)") : undefined,
         transition: reduced
           ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
           : `opacity ${tune.duration}ms ${ENTER} ${delay}ms, transform ${tune.duration}ms ${ENTER} ${delay}ms, clip-path ${tune.duration}ms ${ENTER} ${delay}ms`,
+        // O deslocamento horizontal acontece em um filho recortado: assim o
+        // bloco nunca empurra a largura da página (§zero overflow lateral).
+        overflowX: horizontal ? "clip" : undefined,
         willChange: active ? undefined : "transform, opacity",
         ...style,
       }}
     >
-      {children}
+      {horizontal && !reduced ? (
+        <div
+          style={{
+            transform: active ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
+            transition: `transform ${tune.duration}ms ${ENTER} ${delay}ms`,
+          }}
+        >
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </Tag>
   );
 }
@@ -426,6 +453,137 @@ export function MotionParallax({
       style={{
         transform: active ? `translate3d(0, ${offset.toFixed(2)}px, 0)` : undefined,
         willChange: active ? "transform" : undefined,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Coreografia por contexto (rodadas 3–4 do GlobalMotionContract).      */
+/* Institucional e vitrine usam gramáticas diferentes do mesmo contrato.*/
+/* ------------------------------------------------------------------ */
+
+/**
+ * MotionChoreo — reveal com variante decidida pelo PAPEL narrativo do bloco,
+ * não por um fade-up padrão. Ver src/config/motion-choreography.json.
+ */
+export function MotionChoreo({
+  surface,
+  role,
+  delay = 0,
+  className,
+  children,
+}: {
+  surface: SurfaceId;
+  role: string;
+  delay?: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  const { variant, intensity } = roleChoreography(surface, role);
+  return (
+    <MotionReveal variant={variant} intensity={intensity} delay={delay} className={className}>
+      {children}
+    </MotionReveal>
+  );
+}
+
+/** MotionCard — entrada de item de grade com ciclo de variantes e stagger limitado. */
+export function MotionCard({
+  index,
+  className,
+  children,
+}: {
+  index: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  const { variant, intensity, delay } = cardChoreography(index);
+  return (
+    <MotionReveal variant={variant} intensity={intensity} delay={delay} className={className}>
+      {children}
+    </MotionReveal>
+  );
+}
+
+/**
+ * MotionOverlay — abertura de viewer/modal: escala + opacidade a partir do
+ * primeiro frame no cliente. Com reduced motion, apenas opacidade curta.
+ */
+export function MotionOverlay({
+  className,
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) {
+  const reduced = usePrefersReducedMotion();
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setOpen(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  const tune = TUNING.BALANCED;
+  return (
+    <div
+      className={className}
+      {...motionDataAttrs("overlay", reduced ? "static" : open ? "played" : "idle", "BALANCED")}
+      style={{
+        opacity: open || reduced ? 1 : 0,
+        transform: reduced ? undefined : open ? "scale(1)" : "scale(0.965)",
+        transition: reduced
+          ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
+          : `opacity ${tune.duration}ms ${ENTER}, transform ${tune.duration}ms ${ENTER}`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/**
+ * MotionSwap — retransição ao trocar de conteúdo (filtros, busca,
+ * anterior/próximo). Reexecuta a entrada quando `swapKey` muda.
+ */
+export function MotionSwap({
+  swapKey,
+  variant = "fade",
+  className,
+  children,
+}: {
+  swapKey: string | number;
+  variant?: RevealVariant;
+  className?: string;
+  children: ReactNode;
+}) {
+  const reduced = usePrefersReducedMotion();
+  // Sem JS e no primeiro render o conteúdo existe visível: a troca só anima
+  // depois que o componente está montado no cliente (SSR-safe).
+  const mounted = useRef(false);
+  const [shown, setShown] = useState(true);
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    setShown(false);
+    const raf = requestAnimationFrame(() => setShown(true));
+    return () => cancelAnimationFrame(raf);
+  }, [swapKey]);
+  const tune = TUNING.SUBTLE;
+  return (
+    <div
+      className={className}
+      {...motionDataAttrs("swap", reduced ? "static" : shown ? "played" : "armed", "SUBTLE")}
+      style={{
+        opacity: shown || reduced ? 1 : 0,
+        transform:
+          reduced || shown ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
+        transition: reduced
+          ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
+          : `opacity ${tune.duration}ms ${ENTER}, transform ${tune.duration}ms ${ENTER}`,
       }}
     >
       {children}

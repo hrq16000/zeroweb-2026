@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { trackConversion, trackEvent } from "@/lib/analytics";
 import { useWaFunnel } from "@/components/site/WaFunnelModal";
 import heroDashboard from "@/assets/hero-dashboard.webp";
+import { MotionParallax } from "@/components/motion";
 
 const stats = [
   { label: "Projetos", value: "+500" },
@@ -151,7 +152,7 @@ export function Hero() {
           transition={{ delay: 0.2 }}
           className="lg:col-span-5 relative"
         >
-          <div className="relative">
+          <MotionParallax speed={18} className="relative">
             <div className="absolute -inset-8 bg-gradient-primary opacity-25 blur-3xl rounded-full pointer-events-none" />
             <picture>
               <img
@@ -176,7 +177,7 @@ export function Hero() {
               <p className="text-xs text-muted-foreground">Leads/mês</p>
               <p className="text-lg font-bold font-display text-gradient">2.8k</p>
             </div>
-          </div>
+          </MotionParallax>
         </motion.div>
       </div>
     </section>

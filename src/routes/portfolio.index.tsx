@@ -35,7 +35,7 @@ import type { ManagedProject } from "@/lib/portfolio-managed";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { getProjectManifest } from "@/lib/portfolio-project-lifecycle";
 import { searchItems } from "@/lib/portfolio-search";
-import { MotionReveal, MotionScope } from "@/components/motion";
+import { MotionCard, MotionChoreo, MotionOverlay, MotionScope, MotionSwap } from "@/components/motion";
 import {
   trackPortfolioSearch,
   trackPortfolioSearchClick,
@@ -588,7 +588,7 @@ function PortfolioPage() {
         </div>
 
         {/* Cabeçalho editorial da galeria */}
-        <MotionReveal><section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
+        <MotionChoreo surface="catalog-showcase" role="header"><section className="border-b border-border bg-muted/30 px-4 py-7 sm:py-9">
           <div className="mx-auto max-w-[1500px]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl space-y-3">
@@ -614,7 +614,7 @@ function PortfolioPage() {
             </div>
 
           </div>
-        </section></MotionReveal>
+        </section></MotionChoreo>
 
         {/* Projects Showcase Grid */}
         <section id="catalogo" className="bg-background px-4 py-8 sm:py-10">
@@ -703,7 +703,10 @@ function PortfolioPage() {
               ) : null}
             </div>
 
-            <div>
+            <MotionSwap
+              swapKey={`${deferredSearch}|${activeCategory}|${activeBranch}|${projectType}|${region}|${sort}`}
+              variant="up"
+            >
               <div>
                 <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
                   {filteredItems.length}{" "}
@@ -738,9 +741,9 @@ function PortfolioPage() {
                   <div className="grid grid-cols-1 gap-x-4 gap-y-7 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                     <>
                       {filteredItems.slice(0, visibleCount).map((item, index) => (
+                        <MotionCard key={item.id} index={index}>
                         <div
-                          key={item.id}
-                          className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft"
+                          className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft focus-within:-translate-y-1 focus-within:border-primary/50 focus-within:shadow-soft motion-reduce:transform-none motion-reduce:transition-none"
                         >
                           {/* Card Media Preview */}
                           <button
@@ -864,12 +867,13 @@ function PortfolioPage() {
                             </div>
                           </div>
                         </div>
+                        </MotionCard>
                       ))}
                     </>
                   </div>
                 )}
               </div>
-            </div>
+            </MotionSwap>
             {visibleCount < filteredItems.length ? (
               <>
                 <div ref={loadMoreRef} className="h-2" aria-hidden="true" />
@@ -886,6 +890,7 @@ function PortfolioPage() {
             ) : null}
 
             {/* Banner Callout for Custom Sites */}
+            <MotionChoreo surface="catalog-showcase" role="callout">
             <div className="rounded-3xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 p-8 sm:p-12 text-center space-y-6">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
                 <Zap className="w-3.5 h-3.5" /> Entrega em Tempo Recorde
@@ -904,6 +909,7 @@ function PortfolioPage() {
                 />
               </div>
             </div>
+            </MotionChoreo>
 
             {/* Silo programático: segmento × bairro */}
             {NATIONAL_GUIDE_PLACES.length > 0 && (
@@ -953,7 +959,7 @@ function PortfolioPage() {
                 </div>
               </section>
             )}
-            <MotionReveal><section aria-labelledby="silo-title" className="space-y-6">
+            <MotionChoreo surface="catalog-showcase" role="silo"><section aria-labelledby="silo-title" className="space-y-6">
               <h2 id="silo-title" className="text-2xl sm:text-3xl font-bold text-foreground">
                 Criação de sites por segmento e bairro
               </h2>
@@ -977,9 +983,9 @@ function PortfolioPage() {
                   </div>
                 ))}
               </div>
-            </section></MotionReveal>
+            </section></MotionChoreo>
 
-            <MotionReveal><section className="mt-12" aria-labelledby="portfolio-por-local">
+            <MotionChoreo surface="catalog-showcase" role="places"><section className="mt-12" aria-labelledby="portfolio-por-local">
               <h2 id="portfolio-por-local" className="text-xl font-semibold text-foreground">
                 Projetos por cidade e bairro
               </h2>
@@ -1007,7 +1013,7 @@ function PortfolioPage() {
                   </Link>
                 </li>
               </ul>
-            </section></MotionReveal>
+            </section></MotionChoreo>
 
             <InternalLinkCluster
               links={portfolioClusterLinks({ segmentSlug: "beleza-estetica", limit: 10 })}
@@ -1034,7 +1040,7 @@ function PortfolioPage() {
             if (event.target === event.currentTarget) setSelectedIndex(null);
           }}
         >
-          <div className="relative flex h-[min(92vh,860px)] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/15 bg-background shadow-2xl">
+          <MotionOverlay className="relative flex h-[min(92vh,860px)] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/15 bg-background shadow-2xl">
             <div className="flex items-center justify-between gap-3 border-b border-border/60 px-4 py-3 sm:px-6">
               <div className="min-w-0">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -1053,7 +1059,11 @@ function PortfolioPage() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="relative min-h-0 flex-1 bg-muted">
+            <MotionSwap
+              swapKey={selectedItem.slug}
+              variant="fade"
+              className="relative min-h-0 flex-1 bg-muted"
+            >
               {selectedItem.live ? (
                 <iframe
                   key={selectedItem.slug}
@@ -1063,7 +1073,7 @@ function PortfolioPage() {
                   className="h-full w-full border-0"
                 />
               ) : null}
-            </div>
+            </MotionSwap>
             <div className="flex items-center justify-between gap-3 border-t border-border/60 px-4 py-3 sm:px-6">
               <button
                 type="button"
@@ -1087,7 +1097,7 @@ function PortfolioPage() {
                 Próximo <ChevronRight className="h-4 w-4" />
               </button>
             </div>
-          </div>
+          </MotionOverlay>
         </div>
       )}
     </div>
