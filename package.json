@@ -83,6 +83,7 @@
     "check:experience-standard": "node scripts/check-experience-standard.mjs",
     "check:experience-standard:enforce": "node scripts/check-experience-standard.mjs --enforce",
     "check:portfolio-project-readiness": "node scripts/check-portfolio-project-readiness.mjs",
+    "audit:funnel-destinations": "bun run scripts/audit-funnel-destinations.ts",
     "check:portfolio-landing-quality": "node scripts/check-portfolio-landing-quality.mjs",
     "check:portfolio-landing-quality:enforce": "PORTFOLIO_QUALITY_ENFORCE=1 node scripts/check-portfolio-landing-quality.mjs",
     "audit:motion-observed": "node scripts/audit-motion-observed.mjs",

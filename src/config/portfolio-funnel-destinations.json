@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "docs": "Livro-razão de PROVENIÊNCIA do destino operacional do funil. NÃO guarda número: o número vive apenas no segredo operacional do projeto ou na configuração privada do cliente, sempre server-side. Aqui ficam origem, evidência, confiança e data de verificação. Ausência de entrada = destino não verificado (nunca inventar).",
+  "statuses": [
+    "VERIFIED",
+    "CONFIGURED_UNVERIFIED",
+    "AUTO_RESOLVED",
+    "UNRESOLVED",
+    "CONFLICT",
+    "NOT_APPLICABLE"
+  ],
+  "entries": {
+    "carecas-infotec": {
+      "status": "VERIFIED",
+      "source": "OWNER_PROVIDED+GOOGLE_ENTITY",
+      "confidence": 100,
+      "verifiedAt": "2026-09-11",
+      "evidence": [
+        "Telefone informado pelo proprietário e registrado no enrichment",
+        "Mesmo número na ficha Google (Place ID ChIJjxhi67_73JQRgGgv4G2-G18)",
+        "Funil real validado em produção: conclusão entregue ao destino do cliente"
+      ]
+    },
+    "moreira-auto-mecanica": {
+      "status": "VERIFIED",
+      "source": "OWNER_PROVIDED+GOOGLE_ENTITY",
+      "confidence": 100,
+      "verifiedAt": "2026-09-11",
+      "evidence": [
+        "Telefone confirmado pelo responsável do projeto",
+        "Entidade Google resolvida (Place ID ChIJgYYezAz63JQRk2SRKP5Usqk)",
+        "Funil real validado em produção"
+      ]
+    },
+    "jkl-decor": {
+      "status": "VERIFIED",
+      "source": "OWNER_PROVIDED+GOOGLE_ENTITY",
+      "confidence": 100,
+      "verifiedAt": "2026-09-11",
+      "evidence": [
+        "Telefone informado no briefing do cliente",
+        "Entidade Google resolvida (Place ID ChIJX_1YSWLIYqoRuK5h3vDp5OY)",
+        "Funil real validado em produção"
+      ]
+    }
+  }
+}
