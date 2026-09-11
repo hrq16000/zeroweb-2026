@@ -1217,19 +1217,25 @@ function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: Sec
       {c.image ? (
         <>
           <Img image={c.image} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+          {/*
+           * A imagem é textura de fundo, não conteúdo: o texto por cima precisa
+           * manter contraste AA. O véu é praticamente opaco na faixa do título
+           * e do intro e abre um pouco só no rodapé da seção.
+           */}
           <span
             aria-hidden
-            className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_88%,transparent),color-mix(in_oklab,var(--background)_96%,transparent))]"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_98%,transparent)_0%,color-mix(in_oklab,var(--background)_96%,transparent)_55%,color-mix(in_oklab,var(--background)_92%,transparent)_100%)]"
           />
         </>
       ) : null}
       <div className="mx-auto max-w-[1400px]">
         {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
-        <h2 className="mt-4 max-w-[20ch] text-[clamp(1.7rem,3.4vw,2.6rem)] font-semibold leading-[1.06] tracking-[-0.03em]">
+        {/* leading folgado + pb: descendentes (p, g, q) não podem ser cortadas. */}
+        <h2 className="mt-4 max-w-[20ch] text-balance pb-1 text-[clamp(1.7rem,3.4vw,2.6rem)] font-semibold leading-[1.18] tracking-[-0.02em]">
           {c.title}
         </h2>
         {c.intro ? (
-          <p className="mt-4 max-w-[64ch] text-sm leading-8 text-muted-foreground">{c.intro}</p>
+          <p className="mt-4 max-w-[64ch] text-sm leading-8 text-foreground/80">{c.intro}</p>
         ) : null}
         <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-3">
           {c.groups.map((group, i) => (
