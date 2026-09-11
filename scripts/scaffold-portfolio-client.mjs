@@ -156,7 +156,6 @@ ${heroImageBlock}        ctaLabel: "${ctaLabel}",
       },
     },`;
       }
-      return `${base}
       const body = {
         capabilities: `        groups: [
           { title: "TODO: eixo real", items: ["TODO: capacidade verificada"] },
