@@ -1551,6 +1551,22 @@
       "logoFile": "/images/centro-mega/logo.png",
       "socialFile": "/images/centro-mega/social-og.jpg",
       "identityNote": "Assets fornecidos nesta solicitação e preservados no diretório exclusivo do slug."
+    },
+    "jkl-decor": {
+      "brandCharacter": "marcenaria de bairro com acabamento residencial e atendimento direto do proprietário",
+      "visualConcept": "Ambiente entregue como protagonista: base clara de parede pintada, verde profundo de MDF fosco e dourado de puxador como acento.",
+      "heroComposition": "full-bleed-real-photo",
+      "sectionRhythm": "hero ambientes capacidades-em-banda-escura como-fazemos condicoes prova roteiro cta atendimento faq",
+      "typographicCharacter": "Títulos curtos e densos, corpo em linhas longas; sem fonte global nova.",
+      "colorBehavior": "Verde profundo e dourado escopados ao slug; uma única banda escura quebra o ritmo claro.",
+      "imageDirection": "Somente fotos públicas de projetos da ficha do Google, com atribuição; nenhuma imagem gerada representa móvel executado.",
+      "signatureElement": "Estante iluminada de nichos abrindo a página em full-bleed.",
+      "logoStatus": "GENERATED_BY_0WEB",
+      "coverStatus": "PHOTO_DERIVED",
+      "identityStatus": "DELIVERED_FOR_PORTFOLIO",
+      "logoFile": "/images/jkl-decor/logo.png",
+      "socialFile": "/images/jkl-decor/capa.jpg",
+      "identityNote": "Wordmark criado pela 0WEB (WORDMARK_CREATED / GENERATED_BRAND_ASSET) por ausência de logotipo público; substituir se o cliente enviar marca oficial."
     }
   }
 }

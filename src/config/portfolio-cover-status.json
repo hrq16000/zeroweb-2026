@@ -1201,6 +1201,19 @@
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "jkl-decor",
+      "asset": "/images/jkl-decor/capa.jpg",
+      "catalogImage": "/images/jkl-decor/capa.jpg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "VISUAL_REVIEW",
+      "reviewedAt": "2026-09-11",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "JKL Decor",
+      "segment": "prestadores-de-servicos"
     }
   ]
 }
