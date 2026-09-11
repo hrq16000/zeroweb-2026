@@ -77,6 +77,7 @@ export type PortfolioProjectManifest = {
   warnings: string[];
   ownerRequired: string[];
   searchQa: SearchQaCase[];
+  visualQa?: { status: VisualQaStatus; notes?: string; evaluatedAt?: string | null };
   notes?: Record<string, string>;
   lastUpdatedAt: string;
 };
