@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "source": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+  "note": "Cobertura mínima de motion validada em /lab/motion-pilot e reproduzida pelo scaffold de novos /portfolio/:slug. Define ENGENHARIA (quais efeitos precisam existir e onde), nunca conteúdo, texto, cor ou direção criativa — cada projeto reescreve variant, ordem, densidade e copy.",
+  "slots": [
+    {
+      "slot": "hero",
+      "type": "hero",
+      "defaultVariant": "fullBleed",
+      "order": 10,
+      "motion": { "reveal": "mask", "parallax": 28 },
+      "requires": ["reveal", "parallax"],
+      "purpose": "Primeira dobra com mídia real e profundidade contida no desktop."
+    },
+    {
+      "slot": "signals",
+      "type": "signals",
+      "defaultVariant": "strip",
+      "order": 15,
+      "motion": { "reveal": "up", "stagger": 70 },
+      "requires": ["stagger", "counter"],
+      "purpose": "Faixa curta de números VERIFICÁVEIS; a contagem animada só é permitida sobre fato auditável."
+    },
+    {
+      "slot": "capabilities",
+      "type": "capabilities",
+      "defaultVariant": "band",
+      "order": 30,
+      "motion": { "reveal": "up", "stagger": 70, "hover": "glow" },
+      "requires": ["hover"],
+      "purpose": "Banda de autoridade operacional com resposta ao ponteiro."
+    },
+    {
+      "slot": "useCases",
+      "type": "useCases",
+      "defaultVariant": "imageGrid",
+      "order": 40,
+      "motion": { "reveal": "up", "stagger": 90, "hover": "lift" },
+      "requires": ["hover", "imageZoom"],
+      "purpose": "Grade de mídia real com lift e zoom contido."
+    },
+    {
+      "slot": "process",
+      "type": "process",
+      "defaultVariant": "timeline",
+      "order": 50,
+      "motion": { "reveal": "up", "stagger": 70, "scrollProgress": true },
+      "requires": ["scrollProgress"],
+      "purpose": "Roteiro do atendimento com progresso preenchido pelo scroll."
+    },
+    {
+      "slot": "cta",
+      "type": "cta",
+      "defaultVariant": "immersive",
+      "order": 60,
+      "motion": { "reveal": "scale" },
+      "requires": ["reveal"],
+      "purpose": "Fechamento sempre pelo funil individual do cliente."
+    }
+  ],
+  "floatingConversion": {
+    "required": true,
+    "note": "Acesso persistente ao funil: aparece depois da primeira dobra e some junto ao rodapé (useFloatingConversionVisibility)."
+  },
+  "reducedMotion": {
+    "rule": "prefers-reduced-motion remove parallax, zoom e deslocamento; nenhum conteúdo pode desaparecer."
+  }
+}
