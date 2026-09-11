@@ -284,7 +284,14 @@ export const blueprint: PortfolioBlueprint = {
             text: "Tela sem imagem, sinal que some, console que não lê o jogo, desliga sozinho durante a partida ou controle que não responde.",
           },
         ],
+        aside: {
+          src: "/images/carecas-infotec/gen-diagnostico-aside.jpg",
+          alt: "Ilustração técnica: celular aberto, placa e ferramentas de precisão em bancada escura",
+          width: 960,
+          height: 1200,
+        },
       },
+
     },
     {
       /**
