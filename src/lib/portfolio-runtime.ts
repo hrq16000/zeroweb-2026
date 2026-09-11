@@ -240,6 +240,7 @@ export function applyPortfolioRuntime(
   if (overrides?.gallery?.length) overridden.push("gallery");
   if (overrides?.ctaLabel) overridden.push("ctaLabel");
   if (overrides?.brandColors) overridden.push("brandColors");
+  if (overrides?.motion) overridden.push("motion");
 
   return {
     slug: base.slug,
@@ -256,6 +257,7 @@ export function applyPortfolioRuntime(
     shareCopy: take("shareCopy", overrides?.shareCopy, base.shareCopy),
     gallery: overrides?.gallery ?? [],
     brandColors: overrides?.brandColors ?? {},
+    motion: overrides?.motion,
     lifecycle,
     published,
     indexable,
