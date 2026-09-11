@@ -755,31 +755,6 @@
     "summary": "Açaí caprichado com frutas, cremes e complementos para pedir agora e receber no conforto de casa."
   },
   {
-    "slug": "jkl-marcenaria",
-    "clientKey": "jkl-marcenaria",
-    "title": "JKL Marcenaria",
-    "segment": "servicos",
-    "projectType": "landing",
-    "status": "published",
-    "city": "Curitiba",
-    "state": "PR",
-    "tags": [
-      "moveis-planejados",
-      "marcenaria",
-      "mdf",
-      "cozinhas",
-      "nichos"
-    ],
-    "live": true,
-    "subtitle": "Móveis sob medida em MDF",
-    "location": "Curitiba e região — PR",
-    "badge": "Novo projeto",
-    "image": "/images/jkl-marcenaria/capa-card.jpg",
-    "fallbackImage": "/images/jkl-marcenaria/cozinha.webp",
-    "metrics": "Entrega em até 20 dias",
-    "summary": "Móveis sob medida em MDF para cozinhas, dormitórios, cozinhas infantis, nichos, porta-tempero, banheiros e ambientes em geral."
-  },
-  {
     "slug": "santos-montador-de-moveis",
     "clientKey": "santos-montador-de-moveis",
     "title": "Santos Montador de Móveis",
