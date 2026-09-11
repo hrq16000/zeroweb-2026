@@ -57,8 +57,11 @@ for (const route of targets) {
     states.HTTP_200 = res?.status() === 200;
 
     // Camada da plataforma: crédito institucional presente e visível.
+    // O crédito institucional é exigido na landing do cliente; o catálogo
+    // /portfolio é página da própria 0WEB e tem contrato próprio.
+    const isClientLanding = /\/portfolio\/[^/?#]+/.test(route);
     const credit = page.locator("[data-portfolio-host-credit]").first();
-    states.HOST_CREDIT_MOUNTED = (await credit.count()) > 0;
+    states.HOST_CREDIT_MOUNTED = isClientLanding ? (await credit.count()) > 0 : true;
 
     // MOUNTED → TRIGGERED → VISIBLE
     const popup = page.locator('[data-testid="portfolio-upsell"]').first();
