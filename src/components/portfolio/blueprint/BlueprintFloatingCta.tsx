@@ -8,6 +8,7 @@
  *   só aparece depois da primeira dobra (sem CLS: é `fixed`).
  */
 import { useEffect, useState } from "react";
+import { useNearFooter } from "@/hooks/useNearFooter";
 import type { BlueprintCtaRenderer } from "@/lib/portfolio-blueprint";
 
 export function BlueprintFloatingCta({
