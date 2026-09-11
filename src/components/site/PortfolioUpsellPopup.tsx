@@ -101,9 +101,14 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     trackEvent(name, settings.simulationEnabled ? { ...payload, simulated: true } : payload);
   }, []);
 
+  // Agendamento depende de valores primitivos: a resposta assíncrona do painel
+  // só reinicia a contagem quando REALMENTE muda uma regra de exibição.
+  const { enabled } = cfg;
+  const { timerMs, fallbackMs, scrollPct, oncePerSession } = cfg.display;
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!cfg.enabled) return;
+    if (!enabled) return;
     if (shouldSuppressPortfolioHostOverlays()) return;
     // Instância única por projeto: a rota /portfolio/* renderiza o pop-up por
     // padrão e o site do cliente pode renderizá-lo também; só o primeiro assume.
