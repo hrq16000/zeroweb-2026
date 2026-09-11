@@ -442,6 +442,8 @@ if (!registry.some((c) => c.slug === slug)) {
     componentFile,
     assetsDir,
     ctaMode,
+    funnelType,
+    contactMode: "funnelOnly",
     socialProofRequired: false,
     hostCaptureRequired: true,
     creativeContractVersion: 2,
@@ -459,6 +461,25 @@ if (existsSync(keysPath)) {
     const patched = source.replace(/(\[\s*)/, `$1\n  "${clientKey}",`);
     if (!dryRun) writeFileSync(keysPath, patched, "utf8");
     written.push("src/lib/portfolio-client-keys.ts");
+  }
+}
+
+// Projeto novo nasce rodando pelo PortfolioBlueprintRenderer (legado intacto).
+const blueprintRegistryPath = resolve(root, "src/components/portfolio/blueprint/registry.ts");
+if (existsSync(blueprintRegistryPath)) {
+  const source = readFileSync(blueprintRegistryPath, "utf8");
+  if (!source.includes(`"${slug}"`)) {
+    const patched = source
+      .replace(
+        /(export const blueprintModules[\s\S]*?= \{\n)/,
+        `$1  "${slug}": () => import("@/components/site/${componentName}"),\n`,
+      )
+      .replace(
+        /(export const blueprintPages[\s\S]*?= \{\n)/,
+        `$1  "${slug}": lazy(() =>\n    import("@/components/site/${componentName}").then((m) => ({ default: m.${componentName} })),\n  ),\n`,
+      );
+    if (!dryRun) writeFileSync(blueprintRegistryPath, patched, "utf8");
+    written.push("src/components/portfolio/blueprint/registry.ts");
   }
 }
 
