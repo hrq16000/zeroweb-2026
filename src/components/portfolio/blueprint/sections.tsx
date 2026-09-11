@@ -183,7 +183,15 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
                     {stat.label}
                   </dt>
                   <dd className="mt-2 text-xl font-black uppercase tracking-tight md:text-2xl">
-                    {stat.value}
+                    {typeof stat.countTo === "number" ? (
+                      <MotionCounter
+                        value={stat.countTo}
+                        prefix={stat.countPrefix ?? ""}
+                        suffix={stat.countSuffix ?? ""}
+                      />
+                    ) : (
+                      stat.value
+                    )}
                   </dd>
                 </Reveal>
               ))}

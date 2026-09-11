@@ -118,7 +118,17 @@ export type HeroSection = SectionBase & {
     ctaLabel?: string;
     secondary?: BlueprintLink;
     highlights?: string[];
-    stats?: { value: string; label: string }[];
+    /**
+     * `countTo` só existe quando o número é verificado (adendo de motion §2).
+     * `value` continua sendo o texto completo, exibido sem JS e em reduced motion.
+     */
+    stats?: {
+      value: string;
+      label: string;
+      countTo?: number;
+      countPrefix?: string;
+      countSuffix?: string;
+    }[];
   };
 };
 
