@@ -552,6 +552,23 @@ function PortfolioPage() {
     setSort("recent");
   };
 
+  /**
+   * Alcance real do embed: quantos visitantes da vitrine chegam a abrir o
+   * site do cliente dentro do iframe. `location` carrega o slug porque o
+   * `path` desta página é sempre /portfolio — sem isso a métrica não teria
+   * a quem ser atribuída. Nenhum dado pessoal é enviado.
+   */
+  useEffect(() => {
+    if (!selectedItem?.live) return;
+    trackEvent("portfolio_embed_open", {
+      location: selectedItem.slug,
+      label: "portfolio_viewer",
+      event_category: "portfolio",
+    });
+  }, [selectedItem?.live, selectedItem?.slug]);
+
+
+
   useEffect(() => {
     if (!selectedItem) return;
     const onKeyDown = (event: KeyboardEvent) => {
