@@ -179,3 +179,22 @@ Issue → branch → PR → checks → revisão → merge. Nunca publicar direto
 
 Herdados da plataforma: segurança do redirect, pop-up de captação, share,
 breadcrumbs e infraestrutura SEO. O visual do cliente não é herdado.
+
+## 10. Contato e mídia (obrigatório)
+
+Antes de considerar um cliente novo pronto:
+
+**Contato** — todo CTA aponta para o funil individual, com rótulo contextual ao
+negócio (Solicitar avaliação, Solicitar orçamento, Fazer pedido, Agendar
+atendimento…). Telefone confirmado pode ser exibido como informação
+institucional, mas sem `tel:`, sem botão "Ligar", sem `wa.me` e sem qualquer
+link que contorne o funil.
+
+**Mídia** — todo asset declara finalidade (`EVIDENCE_ONLY`, `BRAND_REFERENCE`,
+`REAL_BUSINESS_MEDIA`, `EDITORIAL_MEDIA`, `COVER_MEDIA`, `OG_MEDIA`,
+`GENERATED_CONTEXTUAL_MEDIA`). Foto de placa/banner/panfleto enviada pelo
+proprietário é referência, não Hero. Seguir a prioridade visual de
+`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §22.2.
+
+Gates: `CONTACT_FUNNEL_GATE` (§21.4) e `MEDIA_PURPOSE_GATE` (§22.5) do Blueprint
+Standard, mais a avaliação editorial de encantamento (§22.4).

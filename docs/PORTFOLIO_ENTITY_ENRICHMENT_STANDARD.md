@@ -297,3 +297,38 @@ Ausência de um dado não reprova. **Ausência de pesquisa reprova.**
 Proibido: cidades falsas, serviços não oferecidos, marcas não atendidas, FAQs
 inventadas, avaliações artificiais, doorway pages e palavras-chave desconectadas
 do negócio. O enriquecimento serve primeiro ao usuário.
+
+## 13. Finalidade do asset (obrigatório)
+
+Todo asset registrado no enrichment declara finalidade explícita:
+
+```text
+EVIDENCE_ONLY · BRAND_REFERENCE · REAL_BUSINESS_MEDIA · EDITORIAL_MEDIA
+COVER_MEDIA · OG_MEDIA · GENERATED_CONTEXTUAL_MEDIA
+```
+
+Material enviado pelo proprietário para comprovar identidade (placa, banner,
+panfleto, cartão, fachada, tela, anúncio) entra como `BRAND_REFERENCE` e/ou
+`EVIDENCE_ONLY`. Promover para `EDITORIAL_MEDIA`, `COVER_MEDIA` ou Hero exige
+decisão editorial explícita e ausência de alternativa melhor.
+
+Prioridade visual e critérios de qualidade: ver
+`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §22.2–§22.3. Foto real de baixa
+qualidade continua válida como evidência e sai dos grandes blocos visuais.
+
+### 13.1 Careca's Infotec — exemplo documental
+
+A fotografia original da faixa é `BRAND_REFERENCE / EVIDENCE`: foi decisiva para
+descobrir identidade, logo, cores, tagline, equipamentos e linguagem da marca —
+não é mídia editorial principal. Com a pesquisa profunda tendo encontrado
+interior, bancada, notebook aberto, placa em microscópio, equipamentos e logos
+oficiais, a landing prioriza esses ativos reais (com atribuição) e mídia
+editorial contextual adequada.
+
+## 14. Contato descoberto ≠ contato clicável
+
+Telefone, WhatsApp ou e-mail descobertos na pesquisa entram no registro como
+fato com proveniência, mas **não** autorizam `tel:`, `wa.me`, botão "Ligar" ou
+qualquer atalho que contorne o funil individual do projeto. Ver
+`PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21. O destino real de contato segue
+resolvido apenas no servidor.

@@ -231,3 +231,45 @@ O gate separa:
 Só pedir ao proprietário o que não pode ser resolvido por pesquisa, fontes
 oficiais, redes, Google, mídia licenciada, geração contextual ou composição
 gráfica. Não criar dependência desnecessária.
+
+## 18. Gate de contato (dimensão CONVERSION)
+
+```text
+[ ] CTA principal aponta para o funil correto
+[ ] CTAs intermediários preservam o contexto do projeto
+[ ] telefone não possui link `tel:` por padrão
+[ ] WhatsApp direto não bypassa o funil
+[ ] mensagem final contém contexto coletado
+[ ] nenhum componente genérico criou contato paralelo
+```
+
+Qualquer item reprovado é **P0** em CONVERSION. CTA genérico ("Entrar em
+contato", "Fale conosco", "Chamar no WhatsApp") quando existe ação contextual
+possível é WARNING mínimo.
+
+## 19. Gate de mídia (dimensões MEDIA e VISUAL COMPOSITION)
+
+```text
+[ ] nenhuma imagem de referência fraca domina a página sem justificativa
+[ ] fotos reais de melhor qualidade foram priorizadas
+[ ] crops repetidos não simulam variedade
+[ ] mídia gerada está corretamente classificada
+[ ] capa representa o segmento
+[ ] Hero utiliza o melhor asset disponível
+[ ] material de placa/banner não está sendo usado apenas porque foi fornecido primeiro
+```
+
+Cada asset do `coverage` declara `purpose` entre `EVIDENCE_ONLY`,
+`BRAND_REFERENCE`, `REAL_BUSINESS_MEDIA`, `EDITORIAL_MEDIA`, `COVER_MEDIA`,
+`OG_MEDIA`, `GENERATED_CONTEXTUAL_MEDIA`. Asset `EVIDENCE_ONLY` ou
+`BRAND_REFERENCE` em Hero, capa ou bloco visual dominante é P0 quando existe
+alternativa melhor pela prioridade de `PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`
+§22.2.
+
+## 20. Avaliação editorial de encantamento
+
+`editorialPass` só é `true` se a resposta for sim: *a página transmite um site
+profissional, rico, autêntico e criado especificamente para aquele negócio?*
+Avaliar impacto visual, riqueza de mídia, ritmo, composição, hierarquia,
+profundidade, identidade, variedade, motion, coerência e percepção premium.
+Passar nos testes não substitui esta avaliação.
