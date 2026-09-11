@@ -1,7 +1,6 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
 export const PORTFOLIO_CLIENT_KEYS = [
-  
-  "zz-pipeline-test","denise-gomes-psicologa",
+  "denise-gomes-psicologa",
   "ton-e-cor",
   "raphael-construcoes",
   "jc-revestimentos",
