@@ -54,7 +54,9 @@ for (const url of urls) {
   const consoleErrors = [];
   page.on("console", (m) => m.type() === "error" && consoleErrors.push(m.text()));
   await page.goto(url, { waitUntil: "domcontentloaded" });
-  await page.waitForTimeout(400);
+  // Páginas com hidratação tardia (catálogo, seções lazy) só expõem os nós
+  // data-motion depois do primeiro paint: medir cedo demais dava falso FAIL.
+  await page.waitForTimeout(1800);
 
   const measured = await page.evaluate(
     async ({ T }) => {
@@ -67,6 +69,8 @@ for (const url of urls) {
       window.scrollTo(0, document.body.scrollHeight * 0.45);
       await new Promise((r) => setTimeout(r, 900));
       window.scrollTo(0, document.body.scrollHeight * 0.9);
+      await new Promise((r) => setTimeout(r, 900));
+      window.scrollTo(0, document.body.scrollHeight);
       await new Promise((r) => setTimeout(r, 900));
 
       const parse = (t) => {

@@ -14,6 +14,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
 | Ritmo visual, signature moments, media narrative, capabilities, results e quality profile | `docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md` |
 | Motion, microinterações, scroll, efeitos visuais e MOTION_QUALITY_GATE | `docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md` |
+| Camada institucional 0WEB obrigatória (host credit + popup) e `PLATFORM_0WEB_LAYER` | `docs/PORTFOLIO_0WEB_PLATFORM_LAYER_ADDENDUM.md` |
 | Pesquisa automática, identidade/logo, hero acima da dobra, CTA flutuante, motion real, originalidade estrutural e embed no catálogo | `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Contato sempre pelo funil (sem `tel:`/`wa.me`) e finalidade obrigatória de cada asset | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21–§22 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §18–§20 |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |

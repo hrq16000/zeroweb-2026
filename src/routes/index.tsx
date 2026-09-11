@@ -7,6 +7,7 @@ import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/SocialProof";
 import { TrustStrip } from "@/components/site/TrustStrip";
 import { Footer } from "@/components/site/Footer";
+import { MotionReveal, MotionScope } from "@/components/motion";
 
 import { getPageSections } from "@/lib/site-sections.functions";
 import { servicesNavQuery } from "@/lib/services-nav-query";
@@ -178,34 +179,36 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Suspense fallback={null}><ScrollTracker /></Suspense>
       <Header />
+      <MotionScope intensity="SUBTLE">
       <main>
         {on("hero") && <Hero />}
         {on("trustbar") && <TrustBar />}
         {on("trust_strip") !== false && <TrustStrip variant="compact" />}
         {/* Cada seção lazy tem seu próprio boundary: evita mismatch de
             hidratação quando os chunks resolvem em ordens diferentes. */}
-        {on("problems") && <Suspense key="problems" fallback={<Skel />}><Problems /></Suspense>}
-        {on("loss_calculator") && <Suspense key="loss_calculator" fallback={<Skel />}><LossCalculator /></Suspense>}
-        {on("solutions") && <Suspense key="solutions" fallback={<Skel />}><Solutions /></Suspense>}
-        <Suspense key="highlight_trio" fallback={<Skel />}><HighlightTrio /></Suspense>
-        <Suspense key="home_spotlight" fallback={<Skel />}><HomeSpotlight /></Suspense>
-        <Suspense key="feature_showcase" fallback={<Skel />}><FeatureShowcase /></Suspense>
-        {on("featured_services") && <Suspense key="featured_services" fallback={<Skel />}><FeaturedServices /></Suspense>}
-        {on("ai_section") && <Suspense key="ai_section" fallback={<Skel />}><AISection /></Suspense>}
-        {on("diagnostic_form") && <Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense>}
-        {on("differentials") && <Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense>}
-        {on("cases") && <Suspense key="cases" fallback={<Skel />}><Cases /></Suspense>}
-        <Suspense key="projetos_no_ar" fallback={<Skel />}><ProjetosNoAr /></Suspense>
+        {on("problems") && <MotionReveal><Suspense key="problems" fallback={<Skel />}><Problems /></Suspense></MotionReveal>}
+        {on("loss_calculator") && <MotionReveal><Suspense key="loss_calculator" fallback={<Skel />}><LossCalculator /></Suspense></MotionReveal>}
+        {on("solutions") && <MotionReveal><Suspense key="solutions" fallback={<Skel />}><Solutions /></Suspense></MotionReveal>}
+        <MotionReveal><Suspense key="highlight_trio" fallback={<Skel />}><HighlightTrio /></Suspense></MotionReveal>
+        <MotionReveal><Suspense key="home_spotlight" fallback={<Skel />}><HomeSpotlight /></Suspense></MotionReveal>
+        <MotionReveal><Suspense key="feature_showcase" fallback={<Skel />}><FeatureShowcase /></Suspense></MotionReveal>
+        {on("featured_services") && <MotionReveal><Suspense key="featured_services" fallback={<Skel />}><FeaturedServices /></Suspense></MotionReveal>}
+        {on("ai_section") && <MotionReveal><Suspense key="ai_section" fallback={<Skel />}><AISection /></Suspense></MotionReveal>}
+        {on("diagnostic_form") && <MotionReveal><Suspense key="diagnostic_form" fallback={<Skel />}><DiagnosticForm /></Suspense></MotionReveal>}
+        {on("differentials") && <MotionReveal><Suspense key="differentials" fallback={<Skel />}><Differentials /></Suspense></MotionReveal>}
+        {on("cases") && <MotionReveal><Suspense key="cases" fallback={<Skel />}><Cases /></Suspense></MotionReveal>}
+        <MotionReveal><Suspense key="projetos_no_ar" fallback={<Skel />}><ProjetosNoAr /></Suspense></MotionReveal>
 
-        <Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense>
-        {on("plans") && <Suspense key="plans" fallback={<Skel />}><Plans /></Suspense>}
-        {on("process") && <Suspense key="process" fallback={<Skel />}><Process /></Suspense>}
-        <Suspense key="testimonials" fallback={<Skel />}><Testimonials /></Suspense>
-        {on("social_proof") && <Suspense key="social_proof" fallback={<Skel />}><SocialProofSection /></Suspense>}
-        {on("cta") && <Suspense key="cta" fallback={<Skel />}><CTA /></Suspense>}
+        <MotionReveal><Suspense key="stats_strip" fallback={<Skel />}><StatsStrip /></Suspense></MotionReveal>
+        {on("plans") && <MotionReveal><Suspense key="plans" fallback={<Skel />}><Plans /></Suspense></MotionReveal>}
+        {on("process") && <MotionReveal><Suspense key="process" fallback={<Skel />}><Process /></Suspense></MotionReveal>}
+        <MotionReveal><Suspense key="testimonials" fallback={<Skel />}><Testimonials /></Suspense></MotionReveal>
+        {on("social_proof") && <MotionReveal><Suspense key="social_proof" fallback={<Skel />}><SocialProofSection /></Suspense></MotionReveal>}
+        {on("cta") && <MotionReveal><Suspense key="cta" fallback={<Skel />}><CTA /></Suspense></MotionReveal>}
 
 
       </main>
+      </MotionScope>
       <Footer />
       <Suspense fallback={null}>
         <WhatsAppFloat />

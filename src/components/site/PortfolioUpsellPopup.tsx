@@ -3,7 +3,7 @@ import { X, Sparkles, CheckCircle2 } from "lucide-react";
 import { PortfolioHostLeadDialog } from "@/components/site/PortfolioHostLeadDialog";
 import { subscribeScroll } from "@/lib/scroll-bus";
 import { trackEvent, trackConversion } from "@/lib/analytics";
-import { shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
+import { isPortfolioPopupQaMode, shouldSuppressPortfolioHostOverlays } from "@/lib/portfolio-preview";
 import {
   portfolioSlugFromPath,
   resolvePortfolioUpsellConfig,
@@ -109,8 +109,10 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!enabled) return;
-    if (shouldSuppressPortfolioHostOverlays()) return;
+    // QA determinístico: ignora somente a cota de sessão e antecipa o gatilho.
+    const qaMode = isPortfolioPopupQaMode();
+    if (!enabled && !qaMode) return;
+    if (shouldSuppressPortfolioHostOverlays() && !qaMode) return;
     // Instância única por projeto: a rota /portfolio/* renderiza o pop-up por
     // padrão e o site do cliente pode renderizá-lo também; só o primeiro assume.
     const ownerKey = slug || pageName;
@@ -127,7 +129,7 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
 
     let alreadyShown = false;
     try {
-      alreadyShown = oncePerSession && sessionStorage.getItem(storageKey) === "1";
+      alreadyShown = !qaMode && oncePerSession && sessionStorage.getItem(storageKey) === "1";
     } catch {
       /* noop */
     }
@@ -150,9 +152,9 @@ export function PortfolioUpsellPopup({ pageName = "portfolio" }: { pageName?: st
     };
     fireRef.current = fire;
 
-    const t = window.setTimeout(() => fire("timer"), timerMs);
+    const t = window.setTimeout(() => fire("timer"), qaMode ? 400 : timerMs);
     // Fallback: páginas curtas (sem scroll possível) ou leitura longa sem rolar.
-    const fb = window.setTimeout(() => fire("fallback"), fallbackMs);
+    const fb = window.setTimeout(() => fire("fallback"), qaMode ? 1200 : fallbackMs);
     const unsub = subscribeScroll((s) => {
       if (s.pct >= scrollPct) fire("scroll");
     });
