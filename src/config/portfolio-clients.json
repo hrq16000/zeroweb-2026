@@ -1169,5 +1169,20 @@
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/carecas-infotec.md",
     "funnelType": "diagnostico"
+  },
+  {
+    "clientKey": "zz-pipeline-test",
+    "slug": "zz-pipeline-test",
+    "siteName": "ZZ Pipeline Test",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/ZzPipelineTestPage.tsx",
+    "assetsDir": "public/images/zz-pipeline-test",
+    "ctaMode": "proposal",
+    "funnelType": "agendamento",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/zz-pipeline-test.md"
   }
 ]
