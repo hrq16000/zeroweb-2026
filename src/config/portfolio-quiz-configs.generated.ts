@@ -1548,6 +1548,43 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Data comemorativa"
     ]
   },
+  "moreira-auto-mecanica": {
+    "proposalKind": "service",
+    "services": [
+      "Barulho ou ruído",
+      "Suspensão",
+      "Motor",
+      "Freios",
+      "Revisão geral",
+      "Luz acesa no painel",
+      "Ainda não sei dizer"
+    ],
+    "experienceOptions": [
+      "Aparece o tempo todo",
+      "Só quando o carro esquenta",
+      "Só em buraco ou lombada",
+      "Só ao frear",
+      "Começou depois de outro serviço",
+      "Prefiro explicar na oficina"
+    ],
+    "periodOptions": [
+      "Manhã (08h–12h)",
+      "Tarde (13h–18h30)",
+      "Tanto faz"
+    ],
+    "timingOptions": [
+      "Esta semana",
+      "Semana que vem",
+      "Ainda estou me organizando"
+    ],
+    "stepTitles": {
+      "service": "O que está acontecendo com o carro?",
+      "experience": "Quando o problema aparece?",
+      "period": "Qual período fica melhor para levar?",
+      "timing": "Para quando você precisa?"
+    },
+    "notePlaceholder": "Conte o modelo, o ano e como o carro está se comportando."
+  },
   "mp-festas-eventos": {
     "services": [
       "Festa na Mesa · a partir de R$ 160",
