@@ -34,7 +34,12 @@ const PATTERNS = [
 const SAFE_LINE = /\/r\/whatsapp\/|r\.whatsapp|whatsapp_redirect|whatsapp-redirect/;
 // Contatos públicos de CLIENTES (páginas de portfólio) — não são contatos da
 // 0WEB. A allowlist é única e vive em scripts/contact-allowlist.mjs.
-const CLIENT_ALLOW = new RegExp(`wa\\.me/(?:${[...CLIENT_ALLOWED_DIGITS].join("|")})`);
+const ALLOWED = [...CLIENT_ALLOWED_DIGITS];
+const ALLOWED_TEL = ALLOWED.map((d) => d.replace(/^55/, ""));
+// Contato do próprio cliente (wa.me ou tel:) explicitamente autorizado.
+const CLIENT_ALLOW = new RegExp(
+  `wa\\.me/(?:${ALLOWED.join("|")})|tel:\\+?(?:55)?(?:${ALLOWED_TEL.join("|")})`,
+);
 
 
 const EXT = /\.(js|mjs|cjs|html|json|map|txt|xml)$/;
