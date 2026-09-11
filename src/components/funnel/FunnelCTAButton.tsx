@@ -172,7 +172,14 @@ export function FunnelCTAButton({
       </a>
       <FunnelModalWrapper
         open={isOpen}
-        onClose={closeFunnel}
+        onClose={() => {
+          // Libera a camada de captação da hospedagem quando o atendimento do
+          // cliente termina — ela rearma sozinha após um intervalo de cortesia.
+          if (portfolioCompany && currentPath.startsWith("/portfolio/")) {
+            window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-close"));
+          }
+          closeFunnel();
+        }}
         funnelSlug={funnelSlug}
         serviceSlug={serviceSlug}
         intent={runtimeIntent}
