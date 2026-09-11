@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-10",
+  "generatedAt": "2026-09-11",
   "summary": {
-    "total": 90,
+    "total": 91,
     "valid": 47,
-    "pending": 43,
+    "pending": 44,
     "byStatus": {
       "VALID": 47,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 10
+      "UNCERTAIN_ORIGIN": 11
     },
     "balanced": true
   },
@@ -810,6 +810,19 @@
       "reason": "Não há fotografia ou material real apropriado.",
       "cardValid": false,
       "businessName": "MIRO TECH",
+      "segment": "prestadores-de-servicos"
+    },
+    {
+      "slug": "moreira-auto-mecanica",
+      "asset": "/images/moreira-auto-mecanica/capa.jpg",
+      "catalogImage": "/images/moreira-auto-mecanica/capa.jpg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Moreira Auto Mecânica",
       "segment": "prestadores-de-servicos"
     },
     {
