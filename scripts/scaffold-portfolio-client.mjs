@@ -217,7 +217,7 @@ import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-bluep
  *    número de anos, equipe, certificação ou métrica sem fonte auditável;
  *  - todo contato comercial passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
  */
-const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
+export const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
 
 export const blueprint: PortfolioBlueprint = {
   slug: "${slug}",
