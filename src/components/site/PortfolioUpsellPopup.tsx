@@ -9,7 +9,12 @@ import {
   resolvePortfolioUpsellConfig,
 } from "@/lib/portfolio-upsell-config";
 
-const STORAGE_KEY = "0web:portfolio-upsell-shown:v2";
+// v3: sessões marcadas pela pré-visualização embutida da vitrine (que agora
+// não exibe nem marca nada) não podem silenciar a visita real.
+const STORAGE_KEY = "0web:portfolio-upsell-shown:v3";
+
+/** Tempo de espera antes de rearmar a captação após o funil do cliente fechar. */
+const FUNNEL_REARM_MS = 20_000;
 
 type Trigger = "timer" | "scroll" | "fallback";
 
