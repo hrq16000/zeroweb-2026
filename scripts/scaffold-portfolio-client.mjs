@@ -83,6 +83,122 @@ const write = (relPath, content) => {
   written.push(relPath);
 };
 
+/**
+ * Template de motion (src/config/motion-template-coverage.json).
+ *
+ * Com `--motion-template`, o scaffold nasce com a MESMA cobertura de motion
+ * validada em /lab/motion-pilot — hero com parallax, faixa de contagem,
+ * hover, zoom, timeline com progresso e CTA flutuante — já preenchida com
+ * nome, segmento, hero e funil reais. Conteúdo continua TODO: o template
+ * entrega engenharia, não direção criativa nem fato inventado.
+ */
+const useMotionTemplate = args.includes("--motion-template");
+const segment = flag("segment") ?? "";
+const heroImage = flag("hero") ?? "";
+
+const coverage = JSON.parse(
+  readFileSync(resolve(root, "src/config/motion-template-coverage.json"), "utf8"),
+);
+
+const heroImageBlock = heroImage
+  ? `        image: {
+          src: "${heroImage}",
+          // TODO(media plan): alt descritivo do que a foto REALMENTE mostra.
+          alt: "TODO: descrever a foto real de ${siteName}",
+          width: 1600,
+          height: 1200,
+          priority: true,
+        },
+`
+  : `        // TODO(media plan): hero exige mídia real classificada antes de READY.
+`;
+
+const motionSlotSections = () =>
+  coverage.slots
+    .map((slot) => {
+      const motion = JSON.stringify(slot.motion).replace(/"([a-zA-Z]+)":/g, "$1: ").replace(/"/g, '"');
+      const base = `    {
+      // ${slot.purpose}
+      // TODO(direção criativa): variant e ordem são ESCOLHA — revise a partir do brief.
+      type: "${slot.type}",
+      variant: "${slot.defaultVariant}",
+      order: ${slot.order},
+      motion: ${motion},`;
+      if (slot.type === "hero") {
+        return `${base}
+      content: {
+        eyebrow: "${segment || "TODO: segmento real"}",
+        headline: "${siteName}",
+        subheadline:
+          "TODO: narrativa real do cliente, escrita após entity resolution e enrichment.",
+${heroImageBlock}        ctaLabel: "${ctaLabel}",
+      },
+    },`;
+      }
+      if (slot.type === "signals") {
+        return `${base}
+      content: {
+        // A contagem animada SÓ pode existir sobre fato auditável (ficha
+        // pública, documento ou material oficial). Sem fonte, remova o countTo.
+        items: [
+          { value: "TODO", label: "TODO: sinal verificado", countTo: 0 },
+        ],
+        attribution: "TODO: fonte e data da coleta.",
+      },
+    },`;
+      }
+      if (slot.type === "cta") {
+        return `${base}
+      content: {
+        title: "TODO: fechamento próprio do cliente",
+        text: "Toda conversão passa pelo funil ${funnelSlug}.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },`;
+      }
+      return `${base}
+      content: {
+        title: "TODO: título real desta seção",
+        intro: "TODO: conteúdo real — sem prova, número ou prazo sem fonte.",
+      },
+    },`;
+    })
+    .join("\n");
+
+const scaffoldSections = useMotionTemplate
+  ? motionSlotSections()
+  : `    {
+      // TODO(direção criativa): escolher variant a partir do brief.
+      type: "hero",
+      variant: "editorial",
+      order: 10,
+      // TODO(direção criativa): definir gramática de motion própria do cliente.
+      motion: { intensity: "SUBTLE", reveal: "up" },
+      content: {
+        eyebrow: SCAFFOLD_STATE,
+        headline: "${siteName}",
+        subheadline:
+          "Composição pendente: substituir por narrativa real do cliente depois de entity resolution, enrichment e media discovery.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },
+    {
+      type: "cta",
+      variant: "banner",
+      order: 90,
+      content: {
+        title: "Pendente de direção criativa",
+        text: "Preencher ${creativeBriefFile} e o media plan antes de compor esta seção.",
+        ctaLabel: "${ctaLabel}",
+      },
+    },`;
+
+const scaffoldFloating = useMotionTemplate
+  ? `floatingConversion: { mode: "enabled", label: "${ctaLabel}", hint: "TODO: contexto curto" },`
+  : `// TODO(autonomia §10): decidir explicitamente — { mode: "enabled", label: "<contextual>" }
+    // ou { mode: "disabled", reason: "<razão editorial>" }. O destino é sempre o funil.
+    floatingConversion: { mode: "disabled", reason: "SCAFFOLD: decisão pendente" },`;
+
 const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
