@@ -46,6 +46,87 @@ type SourceType =
 
 Lacuna não preenchida vira `unverified[]`, nunca texto inventado.
 
+## 2.1 Etapas independentes (discovery ≠ ingestion)
+
+```text
+ENTITY DISCOVERY     → localizar e confirmar a empresa
+ENTITY RESOLUTION    → garantir que é a empresa correta
+CONTENT INGESTION    → obter dados, reviews, fotos etc.
+EDITORIAL ENRICHMENT → transformar dados confirmados em conteúdo
+MEDIA ENRICHMENT     → selecionar/produzir mídia
+BLUEPRINT            → compor a página
+```
+
+Um provider indisponível bloqueia **apenas** `CONTENT INGESTION`. Ele nunca
+transforma retroativamente uma entidade resolvida em “não encontrada”. Entidade
+resolvida sem provider registra:
+
+```text
+GOOGLE_ENTITY_RESOLVED
+PLACE_ID_CONFIRMED
+GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER
+```
+
+Identificador estável é obrigatório e persistente:
+
+```ts
+google: { placeId: "…", status: "resolved" }
+```
+
+Provider ausente é documentado literalmente:
+
+```text
+provider: unavailable
+requiredCapability: Google Places
+placeId: <place id>
+status: waiting_for_provider
+```
+
+Proibido scraper de HTML do Google e qualquer contorno de bloqueio.
+
+## 2.2 Ledger obrigatório da pesquisa
+
+Nenhuma pesquisa pode concluir “não encontrei” após poucas consultas. Cada eixo
+(Google, Instagram, site, avaliações, mídia) registra separadamente:
+
+```text
+searched · found · resolved · verified · accessible · ingestable · usable
+```
+
+Exemplo válido:
+
+```text
+Google entity → FOUND yes · RESOLVED yes · VERIFIED yes · INGESTABLE no (provider ausente)
+```
+
+Estados distintos e não intercambiáveis:
+`INSTAGRAM_PRESENT_BUT_HANDLE_UNRESOLVED` ≠ `NO_INSTAGRAM`;
+`GOOGLE_CONTENT_IMPORT_PENDING_PROVIDER` ≠ `GOOGLE_PROFILE_NOT_FOUND`.
+
+## 2.3 Evidência fornecida pelo proprietário
+
+Captura de tela de ficha pública é `OWNER_SUPPLIED_PUBLIC_EVIDENCE`: serve para
+auxiliar resolução, confirmar correspondência e listar dados a validar depois.
+Não é API e não é dado verificado por provider — mas também não pode ser
+descartada só porque a automação não reproduziu a consulta.
+
+## 2.4 Contrato de ingestão, reviews e fotos
+
+```ts
+google = { placeId, name, rating, reviewCount, category, address, phone, hours,
+           mapsUrl, reviews[], photos[], lastVerifiedAt };
+
+reviews[] = { source, author, rating, text, publishedAt?, sourceUrl?, attribution? };
+
+photos[]  = { source, reference, attribution, width?, height?, subject?,
+              suggestedUsage?, lastVerifiedAt };
+```
+
+Campos dependentes de provider ficam `null`/vazios — nunca preenchidos
+artificialmente. Resumo editorial não vira review; autor e comentário jamais são
+fabricados. Foto do Google não é asset do cliente e não é versionada
+permanentemente sem verificar o modelo de uso permitido.
+
 ## 3. Resolução da entidade
 
 Confirmar por múltiplos sinais convergentes: nome exato, telefone, endereço,
