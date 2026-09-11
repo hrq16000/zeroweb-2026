@@ -88,14 +88,18 @@ const theme = {
 } as CSSProperties;
 
 /**
- * Regra editorial deste projeto:
- * - a única fotografia real disponível é `banner.webp` (faixa oficial). Ela
- *   aparece UMA vez, no hero. Nenhum recorte dela é reaproveitado para simular
- *   galeria;
- * - as demais seções são compostas com tipografia, ícones e composição;
+ * Regra editorial deste projeto (ver docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7.1):
+ * - mídia real tem prioridade, mas não prioridade cega. A única fotografia real
+ *   disponível (`banner.webp`) é uma faixa promocional achatada e com texto
+ *   embutido: reprovada como hero (`heroMedia = unsuitable`) e preservada como
+ *   evidência institucional na seção "loja";
+ * - o hero e os apoios usam GENERATED_CONTEXTUAL_MEDIA autoral (bancada
+ *   técnica, carvão/amarelo), coerente com a capa aprovada. Nenhuma delas
+ *   representa a loja, a bancada, funcionários, clientes ou serviços reais;
  * - endereço, bairro, horário, garantia, prazo, marcas, avaliações e redes
  *   sociais seguem não confirmados e por isso não são publicados como fato.
  */
+
 export const blueprint: PortfolioBlueprint = {
   slug: "carecas-infotec",
   identity: {
