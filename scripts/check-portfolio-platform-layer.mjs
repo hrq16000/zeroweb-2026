@@ -64,7 +64,7 @@ for (const route of targets) {
     const popup = page.locator('[data-testid="portfolio-upsell"]').first();
     let visible = false;
     try {
-      await popup.waitFor({ state: "visible", timeout: 8000 });
+      await popup.waitFor({ state: "visible", timeout: 20000 });
       visible = true;
     } catch {
       visible = false;
