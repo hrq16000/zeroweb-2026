@@ -19,7 +19,9 @@ import type {
   CtaSection,
   FaqSection,
   HeroSection,
+  LocationSection,
   OffersSection,
+  ProofSection,
   TrustSection,
   UseCasesSection,
 } from "@/lib/portfolio-blueprint";
