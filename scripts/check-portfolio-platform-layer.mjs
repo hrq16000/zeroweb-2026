@@ -100,7 +100,7 @@ for (const route of targets) {
     let dismissible = false;
     if (visible) {
       const close = page
-        .locator('[data-testid="portfolio-upsell"] button[aria-label*="ech" i], [data-testid="portfolio-upsell"] button')
+        .locator('[data-testid="portfolio-upsell"] button[aria-label="Fechar aviso"], [data-testid="portfolio-upsell"] button')
         .first();
       try {
         await close.click({ timeout: 3000 });
