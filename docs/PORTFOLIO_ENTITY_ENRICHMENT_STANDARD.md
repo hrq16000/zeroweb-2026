@@ -206,6 +206,14 @@ Prioridade de uso:
 
 Resultado final **não pode** ser uma única foto reutilizada em vários crops.
 
+Essa prioridade é **condicionada à qualidade e ao papel da seção**: mídia real
+fraca (improvisada, torta, mal iluminada, ruidosa, baixa resolução, com texto
+embutido ou pouco premium) não assume o hero. Ela é preservada como evidência
+em papel secundário e o hero é resolvido por mídia editorial melhor. Critérios
+do hero e regra de resolução visual por seção:
+`docs/PORTFOLIO_PROJECT_LIFECYCLE.md` §7.1–§7.3.
+
+
 Imagem gerada é sempre **ILUSTRATIVA**: nunca apresentada como fachada,
 funcionário, loja, trabalho executado, cliente ou prova social. O metadata
 interno precisa distinguir `FACT`, `REAL MEDIA`, `EXTERNAL MEDIA`,

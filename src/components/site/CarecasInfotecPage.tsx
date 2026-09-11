@@ -88,14 +88,18 @@ const theme = {
 } as CSSProperties;
 
 /**
- * Regra editorial deste projeto:
- * - a única fotografia real disponível é `banner.webp` (faixa oficial). Ela
- *   aparece UMA vez, no hero. Nenhum recorte dela é reaproveitado para simular
- *   galeria;
- * - as demais seções são compostas com tipografia, ícones e composição;
+ * Regra editorial deste projeto (ver docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7.1):
+ * - mídia real tem prioridade, mas não prioridade cega. A única fotografia real
+ *   disponível (`banner.webp`) é uma faixa promocional achatada e com texto
+ *   embutido: reprovada como hero (`heroMedia = unsuitable`) e preservada como
+ *   evidência institucional na seção "loja";
+ * - o hero e os apoios usam GENERATED_CONTEXTUAL_MEDIA autoral (bancada
+ *   técnica, carvão/amarelo), coerente com a capa aprovada. Nenhuma delas
+ *   representa a loja, a bancada, funcionários, clientes ou serviços reais;
  * - endereço, bairro, horário, garantia, prazo, marcas, avaliações e redes
  *   sociais seguem não confirmados e por isso não são publicados como fato.
  */
+
 export const blueprint: PortfolioBlueprint = {
   slug: "carecas-infotec",
   identity: {
@@ -155,12 +159,13 @@ export const blueprint: PortfolioBlueprint = {
           "Celular, computador, notebook, impressora, monitor, tablet e videogame. Descreva o aparelho e o que está acontecendo: a avaliação técnica vem antes de qualquer reparo.",
         subheadlineField: "heroSubheadline",
         image: {
-          src: "/images/carecas-infotec/banner.webp",
-          alt: "Faixa oficial da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
-          width: 1240,
-          height: 550,
+          src: "/images/carecas-infotec/gen-hero-bancada.jpg",
+          alt: "Ilustração técnica: notebook aberto com componentes e ferramentas de precisão em bancada escura sob luz âmbar",
+          width: 1920,
+          height: 1088,
           managedField: "heroImageUrl",
         },
+
         ctaLabel: "Agende já seu serviço",
         secondary: { label: "Ver equipamentos atendidos", href: "#equipamentos" },
         stats: [
@@ -279,7 +284,14 @@ export const blueprint: PortfolioBlueprint = {
             text: "Tela sem imagem, sinal que some, console que não lê o jogo, desliga sozinho durante a partida ou controle que não responde.",
           },
         ],
+        aside: {
+          src: "/images/carecas-infotec/gen-diagnostico-aside.jpg",
+          alt: "Ilustração técnica: celular aberto, placa e ferramentas de precisão em bancada escura",
+          width: 960,
+          height: 1200,
+        },
       },
+
     },
     {
       /**
@@ -379,6 +391,17 @@ export const blueprint: PortfolioBlueprint = {
           { title: "Onde", text: "São José dos Pinhais — PR.", icon: MapPin },
           { title: "Como começar", text: "Envie o relato pelo formulário e combine o atendimento.", icon: Wrench },
         ],
+        /**
+         * Única fotografia real do negócio (faixa oficial enviada pelo
+         * proprietário). Papel secundário: evidência institucional de
+         * identidade, não abertura da página.
+         */
+        image: {
+          src: "/images/carecas-infotec/banner.webp",
+          alt: "Faixa oficial da Careca's Infotec com os aparelhos atendidos pela assistência técnica",
+          width: 1240,
+          height: 550,
+        },
         footnote:
           "Endereço completo, horário de funcionamento e canais oficiais serão publicados assim que confirmados pelo próprio negócio.",
         ctaLabel: "Combinar atendimento",
@@ -394,7 +417,15 @@ export const blueprint: PortfolioBlueprint = {
         title: "Tecnologia em boas mãos.",
         text: "Em poucos toques você informa o aparelho, o que está acontecendo e o melhor momento para o atendimento.",
         ctaLabel: "Solicitar atendimento",
+        /** GENERATED_CONTEXTUAL_MEDIA — textura de fundo, não evidência. */
+        image: {
+          src: "/images/carecas-infotec/gen-cta-textura.jpg",
+          alt: "",
+          width: 1920,
+          height: 900,
+        },
       },
+
     },
     {
       type: "faq",
