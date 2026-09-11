@@ -24,12 +24,16 @@
 import type { CSSProperties } from "react";
 import {
   BadgeCheck,
+  CalendarClock,
   CreditCard,
   Hammer,
+  Images,
+  MapPin,
   PencilRuler,
   Ruler,
   ShieldCheck,
   Sparkles,
+  Star,
   Truck,
 } from "lucide-react";
 import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
