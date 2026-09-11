@@ -230,6 +230,22 @@ OWNER_REQUIRED:
 - fornecer foto da fachada
 ```
 
+## 16.1 Quality matrix (obrigatória antes do readiness)
+
+Depois da implementação e **antes** de `readiness`/`publish`, executar
+`docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` e registrar
+`docs/portfolio/quality-matrix/<slug>.json`.
+
+```text
+research → evidence → media inventory → media plan → blueprint →
+implementation → quality matrix → fix gaps → readiness → publish
+```
+
+Gate: `bun run check:portfolio-landing-quality` (consumido também pelo
+readiness como `qualityMatrixPass`). `READY` exige `technicalPass` **e**
+`editorialPass`. Dead zone aberta, hero inadequado, capa errada, prova
+fabricada ou seção incompleta são P0 e reprovam com qualquer score.
+
 ## 17. Definition of Done
 
 `/portfolio/:slug` só é `READY` quando:
@@ -250,6 +266,7 @@ OWNER_REQUIRED:
 - [ ] desktop validado
 - [ ] acessibilidade básica validada
 - [ ] analytics/tracking validado
+- [ ] quality matrix aprovada (technical + editorial)
 - [ ] gates aprovados
 
 `build PASS`, `TypeScript PASS` e `route PASS` **não** significam pronto:
