@@ -257,7 +257,7 @@ export const blueprint: PortfolioBlueprint = {
             label: "Sábado e domingo fechado",
             icon: CalendarClock,
           },
-          { value: "Agaraú · SJP", label: "R. Durval Moletta — São José dos Pinhais/PR", icon: MapPin },
+          
         ],
         attribution:
           "Dados da ficha pública da JKL Decor no Google (Place ID confirmado), coletados em 11/09/2026.",
