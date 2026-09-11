@@ -216,12 +216,15 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     indexable: true,
   },
   {
-    slug: "jkl-marcenaria",
+    // Substitui o antigo /portfolio/jkl-marcenaria, que passou a redirecionar
+    // permanentemente (301) para este endereço.
+    slug: "jkl-decor",
     vertical: "prestadores-de-servicos",
-    siteName: "JKL Marcenaria · Móveis sob medida",
+    siteName: "JKL Decor · Móveis planejados — São José dos Pinhais e Curitiba",
     kind: "prototype",
     indexable: true,
   },
+
   {
     slug: "santos-montador-de-moveis",
     vertical: "prestadores-de-servicos",

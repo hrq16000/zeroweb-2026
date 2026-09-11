@@ -216,6 +216,23 @@ export function fingerprintSource(source, { label = "" } = {}) {
     sectionOrder.push(role);
   }
 
+  /*
+   * 2b. Páginas Blueprint declaram a composição em dados, não em JSX. Sem este
+   * ramo o fingerprint enxergaria duas landings distintas como "estrutura
+   * idêntica" só porque ambas renderizam <PortfolioBlueprintRenderer />. Aqui a
+   * estrutura passa a ser a sequência real de seções + variantes declaradas —
+   * o que torna a métrica MAIS sensível, não mais permissiva.
+   */
+  const isBlueprint = /PortfolioBlueprintRenderer/.test(src);
+  if (isBlueprint) {
+    const declared = [...src.matchAll(/type:\s*"([a-zA-Z]+)"(?:[\s\S]{0,200}?variant:\s*"([a-zA-Z]+)")?/g)];
+    for (const m of declared) {
+      const node = m[2] ? `${m[1]}:${m[2]}` : m[1];
+      tagSeq.push(node);
+      sectionOrder.push(node);
+    }
+  }
+
   // 3. componentes próprios usados (infra compartilhada excluída)
   const components = new Set();
   for (const m of src.matchAll(/<([A-Z][A-Za-z0-9_]*)/g)) {

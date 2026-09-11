@@ -1,22 +1,22 @@
 {
   "generatedBy": "check:portfolio-originality --write-baseline",
   "summary": {
-    "total": 89,
-    "original": 0,
+    "total": 91,
+    "original": 1,
     "acceptable": 28,
-    "attention": 55,
+    "attention": 56,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 26,
+    "placeholderLogos": 25,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 45,
+    "coverValid": 47,
     "coverPending": 44,
     "coversAsSocialImage": 12,
     "sharedCovers": 0,
-    "severeCrop": 21,
+    "severeCrop": 19,
     "invalidCrossClientAssets": 0,
     "suspiciousSharedAssets": 0
   },
@@ -85,7 +85,7 @@
       "sharedCover": false
     },
     "auto-socorro-dentinho": {
-      "score": 38,
+      "score": 40,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
@@ -134,6 +134,15 @@
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": true,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "carecas-infotec": {
+      "score": 18,
+      "status": "ORIGINAL",
+      "fallback": false,
+      "placeholderLogo": false,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -247,7 +256,7 @@
       "sharedCover": false
     },
     "eisenfer-tubos-acos": {
-      "score": 42,
+      "score": 43,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -399,11 +408,11 @@
       "missingCover": false,
       "sharedCover": false
     },
-    "jkl-marcenaria": {
-      "score": 46,
+    "jkl-decor": {
+      "score": 45,
       "status": "ATTENTION",
       "fallback": false,
-      "placeholderLogo": true,
+      "placeholderLogo": false,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -499,7 +508,7 @@
       "sharedCover": false
     },
     "marmitaria-dom-diego": {
-      "score": 32,
+      "score": 31,
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
@@ -561,6 +570,15 @@
       "missingCover": true,
       "sharedCover": false
     },
+    "moreira-auto-mecanica": {
+      "score": 45,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "mp-festas-eventos": {
       "score": 59,
       "status": "ATTENTION",
@@ -571,7 +589,7 @@
       "sharedCover": false
     },
     "no-brilho-higienizacao": {
-      "score": 42,
+      "score": 43,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,

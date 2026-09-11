@@ -1,6 +1,6 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-11T08:09:12.946Z
+Gerado em 2026-09-11T16:38:28.042Z
 
 - Projetos auditados: **91**
 - PASS: **91** · WARNING: **0** · FAIL: **0**
@@ -40,7 +40,6 @@ Gerado em 2026-09-11T08:09:12.946Z
 | eisenfer-tubos-acos | construcao | orcamento | Conte o projeto e os materiais que precisa cotar. | Solicitar cotação | PROJECT_CONTRACT | PASS | — |
 | mary-diarista | servicos | agendamento | Conte o tipo de limpeza, a frequência e o melhor dia para você. | Consultar agenda | PROJECT_CONTRACT | PASS | — |
 | acai-total-araucaria | restaurantes | pedido | Escolha o tamanho, os cremes e os complementos que mais gosta. | Escolher meu açaí | PROJECT_CONTRACT | PASS | — |
-| jkl-marcenaria | servicos | orcamento | Conte o ambiente, as medidas e a ideia que quer realizar. | Planejar móvel | PROJECT_CONTRACT | PASS | — |
 | santos-montador-de-moveis | servicos | orcamento | Conte o que precisa montar, instalar, pintar ou reparar. | Organizar serviço | PROJECT_CONTRACT | PASS | — |
 | marmitaria-dom-diego | restaurantes | pedido | Conte o que procura no cardápio e como prefere fazer o pedido. | Conhecer cardápio | PROJECT_CONTRACT | PASS | — |
 | beto-pasteis | restaurantes | pedido | Escolha a ocasião e conte o que gostaria de encontrar no menu. | Conhecer sabores | PROJECT_CONTRACT | PASS | — |
@@ -99,3 +98,4 @@ Gerado em 2026-09-11T08:09:12.946Z
 | estrutura-nacional | construcao | orcamento | Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação. | Iniciar solicitação | PROJECT_CONTRACT | PASS | — |
 | moreira-auto-mecanica | prestadores-de-servicos | agendamento | A equipe da Moreira Auto Mecânica recebe a descrição do veículo e combina o melhor dia para você levar o carro na oficina. | Agendar avaliação | PROJECT_CONTRACT | PASS | — |
 | carecas-infotec | prestadores-de-servicos | orcamento | A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo. | Agendar serviço | PROJECT_CONTRACT | PASS | — |
+| jkl-decor | prestadores-de-servicos | orcamento | A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |

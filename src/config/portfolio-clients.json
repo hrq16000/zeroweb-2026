@@ -356,17 +356,6 @@
     "funnelRecipientConfigured": false
   },
   {
-    "clientKey": "jkl-marcenaria",
-    "slug": "jkl-marcenaria",
-    "siteName": "JKL Marcenaria",
-    "routeFile": "src/routes/portfolio.$slug.tsx",
-    "componentFile": "src/components/site/JklMarcenariaPage.tsx",
-    "assetsDir": "public/images/jkl-marcenaria",
-    "ctaMode": "proposal",
-    "socialProofRequired": true,
-    "hostCaptureRequired": true
-  },
-  {
     "clientKey": "santos-montador-de-moveis",
     "slug": "santos-montador-de-moveis",
     "siteName": "Santos Montador de Móveis",
