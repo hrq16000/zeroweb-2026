@@ -1,7 +1,7 @@
 # Qualidade visual do /portfolio
 
-Gerado em 2026-09-10T02:34:07.825Z
-Runtime inspecionado em 2026-09-09T07:27:08.912Z
+Gerado em 2026-09-11T00:50:30.967Z
+Runtime inspecionado em 2026-09-10T08:15:41.105Z
 
 Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
 (PREMIUM/STANDARD/NEEDS_UPGRADE) são camadas independentes. Ver
@@ -9,12 +9,12 @@ Conformidade técnica (COMPLETE/PARTIAL/LEGACY) e qualidade visual
 
 ## Resumo
 
-- PORTFOLIO REAL: **89**
-- VISUALMENTE INSPECIONADO: **89**
-- TECHNICAL: COMPLETE 89 · PARTIAL 0 · LEGACY 0
-- VISUAL: PREMIUM 34 · STANDARD 54 · NEEDS_UPGRADE 1
-- ORIGINALITY: PASS 28 · WARNING 55 · FAIL 6 · UNREVIEWED 0
-- ISSUES: P0 0 · P1 74 · P2 140 · P3 57
+- PORTFOLIO REAL: **90**
+- VISUALMENTE INSPECIONADO: **90**
+- TECHNICAL: COMPLETE 90 · PARTIAL 0 · LEGACY 0
+- VISUAL: PREMIUM 35 · STANDARD 54 · NEEDS_UPGRADE 1
+- ORIGINALITY: PASS 29 · WARNING 55 · FAIL 6 · UNREVIEWED 0
+- ISSUES: P0 0 · P1 74 · P2 141 · P3 58
 - Score médio: **88/100**
 
 ## Pesos
@@ -93,7 +93,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | emporio-lelecute | Empório LeleCute | servicos | COMPLETE | STANDARD | 84 | PASS (29) | COVER_SEVERE_CROP, HERO_NO_IMAGE, FEW_IMAGES | P2 |
 | denise-gomes-psicologa | Denise Gomes · Psicóloga | saude | COMPLETE | STANDARD | 86 | WARNING (53) | LOGO_PLACEHOLDER, COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P2 |
 | ecommerce-on | Ecommerce On | agencias | COMPLETE | STANDARD | 86 | WARNING (54) | COVER_SEVERE_CROP, ORIGINALITY_WARNING | P2 |
-| eisenfer-tubos-acos | Eisenfer Tubos e Aços | construcao | COMPLETE | STANDARD | 86 | WARNING (42) | COVER_IS_LOGO, LOGO_NOT_DEDICATED, ORIGINALITY_WARNING | P2 |
+| eisenfer-tubos-acos | Eisenfer Tubos e Aços | construcao | COMPLETE | STANDARD | 86 | WARNING (43) | COVER_IS_LOGO, LOGO_NOT_DEDICATED, ORIGINALITY_WARNING | P2 |
 | eletrovale-eletromecanica | Eletrovale Eletromecânica | servicos | COMPLETE | STANDARD | 86 | WARNING (50) | LOGO_PLACEHOLDER, HERO_NO_IMAGE, ORIGINALITY_WARNING | P2 |
 | espaco-cih-luh | Espaço CIH & LUH | beleza | COMPLETE | STANDARD | 86 | PASS (39) | LOGO_PLACEHOLDER, COVER_SEVERE_CROP | P2 |
 | fernanda-amaral-drywall | Fernanda & Amaral — Instalação de Drywall | prestadores-de-servicos | COMPLETE | STANDARD | 86 | WARNING (49) | COVER_NOT_DEDICATED, COVER_REUSES_SOCIAL, ORIGINALITY_WARNING | P2 |
@@ -128,9 +128,9 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | toquinho-de-gente-brecho | Toquinho de Gente Brechó Adulto e Infantil | comercios | COMPLETE | PREMIUM | 86 | WARNING (46) | LOGO_NOT_DEDICATED, FEW_IMAGES, ORIGINALITY_WARNING | P3 |
 | diego-montador-moveis | Diego Montador de Móveis | servicos | COMPLETE | PREMIUM | 88 | WARNING (59) | LOGO_NOT_DEDICATED, FEW_IMAGES, ORIGINALITY_WARNING | P3 |
 | brecho-sao-francisco | Brechó São Francisco | comercios | COMPLETE | PREMIUM | 90 | PASS (24) | LOGO_NOT_DEDICATED, FEW_IMAGES | P3 |
-| marmitaria-dom-diego | Marmitaria Dom Diego | restaurantes | COMPLETE | PREMIUM | 90 | PASS (32) | LOGO_NOT_DEDICATED, FEW_IMAGES | P3 |
+| marmitaria-dom-diego | Marmitaria Dom Diego | restaurantes | COMPLETE | PREMIUM | 90 | PASS (31) | LOGO_NOT_DEDICATED, FEW_IMAGES | P3 |
 | lucas-arruma-maquina-lavar | Lucas Arruma Máquina de Lavar | servicos | COMPLETE | PREMIUM | 92 | WARNING (44) | HERO_NO_IMAGE, ORIGINALITY_WARNING | P3 |
-| no-brilho-higienizacao | No Brilho Higienização | servicos | COMPLETE | PREMIUM | 92 | WARNING (42) | HERO_NO_IMAGE, ORIGINALITY_WARNING | P3 |
+| no-brilho-higienizacao | No Brilho Higienização | servicos | COMPLETE | PREMIUM | 92 | WARNING (43) | HERO_NO_IMAGE, ORIGINALITY_WARNING | P3 |
 | your-brutus-burguer | Your Brutus Burguer | restaurantes | COMPLETE | PREMIUM | 93 | WARNING (45) | ORIGINALITY_WARNING | P3 |
 | hbk-iluminacao-led | HBK Iluminação LED Atacadão | construcao | COMPLETE | PREMIUM | 94 | PASS (32) | COVER_REUSES_SOCIAL | P3 |
 | papelemi-personalizados | PapeLemi Papelaria Personalizada | comercios | COMPLETE | PREMIUM | 94 | WARNING (49) | ORIGINALITY_WARNING | P3 |
@@ -139,6 +139,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | ag-electrical-services | A&G Electrical Services | servicos | COMPLETE | PREMIUM | 96 | WARNING (51) | ORIGINALITY_WARNING | P3 |
 | artesanatos-darleia-oliveira | Artesanatos Darléia Oliveira | comercios | COMPLETE | PREMIUM | 96 | WARNING (42) | ORIGINALITY_WARNING | P3 |
 | assistencia-microondas-santos | Assistência Técnica Microondas Santos | prestadores-de-servicos | COMPLETE | PREMIUM | 96 | WARNING (49) | ORIGINALITY_WARNING | P3 |
+| carecas-infotec | Careca's Infotec | prestadores-de-servicos | COMPLETE | PREMIUM | 96 | PASS (8) | COVER_REUSES_SOCIAL | P3 |
 | dona-lucy-salgados | Dona Lucy Salgados | restaurantes | COMPLETE | PREMIUM | 96 | WARNING (44) | ORIGINALITY_WARNING | P3 |
 | enoel-portas | Enoel Portas | construcao | COMPLETE | PREMIUM | 96 | WARNING (56) | ORIGINALITY_WARNING | P3 |
 | estrutura-nacional | EN — Estrutura Nacional | construcao | COMPLETE | PREMIUM | 96 | WARNING (41) | ORIGINALITY_WARNING | P3 |
@@ -149,7 +150,7 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | mania-de-limpeza | Mania de Limpeza Higienização | servicos | COMPLETE | PREMIUM | 96 | WARNING (54) | ORIGINALITY_WARNING | P3 |
 | refrigeracao-maresia | Refrigeração Maresia | servicos | COMPLETE | PREMIUM | 96 | WARNING (50) | ORIGINALITY_WARNING | P3 |
 | thays-camilla | Thays Camilla | comercios | COMPLETE | PREMIUM | 96 | WARNING (46) | ORIGINALITY_WARNING | P3 |
-| auto-socorro-dentinho | Auto Socorro Dentinho | servicos | COMPLETE | PREMIUM | 99 | PASS (38) | — | P3 |
+| auto-socorro-dentinho | Auto Socorro Dentinho | servicos | COMPLETE | PREMIUM | 99 | PASS (40) | — | P3 |
 | jc-revestimentos | JC Revestimentos | construcao | COMPLETE | PREMIUM | 99 | PASS (32) | — | P3 |
 | dyzpromo | D.Y.Z Promo | servicos | COMPLETE | PREMIUM | 100 | PASS (25) | — | P3 |
 | lolipa-arte-em-festas | Lolipa Arte em Festas Decor | comercios | COMPLETE | PREMIUM | 100 | PASS (38) | — | P3 |
@@ -173,11 +174,11 @@ Regras de teto impedem PREMIUM com issue P0/P1, originalidade FAIL, capa REJECTE
 | ORIGINALITY_WARNING | P2 | 55 | Similaridade estrutural alta com outro projeto |
 | FEW_IMAGES | P2 | 26 | Poucas imagens próprias do cliente |
 | HERO_NO_IMAGE | P2 | 22 | Hero sem imagem própria |
-| COVER_REUSES_SOCIAL | P2 | 20 | Capa reaproveita a imagem social |
+| COVER_REUSES_SOCIAL | P2 | 21 | Capa reaproveita a imagem social |
 | LOGO_NOT_DEDICATED | P2 | 12 | Logo é uma foto/asset genérico, não uma marca dedicada |
 | IDENTITY_WEAK | P2 | 4 | Identidade pouco distinguível de outros projetos |
 | CONTENT_THIN | P2 | 1 | Conteúdo editorial insuficiente |
-| COVER_NO_FOCAL_POINT | P3 | 38 | Capa sem focal point definido |
+| COVER_NO_FOCAL_POINT | P3 | 39 | Capa sem focal point definido |
 | CONTENT_SHORT_SERVICES | P3 | 18 | Serviços pouco explicados |
 | HEADING_STRUCTURE | P3 | 1 | Estrutura de headings irregular (h1) |
 
