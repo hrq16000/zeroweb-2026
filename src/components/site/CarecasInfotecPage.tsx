@@ -110,6 +110,7 @@ export const blueprint: PortfolioBlueprint = {
     nav: [
       { label: "Equipamentos", href: "#equipamentos" },
       { label: "Quando procurar", href: "#quando-procurar" },
+      { label: "Atendimento", href: "#atendimento" },
       { label: "Como funciona", href: "#como-funciona" },
       { label: "Dúvidas", href: "#duvidas" },
     ],
@@ -276,6 +277,56 @@ export const blueprint: PortfolioBlueprint = {
           {
             title: "Monitor e videogame",
             text: "Tela sem imagem, sinal que some, console que não lê o jogo, desliga sozinho durante a partida ou controle que não responde.",
+          },
+        ],
+      },
+    },
+    {
+      /**
+       * Blocos visuais por família de aparelho.
+       * As três imagens são GENERATED_CONTEXTUAL_MEDIA (composição técnica
+       * autoral): existem para diferenciar visualmente computadores, aparelhos
+       * móveis e impressão. Não representam a loja, a bancada, funcionários,
+       * clientes nem serviços executados pela Careca's Infotec.
+       */
+      type: "useCases",
+      variant: "imageGrid",
+      order: 45,
+      id: "atendimento",
+      motion: { reveal: "up", stagger: 90 },
+      content: {
+        eyebrow: "Frentes de atendimento",
+        title: "Três frentes, a mesma avaliação técnica.",
+        items: [
+          {
+            title: "Computador e notebook",
+            text: "Desktop e portátil que não ligam, ficam lentos, travam ou não completam a inicialização entram para avaliação antes de qualquer serviço.",
+            image: {
+              src: "/images/carecas-infotec/gen-notebook-bancada.jpg",
+              alt: "Ilustração técnica: notebook aberto e placa de computador sobre bancada escura",
+              width: 1280,
+              height: 800,
+            },
+          },
+          {
+            title: "Celular e tablet",
+            text: "Aparelho móvel com tela quebrada, sem carregar, com bateria durando pouco ou que parou de responder passa por avaliação antes do orçamento.",
+            image: {
+              src: "/images/carecas-infotec/gen-celular-tablet.jpg",
+              alt: "Ilustração técnica: celular com tampa removida e tablet sobre bancada escura",
+              width: 1280,
+              height: 800,
+            },
+          },
+          {
+            title: "Impressora, cartucho e toner",
+            text: "Impressora que não imprime, sai com falhas ou perdeu a conexão — e recarga de cartucho e de toner feita na loja.",
+            image: {
+              src: "/images/carecas-infotec/gen-impressora-toner.jpg",
+              alt: "Ilustração técnica: cartucho de tinta colorido e toner laser sobre bancada escura",
+              width: 1280,
+              height: 800,
+            },
           },
         ],
       },

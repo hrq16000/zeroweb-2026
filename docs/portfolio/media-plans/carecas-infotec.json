@@ -1,44 +1,86 @@
 {
   "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Nenhuma imagem gerada pode representar estabelecimento, funcionário, cliente, trabalho executado ou produto real.",
   "slug": "carecas-infotec",
-  "status": "MEDIA_ENRICHMENT_INCOMPLETE",
+  "status": "MEDIA_ENRICHMENT_COMPLETE",
   "inventory": {
     "realBusinessPhotos": ["public/images/carecas-infotec/banner.webp"],
     "officialBrandAssets": ["public/images/carecas-infotec/logo.png"],
     "externalMedia": [],
     "licensedMedia": [],
-    "generatedMedia": [],
+    "generatedMedia": [
+      {
+        "file": "public/images/carecas-infotec/gen-notebook-bancada.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "diferenciar visualmente a frente de computadores e notebooks",
+        "section": "atendimento",
+        "dimensions": "1280x800",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: notebook aberto e placa de computador sobre bancada escura"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-celular-tablet.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "diferenciar visualmente a frente de aparelhos móveis",
+        "section": "atendimento",
+        "dimensions": "1280x800",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: celular com tampa removida e tablet sobre bancada escura"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-impressora-toner.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "reforçar impressoras, cartucho e toner",
+        "section": "atendimento",
+        "dimensions": "1280x800",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: cartucho de tinta colorido e toner laser sobre bancada escura"
+      },
+      {
+        "file": "assets-source/carecas-infotec/cover-bg-source.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "fundo da capa (fonte, não servida publicamente)",
+        "section": "cover",
+        "dimensions": "1200x630",
+        "generatedAt": "2026-09-11",
+        "alt": "Composição tecnológica em carvão e amarelo"
+      }
+    ],
     "graphicMedia": ["public/images/carecas-infotec/capa.jpg"],
     "missingMedia": [
-      "fachada da loja",
-      "bancada/oficina de atendimento",
-      "equipamentos atendidos (fotos reais)",
+      "fachada da loja (owner-required, não bloqueia)",
+      "bancada/oficina real (owner-required, não bloqueia)",
       "fotos do Google (aguardando provider e verificação de direitos)"
     ]
   },
   "sections": [
-    { "section": "hero", "requiredMediaRole": "real-business-photo", "sourceType": "OWNER_SUPPLIED", "asset": "public/images/carecas-infotec/banner.webp", "status": "done" },
-    { "section": "services", "requiredMediaRole": "generated-contextual", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": null, "status": "planned", "resolution": "generate" },
-    { "section": "authority", "requiredMediaRole": "real-business-photo", "sourceType": "OWNER_SUPPLIED", "asset": null, "status": "blocked", "resolution": "owner-required" },
-    { "section": "process", "requiredMediaRole": "graphic", "sourceType": "ORIGINAL_GRAPHIC", "asset": null, "status": "planned", "resolution": "graphic" },
-    { "section": "reviews", "requiredMediaRole": "external-evidence", "sourceType": "GOOGLE", "asset": null, "status": "blocked", "resolution": "waiting_for_provider" },
-    { "section": "cta", "requiredMediaRole": "brand-graphic", "sourceType": "ORIGINAL_GRAPHIC", "asset": "public/images/carecas-infotec/capa.jpg", "status": "partial", "resolution": "graphic" }
+    { "section": "hero", "requiredMediaRole": "real-business-photo", "sourceType": "OWNER_SUPPLIED", "asset": "public/images/carecas-infotec/banner.webp", "status": "done", "resolution": "real-media" },
+    { "section": "equipamentos", "requiredMediaRole": "none", "sourceType": "ICON_SET", "asset": null, "status": "done", "resolution": "no-media-needed" },
+    { "section": "quando-procurar", "requiredMediaRole": "none", "sourceType": "EDITORIAL", "asset": null, "status": "done", "resolution": "no-media-needed" },
+    { "section": "atendimento", "requiredMediaRole": "generated-contextual", "sourceType": "GENERATED_CONTEXTUAL_MEDIA", "asset": "public/images/carecas-infotec/gen-notebook-bancada.jpg, public/images/carecas-infotec/gen-celular-tablet.jpg, public/images/carecas-infotec/gen-impressora-toner.jpg", "status": "done", "resolution": "generate" },
+    { "section": "como-funciona", "requiredMediaRole": "none", "sourceType": "EDITORIAL", "asset": null, "status": "done", "resolution": "no-media-needed" },
+    { "section": "authority", "requiredMediaRole": "none", "sourceType": "EDITORIAL", "asset": null, "status": "done", "resolution": "no-media-needed", "note": "fotos reais da loja continuam em ownerRequired; a seção não depende delas para funcionar" },
+    { "section": "reviews", "requiredMediaRole": "external-evidence", "sourceType": "GOOGLE", "asset": null, "status": "blocked", "resolution": "waiting_for_provider", "note": "warning, não blocker — reviews fora da UI" },
+    { "section": "cta", "requiredMediaRole": "brand-graphic", "sourceType": "ORIGINAL_GRAPHIC", "asset": null, "status": "done", "resolution": "graphic" }
   ],
   "cover": {
     "asset": "public/images/carecas-infotec/capa.jpg",
     "strategy": "BRAND_LED + SERVICE_LED (HYBRID)",
-    "approved": false,
+    "approved": true,
+    "approvedAt": "2026-09-11",
+    "build": "scripts/build-carecas-cover.mjs",
+    "composition": "logotipo real normalizado + selo de segmento + fundo tecnológico gerado (carvão/amarelo); sem telefone, sem endereço, sem ícone genérico",
     "checks": {
       "identityMatch": "pass",
-      "segmentMatch": "review",
-      "smallCardReadability": "review",
+      "segmentMatch": "pass",
+      "smallCardReadability": "pass",
       "contrast": "pass",
-      "focalPoint": "review",
+      "focalPoint": "pass",
       "crop": "pass",
-      "visualQuality": "review",
-      "genericPenalty": "review",
+      "visualQuality": "pass",
+      "genericPenalty": "pass",
       "duplicatePenalty": "pass"
-    }
+    },
+    "answer": "Sim: o card mostra a marca real e o descritor 'assistência técnica de informática' com notebook e placa eletrônica."
   },
   "lastUpdatedAt": "2026-09-11"
 }

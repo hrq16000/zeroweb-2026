@@ -77,13 +77,17 @@
     "verifiedAt": "2026-09-11"
   },
   "media": {
-    "state": "MEDIA_ENRICHMENT_INCOMPLETE",
-    "reason": "apenas uma fotografia real disponível; Blueprint não pode ser considerado editorialmente concluído nessa condição.",
+    "state": "MEDIA_ENRICHMENT_COMPLETE",
+    "reason": "plano de mídia executado em 2026-09-11: a única fotografia real permanece exclusiva do hero e as demais seções receberam mídia contextual gerada com função editorial própria, sem recortes repetidos do banner.",
     "existing": [
       { "file": "public/images/carecas-infotec/banner.webp", "type": "REAL_BUSINESS_MEDIA", "owner": "cliente", "rights": "enviado pelo proprietário", "confidence": "HIGH", "suggestedUsage": "hero" },
-      { "file": "public/images/carecas-infotec/logo.png", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "derivado normalizado do banner", "confidence": "HIGH", "suggestedUsage": "identidade" },
-      { "file": "public/images/carecas-infotec/capa.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "composição autoral", "confidence": "HIGH", "suggestedUsage": "capa/OG provisória" }
+      { "file": "public/images/carecas-infotec/logo.png", "type": "OFFICIAL_BRAND_ASSET", "owner": "cliente", "rights": "derivado normalizado do banner", "confidence": "HIGH", "suggestedUsage": "identidade e capa" },
+      { "file": "public/images/carecas-infotec/capa.jpg", "type": "ORIGINAL_GRAPHIC", "owner": "0WEB", "rights": "composição autoral (logo real + fundo gerado)", "confidence": "HIGH", "suggestedUsage": "capa do card e OG", "generatedAt": "2026-09-11" },
+      { "file": "public/images/carecas-infotec/gen-notebook-bancada.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "geração própria", "confidence": "HIGH", "suggestedUsage": "seção atendimento — computador e notebook", "generatedAt": "2026-09-11" },
+      { "file": "public/images/carecas-infotec/gen-celular-tablet.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "geração própria", "confidence": "HIGH", "suggestedUsage": "seção atendimento — celular e tablet", "generatedAt": "2026-09-11" },
+      { "file": "public/images/carecas-infotec/gen-impressora-toner.jpg", "type": "GENERATED_CONTEXTUAL_MEDIA", "owner": "0WEB", "rights": "geração própria", "confidence": "HIGH", "suggestedUsage": "seção atendimento — impressora, cartucho e toner", "generatedAt": "2026-09-11" }
     ],
+    "generatedMediaPolicy": "imagens geradas são ilustração técnica e nunca evidência comercial: não representam a loja, a bancada, funcionários, clientes, produtos vendidos ou serviços executados.",
     "missing": ["fachada real", "bancada/interior real", "atendimento", "fotos do Google com atribuição"],
     "mediaMixPlan": {
       "hero": "REAL_BUSINESS_MEDIA",

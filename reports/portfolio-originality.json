@@ -564,7 +564,7 @@
         "COMPONENT_SIMILARITY": 16.7,
         "STYLE_SIMILARITY": 23.3,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 6,
+        "ASSET_PATTERN_SIMILARITY": 2.5,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -582,10 +582,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "38efe65a01ca870e",
+        "skeletonHash": "838e526d22130c17",
         "structureHash": "b940328c2db59754",
         "sectionCount": 1,
-        "lines": 392
+        "lines": 443
       }
     },
     {
@@ -5851,7 +5851,7 @@
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 6
+        "v2AssetPattern": 2.5
       },
       {
         "slug": "casa-nativa",

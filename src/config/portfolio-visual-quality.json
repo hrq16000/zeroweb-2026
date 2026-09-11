@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-10T02:34:07.825Z",
-  "runtimeGeneratedAt": "2026-09-09T07:27:08.912Z",
+  "generatedAt": "2026-09-11T00:50:30.967Z",
+  "runtimeGeneratedAt": "2026-09-10T08:15:41.105Z",
   "thresholds": {
     "PREMIUM": 85,
     "STANDARD": 70
@@ -17,20 +17,20 @@
     "social": 5
   },
   "summary": {
-    "total": 89,
-    "visuallyReviewed": 89,
+    "total": 90,
+    "visuallyReviewed": 90,
     "technical": {
-      "COMPLETE": 89,
+      "COMPLETE": 90,
       "PARTIAL": 0,
       "LEGACY": 0
     },
     "visual": {
-      "PREMIUM": 34,
+      "PREMIUM": 35,
       "STANDARD": 54,
       "NEEDS_UPGRADE": 1
     },
     "originality": {
-      "PASS": 28,
+      "PASS": 29,
       "WARNING": 55,
       "FAIL": 6,
       "UNREVIEWED": 0
@@ -38,8 +38,8 @@
     "issues": {
       "P0": 0,
       "P1": 74,
-      "P2": 140,
-      "P3": 57
+      "P2": 141,
+      "P3": 58
     },
     "averageScore": 88
   },
@@ -779,8 +779,8 @@
       "assets": {
         "logo": {
           "path": "/images/liz-moraes-nail-designer/logo.png",
-          "hash": "235cec8a079ac3e6767fa039f4f3660d9ae0c138",
-          "bytes": 1504871,
+          "hash": "438b8c40f6b30823f22fe25b800391c0f6429d3e",
+          "bytes": 191533,
           "width": 1536,
           "height": 1024
         },
@@ -1007,8 +1007,8 @@
         },
         "cover": {
           "path": "/images/bruna-diarista/hero.png",
-          "hash": "6daaba903a26aa7a2db2664a88e6671f85fc89a8",
-          "bytes": 2025138,
+          "hash": "309859efd4d721f43c4a0766755d94e335c8b2e6",
+          "bytes": 588852,
           "width": 1536,
           "height": 1024
         },
@@ -1221,8 +1221,8 @@
         },
         "cover": {
           "path": "/images/popys-conservacao-limpeza/hero-cleaning.png",
-          "hash": "a3f605547abe3e493f484247b6f51af0620970c3",
-          "bytes": 1910189,
+          "hash": "8578ff465971882327e91e23025ce84058ba269c",
+          "bytes": 572917,
           "width": 1536,
           "height": 1024
         },
@@ -1499,7 +1499,7 @@
       },
       "originalityStatus": "PASS",
       "originalityScore": 38,
-      "originalityNearest": "paulo-mestre-de-obras",
+      "originalityNearest": "auto-socorro-dentinho",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -1728,8 +1728,8 @@
       "assets": {
         "logo": {
           "path": "/images/confeitaria-sabor-da-realeza/logo.png",
-          "hash": "eac104da0841caead6badac94e08acbe9bff1cb6",
-          "bytes": 273628,
+          "hash": "e6068eb1d778b177ebc5bd56935a777bb41e1f69",
+          "bytes": 78231,
           "width": 936,
           "height": 303
         },
@@ -2027,7 +2027,7 @@
       },
       "originalityStatus": "PASS",
       "originalityScore": 27,
-      "originalityNearest": "bruna-diarista",
+      "originalityNearest": "bh-barreiro-marmitas",
       "contentSimilarity": null,
       "charm": "MEDIUM",
       "coverReview": "NEEDS_REVIEW",
@@ -2149,10 +2149,10 @@
       "assets": {
         "logo": {
           "path": "/images/miro-tech/logo.png",
-          "hash": "a89928c23d5cf513a0237816743af769d0afe656",
-          "bytes": 569929,
-          "width": 1983,
-          "height": 793
+          "hash": "288ea96bdd069cd7f67afa64931fc4b74250090b",
+          "bytes": 103905,
+          "width": 1800,
+          "height": 720
         },
         "cover": {
           "path": "/images/miro-tech/hero-og.jpg",
@@ -2463,8 +2463,8 @@
       "assets": {
         "logo": {
           "path": "/images/woodhouse-hamburgueres/capa.png",
-          "hash": "1c43dd5d7c2a7821a999031fa27c76b749b9abbf",
-          "bytes": 1821198,
+          "hash": "a5e462a1d6a397f3338bd53e3cd043fdb977c252",
+          "bytes": 557868,
           "width": 1729,
           "height": 910
         },
@@ -2570,8 +2570,8 @@
         },
         "cover": {
           "path": "/images/simone-lacerda-vaz/hero.png",
-          "hash": "f71aa7683623df7d7978caeefd4b0c20041fe998",
-          "bytes": 805852,
+          "hash": "4f3cc50ef3671ed31878829082e8dd85eb7ff91c",
+          "bytes": 495465,
           "width": 1024,
           "height": 1536
         },
@@ -2940,7 +2940,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 42,
+      "originalityScore": 43,
       "originalityNearest": "no-brilho-higienizacao",
       "contentSimilarity": null,
       "charm": "LOW",
@@ -3008,7 +3008,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs no-brilho-higienizacao"
+          "detail": "43 vs no-brilho-higienizacao"
         }
       ]
     },
@@ -3428,8 +3428,8 @@
       "assets": {
         "logo": {
           "path": "/images/mimo-salgados-doces/logo.png",
-          "hash": "0be779733e87fedf6dbbf0211240b8c86f09243e",
-          "bytes": 672294,
+          "hash": "50d8597c2df8348fe8d78cc9ab577ccb3368ae89",
+          "bytes": 219144,
           "width": 1131,
           "height": 1600
         },
@@ -3735,15 +3735,15 @@
         },
         "cover": {
           "path": "/images/centro-mega/hero.png",
-          "hash": "a7094b7b790fa7b60a0d032252ea88d8abbfdd6b",
-          "bytes": 291548,
+          "hash": "4988d1238e5f6e502c6f8d64fcfa5a400f09e48b",
+          "bytes": 89064,
           "width": 882,
           "height": 500
         },
         "social": {
           "path": "/images/centro-mega/social-og.jpg",
-          "hash": "eda032de1b887a758240119181dd020e84fe88bb",
-          "bytes": 551639,
+          "hash": "9e729e85a7e11c9bae43ae9f4646b815f6bfd002",
+          "bytes": 61287,
           "width": 960,
           "height": 651
         },
@@ -4207,8 +4207,8 @@
         },
         "cover": {
           "path": "/images/paulo-mestre-de-obras/hero-v2.png",
-          "hash": "bd833f7804fc299d3e6fd82bf3bd766ba6bc2796",
-          "bytes": 1949574,
+          "hash": "273c9255471a10c89b4d7b9bca6f5488190fe430",
+          "bytes": 381212,
           "width": 1122,
           "height": 1402
         },
@@ -4888,15 +4888,15 @@
       "assets": {
         "logo": {
           "path": "/images/embalar-embalagens/logo.png",
-          "hash": "3f02e0a9808e2b95fac2705d3b0ca68bd8640b11",
-          "bytes": 1177855,
+          "hash": "00e57f5b1785f5fde1c8d1f0c26e2abe583190f0",
+          "bytes": 262073,
           "width": 1254,
           "height": 1254
         },
         "cover": {
           "path": "/images/embalar-embalagens/hero.png",
-          "hash": "4291573d171faa141e7a85c7e386129e0e114de1",
-          "bytes": 1748343,
+          "hash": "415f27b436bc797de719c0f7255ebc5731217b22",
+          "bytes": 517679,
           "width": 1672,
           "height": 941
         },
@@ -4967,8 +4967,8 @@
       "assets": {
         "logo": {
           "path": "/images/heloa-gas/logo.png",
-          "hash": "105a6b5b5a26c0bd6e444d6d7fedc85118c7059f",
-          "bytes": 512613,
+          "hash": "0e6dfb6402657e43e19d9e264ebe9d6f806d8156",
+          "bytes": 95818,
           "width": 1152,
           "height": 576
         },
@@ -5053,8 +5053,8 @@
       "assets": {
         "logo": {
           "path": "/images/manu-pasteis/logo.png",
-          "hash": "d486c052f38ca8e8d6c869776b535cadcbe7a115",
-          "bytes": 1401484,
+          "hash": "a2296b4c61a116993d8ac332c3e1d16d6b366623",
+          "bytes": 271934,
           "width": 1672,
           "height": 941
         },
@@ -5146,8 +5146,8 @@
         },
         "cover": {
           "path": "/images/maximos-cabeleireiros/hero.png",
-          "hash": "511f8b87a96fc8d644d0534cff358476863d7534",
-          "bytes": 1634254,
+          "hash": "bc4d4a039f2e4c49517f63b26d6601bad89fbee7",
+          "bytes": 344073,
           "width": 1672,
           "height": 941
         },
@@ -5304,8 +5304,8 @@
         },
         "cover": {
           "path": "/images/angel-mix-brecho/capa-card.jpg",
-          "hash": "2810ae118668cef89d9a84911298739ee6a8ab72",
-          "bytes": 269012,
+          "hash": "99bb53b8d0fd6207623727fadea6eceb27fa4dc2",
+          "bytes": 254501,
           "width": 1536,
           "height": 960
         },
@@ -5725,8 +5725,8 @@
       "assets": {
         "logo": {
           "path": "/images/dlara-pizzaria/capa.png",
-          "hash": "2bc4839b935621b38c73105d80179b4c8d34c531",
-          "bytes": 684979,
+          "hash": "1fb578920de4614c78cfb29afd7176a8ad563ab0",
+          "bytes": 649499,
           "width": 1536,
           "height": 1024
         },
@@ -5832,8 +5832,8 @@
         },
         "cover": {
           "path": "/images/reuse-house-brecho/capa-card.jpg",
-          "hash": "821f114dae70751cfcaa6ea3f334aaff86bcd933",
-          "bytes": 306897,
+          "hash": "542926673cfbe93a2c6ec3ebbdf04236604157f8",
+          "bytes": 288704,
           "width": 1536,
           "height": 960
         },
@@ -5932,8 +5932,8 @@
         },
         "cover": {
           "path": "/images/toquinho-de-gente-brecho/capa-card.jpg",
-          "hash": "cf1d41df10e74ab0822db779ea4cfdd1a1a59034",
-          "bytes": 280330,
+          "hash": "82afb91fee83f505246171b4f7070381f53ba95c",
+          "bytes": 263923,
           "width": 1536,
           "height": 960
         },
@@ -6125,8 +6125,8 @@
         },
         "cover": {
           "path": "/images/brecho-sao-francisco/capa-card.jpg",
-          "hash": "01abfdb9fe5dea65a26c6fda2d8f7ade19c04b78",
-          "bytes": 277820,
+          "hash": "5276fa4faf5007ecc9feee86d2de54b62a86a7fc",
+          "bytes": 261942,
           "width": 1536,
           "height": 960
         },
@@ -6195,8 +6195,8 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 32,
-      "originalityNearest": "angel-mix-brecho",
+      "originalityScore": 31,
+      "originalityNearest": "woodhouse-hamburgueres",
       "contentSimilarity": null,
       "charm": "HIGH",
       "coverReview": "APPROVED",
@@ -6374,7 +6374,7 @@
         "social": 5
       },
       "originalityStatus": "WARNING",
-      "originalityScore": 42,
+      "originalityScore": 43,
       "originalityNearest": "eisenfer-tubos-acos",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -6435,7 +6435,7 @@
           "severity": "P2",
           "group": "originality",
           "label": "Similaridade estrutural alta com outro projeto",
-          "detail": "42 vs eisenfer-tubos-acos"
+          "detail": "43 vs eisenfer-tubos-acos"
         }
       ]
     },
@@ -6483,8 +6483,8 @@
         },
         "cover": {
           "path": "/images/your-brutus-burguer/hero-og.png",
-          "hash": "8b6cccfec6dc5266b8b02c06ff46d7d4491f7626",
-          "bytes": 2104180,
+          "hash": "aea231ea5ef795b038205bbd250efd6b66493dfe",
+          "bytes": 432918,
           "width": 1731,
           "height": 909
         },
@@ -6569,8 +6569,8 @@
       "assets": {
         "logo": {
           "path": "/images/hbk-iluminacao-led/logo.png",
-          "hash": "4116a36c67ae65717f1475c492c81a6da62e4a41",
-          "bytes": 1138374,
+          "hash": "382575ffc0c435e2d321ed69ff14d5e39106b4b2",
+          "bytes": 268729,
           "width": 1789,
           "height": 879
         },
@@ -6669,8 +6669,8 @@
         },
         "cover": {
           "path": "/images/papelemi-personalizados/hero.png",
-          "hash": "60d3711cf13baa609db2b41296da628f0f57520d",
-          "bytes": 680745,
+          "hash": "be1c97c4e25c16438bffa23b22c0cd3c97e7e1f7",
+          "bytes": 630881,
           "width": 1672,
           "height": 941
         },
@@ -6992,8 +6992,8 @@
       "assets": {
         "logo": {
           "path": "/images/artesanatos-darleia-oliveira/logo.png",
-          "hash": "552d3e479a919184a58c61553675e0e45baac00f",
-          "bytes": 1687199,
+          "hash": "e5f7def764fa61acb7765066dff7a8c794118bbb",
+          "bytes": 457467,
           "width": 1254,
           "height": 1254
         },
@@ -7071,8 +7071,8 @@
       "assets": {
         "logo": {
           "path": "/images/assistencia-microondas-santos/logo.png",
-          "hash": "f75e8492ff2d76ca94fede3d9a305cefbdca2a8f",
-          "bytes": 1130417,
+          "hash": "af6ba3e4306ddb7fef2510fd132ebacf1b30e41d",
+          "bytes": 261150,
           "width": 1768,
           "height": 890
         },
@@ -7114,6 +7114,92 @@
       ]
     },
     {
+      "slug": "carecas-infotec",
+      "businessName": "Careca's Infotec",
+      "segment": "prestadores-de-servicos",
+      "componentType": "custom",
+      "preset": null,
+      "technical": "COMPLETE",
+      "visual": "PREMIUM",
+      "score": 96,
+      "groupScores": {
+        "identity": 15,
+        "logo": 10,
+        "cover": 11,
+        "hero": 15,
+        "images": 10,
+        "content": 10,
+        "originality": 10,
+        "mobile": 10,
+        "social": 5
+      },
+      "originalityStatus": "PASS",
+      "originalityScore": 8,
+      "originalityNearest": "angel-mix-brecho",
+      "contentSimilarity": null,
+      "charm": "HIGH",
+      "coverReview": "UNREVIEWED",
+      "visuallyReviewed": true,
+      "priority": 3,
+      "severities": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 1,
+        "P3": 1
+      },
+      "assets": {
+        "logo": {
+          "path": "/images/carecas-infotec/logo.png",
+          "hash": "d25a5679bacb19a6d07b4e14843edd481f00d819",
+          "bytes": 160832,
+          "width": 1016,
+          "height": 347
+        },
+        "cover": {
+          "path": "/images/carecas-infotec/capa.jpg",
+          "hash": "03dc574e6b2d140e6be349e739822c53204036e2",
+          "bytes": 77004,
+          "width": 1200,
+          "height": 630
+        },
+        "social": {
+          "path": "/images/carecas-infotec/capa.jpg",
+          "hash": "03dc574e6b2d140e6be349e739822c53204036e2",
+          "bytes": 77004,
+          "width": 1200,
+          "height": 630
+        },
+        "galleryCount": 6
+      },
+      "runtime": {
+        "statusCode": 200,
+        "mobileOverflow": 0,
+        "mobileImages": 4,
+        "desktopImages": 4,
+        "heroHeadline": "Solução com qualidade, confiança e preço justo.",
+        "heroHeight": 781,
+        "editorialChars": 2414,
+        "smallTargets": 2,
+        "consoleErrors": 0
+      },
+      "issues": [
+        {
+          "code": "COVER_REUSES_SOCIAL",
+          "severity": "P2",
+          "group": "cover",
+          "label": "Capa reaproveita a imagem social",
+          "detail": "/images/carecas-infotec/capa.jpg"
+        },
+        {
+          "code": "COVER_NO_FOCAL_POINT",
+          "severity": "P3",
+          "group": "cover",
+          "label": "Capa sem focal point definido",
+          "detail": null
+        }
+      ]
+    },
+    {
       "slug": "dona-lucy-salgados",
       "businessName": "Dona Lucy Salgados",
       "segment": "restaurantes",
@@ -7150,8 +7236,8 @@
       "assets": {
         "logo": {
           "path": "/images/dona-lucy-salgados/logo.png",
-          "hash": "e704dec18fadfecb6e56681b2ac2ede63d0d2845",
-          "bytes": 1066680,
+          "hash": "0242006403650d4d3b30ceb5ff2bcb72c9ea7f7a",
+          "bytes": 110881,
           "width": 1535,
           "height": 1024
         },
@@ -7229,15 +7315,15 @@
       "assets": {
         "logo": {
           "path": "/images/enoel-portas/logo.png",
-          "hash": "43d32ba157133b3f4d99802fcbff9242bd3dc0f9",
-          "bytes": 1071212,
+          "hash": "581bbaa6026509b6f0839579c61aaa767baed07f",
+          "bytes": 128155,
           "width": 1536,
           "height": 1024
         },
         "cover": {
           "path": "/images/enoel-portas/hero.png",
-          "hash": "42270dea7fd495e91eb9754c8a0870db99598baf",
-          "bytes": 1967852,
+          "hash": "74622a008b67a566149f2225fb1cc542d7abc366",
+          "bytes": 374957,
           "width": 1672,
           "height": 941
         },
@@ -7387,8 +7473,8 @@
       "assets": {
         "logo": {
           "path": "/images/galileu-locacao-brinquedos/logo.png",
-          "hash": "358134e0fa451a12f3eb0fd776d40b3d01f9ffe9",
-          "bytes": 1649003,
+          "hash": "f7813b787a147eb763caec477ca12470db0da939",
+          "bytes": 254071,
           "width": 1536,
           "height": 1024
         },
@@ -7473,8 +7559,8 @@
         },
         "cover": {
           "path": "/images/js-eletrica-manutencao/hero.png",
-          "hash": "f9e3f033ea9f98c6d8d5f8e62165c1643c660be0",
-          "bytes": 1806965,
+          "hash": "77b92c5eb9aaa3661f6054fd396d76064cba066f",
+          "bytes": 391783,
           "width": 1672,
           "height": 941
         },
@@ -7545,15 +7631,15 @@
       "assets": {
         "logo": {
           "path": "/images/kitutes-na-mesa/logo.png",
-          "hash": "bb66f76d5df0dc998a1e5591b5f562d0c3d3e77f",
-          "bytes": 1642828,
+          "hash": "6d0d37b294d3bf16334797281f236d16d741a4f8",
+          "bytes": 291212,
           "width": 1254,
           "height": 1254
         },
         "cover": {
           "path": "/images/kitutes-na-mesa/hero.png",
-          "hash": "525ab24ecc40b83de6445060f0c9faf438ff1978",
-          "bytes": 798903,
+          "hash": "c44c3ba79fb4853cf8baf5f61842ff5cc1990ab1",
+          "bytes": 631495,
           "width": 1672,
           "height": 941
         },
@@ -7624,8 +7710,8 @@
       "assets": {
         "logo": {
           "path": "/images/lj-cleaning/logo.png",
-          "hash": "ee9ad3441941e13fd62f3725807b9923feee645e",
-          "bytes": 980309,
+          "hash": "dd541cec751df73182d1f62f089404d6502e3fc6",
+          "bytes": 233869,
           "width": 1774,
           "height": 887
         },
@@ -7703,15 +7789,15 @@
       "assets": {
         "logo": {
           "path": "/images/mania-de-limpeza/logo.png",
-          "hash": "56795bcd8cd3d0a6e40f12554f3807f7805a7f29",
-          "bytes": 700062,
+          "hash": "dc4630097a2be4da9170575d667b0ac31940593b",
+          "bytes": 55091,
           "width": 1536,
           "height": 1024
         },
         "cover": {
           "path": "/images/mania-de-limpeza/hero.png",
-          "hash": "e12176cf979a5c83292ab568b2a77b4d885e66d0",
-          "bytes": 2098189,
+          "hash": "ad3e19775f411e284a125af11476a464d9889ec8",
+          "bytes": 555858,
           "width": 1672,
           "height": 941
         },
@@ -7861,8 +7947,8 @@
       "assets": {
         "logo": {
           "path": "/images/thays-camilla/logo.png",
-          "hash": "6dda5e34667cf2dfac4423b99d2b0f7735ce8cf8",
-          "bytes": 485146,
+          "hash": "928383a789783d71b5baa06b91f64600bfffd11f",
+          "bytes": 330596,
           "width": 1536,
           "height": 1024
         },
@@ -7924,7 +8010,7 @@
         "social": 5
       },
       "originalityStatus": "PASS",
-      "originalityScore": 38,
+      "originalityScore": 40,
       "originalityNearest": "mimo-salgados-doces",
       "contentSimilarity": null,
       "charm": "HIGH",
@@ -7947,8 +8033,8 @@
         },
         "cover": {
           "path": "/images/auto-socorro-dentinho/hero-v2.png",
-          "hash": "bcf81e2e42fb69f2b285f12b64a8f23fe3b40715",
-          "bytes": 1759384,
+          "hash": "319520abf80aa2e8fbb9e9ca2fe539c05677f384",
+          "bytes": 374119,
           "width": 1672,
           "height": 941
         },
@@ -8019,15 +8105,15 @@
       "assets": {
         "logo": {
           "path": "/images/jc-revestimentos/logo.png",
-          "hash": "bff497446e8052372d9d48fae02da1314d238a1c",
-          "bytes": 1059402,
-          "width": 2091,
-          "height": 752
+          "hash": "836a8699e3e0665b2ff16592547e97ab87158b27",
+          "bytes": 233055,
+          "width": 1800,
+          "height": 647
         },
         "cover": {
           "path": "/images/jc-revestimentos/hero-v2.png",
-          "hash": "7b73066ca8ae181091143e5d482794fd936f50af",
-          "bytes": 764983,
+          "hash": "94d4ae607c334041d3d44d538a6d5882942ec049",
+          "bytes": 431812,
           "width": 1774,
           "height": 887
         },
@@ -8240,10 +8326,10 @@
       "assets": {
         "logo": {
           "path": "/images/premium-envelopamentos/logo.png",
-          "hash": "70839fe003efb398e93e790572fedfbf12f7f7f7",
-          "bytes": 565455,
-          "width": 1983,
-          "height": 793
+          "hash": "ae9219bb8c0db532693f1251d098e7c952d69497",
+          "bytes": 140065,
+          "width": 1800,
+          "height": 720
         },
         "cover": {
           "path": "/images/premium-envelopamentos/capa-card.jpg",
