@@ -563,7 +563,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isEstruturaNacional = loaderData?.slug === "estrutura-nacional";
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
-    const description = isMoreiraAutoMecanica
+    const isJklDecor = loaderData?.slug === "jkl-decor";
+    const description = isJklDecor
+      ? "JKL Decor em São José dos Pinhais: marcenaria de móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região com orçamento pelo formulário."
+      : isMoreiraAutoMecanica
       ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais — PR: oficina de mecânica para carros com avaliação presencial do veículo e agendamento pelo formulário do site."
       : isCarecasInfotec
       ? "Careca's Infotec no Santo Antônio, São José dos Pinhais — PR: assistência técnica em celular, computador, notebook, impressora, monitor, tablet e videogame, com recarga de cartucho e toner e avaliação antes do reparo."
@@ -793,7 +796,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isMoreiraAutoMecanica
+          content: eff.keywords ?? (isJklDecor
+            ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
+            : isMoreiraAutoMecanica
             ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
             : isCarecasInfotec
             ? "Careca's Infotec, assistência técnica São José dos Pinhais, conserto de celular São José dos Pinhais, conserto de notebook, conserto de impressora, recarga de cartucho, recarga de toner, Santo Antônio"
@@ -1056,6 +1061,66 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         makesOffer: [
                           "Mecânica para carros",
                           "Avaliação presencial do veículo",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : []),
+                /**
+                 * JKL Decor: dados da ficha pública do Google
+                 * (Place ID ChIJX_1YSWLIYqoRuK5h3vDp5OY). Sem
+                 * aggregateRating/Review no schema — a prova social aparece na
+                 * página, com autoria e link para a origem.
+                 */
+                ...(isJklDecor
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        additionalType: "https://schema.org/FurnitureStore",
+                        "@id": `${url}#localbusiness`,
+                        name: "JKL Decor",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/jkl-decor/logo.png"),
+                        telephone: "+55 41 99142-5088",
+                        priceRange: "$$",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "R. Durval Moletta",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83149-899",
+                          addressCountry: "BR",
+                        },
+                        geo: {
+                          "@type": "GeoCoordinates",
+                          latitude: -25.6551465,
+                          longitude: -49.2302301,
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "City", name: "Curitiba" },
+                        ],
+                        hasMap:
+                          "https://www.google.com/maps/search/?api=1&query=JKL%20Decor%20m%C3%B3veis%20planejados&query_place_id=ChIJX_1YSWLIYqoRuK5h3vDp5OY",
+                        openingHoursSpecification: [
+                          {
+                            "@type": "OpeningHoursSpecification",
+                            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                            opens: "08:00",
+                            closes: "18:00",
+                          },
+                        ],
+                        makesOffer: [
+                          "Cozinha planejada em MDF",
+                          "Guarda-roupa e closet sob medida",
+                          "Painel de TV e estante planejada",
+                          "Home office planejado",
+                          "Gabinete de banheiro sob medida",
+                          "Cozinha infantil, nichos e porta-tempero em MDF",
                         ].map((name) => ({
                           "@type": "Offer",
                           itemOffered: { "@type": "Service", name },
