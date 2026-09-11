@@ -19,17 +19,22 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
+import {
+  INTENSITY_TUNING,
+  MOTION_EASING,
+  MOTION_LIMITS,
+  MOTION_MOBILE,
+  MOTION_OBSERVER,
+  MOTION_REDUCED,
+  motionDataAttrs,
+  type MotionIntensity,
+} from "@/lib/global-motion-contract";
 
-export type MotionIntensity = "SUBTLE" | "BALANCED" | "EXPRESSIVE" | "IMMERSIVE";
+export type { MotionIntensity };
 
-type IntensityTuning = { distance: number; duration: number; stagger: number; scale: number };
-
-const TUNING: Record<MotionIntensity, IntensityTuning> = {
-  SUBTLE: { distance: 8, duration: 320, stagger: 50, scale: 1 },
-  BALANCED: { distance: 16, duration: 420, stagger: 70, scale: 1.01 },
-  EXPRESSIVE: { distance: 26, duration: 520, stagger: 90, scale: 1.03 },
-  IMMERSIVE: { distance: 38, duration: 620, stagger: 110, scale: 1.05 },
-};
+/** Tuning vem do GlobalMotionContract — nenhuma primitive inventa timing. */
+const TUNING = INTENSITY_TUNING;
+const ENTER = MOTION_EASING.enter;
 
 const IntensityContext = createContext<MotionIntensity>("BALANCED");
 
