@@ -9,6 +9,33 @@
     "licensedMedia": [],
     "generatedMedia": [
       {
+        "file": "public/images/carecas-infotec/gen-hero-bancada.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "abertura premium da landing, coerente com a capa aprovada (carvão/amarelo, bancada técnica)",
+        "section": "hero",
+        "dimensions": "1920x1088",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: notebook aberto com componentes e ferramentas de precisão em bancada escura sob luz âmbar"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-diagnostico-aside.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "apoio visual da seção 'Quando procurar' (coluna aside), evitando bloco text-only cru",
+        "section": "quando-procurar",
+        "dimensions": "960x1200",
+        "generatedAt": "2026-09-11",
+        "alt": "Ilustração técnica: celular aberto, placa e ferramentas de precisão em bancada escura"
+      },
+      {
+        "file": "public/images/carecas-infotec/gen-cta-textura.jpg",
+        "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+        "purpose": "textura de fundo do bloco de conversão; decorativa (alt vazio)",
+        "section": "cta",
+        "dimensions": "1920x900",
+        "generatedAt": "2026-09-11",
+        "alt": ""
+      },
+      {
         "file": "public/images/carecas-infotec/gen-notebook-bancada.jpg",
         "provenance": "GENERATED_CONTEXTUAL_MEDIA",
         "purpose": "diferenciar visualmente a frente de computadores e notebooks",
@@ -45,6 +72,7 @@
         "alt": "Composição tecnológica em carvão e amarelo"
       }
     ],
+
     "graphicMedia": ["public/images/carecas-infotec/capa.jpg"],
     "missingMedia": [
       "fachada da loja (owner-required, não bloqueia)",
