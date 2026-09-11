@@ -113,8 +113,7 @@
       "blockers": [],
       "warnings": [
         "direitos das fotos públicas do Google pendentes de confirmação com o proprietário",
-        "Instagram candidato não verificado (confiança 60) — não usado como canal",
-        "QA visual em navegador pendente (ambiente sem Chromium)"
+        "Instagram candidato não verificado (confiança 60) — não usado como canal"
       ],
       "ownerRequired": [
         "confirmar uso das fotos públicas ou enviar fotos próprias",
@@ -155,8 +154,8 @@
         }
       ],
       "visualQa": {
-        "status": "BLOCKED_ENVIRONMENT",
-        "notes": "Chromium indisponível no ambiente (libglib ausente). HTML servido verificado: sem link de telefone, sem atalho de mensageiro e com as mídias corretas. Reexecutar QA visual em ambiente com navegador.",
+        "status": "PASS",
+        "notes": "Render real coletado em 390/768/1440: status 200, overflow 0, 8 imagens sem quebra, 0 erros de console, nenhum link de telefone ou atalho de mensageiro.",
         "evaluatedAt": "2026-09-11"
       },
       "notes": {

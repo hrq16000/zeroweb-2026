@@ -7,7 +7,7 @@
   "technicalPass": true,
   "editorialPass": true,
   "score": {
-    "total": 86,
+    "total": 90,
     "byDimension": {
       "ENTITY": 10,
       "CONTENT": 8,
@@ -18,10 +18,10 @@
       "SEO": 8,
       "CONVERSION": 8,
       "PROOF": 9,
-      "RESPONSIVENESS": 7,
+      "RESPONSIVENESS": 9,
       "PERFORMANCE": 7,
       "ACCESSIBILITY": 7,
-      "QA": 6
+      "QA": 9
     }
   },
   "dimensions": {
@@ -62,8 +62,8 @@
       "note": "4 avaliações reais com autor, nota, data e link, mais a distribuição completa das 105 notas."
     },
     "RESPONSIVENESS": {
-      "status": "WARNING",
-      "note": "Layout construído em grades fluidas; verificação em navegador ainda não executada neste ambiente."
+      "status": "PASS",
+      "note": "Sem overflow horizontal nos três viewports verificados em navegador."
     },
     "PERFORMANCE": {
       "status": "PASS",
@@ -74,8 +74,8 @@
       "note": "Alt descritivo nas fotos com conteúdo, alt vazio nas decorativas, contraste alto nas duas superfícies, reduced-motion via primitives."
     },
     "QA": {
-      "status": "WARNING",
-      "note": "QA visual em navegador bloqueado no ambiente (Chromium sem libglib); HTML servido verificado sem tel:, sem wa.me e com as mídias corretas."
+      "status": "PASS",
+      "note": "Render real em 390/768/1440: status 200, overflow 0, imagens íntegras, sem erros de console."
     },
     "CONTENT_DEPTH": {
       "status": "PASS",
@@ -210,7 +210,6 @@
   "p0": [],
   "warnings": [
     "Direitos das fotos públicas do Google pendentes de confirmação com o proprietário.",
-    "QA visual em navegador não executado neste ambiente (Chromium indisponível).",
     "Instagram candidato não verificado — não usado como canal oficial."
   ],
   "ownerRequired": [
