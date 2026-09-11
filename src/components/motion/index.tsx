@@ -19,17 +19,22 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
+import {
+  INTENSITY_TUNING,
+  MOTION_EASING,
+  MOTION_LIMITS,
+  MOTION_MOBILE,
+  MOTION_OBSERVER,
+  MOTION_REDUCED,
+  motionDataAttrs,
+  type MotionIntensity,
+} from "@/lib/global-motion-contract";
 
-export type MotionIntensity = "SUBTLE" | "BALANCED" | "EXPRESSIVE" | "IMMERSIVE";
+export type { MotionIntensity };
 
-type IntensityTuning = { distance: number; duration: number; stagger: number; scale: number };
-
-const TUNING: Record<MotionIntensity, IntensityTuning> = {
-  SUBTLE: { distance: 8, duration: 320, stagger: 50, scale: 1 },
-  BALANCED: { distance: 16, duration: 420, stagger: 70, scale: 1.01 },
-  EXPRESSIVE: { distance: 26, duration: 520, stagger: 90, scale: 1.03 },
-  IMMERSIVE: { distance: 38, duration: 620, stagger: 110, scale: 1.05 },
-};
+/** Tuning vem do GlobalMotionContract — nenhuma primitive inventa timing. */
+const TUNING = INTENSITY_TUNING;
+const ENTER = MOTION_EASING.enter;
 
 const IntensityContext = createContext<MotionIntensity>("BALANCED");
 
@@ -60,8 +65,8 @@ export function usePrefersReducedMotion(): boolean {
   return reduced;
 }
 
-/** Observa a entrada na viewport uma única vez. */
-export function useInViewOnce<T extends HTMLElement>(rootMargin = "0px 0px -12% 0px") {
+/** Observa a entrada na viewport uma única vez (thresholds do contrato global). */
+export function useInViewOnce<T extends HTMLElement>(rootMargin = MOTION_OBSERVER.rootMargin) {
   const ref = useRef<T | null>(null);
   const [seen, setSeen] = useState(false);
   useEffect(() => {
@@ -80,7 +85,7 @@ export function useInViewOnce<T extends HTMLElement>(rootMargin = "0px 0px -12% 
           }
         }
       },
-      { rootMargin, threshold: 0.05 },
+      { rootMargin, threshold: MOTION_OBSERVER.threshold },
     );
     io.observe(node);
     return () => io.disconnect();
@@ -131,7 +136,8 @@ export function MotionReveal({
   children,
 }: RevealProps) {
   const scopeIntensity = useMotionIntensity();
-  const tune = TUNING[intensity ?? scopeIntensity];
+  const resolved = intensity ?? scopeIntensity;
+  const tune = TUNING[resolved];
   const reduced = usePrefersReducedMotion();
   const [armed, setArmed] = useState(false);
   const { ref, seen } = useInViewOnce<HTMLDivElement>();
@@ -142,18 +148,20 @@ export function MotionReveal({
 
   const active = !armed || seen || reduced;
   const useMask = variant === "mask" && !reduced;
+  const state = reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed";
 
   return (
     <Tag
       ref={ref}
       className={cn(useMask && "overflow-hidden", className)}
+      {...motionDataAttrs("reveal", state, resolved)}
       style={{
         opacity: active ? 1 : 0,
         transform: active || reduced ? "none" : hiddenTransform(variant, tune.distance, tune.scale),
         clipPath: useMask ? (active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)") : undefined,
         transition: reduced
-          ? "opacity 160ms linear"
-          : `opacity ${tune.duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform ${tune.duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, clip-path ${tune.duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+          ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
+          : `opacity ${tune.duration}ms ${ENTER} ${delay}ms, transform ${tune.duration}ms ${ENTER} ${delay}ms, clip-path ${tune.duration}ms ${ENTER} ${delay}ms`,
         willChange: active ? undefined : "transform, opacity",
         ...style,
       }}
@@ -251,15 +259,25 @@ export function MotionImageReveal({
   useEffect(() => setArmed(true), []);
   const active = !armed || seen || reduced;
   const hidden = direction === "left" ? "inset(0 100% 0 0)" : "inset(0 0 100% 0)";
+  const zoomScale = Math.min(tune.scale, MOTION_LIMITS.maxZoomScale);
+  const zoomDuration = Math.max(tune.duration + 240, MOTION_LIMITS.minZoomDurationMs);
   return (
-    <div ref={ref} className={cn("overflow-hidden", className)}>
+    <div
+      ref={ref}
+      className={cn("overflow-hidden", className)}
+      {...motionDataAttrs(
+        "imageReveal",
+        reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed",
+        intensity ?? scopeIntensity,
+      )}
+    >
       <div
         style={{
           clipPath: reduced ? undefined : active ? "inset(0 0 0 0)" : hidden,
-          transform: active || reduced ? "scale(1)" : `scale(${tune.scale})`,
+          transform: active || reduced ? "scale(1)" : `scale(${zoomScale})`,
           transition: reduced
             ? "none"
-            : `clip-path ${tune.duration + 120}ms cubic-bezier(0.22,1,0.36,1), transform ${tune.duration + 240}ms cubic-bezier(0.22,1,0.36,1)`,
+            : `clip-path ${tune.duration + 120}ms ${ENTER}, transform ${zoomDuration}ms ${ENTER}`,
         }}
       >
         {children}
@@ -303,7 +321,11 @@ export function MotionCounter({
   }, [seen, reduced, value, durationMs]);
 
   return (
-    <span ref={ref} className={className}>
+    <span
+      ref={ref}
+      className={className}
+      {...motionDataAttrs("counter", reduced ? "static" : seen ? "played" : "armed")}
+    >
       {prefix}
       {display}
       {suffix}
@@ -317,7 +339,7 @@ export function MotionCounter({
 /* ------------------------------------------------------------------ */
 
 /** true quando a viewport é de desktop — motion pesado não desce para mobile (§12). */
-export function useDesktopViewport(minWidth = 768): boolean {
+export function useDesktopViewport(minWidth = MOTION_MOBILE.desktopMinWidth): boolean {
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia(`(min-width: ${minWidth}px)`);
@@ -389,17 +411,21 @@ export function MotionParallax({
 }) {
   const reduced = usePrefersReducedMotion();
   const isDesktop = useDesktopViewport();
-  const enabled = !reduced && (!desktopOnly || isDesktop);
-  const { ref, progress } = useScrollProgress<HTMLDivElement>(enabled);
-  const offset = enabled ? (0.5 - progress) * 2 * speed : 0;
+  // Mobile/touch e reduced motion nunca recebem parallax (contrato global).
+  const enabled = !reduced && (!desktopOnly || isDesktop) && MOTION_MOBILE.parallax !== undefined;
+  const capped = Math.min(speed, MOTION_LIMITS.maxParallaxOffsetPx);
+  const active = enabled && (isDesktop || !desktopOnly);
+  const { ref, progress } = useScrollProgress<HTMLDivElement>(active);
+  const offset = active ? (0.5 - progress) * 2 * capped : 0;
 
   return (
     <div
       ref={ref}
       className={className}
+      {...motionDataAttrs("parallax", reduced ? "static" : active ? "played" : "idle")}
       style={{
-        transform: enabled ? `translate3d(0, ${offset.toFixed(2)}px, 0)` : undefined,
-        willChange: enabled ? "transform" : undefined,
+        transform: active ? `translate3d(0, ${offset.toFixed(2)}px, 0)` : undefined,
+        willChange: active ? "transform" : undefined,
       }}
     >
       {children}

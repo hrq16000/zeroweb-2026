@@ -3,16 +3,19 @@ import { MessageCircle } from "lucide-react";
 import { motion, useAnimationControls } from "motion/react";
 import { useWaFunnel } from "@/components/site/WaFunnelModal";
 import { useNearFooter } from "@/hooks/useNearFooter";
+import { usePrefersReducedMotion } from "@/components/motion";
 
 export function WhatsAppFloat() {
   const { open } = useWaFunnel();
   const controls = useAnimationControls();
   const [showBubble, setShowBubble] = useState(false);
   const nearFooter = useNearFooter();
+  const reduced = usePrefersReducedMotion();
 
-
-  // Periodic shake + blink to call attention
+  // Chamada periódica de atenção — o contrato global proíbe loop sem guarda
+  // de prefers-reduced-motion, então aqui ele simplesmente não existe.
   useEffect(() => {
+    if (reduced) return;
     let cancelled = false;
     const tick = async () => {
       if (cancelled) return;
@@ -31,7 +34,7 @@ export function WhatsAppFloat() {
       clearTimeout(first);
       clearInterval(interval);
     };
-  }, [controls]);
+  }, [controls, reduced]);
 
   return (
     <div className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-40 flex items-end gap-2 transition-[opacity,transform] duration-300 sm:right-6 ${nearFooter ? "pointer-events-none translate-y-6 opacity-0" : "opacity-100"}`} aria-hidden={nearFooter}>

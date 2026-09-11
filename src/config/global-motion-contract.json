@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "doc": "docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md · docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+  "note": "Contrato único de linguagem de movimento da experiência pública 0WEB. (A) regras globais obrigatórias; (B) perfis locais só ajustam personalidade dentro destes limites.",
+  "tokens": {
+    "duration": {
+      "micro": 160,
+      "element": 260,
+      "section": 420,
+      "page": 520
+    },
+    "easing": {
+      "enter": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "exit": "cubic-bezier(0.7, 0, 0.84, 0)"
+    },
+    "intensity": {
+      "SUBTLE": { "distance": 8, "duration": 320, "stagger": 50, "scale": 1 },
+      "BALANCED": { "distance": 16, "duration": 420, "stagger": 70, "scale": 1.01 },
+      "EXPRESSIVE": { "distance": 26, "duration": 520, "stagger": 90, "scale": 1.03 },
+      "IMMERSIVE": { "distance": 38, "duration": 620, "stagger": 110, "scale": 1.05 }
+    },
+    "opacity": { "hidden": 0, "visible": 1 }
+  },
+  "observer": {
+    "threshold": 0.05,
+    "rootMargin": "0px 0px -12% 0px",
+    "once": true
+  },
+  "limits": {
+    "animatedProperties": ["transform", "opacity", "clip-path"],
+    "forbiddenAnimatedProperties": ["width", "height", "top", "left", "margin"],
+    "maxParallaxLayers": 1,
+    "maxParallaxOffsetPx": 32,
+    "maxZoomScale": 1.06,
+    "minZoomDurationMs": 600,
+    "maxStaggeredGroupsPerViewport": 1,
+    "maxLoopingAnimations": 1
+  },
+  "floatingConversion": {
+    "appearAfterViewportRatio": 0.6,
+    "hideNearFooter": true,
+    "footerSelectors": [
+      "[data-portfolio-canonical-footer]",
+      "footer.bg-foreground",
+      "footer",
+      "[data-portfolio-host-credit]"
+    ],
+    "respectSafeArea": true,
+    "ariaHiddenWhenHidden": true
+  },
+  "mobile": {
+    "parallax": false,
+    "hover": false,
+    "intensityStepDown": 1,
+    "desktopMinWidth": 768
+  },
+  "reducedMotion": {
+    "removes": ["translate", "parallax", "zoom", "loop"],
+    "keeps": ["opacity", "conteúdo integral"],
+    "opacityDurationMs": 160
+  },
+  "observability": {
+    "attributes": {
+      "primitive": "data-motion",
+      "state": "data-motion-state",
+      "intensity": "data-motion-intensity"
+    },
+    "states": ["idle", "armed", "played", "static"],
+    "perceptionThresholds": {
+      "minOpacityDelta": 0.3,
+      "minTranslatePx": 6,
+      "minScaleDelta": 0.01
+    }
+  },
+  "profiles": {
+    "institutional": {
+      "root-editorial": {
+        "intensity": "BALANCED",
+        "preset": "EDITORIAL",
+        "scope": "/ e páginas institucionais principais"
+      },
+      "catalog-calm": {
+        "intensity": "SUBTLE",
+        "preset": "MINIMAL",
+        "scope": "/portfolio e listagens"
+      }
+    },
+    "note": "Perfis de cliente continuam em src/config/portfolio-motion-profiles.json. Moreira: mechanical-contained. JKL: cabinetry-settling."
+  }
+}
