@@ -4,6 +4,7 @@
   "statuses": [
     "VERIFIED",
     "CONFIGURED_UNVERIFIED",
+    "INSUFFICIENT_EVIDENCE",
     "AUTO_RESOLVED",
     "UNRESOLVED",
     "CONFLICT",
@@ -42,6 +43,108 @@
         "Entidade Google resolvida (Place ID ChIJX_1YSWLIYqoRuK5h3vDp5OY)",
         "Funil real validado em produção"
       ]
+    },
+    "dyzpromo": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino existe apenas como variável privada legada (DYZ_PROMO_WHATSAPP_NUMBER), sem registro de origem",
+        "Sem correspondência em client registry, enrichment, intake ou entidade Google local",
+        "Auditoria local 2026-09-12: nenhuma fonte confirma titularidade atual"
+      ]
+    },
+    "emporio-lelecute": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino apenas em variável privada legada (EMPORIO_LELECUTE_WHATSAPP_NUMBER)",
+        "Sem enrichment nem entidade Google resolvida para cruzar o número",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ]
+    },
+    "estrutura-nacional": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "OPERATIONAL_SECRET",
+      "confidence": 45,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino em PORTFOLIO_WHATSAPP_ESTRUTURA_NACIONAL, cadastrado antes do livro-razão",
+        "Brief local (docs/portfolio/briefs/estrutura-nacional.md) não registra telefone",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ]
+    },
+    "heloa-gas": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino apenas em variável privada legada (HELOA_GAS_WHATSAPP_NUMBER)",
+        "Sem enrichment, intake ou entidade Google local para cruzar",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ]
+    },
+    "paraiso-do-hot-dog": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino apenas em variável privada legada (PARAISO_HOT_DOG_WHATSAPP_NUMBER)",
+        "Projeto tem funil de pedido ativo, mas nenhuma fonte local prova titularidade do número",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ]
+    },
+    "r-beauty": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET_SHARED",
+      "confidence": 35,
+      "verifiedAt": null,
+      "evidence": [
+        "Resolve pela mesma variável de renata-beauty (RENATA_BEAUTY_WHATSAPP_NUMBER)",
+        "Dois projetos distintos compartilham um único destino: precisa de decisão humana",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ],
+      "humanDecision": "Confirmar se r_beauty e renata-beauty são o mesmo negócio ou se cada um deve ter destino próprio."
+    },
+    "renata-beauty": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET_SHARED",
+      "confidence": 35,
+      "verifiedAt": null,
+      "evidence": [
+        "Mesma variável privada atende também o projeto r_beauty",
+        "Sem evidência local de titularidade atual do número",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ],
+      "humanDecision": "Confirmar se r_beauty e renata-beauty são o mesmo negócio ou se cada um deve ter destino próprio."
+    },
+    "rm-fretes": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "LEGACY_OPERATIONAL_SECRET",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino apenas em variável privada legada (RM_FRETES_WHATSAPP_NUMBER)",
+        "Projeto com maior volume de leads do portfólio: verificação prioritária com o cliente",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ]
+    },
+    "sscons": {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "source": "OPERATIONAL_SECRET",
+      "confidence": 45,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino em PORTFOLIO_WHATSAPP_SSCONS, cadastrado antes do livro-razão",
+        "Migração documentada (docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md) não registra origem do número",
+        "Auditoria local 2026-09-12: evidência insuficiente"
+      ]
     }
   }
 }
+
