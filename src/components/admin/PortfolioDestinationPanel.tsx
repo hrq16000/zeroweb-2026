@@ -111,6 +111,20 @@ export function PortfolioDestinationPanel() {
         </p>
       )}
 
+      {delivery && (
+        <div className="mt-3 rounded-md border border-border bg-muted/30 p-3">
+          <h3 className="text-sm font-semibold">Entrega dos pedidos</h3>
+          <p className="mt-1 text-xs text-muted-foreground">
+            {delivery.totals.total} pedidos registrados · {delivery.totals.delivered} entregues ·{" "}
+            {delivery.totals.pending} aguardando abertura ·{" "}
+            {delivery.totals.configurationRequired} aguardando configuração de destino ·{" "}
+            {delivery.totals.failed} com falha · {delivery.totals.recoverable} recuperáveis ·{" "}
+            {delivery.totals.unrecoverable} históricos irrecuperáveis.
+          </p>
+        </div>
+      )}
+
+
       {error && (
         <p role="alert" className="mt-3 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm">
           {error}
