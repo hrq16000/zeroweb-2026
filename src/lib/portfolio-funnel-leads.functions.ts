@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { maskPhoneForDisplay } from "@/lib/portfolio-host-leads";
 
 export type PortfolioFunnelLead = {
   id: string;
@@ -9,7 +10,9 @@ export type PortfolioFunnelLead = {
   funnel_name: string;
   client_key: string | null;
   contact_name: string | null;
-  contact_phone: string | null;
+  /** Somente máscara. O número completo nunca é serializado nesta listagem. */
+  contact_phone_masked: string | null;
+  has_recovery_contact: boolean;
   status: string | null;
   pipeline_stage: string | null;
   order_items: string | null;
@@ -88,7 +91,8 @@ export const listPortfolioFunnelLeads = createServerFn({ method: "POST" })
           : (r.dynamic_forms?.name ?? "—"),
         client_key: clientKey,
         contact_name: r.contact_name ?? null,
-        contact_phone: r.contact_phone ?? null,
+        contact_phone_masked: r.contact_phone ? maskPhoneForDisplay(r.contact_phone) : null,
+        has_recovery_contact: Boolean(r.contact_phone),
         status: (r.whatsapp_alert_status as string | null) ?? null,
         pipeline_stage: (r.pipeline_stage as string | null) ?? null,
         ...pickOrderContext(meta),
