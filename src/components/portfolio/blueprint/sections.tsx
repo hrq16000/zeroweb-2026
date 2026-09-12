@@ -1213,7 +1213,11 @@ function Signals({ section, ctx }: { section: SignalsSection; ctx: SectionContex
 function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: SectionContext }) {
   const c = section.content;
   return (
-    <section id={section.id} className="relative isolate overflow-hidden px-6 py-20 md:px-12 md:py-24">
+    <section
+      id={section.id}
+      /* o tema da seção define --background/--foreground: o texto precisa segui-los */
+      className="relative isolate overflow-hidden bg-background px-6 py-20 text-foreground md:px-12 md:py-24"
+    >
       {c.image ? (
         <>
           <Img image={c.image} className="absolute inset-0 -z-10 h-full w-full object-cover" />
