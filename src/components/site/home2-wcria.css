@@ -1732,6 +1732,12 @@
   .home2-mobile-nav.is-open a:nth-child(4) { transition-delay: 105ms; }
   .home2-mobile-nav.is-open a:nth-child(5) { transition-delay: 140ms; }
   .home2-principle:nth-child(2) { transform: none; }
+  /* Horizontal rails keep every off-screen item visible and swipeable. */
+  .home2-motion-ready .home2-editorial-card.home2-motion {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

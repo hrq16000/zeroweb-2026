@@ -67,4 +67,4 @@
 - [x] Corrigir mídia de projetos com motion fail-open
 - [x] Substituir mídia editorial por capas reais de artigos
 - [x] Reutilizar CTA flutuante oficial e enriquecer motion contextual
-- [ ] Validar runtime 1440/768/390/reduced, testes e build
+- [x] Validar runtime 1440/768/390/reduced, testes e build
