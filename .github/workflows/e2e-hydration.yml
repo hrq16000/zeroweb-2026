@@ -33,7 +33,7 @@ jobs:
         run: bun run test
 
       - name: Typecheck
-        run: bunx tsgo --noEmit
+        run: bunx tsc --noEmit
 
       - name: Instalar Chromium (Playwright)
         run: bunx playwright install --with-deps chromium
@@ -50,9 +50,6 @@ jobs:
       - name: Validator — privacidade do cliente
         run: node scripts/validate-client-privacy.mjs
 
-      # O preset do Nitro é `cloudflare-module`: `vite preview` procura
-      # dist/server/server.js (inexistente) e falha com ERR_MODULE_NOT_FOUND.
-      # O artefato publicado é servido pelo runtime real do worker.
       - name: Subir artefato de produção (worker)
         run: |
           PREVIEW_PORT=8080 bun run preview:prod > /tmp/preview-server.log 2>&1 &
@@ -69,7 +66,7 @@ jobs:
         run: bun run test:e2e:hydration
 
       - name: Gate — E2E Funnel-first
-        run: bun run test:e2e
+        run: bun run test:e2e:funnel
 
       - name: Logs do servidor (em caso de falha)
         if: failure()
