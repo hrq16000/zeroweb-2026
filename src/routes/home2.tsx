@@ -453,9 +453,9 @@ function Showcase() {
             <Link
               to="/portfolio/$slug"
               params={{ slug: lead.slug }}
-              className="group block h-full overflow-hidden rounded-2xl border border-border"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border"
             >
-              <div className="overflow-hidden">
+              <div className="min-h-0 flex-1 overflow-hidden">
                 <PortfolioCover
                   slug={lead.slug}
                   clientKey={lead.clientKey}
@@ -465,7 +465,7 @@ function Showcase() {
                   width={1120}
                   height={720}
                   sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="aspect-[4/3] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="flex flex-wrap items-end justify-between gap-4 p-6 lg:p-8">
