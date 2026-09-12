@@ -3,9 +3,9 @@
 /**
  * Recovery audit for portfolio contact bindings.
  *
- * Read-only by design: it scans the current worktree and Git history for
- * Brazilian phone/WhatsApp candidates and writes evidence reports. It NEVER
- * promotes a candidate to VERIFIED and NEVER rewrites the canonical registry.
+ * Read-only by design: scans the current worktree and Git history for Brazilian
+ * phone/WhatsApp candidates and writes evidence reports. It NEVER promotes a
+ * candidate to VERIFIED and NEVER rewrites the canonical binding registry.
  *
  * Run:
  *   node scripts/recover-portfolio-contact-bindings.mjs
@@ -36,7 +36,9 @@ const SCAN_ROOTS = [
   "docs/portfolio",
   "supabase/migrations",
 ];
-const TEXT_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".mjs", ".json", ".md", ".sql", ".txt", ".yml", ".yaml"]);
+const TEXT_EXTENSIONS = new Set([
+  ".ts", ".tsx", ".js", ".mjs", ".json", ".md", ".sql", ".txt", ".yml", ".yaml",
+]);
 
 function loadClientKeys() {
   const source = readFileSync(CLIENT_KEYS_FILE, "utf8");
@@ -47,16 +49,19 @@ function loadClientKeys() {
 
 function normalizeKey(value) {
   return String(value || "")
-    .toLowerCase()
     .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+    .toLowerCase()
     .replace(/_/g, "-")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
 
+function compact(value) {
+  return normalizeKey(value).replaceAll("-", "");
+}
+
 function normalizeBrazilPhone(raw) {
   const digits = String(raw || "").replace(/\D/g, "");
-  if (!digits || digits.includes("*")) return null;
   if (digits.length === 10 || digits.length === 11) return `55${digits}`;
   if ((digits.length === 12 || digits.length === 13) && digits.startsWith("55")) return digits;
   return null;
@@ -74,8 +79,7 @@ function extractPhones(text) {
     pattern.lastIndex = 0;
     let match;
     while ((match = pattern.exec(text))) {
-      const raw = match[0];
-      const normalized = normalizeBrazilPhone(raw);
+      const normalized = normalizeBrazilPhone(match[0]);
       if (normalized) out.add(normalized);
     }
   }
@@ -95,7 +99,14 @@ function walk(dir, files = []) {
 
 function inferClientKey(filePath, clientKeys) {
   const normalizedPath = normalizeKey(filePath.replace(ROOT, ""));
-  const exact = clientKeys.find((key) => normalizedPath.includes(normalizeKey(key)));
+  const compactPath = compact(filePath.replace(ROOT, ""));
+
+  // Handles both kebab-case paths and CamelCase page filenames such as
+  // PastelariaRoute66Page.tsx / RMFretesPage.tsx.
+  const exact = clientKeys.find((key) => {
+    const normalized = normalizeKey(key);
+    return normalizedPath.includes(normalized) || compactPath.includes(compact(normalized));
+  });
   if (exact) return exact;
 
   const base = normalizeKey(path.basename(filePath, path.extname(filePath)).replace(/Page$/i, ""));
@@ -165,14 +176,7 @@ function scanGitHistory(clientKeys, candidates) {
     log = execFileSync(
       "git",
       [
-        "log",
-        "--all",
-        "--format=@@COMMIT:%H",
-        "--patch",
-        "-U0",
-        "--no-ext-diff",
-        "--",
-        ...SCAN_ROOTS,
+        "log", "--all", "--format=@@COMMIT:%H", "--patch", "-U0", "--no-ext-diff", "--", ...SCAN_ROOTS,
       ],
       { cwd: ROOT, encoding: "utf8", maxBuffer: 128 * 1024 * 1024 },
     );
@@ -237,7 +241,10 @@ function buildSummary(clientKeys, candidates, bindings) {
       bindingPhone: binding?.phoneE164 || null,
       recoveredCandidates: found.map((x) => x.phoneE164),
       candidateCount: found.length,
-      needsReview: !binding || binding.status !== "VERIFIED" || found.some((x) => binding?.phoneE164 && x.phoneE164 !== binding.phoneE164),
+      needsReview:
+        !binding ||
+        binding.status !== "VERIFIED" ||
+        found.some((x) => binding?.phoneE164 && x.phoneE164 !== binding.phoneE164),
     };
   });
 
@@ -281,7 +288,8 @@ function writeReports(report) {
     "| clientKey | binding atual | candidatos recuperados | revisão |",
     "|---|---|---|---|",
     ...report.projects.map(
-      (p) => `| ${p.clientKey} | ${p.bindingStatus}${p.bindingPhone ? ` · ${p.bindingPhone}` : ""} | ${p.recoveredCandidates.join(", ") || "—"} | ${p.needsReview ? "SIM" : "não"} |`,
+      (p) =>
+        `| ${p.clientKey} | ${p.bindingStatus}${p.bindingPhone ? ` · ${p.bindingPhone}` : ""} | ${p.recoveredCandidates.join(", ") || "—"} | ${p.needsReview ? "SIM" : "não"} |`,
     ),
     "",
   ];
