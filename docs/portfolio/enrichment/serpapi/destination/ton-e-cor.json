@@ -1,0 +1,29 @@
+{
+  "slug": "ton-e-cor",
+  "query": "Ton & Cor · Pintura e Pequenas Reformas Região de Curitiba",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:14:59.087Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Ton+%26+Cor+%C2%B7+Pintura+e+Pequenas+Reformas+Regi%C3%A3o+de+Curitiba&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:59.086Z",
+    "sourceUrl": "https://www.google.com/maps/search/Ton+%26+Cor+%C2%B7+Pintura+e+Pequenas+Reformas+Regi%C3%A3o+de+Curitiba/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ537yReLh3JQResEl8Nja5-I",
+      "dataId": "0x94dce1e245f27ee7:0xe2e7dad8f025c17a",
+      "name": "Tons de Arte",
+      "category": "Pintor, Service establishment",
+      "address": null,
+      "phone": "(41) 99706-9608",
+      "website": "https://tonsdearte.com.br/",
+      "rating": 5,
+      "reviewCount": 33,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ537yReLh3JQResEl8Nja5-I"
+    }
+  ]
+}

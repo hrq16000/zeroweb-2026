@@ -1,0 +1,29 @@
+{
+  "slug": "bh-barreiro-marmitas",
+  "query": "Marmitas do Barreiro Belo Horizonte",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:05.248Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Marmitas+do+Barreiro+Belo+Horizonte&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:05.248Z",
+    "sourceUrl": "https://www.google.com/maps/search/Marmitas+do+Barreiro+Belo+Horizonte/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJqyFAnMy9pgARpDDfsYpT8F0",
+      "dataId": "0xa6bdcc9c4021ab:0x5df0538ab1df30a4",
+      "name": "Marmitex no Barreiro - Cantina da Fafá",
+      "category": "Restaurante",
+      "address": "Rua Francisco Duarte Mendonça, 2.062 - Lj B - Santa Helena, Belo Horizonte - MG, 30642-310",
+      "phone": "(31) 99774-1866",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 23,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqyFAnMy9pgARpDDfsYpT8F0"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "simone-lacerda-vaz",
+  "query": "Simone Lacerda Vaz · Nutricionista Brasil",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:14:59.952Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Simone+Lacerda+Vaz+%C2%B7+Nutricionista+Brasil&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:59.952Z",
+    "sourceUrl": "https://www.google.com/maps/search/Simone+Lacerda+Vaz+%C2%B7+Nutricionista+Brasil/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ7wvUD76tvZQRkDu8D0_vHt4",
+      "dataId": "0x94bdadbe0fd40bef:0xde1eef4f0fbc3b90",
+      "name": "Simone Lima Nutricionista",
+      "category": "Nutricionista, Médico de fertilidade",
+      "address": "R. Raul de Carvalho, 2292 - Boa Vista, São José do Rio Preto - SP, 15025-300",
+      "phone": "(17) 3364-0727",
+      "website": "https://dietbox.me/pt-BR/simone-lima",
+      "rating": 5,
+      "reviewCount": 40,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ7wvUD76tvZQRkDu8D0_vHt4"
+    }
+  ]
+}

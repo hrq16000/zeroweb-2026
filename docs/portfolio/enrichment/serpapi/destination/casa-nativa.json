@@ -1,0 +1,29 @@
+{
+  "slug": "casa-nativa",
+  "query": "Casa Nativa Bistrô Belo Horizonte",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:02.842Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Casa+Nativa+Bistr%C3%B4+Belo+Horizonte&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:02.842Z",
+    "sourceUrl": "https://www.google.com/maps/search/Casa+Nativa+Bistr%C3%B4+Belo+Horizonte/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJefjL2oZfpgAR5-ZJH8NZsoQ",
+      "dataId": "0xa65f86dacbf879:0x84b259c31f49e6e7",
+      "name": "Nativa Brasil Bar e Restaurante",
+      "category": "Restaurante, Bar de cervejas, Bar, Local para eventos, Restaurante familiar, Bar com música ao vivo, Local com música ao vivo, Local de apresentações de rock, Espaço de memória, Restaurante Mineiro",
+      "address": "perto do Bar da Cleusa - R. Rita Rodrigues Lima, 40 - Barbosa, Capim Branco - MG, 35720-000",
+      "phone": "(31) 99802-3751",
+      "website": "https://www.instagram.com/nativabrasilbar/",
+      "rating": 4.4,
+      "reviewCount": 41,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJefjL2oZfpgAR5-ZJH8NZsoQ"
+    }
+  ]
+}
