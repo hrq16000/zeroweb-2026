@@ -359,13 +359,38 @@ function htmlErrorPage(
   title: string,
   body: string,
   status = 410,
-  opts?: { reissueToken?: string | null; protocol?: string | null },
+  opts?: { reissueToken?: string | null; protocol?: string | null; recoveryToken?: string | null },
 ): Response {
   const reissue = opts?.reissueToken
     ? `<a class="primary" href="/r/whatsapp/reissue/${escapeHtml(opts.reissueToken)}">Reenviar minha solicitação</a>`
     : "";
   const protocol = opts?.protocol
     ? `<p class="proto">Protocolo <strong>${escapeHtml(opts.protocol)}</strong><br/>Guarde este código: sua solicitação já está registrada conosco.</p>`
+    : "";
+  // Recuperabilidade: sem destino operacional, a conclusão nunca é um beco sem
+  // saída — o visitante pode deixar um WhatsApp de retorno para esta
+  // solicitação. O contato é anexado ao pedido já salvo, no servidor.
+  const recovery = opts?.recoveryToken
+    ? `<form class="recovery" id="rec" data-testid="redirect-recovery">
+    <label for="rec-contact">Em qual WhatsApp podemos retornar?</label>
+    <input id="rec-contact" name="contact" type="tel" inputmode="tel" maxlength="40" autocomplete="tel" placeholder="(41) 99999-0000" required />
+    <button type="submit" id="rec-btn">Quero receber o retorno</button>
+    <p class="hint" id="rec-msg" role="status">Usado apenas para responder a esta solicitação.</p>
+  </form>
+  <script>
+    (function(){
+      var f=document.getElementById('rec'),m=document.getElementById('rec-msg'),b=document.getElementById('rec-btn');
+      f.addEventListener('submit',function(e){e.preventDefault();b.disabled=true;m.textContent='Salvando…';
+        fetch('/api/public/funnel-recovery',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:${JSON.stringify(
+          opts.recoveryToken,
+        )},contact:document.getElementById('rec-contact').value})})
+        .then(function(r){return r.json().catch(function(){return{ok:false}})})
+        .then(function(j){ if(j&&j.ok){f.innerHTML='<p class="hint">Pronto! Vamos retornar neste WhatsApp sobre esta solicitação.</p>';}
+          else {b.disabled=false;m.textContent='Informe um WhatsApp com DDD, por exemplo (41) 99999-0000.';}})
+        .catch(function(){b.disabled=false;m.textContent='Não foi possível salvar agora. Tente novamente.';});
+      });
+    })();
+  </script>`
     : "";
   const html = `<!doctype html>
 <html lang="pt-BR"><head>
