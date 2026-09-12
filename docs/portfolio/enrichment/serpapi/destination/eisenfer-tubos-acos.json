@@ -1,0 +1,29 @@
+{
+  "slug": "eisenfer-tubos-acos",
+  "query": "Eisenfer Tubos e Aços São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:12:50.981Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Eisenfer+Tubos+e+A%C3%A7os+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:12:50.980Z",
+    "sourceUrl": "https://www.google.com/maps/search/Eisenfer+Tubos+e+A%C3%A7os+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJaf8O8pb73JQRvXH-WYDvl6E",
+      "dataId": "0x94dcfb96f20eff69:0xa197ef8059fe71bd",
+      "name": "Eisenfer - Tubos - Telhas - Perfis - Chapas em aço",
+      "category": "Distribuidor de aço",
+      "address": "Av. das Américas, 154 - São Domingos, São José dos Pinhais - PR, 83030-640",
+      "phone": "(41) 3534-6290",
+      "website": "http://www.eisenfer.com.br/",
+      "rating": 4.9,
+      "reviewCount": 141,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJaf8O8pb73JQRvXH-WYDvl6E"
+    }
+  ]
+}
