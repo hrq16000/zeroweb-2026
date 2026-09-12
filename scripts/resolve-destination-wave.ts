@@ -74,8 +74,9 @@ function nameMatch(expected: string, candidate: string | null): "STRONG" | "WEAK
   const b = new Set(tokens(candidate));
   if (!a.length) return "NONE";
   const hits = a.filter((t) => b.has(t));
-  const distinctive = hits.filter((t) => t.length >= 6);
-  if (hits.length >= 2 || distinctive.length >= 1) return "STRONG";
+  // Um único token em comum nunca é prova de identidade ("beauty", "fretes",
+  // "construcoes" repetem-se em dezenas de negócios distintos).
+  if (hits.length >= 2) return "STRONG";
   return hits.length === 1 ? "WEAK" : "NONE";
 }
 

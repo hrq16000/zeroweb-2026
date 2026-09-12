@@ -50,9 +50,8 @@
       "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Destino existe apenas como variável privada legada (DYZ_PROMO_WHATSAPP_NUMBER), sem registro de origem",
-        "Sem correspondência em client registry, enrichment, intake ou entidade Google local",
-        "Auditoria local 2026-09-12: nenhuma fonte confirma titularidade atual"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9***-5277); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ]
     },
     "emporio-lelecute": {
@@ -61,20 +60,19 @@
       "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Destino apenas em variável privada legada (EMPORIO_LELECUTE_WHATSAPP_NUMBER)",
-        "Sem enrichment nem entidade Google resolvida para cruzar o número",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9****-4299); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ]
     },
     "estrutura-nacional": {
-      "status": "INSUFFICIENT_EVIDENCE",
-      "source": "OPERATIONAL_SECRET",
-      "confidence": 45,
-      "verifiedAt": null,
+      "status": "VERIFIED",
+      "source": "OPERATIONAL_SECRET+GOOGLE_ENTITY",
+      "confidence": 95,
+      "verifiedAt": "2026-09-12",
       "evidence": [
-        "Destino em PORTFOLIO_WHATSAPP_ESTRUTURA_NACIONAL, cadastrado antes do livro-razão",
-        "Brief local (docs/portfolio/briefs/estrutura-nacional.md) não registra telefone",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 3***-1100); evidência de entidade lida do cache local",
+        "Telefone da ficha Google \"Estrutura Nacional\" (R. Pedro Trevisan, 139 - Pedro Moro, São José dos Pinhais - PR, 83025-690) confere com o destino configurado",
+        "Place ID ChIJ97pW41753JQRVT_k6k7MX2c"
       ]
     },
     "heloa-gas": {
@@ -83,43 +81,40 @@
       "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Destino apenas em variável privada legada (HELOA_GAS_WHATSAPP_NUMBER)",
-        "Sem enrichment, intake ou entidade Google local para cruzar",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9****-3751); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ]
     },
     "paraiso-do-hot-dog": {
-      "status": "INSUFFICIENT_EVIDENCE",
-      "source": "LEGACY_OPERATIONAL_SECRET",
-      "confidence": 40,
-      "verifiedAt": null,
+      "status": "VERIFIED",
+      "source": "OPERATIONAL_SECRET+GOOGLE_ENTITY",
+      "confidence": 95,
+      "verifiedAt": "2026-09-12",
       "evidence": [
-        "Destino apenas em variável privada legada (PARAISO_HOT_DOG_WHATSAPP_NUMBER)",
-        "Projeto tem funil de pedido ativo, mas nenhuma fonte local prova titularidade do número",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9***-5258); evidência de entidade lida do cache local",
+        "Telefone da ficha Google \"PARAÍSO DO HOT DOG\" (Av. Rui Barbosa, 11897 - Aristocrata, São José dos Pinhais - PR, 83025) confere com o destino configurado",
+        "Place ID ChIJPwvMKQD53JQR5DLIhnGU5Po"
       ]
     },
     "r-beauty": {
       "status": "INSUFFICIENT_EVIDENCE",
       "source": "LEGACY_OPERATIONAL_SECRET_SHARED",
-      "confidence": 35,
+      "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Resolve pela mesma variável de renata-beauty (RENATA_BEAUTY_WHATSAPP_NUMBER)",
-        "Dois projetos distintos compartilham um único destino: precisa de decisão humana",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9***-8639); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ],
       "humanDecision": "Confirmar se r_beauty e renata-beauty são o mesmo negócio ou se cada um deve ter destino próprio."
     },
     "renata-beauty": {
       "status": "INSUFFICIENT_EVIDENCE",
       "source": "LEGACY_OPERATIONAL_SECRET_SHARED",
-      "confidence": 35,
+      "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Mesma variável privada atende também o projeto r_beauty",
-        "Sem evidência local de titularidade atual do número",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9***-8639); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ],
       "humanDecision": "Confirmar se r_beauty e renata-beauty são o mesmo negócio ou se cada um deve ter destino próprio."
     },
@@ -129,20 +124,18 @@
       "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Destino apenas em variável privada legada (RM_FRETES_WHATSAPP_NUMBER)",
-        "Projeto com maior volume de leads do portfólio: verificação prioritária com o cliente",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9****-4481); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ]
     },
     "sscons": {
       "status": "INSUFFICIENT_EVIDENCE",
       "source": "OPERATIONAL_SECRET",
-      "confidence": 45,
+      "confidence": 40,
       "verifiedAt": null,
       "evidence": [
-        "Destino em PORTFOLIO_WHATSAPP_SSCONS, cadastrado antes do livro-razão",
-        "Migração documentada (docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md) não registra origem do número",
-        "Auditoria local 2026-09-12: evidência insuficiente"
+        "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9****-8195); evidência de entidade lida do cache local",
+        "Nenhum candidato Google corresponde inequivocamente à entidade — evidência insuficiente para promover"
       ]
     },
     "marido-de-aluguel": {
