@@ -67,33 +67,45 @@ async function loadCandidates(slug: string, query: string, location: string) {
     return { candidates: (cached.candidates ?? []) as PlaceCandidate[], calls: 0, cached: true };
   }
   if (!allowExternal) return { candidates: [] as PlaceCandidate[], calls: 0, cached: false };
-  try {
-    const { candidates, provenance } = await searchPlaceCandidates(query, location);
-    mkdirSync(CACHE_DIR, { recursive: true });
-    writeFileSync(
-      file,
-      `${JSON.stringify(
-        {
-          slug,
-          query,
-          location,
-          resolvedAt: new Date().toISOString(),
-          callCount: 1,
-          stage: candidates.length ? "SUCCESS" : "NO_RESULTS",
-          provenance,
-          candidates,
-        },
-        null,
-        2,
-      )}\n`,
-      "utf8",
-    );
-    return { candidates, calls: 1, cached: false };
-  } catch (error) {
-    console.log(`  ! falha na pesquisa de ${slug}: ${String((error as Error)?.message ?? error)}`);
-    return { candidates: [] as PlaceCandidate[], calls: 1, cached: false };
+  let calls = 0;
+  // Localidade fora do Paraná (ou região genérica) não é aceita pelo provedor:
+  // repetimos uma única vez com abrangência nacional antes de desistir.
+  for (const loc of [location, "Brazil"]) {
+    try {
+      calls += 1;
+      const { candidates, provenance } = await searchPlaceCandidates(query, loc);
+      mkdirSync(CACHE_DIR, { recursive: true });
+      writeFileSync(
+        file,
+        `${JSON.stringify(
+          {
+            slug,
+            query,
+            location: loc,
+            resolvedAt: new Date().toISOString(),
+            callCount: calls,
+            stage: candidates.length ? "SUCCESS" : "NO_RESULTS",
+            provenance,
+            candidates,
+          },
+          null,
+          2,
+        )}\n`,
+        "utf8",
+      );
+      return { candidates, calls, cached: false };
+    } catch (error) {
+      const message = String((error as Error)?.message ?? error);
+      if (!message.includes("location")) {
+        console.log(`  ! falha na pesquisa de ${slug}: ${message}`);
+        return { candidates: [] as PlaceCandidate[], calls, cached: false };
+      }
+    }
   }
+  console.log(`  ! localidade não suportada para ${slug}`);
+  return { candidates: [] as PlaceCandidate[], calls, cached: false };
 }
+
 
 const SUPABASE_URL = process.env["SUPABASE_URL"]!;
 const SERVICE_KEY = process.env["SUPABASE_SERVICE_ROLE_KEY"]!;
