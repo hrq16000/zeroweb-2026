@@ -29,6 +29,7 @@ import { Route as DyzpromoRouteImport } from './routes/dyzpromo'
 import { Route as EstadosRouteImport } from './routes/estados'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GoogleMeuNegocioRouteImport } from './routes/google-meu-negocio'
+import { Route as Home2RouteImport } from './routes/home2'
 import { Route as IaRouteImport } from './routes/ia'
 import { Route as InfraestruturaRouteImport } from './routes/infraestrutura'
 import { Route as LandingPagesRouteImport } from './routes/landing-pages'
@@ -338,6 +339,11 @@ const FaqRoute = FaqRouteImport.update({
 const GoogleMeuNegocioRoute = GoogleMeuNegocioRouteImport.update({
   id: '/google-meu-negocio',
   path: '/google-meu-negocio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Home2Route = Home2RouteImport.update({
+  id: '/home2',
+  path: '/home2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IaRoute = IaRouteImport.update({
@@ -1496,6 +1502,7 @@ export interface FileRoutesByFullPath {
   '/estados': typeof EstadosRouteWithChildren
   '/faq': typeof FaqRoute
   '/google-meu-negocio': typeof GoogleMeuNegocioRoute
+  '/home2': typeof Home2Route
   '/ia': typeof IaRoute
   '/infraestrutura': typeof InfraestruturaRoute
   '/landing-pages': typeof LandingPagesRoute
@@ -1726,6 +1733,7 @@ export interface FileRoutesByTo {
   '/estados': typeof EstadosRouteWithChildren
   '/faq': typeof FaqRoute
   '/google-meu-negocio': typeof GoogleMeuNegocioRoute
+  '/home2': typeof Home2Route
   '/ia': typeof IaRoute
   '/infraestrutura': typeof InfraestruturaRoute
   '/landing-pages': typeof LandingPagesRoute
@@ -1956,6 +1964,7 @@ export interface FileRoutesById {
   '/estados': typeof EstadosRouteWithChildren
   '/faq': typeof FaqRoute
   '/google-meu-negocio': typeof GoogleMeuNegocioRoute
+  '/home2': typeof Home2Route
   '/ia': typeof IaRoute
   '/infraestrutura': typeof InfraestruturaRoute
   '/landing-pages': typeof LandingPagesRoute
@@ -2189,6 +2198,7 @@ export interface FileRouteTypes {
     | '/estados'
     | '/faq'
     | '/google-meu-negocio'
+    | '/home2'
     | '/ia'
     | '/infraestrutura'
     | '/landing-pages'
@@ -2419,6 +2429,7 @@ export interface FileRouteTypes {
     | '/estados'
     | '/faq'
     | '/google-meu-negocio'
+    | '/home2'
     | '/ia'
     | '/infraestrutura'
     | '/landing-pages'
@@ -2648,6 +2659,7 @@ export interface FileRouteTypes {
     | '/estados'
     | '/faq'
     | '/google-meu-negocio'
+    | '/home2'
     | '/ia'
     | '/infraestrutura'
     | '/landing-pages'
@@ -2881,6 +2893,7 @@ export interface RootRouteChildren {
   EstadosRoute: typeof EstadosRouteWithChildren
   FaqRoute: typeof FaqRoute
   GoogleMeuNegocioRoute: typeof GoogleMeuNegocioRoute
+  Home2Route: typeof Home2Route
   IaRoute: typeof IaRoute
   InfraestruturaRoute: typeof InfraestruturaRoute
   LandingPagesRoute: typeof LandingPagesRoute
@@ -3145,6 +3158,13 @@ declare module '@tanstack/react-router' {
       path: '/google-meu-negocio'
       fullPath: '/google-meu-negocio'
       preLoaderRoute: typeof GoogleMeuNegocioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home2': {
+      id: '/home2'
+      path: '/home2'
+      fullPath: '/home2'
+      preLoaderRoute: typeof Home2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ia': {
@@ -4961,6 +4981,7 @@ const rootRouteChildren: RootRouteChildren = {
   EstadosRoute: EstadosRouteWithChildren,
   FaqRoute: FaqRoute,
   GoogleMeuNegocioRoute: GoogleMeuNegocioRoute,
+  Home2Route: Home2Route,
   IaRoute: IaRoute,
   InfraestruturaRoute: InfraestruturaRoute,
   LandingPagesRoute: LandingPagesRoute,
