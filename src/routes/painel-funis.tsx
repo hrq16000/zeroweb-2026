@@ -5,6 +5,7 @@ import { RefreshCcw, ShoppingBag } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { PainelGate } from "@/components/site/PainelGate";
+import { revealLeadRecoveryContact } from "@/lib/lead-recovery-contact.functions";
 import {
   listPortfolioFunnelLeads,
   type PortfolioFunnelLead,
@@ -32,6 +33,10 @@ export const Route = createFileRoute("/painel-funis")({
 
 function FunnelLeadsPanel() {
   const load = useServerFn(listPortfolioFunnelLeads);
+  const reveal = useServerFn(revealLeadRecoveryContact);
+  // Número completo só aparece após ação explícita e registrada; nunca vem
+  // pronto na listagem.
+  const [revealed, setRevealed] = useState<Record<string, string>>({});
   const [leads, setLeads] = useState<PortfolioFunnelLead[]>([]);
   const [funnels, setFunnels] = useState<string[]>([]);
   const [clients, setClients] = useState<string[]>([]);
@@ -182,7 +187,28 @@ function FunnelLeadsPanel() {
                     <td className="px-3 py-2">{l.client_key ?? "—"}</td>
                     <td className="px-3 py-2">
                       <div>{l.contact_name ?? "—"}</div>
-                      <div className="text-xs text-muted-foreground">{l.contact_phone ?? ""}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {revealed[l.id] ?? l.contact_phone_masked ?? "—"}
+                      </div>
+                      {l.has_recovery_contact && !revealed[l.id] && (
+                        <button
+                          type="button"
+                          className="mt-1 text-xs font-semibold text-primary underline"
+                          onClick={async () => {
+                            const reason = window.prompt(
+                              "Motivo do acesso ao contato (registrado em auditoria):",
+                              "retorno sobre a solicitação",
+                            );
+                            if (!reason) return;
+                            const r = await reveal({ data: { leadId: l.id, reason } });
+                            if (r.available && r.contact) {
+                              setRevealed((c) => ({ ...c, [l.id]: r.contact as string }));
+                            }
+                          }}
+                        >
+                          Ver contato de retorno
+                        </button>
+                      )}
                     </td>
                     <td className="max-w-[22rem] px-3 py-2">{l.order_items ?? "—"}</td>
                     <td className="whitespace-nowrap px-3 py-2">

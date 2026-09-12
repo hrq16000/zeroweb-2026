@@ -2315,7 +2315,15 @@ export type Database = {
           slug?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "lead_delivery_ledger_lead_fk"
+            columns: ["lead_id"]
+            isOneToOne: true
+            referencedRelation: "dynamic_form_leads"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       lead_history: {
         Row: {
