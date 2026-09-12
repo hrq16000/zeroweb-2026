@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-const b = await chromium.launch({ headless: true });
+const b = await chromium.launch({ headless: true, executablePath: (await import("node:fs")).readdirSync("/opt/ms-playwright").filter(n=>n.startsWith("chromium-")&&!n.includes("headless")).map(n=>`/opt/ms-playwright/${n}/chrome-linux/chrome`)[0] });
 const ctx = await b.newContext({ viewport: { width: 1280, height: 1800 } });
 const p = await ctx.newPage();
 await p.goto("https://0web.com.br/portfolio/rm-fretes", { waitUntil: "domcontentloaded" });
