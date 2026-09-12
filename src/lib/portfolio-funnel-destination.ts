@@ -15,10 +15,45 @@ export const DESTINATION_STATUSES = [
   "AUTO_RESOLVED",
   "UNRESOLVED",
   "CONFLICT",
+  "CHANGE_PENDING",
+  "CONFIGURATION_ERROR",
   "NOT_APPLICABLE",
 ] as const;
 
 export type DestinationStatus = (typeof DESTINATION_STATUSES)[number];
+
+/** Origens aceitas para a confirmação humana do destino operacional. */
+export const DESTINATION_PROVENANCE_SOURCES = [
+  "OWNER_CONFIRMED",
+  "CLIENT_SUPPLIED",
+  "OFFICIAL_GOOGLE",
+  "OFFICIAL_WEBSITE",
+  "OFFICIAL_SOCIAL",
+  "EXISTING_VERIFIED_RECORD",
+] as const;
+
+export type DestinationProvenanceSource = (typeof DESTINATION_PROVENANCE_SOURCES)[number];
+
+/**
+ * Normalização BR do WhatsApp: DDI 55 + DDD + número. Nunca "corrige"
+ * silenciosamente um número improvável — apenas sinaliza.
+ */
+export function normalizeBrWhatsApp(
+  raw: string,
+): { ok: true; digits: string; looksLikeLandline: boolean } | { ok: false; message: string } {
+  const d = String(raw ?? "").replace(/\D/g, "");
+  let national = d;
+  if (national.startsWith("55") && (national.length === 12 || national.length === 13)) {
+    national = national.slice(2);
+  }
+  if (national.length !== 10 && national.length !== 11) {
+    return { ok: false, message: "Informe DDD + número (10 ou 11 dígitos), com ou sem o 55." };
+  }
+  const ddd = Number(national.slice(0, 2));
+  if (ddd < 11 || ddd > 99) return { ok: false, message: "DDD inválido." };
+  const looksLikeLandline = national.length === 10 || !national.startsWith("9", 2);
+  return { ok: true, digits: `55${national}`, looksLikeLandline };
+}
 
 /** Origem do destino. Nunca inclui valor. */
 export type DestinationSource =
