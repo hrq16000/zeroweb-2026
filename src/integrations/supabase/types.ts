@@ -4468,6 +4468,57 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_destination_revisions: {
+        Row: {
+          client_key: string
+          confirmed_at: string
+          confirmed_by: string | null
+          destination_fingerprint: string | null
+          destination_masked: string | null
+          evidence: string | null
+          id: string
+          new_status: string
+          previous_status: string | null
+          provenance_source: string
+          shared_with_ack: boolean
+          slug: string | null
+          validated_at: string | null
+          validation_result: string | null
+        }
+        Insert: {
+          client_key: string
+          confirmed_at?: string
+          confirmed_by?: string | null
+          destination_fingerprint?: string | null
+          destination_masked?: string | null
+          evidence?: string | null
+          id?: string
+          new_status: string
+          previous_status?: string | null
+          provenance_source: string
+          shared_with_ack?: boolean
+          slug?: string | null
+          validated_at?: string | null
+          validation_result?: string | null
+        }
+        Update: {
+          client_key?: string
+          confirmed_at?: string
+          confirmed_by?: string | null
+          destination_fingerprint?: string | null
+          destination_masked?: string | null
+          evidence?: string | null
+          id?: string
+          new_status?: string
+          previous_status?: string | null
+          provenance_source?: string
+          shared_with_ack?: boolean
+          slug?: string | null
+          validated_at?: string | null
+          validation_result?: string | null
+        }
+        Relationships: []
+      }
       portfolio_place_seo: {
         Row: {
           created_at: string
