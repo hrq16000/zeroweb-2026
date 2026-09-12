@@ -18,6 +18,7 @@ import { getManagedProject } from "@/lib/portfolio-managed.functions";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
 import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
+import { getCompositionPage } from "@/components/portfolio/composition/registry";
 
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
@@ -1287,8 +1288,9 @@ function PortfolioPrototypePage() {
     { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
     overrides,
   );
-  // Projeto com Blueprint próprio: composição vem de `sections[]` (opt-in).
-  const BlueprintPage = getBlueprintPage(slug);
+  // Composição autoral (padrão para projetos novos) ou Blueprint legado dos
+  // três pilotos. A plataforma resolve o slug; a composição é do cliente.
+  const BlueprintPage = getCompositionPage(slug) ?? getBlueprintPage(slug);
   if (BlueprintPage) {
     return (
       <PortfolioRuntimeProvider value={effective}>

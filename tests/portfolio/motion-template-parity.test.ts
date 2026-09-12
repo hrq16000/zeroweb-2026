@@ -44,9 +44,11 @@ describe("motion template coverage", () => {
     }
   });
 
-  it("o scaffold consome a cobertura em vez de duplicá-la", () => {
-    expect(scaffold).toContain("motion-template-coverage.json");
-    expect(scaffold).toContain("--motion-template");
+  it("o scaffold recusa motion pré-montado (composição autoral por projeto)", () => {
+    // docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md: motion vem do brief do
+    // projeto, nunca de um template compartilhado.
+    expect(scaffold).toContain("--motion-template foi removido");
+    expect(scaffold).not.toContain("motion-template-coverage.json");
   });
 
   it("exige funil persistente e preserva conteúdo em reduced motion", () => {

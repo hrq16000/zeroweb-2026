@@ -6,6 +6,12 @@ Este é o documento principal de qualquer novo site em `/portfolio/<slug>`.
 Os demais padrões continuam válidos como documentação especializada e são
 referenciados aqui, nunca duplicados.
 
+> **Etapa obrigatória `composition`:** antes de qualquer JSX, preencher o
+> Creative Composition Brief e o composition fingerprint
+> (`docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`). Com
+> `compositionContract >= 1`, o `PROJECT_UNIQUENESS_GATE` é **bloqueante** no
+> readiness. Legados e os três pilotos seguem como baseline, sem bloqueio.
+
 ```text
 PORTFOLIO_PROJECT_LIFECYCLE
 ├── Entity Enrichment ....... docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md

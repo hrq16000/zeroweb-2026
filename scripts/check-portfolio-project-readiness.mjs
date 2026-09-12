@@ -18,6 +18,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
 import { evaluateFunnelDestination } from "./lib/funnel-destination-gate.mjs";
+import {
+  COMPOSITION_CONTRACT_VERSION,
+  evaluateProjectUniqueness,
+} from "./portfolio-project-uniqueness.mjs";
 
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -39,6 +43,10 @@ const readJson = (p, fallback) => {
 const manifestFile = readJson("src/config/portfolio-project-manifests.json", { projects: {} });
 const manifests = manifestFile.projects ?? {};
 const clients = readJson("src/config/portfolio-clients.json", []);
+/** Baseline de comparação do PROJECT_UNIQUENESS_GATE: quem já declarou composição. */
+const compositionPeers = Object.values(manifests)
+  .filter((project) => project.compositionFingerprint)
+  .map((project) => ({ slug: project.slug, fingerprint: project.compositionFingerprint }));
 const catalogRaw = readJson("src/config/portfolio-catalog.json", []);
 const catalog = catalogRaw.projects ?? catalogRaw;
 const catalogBySlug = new Map(catalog.map((p) => [p.slug, p]));
@@ -262,6 +270,26 @@ function evaluate(slug, manifest) {
   checks.structuralOriginality = matrixResult.structuralOriginality
     ? matrixResult.structuralOriginality.status !== "FAIL"
     : true;
+
+  // PROJECT_UNIQUENESS_GATE — bloqueante para compositionContract >= 1
+  // (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §12/§17).
+  if (Number(manifest.compositionContract ?? 0) >= COMPOSITION_CONTRACT_VERSION) {
+    const uniqueness = evaluateProjectUniqueness(
+      {
+        slug,
+        fingerprint: manifest.compositionFingerprint ?? null,
+        perceptualReview: manifest.perceptualReview ?? null,
+        contentFacts: manifest.contentFacts ?? null,
+      },
+      compositionPeers,
+    );
+    checks.projectUniqueness = uniqueness.status === "PASS";
+    if (uniqueness.status !== "PASS") {
+      blockers.push(
+        `PROJECT_UNIQUENESS = FAIL: ${uniqueness.details.join(" · ") || "dimensões reprovadas"}`,
+      );
+    }
+  }
 
   checks.portfolioEmbedValid =
     autonomy.embed?.status === "PASS" && !matrixResult.failures.some((f) => f.includes("PORTFOLIO_EMBED"));
