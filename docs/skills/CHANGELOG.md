@@ -1,5 +1,18 @@
 # Skill changelog / usage log
 
+## 2026-09-12 — vida visual e motion da Home2 · rodada 2
+
+- **Tarefa:** corrigir mídia invisível e enriquecer profundidade, transições,
+  microinterações e narrativa de scroll somente em `/home2`.
+- **Skills efetivamente aplicadas:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-design-system`, `0web-ui-quality-gates`, `docs/design/MOTION.md`, revisão
+  HIG de foco/movimento e limites do contrato global de performance.
+- **Aplicação:** motion fail-open, imagens editoriais reais, CTA flutuante oficial,
+  parallax limitado ao desktop, reveal por contexto, menu escalonado, foco visível,
+  conteúdo integral e estático em `prefers-reduced-motion`.
+- **Proteções:** nenhuma alteração em `/`, `/portfolio/:slug`, funis, SEO global,
+  dependências, identidade institucional congelada ou publicação.
+
 ## 2026-09-12 — convergência visual isolada da Home2
 
 - **Tarefa:** aproximar composição, proporção, ritmo e motion da rota experimental
