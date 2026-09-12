@@ -2,10 +2,77 @@
   "slug": "marido-de-aluguel",
   "query": "Mestre dos Serviços marido de aluguel Curitiba",
   "location": "Curitiba, State of Parana, Brazil",
-  "resolvedAt": "2026-09-12T01:04:38.808Z",
+  "resolvedAt": "2026-09-12T01:05:02.501Z",
   "callCount": 1,
-  "stage": "FAILED",
-  "error": "SerpApi google_maps falhou [400]: {\n  \"error\": \"Missing `z` or `m` parameter. Parameter is required when using `location` parameter.\"\n}",
-  "provenance": null,
-  "candidates": []
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Mestre+dos+Servi%C3%A7os+marido+de+aluguel+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T01:05:02.500Z",
+    "sourceUrl": "https://www.google.com/maps/search/Mestre+dos+Servi%C3%A7os+marido+de+aluguel+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJdY3AGNCQhCkRWGrh20Nwj-U",
+      "dataId": "0x298490d018c08d75:0xe58f7043dbe16a58",
+      "name": "Mestre dos serviços",
+      "category": "Consultor de construção civil",
+      "address": "R. Antônio Rodrigues Gallego - Itália, São José dos Pinhais - PR, 83020-256",
+      "phone": "(41) 99745-2053",
+      "website": "https://www.mestredosservicos.com.br/",
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJdY3AGNCQhCkRWGrh20Nwj-U"
+    },
+    {
+      "placeId": "ChIJF7a_VAXl3JQR36hN_p7BvQ4",
+      "dataId": "0x94dce50554bfb617:0xebdc19efe4da8df",
+      "name": "WS Marido de Aluguel",
+      "category": "Faz-tudo",
+      "address": "Rua Luiz Barreto Murat, 1380 - sobrado 2 - Bairro Alto, Curitiba - PR, 82820-160",
+      "phone": "0800 041 0022",
+      "website": "http://www.wsmaridodealuguel.com.br/",
+      "rating": 4.9,
+      "reviewCount": 568,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJF7a_VAXl3JQR36hN_p7BvQ4"
+    },
+    {
+      "placeId": "ChIJo9PQOQDl3JQRONnc4wJPVs0",
+      "dataId": "0x94dce50039d0d3a3:0xcd564f02e3dcd938",
+      "name": "Atual Marido de Aluguel",
+      "category": "Reformas",
+      "address": "R. Mal. Deodoro, 857 - Centro, Curitiba - PR, 80060-010",
+      "phone": "(41) 98525-7875",
+      "website": "https://atualmaridodealuguel.curitiba.br/",
+      "rating": 4.9,
+      "reviewCount": 87,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJo9PQOQDl3JQRONnc4wJPVs0"
+    },
+    {
+      "placeId": "ChIJ4bXPqWnj3JQRIWactnHyNUs",
+      "dataId": "0x94dce369a9cfb5e1:0x4b35f271b69c6621",
+      "name": "Marido de Aluguel MultiServPro - Serviços Residenciais e Empresariais",
+      "category": "Empresa de engenharia civil",
+      "address": "Rua Doutor Ernani Simas Alves - Cidade Industrial, Curitiba - PR, 81350-714",
+      "phone": "(41) 99709-4633",
+      "website": "http://mservprocuritiba.com.br/",
+      "rating": 5,
+      "reviewCount": 30,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ4bXPqWnj3JQRIWactnHyNUs"
+    },
+    {
+      "placeId": "ChIJW6OHHpb73JQRfCUsozAtrkk",
+      "dataId": "0x94dcfb961e87a35b:0x49ae2d30a32c257c",
+      "name": "SW MARIDO DE ALUGUEL",
+      "category": "Faz-tudo",
+      "address": "Rua Luiz Gurgel do Amaral Valente, 1346 - Sítio Cercado, Curitiba - PR, 81920-690",
+      "phone": "(41) 99996-8269",
+      "website": "http://www.swmaridodealuguel.com.br/",
+      "rating": 4.9,
+      "reviewCount": 82,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJW6OHHpb73JQRfCUsozAtrkk"
+    }
+  ]
 }
