@@ -160,13 +160,25 @@ for (const url of urls) {
   await context.close();
 
   const implemented = measured.total > 0;
-  const observed = implemented && measured.perceptible > 0;
+  /**
+   * MOTION_OBSERVED exige três eixos medidos em runtime, não configuração:
+   * hero, ao menos uma seção revelada no scroll e uma microinteração.
+   */
+  const observed =
+    implemented &&
+    measured.perceptible > 0 &&
+    measured.heroObserved &&
+    measured.scrollObserved &&
+    measured.microObserved;
   results.push({
     url,
     slug: declared.slug,
     MOTION_DECLARED: declared.declared,
     MOTION_IMPLEMENTED: implemented,
     MOTION_OBSERVED: observed,
+    heroObserved: measured.heroObserved,
+    scrollObserved: measured.scrollObserved,
+    microObserved: measured.microObserved,
     reducedMotionSafe: reducedOk,
     nodes: measured.total,
     perceptible: measured.perceptible,
