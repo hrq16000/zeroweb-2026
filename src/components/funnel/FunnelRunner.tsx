@@ -437,6 +437,73 @@ export function FunnelRunner({
     return () => window.removeEventListener("keydown", onKey);
   }, [current, done, submitting, goNext]);
 
+  if (recovery && !done) {
+    const saveRecovery = async () => {
+      if (!normalizeRecoveryPhone(recoveryValue)) {
+        setRecoveryError("Informe um WhatsApp com DDD, por exemplo (41) 99999-0000.");
+        return;
+      }
+      setRecoverySaving(true);
+      setRecoveryError(null);
+      const res = await attachRecovery({
+        data: {
+          lead_id: recovery.leadId,
+          contact: recoveryValue,
+          ...(clientKey ? { client_key: clientKey as never } : {}),
+        },
+      }).catch(() => null);
+      setRecoverySaving(false);
+      if (!res || !(res as { ok?: boolean }).ok) {
+        setRecoveryError("Não foi possível salvar agora. Tente novamente.");
+        return;
+      }
+      setDone({ nextPath: recovery.nextPath, redirectPath: null, protocol: recovery.protocol });
+    };
+    return (
+      <div
+        data-testid="funnel-recovery"
+        className={`${embedded ? "py-10" : "min-h-screen"} flex items-center justify-center px-6 bg-background text-foreground`}
+      >
+        <div className="max-w-md w-full space-y-5 text-center">
+          <h2 className="text-2xl font-semibold tracking-tight">Quase lá</h2>
+          <p className="text-muted-foreground">
+            Recebemos sua solicitação. Para garantir o retorno, informe um WhatsApp de contato.
+          </p>
+          <div className="text-left space-y-2">
+            <label htmlFor="portfolio-quiz-recovery" className="text-sm font-medium">
+              Em qual WhatsApp podemos retornar?
+            </label>
+            <Input
+              id="portfolio-quiz-recovery"
+              inputMode="tel"
+              autoComplete="tel"
+              maxLength={40}
+              value={recoveryValue}
+              onChange={(e) => setRecoveryValue(e.target.value)}
+              placeholder="(41) 99999-0000"
+            />
+            <p className="text-xs text-muted-foreground">
+              Usado apenas para responder a esta solicitação. Não é usado para marketing
+              nem compartilhado com outros clientes.
+            </p>
+            {recoveryError && (
+              <p role="alert" className="text-xs text-destructive">{recoveryError}</p>
+            )}
+          </div>
+          <Button onClick={saveRecovery} disabled={recoverySaving} className="w-full">
+            {recoverySaving ? "Salvando…" : "Continuar"}
+            {!recoverySaving && <ArrowRight className="ml-2 h-4 w-4" />}
+          </Button>
+          {recovery.protocol && (
+            <p className="text-xs text-muted-foreground">
+              Protocolo: <span data-testid="funnel-protocol" className="font-mono">{recovery.protocol}</span>
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   if (done) {
     const hasRedirect = Boolean(done.redirectPath);
     const showFallback = done.redirectFailed || !hasRedirect;
