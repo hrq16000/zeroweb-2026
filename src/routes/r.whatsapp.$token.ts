@@ -86,6 +86,9 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
         // don't burn the token on a build failure.
         let finalMessage: string;
         let finalDigits: string;
+        let deliveredLeadId: string | null = null;
+        let deliveredClientKey: string | null = null;
+
 
         if (resolved.row.isLegacy && resolved.row.destination_digits && resolved.row.message) {
           // Legacy compat path — no new writes go here.
