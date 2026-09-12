@@ -184,7 +184,10 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
     const telemetry = bySlug.get(project.slug) ?? { ...EMPTY_TELEMETRY };
     telemetry.leads90 = leadsByClientKey.get(clientKey) ?? 0;
     const priority = computeDestinationPriority(status, telemetry);
-    const deliveryNotConfigured = !contact && telemetry.funnelCompletes90 > 0;
+    // Conclusão de funil OU lead registrado sem destino = lead salvo, não entregue.
+    const concluded = Math.max(telemetry.funnelCompletes90, telemetry.leads90);
+    const conversionsAtRisk = contact ? 0 : concluded;
+    const deliveryNotConfigured = conversionsAtRisk > 0;
 
     rows.push({
       slug: project.slug,
@@ -203,7 +206,7 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
       telemetry,
       priority,
       deliveryNotConfigured,
-      conversionsAtRisk: contact ? 0 : telemetry.funnelCompletes90,
+      conversionsAtRisk,
     });
   }
 
