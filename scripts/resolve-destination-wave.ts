@@ -101,7 +101,10 @@ function sameNumber(a: string, b: string) {
 function isMobile(digits: string) {
   let d = digits.replace(/\D/g, "");
   if (d.startsWith("55")) d = d.slice(2);
-  return d.length === 11 && d[2] === "9";
+  if (d.length === 11) return d[2] === "9";
+  // celular legado de 8 dígitos (sem o nono): assinante começa em 6-9
+  if (d.length === 10) return ["6", "7", "8", "9"].includes(d[2] ?? "");
+  return false;
 }
 
 type Outcome = {
