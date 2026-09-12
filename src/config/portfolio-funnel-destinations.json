@@ -65,14 +65,13 @@
       ]
     },
     "estrutura-nacional": {
-      "status": "VERIFIED",
+      "status": "INSUFFICIENT_EVIDENCE",
       "source": "OPERATIONAL_SECRET+GOOGLE_ENTITY",
-      "confidence": 95,
-      "verifiedAt": "2026-09-12",
+      "confidence": 40,
+      "verifiedAt": null,
       "evidence": [
         "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 3***-1100); evidência de entidade lida do cache local",
-        "Telefone da ficha Google \"Estrutura Nacional\" (R. Pedro Trevisan, 139 - Pedro Moro, São José dos Pinhais - PR, 83025-690) confere com o destino configurado",
-        "Place ID ChIJ97pW41753JQRVT_k6k7MX2c"
+        "Titularidade confirmada pela ficha Google \"Estrutura Nacional\", mas o destino configurado é um telefone fixo: entrega por WhatsApp não comprovada"
       ]
     },
     "heloa-gas": {
@@ -86,14 +85,13 @@
       ]
     },
     "paraiso-do-hot-dog": {
-      "status": "VERIFIED",
+      "status": "INSUFFICIENT_EVIDENCE",
       "source": "OPERATIONAL_SECRET+GOOGLE_ENTITY",
-      "confidence": 95,
-      "verifiedAt": "2026-09-12",
+      "confidence": 40,
+      "verifiedAt": null,
       "evidence": [
         "Onda contínua (2026-09-12): destino presente em segredo operacional ((41) 9***-5258); evidência de entidade lida do cache local",
-        "Telefone da ficha Google \"PARAÍSO DO HOT DOG\" (Av. Rui Barbosa, 11897 - Aristocrata, São José dos Pinhais - PR, 83025) confere com o destino configurado",
-        "Place ID ChIJPwvMKQD53JQR5DLIhnGU5Po"
+        "Titularidade confirmada pela ficha Google \"PARAÍSO DO HOT DOG\", mas o destino configurado é um telefone fixo: entrega por WhatsApp não comprovada"
       ]
     },
     "r-beauty": {

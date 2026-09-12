@@ -97,6 +97,13 @@ function sameNumber(a: string, b: string) {
   return Boolean(a && b) && norm(a) === norm(b);
 }
 
+/** Só celular entrega WhatsApp: fixo não pode ser promovido a destino verificado. */
+function isMobile(digits: string) {
+  let d = digits.replace(/\D/g, "");
+  if (d.startsWith("55")) d = d.slice(2);
+  return d.length === 11 && d[2] === "9";
+}
+
 type Outcome = {
   slug: string;
   clientKey: string;
@@ -193,6 +200,12 @@ async function resolveOne(slug: string, ledger: ReturnType<typeof readLedger>): 
   }
 
   const hit = withPhone.find((r) => sameNumber(digitsOf(r.c.phone), contact.digits));
+  if (hit && !isMobile(contact.digits)) {
+    evidence.push(
+      `Titularidade confirmada pela ficha Google "${hit.c.name}", mas o destino configurado é um telefone fixo: entrega por WhatsApp não comprovada`,
+    );
+    return { slug, clientKey, previous, status: "INSUFFICIENT_EVIDENCE", masked, evidence, externalCalls: calls };
+  }
   if (hit) {
     evidence.push(
       `Telefone da ficha Google "${hit.c.name}"${hit.c.address ? ` (${hit.c.address})` : ""} confere com o destino configurado`,
