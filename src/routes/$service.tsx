@@ -22,7 +22,7 @@ export const Route = createFileRoute("/$service")({
         }
       : {},
   beforeLoad: ({ params }) => {
-    if (params.service === "home2") return;
+    if (params.service === "home2") return undefined as never;
 
     throw redirect({
       to: "/servicos/$slug",
