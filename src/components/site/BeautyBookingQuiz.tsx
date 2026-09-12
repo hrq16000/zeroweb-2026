@@ -384,7 +384,30 @@ export function BeautyBookingQuiz({
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
                     {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, funnelContext: intentContext })}
                   </div>
+                  {needsRecoveryContact && (
+                    <div className="space-y-2 rounded-2xl border border-white/15 bg-white/5 p-4">
+                      <label htmlFor="portfolio-quiz-recovery" className="block text-sm font-semibold text-white">
+                        Em qual WhatsApp podemos retornar?
+                      </label>
+                      <input
+                        id="portfolio-quiz-recovery"
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        maxLength={40}
+                        value={recoveryContact}
+                        onChange={(event) => { setRecoveryContact(event.target.value); setRecoveryError(null); }}
+                        placeholder="(41) 90000-0000"
+                        className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40"
+                      />
+                      <p className="text-xs leading-relaxed text-gray-400">
+                        Usamos esse número apenas para responder a esta solicitação.
+                      </p>
+                      {recoveryError && <p className="text-xs text-red-300" role="alert">{recoveryError}</p>}
+                    </div>
+                  )}
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
+
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
                     {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? `Continuar pedido para ${recipientName}` : "Continuar meu pedido"}
                   </button>
