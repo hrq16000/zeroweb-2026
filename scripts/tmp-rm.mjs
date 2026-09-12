@@ -8,6 +8,9 @@ for (const slug of slugs) {
   const p = await ctx.newPage();
   await p.goto(`https://0web.com.br/portfolio/${slug}`, { waitUntil: "domcontentloaded" });
   await p.waitForTimeout(2500);
+  const dismiss = p.locator("button:visible").filter({ hasText: /agora n[ãa]o|fechar/i });
+  if (await dismiss.count()) await dismiss.first().click({force:true}).catch(()=>{});
+  await p.waitForTimeout(500);
   const cta = p.getByRole("button", { name: /or(ç|c)amento|frete|mudan|solicitar|atendimento|pedido|encomenda|agendar|servi/i });
   for (let i = 0; i < await cta.count(); i++) {
     await cta.nth(i).click({ force: true }).catch(()=>{});
