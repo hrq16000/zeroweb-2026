@@ -6,8 +6,9 @@
  *
  *  1. FUNNEL_OPERATIONAL — o projeto tem uma variante de funil reconhecida e
  *     nenhum contato direto no bundle (`wa.me`, `api.whatsapp`, `tel:`).
- *  2. DIRECT_DELIVERY    — existe destino operacional (segredo do projeto).
- *     Ausente = PENDING_DESTINATION, que é estado aceitável, não falha.
+ *  2. DIRECT_DELIVERY    — existe destino operacional reconhecido pelo mesmo
+ *     mapa de compatibilidade usado pelo runtime. Ausente =
+ *     PENDING_DESTINATION, que é estado aceitável, não falha.
  *  3. RECOVERABILITY     — a camada compartilhada garante que nenhuma conclusão
  *     termine sem entrega E sem meio de retorno (checagem estrutural do
  *     caminho terminal comum a todas as variantes).
@@ -15,12 +16,19 @@
  * Falham o gate: projeto sem funil declarado, contato direto no código e
  * qualquer regressão estrutural na garantia de recuperabilidade.
  *
+ * Importante: este gate não decide titularidade nem promove destino. Ele só
+ * evita que o relatório diga "sem destino" quando o runtime ainda reconhece
+ * um alias legado. A confirmação continua sendo uma etapa separada.
+ *
  * Uso: node scripts/check-portfolio-funnel-operational.mjs [--json]
  */
 import { readFileSync, existsSync } from "node:fs";
 
 const json = process.argv.includes("--json");
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
+const legacyEnvAliases = JSON.parse(
+  readFileSync("src/config/portfolio-whatsapp-env-aliases.json", "utf8"),
+);
 
 const VARIANTS = [
   ["portfolio_quiz", /BeautyBookingQuiz/],
@@ -28,8 +36,18 @@ const VARIANTS = [
 ];
 const DIRECT_CONTACT = /wa\.me|api\.whatsapp\.com|href=["'`]tel:/;
 
-function envName(clientKey) {
+function canonicalEnvName(clientKey) {
   return `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+}
+
+function runtimeEnvName(clientKey) {
+  return legacyEnvAliases[clientKey] ?? canonicalEnvName(clientKey);
+}
+
+function envHasValidDestination(clientKey) {
+  const raw = (process.env[runtimeEnvName(clientKey)] ?? "").trim();
+  const digits = raw.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
 }
 
 // ---- 1/2: inventário por projeto ------------------------------------------
@@ -45,9 +63,9 @@ for (const c of clients) {
   const declared = c.funnelVariant ?? null;
   const variant = found[0] ?? declared ?? "NONE";
   const directContact = DIRECT_CONTACT.test(src);
-  const configured = (process.env[envName(c.clientKey)] ?? "").replace(/\D/g, "").length >= 10;
+  const configured = envHasValidDestination(c.clientKey);
   const delivery =
-    variant === "external_store" ? "NOT_APPLICABLE" : configured ? "VERIFIED" : "PENDING_DESTINATION";
+    variant === "external_store" ? "NOT_APPLICABLE" : configured ? "CONFIGURED" : "PENDING_DESTINATION";
   rows.push({
     slug: c.slug,
     variant,
