@@ -185,6 +185,7 @@ export function PortfolioDestinationPanel() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>("p0");
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -294,7 +295,8 @@ export function PortfolioDestinationPanel() {
                 <th scope="col" className="px-3 py-2">Leads 90d</th>
                 <th scope="col" className="px-3 py-2">Origem</th>
                 <th scope="col" className="px-3 py-2">Número</th>
-                <th scope="col" className="px-3 py-2">Verificado em</th>
+                 <th scope="col" className="px-3 py-2">Verificado em</th>
+                 <th scope="col" className="px-3 py-2">Ação</th>
               </tr>
             </thead>
             <tbody>
