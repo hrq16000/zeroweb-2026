@@ -557,6 +557,15 @@ if (existsSync(manifestPath)) {
         motionProfile: null,
       },
       structuralOriginalityReview: { approved: false, reviewedAt: null, notes: null },
+      /** PROJECT_UNIQUENESS_GATE — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md */
+      compositionContract: 1,
+      compositionFingerprint: null,
+      perceptualReview: {
+        screenshots: { 390: null, 1440: null },
+        comparedWith: [],
+        noBrandTest: null,
+      },
+      contentFacts: { ownSourcedContent: false },
       stage: "draft",
 
       lifecycle: {
