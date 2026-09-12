@@ -196,7 +196,9 @@ if (asJson) {
     console.log(`\n${r.url}`);
     console.log(`  MOTION_DECLARED    ${r.MOTION_DECLARED ? "PASS" : "WARN"} (${r.slug ?? "não-portfolio"})`);
     console.log(`  MOTION_IMPLEMENTED ${r.MOTION_IMPLEMENTED ? "PASS" : "FAIL"} (${r.nodes} nós data-motion)`);
-    console.log(`  MOTION_OBSERVED    ${r.MOTION_OBSERVED ? "PASS" : "FAIL"} (${r.perceptible} perceptíveis)`);
+    console.log(
+      `  MOTION_OBSERVED    ${r.MOTION_OBSERVED ? "PASS" : "FAIL"} (${r.perceptible} perceptíveis · hero ${r.heroObserved ? "ok" : "não"} · scroll ${r.scrollObserved ? "ok" : "não"} · micro ${r.microObserved ? "ok" : "não"})`,
+    );
     console.log(`  REDUCED_MOTION     ${r.reducedMotionSafe ? "PASS" : "FAIL"}`);
     console.log(`  console errors     ${r.consoleErrors}`);
   }
