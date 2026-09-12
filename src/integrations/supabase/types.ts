@@ -2266,6 +2266,57 @@ export type Database = {
           },
         ]
       }
+      lead_delivery_ledger: {
+        Row: {
+          attempted_at: string | null
+          client_key: string | null
+          created_at: string
+          delivered_at: string | null
+          delivery_status: string
+          destination_status: string
+          failure_reason: string | null
+          has_recoverable_contact: boolean
+          id: string
+          lead_id: string
+          lead_table: string
+          recoverability_status: string
+          slug: string | null
+          updated_at: string
+        }
+        Insert: {
+          attempted_at?: string | null
+          client_key?: string | null
+          created_at?: string
+          delivered_at?: string | null
+          delivery_status?: string
+          destination_status?: string
+          failure_reason?: string | null
+          has_recoverable_contact?: boolean
+          id?: string
+          lead_id: string
+          lead_table?: string
+          recoverability_status?: string
+          slug?: string | null
+          updated_at?: string
+        }
+        Update: {
+          attempted_at?: string | null
+          client_key?: string | null
+          created_at?: string
+          delivered_at?: string | null
+          delivery_status?: string
+          destination_status?: string
+          failure_reason?: string | null
+          has_recoverable_contact?: boolean
+          id?: string
+          lead_id?: string
+          lead_table?: string
+          recoverability_status?: string
+          slug?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       lead_history: {
         Row: {
           actor: string | null

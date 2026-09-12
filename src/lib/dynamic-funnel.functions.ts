@@ -397,6 +397,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       fulfillment: softText(120).optional(),
       customer_note: softText(2000).optional(),
     }).optional(),
+    // Meio mínimo de retorno informado pelo visitante. Só é solicitado pela UI
+    // quando o projeto ainda não tem destino operacional configurado.
+    // Finalidade declarada: contato sobre esta solicitação. Nunca marketing.
+    recoveryContact: z.string().max(40).optional(),
     answers: z.object({
       service: softText(8000),
       experience: softText(400),
@@ -405,6 +409,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       note: softText(2000),
     }),
   }).parse(data))
+
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     // Painel de leads lê sempre de order_context: quando o componente não
@@ -443,6 +448,11 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       pageUrl = getRequest().url;
     } catch { /* request context unavailable in tests */ }
     const geo = await lookupGeo(ip);
+
+    const { normalizeRecoveryPhone, decideLeadRecoverability, RECOVERY_CONTACT_PURPOSE } =
+      await import("@/lib/lead-recoverability");
+    const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
+
     const { data: lead, error: leadError } = await supabaseAdmin
       .from("dynamic_form_leads")
       .insert({
@@ -465,10 +475,19 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           ...(geo.region ? { region: geo.region } : {}),
           ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
           ...(geo.isp ? { isp: geo.isp } : {}),
+          ...(recoveryPhone
+            ? {
+                recovery_contact_kind: "whatsapp",
+                recovery_contact_purpose: RECOVERY_CONTACT_PURPOSE,
+                recovery_contact_collected_at: new Date().toISOString(),
+              }
+            : {}),
         },
         contact_name: null,
         contact_email: null,
-        contact_phone: null,
+        // A submissão nunca é descartada: o contato de retorno, quando
+        // informado, é o que mantém o lead recuperável se a entrega falhar.
+        contact_phone: recoveryPhone,
         whatsapp_user_url: null,
         whatsapp_alert_status: "disabled",
       } as any)
@@ -478,12 +497,18 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
 
     const { createWhatsAppRedirectToken, hashIp, makeProtocol, getPortfolioWhatsAppChannelStateAsync } =
       await import("@/lib/whatsapp-redirect.server");
+    const { recordLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
     const protocol = makeProtocol();
 
     // O lead já está salvo. O WhatsApp é apenas o passo seguinte: quando o
     // cliente ainda não tem número oficial cadastrado, devolvemos um estado
     // honesto em vez de gerar um redirect que termina em erro.
     const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
+    const decision = decideLeadRecoverability({
+      destinationConfigured: channel === "CONFIGURED",
+      hasRecoverableContact: Boolean(recoveryPhone),
+    });
+
     if (channel !== "CONFIGURED") {
       const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
       await reportRoutingIncident({
@@ -493,10 +518,92 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         reason: "missing_client_whatsapp_number",
         fellBackToCentral: false,
       });
-      return { redirectPath: null, protocol, whatsappChannel: channel };
+      await recordLeadDelivery({
+        leadId: lead.id as string,
+        clientKey: data.clientKey,
+        destinationStatus: channel,
+        deliveryStatus: decision.deliveryStatus,
+        recoverability: decision.recoverability,
+        hasRecoverableContact: Boolean(recoveryPhone),
+        failureReason: "missing_client_whatsapp_number",
+      });
+      // Garantia global: sem destino E sem contato recuperável, a conclusão
+      // não é aceita como final — a UI precisa pedir um meio de retorno.
+      return {
+        redirectPath: null,
+        protocol,
+        whatsappChannel: channel,
+        deliveryState: decision.deliveryStatus,
+        recoverability: decision.recoverability,
+        requiresRecoveryContact: decision.requiresRecoveryContact,
+      };
     }
 
     const token = await createWhatsAppRedirectToken({ leadId: lead.id, ipHash: hashIp(ip) });
-    if (!token.ok) return { redirectPath: null, protocol, whatsappChannel: "NOT_CONFIGURED" as const };
-    return { redirectPath: token.redirectPath, protocol, whatsappChannel: channel };
+    if (!token.ok) {
+      const failed = decideLeadRecoverability({
+        destinationConfigured: true,
+        hasRecoverableContact: Boolean(recoveryPhone),
+        failureReason: "token_creation_failed",
+      });
+      await recordLeadDelivery({
+        leadId: lead.id as string,
+        clientKey: data.clientKey,
+        destinationStatus: channel,
+        deliveryStatus: failed.deliveryStatus,
+        recoverability: failed.recoverability,
+        hasRecoverableContact: Boolean(recoveryPhone),
+        failureReason: "token_creation_failed",
+      });
+      return {
+        redirectPath: null,
+        protocol,
+        whatsappChannel: "NOT_CONFIGURED" as const,
+        deliveryState: failed.deliveryStatus,
+        recoverability: failed.recoverability,
+        requiresRecoveryContact: failed.requiresRecoveryContact,
+      };
+    }
+
+    await recordLeadDelivery({
+      leadId: lead.id as string,
+      clientKey: data.clientKey,
+      destinationStatus: channel,
+      deliveryStatus: decision.deliveryStatus,
+      recoverability: decision.recoverability,
+      hasRecoverableContact: Boolean(recoveryPhone),
+    });
+
+    return {
+      redirectPath: token.redirectPath,
+      protocol,
+      whatsappChannel: channel,
+      deliveryState: decision.deliveryStatus,
+      recoverability: decision.recoverability,
+      requiresRecoveryContact: false,
+    };
+
+  });
+
+/**
+ * Estado de entrega do funil de um projeto, ANTES da conclusão.
+ * Público e sem PII: devolve apenas se existe destino operacional, para a UI
+ * decidir se precisa pedir um contato de retorno ao visitante.
+ * Nunca devolve número, nome de variável ou origem do destino.
+ */
+export const getPortfolioFunnelDelivery = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) =>
+    z.object({ clientKey: z.enum(PORTFOLIO_CLIENT_KEYS) }).parse(data),
+  )
+  .handler(async ({ data }) => {
+    const { getPortfolioWhatsAppChannelStateAsync } = await import(
+      "@/lib/whatsapp-redirect.server"
+    );
+    const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
+    const destinationConfigured = channel === "CONFIGURED";
+    return {
+      destinationConfigured,
+      /** Quando não há destino, o contato de retorno é obrigatório. */
+      requiresRecoveryContact: !destinationConfigured,
+    };
   });

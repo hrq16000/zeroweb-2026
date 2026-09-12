@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
+  getLeadDeliveryOverview,
   getPortfolioDestinationAudit,
   type DestinationAudit,
 } from "@/lib/portfolio-destination-audit.functions";
@@ -37,7 +38,10 @@ function Cell({ children, className = "" }: { children: React.ReactNode; classNa
  */
 export function PortfolioDestinationPanel() {
   const load = useServerFn(getPortfolioDestinationAudit);
+  const loadDelivery = useServerFn(getLeadDeliveryOverview);
   const [data, setData] = useState<DestinationAudit | null>(null);
+  const [delivery, setDelivery] = useState<Awaited<ReturnType<typeof loadDelivery>> | null>(null);
+
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>("p0");
@@ -47,12 +51,14 @@ export function PortfolioDestinationPanel() {
     setError(null);
     try {
       setData(await load());
+      setDelivery(await loadDelivery().catch(() => null));
     } catch (e) {
       setError(e instanceof Error ? e.message : "Falha ao carregar destinos");
     } finally {
       setLoading(false);
     }
-  }, [load]);
+  }, [load, loadDelivery]);
+
 
   useEffect(() => {
     void fetchData();
@@ -110,6 +116,20 @@ export function PortfolioDestinationPanel() {
           operacional. O lead continua salvo, mas não foi entregue ao cliente.
         </p>
       )}
+
+      {delivery && (
+        <div className="mt-3 rounded-md border border-border bg-muted/30 p-3">
+          <h3 className="text-sm font-semibold">Entrega dos pedidos</h3>
+          <p className="mt-1 text-xs text-muted-foreground">
+            {delivery.totals.total} pedidos registrados · {delivery.totals.delivered} entregues ·{" "}
+            {delivery.totals.pending} aguardando abertura ·{" "}
+            {delivery.totals.configurationRequired} aguardando configuração de destino ·{" "}
+            {delivery.totals.failed} com falha · {delivery.totals.recoverable} recuperáveis ·{" "}
+            {delivery.totals.unrecoverable} históricos irrecuperáveis.
+          </p>
+        </div>
+      )}
+
 
       {error && (
         <p role="alert" className="mt-3 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm">

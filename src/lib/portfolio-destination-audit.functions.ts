@@ -38,3 +38,25 @@ export const getPortfolioDestinationAudit = createServerFn({ method: "GET" })
     const rows = await auditPortfolioDestinations();
     return { rows, summary: summarizeDestinations(rows) };
   });
+
+/**
+ * Leitura operacional de entrega de leads (sem PII): quantos chegaram,
+ * quantos foram entregues, quantos aguardam correção e quantos ainda podem
+ * ser recuperados. Usa o painel já existente — nenhuma tela nova.
+ */
+export const getLeadDeliveryOverview = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { data: isAdmin } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    const { data: isSuper } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "super_admin",
+    });
+    if (!isAdmin && !isSuper) throw new Error("Forbidden");
+
+    const { summarizeLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
+    return summarizeLeadDelivery();
+  });

@@ -5,7 +5,9 @@ import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from 
 import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
 import { getSessionId, getVisitorId } from "@/lib/visitor";
-import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
+import { getPortfolioFunnelDelivery, submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
+import { normalizeRecoveryPhone } from "@/lib/lead-recoverability";
+
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
 import { resolvePortfolioFunnelContext } from "@/lib/portfolio-funnel-context";
@@ -149,7 +151,14 @@ export function BeautyBookingQuiz({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [previewLocation, setPreviewLocation] = useState("");
   const [savedProtocol, setSavedProtocol] = useState<string | null>(null);
+  // Quando este projeto ainda não tem atendimento direto configurado, pedimos
+  // um WhatsApp de retorno antes de concluir — assim o pedido nunca se perde.
+  const [needsRecoveryContact, setNeedsRecoveryContact] = useState(false);
+  const [recoveryContact, setRecoveryContact] = useState("");
+  const [recoveryError, setRecoveryError] = useState<string | null>(null);
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
+  const loadDelivery = useServerFn(getPortfolioFunnelDelivery);
+
   const dialogRef = useRef<HTMLDivElement>(null);
   // Tema desconhecido (config inválida) não pode derrubar o SSR do projeto.
   const look = THEMES[theme] ?? THEMES.navy;
@@ -191,14 +200,21 @@ export function BeautyBookingQuiz({
     window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open", { detail: { clientKey } }));
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
     setStep(0);
+    setRecoveryError(null);
     void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));
     setOpen(true);
     // Telemetria fora do caminho crítico: o modal abre no mesmo frame do clique.
     queueTelemetry(() => {
       trackConversion("wa_funnel_open", funnelContext);
+      trackEvent("funnel_started", funnelContext);
       void persistWaFunnelOpen(5);
+      // Descobre cedo se este projeto entrega direto ou precisa de retorno.
+      void loadDelivery({ data: { clientKey } })
+        .then((state) => setNeedsRecoveryContact(Boolean(state?.requiresRecoveryContact)))
+        .catch(() => setNeedsRecoveryContact(true));
     });
   };
+
 
   const choose = (field: keyof Omit<Answers, "note">, value: string) => {
     const next = { ...answers, [field]: value };
@@ -221,12 +237,21 @@ export function BeautyBookingQuiz({
   const completeInWhatsApp = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (redirecting) return;
+    // Sem atendimento direto configurado, um meio de retorno é obrigatório:
+    // é o que impede o pedido de terminar concluído e perdido.
+    const normalized = normalizeRecoveryPhone(recoveryContact);
+    if (needsRecoveryContact && !normalized) {
+      setRecoveryError("Informe um WhatsApp válido com DDD para podermos retornar.");
+      return;
+    }
     const conversion = { ...funnelContext, steps: 5, service: answers.service || "orientacao" };
     trackConversion("wa_funnel_complete", conversion);
+    trackEvent("funnel_completed", conversion);
     trackWhatsAppClick("portfolio_cta_quiz_complete", conversion);
     void persistWaFunnelConversion({ ...answers, studio: studioName, source: "portfolio_client" });
     setRedirecting(true);
     setSubmitError(null);
+    setRecoveryError(null);
     try {
       const result = await submitPortfolio({ data: {
         clientKey,
@@ -237,18 +262,30 @@ export function BeautyBookingQuiz({
         answers,
         pageUrl: window.location.href,
         orderContext,
+        ...(normalized ? { recoveryContact } : {}),
         // Identificadores técnicos anônimos (mesmos de analytics_events):
         // permitem ligar o lead à sessão/origem. Nenhum dado pessoal.
         sessionId: getSessionId(),
         visitorId: getVisitorId(),
       }});
+      // Telemetria sem PII: apenas o estado operacional do pedido.
+      trackEvent("lead_saved", { ...funnelContext, delivery_state: result.deliveryState ?? null });
       if (result.redirectPath) {
+        trackEvent("redirect_resolved", funnelContext);
         window.location.assign(result.redirectPath);
         return;
       }
-      // Canal de WhatsApp deste projeto ainda não configurado: o pedido foi
-      // registrado do mesmo jeito. Nada de redirect quebrado.
+      trackEvent("redirect_failed", { ...funnelContext, delivery_state: result.deliveryState ?? null });
       setRedirecting(false);
+      if (result.requiresRecoveryContact) {
+        // Servidor recusou a conclusão final: falta meio de retorno.
+        trackEvent("lead_unrecoverable", funnelContext);
+        setNeedsRecoveryContact(true);
+        setRecoveryError("Informe um WhatsApp para retorno: o atendimento direto deste site ainda não está disponível.");
+        return;
+      }
+      // Pedido salvo e recuperável mesmo sem atendimento direto.
+      trackEvent("lead_recoverable", funnelContext);
       setSavedProtocol(result.protocol ?? null);
       setStep(6);
     } catch {
@@ -256,6 +293,7 @@ export function BeautyBookingQuiz({
       setSubmitError("Não foi possível abrir o atendimento agora. Tente novamente em instantes.");
     }
   };
+
 
   const question = step === 0
     ? { label: "1 de 5", title: quizConfig?.stepTitles?.service ?? semanticCopy.titles.service, subtitle: quizConfig?.stepSubtitles?.service ?? semanticCopy.subtitles.service, field: "service" as const, options: services }
@@ -324,8 +362,11 @@ export function BeautyBookingQuiz({
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
                     <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Solicitação registrada</h2>
                     <p className="text-sm leading-relaxed text-gray-400">
-                      Seus dados foram registrados para {recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.
+                      {recoveryContact
+                        ? `Seus dados foram registrados para ${recipientName} e o retorno será feito no WhatsApp que você informou.`
+                        : `Seus dados foram registrados para ${recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.`}
                     </p>
+
                   </div>
                   {savedProtocol && (
                     <p className="rounded-2xl border border-dashed border-white/20 bg-black/20 px-4 py-3 text-center text-sm text-gray-300">
@@ -346,7 +387,30 @@ export function BeautyBookingQuiz({
                   <div className="max-h-40 overflow-auto rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-relaxed whitespace-pre-wrap text-gray-300">
                     {buildPortfolioQuizPreviewMessage({ studioName, answers, recipientName, mode, proposalKind: quizConfig?.proposalKind, pageUrl: typeof window !== "undefined" ? window.location.href : "", location: previewLocation, funnelContext: intentContext })}
                   </div>
+                  {needsRecoveryContact && (
+                    <div className="space-y-2 rounded-2xl border border-white/15 bg-white/5 p-4">
+                      <label htmlFor="portfolio-quiz-recovery" className="block text-sm font-semibold text-white">
+                        Em qual WhatsApp podemos retornar?
+                      </label>
+                      <input
+                        id="portfolio-quiz-recovery"
+                        type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
+                        maxLength={40}
+                        value={recoveryContact}
+                        onChange={(event) => { setRecoveryContact(event.target.value); setRecoveryError(null); }}
+                        placeholder="(41) 90000-0000"
+                        className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-white/40"
+                      />
+                      <p className="text-xs leading-relaxed text-gray-400">
+                        Usamos esse número apenas para responder a esta solicitação.
+                      </p>
+                      {recoveryError && <p className="text-xs text-red-300" role="alert">{recoveryError}</p>}
+                    </div>
+                  )}
                   <button type="button" onClick={completeInWhatsApp} disabled={redirecting} className={"inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold transition disabled:cursor-wait disabled:opacity-70 " + primaryClass}>
+
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
                     {redirecting ? "Preparando seu atendimento…" : mode === "proposal" ? `Continuar pedido para ${recipientName}` : "Continuar meu pedido"}
                   </button>

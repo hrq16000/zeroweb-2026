@@ -207,6 +207,22 @@ function evaluate(slug, manifest) {
   blockers.push(...destination.blockers);
   warnings.push(...destination.warnings);
 
+  // --- LEAD_RECOVERABILITY_GATE: nenhuma conclusão pode terminar perdida.
+  // Sem destino verificado, o funil compartilhado exige contato de retorno;
+  // o projeto novo só passa se rodar pela infraestrutura que garante isso.
+  const funnelSource = read("src/lib/dynamic-funnel.functions.ts");
+  const sharedGuarantee =
+    /decideLeadRecoverability/.test(funnelSource) && /recordLeadDelivery/.test(funnelSource);
+
+  checks.leadRecoverabilityGate = sharedGuarantee && destination.status !== "FAIL";
+  if (!sharedGuarantee) {
+    blockers.push("LEAD_RECOVERABILITY_GATE: funil compartilhado sem garantia de recuperação do lead");
+  } else if (destination.status !== "VERIFIED") {
+    warnings.push(
+      "LEAD_RECOVERABILITY_GATE: sem destino verificado o funil exigirá WhatsApp de retorno do visitante",
+    );
+  }
+
 
   // --- direção visual consciente: scaffold não pode chegar a ready
   checks.creativeDirectionDone = !/CREATIVE_BRIEF_REQUIRED/.test(componentSource);

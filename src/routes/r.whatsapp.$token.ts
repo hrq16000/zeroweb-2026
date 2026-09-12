@@ -86,6 +86,9 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
         // don't burn the token on a build failure.
         let finalMessage: string;
         let finalDigits: string;
+        let deliveredLeadId: string | null = null;
+        let deliveredClientKey: string | null = null;
+
 
         if (resolved.row.isLegacy && resolved.row.destination_digits && resolved.row.message) {
           // Legacy compat path — no new writes go here.
@@ -148,8 +151,26 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               reason: "missing_operational_whatsapp_number",
               fellBackToCentral: false,
             });
+            // O lead continua salvo. Registramos a falha de entrega e a
+            // recuperabilidade real (contato de retorno informado ou não).
+            const { markLeadDeliveryFailed } = await import("@/lib/lead-delivery-ledger.server");
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const { data: leadContact } = await (supabaseAdmin as any)
+              .from("dynamic_form_leads")
+              .select("contact_phone")
+              .eq("id", lead.id)
+              .maybeSingle();
+            await markLeadDeliveryFailed(
+              lead.id as string,
+              typeof clientKey === "string" ? clientKey : null,
+              "missing_operational_whatsapp_number",
+              Boolean(leadContact?.contact_phone),
+            );
             return channelNotConfiguredPage();
           }
+          deliveredLeadId = lead.id as string;
+          deliveredClientKey = typeof clientKey === "string" ? clientKey : null;
+
           finalDigits = contact.digits;
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -294,7 +315,14 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           }
         }
 
+        // Entrega efetiva: o destino foi resolvido e o token consumido.
+        if (deliveredLeadId) {
+          const { markLeadDelivered } = await import("@/lib/lead-delivery-ledger.server");
+          await markLeadDelivered(deliveredLeadId, deliveredClientKey);
+        }
+
         const url = assembleWaMeUrl(finalDigits, finalMessage);
+
         return new Response(null, {
           status: 302,
           headers: {
