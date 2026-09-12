@@ -39,7 +39,7 @@ jobs:
         run: bun run test
 
       - name: Typecheck
-        run: bunx tsgo --noEmit
+        run: bunx tsc --noEmit
 
       - name: Build + validators pós-build
         run: bun run build
