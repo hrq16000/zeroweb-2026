@@ -5,7 +5,9 @@ import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from 
 import { trackConversion, trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { persistWaFunnelConversion, persistWaFunnelOpen, persistWaFunnelStep } from "@/lib/persistence";
 import { getSessionId, getVisitorId } from "@/lib/visitor";
-import { submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
+import { getPortfolioFunnelDelivery, submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
+import { normalizeRecoveryPhone } from "@/lib/lead-recoverability";
+
 import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
 import { resolvePortfolioFunnelContext } from "@/lib/portfolio-funnel-context";
