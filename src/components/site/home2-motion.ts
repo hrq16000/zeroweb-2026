@@ -103,10 +103,10 @@ export const home2MotionMatrix: Home2MotionRule[] = [
   {
     id: "editorial",
     selector: ".home2-editorial-card",
-    effect: "stagger-up",
+    effect: "image-reveal",
     trigger: "scroll",
-    duration: 760,
-    stagger: 90,
+    duration: 880,
+    stagger: 110,
     threshold: 0.12,
   },
   {
@@ -183,13 +183,23 @@ export function initHome2Motion(root: HTMLElement) {
   const parallaxNodes = Array.from(root.querySelectorAll<HTMLElement>("[data-home2-parallax]"));
   if (parallaxNodes.length) {
     let frame = 0;
+    let geometry = parallaxNodes.map((node) => ({
+      node,
+      center: node.offsetTop + node.offsetHeight * 0.5,
+      amount: Number(node.dataset.home2Parallax ?? 18),
+    }));
+    const measureParallax = () => {
+      geometry = parallaxNodes.map((node) => ({
+        node,
+        center: node.offsetTop + node.offsetHeight * 0.5,
+        amount: Number(node.dataset.home2Parallax ?? 18),
+      }));
+    };
     const updateParallax = () => {
       frame = 0;
-      const viewportCenter = window.innerHeight * 0.5;
-      parallaxNodes.forEach((node) => {
-        const amount = Number(node.dataset.home2Parallax ?? 18);
-        const rect = node.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height * 0.5;
+      const viewportCenter = window.scrollY + window.innerHeight * 0.5;
+      geometry.forEach(({ node, center, amount }) => {
+        const elementCenter = center;
         const progress = (elementCenter - viewportCenter) / Math.max(window.innerHeight, 1);
         const offset = Math.max(-amount, Math.min(amount, -progress * amount * 1.8));
         node.style.setProperty("--home2-parallax-y", `${offset.toFixed(2)}px`);
@@ -199,12 +209,16 @@ export function initHome2Motion(root: HTMLElement) {
       if (frame) return;
       frame = window.requestAnimationFrame(updateParallax);
     };
+    const onResize = () => {
+      measureParallax();
+      onScroll();
+    };
     updateParallax();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     cleanups.push(() => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
       if (frame) window.cancelAnimationFrame(frame);
     });
   }
