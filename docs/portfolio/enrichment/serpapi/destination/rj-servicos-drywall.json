@@ -1,0 +1,78 @@
+{
+  "slug": "rj-servicos-drywall",
+  "query": "RJ Serviços de Drywall Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:05:24.182Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=RJ+Servi%C3%A7os+de+Drywall+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T01:05:24.181Z",
+    "sourceUrl": "https://www.google.com/maps/search/RJ+Servi%C3%A7os+de+Drywall+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJgRUIfELn3JQRe8-001DXxvM",
+      "dataId": "0x94dce7427c081581:0xf3c6d750d3b4cf7b",
+      "name": "RJ Drywall",
+      "category": "Reformas",
+      "address": "R. Pedro Kulik, 317 - Santa Cândida, Curitiba - PR, 82720-090",
+      "phone": "(41) 99856-9080",
+      "website": "https://devloui.site/",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJgRUIfELn3JQRe8-001DXxvM"
+    },
+    {
+      "placeId": "ChIJp1q-fDrj3JQRsoumnKVnW98",
+      "dataId": "0x94dce33a7cbe5aa7:0xdf5b67a59ca68bb2",
+      "name": "Rei do Gesso Curitiba",
+      "category": "Empreiteira de serviços com gesso",
+      "address": "R. Rezala Simão, 812 - Santa Quiteria, Curitiba - PR, 81330-180",
+      "phone": "(41) 99621-0110",
+      "website": "http://www.reidogessocuritiba.com.br/",
+      "rating": 4.9,
+      "reviewCount": 255,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJp1q-fDrj3JQRsoumnKVnW98"
+    },
+    {
+      "placeId": "ChIJg6ZVe-_l3JQR0fwq7hi76ro",
+      "dataId": "0x94dce5ef7b55a683:0xbaeabb18ee2afcd1",
+      "name": "Drywall Central Curitiba | DCC",
+      "category": "Empreiteira de serviços com gesso",
+      "address": "Rua Emiliano Perneta, 680 - Centro, Curitiba - PR, 80420-080",
+      "phone": "(41) 98522-9438",
+      "website": "https://curitibadrywall.com.br/",
+      "rating": 4.9,
+      "reviewCount": 41,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJg6ZVe-_l3JQR0fwq7hi76ro"
+    },
+    {
+      "placeId": "ChIJqYnTCQj93JQR12nY_insb3c",
+      "dataId": "0x94dcfd0809d389a9:0x776fec29fed869d7",
+      "name": "DRYWALL CLASS CURITIBA",
+      "category": "Empreiteira de serviços com gesso",
+      "address": "R. Dr. Manoel Linhares de Lacerda - Capão Raso, Curitiba - PR, 81020-490",
+      "phone": null,
+      "website": "https://drywallclass.com.br/",
+      "rating": 4.9,
+      "reviewCount": 39,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqYnTCQj93JQR12nY_insb3c"
+    },
+    {
+      "placeId": "ChIJeQTml9bk3JQRGuBH1Hbjpb0",
+      "dataId": "0x94dce4d697e60479:0xbda5e376d447e01a",
+      "name": "RJ Empreiteira",
+      "category": "Empreiteira",
+      "address": "R. Carlos de Laet, 1137 - Hauer, Curitiba - PR, 81610-050",
+      "phone": "(41) 3053-1500",
+      "website": "http://amwengenharia.com/",
+      "rating": 4,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJeQTml9bk3JQRGuBH1Hbjpb0"
+    }
+  ]
+}

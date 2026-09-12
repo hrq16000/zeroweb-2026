@@ -1,0 +1,54 @@
+{
+  "slug": "confeitaria-chyrley",
+  "query": "Chyrley Doces e Festas Rio Bonito Parana",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:05:23.013Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Chyrley+Doces+e+Festas+Rio+Bonito+Parana&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T01:05:23.012Z",
+    "sourceUrl": "https://www.google.com/maps/search/Chyrley+Doces+e+Festas+Rio+Bonito+Parana/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJqzQudbL93JQROCq4OXizNmU",
+      "dataId": "0x94dcfdb2752e34ab:0x6536b37839b82a38",
+      "name": "Sirlei Camargo Bolos e Doces",
+      "category": "Confeitaria",
+      "address": "R. Henrique Pereira de Camargo - Pinheirinho, Curitiba - PR, 81880-240",
+      "phone": "(41) 3298-2085",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqzQudbL93JQROCq4OXizNmU"
+    },
+    {
+      "placeId": "ChIJH-mNKQDl3JQREC8mLUsu6gQ",
+      "dataId": "0x94dce500298de91f:0x4ea2e4b2d262f10",
+      "name": "Délices de Sucre Batel",
+      "category": "Confeitaria",
+      "address": "Rua Emiliano Perneta, 952 - Batel, Curitiba - PR, 80420-080",
+      "phone": "(41) 98713-7934",
+      "website": null,
+      "rating": 4,
+      "reviewCount": 463,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJH-mNKQDl3JQREC8mLUsu6gQ"
+    },
+    {
+      "placeId": "ChIJJSoPPo7l3JQRpAgadQyAhRA",
+      "dataId": "0x94dce58e3e0f2a25:0x1085800c751a08a4",
+      "name": "Délices de Sucre - Confeitaria",
+      "category": "Confeitaria",
+      "address": "R. Simão Bolívar, 628 - Juvevê, Curitiba - PR, 80040-140",
+      "phone": "(41) 3598-0007",
+      "website": "https://www.instagram.com/delicesdesucre",
+      "rating": 4.1,
+      "reviewCount": 3008,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJJSoPPo7l3JQRpAgadQyAhRA"
+    }
+  ]
+}

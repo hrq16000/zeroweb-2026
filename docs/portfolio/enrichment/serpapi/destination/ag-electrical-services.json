@@ -1,0 +1,78 @@
+{
+  "slug": "ag-electrical-services",
+  "query": "AG Electrical Services elétrica CFTV Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:05:04.020Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=AG+Electrical+Services+el%C3%A9trica+CFTV+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T01:05:04.019Z",
+    "sourceUrl": "https://www.google.com/maps/search/AG+Electrical+Services+el%C3%A9trica+CFTV+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ3WVYu25v-oARgJ30wm2jZ08",
+      "dataId": "0x80fa6f6ebb5865dd:0x4f67a36dc2f49d80",
+      "name": "Ag soluções elétricas",
+      "category": "Eletricista",
+      "address": "R. Bruno Bertoldi, 637 - Campo de Santana, Curitiba - PR, 81490-374",
+      "phone": "(41) 99529-6632",
+      "website": "https://www.instagram.com/ag_solucoes_eletricass?igsh=cmNhZXJyeTg5d3M4&utm_source=qr",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ3WVYu25v-oARgJ30wm2jZ08"
+    },
+    {
+      "placeId": "ChIJiR9Qltr83JQRIOllrazM_ak",
+      "dataId": "0x94dcfcda96501f89:0xa9fdccacad65e920",
+      "name": "ATE Assembly",
+      "category": "Loja de materiais elétricos",
+      "address": "Rua Sigfredo Day, 50 - Cidade Industrial de Curitiba, Curitiba - PR, 81170-650",
+      "phone": "(41) 3347-1533",
+      "website": "http://www.ateexpress.com.br/",
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJiR9Qltr83JQRIOllrazM_ak"
+    },
+    {
+      "placeId": "ChIJU6RSyJfk3JQRSg3PcnjEQrQ",
+      "dataId": "0x94dce497c852a453:0xb442c47872cf0d4a",
+      "name": "AGS Eletronicos",
+      "category": "Loja de materiais elétricos",
+      "address": "R. Minas Gerais, 876 - Ljs 01 - Guaíra, Curitiba - PR, 80630-220",
+      "phone": "(41) 99970-7000",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJU6RSyJfk3JQRSg3PcnjEQrQ"
+    },
+    {
+      "placeId": "ChIJe1VVRaTj3JQR70y9rUTYCmk",
+      "dataId": "0x94dce3a44555557b:0x690ad844adbd4cef",
+      "name": "AG ELÉTROS",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "R. Gastão Câmara, 628 - Bigorrilho, Curitiba - PR, 80730-300",
+      "phone": "(41) 99662-3575",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 5,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJe1VVRaTj3JQR70y9rUTYCmk"
+    },
+    {
+      "placeId": "ChIJ8wKYDDvhTKIRt-GTvxavjDk",
+      "dataId": "0xa24ce13b0c9802f3:0x398caf16bf93e1b7",
+      "name": "Ag. Elétrica",
+      "category": "Eletricista",
+      "address": "R. Gustavo Michel Saliba - Costeira, Araucária - PR, 83701-823",
+      "phone": "(41) 99511-7623",
+      "website": "https://wa.me/554195117623",
+      "rating": 5,
+      "reviewCount": 33,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ8wKYDDvhTKIRt-GTvxavjDk"
+    }
+  ]
+}

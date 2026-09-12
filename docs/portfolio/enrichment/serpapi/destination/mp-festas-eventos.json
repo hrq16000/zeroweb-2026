@@ -1,0 +1,54 @@
+{
+  "slug": "mp-festas-eventos",
+  "query": "MP Festas e Eventos Araucária",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:05:25.466Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=MP+Festas+e+Eventos+Arauc%C3%A1ria&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T01:05:25.466Z",
+    "sourceUrl": "https://www.google.com/maps/search/MP+Festas+e+Eventos+Arauc%C3%A1ria/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJfbAgFnMDbYIR9mWDz6mepYw",
+      "dataId": "0x826d03731620b07d:0x8ca59ea9cf8365f6",
+      "name": "Mill Festas e Eventos - Pegue e Monte e Salão de Festas.",
+      "category": "Serviço de locação de artigos de festa",
+      "address": "R. Paulo Alves Pinto, 534 - Centro, Araucária - PR, 83702-240",
+      "phone": "(41) 99683-2904",
+      "website": "https://www.instagram.com/mill.festaseventos?igsh=MTRxYm16Z2Y3OW9sNg==",
+      "rating": 5,
+      "reviewCount": 3,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJfbAgFnMDbYIR9mWDz6mepYw"
+    },
+    {
+      "placeId": "ChIJjw7KgYYD3ZQRSM_a9a2MtUI",
+      "dataId": "0x94dd038681ca0e8f:0x42b58cadf5dacf48",
+      "name": "CASA PORTUGAL - Espaço para Eventos",
+      "category": "Local para eventos",
+      "address": "R. Pedro Nolasco Pizzatto, 228 - Estação, Araucária - PR, 83705-171",
+      "phone": "(41) 99826-2140",
+      "website": "https://sites.google.com/view/casa-portugal",
+      "rating": 4.8,
+      "reviewCount": 163,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJjw7KgYYD3ZQRSM_a9a2MtUI"
+    },
+    {
+      "placeId": "ChIJ73gw7nQD3ZQRTjKG_j2t0GI",
+      "dataId": "0x94dd0374ee3078ef:0x62d0ad3dfe86324e",
+      "name": "É Festa Eventos",
+      "category": "Local para eventos",
+      "address": "Tv. Santos Dumont, 209 - Centro, Araucária - PR, 83708-000",
+      "phone": "(41) 3150-1350",
+      "website": "http://www.efestaeventos.com.br/",
+      "rating": 4.9,
+      "reviewCount": 45,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ73gw7nQD3ZQRTjKG_j2t0GI"
+    }
+  ]
+}

@@ -271,6 +271,60 @@ export async function fetchPlace(placeId: string): Promise<NormalizedPlace> {
   };
 }
 
+/**
+ * engine=google_maps (type=search) — resolução operacional de entidade.
+ *
+ * Uma única chamada por projeto: devolve os candidatos da ficha do Google com
+ * nome, endereço, categoria, telefone e site, o suficiente para provar (ou
+ * não) que o destino pertence à entidade certa. Não busca reviews nem fotos.
+ */
+export type PlaceCandidate = {
+  placeId: string | null;
+  dataId: string | null;
+  name: string | null;
+  category: string | null;
+  address: string | null;
+  phone: string | null;
+  website: string | null;
+  rating: number | null;
+  reviewCount: number | null;
+  mapsUrl: string | null;
+};
+
+export async function searchPlaceCandidates(
+  query: string,
+  location: string,
+  limit = 5,
+): Promise<{ candidates: PlaceCandidate[]; provenance: SerpApiProvenance }> {
+  const { data, provenance } = await serpApiGet("google_maps", {
+    type: "search",
+    q: query,
+    location,
+    // SerpApi exige `z` (zoom) sempre que `location` é usado no google_maps.
+    z: "12",
+    hl: "pt-br",
+    gl: "br",
+  });
+  const raw: any[] = Array.isArray(data['local_results'])
+    ? data['local_results']
+    : data['place_results']
+      ? [data['place_results']]
+      : [];
+  const candidates = raw.slice(0, limit).map((r: any) => ({
+    placeId: r?.place_id ?? null,
+    dataId: r?.data_id ?? null,
+    name: r?.title ?? null,
+    category: Array.isArray(r?.type) ? r.type.join(", ") : (r?.type ?? null),
+    address: r?.address ?? null,
+    phone: r?.phone ?? null,
+    website: r?.website ?? null,
+    rating: typeof r?.rating === "number" ? r.rating : null,
+    reviewCount: typeof r?.reviews === "number" ? r.reviews : null,
+    mapsUrl: r?.place_id_search ?? r?.link ?? null,
+  }));
+  return { candidates, provenance };
+}
+
 /** engine=google_maps_reviews — avaliações com autoria e atribuição. */
 export async function fetchReviews(placeId: string, limit = 20) {
   const { data, provenance } = await serpApiGet("google_maps_reviews", {
