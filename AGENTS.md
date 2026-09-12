@@ -6,6 +6,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Landing/home comercial: originalidade + motion rico + mídia + evidência runtime | `.agents/skills/0web-landing-experience/SKILL.md` · `docs/LANDING_PAGE_MOTION_EVIDENCE_STANDARD.md` · `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
@@ -70,12 +71,14 @@ Toda implementação nova ou revisão visual material em `/portfolio/` deve segu
 
 1. executar `0web-skill-discovery` para selecionar competências complementares;
 2. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
-3. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam
+3. aplicar `0web-landing-experience` para motion, mídia, evidência visual e anti-template;
+4. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam
    problemas reais da marca/jornada — o arquivo é repertório, nunca template;
-4. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar
+5. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar
    estrutura fixa;
-5. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
-6. revisar acessibilidade/mobile, motion, performance e quality gates.
+6. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
+7. revisar acessibilidade/mobile, motion, performance e quality gates;
+8. provar no navegador critical media + motion `BEFORE → DURING → AFTER` para signature moments.
 
 Não publique uma nova página sem creative brief v2, funil individual, SEO,
 imagens classificadas corretamente, estados, `prefers-reduced-motion`, viewport
@@ -130,6 +133,7 @@ recolorir não é.
 # Norma global de experiência (resumo)
 
 Completo: `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` ·
+`docs/LANDING_PAGE_MOTION_EVIDENCE_STANDARD.md` ·
 `docs/PORTFOLIO_IMMERSIVE_EXPERIENCE_STANDARD.md` ·
 máquina: `src/config/experience-capabilities.json` e
 `src/config/portfolio-motion-profiles.json`.
@@ -139,8 +143,12 @@ máquina: `src/config/experience-capabilities.json` e
 - Motion usa primitives de `src/components/motion` / `motion/react` conforme o
   padrão local; conteúdo sempre existe sem JS.
 - `prefers-reduced-motion` remove deslocamento, nunca conteúdo.
-- Intensidade: `SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE`. Motion budget usual:
-  máx. 3 signature moments, 1 parallax, 1 stagger por viewport, 1 loop.
+- Intensidade: `SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE`; budget controla
+  concorrência/complexidade, não proíbe variedade contextual ao longo da página.
+- Landing/home comercial avalia a motion matrix global e aplica o máximo pertinente,
+  justificando `N/A`.
+- Evidência visual precisa provar mídia crítica e motion observado, incluindo
+  `BEFORE → DURING → AFTER` para signature moments.
 - Novo portfolio v2 declara override próprio de motion e creative brief; defaults
   por segmento ficam como fallback legado.
 - Hierarquia técnica: CSS → API nativa → motion system → lib leve → lib pesada
