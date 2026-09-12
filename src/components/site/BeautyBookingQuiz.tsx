@@ -151,7 +151,14 @@ export function BeautyBookingQuiz({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [previewLocation, setPreviewLocation] = useState("");
   const [savedProtocol, setSavedProtocol] = useState<string | null>(null);
+  // Quando este projeto ainda não tem atendimento direto configurado, pedimos
+  // um WhatsApp de retorno antes de concluir — assim o pedido nunca se perde.
+  const [needsRecoveryContact, setNeedsRecoveryContact] = useState(false);
+  const [recoveryContact, setRecoveryContact] = useState("");
+  const [recoveryError, setRecoveryError] = useState<string | null>(null);
   const submitPortfolio = useServerFn(submitPortfolioQuiz);
+  const loadDelivery = useServerFn(getPortfolioFunnelDelivery);
+
   const dialogRef = useRef<HTMLDivElement>(null);
   // Tema desconhecido (config inválida) não pode derrubar o SSR do projeto.
   const look = THEMES[theme] ?? THEMES.navy;
