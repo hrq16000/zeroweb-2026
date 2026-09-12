@@ -37,7 +37,10 @@ function Cell({ children, className = "" }: { children: React.ReactNode; classNa
  */
 export function PortfolioDestinationPanel() {
   const load = useServerFn(getPortfolioDestinationAudit);
+  const loadDelivery = useServerFn(getLeadDeliveryOverview);
   const [data, setData] = useState<DestinationAudit | null>(null);
+  const [delivery, setDelivery] = useState<Awaited<ReturnType<typeof loadDelivery>> | null>(null);
+
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<Filter>("p0");
