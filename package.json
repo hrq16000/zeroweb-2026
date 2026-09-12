@@ -72,6 +72,7 @@
     "build:portfolio-admin-seed": "node scripts/build-portfolio-admin-seed.mjs",
     "validate:portfolio-admin-seed": "node scripts/build-portfolio-admin-seed.mjs --check",
     "check:portfolio-originality": "node scripts/check-portfolio-originality.mjs --report",
+    "check:portfolio-uniqueness": "node scripts/check-portfolio-uniqueness.mjs",
     "build:portfolio-cover-status": "node scripts/build-portfolio-cover-status.mjs",
     "check:portfolio-cover-status": "node scripts/build-portfolio-cover-status.mjs --check",
     "report:portfolio-covers": "node scripts/report-portfolio-cover-inventory.mjs",
