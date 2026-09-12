@@ -1,0 +1,78 @@
+{
+  "slug": "refrigeracao-maresia",
+  "query": "Refrigeração Maresia Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:05:26.207Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Refrigera%C3%A7%C3%A3o+Maresia+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T01:05:26.207Z",
+    "sourceUrl": "https://www.google.com/maps/search/Refrigera%C3%A7%C3%A3o+Maresia+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJMYNAr1_k3JQRIpmCpFKZyQ4",
+      "dataId": "0x94dce45faf408331:0xec99952a4829922",
+      "name": "MF Refrigeração - Ar Condicionado - Camara Fria",
+      "category": "Fornecedor de refrigeradores comerciais",
+      "address": "R. Rockefeller, 843 - Rebouças, Curitiba - PR, 80230-130",
+      "phone": "(41) 99862-3691",
+      "website": "https://mfar.com.br/",
+      "rating": 4.6,
+      "reviewCount": 69,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJMYNAr1_k3JQRIpmCpFKZyQ4"
+    },
+    {
+      "placeId": "ChIJ5zHySMH63JQRzPKDUTmj6lA",
+      "dataId": "0x94dcfac148f231e7:0x50eaa3395183f2cc",
+      "name": "Repair Refrigeração e Ar Condicionado",
+      "category": "Prestador de serviços de climatização",
+      "address": "Rua Anne Frank, 109 - Hauer, Curitiba - PR, 81610-020",
+      "phone": "(41) 3377-5071",
+      "website": "https://repairrefrigeracao.com.br/",
+      "rating": 4.4,
+      "reviewCount": 519,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ5zHySMH63JQRzPKDUTmj6lA"
+    },
+    {
+      "placeId": "ChIJJ0fFHLFV3JQR6EWEb5UfmKg",
+      "dataId": "0x94dc55b11cc54727:0xa8981f956f8445e8",
+      "name": "Persi's Climatização",
+      "category": "Escritório da empresa",
+      "address": "R. Waldemar Loureiro Campos, 4392 - Xaxim, Curitiba - PR, 81830-000",
+      "phone": "(41) 4141-2614",
+      "website": "http://www.persisclimatizacao.com.br/",
+      "rating": 4.8,
+      "reviewCount": 35,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJJ0fFHLFV3JQR6EWEb5UfmKg"
+    },
+    {
+      "placeId": "ChIJJYf8IVXn3JQRNryRt1NvEjY",
+      "dataId": "0x94dce75521fc8725:0x36126f53b791bc36",
+      "name": "THERMYFRIO Climatizacao e Refrigeração comercial",
+      "category": "Prestador de serviços de climatização",
+      "address": "Rua João berquo - jardin planalto, Alm. Tamandaré - PR, 83514-410",
+      "phone": "(41) 99900-7590",
+      "website": null,
+      "rating": 4.6,
+      "reviewCount": 5,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJJYf8IVXn3JQRNryRt1NvEjY"
+    },
+    {
+      "placeId": "ChIJIYKj24T63JQRnejVP2uXx2c",
+      "dataId": "0x94dcfa84dba38221:0x67c7976b3fd5e89d",
+      "name": "Climasul Ar Condicionado: Climatização Empresarial e Industrial - Curitiba",
+      "category": "Prestador de serviços de climatização",
+      "address": "Av. Comendador Franco, 8218 - Uberaba, Curitiba - PR, 81560-001",
+      "phone": "(41) 2105-6650",
+      "website": "http://www.climasul.com.br/",
+      "rating": 4.1,
+      "reviewCount": 76,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJIYKj24T63JQRnejVP2uXx2c"
+    }
+  ]
+}
