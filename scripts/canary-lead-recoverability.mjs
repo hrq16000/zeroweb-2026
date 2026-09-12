@@ -47,21 +47,22 @@ const dialogButtons = (page) =>
   page.locator("div[role='dialog'] button:visible, [aria-modal='true'] button:visible");
 
 async function runQuiz(page) {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 8; i++) {
+    const ready = page.locator("button:visible").filter({ hasText: /mensagem pronta/i });
+    if (await ready.count()) {
+      const textarea = page.locator("textarea:visible").first();
+      if (await textarea.count()) await textarea.fill("Teste automatizado de garantia de entrega.");
+      await ready.first().click({ force: true });
+      await page.waitForTimeout(1200);
+      return true;
+    }
     const buttons = dialogButtons(page);
     const n = await buttons.count();
-    if (!n) break;
+    if (!n) { await page.waitForTimeout(600); continue; }
     await buttons.nth(n > 1 ? 1 : 0).click({ force: true }).catch(() => {});
     await page.waitForTimeout(700);
   }
-  if (process.env.CANARY_DEBUG) {
-    console.log("  [debug] botões:", (await dialogButtons(page).allInnerTexts()).join(" | "));
-  }
-  const textarea = page.locator("textarea:visible").first();
-  if (await textarea.count()) await textarea.fill("Teste automatizado de garantia de entrega.");
-  const next = page.locator("button:visible").filter({ hasText: /mensagem pronta/i }).first();
-  if (await next.count()) await next.click({ force: true });
-  await page.waitForTimeout(900);
+  return false;
 }
 
 async function canary(slug, expectRecovery) {
@@ -72,13 +73,11 @@ async function canary(slug, expectRecovery) {
   const requests = [];
   page.on("request", (r) => requests.push(`${r.url()} ${r.postData() ?? ""}`));
   let redirected = null;
-  page.on("framenavigated", (f) => {
-    if (f === page.mainFrame() && f.url().includes("/r/whatsapp/")) redirected = f.url();
-  });
+  page.on("request", (r) => { if (r.url().includes("/r/whatsapp/")) redirected = r.url(); });
 
   try {
     await openFunnel(page, slug);
-    await runQuiz(page);
+    if (!(await runQuiz(page))) fail(`${slug}: não chegou à etapa final do funil`);
     const recovery = page.locator("#portfolio-quiz-recovery");
     const hasRecovery = (await recovery.count()) > 0;
     if (expectRecovery) {
