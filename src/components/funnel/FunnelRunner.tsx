@@ -132,6 +132,17 @@ export function FunnelRunner({
     protocol: string | null;
     redirectFailed?: boolean;
   }>(null);
+  // LEAD_RECOVERABILITY: sem destino operacional resolvido, o funil só encerra
+  // depois de um meio mínimo de retorno.
+  const attachRecovery = useServerFn(attachFunnelRecoveryContact);
+  const [recovery, setRecovery] = useState<null | {
+    leadId: string;
+    protocol: string | null;
+    nextPath: string;
+  }>(null);
+  const [recoveryValue, setRecoveryValue] = useState("");
+  const [recoveryError, setRecoveryError] = useState<string | null>(null);
+  const [recoverySaving, setRecoverySaving] = useState(false);
   const [startedAt] = useState(() => new Date().toISOString());
   const [funnelSessionId] = useState<string>(() => newFunnelSessionId());
   const [sessionStarted, setSessionStarted] = useState(false);
