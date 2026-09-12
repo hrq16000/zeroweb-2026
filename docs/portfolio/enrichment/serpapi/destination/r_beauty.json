@@ -1,0 +1,77 @@
+{
+  "slug": "r_beauty",
+  "query": "R_Beauty Studio & Spa Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:55:59.210Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=R_Beauty+Studio+%26+Spa+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:55:59.210Z",
+    "sourceUrl": "https://www.google.com/maps/search/R_Beauty+Studio+%26+Spa+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJb6cXsX3j3JQRa5HGrt5arvQ",
+      "dataId": "0x94dce37db117a76f:0xf4ae5adeaec6916b",
+      "name": "RB Studio - Salão de Beleza Ecoville",
+      "category": "Salão de Beleza",
+      "address": "Rua Pedro Nicco, 174 - Mossunguê, Curitiba - PR, 81200-220",
+      "phone": "(41) 3205-9357",
+      "website": "https://www.instagram.com/rbstudiocuritiba/",
+      "rating": 4.9,
+      "reviewCount": 58,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJb6cXsX3j3JQRa5HGrt5arvQ"
+    },
+    {
+      "placeId": "ChIJk4mA6PDx3JQRDQ8cAFInnNI",
+      "dataId": "0x94dcf1f0e8808993:0xd29c2752001c0f0d",
+      "name": "STUDIO R Beleza & Estética",
+      "category": "Salão de Beleza",
+      "address": "R. Rio Javari, 868 Jd - Weissópolis, Pinhais - PR, 83322-310",
+      "phone": "(41) 99862-4251",
+      "website": "https://instagram.com/studior_official?igshid=MzRlODBiNWFlZA==",
+      "rating": 4.8,
+      "reviewCount": 67,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJk4mA6PDx3JQRDQ8cAFInnNI"
+    },
+    {
+      "placeId": "ChIJX7xaF3_z3JQRvnvjDv94NME",
+      "dataId": "0x94dcf37f175abc5f:0xc13478ff0ee37bbe",
+      "name": "R&M Beauty Studio",
+      "category": "Salão de Beleza",
+      "address": "R. Carlos Belão, 148 - Sl 04 - Vila Juliana, Piraquara - PR, 83306-120",
+      "phone": "(41) 98797-3240",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 27,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJX7xaF3_z3JQRvnvjDv94NME"
+    },
+    {
+      "placeId": "ChIJtYguGV393JQRtfh3wOtKVR0",
+      "dataId": "0x94dcfd5d192e88b5:0x1d554aebc077f8b5",
+      "name": "Beauty Spa Curitiba | By Jéssica Ferrari",
+      "category": "Centro de saúde e beleza",
+      "address": "R. Cel. Enock de Lima - Seminário, Curitiba - PR, 80240-540",
+      "phone": "(41) 98534-5880",
+      "website": "https://linkbio.co/jessicaferrari",
+      "rating": 5,
+      "reviewCount": 80,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJtYguGV393JQRtfh3wOtKVR0"
+    },
+    {
+      "placeId": "ChIJ62Ec6mrl3JQRHudbpE9VQts",
+      "dataId": "0x94dce56aea1c61eb:0xdb42554fa45be71e",
+      "name": "N.R STUDIO DE BELEZA",
+      "category": "Salão de Beleza",
+      "address": "Rua Luiz frança, 1896, Rua Rutildo Pulido, 488 - Cajuru, Curitiba - PR, 82940-090",
+      "phone": "(41) 98776-9626",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 15,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ62Ec6mrl3JQRHudbpE9VQts"
+    }
+  ]
+}

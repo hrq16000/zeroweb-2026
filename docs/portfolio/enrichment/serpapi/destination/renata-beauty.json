@@ -1,0 +1,77 @@
+{
+  "slug": "renata-beauty",
+  "query": "Renata Beauty Studio Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:56:00.303Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Renata+Beauty+Studio+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:56:00.303Z",
+    "sourceUrl": "https://www.google.com/maps/search/Renata+Beauty+Studio+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJHyap9dw8bqERfRFqYlNRbUw",
+      "dataId": "0xa16e3cdcf5a9261f:0x4c6d5153626a117d",
+      "name": "Studio Renata Nails",
+      "category": "Manicure",
+      "address": "R. Dr. Antônio Gomes, 119 - Xaxim, Curitiba - PR, 81830-210",
+      "phone": "(41) 98439-4051",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 15,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJHyap9dw8bqERfRFqYlNRbUw"
+    },
+    {
+      "placeId": "ChIJ-4TkPPTl3JQRTywutR0r1Xg",
+      "dataId": "0x94dce5f43ce484fb:0x78d52b1db52e2c4f",
+      "name": "Alongamento de cílios, extensão de cílios, no centro de Curitiba | Larissa Renata lash",
+      "category": "Salão de Beleza",
+      "address": "Av. Mal. Floriano Peixoto, 45 - Centro, Curitiba - PR, 80020-090",
+      "phone": "(41) 99118-6336",
+      "website": "https://www.instagram.com/lash.larissarenata__seja_livre?igsh=MWJsYnM0MjQwZm4xZg%3D%3D&utm_source=qr",
+      "rating": 5,
+      "reviewCount": 17,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ-4TkPPTl3JQRTywutR0r1Xg"
+    },
+    {
+      "placeId": "ChIJm4RsCQ7v3JQRS90TowkkWyE",
+      "dataId": "0x94dcef0e096c849b:0x215b2409a313dd4b",
+      "name": "studio Renata Macedo",
+      "category": "Studio de cílios",
+      "address": "Rua Waldemar Robison, 1022 - Emiliano Perneta, Curitiba - PR, 82324-520",
+      "phone": "(41) 99554-4058",
+      "website": "https://wa.me/5541995544058",
+      "rating": 5,
+      "reviewCount": 14,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJm4RsCQ7v3JQRS90TowkkWyE"
+    },
+    {
+      "placeId": "ChIJCdWDIiTx3JQRqYWD9nSvgYo",
+      "dataId": "0x94dcf1242283d509:0x8a81af74f68385a9",
+      "name": "Ateliê Thifany Renata",
+      "category": "Salão de Beleza",
+      "address": "Rua João Tobias de Paiva Netto, 1276 - Cajuru, Curitiba - PR, 82990-510",
+      "phone": "(41) 98761-3537",
+      "website": "https://www.instagram.com/thifany_renatabeauty?igsh=MWdpdjJ3M3F1M293NA%3D%3D&utm_source=qr",
+      "rating": 5,
+      "reviewCount": 40,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCdWDIiTx3JQRqYWD9nSvgYo"
+    },
+    {
+      "placeId": "ChIJUczvc_f73JQRQV7-pqQFrsM",
+      "dataId": "0x94dcfbf773efcc51:0xc3ae05a4a6fe5e41",
+      "name": "Studio Renata Marcon",
+      "category": "Salão de Beleza",
+      "address": "R. Prof. Naoki Kishida, 322 - Osternack, Curitiba - PR, 81935-072",
+      "phone": "(41) 99891-9616",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 24,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJUczvc_f73JQRQV7-pqQFrsM"
+    }
+  ]
+}

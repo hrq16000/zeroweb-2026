@@ -1,0 +1,29 @@
+{
+  "slug": "emporio-lelecute",
+  "query": "Empório LeleCute São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:55:54.894Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Emp%C3%B3rio+LeleCute+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:55:54.894Z",
+    "sourceUrl": "https://www.google.com/maps/search/Emp%C3%B3rio+LeleCute+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJu6YYQQD33JQR0-I7bakvPPQ",
+      "dataId": "0x94dcf7004118a6bb:0xf43c2fa96d3be2d3",
+      "name": "PapeLemi",
+      "category": "Ateliê de arte",
+      "address": "R. Antônio Rodrigues Gallego, 49 - Itália, São José dos Pinhais - PR, 83020-256",
+      "phone": null,
+      "website": "https://www.emporiolelecute.com.br/",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJu6YYQQD33JQR0-I7bakvPPQ"
+    }
+  ]
+}
