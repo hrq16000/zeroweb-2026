@@ -397,6 +397,10 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       fulfillment: softText(120).optional(),
       customer_note: softText(2000).optional(),
     }).optional(),
+    // Meio mínimo de retorno informado pelo visitante. Só é solicitado pela UI
+    // quando o projeto ainda não tem destino operacional configurado.
+    // Finalidade declarada: contato sobre esta solicitação. Nunca marketing.
+    recoveryContact: z.string().max(40).optional(),
     answers: z.object({
       service: softText(8000),
       experience: softText(400),
@@ -405,6 +409,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       note: softText(2000),
     }),
   }).parse(data))
+
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     // Painel de leads lê sempre de order_context: quando o componente não
