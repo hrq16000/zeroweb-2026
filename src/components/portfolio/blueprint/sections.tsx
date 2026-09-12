@@ -126,10 +126,18 @@ function Hero({ section, ctx }: { section: HeroSection; ctx: SectionContext }) {
     return (
       <section id={section.id} className="relative isolate min-h-[92svh] overflow-hidden">
         {c.image ? (
-          <Img
-            image={{ ...c.image, priority: true }}
-            className="absolute inset-0 -z-10 h-full w-full object-cover"
-          />
+          // Profundidade do hero full-bleed: a mídia declarada em
+          // `motion.parallax` acompanha o scroll dentro do limite global.
+          // Sem parallax declarado, o comportamento anterior é preservado.
+          <MotionParallax
+            speed={ctx.motion?.parallax ?? 0}
+            className="absolute inset-0 -z-10 h-[112%] w-full"
+          >
+            <Img
+              image={{ ...c.image, priority: true }}
+              className="h-full w-full object-cover"
+            />
+          </MotionParallax>
         ) : null}
         <div
           aria-hidden

@@ -63,8 +63,21 @@ for (const url of urls) {
       const nodes = Array.from(document.querySelectorAll("[data-motion]"));
       const before = nodes.map((n) => {
         const cs = getComputedStyle(n);
-        return { opacity: parseFloat(cs.opacity), transform: cs.transform };
+        return {
+          opacity: parseFloat(cs.opacity),
+          transform: cs.transform,
+          top: n.getBoundingClientRect().top + window.scrollY,
+        };
       });
+      const viewport = window.innerHeight;
+      // Microinteração: hover declarado precisa existir como classe de
+      // transform/cor no DOM renderizado, não apenas no Blueprint.
+      const microObserved = Boolean(
+        document.querySelector(
+          "[class*='hover:-translate-y-'],[class*='group-hover:scale-'],[class*='hover:scale-']",
+        ),
+      );
+
 
       window.scrollTo(0, document.body.scrollHeight * 0.45);
       await new Promise((r) => setTimeout(r, 900));
@@ -84,6 +97,8 @@ for (const url of urls) {
       };
 
       let perceptible = 0;
+      let heroObserved = false;
+      let scrollObserved = false;
       const samples = [];
       nodes.forEach((n, i) => {
         const cs = getComputedStyle(n);
@@ -99,6 +114,9 @@ for (const url of urls) {
           dTranslate >= T.minTranslatePx ||
           dScale >= T.minScaleDelta;
         if (ok) perceptible += 1;
+        const inHero = a.top < viewport;
+        if (inHero && (ok || n.getAttribute("data-motion-state") === "played")) heroObserved = true;
+        if (!inHero && ok) scrollObserved = true;
         samples.push({
           primitive: n.getAttribute("data-motion"),
           state: n.getAttribute("data-motion-state"),
@@ -109,7 +127,14 @@ for (const url of urls) {
         });
       });
 
-      return { total: nodes.length, perceptible, samples: samples.slice(0, 40) };
+      return {
+        total: nodes.length,
+        perceptible,
+        heroObserved,
+        scrollObserved,
+        microObserved,
+        samples: samples.slice(0, 40),
+      };
     },
     { T },
   );
@@ -135,13 +160,25 @@ for (const url of urls) {
   await context.close();
 
   const implemented = measured.total > 0;
-  const observed = implemented && measured.perceptible > 0;
+  /**
+   * MOTION_OBSERVED exige três eixos medidos em runtime, não configuração:
+   * hero, ao menos uma seção revelada no scroll e uma microinteração.
+   */
+  const observed =
+    implemented &&
+    measured.perceptible > 0 &&
+    measured.heroObserved &&
+    measured.scrollObserved &&
+    measured.microObserved;
   results.push({
     url,
     slug: declared.slug,
     MOTION_DECLARED: declared.declared,
     MOTION_IMPLEMENTED: implemented,
     MOTION_OBSERVED: observed,
+    heroObserved: measured.heroObserved,
+    scrollObserved: measured.scrollObserved,
+    microObserved: measured.microObserved,
     reducedMotionSafe: reducedOk,
     nodes: measured.total,
     perceptible: measured.perceptible,
@@ -159,7 +196,9 @@ if (asJson) {
     console.log(`\n${r.url}`);
     console.log(`  MOTION_DECLARED    ${r.MOTION_DECLARED ? "PASS" : "WARN"} (${r.slug ?? "não-portfolio"})`);
     console.log(`  MOTION_IMPLEMENTED ${r.MOTION_IMPLEMENTED ? "PASS" : "FAIL"} (${r.nodes} nós data-motion)`);
-    console.log(`  MOTION_OBSERVED    ${r.MOTION_OBSERVED ? "PASS" : "FAIL"} (${r.perceptible} perceptíveis)`);
+    console.log(
+      `  MOTION_OBSERVED    ${r.MOTION_OBSERVED ? "PASS" : "FAIL"} (${r.perceptible} perceptíveis · hero ${r.heroObserved ? "ok" : "não"} · scroll ${r.scrollObserved ? "ok" : "não"} · micro ${r.microObserved ? "ok" : "não"})`,
+    );
     console.log(`  REDUCED_MOTION     ${r.reducedMotionSafe ? "PASS" : "FAIL"}`);
     console.log(`  console errors     ${r.consoleErrors}`);
   }
