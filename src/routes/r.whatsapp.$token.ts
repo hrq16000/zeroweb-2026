@@ -411,6 +411,12 @@ function htmlErrorPage(
     a{display:block;padding:12px 20px;border-radius:9999px;text-decoration:none;font-weight:600;font-size:14px}
     a.primary{background:#22c55e;color:#052e16}
     a.ghost{background:transparent;color:#93c5fd;border:1px solid #1e3a8a}
+    .recovery{text-align:left;margin:0 0 18px;display:flex;flex-direction:column;gap:10px}
+    .recovery label{font-size:13px;font-weight:600;color:#e5e7eb}
+    .recovery input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:12px;border:1px solid #334155;background:#0b1220;color:#e5e7eb;font-size:15px}
+    .recovery button{padding:12px 20px;border-radius:9999px;border:0;background:#22c55e;color:#052e16;font-weight:700;font-size:14px;cursor:pointer}
+    .recovery button[disabled]{opacity:.6;cursor:wait}
+    .hint{font-size:12px;color:#9ca3af;margin:0}
   </style>
 </head><body><div class="card">
   <p class="brand">0WEB</p>
