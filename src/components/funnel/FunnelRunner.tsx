@@ -273,6 +273,18 @@ export function FunnelRunner({
         (result as { redirectPath?: string | null }).redirectPath ?? null;
       const protocol = (result as { protocol?: string | null }).protocol ?? null;
 
+      const needsRecovery =
+        (result as { requiresRecoveryContact?: boolean }).requiresRecoveryContact === true;
+      const leadId = (result as { submissionId?: string }).submissionId ?? null;
+
+      if (needsRecovery && leadId) {
+        // Pedido já salvo. Antes de encerrar, pedimos o meio de retorno —
+        // nunca mostramos confirmação de entrega que não aconteceu.
+        setRecovery({ leadId, protocol, nextPath });
+        setSubmitting(false);
+        return;
+      }
+
       setDone({ nextPath, redirectPath, protocol });
 
       // Persist submitted status to the pre-lead session.
