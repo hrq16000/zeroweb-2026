@@ -5,7 +5,147 @@ import {
   getPortfolioDestinationAudit,
   type DestinationAudit,
 } from "@/lib/portfolio-destination-audit.functions";
-import { isDestinationOk, type DestinationRow } from "@/lib/portfolio-funnel-destination";
+import {
+  DESTINATION_PROVENANCE_SOURCES,
+  isDestinationOk,
+  type DestinationProvenanceSource,
+  type DestinationRow,
+} from "@/lib/portfolio-funnel-destination";
+import {
+  confirmPortfolioDestination,
+  validatePortfolioDestination,
+} from "@/lib/portfolio-destination-confirm.functions";
+
+/**
+ * Confirmação humana do destino operacional (ADMIN). Grava no mecanismo
+ * canônico privado, valida logo em seguida e registra proveniência.
+ * O número digitado nunca volta inteiro para a tela.
+ */
+function ConfirmDestinationForm({ row, onDone }: { row: DestinationRow; onDone: () => void }) {
+  const confirm = useServerFn(confirmPortfolioDestination);
+  const validate = useServerFn(validatePortfolioDestination);
+  const [whatsapp, setWhatsapp] = useState("");
+  const [source, setSource] = useState<DestinationProvenanceSource>("OWNER_CONFIRMED");
+  const [evidence, setEvidence] = useState("");
+  const [ackShared, setAckShared] = useState(false);
+  const [ackChange, setAckChange] = useState(false);
+  const [ackLandline, setAckLandline] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [result, setResult] = useState<Awaited<ReturnType<typeof confirm>> | null>(null);
+  const [testResult, setTestResult] = useState<string | null>(null);
+
+  const submit = async () => {
+    setBusy(true);
+    setTestResult(null);
+    try {
+      const r = await confirm({
+        data: {
+          slug: row.slug,
+          whatsapp,
+          provenanceSource: source,
+          evidence,
+          acknowledgeShared: ackShared,
+          acknowledgeChange: ackChange,
+          acknowledgeLandline: ackLandline,
+        },
+      });
+      setResult(r);
+      if (r.ok) {
+        setWhatsapp("");
+        onDone();
+      }
+    } catch (e) {
+      setResult({
+        ok: false,
+        status: "REJECTED",
+        message: e instanceof Error ? e.message : "Falha ao confirmar destino",
+        masked: null,
+      } as never);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="mt-2 space-y-2 rounded-md border border-border bg-muted/30 p-3">
+      <div className="flex flex-wrap gap-2">
+        <input
+          aria-label={`WhatsApp operacional de ${row.slug}`}
+          value={whatsapp}
+          onChange={(e) => setWhatsapp(e.target.value)}
+          placeholder="(41) 99999-0000"
+          className="min-h-9 rounded-md border border-border bg-background px-2 text-sm"
+        />
+        <select
+          aria-label="Origem da confirmação"
+          value={source}
+          onChange={(e) => setSource(e.target.value as DestinationProvenanceSource)}
+          className="min-h-9 rounded-md border border-border bg-background px-2 text-sm"
+        >
+          {DESTINATION_PROVENANCE_SOURCES.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
+        </select>
+        <input
+          aria-label="Observação/evidência"
+          value={evidence}
+          onChange={(e) => setEvidence(e.target.value)}
+          placeholder="Evidência (quem confirmou, onde)"
+          className="min-h-9 min-w-[16rem] flex-1 rounded-md border border-border bg-background px-2 text-sm"
+        />
+        <button
+          type="button"
+          disabled={busy || whatsapp.trim().length < 8 || evidence.trim().length < 3}
+          onClick={() => void submit()}
+          className="min-h-9 rounded-md border border-primary bg-primary/10 px-3 text-xs font-semibold text-primary disabled:opacity-50"
+        >
+          {busy ? "Confirmando…" : "Confirmar destino"}
+        </button>
+        <button
+          type="button"
+          onClick={async () => {
+            const v = await validate({ data: { slug: row.slug } });
+            setTestResult(`${v.result}${v.masked ? ` · ${v.masked}` : ""}`);
+          }}
+          className="min-h-9 rounded-md border border-border px-3 text-xs font-semibold"
+        >
+          Validar destino
+        </button>
+      </div>
+
+      <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+        <label className="flex items-center gap-1">
+          <input type="checkbox" checked={ackShared} onChange={(e) => setAckShared(e.target.checked)} />
+          Os dois projetos compartilham o mesmo atendimento
+        </label>
+        <label className="flex items-center gap-1">
+          <input type="checkbox" checked={ackChange} onChange={(e) => setAckChange(e.target.checked)} />
+          Confirmo a troca de um destino já verificado
+        </label>
+        <label className="flex items-center gap-1">
+          <input type="checkbox" checked={ackLandline} onChange={(e) => setAckLandline(e.target.checked)} />
+          Confirmo que este número atende no WhatsApp
+        </label>
+      </div>
+
+      {testResult && <p className="text-xs font-semibold">Teste: {testResult}</p>}
+      {result && (
+        <p
+          role="status"
+          className={`whitespace-normal text-xs font-semibold ${
+            result.ok ? "text-primary" : "text-destructive"
+          }`}
+        >
+          {result.status} — {result.message}
+          {result.sharedWith?.length ? ` (também usado por: ${result.sharedWith.join(", ")})` : ""}
+          {result.masked ? ` · ${result.masked}` : ""}
+        </p>
+      )}
+    </div>
+  );
+}
 
 const BADGE: Record<string, string> = {
   VERIFIED: "border-primary/40 bg-primary/10 text-primary",
