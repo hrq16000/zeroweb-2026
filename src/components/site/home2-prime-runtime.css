@@ -1,0 +1,84 @@
+.home2-prime-hero-showcase {
+  --home2-prime-x: 0px;
+  --home2-prime-y: 0px;
+  transform: translate3d(var(--home2-prime-x), var(--home2-prime-y), 0);
+  transition: transform 160ms ease-out, opacity 420ms ease;
+  will-change: transform;
+}
+
+.home2-prime-orbit {
+  opacity: 0;
+  animation:
+    home2PrimeOrbitEnter 900ms 240ms cubic-bezier(.16,1,.3,1) forwards,
+    home2PrimeOrbit 18s 1140ms linear infinite;
+}
+
+.home2-prime-project {
+  opacity: 0;
+}
+
+.home2-prime-project--a {
+  animation:
+    home2PrimeProjectEnterA 840ms 340ms cubic-bezier(.16,1,.3,1) forwards,
+    home2PrimeFloat 6.8s 1180ms ease-in-out infinite;
+}
+
+.home2-prime-project--b {
+  animation:
+    home2PrimeProjectEnterB 820ms 470ms cubic-bezier(.16,1,.3,1) forwards,
+    home2PrimeFloat 7.2s 1290ms ease-in-out infinite;
+}
+
+.home2-prime-project--c {
+  animation:
+    home2PrimeProjectEnterC 820ms 590ms cubic-bezier(.16,1,.3,1) forwards,
+    home2PrimeFloat 7.6s 1410ms ease-in-out infinite;
+}
+
+.home2-prime-signal {
+  opacity: 0;
+  transform: translateY(8px) scale(.97);
+  animation: home2PrimeSignalEnter 520ms 930ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+.home2-prime-signal--b { animation-delay: 1010ms; }
+.home2-prime-signal--c { animation-delay: 1090ms; }
+
+@keyframes home2PrimeOrbitEnter {
+  from { opacity: 0; scale: .9; }
+  to { opacity: 1; scale: 1; }
+}
+
+@keyframes home2PrimeProjectEnterA {
+  from { opacity: 0; transform: translate3d(24px, 24px, 0) rotateY(-9deg) rotateZ(-2deg) scale(.93); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) rotateY(-9deg) rotateZ(-2deg) scale(1); }
+}
+
+@keyframes home2PrimeProjectEnterB {
+  from { opacity: 0; transform: translate3d(30px, -10px, 0) rotateY(10deg) rotateZ(5deg) scale(.9); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) rotateY(10deg) rotateZ(5deg) scale(1); }
+}
+
+@keyframes home2PrimeProjectEnterC {
+  from { opacity: 0; transform: translate3d(-26px, 22px, 0) rotateY(-5deg) rotateZ(-5deg) scale(.91); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) rotateY(-5deg) rotateZ(-5deg) scale(1); }
+}
+
+@keyframes home2PrimeSignalEnter {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home2-prime-hero-showcase {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .home2-prime-orbit,
+  .home2-prime-project,
+  .home2-prime-signal {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
