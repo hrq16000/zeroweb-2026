@@ -95,15 +95,17 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           finalDigits = String(resolved.row.destination_digits).replace(/\D/g, "");
           finalMessage = String(resolved.row.message);
           if (!finalDigits) {
-            return channelNotConfiguredPage();
+            return channelNotConfiguredPage(resolved.row.lead_id ? token : null);
           }
         } else {
           // Modern path: build from lead + session + form + questions.
           if (!resolved.row.lead_id) {
+            // Token antigo sem vínculo com pedido: não há o que recuperar aqui
+            // e não prometemos um retorno que o sistema não garante.
             return htmlErrorPage(
-              "Canal indisponível",
-              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-              503,
+              "Solicitação registrada",
+              "Seus dados foram registrados. Se quiser adiantar o atendimento, volte ao site e envie novamente sua solicitação.",
+              200,
             );
           }
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -166,7 +168,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               "missing_operational_whatsapp_number",
               Boolean(leadContact?.contact_phone),
             );
-            return channelNotConfiguredPage();
+            return channelNotConfiguredPage(token, Boolean(leadContact?.contact_phone));
           }
           deliveredLeadId = lead.id as string;
           deliveredClientKey = typeof clientKey === "string" ? clientKey : null;
@@ -341,25 +343,54 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
  * não tem WhatsApp oficial cadastrado. Nada de 5xx, nada de promessa de
  * retorno que o sistema não garante, nada de cair no canal da 0WEB.
  */
-function channelNotConfiguredPage(): Response {
-  return htmlErrorPage(
-    "Solicitação registrada",
-    "Seus dados foram registrados. O atendimento direto por WhatsApp deste site ainda não está disponível.",
-    200,
-  );
+function channelNotConfiguredPage(
+  recoveryToken: string | null,
+  alreadyRecoverable = false,
+): Response {
+  const body = alreadyRecoverable
+    ? "Seus dados foram registrados e o contato que você informou já permite o retorno. O atendimento direto por WhatsApp deste site ainda não está disponível."
+    : "Seus dados foram registrados. O atendimento direto por WhatsApp deste site ainda não está disponível.";
+  return htmlErrorPage("Solicitação registrada", body, 200, {
+    recoveryToken: alreadyRecoverable ? null : recoveryToken,
+  });
 }
 
 function htmlErrorPage(
   title: string,
   body: string,
   status = 410,
-  opts?: { reissueToken?: string | null; protocol?: string | null },
+  opts?: { reissueToken?: string | null; protocol?: string | null; recoveryToken?: string | null },
 ): Response {
   const reissue = opts?.reissueToken
     ? `<a class="primary" href="/r/whatsapp/reissue/${escapeHtml(opts.reissueToken)}">Reenviar minha solicitação</a>`
     : "";
   const protocol = opts?.protocol
     ? `<p class="proto">Protocolo <strong>${escapeHtml(opts.protocol)}</strong><br/>Guarde este código: sua solicitação já está registrada conosco.</p>`
+    : "";
+  // Recuperabilidade: sem destino operacional, a conclusão nunca é um beco sem
+  // saída — o visitante pode deixar um WhatsApp de retorno para esta
+  // solicitação. O contato é anexado ao pedido já salvo, no servidor.
+  const recovery = opts?.recoveryToken
+    ? `<form class="recovery" id="rec" data-testid="redirect-recovery">
+    <label for="rec-contact">Em qual WhatsApp podemos retornar?</label>
+    <input id="rec-contact" name="contact" type="tel" inputmode="tel" maxlength="40" autocomplete="tel" placeholder="(41) 99999-0000" required />
+    <button type="submit" id="rec-btn">Quero receber o retorno</button>
+    <p class="hint" id="rec-msg" role="status">Usado apenas para responder a esta solicitação.</p>
+  </form>
+  <script>
+    (function(){
+      var f=document.getElementById('rec'),m=document.getElementById('rec-msg'),b=document.getElementById('rec-btn');
+      f.addEventListener('submit',function(e){e.preventDefault();b.disabled=true;m.textContent='Salvando…';
+        fetch('/api/public/funnel-recovery',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:${JSON.stringify(
+          opts.recoveryToken,
+        )},contact:document.getElementById('rec-contact').value})})
+        .then(function(r){return r.json().catch(function(){return{ok:false}})})
+        .then(function(j){ if(j&&j.ok){f.innerHTML='<p class="hint">Pronto! Vamos retornar neste WhatsApp sobre esta solicitação.</p>';}
+          else {b.disabled=false;m.textContent='Informe um WhatsApp com DDD, por exemplo (41) 99999-0000.';}})
+        .catch(function(){b.disabled=false;m.textContent='Não foi possível salvar agora. Tente novamente.';});
+      });
+    })();
+  </script>`
     : "";
   const html = `<!doctype html>
 <html lang="pt-BR"><head>
@@ -380,12 +411,19 @@ function htmlErrorPage(
     a{display:block;padding:12px 20px;border-radius:9999px;text-decoration:none;font-weight:600;font-size:14px}
     a.primary{background:#22c55e;color:#052e16}
     a.ghost{background:transparent;color:#93c5fd;border:1px solid #1e3a8a}
+    .recovery{text-align:left;margin:0 0 18px;display:flex;flex-direction:column;gap:10px}
+    .recovery label{font-size:13px;font-weight:600;color:#e5e7eb}
+    .recovery input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:12px;border:1px solid #334155;background:#0b1220;color:#e5e7eb;font-size:15px}
+    .recovery button{padding:12px 20px;border-radius:9999px;border:0;background:#22c55e;color:#052e16;font-weight:700;font-size:14px;cursor:pointer}
+    .recovery button[disabled]{opacity:.6;cursor:wait}
+    .hint{font-size:12px;color:#9ca3af;margin:0}
   </style>
 </head><body><div class="card">
   <p class="brand">0WEB</p>
   <h1>${escapeHtml(title)}</h1>
   <p>${escapeHtml(body)}</p>
   ${protocol}
+  ${recovery}
   <div class="actions">
     ${reissue}
     <a class="ghost" href="/">Voltar ao site</a>

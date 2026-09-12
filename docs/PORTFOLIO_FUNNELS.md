@@ -29,6 +29,28 @@ um briefing de serviço (não panfletagem). Campanhas promocionais devem declara
 `proposalKind: "campaign"` explicitamente, evitando mistura de perguntas e da
 mensagem de próximo passo entre clientes.
 
+## Contrato terminal único (PORTFOLIO_FUNNEL_OPERATIONAL_GATE)
+
+Existem três variantes de funil no portfólio, todas terminando no mesmo
+contrato server-side: `portfolio_quiz` (BeautyBookingQuiz), `dynamic_funnel`
+(FunnelCTAButton/FunnelModalWrapper/FloatingFunnelCTA) e `external_store`
+(projeto cuja conversão é a loja oficial do cliente, declarado em
+`portfolio-clients.json`).
+
+Regras invioláveis:
+
+1. O pedido é salvo **antes** de qualquer verificação de canal.
+2. O token de redirect só é criado quando o destino operacional está resolvido.
+3. Sem destino, o funil pede um WhatsApp de retorno — nunca encerra em
+   "canal indisponível" sem saída. A página de `/r/whatsapp/:token` que não
+   consegue resolver o destino traz o mesmo formulário, entregue em
+   `POST /api/public/funnel-recovery` (lead resolvido pelo token, nunca pelo
+   cliente).
+4. `FUNNEL_OPERATIONAL`, `DIRECT_DELIVERY` e `RECOVERABILITY` são dimensões
+   separadas: `PENDING_DESTINATION` é estado aceitável; beco sem saída não é.
+
+Gate: `bun run check:portfolio-funnel-operational` (roda no `prebuild`).
+
 ## Invariante: botão flutuante = funil do CTA da página
 
 `scripts/sync-portfolio-quiz-configs.mjs` extrai o funil declarado em cada
