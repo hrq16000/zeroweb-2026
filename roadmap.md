@@ -49,3 +49,10 @@
 - [x] Filtro "com conclusões e sem entrega" no painel de destinos
 - [ ] Onda seguinte de P0 (39) — depende de número operacional informado pelo cliente
 - [ ] estrutura-nacional: titularidade confirmada, mas destino é telefone fixo (pedir celular)
+
+## P0.1 — Garantia de entrega (pré-publicação) — validado 2026-09-12
+- Contato de retorno completo fica só em `dynamic_form_leads.contact_phone`; ledger não guarda PII.
+- Painel lista apenas máscara; número completo exige ação administrativa auditada (`revealLeadRecoveryContact`).
+- Banco: FK com cascade + checks impedem estados impossíveis; 230 históricos seguem `UNRECOVERABLE_LEGACY`.
+- Canário real (`scripts/canary-lead-recoverability.mjs`): Careca's entrega por token sem pedir contato; Confeitaria Chyrley pede WhatsApp de retorno e salva como recuperável. Dados de teste removidos.
+- PENDENTE: aprovação para publicar a infraestrutura compartilhada nas ~90 páginas.
