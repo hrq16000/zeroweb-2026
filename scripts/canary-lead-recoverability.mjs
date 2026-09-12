@@ -37,25 +37,28 @@ const ok = (m) => console.log(`✓ ${m}`);
 
 async function openFunnel(page, slug) {
   await page.goto(`${baseUrl}/portfolio/${slug}`, { waitUntil: "domcontentloaded" });
-  await page.waitForTimeout(1200);
-  const cta = page.locator("button", { hasText: /or(ç|c)amento|agendar|falar|pedido|solicitar|atendimento/i }).first();
+  await page.waitForTimeout(2000);
+  const cta = page.getByRole("button", { name: /or(ç|c)amento|encomenda|festa|agendar|atendimento|pedido/i }).first();
   await cta.click({ timeout: 15000, force: true });
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(1000);
 }
+
+const dialogButtons = (page) =>
+  page.locator("div[role='dialog'] button:visible, [aria-modal='true'] button:visible");
 
 async function runQuiz(page) {
   for (let i = 0; i < 4; i++) {
-    const option = page.locator('div[role="dialog"] button, [id="portfolio-cta-quiz-title"] ~ * button').first();
-    const list = page.locator("button:visible").filter({ hasNotText: /fechar|ajustar|voltar/i });
-    const target = (await option.count()) ? option : list.first();
-    await target.click({ timeout: 10000, force: true }).catch(() => {});
-    await page.waitForTimeout(400);
+    const buttons = dialogButtons(page);
+    const n = await buttons.count();
+    if (!n) break;
+    await buttons.nth(n > 1 ? 1 : 0).click({ force: true }).catch(() => {});
+    await page.waitForTimeout(700);
   }
   const textarea = page.locator("textarea:visible").first();
   if (await textarea.count()) await textarea.fill("Teste automatizado de garantia de entrega.");
-  const next = page.locator("button:visible", { hasText: /mensagem pronta/i }).first();
+  const next = page.locator("button:visible").filter({ hasText: /mensagem pronta/i }).first();
   if (await next.count()) await next.click({ force: true });
-  await page.waitForTimeout(600);
+  await page.waitForTimeout(900);
 }
 
 async function canary(slug, expectRecovery) {
@@ -78,7 +81,7 @@ async function canary(slug, expectRecovery) {
     if (expectRecovery) {
       if (!hasRecovery) {
         // O campo pode aparecer só depois da recusa do servidor.
-        const complete = page.locator("button:visible", { hasText: /continuar/i }).first();
+        const complete = page.locator("button:visible").filter({ hasText: /continuar/i }).first();
         await complete.click({ force: true }).catch(() => {});
         await page.waitForTimeout(2500);
       }
@@ -87,7 +90,7 @@ async function canary(slug, expectRecovery) {
       } else {
         ok(`${slug}: pediu WhatsApp de retorno`);
         await page.locator("#portfolio-quiz-recovery").fill(RECOVERY_PHONE);
-        await page.locator("button:visible", { hasText: /continuar/i }).first().click({ force: true });
+        await page.locator("button:visible").filter({ hasText: /continuar/i }).first().click({ force: true });
         await page.waitForTimeout(3000);
         const done = await page.locator("text=Solicitação registrada").count();
         if (done) ok(`${slug}: pedido salvo e recuperável`);
@@ -96,7 +99,7 @@ async function canary(slug, expectRecovery) {
     } else {
       if (hasRecovery) fail(`${slug}: pediu contato extra mesmo com atendimento verificado`);
       else ok(`${slug}: funil enxuto, sem contato extra`);
-      await page.locator("button:visible", { hasText: /continuar/i }).first().click({ force: true }).catch(() => {});
+      await page.locator("button:visible").filter({ hasText: /continuar/i }).first().click({ force: true }).catch(() => {});
       await page.waitForTimeout(3000);
       if (redirected || page.url().includes("/r/whatsapp/")) ok(`${slug}: entrega pelo redirect tokenizado`);
       else fail(`${slug}: não gerou redirect de entrega`);
