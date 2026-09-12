@@ -160,6 +160,16 @@ export function MotionReveal({
   const horizontal = variant === "left" || variant === "right";
   const state = reduced ? "static" : !armed ? "idle" : seen ? "played" : "armed";
 
+  // O clip do modo "mask" fica em um filho: aplicado no próprio elemento
+  // observado, o IntersectionObserver enxerga área zero e o reveal nunca
+  // dispara quando o bloco entra na tela vindo de baixo.
+  const maskStyle = useMask
+    ? {
+        clipPath: active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+        transition: `clip-path ${tune.duration}ms ${ENTER} ${delay}ms`,
+      }
+    : undefined;
+
   return (
     <Tag
       ref={ref}
@@ -171,10 +181,9 @@ export function MotionReveal({
           horizontal || active || reduced
             ? "none"
             : hiddenTransform(variant, tune.distance, tune.scale),
-        clipPath: useMask ? (active ? "inset(0 0 0 0)" : "inset(0 0 100% 0)") : undefined,
         transition: reduced
           ? `opacity ${MOTION_REDUCED.opacityDurationMs}ms linear`
-          : `opacity ${tune.duration}ms ${ENTER} ${delay}ms, transform ${tune.duration}ms ${ENTER} ${delay}ms, clip-path ${tune.duration}ms ${ENTER} ${delay}ms`,
+          : `opacity ${tune.duration}ms ${ENTER} ${delay}ms, transform ${tune.duration}ms ${ENTER} ${delay}ms`,
         // O deslocamento horizontal acontece em um filho recortado: assim o
         // bloco nunca empurra a largura da página (§zero overflow lateral).
         overflowX: horizontal ? "clip" : undefined,
@@ -191,6 +200,8 @@ export function MotionReveal({
         >
           {children}
         </div>
+      ) : useMask ? (
+        <div style={maskStyle}>{children}</div>
       ) : (
         children
       )}
