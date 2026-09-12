@@ -194,30 +194,53 @@ export function ${componentName}() {
 }
 `;
 
-const creativeBriefSource = `# Creative brief — ${siteName}
+const creativeBriefSource = `# Creative Composition Brief — ${siteName}
 
-Contrato: v2 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
+Contrato: composição v1 · Slug: \`${slug}\` · Client key: \`${clientKey}\`
+Norma: docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md
 
-> Preencher antes de construir a interface. Nenhum campo pode permanecer como
+> Preencher ANTES de escrever qualquer JSX. Nenhum campo pode permanecer como
 > \`[PREENCHER]\` quando o projeto estiver \`published\`.
+> Careca's, Moreira e JKL são pilotos funcionais — não referência visual.
+
+## Composição (obrigatório)
+
+- businessPersonality: [PREENCHER]
+- creativeConcept: [PREENCHER]
+- visualMetaphor: [PREENCHER]
+- spatialLanguage: [PREENCHER]
+- heroConcept: [PREENCHER]
+- navigationConcept: [PREENCHER]
+- contentRhythm: [PREENCHER]
+- mediaNarrative: [PREENCHER]
+- proofNarrative: [PREENCHER]
+- conversionNarrative: [PREENCHER]
+- motionNarrative: [PREENCHER]
+- signatureMoments: [PREENCHER]
+
+## Composition fingerprint (comparado pelo PROJECT_UNIQUENESS_GATE)
+
+- heroGeometry: [PREENCHER]
+- headerTreatment: [PREENCHER]
+- sectionGraph: [PREENCHER]
+- contentOrder: [PREENCHER]
+- gridTopology: [PREENCHER]
+- mediaDistribution: [PREENCHER]
+- backgroundRhythm: [PREENCHER]
+- proofPlacement: [PREENCHER]
+- ctaDistribution: [PREENCHER]
+- navigationPattern: [PREENCHER]
+- motionSignature: [PREENCHER]
+- closingStructure: [PREENCHER]
+
+## Base editorial
 
 - businessTruth: [PREENCHER]
 - audience: [PREENCHER]
 - singleGoal: [PREENCHER]
-- brandPersonality: [PREENCHER]
-- visualMetaphor: [PREENCHER]
-- layoutTopology: [PREENCHER]
-- heroArchetype: [PREENCHER]
-- navigationArchetype: [PREENCHER]
-- sectionRhythm: [PREENCHER]
 - typePairing: [PREENCHER]
 - colorRoles: [PREENCHER]
 - imageStrategy: [PREENCHER]
-- iconStrategy: [PREENCHER]
-- motionGrammar: [PREENCHER]
-- interactionSignature: [PREENCHER]
-- conversionNarrative: [PREENCHER]
-- proofStrategy: [PREENCHER]
 - nearestPortfolioRisks: [PREENCHER]
 - antiTemplateDecisions: [PREENCHER]
 
