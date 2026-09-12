@@ -167,7 +167,7 @@ export const blueprint: PortfolioBlueprint = {
    * conforme o scroll — como um móvel montado etapa por etapa.
    */
   motionProfile: {
-    intensity: "BALANCED",
+    intensity: "EXPRESSIVE",
     personality: "cabinetry-settling",
     entrance: ["fade", "slide", "scale", "stagger"],
     scroll: ["scrollReveal", "imageParallax", "scrollProgress"],
