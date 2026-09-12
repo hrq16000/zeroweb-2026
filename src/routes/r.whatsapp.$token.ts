@@ -168,7 +168,7 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               "missing_operational_whatsapp_number",
               Boolean(leadContact?.contact_phone),
             );
-            return channelNotConfiguredPage();
+            return channelNotConfiguredPage(token, Boolean(leadContact?.contact_phone));
           }
           deliveredLeadId = lead.id as string;
           deliveredClientKey = typeof clientKey === "string" ? clientKey : null;
