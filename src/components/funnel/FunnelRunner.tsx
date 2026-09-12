@@ -278,6 +278,14 @@ export function FunnelRunner({
       const leadId = (result as { submissionId?: string }).submissionId ?? null;
 
       if (needsRecovery && leadId) {
+        updateSession({
+          data: {
+            session_id: funnelSessionId,
+            status: "form_submitted",
+            partial_answers: finalAnswers as Record<string, unknown>,
+            protocol: protocol ?? undefined,
+          },
+        }).catch(() => { /* noop */ });
         // Pedido já salvo. Antes de encerrar, pedimos o meio de retorno —
         // nunca mostramos confirmação de entrega que não aconteceu.
         setRecovery({ leadId, protocol, nextPath });
