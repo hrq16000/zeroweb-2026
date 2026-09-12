@@ -50,9 +50,18 @@ jobs:
       - name: Validator — privacidade do cliente
         run: node scripts/validate-client-privacy.mjs
 
-      - name: Subir artefato de produção (worker)
+      - name: Subir artefato de produção (Cloudflare worker)
+        shell: bash
         run: |
-          PREVIEW_PORT=8080 bun run preview:prod > /tmp/preview-server.log 2>&1 &
+          set -euo pipefail
+          test -f dist/server/wrangler.json
+          args=(dev --config dist/server/wrangler.json --ip 127.0.0.1 --port 8080)
+          [[ -n "${SUPABASE_URL:-}" ]] && args+=(--var "SUPABASE_URL:${SUPABASE_URL}")
+          [[ -n "${SUPABASE_PUBLISHABLE_KEY:-}" ]] && args+=(--var "SUPABASE_PUBLISHABLE_KEY:${SUPABASE_PUBLISHABLE_KEY}")
+          [[ -n "${VITE_SUPABASE_PROJECT_ID:-}" ]] && args+=(--var "SUPABASE_PROJECT_ID:${VITE_SUPABASE_PROJECT_ID}")
+          [[ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]] && args+=(--var "SUPABASE_SERVICE_ROLE_KEY:${SUPABASE_SERVICE_ROLE_KEY}")
+          [[ -n "${WHATSAPP_NUMBER:-}" ]] && args+=(--var "WHATSAPP_NUMBER:${WHATSAPP_NUMBER}")
+          bunx wrangler@latest "${args[@]}" > /tmp/preview-server.log 2>&1 &
           for i in $(seq 1 60); do
             curl -sf -o /dev/null "$E2E_BASE_URL/" && exit 0
             sleep 2
