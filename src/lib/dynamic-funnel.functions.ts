@@ -244,7 +244,20 @@ export const submitFunnel = createServerFn({ method: "POST" })
     // pull contact fields
     const contact_name = (data.answers.nome ?? data.answers.name ?? null) as string | null;
     const contact_email = (data.answers.email ?? null) as string | null;
-    const contact_phone = (data.answers.telefone ?? data.answers.phone ?? data.answers.whatsapp ?? null) as string | null;
+    const answeredPhone = (data.answers.telefone ?? data.answers.phone ?? data.answers.whatsapp ?? null) as string | null;
+
+    // LEAD_RECOVERABILITY: o contato de retorno informado no encerramento
+    // entra no mesmo campo canônico do lead, com finalidade declarada.
+    const { normalizeRecoveryPhone, RECOVERY_CONTACT_PURPOSE } = await import(
+      "@/lib/lead-recoverability"
+    );
+    const recoveryPhone = normalizeRecoveryPhone(data.recovery_contact ?? null);
+    const contact_phone = answeredPhone || recoveryPhone;
+    if (recoveryPhone && !answeredPhone) {
+      metadata.recovery_contact_kind = "whatsapp";
+      metadata.recovery_contact_purpose = RECOVERY_CONTACT_PURPOSE;
+      metadata.recovery_contact_collected_at = new Date().toISOString();
+    }
 
     // ---- Internal notification metadata ----
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
