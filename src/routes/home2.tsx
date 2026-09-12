@@ -1,13 +1,13 @@
 /**
  * /home2 — protótipo editorial da home 0WEB (comparação visual).
  *
- * Fonte de verdade: branch `feat/home2-wcria-reference` no Git
- * (Home2Prototype.tsx + home2-wcria.css + home2-motion.ts, importados sem
- * reinterpretação). Rota isolada: não altera `/`, não entra no menu global
- * nem no sitemap e fica `noindex,nofollow` enquanto for protótipo.
+ * A base de conteúdo permanece em Home2Prototype. A camada
+ * Home2PersonalityExperience acrescenta direção visual e microinterações sem
+ * alterar `/`, menu global ou sitemap. A rota segue `noindex,nofollow` enquanto
+ * estiver em comparação visual.
  */
 import { createFileRoute } from "@tanstack/react-router";
-import { Home2Prototype } from "@/components/site/Home2Prototype";
+import { Home2PersonalityExperience } from "@/components/site/Home2PersonalityExperience";
 
 const TITLE = "0WEB · Protótipo editorial da home (home2)";
 const DESC =
@@ -25,5 +25,5 @@ export const Route = createFileRoute("/home2")({
       { property: "og:type", content: "website" },
     ],
   }),
-  component: Home2Prototype,
+  component: Home2PersonalityExperience,
 });
