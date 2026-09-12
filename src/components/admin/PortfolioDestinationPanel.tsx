@@ -352,8 +352,30 @@ export function PortfolioDestinationPanel() {
                   </Cell>
                   <Cell className="tabular-nums">{r.destinationValueMasked ?? "—"}</Cell>
                   <Cell>{r.lastVerifiedAt ?? "—"}</Cell>
+                  <Cell>
+                    <button
+                      type="button"
+                      onClick={() => setOpenSlug(openSlug === r.slug ? null : r.slug)}
+                      aria-expanded={openSlug === r.slug}
+                      className="min-h-9 rounded-md border border-border px-2 text-xs font-semibold"
+                    >
+                      {openSlug === r.slug ? "Fechar" : "Confirmar"}
+                    </button>
+                  </Cell>
                 </tr>
-              ))}
+              )).flatMap((node, i) => {
+                const r = rows[i]!;
+                return openSlug === r.slug
+                  ? [
+                      node,
+                      <tr key={`${r.slug}-intake`} className="border-b border-border/60">
+                        <td colSpan={10} className="px-3 pb-3">
+                          <ConfirmDestinationForm row={r} onDone={() => void fetchData()} />
+                        </td>
+                      </tr>,
+                    ]
+                  : [node];
+              })}
               {rows.length === 0 && (
                 <tr>
                   <Cell className="text-muted-foreground">Nenhum projeto neste filtro.</Cell>
