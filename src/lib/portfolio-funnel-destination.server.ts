@@ -71,42 +71,64 @@ async function loadTelemetry(): Promise<{
     const since90 = new Date(Date.now() - 90 * 864e5).toISOString();
     const since30 = new Date(Date.now() - 30 * 864e5).toISOString();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { data: events } = await (supabaseAdmin as any)
-      .from("analytics_events")
-      .select("path, event_name, created_at")
-      .like("path", "/portfolio/%")
-      .gte("created_at", since90)
-      .limit(200000);
+    const EVENTS = [
+      "page_view",
+      "portfolio_view",
+      "funnel_open",
+      "wa_funnel_open",
+      "funnel_complete",
+      "wa_funnel_complete",
+    ];
 
-    for (const e of (events ?? []) as { path: string; event_name: string; created_at: string }[]) {
-      const slug = e.path.split("/")[2];
-      if (!slug) continue;
-      const t = bySlug.get(slug) ?? { ...EMPTY_TELEMETRY };
-      const isView = e.event_name === "page_view" || e.event_name === "portfolio_view";
-      if (isView) {
-        t.views90 += 1;
-        if (e.created_at >= since30) t.views30 += 1;
+    // A Data API pagina em blocos; sem isso a agregação leria só a primeira página.
+    const PAGE = 1000;
+    for (let from = 0; from < 200000; from += PAGE) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data: events } = await (supabaseAdmin as any)
+        .from("analytics_events")
+        .select("path, event_name, created_at")
+        .like("path", "/portfolio/%")
+        .in("event_name", EVENTS)
+        .gte("created_at", since90)
+        .order("created_at", { ascending: true })
+        .range(from, from + PAGE - 1);
+
+      const page = (events ?? []) as { path: string; event_name: string; created_at: string }[];
+      for (const e of page) {
+        const slug = (e.path ?? "").split("?")[0].split("/")[2];
+        if (!slug) continue;
+        const t = bySlug.get(slug) ?? { ...EMPTY_TELEMETRY };
+        if (e.event_name === "page_view" || e.event_name === "portfolio_view") {
+          t.views90 += 1;
+          if (e.created_at >= since30) t.views30 += 1;
+        }
+        if (e.event_name === "funnel_open" || e.event_name === "wa_funnel_open") t.funnelOpens90 += 1;
+        if (e.event_name === "funnel_complete" || e.event_name === "wa_funnel_complete") {
+          t.funnelCompletes90 += 1;
+        }
+        if (!t.lastActivityAt || e.created_at > t.lastActivityAt) t.lastActivityAt = e.created_at;
+        bySlug.set(slug, t);
       }
-      if (e.event_name === "funnel_open" || e.event_name === "wa_funnel_open") t.funnelOpens90 += 1;
-      if (e.event_name === "funnel_complete" || e.event_name === "wa_funnel_complete") {
-        t.funnelCompletes90 += 1;
-      }
-      if (!t.lastActivityAt || e.created_at > t.lastActivityAt) t.lastActivityAt = e.created_at;
-      bySlug.set(slug, t);
+      if (page.length < PAGE) break;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { data: leads } = await (supabaseAdmin as any)
-      .from("dynamic_form_leads")
-      .select("metadata_json, created_at")
-      .gte("created_at", since90)
-      .limit(50000);
-    for (const l of (leads ?? []) as { metadata_json: Record<string, unknown> | null }[]) {
-      const key = l.metadata_json?.["client_key"];
-      if (typeof key !== "string") continue;
-      leadsByClientKey.set(key, (leadsByClientKey.get(key) ?? 0) + 1);
+    for (let from = 0; from < 50000; from += PAGE) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data: leads } = await (supabaseAdmin as any)
+        .from("dynamic_form_leads")
+        .select("metadata_json, created_at")
+        .gte("created_at", since90)
+        .order("created_at", { ascending: true })
+        .range(from, from + PAGE - 1);
+      const page = (leads ?? []) as { metadata_json: Record<string, unknown> | null }[];
+      for (const l of page) {
+        const key = l.metadata_json?.["client_key"];
+        if (typeof key !== "string") continue;
+        leadsByClientKey.set(key, (leadsByClientKey.get(key) ?? 0) + 1);
+      }
+      if (page.length < PAGE) break;
     }
+
   } catch {
     /* telemetria é observacional: sua ausência nunca derruba a auditoria */
   }
