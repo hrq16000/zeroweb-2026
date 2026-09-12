@@ -129,7 +129,10 @@ const submitSchema = z.object({
         .optional(),
     })
     .optional(),
-
+  // Meio mínimo de retorno informado pelo visitante quando o funil não tem
+  // destino operacional resolvido. Finalidade declarada: contato sobre esta
+  // solicitação. Nunca marketing, nunca compartilhado.
+  recovery_contact: z.string().max(40).optional(),
 });
 
 async function lookupGeo(ip: string | null): Promise<Record<string, unknown>> {
