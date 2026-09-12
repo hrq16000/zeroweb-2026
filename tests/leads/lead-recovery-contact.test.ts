@@ -11,7 +11,7 @@ const funnel = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
 const listing = readFileSync("src/lib/portfolio-funnel-leads.functions.ts", "utf8");
 const reveal = readFileSync("src/lib/lead-recovery-contact.functions.ts", "utf8");
 const migration = readFileSync(
-  "supabase/migrations/20260912031500_lead_delivery_ledger_integrity.sql",
+  "supabase/migrations/20260912031541_fa834ca3-e3c9-4450-887d-4ac52c81e6ea.sql",
   "utf8",
 );
 
