@@ -263,6 +263,26 @@ function evaluate(slug, manifest) {
     ? matrixResult.structuralOriginality.status !== "FAIL"
     : true;
 
+  // PROJECT_UNIQUENESS_GATE — bloqueante para compositionContract >= 1
+  // (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §12/§17).
+  if (Number(manifest.compositionContract ?? 0) >= COMPOSITION_CONTRACT_VERSION) {
+    const uniqueness = evaluateProjectUniqueness(
+      {
+        slug,
+        fingerprint: manifest.compositionFingerprint ?? null,
+        perceptualReview: manifest.perceptualReview ?? null,
+        contentFacts: manifest.contentFacts ?? null,
+      },
+      compositionPeers,
+    );
+    checks.projectUniqueness = uniqueness.status === "PASS";
+    if (uniqueness.status !== "PASS") {
+      blockers.push(
+        `PROJECT_UNIQUENESS = FAIL: ${uniqueness.details.join(" · ") || "dimensões reprovadas"}`,
+      );
+    }
+  }
+
   checks.portfolioEmbedValid =
     autonomy.embed?.status === "PASS" && !matrixResult.failures.some((f) => f.includes("PORTFOLIO_EMBED"));
   checks.floatingConversionDecided = Boolean(autonomy.floatingConversion?.mode);
