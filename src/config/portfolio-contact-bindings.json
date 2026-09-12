@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "status": "MIGRATION_IN_PROGRESS",
+  "docs": "Baseline versionado dos vínculos comerciais de /portfolio. Telefone comercial é configuração de negócio; política de clique/handoff é separada. Não importar este arquivo no bundle client para criar contato direto: toda conversão comercial continua FUNNEL_FIRST e o handoff é resolvido server-side após persistir o lead.",
+  "policy": {
+    "identityKey": "clientKey",
+    "businessContactIsCredential": false,
+    "commercialCtaMode": "FUNNEL_FIRST",
+    "directTelAllowed": false,
+    "directWhatsAppAllowed": false,
+    "handoffAfterLeadPersistence": true,
+    "zeroWebFallbackAllowed": false,
+    "conflictStrategy": "FAIL_CLOSED_AND_REQUIRE_REVIEW"
+  },
+  "statuses": [
+    "VERIFIED",
+    "CANDIDATE",
+    "MISSING",
+    "CONFLICT",
+    "NOT_APPLICABLE"
+  ],
+  "entries": {
+    "carecas-infotec": {
+      "clientKey": "carecas-infotec",
+      "phoneE164": "+5541995072700",
+      "displayPhone": "(41) 99507-2700",
+      "status": "VERIFIED",
+      "source": "OWNER_PROVIDED+GOOGLE_ENTITY",
+      "verifiedAt": "2026-09-11",
+      "evidence": [
+        "Destino já classificado como VERIFIED no ledger de proveniência do projeto.",
+        "Mesmo telefone confirmado na entidade Google resolvida para Careca's Infotec."
+      ]
+    },
+    "jkl-decor": {
+      "clientKey": "jkl-decor",
+      "phoneE164": "+5541991425088",
+      "displayPhone": "(41) 99142-5088",
+      "status": "VERIFIED",
+      "source": "OWNER_PROVIDED+GOOGLE_ENTITY",
+      "verifiedAt": "2026-09-11",
+      "evidence": [
+        "Telefone informado no briefing do cliente.",
+        "Entidade Google da JKL Decor resolvida por Place ID e registrada no enrichment."
+      ]
+    }
+  }
+}
