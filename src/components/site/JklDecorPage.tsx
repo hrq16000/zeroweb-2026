@@ -185,7 +185,10 @@ export const blueprint: PortfolioBlueprint = {
   },
   theme,
   layout: {
-    motionIntensity: "BALANCED",
+    // Percepção: BALANCED deixava as entradas quase imperceptíveis em tela
+    // grande. EXPRESSIVE mantém a personalidade "cabinetry-settling" dentro
+    // dos limites do contrato global (distância 26px, 520ms).
+    motionIntensity: "EXPRESSIVE",
     maxWidth: "max-w-[1460px]",
     headerCtaLabel: "Pedir orçamento",
     /** Acesso persistente ao funil (adendo de autonomia §10–§13). */
@@ -201,7 +204,7 @@ export const blueprint: PortfolioBlueprint = {
       variant: "fullBleed",
       order: 10,
       id: "inicio-jkl",
-      motion: { intensity: "BALANCED", reveal: "scale", stagger: 90, parallax: 22 },
+      motion: { intensity: "EXPRESSIVE", reveal: "scale", stagger: 90, parallax: 26 },
       content: {
         eyebrow: "Marcenaria · São José dos Pinhais, Curitiba e região",
         headline: "Cada centímetro do ambiente vira móvel planejado.",
