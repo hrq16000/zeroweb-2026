@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.partners_guard_approval_columns() FROM PUBLIC, anon, authenticated;
