@@ -200,14 +200,21 @@ export function BeautyBookingQuiz({
     window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open", { detail: { clientKey } }));
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
     setStep(0);
+    setRecoveryError(null);
     void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));
     setOpen(true);
     // Telemetria fora do caminho crítico: o modal abre no mesmo frame do clique.
     queueTelemetry(() => {
       trackConversion("wa_funnel_open", funnelContext);
+      trackEvent("funnel_started", funnelContext);
       void persistWaFunnelOpen(5);
+      // Descobre cedo se este projeto entrega direto ou precisa de retorno.
+      void loadDelivery({ data: { clientKey } })
+        .then((state) => setNeedsRecoveryContact(Boolean(state?.requiresRecoveryContact)))
+        .catch(() => setNeedsRecoveryContact(true));
     });
   };
+
 
   const choose = (field: keyof Omit<Answers, "note">, value: string) => {
     const next = { ...answers, [field]: value };
