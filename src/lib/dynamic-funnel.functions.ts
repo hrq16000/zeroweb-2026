@@ -584,3 +584,26 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     };
 
   });
+
+/**
+ * Estado de entrega do funil de um projeto, ANTES da conclusão.
+ * Público e sem PII: devolve apenas se existe destino operacional, para a UI
+ * decidir se precisa pedir um contato de retorno ao visitante.
+ * Nunca devolve número, nome de variável ou origem do destino.
+ */
+export const getPortfolioFunnelDelivery = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) =>
+    z.object({ clientKey: z.enum(PORTFOLIO_CLIENT_KEYS) }).parse(data),
+  )
+  .handler(async ({ data }) => {
+    const { getPortfolioWhatsAppChannelStateAsync } = await import(
+      "@/lib/whatsapp-redirect.server"
+    );
+    const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
+    const destinationConfigured = channel === "CONFIGURED";
+    return {
+      destinationConfigured,
+      /** Quando não há destino, o contato de retorno é obrigatório. */
+      requiresRecoveryContact: !destinationConfigured,
+    };
+  });
