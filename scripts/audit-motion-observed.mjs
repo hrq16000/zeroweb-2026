@@ -97,6 +97,8 @@ for (const url of urls) {
       };
 
       let perceptible = 0;
+      let heroObserved = false;
+      let scrollObserved = false;
       const samples = [];
       nodes.forEach((n, i) => {
         const cs = getComputedStyle(n);
