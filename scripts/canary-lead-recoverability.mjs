@@ -54,6 +54,9 @@ async function runQuiz(page) {
     await buttons.nth(n > 1 ? 1 : 0).click({ force: true }).catch(() => {});
     await page.waitForTimeout(700);
   }
+  if (process.env.CANARY_DEBUG) {
+    console.log("  [debug] botões:", (await dialogButtons(page).allInnerTexts()).join(" | "));
+  }
   const textarea = page.locator("textarea:visible").first();
   if (await textarea.count()) await textarea.fill("Teste automatizado de garantia de entrega.");
   const next = page.locator("button:visible").filter({ hasText: /mensagem pronta/i }).first();
