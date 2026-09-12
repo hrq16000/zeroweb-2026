@@ -28,13 +28,13 @@ redundant skills or incompatible dependencies.
 
 | Task class | Stack (in order) |
 |---|---|
-| New commercial page / landing | `0web-skill-discovery` → `0web-portfolio-art-direction` → one appropriate landing/CRO specialist → `0web-design-system` → `0web-ui-quality-gates` → browser QA |
-| Portfolio client site (`/portfolio/<slug>`) | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` → `0web-skill-discovery` → `0web-portfolio-art-direction` → one appropriate landing/CRO specialist → `0web-design-system` (client-scoped identity) → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → originality + funnel + browser QA |
-| Material redesign | `0web-skill-discovery` → `0web-portfolio-art-direction` → `0web-design-system` → Apple HIG review → `0web-ui-quality-gates` |
+| New commercial page / landing | `0web-skill-discovery` → `0web-portfolio-art-direction` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` → Apple HIG / UX review → `0web-ui-quality-gates` → browser QA with runtime visual evidence |
+| Portfolio client site (`/portfolio/<slug>`) | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` → `0web-skill-discovery` → `0web-portfolio-art-direction` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` (client-scoped identity) → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → originality + funnel + browser QA |
+| Material redesign | `0web-skill-discovery` → `0web-portfolio-art-direction` → `0web-landing-experience` → `0web-design-system` → Apple HIG review → `0web-ui-quality-gates` |
 | Dashboard / admin panel | `0web-design-system` (density, tables, states) → `0web-ui-quality-gates` (keyboard, empty/loading/error) |
 | Form / funnel step | `0web-ui-quality-gates` (labels, errors, touch targets) → funnel rules in `docs/PORTFOLIO_FUNNELS.md` |
 | React refactor | composition first (see `0web-design-system` → Component API), then `bun test` + typecheck |
-| Motion / animation | `docs/design/MOTION.md` → per-client motion grammar when portfolio → `prefers-reduced-motion` check |
+| Motion / animation | `docs/design/MOTION.md` → `docs/LANDING_PAGE_MOTION_EVIDENCE_STANDARD.md` when landing/home → per-client motion grammar when portfolio → `prefers-reduced-motion` check |
 | Accessibility review | `.design-rules/SKILL.md` + `.design-rules/references/hig/accessibility.md` |
 | SEO / content | route `head()` rules in `AGENTS.md`, JSON-LD validators in `package.json` |
 
@@ -43,19 +43,39 @@ expert, never a section template. The 0WEB or client identity always wins.
 
 ## Step 2.5 — Anti-template requirement
 
-For every new portfolio client and material redesign, record the creative DNA
+For every new portfolio client, landing page and material redesign, record the creative DNA
 from `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` **before** JSX layout work.
 
-At minimum compare against the nearest portfolio sites on:
+At minimum compare against the nearest pages/sites on:
 
 - hero composition;
 - section order/narrative;
 - typography;
 - image treatment;
 - motion grammar;
-- signature interaction.
+- signature interaction;
+- navigation/header behavior;
+- CTA persistence;
+- closing/footer composition.
 
 If the design differs mostly by color/logo/copy, do not implement it yet.
+
+## Step 2.6 — Landing experience requirement
+
+Toda landing/home comercial deve aplicar `.agents/skills/0web-landing-experience/SKILL.md` e
+`docs/LANDING_PAGE_MOTION_EVIDENCE_STANDARD.md`.
+
+Isso inclui:
+
+- avaliar a motion matrix global (`fade-up`, `fade-left`, `fade-right`, `blur-in`,
+  `scale-in`, `stagger-up`, `image-reveal`, `clip-reveal`, `parallax`, `marquee`,
+  `float`, `header-scroll`, `menu-reveal`), aplicando o máximo pertinente;
+- evitar uma única animação repetida em todas as seções;
+- tratar motion como fail-open;
+- usar mídia real quando disponível;
+- provar visualmente hero, mídia/cases, CTA persistente quando aplicável e fechamento;
+- medir `BEFORE → DURING → AFTER` para signature moments;
+- validar reduced-motion com conteúdo integralmente visível.
 
 ## Step 3 — Implement
 
@@ -78,6 +98,10 @@ bun run build
 For new portfolio clients also verify `validate:portfolio-scaffold`,
 `check:portfolio-originality`, primary funnel/WhatsApp routing, mobile viewport,
 keyboard, console and reduced motion.
+
+For landing/home commercial work, browser evidence must include representative critical
+sections and at least three runtime states (`BEFORE`, `DURING`, `AFTER`) for selected
+signature motion, plus reduced-motion.
 
 ## Step 5 — Log
 
