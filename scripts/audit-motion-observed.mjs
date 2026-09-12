@@ -114,6 +114,9 @@ for (const url of urls) {
           dTranslate >= T.minTranslatePx ||
           dScale >= T.minScaleDelta;
         if (ok) perceptible += 1;
+        const inHero = a.top < viewport;
+        if (inHero && (ok || n.getAttribute("data-motion-state") === "played")) heroObserved = true;
+        if (!inHero && ok) scrollObserved = true;
         samples.push({
           primitive: n.getAttribute("data-motion"),
           state: n.getAttribute("data-motion-state"),
