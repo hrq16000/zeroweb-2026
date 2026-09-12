@@ -90,6 +90,39 @@ const services = [
   },
 ] as const;
 
+const processSteps = [
+  {
+    title: "Contexto",
+    description:
+      "Começamos pelo negócio, público, oferta e objetivo da página para não confundir ferramenta com estratégia.",
+  },
+  {
+    title: "Estratégia",
+    description:
+      "Definimos a jornada, a mensagem principal, os pontos de confiança e o caminho de conversão antes de desenhar telas.",
+  },
+  {
+    title: "Direção visual",
+    description:
+      "Tipografia, contraste, composição, imagens e motion passam a responder à identidade da empresa — não a um template genérico.",
+  },
+  {
+    title: "Construção",
+    description:
+      "A experiência é implementada com responsividade, acessibilidade, performance, SEO técnico e integrações necessárias.",
+  },
+  {
+    title: "Publicação",
+    description:
+      "Antes de colocar no ar, validamos rotas, conteúdo, estados, comportamento mobile e pontos críticos de conversão.",
+  },
+  {
+    title: "Evolução",
+    description:
+      "Depois da publicação, a página pode evoluir a partir do uso real, novas campanhas, conteúdo e necessidades do negócio.",
+  },
+] as const;
+
 const principles = [
   {
     title: "Estrutura própria",
@@ -152,6 +185,7 @@ function Home2Header({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen
         <nav className="home2-nav" aria-label="Navegação da Home2">
           <a href="#sobre">Sobre</a>
           <a href="#solucoes">Soluções</a>
+          <a href="#processo">Processo</a>
           <a href="#projetos">Portfólio</a>
           <a href="#conteudo">Conteúdo</a>
           <Link to="/contato" className="home2-nav-cta">
@@ -177,6 +211,7 @@ function Home2Header({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen
       >
         <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
         <a href="#solucoes" onClick={() => setMenuOpen(false)}>Soluções</a>
+        <a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a>
         <a href="#projetos" onClick={() => setMenuOpen(false)}>Portfólio</a>
         <a href="#conteudo" onClick={() => setMenuOpen(false)}>Conteúdo</a>
         <Link to="/contato" onClick={() => setMenuOpen(false)}>Fale conosco</Link>
@@ -212,10 +247,10 @@ export function Home2Prototype() {
               <Sparkles size={14} aria-hidden="true" /> 0WEB · do zero ao digital
             </p>
 
-            <h1 id="home2-title" data-home2-load>
-              <span>Soluções</span>{" "}
-              <strong>criativas e estratégicas</strong>{" "}
-              <span>para sua empresa</span>
+            <h1 id="home2-title">
+              <span className="home2-hero-line">Soluções</span>
+              <span className="home2-hero-line"><strong>criativas e estratégicas</strong></span>
+              <span className="home2-hero-line">para sua empresa</span>
             </h1>
 
             <p className="home2-hero-subtitle" data-home2-load>
@@ -368,6 +403,31 @@ export function Home2Prototype() {
           </div>
         </section>
 
+        <section id="processo" className="home2-process" aria-labelledby="home2-process-title">
+          <div className="home2-shell home2-process-grid">
+            <div className="home2-process-intro">
+              <p className="home2-eyebrow">Processo</p>
+              <h2 id="home2-process-title">Do contexto à <strong>evolução.</strong></h2>
+              <p>
+                A sequência existe para reduzir improviso: primeiro entendemos o problema; depois desenhamos, construímos, validamos e evoluímos a solução.
+              </p>
+            </div>
+
+            <div className="home2-process-list">
+              {processSteps.map((step, index) => (
+                <article key={step.title} className="home2-process-step">
+                  <span className="home2-process-index">{String(index + 1).padStart(2, "0")}</span>
+                  <div className="home2-process-copy">
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
+                  <span className="home2-process-arrow" aria-hidden="true">↗</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="home2-experience" aria-labelledby="home2-experience-title">
           <div className="home2-shell home2-experience-grid">
             <div className="home2-experience-copy" data-home2-motion="experience-copy">
@@ -381,7 +441,13 @@ export function Home2Prototype() {
 
             <div className="home2-proof-grid" aria-label="Pilares verificáveis da entrega 0WEB">
               <div className="home2-proof-card">
-                <strong>{publishedProjects.length}</strong>
+                <strong
+                  data-home2-count
+                  data-home2-count-start="0"
+                  data-home2-count-end={publishedProjects.length}
+                >
+                  {publishedProjects.length}
+                </strong>
                 <span>projetos publicados no catálogo atual</span>
               </div>
               <div className="home2-proof-card">
@@ -489,7 +555,7 @@ export function Home2Prototype() {
                   width={900}
                   height={650}
                   sizes="(max-width: 840px) 100vw, 33vw"
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
                   data-home2-parallax="8"
                 />
@@ -503,7 +569,7 @@ export function Home2Prototype() {
           </div>
         </section>
 
-        <section className="home2-newsletter-band" aria-labelledby="home2-newsletter-title">
+        <section className="home2-newsletter-band" aria-labelledby="home2-newsletter-title" data-home2-cta-strip>
           <div className="home2-shell home2-newsletter-grid">
             <div data-home2-motion="heading">
               <h2 id="home2-newsletter-title">Do zero ao digital.</h2>

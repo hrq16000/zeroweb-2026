@@ -1,0 +1,929 @@
+.home2-personality-shell {
+  --home2-pointer-x: 72%;
+  --home2-pointer-y: 34%;
+  --home2-page-progress: 0%;
+  position: relative;
+  background: #050818;
+}
+
+.home2-personality-shell .home2-page {
+  --h2-deep: #030615;
+  --h2-deep-2: #08122b;
+  --h2-blue: #3567ff;
+  --h2-cyan: #54def8;
+  --h2-violet: #7a43e6;
+  --h2-paper: #f6f7fb;
+}
+
+/* Persistent progress — deliberately quiet, useful orientation rather than decoration. */
+.home2-page-progress {
+  position: fixed;
+  z-index: 120;
+  top: 0;
+  right: 18px;
+  width: 2px;
+  height: 100dvh;
+  pointer-events: none;
+  background: rgba(255, 255, 255, .08);
+}
+
+.home2-page-progress span {
+  display: block;
+  width: 100%;
+  height: var(--home2-page-progress);
+  background: linear-gradient(180deg, #73ecff 0%, #5a73ff 52%, #9c54ee 100%);
+  box-shadow: 0 0 16px rgba(84, 222, 248, .5);
+}
+
+/* Hero — editorial split + responsive signal field. */
+.home2-personality-shell .home2-hero {
+  place-items: stretch;
+  min-height: 760px;
+  background:
+    radial-gradient(circle at 76% 26%, rgba(79, 104, 255, .17), transparent 29%),
+    linear-gradient(122deg, #030511 0%, #071129 50%, #0b1035 76%, #030512 100%);
+}
+
+.home2-personality-shell .home2-hero::before,
+.home2-personality-shell .home2-hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.home2-personality-shell .home2-hero::before {
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(520px circle at var(--home2-pointer-x) var(--home2-pointer-y), rgba(84, 222, 248, .13), transparent 58%),
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: auto, 54px 54px, 54px 54px;
+  mask-image: linear-gradient(90deg, rgba(0,0,0,.25), #000 58%, #000 88%, rgba(0,0,0,.25));
+}
+
+.home2-personality-shell .home2-hero::after {
+  z-index: 2;
+  width: min(42vw, 580px);
+  aspect-ratio: 1;
+  right: clamp(24px, 5.4vw, 104px);
+  top: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(133, 230, 255, .24);
+  transform: translateY(-48%);
+  background:
+    radial-gradient(circle, transparent 0 12%, rgba(111, 225, 255, .38) 12.2% 12.55%, transparent 12.8% 27%, rgba(91, 119, 255, .27) 27.2% 27.55%, transparent 27.8% 46%, rgba(132, 84, 236, .22) 46.2% 46.55%, transparent 46.8%),
+    conic-gradient(from 18deg, transparent 0 10%, rgba(111,225,255,.15) 10.4% 10.8%, transparent 11.2% 34%, rgba(94,115,255,.14) 34.4% 34.8%, transparent 35.2% 72%, rgba(164,90,236,.13) 72.4% 72.8%, transparent 73.2%);
+  box-shadow:
+    0 0 0 34px rgba(78, 101, 255, .025),
+    0 0 0 88px rgba(82, 63, 191, .018),
+    inset 0 0 72px rgba(64, 88, 255, .08),
+    0 0 110px rgba(41, 73, 255, .09);
+  opacity: .92;
+}
+
+.home2-personality-shell .home2-ribbon {
+  z-index: 1;
+  opacity: .58;
+}
+
+.home2-personality-shell .home2-ribbon-a {
+  left: -82vw;
+  top: -63vw;
+}
+
+.home2-personality-shell .home2-ribbon-b {
+  right: -79vw;
+  top: -26vw;
+  opacity: .42;
+}
+
+.home2-personality-shell .home2-ribbon-c {
+  opacity: .34;
+}
+
+.home2-personality-shell .home2-hero-content {
+  z-index: 4;
+  width: min(1320px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: clamp(150px, 18vh, 210px) min(44vw, 620px) 148px 0;
+  text-align: left;
+  align-self: center;
+}
+
+.home2-personality-shell .home2-kicker {
+  margin-bottom: 24px;
+  color: #a9efff;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: none;
+}
+
+.home2-personality-shell .home2-hero h1 {
+  max-width: 760px;
+  font-size: clamp(4rem, 6.15vw, 7rem);
+  line-height: .88;
+  letter-spacing: -.067em;
+  text-wrap: pretty;
+}
+
+.home2-personality-shell .home2-hero h1 strong {
+  color: #fff;
+  text-shadow: 0 0 42px rgba(80, 116, 255, .18);
+}
+
+.home2-personality-shell .home2-hero-subtitle {
+  max-width: 620px;
+  margin: 30px 0 0;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  color: rgba(255,255,255,.72);
+}
+
+.home2-personality-shell .home2-proofline,
+.home2-personality-shell .home2-hero-actions {
+  justify-content: flex-start;
+}
+
+.home2-personality-shell .home2-proof-copy {
+  text-align: left;
+  order: 2;
+}
+
+.home2-personality-shell .home2-proof-avatars {
+  order: 1;
+}
+
+.home2-personality-shell .home2-btn-primary,
+.home2-personality-shell .home2-btn-secondary,
+.home2-personality-shell .home2-inline-link,
+.home2-personality-shell .home2-final-link {
+  border-radius: 11px;
+  min-height: 48px;
+  padding-inline: 21px;
+  letter-spacing: .015em;
+  text-transform: none;
+}
+
+.home2-personality-shell .home2-btn-primary {
+  background: linear-gradient(112deg, #396cff 0%, #6150e5 64%, #7c45d9 100%);
+  box-shadow: 0 14px 42px rgba(57, 108, 255, .23);
+}
+
+.home2-personality-shell .home2-btn-secondary {
+  backdrop-filter: blur(9px);
+}
+
+/* Capability rail — the page's signature "routing" motif. */
+.home2-capability-rail {
+  position: absolute;
+  z-index: 12;
+  top: calc(min(100svh, 940px) - 88px);
+  left: 50%;
+  width: min(1180px, calc(100% - 96px));
+  min-height: 62px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 28px;
+  padding: 0 22px;
+  transform: translateX(-50%);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.13);
+  background: rgba(4, 9, 29, .66);
+  backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: 0 20px 70px rgba(0,0,0,.26);
+  pointer-events: none;
+}
+
+.home2-capability-label {
+  color: #76e6fa;
+  font-size: .72rem;
+  font-weight: 820;
+  letter-spacing: .035em;
+}
+
+.home2-capability-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 2vw, 30px);
+  min-width: 0;
+}
+
+.home2-capability-list span {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(10px, 1.8vw, 26px);
+  color: rgba(255,255,255,.78);
+  font-size: .74rem;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+.home2-capability-list i {
+  color: rgba(111, 231, 250, .45);
+  font-style: normal;
+  font-size: .68rem;
+}
+
+.home2-scroll-cue {
+  position: absolute;
+  z-index: 13;
+  top: min(48svh, 470px);
+  left: 21px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,.52);
+  pointer-events: none;
+}
+
+.home2-scroll-cue span {
+  font-size: .62rem;
+  font-weight: 720;
+  letter-spacing: .09em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.home2-scroll-cue i {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(180deg, rgba(116,232,250,.82), transparent);
+}
+
+/* Bridge strip: make it feel like a chapter break, not another generic gradient. */
+.home2-personality-shell .home2-slogan-strip {
+  position: relative;
+  min-height: 92px;
+  overflow: hidden;
+  text-align: left;
+  place-items: center start;
+  padding-inline: max(48px, calc((100vw - 1180px) / 2));
+  background:
+    linear-gradient(104deg, rgba(255,255,255,.09) 0 18%, transparent 18.15% 58%, rgba(255,255,255,.055) 58.15% 64%, transparent 64.15%),
+    linear-gradient(90deg, #0e1b57 0%, #263da8 52%, #512276 100%);
+}
+
+.home2-personality-shell .home2-slogan-strip strong {
+  max-width: 980px;
+  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+}
+
+/* Strategy chapter. */
+.home2-personality-shell .home2-strategy {
+  position: relative;
+  overflow: clip;
+  padding: 112px 0 116px;
+  background:
+    linear-gradient(rgba(20,24,47,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,24,47,.035) 1px, transparent 1px),
+    #f7f8fb;
+  background-size: 46px 46px;
+}
+
+.home2-personality-shell .home2-strategy::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  aspect-ratio: 1;
+  left: -220px;
+  bottom: -220px;
+  border-radius: 50%;
+  border: 1px solid rgba(53,103,255,.13);
+  box-shadow: 0 0 0 58px rgba(53,103,255,.025), 0 0 0 116px rgba(122,67,230,.018);
+  pointer-events: none;
+}
+
+.home2-personality-shell .home2-strategy-grid {
+  grid-template-columns: 1.12fr .88fr;
+  gap: clamp(72px, 8vw, 126px);
+}
+
+.home2-personality-shell .home2-device-stage {
+  min-height: 500px;
+  perspective: 1000px;
+}
+
+.home2-personality-shell .home2-device-card,
+.home2-personality-shell .home2-device-phone {
+  box-shadow: 0 28px 78px rgba(18, 30, 65, .2);
+}
+
+.home2-personality-shell .home2-strategy-copy h2 {
+  font-size: clamp(3rem, 4.6vw, 5rem);
+}
+
+.home2-personality-shell .home2-strategy-copy > p {
+  max-width: 560px;
+  font-size: 1.05rem;
+}
+
+/* Solutions chapter — deliberately asymmetric to avoid the template-card rhythm. */
+.home2-personality-shell .home2-solutions-intro {
+  padding: 112px 0 48px;
+  text-align: left;
+  background: #fff;
+}
+
+.home2-personality-shell .home2-solutions-heading {
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .65fr);
+  align-items: end;
+  gap: 56px;
+  padding: 0;
+}
+
+.home2-personality-shell .home2-eyebrow {
+  grid-column: 1 / -1;
+  margin: 0 0 -30px;
+  text-transform: none;
+  letter-spacing: .035em;
+  font-size: .74rem;
+}
+
+.home2-personality-shell .home2-solutions-heading h2 {
+  max-width: 720px;
+  font-size: clamp(3.1rem, 5.2vw, 5.6rem);
+}
+
+.home2-personality-shell .home2-solutions-heading > p:last-child {
+  max-width: 430px;
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+
+.home2-personality-shell .home2-services {
+  padding: 18px 0 112px;
+}
+
+.home2-personality-shell .home2-service-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home2-personality-shell .home2-service-card {
+  position: relative;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(26px, 3vw, 38px);
+  border-radius: 16px;
+  border-color: #e7eaf2;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(53,103,255,.08), transparent 36%),
+    linear-gradient(150deg, #fafbfe 0%, #f1f3f8 100%);
+}
+
+.home2-personality-shell .home2-service-card::before {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  color: rgba(25, 38, 77, .16);
+  font-family: var(--font-display);
+  font-size: .72rem;
+  font-weight: 820;
+  letter-spacing: .08em;
+}
+
+.home2-personality-shell .home2-service-card:nth-child(1) { grid-column: span 7; border-radius: 26px 14px 14px 14px; }
+.home2-personality-shell .home2-service-card:nth-child(2) { grid-column: span 5; margin-top: 54px; min-height: 276px; }
+.home2-personality-shell .home2-service-card:nth-child(3) { grid-column: span 4; min-height: 280px; }
+.home2-personality-shell .home2-service-card:nth-child(4) { grid-column: span 8; min-height: 280px; border-radius: 14px 14px 30px 14px; }
+.home2-personality-shell .home2-service-card:nth-child(5) { grid-column: span 7; min-height: 292px; }
+.home2-personality-shell .home2-service-card:nth-child(6) { grid-column: span 5; margin-top: -32px; min-height: 324px; }
+.home2-personality-shell .home2-service-card:nth-child(1)::before { content: "01"; }
+.home2-personality-shell .home2-service-card:nth-child(2)::before { content: "02"; }
+.home2-personality-shell .home2-service-card:nth-child(3)::before { content: "03"; }
+.home2-personality-shell .home2-service-card:nth-child(4)::before { content: "04"; }
+.home2-personality-shell .home2-service-card:nth-child(5)::before { content: "05"; }
+.home2-personality-shell .home2-service-card:nth-child(6)::before { content: "06"; }
+
+.home2-personality-shell .home2-service-card:nth-child(2),
+.home2-personality-shell .home2-service-card:nth-child(5) {
+  background:
+    radial-gradient(circle at 90% 14%, rgba(122,67,230,.09), transparent 38%),
+    linear-gradient(150deg, #f8f7fd 0%, #f0eff8 100%);
+}
+
+.home2-personality-shell .home2-service-icon {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(53,103,255,.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,.72);
+}
+
+.home2-personality-shell .home2-service-card h3 {
+  max-width: 560px;
+  font-size: clamp(2rem, 3.1vw, 3rem);
+}
+
+.home2-personality-shell .home2-service-link {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+/* Proof chapter. */
+.home2-personality-shell .home2-experience {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0;
+  background:
+    radial-gradient(circle at 74% 34%, rgba(84,222,248,.13), transparent 24%),
+    radial-gradient(circle at 92% 74%, rgba(147,75,226,.28), transparent 31%),
+    linear-gradient(112deg, #0a1441 0%, #202d8e 52%, #4f216f 100%);
+}
+
+.home2-personality-shell .home2-experience::after {
+  content: "";
+  position: absolute;
+  inset: 20% -8% auto auto;
+  width: 48%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(126,234,255,.55), transparent);
+  transform: rotate(-12deg);
+}
+
+.home2-personality-shell .home2-experience-grid {
+  grid-template-columns: .8fr 1.2fr;
+  gap: 76px;
+}
+
+.home2-personality-shell .home2-proof-grid {
+  grid-template-columns: 1.25fr .75fr .75fr;
+  grid-template-rows: repeat(2, minmax(118px, auto));
+  gap: 12px;
+}
+
+.home2-personality-shell .home2-proof-card {
+  border-radius: 12px;
+  text-align: left;
+  place-items: start;
+  justify-content: center;
+  padding: 22px;
+  backdrop-filter: blur(8px);
+}
+
+.home2-personality-shell .home2-proof-card:first-child {
+  grid-row: 1 / 3;
+  min-height: 248px;
+  background: rgba(255,255,255,.15);
+}
+
+.home2-personality-shell .home2-proof-card:nth-child(2) { grid-column: 2 / 4; }
+.home2-personality-shell .home2-proof-card strong { font-size: clamp(2rem, 4vw, 4rem); }
+
+/* The real-project marquee remains the only autonomous loop on Home2. */
+.home2-personality-shell .home2-client-strip {
+  padding: 30px 0;
+  border-block: 1px solid #e9ecf3;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.home2-personality-shell .home2-client-track {
+  gap: 70px;
+  animation-duration: 34s;
+}
+
+.home2-personality-shell .home2-client-strip:hover .home2-client-track {
+  animation-play-state: paused;
+}
+
+.home2-personality-shell .home2-client-name {
+  color: #4d5366;
+  font-size: clamp(1rem, 1.55vw, 1.42rem);
+}
+
+/* Portfolio gallery — one dominant proof + two supporting projects. */
+.home2-personality-shell .home2-projects {
+  padding-top: 110px;
+  background: #fbfcff;
+}
+
+.home2-personality-shell .home2-projects-heading {
+  max-width: 1180px;
+  margin: 0 auto 48px;
+  padding: 0;
+  text-align: left;
+}
+
+.home2-personality-shell .home2-projects-heading h2 {
+  max-width: 820px;
+  font-size: clamp(3.2rem, 5vw, 5.5rem);
+}
+
+.home2-personality-shell .home2-project-gallery {
+  width: min(1320px, calc(100% - 48px));
+  min-height: 680px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  background: transparent;
+}
+
+.home2-personality-shell .home2-project-tile {
+  min-height: 0;
+  border-radius: 14px;
+}
+
+.home2-personality-shell .home2-project-tile:first-child {
+  grid-row: 1 / 3;
+  border-radius: 30px 14px 14px 14px;
+}
+
+.home2-personality-shell .home2-project-tile:nth-child(3) {
+  border-radius: 14px 14px 30px 14px;
+}
+
+.home2-personality-shell .home2-project-label {
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+}
+
+/* Principles become editorial statements rather than three generic testimonial cards. */
+.home2-personality-shell .home2-principles-section {
+  padding: 116px 0;
+  background: #fff;
+}
+
+.home2-personality-shell .home2-principles-layout {
+  grid-template-columns: .85fr 1.15fr;
+  gap: 80px;
+}
+
+.home2-personality-shell .home2-principles-layout h2 {
+  font-size: clamp(3rem, 4.6vw, 5rem);
+}
+
+.home2-personality-shell .home2-principles {
+  display: block;
+  border-top: 1px solid #dde2ed;
+}
+
+.home2-personality-shell .home2-principle {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 28px 0;
+  border: 0;
+  border-bottom: 1px solid #dde2ed;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.home2-personality-shell .home2-principle-mark {
+  margin: 0;
+  color: #3868ff;
+}
+
+.home2-personality-shell .home2-principle p,
+.home2-personality-shell .home2-principle strong {
+  margin: 0;
+}
+
+.home2-personality-shell .home2-principle strong {
+  min-width: 132px;
+  text-align: right;
+}
+
+/* Editorial / knowledge — varied widths and real images. */
+.home2-personality-shell .home2-editorial {
+  background: #050817;
+}
+
+.home2-personality-shell .home2-editorial-top {
+  min-height: 156px;
+  padding-block: 40px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(110deg, #111a63 0%, #2c35a1 52%, #522273 100%);
+  background-size: 44px 100%, auto;
+}
+
+.home2-personality-shell .home2-editorial-top h2 {
+  font-size: clamp(3rem, 4.8vw, 5.2rem);
+}
+
+.home2-personality-shell .home2-editorial-row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.home2-personality-shell .home2-editorial-card {
+  min-height: 410px;
+  padding: 34px;
+}
+
+.home2-personality-shell .home2-editorial-card:nth-child(1) { grid-column: span 6; }
+.home2-personality-shell .home2-editorial-card:nth-child(2),
+.home2-personality-shell .home2-editorial-card:nth-child(3) { grid-column: span 3; }
+
+.home2-personality-shell .home2-editorial-card:nth-child(1) > strong {
+  font-size: clamp(2rem, 3vw, 3.25rem);
+}
+
+.home2-personality-shell .home2-editorial-image {
+  position: absolute;
+  inset: -4%;
+  z-index: -3;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  transform: translate3d(0, var(--home2-parallax-y), 0) scale(1.035);
+  transition: transform .7s cubic-bezier(.22,1,.36,1), filter .55s ease;
+}
+
+.home2-personality-shell .home2-editorial-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(180deg, rgba(4,8,23,.02) 22%, rgba(4,8,23,.9) 100%);
+}
+
+.home2-personality-shell .home2-editorial-card:hover .home2-editorial-image {
+  transform: translate3d(0, var(--home2-parallax-y), 0) scale(1.075);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.home2-personality-shell .home2-editorial-card small {
+  border-radius: 7px;
+  text-transform: none;
+  letter-spacing: .025em;
+}
+
+.home2-personality-shell .home2-newsletter-band {
+  padding: 58px 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(109,228,250,.17), transparent 30%),
+    linear-gradient(100deg, #0d1757 0%, #293093 52%, #50226f 100%);
+}
+
+.home2-personality-shell .home2-newsletter-grid {
+  grid-template-columns: 1fr auto;
+}
+
+.home2-personality-shell .home2-final-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 104px 0;
+  background: #030615;
+}
+
+.home2-personality-shell .home2-final-cta::before {
+  content: "";
+  position: absolute;
+  width: 620px;
+  aspect-ratio: 1;
+  right: -260px;
+  top: -290px;
+  border-radius: 50%;
+  border: 1px solid rgba(95,225,249,.16);
+  box-shadow: 0 0 0 72px rgba(53,103,255,.025), 0 0 0 144px rgba(122,67,230,.018);
+}
+
+.home2-personality-shell .home2-final-grid {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 90px 1fr auto;
+  gap: 46px;
+}
+
+.home2-personality-shell .home2-final-grid h2 {
+  max-width: 900px;
+  font-size: clamp(3rem, 5.15vw, 5.7rem);
+}
+
+/* Interaction quality. */
+.home2-personality-shell a:focus-visible,
+.home2-personality-shell button:focus-visible {
+  outline: 3px solid #82eaff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1180px) {
+  .home2-personality-shell .home2-hero-content {
+    width: min(100% - 64px, 1180px);
+    padding-right: 42vw;
+  }
+
+  .home2-capability-rail { width: min(100% - 64px, 1080px); }
+  .home2-capability-list { gap: 13px; }
+  .home2-capability-list span { gap: 13px; font-size: .7rem; }
+}
+
+@media (max-width: 1040px) {
+  .home2-personality-shell .home2-hero::after {
+    width: 46vw;
+    right: -8vw;
+    opacity: .72;
+  }
+
+  .home2-personality-shell .home2-strategy-grid,
+  .home2-personality-shell .home2-experience-grid,
+  .home2-personality-shell .home2-principles-layout,
+  .home2-personality-shell .home2-newsletter-grid,
+  .home2-personality-shell .home2-final-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home2-personality-shell .home2-service-card:nth-child(n) {
+    grid-column: span 6;
+    margin-top: 0;
+    min-height: 290px;
+  }
+
+  .home2-personality-shell .home2-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .home2-personality-shell .home2-proof-card:first-child,
+  .home2-personality-shell .home2-proof-card:nth-child(2) {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 150px;
+  }
+
+  .home2-personality-shell .home2-final-grid { gap: 28px; }
+}
+
+@media (max-width: 840px) {
+  .home2-page-progress,
+  .home2-capability-rail,
+  .home2-scroll-cue {
+    display: none;
+  }
+
+  .home2-personality-shell .home2-hero {
+    min-height: 720px;
+  }
+
+  .home2-personality-shell .home2-hero::after {
+    width: 78vw;
+    right: -34vw;
+    top: 36%;
+    opacity: .43;
+  }
+
+  .home2-personality-shell .home2-hero-content {
+    width: min(100% - 44px, 720px);
+    margin: 0 auto;
+    padding: 142px 0 92px;
+    text-align: left;
+  }
+
+  .home2-personality-shell .home2-hero h1 {
+    max-width: 690px;
+    font-size: clamp(3.3rem, 10.5vw, 5.4rem);
+  }
+
+  .home2-personality-shell .home2-solutions-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 24px;
+  }
+
+  .home2-personality-shell .home2-eyebrow {
+    grid-column: auto;
+    margin: 0;
+  }
+
+  .home2-personality-shell .home2-solutions-heading > p:last-child { margin: 0; }
+
+  .home2-personality-shell .home2-project-gallery {
+    width: 100%;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1px;
+  }
+
+  .home2-personality-shell .home2-project-tile,
+  .home2-personality-shell .home2-project-tile:first-child {
+    grid-row: auto;
+    min-height: 420px;
+    border-radius: 0;
+  }
+
+  .home2-personality-shell .home2-editorial-card:nth-child(n) {
+    grid-column: 1 / -1;
+    min-height: 340px;
+  }
+
+  .home2-personality-shell .home2-principle {
+    grid-template-columns: 36px 1fr;
+  }
+
+  .home2-personality-shell .home2-principle strong {
+    grid-column: 2;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .home2-personality-shell .home2-hero {
+    min-height: 720px;
+  }
+
+  .home2-personality-shell .home2-hero-content {
+    width: min(100% - 32px, 600px);
+    padding-top: 126px;
+  }
+
+  .home2-personality-shell .home2-hero h1 {
+    font-size: clamp(3.05rem, 14vw, 4.6rem);
+    line-height: .9;
+  }
+
+  .home2-personality-shell .home2-proofline {
+    align-items: flex-start;
+  }
+
+  .home2-personality-shell .home2-slogan-strip {
+    min-height: 90px;
+    padding-inline: 22px;
+  }
+
+  .home2-personality-shell .home2-strategy,
+  .home2-personality-shell .home2-principles-section {
+    padding-block: 78px;
+  }
+
+  .home2-personality-shell .home2-solutions-intro {
+    padding-top: 82px;
+  }
+
+  .home2-personality-shell .home2-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home2-personality-shell .home2-service-card:nth-child(n) {
+    grid-column: 1;
+    min-height: 270px;
+  }
+
+  .home2-personality-shell .home2-experience {
+    padding-block: 72px;
+  }
+
+  .home2-personality-shell .home2-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home2-personality-shell .home2-projects {
+    padding-top: 78px;
+  }
+
+  .home2-personality-shell .home2-projects-heading {
+    padding: 0 22px;
+  }
+
+  .home2-personality-shell .home2-project-tile,
+  .home2-personality-shell .home2-project-tile:first-child {
+    min-height: 360px;
+  }
+
+  .home2-personality-shell .home2-editorial-top {
+    display: block;
+    padding-inline: 22px;
+  }
+
+  .home2-personality-shell .home2-editorial-top p {
+    margin-top: 14px;
+  }
+
+  .home2-personality-shell .home2-newsletter-grid,
+  .home2-personality-shell .home2-final-grid {
+    gap: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home2-personality-shell *,
+  .home2-personality-shell *::before,
+  .home2-personality-shell *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .home2-personality-shell .home2-client-track {
+    animation: none !important;
+  }
+
+  .home2-personality-shell .home2-editorial-image,
+  .home2-personality-shell .home2-service-card,
+  .home2-personality-shell .home2-project-tile img,
+  .home2-page-progress span {
+    transition: none !important;
+  }
+}
