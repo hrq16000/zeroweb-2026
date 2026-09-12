@@ -190,6 +190,7 @@ import { Route as AuthenticatedAppSupportRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAppTemplatesRouteImport } from './routes/_authenticated/app.templates'
 import { Route as AuthenticatedAppUsuariosRouteImport } from './routes/_authenticated/app.usuarios'
 import { Route as AuthenticatedAppVisitantesRouteImport } from './routes/_authenticated/app.visitantes'
+import { Route as ApiPublicFunnelRecoveryRouteImport } from './routes/api/public/funnel-recovery'
 import { Route as ApiPublicHealthDbRouteImport } from './routes/api/public/health-db'
 import { Route as ApiPublicHydrationReportRouteImport } from './routes/api/public/hydration-report'
 import { Route as ApiPublicLeadWebhookRouteImport } from './routes/api/public/lead-webhook'
@@ -1192,6 +1193,11 @@ const AuthenticatedAppVisitantesRoute =
     path: '/visitantes',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const ApiPublicFunnelRecoveryRoute = ApiPublicFunnelRecoveryRouteImport.update({
+  id: '/api/public/funnel-recovery',
+  path: '/api/public/funnel-recovery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicHealthDbRoute = ApiPublicHealthDbRouteImport.update({
   id: '/api/public/health-db',
   path: '/api/public/health-db',
@@ -1662,6 +1668,7 @@ export interface FileRoutesByFullPath {
   '/app/templates': typeof AuthenticatedAppTemplatesRoute
   '/app/usuarios': typeof AuthenticatedAppUsuariosRoute
   '/app/visitantes': typeof AuthenticatedAppVisitantesRoute
+  '/api/public/funnel-recovery': typeof ApiPublicFunnelRecoveryRoute
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
@@ -1890,6 +1897,7 @@ export interface FileRoutesByTo {
   '/app/templates': typeof AuthenticatedAppTemplatesRoute
   '/app/usuarios': typeof AuthenticatedAppUsuariosRoute
   '/app/visitantes': typeof AuthenticatedAppVisitantesRoute
+  '/api/public/funnel-recovery': typeof ApiPublicFunnelRecoveryRoute
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
@@ -2124,6 +2132,7 @@ export interface FileRoutesById {
   '/_authenticated/app/templates': typeof AuthenticatedAppTemplatesRoute
   '/_authenticated/app/usuarios': typeof AuthenticatedAppUsuariosRoute
   '/_authenticated/app/visitantes': typeof AuthenticatedAppVisitantesRoute
+  '/api/public/funnel-recovery': typeof ApiPublicFunnelRecoveryRoute
   '/api/public/health-db': typeof ApiPublicHealthDbRoute
   '/api/public/hydration-report': typeof ApiPublicHydrationReportRoute
   '/api/public/lead-webhook': typeof ApiPublicLeadWebhookRoute
@@ -2358,6 +2367,7 @@ export interface FileRouteTypes {
     | '/app/templates'
     | '/app/usuarios'
     | '/app/visitantes'
+    | '/api/public/funnel-recovery'
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
@@ -2586,6 +2596,7 @@ export interface FileRouteTypes {
     | '/app/templates'
     | '/app/usuarios'
     | '/app/visitantes'
+    | '/api/public/funnel-recovery'
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
@@ -2819,6 +2830,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/templates'
     | '/_authenticated/app/usuarios'
     | '/_authenticated/app/visitantes'
+    | '/api/public/funnel-recovery'
     | '/api/public/health-db'
     | '/api/public/hydration-report'
     | '/api/public/lead-webhook'
@@ -2991,6 +3003,7 @@ export interface RootRouteChildren {
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   SitesRobustosIndexRoute: typeof SitesRobustosIndexRoute
   SitesIndexRoute: typeof SitesIndexRoute
+  ApiPublicFunnelRecoveryRoute: typeof ApiPublicFunnelRecoveryRoute
   ApiPublicHealthDbRoute: typeof ApiPublicHealthDbRoute
   ApiPublicHydrationReportRoute: typeof ApiPublicHydrationReportRoute
   ApiPublicLeadWebhookRoute: typeof ApiPublicLeadWebhookRoute
@@ -4287,6 +4300,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppVisitantesRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/api/public/funnel-recovery': {
+      id: '/api/public/funnel-recovery'
+      path: '/api/public/funnel-recovery'
+      fullPath: '/api/public/funnel-recovery'
+      preLoaderRoute: typeof ApiPublicFunnelRecoveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/health-db': {
       id: '/api/public/health-db'
       path: '/api/public/health-db'
@@ -5080,6 +5100,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioIndexRoute: PortfolioIndexRoute,
   SitesRobustosIndexRoute: SitesRobustosIndexRoute,
   SitesIndexRoute: SitesIndexRoute,
+  ApiPublicFunnelRecoveryRoute: ApiPublicFunnelRecoveryRoute,
   ApiPublicHealthDbRoute: ApiPublicHealthDbRoute,
   ApiPublicHydrationReportRoute: ApiPublicHydrationReportRoute,
   ApiPublicLeadWebhookRoute: ApiPublicLeadWebhookRoute,

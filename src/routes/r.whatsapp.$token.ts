@@ -95,15 +95,17 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           finalDigits = String(resolved.row.destination_digits).replace(/\D/g, "");
           finalMessage = String(resolved.row.message);
           if (!finalDigits) {
-            return channelNotConfiguredPage();
+            return channelNotConfiguredPage(resolved.row.lead_id ? token : null);
           }
         } else {
           // Modern path: build from lead + session + form + questions.
           if (!resolved.row.lead_id) {
+            // Token antigo sem vínculo com pedido: não há o que recuperar aqui
+            // e não prometemos um retorno que o sistema não garante.
             return htmlErrorPage(
-              "Canal indisponível",
-              "Sua solicitação foi registrada. Nossa equipe entrará em contato pelos dados enviados.",
-              503,
+              "Solicitação registrada",
+              "Seus dados foram registrados. Se quiser adiantar o atendimento, volte ao site e envie novamente sua solicitação.",
+              200,
             );
           }
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
