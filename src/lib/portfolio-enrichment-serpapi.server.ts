@@ -300,6 +300,8 @@ export async function searchPlaceCandidates(
     type: "search",
     q: query,
     location,
+    // SerpApi exige `z` (zoom) sempre que `location` é usado no google_maps.
+    z: "12",
     hl: "pt-br",
     gl: "br",
   });
