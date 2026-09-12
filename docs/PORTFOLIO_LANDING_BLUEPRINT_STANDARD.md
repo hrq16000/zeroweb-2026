@@ -5,6 +5,12 @@ Status: normativo · Escopo: criação e evolução de qualquer página em
 `PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`, `PORTFOLIO_CAPABILITY_PALETTE.md`,
 `PORTFOLIO_FUNNEL_CONTEXT_STANDARD.md`, `GLOBAL_WEB_EXPERIENCE_STANDARD.md`.
 
+> **Precedência (2026):** para projetos novos, o Blueprint é contrato de
+> **conteúdo e capacidades**, não renderer visual obrigatório. A composição
+> visual é autoral por projeto e regida por
+> `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`, que prevalece em qualquer
+> conflito de layout, hero, ordem de seções ou ritmo.
+
 ## 1. Objetivo
 
 Cada `/portfolio/<slug>` é uma landing page completa e independente de uma

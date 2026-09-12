@@ -6,6 +6,11 @@ Complementa — não substitui — `docs/PORTFOLIO_PROJECT_LIFECYCLE.md`,
 `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` e
 `docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md`.
 
+> Projetos com `compositionContract >= 1` também respondem ao
+> `PROJECT_UNIQUENESS_GATE` de
+> `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`: fingerprint, comparação
+> perceptual em 390/1440 e NO-BRAND/GREYSCALE test.
+
 Não é um sistema paralelo: a matriz é uma etapa do lifecycle, executada
 **depois da implementação e antes de `readiness` / `publish`**.
 

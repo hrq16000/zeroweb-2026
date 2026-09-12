@@ -16,6 +16,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Motion, microinterações, scroll, efeitos visuais e MOTION_QUALITY_GATE | `docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md` |
 | Camada institucional 0WEB obrigatória (host credit + popup) e `PLATFORM_0WEB_LAYER` | `docs/PORTFOLIO_0WEB_PLATFORM_LAYER_ADDENDUM.md` |
 | Originalidade estrutural, famílias de layout/hero e `STRUCTURAL_ORIGINALITY_GATE` (projetos novos) | `docs/PORTFOLIO_STRUCTURAL_ORIGINALITY_ADDENDUM.md` |
+| Composição autoral por projeto, Creative Composition Brief, fingerprint e `PROJECT_UNIQUENESS_GATE` (norma canônica: infraestrutura compartilhada, composição visual nunca) | `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md` |
 
 | Pesquisa automática, identidade/logo, hero acima da dobra, CTA flutuante, motion real, originalidade estrutural e embed no catálogo | `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Contato sempre pelo funil (sem `tel:`/`wa.me`) e finalidade obrigatória de cada asset | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21–§22 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §18–§20 |
@@ -81,6 +82,11 @@ imagens classificadas corretamente, estados, `prefers-reduced-motion`, viewport
 móvel, originality review e contato server-side quando houver número oficial.
 
 ## Princípio obrigatório
+
+Composição visual NUNCA é compartilhada. Projeto novo nasce de um Creative
+Composition Brief e de JSX autoral sobre `PortfolioCompositionRoot`; o
+`PortfolioBlueprintRenderer` está congelado nos três pilotos. Ver
+`docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`.
 
 Cada `/portfolio/<slug>` é um site independente de um cliente. A 0WEB fornece
 somente hospedagem, vitrine, infraestrutura e mecanismos compartilhados.
