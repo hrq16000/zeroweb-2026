@@ -489,7 +489,7 @@ export function Home2Prototype() {
                   width={900}
                   height={650}
                   sizes="(max-width: 840px) 100vw, 33vw"
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                   data-home2-parallax="8"
                 />

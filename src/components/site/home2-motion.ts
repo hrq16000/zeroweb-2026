@@ -85,15 +85,6 @@ export const home2MotionMatrix: Home2MotionRule[] = [
     threshold: 0.12,
   },
   {
-    id: "projects",
-    selector: ".home2-project-media",
-    effect: "clip-reveal",
-    trigger: "scroll",
-    duration: 900,
-    stagger: 80,
-    threshold: 0.1,
-  },
-  {
     id: "editorial",
     selector: "[data-home2-editorial-reveal]",
     effect: "image-reveal",
@@ -156,6 +147,24 @@ export function initHome2Motion(root: HTMLElement) {
     root.querySelectorAll<HTMLElement>(".home2-motion").forEach((node) => node.classList.add("is-visible"));
   }, 2400);
   cleanups.push(() => window.clearTimeout(failOpenTimer));
+
+  const projectTiles = Array.from(root.querySelectorAll<HTMLElement>(".home2-project-tile"));
+  if (typeof IntersectionObserver === "undefined") {
+    projectTiles.forEach((tile) => tile.classList.add("is-revealed"));
+  } else {
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          projectObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.06, rootMargin: "0px 0px -6% 0px" },
+    );
+    projectTiles.forEach((tile) => projectObserver.observe(tile));
+    cleanups.push(() => projectObserver.disconnect());
+  }
 
   home2MotionMatrix.forEach((rule) => {
     const nodes = Array.from(root.querySelectorAll<HTMLElement>(rule.selector));
