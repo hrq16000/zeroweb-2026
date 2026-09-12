@@ -1,0 +1,2 @@
+REVOKE ALL ON FUNCTION public.partners_self_update_is_safe(uuid, partner_status, uuid, timestamptz, uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.partners_self_update_is_safe(uuid, partner_status, uuid, timestamptz, uuid) TO authenticated, service_role;
