@@ -210,8 +210,10 @@ function evaluate(slug, manifest) {
   // --- LEAD_RECOVERABILITY_GATE: nenhuma conclusão pode terminar perdida.
   // Sem destino verificado, o funil compartilhado exige contato de retorno;
   // o projeto novo só passa se rodar pela infraestrutura que garante isso.
+  const funnelSource = read("src/lib/dynamic-funnel.functions.ts");
   const sharedGuarantee =
     /decideLeadRecoverability/.test(funnelSource) && /recordLeadDelivery/.test(funnelSource);
+
   checks.leadRecoverabilityGate = sharedGuarantee && destination.status !== "FAIL";
   if (!sharedGuarantee) {
     blockers.push("LEAD_RECOVERABILITY_GATE: funil compartilhado sem garantia de recuperação do lead");
