@@ -101,15 +101,6 @@ export const home2MotionMatrix: Home2MotionRule[] = [
     threshold: 0.12,
   },
   {
-    id: "editorial",
-    selector: ".home2-editorial-image",
-    effect: "image-reveal",
-    trigger: "scroll",
-    duration: 880,
-    stagger: 110,
-    threshold: 0.12,
-  },
-  {
     id: "final-cta",
     selector: ".home2-final-grid",
     effect: "scale-in",
