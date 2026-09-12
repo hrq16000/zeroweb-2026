@@ -1,0 +1,29 @@
+{
+  "slug": "btb-construcao",
+  "query": "BTB Construção Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:19.370Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=BTB+Constru%C3%A7%C3%A3o+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:19.370Z",
+    "sourceUrl": "https://www.google.com/maps/search/BTB+Constru%C3%A7%C3%A3o+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJlQF0QJBV3JQRErXXp4kLDtw",
+      "dataId": "0x94dc559040740195:0xdc0e0b89a7d7b512",
+      "name": "BTB Construção",
+      "category": "Construtora",
+      "address": "Rua Graciosa Jacomel Dal'Col - Vila Fuck, Piraquara - PR, 83305-285",
+      "phone": "(41) 99970-6634",
+      "website": "https://btbconstruc-dmsdmxkp.manus.space/",
+      "rating": 5,
+      "reviewCount": 10,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJlQF0QJBV3JQRErXXp4kLDtw"
+    }
+  ]
+}

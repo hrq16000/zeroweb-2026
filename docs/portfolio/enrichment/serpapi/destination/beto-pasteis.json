@@ -1,0 +1,29 @@
+{
+  "slug": "beto-pasteis",
+  "query": "Beto Pastéis São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:38.865Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Beto+Past%C3%A9is+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:38.865Z",
+    "sourceUrl": "https://www.google.com/maps/search/Beto+Past%C3%A9is+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJCytFwV333JQRs9xMACjKMzE",
+      "dataId": "0x94dcf75dc1452b0b:0x3133ca28004cdcb3",
+      "name": "Beto Pastéis",
+      "category": "Pastelaria brasileira, Sanduicheria",
+      "address": "Rua Quirino Zagonel, 952 - Braga, São José dos Pinhais - PR, 83020-250",
+      "phone": "(41) 3383-0640",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 708,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCytFwV333JQRs9xMACjKMzE"
+    }
+  ]
+}

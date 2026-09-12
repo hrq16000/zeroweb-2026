@@ -1,0 +1,77 @@
+{
+  "slug": "lucas-arruma-maquina-lavar",
+  "query": "Lucas Arruma Máquina de Lavar Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:21.923Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Lucas+Arruma+M%C3%A1quina+de+Lavar+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:21.923Z",
+    "sourceUrl": "https://www.google.com/maps/search/Lucas+Arruma+M%C3%A1quina+de+Lavar+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJkQz6UKjj3JQRUyZn16rOdIM",
+      "dataId": "0x94dce3a850fa0c91:0x8374ceaad7672653",
+      "name": "Assistência Lava e Seca LG Samsung",
+      "category": "Serviço de conserto de lavadoras e secadoras",
+      "address": "Av. Pres. Kennedy, 2904 - Água Verde, Curitiba - PR, 80610-010, Água Verde, Curitiba - PR, 80630-010",
+      "phone": "(41) 99955-9230",
+      "website": "https://lavaeseca.com/",
+      "rating": 4.9,
+      "reviewCount": 410,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJkQz6UKjj3JQRUyZn16rOdIM"
+    },
+    {
+      "placeId": "ChIJcaeroHjl3JQRK9iqr1kMvmM",
+      "dataId": "0x94dce578a0aba771:0x63be0c59afaad82b",
+      "name": "Refrigeração",
+      "category": "Serviço de conserto de refrigeradores",
+      "address": "Rockefeller 940, Rebouças, Curitiba - PR, 80230-130",
+      "phone": "(41) 3354-9972",
+      "website": "https://refrigeracaolucas.com.br/",
+      "rating": 4.4,
+      "reviewCount": 27,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJcaeroHjl3JQRK9iqr1kMvmM"
+    },
+    {
+      "placeId": "ChIJ59Ogl6rl3JQROzNfLIj12x0",
+      "dataId": "0x94dce5aa97a0d3e7:0x1ddbf5882c5f333b",
+      "name": "Especializada Lava e Seca Curitiba - Assistência Técnica Lava e Seca",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "R. Conselheiro Dantas, 588 - Rebouças, Curitiba - PR, 80220-191",
+      "phone": "(41) 98798-8867",
+      "website": "https://especializadalavaeseca.com.br/",
+      "rating": 4.9,
+      "reviewCount": 95,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ59Ogl6rl3JQROzNfLIj12x0"
+    },
+    {
+      "placeId": "ChIJ9ZOBdjv93JQRDOYWDKJVzo8",
+      "dataId": "0x94dcfd3b768193f5:0x8fce55a20c16e60c",
+      "name": "Brasluk Assistência Técnica Especializada",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "Rua Atílio Brunetti, n°2068 - Capão Raso, Curitiba - PR, 81150-070",
+      "phone": "(41) 4141-7469",
+      "website": "https://www.brasluk.com.br/",
+      "rating": 4.8,
+      "reviewCount": 229,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ9ZOBdjv93JQRDOYWDKJVzo8"
+    },
+    {
+      "placeId": "ChIJAQpznSvn3JQRBLiXmA5es8s",
+      "dataId": "0x94dce72b9d730a01:0xcbb35e0e9897b804",
+      "name": "IVOMAQ - Consertos de maquinas de Lavar - Lava e Seca - 50 anos no ramo",
+      "category": "Serviço de conserto de lavadoras e secadoras",
+      "address": "Rua Brasílio Bacellar Filho, 235 - Tingui, Curitiba - PR, 82620-250",
+      "phone": "(41) 99902-5244",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 64,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJAQpznSvn3JQRBLiXmA5es8s"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "slug": "kitutes-na-mesa",
+  "query": "Kitutes na Mesa · Porções com Carinho Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:42.018Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Kitutes+na+Mesa+%C2%B7+Por%C3%A7%C3%B5es+com+Carinho+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:42.018Z",
+    "sourceUrl": "https://www.google.com/maps/search/Kitutes+na+Mesa+%C2%B7+Por%C3%A7%C3%B5es+com+Carinho+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJA5_sdKfj3JQRYNMhGNTZRlg",
+      "dataId": "0x94dce3a774ec9f03:0x5846d9d41821d360",
+      "name": "Kitutes Panificadora e Confeitaria",
+      "category": "Padaria",
+      "address": "R. Pretextato Taborda Júnior, 749 - Santa Quiteria, Curitiba - PR, 80310-120",
+      "phone": "(41) 3016-3349",
+      "website": "https://www.kitutespanificadora.com.br/",
+      "rating": 4.6,
+      "reviewCount": 4456,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJA5_sdKfj3JQRYNMhGNTZRlg"
+    },
+    {
+      "placeId": "ChIJFbUZE5Ll3JQRYGiBNdXDpVk",
+      "dataId": "0x94dce5921319b515:0x59a5c3d535816860",
+      "name": "Kituti - Panificadora & Confeitaria",
+      "category": "Padaria",
+      "address": "Rua Percy Feliciano de Castilho, 410 - Bairro Alto, Curitiba - PR, 82820-380",
+      "phone": "(41) 3040-5849",
+      "website": null,
+      "rating": 4.5,
+      "reviewCount": 2055,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJFbUZE5Ll3JQRYGiBNdXDpVk"
+    },
+    {
+      "placeId": "ChIJg_6n7Uzk3JQRAwBDGusmy0U",
+      "dataId": "0x94dce44ceda7fe83:0x45cb26eb1a430003",
+      "name": "Leve Sabor",
+      "category": "Restaurante",
+      "address": "Av. Victor Ferreira do Amaral, 315 - Tarumã, Curitiba - PR, 82530-230",
+      "phone": "(41) 3023-6456",
+      "website": "http://www.levesaborcuritiba.com.br/",
+      "rating": 4.3,
+      "reviewCount": 13833,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJg_6n7Uzk3JQRAwBDGusmy0U"
+    },
+    {
+      "placeId": "ChIJA223k53m3JQR3nKF8AF_N90",
+      "dataId": "0x94dce69d93b76d03:0xdd377f01f08572de",
+      "name": "Quero Mais Confeitaria",
+      "category": "Confeitaria",
+      "address": "R. João Macedo Souza, 500 - São Lourenço, Curitiba - PR, 82210-090",
+      "phone": "(41) 99808-7198",
+      "website": "https://linktr.ee/confeitariaqueromais",
+      "rating": 4.4,
+      "reviewCount": 337,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJA223k53m3JQR3nKF8AF_N90"
+    },
+    {
+      "placeId": "ChIJddyzt-_j3JQR0wnmaGaGveM",
+      "dataId": "0x94dce3efb7b3dc75:0xe3bd866668e609d3",
+      "name": "Padaria Requinte Champagnat",
+      "category": "Padaria",
+      "address": "R. Francisco Rocha, 1809 - Bigorrilho, Curitiba - PR, 80730-390",
+      "phone": "(41) 3335-3134",
+      "website": "https://padariarequinte.com.br/links/",
+      "rating": 4.4,
+      "reviewCount": 1350,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJddyzt-_j3JQR0wnmaGaGveM"
+    }
+  ]
+}

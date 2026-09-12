@@ -1,0 +1,29 @@
+{
+  "slug": "aguia-sul-sinalizacao",
+  "query": "Águia Sul Sinalização Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:18.097Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=%C3%81guia+Sul+Sinaliza%C3%A7%C3%A3o+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:18.096Z",
+    "sourceUrl": "https://www.google.com/maps/search/%C3%81guia+Sul+Sinaliza%C3%A7%C3%A3o+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ3bH0_dzv3JQRDFIsXRR7E4M",
+      "dataId": "0x94dcefdcfdf4b1dd:0x83137b145d2c520c",
+      "name": "Águia Sul Sinalização Viária - Pintura de Estacionamentos",
+      "category": "Pintura, Prestador de serviços de construção civil",
+      "address": "R. Paulo Roberto Cordeiro, 239 - Pineville, Pinhais - PR, 83320-610",
+      "phone": "(41) 99211-1698",
+      "website": "https://aguiasulsinalizacao.com.br/",
+      "rating": 5,
+      "reviewCount": 20,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ3bH0_dzv3JQRDFIsXRR7E4M"
+    }
+  ]
+}

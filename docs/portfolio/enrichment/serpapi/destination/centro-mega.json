@@ -1,0 +1,77 @@
+{
+  "slug": "centro-mega",
+  "query": "Centro Mega Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:29.817Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Centro+Mega+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:29.816Z",
+    "sourceUrl": "https://www.google.com/maps/search/Centro+Mega+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJzVovu7zs3JQR37yQ88FF3UU",
+      "dataId": "0x94dcecbcbb2f5acd:0x45dd45c1f390bcdf",
+      "name": "Mega Centro Logístico - Curitiba",
+      "category": "Armazém",
+      "address": "BR-116, 1500, Campina Grande do Sul - PR, 83430-000",
+      "phone": null,
+      "website": "https://capitalrealty.com.br/mega-curitiba/",
+      "rating": 4.3,
+      "reviewCount": 1296,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJzVovu7zs3JQR37yQ88FF3UU"
+    },
+    {
+      "placeId": "ChIJRT2o5aTj3JQRumI72MAxbJM",
+      "dataId": "0x94dce3a4e5a83d45:0x936c31c0d83b62ba",
+      "name": "Centro Comercial Megave",
+      "category": "Centro comercial",
+      "address": "R. Alfredo José Pinto, 1850 - Fazendinha, Curitiba - PR, 81320-180",
+      "phone": null,
+      "website": "http://h7malls.com.br/",
+      "rating": 4.7,
+      "reviewCount": 82,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJRT2o5aTj3JQRumI72MAxbJM"
+    },
+    {
+      "placeId": "ChIJu0EPXk793JQRROsjKuF53wo",
+      "dataId": "0x94dcfd4e5e0f41bb:0xadf79e12a23eb44",
+      "name": "CENTRO MEGA OUTLET PINHEIRINHO",
+      "category": "Loja de celulares",
+      "address": "Av. Winston Churchill, 2630 - Pinheirinho, Curitiba - PR, 81130-970",
+      "phone": "(41) 3031-7120",
+      "website": "https://linktr.ee/centro.mega",
+      "rating": 5,
+      "reviewCount": 3,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJu0EPXk793JQRROsjKuF53wo"
+    },
+    {
+      "placeId": "ChIJIbQtkyPl3JQR1uQOJ_7aQdY",
+      "dataId": "0x94dce523932db421:0xd641dafe270ee4d6",
+      "name": "CENTRO MEGA ELETRÔNICOS HAUER",
+      "category": "Loja de celulares",
+      "address": "Av. Mal. Floriano Peixoto, 4984 - Hauer, Curitiba - PR, 81630-000",
+      "phone": "(41) 3402-7086",
+      "website": "https://linktr.ee/centro.mega",
+      "rating": 3,
+      "reviewCount": 6,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJIbQtkyPl3JQR1uQOJ_7aQdY"
+    },
+    {
+      "placeId": "ChIJc-eKHJv73JQRyUkR5bj37ps",
+      "dataId": "0x94dcfb9b1c8ae773:0x9beef7b8e51149c9",
+      "name": "Mega Center",
+      "category": "Loja de Roupa",
+      "address": "R. Izaac Ferreira da Cruz, 3185 - Sítio Cercado, Curitiba - PR, 81910-000",
+      "phone": "(41) 3039-0137",
+      "website": null,
+      "rating": 3.1,
+      "reviewCount": 28,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJc-eKHJv73JQRyUkR5bj37ps"
+    }
+  ]
+}

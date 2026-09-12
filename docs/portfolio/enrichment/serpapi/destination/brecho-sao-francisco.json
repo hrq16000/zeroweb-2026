@@ -1,0 +1,41 @@
+{
+  "slug": "brecho-sao-francisco",
+  "query": "Brechó São Francisco Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:58.802Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Brech%C3%B3+S%C3%A3o+Francisco+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:58.802Z",
+    "sourceUrl": "https://www.google.com/maps/search/Brech%C3%B3+S%C3%A3o+Francisco+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJZ2l_eBHk3JQRSv3Lk7agI1U",
+      "dataId": "0x94dce411787f6967:0x5523a0b693cbfd4a",
+      "name": "Brechó São Francisco",
+      "category": "Brechó",
+      "address": "Rua Mateus Leme, 236 Rua Mateus Leme, 222, R. Mateus Leme, 244 - São Francisco, Curitiba - PR, 80510-190",
+      "phone": "(41) 3010-8800",
+      "website": "https://brechosaofrancisco.com.br/",
+      "rating": 4.3,
+      "reviewCount": 276,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZ2l_eBHk3JQRSv3Lk7agI1U"
+    },
+    {
+      "placeId": "ChIJCTjrnBHk3JQRJcuLY8tuQJ0",
+      "dataId": "0x94dce4119ceb3809:0x9d406ecb638bcb25",
+      "name": "Bazar São Francisco",
+      "category": "Bazar",
+      "address": "R. Paula Gomes, 209 - São Francisco, Curitiba - PR, 80510-070",
+      "phone": "(41) 3010-8800",
+      "website": null,
+      "rating": 4.6,
+      "reviewCount": 42,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCTjrnBHk3JQRJcuLY8tuQJ0"
+    }
+  ]
+}

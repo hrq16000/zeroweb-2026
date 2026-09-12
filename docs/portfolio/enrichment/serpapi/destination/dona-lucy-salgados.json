@@ -1,0 +1,29 @@
+{
+  "slug": "dona-lucy-salgados",
+  "query": "Dona Lucy Salgados Araucária",
+  "location": "Araucária, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:39.653Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Dona+Lucy+Salgados+Arauc%C3%A1ria&location=Arauc%C3%A1ria%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:39.653Z",
+    "sourceUrl": "https://www.google.com/maps/search/Dona+Lucy+Salgados+Arauc%C3%A1ria/@-25.586431,-49.4052251,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJpz3UvrIB3ZQRdp--Ob-jpM4",
+      "dataId": "0x94dd01b2bed43da7:0xcea4a3bf39be9f76",
+      "name": "Dona Lucy Salgados",
+      "category": "Delivery",
+      "address": "R. das Camélias, 1700 - Campina da Barra, Araucária - PR, 83709-590",
+      "phone": "(41) 99132-8020",
+      "website": "https://instadelivery.com.br/donalucysalgados",
+      "rating": 5,
+      "reviewCount": 11,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJpz3UvrIB3ZQRdp--Ob-jpM4"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "mimo-salgados-doces",
+  "query": "Mimo Salgados e Doces São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:27.833Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Mimo+Salgados+e+Doces+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:27.833Z",
+    "sourceUrl": "https://www.google.com/maps/search/Mimo+Salgados+e+Doces+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJNfAOZpT33JQRTOB8LNvVRsQ",
+      "dataId": "0x94dcf794660ef035:0xc446d5db2c7ce04c",
+      "name": "Mimo salgados&doces",
+      "category": "Lanchonete",
+      "address": "R. Giocondo Dall Stella - Costeira, São José dos Pinhais - PR, 83085-050",
+      "phone": "(41) 99288-6969",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 5,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJNfAOZpT33JQRTOB8LNvVRsQ"
+    },
+    {
+      "placeId": "ChIJ0eruBQbx3JQRpy1EXcaBcBM",
+      "dataId": "0x94dcf10605eeead1:0x137081c65d442da7",
+      "name": "Mimo Doces Doceria e café",
+      "category": "Confeitaria",
+      "address": "R. do Amanhecer - Guatupê, São José dos Pinhais - PR, 83060-770",
+      "phone": "(41) 99103-9106",
+      "website": "https://instagram.com/mimodo.ces?igshid=YmMyMTA2M2Y=",
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ0eruBQbx3JQRpy1EXcaBcBM"
+    }
+  ]
+}

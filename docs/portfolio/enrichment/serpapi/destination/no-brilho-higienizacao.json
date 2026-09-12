@@ -1,0 +1,77 @@
+{
+  "slug": "no-brilho-higienizacao",
+  "query": "No Brilho Higienização São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:12.451Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=No+Brilho+Higieniza%C3%A7%C3%A3o+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:12.451Z",
+    "sourceUrl": "https://www.google.com/maps/search/No+Brilho+Higieniza%C3%A7%C3%A3o+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJGRWXWMLv3JQRjbWTMiTyYEM",
+      "dataId": "0x94dcefc258971519:0x4360f2243293b58d",
+      "name": "Brilho Auto CWB Estética Automotiva/ higienização de bancos e estofados",
+      "category": "Serviço de limpeza completa de automóveis",
+      "address": null,
+      "phone": "(41) 99644-0420",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 13,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJGRWXWMLv3JQRjbWTMiTyYEM"
+    },
+    {
+      "placeId": "ChIJ7blB9L_v3JQRyp8TFRColbQ",
+      "dataId": "0x94dcefbff441b9ed:0xb495a81015139fca",
+      "name": "Estética Auto brilho lava car",
+      "category": "Serviço de lavagem a pressão",
+      "address": "R. Rio do Cedro, 164 - Weissópolis, Pinhais - PR, 83322-300",
+      "phone": "(41) 99821-8382",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 28,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ7blB9L_v3JQRyp8TFRColbQ"
+    },
+    {
+      "placeId": "ChIJFeIi_Erx3JQR2S3LdaB_UGI",
+      "dataId": "0x94dcf14afc22e215:0x62507fa075cb2dd9",
+      "name": "Mega Brilho SJP - Produtos para estética automotiva",
+      "category": "Loja de produtos de cuidado automotivo",
+      "address": "Av. das Américas, 1810 - Centro, São José dos Pinhais - PR, 83030-640",
+      "phone": "(41) 3556-0537",
+      "website": "http://www.megabrilhocuritiba.com.br/loja",
+      "rating": 4.9,
+      "reviewCount": 208,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJFeIi_Erx3JQR2S3LdaB_UGI"
+    },
+    {
+      "placeId": "ChIJc57xxaBZ3JQRQTQJxU7ix-I",
+      "dataId": "0x94dc59a0c5f19e73:0xe2c7e24ec5093441",
+      "name": "Brilhos 77 higienizações de estofados",
+      "category": "Serviço de limpeza de tapeçaria",
+      "address": "R. Martins Follador, N° 150 - Cs 3 - Campo Largo da Roseira, São José dos Pinhais - PR, 83091-216",
+      "phone": null,
+      "website": null,
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJc57xxaBZ3JQRQTQJxU7ix-I"
+    },
+    {
+      "placeId": "ChIJIy34j7Dx3JQRDZyZGsgSbI0",
+      "dataId": "0x94dcf1b08ff82d23:0x8d6c12c81a999c0d",
+      "name": "Brilho Rápido Estética Automotiva",
+      "category": "Loja de acessórios automotivos",
+      "address": "R. Girassol, 254 - Guatupê, São José dos Pinhais - PR, 83060-645",
+      "phone": "(41) 99768-4361",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 26,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJIy34j7Dx3JQRDZyZGsgSbI0"
+    }
+  ]
+}

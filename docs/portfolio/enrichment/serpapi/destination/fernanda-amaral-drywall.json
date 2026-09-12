@@ -1,0 +1,77 @@
+{
+  "slug": "fernanda-amaral-drywall",
+  "query": "Fernanda & Amaral — Instalação de Drywall Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:00.537Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Fernanda+%26+Amaral+%E2%80%94+Instala%C3%A7%C3%A3o+de+Drywall+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:00.536Z",
+    "sourceUrl": "https://www.google.com/maps/search/Fernanda+%26+Amaral+%E2%80%94+Instala%C3%A7%C3%A3o+de+Drywall+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJG-ySSMjj3JQRKFakGdZSQtQ",
+      "dataId": "0x94dce3c84892ec1b:0xd44252d619a45628",
+      "name": "GN Gesso | Parede de Drywall | Gesso Acartonado | Placa de Drywall | Forro de Gesso | Sanca de Gesso | Curitiba",
+      "category": "Empreiteira de serviços com gesso",
+      "address": "R. José Casemiro Stenzowski, 504 - Novo Mundo, Curitiba - PR, 81010-370",
+      "phone": "(41) 98776-9034",
+      "website": "https://api.whatsapp.com/send/?phone=5541987769034&text&type=phone_number&app_absent=0",
+      "rating": 5,
+      "reviewCount": 10,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJG-ySSMjj3JQRKFakGdZSQtQ"
+    },
+    {
+      "placeId": "ChIJOVKHRHH93JQR-zzmrORdNag",
+      "dataId": "0x94dcfd7144875239:0xa8355de4ace63cfb",
+      "name": "Almeida - Elétrica e Drywall",
+      "category": "Construtora",
+      "address": "R. Eng. João Kloss, 593 - Tatuquara, Curitiba - PR, 81470-195",
+      "phone": "(41) 99553-9555",
+      "website": "http://almeidaeletricaedrywall.com.br/",
+      "rating": 5,
+      "reviewCount": 32,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJOVKHRHH93JQR-zzmrORdNag"
+    },
+    {
+      "placeId": "ChIJzYiLR8f93JQReGq1FNfCjWI",
+      "dataId": "0x94dcfdc7478b88cd:0x628dc2d714b56a78",
+      "name": "DRYWALL CURITIBA | Drywall em Curitiba",
+      "category": "Empreiteira de serviços com gesso",
+      "address": "R. Profa. Emma Carvalho dos Santos, 35 OU 1488 - Xaxim, Curitiba - PR, 81830-650",
+      "phone": "(41) 99574-7476",
+      "website": "https://www.drywallcuritibapr.com.br/",
+      "rating": 4.5,
+      "reviewCount": 121,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJzYiLR8f93JQReGq1FNfCjWI"
+    },
+    {
+      "placeId": "ChIJ5yaUygvv3JQR5ZsWYnRh0Bc",
+      "dataId": "0x94dcef0bca9426e7:0x17d0617462169be5",
+      "name": "INSTALL DRYWALL - Gesso e Drywall em Curitiba - Distribuidora",
+      "category": "Loja de materiais para paredes de gesso",
+      "address": "Rod. Dep. João Leopoldo Jacomel, 11432 - Centro, Pinhais - PR, 83320-382",
+      "phone": "(41) 3056-2301",
+      "website": "http://www.installdrywall.com.br/",
+      "rating": 4.6,
+      "reviewCount": 124,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ5yaUygvv3JQR5ZsWYnRh0Bc"
+    },
+    {
+      "placeId": "ChIJreM5r3Pv3JQR7Ei8No62KHc",
+      "dataId": "0x94dcef73af39e3ad:0x7728b68e36bc48ec",
+      "name": "Drywall & Cia - Sistemas Construtivos",
+      "category": "Loja de materiais para paredes de gesso",
+      "address": "R. Brig. Franco, 5024 - Parolin, Curitiba - PR, 80220-100",
+      "phone": "(41) 99814-7926",
+      "website": "https://www.drywallecia.com.br/",
+      "rating": 4.8,
+      "reviewCount": 94,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJreM5r3Pv3JQR7Ei8No62KHc"
+    }
+  ]
+}

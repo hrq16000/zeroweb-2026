@@ -1,0 +1,77 @@
+{
+  "slug": "eletro-solucoes-eficazes",
+  "query": "Eletro Soluções Eficazes Pinhais",
+  "location": "Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:16.108Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Eletro+Solu%C3%A7%C3%B5es+Eficazes+Pinhais&location=Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:16.107Z",
+    "sourceUrl": "https://www.google.com/maps/search/Eletro+Solu%C3%A7%C3%B5es+Eficazes+Pinhais/@-25.4434411,-49.1931448,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJoXb1pE0JvY0R__SC-WRjzU8",
+      "dataId": "0x8dbd094da4f576a1:0x4fcd6364f982f4ff",
+      "name": "ELETROSOLUÇÕES EFICAZES",
+      "category": "Eletricista",
+      "address": null,
+      "phone": "(41) 99649-1576",
+      "website": "https://www.instagram.com/eletrosolucoeseficazes/",
+      "rating": 5,
+      "reviewCount": 11,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJoXb1pE0JvY0R__SC-WRjzU8"
+    },
+    {
+      "placeId": "ChIJY4-tdqTw3JQR4C-CNWLqpbE",
+      "dataId": "0x94dcf0a476ad8f63:0xb1a5ea6235822fe0",
+      "name": "ELOS Eletrotécnica",
+      "category": "Fornecedor de equipamentos industriais",
+      "address": "R. Joinville, 3706 - São Pedro, São José dos Pinhais - PR, 83020-000",
+      "phone": "(41) 3383-9290",
+      "website": "http://www.elos.com.br/",
+      "rating": 4.8,
+      "reviewCount": 31,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJY4-tdqTw3JQR4C-CNWLqpbE"
+    },
+    {
+      "placeId": "ChIJqae2QVU2qaYROM2VmSYYrL4",
+      "dataId": "0xa6a9365541b6a7a9:0xbeac18269995cd38",
+      "name": "Eletrosul - Soluções Elétricas",
+      "category": "Serviço de instalação elétrica",
+      "address": "Rua Frei Egidio Carlotto, Centro, Pinhais - PR, 83323-230",
+      "phone": "(41) 99181-7949",
+      "website": "https://instagram.com/eletrosul_cwb?igshid=OGQ5ZDc2ODK2ZA==",
+      "rating": 4.7,
+      "reviewCount": 12,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqae2QVU2qaYROM2VmSYYrL4"
+    },
+    {
+      "placeId": "ChIJsX8zB-fx3JQR7UJ7wCMmVVg",
+      "dataId": "0x94dcf1e707337fb1:0x58552623c07b42ed",
+      "name": "Eletro e Hidro soluções",
+      "category": "Serviço de instalação elétrica",
+      "address": "R. João Greschuk Neto, 54 - Ipê, São José dos Pinhais - PR, 83055-182",
+      "phone": "(41) 98892-9021",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJsX8zB-fx3JQR7UJ7wCMmVVg"
+    },
+    {
+      "placeId": "ChIJafj3NIXv3JQR1Ep3y6aXz7Q",
+      "dataId": "0x94dcef8534f7f869:0xb4cf97a6cb774ad4",
+      "name": "Eletrorastro Pinhais | Experimente ter certeza.",
+      "category": "Loja de materiais de construção",
+      "address": "Rod. Dep. João Leopoldo Jacomel, 11922 - Centro, Pinhais - PR, 83323-410",
+      "phone": "(41) 3661-3100",
+      "website": "http://www.eletrorastro.com.br/",
+      "rating": 4.6,
+      "reviewCount": 3255,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJafj3NIXv3JQR1Ep3y6aXz7Q"
+    }
+  ]
+}

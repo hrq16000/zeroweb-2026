@@ -1,0 +1,77 @@
+{
+  "slug": "angel-mix-brecho",
+  "query": "Angel Mix Brechó Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:31.599Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Angel+Mix+Brech%C3%B3+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:31.599Z",
+    "sourceUrl": "https://www.google.com/maps/search/Angel+Mix+Brech%C3%B3+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ77FP-Grk3JQRaKDKoquNic0",
+      "dataId": "0x94dce46af84fb1ef:0xcd898daba2caa068",
+      "name": "Angel Brechó",
+      "category": "Loja de descontos",
+      "address": "R. José Loureiro, 696 - Centro, Curitiba - PR, 80010-000",
+      "phone": null,
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ77FP-Grk3JQRaKDKoquNic0"
+    },
+    {
+      "placeId": "ChIJ91LXvhTk3JQRoUIHQdVxOQs",
+      "dataId": "0x94dce414bed752f7:0xb3971d5410742a1",
+      "name": "Brechó Anelli",
+      "category": "Brechó",
+      "address": "R. Alfredo Bufren, 255 - Centro, Curitiba - PR, 80020-240",
+      "phone": "(41) 99207-0016",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 19,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ91LXvhTk3JQRoUIHQdVxOQs"
+    },
+    {
+      "placeId": "ChIJZ_0w-73l3JQRUeJOINvgxM4",
+      "dataId": "0x94dce5bdfb30fd67:0xcec4e0db204ee251",
+      "name": "A Berenice Brechó",
+      "category": "Brechó",
+      "address": "R. Des. Westphalen, 427 - Centro, Curitiba - PR, 80010-110",
+      "phone": "(41) 99509-8063",
+      "website": null,
+      "rating": 4.6,
+      "reviewCount": 14,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZ_0w-73l3JQRUeJOINvgxM4"
+    },
+    {
+      "placeId": "ChIJ5Xdd7RPk3JQRJiCyL5y_dic",
+      "dataId": "0x94dce413ed5d77e5:0x2776bf9c2fb22026",
+      "name": "Brechó Pur Luxe",
+      "category": "Brechó",
+      "address": "Av. Visc. de Guarapuava, 4072 - Batel, Curitiba - PR, 80250-220",
+      "phone": "(41) 3206-7221",
+      "website": "http://www.brechopurluxe.com.br/",
+      "rating": 4.7,
+      "reviewCount": 785,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ5Xdd7RPk3JQRJiCyL5y_dic"
+    },
+    {
+      "placeId": "ChIJa8sV8lzj3JQRYmhLv6OlJGo",
+      "dataId": "0x94dce35cf215cb6b:0x6a24a5a3bf4b6862",
+      "name": "Anelli Roupas - novo mundo.",
+      "category": "Brechó",
+      "address": "Av. Rep. Argentina, 3981 - Novo Mundo, Curitiba - PR, 81050-000",
+      "phone": "(41) 99221-2722",
+      "website": "http://bit.ly/anellinovomundo",
+      "rating": 4.5,
+      "reviewCount": 115,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJa8sV8lzj3JQRYmhLv6OlJGo"
+    }
+  ]
+}

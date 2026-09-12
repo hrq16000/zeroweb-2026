@@ -1,0 +1,77 @@
+{
+  "slug": "guaratuba-sabores-da-baia",
+  "query": "Sabores da Baía Guaratuba",
+  "location": "Guaratuba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:12.683Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Sabores+da+Ba%C3%ADa+Guaratuba&location=Guaratuba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:12.682Z",
+    "sourceUrl": "https://www.google.com/maps/search/Sabores+da+Ba%C3%ADa+Guaratuba/@-25.8804742,-48.57376619999999,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ94Xncq7725QRLlCcu9j5VsY",
+      "dataId": "0x94dbfbae72e785f7:0xc656f9d8bb9c502e",
+      "name": "GRANDE SABOR GASTRONOMIA",
+      "category": "Pizzaria",
+      "address": "jose, R. José Nicolau Abagge, 1193 - Guaratuba, PR, 83280-000",
+      "phone": "(41) 99547-7346",
+      "website": "https://grandesabor.saipos.com/home",
+      "rating": 5,
+      "reviewCount": 12,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ94Xncq7725QRLlCcu9j5VsY"
+    },
+    {
+      "placeId": "ChIJ2eaur6L725QR1j00a8GX8EE",
+      "dataId": "0x94dbfba2afaee6d9:0x41f097c16b343dd6",
+      "name": "60 Sabores Artesanal - Guaratuba Centro",
+      "category": "Sorveteria",
+      "address": "Av. Curitiba, 400 - Centro, Guaratuba - PR, 83280-000",
+      "phone": "(47) 99744-3755",
+      "website": "https://60sabores.com.br/unidades/guaratuba-links?utm_medium=biodaunidade",
+      "rating": 4.6,
+      "reviewCount": 361,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ2eaur6L725QR1j00a8GX8EE"
+    },
+    {
+      "placeId": "ChIJfSODdM_x25QRY8trntXhuVo",
+      "dataId": "0x94dbf1cf7483237d:0x5ab9e1d59e6bcb63",
+      "name": "Marua Bar e Restaurante",
+      "category": "Restaurante",
+      "address": "R. Cel. Afonso Botelho de Souza, 45 - Centro, Guaratuba - PR, 83280-000",
+      "phone": "(41) 98404-7843",
+      "website": "https://www.ifood.com.br/delivery/guaratuba-pr/marua-bar-centro/ac4dfd42-2ca6-4d49-97e1-90dd78f3568e",
+      "rating": 4.9,
+      "reviewCount": 587,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJfSODdM_x25QRY8trntXhuVo"
+    },
+    {
+      "placeId": "ChIJP7hDXwj725QRdNJMitNMTNk",
+      "dataId": "0x94dbfb085f43b83f:0xd94c4cd38a4cd274",
+      "name": "CARANGUEJO NO BALDE GUARATUBA",
+      "category": "Restaurante de frutos do mar",
+      "address": "R. Vicente Marques - Guaratuba, PR, 83280-000",
+      "phone": "(41) 98904-7055",
+      "website": "https://www.facebook.com/caranguejonobaldeguaratuba",
+      "rating": 4,
+      "reviewCount": 32,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJP7hDXwj725QRdNJMitNMTNk"
+    },
+    {
+      "placeId": "ChIJ1ZBILY_w25QRnSkMx1OEjDI",
+      "dataId": "0x94dbf08f2d4890d5:0x328c8453c70c299d",
+      "name": "Restaurante Marina Morena",
+      "category": "Restaurante de frutos do mar",
+      "address": "Av. Damião Botelho de Souza, 2.780 - Guaratuba, PR, 83280-000",
+      "phone": "(41) 3472-3087",
+      "website": null,
+      "rating": 4.3,
+      "reviewCount": 555,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ1ZBILY_w25QRnSkMx1OEjDI"
+    }
+  ]
+}

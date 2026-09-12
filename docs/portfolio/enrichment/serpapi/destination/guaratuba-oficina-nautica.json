@@ -1,0 +1,77 @@
+{
+  "slug": "guaratuba-oficina-nautica",
+  "query": "Oficina Náutica Guaratuba Guaratuba",
+  "location": "Guaratuba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:09.276Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Oficina+N%C3%A1utica+Guaratuba+Guaratuba&location=Guaratuba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:09.276Z",
+    "sourceUrl": "https://www.google.com/maps/search/Oficina+N%C3%A1utica+Guaratuba+Guaratuba/@-25.8804742,-48.57376619999999,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJmfPq_BT725QRYQoNG_DwFxk",
+      "dataId": "0x94dbfb14fceaf399:0x1917f0f01b0d0a61",
+      "name": "Mecânica náutica guaratuba",
+      "category": "Oficina mecânica",
+      "address": "R. Santo Antônio da Platina, 2 - Cohapar, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99579-7258",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 3,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJmfPq_BT725QRYQoNG_DwFxk"
+    },
+    {
+      "placeId": "ChIJsdYJVwD725QRlLM3kRcUeEY",
+      "dataId": "0x94dbfb005709d6b1:0x467814179137b394",
+      "name": "Náutica Theodoro Guaratuba",
+      "category": "Fornecedor de acessórios para barcos",
+      "address": "R. Eng. Rebouças - Guaratuba, PR, 83280-000",
+      "phone": "(47) 99735-0201",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJsdYJVwD725QRlLM3kRcUeEY"
+    },
+    {
+      "placeId": "ChIJa7s8a_P725QR4KudFXWi12g",
+      "dataId": "0x94dbfbf36b3cbb6b:0x68d7a275159dabe0",
+      "name": "Otto Nautic Service & Parts",
+      "category": "Oficina de conserto de barcos",
+      "address": "Rua Marechal Deodoro, Av. Brejatuba, 599, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99904-0971",
+      "website": "https://www.instagram.com/otto.nautic?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "rating": 5,
+      "reviewCount": 10,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJa7s8a_P725QR4KudFXWi12g"
+    },
+    {
+      "placeId": "ChIJFQ-yMH3w25QRWne3Q7wdRZ4",
+      "dataId": "0x94dbf07d30b20f15:0x9e451dbc43b7775a",
+      "name": "Náutica Wilke",
+      "category": "Escritório da empresa",
+      "address": "Av. Damião Botelho de Souza, 1100 - Guaratuba, PR, 83280-000",
+      "phone": null,
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJFQ-yMH3w25QRWne3Q7wdRZ4"
+    },
+    {
+      "placeId": "ChIJ6YepFnAybWIRyU_srbai4sE",
+      "dataId": "0x626d327016a987e9:0xc1e2a2b6adec4fc9",
+      "name": "Start Náutica",
+      "category": "Oficina de conserto de barcos",
+      "address": "R. Particular - Guaratuba, PR, 83280-000",
+      "phone": "(41) 98844-1730",
+      "website": "https://startnauticabrasil.com/",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ6YepFnAybWIRyU_srbai4sE"
+    }
+  ]
+}
