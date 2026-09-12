@@ -919,7 +919,9 @@
       "kind": "AUTHENTIC_MIGRATION",
       "source": "Loja oficial, Artesanou e perfis sociais fornecidos pelo cliente nesta conversa",
       "reference": "https://papelemi.lojavirtualnuvem.com.br"
-    }
+    },
+    "funnelVariant": "external_store",
+    "contactMode": "none"
   },
   {
     "clientKey": "maximos-cabeleireiros",
