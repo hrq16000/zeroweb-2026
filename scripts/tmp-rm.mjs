@@ -10,7 +10,7 @@ for (let i = 0; i < await cta.count(); i++) {
   await p.waitForTimeout(1200);
   if (await p.locator("div[role='dialog'] button:visible").count()) break;
 }
-for (let i = 0; i < 14; i++) {
+for (let i = 0; i < 16; i++) {
   const ready = p.locator("button:visible").filter({ hasText: /mensagem pronta/i });
   if (await ready.count()) { const ta = p.locator("textarea:visible").first(); if (await ta.count()) await ta.fill("QA"); await ready.first().click({force:true}); await p.waitForTimeout(1500); break; }
   const btns = p.locator("div[role='dialog'] button:visible");
@@ -19,7 +19,7 @@ for (let i = 0; i < 14; i++) {
   const inp = p.locator("div[role='dialog'] input:visible, div[role='dialog'] textarea:visible").first();
   if (await inp.count()) await inp.fill("QA rollout 41999990000").catch(()=>{});
   if (!n) { await p.waitForTimeout(800); continue; }
-  await btns.nth(n>1?1:0).click({force:true}).catch(()=>{});
+  const cont = p.locator("div[role='dialog'] button:visible").filter({hasText:/continuar|avan|enviar|finalizar/i}).last(); if (await cont.count()) await cont.click({force:true}).catch(()=>{}); else await btns.nth(n-1).click({force:true}).catch(()=>{});
   await p.waitForTimeout(800);
 }
 console.log("recovery:", await p.locator("#portfolio-quiz-recovery").count());
