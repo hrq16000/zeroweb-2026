@@ -423,6 +423,7 @@ function htmlErrorPage(
   <h1>${escapeHtml(title)}</h1>
   <p>${escapeHtml(body)}</p>
   ${protocol}
+  ${recovery}
   <div class="actions">
     ${reissue}
     <a class="ghost" href="/">Voltar ao site</a>
