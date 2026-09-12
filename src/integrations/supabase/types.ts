@@ -4519,6 +4519,42 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_funnel_recipient_backup: {
+        Row: {
+          client_key: string
+          created_at: string
+          funnel_enabled: boolean
+          funnel_recipient: string
+          id: string
+          label: string
+          published: boolean
+          slug: string
+          taken_at: string
+        }
+        Insert: {
+          client_key: string
+          created_at?: string
+          funnel_enabled?: boolean
+          funnel_recipient?: string
+          id?: string
+          label?: string
+          published?: boolean
+          slug?: string
+          taken_at?: string
+        }
+        Update: {
+          client_key?: string
+          created_at?: string
+          funnel_enabled?: boolean
+          funnel_recipient?: string
+          id?: string
+          label?: string
+          published?: boolean
+          slug?: string
+          taken_at?: string
+        }
+        Relationships: []
+      }
       portfolio_place_seo: {
         Row: {
           created_at: string
