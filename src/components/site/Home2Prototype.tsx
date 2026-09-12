@@ -15,8 +15,12 @@ import {
   X,
 } from "lucide-react";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { FloatingFunnelCTA } from "@/components/funnel/FloatingFunnelCTA";
 import { PortfolioCover } from "@/components/portfolio/PortfolioCover";
 import logoAsset from "@/assets/logo-0web.png.asset.json";
+import blogSites from "@/assets/blog-sites.webp";
+import blogSeo from "@/assets/blog-seo.webp";
+import blogRoiTrafego from "@/assets/blog-roi-trafego.jpg";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { initHome2Motion } from "./home2-motion";
 import "./home2-wcria.css";
@@ -110,18 +114,24 @@ const editorialLinks = [
     title: "O que uma página precisa resolver antes de pensar em efeitos",
     to: "/blog/sites",
     tone: "blue",
+    image: blogSites,
+    imageAlt: "Composição editorial sobre criação de sites",
   },
   {
     label: "SEO",
     title: "Estrutura, conteúdo e descoberta trabalhando juntos",
     to: "/blog/seo",
     tone: "cyan",
+    image: blogSeo,
+    imageAlt: "Composição editorial sobre estratégia de SEO",
   },
   {
     label: "Aquisição",
     title: "Quando tráfego pago precisa conversar com a landing page",
     to: "/blog/trafego-pago",
     tone: "violet",
+    image: blogRoiTrafego,
+    imageAlt: "Composição editorial sobre retorno em tráfego pago",
   },
 ] as const;
 
@@ -203,7 +213,9 @@ export function Home2Prototype() {
             </p>
 
             <h1 id="home2-title" data-home2-load>
-              Soluções <strong>criativas e estratégicas</strong> para sua empresa
+              <span>Soluções</span>{" "}
+              <strong>criativas e estratégicas</strong>{" "}
+              <span>para sua empresa</span>
             </h1>
 
             <p className="home2-hero-subtitle" data-home2-load>
@@ -358,7 +370,7 @@ export function Home2Prototype() {
 
         <section className="home2-experience" aria-labelledby="home2-experience-title">
           <div className="home2-shell home2-experience-grid">
-            <div className="home2-experience-copy">
+            <div className="home2-experience-copy" data-home2-motion="experience-copy">
               <h2 id="home2-experience-title">
                 <strong>Experiência</strong> que se transforma em presença
               </h2>
@@ -413,17 +425,19 @@ export function Home2Prototype() {
                 className="home2-project-tile"
                 aria-label={`Abrir projeto ${project.title}`}
               >
-                <PortfolioCover
-                  clientKey={project.clientKey}
-                  slug={project.slug}
-                  title={project.title}
-                  image={project.image}
-                  fallbackImage={project.fallbackImage}
-                  className="h-full w-full object-cover"
-                  width={900}
-                  height={760}
-                  sizes="(max-width: 720px) 100vw, 33vw"
-                />
+                <span className="home2-project-media" data-home2-media-reveal>
+                  <PortfolioCover
+                    clientKey={project.clientKey}
+                    slug={project.slug}
+                    title={project.title}
+                    image={project.image}
+                    fallbackImage={project.fallbackImage}
+                    className="h-full w-full object-cover"
+                    width={900}
+                    height={760}
+                    sizes="(max-width: 720px) 100vw, 33vw"
+                  />
+                </span>
                 <span className="home2-project-overlay" aria-hidden="true" />
                 <span className="home2-project-label">
                   <span>{project.title}</span>
@@ -460,27 +474,25 @@ export function Home2Prototype() {
           </div>
 
           <div className="home2-editorial-row">
-            {editorialLinks.map((article, index) => {
-              const project = featuredProjects[index + 3] ?? featuredProjects[index];
+            {editorialLinks.map((article) => {
               return (
               <Link
                 key={article.title}
                 to={article.to}
                 className={`home2-editorial-card home2-editorial-${article.tone}`}
+                data-home2-editorial-reveal
               >
-                {project && (
-                  <PortfolioCover
-                    clientKey={project.clientKey}
-                    slug={project.slug}
-                    title={project.title}
-                    image={project.image}
-                    fallbackImage={project.fallbackImage}
-                    className="home2-editorial-image"
-                    width={900}
-                    height={650}
-                    sizes="(max-width: 840px) 100vw, 33vw"
-                  />
-                )}
+                <img
+                  src={article.image}
+                  alt={article.imageAlt}
+                  className="home2-editorial-image"
+                  width={900}
+                  height={650}
+                  sizes="(max-width: 840px) 100vw, 33vw"
+                  loading="eager"
+                  decoding="async"
+                  data-home2-parallax="8"
+                />
                 <span className="home2-editorial-shade" aria-hidden="true" />
                 <small>{article.label}</small>
                 <strong>{article.title}</strong>
@@ -540,6 +552,7 @@ export function Home2Prototype() {
           <a href="https://instagram.com/0webbr" rel="noreferrer" target="_blank" className="home2-social">@0webbr</a>
         </div>
       </footer>
+      <FloatingFunnelCTA label="Fale com a 0WEB" location="home2_floating" />
     </div>
   );
 }

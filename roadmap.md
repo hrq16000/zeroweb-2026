@@ -62,3 +62,9 @@
 - [x] Evoluir motion exclusivo e reduced-motion
 - [x] Validar 1440/768/390, navegador, testes e build
 - [x] Registrar skills e encerrar sem publicação
+
+## Home2 — vida visual e motion · rodada 2 (2026-09-12)
+- [x] Corrigir mídia de projetos com motion fail-open
+- [x] Substituir mídia editorial por capas reais de artigos
+- [x] Reutilizar CTA flutuante oficial e enriquecer motion contextual
+- [x] Validar runtime 1440/768/390/reduced, testes e build

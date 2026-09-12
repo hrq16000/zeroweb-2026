@@ -2,8 +2,10 @@ export type Home2MotionEffect =
   | "fade-up"
   | "fade-left"
   | "fade-right"
+  | "blur-in"
   | "scale-in"
   | "image-reveal"
+  | "clip-reveal"
   | "stagger-up";
 
 export type Home2MotionRule = {
@@ -67,7 +69,7 @@ export const home2MotionMatrix: Home2MotionRule[] = [
   },
   {
     id: "experience-copy",
-    selector: ".home2-experience-copy",
+    selector: "[data-home2-motion='experience-copy']",
     effect: "fade-right",
     trigger: "scroll",
     duration: 820,
@@ -83,12 +85,12 @@ export const home2MotionMatrix: Home2MotionRule[] = [
     threshold: 0.12,
   },
   {
-    id: "projects",
-    selector: ".home2-project-tile",
+    id: "editorial",
+    selector: "[data-home2-editorial-reveal]",
     effect: "image-reveal",
     trigger: "scroll",
-    duration: 900,
-    stagger: 80,
+    duration: 840,
+    stagger: 110,
     threshold: 0.1,
   },
   {
@@ -114,8 +116,10 @@ const effectClass: Record<Home2MotionEffect, string> = {
   "fade-up": "home2-motion-fade-up",
   "fade-left": "home2-motion-fade-left",
   "fade-right": "home2-motion-fade-right",
+  "blur-in": "home2-motion-blur-in",
   "scale-in": "home2-motion-scale-in",
   "image-reveal": "home2-motion-image-reveal",
+  "clip-reveal": "home2-motion-clip-reveal",
   "stagger-up": "home2-motion-fade-up",
 };
 
@@ -138,6 +142,30 @@ export function initHome2Motion(root: HTMLElement) {
     };
   }
 
+  root.classList.add("home2-motion-ready");
+  const failOpenTimer = window.setTimeout(() => {
+    root.querySelectorAll<HTMLElement>(".home2-motion").forEach((node) => node.classList.add("is-visible"));
+  }, 2400);
+  cleanups.push(() => window.clearTimeout(failOpenTimer));
+
+  const projectTiles = Array.from(root.querySelectorAll<HTMLElement>(".home2-project-tile"));
+  if (typeof IntersectionObserver === "undefined") {
+    projectTiles.forEach((tile) => tile.classList.add("is-revealed"));
+  } else {
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          projectObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.06, rootMargin: "0px 0px -6% 0px" },
+    );
+    projectTiles.forEach((tile) => projectObserver.observe(tile));
+    cleanups.push(() => projectObserver.disconnect());
+  }
+
   home2MotionMatrix.forEach((rule) => {
     const nodes = Array.from(root.querySelectorAll<HTMLElement>(rule.selector));
     if (!nodes.length) return;
@@ -155,6 +183,11 @@ export function initHome2Motion(root: HTMLElement) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => nodes.forEach((node) => node.classList.add("is-visible")));
       });
+      return;
+    }
+
+    if (typeof IntersectionObserver === "undefined") {
+      nodes.forEach((node) => node.classList.add("is-visible"));
       return;
     }
 
@@ -194,7 +227,8 @@ export function initHome2Motion(root: HTMLElement) {
       geometry.forEach(({ node, center, amount }) => {
         const elementCenter = center;
         const progress = (elementCenter - viewportCenter) / Math.max(window.innerHeight, 1);
-        const offset = Math.max(-amount, Math.min(amount, -progress * amount * 1.8));
+        const mobile = window.matchMedia("(max-width: 840px)").matches;
+        const offset = mobile ? 0 : Math.max(-amount, Math.min(amount, -progress * amount * 1.8));
         node.style.setProperty("--home2-parallax-y", `${offset.toFixed(2)}px`);
       });
     };
@@ -216,5 +250,8 @@ export function initHome2Motion(root: HTMLElement) {
     });
   }
 
-  return () => cleanups.forEach((cleanup) => cleanup());
+  return () => {
+    root.classList.remove("home2-motion-ready");
+    cleanups.forEach((cleanup) => cleanup());
+  };
 }
