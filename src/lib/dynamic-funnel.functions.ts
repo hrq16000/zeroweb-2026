@@ -370,6 +370,44 @@ export const submitFunnel = createServerFn({ method: "POST" })
 
     const redirectPath = tokenResult.ok ? tokenResult.redirectPath : null;
 
+    // ---- LEAD_RECOVERABILITY (camada compartilhada) ----
+    // Nenhuma conclusão pode terminar sem destino operacional E sem meio de
+    // retorno. O lead já está salvo; aqui só decidimos e registramos.
+    const clientKey = (data.client_metadata?.client_key ?? null) as string | null;
+    const { decideLeadRecoverability } = await import("@/lib/lead-recoverability");
+    const {
+      getPortfolioWhatsAppChannelStateAsync,
+      getWhatsAppDestinationDigits,
+    } = await import("@/lib/whatsapp-redirect.server");
+    const destinationStatus = clientKey
+      ? await getPortfolioWhatsAppChannelStateAsync(clientKey as never)
+      : getWhatsAppDestinationDigits()
+        ? ("CONFIGURED" as const)
+        : ("NOT_CONFIGURED" as const);
+    const destinationConfigured = destinationStatus === "CONFIGURED";
+    const hasRecoverableContact = Boolean(
+      normalizeRecoveryPhone(contact_phone ?? null) || contact_email,
+    );
+    const decision = decideLeadRecoverability({
+      destinationConfigured,
+      hasRecoverableContact,
+      failureReason: destinationConfigured && !tokenResult.ok ? "token_creation_failed" : null,
+    });
+    const { recordLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
+    await recordLeadDelivery({
+      leadId: lead.id as string,
+      clientKey,
+      destinationStatus: destinationConfigured ? "CONFIGURED" : "NOT_CONFIGURED",
+      deliveryStatus: decision.deliveryStatus,
+      recoverability: decision.recoverability,
+      hasRecoverableContact,
+      failureReason: destinationConfigured
+        ? tokenResult.ok
+          ? null
+          : "token_creation_failed"
+        : "missing_client_whatsapp_number",
+    });
+
     return {
       success: true as const,
       submissionId: lead.id,
@@ -378,7 +416,66 @@ export const submitFunnel = createServerFn({ method: "POST" })
       redirectAvailable: tokenResult.ok,
       nextPath: "/obrigado" as const,
       alert_status: alertStatus,
+      deliveryState: decision.deliveryStatus,
+      recoverability: decision.recoverability,
+      requiresRecoveryContact: decision.requiresRecoveryContact,
     };
+  });
+
+/**
+ * Anexa o meio de retorno a um lead já salvo do funil dinâmico.
+ * Usado somente quando a conclusão ficou sem destino operacional resolvido.
+ * O número é normalizado e guardado no lead; o livro-razão nunca recebe PII.
+ */
+export const attachFunnelRecoveryContact = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) =>
+    z.object({
+      lead_id: z.string().uuid(),
+      contact: z.string().max(40),
+      client_key: z.enum(PORTFOLIO_CLIENT_KEYS).optional(),
+    }).parse(data),
+  )
+  .handler(async ({ data }) => {
+    const { normalizeRecoveryPhone, RECOVERY_CONTACT_PURPOSE, decideLeadRecoverability } =
+      await import("@/lib/lead-recoverability");
+    const phone = normalizeRecoveryPhone(data.contact);
+    if (!phone) return { ok: false as const, reason: "invalid_contact" as const };
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: lead } = await supabaseAdmin
+      .from("dynamic_form_leads")
+      .select("id, metadata_json")
+      .eq("id", data.lead_id)
+      .maybeSingle();
+    if (!lead) return { ok: false as const, reason: "not_found" as const };
+
+    const metadata = {
+      ...((lead.metadata_json ?? {}) as Record<string, unknown>),
+      recovery_contact_kind: "whatsapp",
+      recovery_contact_purpose: RECOVERY_CONTACT_PURPOSE,
+      recovery_contact_collected_at: new Date().toISOString(),
+    };
+    const { error } = await supabaseAdmin
+      .from("dynamic_form_leads")
+      .update({ contact_phone: phone, metadata_json: metadata as never })
+      .eq("id", data.lead_id);
+    if (error) return { ok: false as const, reason: "persist_failed" as const };
+
+    const decision = decideLeadRecoverability({
+      destinationConfigured: false,
+      hasRecoverableContact: true,
+    });
+    const { recordLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
+    await recordLeadDelivery({
+      leadId: data.lead_id,
+      clientKey: data.client_key ?? null,
+      destinationStatus: "NOT_CONFIGURED",
+      deliveryStatus: decision.deliveryStatus,
+      recoverability: decision.recoverability,
+      hasRecoverableContact: true,
+      failureReason: "missing_client_whatsapp_number",
+    });
+    return { ok: true as const, recoverability: decision.recoverability };
   });
 
 /**
