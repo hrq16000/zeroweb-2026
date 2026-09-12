@@ -315,7 +315,14 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           }
         }
 
+        // Entrega efetiva: o destino foi resolvido e o token consumido.
+        if (deliveredLeadId) {
+          const { markLeadDelivered } = await import("@/lib/lead-delivery-ledger.server");
+          await markLeadDelivered(deliveredLeadId, deliveredClientKey);
+        }
+
         const url = assembleWaMeUrl(finalDigits, finalMessage);
+
         return new Response(null, {
           status: 302,
           headers: {
