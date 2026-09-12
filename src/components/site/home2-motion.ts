@@ -131,19 +131,21 @@ const effectClass: Record<Home2MotionEffect, string> = {
 export function initHome2Motion(root: HTMLElement) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const cleanups: Array<() => void> = [];
-
-  if (reducedMotion) {
-    root.classList.add("home2-reduced-motion");
-    root.querySelectorAll<HTMLElement>("[data-home2-load], [data-home2-motion], .home2-service-card, .home2-proof-card, .home2-project-tile, .home2-principle, .home2-editorial-card, .home2-final-grid")
-      .forEach((node) => node.classList.add("is-visible"));
-    return () => root.classList.remove("home2-reduced-motion");
-  }
-
   const header = root.querySelector<HTMLElement>(".home2-header");
   const onHeaderScroll = () => header?.classList.toggle("is-scrolled", window.scrollY > 28);
   onHeaderScroll();
   window.addEventListener("scroll", onHeaderScroll, { passive: true });
   cleanups.push(() => window.removeEventListener("scroll", onHeaderScroll));
+
+  if (reducedMotion) {
+    root.classList.add("home2-reduced-motion");
+    root.querySelectorAll<HTMLElement>("[data-home2-load], [data-home2-motion], .home2-service-card, .home2-proof-card, .home2-project-tile, .home2-principle, .home2-editorial-card, .home2-final-grid")
+      .forEach((node) => node.classList.add("is-visible"));
+    return () => {
+      root.classList.remove("home2-reduced-motion");
+      cleanups.forEach((cleanup) => cleanup());
+    };
+  }
 
   home2MotionMatrix.forEach((rule) => {
     const nodes = Array.from(root.querySelectorAll<HTMLElement>(rule.selector));
