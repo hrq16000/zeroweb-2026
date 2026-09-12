@@ -144,7 +144,74 @@
         "Migração documentada (docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md) não registra origem do número",
         "Auditoria local 2026-09-12: evidência insuficiente"
       ]
+    },
+    "marido-de-aluguel": {
+      "verifiedAt": null,
+      "status": "CONFLICT",
+      "source": "GOOGLE_ENTITY",
+      "confidence": 60,
+      "evidence": [
+        "Onda 1 (2026-09-12): entidade Google resolvida com alta confiança — ficha \"Mestre dos serviços\" (São José dos Pinhais/PR), site oficial mestredosservicos.com.br e mesmo perfil social declarado na landing (@mestresDosServicos no Instagram e Facebook)",
+        "CONFLITO: o telefone publicado nessa ficha é o número institucional da 0WEB, não um destino operacional do cliente — usá-lo seria fallback proibido",
+        "Nenhum segredo operacional nem funnel_recipient válido em configuração privada",
+        "Decisão pendente do cliente: número operacional próprio precisa ser informado"
+      ],
+      "conflict": "Telefone da ficha Google = número institucional 0WEB"
+    },
+    "ag-electrical-services": {
+      "verifiedAt": null,
+      "status": "UNRESOLVED",
+      "source": "NONE",
+      "confidence": 0,
+      "evidence": [
+        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
+        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"A&G Electrical Services\" (nome, categoria e identidade divergem)",
+        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+      ]
+    },
+    "confeitaria-chyrley": {
+      "verifiedAt": null,
+      "status": "UNRESOLVED",
+      "source": "NONE",
+      "confidence": 0,
+      "evidence": [
+        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
+        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"Chyrley Doces & Festas\" (nome, categoria e identidade divergem)",
+        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+      ]
+    },
+    "rj-servicos-drywall": {
+      "verifiedAt": null,
+      "status": "UNRESOLVED",
+      "source": "NONE",
+      "confidence": 0,
+      "evidence": [
+        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
+        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"RJ Serviços de Drywall\" (nome, categoria e identidade divergem)",
+        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+      ]
+    },
+    "mp-festas-eventos": {
+      "verifiedAt": null,
+      "status": "UNRESOLVED",
+      "source": "NONE",
+      "confidence": 0,
+      "evidence": [
+        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
+        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"MP Festas e Eventos\" (nome, categoria e identidade divergem)",
+        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+      ]
+    },
+    "refrigeracao-maresia": {
+      "verifiedAt": null,
+      "status": "UNRESOLVED",
+      "source": "NONE",
+      "confidence": 0,
+      "evidence": [
+        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
+        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"Refrigeração Maresia\" (nome, categoria e identidade divergem)",
+        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+      ]
     }
   }
 }
-
