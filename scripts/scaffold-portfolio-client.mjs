@@ -84,167 +84,54 @@ const write = (relPath, content) => {
 };
 
 /**
- * Template de motion (src/config/motion-template-coverage.json).
+ * SCAFFOLD DE COMPOSIÇÃO — docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §16.
  *
- * Com `--motion-template`, o scaffold nasce com a MESMA cobertura de motion
- * validada em /lab/motion-pilot — hero com parallax, faixa de contagem,
- * hover, zoom, timeline com progresso e CTA flutuante — já preenchida com
- * nome, segmento, hero e funil reais. Conteúdo continua TODO: o template
- * entrega engenharia, não direção criativa nem fato inventado.
+ * O scaffold NÃO gera mais landing visual pronta (hero + serviços + provas +
+ * FAQ + CTA). Ele entrega dados, brief, capacidades e estado incompleto. A
+ * composição visual só nasce depois do Creative Composition Brief, escrita à
+ * mão pelo projeto sobre `PortfolioCompositionRoot` (infraestrutura pura).
+ *
+ * `--motion-template` foi descontinuado: cobertura de motion é capacidade
+ * disponível, nunca coreografia pré-montada.
  */
-const useMotionTemplate = args.includes("--motion-template");
 const segment = flag("segment") ?? "";
 const heroImage = flag("hero") ?? "";
-
-const coverage = JSON.parse(
-  readFileSync(resolve(root, "src/config/motion-template-coverage.json"), "utf8"),
-);
-
-const heroImageBlock = heroImage
-  ? `        image: {
-          src: "${heroImage}",
-          // TODO(media plan): alt descritivo do que a foto REALMENTE mostra.
-          alt: "TODO: descrever a foto real de ${siteName}",
-          width: 1600,
-          height: 1200,
-          priority: true,
-        },
-`
-  : `        // TODO(media plan): hero exige mídia real classificada antes de READY.
-`;
-
-const motionSlotSections = () =>
-  coverage.slots
-    .map((slot) => {
-      const motion = JSON.stringify(slot.motion).replace(/"([a-zA-Z]+)":/g, "$1: ").replace(/"/g, '"');
-      const base = `    {
-      // ${slot.purpose}
-      // TODO(direção criativa): variant e ordem são ESCOLHA — revise a partir do brief.
-      type: "${slot.type}",
-      variant: "${slot.defaultVariant}",
-      order: ${slot.order},
-      motion: ${motion},`;
-      if (slot.type === "hero") {
-        return `${base}
-      content: {
-        eyebrow: ${segment ? `"${segment}"` : "SCAFFOLD_STATE"},
-        headline: "${siteName}",
-        subheadline:
-          "TODO: narrativa real do cliente, escrita após entity resolution e enrichment.",
-${heroImageBlock}        ctaLabel: "${ctaLabel}",
-      },
-    },`;
-      }
-      if (slot.type === "signals") {
-        return `${base}
-      content: {
-        // A contagem animada SÓ pode existir sobre fato auditável (ficha
-        // pública, documento ou material oficial). Sem fonte, remova o countTo.
-        items: [
-          { value: "TODO", label: "TODO: sinal verificado", countTo: 0 },
-        ],
-        attribution: "TODO: fonte e data da coleta.",
-      },
-    },`;
-      }
-      if (slot.type === "cta") {
-        return `${base}
-      content: {
-        title: "TODO: fechamento próprio do cliente",
-        text: "Toda conversão passa pelo funil ${funnelSlug}.",
-        ctaLabel: "${ctaLabel}",
-      },
-    },`;
-      }
-      const body = {
-        capabilities: `        groups: [
-          { title: "TODO: eixo real", items: ["TODO: capacidade verificada"] },
-        ],`,
-        useCases: `        items: [
-          {
-            title: "TODO: caso real",
-            text: "TODO: descrever o que foi feito, sem inventar resultado.",
-          },
-        ],`,
-        process: `        steps: [
-          { title: "TODO: etapa 1", text: "TODO: como o atendimento começa.", meta: "01" },
-        ],`,
-      }[slot.type] ?? "";
-      return `${base}
-      content: {
-        title: "TODO: título real desta seção",
-        intro: "TODO: conteúdo real — sem prova, número ou prazo sem fonte.",
-${body}
-      },
-    },`;
-    })
-    .join("\n");
-
-const scaffoldSections = useMotionTemplate
-  ? motionSlotSections()
-  : `    {
-      // TODO(direção criativa): escolher variant a partir do brief.
-      type: "hero",
-      variant: "editorial",
-      order: 10,
-      // TODO(direção criativa): definir gramática de motion própria do cliente.
-      motion: { intensity: "SUBTLE", reveal: "up" },
-      content: {
-        eyebrow: SCAFFOLD_STATE,
-        headline: "${siteName}",
-        subheadline:
-          "Composição pendente: substituir por narrativa real do cliente depois de entity resolution, enrichment e media discovery.",
-        ctaLabel: "${ctaLabel}",
-      },
-    },
-    {
-      type: "cta",
-      variant: "banner",
-      order: 90,
-      content: {
-        title: "Pendente de direção criativa",
-        text: "Preencher ${creativeBriefFile} e o media plan antes de compor esta seção.",
-        ctaLabel: "${ctaLabel}",
-      },
-    },`;
-
-const scaffoldFloating = useMotionTemplate
-  ? `floatingConversion: { mode: "enabled", label: "${ctaLabel}", hint: "TODO: contexto curto" },`
-  : `// TODO(autonomia §10): decidir explicitamente — { mode: "enabled", label: "<contextual>" }
-    // ou { mode: "disabled", reason: "<razão editorial>" }. O destino é sempre o funil.
-    floatingConversion: { mode: "disabled", reason: "SCAFFOLD: decisão pendente" },`;
+if (args.includes("--motion-template")) {
+  console.warn(
+    "[scaffold] --motion-template foi removido: motion pré-montado reintroduz template. " +
+      "Declare a gramática de motion no Creative Composition Brief.",
+  );
+}
 
 const componentSource = `import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { PortfolioBlueprintRenderer } from "@/components/portfolio/blueprint/PortfolioBlueprintRenderer";
+import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import type { CtaRenderOptions, PortfolioBlueprint } from "@/lib/portfolio-blueprint";
+import {
+  COMPOSITION_BRIEF_REQUIRED,
+  type CtaRenderOptions,
+  type PortfolioComposition,
+} from "@/lib/portfolio-composition";
 
 /**
- * WORKBENCH de ${siteName} (/portfolio/${slug}) — Portfolio Blueprint.
+ * WORKBENCH de ${siteName} (/portfolio/${slug}) — PROJECT COMPOSITION.
  *
- * NÃO PUBLICAR enquanto o marcador CREATIVE_BRIEF_REQUIRED existir.
+ * NÃO PUBLICAR enquanto o marcador COMPOSITION_BRIEF_REQUIRED existir.
  *
- * Regras do pipeline (docs/PORTFOLIO_PROJECT_LIFECYCLE.md):
- *  - hero, ordem, variants, densidade, mídia e motion são ESCOLHA consciente;
- *    "hero split + offers grid + authority split + cta banner" é fallback
- *    técnico, não direção criativa;
- *  - nada de conteúdo inventado: sem avaliação, endereço, telefone, garantia,
- *    número de anos, equipe, certificação ou métrica sem fonte auditável;
- *  - todo contato comercial passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
+ * Regras (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md):
+ *  - não existe esqueleto de portfólio: header, hero, grid, ordem e
+ *    encerramento são decisões autorais deste cliente;
+ *  - Careca's, Moreira e JKL são pilotos funcionais, NÃO referência visual;
+ *  - preencher ${creativeBriefFile} (13 campos) ANTES de escrever qualquer JSX;
+ *  - nada inventado: sem avaliação, endereço, telefone, garantia, métrica ou
+ *    certificação sem fonte auditável;
+ *  - todo contato passa pelo funil \`${funnelSlug}\` (contactMode=funnelOnly).
  */
-export const SCAFFOLD_STATE = "CREATIVE_BRIEF_REQUIRED";
+export const SCAFFOLD_STATE = COMPOSITION_BRIEF_REQUIRED;
 
-export const blueprint: PortfolioBlueprint = {
+export const composition: PortfolioComposition = {
   slug: "${slug}",
-  identity: { name: "${siteName}" },
-  theme: {},
-  layout: {
-    headerCtaLabel: "${ctaLabel}",
-    ${scaffoldFloating}
-  },
-  sections: [
-${scaffoldSections}
-  ],
+  theme: {}, // tokens do cliente, definidos pela identidade real
+  // TODO(brief): motionIntensity é consequência da narrativa, não default.
   renderCta: ({ children, className, placement }: CtaRenderOptions) => (
     <FunnelCTAButton
       clientKey="${clientKey}"
@@ -256,13 +143,54 @@ ${scaffoldSections}
       {children}
     </FunnelCTAButton>
   ),
-  // A captação da 0WEB é camada da hospedagem (PortfolioStandardShell):
-  // nenhuma landing monta o pop-up manualmente.
+  // Camada institucional 0WEB: host credit aqui, popup pelo shell compartilhado.
   afterContent: <PortfolioHostCredit />,
+  brief: {
+    businessPersonality: "[PREENCHER]",
+    creativeConcept: "[PREENCHER]",
+    visualMetaphor: "[PREENCHER]",
+    spatialLanguage: "[PREENCHER]",
+    heroConcept: "[PREENCHER]",
+    navigationConcept: "[PREENCHER]",
+    contentRhythm: "[PREENCHER]",
+    mediaNarrative: "[PREENCHER]",
+    proofNarrative: "[PREENCHER]",
+    conversionNarrative: "[PREENCHER]",
+    motionNarrative: "[PREENCHER]",
+    signatureMoments: ["[PREENCHER]"],
+    compositionFingerprint: {
+      heroGeometry: "[PREENCHER]",
+      headerTreatment: "[PREENCHER]",
+      sectionGraph: "[PREENCHER]",
+      contentOrder: ["[PREENCHER]"],
+      gridTopology: "[PREENCHER]",
+      mediaDistribution: "[PREENCHER]",
+      backgroundRhythm: "[PREENCHER]",
+      proofPlacement: "[PREENCHER]",
+      ctaDistribution: "[PREENCHER]",
+      navigationPattern: "[PREENCHER]",
+      motionSignature: "[PREENCHER]",
+      closingStructure: "[PREENCHER]",
+    },
+  },
 };
 
 export function ${componentName}() {
-  return <PortfolioBlueprintRenderer blueprint={blueprint} />;
+  // A composição abaixo é INTENCIONALMENTE vazia: escrever o JSX autoral do
+  // cliente aqui, derivado do brief. Copiar a estrutura de outro projeto
+  // reprova no PROJECT_UNIQUENESS_GATE.
+  return (
+    <PortfolioCompositionRoot composition={composition}>
+      <main data-scaffold-state={SCAFFOLD_STATE} className="px-6 py-24">
+        <h1 className="text-3xl font-black">${siteName}</h1>
+        <p className="mt-4 max-w-prose text-muted-foreground">
+          Composição pendente. Preencher o Creative Composition Brief
+          (${creativeBriefFile}) e então compor a página. Segmento declarado:
+          ${segment || "[PREENCHER]"}${heroImage ? ` · mídia candidata: ${heroImage}` : ""}.
+        </p>
+      </main>
+    </PortfolioCompositionRoot>
+  );
 }
 `;
 
