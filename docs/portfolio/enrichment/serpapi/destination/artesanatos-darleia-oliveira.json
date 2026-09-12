@@ -1,0 +1,77 @@
+{
+  "slug": "artesanatos-darleia-oliveira",
+  "query": "Artesanatos Darléia Oliveira São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:28.674Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Artesanatos+Darl%C3%A9ia+Oliveira+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:28.673Z",
+    "sourceUrl": "https://www.google.com/maps/search/Artesanatos+Darl%C3%A9ia+Oliveira+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJx44FKazw3JQRESmzvHi4__g",
+      "dataId": "0x94dcf0ac29058ec7:0xf8ffb878bcb32911",
+      "name": "ATELIART - Personalizados em MDF e acrílico em São José dos Pinhais - Aulas de pintura em tecido",
+      "category": "Central de artesanato",
+      "address": "R. Passos de Oliveira, 1345 - Centro, São José dos Pinhais - PR, 83030-720",
+      "phone": "(41) 3282-3074",
+      "website": null,
+      "rating": 4.4,
+      "reviewCount": 115,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJx44FKazw3JQRESmzvHi4__g"
+    },
+    {
+      "placeId": "ChIJYZ7QHaXx3JQRe5MnVaMtOXw",
+      "dataId": "0x94dcf1a51dd09e61:0x7c392da35527937b",
+      "name": "Armarinhos Nodari",
+      "category": "Loja de materiais para artesanato",
+      "address": "Av. Rui Barbosa, 9094 - Centro, São José dos Pinhais - PR, 83005-420",
+      "phone": "(41) 3058-0949",
+      "website": "https://www.armarinhosnodari.com.br/",
+      "rating": 4.6,
+      "reviewCount": 244,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJYZ7QHaXx3JQRe5MnVaMtOXw"
+    },
+    {
+      "placeId": "ChIJ66yNPqfw3JQRFWJNzr-YbL0",
+      "dataId": "0x94dcf0a73e8daceb:0xbd6c98bfce4d6215",
+      "name": "Fat Art",
+      "category": "Artesanato",
+      "address": "Av. das Américas, 1548 - São Cristóvão, São José dos Pinhais - PR, 83005-200",
+      "phone": "(41) 3283-1083",
+      "website": "https://www.google.com/url?sa=t&source=web&rct=j&url=https://m.facebook.com/fatartloja/%3Flocale2%3Dpt_BR&ved=2ahUKEwiRrpXh7MnpAhXXJ7kGHbEzDk0QFjANegQIBhAC&usg=AOvVaw0EF8MC9cZA689kG4s-om2i",
+      "rating": 4.8,
+      "reviewCount": 90,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ66yNPqfw3JQRFWJNzr-YbL0"
+    },
+    {
+      "placeId": "ChIJo7_bNMf73JQRBxmt4-6nCn8",
+      "dataId": "0x94dcfbc734dbbfa3:0x7f0aa7eee3ad1907",
+      "name": "Arte Bella Artesanatos Presentes Armarinhos e Pedrarias",
+      "category": "Artesanato",
+      "address": "R. São José dos Pinhais, 1662 - Sítio Cercado, Curitiba - PR, 81920-250",
+      "phone": "(41) 99114-0505",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 164,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJo7_bNMf73JQRBxmt4-6nCn8"
+    },
+    {
+      "placeId": "ChIJzck97Fbx3JQRpUesTGnLsus",
+      "dataId": "0x94dcf156ec3dc9cd:0xebb2cb694cac47a5",
+      "name": "Atelier São José",
+      "category": "Artesanato",
+      "address": "R. Profa. Ernestina de Macedo Souza Cortes, 968 - Parque da Fonte, São José dos Pinhais - PR, 83050-150",
+      "phone": "(41) 99144-1595",
+      "website": "https://ateliersj.com.br/",
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJzck97Fbx3JQRpUesTGnLsus"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "slug": "vila-da-capivara",
+  "query": "Vila da Capivara Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:22.864Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Vila+da+Capivara+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:22.864Z",
+    "sourceUrl": "https://www.google.com/maps/search/Vila+da+Capivara+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJtWUvzy773JQRSxK8FVDShsk",
+      "dataId": "0x94dcfb2ecf2f65b5:0xc986d25015bc124b",
+      "name": "BAR DA CAPIVARA",
+      "category": "Bar",
+      "address": "R. Pasteur, 661 - Batel, Curitiba - PR, 80250-104",
+      "phone": "(41) 98500-5212",
+      "website": "https://www.instagram.com/bardacapivara?igsh=NXo0N3NpeGl6ZDBt",
+      "rating": 5,
+      "reviewCount": 61,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJtWUvzy773JQRSxK8FVDShsk"
+    },
+    {
+      "placeId": "ChIJA5oLdQDj3JQR2a-r3AePyg0",
+      "dataId": "0x94dce300750b9a03:0xdca8f07dcabafd9",
+      "name": "Capibar Restobar",
+      "category": "Bar",
+      "address": "R. Guaianazes, 550 - Lj 01 - Vila Izabel, Curitiba - PR, 80320-240",
+      "phone": null,
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 126,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJA5oLdQDj3JQR2a-r3AePyg0"
+    },
+    {
+      "placeId": "ChIJp1_LiN_j3JQRUx7PRRpC7WQ",
+      "dataId": "0x94dce3df88cb5fa7:0x64ed421a45cf1e53",
+      "name": "Parque Barigui",
+      "category": "Atração turística",
+      "address": "Av. Cândido Hartmann, S/N - Bigorrilho, Curitiba - PR, 82025-160",
+      "phone": "(41) 3350-9891",
+      "website": "http://www.curitiba.pr.gov.br/conteudo/parques-e-bosques-parque-barigui/292",
+      "rating": 4.8,
+      "reviewCount": 77105,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJp1_LiN_j3JQRUx7PRRpC7WQ"
+    },
+    {
+      "placeId": "ChIJEUw4GAAn3ZQRaz8OJ9JEBII",
+      "dataId": "0x94dd270018384c11:0x820444d2270e3f6b",
+      "name": "Capivara dos ferreira",
+      "category": "Complexo habitacional",
+      "address": "Estrada Principal, Campo Magro - PR, 83535-000",
+      "phone": null,
+      "website": null,
+      "rating": 3.5,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJEUw4GAAn3ZQRaz8OJ9JEBII"
+    },
+    {
+      "placeId": "ChIJA0KXnIjj3JQRk20FWL4rEI8",
+      "dataId": "0x94dce3889c974203:0x8f102bbe58056d93",
+      "name": "Praça do Japão",
+      "category": "Atração turística",
+      "address": "Av. Sete de Setembro, s/n - Água Verde, Curitiba - PR, 80730-390",
+      "phone": "(41) 3343-2936",
+      "website": "https://www.curitiba.pr.gov.br/",
+      "rating": 4.7,
+      "reviewCount": 12285,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJA0KXnIjj3JQRk20FWL4rEI8"
+    }
+  ]
+}

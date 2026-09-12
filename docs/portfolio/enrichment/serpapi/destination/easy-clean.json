@@ -1,0 +1,77 @@
+{
+  "slug": "easy-clean",
+  "query": "Easy Clean Higienização a Seco Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:54.289Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Easy+Clean+Higieniza%C3%A7%C3%A3o+a+Seco+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:54.289Z",
+    "sourceUrl": "https://www.google.com/maps/search/Easy+Clean+Higieniza%C3%A7%C3%A3o+a+Seco+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJK6NUWdrh3JQRTi2g-V-QMLU",
+      "dataId": "0x94dce1da5954a32b:0xb530905ff9a02d4e",
+      "name": "Idea Clean Limpeza e Higienização",
+      "category": "Serviço de limpeza de tapetes",
+      "address": "R. Padre Ladislau Kula, 551 - Santo Inácio, Curitiba - PR, 82010-210",
+      "phone": "(41) 99573-5399",
+      "website": "https://ideaclean.com.br/",
+      "rating": 5,
+      "reviewCount": 21,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJK6NUWdrh3JQRTi2g-V-QMLU"
+    },
+    {
+      "placeId": "ChIJZTCxSty3goMROrFHJuxpYMc",
+      "dataId": "0x8382b7dc4ab13065:0xc76069ec2647b13a",
+      "name": "Hide Clean",
+      "category": "Limpeza",
+      "address": "R. Baltazar Carrasco dos Reis, 908 - Rebouças, Curitiba - PR, 80215-160",
+      "phone": "(41) 99212-8543",
+      "website": "https://www.hideclean.com.br/",
+      "rating": 5,
+      "reviewCount": 62,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZTCxSty3goMROrFHJuxpYMc"
+    },
+    {
+      "placeId": "ChIJi7h1uszXwaER-hgXOe_rvcY",
+      "dataId": "0xa1c1d7ccba75b88b:0xc6bdebef391718fa",
+      "name": "HIGIENIZALY - LOCAÇÃO DE EXTRATORA PROFISSIONAL CURITIBA",
+      "category": "Limpeza",
+      "address": "R. Parintins, 74 - Vila Izabel, Curitiba - PR, 80320-270",
+      "phone": "(41) 99962-8035",
+      "website": "https://www.higienizaly.com.br/p%C3%A1gina-inicial",
+      "rating": 5,
+      "reviewCount": 470,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJi7h1uszXwaER-hgXOe_rvcY"
+    },
+    {
+      "placeId": "ChIJMeUQ3cXj3JQRTJuvTBmaYCw",
+      "dataId": "0x94dce3c5dd10e531:0x2c609a194caf9b4c",
+      "name": "Easywash - Lavanderia",
+      "category": "Lavanderia",
+      "address": "R. Padre Anchieta, 1244 - Mercês, Curitiba - PR, 80430-061",
+      "phone": "(41) 3079-3006",
+      "website": "http://www.easywashcuritiba.com.br/",
+      "rating": 4.7,
+      "reviewCount": 31,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJMeUQ3cXj3JQRTJuvTBmaYCw"
+    },
+    {
+      "placeId": "ChIJ9RaTAmLj3JQRxFKVE2AAJtQ",
+      "dataId": "0x94dce362029316f5:0xd4260060139552c4",
+      "name": "Estações Clean",
+      "category": "Limpeza",
+      "address": "R. Alberto Torres, 38 - Fazendinha, Curitiba - PR, 81330-330",
+      "phone": "(41) 99882-7250",
+      "website": "https://estacoesclean.jareservei.com/",
+      "rating": 5,
+      "reviewCount": 117,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ9RaTAmLj3JQRxFKVE2AAJtQ"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "slug": "uberlandia-eletrica-residencial",
+  "query": "Elétrica Bairro Brasil Uberlândia",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:08.932Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=El%C3%A9trica+Bairro+Brasil+Uberl%C3%A2ndia&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:08.932Z",
+    "sourceUrl": "https://www.google.com/maps/search/El%C3%A9trica+Bairro+Brasil+Uberl%C3%A2ndia/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJOYbUzNlFpJQRCQ0pTzamICU",
+      "dataId": "0x94a445d9ccd48639:0x2520a6364f290d09",
+      "name": "Auto Elétrica J Brasil",
+      "category": "Autoelétrico",
+      "address": "Av. Comendador Alexandrino Garcia, 1241 - Marta Helena, Uberlândia - MG, 38402-288",
+      "phone": "(34) 3213-8853",
+      "website": null,
+      "rating": 4.5,
+      "reviewCount": 110,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJOYbUzNlFpJQRCQ0pTzamICU"
+    },
+    {
+      "placeId": "ChIJP9SUYOlDpJQR9MVcbZjbVzw",
+      "dataId": "0x94a443e96094d43f:0x3c57db986d5cc5f4",
+      "name": "Auto Elétrica Luizote - Brasil Central",
+      "category": "Mecânica para carros",
+      "address": "R. Luís José Alves, 200 - Luizote de Freitas, Uberlândia - MG, 38414-316",
+      "phone": "(34) 99169-9837",
+      "website": "https://www.facebook.com/marketplace/profile/100087258150133/?ref=permalink&mibextid=6ojiHh",
+      "rating": 4.9,
+      "reviewCount": 136,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJP9SUYOlDpJQR9MVcbZjbVzw"
+    },
+    {
+      "placeId": "ChIJWzm6l9xFpJQR78MGd8DPBvg",
+      "dataId": "0x94a445dc97ba395b:0xf806cfc07706c3ef",
+      "name": "Auto Elétrica Triangulin",
+      "category": "Autoelétrico",
+      "address": "Av. Pará, 1284 - Brasil, Uberlândia - MG, 38400-750",
+      "phone": "(34) 3232-9131",
+      "website": null,
+      "rating": 4.6,
+      "reviewCount": 165,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJWzm6l9xFpJQR78MGd8DPBvg"
+    },
+    {
+      "placeId": "ChIJRWq80w1FpJQRBNv3Xwbbvcc",
+      "dataId": "0x94a4450dd3bc6a45:0xc7bddb065ff7db04",
+      "name": "Auto Elétrica Central",
+      "category": "Autoelétrico",
+      "address": "Av. Floriano Peixoto, 3390 - Brasil, Uberlândia - MG, 38400-704",
+      "phone": "(34) 99976-2421",
+      "website": "https://api.whatsapp.com/send?phone=5534999795526&text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20auto%20eletrica.",
+      "rating": 4.6,
+      "reviewCount": 72,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJRWq80w1FpJQRBNv3Xwbbvcc"
+    },
+    {
+      "placeId": "ChIJoTDTq_lFpJQRMFUWx_STxXc",
+      "dataId": "0x94a445f9abd330a1:0x77c593f4c7165530",
+      "name": "Centro Automotivo Eletricar",
+      "category": "Autoelétrico",
+      "address": "R. Claudemiro José de Souza, 1113 - Brasil, Uberlândia - MG, 38400-664",
+      "phone": "(34) 99689-8649",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 8,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJoTDTq_lFpJQRMFUWx_STxXc"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "pinturas-nunes",
+  "query": "Pinturas Nunes Região a confirmar",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:01.812Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Pinturas+Nunes+Regi%C3%A3o+a+confirmar&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:01.811Z",
+    "sourceUrl": "https://www.google.com/maps/search/Pinturas+Nunes+Regi%C3%A3o+a+confirmar/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJEaCnLaUyz5QR2bNrVmYesu4",
+      "dataId": "0x94cf32a52da7a011:0xeeb21e66566bb3d9",
+      "name": "Nunes Pinturas",
+      "category": "Pintor, Escritório da empresa, Service establishment, Pintura",
+      "address": null,
+      "phone": "(19) 98144-9276",
+      "website": null,
+      "rating": 4,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJEaCnLaUyz5QR2bNrVmYesu4"
+    }
+  ]
+}

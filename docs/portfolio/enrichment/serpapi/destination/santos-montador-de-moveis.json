@@ -1,0 +1,77 @@
+{
+  "slug": "santos-montador-de-moveis",
+  "query": "Santos Montador de Móveis Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:15.435Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Santos+Montador+de+M%C3%B3veis+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:15.434Z",
+    "sourceUrl": "https://www.google.com/maps/search/Santos+Montador+de+M%C3%B3veis+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJzw9cOGmN3JQRrBjK5AyzYdI",
+      "dataId": "0x94dc8d69385c0fcf:0xd261b30ce4ca18ac",
+      "name": "Montador de Móveis S&J",
+      "category": "Moveleiro",
+      "address": "R. Paulo Setúbal - Boqueirão, Curitiba - PR, 81750-190",
+      "phone": "(41) 98405-7701",
+      "website": "https://www.montadordemoveisemcuritiba.com.br/",
+      "rating": 4.9,
+      "reviewCount": 42,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJzw9cOGmN3JQRrBjK5AyzYdI"
+    },
+    {
+      "placeId": "ChIJu8ofkvPh3JQRmi50TFri8iI",
+      "dataId": "0x94dce1f3921fcabb:0x22f2e25a4c742e9a",
+      "name": "João - Montador de Móveis em Curitiba",
+      "category": "Marceneiro",
+      "address": "Rua Júlio Graf - Vista Alegre, Curitiba - PR, 80820-520",
+      "phone": "(41) 98819-4866",
+      "website": "https://wa.me/message/MKVBBQFGVW5HE1",
+      "rating": 4,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJu8ofkvPh3JQRmi50TFri8iI"
+    },
+    {
+      "placeId": "ChIJo9GjzEb_3JQRm8kt9Mwwd1U",
+      "dataId": "0x94dcff46cca3d1a3:0x557730ccf42dc99b",
+      "name": "Montador de Móveis Alô Montador",
+      "category": "Marceneiro",
+      "address": "R. Paraíba, 3574 - Portão, Curitiba - PR, 80610-190",
+      "phone": "(41) 99668-0556",
+      "website": "https://montagemdemoveis.curitiba.br/",
+      "rating": 4.9,
+      "reviewCount": 122,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJo9GjzEb_3JQRm8kt9Mwwd1U"
+    },
+    {
+      "placeId": "ChIJ8fNdidt9AksRF5upkByt3fE",
+      "dataId": "0x4b027ddb895df3f1:0xf1ddad1c90a99b17",
+      "name": "Montador de móveis",
+      "category": "Marceneiro",
+      "address": "Rua Francisco Zanicotti Sobrinho, 270 - sobrado 5 - Santa Cândida, Curitiba - PR, 82640-220",
+      "phone": "(41) 99755-8749",
+      "website": "https://www.instagram.com/montadordemoveisrick?igsh=ZTdkdnJ5anF4ZXps",
+      "rating": 5,
+      "reviewCount": 269,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ8fNdidt9AksRF5upkByt3fE"
+    },
+    {
+      "placeId": "ChIJCS640xXl3JQRyslRDOgGPmo",
+      "dataId": "0x94dce515d3b82e09:0x6a3e06e80c51c9ca",
+      "name": "Montador de móveis Curitiba",
+      "category": "Marceneiro",
+      "address": "Rua Emiliano Perneta, 174 - Centro, Curitiba - PR, 80010-050",
+      "phone": "(41) 99662-5029",
+      "website": "https://api.whatsapp.com/send?phone=5541996625029",
+      "rating": 4.9,
+      "reviewCount": 310,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCS640xXl3JQRyslRDOgGPmo"
+    }
+  ]
+}

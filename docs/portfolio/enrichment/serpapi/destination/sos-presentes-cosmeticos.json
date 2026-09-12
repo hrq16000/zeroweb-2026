@@ -1,0 +1,29 @@
+{
+  "slug": "sos-presentes-cosmeticos",
+  "query": "SOS Presentes & Cosméticos São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:27.137Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=SOS+Presentes+%26+Cosm%C3%A9ticos+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:27.136Z",
+    "sourceUrl": "https://www.google.com/maps/search/SOS+Presentes+%26+Cosm%C3%A9ticos+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJC9wz2qfx3JQRm2ikq6VXWmI",
+      "dataId": "0x94dcf1a7da33dc0b:0x625a57a5aba4689b",
+      "name": "S.O.S PRESENTES E COSMÉTICOS",
+      "category": "Loja de cestas de presente",
+      "address": "R. Altevir de Lara, 805 - Afonso Pena, São José dos Pinhais - PR, 83045-220",
+      "phone": "(41) 99814-8313",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 124,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJC9wz2qfx3JQRm2ikq6VXWmI"
+    }
+  ]
+}

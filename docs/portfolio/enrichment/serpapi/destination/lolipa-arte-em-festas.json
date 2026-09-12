@@ -1,0 +1,77 @@
+{
+  "slug": "lolipa-arte-em-festas",
+  "query": "Lolipa Arte em Festas Decor Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:33.025Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Lolipa+Arte+em+Festas+Decor+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:33.025Z",
+    "sourceUrl": "https://www.google.com/maps/search/Lolipa+Arte+em+Festas+Decor+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJHQnaeoZV_aERV6_vahWvfi8",
+      "dataId": "0xa1fd55867ada091d:0x2f7eaf156aefaf57",
+      "name": "Lolipa Arte em Festas Decor",
+      "category": "Serviços para festas infantis",
+      "address": null,
+      "phone": "(41) 99747-4844",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 10,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJHQnaeoZV_aERV6_vahWvfi8"
+    },
+    {
+      "placeId": "ChIJ46nzYpbn3JQRt2JI6GW68QI",
+      "dataId": "0x94dce79662f3a9e3:0x2f1ba65e84862b7",
+      "name": "Lolly festas/balao personalizados/pegue e monte/cama elástica/artigos de festas",
+      "category": "Loja de artigos para festas",
+      "address": "R. Nossa Sra. do Rocio, 15 - Santa Cândida, Curitiba - PR, 82720-000",
+      "phone": null,
+      "website": "http://www.instagram.com/lollyfestas%20https://www.facebook.com/LollyFestasCuritiba/",
+      "rating": 4.9,
+      "reviewCount": 165,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ46nzYpbn3JQRt2JI6GW68QI"
+    },
+    {
+      "placeId": "ChIJo_M4FDXj3JQRyFsEI9kNoE8",
+      "dataId": "0x94dce3351438f3a3:0x4fa00dd923045bc8",
+      "name": "Bellas Arts Decoração & Locações para festas",
+      "category": "Serviço de locação de artigos de festa",
+      "address": "R. Osni Antunes de Sá, 37 - Cidade industrial, Curitiba - PR, 81350-687",
+      "phone": "(41) 99645-2382",
+      "website": "https://www.instagram.com/bellasarts_locacoes_edecoracao?igsh=MW5rczFscDd6aDRwNA==",
+      "rating": 4.9,
+      "reviewCount": 79,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJo_M4FDXj3JQRyFsEI9kNoE8"
+    },
+    {
+      "placeId": "ChIJBWMRIwDh3JQR6smwYDApr-Y",
+      "dataId": "0x94dce10023116305:0xe6af293060b0c9ea",
+      "name": "Party&Decor",
+      "category": "Serviço de locação de artigos de festa",
+      "address": "R. Curupis, 1213 - Santa Quiteria, Curitiba - PR, 80310-200",
+      "phone": "(41) 98803-6833",
+      "website": "https://www.partyondecor.com.br/",
+      "rating": 4.8,
+      "reviewCount": 24,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJBWMRIwDh3JQR6smwYDApr-Y"
+    },
+    {
+      "placeId": "ChIJcbrXK7T93JQRyf7emXnZgzM",
+      "dataId": "0x94dcfdb42bd7ba71:0x3383d97999defec9",
+      "name": "L & C Festas E Decorações",
+      "category": "Loja de artigos para festas",
+      "address": "R. Dep. Vidal Vanhoni, 1585 - Tatuquara, Curitiba - PR, 81470-000",
+      "phone": "(41) 98458-4420",
+      "website": "https://www.lcfestasedecoracoes.com.br/",
+      "rating": 4.9,
+      "reviewCount": 144,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJcbrXK7T93JQRyf7emXnZgzM"
+    }
+  ]
+}

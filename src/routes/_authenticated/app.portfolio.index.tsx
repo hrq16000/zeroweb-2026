@@ -10,6 +10,7 @@ import type { MergedProject } from "@/lib/portfolio-admin";
 import { PortfolioFunnelPanel } from "@/components/admin/PortfolioFunnelPanel";
 import { PortfolioCityConversionPanel } from "@/components/admin/PortfolioCityConversionPanel";
 import { PortfolioDestinationPanel } from "@/components/admin/PortfolioDestinationPanel";
+import { DestinationProposalsPanel } from "@/components/admin/DestinationProposalsPanel";
 
 import {
   getVisualQuality,
@@ -327,6 +328,7 @@ function PortfolioAdminList() {
       </section>
 
       <PortfolioFunnelPanel title="Desempenho por projeto" />
+      <DestinationProposalsPanel />
       <PortfolioDestinationPanel />
       <PortfolioCityConversionPanel />
 

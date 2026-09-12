@@ -1,0 +1,77 @@
+{
+  "slug": "almeida-torres",
+  "query": "Almeida Torres Advocacia São Paulo",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:00.920Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Almeida+Torres+Advocacia+S%C3%A3o+Paulo&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:00.920Z",
+    "sourceUrl": "https://www.google.com/maps/search/Almeida+Torres+Advocacia+S%C3%A3o+Paulo/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJgdDByebNxZQRMbxopbjnAgo",
+      "dataId": "0x94c5cde6c9c1d081:0xa02e7b8a568bc31",
+      "name": "Almeida Advocacia Empresarial",
+      "category": "Serviços jurídicos",
+      "address": "R. Prof. Santiago Dantas, 83 - Morumbi, São Paulo - SP, 05690-010",
+      "phone": "(11) 93062-1433",
+      "website": "http://www.almeidajuris.com.br/",
+      "rating": 5,
+      "reviewCount": 30,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJgdDByebNxZQRMbxopbjnAgo"
+    },
+    {
+      "placeId": "ChIJsUiPrsc1RQkRC0jEBpbLstI",
+      "dataId": "0x94535c7ae8f48b1:0xd2b2cb9606c4480b",
+      "name": "Jair Almeida Advocacia | Escritório de Advocacia em São Paulo",
+      "category": "Serviços jurídicos",
+      "address": "Alameda Santos, 211 - Sl 1511 - Paraíso, São Paulo - SP, 01419-002",
+      "phone": "(11) 98483-3954",
+      "website": "https://jairalmeida.com.br/links-google-meu-negocio/",
+      "rating": 4.9,
+      "reviewCount": 157,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJsUiPrsc1RQkRC0jEBpbLstI"
+    },
+    {
+      "placeId": "ChIJcefiJgtXzpQRcUUgV3Vu61M",
+      "dataId": "0x94ce570b26e2e771:0x53eb6e7557204571",
+      "name": "Almeida Advogados",
+      "category": "Assistência jurídica",
+      "address": "R. Funchal, 418 - Vila Olímpia, São Paulo - SP, 04551-060",
+      "phone": "(11) 2714-6900",
+      "website": "https://www.almeidalaw.com.br/",
+      "rating": 4.1,
+      "reviewCount": 18,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJcefiJgtXzpQRcUUgV3Vu61M"
+    },
+    {
+      "placeId": "ChIJ7QVndh1RzpQRYQVYieY9iRM",
+      "dataId": "0x94ce511d766705ed:0x13893de689580561",
+      "name": "Almeida Rocha & Passos Advogados Associados",
+      "category": "Advogado",
+      "address": "R. Benedito Fernandes, 545 - 5ª Andar, Sala 509 - Santo Amaro, São Paulo - SP, 04746-110",
+      "phone": "(11) 3530-0402",
+      "website": "http://www.almeidarochaadv.com.br/",
+      "rating": 5,
+      "reviewCount": 321,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ7QVndh1RzpQRYQVYieY9iRM"
+    },
+    {
+      "placeId": "ChIJNfmS67VZzpQRWnP0o2C1GAE",
+      "dataId": "0x94ce59b5eb92f935:0x118b560a3f4735a",
+      "name": "Gondim Nery Advogados são pa",
+      "category": "Escritório de advocacia",
+      "address": "R. Alcindo Guanabara, 97 - Vila Mariana, São Paulo - SP, 01546-020",
+      "phone": "(11) 95897-1558",
+      "website": "https://gondimneryadvogados.con.br/",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJNfmS67VZzpQRWnP0o2C1GAE"
+    }
+  ]
+}

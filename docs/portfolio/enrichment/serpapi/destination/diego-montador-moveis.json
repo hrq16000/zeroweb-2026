@@ -1,0 +1,77 @@
+{
+  "slug": "diego-montador-moveis",
+  "query": "Diego Montador de Móveis Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:19.028Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Diego+Montador+de+M%C3%B3veis+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:19.028Z",
+    "sourceUrl": "https://www.google.com/maps/search/Diego+Montador+de+M%C3%B3veis+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJu_ruD8j73JQRbCD30oTdfRM",
+      "dataId": "0x94dcfbc80feefabb:0x137ddd84d2f7206c",
+      "name": "Montador de Móveis Geovane",
+      "category": "Loja de móveis",
+      "address": "Av. Visc. de Guarapuava, 2305 - Centro, Curitiba - PR, 80010-100",
+      "phone": "(41) 99711-1892",
+      "website": "https://montadordemoveisgeovane.com.br/",
+      "rating": 5,
+      "reviewCount": 523,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJu_ruD8j73JQRbCD30oTdfRM"
+    },
+    {
+      "placeId": "ChIJ8fNdidt9AksRF5upkByt3fE",
+      "dataId": "0x4b027ddb895df3f1:0xf1ddad1c90a99b17",
+      "name": "Montador de móveis",
+      "category": "Marceneiro",
+      "address": "Rua Francisco Zanicotti Sobrinho, 270 - sobrado 5 - Santa Cândida, Curitiba - PR, 82640-220",
+      "phone": "(41) 99755-8749",
+      "website": "https://www.instagram.com/montadordemoveisrick?igsh=ZTdkdnJ5anF4ZXps",
+      "rating": 5,
+      "reviewCount": 269,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ8fNdidt9AksRF5upkByt3fE"
+    },
+    {
+      "placeId": "ChIJCS640xXl3JQRyslRDOgGPmo",
+      "dataId": "0x94dce515d3b82e09:0x6a3e06e80c51c9ca",
+      "name": "Montador de móveis Curitiba",
+      "category": "Marceneiro",
+      "address": "Rua Emiliano Perneta, 174 - Centro, Curitiba - PR, 80010-050",
+      "phone": "(41) 99662-5029",
+      "website": "https://api.whatsapp.com/send?phone=5541996625029",
+      "rating": 4.9,
+      "reviewCount": 310,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCS640xXl3JQRyslRDOgGPmo"
+    },
+    {
+      "placeId": "ChIJx7gwjpjl3JQRnarDw1Zw-CI",
+      "dataId": "0x94dce5988e30b8c7:0x22f87056c3c3aa9d",
+      "name": "Montador de Móveis Curitiba | Leandro",
+      "category": "Marceneiro",
+      "address": "R. Maceió, 75 - Cajuru, Curitiba - PR, 82960-120",
+      "phone": "(41) 99684-2706",
+      "website": "https://leandromontador.wixsite.com/meusite",
+      "rating": 5,
+      "reviewCount": 180,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJx7gwjpjl3JQRnarDw1Zw-CI"
+    },
+    {
+      "placeId": "ChIJm-5QLLPh3JQR6hYUuH9tTik",
+      "dataId": "0x94dce1b32c50ee9b:0x294e6d7fb81416ea",
+      "name": "Montador de Móveis Curitiba",
+      "category": "Marceneiro",
+      "address": "R. João Zaniolo, 19 - Rebouças, Curitiba - PR, 80220-230",
+      "phone": "(41) 99788-8628",
+      "website": "https://www.facebook.com/share/1ED73VmWt9/",
+      "rating": 4.8,
+      "reviewCount": 75,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJm-5QLLPh3JQR6hYUuH9tTik"
+    }
+  ]
+}

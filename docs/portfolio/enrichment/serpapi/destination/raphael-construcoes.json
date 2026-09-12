@@ -1,0 +1,77 @@
+{
+  "slug": "raphael-construcoes",
+  "query": "Raphael Construções Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:13.984Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Raphael+Constru%C3%A7%C3%B5es+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:13.984Z",
+    "sourceUrl": "https://www.google.com/maps/search/Raphael+Constru%C3%A7%C3%B5es+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJWzUUGQrk3JQRH524mkNkZ1A",
+      "dataId": "0x94dce40a1914355b:0x506764439ab89d1f",
+      "name": "Construtora e Incorporadora Raphael Pocai",
+      "category": "Construtora",
+      "address": "Av. Pres. Getúlio Vargas, 427 - Mercês, Curitiba - PR, 80430-120",
+      "phone": "(41) 3044-3033",
+      "website": "https://www.rpocai.com.br/",
+      "rating": 3.3,
+      "reviewCount": 15,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJWzUUGQrk3JQRH524mkNkZ1A"
+    },
+    {
+      "placeId": "ChIJedQpSWnk3JQR4t4Hh3gDCK4",
+      "dataId": "0x94dce4694929d479:0xae0803788707dee2",
+      "name": "Raphael Pocai Encorporacoes",
+      "category": "Construtora",
+      "address": "Edifício Residencial New City, R. Lourenço Pinto, 240 - Edif Residencial New City - Centro, Curitiba - PR, 80010-160",
+      "phone": "(41) 3018-7038",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJedQpSWnk3JQR4t4Hh3gDCK4"
+    },
+    {
+      "placeId": "ChIJyxBuzA_k3JQR0lw7_UpQZfQ",
+      "dataId": "0x94dce40fcc6e10cb:0xf465504afd3b5cd2",
+      "name": "Raphael F Greca & Filhos Ltda",
+      "category": "Empresa de Terraplenagem",
+      "address": "R. Alm. Barroso, 22 - São Francisco, Curitiba - PR, 80510-240",
+      "phone": "(41) 3232-4095",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJyxBuzA_k3JQR0lw7_UpQZfQ"
+    },
+    {
+      "placeId": "ChIJhew7U9nl3JQRyxIJMzC7lG4",
+      "dataId": "0x94dce5d9533bec85:0x6e94bb30330912cb",
+      "name": "Engenheiro Civil Rafael Dadalto - Projetos Arquitetônico, Estrutural, Elétrico, Hidrossanitário, Laudos, Vistorias e Obra",
+      "category": "Engenheiro civil",
+      "address": "Rua Luiz Barreto Murat, 1272 - Bairro Alto, Curitiba - PR, 82820-160",
+      "phone": "(47) 98887-9036",
+      "website": "https://www.rdadaltoengenharia.com.br/",
+      "rating": 5,
+      "reviewCount": 3,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJhew7U9nl3JQRyxIJMzC7lG4"
+    },
+    {
+      "placeId": "ChIJvzaLfQDl3JQR5A35NWZobEI",
+      "dataId": "0x94dce5007d8b36bf:0x426c686635f90de4",
+      "name": "Rafael Ross Engenharia",
+      "category": "Construtor Imobiliário",
+      "address": null,
+      "phone": "(41) 99193-8442",
+      "website": "http://www.rafaelrossengenharia.com.br/",
+      "rating": 5,
+      "reviewCount": 8,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJvzaLfQDl3JQR5A35NWZobEI"
+    }
+  ]
+}

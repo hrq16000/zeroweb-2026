@@ -1,0 +1,65 @@
+{
+  "slug": "mania-de-limpeza",
+  "query": "Mania de Limpeza Higienização Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:40.612Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Mania+de+Limpeza+Higieniza%C3%A7%C3%A3o+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:40.612Z",
+    "sourceUrl": "https://www.google.com/maps/search/Mania+de+Limpeza+Higieniza%C3%A7%C3%A3o+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJRX5Jh8P93JQR5pIdmxwM_-E",
+      "dataId": "0x94dcfdc387497e45:0xe1ff0c1c9b1d92e6",
+      "name": "Mania de Limpeza - Higienização 24H",
+      "category": "Serviço de limpeza de tapeçaria",
+      "address": null,
+      "phone": "(41) 99927-7137",
+      "website": "https://instagram.com/mania_limpeza?utm_medium=copy_link",
+      "rating": 5,
+      "reviewCount": 44,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJRX5Jh8P93JQR5pIdmxwM_-E"
+    },
+    {
+      "placeId": "ChIJJbYT3vD73JQRZ6l8m6T51QI",
+      "dataId": "0x94dcfbf0de13b625:0x2d5f9a49b7ca967",
+      "name": "Mania de limpeza",
+      "category": "Fornecedor de produtos de limpeza",
+      "address": "Rua Anna Kloster Guimarães, 471 - Uberaba, Curitiba - PR, 81590-160",
+      "phone": "(41) 99956-6614",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJJbYT3vD73JQRZ6l8m6T51QI"
+    },
+    {
+      "placeId": "ChIJ88YAN0rZ3JQRtb7_ETeO4lM",
+      "dataId": "0x94dcd94a3700c6f3:0x53e28e3711ffbeb5",
+      "name": "Mania De Limpeza",
+      "category": "Fornecedor de produtos de limpeza",
+      "address": "Rod. dos Minérios, Km 21, 12264 - Tranqueira, Alm. Tamandaré - PR, 83514-000",
+      "phone": "(41) 99958-8957",
+      "website": "https://www.facebook.com/maniadelimpeza.loja/",
+      "rating": 4.8,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ88YAN0rZ3JQRtb7_ETeO4lM"
+    },
+    {
+      "placeId": "ChIJs-pSAUbl3JQRs77mNUYWz8M",
+      "dataId": "0x94dce5460152eab3:0xc3cf164635e6beb3",
+      "name": "Mania da Limpeza",
+      "category": "Fornecedor de produtos de limpeza",
+      "address": "R. Goiânia, 170 - Cajuru, Curitiba - PR, 82940-150",
+      "phone": "(41) 99633-8344",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJs-pSAUbl3JQRs77mNUYWz8M"
+    }
+  ]
+}

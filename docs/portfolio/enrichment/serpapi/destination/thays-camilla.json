@@ -1,0 +1,65 @@
+{
+  "slug": "thays-camilla",
+  "query": "Thays Camilla São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:50.370Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Thays+Camilla+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:50.370Z",
+    "sourceUrl": "https://www.google.com/maps/search/Thays+Camilla+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ-WGM49_v3JQRagZO06FT87Y",
+      "dataId": "0x94dcefdfe38c61f9:0xb6f353a1d34e066a",
+      "name": "Studio Camila Thais",
+      "category": "Salão de Beleza",
+      "address": "Rua Henrique Correia, 1210 - Bairro Alto, Curitiba - PR, 82840-270",
+      "phone": "(41) 99108-9622",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 3,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ-WGM49_v3JQRagZO06FT87Y"
+    },
+    {
+      "placeId": "ChIJ7aASHKTt3JQRtuDcPHzCMTs",
+      "dataId": "0x94dceda41c12a0ed:0x3b31c27c3cdce0b6",
+      "name": "Dra. Camila Cattuci - Harmonização Facial",
+      "category": "Médico",
+      "address": "Av. Augusto Staben, 1019 - Jardim Paulista, Campina Grande do Sul - PR, 83430-000",
+      "phone": "(46) 99919-3592",
+      "website": "https://www.instagram.com/dra.camilacattuci?igsh=eHExazZwOGtqemU3&utm_source=qr",
+      "rating": 5,
+      "reviewCount": 5,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ7aASHKTt3JQRtuDcPHzCMTs"
+    },
+    {
+      "placeId": "ChIJnfC5TX_j3JQR5Qunc_NTQxY",
+      "dataId": "0x94dce37f4db9f09d:0x164353f373a70be5",
+      "name": "Thaís Kislin Clinica de Estetica e Spa",
+      "category": "Centro de saúde e beleza",
+      "address": "Av. Rep. Argentina, 1228 - Água Verde, Curitiba - PR, 80620-010",
+      "phone": "(41) 99709-9320",
+      "website": "https://thaiskislinestetica.com.br/",
+      "rating": 4.8,
+      "reviewCount": 187,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJnfC5TX_j3JQR5Qunc_NTQxY"
+    },
+    {
+      "placeId": "ChIJVVoVRh7l3JQRnNDS1IF8t0A",
+      "dataId": "0x94dce51e46155a55:0x40b77c81d4d2d09c",
+      "name": "Thays Fogaça Beauty",
+      "category": "Esteticista",
+      "address": null,
+      "phone": "(41) 98884-9267",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJVVoVRh7l3JQRnNDS1IF8t0A"
+    }
+  ]
+}

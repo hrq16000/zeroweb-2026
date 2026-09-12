@@ -1,0 +1,65 @@
+{
+  "slug": "mirassol-delicias-caseiras",
+  "query": "Delícias Caseiras Mirassol Mirassol",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:04.044Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Del%C3%ADcias+Caseiras+Mirassol+Mirassol&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:04.044Z",
+    "sourceUrl": "https://www.google.com/maps/search/Del%C3%ADcias+Caseiras+Mirassol+Mirassol/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ9ZaA5hKoiZQRJrKtDNWqJxw",
+      "dataId": "0x9489a812e68096f5:0x1c27aad50cadb226",
+      "name": "Delícias Caseiras",
+      "category": "Restaurante",
+      "address": "R. Audelino Garcia Camargo, 1250 - Jardim Água Boa, Dourados - MS, 79812-200",
+      "phone": "(67) 99953-6398",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 21,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ9ZaA5hKoiZQRJrKtDNWqJxw"
+    },
+    {
+      "placeId": "ChIJz6dMFBavvZQRkLjZX4MrzrI",
+      "dataId": "0x94bdaf16144ca7cf:0xb2ce2b835fd9b890",
+      "name": "Casa de Bolos Mirassol - Celina Dalul",
+      "category": "Loja de bolos",
+      "address": "Av. Eng. Newton Flávio Silva Pinto, 2645 - Residencial Celina Dalul, Mirassol - SP, 15133-002",
+      "phone": "(17) 99235-2000",
+      "website": null,
+      "rating": 4.6,
+      "reviewCount": 7,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJz6dMFBavvZQRkLjZX4MrzrI"
+    },
+    {
+      "placeId": "ChIJlVmg8q-vvZQRCxrgwSJyI4g",
+      "dataId": "0x94bdafaff2a05995:0x88237222c1e01a0b",
+      "name": "Restaurante Sabor Caseiro",
+      "category": "Restaurante",
+      "address": "R. Santo Antônio, 3432 - Lot. Vila Verde, Mirassol - SP, 15130-000",
+      "phone": "(17) 99772-2814",
+      "website": null,
+      "rating": 4.5,
+      "reviewCount": 610,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJlVmg8q-vvZQRCxrgwSJyI4g"
+    },
+    {
+      "placeId": "ChIJN622AK6vvZQRgj448rLvZfY",
+      "dataId": "0x94bdafae00b6ad37:0xf665efb2f2383e82",
+      "name": "Di Biscoitos Mimos e Delicias",
+      "category": "Loja de biscoitos",
+      "address": "R. São Pedro, 21-94 - Centro, Mirassol - SP, 15130-063",
+      "phone": "(17) 99627-5630",
+      "website": "https://instagram.com/di.biscoitos?igshid=MzRlODBiNWFlZA==",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJN622AK6vvZQRgj448rLvZfY"
+    }
+  ]
+}

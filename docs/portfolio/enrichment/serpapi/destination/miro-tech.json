@@ -1,0 +1,77 @@
+{
+  "slug": "miro-tech",
+  "query": "MIRO TECH São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:42.879Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=MIRO+TECH+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:42.879Z",
+    "sourceUrl": "https://www.google.com/maps/search/MIRO+TECH+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJCdehNiHl3JQRmJMMe1AbbwQ",
+      "dataId": "0x94dce52136a1d709:0x46f1b507b0c9398",
+      "name": "DreamTech",
+      "category": "Empresa de eletrônicos",
+      "address": "R. Rio Piraquara, 755 - Weissópolis, Pinhais - PR, 80322-140",
+      "phone": "(41) 99174-7475",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 12,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCdehNiHl3JQRmJMMe1AbbwQ"
+    },
+    {
+      "placeId": "ChIJY95sKNvl3JQR8PBr20LZT98",
+      "dataId": "0x94dce5db286cde63:0xdf4fd942db6bf0f0",
+      "name": "AR Tech Soluções Residenciais",
+      "category": "Empresa de automação de casas",
+      "address": "Rua Dr. Mario Miro Filho, 50 - Uberaba, Curitiba - PR, 81540-450",
+      "phone": "(41) 99202-0807",
+      "website": null,
+      "rating": 4.1,
+      "reviewCount": 18,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJY95sKNvl3JQR8PBr20LZT98"
+    },
+    {
+      "placeId": "ChIJ-UjopAfk3JQRCcy-6XCzd-w",
+      "dataId": "0x94dce407a4e848f9:0xec77b370e9becc09",
+      "name": "Miró Neto Advogados",
+      "category": "Advogado",
+      "address": "Av. Manoel Ribas, 337 - Mercês, Curitiba - PR, 80510-020",
+      "phone": "(41) 3223-5933",
+      "website": "http://mironetoadvogados.com.br/",
+      "rating": 4.6,
+      "reviewCount": 9,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ-UjopAfk3JQRCcy-6XCzd-w"
+    },
+    {
+      "placeId": "ChIJZXCFwaTZmwARyvrWmSU1mFQ",
+      "dataId": "0x9bd9a4c1857065:0x5498352599d6faca",
+      "name": "Certificação Digital - DIMIRO SOLUÇÕES EM TECNOLOGIA DA INFORMAÇÃO",
+      "category": "Agência de certificação",
+      "address": "Condomínio Edifício Centro Comercial Isis, Av. Rep. Argentina, 2150 - Sl 74 - Portão, Curitiba - PR, 80610-260",
+      "phone": "(41) 3206-8707",
+      "website": "http://www.dimiro.com/",
+      "rating": 5,
+      "reviewCount": 83,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZXCFwaTZmwARyvrWmSU1mFQ"
+    },
+    {
+      "placeId": "ChIJt8Ajtzvk3JQRjpaasl_mMhA",
+      "dataId": "0x94dce43bb723c0b7:0x1032e65fb29a968e",
+      "name": "JML GRUPO",
+      "category": "Consultoria empresarial",
+      "address": "R. Mandaguaçu, 534 - Sobre Loja - Emiliano Perneta, Pinhais - PR, 83324-430",
+      "phone": "(41) 3595-9999",
+      "website": "http://jmlgrupo.com.br/",
+      "rating": 4.6,
+      "reviewCount": 42,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJt8Ajtzvk3JQRjpaasl_mMhA"
+    }
+  ]
+}

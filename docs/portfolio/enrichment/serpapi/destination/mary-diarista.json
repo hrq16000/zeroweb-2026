@@ -1,0 +1,41 @@
+{
+  "slug": "mary-diarista",
+  "query": "Mary Diarista Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:13.919Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Mary+Diarista+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:13.918Z",
+    "sourceUrl": "https://www.google.com/maps/search/Mary+Diarista+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJG8Pi9CPk3JQRO_ZKjr3aGtw",
+      "dataId": "0x94dce423f4e2c31b:0xdc1adabd8e4af63b",
+      "name": "Mary Help Faxineiras - Curitiba Centro Cívico",
+      "category": "Serviços de faxina",
+      "address": "R. Sen. Xavier da Silva, 488 - Conj 406 A - Centro Cívico, Curitiba - PR, 80530-060",
+      "phone": "(41) 98830-0698",
+      "website": "https://www.maryhelp.com.br/unidade/curitiba-centro-civico?utm_source=google&utm_medium=organic&utm_campaign=gmn-curitiba-matriz",
+      "rating": 4.3,
+      "reviewCount": 276,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJG8Pi9CPk3JQRO_ZKjr3aGtw"
+    },
+    {
+      "placeId": "ChIJjZEbW_Sk2IcRlSiFkUQhIOM",
+      "dataId": "0x87d8a4f45b1b918d:0xe320214491852895",
+      "name": "Mary Help Curitiba - Batel e Região",
+      "category": "Serviços de faxina",
+      "address": null,
+      "phone": "(41) 99695-6885",
+      "website": "https://www.maryhelp.com.br/unidade/curitiba-batel",
+      "rating": 4.4,
+      "reviewCount": 33,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJjZEbW_Sk2IcRlSiFkUQhIOM"
+    }
+  ]
+}

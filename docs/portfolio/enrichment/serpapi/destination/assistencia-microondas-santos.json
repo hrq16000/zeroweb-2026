@@ -1,0 +1,77 @@
+{
+  "slug": "assistencia-microondas-santos",
+  "query": "Assistência Técnica Microondas Santos São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:01.490Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Assist%C3%AAncia+T%C3%A9cnica+Microondas+Santos+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:01.490Z",
+    "sourceUrl": "https://www.google.com/maps/search/Assist%C3%AAncia+T%C3%A9cnica+Microondas+Santos+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJCaKZPxX53JQRGZTPfumlClY",
+      "dataId": "0x94dcf9153f99a209:0x560aa5e97ecf9419",
+      "name": "Assistência Técnica de Eletrodomésticos Santos",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "R. Giacomo Martinatto, 102 - Santo Antônio, São José dos Pinhais - PR, 83025-650",
+      "phone": "(41) 99172-9174",
+      "website": "https://assistenciatecnicasantos.com.br/",
+      "rating": 5,
+      "reviewCount": 3,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCaKZPxX53JQRGZTPfumlClY"
+    },
+    {
+      "placeId": "ChIJoXb1VUP53JQRRWY8YCS6Vu4",
+      "dataId": "0x94dcf94355f576a1:0xee56ba24603c6645",
+      "name": "ATS - Assistência Técnica Santos",
+      "category": "Serviço de conserto de eletrodomésticos",
+      "address": "R. das Gaivotas, 248 - Santo Antônio, São José dos Pinhais - PR, 83025-380",
+      "phone": "(41) 99172-9174",
+      "website": "https://assistenciatecnicasantos.com.br/",
+      "rating": 5,
+      "reviewCount": 12,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJoXb1VUP53JQRRWY8YCS6Vu4"
+    },
+    {
+      "placeId": "ChIJ13mrQ7nx3JQR-fQI6ebTSAQ",
+      "dataId": "0x94dcf1b943ab79d7:0x448d3e6e908f4f9",
+      "name": "Casa do Microondas",
+      "category": "Serviço de conserto de fornos micro-ondas",
+      "address": "Av. Rui Barbosa, 8706 - Lj - Centro, São José dos Pinhais - PR, 83005-340",
+      "phone": "(41) 3332-8000",
+      "website": "https://www.casadomicroondas.com.br/",
+      "rating": 5,
+      "reviewCount": 186,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ13mrQ7nx3JQR-fQI6ebTSAQ"
+    },
+    {
+      "placeId": "ChIJ-6a0LSjx3JQRvRAfuO6XID4",
+      "dataId": "0x94dcf1282db4a6fb:0x3e2097eeb81f10bd",
+      "name": "Rei do Microondas - São José dos Pinhais",
+      "category": "Serviço de conserto de fornos micro-ondas",
+      "address": "R. Profa. Ernestina de Macedo Souza Cortes, 2387 - Lj 03 - Parque da Fonte, São José dos Pinhais - PR, 83050-150",
+      "phone": "(41) 98895-9910",
+      "website": "https://grupordmcuritiba.com.br/sjp",
+      "rating": 4.7,
+      "reviewCount": 17,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ-6a0LSjx3JQRvRAfuO6XID4"
+    },
+    {
+      "placeId": "ChIJs7XCeYH73JQRDk3KCyru76Q",
+      "dataId": "0x94dcfb8179c2b5b3:0xa4efee2a0bca4d0e",
+      "name": "Microondas Center Serviço Especializado",
+      "category": "Serviço de conserto de fornos micro-ondas",
+      "address": "Travessa José Zilioto, jose zilioto, 134 - Centro, São José dos Pinhais - PR, 83005-080",
+      "phone": "(41) 98820-6610",
+      "website": "http://www.microondascenter.com.br/",
+      "rating": 4.8,
+      "reviewCount": 73,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJs7XCeYH73JQRDk3KCyru76Q"
+    }
+  ]
+}

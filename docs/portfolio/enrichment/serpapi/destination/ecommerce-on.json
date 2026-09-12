@@ -1,0 +1,77 @@
+{
+  "slug": "ecommerce-on",
+  "query": "Ecommerce On Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:20.116Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Ecommerce+On+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:20.116Z",
+    "sourceUrl": "https://www.google.com/maps/search/Ecommerce+On+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ1Xk_8nT73JQRONiQmiXqez8",
+      "dataId": "0x94dcfb74f23f79d5:0x3f7bea259a90d838",
+      "name": "Agência Weecommerce - Ecommerce Completo em 30 dias",
+      "category": "Agência de Marketing",
+      "address": "R. Urbâno Lopes, 277 - B - Cristo Rei, Curitiba - PR, 80050-520",
+      "phone": "(41) 98776-9211",
+      "website": "http://www.weecommerce.com.br/",
+      "rating": 4.8,
+      "reviewCount": 6,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ1Xk_8nT73JQRONiQmiXqez8"
+    },
+    {
+      "placeId": "ChIJRYUSLJHm3JQR2ZMo5W8p9Lc",
+      "dataId": "0x94dce6912c128545:0xb7f4296fe52893d9",
+      "name": "E-Commerce Curitiba",
+      "category": "Serviço de comércio eletrônico",
+      "address": "R. Rubens Alceu Túlio, 122 - Boa Vista, Curitiba - PR, 82540-400",
+      "phone": "(41) 3019-3046",
+      "website": "https://www.ecommercecuritiba.net.br/",
+      "rating": 1,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJRYUSLJHm3JQR2ZMo5W8p9Lc"
+    },
+    {
+      "placeId": "ChIJj6n5aunj3JQRmjpWsrSJlNA",
+      "dataId": "0x94dce3e96af9a98f:0xd09489b4b2563a9a",
+      "name": "Ecommerce Objetivo",
+      "category": "Agência de marketing digital",
+      "address": "Av. Rep. Argentina, 50 - Batel, Curitiba - PR, 80240-210",
+      "phone": "(21) 98207-8413",
+      "website": "https://ecommerceobjetivo.com.br/",
+      "rating": 5,
+      "reviewCount": 46,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJj6n5aunj3JQRmjpWsrSJlNA"
+    },
+    {
+      "placeId": "ChIJyym-55Pj3JQRfUcz3daXai0",
+      "dataId": "0x94dce393e7be29cb:0x2d6a97d6dd33477d",
+      "name": "Loja Do E-commerce",
+      "category": "Serviço de comércio eletrônico",
+      "address": "R. Carmelo Rangel - Batel, Curitiba - PR, 80440-050",
+      "phone": "(41) 99838-4246",
+      "website": "https://www.lojadoecommerce.com.br/",
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJyym-55Pj3JQRfUcz3daXai0"
+    },
+    {
+      "placeId": "ChIJp1nBnBnk3JQR-AgUNeYeMC0",
+      "dataId": "0x94dce4199cc159a7:0x2d301ee6351408f8",
+      "name": "Sorting",
+      "category": "Consultoria em Marketing",
+      "address": "Av. Cândido de Abreu, 776 - Sl 803 - Centro Cívico, Curitiba - PR, 80530-000",
+      "phone": "(41) 99132-0707",
+      "website": "https://www.sorting.com.br/",
+      "rating": 5,
+      "reviewCount": 65,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJp1nBnBnk3JQR-AgUNeYeMC0"
+    }
+  ]
+}

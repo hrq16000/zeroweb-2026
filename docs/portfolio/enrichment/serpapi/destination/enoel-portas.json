@@ -1,0 +1,77 @@
+{
+  "slug": "enoel-portas",
+  "query": "Enoel Portas Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:44.147Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Enoel+Portas+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:44.147Z",
+    "sourceUrl": "https://www.google.com/maps/search/Enoel+Portas+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJDb0lfu3l3JQRrqOpBbdpacQ",
+      "dataId": "0x94dce5ed7e25bd0d:0xc46969b705a9a3ae",
+      "name": "Eron Portas e Janelas LTDA",
+      "category": "Fornecedor de portas",
+      "address": "Av. da Integração, 878 - Lj 02 - Bairro Alto, Curitiba - PR, 82840-290",
+      "phone": "(41) 99531-1641",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 51,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJDb0lfu3l3JQRrqOpBbdpacQ"
+    },
+    {
+      "placeId": "ChIJhy7gQB_i3JQRmL9GpUyRbL4",
+      "dataId": "0x94dce21f40e02e87:0xbe6c914ca546bf98",
+      "name": "Ecoville Portas e Janelas Especiais",
+      "category": "Fabricante de portas",
+      "address": "R. Virgínia Dalabona, 323 - São Braz, Curitiba - PR, 82310-390",
+      "phone": "(41) 99971-0007",
+      "website": "https://ecovilleportasejanelas.com.br/",
+      "rating": 4.3,
+      "reviewCount": 285,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJhy7gQB_i3JQRmL9GpUyRbL4"
+    },
+    {
+      "placeId": "ChIJl4f-AVHj3JQRB8MyCsLXQfE",
+      "dataId": "0x94dce35101fe8797:0xf141d7c20a32c307",
+      "name": "Nova Era Portas",
+      "category": "Fornecedor de portas",
+      "address": "Av. Presidente Wenceslau Braz, 1243 - Lindoia, Curitiba - PR, 81010-000",
+      "phone": "(41) 98712-4440",
+      "website": "https://portasnovaera.com.br/",
+      "rating": 4.2,
+      "reviewCount": 119,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJl4f-AVHj3JQRB8MyCsLXQfE"
+    },
+    {
+      "placeId": "ChIJjzp0FRbn3JQRBfF7T52iSd0",
+      "dataId": "0x94dce71615743a8f:0xdd49a29d4f7bf105",
+      "name": "Portas Milenar - ACM e Madeira - Curitiba",
+      "category": "Fornecedor de portas",
+      "address": "Av. Anita Garibaldi, 1710 - Ahú, Curitiba - PR, 82200-700",
+      "phone": "(41) 3503-3088",
+      "website": "http://portasmilenar.com.br/",
+      "rating": 4.9,
+      "reviewCount": 1013,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJjzp0FRbn3JQRBfF7T52iSd0"
+    },
+    {
+      "placeId": "ChIJuwEG-Cn73JQRABxUG-GyQQU",
+      "dataId": "0x94dcfb29f80601bb:0x541b2e11b541c00",
+      "name": "Portas da Casa",
+      "category": "Loja de portas",
+      "address": "Rua Tenente Francisco Ferreira de Souza, 943 - Hauer, Curitiba - PR, 81630-010",
+      "phone": "(41) 3524-9423",
+      "website": "http://www.portasdacasa.com.br/",
+      "rating": 4.7,
+      "reviewCount": 361,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJuwEG-Cn73JQRABxUG-GyQQU"
+    }
+  ]
+}

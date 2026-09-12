@@ -1,0 +1,77 @@
+{
+  "slug": "clinica-integrada",
+  "query": "Clínica Integrada de Saúde Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:45.142Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Cl%C3%ADnica+Integrada+de+Sa%C3%BAde+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:45.142Z",
+    "sourceUrl": "https://www.google.com/maps/search/Cl%C3%ADnica+Integrada+de+Sa%C3%BAde+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJpymCDJLl3JQRhm9GAE4lXdc",
+      "dataId": "0x94dce5920c8229a7:0xd75d254e00466f86",
+      "name": "Clínica Integrada de Saúde - CIS",
+      "category": "Consultor de saúde",
+      "address": "Praça Zacarias, 51 - 5º Andar - Centro, Curitiba - PR, 80020-080",
+      "phone": "(41) 3163-8141",
+      "website": "https://www.instagram.com/ciscuritiba/",
+      "rating": 4.1,
+      "reviewCount": 8,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJpymCDJLl3JQRhm9GAE4lXdc"
+    },
+    {
+      "placeId": "ChIJgWY8QPrj3JQRKQYZGO52PUs",
+      "dataId": "0x94dce3fa403c6681:0x4b3d76ee18190629",
+      "name": "Integra Clinica",
+      "category": "Policlínica",
+      "address": "Rua Desembargador Isaías Bevilaqua, 878 - Mercês, Curitiba - PR, 80430-040",
+      "phone": "(41) 3336-6406",
+      "website": null,
+      "rating": 4.5,
+      "reviewCount": 24,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJgWY8QPrj3JQRKQYZGO52PUs"
+    },
+    {
+      "placeId": "ChIJmf6AF3Hl3JQRFci_gSZTv7Q",
+      "dataId": "0x94dce5711780fe99:0xb4bf532681bfc815",
+      "name": "Espaço Saúde Integrada",
+      "category": "Terapeuta",
+      "address": "R. Cap. José Maria Sobrinho, 953 - Fanny, Curitiba - PR, 81030-300",
+      "phone": "(41) 99980-2098",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJmf6AF3Hl3JQRFci_gSZTv7Q"
+    },
+    {
+      "placeId": "ChIJXVNQ86Xl3JQRiuBOOZ0j-XE",
+      "dataId": "0x94dce5a5f350535d:0x71f9239d394ee08a",
+      "name": "CIS Centro Integrado de Saúde",
+      "category": "Clínico geral",
+      "address": "R. Mariano Torres, 398 - Centro, Curitiba - PR, 80060-120",
+      "phone": "(41) 3219-9800",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 23,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJXVNQ86Xl3JQRiuBOOZ0j-XE"
+    },
+    {
+      "placeId": "ChIJn3UOLqLl3JQRK08H5ktS_6I",
+      "dataId": "0x94dce5a22e0e759f:0xa2ff524be6074f2b",
+      "name": "Clinq - Saúde Integral - Consultas e Teleconsultas em Curitiba",
+      "category": "Clínica especializada",
+      "address": "R. XV de Novembro, 556 - Sl 202 - Centro, Curitiba - PR, 80020-310",
+      "phone": "(41) 4102-3040",
+      "website": "https://clinq.com.br/",
+      "rating": 4.7,
+      "reviewCount": 13,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJn3UOLqLl3JQRK08H5ktS_6I"
+    }
+  ]
+}

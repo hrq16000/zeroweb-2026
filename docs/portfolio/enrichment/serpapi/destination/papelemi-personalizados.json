@@ -1,0 +1,77 @@
+{
+  "slug": "papelemi-personalizados",
+  "query": "PapeLemi Papelaria Personalizada Brasil",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:10.023Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=PapeLemi+Papelaria+Personalizada+Brasil&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:10.023Z",
+    "sourceUrl": "https://www.google.com/maps/search/PapeLemi+Papelaria+Personalizada+Brasil/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJwxBYZWAzWpMRKGMtwu3hfg0",
+      "dataId": "0x935a3360655810c3:0xd7ee1edc22d6328",
+      "name": "Papelilly papelaria Personalizada",
+      "category": "Escritório da empresa",
+      "address": "Colônia Agrícola Samambaia - Vicente Pires, Brasília - DF, 72001-760",
+      "phone": "(61) 99557-0786",
+      "website": "http://www.papelilly.com.br/",
+      "rating": 4.9,
+      "reviewCount": 67,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJwxBYZWAzWpMRKGMtwu3hfg0"
+    },
+    {
+      "placeId": "ChIJlWqVwvD6CkYRMFavaNwthOU",
+      "dataId": "0x460afaf0c2956a95:0xe5842ddc68af5630",
+      "name": "Kisley Arte Personalizados",
+      "category": "Papelaria",
+      "address": null,
+      "phone": "(66) 98146-7684",
+      "website": "https://www.instagram.com/kisleyarte?igsh=cDJ0aWl5amNxOTM5&utm_source=qr",
+      "rating": 5,
+      "reviewCount": 7,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJlWqVwvD6CkYRMFavaNwthOU"
+    },
+    {
+      "placeId": "ChIJMZJd8dREJEURxi3Qh9t9lXA",
+      "dataId": "0x452444d4f15d9231:0x70957ddb87d02dc6",
+      "name": "FD Papelaria Personalizada",
+      "category": "Loja de produtos de papelaria",
+      "address": null,
+      "phone": "(79) 99849-1521",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJMZJd8dREJEURxi3Qh9t9lXA"
+    },
+    {
+      "placeId": "ChIJT1w-phTxXpMRzhmuePuqJbI",
+      "dataId": "0x935ef114a63e5c4f:0xb225aafb78ae19ce",
+      "name": "Personalize Ateliê-Papelaria Personalizada",
+      "category": "Fabricante de artigos de papelaria",
+      "address": "Rua 605, qd 532 - Lote 05 - São José, Goiânia - GO, 74440-140",
+      "phone": "(62) 99444-4225",
+      "website": null,
+      "rating": 4.3,
+      "reviewCount": 6,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJT1w-phTxXpMRzhmuePuqJbI"
+    },
+    {
+      "placeId": "ChIJrRsb8UB0ACIRQe2_GZfVIKk",
+      "dataId": "0x22007440f11b1bad:0xa920d59719bfed41",
+      "name": "Gráfica Papelê",
+      "category": "Papelaria",
+      "address": "Rua 1ª Travessa Pirizal, 135 - Vasco da Gama, Recife - PE, 52081-532",
+      "phone": "(81) 98503-0912",
+      "website": "https://www.instagram.com/graficapapele?igsh=MTltOGxlejNmN2s1cA==",
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJrRsb8UB0ACIRQe2_GZfVIKk"
+    }
+  ]
+}

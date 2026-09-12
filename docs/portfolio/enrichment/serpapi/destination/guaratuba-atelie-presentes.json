@@ -1,0 +1,65 @@
+{
+  "slug": "guaratuba-atelie-presentes",
+  "query": "Ateliê Encanto da Baía Guaratuba",
+  "location": "Guaratuba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:14:02.440Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Ateli%C3%AA+Encanto+da+Ba%C3%ADa+Guaratuba&location=Guaratuba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:14:02.440Z",
+    "sourceUrl": "https://www.google.com/maps/search/Ateli%C3%AA+Encanto+da+Ba%C3%ADa+Guaratuba/@-25.8804742,-48.57376619999999,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJXwQ3Tnr725QR9YCOiS-K5ac",
+      "dataId": "0x94dbfb7a4e37045f:0xa7e58a2f898e80f5",
+      "name": "Encanto de Menina",
+      "category": "Loja de produtos de beleza",
+      "address": "R. Antônio Alves Correia, 5 - Centro, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99527-8263",
+      "website": "https://encantodemenina.com.br/",
+      "rating": 5,
+      "reviewCount": 16,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJXwQ3Tnr725QR9YCOiS-K5ac"
+    },
+    {
+      "placeId": "ChIJaUFZ58D725QRhpJQvnCbrpM",
+      "dataId": "0x94dbfbc0e7594169:0x93ae9b70be509286",
+      "name": "Ateliê Costura Criativa Pimenta de Pano",
+      "category": "Costureira",
+      "address": "R. São Francisco, 200 - Guaratuba, PR, 83280-000",
+      "phone": "(41) 99700-7466",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJaUFZ58D725QRhpJQvnCbrpM"
+    },
+    {
+      "placeId": "ChIJqbvn6rX625QRlDggU4MZb_A",
+      "dataId": "0x94dbfab5eae7bba9:0xf06f198353203894",
+      "name": "Central do Artesanato",
+      "category": "Feira de artesanato",
+      "address": "Tv. Frei Belino, 10 - Brejatuba, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99940-8730",
+      "website": "https://wa.me/5541999408730",
+      "rating": 4.4,
+      "reviewCount": 248,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqbvn6rX625QRlDggU4MZb_A"
+    },
+    {
+      "placeId": "ChIJqelLEwrw25QRo68YDo3Rea0",
+      "dataId": "0x94dbf00a134be9a9:0xad79d18d0e18afa3",
+      "name": "Decorarte Guaratuba",
+      "category": "Loja de artigos domésticos",
+      "address": "R. Maria Bastos, 198 - Centro, Guaratuba - PR, 83280-000",
+      "phone": "(41) 3442-7025",
+      "website": "https://teleguiabr.com.br/anuncios/decorarte-arte-em-decorar-loja-de-decoracoes-e-designer-de-interiores-guaratuba",
+      "rating": 4.8,
+      "reviewCount": 68,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqelLEwrw25QRo68YDo3Rea0"
+    }
+  ]
+}

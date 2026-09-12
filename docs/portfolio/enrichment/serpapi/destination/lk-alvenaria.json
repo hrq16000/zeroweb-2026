@@ -1,0 +1,77 @@
+{
+  "slug": "lk-alvenaria",
+  "query": "LK Alvenaria Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:23.731Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=LK+Alvenaria+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:23.731Z",
+    "sourceUrl": "https://www.google.com/maps/search/LK+Alvenaria+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJbTzSCv7j3JQRH0CXunatvJ8",
+      "dataId": "0x94dce3fe0ad23c6d:0x9fbcad76ba97401f",
+      "name": "LK Engenharia",
+      "category": "Empresa de engenharia civil",
+      "address": "R. Profa. Rosa Saporski, 650 - Mercês, Curitiba - PR, 80810-120",
+      "phone": "(41) 99917-9848",
+      "website": "http://lk.eng.br/",
+      "rating": 5,
+      "reviewCount": 2,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJbTzSCv7j3JQRH0CXunatvJ8"
+    },
+    {
+      "placeId": "ChIJdRdkL3r_3JQREaf3wSUqeHU",
+      "dataId": "0x94dcff7a2f641775:0x75782a25c1f7a711",
+      "name": "LK Telhados",
+      "category": "Telhadista",
+      "address": "R. Oswaldo Faria Affonso da Costa, 124 - Campo de Santana, Curitiba - PR, 81490-412",
+      "phone": null,
+      "website": null,
+      "rating": 5,
+      "reviewCount": 24,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJdRdkL3r_3JQREaf3wSUqeHU"
+    },
+    {
+      "placeId": "ChIJUZ71FC_73JQRafVcuausRd0",
+      "dataId": "0x94dcfb2f14f59e51:0xdd45acabb95cf569",
+      "name": "LK ACESSÓRIOS EM INOX 304",
+      "category": "Fabricante de aço",
+      "address": "R. Bartolomeu Lourenço de Gusmão, 1589 - Sala 02 - Hauer, Curitiba - PR, 81650-050",
+      "phone": "(41) 98516-0010",
+      "website": "https://lkinox.com.br/",
+      "rating": 5,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJUZ71FC_73JQRafVcuausRd0"
+    },
+    {
+      "placeId": "ChIJhxfHYfL73JQR6Lpjik4Z4wc",
+      "dataId": "0x94dcfbf261c71787:0x7e3194e8a63bae8",
+      "name": "LK Banheiros - móveis para banheiro",
+      "category": "Loja de móveis",
+      "address": "Rua Anne Frank, 3024 - Boqueirão, Curitiba - PR, 81650-020",
+      "phone": "(41) 99242-5598",
+      "website": "https://www.facebook.com/lkbanheiros/?ref=pages_you_manage",
+      "rating": 5,
+      "reviewCount": 26,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJhxfHYfL73JQR6Lpjik4Z4wc"
+    },
+    {
+      "placeId": "ChIJSaHunlnj3JQRdUq757ca3oY",
+      "dataId": "0x94dce3599eeea149:0x86de1ab7e7bb4a75",
+      "name": "LC Construção - Reforma e Marcenaria",
+      "category": "Loja de marcenaria",
+      "address": "R. Volta Redonda - Campo Comprido, Curitiba - PR, 81270-373",
+      "phone": "(12) 98125-1856",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJSaHunlnj3JQRdUq757ca3oY"
+    }
+  ]
+}

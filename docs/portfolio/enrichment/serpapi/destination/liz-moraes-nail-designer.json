@@ -1,0 +1,77 @@
+{
+  "slug": "liz-moraes-nail-designer",
+  "query": "Liz Moraes Nail Designer São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:57.411Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Liz+Moraes+Nail+Designer+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:57.411Z",
+    "sourceUrl": "https://www.google.com/maps/search/Liz+Moraes+Nail+Designer+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJv7jTNsrv3JQRCnXYW-e0QCc",
+      "dataId": "0x94dcefca36d3b8bf:0x2740b4e75bd8750a",
+      "name": "Leticia Marcondes Nails Designer",
+      "category": "Manicure",
+      "address": "R. Cotovia, 119 - Jardim Claudia, Pinhais - PR, 83326-320",
+      "phone": "(41) 99587-2528",
+      "website": "https://www.instagram.com/leeh_naillsdesigner?igsh=MWdmM3NxeG55M2I4dA==&utm_source=qr",
+      "rating": 5,
+      "reviewCount": 46,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJv7jTNsrv3JQRCnXYW-e0QCc"
+    },
+    {
+      "placeId": "ChIJbTtR4aHv3JQRSL1nD65tkDo",
+      "dataId": "0x94dcefa1e1513b6d:0x3a906dae0f67bd48",
+      "name": "Liz Correa Studio",
+      "category": "Salão de Beleza",
+      "address": "R. Maximiliano Rohrsetzer, 912 - Emiliano Perneta, Pinhais - PR, 83324-200",
+      "phone": "(41) 99830-7165",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 32,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJbTtR4aHv3JQRSL1nD65tkDo"
+    },
+    {
+      "placeId": "ChIJh12YTHHx3JQRTsh9k_cnEuc",
+      "dataId": "0x94dcf1714c985d87:0xe71227f7937dc84e",
+      "name": "Nail & Art Esmalteria by Rachel Souza",
+      "category": "Manicure",
+      "address": "R. Dr. Manoel Ribeiro de Campos, 952 - Centro, São José dos Pinhais - PR, 83005-310",
+      "phone": "(41) 99872-8229",
+      "website": "https://www.instagram.com/reel/C9Kf4LgOn9C/?igsh=MTFhZ3k1OGFkOG91Yw==",
+      "rating": 5,
+      "reviewCount": 43,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJh12YTHHx3JQRTsh9k_cnEuc"
+    },
+    {
+      "placeId": "ChIJm6cJbRXi3JQRYa0sjS7yZVo",
+      "dataId": "0x94dce2156d09a79b:0x5a65f22e8d2cad61",
+      "name": "Carla Morais Nail Designer",
+      "category": "Manicure",
+      "address": "R. Paulo Setúbal, 1172 - Cs 3 - Hauer, Curitiba - PR, 81630-110",
+      "phone": "(41) 99791-0039",
+      "website": "https://agendafacilcliente.com/carla_morais_nd",
+      "rating": 4.7,
+      "reviewCount": 60,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJm6cJbRXi3JQRYa0sjS7yZVo"
+    },
+    {
+      "placeId": "ChIJTzEiGE7x3JQRyvptZ-WPZS4",
+      "dataId": "0x94dcf14e1822314f:0x2e658fe5676dfaca",
+      "name": "Let’s esmalteria & estética",
+      "category": "Manicure",
+      "address": "R. Veríssimo Marques, 1229 - Centro, São José dos Pinhais - PR, 83005-410",
+      "phone": "(41) 99750-0256",
+      "website": "https://www.trinks.com/let-s-emalteria",
+      "rating": 4.7,
+      "reviewCount": 36,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJTzEiGE7x3JQRyvptZ-WPZS4"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "your-brutus-burguer",
+  "query": "Your Brutus Burguer São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:25.927Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Your+Brutus+Burguer+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:25.927Z",
+    "sourceUrl": "https://www.google.com/maps/search/Your+Brutus+Burguer+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ-bhs-I3w3JQR2XCv_vgCAa4",
+      "dataId": "0x94dcf08df86cb8f9:0xae0102f8feaf70d9",
+      "name": "Your Brutus Burguer",
+      "category": "Restaurante fast-food, Restaurante norte-americano, Hamburgueria",
+      "address": "R. Colombo, 1981 - Centro, São José dos Pinhais - PR, 83005-400",
+      "phone": "(41) 99641-3317",
+      "website": "https://www.instagram.com/yourbrutusburguer/",
+      "rating": 4.5,
+      "reviewCount": 5607,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ-bhs-I3w3JQR2XCv_vgCAa4"
+    }
+  ]
+}

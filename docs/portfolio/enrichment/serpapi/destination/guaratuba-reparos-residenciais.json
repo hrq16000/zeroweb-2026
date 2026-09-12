@@ -1,0 +1,77 @@
+{
+  "slug": "guaratuba-reparos-residenciais",
+  "query": "Reparos do Litoral Guaratuba",
+  "location": "Guaratuba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:56.463Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Reparos+do+Litoral+Guaratuba&location=Guaratuba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:56.463Z",
+    "sourceUrl": "https://www.google.com/maps/search/Reparos+do+Litoral+Guaratuba/@-25.8804742,-48.57376619999999,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJT_SUZob725QRXa9S8RvAbcQ",
+      "dataId": "0x94dbfb866694f44f:0xc46dc01bf152af5d",
+      "name": "Mecânica R&R - SOCORRO 24 HORAS",
+      "category": "Oficina mecânica",
+      "address": "R. dos Andradas, 452 - Brejatuba, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99947-3450",
+      "website": "https://wa.me/5541999473450",
+      "rating": 4.8,
+      "reviewCount": 109,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJT_SUZob725QRXa9S8RvAbcQ"
+    },
+    {
+      "placeId": "ChIJ09pIwCX725QR3PqFw0KdF4g",
+      "dataId": "0x94dbfb25c048dad3:0x88179d42c385fadc",
+      "name": "Acquadel Assistência Técnica em Piscinas e SPA",
+      "category": "Serviço de conserto de piscinas",
+      "address": "R. Teixeira Soares, 320 - Cohapar, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99682-2995",
+      "website": "http://www.acquadel.com.br/",
+      "rating": 4.7,
+      "reviewCount": 15,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ09pIwCX725QR3PqFw0KdF4g"
+    },
+    {
+      "placeId": "ChIJrX_uUnXw25QRUU0LosLhlbs",
+      "dataId": "0x94dbf07552ee7fad:0xbb95e1c2a20b4d51",
+      "name": "Estofaria Litoral",
+      "category": "Tapeçaria",
+      "address": "Reforma de Sofá, Higienização de Estofados Limpeza de Sofá, Bancos de Couro Sob Medida, Cabeceira de Cama Poltrona Papai, Reforma de Bancos de Carro, R. Vieira dos Santos, 582 - Centro, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99655-7683",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 35,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJrX_uUnXw25QRUU0LosLhlbs"
+    },
+    {
+      "placeId": "ChIJt50rd5D725QRmaNLUl_OrVk",
+      "dataId": "0x94dbfb90772b9db7:0x59adce5f524ba399",
+      "name": "Chau Car Mecânica Móvel. 24 Horas",
+      "category": "Mecânico",
+      "address": "R. Ortigueira - Cohapar, Guaratuba - PR, 83280-000",
+      "phone": "(41) 98538-9290",
+      "website": null,
+      "rating": 4.8,
+      "reviewCount": 60,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJt50rd5D725QRmaNLUl_OrVk"
+    },
+    {
+      "placeId": "ChIJw976m5v625QRQZKDrFNkFvg",
+      "dataId": "0x94dbfa9b9bfadec3:0xf8166453ac839241",
+      "name": "Conexão Assistência",
+      "category": "Loja de celulares",
+      "address": "R. Otaviano Henrique de Carvalho, 1149 - Cohapar, Guaratuba - PR, 83280-000",
+      "phone": "(41) 99733-2753",
+      "website": "https://www.facebook.com/conexaocelularesgtba/",
+      "rating": 4.3,
+      "reviewCount": 80,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJw976m5v625QRQZKDrFNkFvg"
+    }
+  ]
+}

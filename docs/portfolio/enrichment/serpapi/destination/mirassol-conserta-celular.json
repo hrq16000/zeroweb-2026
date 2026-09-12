@@ -1,0 +1,77 @@
+{
+  "slug": "mirassol-conserta-celular",
+  "query": "Conserta Mirassol Mirassol",
+  "location": "Brazil",
+  "resolvedAt": "2026-09-12T22:15:07.072Z",
+  "callCount": 2,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Conserta+Mirassol+Mirassol&location=Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:15:07.072Z",
+    "sourceUrl": "https://www.google.com/maps/search/Conserta+Mirassol+Mirassol/@-14.235004,-51.92528,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJJwJBuEuvvZQROPBP-Ry1eXA",
+      "dataId": "0x94bdaf4bb8410227:0x7079b51cf94ff038",
+      "name": "PowerCell - Assistência Técnica e Acessórios",
+      "category": "Serviço de reparos de aparelhos telefônicos",
+      "address": "R. Nove de Julho, 1825 - Centro, Mirassol - SP, 15130-067",
+      "phone": "(17) 99272-0153",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 43,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJJwJBuEuvvZQROPBP-Ry1eXA"
+    },
+    {
+      "placeId": "ChIJ0XygatgWmpMRSIAfR8uoU3o",
+      "dataId": "0x939a16d86aa07cd1:0x7a53a8cb471f8048",
+      "name": "Consertec Conserto de Eletrodoméstico",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "R. Germano Greve, 294 - Centro, Mirassol d'Oeste - MT, 78280-000",
+      "phone": "(65) 3241-1827",
+      "website": null,
+      "rating": 4.2,
+      "reviewCount": 26,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ0XygatgWmpMRSIAfR8uoU3o"
+    },
+    {
+      "placeId": "ChIJ1YXZZ4uvvZQRk4cP0aFG43w",
+      "dataId": "0x94bdaf8b67d985d5:0x7ce346a1d10f8793",
+      "name": "Assistência Técnica Informática Mirassol",
+      "category": "Serviço de informática",
+      "address": "R. Miguel Sanches, 4006 - Beija-Flor, Mirassol - SP, 15137-364",
+      "phone": "(17) 99286-0758",
+      "website": "https://rotainformatica.com/",
+      "rating": 4.6,
+      "reviewCount": 27,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ1YXZZ4uvvZQRk4cP0aFG43w"
+    },
+    {
+      "placeId": "ChIJe_mpXAmvvZQRJq0qtliDAFg",
+      "dataId": "0x94bdaf095ca9f97b:0x58008358b62aad26",
+      "name": "Moreira conserto de geladeira, freezer e máquina de lavar",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "R. Antônio Femina, 4164 - Parque dos Ipês 1, Mirassol - SP, 15133-892",
+      "phone": "(17) 99625-2188",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 165,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJe_mpXAmvvZQRJq0qtliDAFg"
+    },
+    {
+      "placeId": "ChIJN1T-OSCvvZQRQ1v6NF5p8DU",
+      "dataId": "0x94bdaf2039fe5437:0x35f0695e34fa5b43",
+      "name": "JJ Refrigeração",
+      "category": "Assistência técnica de eletrodomésticos",
+      "address": "Rua Capitão Neves, 2336 - Centro, Mirassol - SP, 15130-009",
+      "phone": "(17) 99650-2642",
+      "website": "http://huck1202205.wixsite.com/refrigeracaodolar",
+      "rating": 5,
+      "reviewCount": 168,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJN1T-OSCvvZQRQ1v6NF5p8DU"
+    }
+  ]
+}

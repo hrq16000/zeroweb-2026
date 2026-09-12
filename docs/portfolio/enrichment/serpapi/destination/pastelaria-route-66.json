@@ -1,0 +1,29 @@
+{
+  "slug": "pastelaria-route-66",
+  "query": "Pastelaria e Lanchonete Route 66 Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T22:13:24.866Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Pastelaria+e+Lanchonete+Route+66+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T22:13:24.865Z",
+    "sourceUrl": "https://www.google.com/maps/search/Pastelaria+e+Lanchonete+Route+66+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJY5nruM_l3JQRqG-2FZRsSjg",
+      "dataId": "0x94dce5cfb8eb9963:0x384a6c9415b66fa8",
+      "name": "Pastelaria e lanchonete route 66",
+      "category": "Padaria",
+      "address": "R. Comendador Roseira, 505 - Prado Velho, Curitiba - PR, 80215-210",
+      "phone": "(41) 99937-7151",
+      "website": null,
+      "rating": 4.7,
+      "reviewCount": 6,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJY5nruM_l3JQRqG-2FZRsSjg"
+    }
+  ]
+}
