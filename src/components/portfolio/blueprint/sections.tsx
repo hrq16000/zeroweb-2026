@@ -1213,23 +1213,33 @@ function Signals({ section, ctx }: { section: SignalsSection; ctx: SectionContex
 function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: SectionContext }) {
   const c = section.content;
   return (
-    <section id={section.id} className="relative isolate overflow-hidden px-6 py-20 md:px-12 md:py-24">
+    <section
+      id={section.id}
+      /* o tema da seção define --background/--foreground: o texto precisa segui-los */
+      className="relative isolate overflow-hidden bg-background px-6 py-20 text-foreground md:px-12 md:py-24"
+    >
       {c.image ? (
         <>
           <Img image={c.image} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+          {/*
+           * A imagem é textura de fundo, não conteúdo: o texto por cima precisa
+           * manter contraste AA. O véu é praticamente opaco na faixa do título
+           * e do intro e abre um pouco só no rodapé da seção.
+           */}
           <span
             aria-hidden
-            className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_88%,transparent),color-mix(in_oklab,var(--background)_96%,transparent))]"
+            className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_98%,transparent)_0%,color-mix(in_oklab,var(--background)_96%,transparent)_55%,color-mix(in_oklab,var(--background)_92%,transparent)_100%)]"
           />
         </>
       ) : null}
       <div className="mx-auto max-w-[1400px]">
         {c.eyebrow ? <Eyebrow>{c.eyebrow}</Eyebrow> : null}
-        <h2 className="mt-4 max-w-[20ch] text-[clamp(1.7rem,3.4vw,2.6rem)] font-semibold leading-[1.06] tracking-[-0.03em]">
+        {/* leading folgado + pb: descendentes (p, g, q) não podem ser cortadas. */}
+        <h2 className="mt-4 max-w-[20ch] text-balance pb-1 text-[clamp(1.7rem,3.4vw,2.6rem)] font-semibold leading-[1.18] tracking-[-0.02em]">
           {c.title}
         </h2>
         {c.intro ? (
-          <p className="mt-4 max-w-[64ch] text-sm leading-8 text-muted-foreground">{c.intro}</p>
+          <p className="mt-4 max-w-[64ch] text-sm leading-8 text-foreground/80">{c.intro}</p>
         ) : null}
         <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-3">
           {c.groups.map((group, i) => (
@@ -1237,7 +1247,7 @@ function Capabilities({ section, ctx }: { section: CapabilitiesSection; ctx: Sec
               ctx={ctx}
               key={group.title}
               delay={step(ctx, i)}
-              className="bg-background/85 p-6 backdrop-blur-sm"
+              className="bg-background/95 p-6 backdrop-blur-sm"
             >
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.18em] text-primary">
                 {group.icon ? <group.icon className="h-4 w-4" /> : null}
