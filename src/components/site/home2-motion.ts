@@ -145,8 +145,18 @@ export function initHome2Motion(root: HTMLElement) {
   root.classList.add("home2-motion-ready");
   const failOpenTimer = window.setTimeout(() => {
     root.querySelectorAll<HTMLElement>(".home2-motion").forEach((node) => node.classList.add("is-visible"));
-  }, 2400);
+  }, 1600);
   cleanups.push(() => window.clearTimeout(failOpenTimer));
+
+  /**
+   * Hydration can land after the visitor already scrolled past a section.
+   * IntersectionObserver never fires for those nodes, so anything already at or
+   * above the fold is revealed immediately instead of staying clipped.
+   */
+  const alreadyPastFold = (node: HTMLElement) =>
+    node.getBoundingClientRect().top < window.innerHeight * 0.96;
+
+
 
   const projectTiles = Array.from(root.querySelectorAll<HTMLElement>(".home2-project-tile"));
   if (typeof IntersectionObserver === "undefined") {
@@ -162,7 +172,11 @@ export function initHome2Motion(root: HTMLElement) {
       },
       { threshold: 0.06, rootMargin: "0px 0px -6% 0px" },
     );
-    projectTiles.forEach((tile) => projectObserver.observe(tile));
+    projectTiles.forEach((tile) => {
+      if (alreadyPastFold(tile)) tile.classList.add("is-revealed");
+      else projectObserver.observe(tile);
+    });
+
     cleanups.push(() => projectObserver.disconnect());
   }
 
@@ -202,9 +216,40 @@ export function initHome2Motion(root: HTMLElement) {
       { threshold: rule.threshold ?? 0.14, rootMargin: "0px 0px -4% 0px" },
     );
 
-    nodes.forEach((node) => observer.observe(node));
+    nodes.forEach((node) => {
+      if (alreadyPastFold(node)) node.classList.add("is-visible");
+      else observer.observe(node);
+    });
+
     cleanups.push(() => observer.disconnect());
   });
+
+  /**
+   * Safety sweep: a fast jump-scroll can move a node from below the fold to
+   * above it between observer frames. This reveals anything already past the
+   * fold so no chapter can stay clipped or transparent.
+   */
+  let sweepFrame = 0;
+  const sweep = () => {
+    sweepFrame = 0;
+    root.querySelectorAll<HTMLElement>(".home2-motion:not(.is-visible)").forEach((node) => {
+      if (alreadyPastFold(node)) node.classList.add("is-visible");
+    });
+    root.querySelectorAll<HTMLElement>(".home2-project-tile:not(.is-revealed)").forEach((tile) => {
+      if (alreadyPastFold(tile)) tile.classList.add("is-revealed");
+    });
+  };
+  const onSweepScroll = () => {
+    if (sweepFrame) return;
+    sweepFrame = window.requestAnimationFrame(sweep);
+  };
+  window.addEventListener("scroll", onSweepScroll, { passive: true });
+  cleanups.push(() => {
+    window.removeEventListener("scroll", onSweepScroll);
+    if (sweepFrame) window.cancelAnimationFrame(sweepFrame);
+  });
+
+
 
   const parallaxNodes = Array.from(root.querySelectorAll<HTMLElement>("[data-home2-parallax]"));
   if (parallaxNodes.length) {
