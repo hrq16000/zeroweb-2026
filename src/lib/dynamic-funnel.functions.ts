@@ -362,17 +362,9 @@ export const submitFunnel = createServerFn({ method: "POST" })
       }
     }
 
-    const tokenResult = await createWhatsAppRedirectToken({
-      leadId: lead.id,
-      funnelSessionId: funnelSessionUuid,
-      ipHash: hashIp(ip),
-    });
-
-    const redirectPath = tokenResult.ok ? tokenResult.redirectPath : null;
-
     // ---- LEAD_RECOVERABILITY (camada compartilhada) ----
-    // Nenhuma conclusão pode terminar sem destino operacional E sem meio de
-    // retorno. O lead já está salvo; aqui só decidimos e registramos.
+    // O destino é verificado ANTES de gerar o link: sem destino operacional,
+    // um redirect só levaria o visitante a uma página de canal indisponível.
     const clientKey = (data.client_metadata?.client_key ?? null) as string | null;
     const { decideLeadRecoverability } = await import("@/lib/lead-recoverability");
     const {
@@ -385,6 +377,17 @@ export const submitFunnel = createServerFn({ method: "POST" })
         ? ("CONFIGURED" as const)
         : ("NOT_CONFIGURED" as const);
     const destinationConfigured = destinationStatus === "CONFIGURED";
+
+    const tokenResult = destinationConfigured
+      ? await createWhatsAppRedirectToken({
+          leadId: lead.id,
+          funnelSessionId: funnelSessionUuid,
+          ipHash: hashIp(ip),
+        })
+      : ({ ok: false as const, redirectPath: null });
+
+    const redirectPath = tokenResult.ok ? tokenResult.redirectPath : null;
+
     const hasRecoverableContact = Boolean(
       normalizeRecoveryPhone(contact_phone ?? null) || contact_email,
     );
