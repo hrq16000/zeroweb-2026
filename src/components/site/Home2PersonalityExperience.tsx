@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Home2Prototype } from "./Home2Prototype";
 import "./home2-personality.css";
+import "./home2-matrix-enhancements.css";
 
 const CAPABILITIES = [
   "Marca",
@@ -67,7 +68,7 @@ export function Home2PersonalityExperience() {
     }
 
     const observedSections = Array.from(
-      shell.querySelectorAll<HTMLElement>("#sobre, #solucoes, #projetos, #conteudo"),
+      shell.querySelectorAll<HTMLElement>("#sobre, #solucoes, #processo, #projetos, #conteudo"),
     );
     let sectionObserver: IntersectionObserver | null = null;
 
