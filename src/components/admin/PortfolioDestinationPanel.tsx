@@ -25,7 +25,7 @@ const PRIORITY_BADGE: Record<string, string> = {
   OK: "border-primary/40 bg-primary/10 text-primary",
 };
 
-type Filter = "pending" | "p0" | "all";
+type Filter = "pending" | "p0" | "risk" | "all";
 
 function Cell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <td className={`whitespace-nowrap px-3 py-2 text-sm ${className}`}>{children}</td>;
@@ -70,10 +70,13 @@ export function PortfolioDestinationPanel() {
       ? all
       : filter === "p0"
         ? all.filter((r) => r.priority === "P0")
-        : all.filter((r) => !isDestinationOk(r.destinationStatus));
+        : filter === "risk"
+          ? all.filter((r) => r.deliveryNotConfigured)
+          : all.filter((r) => !isDestinationOk(r.destinationStatus));
 
   const options: { id: Filter; label: string }[] = [
     { id: "p0", label: "P0 sem destino" },
+    { id: "risk", label: "Com conclusões e sem entrega" },
     { id: "pending", label: "Pendentes" },
     { id: "all", label: "Todos" },
   ];
