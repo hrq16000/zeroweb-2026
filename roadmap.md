@@ -58,7 +58,7 @@
 - PENDENTE: aprovação para publicar a infraestrutura compartilhada nas ~90 páginas.
 
 ## Home2 — convergência visual com referência (2026-09-12)
-- [ ] Refinar composição e proporções somente em `/home2`
-- [ ] Evoluir motion exclusivo e reduced-motion
-- [ ] Validar 1440/768/390, navegador, testes e build
-- [ ] Registrar skills e encerrar sem publicação
+- [x] Refinar composição e proporções somente em `/home2`
+- [x] Evoluir motion exclusivo e reduced-motion
+- [x] Validar 1440/768/390, navegador, testes e build
+- [x] Registrar skills e encerrar sem publicação

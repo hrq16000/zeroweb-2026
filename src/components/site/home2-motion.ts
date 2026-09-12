@@ -102,7 +102,7 @@ export const home2MotionMatrix: Home2MotionRule[] = [
   },
   {
     id: "editorial",
-    selector: ".home2-editorial-card",
+    selector: ".home2-editorial-image",
     effect: "image-reveal",
     trigger: "scroll",
     duration: 880,
@@ -139,7 +139,7 @@ export function initHome2Motion(root: HTMLElement) {
 
   if (reducedMotion) {
     root.classList.add("home2-reduced-motion");
-    root.querySelectorAll<HTMLElement>("[data-home2-load], [data-home2-motion], .home2-service-card, .home2-proof-card, .home2-project-tile, .home2-principle, .home2-editorial-card, .home2-final-grid")
+    root.querySelectorAll<HTMLElement>("[data-home2-load], [data-home2-motion], .home2-service-card, .home2-proof-card, .home2-project-tile, .home2-principle, .home2-editorial-image, .home2-final-grid")
       .forEach((node) => node.classList.add("is-visible"));
     return () => {
       root.classList.remove("home2-reduced-motion");
