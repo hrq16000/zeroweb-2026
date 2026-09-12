@@ -40,7 +40,19 @@ async function openFunnel(page, slug) {
   await page.waitForTimeout(2000);
   const cta = page.getByRole("button", { name: /or(ç|c)amento|encomenda|festa|agendar|atendimento|pedido/i }).first();
   await cta.click({ timeout: 15000, force: true });
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(1500);
+  if (!(await dialogButtons(page).count())) {
+    const alt = page.getByRole("button", { name: /or(ç|c)amento|encomenda|festa|agendar|atendimento|pedido/i });
+    const total = await alt.count();
+    for (let i = 1; i < total; i++) {
+      await alt.nth(i).click({ force: true }).catch(() => {});
+      await page.waitForTimeout(1200);
+      if (await dialogButtons(page).count()) break;
+    }
+  }
+  if (process.env.CANARY_DEBUG) {
+    console.log(`  [debug] ${slug} modal:`, (await dialogButtons(page).allInnerTexts()).join(" | ").slice(0, 200));
+  }
 }
 
 const dialogButtons = (page) =>
