@@ -184,6 +184,12 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
       status = "VERIFIED";
     } else if (entry?.status === "AUTO_RESOLVED") {
       status = "AUTO_RESOLVED";
+    } else if (entry?.status === "CHANGE_PENDING") {
+      status = "CHANGE_PENDING";
+      note = "Troca de destino aguardando confirmação explícita do administrador.";
+    } else if (entry?.status === "CONFIGURATION_ERROR") {
+      status = "CONFIGURATION_ERROR";
+      note = "Destino gravado, mas o teste de validação falhou.";
     } else if (entry?.status === "INSUFFICIENT_EVIDENCE") {
       status = "INSUFFICIENT_EVIDENCE";
       note =
