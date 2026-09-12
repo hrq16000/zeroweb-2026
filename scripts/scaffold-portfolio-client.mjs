@@ -577,7 +577,10 @@ if (existsSync(manifestPath)) {
         mediaPlan: "not_started",
         content: "not_started",
         discovery: "not_started",
+        /** Contrato de conteúdo/capacidades — NÃO define layout. */
         blueprint: "not_started",
+        /** Creative Composition Brief + composição autoral (bloqueia READY). */
+        composition: "not_started",
         seo: "not_started",
         funnel: "not_started",
         cover: "not_started",
