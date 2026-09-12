@@ -8,8 +8,16 @@ import type { DestinationRow } from "@/lib/portfolio-funnel-destination";
 
 export type DestinationAudit = {
   rows: DestinationRow[];
-  summary: { total: number; published: number; counts: Record<string, number> };
+  summary: {
+    total: number;
+    published: number;
+    counts: Record<string, number>;
+    priorities: Record<string, number>;
+    conversionsAtRisk: number;
+    projectsWithDeliveryNotConfigured: number;
+  };
 };
+
 
 export const getPortfolioDestinationAudit = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])

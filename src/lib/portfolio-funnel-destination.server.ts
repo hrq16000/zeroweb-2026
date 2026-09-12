@@ -30,10 +30,12 @@ type LedgerEntry = {
   status?: string;
   source?: string;
   confidence?: number;
-  verifiedAt?: string;
+  verifiedAt?: string | null;
   evidence?: string[];
   conflict?: string;
+  humanDecision?: string;
 };
+
 
 const LEDGER = (ledger as { entries?: Record<string, LedgerEntry> }).entries ?? {};
 
