@@ -237,12 +237,21 @@ export function BeautyBookingQuiz({
   const completeInWhatsApp = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (redirecting) return;
+    // Sem atendimento direto configurado, um meio de retorno é obrigatório:
+    // é o que impede o pedido de terminar concluído e perdido.
+    const normalized = normalizeRecoveryPhone(recoveryContact);
+    if (needsRecoveryContact && !normalized) {
+      setRecoveryError("Informe um WhatsApp válido com DDD para podermos retornar.");
+      return;
+    }
     const conversion = { ...funnelContext, steps: 5, service: answers.service || "orientacao" };
     trackConversion("wa_funnel_complete", conversion);
+    trackEvent("funnel_completed", conversion);
     trackWhatsAppClick("portfolio_cta_quiz_complete", conversion);
     void persistWaFunnelConversion({ ...answers, studio: studioName, source: "portfolio_client" });
     setRedirecting(true);
     setSubmitError(null);
+    setRecoveryError(null);
     try {
       const result = await submitPortfolio({ data: {
         clientKey,
@@ -253,18 +262,30 @@ export function BeautyBookingQuiz({
         answers,
         pageUrl: window.location.href,
         orderContext,
+        ...(normalized ? { recoveryContact } : {}),
         // Identificadores técnicos anônimos (mesmos de analytics_events):
         // permitem ligar o lead à sessão/origem. Nenhum dado pessoal.
         sessionId: getSessionId(),
         visitorId: getVisitorId(),
       }});
+      // Telemetria sem PII: apenas o estado operacional do pedido.
+      trackEvent("lead_saved", { ...funnelContext, delivery_state: result.deliveryState ?? null });
       if (result.redirectPath) {
+        trackEvent("redirect_resolved", funnelContext);
         window.location.assign(result.redirectPath);
         return;
       }
-      // Canal de WhatsApp deste projeto ainda não configurado: o pedido foi
-      // registrado do mesmo jeito. Nada de redirect quebrado.
+      trackEvent("redirect_failed", { ...funnelContext, delivery_state: result.deliveryState ?? null });
       setRedirecting(false);
+      if (result.requiresRecoveryContact) {
+        // Servidor recusou a conclusão final: falta meio de retorno.
+        trackEvent("lead_unrecoverable", funnelContext);
+        setNeedsRecoveryContact(true);
+        setRecoveryError("Informe um WhatsApp para retorno: o atendimento direto deste site ainda não está disponível.");
+        return;
+      }
+      // Pedido salvo e recuperável mesmo sem atendimento direto.
+      trackEvent("lead_recoverable", funnelContext);
       setSavedProtocol(result.protocol ?? null);
       setStep(6);
     } catch {
@@ -272,6 +293,7 @@ export function BeautyBookingQuiz({
       setSubmitError("Não foi possível abrir o atendimento agora. Tente novamente em instantes.");
     }
   };
+
 
   const question = step === 0
     ? { label: "1 de 5", title: quizConfig?.stepTitles?.service ?? semanticCopy.titles.service, subtitle: quizConfig?.stepSubtitles?.service ?? semanticCopy.subtitles.service, field: "service" as const, options: services }
