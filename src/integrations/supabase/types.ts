@@ -6709,6 +6709,16 @@ export type Database = {
           run_id: string
         }[]
       }
+      partners_self_update_is_safe: {
+        Args: {
+          _approved_at: string
+          _approved_by: string
+          _id: string
+          _status: Database["public"]["Enums"]["partner_status"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
       pgrst_reload_schema: { Args: never; Returns: undefined }
       purge_ip_blocklist: { Args: never; Returns: number }
       purge_rate_limit_buckets: { Args: never; Returns: number }
