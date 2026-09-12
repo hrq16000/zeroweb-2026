@@ -343,12 +343,16 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
  * não tem WhatsApp oficial cadastrado. Nada de 5xx, nada de promessa de
  * retorno que o sistema não garante, nada de cair no canal da 0WEB.
  */
-function channelNotConfiguredPage(): Response {
-  return htmlErrorPage(
-    "Solicitação registrada",
-    "Seus dados foram registrados. O atendimento direto por WhatsApp deste site ainda não está disponível.",
-    200,
-  );
+function channelNotConfiguredPage(
+  recoveryToken: string | null,
+  alreadyRecoverable = false,
+): Response {
+  const body = alreadyRecoverable
+    ? "Seus dados foram registrados e o contato que você informou já permite o retorno. O atendimento direto por WhatsApp deste site ainda não está disponível."
+    : "Seus dados foram registrados. O atendimento direto por WhatsApp deste site ainda não está disponível.";
+  return htmlErrorPage("Solicitação registrada", body, 200, {
+    recoveryToken: alreadyRecoverable ? null : recoveryToken,
+  });
 }
 
 function htmlErrorPage(
