@@ -17,6 +17,8 @@ import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
+import { evaluateFunnelDestination } from "./lib/funnel-destination-gate.mjs";
+
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -198,6 +200,13 @@ function evaluate(slug, manifest) {
   if (!checks.contactModeDeclared) blockers.push('contactMode ausente: projeto gerenciado exige "funnelOnly"');
   checks.funnelTypeDeclared = Boolean(client?.funnelType);
   if (!checks.funnelTypeDeclared) blockers.push("funnelType não declarado (orçamento, pedido, agendamento, diagnóstico, reserva…)");
+
+  // --- FUNNEL_DESTINATION_GATE (projeto novo não chega a READY/PUBLISH só com protocolo)
+  const destination = evaluateFunnelDestination(slug, { clients });
+  checks.funnelDestinationGate = destination.status !== "FAIL";
+  blockers.push(...destination.blockers);
+  warnings.push(...destination.warnings);
+
 
   // --- direção visual consciente: scaffold não pode chegar a ready
   checks.creativeDirectionDone = !/CREATIVE_BRIEF_REQUIRED/.test(componentSource);

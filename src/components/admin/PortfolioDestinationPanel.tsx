@@ -10,10 +10,21 @@ const BADGE: Record<string, string> = {
   VERIFIED: "border-primary/40 bg-primary/10 text-primary",
   AUTO_RESOLVED: "border-primary/40 bg-primary/10 text-primary",
   CONFIGURED_UNVERIFIED: "border-amber-500/40 bg-amber-500/10 text-amber-600",
+  INSUFFICIENT_EVIDENCE: "border-amber-500/40 bg-amber-500/10 text-amber-600",
   CONFLICT: "border-destructive/40 bg-destructive/10 text-destructive",
   UNRESOLVED: "border-destructive/40 bg-destructive/10 text-destructive",
   NOT_APPLICABLE: "border-border bg-muted text-muted-foreground",
 };
+
+const PRIORITY_BADGE: Record<string, string> = {
+  P0: "border-destructive/40 bg-destructive/10 text-destructive",
+  P1: "border-amber-500/40 bg-amber-500/10 text-amber-600",
+  P2: "border-border bg-muted text-muted-foreground",
+  P3: "border-border bg-muted text-muted-foreground",
+  OK: "border-primary/40 bg-primary/10 text-primary",
+};
+
+type Filter = "pending" | "p0" | "all";
 
 function Cell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <td className={`whitespace-nowrap px-3 py-2 text-sm ${className}`}>{children}</td>;
@@ -21,14 +32,15 @@ function Cell({ children, className = "" }: { children: React.ReactNode; classNa
 
 /**
  * Integridade operacional da conversão: quais páginas realmente entregam o
- * lead ao destino do cliente. Número sempre mascarado.
+ * lead ao destino do cliente, ordenadas por risco real (nunca alfabético).
+ * Número sempre mascarado.
  */
 export function PortfolioDestinationPanel() {
   const load = useServerFn(getPortfolioDestinationAudit);
   const [data, setData] = useState<DestinationAudit | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [onlyPending, setOnlyPending] = useState(true);
+  const [filter, setFilter] = useState<Filter>("p0");
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -47,7 +59,18 @@ export function PortfolioDestinationPanel() {
   }, [fetchData]);
 
   const all: DestinationRow[] = data?.rows ?? [];
-  const rows = onlyPending ? all.filter((r) => !isDestinationOk(r.destinationStatus)) : all;
+  const rows =
+    filter === "all"
+      ? all
+      : filter === "p0"
+        ? all.filter((r) => r.priority === "P0")
+        : all.filter((r) => !isDestinationOk(r.destinationStatus));
+
+  const options: { id: Filter; label: string }[] = [
+    { id: "p0", label: "P0 sem destino" },
+    { id: "pending", label: "Pendentes" },
+    { id: "all", label: "Todos" },
+  ];
 
   return (
     <section aria-labelledby="destination-title" className="mt-6 rounded-xl border border-border bg-card p-4">
@@ -55,16 +78,21 @@ export function PortfolioDestinationPanel() {
         <h2 id="destination-title" className="font-display text-lg font-semibold">
           Destino do funil por projeto
         </h2>
-        <button
-          type="button"
-          onClick={() => setOnlyPending((v) => !v)}
-          aria-pressed={onlyPending}
-          className={`min-h-9 rounded-md border px-3 text-xs font-medium ${
-            onlyPending ? "border-primary bg-primary/10 text-primary" : "border-border"
-          }`}
-        >
-          {onlyPending ? "Mostrando pendentes" : "Mostrando todos"}
-        </button>
+        <div className="flex flex-wrap gap-2">
+          {options.map((o) => (
+            <button
+              key={o.id}
+              type="button"
+              onClick={() => setFilter(o.id)}
+              aria-pressed={filter === o.id}
+              className={`min-h-9 rounded-md border px-3 text-xs font-medium ${
+                filter === o.id ? "border-primary bg-primary/10 text-primary" : "border-border"
+              }`}
+            >
+              {o.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {data && (
@@ -73,6 +101,13 @@ export function PortfolioDestinationPanel() {
           {Object.entries(data.summary.counts)
             .map(([k, v]) => `${k}: ${v}`)
             .join(" · ")}
+        </p>
+      )}
+      {data && data.summary.conversionsAtRisk > 0 && (
+        <p className="mt-2 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm">
+          DELIVERY_NOT_CONFIGURED — {data.summary.conversionsAtRisk} conclusão(ões) de funil em{" "}
+          {data.summary.projectsWithDeliveryNotConfigured} projeto(s) nos últimos 90 dias sem destino
+          operacional. O lead continua salvo, mas não foi entregue ao cliente.
         </p>
       )}
 
@@ -85,13 +120,15 @@ export function PortfolioDestinationPanel() {
 
       {!loading && !error && (
         <div className="mt-3 overflow-x-auto">
-          <table className="w-full min-w-[860px] border-collapse">
+          <table className="w-full min-w-[1100px] border-collapse">
             <thead>
               <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
                 <th scope="col" className="px-3 py-2">Projeto</th>
-                <th scope="col" className="px-3 py-2">Estado público</th>
-                <th scope="col" className="px-3 py-2">Funil</th>
+                <th scope="col" className="px-3 py-2">Prioridade</th>
                 <th scope="col" className="px-3 py-2">Destino</th>
+                <th scope="col" className="px-3 py-2">Views 30d</th>
+                <th scope="col" className="px-3 py-2">Funis concluídos</th>
+                <th scope="col" className="px-3 py-2">Leads 90d</th>
                 <th scope="col" className="px-3 py-2">Origem</th>
                 <th scope="col" className="px-3 py-2">Número</th>
                 <th scope="col" className="px-3 py-2">Verificado em</th>
@@ -102,14 +139,29 @@ export function PortfolioDestinationPanel() {
                 <tr key={r.slug} className="border-b border-border/60 align-top">
                   <Cell className="font-medium">
                     {r.slug}
+                    <span className="block text-xs font-normal text-muted-foreground">
+                      {r.publicState} · {r.funnelType}
+                    </span>
                     {r.note ? (
                       <span className="block whitespace-normal text-xs font-normal text-muted-foreground">
                         {r.note}
                       </span>
                     ) : null}
                   </Cell>
-                  <Cell>{r.publicState}</Cell>
-                  <Cell>{r.funnelType}</Cell>
+                  <Cell>
+                    <span
+                      className={`rounded-full border px-2 py-0.5 text-xs font-semibold ${
+                        PRIORITY_BADGE[r.priority] ?? PRIORITY_BADGE.OK
+                      }`}
+                    >
+                      {r.priority}
+                    </span>
+                    {r.deliveryNotConfigured ? (
+                      <span className="mt-1 block text-xs font-semibold text-destructive">
+                        DELIVERY_NOT_CONFIGURED
+                      </span>
+                    ) : null}
+                  </Cell>
                   <Cell>
                     <span
                       className={`rounded-full border px-2 py-0.5 text-xs font-semibold ${
@@ -119,7 +171,20 @@ export function PortfolioDestinationPanel() {
                       {r.destinationStatus}
                     </span>
                   </Cell>
-                  <Cell>{r.destinationSource}</Cell>
+                  <Cell className="tabular-nums">{r.telemetry.views30}</Cell>
+                  <Cell className="tabular-nums">
+                    {r.telemetry.funnelCompletes90}
+                    {r.conversionsAtRisk > 0 ? (
+                      <span className="ml-1 text-xs text-destructive">({r.conversionsAtRisk} sem entrega)</span>
+                    ) : null}
+                  </Cell>
+                  <Cell className="tabular-nums">{r.telemetry.leads90}</Cell>
+                  <Cell>
+                    {r.destinationSource}
+                    {r.evidenceSource ? (
+                      <span className="block text-xs text-muted-foreground">{r.evidenceSource}</span>
+                    ) : null}
+                  </Cell>
                   <Cell className="tabular-nums">{r.destinationValueMasked ?? "—"}</Cell>
                   <Cell>{r.lastVerifiedAt ?? "—"}</Cell>
                 </tr>
@@ -137,7 +202,7 @@ export function PortfolioDestinationPanel() {
       <p className="mt-3 text-xs text-muted-foreground">
         O número completo permanece server-side; aqui ele aparece sempre mascarado. UNRESOLVED
         significa que o funil registra o lead e devolve protocolo, mas não entrega no WhatsApp do
-        cliente — nenhum número é presumido.
+        cliente — nenhum número é presumido e a 0WEB nunca é usada como destino substituto.
       </p>
     </section>
   );

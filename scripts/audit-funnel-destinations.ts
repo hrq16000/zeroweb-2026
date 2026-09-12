@@ -3,7 +3,8 @@
  *
  * Audita todos os projetos públicos `/portfolio/:slug` e verifica se cada um
  * possui destino operacional explicitamente resolvido pela fonte canônica
- * (segredo operacional do projeto → configuração privada do cliente).
+ * (segredo operacional do projeto → configuração privada do cliente),
+ * cruzando com a telemetria já existente para priorizar por risco real.
  *
  * Nunca imprime número completo: apenas máscara, origem e estado.
  * Uso: bun run scripts/audit-funnel-destinations.ts [--json] [--enforce]
@@ -25,12 +26,21 @@ if (args.has("--json")) {
         .map(([k, v]) => `${k}=${v}`)
         .join(" · "),
   );
+  console.log(
+    `prioridade: ` +
+      Object.entries(summary.priorities)
+        .map(([k, v]) => `${k}=${v}`)
+        .join(" · ") +
+      ` · conclusões sem entrega (90d): ${summary.conversionsAtRisk}`,
+  );
   for (const row of rows) {
     if (isDestinationOk(row.destinationStatus) && row.publicState === "published") continue;
     console.log(
-      `  ${row.destinationStatus.padEnd(22)} ${row.slug.padEnd(34)} ${row.destinationSource.padEnd(19)} ${
-        row.destinationValueMasked ?? "—"
-      }`,
+      `  ${row.priority.padEnd(3)} ${row.destinationStatus.padEnd(22)} ${row.slug.padEnd(34)} ` +
+        `v30=${String(row.telemetry.views30).padStart(5)} funis=${String(row.telemetry.funnelCompletes90).padStart(3)} ` +
+        `leads=${String(row.telemetry.leads90).padStart(3)} ${row.destinationSource.padEnd(19)} ${
+          row.destinationValueMasked ?? "—"
+        }${row.deliveryNotConfigured ? "  DELIVERY_NOT_CONFIGURED" : ""}`,
     );
   }
 }

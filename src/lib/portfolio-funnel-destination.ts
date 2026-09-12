@@ -11,6 +11,7 @@
 export const DESTINATION_STATUSES = [
   "VERIFIED",
   "CONFIGURED_UNVERIFIED",
+  "INSUFFICIENT_EVIDENCE",
   "AUTO_RESOLVED",
   "UNRESOLVED",
   "CONFLICT",
@@ -25,6 +26,28 @@ export type DestinationSource =
   | "CLIENT_SETTINGS"
   | "NONE";
 
+/** Prioridade operacional de correção (risco real de perda de lead). */
+export type DestinationPriority = "OK" | "P0" | "P1" | "P2" | "P3";
+
+/** Telemetria já existente do portal, agregada por projeto. Nunca cria analytics paralelo. */
+export type DestinationTelemetry = {
+  views30: number;
+  views90: number;
+  funnelOpens90: number;
+  funnelCompletes90: number;
+  leads90: number;
+  lastActivityAt: string | null;
+};
+
+export const EMPTY_TELEMETRY: DestinationTelemetry = {
+  views30: 0,
+  views90: 0,
+  funnelOpens90: 0,
+  funnelCompletes90: 0,
+  leads90: 0,
+  lastActivityAt: null,
+};
+
 export type DestinationRow = {
   slug: string;
   projectName: string;
@@ -35,17 +58,57 @@ export type DestinationRow = {
   destinationSource: DestinationSource;
   /** Sempre mascarado. Número completo nunca sai do servidor. */
   destinationValueMasked: string | null;
+  /** Proveniência textual da evidência (ledger). Nunca contém número. */
+  evidenceSource: string | null;
   confidence: number | null;
   lastVerifiedAt: string | null;
   publicState: "published" | "draft" | "offline";
   /** Motivo legível quando o destino não está OK. Sem PII. */
   note: string | null;
+  telemetry: DestinationTelemetry;
+  priority: DestinationPriority;
+  /** Conclusão de funil sem destino operacional configurado. */
+  deliveryNotConfigured: boolean;
+  /** Conclusões de funil que não puderam ser entregues ao cliente. */
+  conversionsAtRisk: number;
 };
 
 /** Estados que representam entrega operacional garantida. */
 export function isDestinationOk(status: DestinationStatus): boolean {
   return status === "VERIFIED" || status === "AUTO_RESOLVED" || status === "NOT_APPLICABLE";
 }
+
+/**
+ * Prioridade por RISCO REAL, nunca alfabética:
+ * P0 = conversão acontecendo sem entrega garantida;
+ * P1 = tráfego relevante sem conversão recente;
+ * P2 = publicado com pouca atividade;
+ * P3 = sem sinais recentes (baixa prioridade, jamais "morto").
+ */
+export function computeDestinationPriority(
+  status: DestinationStatus,
+  t: DestinationTelemetry,
+): DestinationPriority {
+  if (isDestinationOk(status)) return "OK";
+  if (t.funnelCompletes90 > 0 || t.leads90 > 0 || t.funnelOpens90 > 0) return "P0";
+  if (t.views30 >= 100) return "P1";
+  if (t.views90 > 0 || t.views30 > 0) return "P2";
+  return "P3";
+}
+
+/** Ordenação operacional: risco primeiro; slug só desempata. */
+export function compareByOperationalRisk(a: DestinationRow, b: DestinationRow): number {
+  const rank = { P0: 0, P1: 1, P2: 2, P3: 3, OK: 4 } as const;
+  if (rank[a.priority] !== rank[b.priority]) return rank[a.priority] - rank[b.priority];
+  const risk = b.conversionsAtRisk - a.conversionsAtRisk;
+  if (risk) return risk;
+  const leads = b.telemetry.leads90 - a.telemetry.leads90;
+  if (leads) return leads;
+  const views = b.telemetry.views30 - a.telemetry.views30;
+  if (views) return views;
+  return a.slug.localeCompare(b.slug);
+}
+
 
 /**
  * Máscara canônica: `(41) 9****-0764`.
