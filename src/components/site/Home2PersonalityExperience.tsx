@@ -5,6 +5,7 @@ import { Home2Prototype } from "./Home2Prototype";
 import "./home2-personality.css";
 import "./home2-matrix-enhancements.css";
 import "./home2-prime-polish.css";
+import "./home2-prime-runtime.css";
 
 type CatalogItem = {
   slug: string;
