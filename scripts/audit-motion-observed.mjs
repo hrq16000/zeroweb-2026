@@ -63,8 +63,21 @@ for (const url of urls) {
       const nodes = Array.from(document.querySelectorAll("[data-motion]"));
       const before = nodes.map((n) => {
         const cs = getComputedStyle(n);
-        return { opacity: parseFloat(cs.opacity), transform: cs.transform };
+        return {
+          opacity: parseFloat(cs.opacity),
+          transform: cs.transform,
+          top: n.getBoundingClientRect().top + window.scrollY,
+        };
       });
+      const viewport = window.innerHeight;
+      // Microinteração: hover declarado precisa existir como classe de
+      // transform/cor no DOM renderizado, não apenas no Blueprint.
+      const microObserved = Boolean(
+        document.querySelector(
+          "[class*='hover:-translate-y-'],[class*='group-hover:scale-'],[class*='hover:scale-']",
+        ),
+      );
+
 
       window.scrollTo(0, document.body.scrollHeight * 0.45);
       await new Promise((r) => setTimeout(r, 900));
