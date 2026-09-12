@@ -51,6 +51,8 @@ export function PortfolioDestinationPanel() {
     setError(null);
     try {
       setData(await load());
+      setDelivery(await loadDelivery().catch(() => null));
+
     } catch (e) {
       setError(e instanceof Error ? e.message : "Falha ao carregar destinos");
     } finally {
