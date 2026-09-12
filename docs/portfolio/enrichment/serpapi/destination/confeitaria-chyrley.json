@@ -1,0 +1,11 @@
+{
+  "slug": "confeitaria-chyrley",
+  "query": "Chyrley Doces e Festas Rio Bonito PR",
+  "location": "Rio Bonito do Iguacu, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:04:39.250Z",
+  "callCount": 1,
+  "stage": "FAILED",
+  "error": "SerpApi google_maps falhou [400]: {\n  \"error\": \"Unsupported `Rio Bonito do Iguacu, State of Parana, Brazil` location - location parameter.\"\n}",
+  "provenance": null,
+  "candidates": []
+}

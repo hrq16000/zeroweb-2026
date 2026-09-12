@@ -1,0 +1,11 @@
+{
+  "slug": "marido-de-aluguel",
+  "query": "Mestre dos Serviços marido de aluguel Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T01:04:38.808Z",
+  "callCount": 1,
+  "stage": "FAILED",
+  "error": "SerpApi google_maps falhou [400]: {\n  \"error\": \"Missing `z` or `m` parameter. Parameter is required when using `location` parameter.\"\n}",
+  "provenance": null,
+  "candidates": []
+}
