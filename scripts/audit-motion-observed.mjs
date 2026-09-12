@@ -127,7 +127,14 @@ for (const url of urls) {
         });
       });
 
-      return { total: nodes.length, perceptible, samples: samples.slice(0, 40) };
+      return {
+        total: nodes.length,
+        perceptible,
+        heroObserved,
+        scrollObserved,
+        microObserved,
+        samples: samples.slice(0, 40),
+      };
     },
     { T },
   );
