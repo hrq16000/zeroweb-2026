@@ -143,12 +143,25 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
   } = await import("@/lib/whatsapp-redirect.server");
 
   const { bySlug, leadsByClientKey } = await loadTelemetry();
+  const { loadDestinationRevisions } = await import("@/lib/portfolio-destination-confirm.server");
+  const revisions = await loadDestinationRevisions();
   const rows: DestinationRow[] = [];
 
   for (const project of CATALOG) {
     const clientKey = project.clientKey ?? project.slug;
     const context = resolvePortfolioFunnelContext(project.slug);
-    const entry = LEDGER[clientKey] ?? LEDGER[project.slug];
+    // Confirmação administrativa é a evidência mais recente e vence o
+    // livro-razão versionado; ausência dela preserva o estado atual.
+    const revision = revisions.get(clientKey);
+    const entry: LedgerEntry | undefined = revision
+      ? {
+          status: revision.status,
+          source: revision.source,
+          confidence: revision.status === "VERIFIED" ? 100 : 60,
+          verifiedAt: revision.verifiedAt,
+          evidence: revision.evidence ? [revision.evidence] : [],
+        }
+      : (LEDGER[clientKey] ?? LEDGER[project.slug]);
 
     const fromSecret = resolvePortfolioWhatsAppContact(clientKey);
     const contact = fromSecret ?? (await resolvePortfolioWhatsAppContactAsync(clientKey));
