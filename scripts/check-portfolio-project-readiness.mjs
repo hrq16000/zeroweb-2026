@@ -43,6 +43,10 @@ const readJson = (p, fallback) => {
 const manifestFile = readJson("src/config/portfolio-project-manifests.json", { projects: {} });
 const manifests = manifestFile.projects ?? {};
 const clients = readJson("src/config/portfolio-clients.json", []);
+/** Baseline de comparação do PROJECT_UNIQUENESS_GATE: quem já declarou composição. */
+const compositionPeers = Object.values(manifests)
+  .filter((project) => project.compositionFingerprint)
+  .map((project) => ({ slug: project.slug, fingerprint: project.compositionFingerprint }));
 const catalogRaw = readJson("src/config/portfolio-catalog.json", []);
 const catalog = catalogRaw.projects ?? catalogRaw;
 const catalogBySlug = new Map(catalog.map((p) => [p.slug, p]));
