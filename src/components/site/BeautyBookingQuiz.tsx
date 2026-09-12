@@ -362,8 +362,11 @@ export function BeautyBookingQuiz({
                     <span className={"inline-flex h-11 w-11 items-center justify-center rounded-2xl " + optionClass + " " + accentText}><CheckCircle2 className="h-6 w-6" aria-hidden="true" /></span>
                     <h2 id="portfolio-cta-quiz-title" className={"text-2xl font-bold " + titleClass}>Solicitação registrada</h2>
                     <p className="text-sm leading-relaxed text-gray-400">
-                      Seus dados foram registrados para {recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.
+                      {recoveryContact
+                        ? `Seus dados foram registrados para ${recipientName} e o retorno será feito no WhatsApp que você informou.`
+                        : `Seus dados foram registrados para ${recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.`}
                     </p>
+
                   </div>
                   {savedProtocol && (
                     <p className="rounded-2xl border border-dashed border-white/20 bg-black/20 px-4 py-3 text-center text-sm text-gray-300">
