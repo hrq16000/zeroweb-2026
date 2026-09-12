@@ -1287,8 +1287,9 @@ function PortfolioPrototypePage() {
     { slug, title: "", description: "", canonicalUrl: `https://0web.com.br/portfolio/${slug}`, socialImage: "" },
     overrides,
   );
-  // Projeto com Blueprint próprio: composição vem de `sections[]` (opt-in).
-  const BlueprintPage = getBlueprintPage(slug);
+  // Composição autoral (padrão para projetos novos) ou Blueprint legado dos
+  // três pilotos. A plataforma resolve o slug; a composição é do cliente.
+  const BlueprintPage = getCompositionPage(slug) ?? getBlueprintPage(slug);
   if (BlueprintPage) {
     return (
       <PortfolioRuntimeProvider value={effective}>
