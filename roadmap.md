@@ -42,3 +42,10 @@
 - [x] Criar capa editorial da Estrutura Nacional com a foto real tratada da sede
 - [ ] Continuar somente quando houver foto oficial verificável e segura para cada cliente pendente
 
+
+## Destinos de funil — pipeline contínua (2026-09-12)
+- [x] `scripts/resolve-destination-wave.ts`: rotina única (destino → evidência local → SerpApi cacheada → classificação → livro-razão)
+- [x] 9 CONFIGURED_UNVERIFIED reprocessados: 1 VERIFIED (paraiso-do-hot-dog), 8 INSUFFICIENT_EVIDENCE
+- [x] Filtro "com conclusões e sem entrega" no painel de destinos
+- [ ] Onda seguinte de P0 (39) — depende de número operacional informado pelo cliente
+- [ ] estrutura-nacional: titularidade confirmada, mas destino é telefone fixo (pedir celular)

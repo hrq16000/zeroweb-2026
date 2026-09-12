@@ -1,0 +1,77 @@
+{
+  "slug": "heloa-gas",
+  "query": "Heloá Gás Piraquara",
+  "location": "Piraquara, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:55:56.623Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Helo%C3%A1+G%C3%A1s+Piraquara&location=Piraquara%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:55:56.622Z",
+    "sourceUrl": "https://www.google.com/maps/search/Helo%C3%A1+G%C3%A1s+Piraquara/@-25.4426635,-49.0628847,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJhwpXbOXy3JQRwiyXnclqGEM",
+      "dataId": "0x94dcf2e56c570a87:0x43186ac99d972cc2",
+      "name": "Mahol Distribuidora de Gás",
+      "category": "Serviço de distribuição",
+      "address": "R. Barão do Cerro Azul, 1767 - Centro, Piraquara - PR, 83301-000",
+      "phone": "(41) 3034-7878",
+      "website": null,
+      "rating": 4.4,
+      "reviewCount": 5,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJhwpXbOXy3JQRwiyXnclqGEM"
+    },
+    {
+      "placeId": "ChIJ-zHWLO3z3JQRSYhQwIjd7cs",
+      "dataId": "0x94dcf3ed2cd631fb:0xcbeddd88c0508849",
+      "name": "Amoresi - Gás",
+      "category": "Companhia de gás",
+      "address": "R. Elvira Lorusso do Nascimento, 144 - Centro, Piraquara - PR, 83301-500",
+      "phone": "(41) 98420-4399",
+      "website": "https://www.instagram.com/amoresi_gas/",
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ-zHWLO3z3JQRSYhQwIjd7cs"
+    },
+    {
+      "placeId": "ChIJ8aoD8cPz3JQROaD5z_4vMmU",
+      "dataId": "0x94dcf3c3f103aaf1:0x65322ffecff9a039",
+      "name": "Global Gás - Amilton Distribuidora de Gás em Piraquara",
+      "category": "Companhia de gás",
+      "address": "R. Santa Clara, 300 - Jardim Santa Monica, Piraquara - PR, 83302-210",
+      "phone": "(41) 3673-1838",
+      "website": null,
+      "rating": 2.9,
+      "reviewCount": 8,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ8aoD8cPz3JQROaD5z_4vMmU"
+    },
+    {
+      "placeId": "ChIJtRImL6Tz3JQR2H86uH24Q6o",
+      "dataId": "0x94dcf3a42f2612b5:0xaa43b87db83a7fd8",
+      "name": "Adão Gás",
+      "category": "Companhia de gás",
+      "address": "R. Júlio Ribeiro de Barros, 180 - Vila Sao Cristovao, Piraquara - PR, 83305-430",
+      "phone": "(41) 98455-2816",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 40,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJtRImL6Tz3JQR2H86uH24Q6o"
+    },
+    {
+      "placeId": "ChIJqZojwZPz3JQRCiEly158IEQ",
+      "dataId": "0x94dcf393c1239aa9:0x44207c5ecb25210a",
+      "name": "Amoresi - Gás",
+      "category": "Companhia de gás",
+      "address": "Avenida Centenário do Paraná, 418 Rua Elvira Lorusso do Nascimento 34 Planta Araçatuba Jardim, Bela Vista, Piraquara - PR, 83301-060",
+      "phone": "(41) 98420-4399",
+      "website": "https://pt-br.facebook.com/amoresigas/",
+      "rating": 4.9,
+      "reviewCount": 460,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJqZojwZPz3JQRCiEly158IEQ"
+    }
+  ]
+}

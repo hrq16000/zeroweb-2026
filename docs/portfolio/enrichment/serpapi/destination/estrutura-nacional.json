@@ -1,0 +1,29 @@
+{
+  "slug": "estrutura-nacional",
+  "query": "EN — Estrutura Nacional São José dos Pinhais",
+  "location": "São José dos Pinhais, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:55:56.053Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=EN+%E2%80%94+Estrutura+Nacional+S%C3%A3o+Jos%C3%A9+dos+Pinhais&location=S%C3%A3o+Jos%C3%A9+dos+Pinhais%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:55:56.053Z",
+    "sourceUrl": "https://www.google.com/maps/search/EN+%E2%80%94+Estrutura+Nacional+S%C3%A3o+Jos%C3%A9+dos+Pinhais/@-25.5318354,-49.2035722,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ97pW41753JQRVT_k6k7MX2c",
+      "dataId": "0x94dcf95ee356baf7:0x675fcc4eeae43f55",
+      "name": "Estrutura Nacional",
+      "category": "Metalúrgica",
+      "address": "R. Pedro Trevisan, 139 - Pedro Moro, São José dos Pinhais - PR, 83025-690",
+      "phone": "(41) 3348-1100",
+      "website": "http://www.estruturanacional.com.br/",
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ97pW41753JQRVT_k6k7MX2c"
+    }
+  ]
+}

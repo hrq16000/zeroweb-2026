@@ -1,0 +1,53 @@
+{
+  "slug": "dyzpromo",
+  "query": "D.Y.Z Promo Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:55:53.148Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=D.Y.Z+Promo+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:55:53.148Z",
+    "sourceUrl": "https://www.google.com/maps/search/D.Y.Z+Promo+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJFXfBY_7j3JQRxXqQpy7ttPo",
+      "dataId": "0x94dce3fe63c17715:0xfab4ed2ea7907ac5",
+      "name": "Prodz & Co.",
+      "category": "Agência de Marketing",
+      "address": "Edifício Lakeside Corporate, R. Gen. Mário Tourinho, 1805 - Sl 809 - Campina do Siqueira, Curitiba - PR, 80740-000",
+      "phone": "(41) 98803-9404",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 7,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJFXfBY_7j3JQRxXqQpy7ttPo"
+    },
+    {
+      "placeId": "ChIJZz_hDsfTjiQRzIev7pEdSUw",
+      "dataId": "0x248ed3c70ee13f67:0x4c491d91eeaf87cc",
+      "name": "MADZ Digital",
+      "category": "Agência de Marketing",
+      "address": "R. Manoel Eufrásio, 403 - Juvevê, Curitiba - PR, 80030-440",
+      "phone": "(41) 98750-8206",
+      "website": "https://madz.com.br/",
+      "rating": 5,
+      "reviewCount": 4,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZz_hDsfTjiQRzIev7pEdSUw"
+    },
+    {
+      "placeId": "ChIJEW9aGuT73JQR8oI50hpHcrA",
+      "dataId": "0x94dcfbe41a5a6f11:0xb072471ad23982f2",
+      "name": "Diz Tudo - Marketing e Produtos Gráficos",
+      "category": "Agência de Marketing",
+      "address": "R. David Tows - Xaxim, Curitiba - PR, 81830-270",
+      "phone": "(41) 98727-8814",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJEW9aGuT73JQR8oI50hpHcrA"
+    }
+  ]
+}

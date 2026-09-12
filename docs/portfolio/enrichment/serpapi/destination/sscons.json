@@ -1,0 +1,77 @@
+{
+  "slug": "sscons",
+  "query": "S&S Construções Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:56:07.471Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=S%26S+Constru%C3%A7%C3%B5es+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:56:07.471Z",
+    "sourceUrl": "https://www.google.com/maps/search/S%26S+Constru%C3%A7%C3%B5es+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJ6YAFca_l3JQR8M62B-ZYs2A",
+      "dataId": "0x94dce5af710580e9:0x60b358e607b6cef0",
+      "name": "S&N construção e reforma",
+      "category": "Reformas",
+      "address": "R. Dr. Djalma Ferreira Lopes - Guabirotuba, Curitiba - PR, 81510-500",
+      "phone": "(41) 99245-2949",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 11,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ6YAFca_l3JQR8M62B-ZYs2A"
+    },
+    {
+      "placeId": "ChIJAxuU4-Hl3JQRpvKgx4Ly5cA",
+      "dataId": "0x94dce5e1e3941b03:0xc0e5f282c7a0f2a6",
+      "name": "SS Empreendimentos",
+      "category": "Construtora",
+      "address": "BR-116, 5781 - KM 83 - Bairro Alto, Curitiba - PR, 82590-100",
+      "phone": "(41) 4103-3727",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJAxuU4-Hl3JQRpvKgx4Ly5cA"
+    },
+    {
+      "placeId": "ChIJ54FKhXTl3JQRLLxsF3y595Y",
+      "dataId": "0x94dce574854a81e7:0x96f7b97c176cbc2c",
+      "name": "LS Construções Civis",
+      "category": "Construtora",
+      "address": "Rua Ronald José Carboni, 145 - Capão da Imbuia, Curitiba - PR, 82810-120",
+      "phone": "(41) 99198-0676",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ54FKhXTl3JQRLLxsF3y595Y"
+    },
+    {
+      "placeId": "ChIJhz30nuPi3JQR6FVHAUVLl8s",
+      "dataId": "0x94dce2e39ef43d87:0xcb974b45014755e8",
+      "name": "M.E.S Construções",
+      "category": "Construtora",
+      "address": "R. Arnaldo Thá, 469 - Fazendinha, Curitiba - PR, 81330-200",
+      "phone": "(41) 3042-9325",
+      "website": null,
+      "rating": 4.5,
+      "reviewCount": 17,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJhz30nuPi3JQR6FVHAUVLl8s"
+    },
+    {
+      "placeId": "ChIJIVn4J_Pi3JQRh1Lm06aaowg",
+      "dataId": "0x94dce2f327f85921:0x8a39aa6d3e65287",
+      "name": "S&S Móveis Planejados | Curitiba | Novo Mundo",
+      "category": "Loja de móveis",
+      "address": "Av. Rep. Argentina, 4526 - Novo Mundo, Curitiba - PR",
+      "phone": "(41) 3044-3337",
+      "website": "http://www.ssmoveisplanejados.com.br/",
+      "rating": 4.7,
+      "reviewCount": 2505,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJIVn4J_Pi3JQRh1Lm06aaowg"
+    }
+  ]
+}

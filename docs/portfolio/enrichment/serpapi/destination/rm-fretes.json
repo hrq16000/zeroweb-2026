@@ -1,0 +1,77 @@
+{
+  "slug": "rm-fretes",
+  "query": "RM Fretes Curitiba",
+  "location": "Curitiba, State of Parana, Brazil",
+  "resolvedAt": "2026-09-12T02:56:01.486Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=RM+Fretes+Curitiba&location=Curitiba%2C+State+of+Parana%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-12T02:56:01.486Z",
+    "sourceUrl": "https://www.google.com/maps/search/RM+Fretes+Curitiba/@-25.4289541,-49.267137,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJGdeuPUv73JQR8hbHldDXRIM",
+      "dataId": "0x94dcfb4b3daed719:0x8344d7d095c716f2",
+      "name": "RM Mudanças e Transportes",
+      "category": "Serviço de mudança",
+      "address": "Rua Professor José Maurício Higgins, 369 - Boqueirão, Curitiba - PR, 81650-250",
+      "phone": "(41) 3527-1426",
+      "website": "https://rmmudancas.com.br/",
+      "rating": 5,
+      "reviewCount": 122,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJGdeuPUv73JQR8hbHldDXRIM"
+    },
+    {
+      "placeId": "ChIJ7cYHUC7x3JQRgbiVesa1dNQ",
+      "dataId": "0x94dcf12e5007c6ed:0xd474b5c67a95b881",
+      "name": "RM transporte mudança fretes carretos e viagem são José dos Pinhais",
+      "category": "Empresa de transporte rodoviário",
+      "address": "Av. Tomás Carmeliano de Miranda, 3988 - Guatupê, São José dos Pinhais - PR, 83060-000",
+      "phone": "(41) 99280-8066",
+      "website": "https://wa.me/message/DJIQQDGZOCGVE1",
+      "rating": 5,
+      "reviewCount": 119,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJ7cYHUC7x3JQRgbiVesa1dNQ"
+    },
+    {
+      "placeId": "ChIJIwGzSCv73JQR7R099yCKek4",
+      "dataId": "0x94dcfb2b48b30123:0x4e7a8a20f73d1ded",
+      "name": "Fretes Rr",
+      "category": "Serviço de frete e correio",
+      "address": "Rua Maria Aparecida Peixoto, 81 - Ganchinho, Curitiba - PR, 81935-406",
+      "phone": "(41) 98817-1934",
+      "website": null,
+      "rating": null,
+      "reviewCount": null,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJIwGzSCv73JQR7R099yCKek4"
+    },
+    {
+      "placeId": "ChIJISMSW6Ll3JQRd280tC-Tk0M",
+      "dataId": "0x94dce5a25b122321:0x4393932fb4346f77",
+      "name": "Fretes Curitiba- Dois amigos transportes",
+      "category": "Serviço de mudança",
+      "address": "Av. N. Sra. da Luz, 931 - Bacacheri, Curitiba - PR, 82510-020",
+      "phone": "(41) 98422-1178",
+      "website": null,
+      "rating": 4.9,
+      "reviewCount": 54,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJISMSW6Ll3JQRd280tC-Tk0M"
+    },
+    {
+      "placeId": "ChIJWU-Jbmnx3JQRVr07NmMRGs0",
+      "dataId": "0x94dcf1696e894f59:0xcd1a1163363bbd56",
+      "name": "Severo fretes e mudanças",
+      "category": "Serviço de transporte",
+      "address": "Rua Atílio Brunetti - Capão Raso, Curitiba - PR, 81150-070",
+      "phone": "(41) 99243-0793",
+      "website": "https://wa.me/5541992430793?text=Ol%C3%A1,%20tudo%20bem",
+      "rating": 5,
+      "reviewCount": 257,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJWU-Jbmnx3JQRVr07NmMRGs0"
+    }
+  ]
+}
