@@ -96,6 +96,15 @@ describe("livro-razão dos nove configurados", () => {
     for (const slug of NOVE) {
       const entry = LEDGER.entries[slug];
       expect(entry, `${slug} precisa estar registrado`).toBeTruthy();
+      if (entry.status === "VERIFIED") {
+        // promoção só é aceita com data e evidência de cruzamento da entidade
+        expect(entry.verifiedAt, `${slug} precisa de data de verificação`).toBeTruthy();
+        expect(
+          (entry.evidence as string[]).some((e) => /confere com o destino configurado/i.test(e)),
+          `${slug} precisa registrar o cruzamento telefone × entidade`,
+        ).toBe(true);
+        continue;
+      }
       expect(entry.status).toBe("INSUFFICIENT_EVIDENCE");
       expect(isDestinationOk(entry.status as never)).toBe(false);
     }
