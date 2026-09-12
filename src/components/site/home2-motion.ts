@@ -101,15 +101,6 @@ export const home2MotionMatrix: Home2MotionRule[] = [
     threshold: 0.12,
   },
   {
-    id: "editorial",
-    selector: ".home2-editorial-card",
-    effect: "stagger-up",
-    trigger: "scroll",
-    duration: 760,
-    stagger: 90,
-    threshold: 0.12,
-  },
-  {
     id: "final-cta",
     selector: ".home2-final-grid",
     effect: "scale-in",
@@ -131,19 +122,21 @@ const effectClass: Record<Home2MotionEffect, string> = {
 export function initHome2Motion(root: HTMLElement) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const cleanups: Array<() => void> = [];
-
-  if (reducedMotion) {
-    root.classList.add("home2-reduced-motion");
-    root.querySelectorAll<HTMLElement>("[data-home2-load], [data-home2-motion], .home2-service-card, .home2-proof-card, .home2-project-tile, .home2-principle, .home2-editorial-card, .home2-final-grid")
-      .forEach((node) => node.classList.add("is-visible"));
-    return () => root.classList.remove("home2-reduced-motion");
-  }
-
   const header = root.querySelector<HTMLElement>(".home2-header");
   const onHeaderScroll = () => header?.classList.toggle("is-scrolled", window.scrollY > 28);
   onHeaderScroll();
   window.addEventListener("scroll", onHeaderScroll, { passive: true });
   cleanups.push(() => window.removeEventListener("scroll", onHeaderScroll));
+
+  if (reducedMotion) {
+    root.classList.add("home2-reduced-motion");
+    root.querySelectorAll<HTMLElement>("[data-home2-load], [data-home2-motion], .home2-service-card, .home2-proof-card, .home2-project-tile, .home2-principle, .home2-editorial-image, .home2-final-grid")
+      .forEach((node) => node.classList.add("is-visible"));
+    return () => {
+      root.classList.remove("home2-reduced-motion");
+      cleanups.forEach((cleanup) => cleanup());
+    };
+  }
 
   home2MotionMatrix.forEach((rule) => {
     const nodes = Array.from(root.querySelectorAll<HTMLElement>(rule.selector));
@@ -183,13 +176,23 @@ export function initHome2Motion(root: HTMLElement) {
   const parallaxNodes = Array.from(root.querySelectorAll<HTMLElement>("[data-home2-parallax]"));
   if (parallaxNodes.length) {
     let frame = 0;
+    let geometry = parallaxNodes.map((node) => ({
+      node,
+      center: node.offsetTop + node.offsetHeight * 0.5,
+      amount: Number(node.dataset.home2Parallax ?? 18),
+    }));
+    const measureParallax = () => {
+      geometry = parallaxNodes.map((node) => ({
+        node,
+        center: node.offsetTop + node.offsetHeight * 0.5,
+        amount: Number(node.dataset.home2Parallax ?? 18),
+      }));
+    };
     const updateParallax = () => {
       frame = 0;
-      const viewportCenter = window.innerHeight * 0.5;
-      parallaxNodes.forEach((node) => {
-        const amount = Number(node.dataset.home2Parallax ?? 18);
-        const rect = node.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height * 0.5;
+      const viewportCenter = window.scrollY + window.innerHeight * 0.5;
+      geometry.forEach(({ node, center, amount }) => {
+        const elementCenter = center;
         const progress = (elementCenter - viewportCenter) / Math.max(window.innerHeight, 1);
         const offset = Math.max(-amount, Math.min(amount, -progress * amount * 1.8));
         node.style.setProperty("--home2-parallax-y", `${offset.toFixed(2)}px`);
@@ -199,12 +202,16 @@ export function initHome2Motion(root: HTMLElement) {
       if (frame) return;
       frame = window.requestAnimationFrame(updateParallax);
     };
+    const onResize = () => {
+      measureParallax();
+      onScroll();
+    };
     updateParallax();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     cleanups.push(() => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
       if (frame) window.cancelAnimationFrame(frame);
     });
   }

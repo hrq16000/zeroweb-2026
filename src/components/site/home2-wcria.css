@@ -1281,3 +1281,306 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* Convergence pass: preserve the Home2 composition while matching the
+   reference's editorial scale, density and chapter rhythm more closely. */
+.home2-nav-cta { min-height: 44px; }
+
+.home2-strategy,
+.home2-solutions-intro,
+.home2-projects,
+.home2-editorial { scroll-margin-top: 90px; }
+
+.home2-hero {
+  min-height: 720px;
+  max-height: 860px;
+  background: linear-gradient(138deg, #080217 0%, #130024 46%, #071127 100%);
+}
+
+.home2-hero-content {
+  width: min(900px, calc(100% - 40px));
+  padding-top: 34px;
+}
+
+.home2-hero h1 {
+  max-width: 880px;
+  margin-inline: auto;
+  font-size: clamp(4rem, 6.15vw, 6.55rem);
+  line-height: .94;
+}
+
+.home2-hero-subtitle {
+  max-width: 610px;
+  margin-top: 28px;
+}
+
+.home2-ribbon-a {
+  width: 118vw;
+  height: 72vw;
+  left: -61vw;
+  top: -43vw;
+  border-width: clamp(82px, 8vw, 136px);
+}
+
+.home2-ribbon-b {
+  width: 118vw;
+  height: 59vw;
+  right: -63vw;
+  top: -17vw;
+  border-width: clamp(74px, 7vw, 122px);
+}
+
+.home2-ribbon-c {
+  width: 120vw;
+  height: 51vw;
+  left: -25vw;
+  bottom: -39vw;
+  border-width: clamp(76px, 7.2vw, 126px);
+}
+
+.home2-slogan-strip {
+  min-height: 82px;
+  background: linear-gradient(90deg, #20002f 0%, #34208f 56%, #1645a8 100%);
+}
+
+.home2-slogan-strip strong {
+  font-size: clamp(1.35rem, 1.85vw, 1.85rem);
+}
+
+.home2-slogan-strip span { font-weight: 480; }
+
+.home2-strategy {
+  padding: 96px 0 104px;
+  background: #f7f7f8;
+}
+
+.home2-strategy-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(62px, 7vw, 104px);
+}
+
+.home2-device-stage { min-height: 455px; }
+.home2-device-card { border-radius: 6px; border-width: 4px; }
+.home2-device-phone { border-radius: 25px; }
+
+.home2-solutions-intro {
+  padding: 72px 0 24px;
+}
+
+.home2-solutions-heading > p:last-child { max-width: 560px; }
+
+.home2-services {
+  padding: 18px 0 92px;
+}
+
+.home2-service-grid {
+  gap: 0 72px;
+}
+
+.home2-service-card {
+  min-height: 258px;
+  padding: 34px 18px 30px;
+  border: 0;
+  border-top: 1px solid var(--h2-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home2-service-card:nth-child(-n + 2) { border-top-color: transparent; }
+
+.home2-service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(49,87,255,.28);
+  box-shadow: none;
+}
+
+.home2-service-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+}
+
+.home2-service-card h3 {
+  font-size: clamp(1.65rem, 2.15vw, 2.08rem);
+}
+
+.home2-service-card p {
+  max-width: 480px;
+  margin-top: 13px;
+}
+
+.home2-experience {
+  padding: 58px 0;
+  background: linear-gradient(105deg, #11021c 0%, #181146 52%, #182f77 100%);
+}
+
+.home2-experience-grid {
+  grid-template-columns: .9fr 1.1fr;
+  gap: 72px;
+}
+
+.home2-proof-grid { gap: 0; }
+
+.home2-proof-card {
+  min-height: 122px;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,.2);
+  border-left: 1px solid rgba(255,255,255,.2);
+  border-radius: 0;
+  background: transparent;
+}
+
+.home2-client-strip {
+  padding: 22px 0;
+}
+
+.home2-client-track:hover { animation-play-state: paused; }
+
+.home2-projects { padding-top: 76px; }
+.home2-projects-heading { margin-bottom: 46px; }
+
+.home2-project-gallery,
+.home2-project-tile { min-height: 540px; }
+
+.home2-project-tile + .home2-project-tile {
+  border-left: 1px solid rgba(255,255,255,.28);
+}
+
+.home2-project-tile img { transition-duration: .9s; }
+.home2-project-tile:hover img { transform: scale(1.03); }
+
+.home2-principles-section {
+  padding: 88px 0 94px;
+  background: #f7f7f8;
+}
+
+.home2-principles-layout {
+  grid-template-columns: .78fr 1.22fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.home2-principles { gap: 0; border-top: 1px solid var(--h2-line); }
+
+.home2-principle {
+  min-height: 210px;
+  padding: 26px 24px;
+  border: 0;
+  border-right: 1px solid var(--h2-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home2-principle:last-child { border-right: 0; }
+
+.home2-editorial-top {
+  min-height: 142px;
+  background: linear-gradient(90deg, #11134c 0%, #29217f 55%, #4c1e6b 100%);
+}
+
+.home2-editorial-card {
+  min-height: 420px;
+  padding: 32px;
+  background: #0a0d20;
+}
+
+.home2-editorial-image,
+.home2-editorial-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home2-editorial-image {
+  z-index: -2;
+  object-fit: cover;
+  filter: saturate(.86) contrast(1.06);
+  transition: transform .8s cubic-bezier(.22,1,.36,1), filter .5s ease;
+}
+
+.home2-editorial-shade {
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(4,8,23,.08) 24%, rgba(4,8,23,.92) 100%);
+}
+
+.home2-editorial-card::after,
+.home2-editorial-art { display: none; }
+
+.home2-editorial-card:hover .home2-editorial-image {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1.04);
+}
+
+.home2-editorial-card small,
+.home2-editorial-link { color: #fff; }
+
+.home2-newsletter-band { padding: 46px 0; }
+
+.home2-final-cta {
+  padding: 88px 0;
+  background: linear-gradient(115deg, #040817 0%, #090b27 55%, #120626 100%);
+}
+
+@media (max-width: 1040px) {
+  .home2-hero h1 { font-size: clamp(4rem, 8.5vw, 5.65rem); }
+  .home2-strategy-grid { grid-template-columns: 1fr; }
+  .home2-strategy-copy { max-width: 680px; }
+  .home2-service-grid { gap: 0 42px; }
+  .home2-project-gallery,
+  .home2-project-tile { min-height: 460px; }
+}
+
+@media (max-width: 840px) {
+  .home2-hero { max-height: 900px; }
+  .home2-services { padding-bottom: 72px; }
+  .home2-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 26px; }
+  .home2-service-card { min-height: 290px; padding-inline: 8px; }
+  .home2-project-gallery { grid-template-columns: repeat(3, 82vw); overflow-x: auto; scroll-snap-type: x mandatory; }
+  .home2-project-tile { min-height: 520px; scroll-snap-align: start; }
+  .home2-editorial-row { grid-template-columns: repeat(3, 82vw); overflow-x: auto; scroll-snap-type: x mandatory; }
+  .home2-editorial-card { min-height: 410px; scroll-snap-align: start; }
+}
+
+@media (max-width: 640px) {
+  .home2-hero { min-height: 760px; }
+  .home2-hero-content { padding-top: 30px; }
+  .home2-kicker { margin-bottom: 16px; }
+  .home2-hero h1 { font-size: clamp(3.25rem, 14.2vw, 4rem); line-height: .93; }
+  .home2-hero-subtitle { max-width: 340px; font-size: .91rem; line-height: 1.48; }
+  .home2-proofline { margin-top: 18px; }
+  .home2-hero-actions { width: 100%; margin-top: 22px; }
+  .home2-hero-actions a { min-width: 146px; }
+  .home2-slogan-strip { min-height: 82px; padding-inline: 24px; }
+  .home2-slogan-strip strong { max-width: 350px; font-size: 1.22rem; line-height: 1.25; }
+  .home2-slogan-strip span { display: block; }
+  .home2-strategy { padding: 66px 0 70px; }
+  .home2-device-stage { min-height: 345px; }
+  .home2-solutions-intro { padding: 56px 0 16px; }
+  .home2-solutions-heading > p:last-child { margin-top: 14px; }
+  .home2-services { padding: 8px 0 62px; }
+  .home2-service-grid { grid-template-columns: 1fr; }
+  .home2-service-card,
+  .home2-service-card:nth-child(-n + 2) { min-height: 224px; padding: 28px 4px 24px; border-top: 1px solid var(--h2-line); }
+  .home2-service-card:first-child { border-top-color: transparent; }
+  .home2-experience { padding: 58px 0; }
+  .home2-proof-card { min-height: 114px; }
+  .home2-projects { padding-top: 58px; }
+  .home2-project-gallery { grid-template-columns: repeat(3, 88vw); }
+  .home2-project-tile { min-height: 500px; }
+  .home2-principles-section { padding: 64px 0 70px; }
+  .home2-principles { grid-template-columns: 1fr; }
+  .home2-principle { min-height: auto; border-right: 0; border-bottom: 1px solid var(--h2-line); }
+  .home2-editorial-top { min-height: 160px; }
+  .home2-editorial-row { grid-template-columns: repeat(3, 88vw); }
+  .home2-editorial-card { min-height: 390px; }
+  .home2-final-cta { padding: 68px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home2-client-track { animation: none !important; transform: none !important; }
+  .home2-project-tile img,
+  .home2-editorial-image { transform: none !important; }
+}

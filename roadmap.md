@@ -56,3 +56,9 @@
 - Banco: FK com cascade + checks impedem estados impossíveis; 230 históricos seguem `UNRECOVERABLE_LEGACY`.
 - Canário real (`scripts/canary-lead-recoverability.mjs`): Careca's entrega por token sem pedir contato; Confeitaria Chyrley pede WhatsApp de retorno e salva como recuperável. Dados de teste removidos.
 - PENDENTE: aprovação para publicar a infraestrutura compartilhada nas ~90 páginas.
+
+## Home2 — convergência visual com referência (2026-09-12)
+- [x] Refinar composição e proporções somente em `/home2`
+- [x] Evoluir motion exclusivo e reduced-motion
+- [x] Validar 1440/768/390, navegador, testes e build
+- [x] Registrar skills e encerrar sem publicação

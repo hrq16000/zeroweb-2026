@@ -1,5 +1,17 @@
 # Skill changelog / usage log
 
+## 2026-09-12 — convergência visual isolada da Home2
+
+- **Tarefa:** aproximar composição, proporção, ritmo e motion da rota experimental
+  `/home2` à referência WCRIA, sem copiar marca, textos, imagens ou dados.
+- **Skills:** `0web-skill-router`, `0web-portfolio-art-direction`,
+  `0web-design-system`, motion acessível e `0web-ui-quality-gates`.
+- **Direção:** home institucional editorial e cinematográfica; hero tipográfico,
+  montagem assimétrica, serviços sem aparência SaaS, mídia full-bleed e capítulos
+  claros/escuros com motion contextual exclusivo.
+- **Proteções:** `/`, `/portfolio/:slug`, estilos globais, identidade congelada e
+  funis de clientes permaneceram fora do escopo; nenhuma dependência foi adicionada.
+
 ## 2026-09-09 — capas reais priorizadas por visita
 
 - **Tarefa:** continuar a substituição de capas provisórias usando a audiência
