@@ -4468,6 +4468,69 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_destination_proposals: {
+        Row: {
+          candidate_address: string | null
+          candidate_category: string | null
+          candidate_name: string | null
+          client_key: string
+          created_at: string
+          id: string
+          maps_url: string | null
+          match_strength: string
+          phone_digits: string
+          place_id: string | null
+          query: string | null
+          review_note: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          slug: string
+          source: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          candidate_address?: string | null
+          candidate_category?: string | null
+          candidate_name?: string | null
+          client_key: string
+          created_at?: string
+          id?: string
+          maps_url?: string | null
+          match_strength?: string
+          phone_digits: string
+          place_id?: string | null
+          query?: string | null
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          slug: string
+          source?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          candidate_address?: string | null
+          candidate_category?: string | null
+          candidate_name?: string | null
+          client_key?: string
+          created_at?: string
+          id?: string
+          maps_url?: string | null
+          match_strength?: string
+          phone_digits?: string
+          place_id?: string | null
+          query?: string | null
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          slug?: string
+          source?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       portfolio_destination_revisions: {
         Row: {
           client_key: string
