@@ -602,22 +602,18 @@ if (existsSync(keysPath)) {
   }
 }
 
-// Projeto novo nasce rodando pelo PortfolioBlueprintRenderer (legado intacto).
-const blueprintRegistryPath = resolve(root, "src/components/portfolio/blueprint/registry.ts");
-if (existsSync(blueprintRegistryPath)) {
-  const source = readFileSync(blueprintRegistryPath, "utf8");
+// Projeto novo entra no registry de COMPOSIÇÃO. O registry do Blueprint está
+// congelado nos três pilotos (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md §5).
+const compositionRegistryPath = resolve(root, "src/components/portfolio/composition/registry.ts");
+if (existsSync(compositionRegistryPath)) {
+  const source = readFileSync(compositionRegistryPath, "utf8");
   if (!source.includes(`"${slug}"`)) {
-    const patched = source
-      .replace(
-        /(export const blueprintModules[\s\S]*?= \{\n)/,
-        `$1  "${slug}": () => import("@/components/site/${componentName}"),\n`,
-      )
-      .replace(
-        /(export const blueprintPages[\s\S]*?= \{\n)/,
-        `$1  "${slug}": lazy(() =>\n    import("@/components/site/${componentName}").then((m) => ({ default: m.${componentName} })),\n  ),\n`,
-      );
-    if (!dryRun) writeFileSync(blueprintRegistryPath, patched, "utf8");
-    written.push("src/components/portfolio/blueprint/registry.ts");
+    const patched = source.replace(
+      /(export const compositionPages[\s\S]*?= \{\n)/,
+      `$1  "${slug}": lazy(() =>\n    import("@/components/site/${componentName}").then((m) => ({ default: m.${componentName} })),\n  ),\n`,
+    );
+    if (!dryRun) writeFileSync(compositionRegistryPath, patched, "utf8");
+    written.push("src/components/portfolio/composition/registry.ts");
   }
 }
 
