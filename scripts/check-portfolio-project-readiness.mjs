@@ -18,6 +18,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { evaluateProjectQuality } from "./check-portfolio-landing-quality.mjs";
 import { evaluateFunnelDestination } from "./lib/funnel-destination-gate.mjs";
+import {
+  COMPOSITION_CONTRACT_VERSION,
+  evaluateProjectUniqueness,
+} from "./portfolio-project-uniqueness.mjs";
 
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
