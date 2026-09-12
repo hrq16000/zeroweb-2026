@@ -30,6 +30,8 @@ for (const slug of slugs) {
     }
     await p.waitForTimeout(900);
   }
+  await p.screenshot({path:`/tmp/browser/canary/${slug}.png`});
+  console.log("BODY:", (await p.locator("body").innerText()).replace(/\s+/g," ").slice(0,600));
   console.log(slug, "recovery:", await p.locator("#portfolio-quiz-recovery").count(), "|", (await p.locator("div[role='dialog'] button:visible").allInnerTexts()).join(" / ").slice(0,140));
   await ctx.close();
 }
