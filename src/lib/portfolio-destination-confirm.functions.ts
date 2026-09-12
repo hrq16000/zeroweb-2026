@@ -34,7 +34,7 @@ export const confirmPortfolioDestination = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     await assertAdmin(context as never);
     const { confirmDestination } = await import("@/lib/portfolio-destination-confirm.server");
-    return confirmDestination(data, context.userId);
+    return confirmDestination(data as z.infer<typeof confirmSchema>, context.userId);
   });
 
 export const validatePortfolioDestination = createServerFn({ method: "POST" })
