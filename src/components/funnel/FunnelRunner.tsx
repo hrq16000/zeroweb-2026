@@ -9,9 +9,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight, ArrowLeft, Check, Loader2, Sparkles } from "lucide-react";
 import {
   submitFunnel,
+  attachFunnelRecoveryContact,
   type FunnelDefinition,
   type FunnelQuestion,
 } from "@/lib/dynamic-funnel.functions";
+import { normalizeRecoveryPhone } from "@/lib/lead-recoverability";
 import {
   createVisitorFunnelSession,
   updateVisitorFunnelSession,
