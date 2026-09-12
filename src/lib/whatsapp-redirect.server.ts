@@ -86,7 +86,10 @@ export function portfolioWhatsAppEnvName(clientKey?: string | null): string | nu
   const legacy =
     clientKey === "dyzpromo"
       ? "DYZ_PROMO_WHATSAPP_NUMBER"
-      : clientKey === "renata-beauty" || clientKey === "r-beauty"
+      : // Cada marca tem destino próprio. `r-beauty`/`r_beauty` NÃO herda mais o
+      // número da Renata Beauty: só passa a ter canal quando o titular
+      // confirmar e o segredo PORTFOLIO_WHATSAPP_R_BEAUTY for cadastrado.
+      clientKey === "renata-beauty"
         ? "RENATA_BEAUTY_WHATSAPP_NUMBER"
         : clientKey === "marido-de-aluguel"
           ? "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER"
