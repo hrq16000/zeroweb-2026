@@ -1,0 +1,352 @@
+.home2-personality-shell {
+  --home2-motion-easing: cubic-bezier(.2,.9,.2,1);
+  --home2-motion-duration: 720ms;
+  --home2-motion-delay: 0ms;
+  --home2-header-bg: rgba(4, 8, 24, .82);
+  --home2-line: rgba(116, 232, 250, .26);
+}
+
+/* Matrix-driven motion primitives. Content stays present in the DOM and only
+   receives visual transforms after hydration, with fail-open behavior in JS. */
+.home2-personality-shell .home2-motion {
+  transition-property: opacity, transform, filter, clip-path;
+  transition-duration: var(--home2-motion-duration);
+  transition-delay: var(--home2-motion-delay);
+  transition-timing-function: var(--home2-motion-easing);
+  will-change: opacity, transform, filter;
+}
+
+.home2-personality-shell .home2-motion-fade-up:not(.is-visible),
+.home2-personality-shell .home2-motion-slide-up:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+.home2-personality-shell .home2-motion-fade-down:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+}
+
+.home2-personality-shell .home2-motion-fade-left:not(.is-visible),
+.home2-personality-shell .home2-motion-slide-left:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(30px, 0, 0);
+}
+
+.home2-personality-shell .home2-motion-fade-right:not(.is-visible),
+.home2-personality-shell .home2-motion-slide-right:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+}
+
+.home2-personality-shell .home2-motion-scale-in:not(.is-visible),
+.home2-personality-shell .home2-motion-card-reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(.975);
+}
+
+.home2-personality-shell .home2-motion-pop:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0) scale(.93);
+}
+
+.home2-personality-shell .home2-motion-blur-in:not(.is-visible) {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translate3d(0, 12px, 0);
+}
+
+.home2-personality-shell .home2-motion-image-reveal:not(.is-visible),
+.home2-personality-shell .home2-motion-clip-reveal:not(.is-visible) {
+  opacity: .18;
+  clip-path: inset(0 0 100% 0 round 12px);
+  transform: scale(1.035);
+}
+
+.home2-personality-shell .home2-motion.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  clip-path: inset(0 0 0 0 round 0);
+}
+
+/* Header states and active section marker. */
+.home2-personality-shell .home2-header {
+  background: linear-gradient(180deg, rgba(3, 6, 21, .44), transparent);
+  transition: background-color 240ms ease, backdrop-filter 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.home2-personality-shell .home2-header.is-scrolled {
+  background: var(--home2-header-bg);
+  backdrop-filter: blur(18px) saturate(128%);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .18);
+}
+
+.home2-personality-shell .home2-nav > a[href^="#"] {
+  position: relative;
+}
+
+.home2-personality-shell .home2-nav > a[href^="#"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  background: linear-gradient(90deg, #7cecff, #6575ff 58%, #a55cee);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.home2-personality-shell[data-active-section="sobre"] .home2-nav a[href="#sobre"]::after,
+.home2-personality-shell[data-active-section="solucoes"] .home2-nav a[href="#solucoes"]::after,
+.home2-personality-shell[data-active-section="processo"] .home2-nav a[href="#processo"]::after,
+.home2-personality-shell[data-active-section="projetos"] .home2-nav a[href="#projetos"]::after,
+.home2-personality-shell[data-active-section="conteudo"] .home2-nav a[href="#conteudo"]::after {
+  transform: scaleX(1);
+}
+
+/* Split-line hero. The headline is still one semantic H1; spans only control
+   rhythm and animation. */
+.home2-personality-shell .home2-hero-line {
+  display: block;
+}
+
+.home2-personality-shell .home2-hero-line:nth-child(2) {
+  margin-left: clamp(18px, 2.6vw, 54px);
+}
+
+.home2-personality-shell .home2-hero-line:nth-child(3) {
+  margin-left: clamp(4px, 1.2vw, 22px);
+}
+
+.home2-personality-shell .home2-hero-actions > a,
+.home2-personality-shell .home2-hero-actions > button {
+  position: relative;
+  overflow: hidden;
+}
+
+.home2-personality-shell .home2-hero-actions > a::after,
+.home2-personality-shell .home2-hero-actions > button::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.2) 46%, transparent 72%);
+  transform: translateX(-125%);
+  transition: transform 520ms cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+
+.home2-personality-shell .home2-hero-actions > a:hover::after,
+.home2-personality-shell .home2-hero-actions > button:hover::after {
+  transform: translateX(125%);
+}
+
+/* Six-stage process: editorial timeline rather than six repeated cards. */
+.home2-personality-shell .home2-process {
+  position: relative;
+  overflow: clip;
+  padding: 118px 0 126px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(84, 222, 248, .12), transparent 24%),
+    radial-gradient(circle at 87% 72%, rgba(122, 67, 230, .2), transparent 34%),
+    linear-gradient(116deg, #030615 0%, #0a153a 52%, #171443 100%);
+}
+
+.home2-personality-shell .home2-process::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+}
+
+.home2-personality-shell .home2-process-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(64px, 8vw, 128px);
+}
+
+.home2-personality-shell .home2-process-intro {
+  align-self: start;
+  position: sticky;
+  top: 128px;
+}
+
+.home2-personality-shell .home2-process-intro .home2-eyebrow {
+  margin: 0 0 18px;
+  color: #7be9fb;
+}
+
+.home2-personality-shell .home2-process-intro h2 {
+  max-width: 520px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 4.7vw, 5.2rem);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.home2-personality-shell .home2-process-intro h2 strong {
+  color: #83eaff;
+}
+
+.home2-personality-shell .home2-process-intro > p:last-child {
+  max-width: 470px;
+  margin: 24px 0 0;
+  color: rgba(255,255,255,.68);
+  line-height: 1.72;
+}
+
+.home2-personality-shell .home2-process-list {
+  position: relative;
+  display: grid;
+}
+
+.home2-personality-shell .home2-process-list::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 28px;
+  bottom: 28px;
+  width: 1px;
+  background: linear-gradient(180deg, #76e9fb 0%, rgba(95,118,255,.62) 54%, rgba(165,84,238,.18) 100%);
+  box-shadow: 0 0 18px rgba(84,222,248,.22);
+}
+
+.home2-personality-shell .home2-process-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: start;
+  min-height: 132px;
+  padding: 24px 0 28px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.home2-personality-shell .home2-process-step:last-child {
+  border-bottom: 0;
+}
+
+.home2-personality-shell .home2-process-index {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  color: #061129;
+  background: linear-gradient(145deg, #89efff, #7c8dff);
+  box-shadow: 0 10px 34px rgba(77, 125, 255, .24);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .06em;
+}
+
+.home2-personality-shell .home2-process-copy h3 {
+  margin: 2px 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.2vw, 2.2rem);
+  letter-spacing: -.035em;
+}
+
+.home2-personality-shell .home2-process-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255,255,255,.64);
+  line-height: 1.65;
+}
+
+.home2-personality-shell .home2-process-arrow {
+  padding-top: 10px;
+  color: rgba(120, 234, 252, .5);
+  font-size: 1.4rem;
+}
+
+/* Verified counter gets a visual cue without implying any unverified KPI. */
+.home2-personality-shell [data-home2-count] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Portfolio hover depth stays subtle and is pointer-only. */
+@media (hover: hover) and (pointer: fine) {
+  .home2-personality-shell .home2-project-tile {
+    transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms ease;
+  }
+
+  .home2-personality-shell .home2-project-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 64px rgba(7, 16, 48, .18);
+  }
+}
+
+@media (max-width: 1040px) {
+  .home2-personality-shell .home2-process-grid {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .home2-personality-shell .home2-process-intro {
+    position: static;
+  }
+}
+
+@media (max-width: 840px) {
+  .home2-personality-shell .home2-hero-line:nth-child(2),
+  .home2-personality-shell .home2-hero-line:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .home2-personality-shell .home2-process {
+    padding: 88px 0 94px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home2-personality-shell .home2-process-step {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 16px;
+    min-height: 118px;
+  }
+
+  .home2-personality-shell .home2-process-index {
+    width: 50px;
+    height: 50px;
+  }
+
+  .home2-personality-shell .home2-process-list::before {
+    left: 24px;
+  }
+
+  .home2-personality-shell .home2-process-arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home2-personality-shell .home2-motion,
+  .home2-personality-shell .home2-hero-actions > a::after,
+  .home2-personality-shell .home2-hero-actions > button::after,
+  .home2-personality-shell .home2-project-tile {
+    transition-duration: .001ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .home2-personality-shell .home2-motion {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+}
