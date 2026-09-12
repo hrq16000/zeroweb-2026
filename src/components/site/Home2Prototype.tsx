@@ -58,16 +58,16 @@ const services = [
   },
   {
     icon: Printer,
-    title: "Design gráfico e web",
+    title: "Design gráfico e impressos",
     description:
-      "Artes, materiais de campanha, comunicação visual e peças digitais com linguagem consistente.",
+      "Artes, papelaria, comunicação visual e peças digitais com linguagem consistente.",
     to: "/servicos",
   },
   {
-    icon: Printer,
-    title: "Impressos e papelaria",
+    icon: Shirt,
+    title: "Materiais personalizados",
     description:
-      "Materiais físicos, papelaria personalizada e aplicações que mantêm a marca coerente fora da tela.",
+      "Uniformes e materiais físicos que mantêm a marca coerente fora da tela.",
     to: "/servicos",
   },
   {
@@ -160,13 +160,17 @@ function Home2Header({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen
         </button>
       </div>
 
-      <div className={`home2-mobile-nav ${menuOpen ? "is-open" : ""}`} aria-hidden={!menuOpen}>
+      <nav
+        className={`home2-mobile-nav ${menuOpen ? "is-open" : ""}`}
+        aria-label="Navegação mobile da Home2"
+        aria-hidden={!menuOpen}
+      >
         <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
         <a href="#solucoes" onClick={() => setMenuOpen(false)}>Soluções</a>
         <a href="#projetos" onClick={() => setMenuOpen(false)}>Portfólio</a>
         <a href="#conteudo" onClick={() => setMenuOpen(false)}>Conteúdo</a>
         <Link to="/contato" onClick={() => setMenuOpen(false)}>Fale conosco</Link>
-      </div>
+      </nav>
     </header>
   );
 }
@@ -242,7 +246,7 @@ export function Home2Prototype() {
         </section>
 
         <div className="home2-slogan-strip" aria-label="Posicionamento 0WEB">
-          <strong>Criamos. Recriamos. Atualizamos.</strong>
+          <strong>Criamos. Recriamos. Atualizamos. <span>Conectamos o físico ao digital.</span></strong>
         </div>
 
         <section id="sobre" className="home2-strategy" aria-labelledby="home2-strategy-title">
@@ -440,7 +444,7 @@ export function Home2Prototype() {
             <div className="home2-principles">
               {principles.map((principle) => (
                 <article key={principle.title} className="home2-principle">
-                  <span className="home2-principle-mark">✦</span>
+                  <span className="home2-principle-mark" aria-hidden="true">✦</span>
                   <p>{principle.description}</p>
                   <strong>{principle.title}</strong>
                 </article>
@@ -456,22 +460,34 @@ export function Home2Prototype() {
           </div>
 
           <div className="home2-editorial-row">
-            {editorialLinks.map((article) => (
+            {editorialLinks.map((article, index) => {
+              const project = featuredProjects[index + 3] ?? featuredProjects[index];
+              return (
               <Link
                 key={article.title}
                 to={article.to}
                 className={`home2-editorial-card home2-editorial-${article.tone}`}
               >
-                <span className="home2-editorial-art" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </span>
+                {project && (
+                  <PortfolioCover
+                    clientKey={project.clientKey}
+                    slug={project.slug}
+                    title={project.title}
+                    image={project.image}
+                    fallbackImage={project.fallbackImage}
+                    className="home2-editorial-image"
+                    width={900}
+                    height={650}
+                    sizes="(max-width: 840px) 100vw, 33vw"
+                  />
+                )}
+                <span className="home2-editorial-shade" aria-hidden="true" />
                 <small>{article.label}</small>
                 <strong>{article.title}</strong>
                 <span className="home2-editorial-link">Ler conteúdo <ArrowRight size={15} aria-hidden="true" /></span>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </section>
 
