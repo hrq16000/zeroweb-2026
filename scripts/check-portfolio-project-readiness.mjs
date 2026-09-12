@@ -199,6 +199,13 @@ function evaluate(slug, manifest) {
   checks.funnelTypeDeclared = Boolean(client?.funnelType);
   if (!checks.funnelTypeDeclared) blockers.push("funnelType não declarado (orçamento, pedido, agendamento, diagnóstico, reserva…)");
 
+  // --- FUNNEL_DESTINATION_GATE (projeto novo não chega a READY/PUBLISH só com protocolo)
+  const destination = evaluateFunnelDestination(slug, { clients });
+  checks.funnelDestinationGate = destination.status !== "FAIL";
+  blockers.push(...destination.blockers);
+  warnings.push(...destination.warnings);
+
+
   // --- direção visual consciente: scaffold não pode chegar a ready
   checks.creativeDirectionDone = !/CREATIVE_BRIEF_REQUIRED/.test(componentSource);
   if (!checks.creativeDirectionDone) blockers.push("workbench de scaffold ainda presente (direção criativa não definida)");
