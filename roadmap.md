@@ -1,70 +1,8 @@
-# Roadmap — trabalhos ativos
+# Roadmap
 
-## P0 Careca's — contato e mídia
-- [x] Remover telefone clicável e confirmar todos os CTAs no funil próprio
-- [x] Remover a placa da landing e aplicar mídia real do enrichment com atribuição
-- [x] Endurecer CONTACT_FUNNEL_GATE e MEDIA_PURPOSE_GATE com regressões
-- [x] Validar 390px, 768px, desktop, build e testes
-- [ ] Publicar e executar smoke em produção
-
-# Migração S&S Construções → /portfolio/sscons (issue #60)
-
-## Concluído
-- [x] Assets: 8 originais preservados em `public/images/sscons/` + derivados (webp, capa, social, logo BRAND_COMPOSITION)
-- [x] Componente isolado `src/components/site/SsConsPage.tsx` (hero, serviços, galeria + lightbox, institucional, contato/funil, rodapé)
-- [x] Rota compartilhada: lazy import, branch, head/JSON-LD
-- [x] Registros canônicos (clients, catalog, assets, keys, registry, share-copy, funnel-context, motion, cover-plan/review, brand-review, global-config)
-- [x] Arquivos gerados (quiz-configs, admin-seed, cover-status, experience-levels)
-- [x] Migration `funnel-sscons` (`supabase/migrations/20260906045759_*.sql`)
-- [x] Testes focados (`tests/portfolio/sscons-migration.test.ts`) + inventário 68→69
-- [x] Gates estáticos, originality, experience, privacy, typecheck
-- [x] QA em browser (1440/390/reduced-motion, lightbox teclado/ESC, CTA)
-- [x] Relatório `docs/reports/PORTFOLIO-SSCONS-MIGRATION-2026-09-06.md` + `docs/skills/CHANGELOG.md`
-
-## Pronto para a próxima sessão
-- [ ] Confirmar build + `validate:client-privacy` sobre `dist/` no workflow `portfolio-gates.yml` (PR da branch de edição, mencionando #60)
-- [ ] Smoke em produção de `/portfolio/sscons` após publicação (200, OG, JSON-LD, funil)
-
-## Pendências externas
-- Número oficial de WhatsApp da S&S (estado `NOT_CONFIGURED` até recebimento)
-- Depoimentos só com fonte auditável (não migrados)
-- Direitos das fotos do hero (pessoas identificáveis) — confirmar com o cliente ou substituir por material oficial
-## Capas autorais — lote prioritário
-- [x] Corrigir a composição vazia da capa Route 66 com pastel e café
-- [x] Registrar focal point e fonte dedicada para Route 66, Pinturas Nunes, BTB, Easy Clean e Salão da Márcia
-- [x] Validar capas, originalidade e fronteiras
-- [x] Validar testes e build final
-- [x] Publicação agendada após todos os gates passarem
-
-## Capas reais — prioridade por visitas
-- [x] Cruzar pendências editoriais com `portfolio_view` dos últimos 90 dias
-- [x] Substituir a composição provisória da Route 66 pela foto real do interior
-- [x] Criar capa editorial da Estrutura Nacional com a foto real tratada da sede
-- [ ] Continuar somente quando houver foto oficial verificável e segura para cada cliente pendente
-
-
-## Destinos de funil — pipeline contínua (2026-09-12)
-- [x] `scripts/resolve-destination-wave.ts`: rotina única (destino → evidência local → SerpApi cacheada → classificação → livro-razão)
-- [x] 9 CONFIGURED_UNVERIFIED reprocessados: 1 VERIFIED (paraiso-do-hot-dog), 8 INSUFFICIENT_EVIDENCE
-- [x] Filtro "com conclusões e sem entrega" no painel de destinos
-- [ ] Onda seguinte de P0 (39) — depende de número operacional informado pelo cliente
-- [ ] estrutura-nacional: titularidade confirmada, mas destino é telefone fixo (pedir celular)
-
-## P0.1 — Garantia de entrega (pré-publicação) — validado 2026-09-12
-- Contato de retorno completo fica só em `dynamic_form_leads.contact_phone`; ledger não guarda PII.
-- Painel lista apenas máscara; número completo exige ação administrativa auditada (`revealLeadRecoveryContact`).
-- Banco: FK com cascade + checks impedem estados impossíveis; 230 históricos seguem `UNRECOVERABLE_LEGACY`.
-- Canário real (`scripts/canary-lead-recoverability.mjs`): Careca's entrega por token sem pedir contato; Confeitaria Chyrley pede WhatsApp de retorno e salva como recuperável. Dados de teste removidos.
-- PENDENTE: aprovação para publicar a infraestrutura compartilhada nas ~90 páginas.
-
-## Home2 — convergência visual com referência (2026-09-12)
-- [x] Refinar composição e proporções somente em `/home2`
-- [x] Evoluir motion exclusivo e reduced-motion
-- [x] Validar 1440/768/390, navegador, testes e build
-- [x] Registrar skills e encerrar sem publicação
-
-## Home2 — vida visual e motion · rodada 2 (2026-09-12)
-- [x] Corrigir mídia de projetos com motion fail-open
-- [x] Substituir mídia editorial por capas reais de artigos
-- [x] Reutilizar CTA flutuante oficial e enriquecer motion contextual
-- [x] Validar runtime 1440/768/390/reduced, testes e build
+- [ ] Rodada 1: corrigir listagem de projetos, consolidar qualidade, publicação unitária e menu de contatos
+- [ ] Rodada 2: revisar Mestre dos Serviços no Blueprint; bloquear publicação sem destino próprio comprovado
+- [ ] Rodada 3: criar landing de captação factual com três entradas e rastreamento por marca
+- [ ] Rodada 4: reavaliar propostas existentes e confirmar somente vínculos comprovados
+- [ ] Rodada 5: criar tela segura de geração e download de imagens
+- [ ] Executar gates, testes visuais e publicar alterações aprovadas uma por vez
