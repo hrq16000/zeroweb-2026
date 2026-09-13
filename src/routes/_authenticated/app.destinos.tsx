@@ -164,6 +164,21 @@ function DestinationsReviewPage() {
           </button>
         ))}
         <label className="ml-auto flex min-h-11 items-center gap-2 rounded-md border border-input px-3 text-sm">
+          <span className="text-muted-foreground">Cidade</span>
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="bg-transparent outline-none"
+          >
+            <option value="ALL">Todas</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="flex min-h-11 items-center gap-2 rounded-md border border-input px-3 text-sm">
           <Search className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <span className="sr-only">Buscar por cliente, slug ou nome</span>
           <input
