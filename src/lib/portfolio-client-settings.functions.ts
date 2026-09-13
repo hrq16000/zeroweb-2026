@@ -35,6 +35,7 @@ const EDITABLE = [
   "seo_keywords",
   "canonical_url",
   "social_image_url",
+  "seo_schema",
   "funnel_recipient",
   "funnel_enabled",
   "published",
@@ -54,6 +55,24 @@ const upsertSchema = z.object({
   seo_keywords: z.string().trim().max(400).optional(),
   canonical_url: z.string().trim().max(300).optional(),
   social_image_url: z.string().trim().max(300).optional(),
+  /**
+   * JSON-LD da landing (texto JSON). Vazio limpa o schema administrado e a
+   * página volta ao schema definido em código.
+   */
+  seo_schema: z
+    .string()
+    .trim()
+    .max(20000)
+    .optional()
+    .refine((value) => {
+      if (!value) return true;
+      try {
+        const parsed = JSON.parse(value);
+        return Boolean(parsed) && typeof parsed === "object";
+      } catch {
+        return false;
+      }
+    }, "Schema precisa ser um JSON válido (objeto ou lista)."),
   /** Número/destinatário do funil. Nunca é devolvido em texto puro ao cliente. */
   funnel_recipient: z.string().trim().max(60).optional(),
   funnel_enabled: z.boolean().optional(),
