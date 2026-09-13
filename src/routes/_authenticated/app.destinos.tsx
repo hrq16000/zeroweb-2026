@@ -46,6 +46,7 @@ function DestinationsReviewPage() {
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<Filter>("ALL");
   const [term, setTerm] = useState("");
+  const [city, setCity] = useState<string>("ALL");
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -77,19 +78,29 @@ function DestinationsReviewPage() {
     };
   }, [rows]);
 
+  const cities = useMemo(
+    () =>
+      [...new Set(rows.map((r) => r.city).filter((c): c is string => Boolean(c)))].sort((a, b) =>
+        a.localeCompare(b),
+      ),
+    [rows],
+  );
+
   const visible = useMemo(() => {
     const q = term.trim().toLowerCase();
     return rows
       .filter((r) => matchesFilter(r, filter))
+      .filter((r) => city === "ALL" || r.city === city)
       .filter(
         (r) =>
           !q ||
           r.slug.toLowerCase().includes(q) ||
           (r.clientKey ?? "").toLowerCase().includes(q) ||
+          (r.city ?? "").toLowerCase().includes(q) ||
           r.projectName.toLowerCase().includes(q),
       )
       .sort((a, b) => (a.clientKey ?? a.slug).localeCompare(b.clientKey ?? b.slug));
-  }, [rows, filter, term]);
+  }, [rows, filter, term, city]);
 
   return (
     <div className="p-6 lg:p-8">
