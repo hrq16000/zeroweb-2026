@@ -1,0 +1,2 @@
+ALTER TABLE public.portfolio_client_settings ADD COLUMN IF NOT EXISTS seo_schema jsonb;
+COMMENT ON COLUMN public.portfolio_client_settings.seo_schema IS 'JSON-LD administrável da landing; sanitizado no runtime antes de ir ao HTML.';

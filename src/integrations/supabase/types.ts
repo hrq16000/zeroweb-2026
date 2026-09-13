@@ -4336,6 +4336,7 @@ export type Database = {
           segment: string
           seo_description: string
           seo_keywords: string
+          seo_schema: Json | null
           seo_title: string
           services: Json
           share_copy: string
@@ -4380,6 +4381,7 @@ export type Database = {
           segment?: string
           seo_description?: string
           seo_keywords?: string
+          seo_schema?: Json | null
           seo_title?: string
           services?: Json
           share_copy?: string
@@ -4424,6 +4426,7 @@ export type Database = {
           segment?: string
           seo_description?: string
           seo_keywords?: string
+          seo_schema?: Json | null
           seo_title?: string
           services?: Json
           share_copy?: string
