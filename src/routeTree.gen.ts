@@ -185,6 +185,7 @@ import { Route as AuthenticatedAppProfileRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAppProjectsRouteImport } from './routes/_authenticated/app.projects'
 import { Route as AuthenticatedAppRankingLocalRouteImport } from './routes/_authenticated/app.ranking-local'
 import { Route as AuthenticatedAppReportsRouteImport } from './routes/_authenticated/app.reports'
+import { Route as AuthenticatedAppResultadosRouteImport } from './routes/_authenticated/app.resultados'
 import { Route as AuthenticatedAppSeoRouteImport } from './routes/_authenticated/app.seo'
 import { Route as AuthenticatedAppSeo404sRouteImport } from './routes/_authenticated/app.seo-404s'
 import { Route as AuthenticatedAppSeoAuditoriaRouteImport } from './routes/_authenticated/app.seo-auditoria'
@@ -1173,6 +1174,12 @@ const AuthenticatedAppReportsRoute = AuthenticatedAppReportsRouteImport.update({
   path: '/reports',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppResultadosRoute =
+  AuthenticatedAppResultadosRouteImport.update({
+    id: '/resultados',
+    path: '/resultados',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppSeoRoute = AuthenticatedAppSeoRouteImport.update({
   id: '/seo',
   path: '/seo',
@@ -1724,6 +1731,7 @@ export interface FileRoutesByFullPath {
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
+  '/app/resultados': typeof AuthenticatedAppResultadosRoute
   '/app/seo': typeof AuthenticatedAppSeoRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
   '/app/seo-auditoria': typeof AuthenticatedAppSeoAuditoriaRoute
@@ -1962,6 +1970,7 @@ export interface FileRoutesByTo {
   '/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
   '/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/app/reports': typeof AuthenticatedAppReportsRoute
+  '/app/resultados': typeof AuthenticatedAppResultadosRoute
   '/app/seo': typeof AuthenticatedAppSeoRoute
   '/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
   '/app/seo-auditoria': typeof AuthenticatedAppSeoAuditoriaRoute
@@ -2206,6 +2215,7 @@ export interface FileRoutesById {
   '/_authenticated/app/projects': typeof AuthenticatedAppProjectsRouteWithChildren
   '/_authenticated/app/ranking-local': typeof AuthenticatedAppRankingLocalRoute
   '/_authenticated/app/reports': typeof AuthenticatedAppReportsRoute
+  '/_authenticated/app/resultados': typeof AuthenticatedAppResultadosRoute
   '/_authenticated/app/seo': typeof AuthenticatedAppSeoRoute
   '/_authenticated/app/seo-404s': typeof AuthenticatedAppSeo404sRoute
   '/_authenticated/app/seo-auditoria': typeof AuthenticatedAppSeoAuditoriaRoute
@@ -2450,6 +2460,7 @@ export interface FileRouteTypes {
     | '/app/projects'
     | '/app/ranking-local'
     | '/app/reports'
+    | '/app/resultados'
     | '/app/seo'
     | '/app/seo-404s'
     | '/app/seo-auditoria'
@@ -2688,6 +2699,7 @@ export interface FileRouteTypes {
     | '/app/projects'
     | '/app/ranking-local'
     | '/app/reports'
+    | '/app/resultados'
     | '/app/seo'
     | '/app/seo-404s'
     | '/app/seo-auditoria'
@@ -2931,6 +2943,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/projects'
     | '/_authenticated/app/ranking-local'
     | '/_authenticated/app/reports'
+    | '/_authenticated/app/resultados'
     | '/_authenticated/app/seo'
     | '/_authenticated/app/seo-404s'
     | '/_authenticated/app/seo-auditoria'
@@ -4383,6 +4396,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppReportsRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/resultados': {
+      id: '/_authenticated/app/resultados'
+      path: '/resultados'
+      fullPath: '/app/resultados'
+      preLoaderRoute: typeof AuthenticatedAppResultadosRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/seo': {
       id: '/_authenticated/app/seo'
       path: '/seo'
@@ -4994,6 +5014,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppProjectsRoute: typeof AuthenticatedAppProjectsRouteWithChildren
   AuthenticatedAppRankingLocalRoute: typeof AuthenticatedAppRankingLocalRoute
   AuthenticatedAppReportsRoute: typeof AuthenticatedAppReportsRoute
+  AuthenticatedAppResultadosRoute: typeof AuthenticatedAppResultadosRoute
   AuthenticatedAppSeoRoute: typeof AuthenticatedAppSeoRoute
   AuthenticatedAppSeo404sRoute: typeof AuthenticatedAppSeo404sRoute
   AuthenticatedAppSeoAuditoriaRoute: typeof AuthenticatedAppSeoAuditoriaRoute
@@ -5064,6 +5085,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppProjectsRoute: AuthenticatedAppProjectsRouteWithChildren,
   AuthenticatedAppRankingLocalRoute: AuthenticatedAppRankingLocalRoute,
   AuthenticatedAppReportsRoute: AuthenticatedAppReportsRoute,
+  AuthenticatedAppResultadosRoute: AuthenticatedAppResultadosRoute,
   AuthenticatedAppSeoRoute: AuthenticatedAppSeoRoute,
   AuthenticatedAppSeo404sRoute: AuthenticatedAppSeo404sRoute,
   AuthenticatedAppSeoAuditoriaRoute: AuthenticatedAppSeoAuditoriaRoute,

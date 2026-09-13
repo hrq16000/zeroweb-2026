@@ -70,6 +70,7 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/leads-clientes", icon: Inbox, label: "Leads de clientes" },
   { to: "/app/leads/marcas", icon: Inbox, label: "Contatos por marca" },
   { to: "/app/leads/portfolio", icon: Inbox, label: "Leads de captação do portfólio" },
+  { to: "/app/resultados", icon: BarChart3, label: "Resultados por marca" },
   { to: "/app/atendimento", icon: Inbox, label: "Atendimento por cidade" },
   { to: "/app/crm-planilha", icon: Inbox, label: "CRM na planilha" },
   { to: "/app/paginas-locais", icon: MapPin, label: "Páginas locais" },
