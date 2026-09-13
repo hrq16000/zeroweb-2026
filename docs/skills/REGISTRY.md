@@ -11,7 +11,7 @@ O catálogo é dinâmico: antes de tarefas substanciais, rode
 `.agents/skills/0web-skill-discovery/SKILL.md` para buscar, ranquear e revisar
 skills ainda não listadas aqui.
 
-Última revisão: 2026-09-06.
+Última revisão: 2026-09-13.
 
 ## Locais (fonte de verdade)
 
@@ -19,17 +19,22 @@ skills ainda não listadas aqui.
 |---|---|---|---|---|---|---|---|
 | `0web-skill-router` | `.agents/skills/0web-skill-router` | APPROVED_GLOBAL | orquestração | qualquer tarefa não trivial | autoral 0WEB | interna | N/A |
 | `0web-skill-discovery` | `.agents/skills/0web-skill-discovery` | APPROVED_GLOBAL | descoberta | tarefa substancial, nova skill | autoral 0WEB | interna | N/A |
+| `0web-experience-design-max` | `.agents/skills/0web-experience-design-max` | APPROVED_GLOBAL | experience design / UI UX / motion | toda UI material, landing, portfolio, redesign | autoral 0WEB com princípios revisados de fontes externas | interna | sem scripts externos |
 | `0web-portfolio-art-direction` | `.agents/skills/0web-portfolio-art-direction` | APPROVED_GLOBAL | direção criativa/anti-template | nova landing, novo portfolio, redesign material | autoral 0WEB; destila práticas de frontend-design/landing design | interna | N/A |
 | `0web-design-system` | `.agents/skills/0web-design-system` | APPROVED_GLOBAL | design-engineering | nova página, redesign, componente | autoral 0WEB | interna | N/A |
 | `0web-ui-quality-gates` | `.agents/skills/0web-ui-quality-gates` | APPROVED_GLOBAL | QA/a11y/perf | antes de concluir UI | autoral 0WEB | interna | N/A |
 | Apple HIG design review | `.design-rules/` | REFERENCE_ONLY | acessibilidade/interação | revisão de UI, mobile, modais, motion | Apple HIG (adaptado) | referência textual | sem scripts executáveis |
 
-Nenhuma skill local executa scripts, rede ou lê segredos.
+Nenhuma skill local executa scripts externos, rede ou lê segredos.
 
 ## Externas avaliadas
 
 | Skill / repo | Status | Decisão |
 |---|---|---|
+| `nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900085f1bc3b263721f8ba025e2` | APPROVED_GLOBAL (princípios/design intelligence) | MIT. O `SKILL.md` é forte em a11y, touch, performance, layout, tipografia, motion, forms e stack guidance. O repositório amplo contém scripts/subprocessos e integrações auxiliares; portanto a distribuição completa não é executada automaticamente. Os princípios revisados foram internalizados em `0web-experience-design-max`. |
+| Dexa Experience Design | APPROVED_GLOBAL (processo/repertório) | Adotado como referência de processo integrado: estratégia digital, UX/UI, websites, produto, design system, motion e Design Ops. Não copiar layout, marca ou assets da agência. |
+| LobeHub Skills Marketplace / `@lobehub/market-cli` | APPROVED_GLOBAL (discovery) | Fonte obrigatória de descoberta complementar quando a tarefa substancial pedir skill ausente. Instalação somente após revisão de `SKILL.md`, scripts, dependências, licença e fonte original. Nunca no build/deploy. |
+| AwesomeSkill | APPROVED_GLOBAL (discovery) | Útil para localizar/comparar skills e sinalizar riscos, mas não substitui fonte original nem revisão local. A página de UI/UX Pro Max sinaliza risco médio por instruções de privilégio; por isso o 0WEB não executa install/OS mutation automaticamente. |
 | `anthropics/claude-plugins-official → frontend-design` | APPROVED_GLOBAL (princípios) | Fonte oficial e forte em direção visual distinta, tipografia e composição específica ao briefing. Usar como referência de decisão; não copiar uma estética pronta. |
 | `vercel-labs/skills → find-skills` | APPROVED_GLOBAL (descoberta) | Mecanismo oficial para procurar skills; descoberta não significa instalação automática. |
 | `vercel-labs/agent-skills` (`web-design-guidelines`, `react-best-practices`, `composition-patterns`) | APPROVED_CONDITIONAL | Bom complemento de engenharia/performance; preservar React 19 + TanStack + Tailwind v4 e revisar conflitos. |
@@ -44,19 +49,24 @@ Nenhuma skill local executa scripts, rede ou lê segredos.
 | `JacobLinCool/ux-discovery-interviewer-skill` | APPROVED_CONDITIONAL | Usar quando o problema de produto/usuário não estiver claro. |
 | `sergekostenchuk/ui-ux-agent-skill-system` | APPROVED_CONDITIONAL | Amplo e orientado a MCP/adaptadores; sem dependências automáticas. |
 | Figma (`Figma_AI_Bridge`, `agent-ready`, `Figma-Context-MCP-Skill`) | APPROVED_CONDITIONAL | Usar quando houver design/arquivo verificável e integração disponível. |
+| `lobehub-skills-search-engine` | SECURITY_REVIEW_REQUIRED | O identificador solicitado é reconhecido como candidato de discovery. Antes de instalar/usar código, localizar a fonte original e revisar arquivos. O 0WEB já incorpora LobeHub como fonte de descoberta sem depender desse pacote para build/runtime. |
 | `K-Dense-AI/scientific-agent-skills → skills/ui-ux-design` | UNAVAILABLE_UPSTREAM | Caminho não localizado; não instalar referência inexistente. |
 | ZIPs recebidos (`seo-content-writer`, `landing-page-scaffold`, `whatsapp-integration`, `ad-creative`, `design-system-builder`, `kimi-find-skills`) | QUARANTINED | Não auditados linha a linha; não executar. |
 
 ## Regra de composição
 
 O objetivo é **máximo de competências úteis**, não máximo de skills carregadas.
-Para landing/portfolio, a composição preferida cobre: direção criativa + CRO +
-UX/a11y + React/performance + motion + SEO + QA. Skills que repetem o mesmo
-`hero + features + testimonials + FAQ` são redundantes e devem ser rejeitadas.
+Para landing/portfolio, a composição preferida cobre: estratégia/experience design +
+direção criativa + CRO + UX/a11y + React/performance + motion + SEO/conteúdo +
+privacidade/segurança + QA. Skills que repetem o mesmo `hero + features + testimonials + FAQ`
+são redundantes e devem ser rejeitadas.
 
 ## Regra de instalação
 
-Nenhuma nova dependência externa deve ser instalada só para satisfazer uma
-skill. Instalação futura exige `SECURITY.md`, revisão de scripts/dependências,
-fonte original e commit SHA. Princípios seguros podem ser incorporados às
-skills autorais sem executar código de terceiros.
+Nenhuma nova dependência externa deve ser instalada só para satisfazer uma skill.
+Instalação futura exige `SECURITY.md`, revisão de scripts/dependências, fonte original
+e commit SHA. Princípios seguros podem ser incorporados às skills autorais sem executar
+código de terceiros.
+
+Marketplaces e CLIs de skills são ferramentas de preparação do agente, não dependências
+de produção e não devem participar de `prebuild`, `build` ou runtime do portal.

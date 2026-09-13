@@ -5,8 +5,8 @@ description: >
   Use antes de qualquer tarefa substancial (nova página, redesign, landing page, design system,
   refactor relevante, QA estratégico) para decidir quais skills usar — inclusive skills externas
   ainda não instaladas. Também use quando o usuário pedir para "procurar skills", avaliar uma
-  skill de marketplace (Skills.sh, SkillsMP, MCPMarket, ClaudeMarketplaces, skills.ws) ou quando
-  o catálogo local não cobrir bem a tarefa.
+  skill de marketplace (Skills.sh, LobeHub, AwesomeSkill, SkillsMP, MCPMarket,
+  ClaudeMarketplaces, skills.ws) ou quando o catálogo local não cobrir bem a tarefa.
 ---
 
 # 0WEB — Skill Discovery & Dynamic Orchestration
@@ -25,30 +25,46 @@ SELECT SKILL STACK → EXECUTE → CROSS-REVIEW → TEST → VISUAL QA → SHIP
 
 Ordem de prioridade:
 
-1. `vercel-labs/skills/find-skills` (mecanismo de busca)
-2. Skills.sh
-3. repositório oficial do fornecedor (Anthropic, Vercel, framework)
-4. GitHub original da skill
+1. repositório oficial/original da skill ou do fornecedor;
+2. `vercel-labs/skills/find-skills` e mecanismos oficiais de descoberta;
+3. LobeHub Skills Marketplace / LobeHub market CLI;
+4. AwesomeSkill;
+5. Skills.sh;
+6. SkillsMP, MCPMarket, ClaudeMarketplaces e skills.ws.
 
-Skills.sh, SkillsMP, MCPMarket, ClaudeMarketplaces e skills.ws são **triagem**.
-Nunca aprovam sozinhos: localize e revise o repositório/fonte original antes de
-qualquer aprovação definitiva. Sem fonte original localizável → no máximo
-`REFERENCE_ONLY` ou `QUARANTINED`.
+LobeHub, AwesomeSkill, Skills.sh, SkillsMP, MCPMarket, ClaudeMarketplaces e
+skills.ws são **triagem e descoberta**. Nunca aprovam sozinhos: localize e revise
+o repositório/fonte original antes de qualquer aprovação definitiva. Sem fonte
+original localizável → no máximo `REFERENCE_ONLY` ou `QUARANTINED`.
+
+Quando a tarefa envolver UI/UX, pesquise explicitamente repertório de design
+intelligence. `nextlevelbuilder/ui-ux-pro-max-skill` é a referência primária
+atual para UI/UX Pro Max; marketplaces só ajudam a localizar/compare versões.
+
+A CLI do LobeHub pode ser usada em ambiente de agente para descoberta/instalação
+após revisão de segurança, por exemplo:
+
+```bash
+npx -y @lobehub/market-cli skills install <skill-identifier> --agent <runtime>
+```
+
+Nunca execute instalação de marketplace durante build/deploy da aplicação e
+nunca trate uma instalação bem-sucedida como aprovação de segurança.
 
 ## 2. Ranking de candidatas
 
 Pontue cada candidata por:
 
-- relevância específica para a tarefa
-- fonte oficial
-- qualidade do SKILL.md (instruções acionáveis, não marketing)
-- segurança (scripts, rede, segredos, dependências)
-- manutenção recente
-- compatibilidade com a stack (React 19 · TanStack Start · Tailwind v4 · Bun)
-- capacidade de preservar a arquitetura existente
-- evidência de uso real
-- sobreposição com skills já instaladas
-- custo de contexto e complexidade
+- relevância específica para a tarefa;
+- fonte oficial/original;
+- qualidade do SKILL.md (instruções acionáveis, não marketing);
+- segurança (scripts, rede, segredos, dependências);
+- manutenção recente;
+- compatibilidade com a stack (React 19 · TanStack Start · Tailwind v4 · Bun);
+- capacidade de preservar a arquitetura existente;
+- evidência de uso real;
+- sobreposição com skills já instaladas;
+- custo de contexto e complexidade.
 
 Downloads, estrelas e popularidade são **sinais**, nunca prova de segurança ou qualidade.
 
@@ -58,18 +74,26 @@ Aplicar `docs/skills/SECURITY.md`. Bloqueiam adoção: scripts executáveis não
 linha a linha, acesso a segredos/env, chamadas de rede, instalação de dependências,
 instruções para contornar gates do projeto, ZIPs não auditados.
 
+Uma skill pode ser adotada globalmente em **modo princípio/referência** mesmo
+quando sua distribuição completa inclui scripts que não foram aprovados. Nesse
+caso, apenas as regras revisadas são internalizadas em skill local 0WEB; o código
+de terceiros não é executado.
+
 ## 4. Modelo de autoridade
 
 Nenhuma skill isolada controla o trabalho. Para UI/UX, componha especialistas:
 
 | Camada | Candidatas |
 |---|---|
+| Estratégia/experience design | `0web-experience-design-max`, Dexa Experience Design como repertório |
+| Design intelligence | UI/UX Pro Max (fonte original), AwesomeSkill/LobeHub para discovery |
 | Direção criativa | `frontend-design` (Anthropic), Taste Skill, Tasteful UI, UI Craft |
 | Redesign de projeto existente | `redesign-existing-projects`, `design-taste-frontend` |
 | Landing page / CRO | `landing-page-builder`, `landing-page-guide-v2` (referência), `landing-page-design`, skills de copy/CRO |
 | Design system | `design-system-builder`, UI Craft, Open Design, Figma context |
 | Qualidade de interação | Apple HIG (`.design-rules/`), UX/UI Principles, Web Design Guidelines |
 | Engenharia | React Best Practices, Composition Patterns, skills do framework |
+| Motion | `0web-experience-design-max`, motion local, GSAP/Lottie/3D somente quando justificados |
 | QA | acessibilidade, Playwright/browser, performance, verificação visual |
 
 ## 5. Política de landing page
@@ -100,13 +124,15 @@ complementares — essas podem coexistir.
 
 Em interfaces estratégicas, quem constrói não é a única perspectiva de validação:
 
-- direção criativa cria a direção
-- especialista landing/CRO verifica conversão
-- Apple HIG / UX verifica experiência
-- acessibilidade verifica inclusão
-- React/performance verifica implementação
-- Taste / UI Craft executa crítica visual
-- QA no navegador verifica o produto **realmente renderizado**
+- estratégia/experience design valida objetivo e jornada;
+- direção criativa cria a direção;
+- design intelligence amplia opções e checa anti-patterns;
+- especialista landing/CRO verifica conversão;
+- Apple HIG / UX verifica experiência;
+- acessibilidade verifica inclusão;
+- React/performance verifica implementação;
+- Taste / UI Craft executa crítica visual;
+- QA no navegador verifica o produto **realmente renderizado**.
 
 ## 8. Status de skill
 
@@ -124,5 +150,6 @@ skills rejeitadas e motivo, validação executada com saída real.
 ## Precedência em conflito
 
 requisitos do projeto → segurança → acessibilidade → integridade de dados →
-regras de negócio → design system → arquitetura existente → limites do framework →
-performance → UX → skills especializadas → referências estéticas.
+regras de negócio → identidade/direção criativa → design system → arquitetura
+existente → limites do framework → performance → UX → skills especializadas →
+referências estéticas.

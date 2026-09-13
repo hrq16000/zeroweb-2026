@@ -1,6 +1,25 @@
 {
-  "version": 1,
+  "version": 2,
   "doc": "docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md",
+  "experienceDesignStandard": "docs/EXPERIENCE_DESIGN_MAX_STANDARD.md",
+  "mandatorySkill": ".agents/skills/0web-experience-design-max/SKILL.md",
+  "maximumRelevantSkillsPolicy": {
+    "mode": "MAXIMUM_RELEVANT_NON_REDUNDANT",
+    "requiredCoverage": [
+      "strategy",
+      "artDirection",
+      "uiUx",
+      "conversion",
+      "designSystem",
+      "motion",
+      "accessibility",
+      "reactPerformance",
+      "seoContent",
+      "privacySecurity",
+      "qualityAssurance"
+    ],
+    "externalMarketplacePolicy": "DISCOVERY_ONLY_UNTIL_SECURITY_REVIEW"
+  },
   "intensities": [
     "SUBTLE",
     "BALANCED",
@@ -41,8 +60,13 @@
       "MotionTextReveal",
       "MotionImageReveal",
       "MotionCounter",
+      "MotionParallax",
+      "MotionChoreo",
+      "MotionCard",
       "useInViewOnce",
-      "usePrefersReducedMotion"
+      "usePrefersReducedMotion",
+      "useDesktopViewport",
+      "useScrollProgress"
     ],
     "cssLayer": {
       "file": "src/styles.css",
@@ -53,12 +77,12 @@
       ]
     },
     "notImplementedYet": [
-      "MotionParallax",
       "MotionMarquee",
       "PageTransition (View Transitions)"
     ]
   },
   "skillProfileSchema": {
+    "strategy": "REQUIRED",
     "branding": "REQUIRED",
     "motion": "REQUIRED",
     "interaction": "REQUIRED",
@@ -68,7 +92,99 @@
     "accessibility": "REQUIRED",
     "performance": "REQUIRED",
     "originality": "REQUIRED",
-    "privacy": "REQUIRED"
+    "privacy": "REQUIRED",
+    "qa": "REQUIRED"
+  },
+  "motionCapabilityMatrix": {
+    "requiredAssessment": true,
+    "states": [
+      "REQUIRED",
+      "OPTIONAL",
+      "NOT_APPLICABLE"
+    ],
+    "capabilities": [
+      {
+        "id": "fade-up",
+        "axis": "Y",
+        "purpose": "editorial reveal and reading progression"
+      },
+      {
+        "id": "fade-left/right",
+        "axis": "X",
+        "purpose": "directional contrast and alternating narrative"
+      },
+      {
+        "id": "blur-in",
+        "axis": "blur",
+        "purpose": "progressive focus and atmosphere"
+      },
+      {
+        "id": "scale-in",
+        "axis": "scale",
+        "purpose": "controlled emphasis"
+      },
+      {
+        "id": "stagger-up",
+        "axis": "Y+time",
+        "purpose": "rhythm for groups and grids"
+      },
+      {
+        "id": "image-reveal",
+        "axis": "media",
+        "purpose": "intentional media introduction"
+      },
+      {
+        "id": "clip-reveal",
+        "axis": "clip-path",
+        "purpose": "editorial masking and layer transition"
+      },
+      {
+        "id": "parallax",
+        "axis": "scroll-depth",
+        "purpose": "spatial depth"
+      },
+      {
+        "id": "marquee",
+        "axis": "continuous-X",
+        "purpose": "semantic continuous flow"
+      },
+      {
+        "id": "float",
+        "axis": "loop",
+        "purpose": "subtle decorative depth"
+      },
+      {
+        "id": "header-scroll",
+        "axis": "scroll-state",
+        "purpose": "navigation context and contrast"
+      },
+      {
+        "id": "menu-reveal",
+        "axis": "navigation",
+        "purpose": "immersive menu opening"
+      },
+      {
+        "id": "text-line-reveal",
+        "axis": "typography",
+        "purpose": "hero and manifesto choreography"
+      },
+      {
+        "id": "progress-line",
+        "axis": "scroll-progress",
+        "purpose": "long-form reading and storytelling progress"
+      }
+    ],
+    "complementaryCapabilities": [
+      "micro-interactions",
+      "skeleton-loading",
+      "preloader",
+      "form-feedback-validation",
+      "accordion-transition",
+      "interactive-3d",
+      "lottie-svg-motion",
+      "media-crossfade",
+      "cursor-reactive"
+    ]
   },
   "motionProfileSchema": {
     "intensity": "SUBTLE | BALANCED | EXPRESSIVE | IMMERSIVE",
