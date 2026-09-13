@@ -1134,7 +1134,8 @@
         "description": "Página de convite da reunião semanal aberta em Curitiba, com pauta, palestrante, endereço e confirmação de presença pelo formulário do projeto.",
         "ctaLabel": "Ver o convite",
         "ctaHref": "#convite"
-      }
+      },
+      "socialVersion": "73972c7c"
     }
   }
 }
