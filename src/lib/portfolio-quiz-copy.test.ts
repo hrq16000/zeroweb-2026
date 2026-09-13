@@ -33,7 +33,7 @@ describe("copy semântica do funil de portfolio", () => {
       pageUrl: "https://0web.com.br/portfolio/confeitaria-chyrley",
       location: "Curitiba · Água Verde",
     });
-    expect(message).toContain("URL completa: https://0web.com.br/portfolio/confeitaria-chyrley");
+    expect(message).toContain("Página: https://0web.com.br/portfolio/confeitaria-chyrley");
     expect(message).toContain("A página é linda, parabéns!");
     expect(message).toContain("Sou de Curitiba · Água Verde");
     expect(message).toContain("DETALHES DO SERVIÇO");
