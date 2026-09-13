@@ -1124,6 +1124,17 @@
         "ctaHref": "#presenca"
       },
       "socialVersion": "c7ce9078"
+    },
+    "adhonep-curitiba": {
+      "icon": "/images/adhonep-curitiba/icone-abstrato.png",
+      "socialImage": "/images/adhonep-curitiba/capa.jpg",
+      "proof": {
+        "eyebrow": "ADHONEP Curitiba",
+        "title": "Convite da reunião semanal publicado como página própria.",
+        "description": "Página de convite da reunião semanal aberta em Curitiba, com pauta, palestrante, endereço e confirmação de presença pelo formulário do projeto.",
+        "ctaLabel": "Ver o convite",
+        "ctaHref": "#convite"
+      }
     }
   }
 }

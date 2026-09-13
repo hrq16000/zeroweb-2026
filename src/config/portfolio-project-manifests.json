@@ -296,22 +296,41 @@
       "contractVersion": 3,
       "structuralContract": 1,
       "structuralSignature": {
-        "segment": null,
-        "layoutFamily": null,
-        "heroFamily": null,
-        "sectionRhythm": null,
-        "proofStyle": null,
-        "mediaNarrative": null,
-        "ctaStyle": null,
-        "motionProfile": null
+        "segment": "associacao",
+        "layoutFamily": "coluna-editorial-com-ficha-lateral",
+        "heroFamily": "cartaz-tipografico-sem-foto",
+        "sectionRhythm": "convite-pauta-horarios-local-confirmacao",
+        "proofStyle": "sem-prova-social-apenas-fatos-do-convite",
+        "mediaNarrative": "arte-abstrata-de-apoio-sem-pessoas",
+        "ctaStyle": "confirmacao-por-formulario-com-barra-fixa-mobile",
+        "motionProfile": "SUBTLE-editorial"
       },
       "structuralOriginalityReview": {
-        "approved": false,
-        "reviewedAt": null,
-        "notes": null
+        "approved": true,
+        "reviewedAt": "2026-09-13",
+        "notes": "Hero em cartaz tipográfico sem foto e ficha de data sticky; nenhuma família de hero/seção reaproveitada dos pilotos."
       },
       "compositionContract": 1,
-      "compositionFingerprint": null,
+      "compositionFingerprint": {
+        "heroGeometry": "cartaz-tipografico-vertical-sem-imagem-com-ficha-de-data",
+        "headerTreatment": "sem-header-fixo-marca-inline-no-cartaz",
+        "sectionGraph": "convite>pauta>horarios>local>confirmacao",
+        "contentOrder": [
+          "convite",
+          "pauta",
+          "horarios",
+          "local",
+          "confirmacao"
+        ],
+        "gridTopology": "coluna-unica-editorial-com-ficha-lateral-sticky",
+        "mediaDistribution": "duas-artes-abstratas-de-apoio-sem-fotografia",
+        "backgroundRhythm": "base-escura-continua-com-um-corte-claro-na-confirmacao",
+        "proofPlacement": "sem-faixa-de-prova-fatos-do-convite-na-ficha",
+        "ctaDistribution": "cta-no-cartaz-no-local-no-fechamento-e-barra-fixa-mobile",
+        "navigationPattern": "sem-navegacao-ancorada-leitura-linear",
+        "motionSignature": "SUBTLE-mask-no-cartaz-stagger-nos-horarios",
+        "closingStructure": "fechamento-com-ficha-de-confirmacao-e-credito-de-hospedagem"
+      },
       "perceptualReview": {
         "screenshots": {
           "390": null,
@@ -321,7 +340,9 @@
         "noBrandTest": null
       },
       "contentFacts": {
-        "ownSourcedContent": false
+        "ownSourcedContent": true,
+        "source": "texto oficial do convite enviado pelo responsável em 13/09/2026",
+        "notes": "nenhum dado além do convite foi publicado; sem métricas, depoimentos ou fotos da entidade"
       },
       "stage": "draft",
       "lifecycle": {
@@ -329,21 +350,29 @@
         "entityDiscovery": "not_started",
         "entityResolution": "not_started",
         "evidence": "not_started",
-        "media": "not_started",
-        "mediaPlan": "not_started",
-        "content": "not_started",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
         "discovery": "not_started",
-        "blueprint": "not_started",
-        "composition": "not_started",
-        "seo": "not_started",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
         "funnel": "not_started",
         "cover": "not_started",
         "qa": "not_started",
         "publish": "not_started"
       },
       "blockers": [],
-      "warnings": [],
-      "ownerRequired": [],
+      "warnings": [
+        "sem logotipo oficial: identidade visual apoiada em arte abstrata própria",
+        "sem prova social publicada: o convite não traz números, depoimentos ou resultados",
+        "destino de WhatsApp ainda não comprovado — projeto permanece em rascunho"
+      ],
+      "ownerRequired": [
+        "confirmar se o destino do funil é o WhatsApp do Thomas (41 9****-0718) ou outro contato oficial",
+        "enviar logotipo oficial e fotos reais das reuniões para substituir as artes abstratas",
+        "confirmar a razão social/capítulo responsável pela página"
+      ],
       "searchQa": [],
       "visualQa": {
         "status": "NOT_EXECUTED",
