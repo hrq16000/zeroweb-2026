@@ -128,6 +128,7 @@ function ResultadosPage() {
                 <th className="px-4 py-2 font-medium">Nome</th>
                 <th className="px-4 py-2 font-medium">WhatsApp</th>
                 <th className="px-4 py-2 font-medium">Situação</th>
+                <th className="px-4 py-2 font-medium">Resposta padrão</th>
               </tr>
             </thead>
             <tbody>
@@ -139,10 +140,34 @@ function ResultadosPage() {
                     {l.contact_phone_masked ?? "—"}
                   </td>
                   <td className="px-4 py-2 text-muted-foreground">{situacao(l)}</td>
+                  <td className="px-4 py-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => void copyReply(l)}
+                    >
+                      {copied === l.id ? (
+                        <Check className="h-4 w-4 mr-1" />
+                      ) : (
+                        <Copy className="h-4 w-4 mr-1" />
+                      )}
+                      {copied === l.id ? "Copiada" : "Copiar"}
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        )}
+        {template && (
+          <details className="border-t border-border px-4 py-3 text-sm">
+            <summary className="cursor-pointer text-muted-foreground">
+              Ver o texto da resposta padrão ({template.label})
+            </summary>
+            <pre className="mt-3 whitespace-pre-wrap rounded-lg bg-muted/40 p-3 text-xs text-foreground">
+              {template.build({ name: null })}
+            </pre>
+          </details>
         )}
       </section>
 
