@@ -4,11 +4,14 @@ Status: **obrigatório**. Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md`,
 `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`,
 `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md`,
+`docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md`,
+`docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`,
 `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md`, `docs/LAYOUT_ENGINEERING_STANDARD.md`
 e `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`.
 
-Objetivo: todo projeto novo nasce tecnicamente completo **sem virar um template
-visual da 0WEB** e sem depender de uma lista estática de skills que envelhece.
+Objetivo: todo projeto novo nasce tecnicamente completo **sem virar um template visual da 0WEB**, sem depender de uma lista estática de skills que envelhece e sem deixar card/capa/preview/OG como derivados genéricos.
+
+A política `ZERO_GENERIC_TOLERANCE` vale para a família inteira do projeto: landing, card/capa do catálogo, preview/modal/viewer, editor/PR preview, hero, social/OG, thumbnail/share, funil visual, 390/768/1440, reduced-motion, futuras variantes/campanhas e promoção para domínio próprio.
 
 ## 0. Regra de ouro
 
@@ -30,26 +33,19 @@ Antes de criar JSX visual, executar:
 → 0web-ui-quality-gates
 ```
 
-Criar e preencher `docs/portfolio/briefs/<slug>.md` conforme
-`PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`.
+Criar e preencher `docs/portfolio/briefs/<slug>.md` conforme `PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`.
 
-O resultado do discovery precisa ser registrado: skills usadas, rejeitadas,
-`NOT_APPLICABLE`, fonte original quando resolvida e motivo. **Instalar todas as
-skills encontradas não é objetivo; cobrir todas as competências relevantes é.**
+O resultado do discovery precisa ser registrado: skills usadas, rejeitadas, `NOT_APPLICABLE`, fonte original quando resolvida e motivo. **Instalar todas as skills encontradas não é objetivo; cobrir todas as competências relevantes é.**
 
 ## 1. Camadas — quem garante o quê
 
 ### Contrato de catálogo
 
-Todo cliente deve possuir metadados de descoberta: `segment`, `subsegments`,
-`projectType`, `city`, `state`, `services`, `technologies`, `tags`, `status`,
-`publishedAt`, `featured`, resumo curto e imagem do card.
+Todo cliente deve possuir metadados de descoberta: `segment`, `subsegments`, `projectType`, `city`, `state`, `services`, `technologies`, `tags`, `status`, `publishedAt`, `featured`, resumo curto e imagem do card.
 
-Todo projeto criado pelo scaffold v2 também registra `creativeContractVersion: 2`
-e `creativeBriefFile` em `portfolio-clients.json`.
+Todo projeto criado pelo scaffold v2 também registra `creativeContractVersion: 2` e `creativeBriefFile` em `portfolio-clients.json`.
 
-O contrato de consistência exige rota resolvível, componente e assets próprios,
-slug único, canonical próprio, sitemap, funil próprio e identidade própria.
+O contrato de consistência exige rota resolvível, componente e assets próprios, slug único, canonical próprio, sitemap, funil próprio e identidade própria.
 
 | Camada | Quem garante | Onde |
 |---|---|---|
@@ -67,8 +63,7 @@ slug único, canonical próprio, sitemap, funil próprio e identidade própria.
 
 ## 2. Scaffold é infraestrutura, não template
 
-`scaffold:portfolio` não deve produzir uma landing genérica pronta para
-publicação. Ele cria:
+`scaffold:portfolio` não deve produzir uma landing genérica pronta para publicação. Ele cria:
 
 - registros técnicos;
 - componente workbench com marcador de direção criativa pendente;
@@ -76,18 +71,16 @@ publicação. Ele cria:
 - migration do funil;
 - creative brief v2.
 
-O marcador de scaffold deve ser removido quando a composição real do cliente
-for implementada. Projeto `published` com marcador pendente falha no gate.
+O marcador de scaffold deve ser removido quando a composição real do cliente for implementada. Projeto `published` com marcador pendente falha no gate.
 
-Nunca partir do componente de outro cliente para “ganhar tempo”. Consulte outros
-projetos apenas para **evitar** semelhança.
+Nunca partir do componente de outro cliente para “ganhar tempo”. Consulte outros projetos apenas para **evitar** semelhança.
 
 ## 3. Checklist de lançamento
 
 1. Rodar o scaffold ou registrar manualmente os mesmos contratos.
 2. Executar discovery de skills conforme `SKILL_MARKETPLACE_DISCOVERY_STANDARD` e registrar o stack.
 3. Pesquisar/resolver a entidade e evidências; pesquisa não realizada é bloqueio, dado honestamente ausente não.
-4. Gerar pelo menos direções criativas substancialmente divergentes e selecionar a que melhor equilibra identidade, conversão, evidência e originalidade.
+4. Gerar pelo menos **três** direções criativas substancialmente divergentes e selecionar a que melhor equilibra identidade, conversão, evidência e originalidade.
 5. Preencher o creative brief v2 antes do layout final.
 6. Registrar catálogo e `portfolio-site-registry.ts`.
 7. Criar diretório exclusivo `public/images/<slug>/` e identidade própria.
@@ -104,21 +97,17 @@ projetos apenas para **evitar** semelhança.
 18. Validar logo/ícone exclusivos e assets sem compartilhamento indevido.
 19. Comparar originalidade contra os portfolios mais próximos e registrar `antiTemplateDecisions`/fingerprint.
 20. Fazer browser/runtime QA antes de publicar.
+21. Verificar explicitamente `PORTFOLIO_ZERO_GENERIC_STANDARD.md`: nenhum hard blocker pode permanecer como `DONE`.
 
 Nenhum telefone, `wa.me` ou e-mail operacional pode existir no bundle público.
 
 ## 4. Conteúdo e prova
 
-Não fabricar avaliações, depoimentos, estrelas, números de clientes, prêmios,
-logos de clientes, urgência ou resultados apresentados como reais.
+Não fabricar avaliações, depoimentos, estrelas, números de clientes, prêmios, logos de clientes, urgência ou resultados apresentados como reais.
 
-Para protótipo, conteúdo ilustrativo só pode aparecer visivelmente marcado como
-`Exemplo`, `Demonstração` ou equivalente. Em produção, preferir evidência real:
-processo, materiais, garantia real, escopo, metodologia, fotos oficiais, FAQ e
-outras provas verificáveis.
+Para protótipo, conteúdo ilustrativo só pode aparecer visivelmente marcado como `Exemplo`, `Demonstração` ou equivalente. Em produção, preferir evidência real: processo, materiais, garantia real, escopo, metodologia, fotos oficiais, FAQ e outras provas verificáveis.
 
-Pesquisa/conteúdo pode usar skills especializadas selecionadas no discovery,
-mas toda afirmação comercial/local continua `evidence-first`.
+Pesquisa/conteúdo pode usar skills especializadas selecionadas no discovery, mas toda afirmação comercial/local continua `evidence-first`.
 
 ## 5. Imagens
 
@@ -126,30 +115,23 @@ Prioridade:
 
 1. logo/marca oficial;
 2. fotos/produtos/trabalhos oficiais;
-3. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir
-   ser equipe, sede, cliente ou serviço executado;
+3. mídia licenciada ou gerada que funcione como **arte de marca**, sem fingir ser equipe, sede, cliente ou serviço executado;
 4. composição abstrata/typographic brand art.
 
-Usar `PortfolioImage`, dimensões explícitas, LCP controlado e lazy loading nas
-imagens abaixo da dobra. Gerar derivados WebP/AVIF quando útil sem apagar
-originais importantes do cliente.
+Usar `PortfolioImage`, dimensões explícitas, LCP controlado e lazy loading nas imagens abaixo da dobra. Gerar derivados WebP/AVIF quando útil sem apagar originais importantes do cliente.
 
-Cada projeto precisa distinguir finalidade dos assets. `hero`, `catalogCover`,
-`social/OG` e `preview` podem compartilhar uma matriz criativa, mas são entregas
-com proporção/crop/função próprias e precisam ser verificadas separadamente.
+Cada projeto precisa distinguir finalidade dos assets. `hero`, `catalogCover`, `social/OG` e `preview` podem compartilhar uma matriz criativa, mas são entregas com proporção/crop/função próprias e precisam ser verificadas separadamente.
+
+`MEDIA_STARVATION` é falha: falta de foto real não autoriza publicar uma página vazia de mídia. Deve-se usar composição de marca, ilustração/editorial/contextual ou outro tratamento seguro sem fabricar evidência.
 
 ## 6. Layout engineering
 
 Seguir `docs/LAYOUT_ENGINEERING_STANDARD.md`.
 
-- **Flexbox:** alinhamento/distribuição/wrap unidimensional; verificar main axis,
-  cross axis, `flex-direction`, `justify-content`, `align-items`, `flex-wrap`,
-  `gap`, grow/shrink/basis e `min-width: 0` quando necessário.
+- **Flexbox:** alinhamento/distribuição/wrap unidimensional; verificar main axis, cross axis, `flex-direction`, `justify-content`, `align-items`, `flex-wrap`, `gap`, grow/shrink/basis e `min-width: 0` quando necessário.
 - **Grid:** macrocomposição bidimensional, mosaicos e topologias editoriais.
-- **Intrinsic sizing:** preferir `minmax`, `clamp`, `max-width`, `aspect-ratio` e
-  comportamento orientado ao conteúdo a larguras rígidas.
-- A ordem do DOM/foco deve continuar semântica; não usar `order`/reverse para
-  esconder uma estrutura ruim.
+- **Intrinsic sizing:** preferir `minmax`, `clamp`, `max-width`, `aspect-ratio` e comportamento orientado ao conteúdo a larguras rígidas.
+- A ordem do DOM/foco deve continuar semântica; não usar `order`/reverse para esconder uma estrutura ruim.
 - Nenhuma decisão de Flexbox/Grid torna duas composições visualmente iguais aceitáveis.
 
 ## 7. Portões automáticos
@@ -170,9 +152,7 @@ bun run build
 node scripts/playwright-portfolio-funnels.mjs
 ```
 
-Critério funcional: CTA → funil → lead → token → `/r/whatsapp/...` → redirect
-correto quando o canal estiver `CONFIGURED`; quando `UNRESOLVED`, o lead continua
-salvo e recebe fluxo de recuperação sem ser enviado ao WhatsApp institucional.
+Critério funcional: CTA → funil → lead → token → `/r/whatsapp/...` → redirect correto quando o canal estiver `CONFIGURED`; quando `UNRESOLVED`, o lead continua salvo e recebe fluxo de recuperação sem ser enviado ao WhatsApp institucional.
 
 ## 8. Revisão visual obrigatória
 
@@ -191,9 +171,9 @@ Validar pelo menos:
 - crop de `hero`, `catalogCover`, `social/OG` e `preview`;
 - estados `BEFORE → DURING → AFTER` de signature moments quando aplicável.
 
-A revisão precisa responder: hero, section graph/order, tipografia, tratamento de
-imagem, grid topology, media distribution, CTA, fechamento, motion e assinatura
-interativa são realmente diferentes dos portfolios mais próximos?
+A revisão precisa responder: hero, section graph/order, tipografia, tratamento de imagem, grid topology, media distribution, CTA, fechamento, motion e assinatura interativa são realmente diferentes dos portfolios mais próximos?
+
+Também deve confirmar que card/capa, preview/modal/viewer, OG/social e qualquer domínio derivado representam **o mesmo projeto autoral**, sem asset velho ou direção genérica paralela.
 
 ## 9. Automação
 
@@ -202,33 +182,26 @@ bun run scaffold:portfolio -- --slug <slug> --name "Nome do Cliente"
 bun run scaffold:portfolio -- --slug <slug> --name "Nome" --dry-run
 ```
 
-Após o scaffold, o próximo passo **não** é publicar: é pesquisa + discovery +
-creative direction + composição autoral + mídia + funil + QA.
+Após o scaffold, o próximo passo **não** é publicar: é pesquisa + discovery + creative direction + composição autoral + mídia + funil + QA.
 
 ## 10. Governança
 
 Issue → branch → PR → checks → revisão → merge. Nunca publicar direto em `main`.
 
-Herdados da plataforma: segurança do redirect, pop-up de captação, share,
-breadcrumbs, observabilidade e infraestrutura SEO. O visual do cliente não é herdado.
+Herdados da plataforma: segurança do redirect, pop-up de captação, share, breadcrumbs, observabilidade e infraestrutura SEO. O visual do cliente não é herdado.
 
 ## 11. Contato e mídia (obrigatório)
 
 Antes de considerar um cliente novo pronto:
 
-**Contato** — todo CTA aponta para o funil individual, com rótulo contextual ao
-negócio (Solicitar avaliação, Solicitar orçamento, Fazer pedido, Agendar
-atendimento…). O destino real permanece server-side por `clientKey`; não expor
-`tel:`, botão “Ligar”, `wa.me`, e-mail operacional ou número comercial no bundle.
-Sem destino verificado, salvar lead e coletar contato de retorno — nunca usar o
-WhatsApp institucional da 0WEB como fallback do cliente.
+**Contato** — todo CTA aponta para o funil individual, com rótulo contextual ao negócio (Solicitar avaliação, Solicitar orçamento, Fazer pedido, Agendar atendimento…). O destino real permanece server-side por `clientKey`; não expor `tel:`, botão “Ligar”, `wa.me`, e-mail operacional ou número comercial no bundle. Sem destino verificado, salvar lead e coletar contato de retorno — nunca usar o WhatsApp institucional da 0WEB como fallback do cliente.
 
-**Mídia** — todo asset declara finalidade (`EVIDENCE_ONLY`, `BRAND_REFERENCE`,
-`REAL_BUSINESS_MEDIA`, `EDITORIAL_MEDIA`, `COVER_MEDIA`, `OG_MEDIA`,
-`GENERATED_CONTEXTUAL_MEDIA`). Foto de placa/banner/panfleto enviada pelo
-proprietário pode ser referência ou mídia real conforme contexto; não deve ser
-promovida automaticamente a hero sem direção editorial. Seguir a prioridade
-visual de `PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §22.2.
+**Mídia** — todo asset declara finalidade (`EVIDENCE_ONLY`, `BRAND_REFERENCE`, `REAL_BUSINESS_MEDIA`, `EDITORIAL_MEDIA`, `COVER_MEDIA`, `OG_MEDIA`, `GENERATED_CONTEXTUAL_MEDIA`). Foto de placa/banner/panfleto enviada pelo proprietário pode ser referência ou mídia real conforme contexto; não deve ser promovida automaticamente a hero sem direção editorial. Seguir a prioridade visual de `PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §22.2.
 
-Gates: `CONTACT_FUNNEL_GATE` (§21.4) e `MEDIA_PURPOSE_GATE` (§22.5) do Blueprint
-Standard, mais a avaliação editorial de encantamento (§22.4).
+Gates: `CONTACT_FUNNEL_GATE` (§21.4) e `MEDIA_PURPOSE_GATE` (§22.5) do Blueprint Standard, mais a avaliação editorial de encantamento (§22.4).
+
+## 12. Manutenção de projetos existentes
+
+A mesma política vale para todo projeto legado sempre que houver manutenção material, redesign, troca de hero/capa, correção estrutural, alteração de navegação, nova campanha/variante ou republicação visual relevante.
+
+Projeto antigo pode permanecer online enquanto entra na fila de remediação, mas **legado não é sinônimo de aprovado**. `HIGH_SIMILARITY`, `ATTENTION`, capa fraca, mídia insuficiente, hero genérico e ausência de assinatura devem ser priorizados até o catálogo inteiro convergir para `ZERO_GENERIC_TOLERANCE`.
