@@ -62,6 +62,7 @@ if (fail.length === 0) {
   }
 
   if (config.version < 3) fail.push("experience-capabilities:version<3");
+  if (marketplace.version < 2) fail.push("skill-marketplace-catalog:version<2");
   if (config.mandatorySkill !== ".agents/skills/0web-experience-design-max/SKILL.md") {
     fail.push("experience-capabilities:mandatorySkill");
   }
@@ -139,10 +140,16 @@ if (fail.length === 0) {
     "theme-factory",
     "using-superpowers",
     "notebooklm",
+    "nanobanana-ppt",
   ];
   const skillIds = new Set((marketplace.skills ?? []).map((x) => x.id));
   const missingSkills = requiredSkills.filter((id) => !skillIds.has(id));
   if (missingSkills.length) fail.push(`marketplace:missing-skills:${missingSkills.join(",")}`);
+
+  const quarantined = new Map((marketplace.skills ?? []).map((x) => [x.id, x.status]));
+  if (quarantined.get("nanobanana-ppt") !== "QUARANTINED") {
+    fail.push("marketplace:nanobanana-ppt-must-remain-quarantined");
+  }
 }
 
 if (fail.length) {
@@ -155,6 +162,7 @@ console.log("[experience-skill-policy] PASS");
 console.log(" - mandatory skill: 0web-experience-design-max");
 console.log(" - external discovery: official sources + LobeHub + AwesomeSkill search");
 console.log(" - marketplace catalog: required for new projects and material maintenance");
+console.log(" - highlighted skills: 18/18 registered with security status");
 console.log(" - layout matrix: Flexbox + Grid + intrinsic sizing + responsive flow");
 console.log(" - motion matrix: 14/14 capabilities registered");
 console.log(" - policy: maximum relevant non-redundant skills");
