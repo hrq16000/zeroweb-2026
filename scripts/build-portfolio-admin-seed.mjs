@@ -9,7 +9,11 @@
  *
  * Uso:
  *   node scripts/build-portfolio-admin-seed.mjs
- *   node scripts/build-portfolio-admin-seed.mjs --check   # falha se estiver desatualizado
+ *   node scripts/build-portfolio-admin-seed.mjs --check   # falha localmente se estiver desatualizado
+ *
+ * Em builds da Vercel, um seed derivado desatualizado é regenerado automaticamente
+ * para que mudanças válidas nos registries não derrubem o deploy apenas por falta
+ * de commit do artefato derivado. Fora da Vercel, --check continua estrito.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -19,6 +23,7 @@ import { buildRecords, CODES, BLOCKING } from "./portfolio-conformance.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const target = path.join(root, "src/config/portfolio-admin-seed.json");
 const check = process.argv.includes("--check");
+const autoRegenerateDerivedSeed = process.env.VERCEL === "1";
 
 function normalizePayload(value) {
   if (!value || typeof value !== "object") return value;
@@ -62,12 +67,20 @@ if (check) {
   }
 
   if (currentNormalized !== next) {
-    console.error(
-      "[portfolio-admin-seed] desatualizado. Rode: bun run build:portfolio-admin-seed",
-    );
-    process.exit(1);
+    if (autoRegenerateDerivedSeed) {
+      fs.writeFileSync(target, next);
+      console.log(
+        `[portfolio-admin-seed] Vercel — seed derivado regenerado automaticamente (${payload.projects.length} projeto(s)).`,
+      );
+    } else {
+      console.error(
+        "[portfolio-admin-seed] desatualizado. Rode: bun run build:portfolio-admin-seed",
+      );
+      process.exit(1);
+    }
+  } else {
+    console.log(`[portfolio-admin-seed] OK — ${payload.projects.length} projeto(s).`);
   }
-  console.log(`[portfolio-admin-seed] OK — ${payload.projects.length} projeto(s).`);
 } else {
   fs.writeFileSync(target, next);
   console.log(
