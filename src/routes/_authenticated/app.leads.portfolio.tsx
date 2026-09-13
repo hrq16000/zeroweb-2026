@@ -30,7 +30,7 @@ function toCsv(rows: HostLead[]) {
   const esc = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
   const head = ["criado_em", "nome", "whatsapp", "cidade", "projeto", "status", "utm_source", "utm_campaign", "referrer"];
   const body = rows.map((l) =>
-    [l.createdAt, l.name, l.phone, l.city, l.portfolioSlug, l.status, l.utm.source, l.utm.campaign, l.referrer]
+    [l.createdAt, l.name, l.phoneMasked, l.city, l.portfolioSlug, l.status, l.utm.source, l.utm.campaign, l.referrer]
       .map(esc)
       .join(","),
   );
@@ -217,7 +217,7 @@ function PortfolioLeadsPage() {
               <dl className="space-y-1">
                 <div className="flex justify-between gap-3">
                   <dt className="text-muted-foreground">WhatsApp</dt>
-                  <dd className="text-foreground">{open.phone ?? "—"}</dd>
+                  <dd className="text-foreground">{open.phoneMasked}</dd>
                 </div>
                 <div className="flex justify-between gap-3">
                   <dt className="text-muted-foreground">Cidade</dt>
