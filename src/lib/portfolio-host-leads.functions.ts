@@ -355,7 +355,8 @@ export const listPortfolioHostLeads = createServerFn({ method: "POST" })
       );
     }
 
-    return { leads, slugs };
+    // O número completo nunca sai do servidor: a tela e o CSV usam só a máscara.
+    return { leads: leads.map((l) => ({ ...l, phone: null })), slugs };
   });
 
 export const updatePortfolioHostLeadStatus = createServerFn({ method: "POST" })
