@@ -2117,5 +2117,29 @@
     "fallbackImage": "/images/jkl-decor/google-cozinha-marmore.jpg",
     "metrics": "Nota 5,0 no Google",
     "summary": "JKL Decor é uma marcenaria de São José dos Pinhais que projeta, fabrica e instala móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região."
+  },
+  {
+    "slug": "adhonep-curitiba",
+    "clientKey": "adhonep-curitiba",
+    "title": "ADHONEP Curitiba",
+    "segment": "prestadores-de-servicos",
+    "projectType": "landing",
+    "status": "draft",
+    "city": "Curitiba",
+    "state": "PR",
+    "tags": [
+      "reuniao-semanal",
+      "empreendedores",
+      "networking",
+      "palestra",
+      "curitiba"
+    ],
+    "subtitle": "Convite para a reunião semanal aberta",
+    "location": "Curitiba — PR",
+    "badge": "Projeto real",
+    "image": "/images/adhonep-curitiba/capa.jpg",
+    "fallbackImage": "/images/adhonep-curitiba/hero-abstrato.jpg",
+    "metrics": "Confirmação pelo formulário",
+    "summary": "Página de convite da reunião semanal aberta da ADHONEP em Curitiba, com pauta da noite, local e confirmação de presença pelo formulário do projeto."
   }
 ]

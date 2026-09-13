@@ -1325,6 +1325,23 @@
       "desktopBehavior": "parallax curto na foto do hero, hover de gaveta nos ambientes e progresso no roteiro do projeto",
       "tabletBehavior": "mesma sequência em coluna única, sem parallax",
       "mobileBehavior": "entradas curtas em opacidade, sem parallax e sem hover no toque"
+    },
+    "adhonep-curitiba": {
+      "intensity": "SUBTLE",
+      "preset": "EDITORIAL",
+      "heroMotion": "none",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "none",
+      "iconMotion": "none",
+      "hoverBehavior": "none",
+      "depthBehavior": "sticky",
+      "scrollBehavior": "none",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "ficha de data sticky e linhas da pauta reveladas em sequência",
+      "tabletBehavior": "sticky desativado, sequência da pauta mantida",
+      "mobileBehavior": "apenas revelação por opacidade, barra de confirmação fixa"
     }
   },
   "decisions": {
