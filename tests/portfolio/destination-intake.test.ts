@@ -14,9 +14,25 @@ describe("normalização do destino operacional", () => {
     expect(a.ok && a.looksLikeLandline).toBe(false);
   });
 
-  it("sinaliza telefone fixo em vez de convertê-lo em WhatsApp", () => {
+  it("aceita DDD + 8 dígitos (fixo) sem exigir confirmação extra", () => {
     const r = normalizeBrWhatsApp("(41) 3345-1122");
+    // fixo é destino válido: ok=true; apenas sinalizado como fixo, sem conversão
+    expect(r.ok).toBe(true);
     expect(r.ok && r.looksLikeLandline).toBe(true);
+    expect(r.ok && r.digits).toBe("554133451122");
+  });
+
+  it("aceita DDD + 9 dígitos (celular)", () => {
+    const r = normalizeBrWhatsApp("(41) 99999-1234");
+    expect(r.ok && r.digits).toBe("5541999991234");
+    expect(r.ok && r.looksLikeLandline).toBe(false);
+  });
+
+  it("nunca acrescenta nem remove dígitos", () => {
+    const fixo = normalizeBrWhatsApp("4133451122");
+    expect(fixo.ok && fixo.digits).toBe("554133451122"); // 12 dígitos, sem 9 inventado
+    const cel = normalizeBrWhatsApp("41999991234");
+    expect(cel.ok && cel.digits).toBe("5541999991234"); // 13 dígitos preservados
   });
 
   it("rejeita número inválido", () => {
@@ -54,5 +70,40 @@ describe("privacidade do intake", () => {
     const src = await Bun.file("src/lib/portfolio-destination-confirm.functions.ts").text();
     expect(src).toContain("requireSupabaseAuth");
     expect((src.match(/assertAdmin/g) ?? []).length).toBeGreaterThanOrEqual(3);
+  });
+});
+
+describe("regras de confirmação canônica", () => {
+  it("formato fixo/celular não é barreira: não existe mais LANDLINE_REQUIRES_ACK", async () => {
+    const src = await Bun.file("src/lib/portfolio-destination-confirm.server.ts").text();
+    expect(src).not.toContain("LANDLINE_REQUIRES_ACK");
+    expect(src).not.toMatch(/looksLikeLandline\s*&&\s*!input\.acknowledgeLandline/);
+  });
+
+  it("o número institucional 0WEB é sempre rejeitado, antes de qualquer ack", async () => {
+    const src = await Bun.file("src/lib/portfolio-destination-confirm.server.ts").text();
+    expect(src).toContain("INSTITUTIONAL_FORBIDDEN");
+    // usa o resolver operacional server-side — nunca o número hardcoded
+    expect(src).toContain("resolveOperationalWhatsAppContact");
+    // a guarda institucional precede a checagem de compartilhamento/ack
+    const idxInst = src.indexOf("INSTITUTIONAL_FORBIDDEN");
+    const idxShared = src.indexOf("SHARED_DESTINATION_REQUIRES_ACK");
+    expect(idxInst).toBeGreaterThan(-1);
+    expect(idxShared).toBeGreaterThan(-1);
+    expect(idxInst).toBeLessThan(idxShared);
+  });
+
+  it("proteções estruturais preservadas", async () => {
+    const src = await Bun.file("src/lib/portfolio-destination-confirm.server.ts").text();
+    for (const guard of [
+      "UNKNOWN_PROJECT",
+      "INVALID_NUMBER",
+      "SHARED_DESTINATION_REQUIRES_ACK",
+      "CHANGE_REQUIRES_ACK",
+      "RESOLVER_MISMATCH",
+      "PERSIST_FAILED",
+    ]) {
+      expect(src).toContain(guard);
+    }
   });
 });

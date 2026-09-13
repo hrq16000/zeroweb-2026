@@ -29,6 +29,7 @@ export type ConfirmDestinationInput = {
   evidence: string;
   acknowledgeShared?: boolean;
   acknowledgeChange?: boolean;
+  /** @deprecated mantido por compatibilidade; fixo/celular não é mais critério de bloqueio. */
   acknowledgeLandline?: boolean;
 };
 
@@ -42,7 +43,7 @@ export type ConfirmDestinationResult = {
   reason?:
     | "UNKNOWN_PROJECT"
     | "INVALID_NUMBER"
-    | "LANDLINE_REQUIRES_ACK"
+    | "INSTITUTIONAL_FORBIDDEN"
     | "SHARED_DESTINATION_REQUIRES_ACK"
     | "CHANGE_REQUIRES_ACK"
     | "VALIDATION_FAILED"
@@ -187,13 +188,22 @@ export async function confirmDestination(
   if (!parsed.ok) {
     return { ok: false, status: "REJECTED", reason: "INVALID_NUMBER", message: parsed.message, masked: null };
   }
-  if (parsed.looksLikeLandline && !input.acknowledgeLandline) {
+  // Fixo ou celular, DDD+8 ou DDD+9: o formato nunca é motivo de bloqueio
+  // quando a evidência liga o número ao MESMO cliente. `acknowledgeLandline`
+  // permanece no tipo por compatibilidade, mas não é exigido.
+
+  // O contato operacional/institucional da 0WEB NUNCA pode ser destino de um
+  // projeto — nem com acknowledgeShared/acknowledgeChange. Resolvido via
+  // resolver server-side existente; o número não fica hardcoded aqui.
+  const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
+  const institutional = resolveOperationalWhatsAppContact()?.digits ?? null;
+  if (institutional && parsed.digits === institutional) {
     return {
       ok: false,
       status: "REJECTED",
-      reason: "LANDLINE_REQUIRES_ACK",
+      reason: "INSTITUTIONAL_FORBIDDEN",
       message:
-        "Número parece ser telefone fixo. Confirme explicitamente que ele atende no WhatsApp — telefone fixo não vira WhatsApp por suposição.",
+        "Este número é o contato operacional da 0WEB e nunca pode ser destino de um projeto.",
       masked: maskWhatsAppDigits(parsed.digits),
     };
   }
