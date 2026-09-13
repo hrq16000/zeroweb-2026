@@ -1268,6 +1268,50 @@
         },
         "notePlaceholder": "Conte as medidas aproximadas, as cores que gosta e como usa o ambiente."
       }
+    },
+    "adhonep-curitiba": {
+      "contactFloating": {
+        "theme": "navy",
+        "recipientName": "a equipe do Capítulo Curitiba – Nikkey",
+        "label": "Confirmar presença",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": [
+            "Quero confirmar presença",
+            "Vou levar um convidado",
+            "Quero conhecer a ADHONEP",
+            "Tenho uma dúvida sobre o encontro"
+          ],
+          "experienceOptions": [
+            "Primeira vez que participo",
+            "Já participei antes",
+            "Fui convidado por alguém",
+            "Ainda estou avaliando"
+          ],
+          "periodOptions": [
+            "Vou ao encontro de 16 de setembro",
+            "Quero participar em outra semana",
+            "Ainda vou confirmar a data"
+          ],
+          "timingOptions": [
+            "Chego às 20:00",
+            "Posso chegar um pouco depois",
+            "Quero ficar para o café de networking",
+            "Ainda vou definir"
+          ],
+          "stepTitles": {
+            "service": "Como podemos ajudar?",
+            "experience": "Você já conhece a ADHONEP?",
+            "period": "Qual encontro você quer confirmar?",
+            "timing": "Como pretende participar?",
+            "note": "Quer deixar alguma mensagem?"
+          },
+          "stepSubtitles": {
+            "service": "Reunião semanal do Capítulo Curitiba – Nikkey (0714). Participação sem custo."
+          },
+          "notePlaceholder": "Dúvidas sobre acesso ao prédio, estacionamento ou horário (opcional)."
+        }
+      }
     }
   }
 }
