@@ -69,6 +69,7 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/leads-telefone", icon: Inbox, label: "Leads por telefone" },
   { to: "/app/leads-clientes", icon: Inbox, label: "Leads de clientes" },
   { to: "/app/leads/marcas", icon: Inbox, label: "Contatos por marca" },
+  { to: "/app/leads/portfolio", icon: Inbox, label: "Leads de captação do portfólio" },
   { to: "/app/atendimento", icon: Inbox, label: "Atendimento por cidade" },
   { to: "/app/crm-planilha", icon: Inbox, label: "CRM na planilha" },
   { to: "/app/paginas-locais", icon: MapPin, label: "Páginas locais" },
@@ -99,8 +100,9 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/funis/numeros", icon: Phone, label: "Números dos funis" },
   { to: "/app/portfolio", icon: LayoutTemplate, label: "Projetos do portfólio" },
   { to: "/app/portfolio/qualidade", icon: Gauge, label: "Qualidade das landings" },
+  { to: "/app/portfolio-motion", icon: Activity, label: "Motion das landings" },
+  { to: "/app/portfolio-capas", icon: Images, label: "Mídia das landings" },
   { to: "/app/clientes", icon: Users, label: "Clientes do portfólio" },
-  { to: "/app/seo", icon: FileText, label: "Metadados & Sitemap" },
   { to: "/app/metadados", icon: FileText, label: "Metadados por cliente" },
   { to: "/app/auditoria/vitais", icon: Gauge, label: "Web Vitals" },
 ];

@@ -2,6 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { AlertTriangle, RefreshCw, Save } from "lucide-react";
+import { DestinationProposalsPanel } from "@/components/admin/DestinationProposalsPanel";
+import {
+  listDestinationRevisions,
+  type DestinationRevision,
+} from "@/lib/portfolio-destination-proposals.functions";
 import {
   listClientSettings,
   upsertClientSettings,
@@ -27,9 +32,11 @@ function FunnelNumbersPage() {
   const load = useServerFn(listClientSettings);
   const save = useServerFn(upsertClientSettings);
   const loadHistory = useServerFn(listClientSettingsHistory);
+  const loadRevisions = useServerFn(listDestinationRevisions);
 
   const [rows, setRows] = useState<ClientSettings[]>([]);
   const [history, setHistory] = useState<SettingsHistoryRow[]>([]);
+  const [revisions, setRevisions] = useState<DestinationRevision[]>([]);
   const [clientKey, setClientKey] = useState("");
   const [recipient, setRecipient] = useState("");
   const [enabled, setEnabled] = useState(true);
@@ -41,15 +48,20 @@ function FunnelNumbersPage() {
     setLoading(true);
     setError(null);
     try {
-      const [list, hist] = await Promise.all([load(), loadHistory({ data: { limit: 80 } })]);
+      const [list, hist, revisionResult] = await Promise.all([
+        load(),
+        loadHistory({ data: { limit: 80 } }),
+        loadRevisions({ data: { limit: 100 } }),
+      ]);
       setRows(list.rows);
       setHistory(hist.rows.filter((h) => h.field === "funnel_recipient" || h.field === "funnel_enabled"));
+      setRevisions(revisionResult.rows);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, [load, loadHistory]);
+  }, [load, loadHistory, loadRevisions]);
 
   useEffect(() => {
     void refresh();
@@ -151,6 +163,8 @@ function FunnelNumbersPage() {
         </div>
       </form>
 
+      <DestinationProposalsPanel onApproved={() => void refresh()} />
+
       <section className="mt-8 overflow-x-auto">
         <h2 className="text-sm font-semibold">Funis por cliente</h2>
         {loading && <p className="mt-2 text-sm text-muted-foreground">Carregando…</p>}
@@ -183,6 +197,16 @@ function FunnelNumbersPage() {
             )}
           </tbody>
         </table>
+      </section>
+
+      <section className="mt-8">
+        <h2 className="text-sm font-semibold">Validações canônicas</h2>
+        <div className="mt-3 overflow-x-auto rounded-md border border-border">
+          <table className="w-full min-w-[760px] text-left text-sm">
+            <thead className="bg-muted/40 text-xs uppercase text-muted-foreground"><tr><th className="px-3 py-2">Data</th><th className="px-3 py-2">Projeto</th><th className="px-3 py-2">Decisão</th><th className="px-3 py-2">Destino</th><th className="px-3 py-2">Fonte</th><th className="px-3 py-2">Evidência</th></tr></thead>
+            <tbody>{revisions.map((revision) => <tr key={revision.id} className="border-t border-border"><td className="whitespace-nowrap px-3 py-2">{new Date(revision.confirmedAt).toLocaleString("pt-BR")}</td><td className="px-3 py-2 font-medium">{revision.clientKey}</td><td className="px-3 py-2">{revision.newStatus} · {revision.validationResult}</td><td className="px-3 py-2">{revision.destinationMasked ?? "—"}</td><td className="px-3 py-2">{revision.provenanceSource}</td><td className="max-w-md px-3 py-2 text-muted-foreground">{revision.evidence}</td></tr>)}</tbody>
+          </table>
+        </div>
       </section>
 
       <section className="mt-8">

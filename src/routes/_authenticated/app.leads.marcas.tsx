@@ -9,6 +9,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { RefreshCw, Search, Inbox } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   listPortfolioFunnelLeads,
   type PortfolioFunnelLead,
@@ -60,19 +61,22 @@ function LeadsPorMarcaPage() {
   const [error, setError] = useState<string | null>(null);
   const [term, setTerm] = useState("");
   const [open, setOpen] = useState<string | null>(null);
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [recoverability, setRecoverability] = useState("");
 
   const refresh = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await load({ data: { limit: 300 } });
+      const res = await load({ data: { limit: 300, from: from || undefined, to: to || undefined, recoverability: recoverability || undefined } });
       setLeads(res.leads);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, [load]);
+  }, [load, from, to, recoverability]);
 
   useEffect(() => {
     void refresh();
@@ -112,24 +116,24 @@ function LeadsPorMarcaPage() {
             {leads.length} pedidos · {brands.length} marcas. Número completo permanece no servidor.
           </p>
         </div>
-        <button
-          type="button"
+        <Button
+          variant="outline"
           onClick={() => void refresh()}
-          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm hover:bg-muted"
         >
           <RefreshCw className="h-4 w-4" /> Atualizar
-        </button>
+        </Button>
       </header>
 
-      <label className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm max-w-md">
-        <Search className="h-4 w-4 text-muted-foreground" />
-        <input
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-          placeholder="Buscar marca ou clientKey"
-          className="w-full bg-transparent outline-none"
-        />
-      </label>
+      <section aria-label="Filtros" className="grid gap-3 rounded-md border border-border p-4 md:grid-cols-4">
+        <label className="flex items-center gap-2 rounded-md border border-border px-3 text-sm md:col-span-2">
+          <Search className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+          <span className="sr-only">Buscar marca</span>
+          <input value={term} onChange={(e) => setTerm(e.target.value)} placeholder="Buscar marca ou clientKey" className="min-h-11 w-full bg-transparent outline-none" />
+        </label>
+        <label className="text-xs text-muted-foreground">De<input aria-label="Data inicial" type="date" value={from} onChange={(e) => setFrom(e.target.value)} className="mt-1 min-h-11 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground" /></label>
+        <label className="text-xs text-muted-foreground">Até<input aria-label="Data final" type="date" value={to} onChange={(e) => setTo(e.target.value)} className="mt-1 min-h-11 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground" /></label>
+        <label className="text-xs text-muted-foreground md:col-span-2">Recuperabilidade<select value={recoverability} onChange={(e) => setRecoverability(e.target.value)} className="mt-1 min-h-11 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground"><option value="">Todos</option><option value="RECOVERABLE">Contato recuperável</option><option value="DELIVERED">Entregue</option><option value="DELIVERY_PENDING">Pendente</option><option value="UNRECOVERABLE_LEGACY">Legado sem contato</option></select></label>
+      </section>
 
       {error && <p className="text-sm text-destructive">{error}</p>}
       {loading && <p className="text-sm text-muted-foreground">Carregando…</p>}
@@ -170,6 +174,7 @@ function LeadsPorMarcaPage() {
                         <th className="px-4 py-2">Contato</th>
                         <th className="px-4 py-2">Pedido</th>
                         <th className="px-4 py-2">Status</th>
+                        <th className="px-4 py-2">Recuperabilidade</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -183,6 +188,7 @@ function LeadsPorMarcaPage() {
                             {lead.order_total ? ` · ${lead.order_total}` : ""}
                           </td>
                           <td className="px-4 py-2">{statusLabel(lead)}</td>
+                          <td className="px-4 py-2">{lead.recoverability_status ?? (lead.has_recovery_contact ? "RECOVERABLE" : "—")}</td>
                         </tr>
                       ))}
                     </tbody>
