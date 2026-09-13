@@ -297,7 +297,7 @@ function PendingDestinationsPage() {
             ))}
             {!loading && filtered.length === 0 && (
               <tr>
-                <td colSpan={6} className="py-6 text-muted-foreground">
+                <td colSpan={7} className="py-6 text-muted-foreground">
                   Nenhuma marca nesse filtro.
                 </td>
               </tr>
