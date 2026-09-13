@@ -8,6 +8,10 @@ import {
   maskWhatsAppDigits,
   type DestinationRow,
 } from "@/lib/portfolio-funnel-destination";
+import {
+  fingerprintDestination,
+  revisionMatchesCurrentDestination,
+} from "@/lib/portfolio-destination-confirm.server";
 import { evaluateFunnelDestination } from "../../../scripts/lib/funnel-destination-gate.mjs";
 import ledger from "@/config/portfolio-funnel-destinations.json";
 
@@ -52,6 +56,66 @@ describe("prioridade operacional por risco real", () => {
     const alto = row({ slug: "zz", priority: "P0", conversionsAtRisk: 8 });
     const baixo = row({ slug: "aa", priority: "P2" });
     expect([baixo, alto].sort(compareByOperationalRisk)[0].slug).toBe("zz");
+  });
+});
+
+describe("vínculo VERIFIED ↔ destino operacional atual", () => {
+  const original = "5541999991234";
+  const other = "5541999995678";
+
+  it("aceita VERIFIED apenas quando PASS e fingerprint correspondem ao destino atual", () => {
+    expect(
+      revisionMatchesCurrentDestination(
+        {
+          status: "VERIFIED",
+          validationResult: "PASS",
+          destinationFingerprint: fingerprintDestination(original),
+        },
+        original,
+      ),
+    ).toBe(true);
+  });
+
+  it("rejeita revisão VERIFIED obsoleta quando o destino mudou", () => {
+    expect(
+      revisionMatchesCurrentDestination(
+        {
+          status: "VERIFIED",
+          validationResult: "PASS",
+          destinationFingerprint: fingerprintDestination(original),
+        },
+        other,
+      ),
+    ).toBe(false);
+  });
+
+  it("rejeita VERIFIED sem PASS, sem fingerprint ou sem destino atual", () => {
+    expect(
+      revisionMatchesCurrentDestination(
+        {
+          status: "VERIFIED",
+          validationResult: "RESOLVED",
+          destinationFingerprint: fingerprintDestination(original),
+        },
+        original,
+      ),
+    ).toBe(false);
+    expect(
+      revisionMatchesCurrentDestination(
+        { status: "VERIFIED", validationResult: "PASS", destinationFingerprint: null },
+        original,
+      ),
+    ).toBe(false);
+    expect(
+      revisionMatchesCurrentDestination(
+        {
+          status: "VERIFIED",
+          validationResult: "PASS",
+          destinationFingerprint: fingerprintDestination(original),
+        },
+        null,
+      ),
+    ).toBe(false);
   });
 });
 
@@ -110,7 +174,6 @@ describe("livro-razão dos nove configurados", () => {
     }
   });
 });
-
 
 describe("portfolio funnel destination contract", () => {
   it("mascara o número e nunca expõe o miolo", () => {
