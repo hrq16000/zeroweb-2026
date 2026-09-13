@@ -18,10 +18,13 @@ const requiredFiles = [
   "docs/EXPERIENCE_DESIGN_MAX_STANDARD.md",
   "docs/LAYOUT_ENGINEERING_STANDARD.md",
   "docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md",
+  "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
+  "docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md",
   "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
   "docs/skills/REGISTRY.md",
   "src/config/experience-capabilities.json",
   "src/config/skill-marketplace-catalog.json",
+  "src/config/portfolio-zero-generic-policy.json",
 ];
 
 for (const file of requiredFiles) {
@@ -37,8 +40,11 @@ if (fail.length === 0) {
   const standard = read("docs/EXPERIENCE_DESIGN_MAX_STANDARD.md");
   const layoutStandard = read("docs/LAYOUT_ENGINEERING_STANDARD.md");
   const marketplaceStandard = read("docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md");
+  const zeroGenericStandard = read("docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md");
+  const uniqueComposition = read("docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md");
   const config = JSON.parse(read("src/config/experience-capabilities.json"));
   const marketplace = JSON.parse(read("src/config/skill-marketplace-catalog.json"));
+  const zeroGeneric = JSON.parse(read("src/config/portfolio-zero-generic-policy.json"));
 
   const mustMention = [
     ["AGENTS.md", agents, "0web-experience-design-max"],
@@ -55,6 +61,11 @@ if (fail.length === 0) {
     ["layout", layoutStandard, "main axis"],
     ["marketplace", marketplaceStandard, "awesomeskill.ai/search"],
     ["marketplace", marketplaceStandard, "@lobehub/market-cli"],
+    ["zero-generic", zeroGenericStandard, "ZERO TOLERÂNCIA"],
+    ["zero-generic", zeroGenericStandard, "card/capa"],
+    ["zero-generic", zeroGenericStandard, "preview/modal/viewer/iframe"],
+    ["zero-generic", zeroGenericStandard, "Legado não recebe anistia"],
+    ["unique-composition", uniqueComposition, "infraestrutura compartilhada = sim; composição visual compartilhada = não"],
   ];
 
   for (const [label, text, needle] of mustMention) {
@@ -63,6 +74,7 @@ if (fail.length === 0) {
 
   if (config.version < 3) fail.push("experience-capabilities:version<3");
   if (marketplace.version < 2) fail.push("skill-marketplace-catalog:version<2");
+  if (zeroGeneric.version < 1) fail.push("portfolio-zero-generic-policy:version<1");
   if (config.mandatorySkill !== ".agents/skills/0web-experience-design-max/SKILL.md") {
     fail.push("experience-capabilities:mandatorySkill");
   }
@@ -150,6 +162,65 @@ if (fail.length === 0) {
   if (quarantined.get("nanobanana-ppt") !== "QUARANTINED") {
     fail.push("marketplace:nanobanana-ppt-must-remain-quarantined");
   }
+
+  if (zeroGeneric.mode !== "ZERO_GENERIC_TOLERANCE") {
+    fail.push("zero-generic:mode");
+  }
+  if (!zeroGeneric.scope?.appliesToAllPortfolioProjects) {
+    fail.push("zero-generic:all-projects-required");
+  }
+  if (!zeroGeneric.scope?.includesExistingProjects) {
+    fail.push("zero-generic:existing-projects-required");
+  }
+  if (!zeroGeneric.scope?.includesMaterialMaintenance) {
+    fail.push("zero-generic:material-maintenance-required");
+  }
+  if (!zeroGeneric.skillPolicy?.discoveryRequired || !zeroGeneric.skillPolicy?.searchLobeHub || !zeroGeneric.skillPolicy?.searchAwesomeSkill) {
+    fail.push("zero-generic:skill-discovery-marketplaces-required");
+  }
+  if (!zeroGeneric.creativePolicy?.noSharedVisualSkeleton || !zeroGeneric.creativePolicy?.noBrandTestRequired) {
+    fail.push("zero-generic:creative-policy");
+  }
+  if ((zeroGeneric.creativePolicy?.minimumDivergentDirectionsBeforeFinal ?? 0) < 3) {
+    fail.push("zero-generic:minimum-three-directions");
+  }
+
+  const requiredSurfaces = [
+    "portfolio-route",
+    "catalog-card",
+    "catalog-cover",
+    "preview-modal",
+    "viewer-iframe",
+    "social-og",
+    "mobile",
+    "tablet",
+    "desktop",
+    "reduced-motion",
+    "own-domain-promotion",
+  ];
+  const surfaces = new Set(zeroGeneric.scope?.surfaces ?? []);
+  const missingSurfaces = requiredSurfaces.filter((surface) => !surfaces.has(surface));
+  if (missingSurfaces.length) fail.push(`zero-generic:missing-surfaces:${missingSurfaces.join(",")}`);
+
+  const requiredBlockers = [
+    "SKILL_DISCOVERY_SKIPPED",
+    "GENERIC_COMPOSITION",
+    "SHARED_VISUAL_SKELETON",
+    "SKIN_SWAP",
+    "NO_SIGNATURE_MOMENT",
+    "MEDIA_STARVATION",
+    "CATALOG_COVER_GENERIC",
+    "PREVIEW_ASSET_DRIFT",
+    "HIGH_SIMILARITY_UNRESOLVED",
+    "VISUAL_QA_MISSING",
+  ];
+  const blockers = new Set(zeroGeneric.hardBlockers ?? []);
+  const missingBlockers = requiredBlockers.filter((blocker) => !blockers.has(blocker));
+  if (missingBlockers.length) fail.push(`zero-generic:missing-blockers:${missingBlockers.join(",")}`);
+
+  if (zeroGeneric.legacyPolicy?.grandfatheredAsComplete !== false) {
+    fail.push("zero-generic:legacy-cannot-be-grandfathered-complete");
+  }
 }
 
 if (fail.length) {
@@ -165,4 +236,6 @@ console.log(" - marketplace catalog: required for new projects and material main
 console.log(" - highlighted skills: 18/18 registered with security status");
 console.log(" - layout matrix: Flexbox + Grid + intrinsic sizing + responsive flow");
 console.log(" - motion matrix: 14/14 capabilities registered");
+console.log(" - portfolio zero-generic: ALL projects + variants + derivatives governed");
+console.log(" - legacy: may remain online during remediation, never grandfathered as visually complete");
 console.log(" - policy: maximum relevant non-redundant skills");
