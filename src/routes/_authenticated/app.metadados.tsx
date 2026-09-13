@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import seedJson from "@/config/portfolio-admin-seed.json";
 import { useServerFn } from "@tanstack/react-start";
 import { RefreshCw, Save } from "lucide-react";
 import {
@@ -32,7 +33,11 @@ const EMPTY = {
   seo_keywords: "",
   canonical_url: "",
   social_image_url: "",
+  seo_schema: "",
 };
+
+type SeedProject = { slug: string; clientKey: string; title?: string; city?: string; state?: string };
+const SEED = (Array.isArray(seedJson) ? seedJson : ((seedJson as { projects?: SeedProject[] }).projects ?? [])) as SeedProject[];
 
 function MetadataPage() {
   const load = useServerFn(listClientSettings);
