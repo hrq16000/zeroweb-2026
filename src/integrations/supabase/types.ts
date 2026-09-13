@@ -4534,6 +4534,51 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_destination_requests: {
+        Row: {
+          channel: string
+          client_key: string
+          created_at: string
+          created_by: string | null
+          id: string
+          response_at: string | null
+          response_note: string | null
+          sent_at: string
+          sent_note: string | null
+          slug: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          channel?: string
+          client_key: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          response_at?: string | null
+          response_note?: string | null
+          sent_at?: string
+          sent_note?: string | null
+          slug?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          channel?: string
+          client_key?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          response_at?: string | null
+          response_note?: string | null
+          sent_at?: string
+          sent_note?: string | null
+          slug?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       portfolio_destination_revisions: {
         Row: {
           client_key: string
