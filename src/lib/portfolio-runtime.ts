@@ -108,6 +108,8 @@ export type PortfolioRuntimeEffective = PortfolioRuntimeBase & {
   robots: string;
   /** Regulagem de movimento vinda do painel; ausente = perfil da landing. */
   motion?: PortfolioMotionSettings;
+  /** JSON-LD administrável (string JSON sanitizada) ou ausente. */
+  seoSchema?: string;
   /** Campos que vieram do banco (para a matriz de suporte e para o gate). */
   overriddenFields: string[];
 };
