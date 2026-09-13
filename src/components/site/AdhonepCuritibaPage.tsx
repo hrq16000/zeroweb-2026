@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import type { CtaPlacement, CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
-import adhonepHeroEditorial from "@/assets/adhonep-curitiba-hero-editorial.png";
+import adhonepHeroEditorial from "@/assets/adhonep-curitiba-hero-editorial.png.asset.json";
 
 /**
  * ADHONEP Curitiba (/portfolio/adhonep-curitiba) — composição autoral.
@@ -198,7 +198,7 @@ export function AdhonepCuritibaPage() {
             <div className="relative lg:col-span-7">
               <MotionReveal variant="mask" className="relative overflow-hidden rounded-[2rem] border border-white/10">
                 <PortfolioImage
-                  src={adhonepHeroEditorial}
+                  src={adhonepHeroEditorial.url}
                   alt="Composição editorial conceitual de uma sala de reunião executiva à noite, derivada da matriz visual do convite e sem retratar participantes reais"
                   width={1264}
                   height={848}
