@@ -89,6 +89,39 @@ function PendingDestinationsPage() {
     });
   }, [rows, city, status, term]);
 
+  const lastRequestByKey = useMemo(() => {
+    const map = new Map<string, DestinationRequestRow>();
+    for (const r of requests) if (!map.has(r.client_key)) map.set(r.client_key, r);
+    return map;
+  }, [requests]);
+
+  const register = useCallback(
+    async (targets: PendingDestinationRow[]) => {
+      if (targets.length === 0) return;
+      setBusy(targets.length === 1 ? targets[0]!.client_key : "bulk");
+      setNotice(null);
+      setError(null);
+      try {
+        for (const t of targets) {
+          await sendRequest({
+            data: { client_key: t.client_key, slug: t.slug, channel, sent_note: undefined },
+          });
+        }
+        setNotice(
+          targets.length === 1
+            ? `Envio registrado para ${targets[0]!.title}.`
+            : `${targets.length} envios registrados.`,
+        );
+        await refresh();
+      } catch (e) {
+        setError((e as Error).message);
+      } finally {
+        setBusy(null);
+      }
+    },
+    [channel, refresh, sendRequest],
+  );
+
   return (
     <div className="p-6 lg:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
