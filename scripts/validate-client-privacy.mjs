@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 /**
- * Validador: garante que o bundle público do cliente (dist/client/assets)
- * não contém wa.me, e-mails corporativos ou telefones em números literais.
+ * Validador: garante que o bundle público do cliente não contém wa.me,
+ * e-mails corporativos ou telefones em números literais.
+ *
+ * Suporta os formatos de saída usados pelo projeto em diferentes hosts:
+ * - Vite/Lovable: dist/client/assets ou dist/assets
+ * - Nitro genérico: .output/public/assets
+ * - Vercel/Nitro: .vercel/output/static/assets
  *
  * Gera um relatório detalhado (origem do leak, tamanho do chunk, rota provável,
  * trecho de contexto) em seo-reports/client-privacy-report.json e falha o build
@@ -24,7 +29,12 @@ import {
 } from "./contact-allowlist.mjs";
 
 const ROOT = process.cwd();
-const DIST_CANDIDATES = ["dist/client/assets", ".output/public/assets", "dist/assets"];
+const DIST_CANDIDATES = [
+  ".vercel/output/static/assets",
+  "dist/client/assets",
+  ".output/public/assets",
+  "dist/assets",
+];
 const DIST = DIST_CANDIDATES.find((candidate) => existsSync(join(ROOT, candidate)));
 const REPORT_DIR = join(ROOT, "seo-reports");
 const REPORT_FILE = join(REPORT_DIR, "client-privacy-report.json");
@@ -201,7 +211,7 @@ if (!DIST) {
   process.exit(1);
 }
 console.log(`[client-privacy] scanning ${DIST} (correlationId=${correlationId})`);
-walk(DIST);
+walk(join(ROOT, DIST));
 
 try {
   mkdirSync(REPORT_DIR, { recursive: true });
