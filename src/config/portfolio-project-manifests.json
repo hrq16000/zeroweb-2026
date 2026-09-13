@@ -333,11 +333,16 @@
       },
       "perceptualReview": {
         "screenshots": {
-          "390": null,
-          "1440": null
+          "390": "docs/portfolio/qa/adhonep-curitiba/390.png",
+          "1440": "docs/portfolio/qa/adhonep-curitiba/1440.png"
         },
-        "comparedWith": [],
-        "noBrandTest": null
+        "comparedWith": [
+          "carecas-infotec",
+          "moreira-auto-mecanica",
+          "jkl-decor"
+        ],
+        "noBrandTest": "PASS",
+        "notes": "Sem logo e sem nome, o cartaz tipográfico com ficha de data e trilho de horários não se confunde com nenhum dos três pilotos."
       },
       "contentFacts": {
         "ownSourcedContent": true,
@@ -359,7 +364,7 @@
         "seo": "complete",
         "funnel": "not_started",
         "cover": "not_started",
-        "qa": "not_started",
+        "qa": "complete",
         "publish": "not_started"
       },
       "blockers": [],
@@ -375,9 +380,9 @@
       ],
       "searchQa": [],
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": null,
-        "evaluatedAt": null
+        "status": "PASS",
+        "evaluatedAt": "2026-09-13",
+        "notes": "Capturas 1440 e 390 sem erro de console; hero legível, ficha de data e barra fixa mobile conferidas."
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/adhonep-curitiba.json",
