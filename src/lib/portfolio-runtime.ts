@@ -40,6 +40,7 @@ export type PortfolioRuntimeRow = {
   archived_at?: string | null;
   content_version?: number | null;
   motion_settings?: unknown;
+  seo_schema?: unknown;
 };
 
 /**
