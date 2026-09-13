@@ -150,6 +150,37 @@ export function sanitizeMotionSettings(value: unknown): PortfolioMotionSettings 
   return Object.keys(out).length ? out : undefined;
 }
 
+/**
+ * JSON-LD administrável. Só passa objeto/array JSON puro, com `@context` do
+ * schema.org, sem HTML, sem contato operacional e dentro de um teto de tamanho.
+ * Retorna a string já serializada para o `<script type="application/ld+json">`.
+ */
+export function sanitizeSeoSchema(value: unknown): string | undefined {
+  if (value === null || value === undefined) return undefined;
+  let parsed: unknown = value;
+  if (typeof value === "string") {
+    const raw = value.trim();
+    if (!raw) return undefined;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      return undefined;
+    }
+  }
+  if (!parsed || typeof parsed !== "object") return undefined;
+  let serialized: string;
+  try {
+    serialized = JSON.stringify(parsed);
+  } catch {
+    return undefined;
+  }
+  if (serialized.length > 20000) return undefined;
+  if (/<\/?script|<|>/i.test(serialized)) return undefined;
+  if (containsPublicContact(serialized)) return undefined;
+  if (!serialized.includes("schema.org")) return undefined;
+  return serialized;
+}
+
 function lifecycleOf(row: PortfolioRuntimeRow): PortfolioLifecycle {
   const raw = String(row.lifecycle_status ?? "").trim();
   if (raw === "draft" || raw === "published" || raw === "archived" || raw === "imported") return raw;
