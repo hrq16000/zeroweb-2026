@@ -1,0 +1,81 @@
+name: Frente A · Turno 3
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "package.json"
+      - "bun.lock"
+      - ".github/workflows/frente-a-turno-3.yml"
+  workflow_dispatch:
+
+jobs:
+  turno-3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      E2E_BASE_URL: http://127.0.0.1:8080
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
+      SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      WHATSAPP_NUMBER: ${{ secrets.WHATSAPP_NUMBER }}
+      IP_HASH_SALT: ${{ secrets.IP_HASH_SALT }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Instalar dependências
+        run: bun install --frozen-lockfile
+
+      - name: Suíte completa
+        run: bun run test
+
+      - name: Typecheck
+        run: bunx tsc --noEmit
+
+      - name: Build + validators pós-build
+        run: bun run build
+
+      - name: Validator de contato público (fonte)
+        run: node scripts/validate-no-public-contact.mjs
+
+      - name: Validator de contato público (dist)
+        run: node scripts/validate-no-public-contact-dist.mjs
+
+      - name: Validator de privacidade do cliente
+        run: node scripts/validate-client-privacy.mjs
+
+      - name: Instalar Chromium
+        run: bunx playwright install --with-deps chromium
+
+      - name: Subir artefato de produção
+        run: |
+          PREVIEW_PORT=8080 bun run preview:prod > /tmp/preview-server.log 2>&1 &
+          for i in $(seq 1 60); do
+            curl -sf -o /dev/null "$E2E_BASE_URL/" && exit 0
+            sleep 2
+          done
+          echo "Artefato de produção não respondeu"
+          cat /tmp/preview-server.log
+          exit 1
+
+      - name: Gate SSR dehydrated state
+        run: bun run validate:ssr-payload
+
+      - name: Gate de hidratação
+        run: bun run test:e2e:hydration
+
+      - name: E2E Funnel-first + produto/carrinho/checkout
+        run: bun run test:e2e:funnel
+
+      - name: Logs do servidor em caso de falha
+        if: failure()
+        run: tail -n 250 /tmp/preview-server.log || true

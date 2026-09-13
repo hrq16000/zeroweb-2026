@@ -1,11 +1,6 @@
 /**
- * E2E Funnel-first: CTA → modal → respostas → lead → token → redirect WhatsApp.
- *
- * Valida o contrato completo sem depender de layout:
- *  - a página pública NÃO expõe wa.me/mailto/tel;
- *  - o CTA abre o modal do funil (não navega para /contato);
- *  - o funil conclui e produz protocolo + link tokenizado /r/whatsapp/<token>;
- *  - o token resolve para wa.me apenas no servidor (redirect 30x/302).
+ * E2E Funnel-first: CTA → modal → respostas → lead → token → redirect WhatsApp
+ * + produto → carrinho → checkout + ProductActionGate.
  */
 import { chromium } from "playwright";
 import { existsSync, readdirSync } from "node:fs";
@@ -13,6 +8,7 @@ import { join } from "node:path";
 
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const ROUTES = ["/", "/servicos/google-ads-299"];
+const PRODUCT_SLUG = "google-ads-299";
 
 const bundled = chromium.executablePath();
 const root = "/opt/ms-playwright";
@@ -34,6 +30,13 @@ const fail = (msg) => {
   console.error(`✗ ${msg}`);
 };
 const ok = (msg) => console.log(`✓ ${msg}`);
+
+async function waitHydrated(page) {
+  await page
+    .waitForFunction(() => Boolean(window.__0WEB_RENDER_MODE__ ?? window.__0web_hydrated ?? window.$_TSR), null, { timeout: 20_000 })
+    .catch(() => {});
+  await page.waitForTimeout(600);
+}
 
 async function answerCurrentStep(page) {
   const option = page.locator('[data-testid="funnel-option"]:visible').first();
@@ -60,7 +63,7 @@ async function answerCurrentStep(page) {
     }
     const type = (await input.getAttribute("type", { timeout: 5000 }).catch(() => "")) || "";
     const mode = (await input.getAttribute("inputmode", { timeout: 5000 }).catch(() => "")) || "";
-    const value = type === "email" ? "teste-e2e@example.test" : mode === "tel" ? "41999990000" : "Teste E2E 0WEB";
+    const value = type === "email" ? "teste-e2e@example.test" : mode === "tel" || type === "tel" ? "41999990000" : "Teste E2E 0WEB";
     await input.fill(value, { timeout: 8000 }).catch(() => {});
   }
   const next = page.locator('[data-testid="funnel-next"]:visible').first();
@@ -69,6 +72,116 @@ async function answerCurrentStep(page) {
     return true;
   }
   return false;
+}
+
+async function verifyPublicHtml(page, route) {
+  const html = await page.content();
+  for (const [re, name] of [
+    [/wa\.me\/\d+/, "wa.me/<numero>"],
+    [/mailto:[^"'\s]+@0web/i, "mailto 0web"],
+    [/tel:\+?\d[\d\s().-]{7,}/i, "tel:"],
+  ]) {
+    if (re.test(html)) fail(`${route}: HTML expõe ${name}`);
+  }
+  ok(`${route}: HTML sem contatos operacionais públicos`);
+}
+
+async function runProductCommerceChecks() {
+  // Compra direta → carrinho → checkout, sem obrigar funil.
+  {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 1800 } });
+    await context.addInitScript(() => localStorage.removeItem("0web_cart"));
+    const page = await context.newPage();
+    await page.goto(`${baseUrl}/servicos/${PRODUCT_SLUG}`, { waitUntil: "domcontentloaded" });
+    await waitHydrated(page);
+
+    const buy = page.locator(`[data-testid="product-buy"][data-product-slug="${PRODUCT_SLUG}"]`).first();
+    if (!(await buy.count())) {
+      fail("produto: CTA de compra não encontrado");
+    } else {
+      await buy.click();
+      const cart = await page.evaluate(() => JSON.parse(localStorage.getItem("0web_cart") || "[]"));
+      const item = cart.find((x) => x.slug === "google-ads-299");
+      if (!item) fail("produto: compra direta não adicionou google-ads-299 ao carrinho");
+      else if (Number(item.price) !== 299) fail(`produto: preço no carrinho inesperado (${item.price})`);
+      else ok("produto: compra direta adicionou google-ads-299 por R$ 299");
+
+      await page.evaluate(() => window.dispatchEvent(new CustomEvent("0web:cart-open")));
+      const drawerTitle = page.getByText("Seu carrinho", { exact: true });
+      await drawerTitle.waitFor({ state: "visible", timeout: 8000 }).catch(() => {});
+      if (!(await drawerTitle.count())) fail("produto: CartDrawer não abriu");
+      if (!(await page.getByText("Campanhas Google Ads", { exact: true }).count())) {
+        fail("produto: item não apareceu no CartDrawer");
+      }
+
+      const checkoutButton = page.getByRole("button", { name: "Finalizar compra" });
+      if (!(await checkoutButton.count())) {
+        fail("produto: botão Finalizar compra não encontrado");
+      } else {
+        await checkoutButton.click();
+        await page.waitForURL(/\/checkout(?:\?|$)/, { timeout: 12_000 }).catch(() => {});
+        if (!/\/checkout(?:\?|$)/.test(page.url())) fail(`produto: não navegou ao checkout (${page.url()})`);
+        else {
+          const body = await page.locator("body").innerText();
+          if (!body.includes("Campanhas Google Ads")) fail("checkout: produto não consta no resumo");
+          else if (!body.includes("R$ 299")) fail("checkout: preço R$ 299 não consta no resumo");
+          else ok("produto: carrinho e checkout preservam produto/preço");
+        }
+      }
+    }
+    await context.close();
+  }
+
+  // Orientação → sugestão de carrinho → aceita → funil.
+  {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 1800 } });
+    await context.addInitScript(() => localStorage.removeItem("0web_cart"));
+    const page = await context.newPage();
+    await page.goto(`${baseUrl}/servicos/${PRODUCT_SLUG}`, { waitUntil: "domcontentloaded" });
+    await waitHydrated(page);
+
+    const orientation = page.locator(`[data-testid="product-orientation"][data-product-slug="${PRODUCT_SLUG}"]`).first();
+    if (!(await orientation.count())) {
+      fail("produto: ProductActionGate não encontrado");
+    } else {
+      await orientation.click();
+      const suggestion = page.locator('[data-testid="cart-suggestion-dialog"]');
+      await suggestion.waitFor({ state: "visible", timeout: 8000 }).catch(() => {});
+      if (!(await suggestion.isVisible().catch(() => false))) {
+        fail("produto: orientação não mostrou sugestão de carrinho");
+      } else {
+        await page.locator('[data-testid="cart-suggestion-accept"]').click();
+        const modal = page.locator('[data-testid="funnel-modal"]');
+        await modal.waitFor({ state: "visible", timeout: 8000 }).catch(() => {});
+        const cart = await page.evaluate(() => JSON.parse(localStorage.getItem("0web_cart") || "[]"));
+        if (!cart.some((x) => x.slug === "google-ads-299")) fail("produto: aceitar sugestão não adicionou ao carrinho");
+        else if (!(await modal.isVisible().catch(() => false))) fail("produto: aceitar sugestão não abriu o funil");
+        else ok("produto: ProductActionGate adiciona ao carrinho e abre o funil");
+      }
+    }
+    await context.close();
+  }
+
+  // Orientação → recusa → funil sem adicionar.
+  {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 1800 } });
+    await context.addInitScript(() => localStorage.removeItem("0web_cart"));
+    const page = await context.newPage();
+    await page.goto(`${baseUrl}/servicos/${PRODUCT_SLUG}`, { waitUntil: "domcontentloaded" });
+    await waitHydrated(page);
+    const orientation = page.locator(`[data-testid="product-orientation"][data-product-slug="${PRODUCT_SLUG}"]`).first();
+    if (await orientation.count()) {
+      await orientation.click();
+      await page.locator('[data-testid="cart-suggestion-decline"]').click();
+      const modal = page.locator('[data-testid="funnel-modal"]');
+      await modal.waitFor({ state: "visible", timeout: 8000 }).catch(() => {});
+      const cart = await page.evaluate(() => JSON.parse(localStorage.getItem("0web_cart") || "[]"));
+      if (cart.some((x) => x.slug === "google-ads-299")) fail("produto: recusar sugestão adicionou item indevidamente");
+      else if (!(await modal.isVisible().catch(() => false))) fail("produto: recusar sugestão não abriu o funil");
+      else ok("produto: recusa preserva carrinho vazio e abre o funil");
+    }
+    await context.close();
+  }
 }
 
 try {
@@ -81,24 +194,9 @@ try {
 
     await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("networkidle").catch(() => {});
-    // aguarda a hidratação: antes dela o CTA é um <a> puro e navegaria para /contato
-    await page
-      .waitForFunction(() => Boolean(window.__0web_hydrated ?? window.$_TSR), null, { timeout: 20000 })
-      .catch(() => {});
-    await page.waitForTimeout(1500);
+    await waitHydrated(page);
+    await verifyPublicHtml(page, route);
 
-    // 1) nenhum contato público no HTML renderizado
-    const html = await page.content();
-    for (const [re, name] of [
-      [/wa\.me\/\d+/, "wa.me/<numero>"],
-      [/mailto:[^"'\s]+@0web/i, "mailto 0web"],
-      [/tel:\+?\d[\d\s().-]{7,}/i, "tel:"],
-    ]) {
-      if (re.test(html)) fail(`${route}: HTML expõe ${name}`);
-    }
-    ok(`${route}: HTML sem contatos públicos`);
-
-    // 2) CTA abre o modal do funil
     const cta = page.locator('[data-testid="funnel-cta"]').first();
     if (!(await cta.count())) {
       fail(`${route}: nenhum [data-testid="funnel-cta"] encontrado`);
@@ -117,7 +215,6 @@ try {
     if (/\/contato/.test(page.url())) fail(`${route}: CTA navegou para /contato`);
     ok(`${route}: CTA abriu o modal (${await modal.getAttribute("data-funnel-slug")})`);
 
-    // 3) percorrer o funil até a conclusão
     let steps = 0;
     while (steps < 25) {
       if (await page.locator('[data-testid="funnel-done"]').count()) break;
@@ -128,14 +225,13 @@ try {
     }
     const done = page.locator('[data-testid="funnel-done"]');
     try {
-      await done.waitFor({ state: "visible", timeout: 20000 });
+      await done.waitFor({ state: "visible", timeout: 20_000 });
     } catch {
       fail(`${route}: funil não concluiu após ${steps} passos`);
       await context.close();
       continue;
     }
 
-    // 4) protocolo + link tokenizado
     const protocol = (await page.locator('[data-testid="funnel-protocol"]').textContent().catch(() => null))?.trim();
     if (!protocol) fail(`${route}: conclusão sem protocolo`);
     else ok(`${route}: protocolo ${protocol}`);
@@ -152,7 +248,6 @@ try {
       fail(`${route}: href inesperado "${href}" (esperado /r/whatsapp/<token>)`);
     } else {
       ok(`${route}: link tokenizado ${href}`);
-      // 5) o token resolve no servidor para wa.me, sem expor o número no client
       const res = await context.request.get(`${baseUrl}${href}`, { maxRedirects: 0 });
       const location = res.headers()["location"] || "";
       if (res.status() >= 300 && res.status() < 400 && /wa\.me\/\d+/.test(location)) {
@@ -167,6 +262,8 @@ try {
 
     await context.close();
   }
+
+  await runProductCommerceChecks();
 } finally {
   await browser.close();
 }
@@ -175,4 +272,4 @@ if (failures.length) {
   console.error(`\n✗ E2E funil falhou com ${failures.length} problema(s).`);
   process.exit(1);
 }
-console.log("\n✓ E2E funil: CTA → modal → lead → token → redirect validado.");
+console.log("\n✓ E2E funil: CTA → modal → lead → token → redirect + produto/carrinho/checkout validados.");
