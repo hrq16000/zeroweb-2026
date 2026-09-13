@@ -20,19 +20,48 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const target = path.join(root, "src/config/portfolio-admin-seed.json");
 const check = process.argv.includes("--check");
 
-const payload = {
+function normalizePayload(value) {
+  if (!value || typeof value !== "object") return value;
+
+  return {
+    ...value,
+    blocking: Array.isArray(value.blocking) ? [...value.blocking].sort() : value.blocking,
+    projects: Array.isArray(value.projects)
+      ? value.projects
+          .map((project) => ({
+            ...project,
+            gallery: Array.isArray(project.gallery) ? [...project.gallery].sort() : project.gallery,
+            issues: Array.isArray(project.issues) ? [...project.issues].sort() : project.issues,
+            blocking: Array.isArray(project.blocking) ? [...project.blocking].sort() : project.blocking,
+          }))
+          .sort((a, b) => String(a.slug ?? "").localeCompare(String(b.slug ?? "")))
+      : value.projects,
+  };
+}
+
+const payload = normalizePayload({
   version: 1,
   generatedBy: "scripts/build-portfolio-admin-seed.mjs",
   codes: CODES,
-  blocking: [...BLOCKING].sort(),
-  projects: buildRecords(root).sort((a, b) => a.slug.localeCompare(b.slug)),
-};
+  blocking: [...BLOCKING],
+  projects: buildRecords(root),
+});
 
 const next = `${JSON.stringify(payload, null, 2)}\n`;
 const current = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
 
 if (check) {
-  if (current !== next) {
+  let currentNormalized = "";
+
+  try {
+    currentNormalized = current
+      ? `${JSON.stringify(normalizePayload(JSON.parse(current)), null, 2)}\n`
+      : "";
+  } catch {
+    currentNormalized = current;
+  }
+
+  if (currentNormalized !== next) {
     console.error(
       "[portfolio-admin-seed] desatualizado. Rode: bun run build:portfolio-admin-seed",
     );
