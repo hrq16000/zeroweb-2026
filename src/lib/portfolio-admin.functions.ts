@@ -107,7 +107,7 @@ function managedToAdminProject(project: ManagedProject): AdminListProject {
   };
 }
 
-/** Lista os 68 projetos com conformidade, estado e divergência em relação ao seed. */
+/** Lista projetos versionados e projetos gerenciados, sem reclassificar registros legados órfãos. */
 export const listPortfolioAdminProjects = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
@@ -120,6 +120,7 @@ export const listPortfolioAdminProjects = createServerFn({ method: "GET" })
     }));
     const registrySlugs = new Set(registryProjects.map((project) => project.slug));
     const managedProjects = Array.from(rows.values())
+      .filter((row) => (row as AdminOverrides & { project_kind?: string }).project_kind === "managed")
       .map(sanitizeManagedProject)
       .filter((project): project is ManagedProject => Boolean(project))
       .filter((project) => !registrySlugs.has(project.slug))
