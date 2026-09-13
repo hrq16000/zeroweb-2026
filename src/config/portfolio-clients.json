@@ -1190,5 +1190,20 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/jkl-decor.md"
+  },
+  {
+    "clientKey": "adhonep-curitiba",
+    "slug": "adhonep-curitiba",
+    "siteName": "ADHONEP Curitiba",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AdhonepCuritibaPage.tsx",
+    "assetsDir": "public/images/adhonep-curitiba",
+    "ctaMode": "contact",
+    "funnelType": "contato",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/adhonep-curitiba.md"
   }
 ]

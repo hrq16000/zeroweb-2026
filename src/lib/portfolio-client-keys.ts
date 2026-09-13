@@ -2,7 +2,8 @@
 export const PORTFOLIO_CLIENT_KEYS = [
   
   
-  "jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
+  
+  "adhonep-curitiba","jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
   "ton-e-cor",
   "raphael-construcoes",
   "jc-revestimentos",

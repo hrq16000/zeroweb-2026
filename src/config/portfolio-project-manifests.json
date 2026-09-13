@@ -289,6 +289,72 @@
         "reviewer": "0WEB editorial",
         "notes": "Revisao editorial 2026-09-12: narrativa de midia em mosaico, prova com galeria legendada e ritmo de rolagem longa divergem dos pares em quatro eixos; similaridade de ordem medida abaixo do limite."
       }
+    },
+    "adhonep-curitiba": {
+      "slug": "adhonep-curitiba",
+      "lifecycleContract": 1,
+      "contractVersion": 3,
+      "structuralContract": 1,
+      "structuralSignature": {
+        "segment": null,
+        "layoutFamily": null,
+        "heroFamily": null,
+        "sectionRhythm": null,
+        "proofStyle": null,
+        "mediaNarrative": null,
+        "ctaStyle": null,
+        "motionProfile": null
+      },
+      "structuralOriginalityReview": {
+        "approved": false,
+        "reviewedAt": null,
+        "notes": null
+      },
+      "compositionContract": 1,
+      "compositionFingerprint": null,
+      "perceptualReview": {
+        "screenshots": {
+          "390": null,
+          "1440": null
+        },
+        "comparedWith": [],
+        "noBrandTest": null
+      },
+      "contentFacts": {
+        "ownSourcedContent": false
+      },
+      "stage": "draft",
+      "lifecycle": {
+        "intake": "complete",
+        "entityDiscovery": "not_started",
+        "entityResolution": "not_started",
+        "evidence": "not_started",
+        "media": "not_started",
+        "mediaPlan": "not_started",
+        "content": "not_started",
+        "discovery": "not_started",
+        "blueprint": "not_started",
+        "composition": "not_started",
+        "seo": "not_started",
+        "funnel": "not_started",
+        "cover": "not_started",
+        "qa": "not_started",
+        "publish": "not_started"
+      },
+      "blockers": [],
+      "warnings": [],
+      "ownerRequired": [],
+      "searchQa": [],
+      "visualQa": {
+        "status": "NOT_EXECUTED",
+        "notes": null,
+        "evaluatedAt": null
+      },
+      "notes": {
+        "enrichment": "docs/portfolio/enrichment/adhonep-curitiba.json",
+        "mediaPlan": "docs/portfolio/media-plans/adhonep-curitiba.json"
+      },
+      "lastUpdatedAt": "2026-09-13"
     }
   }
 }

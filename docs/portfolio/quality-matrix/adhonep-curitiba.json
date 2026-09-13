@@ -1,0 +1,104 @@
+{
+  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md + docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md). Avaliar antes de readiness/publish.",
+  "slug": "adhonep-curitiba",
+  "matrixVersion": 2,
+  "contractVersion": 3,
+  "evaluatedAt": null,
+  "technicalPass": false,
+  "editorialPass": false,
+  "score": {
+    "total": null,
+    "byDimension": {}
+  },
+  "dimensions": {},
+  "experience": {
+    "visualRhythm": null,
+    "signatureMoments": [],
+    "motionNarrative": null,
+    "heroArchetype": null
+  },
+  "motion": {
+    "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
+    "profile": {
+      "intensity": null,
+      "personality": null,
+      "entrance": [],
+      "scroll": [],
+      "hover": [],
+      "typography": [],
+      "media": [],
+      "transitions": [],
+      "signatureEffects": [],
+      "reducedMotionStrategy": null,
+      "mobileStrategy": null
+    },
+    "narrativeRoles": {},
+    "gate": {},
+    "qualityProfile": {
+      "motionIntensity": null,
+      "motionPurpose": null,
+      "interactionDensity": null,
+      "scrollExperience": null,
+      "microinteractionQuality": null,
+      "reducedMotionCoverage": null,
+      "motionPerformance": null
+    }
+  },
+  "qualityProfile": {
+    "visualDensity": null,
+    "editorialDepth": null,
+    "motionIntensity": null,
+    "mediaRichness": null,
+    "proofLevel": null,
+    "interactionLevel": null,
+    "localContext": null,
+    "conversionIntensity": null
+  },
+  "autonomy": {
+    "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
+    "identity": {
+      "decision": null,
+      "asset": null,
+      "provenance": null,
+      "evidence": null
+    },
+    "aboveTheFold": {
+      "status": null,
+      "visualStrategy": null,
+      "notes": null
+    },
+    "motionPresence": {
+      "state": null,
+      "evidence": []
+    },
+    "floatingConversion": {
+      "mode": null,
+      "label": null,
+      "destination": "funnel",
+      "reason": null
+    },
+    "embed": {
+      "status": null,
+      "checkedAt": null,
+      "notes": null
+    },
+    "structuralSkeleton": {
+      "topology": [],
+      "rationale": null
+    }
+  },
+  "hero": {
+    "status": null,
+    "criteria": {}
+  },
+  "cover": {
+    "status": null,
+    "criteria": {}
+  },
+  "coverage": [],
+  "deadZones": [],
+  "mediaSourceMix": {},
+  "p0": [],
+  "warnings": [],
+  "ownerRequired": []
+}
