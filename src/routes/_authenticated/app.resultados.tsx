@@ -52,6 +52,23 @@ function ResultadosPage() {
   const [leads, setLeads] = useState<PortfolioFunnelLead[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+  const template = getConfirmationReplyTemplate(ADHONEP_KEY);
+
+  const copyReply = useCallback(
+    async (lead: PortfolioFunnelLead) => {
+      if (!template) return;
+      const text = template.build({ name: lead.contact_name });
+      try {
+        await navigator.clipboard.writeText(text);
+        setCopied(lead.id);
+        window.setTimeout(() => setCopied(null), 2500);
+      } catch {
+        setError("Não foi possível copiar. Use o texto exibido abaixo da tabela.");
+      }
+    },
+    [template],
+  );
 
   const refresh = useCallback(async () => {
     setLoading(true);
