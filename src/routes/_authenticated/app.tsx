@@ -96,6 +96,7 @@ const ADMIN_NAV: NavItem[] = [
   { to: "/app/funis/numeros", icon: Phone, label: "Números dos funis" },
   { to: "/app/portfolio", icon: LayoutTemplate, label: "Projetos do portfólio" },
   { to: "/app/clientes", icon: Users, label: "Clientes do portfólio" },
+  { to: "/app/seo", icon: FileText, label: "Metadados & Sitemap" },
   { to: "/app/metadados", icon: FileText, label: "Metadados por cliente" },
   { to: "/app/auditoria/vitais", icon: Gauge, label: "Web Vitals" },
 ];

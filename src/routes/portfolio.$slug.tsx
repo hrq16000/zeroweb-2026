@@ -1275,8 +1275,14 @@ export const Route = createFileRoute("/portfolio/$slug")({
                 ]),
               ]),
             },
+            ...(eff.seoSchema
+              ? [{ type: "application/ld+json", children: eff.seoSchema }]
+              : []),
           ]
-        : undefined,
+        : eff.seoSchema
+          ? [{ type: "application/ld+json", children: eff.seoSchema }]
+          : undefined,
+
     };
   },
   component: PortfolioPrototypePage,

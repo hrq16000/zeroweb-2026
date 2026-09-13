@@ -11,6 +11,8 @@ export type ClientSettings = {
   seo_keywords: string;
   canonical_url: string;
   social_image_url: string;
+  /** JSON-LD administrável, já serializado para edição no painel. */
+  seo_schema: string;
   funnel_recipient_masked: string;
   funnel_configured: boolean;
   funnel_enabled: boolean;
@@ -35,6 +37,7 @@ const EDITABLE = [
   "seo_keywords",
   "canonical_url",
   "social_image_url",
+  "seo_schema",
   "funnel_recipient",
   "funnel_enabled",
   "published",
@@ -54,6 +57,24 @@ const upsertSchema = z.object({
   seo_keywords: z.string().trim().max(400).optional(),
   canonical_url: z.string().trim().max(300).optional(),
   social_image_url: z.string().trim().max(300).optional(),
+  /**
+   * JSON-LD da landing (texto JSON). Vazio limpa o schema administrado e a
+   * página volta ao schema definido em código.
+   */
+  seo_schema: z
+    .string()
+    .trim()
+    .max(20000)
+    .optional()
+    .refine((value) => {
+      if (!value) return true;
+      try {
+        const parsed = JSON.parse(value);
+        return Boolean(parsed) && typeof parsed === "object";
+      } catch {
+        return false;
+      }
+    }, "Schema precisa ser um JSON válido (objeto ou lista)."),
   /** Número/destinatário do funil. Nunca é devolvido em texto puro ao cliente. */
   funnel_recipient: z.string().trim().max(60).optional(),
   funnel_enabled: z.boolean().optional(),
@@ -89,6 +110,12 @@ function toPublic(row: any): ClientSettings {
     seo_keywords: row.seo_keywords ?? "",
     canonical_url: row.canonical_url ?? "",
     social_image_url: row.social_image_url ?? "",
+    seo_schema:
+      row.seo_schema === null || row.seo_schema === undefined
+        ? ""
+        : typeof row.seo_schema === "string"
+          ? row.seo_schema
+          : JSON.stringify(row.seo_schema, null, 2),
     funnel_recipient_masked: maskRecipient(recipient),
     funnel_configured: recipient.replace(/\D/g, "").length >= 10,
     funnel_enabled: Boolean(row.funnel_enabled),
@@ -129,6 +156,23 @@ export const upsertClientSettings = createServerFn({ method: "POST" })
       const next = (data as Record<string, unknown>)[field];
       if (next === undefined) continue;
       const prev = existing ? existing[field] : undefined;
+      // jsonb: comparamos e gravamos de forma estável, string vazia limpa.
+      if (field === "seo_schema") {
+        const raw = String(next ?? "").trim();
+        const parsed = raw ? JSON.parse(raw) : null;
+        const prevJson = prev === null || prev === undefined ? "" : JSON.stringify(prev);
+        const nextJson = parsed === null ? "" : JSON.stringify(parsed);
+        if (prevJson === nextJson) continue;
+        patch[field] = parsed;
+        history.push({
+          client_key: data.client_key,
+          field,
+          old_value: prevJson ? `${prevJson.slice(0, 400)}` : null,
+          new_value: nextJson ? `${nextJson.slice(0, 400)}` : null,
+          actor: context.userId,
+        });
+        continue;
+      }
       if (String(prev ?? "") === String(next)) continue;
       patch[field] = next;
       const sensitive = field === "funnel_recipient";

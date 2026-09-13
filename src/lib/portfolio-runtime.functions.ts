@@ -48,6 +48,7 @@ export const getPortfolioRuntimeOverrides = createServerFn({ method: "GET" })
             "archived_at",
             "content_version",
             "motion_settings",
+            "seo_schema",
           ].join(","),
         )
         .eq("slug", data.slug)

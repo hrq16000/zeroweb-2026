@@ -40,6 +40,7 @@ export type PortfolioRuntimeRow = {
   archived_at?: string | null;
   content_version?: number | null;
   motion_settings?: unknown;
+  seo_schema?: unknown;
 };
 
 /**
@@ -78,6 +79,8 @@ export type PortfolioRuntimeOverrides = {
   published: boolean;
   contentVersion: number;
   motion?: PortfolioMotionSettings;
+  /** JSON-LD administrável, já sanitizado e serializado (string JSON). */
+  seoSchema?: string;
 };
 
 /** Valores derivados dos registries/rota, usados como fallback. */
@@ -105,6 +108,8 @@ export type PortfolioRuntimeEffective = PortfolioRuntimeBase & {
   robots: string;
   /** Regulagem de movimento vinda do painel; ausente = perfil da landing. */
   motion?: PortfolioMotionSettings;
+  /** JSON-LD administrável (string JSON sanitizada) ou ausente. */
+  seoSchema?: string;
   /** Campos que vieram do banco (para a matriz de suporte e para o gate). */
   overriddenFields: string[];
 };
@@ -145,6 +150,37 @@ export function sanitizeMotionSettings(value: unknown): PortfolioMotionSettings 
     out.speed = Math.max(0.5, Math.min(2, Math.round(raw.speed * 100) / 100));
   }
   return Object.keys(out).length ? out : undefined;
+}
+
+/**
+ * JSON-LD administrável. Só passa objeto/array JSON puro, com `@context` do
+ * schema.org, sem HTML, sem contato operacional e dentro de um teto de tamanho.
+ * Retorna a string já serializada para o `<script type="application/ld+json">`.
+ */
+export function sanitizeSeoSchema(value: unknown): string | undefined {
+  if (value === null || value === undefined) return undefined;
+  let parsed: unknown = value;
+  if (typeof value === "string") {
+    const raw = value.trim();
+    if (!raw) return undefined;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      return undefined;
+    }
+  }
+  if (!parsed || typeof parsed !== "object") return undefined;
+  let serialized: string;
+  try {
+    serialized = JSON.stringify(parsed);
+  } catch {
+    return undefined;
+  }
+  if (serialized.length > 20000) return undefined;
+  if (/<\/?script|<|>/i.test(serialized)) return undefined;
+  if (containsPublicContact(serialized)) return undefined;
+  if (!serialized.includes("schema.org")) return undefined;
+  return serialized;
 }
 
 function lifecycleOf(row: PortfolioRuntimeRow): PortfolioLifecycle {
@@ -208,6 +244,7 @@ export function sanitizePortfolioRuntimeRow(
     published: Boolean(row.published),
     contentVersion: Number(row.content_version ?? 0),
     motion: sanitizeMotionSettings(row.motion_settings),
+    seoSchema: sanitizeSeoSchema(row.seo_schema),
   };
 }
 
@@ -258,6 +295,7 @@ export function applyPortfolioRuntime(
     gallery: overrides?.gallery ?? [],
     brandColors: overrides?.brandColors ?? {},
     motion: overrides?.motion,
+    seoSchema: overrides?.seoSchema,
     lifecycle,
     published,
     indexable,
