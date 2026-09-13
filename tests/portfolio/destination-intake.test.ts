@@ -72,3 +72,38 @@ describe("privacidade do intake", () => {
     expect((src.match(/assertAdmin/g) ?? []).length).toBeGreaterThanOrEqual(3);
   });
 });
+
+describe("regras de confirmação canônica", () => {
+  it("formato fixo/celular não é barreira: não existe mais LANDLINE_REQUIRES_ACK", async () => {
+    const src = await Bun.file("src/lib/portfolio-destination-confirm.server.ts").text();
+    expect(src).not.toContain("LANDLINE_REQUIRES_ACK");
+    expect(src).not.toMatch(/looksLikeLandline\s*&&\s*!input\.acknowledgeLandline/);
+  });
+
+  it("o número institucional 0WEB é sempre rejeitado, antes de qualquer ack", async () => {
+    const src = await Bun.file("src/lib/portfolio-destination-confirm.server.ts").text();
+    expect(src).toContain("INSTITUTIONAL_FORBIDDEN");
+    // usa o resolver operacional server-side — nunca o número hardcoded
+    expect(src).toContain("resolveOperationalWhatsAppContact");
+    // a guarda institucional precede a checagem de compartilhamento/ack
+    const idxInst = src.indexOf("INSTITUTIONAL_FORBIDDEN");
+    const idxShared = src.indexOf("SHARED_DESTINATION_REQUIRES_ACK");
+    expect(idxInst).toBeGreaterThan(-1);
+    expect(idxShared).toBeGreaterThan(-1);
+    expect(idxInst).toBeLessThan(idxShared);
+  });
+
+  it("proteções estruturais preservadas", async () => {
+    const src = await Bun.file("src/lib/portfolio-destination-confirm.server.ts").text();
+    for (const guard of [
+      "UNKNOWN_PROJECT",
+      "INVALID_NUMBER",
+      "SHARED_DESTINATION_REQUIRES_ACK",
+      "CHANGE_REQUIRES_ACK",
+      "RESOLVER_MISMATCH",
+      "PERSIST_FAILED",
+    ]) {
+      expect(src).toContain(guard);
+    }
+  });
+});
