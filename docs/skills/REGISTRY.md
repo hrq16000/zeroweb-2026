@@ -42,15 +42,16 @@ Nenhuma skill local executa scripts externos, rede ou lê segredos.
 | `vercel-labs/agent-skills → react-best-practices` | APPROVED_GLOBAL | Fonte oficial Vercel Engineering para waterfalls, bundle, SSR/client data, rerender e rendering performance. Aplicar somente o que é compatível com React 19 + TanStack Start do projeto. |
 | `vercel-labs/agent-browser` | APPROVED_CONDITIONAL | Browser automation/QA/dogfood/screenshot/scraping. Usar quando o agente/ambiente suportar a CLI e quando acrescentar evidência sobre Playwright/browser QA já disponível. Não instalar no runtime do portal. |
 | `planning-with-files` | APPROVED_CONDITIONAL | Útil em tarefas longas, pesquisa e refactors multi-etapa. Arquivos de planejamento são memória operacional auxiliar e nunca substituem `origin/main` como fonte de verdade. |
-| `content-research-writer` | APPROVED_CONDITIONAL | Útil para pesquisa e profundidade editorial. Toda afirmação comercial/local continua evidence-first. |
-| `remotion-best-practices` | APPROVED_CONDITIONAL | Especialidade para vídeo criado em React/Remotion; não carregar em landing comum sem uso real de vídeo. |
-| `seo-review` | APPROVED_CONDITIONAL | Pode complementar SEO técnico/editorial quando a skill for compatível com o tipo de página. Nunca substitui os gates SEO canônicos do 0WEB. |
-| `canvas-design` | APPROVED_CONDITIONAL | Criativos estáticos/originais para social, capa, cartaz ou brand composition. Não usar como prova documental de cliente. |
-| `skill-creator` | APPROVED_CONDITIONAL | Usar para criar/refinar skills internas quando uma rotina repetida merece contrato próprio. |
+| `openakita/openakita → content-research-writer` | APPROVED_CONDITIONAL | Pesquisa, estrutura e profundidade editorial. Toda afirmação comercial/local continua evidence-first e precisa de fonte verificável. |
+| `remotion-dev/skills → remotion-best-practices` | APPROVED_CONDITIONAL | Especialidade para vídeo criado em React/Remotion; não carregar em landing comum sem uso real de vídeo. |
+| `leonardomso/33-js-concepts → seo-review` | REFERENCE_ONLY | A skill original é focada em páginas de conceitos JavaScript. Aproveitar heurísticas gerais de on-page SEO/snippets/internal linking somente quando compatíveis; gates SEO 0WEB continuam canônicos. |
+| `anthropics/skills → canvas-design` | APPROVED_CONDITIONAL | Criativos estáticos/originais para social, capa, cartaz ou brand composition. Não usar como prova documental de cliente. |
+| `anthropics/skills → skill-creator` | APPROVED_CONDITIONAL | Útil para criar/refinar skills internas. Scripts auxiliares precisam de revisão antes de execução. |
 | `obra/superpowers → brainstorming` | REFERENCE_ONLY | Exploração de 2–3 abordagens é útil. A regra upstream de pedir aprovação antes de toda implementação conflita com a autorização contínua do projeto e não é adotada globalmente. |
-| `theme-factory` | REFERENCE_ONLY | Ideação de temas pode inspirar. Presets prontos não podem virar skin compartilhada entre portfolios; anti-template prevalece. |
+| `anthropics/skills → theme-factory` | REFERENCE_ONLY | Ideação de temas pode inspirar. Presets prontos não podem virar skin compartilhada entre portfolios; anti-template prevalece. |
 | `obra/superpowers → using-superpowers` | REDUNDANT | Redunda/conflita com `0web-skill-router` e `0web-skill-discovery`; não recebe autoridade global sobre o repositório. |
-| `notebooklm` | APPROVED_CONDITIONAL | Só usar quando houver conector/autorização e fonte explicitamente escolhida; não necessário ao fluxo padrão de portfolio. |
+| `PleasePrompto/notebooklm-skill → notebooklm` | SECURITY_REVIEW_REQUIRED | AwesomeSkill sinaliza risco médio por acesso a `.env` e operações destrutivas no pacote. Exige autenticação Google/browser e não faz parte do fluxo padrão de portfolio. Usar somente após revisão específica e autorização. |
+| `op7418/NanoBanana-PPT-Skills → nanobanana-ppt` | QUARANTINED | AwesomeSkill sinaliza risco crítico/0: `sudo`, persistência em `.zshrc/.bashrc`, acesso a `.env`/API keys e exposição de secrets. Além disso é uma skill de PPT, não de runtime web. Não instalar no 0WEB; somente reavaliar em tarefa de apresentação isolada. |
 | `2389-research/landing-page-design` | APPROVED_CONDITIONAL | Útil em CRO e distinção visual; usar lógica de conversão sem template fixo e sem prova social fabricada. |
 | `amplitude/builder-skills → launch-landing-page` | APPROVED_CONDITIONAL | Boa para lançamentos/produtos; não é padrão para prestadores locais ou páginas institucionais. |
 | `skills-101/superpowers → landing-page-design` | SECURITY_REVIEW_REQUIRED | Regras de CRO úteis, mas depende de CLI externo/rede; princípios isolados podem ser referência. |
