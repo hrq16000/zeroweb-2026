@@ -147,16 +147,7 @@ export function getPortfolioQuizCopyForClient(
   return applyPortfolioFunnelIntentCopy(base, context);
 }
 
-export function buildPortfolioQuizPreviewMessage({
-  studioName,
-  answers,
-  recipientName,
-  mode = "booking",
-  proposalKind = "service",
-  pageUrl = "",
-  location = "",
-  funnelContext,
-}: {
+export type PortfolioQuizMessageInput = {
   studioName: string;
   answers: PortfolioQuizAnswers;
   recipientName: string;
@@ -165,7 +156,24 @@ export function buildPortfolioQuizPreviewMessage({
   pageUrl?: string;
   location?: string;
   funnelContext?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">;
-}): string {
+};
+
+/**
+ * Gerador canônico da mensagem do quiz de portfolio.
+ *
+ * A prévia e o redirect final usam esta mesma função. O redirect pode apenas
+ * codificar o resultado; não pode reconstruir uma segunda mensagem.
+ */
+export function buildPortfolioQuizMessage({
+  studioName,
+  answers,
+  recipientName,
+  mode = "booking",
+  proposalKind = "service",
+  pageUrl = "",
+  location = "",
+  funnelContext,
+}: PortfolioQuizMessageInput): string {
   const copy = applyPortfolioFunnelIntentCopy(
     getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName),
     funnelContext,
@@ -193,3 +201,6 @@ export function buildPortfolioQuizPreviewMessage({
   lines.push("", "*PRÓXIMO PASSO*", copy.nextStep, "", "Aguardo seu retorno.");
   return lines.join("\n");
 }
+
+/** A UI aponta para a mesma referência usada na entrega server-side. */
+export const buildPortfolioQuizPreviewMessage = buildPortfolioQuizMessage;

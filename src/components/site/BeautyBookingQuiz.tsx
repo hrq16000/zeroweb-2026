@@ -261,6 +261,9 @@ export function BeautyBookingQuiz({
         proposalKind: quizConfig?.proposalKind ?? "service",
         answers,
         pageUrl: window.location.href,
+        // A entrega server-side reutiliza exatamente a localização exibida na
+        // prévia, evitando drift causado por uma segunda resolução geográfica.
+        ...(previewLocation ? { previewLocation } : {}),
         orderContext,
         ...(normalized ? { recoveryContact } : {}),
         // Identificadores técnicos anônimos (mesmos de analytics_events):
