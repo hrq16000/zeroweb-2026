@@ -27,7 +27,7 @@ export const Route = createFileRoute("/_authenticated/app/portfolio/")({
   component: PortfolioAdminList,
 });
 
-type Row = MergedProject & { driftFromSeed: string[] };
+type Row = MergedProject & { driftFromSeed: string[]; projectKind?: "registry" | "managed" };
 
 const STATUS_STYLE: Record<string, string> = {
   COMPLETE: "bg-primary/10 text-primary",
@@ -347,8 +347,9 @@ function PortfolioAdminList() {
         {filtered.map((p) => (
           <Link
             key={p.slug}
-            to="/app/portfolio/$slug"
-            params={{ slug: p.slug }}
+            to={p.projectKind === "managed" ? "/app/portfolio/novo" : "/app/portfolio/$slug"}
+            params={p.projectKind === "managed" ? undefined : { slug: p.slug }}
+            search={p.projectKind === "managed" ? { slug: p.slug } : undefined}
             className="block rounded-xl border border-border bg-card p-4 transition hover:border-primary"
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
