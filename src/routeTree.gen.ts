@@ -222,6 +222,7 @@ import { Route as AuthenticatedAppPortfolioIndexRouteImport } from './routes/_au
 import { Route as AuthenticatedAppPortfolioSlugRouteImport } from './routes/_authenticated/app.portfolio.$slug'
 import { Route as AuthenticatedAppPortfolioNovoRouteImport } from './routes/_authenticated/app.portfolio.novo'
 import { Route as AuthenticatedAppPortfolioOriginalidadeRouteImport } from './routes/_authenticated/app.portfolio.originalidade'
+import { Route as AuthenticatedAppPortfolioQualidadeRouteImport } from './routes/_authenticated/app.portfolio.qualidade'
 import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authenticated/app.projects.$id'
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
@@ -1378,6 +1379,12 @@ const AuthenticatedAppPortfolioOriginalidadeRoute =
     path: '/portfolio/originalidade',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPortfolioQualidadeRoute =
+  AuthenticatedAppPortfolioQualidadeRouteImport.update({
+    id: '/portfolio/qualidade',
+    path: '/portfolio/qualidade',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppProjectsIdRoute =
   AuthenticatedAppProjectsIdRouteImport.update({
     id: '/$id',
@@ -1712,6 +1719,7 @@ export interface FileRoutesByFullPath {
   '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
   '/app/portfolio/novo': typeof AuthenticatedAppPortfolioNovoRoute
   '/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  '/app/portfolio/qualidade': typeof AuthenticatedAppPortfolioQualidadeRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -1943,6 +1951,7 @@ export interface FileRoutesByTo {
   '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
   '/app/portfolio/novo': typeof AuthenticatedAppPortfolioNovoRoute
   '/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  '/app/portfolio/qualidade': typeof AuthenticatedAppPortfolioQualidadeRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2180,6 +2189,7 @@ export interface FileRoutesById {
   '/_authenticated/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
   '/_authenticated/app/portfolio/novo': typeof AuthenticatedAppPortfolioNovoRoute
   '/_authenticated/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  '/_authenticated/app/portfolio/qualidade': typeof AuthenticatedAppPortfolioQualidadeRoute
   '/_authenticated/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/_authenticated/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/_authenticated/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2417,6 +2427,7 @@ export interface FileRouteTypes {
     | '/app/portfolio/$slug'
     | '/app/portfolio/novo'
     | '/app/portfolio/originalidade'
+    | '/app/portfolio/qualidade'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2648,6 +2659,7 @@ export interface FileRouteTypes {
     | '/app/portfolio/$slug'
     | '/app/portfolio/novo'
     | '/app/portfolio/originalidade'
+    | '/app/portfolio/qualidade'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2884,6 +2896,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/portfolio/$slug'
     | '/_authenticated/app/portfolio/novo'
     | '/_authenticated/app/portfolio/originalidade'
+    | '/_authenticated/app/portfolio/qualidade'
     | '/_authenticated/app/projects/$id'
     | '/_authenticated/app/servicos/seo-diff'
     | '/_authenticated/app/support/$id'
@@ -4550,6 +4563,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppPortfolioOriginalidadeRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/portfolio/qualidade': {
+      id: '/_authenticated/app/portfolio/qualidade'
+      path: '/portfolio/qualidade'
+      fullPath: '/app/portfolio/qualidade'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioQualidadeRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/projects/$id': {
       id: '/_authenticated/app/projects/$id'
       path: '/$id'
@@ -4872,6 +4892,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
   AuthenticatedAppPortfolioNovoRoute: typeof AuthenticatedAppPortfolioNovoRoute
   AuthenticatedAppPortfolioOriginalidadeRoute: typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  AuthenticatedAppPortfolioQualidadeRoute: typeof AuthenticatedAppPortfolioQualidadeRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
   AuthenticatedAppPortfolioIndexRoute: typeof AuthenticatedAppPortfolioIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
@@ -4940,6 +4961,8 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppPortfolioNovoRoute: AuthenticatedAppPortfolioNovoRoute,
   AuthenticatedAppPortfolioOriginalidadeRoute:
     AuthenticatedAppPortfolioOriginalidadeRoute,
+  AuthenticatedAppPortfolioQualidadeRoute:
+    AuthenticatedAppPortfolioQualidadeRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
   AuthenticatedAppPortfolioIndexRoute: AuthenticatedAppPortfolioIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
