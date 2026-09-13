@@ -3,7 +3,8 @@ import { MotionReveal, MotionStagger } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import type { CtaRenderOptions, PortfolioComposition } from "@/lib/portfolio-composition";
+import type { CtaPlacement, CtaRenderOptions } from "@/lib/portfolio-blueprint";
+import type { PortfolioComposition } from "@/lib/portfolio-composition";
 
 /**
  * ADHONEP Curitiba (/portfolio/adhonep-curitiba) — composição autoral.
@@ -106,7 +107,7 @@ export const composition: PortfolioComposition = {
   },
 };
 
-function Cta({ className, placement, label }: { className?: string; placement: string; label: string }) {
+function Cta({ className, placement, label }: { className?: string; placement: CtaPlacement; label: string }) {
   return composition.renderCta({ children: label, className, placement });
 }
 
@@ -245,7 +246,7 @@ export function AdhonepCuritibaPage() {
                 <p className="mt-2 text-sm opacity-70">Curitiba — PR · quarta-feira, 16 de setembro de 2026, às 20:00</p>
               </div>
               <Cta
-                placement="local"
+                placement="location"
                 label="Quero participar"
                 className="inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold"
               />
@@ -273,7 +274,7 @@ export function AdhonepCuritibaPage() {
           </p>
           <div className="mt-8">
             <Cta
-              placement="fechamento"
+              placement="cta"
               label="Confirmar presença"
               className="inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold"
             />
@@ -286,7 +287,7 @@ export function AdhonepCuritibaPage() {
           style={{ borderColor: "rgba(232,163,61,0.3)", background: "var(--adhonep-base)" }}
         >
           <Cta
-            placement="barra-mobile"
+            placement="floating"
             label="Confirmar presença"
             className="flex min-h-12 w-full items-center justify-center rounded-full text-sm font-semibold"
           />
