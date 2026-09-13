@@ -195,9 +195,39 @@ function PendingDestinationsPage() {
         </label>
       </div>
 
+      <div className="mt-6 flex flex-wrap items-end gap-3 rounded-md border border-border p-4">
+        <label className="block text-sm">
+          <span className="text-muted-foreground">Canal do envio</span>
+          <select
+            value={channel}
+            onChange={(e) => setChannel(e.target.value)}
+            className="mt-1 min-h-11 rounded-md border border-input bg-background px-3"
+          >
+            {CHANNELS.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button
+          type="button"
+          disabled={busy !== null || filtered.length === 0}
+          onClick={() => void register(filtered)}
+          className="min-h-11 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground disabled:opacity-50"
+        >
+          {busy === "bulk" ? "Registrando…" : `Registrar envio para as ${filtered.length} marcas filtradas`}
+        </button>
+        <p className="max-w-[52ch] text-xs text-muted-foreground">
+          O registro é livre: serve para marcar que você pediu o número. A gravação do destino continua exigindo a
+          confirmação do titular.
+        </p>
+      </div>
+
       <p className="mt-4 text-sm text-muted-foreground">
         {loading ? "Carregando…" : `${filtered.length} marca(s) de ${rows.length} sem destino gravado.`}
       </p>
+
 
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[820px] text-left text-sm">
