@@ -9,12 +9,12 @@
     "licensedMedia": [],
     "generatedMedia": [
       {
-        "asset": "src/assets/adhonep-curitiba-hero-editorial.png.asset.json",
+        "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.jpg",
         "classification": "BRAND_COMPOSITION",
         "source": "OWNER_SUPPLIED_VISUAL_MATRIX",
         "purpose": "hero",
         "documentary": false,
-        "notes": "Recomposição editorial da matriz enviada pelo responsável; sem texto, logo ou pessoas identificáveis."
+        "notes": "Nova composição editorial inspirada na matriz enviada pelo responsável; sala executiva vazia, sem texto, logo, pessoas identificáveis ou alegação de local real."
       }
     ],
     "graphicMedia": [],
@@ -43,7 +43,7 @@
   "sections": [
     {
       "section": "hero",
-      "asset": "src/assets/adhonep-curitiba-hero-editorial.png.asset.json",
+      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.jpg",
       "classification": "BRAND_COMPOSITION"
     }
   ],

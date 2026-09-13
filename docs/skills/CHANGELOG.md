@@ -4,7 +4,7 @@
 
 - **Tarefa:** integrar ao projeto a referência visual enviada pelo responsável.
 - **Skills:** roteamento 0WEB, direção de arte de portfólio, design system e quality gates.
-- **Aplicação:** a matriz foi recomposta como hero editorial em navy, dourado, vidro e mármore, sem texto, marcas ou pessoas identificáveis.
+- **Aplicação:** a matriz foi recomposta em uma nova cena editorial de sala executiva vazia, em navy, dourado, vidro e pedra, sem texto, marcas ou pessoas identificáveis.
 - **Proteções:** a imagem está classificada como `BRAND_COMPOSITION`, não como prova documental; conteúdo, funil e zona institucional permaneceram inalterados.
 - **Validação:** tipagem, boundaries, privacidade, viewport desktop/mobile e build.
 
