@@ -213,6 +213,7 @@ import { Route as AuthenticatedAppFunisIndexRouteImport } from './routes/_authen
 import { Route as AuthenticatedAppFunisIdRouteImport } from './routes/_authenticated/app.funis.$id'
 import { Route as AuthenticatedAppFunisLeadsRouteImport } from './routes/_authenticated/app.funis.leads'
 import { Route as AuthenticatedAppFunisNumerosRouteImport } from './routes/_authenticated/app.funis.numeros'
+import { Route as AuthenticatedAppFunisSemDestinoRouteImport } from './routes/_authenticated/app.funis.sem-destino'
 import { Route as AuthenticatedAppIndexacaoUrlIdRouteImport } from './routes/_authenticated/app.indexacao.$urlId'
 import { Route as AuthenticatedAppLeadsIndexRouteImport } from './routes/_authenticated/app.leads.index'
 import { Route as AuthenticatedAppLeadsHeloaGasRouteImport } from './routes/_authenticated/app.leads.heloa-gas'
@@ -1327,6 +1328,12 @@ const AuthenticatedAppFunisNumerosRoute =
     path: '/funis/numeros',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppFunisSemDestinoRoute =
+  AuthenticatedAppFunisSemDestinoRouteImport.update({
+    id: '/funis/sem-destino',
+    path: '/funis/sem-destino',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppIndexacaoUrlIdRoute =
   AuthenticatedAppIndexacaoUrlIdRouteImport.update({
     id: '/$urlId',
@@ -1732,6 +1739,7 @@ export interface FileRoutesByFullPath {
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
   '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
+  '/app/funis/sem-destino': typeof AuthenticatedAppFunisSemDestinoRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
   '/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
@@ -1967,6 +1975,7 @@ export interface FileRoutesByTo {
   '/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
   '/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
+  '/app/funis/sem-destino': typeof AuthenticatedAppFunisSemDestinoRoute
   '/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
   '/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
@@ -2208,6 +2217,7 @@ export interface FileRoutesById {
   '/_authenticated/app/funis/$id': typeof AuthenticatedAppFunisIdRoute
   '/_authenticated/app/funis/leads': typeof AuthenticatedAppFunisLeadsRoute
   '/_authenticated/app/funis/numeros': typeof AuthenticatedAppFunisNumerosRoute
+  '/_authenticated/app/funis/sem-destino': typeof AuthenticatedAppFunisSemDestinoRoute
   '/_authenticated/app/indexacao/$urlId': typeof AuthenticatedAppIndexacaoUrlIdRoute
   '/_authenticated/app/leads/heloa-gas': typeof AuthenticatedAppLeadsHeloaGasRoute
   '/_authenticated/app/leads/marcas': typeof AuthenticatedAppLeadsMarcasRoute
@@ -2449,6 +2459,7 @@ export interface FileRouteTypes {
     | '/app/funis/$id'
     | '/app/funis/leads'
     | '/app/funis/numeros'
+    | '/app/funis/sem-destino'
     | '/app/indexacao/$urlId'
     | '/app/leads/heloa-gas'
     | '/app/leads/marcas'
@@ -2684,6 +2695,7 @@ export interface FileRouteTypes {
     | '/app/funis/$id'
     | '/app/funis/leads'
     | '/app/funis/numeros'
+    | '/app/funis/sem-destino'
     | '/app/indexacao/$urlId'
     | '/app/leads/heloa-gas'
     | '/app/leads/marcas'
@@ -2924,6 +2936,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/funis/$id'
     | '/_authenticated/app/funis/leads'
     | '/_authenticated/app/funis/numeros'
+    | '/_authenticated/app/funis/sem-destino'
     | '/_authenticated/app/indexacao/$urlId'
     | '/_authenticated/app/leads/heloa-gas'
     | '/_authenticated/app/leads/marcas'
@@ -4540,6 +4553,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppFunisNumerosRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/funis/sem-destino': {
+      id: '/_authenticated/app/funis/sem-destino'
+      path: '/funis/sem-destino'
+      fullPath: '/app/funis/sem-destino'
+      preLoaderRoute: typeof AuthenticatedAppFunisSemDestinoRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/indexacao/$urlId': {
       id: '/_authenticated/app/indexacao/$urlId'
       path: '/$urlId'
@@ -4951,6 +4971,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisIdRoute: typeof AuthenticatedAppFunisIdRoute
   AuthenticatedAppFunisLeadsRoute: typeof AuthenticatedAppFunisLeadsRoute
   AuthenticatedAppFunisNumerosRoute: typeof AuthenticatedAppFunisNumerosRoute
+  AuthenticatedAppFunisSemDestinoRoute: typeof AuthenticatedAppFunisSemDestinoRoute
   AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
   AuthenticatedAppPortfolioNovoRoute: typeof AuthenticatedAppPortfolioNovoRoute
   AuthenticatedAppPortfolioOriginalidadeRoute: typeof AuthenticatedAppPortfolioOriginalidadeRoute
@@ -5020,6 +5041,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisIdRoute: AuthenticatedAppFunisIdRoute,
   AuthenticatedAppFunisLeadsRoute: AuthenticatedAppFunisLeadsRoute,
   AuthenticatedAppFunisNumerosRoute: AuthenticatedAppFunisNumerosRoute,
+  AuthenticatedAppFunisSemDestinoRoute: AuthenticatedAppFunisSemDestinoRoute,
   AuthenticatedAppPortfolioSlugRoute: AuthenticatedAppPortfolioSlugRoute,
   AuthenticatedAppPortfolioNovoRoute: AuthenticatedAppPortfolioNovoRoute,
   AuthenticatedAppPortfolioOriginalidadeRoute:
