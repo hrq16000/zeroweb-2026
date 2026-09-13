@@ -52,6 +52,9 @@ const catalog = catalogRaw.projects ?? catalogRaw;
 const catalogBySlug = new Map(catalog.map((p) => [p.slug, p]));
 const discovery = readJson("src/config/portfolio-discovery.json", { projects: {} }).projects ?? {};
 const blueprintRegistry = read("src/components/portfolio/blueprint/registry.ts");
+// Composições autorais (PortfolioCompositionRoot) são o caminho canônico dos
+// projetos novos; o Blueprint segue congelado nos três pilotos.
+const compositionRegistry = read("src/components/portfolio/composition/registry.ts");
 const routeSource = read("src/routes/portfolio.$slug.tsx");
 
 const SATISFIED = new Set(["complete", "not_applicable"]);
@@ -189,12 +192,14 @@ function evaluate(slug, manifest) {
 
   // --- blueprintValid
   checks.blueprintValid =
-    blueprintRegistry.includes(`"${slug}"`) || (Boolean(client?.componentFile) && existsSync(path.resolve(root, client.componentFile)));
+    blueprintRegistry.includes(`"${slug}"`) ||
+    compositionRegistry.includes(`"${slug}"`) ||
+    (Boolean(client?.componentFile) && existsSync(path.resolve(root, client.componentFile)));
   if (!checks.blueprintValid) blockers.push("componente/Blueprint do projeto não encontrado");
 
   // --- seoValid
   const summaryOk = typeof project?.summary === "string" && project.summary.length >= 80;
-  const routeOk = routeSource.includes(slug);
+  const routeOk = routeSource.includes(slug) || compositionRegistry.includes(`"${slug}"`);
   checks.seoValid = Boolean(project?.title && summaryOk && routeOk);
   if (!checks.seoValid) blockers.push("SEO incompleto (título, resumo >= 80 caracteres e metadata na rota)");
 
@@ -235,8 +240,10 @@ function evaluate(slug, manifest) {
   // --- direção visual consciente: scaffold não pode chegar a ready
   checks.creativeDirectionDone = !/CREATIVE_BRIEF_REQUIRED/.test(componentSource);
   if (!checks.creativeDirectionDone) blockers.push("workbench de scaffold ainda presente (direção criativa não definida)");
-  checks.blueprintDriven = blueprintRegistry.includes(`"${slug}"`);
-  if (!checks.blueprintDriven) blockers.push("projeto novo deve rodar pelo PortfolioBlueprintRenderer (ausente no registry)");
+  checks.blueprintDriven =
+    blueprintRegistry.includes(`"${slug}"`) || compositionRegistry.includes(`"${slug}"`);
+  if (!checks.blueprintDriven)
+    blockers.push("projeto novo deve rodar pelo Blueprint ou pelo registry de composição autoral");
 
   // --- qaDone
   checks.qaDone = SATISFIED.has(manifest.lifecycle?.qa);

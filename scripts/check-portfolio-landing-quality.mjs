@@ -235,8 +235,12 @@ export function evaluateAutonomy({
   if (presence.state && presence.state !== "MOTION_DECLARED") {
     const evidence = Array.isArray(presence.evidence) ? presence.evidence : [];
     if (!evidence.length) push("MOTION_PRESENCE_GATE: sem evidência de comportamento executado (§15)");
-    if (!/motion:\s*\{/.test(componentSource)) {
-      push("MOTION_PRESENCE_GATE: nenhuma seção do Blueprint configura motion");
+    const motionInRuntime =
+      /motion:\s*\{/.test(componentSource) ||
+      /Motion(Reveal|Stagger|Parallax)/.test(componentSource) ||
+      /motionIntensity:\s*"/.test(componentSource);
+    if (!motionInRuntime) {
+      push("MOTION_PRESENCE_GATE: nenhuma seção configura motion no runtime");
     }
   }
 
@@ -258,8 +262,12 @@ export function evaluateAutonomy({
   // Conversão persistente (§10–§13)
   const floating = autonomy.floatingConversion ?? {};
   if (floating.mode === "enabled") {
-    if (!/floatingConversion:\s*\{[\s\S]{0,200}mode:\s*"enabled"/.test(componentSource)) {
-      push("floatingConversion declarado como enabled, mas ausente no Blueprint");
+    const floatingInRuntime =
+      /floatingConversion:\s*\{[\s\S]{0,200}mode:\s*"enabled"/.test(componentSource) ||
+      /placement=["'`]floating["'`]/.test(componentSource) ||
+      /placement:\s*"floating"/.test(componentSource);
+    if (!floatingInRuntime) {
+      push("floatingConversion declarado como enabled, mas ausente no runtime da landing");
     }
     if (floating.destination && floating.destination !== "funnel") {
       failures.push("floating CTA precisa apontar para o funil individual (§11)");

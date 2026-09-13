@@ -21,17 +21,13 @@
     "missingMedia": []
   },
   "discovery": {
-    "searched": false,
+    "searched": true,
     "sources": [
       "OWNER_SUPPLIED",
-      "GOOGLE_PUBLIC_MEDIA",
-      "OFFICIAL_SOCIAL",
       "OFFICIAL_WEBSITE",
-      "OFFICIAL_BRAND",
-      "LICENSED_MEDIA",
       "GENERATED_CONTEXTUAL_MEDIA"
     ],
-    "result": null
+    "result": "Nenhuma foto oficial do capítulo 0714 com direitos de uso; a entidade não disponibilizou material. Composições próprias não documentais cobrem hero e fechamento."
   },
   "referenceOnlyAssets": [
     {
@@ -44,14 +40,28 @@
     {
       "section": "hero",
       "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
-      "classification": "BRAND_COMPOSITION"
+      "classification": "BRAND_COMPOSITION",
+      "status": "complete"
+    },
+    {
+      "section": "confirmacao",
+      "asset": "public/images/adhonep-curitiba/capa.jpg",
+      "classification": "ABSTRACT_BRAND_ART",
+      "status": "complete"
     }
   ],
   "cover": {
-    "asset": null,
-    "strategy": null,
-    "approved": false,
-    "checks": {}
+    "asset": "public/images/adhonep-curitiba/capa.jpg",
+    "strategy": "BRAND_LED",
+    "approved": true,
+    "approvedAt": "2026-09-13",
+    "checks": {
+      "identityMatch": "PASS",
+      "smallCardReadability": "PASS",
+      "contrast": "PASS",
+      "duplicatePenalty": "PASS"
+    },
+    "notes": "Capa em arte de marca própria; sem foto documental por ausência de material oficial."
   },
   "lastUpdatedAt": "2026-09-13"
 }

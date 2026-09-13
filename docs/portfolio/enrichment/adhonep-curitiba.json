@@ -1,46 +1,50 @@
 {
-  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Stub do scaffold: nenhuma pesquisa realizada ainda.",
+  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Pesquisa pública executada em 13/09/2026 sobre a entidade ADHONEP e o capítulo 0714.",
   "slug": "adhonep-curitiba",
-  "lastResearchAt": null,
+  "lastResearchAt": "2026-09-13T18:40:00Z",
   "researchLedger": {
     "googleEntity": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
       "accessible": false,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Sem ficha Google própria localizada para o capítulo 0714; a sede do encontro é sala de escritório, não estabelecimento da entidade."
     },
     "website": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Sites oficiais adhonep.org.br e adhonep.com (entidade nacional)."
     },
     "instagram": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
       "accessible": false,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Nenhum perfil oficial do capítulo 0714 confirmado; perfis nacionais não representam o capítulo."
     },
     "facebook": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
       "accessible": false,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Nenhuma página do capítulo 0714 confirmada."
     },
     "otherSocial": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
@@ -49,96 +53,145 @@
       "usable": false
     },
     "directories": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Diretório oficial de capítulos da ADHONEP lista CURITIBA – NIKKEY (0714)."
     },
     "phone": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Diretório oficial traz o contato do presidente do capítulo; destino do funil autorizado pelo titular é o contato de informações do convite. Nenhum número é publicado na landing."
     },
     "address": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Endereço do encontro informado no convite oficial: Av. Cândido Hartmann, 570 — 32º andar, sala 324, Curitiba."
     },
     "hours": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Reunião semanal às 20:00, conforme convite."
     },
     "services": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Reuniões semanais abertas, palestras e networking — descritos pela própria entidade."
     },
     "products": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
       "accessible": false,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Entidade associativa sem catálogo de produtos."
     },
     "media": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
       "accessible": false,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Nenhuma foto oficial do capítulo autorizada; a landing usa composições próprias não documentais."
     },
     "reviews": {
-      "searched": false,
+      "searched": true,
       "found": false,
       "resolved": false,
       "verified": false,
       "accessible": false,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Sem avaliações públicas do capítulo; nenhuma prova social publicada."
     },
     "identity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
       "ingestable": false,
-      "usable": false
+      "usable": false,
+      "note": "Logotipo oficial não obtido com direitos de uso; assinatura tipográfica até o envio do material."
     }
   },
-  "identity": {},
+  "identity": {
+    "legalName": "ADHONEP — Associação de Homens de Negócio do Evangelho Pleno",
+    "chapter": "Curitiba – Nikkey (0714)",
+    "chapterLeader": "Hélio Sato (presidente do capítulo, conforme diretório oficial)",
+    "logo": {
+      "status": "NOT_AVAILABLE",
+      "reason": "sem material oficial autorizado"
+    },
+    "provenance": "https://adhonep.org.br/nossos-capitulos/",
+    "verifiedAt": "2026-09-13"
+  },
   "entity": {
-    "candidates": [],
-    "resolutionStatus": "UNRESOLVED",
-    "resolutionSignals": [],
+    "candidates": [
+      {
+        "name": "CURITIBA – NIKKEY (0714)",
+        "source": "https://adhonep.org.br/nossos-capitulos/",
+        "match": "código do capítulo e cidade coincidem; palestrante do convite é o presidente listado"
+      }
+    ],
+    "resolutionStatus": "RESOLVED",
+    "resolutionSignals": [
+      "código 0714",
+      "cidade Curitiba",
+      "nome Hélio Sato presente no convite e no diretório oficial"
+    ],
     "unresolvedJustification": null
   },
-  "evidence": [],
-  "sources": [],
+  "evidence": [
+    {
+      "fact": "Capítulo 0714 corresponde a CURITIBA – NIKKEY",
+      "source": "https://adhonep.org.br/nossos-capitulos/",
+      "collectedAt": "2026-09-13"
+    },
+    {
+      "fact": "Hélio Sato é o responsável listado pelo capítulo 0714",
+      "source": "https://adhonep.org.br/nossos-capitulos/",
+      "collectedAt": "2026-09-13"
+    },
+    {
+      "fact": "Tema, data, horário, local e gratuidade do encontro",
+      "source": "convite oficial enviado pelo responsável em 13/09/2026",
+      "collectedAt": "2026-09-13"
+    }
+  ],
+  "sources": [
+    "https://adhonep.org.br/nossos-capitulos/",
+    "https://adhonep.org.br/conheca-a-adhonep/",
+    "convite oficial enviado pelo responsável"
+  ],
   "google": {
     "placeId": null,
     "dataId": null,
@@ -163,19 +216,58 @@
     "other": []
   },
   "website": {
-    "searched": false,
-    "url": null
+    "searched": true,
+    "url": "https://adhonep.org.br/"
   },
-  "location": {},
-  "services": [],
+  "location": {
+    "city": "Curitiba",
+    "state": "PR",
+    "address": "Av. Cândido Hartmann, 570 — 32º andar, sala 324",
+    "source": "convite oficial"
+  },
+  "services": [
+    {
+      "name": "Reunião semanal aberta",
+      "source": "convite oficial"
+    },
+    {
+      "name": "Palestras com empresários e líderes",
+      "source": "convite oficial"
+    },
+    {
+      "name": "Café de networking após o encontro",
+      "source": "convite oficial"
+    }
+  ],
   "media": {
     "discovery": {
       "searched": false
     },
     "assets": []
   },
-  "facts": [],
+  "facts": [
+    {
+      "fact": "Evento sem custo financeiro",
+      "source": "convite oficial"
+    },
+    {
+      "fact": "Encontro em 16/09/2026, 20:00",
+      "source": "convite oficial"
+    }
+  ],
   "conflicts": [],
   "unverified": [],
-  "providerCalls": []
+  "providerCalls": [
+    {
+      "provider": "web_search",
+      "query": "ADHONEP Curitiba capítulo 714",
+      "at": "2026-09-13",
+      "cost": "n/a"
+    },
+    {
+      "provider": "http",
+      "url": "https://adhonep.org.br/nossos-capitulos/",
+      "at": "2026-09-13"
+    }
+  ]
 }

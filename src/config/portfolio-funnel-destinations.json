@@ -204,6 +204,17 @@
         "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"Refrigeração Maresia\" (nome, categoria e identidade divergem)",
         "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
       ]
+    },
+    "adhonep-curitiba": {
+      "status": "VERIFIED",
+      "source": "OWNER_CONFIRMED",
+      "confidence": 95,
+      "verifiedAt": "2026-09-13",
+      "evidence": [
+        "Titular autorizou explicitamente o contato de informações divulgado no convite oficial como destino do funil (13/09/2026)",
+        "Confirmação gravada pelo fluxo canônico (portfolio_destination_revisions, new_status=VERIFIED, validation_result=PASS)",
+        "Divergência registrada sem escolha automática: o diretório oficial do capítulo 0714 lista outro contato (presidência); o destino publicado é o autorizado pelo titular"
+      ]
     }
   }
 }

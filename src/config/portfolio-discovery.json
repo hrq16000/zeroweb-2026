@@ -219,17 +219,25 @@
       ]
     },
     "adhonep-curitiba": {
-      "aliases": [
-        "ADHONEP Curitiba"
+      "services": [
+        "reunião semanal aberta",
+        "palestra para empreendedores",
+        "networking de empresários"
       ],
-      "categories": [],
-      "services": [],
-      "equipment": [],
-      "products": [],
-      "problems": [],
-      "useCases": [],
-      "locality": [],
-      "keywords": []
+      "categories": [
+        "associação",
+        "evento empresarial",
+        "encontro de networking"
+      ],
+      "keywords": [
+        "adhonep curitiba",
+        "capítulo nikkey 0714",
+        "reunião semanal adhonep",
+        "palestra vencendo o medo",
+        "networking empresarial curitiba"
+      ],
+      "city": "Curitiba",
+      "state": "PR"
     }
   }
 }

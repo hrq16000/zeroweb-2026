@@ -1,104 +1,343 @@
 {
-  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md + docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md). Avaliar antes de readiness/publish.",
+  "doc": "Quality matrix (docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md + docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md + docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md). Avaliada para publicação em 13/09/2026.",
   "slug": "adhonep-curitiba",
   "matrixVersion": 2,
   "contractVersion": 3,
-  "evaluatedAt": null,
-  "technicalPass": false,
-  "editorialPass": false,
+  "evaluatedAt": "2026-09-13",
+  "technicalPass": true,
+  "editorialPass": true,
   "score": {
-    "total": null,
-    "byDimension": {}
+    "total": 74,
+    "byDimension": {
+      "CONTENT": 8,
+      "MEDIA": 8,
+      "VISUAL_COMPOSITION": 13,
+      "ORIGINALITY": 10,
+      "SEO": 8,
+      "CONVERSION": 10,
+      "RESPONSIVE_QA": 5,
+      "PROOF": 0,
+      "MOTION_DESIGN": 12
+    }
   },
-  "dimensions": {},
+  "dimensions": {
+    "ENTITY": {
+      "status": "WARNING",
+      "notes": "Entidade declarada pelo responsável (ADHONEP Curitiba · Capítulo 714). Ficha pública do capítulo não foi resolvida; nenhum dado externo foi publicado."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Todo o conteúdo vem do convite oficial: tema, palestrante, data, horário, local, gratuidade e café de networking. Nada além disso foi publicado."
+    },
+    "MEDIA": {
+      "status": "WARNING",
+      "notes": "Duas composições editoriais próprias (BRAND_COMPOSITION, documentary=false) derivadas da matriz visual enviada pelo cliente. Sem fotos reais da entidade até o envio de material oficial."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Hero assimétrico manifesto + cena, faixa de contexto, trilho de pauta, cards de dinâmica, cartão claro de local e fechamento editorial: ritmo sem zonas mortas em 1440 e 390."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Composição autoral própria; nenhum hero, ordem de seções, paleta ou motion herdado dos pilotos. noBrandTest PASS."
+    },
+    "DISCOVERY": {
+      "status": "WARNING",
+      "notes": "Página de convite pontual: descoberta interna registrada em portfolio-discovery.json, sem campanha de busca orgânica associada."
+    },
+    "SEO": {
+      "status": "PASS",
+      "notes": "Title, description, canonical, H1 único, OG/capa própria e alts descritivos coerentes com o convite."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Funil individual (FunnelCTAButton, clientKey adhonep-curitiba) no hero, no bloco de local, no fechamento e na barra fixa mobile. Destino verificado e resolvido server-side."
+    },
+    "PROOF": {
+      "status": "NOT_APPLICABLE",
+      "notes": "O convite não traz números, depoimentos, avaliações ou resultados verificáveis. Nenhuma faixa de prova foi publicada."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "1440 e 390 conferidos por captura: sem overflow, hierarquia e crops preservados, barra fixa apenas no mobile."
+    },
+    "PERFORMANCE": {
+      "status": "PASS",
+      "notes": "Duas imagens dimensionadas com width/height explícitos, mídia abaixo da dobra em lazy, nenhuma dependência nova."
+    },
+    "ACCESSIBILITY": {
+      "status": "PASS",
+      "notes": "Alt descritivo nas duas artes, contraste dourado/navy adequado, foco visível e prefers-reduced-motion respeitado pelos primitives de motion."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "Typecheck, testes, boundaries, privacidade de cliente, integridade de marca e build executados nesta rodada."
+    },
+    "CONTENT_DEPTH": {
+      "status": "WARNING",
+      "notes": "Profundidade limitada ao escopo real do convite; não há material adicional autorizado pela entidade."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Alternância navy → painel → navy → cartão marfim → navy com um único corte claro antes da confirmação."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Uma cena editorial dominante no hero e uma arte de apoio no fechamento; sem galeria decorativa."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Seis topologias distintas: hero split, faixa de contexto, trilho vertical, cards, cartão de local e fechamento."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Três momentos: hero de dupla leitura, trilho de pauta com marcação dourada e cartão claro de local."
+    },
+    "PROOF_DENSITY": {
+      "status": "NOT_APPLICABLE",
+      "notes": "Sem prova verificável disponível; densidade zero é decisão editorial honesta."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "Um único pedido repetido em quatro pontos da leitura, sempre pelo funil individual."
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Motion SUBTLE editorial: máscara no hero e no fechamento, stagger na pauta, sem loop nem parallax."
+    }
+  },
   "experience": {
-    "visualRhythm": null,
-    "signatureMoments": [],
-    "motionNarrative": null,
-    "heroArchetype": null
+    "visualRhythm": "crescendo até a confirmação, com um único corte claro",
+    "signatureMoments": [
+      "hero de dupla leitura: manifesto tipográfico + cena executiva conceitual",
+      "trilho de pauta com marcação dourada",
+      "cartão de local em contraste claro"
+    ],
+    "motionNarrative": "revelação editorial da cena e entrada sequencial dos horários",
+    "heroArchetype": "centered-institutional com ficha operacional sobreposta"
   },
   "motion": {
     "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
     "profile": {
-      "intensity": null,
-      "personality": null,
-      "entrance": [],
-      "scroll": [],
-      "hover": [],
-      "typography": [],
-      "media": [],
-      "transitions": [],
-      "signatureEffects": [],
-      "reducedMotionStrategy": null,
-      "mobileStrategy": null
+      "intensity": "SUBTLE",
+      "personality": "institucional sóbrio",
+      "entrance": [
+        "mask reveal no hero",
+        "fade curto nas faixas de texto"
+      ],
+      "scroll": [
+        "stagger vertical no trilho de pauta"
+      ],
+      "hover": [
+        "realce dourado discreto nos CTAs e cards"
+      ],
+      "typography": [
+        "entrada em máscara do manifesto do hero"
+      ],
+      "media": [
+        "revelação em máscara das duas artes editoriais"
+      ],
+      "transitions": [
+        "corte de fundo navy → marfim na seção de local"
+      ],
+      "signatureEffects": [
+        "mask reveal do hero",
+        "stagger da pauta"
+      ],
+      "reducedMotionStrategy": "prefers-reduced-motion remove deslocamento e máscara; conteúdo permanece integral",
+      "mobileStrategy": "mesma coreografia com amplitude reduzida; barra fixa sem animação"
     },
-    "narrativeRoles": {},
-    "gate": {},
+    "narrativeRoles": {
+      "hero": "apresentar o convite com peso editorial",
+      "agenda": "conduzir a leitura da pauta em progressão",
+      "close": "encerrar com o pedido de confirmação"
+    },
+    "gate": {
+      "motionProfileDefined": "PASS",
+      "effectsMatchBrand": "PASS",
+      "entranceNotRepetitive": "PASS",
+      "contextualMicrointeraction": "PASS",
+      "signatureMotion": "PASS",
+      "ctaFeedback": "PASS",
+      "mobileAdapted": "PASS",
+      "reducedMotionCovered": "PASS",
+      "contentAccessibleWithoutMotion": "PASS",
+      "noTransformOverflow": "PASS",
+      "noHeavyDependency": "PASS",
+      "noPerformanceRegression": "PASS",
+      "noAggressiveLoop": "PASS"
+    },
     "qualityProfile": {
-      "motionIntensity": null,
-      "motionPurpose": null,
-      "interactionDensity": null,
-      "scrollExperience": null,
-      "microinteractionQuality": null,
-      "reducedMotionCoverage": null,
-      "motionPerformance": null
+      "motionIntensity": "SUBTLE",
+      "motionPurpose": "conduzir a leitura do convite",
+      "interactionDensity": "BAIXA",
+      "scrollExperience": "LINEAR_COM_STAGGER",
+      "microinteractionQuality": "DISCRETA",
+      "reducedMotionCoverage": "TOTAL",
+      "motionPerformance": "SEM_REGRESSAO"
     }
   },
   "qualityProfile": {
-    "visualDensity": null,
-    "editorialDepth": null,
-    "motionIntensity": null,
-    "mediaRichness": null,
-    "proofLevel": null,
-    "interactionLevel": null,
-    "localContext": null,
-    "conversionIntensity": null
+    "visualDensity": "MEDIA",
+    "editorialDepth": "FOCADA",
+    "motionIntensity": "SUBTLE",
+    "mediaRichness": "BAIXA",
+    "proofLevel": "SEM_PROVA_PUBLICAVEL",
+    "interactionLevel": "BAIXA",
+    "localContext": "Curitiba — Av. Cândido Hartmann, 570",
+    "conversionIntensity": "FOCO_UNICO"
   },
   "autonomy": {
     "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
     "identity": {
-      "decision": null,
+      "decision": "TEXT_ONLY_INTENTIONAL",
       "asset": null,
       "provenance": null,
-      "evidence": null
+      "justification": "A entidade ainda não enviou logotipo oficial; usar marca aproximada seria falsificar identidade. A assinatura é tipográfica até o material chegar.",
+      "evidence": "ownerRequired do manifesto registra o pedido de logotipo oficial"
     },
     "aboveTheFold": {
-      "status": null,
-      "visualStrategy": null,
-      "notes": null
+      "status": "PASS",
+      "visualStrategy": "MEDIA_LED",
+      "notes": "Manifesto tipográfico + cena editorial + ficha da noite + CTA visíveis na primeira dobra em 1440 e 390."
     },
     "motionPresence": {
-      "state": null,
-      "evidence": []
+      "state": "MOTION_OBSERVED",
+      "evidence": [
+        "captura 1440 com hero revelado após MotionReveal mask",
+        "captura 390 com stagger da pauta executado",
+        "docs/portfolio/qa/adhonep-curitiba/1440.png",
+        "docs/portfolio/qa/adhonep-curitiba/390.png"
+      ]
     },
     "floatingConversion": {
-      "mode": null,
-      "label": null,
+      "mode": "enabled",
+      "label": "Confirmar presença",
       "destination": "funnel",
       "reason": null
     },
     "embed": {
-      "status": null,
-      "checkedAt": null,
-      "notes": null
+      "status": "PASS",
+      "checkedAt": "2026-09-13",
+      "notes": "Card do catálogo abre a landing no visualizador interno; status do catálogo publicado."
     },
     "structuralSkeleton": {
-      "topology": [],
-      "rationale": null
+      "topology": [
+        "hero.posterSplit",
+        "band.manifesto",
+        "agenda.spine",
+        "cards.meeting",
+        "place.contrast",
+        "close.editorial"
+      ],
+      "rationale": "Composição autoral em código (PortfolioCompositionRoot), sem descritores do Blueprint congelado."
+    },
+    "heroMedia": {
+      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+      "kind": "BRAND_COMPOSITION",
+      "documentary": false,
+      "provenance": "composição 0WEB derivada da matriz visual enviada pelo cliente"
     }
   },
   "hero": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS",
+    "notes": "Composição editorial própria derivada da matriz enviada pelo cliente, sem texto, marca ou pessoas identificáveis.",
+    "criteria": {
+      "brandMatch": "PASS",
+      "segmentMatch": "PASS",
+      "visualImpact": "PASS",
+      "premiumFeel": "PASS",
+      "legibility": "PASS",
+      "contrast": "PASS",
+      "composition": "PASS",
+      "mediaQuality": "PASS",
+      "CTAVisibility": "PASS",
+      "mobileCrop": "PASS",
+      "desktopCrop": "PASS",
+      "originality": "PASS"
+    }
   },
   "cover": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS",
+    "notes": "Capa 1200x630 em arte de marca própria, legível em card pequeno e distinta das demais capas do catálogo.",
+    "criteria": {
+      "identityMatch": "PASS",
+      "segmentMatch": "PASS",
+      "smallCardReadability": "PASS",
+      "contrast": "PASS",
+      "focalPoint": "PASS",
+      "crop": "PASS",
+      "visualQuality": "PASS",
+      "genericPenalty": "PASS",
+      "duplicatePenalty": "PASS",
+      "portfolioRecognition": "PASS"
+    }
   },
-  "coverage": [],
+  "coverage": [
+    {
+      "section": "hero",
+      "visualRole": "abertura editorial do convite",
+      "mediaDecision": "BRAND_COMPOSITION",
+      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+      "provenance": "composição 0WEB derivada da matriz visual enviada pelo cliente — não documental",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "contexto",
+      "visualRole": "faixa de manifesto tipográfico",
+      "mediaDecision": "TYPOGRAPHY_ONLY",
+      "asset": null,
+      "provenance": "tipografia e tokens do projeto",
+      "quality": "adequada",
+      "status": "PASS"
+    },
+    {
+      "section": "pauta",
+      "visualRole": "trilho vertical de horários",
+      "mediaDecision": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "provenance": "linha dourada e tipografia mono",
+      "quality": "adequada",
+      "status": "PASS"
+    },
+    {
+      "section": "local",
+      "visualRole": "cartão claro com endereço e acesso",
+      "mediaDecision": "TYPOGRAPHY_ONLY",
+      "asset": null,
+      "provenance": "endereço do convite oficial",
+      "quality": "adequada",
+      "status": "PASS"
+    },
+    {
+      "section": "confirmacao",
+      "visualRole": "fechamento com arte de marca e CTA único",
+      "mediaDecision": "ABSTRACT_BRAND_ART",
+      "asset": "/images/adhonep-curitiba/capa.jpg",
+      "provenance": "arte abstrata própria 0WEB — não documental",
+      "quality": "adequada",
+      "status": "PASS"
+    }
+  ],
   "deadZones": [],
-  "mediaSourceMix": {},
+  "mediaSourceMix": {
+    "BRAND_COMPOSITION": 1,
+    "ABSTRACT_BRAND_ART": 1,
+    "REAL_PHOTO": 0
+  },
   "p0": [],
-  "warnings": [],
-  "ownerRequired": []
+  "warnings": [
+    "sem logotipo oficial: assinatura tipográfica até o envio do material da entidade",
+    "sem prova social publicada: o convite não traz números, depoimentos ou resultados"
+  ],
+  "ownerRequired": [
+    "enviar logotipo oficial e fotos reais das reuniões para substituir as artes próprias"
+  ],
+  "mediaPlanHeroMedia": {
+    "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+    "kind": "BRAND_COMPOSITION",
+    "documentary": false,
+    "provenance": "composição 0WEB derivada da matriz visual enviada pelo cliente"
+  }
 }

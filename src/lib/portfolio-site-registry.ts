@@ -16,7 +16,7 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
     vertical: "prestadores-de-servicos",
     siteName: "ADHONEP Curitiba · Reunião semanal aberta",
     kind: "prototype",
-    indexable: false,
+    indexable: true,
   },
   { slug: "your-brutus-burguer", vertical: "restaurantes", siteName: "Your Brutus Burguer · São José dos Pinhais", kind: "prototype", indexable: true },
   {

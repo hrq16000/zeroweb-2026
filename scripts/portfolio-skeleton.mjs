@@ -11,7 +11,16 @@ export function extractSkeleton(source = "") {
   const re = /type:\s*"([a-zA-Z]+)",\s*\n\s*variant:\s*"([a-zA-Z]+)",\s*\n\s*order:\s*(\d+)/g;
   let m;
   while ((m = re.exec(source))) sections.push({ type: m[1], variant: m[2], order: Number(m[3]) });
-  return sections.sort((a, b) => a.order - b.order).map((s) => `${s.type}.${s.variant}`);
+  if (sections.length) return sections.sort((a, b) => a.order - b.order).map((s) => `${s.type}.${s.variant}`);
+  // Projetos de composição autoral (PortfolioCompositionRoot) não usam os
+  // descritores do Blueprint congelado: a topologia vem do sectionGraph
+  // declarado no próprio componente ("a→b→c").
+  const graph = /sectionGraph:\s*"([^"]+)"/.exec(source)?.[1];
+  if (!graph) return [];
+  return graph
+    .split(/[→>]/)
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 /** Razão da maior subsequência comum (0..1). */

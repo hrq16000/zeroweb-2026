@@ -297,39 +297,41 @@
       "structuralContract": 1,
       "structuralSignature": {
         "segment": "associacao",
-        "layoutFamily": "coluna-editorial-com-ficha-lateral",
-        "heroFamily": "cartaz-tipografico-sem-foto",
-        "sectionRhythm": "convite-pauta-horarios-local-confirmacao",
-        "proofStyle": "sem-prova-social-apenas-fatos-do-convite",
-        "mediaNarrative": "arte-abstrata-de-apoio-sem-pessoas",
-        "ctaStyle": "confirmacao-por-formulario-com-barra-fixa-mobile",
+        "layoutFamily": "processo-e-etapas",
+        "heroFamily": "centered-institutional",
+        "sectionRhythm": "crescendo",
+        "proofStyle": "service-timeline",
+        "mediaNarrative": "environment-portrait",
+        "ctaStyle": "next-step-block",
         "motionProfile": "SUBTLE-editorial"
       },
       "structuralOriginalityReview": {
         "approved": true,
         "reviewedAt": "2026-09-13",
-        "notes": "Hero em cartaz tipográfico sem foto e ficha de data sticky; nenhuma família de hero/seção reaproveitada dos pilotos."
+        "notes": "Hero centrado institucional sobre composicao de ambiente derivada da matriz do convite; ritmo em crescendo ate a confirmacao, sem reaproveitar familia de hero/secao dos pilotos."
       },
       "compositionContract": 1,
       "compositionFingerprint": {
-        "heroGeometry": "cartaz-tipografico-vertical-sem-imagem-com-ficha-de-data",
-        "headerTreatment": "sem-header-fixo-marca-inline-no-cartaz",
-        "sectionGraph": "convite>pauta>horarios>local>confirmacao",
+        "heroGeometry": "executive-poster-split: manifesto 5/12 + cena 7/12 com card operacional sobreposto",
+        "headerTreatment": "sem header tradicional; microassinatura ADHONEP Curitiba + Capítulo 714 no próprio hero",
+        "sectionGraph": "poster-split→manifesto-band→agenda-spine→meeting-cards→place-contrast→editorial-close",
         "contentOrder": [
-          "convite",
-          "pauta",
-          "horarios",
-          "local",
-          "confirmacao"
+          "identidade e convite",
+          "cena conceitual e ficha",
+          "por que o tema importa",
+          "pauta da noite",
+          "dinâmica do encontro",
+          "local e acesso",
+          "confirmação"
         ],
-        "gridTopology": "coluna-unica-editorial-com-ficha-lateral-sticky",
-        "mediaDistribution": "duas-artes-abstratas-de-apoio-sem-fotografia",
-        "backgroundRhythm": "base-escura-continua-com-um-corte-claro-na-confirmacao",
-        "proofPlacement": "sem-faixa-de-prova-fatos-do-convite-na-ficha",
-        "ctaDistribution": "cta-no-cartaz-no-local-no-fechamento-e-barra-fixa-mobile",
-        "navigationPattern": "sem-navegacao-ancorada-leitura-linear",
-        "motionSignature": "SUBTLE-mask-no-cartaz-stagger-nos-horarios",
-        "closingStructure": "fechamento-com-ficha-de-confirmacao-e-credito-de-hospedagem"
+        "gridTopology": "hero 5/7 assimétrico, narrativa 4/8, agenda 3/9 e fechamento em composição editorial",
+        "mediaDistribution": "hero visual dominante, nenhuma galeria decorativa e uma única arte complementar no fechamento",
+        "backgroundRhythm": "navy profundo → painel azul → navy → cartão marfim → navy",
+        "proofPlacement": "ausente por falta de prova verificável",
+        "ctaDistribution": "hero, local, fechamento e barra fixa mobile",
+        "navigationPattern": "leitura contínua e sem menu",
+        "motionSignature": "máscara no hero + stagger de pauta, sem animação ornamental contínua",
+        "closingStructure": "chamada editorial curta apoiada por arte de marca e CTA único"
       },
       "perceptualReview": {
         "screenshots": {
@@ -349,36 +351,58 @@
         "source": "texto oficial do convite enviado pelo responsável em 13/09/2026",
         "notes": "nenhum dado além do convite foi publicado; sem métricas, depoimentos ou fotos da entidade"
       },
-      "stage": "draft",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
-        "entityDiscovery": "not_started",
-        "entityResolution": "not_started",
-        "evidence": "not_started",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
         "media": "complete",
         "mediaPlan": "complete",
         "content": "complete",
-        "discovery": "not_started",
+        "discovery": "complete",
         "blueprint": "complete",
         "composition": "complete",
         "seo": "complete",
-        "funnel": "not_started",
-        "cover": "not_started",
+        "funnel": "complete",
+        "cover": "complete",
         "qa": "complete",
-        "publish": "not_started"
+        "publish": "complete"
       },
       "blockers": [],
       "warnings": [
         "sem logotipo oficial: identidade visual apoiada em arte abstrata própria",
-        "sem prova social publicada: o convite não traz números, depoimentos ou resultados",
-        "destino de WhatsApp ainda não comprovado — projeto permanece em rascunho"
+        "sem prova social publicada: o convite não traz números, depoimentos ou resultados"
       ],
       "ownerRequired": [
-        "confirmar se o destino do funil é o WhatsApp do Thomas (41 9****-0718) ou outro contato oficial",
-        "enviar logotipo oficial e fotos reais das reuniões para substituir as artes abstratas",
-        "confirmar a razão social/capítulo responsável pela página"
+        "enviar logotipo oficial e fotos reais das reuniões para substituir as artes abstratas"
       ],
-      "searchQa": [],
+      "searchQa": [
+        {
+          "query": "adhonep curitiba",
+          "expect": "must_find"
+        },
+        {
+          "query": "reunião semanal adhonep",
+          "expect": "must_find"
+        },
+        {
+          "query": "networking empresarial curitiba",
+          "expect": "must_find"
+        },
+        {
+          "query": "palestra vencendo o medo curitiba",
+          "expect": "must_find"
+        },
+        {
+          "query": "capítulo nikkey 0714",
+          "expect": "must_find"
+        },
+        {
+          "query": "marcenaria curitiba",
+          "expect": "must_not_find"
+        }
+      ],
       "visualQa": {
         "status": "PASS",
         "evaluatedAt": "2026-09-13",
@@ -386,7 +410,8 @@
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/adhonep-curitiba.json",
-        "mediaPlan": "docs/portfolio/media-plans/adhonep-curitiba.json"
+        "mediaPlan": "docs/portfolio/media-plans/adhonep-curitiba.json",
+        "destination": "Destino do funil confirmado pelo titular em 13/09/2026 (OWNER_CONFIRMED) e validado pelo resolver: (41) 9****-0718."
       },
       "lastUpdatedAt": "2026-09-13"
     }

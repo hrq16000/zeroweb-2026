@@ -18,7 +18,7 @@ import adhonepHeroEditorial from "@/assets/adhonep-curitiba-hero-editorial-v2.pn
  */
 
 const FICHA = [
-  { rotulo: "Capítulo", valor: "714" },
+  { rotulo: "Capítulo", valor: "Curitiba – Nikkey (0714)" },
   { rotulo: "Encontro", valor: "Reunião semanal aberta" },
   { rotulo: "Palestrante", valor: "Hélio Sato" },
   { rotulo: "Tema", valor: "Vencendo o Medo" },
