@@ -156,6 +156,23 @@ export const upsertClientSettings = createServerFn({ method: "POST" })
       const next = (data as Record<string, unknown>)[field];
       if (next === undefined) continue;
       const prev = existing ? existing[field] : undefined;
+      // jsonb: comparamos e gravamos de forma estável, string vazia limpa.
+      if (field === "seo_schema") {
+        const raw = String(next ?? "").trim();
+        const parsed = raw ? JSON.parse(raw) : null;
+        const prevJson = prev === null || prev === undefined ? "" : JSON.stringify(prev);
+        const nextJson = parsed === null ? "" : JSON.stringify(parsed);
+        if (prevJson === nextJson) continue;
+        patch[field] = parsed;
+        history.push({
+          client_key: data.client_key,
+          field,
+          old_value: prevJson ? `${prevJson.slice(0, 400)}` : null,
+          new_value: nextJson ? `${nextJson.slice(0, 400)}` : null,
+          actor: context.userId,
+        });
+        continue;
+      }
       if (String(prev ?? "") === String(next)) continue;
       patch[field] = next;
       const sensitive = field === "funnel_recipient";
