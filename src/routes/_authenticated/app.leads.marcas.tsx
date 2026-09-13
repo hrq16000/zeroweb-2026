@@ -9,6 +9,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { RefreshCw, Search, Inbox } from "lucide-react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 import { Button } from "@/components/ui/button";
 import {
   listPortfolioFunnelLeads,
@@ -137,6 +147,34 @@ function LeadsPorMarcaPage() {
 
       {error && <p className="text-sm text-destructive">{error}</p>}
       {loading && <p className="text-sm text-muted-foreground">Carregando…</p>}
+
+      {brands.length > 0 && (
+        <section className="rounded-lg border border-border p-4">
+          <h2 className="text-sm font-medium text-foreground">
+            Pedidos e confirmações por marca (12 mais recentes)
+          </h2>
+          <div className="mt-4 h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={brands.slice(0, 12).map((b) => ({
+                  marca: b.name.length > 16 ? `${b.name.slice(0, 15)}…` : b.name,
+                  Pedidos: b.leads.length,
+                  "Com contato": b.withContact,
+                }))}
+                margin={{ top: 8, right: 8, bottom: 48, left: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+                <XAxis dataKey="marca" angle={-35} textAnchor="end" interval={0} height={70} tick={{ fontSize: 11 }} />
+                <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="Pedidos" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="Com contato" fill="hsl(var(--chart-2, 160 60% 45%))" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </section>
+      )}
 
       {!loading && brands.length === 0 && (
         <p className="flex items-center gap-2 text-sm text-muted-foreground">
