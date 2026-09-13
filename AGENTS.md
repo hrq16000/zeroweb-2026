@@ -7,6 +7,8 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
 | Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
+| Discovery contínuo em LobeHub/AwesomeSkill/fontes originais | `.agents/skills/0web-skill-discovery/SKILL.md` · `.agents/skills/lobehub-skills-search-engine/SKILL.md` · `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` |
+| Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
@@ -22,7 +24,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Contato sempre pelo funil (sem `tel:`/`wa.me`) e finalidade obrigatória de cada asset | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21–§22 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §18–§20 |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
 | Acessibilidade / responsivo / motion | `docs/design/ACCESSIBILITY.md` · `docs/design/RESPONSIVE.md` · `docs/design/MOTION.md` |
-| Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` |
+| Catálogo e segurança de skills | `docs/skills/REGISTRY.md` · `docs/skills/SECURITY.md` · `src/config/skill-marketplace-catalog.json` |
 | Novo cliente em `/portfolio` | `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` · `docs/PORTFOLIO_CLIENT_STANDARD.md` · `docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md` |
 | Descoberta por nome, pesquisa pública, oferta e pacotes de presença | `docs/0WEB_AI_PROSPECTING_PLATFORM_STANDARD.md` |
 | Conversão, SEO e leitura por IA em `/portfolio` | `docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md` |
@@ -68,13 +70,14 @@ Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 Toda implementação nova ou revisão visual material em `/portfolio/` deve seguir
 `docs/AGENT_SKILLS_GOVERNANCE.md`. No mínimo:
 
-1. executar `0web-skill-discovery` para selecionar competências complementares, incluindo discovery em fontes externas quando necessário;
-2. aplicar obrigatoriamente `0web-experience-design-max` para cobrir estratégia, UX/UI, design system, motion, acessibilidade, performance, SEO/conteúdo e QA;
-3. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
-4. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam problemas reais da marca/jornada — o arquivo é repertório, nunca template;
-5. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar estrutura fixa;
-6. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
-7. revisar acessibilidade/mobile, motion, performance e quality gates.
+1. executar `0web-skill-discovery` para selecionar competências complementares;
+2. em todo novo projeto e toda manutenção visual/UX material, revisar o catálogo local e pesquisar LobeHub, AwesomeSkill Search e fontes originais quando houver chance real de competência complementar;
+3. aplicar obrigatoriamente `0web-experience-design-max` para estratégia, UX/UI, layout engineering, design system, motion, acessibilidade, performance, SEO/conteúdo e QA;
+4. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
+5. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam problemas reais da marca/jornada — o arquivo é repertório, nunca template;
+6. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar estrutura fixa;
+7. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
+8. revisar Flexbox/Grid/sizing responsivo, acessibilidade/mobile, motion, performance e quality gates.
 
 A política global é **máximo de competências relevantes, não máximo de efeitos ou pacotes**. Skills redundantes, inseguras ou incompatíveis devem ser rejeitadas e registradas. LobeHub, AwesomeSkill e outros marketplaces são fontes de discovery; código de terceiros só pode ser executado após `docs/skills/SECURITY.md`.
 
@@ -87,6 +90,8 @@ Toda mudança visual material também deve avaliar a matriz canônica de motion 
 `scale-in`, `stagger-up`, `image-reveal`, `clip-reveal`, `parallax`, `marquee`,
 `float`, `header-scroll`, `menu-reveal`, `text-line-reveal`, `progress-line`.
 Cada capability recebe `REQUIRED`, `OPTIONAL` ou `NOT_APPLICABLE`.
+
+Toda mudança material de layout também deve avaliar `docs/LAYOUT_ENGINEERING_STANDARD.md`: Flexbox para problemas unidimensionais, Grid para macrocomposição bidimensional e sizing intrínseco/responsivo para evitar widths rígidos, overflow e cascatas de remendos por breakpoint.
 
 ## Princípio obrigatório
 
@@ -138,13 +143,17 @@ recolorir não é.
 
 Completo: `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` ·
 `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` ·
+`docs/LAYOUT_ENGINEERING_STANDARD.md` ·
+`docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` ·
 `docs/PORTFOLIO_IMMERSIVE_EXPERIENCE_STANDARD.md` ·
-máquina: `src/config/experience-capabilities.json` e
+máquina: `src/config/experience-capabilities.json`, `src/config/skill-marketplace-catalog.json` e
 `src/config/portfolio-motion-profiles.json`.
 
 - Toda página cumpre strategy, engineering, brand, motion, interaction, content,
   conversion, SEO, accessibility, performance, originality e privacy.
 - Toda UI material aplica `0web-experience-design-max` e o máximo de skills relevantes e não redundantes.
+- Novo projeto e manutenção material reavaliam o skill stack; marketplace é discovery, não autoridade.
+- Layout usa Flexbox/Grid/intrinsic sizing conforme o problema, nunca como template visual.
 - Motion usa primitives de `src/components/motion` / `motion/react` conforme o
   padrão local; conteúdo sempre existe sem JS.
 - `prefers-reduced-motion` remove deslocamento, nunca conteúdo.
