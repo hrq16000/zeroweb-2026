@@ -53,6 +53,37 @@
       "blocking": []
     },
     {
+      "slug": "adhonep-curitiba",
+      "clientKey": "adhonep-curitiba",
+      "title": "ADHONEP Curitiba",
+      "segment": "prestadores-de-servicos",
+      "city": "Curitiba",
+      "state": "PR",
+      "summary": "Página de convite da reunião semanal aberta da ADHONEP em Curitiba, com pauta da noite, local e confirmação de presença pelo formulário do projeto.",
+      "subtitle": "Convite para a reunião semanal aberta",
+      "image": "/images/adhonep-curitiba/capa.jpg",
+      "icon": "/images/adhonep-curitiba/icone-abstrato.png",
+      "socialImage": "/images/adhonep-curitiba/capa.jpg",
+      "socialVersion": "",
+      "componentFile": "src/components/site/AdhonepCuritibaPage.tsx",
+      "routeFile": "src/routes/portfolio.$slug.tsx",
+      "assetsDir": "public/images/adhonep-curitiba",
+      "ctaMode": "contact",
+      "hasCta": true,
+      "hasOwnDescription": false,
+      "hasClientEntry": true,
+      "gallery": [
+        "/images/adhonep-curitiba/capa.jpg",
+        "/images/adhonep-curitiba/hero-abstrato.jpg",
+        "/images/adhonep-curitiba/icone-abstrato.png"
+      ],
+      "shareCopy": "🎤 A reunião semanal da ADHONEP em Curitiba agora tem página própria.\n\nEncontro aberto e sem custo financeiro, com palestra, pauta da noite e um café de networking depois — Av. Cândido Hartmann, 570, 32º andar, sala 324, às 20h.\n\n🌐 Veja o convite:\nhttps://0web.com.br/portfolio/adhonep-curitiba\n\n📝 Confirme sua presença pelo formulário da página.\n\n#ADHONEP #Curitiba #Networking #Empreendedorismo #0WEB",
+      "published": false,
+      "status": "COMPLETE",
+      "issues": [],
+      "blocking": []
+    },
+    {
       "slug": "ag-electrical-services",
       "clientKey": "ag-electrical-services",
       "title": "A&G Electrical Services",
