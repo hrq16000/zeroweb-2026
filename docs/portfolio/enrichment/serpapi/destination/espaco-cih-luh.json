@@ -1,0 +1,66 @@
+{
+  "slug": "espaco-cih-luh",
+  "query": "Espaço CIH & LUH Manaus",
+  "location": "Manaus, State of Amazonas, Brazil",
+  "resolvedAt": "2026-09-13T19:53:00.219Z",
+  "callCount": 1,
+  "stage": "SUCCESS",
+  "error": null,
+  "provenance": {
+    "provider": "serpapi",
+    "engine": "google_maps",
+    "requestUrl": "https://serpapi.com/search.json?engine=google_maps&type=search&q=Espa%C3%A7o+CIH+%26+LUH+Manaus&location=Manaus%2C+State+of+Amazonas%2C+Brazil&z=12&hl=pt-br&gl=br",
+    "fetchedAt": "2026-09-13T19:53:00.218Z",
+    "sourceUrl": "https://www.google.com/maps/search/Espa%C3%A7o+CIH+%26+LUH+Manaus/@-3.1190275,-60.0217314,12.0z/data=!3m1!4b1!4m2!2m1!6e5?hl=pt-br&gl=br"
+  },
+  "candidates": [
+    {
+      "placeId": "ChIJZVXHdKwabJIR891yXWNQZ7o",
+      "dataId": "0x926c1aac74c75565:0xba6750635d72ddf3",
+      "name": "Maison Luh Estética e Beleza",
+      "category": "Salão de Beleza",
+      "address": "Av. Rio Madeira, 197 - Vieiralves, Manaus - AM, 69053-030",
+      "phone": "(92) 3584-4182",
+      "website": "https://maison-luh-8.webnode.com/",
+      "rating": 4.7,
+      "reviewCount": 345,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZVXHdKwabJIR891yXWNQZ7o"
+    },
+    {
+      "placeId": "ChIJCVlqeAAZbJIR8IBFuD6Guas",
+      "dataId": "0x926c1900786a5909:0xabb9863eb84580f0",
+      "name": "Espaço Luh",
+      "category": "Studio de cílios",
+      "address": "R. dos Curiós, 197A - Nova Cidade, Manaus - AM, 69099-387",
+      "phone": "(92) 98157-5892",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 1,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJCVlqeAAZbJIR8IBFuD6Guas"
+    },
+    {
+      "placeId": "ChIJZwBXYf4bbJIRdsnUO_MYBa0",
+      "dataId": "0x926c1bfe61570067:0xad0518f33bd4c976",
+      "name": "Cunhã Espaço de Beleza",
+      "category": "Salão de Beleza",
+      "address": "R. 30, 1218 - Parque Dez de Novembro, Manaus - AM, 69055-480",
+      "phone": "(92) 99197-6323",
+      "website": null,
+      "rating": 5,
+      "reviewCount": 27,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJZwBXYf4bbJIRdsnUO_MYBa0"
+    },
+    {
+      "placeId": "ChIJVwvNJWcZbJIR9v5ZUl3HOZE",
+      "dataId": "0x926c196725cd0b57:0x9139c75d5259fef6",
+      "name": "Espaço Beleza Chic",
+      "category": "Salão de Beleza",
+      "address": "R. São Sebastião, n° 43 - Col. Santo Antônio, Manaus - AM, 69093-380",
+      "phone": "(92) 99437-6778",
+      "website": null,
+      "rating": 4.6,
+      "reviewCount": 10,
+      "mapsUrl": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=pt-br&place_id=ChIJVwvNJWcZbJIR9v5ZUl3HOZE"
+    }
+  ]
+}
