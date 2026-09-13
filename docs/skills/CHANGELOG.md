@@ -1,5 +1,21 @@
 # Skill changelog / usage log
 
+## 2026-09-13 — painel, publicação protegida, captação e mídia editorial
+
+- **Tarefa:** consolidar projetos legados e gerenciados no painel, expor perfil de
+  qualidade, proteger a publicação unitária por gates e criar captação e geração
+  de mídia sem inventar provas.
+- **Skills:** roteamento 0WEB, direção de arte, design system, acessibilidade,
+  qualidade de interface, lifecycle e integridade de dados do portfólio.
+- **Aplicação:** 91 projetos visíveis; publicação bloqueada por conteúdo, qualidade,
+  conformidade ou destino ausente; captação com três origens mensuráveis; gerador
+  administrativo de rascunhos para hero, social, seções e variações.
+- **Proteções:** Mestre dos Serviços não foi publicado; nenhum destino ambíguo foi
+  confirmado; imagens geradas não são aplicadas automaticamente; zona institucional
+  e composições dos clientes permaneceram intactas.
+- **Validação:** tipagem, testes de destino, boundaries, navegação autenticada e uma
+  geração real passaram sem erro.
+
 ## 2026-09-12 — vida visual e motion da Home2 · rodada 2
 
 - **Tarefa:** corrigir mídia invisível e enriquecer profundidade, transições,

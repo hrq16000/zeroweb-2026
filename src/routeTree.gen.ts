@@ -17,6 +17,7 @@ import { Route as AreasDeAtendimentoRouteImport } from './routes/areas-de-atendi
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AutomacaoRouteImport } from './routes/automacao'
 import { Route as CalculadoraOrcamentoRouteImport } from './routes/calculadora-orcamento'
+import { Route as CaptacaoRouteImport } from './routes/captacao'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CidadesRouteImport } from './routes/cidades'
 import { Route as ConsultoriaRouteImport } from './routes/consultoria'
@@ -86,6 +87,7 @@ import { Route as TrafegoPagoRouteImport } from './routes/trafego-pago'
 import { Route as TrafegoPagoLocalRouteImport } from './routes/trafego-pago-local'
 import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as ApiGeneratePortfolioImageRouteImport } from './routes/api/generate-portfolio-image'
 import { Route as BairrosBhIndexRouteImport } from './routes/bairros-bh.index'
 import { Route as BairrosBhSlugRouteImport } from './routes/bairros-bh.$slug'
 import { Route as BairrosCwbIndexRouteImport } from './routes/bairros-cwb.index'
@@ -155,6 +157,7 @@ import { Route as AuthenticatedAppDocumentsRouteImport } from './routes/_authent
 import { Route as AuthenticatedAppEcosystemRouteImport } from './routes/_authenticated/app.ecosystem'
 import { Route as AuthenticatedAppEditorialRouteImport } from './routes/_authenticated/app.editorial'
 import { Route as AuthenticatedAppHydrationRouteImport } from './routes/_authenticated/app.hydration'
+import { Route as AuthenticatedAppImagensGerarRouteImport } from './routes/_authenticated/app.imagens-gerar'
 import { Route as AuthenticatedAppIndexacaoRouteImport } from './routes/_authenticated/app.indexacao'
 import { Route as AuthenticatedAppIndexacaoPortfolioRouteImport } from './routes/_authenticated/app.indexacao-portfolio'
 import { Route as AuthenticatedAppIntegracoesRouteImport } from './routes/_authenticated/app.integracoes'
@@ -282,6 +285,11 @@ const AutomacaoRoute = AutomacaoRouteImport.update({
 const CalculadoraOrcamentoRoute = CalculadoraOrcamentoRouteImport.update({
   id: '/calculadora-orcamento',
   path: '/calculadora-orcamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaptacaoRoute = CaptacaoRouteImport.update({
+  id: '/captacao',
+  path: '/captacao',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutRoute = CheckoutRouteImport.update({
@@ -637,6 +645,12 @@ const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   path: '/app',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const ApiGeneratePortfolioImageRoute =
+  ApiGeneratePortfolioImageRouteImport.update({
+    id: '/api/generate-portfolio-image',
+    path: '/api/generate-portfolio-image',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BairrosBhIndexRoute = BairrosBhIndexRouteImport.update({
   id: '/bairros-bh/',
   path: '/bairros-bh/',
@@ -994,6 +1008,12 @@ const AuthenticatedAppHydrationRoute =
   AuthenticatedAppHydrationRouteImport.update({
     id: '/hydration',
     path: '/hydration',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppImagensGerarRoute =
+  AuthenticatedAppImagensGerarRouteImport.update({
+    id: '/imagens-gerar',
+    path: '/imagens-gerar',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppIndexacaoRoute =
@@ -1517,6 +1537,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
   '/calculadora-orcamento': typeof CalculadoraOrcamentoRoute
+  '/captacao': typeof CaptacaoRoute
   '/checkout': typeof CheckoutRoute
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
@@ -1586,6 +1607,7 @@ export interface FileRoutesByFullPath {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
+  '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
   '/blog-skyscraper/$slug': typeof BlogSkyscraperSlugRoute
@@ -1654,6 +1676,7 @@ export interface FileRoutesByFullPath {
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
+  '/app/imagens-gerar': typeof AuthenticatedAppImagensGerarRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
@@ -1753,6 +1776,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
   '/calculadora-orcamento': typeof CalculadoraOrcamentoRoute
+  '/captacao': typeof CaptacaoRoute
   '/checkout': typeof CheckoutRoute
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
@@ -1819,6 +1843,7 @@ export interface FileRoutesByTo {
   '/trafego-pago': typeof TrafegoPagoRoute
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
+  '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
   '/blog-skyscraper/$slug': typeof BlogSkyscraperSlugRoute
@@ -1887,6 +1912,7 @@ export interface FileRoutesByTo {
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
+  '/app/imagens-gerar': typeof AuthenticatedAppImagensGerarRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
@@ -1987,6 +2013,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
   '/calculadora-orcamento': typeof CalculadoraOrcamentoRoute
+  '/captacao': typeof CaptacaoRoute
   '/checkout': typeof CheckoutRoute
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
@@ -2056,6 +2083,7 @@ export interface FileRoutesById {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
   '/blog-skyscraper/$slug': typeof BlogSkyscraperSlugRoute
@@ -2124,6 +2152,7 @@ export interface FileRoutesById {
   '/_authenticated/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
   '/_authenticated/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/_authenticated/app/hydration': typeof AuthenticatedAppHydrationRoute
+  '/_authenticated/app/imagens-gerar': typeof AuthenticatedAppImagensGerarRoute
   '/_authenticated/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
   '/_authenticated/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
@@ -2225,6 +2254,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/automacao'
     | '/calculadora-orcamento'
+    | '/captacao'
     | '/checkout'
     | '/cidades'
     | '/consultoria'
@@ -2294,6 +2324,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/app'
+    | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
     | '/blog-skyscraper/$slug'
@@ -2362,6 +2393,7 @@ export interface FileRouteTypes {
     | '/app/ecosystem'
     | '/app/editorial'
     | '/app/hydration'
+    | '/app/imagens-gerar'
     | '/app/indexacao'
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
@@ -2461,6 +2493,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/automacao'
     | '/calculadora-orcamento'
+    | '/captacao'
     | '/checkout'
     | '/cidades'
     | '/consultoria'
@@ -2527,6 +2560,7 @@ export interface FileRouteTypes {
     | '/trafego-pago'
     | '/trafego-pago-local'
     | '/$city/$service'
+    | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
     | '/blog-skyscraper/$slug'
@@ -2595,6 +2629,7 @@ export interface FileRouteTypes {
     | '/app/ecosystem'
     | '/app/editorial'
     | '/app/hydration'
+    | '/app/imagens-gerar'
     | '/app/indexacao'
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
@@ -2694,6 +2729,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/automacao'
     | '/calculadora-orcamento'
+    | '/captacao'
     | '/checkout'
     | '/cidades'
     | '/consultoria'
@@ -2763,6 +2799,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/_authenticated/app'
+    | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
     | '/blog-skyscraper/$slug'
@@ -2831,6 +2868,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/ecosystem'
     | '/_authenticated/app/editorial'
     | '/_authenticated/app/hydration'
+    | '/_authenticated/app/imagens-gerar'
     | '/_authenticated/app/indexacao'
     | '/_authenticated/app/indexacao-portfolio'
     | '/_authenticated/app/integracoes'
@@ -2932,6 +2970,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   AutomacaoRoute: typeof AutomacaoRoute
   CalculadoraOrcamentoRoute: typeof CalculadoraOrcamentoRoute
+  CaptacaoRoute: typeof CaptacaoRoute
   CheckoutRoute: typeof CheckoutRoute
   CidadesRoute: typeof CidadesRoute
   ConsultoriaRoute: typeof ConsultoriaRoute
@@ -3000,6 +3039,7 @@ export interface RootRouteChildren {
   TrafegoPagoRoute: typeof TrafegoPagoRoute
   TrafegoPagoLocalRoute: typeof TrafegoPagoLocalRoute
   CityServiceRoute: typeof CityServiceRoute
+  ApiGeneratePortfolioImageRoute: typeof ApiGeneratePortfolioImageRoute
   BairrosBhSlugRoute: typeof BairrosBhSlugRoute
   BairrosCwbSlugRoute: typeof BairrosCwbSlugRoute
   BlogSkyscraperSlugRoute: typeof BlogSkyscraperSlugRoute
@@ -3126,6 +3166,13 @@ declare module '@tanstack/react-router' {
       path: '/calculadora-orcamento'
       fullPath: '/calculadora-orcamento'
       preLoaderRoute: typeof CalculadoraOrcamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/captacao': {
+      id: '/captacao'
+      path: '/captacao'
+      fullPath: '/captacao'
+      preLoaderRoute: typeof CaptacaoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout': {
@@ -3611,6 +3658,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/api/generate-portfolio-image': {
+      id: '/api/generate-portfolio-image'
+      path: '/api/generate-portfolio-image'
+      fullPath: '/api/generate-portfolio-image'
+      preLoaderRoute: typeof ApiGeneratePortfolioImageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bairros-bh/': {
       id: '/bairros-bh/'
       path: '/bairros-bh'
@@ -4092,6 +4146,13 @@ declare module '@tanstack/react-router' {
       path: '/hydration'
       fullPath: '/app/hydration'
       preLoaderRoute: typeof AuthenticatedAppHydrationRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/imagens-gerar': {
+      id: '/_authenticated/app/imagens-gerar'
+      path: '/imagens-gerar'
+      fullPath: '/app/imagens-gerar'
+      preLoaderRoute: typeof AuthenticatedAppImagensGerarRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/indexacao': {
@@ -4846,6 +4907,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppEcosystemRoute: typeof AuthenticatedAppEcosystemRoute
   AuthenticatedAppEditorialRoute: typeof AuthenticatedAppEditorialRouteWithChildren
   AuthenticatedAppHydrationRoute: typeof AuthenticatedAppHydrationRoute
+  AuthenticatedAppImagensGerarRoute: typeof AuthenticatedAppImagensGerarRoute
   AuthenticatedAppIndexacaoRoute: typeof AuthenticatedAppIndexacaoRouteWithChildren
   AuthenticatedAppIndexacaoPortfolioRoute: typeof AuthenticatedAppIndexacaoPortfolioRoute
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
@@ -4910,6 +4972,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppEcosystemRoute: AuthenticatedAppEcosystemRoute,
   AuthenticatedAppEditorialRoute: AuthenticatedAppEditorialRouteWithChildren,
   AuthenticatedAppHydrationRoute: AuthenticatedAppHydrationRoute,
+  AuthenticatedAppImagensGerarRoute: AuthenticatedAppImagensGerarRoute,
   AuthenticatedAppIndexacaoRoute: AuthenticatedAppIndexacaoRouteWithChildren,
   AuthenticatedAppIndexacaoPortfolioRoute:
     AuthenticatedAppIndexacaoPortfolioRoute,
@@ -5056,6 +5119,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   AutomacaoRoute: AutomacaoRoute,
   CalculadoraOrcamentoRoute: CalculadoraOrcamentoRoute,
+  CaptacaoRoute: CaptacaoRoute,
   CheckoutRoute: CheckoutRoute,
   CidadesRoute: CidadesRoute,
   ConsultoriaRoute: ConsultoriaRoute,
@@ -5125,6 +5189,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrafegoPagoRoute: TrafegoPagoRoute,
   TrafegoPagoLocalRoute: TrafegoPagoLocalRoute,
   CityServiceRoute: CityServiceRoute,
+  ApiGeneratePortfolioImageRoute: ApiGeneratePortfolioImageRoute,
   BairrosBhSlugRoute: BairrosBhSlugRoute,
   BairrosCwbSlugRoute: BairrosCwbSlugRoute,
   BlogSkyscraperSlugRoute: BlogSkyscraperSlugRoute,
