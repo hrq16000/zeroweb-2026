@@ -34,13 +34,29 @@ const STATUS_LABEL: Record<PendingDestinationRow["request_status"], string> = {
   SUGESTAO_RECUSADA: "Sugestão recusada",
 };
 
+const REQUEST_LABEL: Record<string, string> = {
+  ENVIADO: "Enviado, aguardando resposta",
+  RESPONDIDO: "Respondido",
+  SEM_RESPOSTA: "Sem resposta",
+  RECUSADO: "Recusou informar",
+  NUMERO_RECEBIDO: "Número recebido",
+};
+
+const CHANNELS = ["whatsapp", "instagram", "e-mail", "telefone", "site", "presencial"];
+
 function PendingDestinationsPage() {
   const load = useServerFn(listPendingDestinations);
+  const loadRequests = useServerFn(listDestinationRequests);
+  const sendRequest = useServerFn(createDestinationRequest);
   const [rows, setRows] = useState<PendingDestinationRow[]>([]);
+  const [requests, setRequests] = useState<DestinationRequestRow[]>([]);
   const [cities, setCities] = useState<string[]>([]);
   const [city, setCity] = useState("");
   const [status, setStatus] = useState("");
   const [term, setTerm] = useState("");
+  const [channel, setChannel] = useState("whatsapp");
+  const [busy, setBusy] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -48,15 +64,16 @@ function PendingDestinationsPage() {
     setLoading(true);
     setError(null);
     try {
-      const result = await load();
+      const [result, reqs] = await Promise.all([load(), loadRequests()]);
       setRows(result.rows);
       setCities(result.cities);
+      setRequests(reqs.rows);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, [load]);
+  }, [load, loadRequests]);
 
   useEffect(() => {
     void refresh();
