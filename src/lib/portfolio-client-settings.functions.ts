@@ -11,6 +11,8 @@ export type ClientSettings = {
   seo_keywords: string;
   canonical_url: string;
   social_image_url: string;
+  /** JSON-LD administrável, já serializado para edição no painel. */
+  seo_schema: string;
   funnel_recipient_masked: string;
   funnel_configured: boolean;
   funnel_enabled: boolean;
