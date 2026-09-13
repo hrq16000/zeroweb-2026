@@ -258,10 +258,32 @@ function PendingDestinationsPage() {
                   )}
                 </td>
                 <td className="py-2">
+                  {(() => {
+                    const last = lastRequestByKey.get(r.client_key);
+                    if (!last) return <span className="text-muted-foreground">Nunca pedido</span>;
+                    return (
+                      <>
+                        {REQUEST_LABEL[last.status] ?? last.status}
+                        <span className="block text-xs text-muted-foreground">
+                          {last.channel} · {new Date(last.sent_at).toLocaleString("pt-BR")}
+                        </span>
+                      </>
+                    );
+                  })()}
+                </td>
+                <td className="py-2">
                   {r.last_activity_at ? new Date(r.last_activity_at).toLocaleString("pt-BR") : "—"}
                 </td>
                 <td className="py-2">
-                  <Link to="/app/funis/numeros" className="min-h-11 text-primary underline">
+                  <button
+                    type="button"
+                    disabled={busy !== null}
+                    onClick={() => void register([r])}
+                    className="min-h-11 rounded-md border border-border px-3 text-sm font-medium disabled:opacity-50"
+                  >
+                    {busy === r.client_key ? "Registrando…" : "Registrar envio"}
+                  </button>
+                  <Link to="/app/funis/numeros" className="ml-3 min-h-11 text-primary underline">
                     Revisar
                   </Link>
                   <Link to="/app/funis/solicitacoes" className="ml-3 min-h-11 text-primary underline">
