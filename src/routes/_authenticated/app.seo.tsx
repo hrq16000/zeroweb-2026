@@ -1,475 +1,341 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
-import { AlertTriangle, BarChart3, RefreshCw, Search, FileText } from "lucide-react";
-import { getSeoDashboard } from "@/lib/seo-dashboard.functions";
+import { RefreshCw, Save, Search } from "lucide-react";
 import {
-  listBlogSeoOverrides,
-  saveBlogSeoOverride,
-  type BlogSeoOverride,
-} from "@/lib/blog-seo.functions";
-import { posts } from "@/lib/blog-data";
-
-export const Route = createFileRoute("/_authenticated/app/seo")({
-  component: SeoDashboard,
-});
-
-const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
-
-function SeoDashboard() {
-  const fetchDashboard = useServerFn(getSeoDashboard);
-  const [threshold, setThreshold] = useState(20);
-  const [tab, setTab] = useState<"search" | "conteudo">("search");
-
-  const { data, isLoading, refetch, isFetching } = useQuery({
-    queryKey: ["seo-dashboard", threshold],
-    queryFn: () => fetchDashboard({ data: { alertThresholdPct: threshold } }),
-  });
-
-  return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <header className="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <div>
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <BarChart3 className="w-6 h-6 text-primary" /> Painel SEO
-          </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Dados do Search Console gerados por <code>bun run gsc:export</code> e auditoria dos
-            metadados do cluster de conteúdo.
-          </p>
-        </div>
-        <button
-          onClick={() => refetch()}
-          className="text-sm px-3 py-2 rounded-lg border border-border hover:bg-muted inline-flex items-center gap-2"
-        >
-          <RefreshCw className={`w-4 h-4 ${isFetching ? "animate-spin" : ""}`} /> Atualizar
-        </button>
-      </header>
-
-      {isLoading && <p className="text-muted-foreground">Carregando…</p>}
-
-      {data && (
-        <>
-          {data.status === "pending" && (
-            <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 mb-6 text-sm">
-              <p className="font-semibold flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4" /> Snapshot do Search Console ainda não gerado
-              </p>
-              <p className="mt-1 text-muted-foreground">
-                Rode <code>bun run gsc:export</code> (ou a rotina diária de CI) com as credenciais
-                do conector para preencher <code>seo-reports/gsc-latest.json</code>. Até lá, nenhum
-                número é exibido — o painel não estima dados.
-              </p>
-            </div>
-          )}
-
-          <div className="flex flex-wrap items-center gap-3 mb-6 text-sm">
-            <span className="text-muted-foreground">
-              Propriedade: <strong>{data.siteUrl}</strong>
-            </span>
-            {data.refreshedAt && (
-              <span className="text-muted-foreground">
-                Atualizado: {new Date(data.refreshedAt).toLocaleString("pt-BR")}
-              </span>
-            )}
-            <label className="flex items-center gap-2 text-xs text-muted-foreground">
-              Alerta de queda acima de
-              <input
-                type="number"
-                min={5}
-                max={90}
-                value={threshold}
-                onChange={(e) => setThreshold(Number(e.target.value))}
-                className="w-20 rounded-lg border border-border bg-background px-2 py-1 text-sm"
-              />
-              %
-            </label>
-          </div>
-
-          {data.totals && (
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-              <Stat label="Cliques" value={String(data.totals.clicks)} />
-              <Stat label="Impressões" value={String(data.totals.impressions)} />
-              <Stat label="CTR" value={pct(data.totals.ctr)} />
-              <Stat label="Posição média" value={data.totals.position.toFixed(1)} />
-            </div>
-          )}
-
-          {data.alerts.length > 0 && (
-            <section className="mb-6 space-y-2">
-              {data.alerts.map((a, i) => (
-                <div
-                  key={i}
-                  className={`rounded-xl border p-3 text-sm ${
-                    a.level === "critical"
-                      ? "border-destructive/40 bg-destructive/10"
-                      : "border-amber-500/40 bg-amber-500/10"
-                  }`}
-                >
-                  <AlertTriangle className="w-4 h-4 inline mr-2" />
-                  {a.message}
-                </div>
-              ))}
-            </section>
-          )}
-
-          <section className="mb-6 rounded-2xl border border-border bg-card p-4">
-            <h2 className="mb-1 text-sm font-semibold text-foreground">Palavras-chave monitoradas</h2>
-            <p className="mb-3 text-xs text-muted-foreground">
-              Posição, impressões e CTR reais do Search Console para os termos prioritários do portal.
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {data.watched.map((w) => (
-                <div key={w.keyword} className="rounded-lg bg-muted/30 p-3">
-                  <p className="text-sm font-medium text-foreground">{w.keyword}</p>
-                  {w.found ? (
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      Posição {w.position?.toFixed(1)} · {w.impressions} impressões · CTR {pct(w.ctr)} · {w.clicks} cliques
-                    </p>
-                  ) : (
-                    <p className="mt-1 text-xs text-muted-foreground">Sem dados no período — ainda não aparece nas buscas.</p>
-                  )}
-                  <span className="mt-2 inline-block rounded-full bg-background px-2 py-0.5 text-[11px] text-muted-foreground">
-                    {w.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-
-          <div className="flex gap-2 mb-4">
-            <TabButton active={tab === "search"} onClick={() => setTab("search")} icon={<Search className="w-4 h-4" />}>
-              Search Console
-            </TabButton>
-            <TabButton active={tab === "conteudo"} onClick={() => setTab("conteudo")} icon={<FileText className="w-4 h-4" />}>
-              Conteúdo do cluster
-            </TabButton>
-          </div>
-
-          {tab === "search" ? (
-            <div className="space-y-6">
-              <Panel title="Priorização automática de otimizações">
-                {data.priorities.length === 0 ? (
-                  <Empty />
-                ) : (
-                  <table className="w-full text-sm">
-                    <thead className="text-xs uppercase text-muted-foreground">
-                      <tr>
-                        <th className="text-left py-2">Consulta</th>
-                        <th className="text-right">Impr.</th>
-                        <th className="text-right">CTR</th>
-                        <th className="text-right">Pos.</th>
-                        <th className="text-left pl-4">Ação sugerida</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.priorities.map((p) => (
-                        <tr key={p.query} className="border-t border-border">
-                          <td className="py-2 font-medium">{p.query}</td>
-                          <td className="text-right tabular-nums">{p.impressions}</td>
-                          <td className="text-right tabular-nums">{pct(p.ctr)}</td>
-                          <td className="text-right tabular-nums">{p.position.toFixed(1)}</td>
-                          <td className="pl-4 text-muted-foreground">{p.reason}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                )}
-              </Panel>
-
-              <Panel title="Consultas">
-                <RowsTable rows={data.queries} label="Consulta" />
-              </Panel>
-
-              <Panel title="Páginas">
-                <RowsTable rows={data.pages} label="URL" />
-              </Panel>
-            </div>
-          ) : (
-            <div className="space-y-6">
-            <Panel title="Metadados e schema por post">
-              <table className="w-full text-sm">
-                <thead className="text-xs uppercase text-muted-foreground">
-                  <tr>
-                    <th className="text-left py-2">Post</th>
-                    <th className="text-left">Schema</th>
-                    <th className="text-left">Observações</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.content.map((c) => (
-                    <tr key={c.slug} className="border-t border-border align-top">
-                      <td className="py-3 pr-4">
-                        <a href={c.path} className="font-medium text-primary hover:underline">
-                          {c.title}
-                        </a>
-                        <p className="text-xs text-muted-foreground mt-1 max-w-xl">{c.description}</p>
-                      </td>
-                      <td className="py-3 pr-4">
-                        <div className="flex flex-wrap gap-1">
-                          {c.schemas.map((s) => (
-                            <span key={s} className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      </td>
-                      <td className="py-3 text-xs text-muted-foreground">
-                        {c.issues.length === 0 ? (
-                          <span className="text-emerald-600 dark:text-emerald-400">Sem apontamentos</span>
-                        ) : (
-                          <ul className="list-disc pl-4 space-y-1">
-                            {c.issues.map((i) => (
-                              <li key={i}>{i}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Panel>
-
-            <BlogSeoEditor />
-            </div>
-          )}
-        </>
-      )}
-    </div>
-  );
-}
-
-function RowsTable({ rows, label }: { rows: { keys: string[]; clicks: number; impressions: number; ctr: number; position: number }[]; label: string }) {
-  if (rows.length === 0) return <Empty />;
-  return (
-    <table className="w-full text-sm">
-      <thead className="text-xs uppercase text-muted-foreground">
-        <tr>
-          <th className="text-left py-2">{label}</th>
-          <th className="text-right">Cliques</th>
-          <th className="text-right">Impr.</th>
-          <th className="text-right">CTR</th>
-          <th className="text-right">Pos.</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((r) => (
-          <tr key={r.keys[0]} className="border-t border-border">
-            <td className="py-2 break-all">{r.keys[0]}</td>
-            <td className="text-right tabular-nums">{r.clicks}</td>
-            <td className="text-right tabular-nums">{r.impressions}</td>
-            <td className="text-right tabular-nums">{pct(r.ctr)}</td>
-            <td className="text-right tabular-nums">{r.position.toFixed(1)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
-
-function Empty() {
-  return <p className="text-sm text-muted-foreground py-6">Sem dados no snapshot atual.</p>;
-}
-
-function Panel({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="rounded-2xl border border-border bg-card p-4 overflow-x-auto">
-      <h2 className="text-sm font-semibold mb-3">{title}</h2>
-      {children}
-    </section>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-4">
-      <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="text-2xl font-bold mt-1 tabular-nums">{value}</p>
-    </div>
-  );
-}
-
-function TabButton({
-  active,
-  onClick,
-  icon,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`text-sm px-3 py-2 rounded-lg border inline-flex items-center gap-2 ${
-        active ? "border-primary bg-primary/10 text-primary font-semibold" : "border-border hover:bg-muted"
-      }`}
-    >
-      {icon}
-      {children}
-    </button>
-  );
-}
+  listClientSettings,
+  upsertClientSettings,
+  type ClientSettings,
+} from "@/lib/portfolio-client-settings.functions";
 
 /**
- * Edição inline de title, description e schema JSON-LD por artigo do blog.
- * Grava em `blog_seo_overrides`; o conteúdo do post continua versionado.
+ * Tela única de metadados + sitemap.
+ *
+ * Reúne, por landing, título, descrição, palavras-chave, canonical, dados
+ * estruturados (JSON-LD) e a situação no sitemap, com edição e publicação na
+ * própria linha. Não substitui telas existentes: é a visão consolidada.
  */
-function BlogSeoEditor() {
-  const list = useServerFn(listBlogSeoOverrides);
-  const save = useServerFn(saveBlogSeoOverride);
-  const queryClient = useQueryClient();
-  const [openSlug, setOpenSlug] = useState<string | null>(null);
+export const Route = createFileRoute("/_authenticated/app/seo")({
+  head: () => ({
+    meta: [
+      { title: "Metadados & Sitemap · 0WEB Painel" },
+      {
+        name: "description",
+        content: "Título, descrição, schema e situação no sitemap de cada landing, em uma tela só.",
+      },
+      { name: "robots", content: "noindex,nofollow" },
+    ],
+  }),
+  component: SeoHubPage,
+  errorComponent: ({ error }) => (
+    <div className="p-6 text-sm text-destructive">Erro: {error.message}</div>
+  ),
+  notFoundComponent: () => <div className="p-6">Não encontrado.</div>,
+});
 
-  const { data: overrides = [], isLoading } = useQuery({
-    queryKey: ["blog-seo-overrides"],
-    queryFn: () => list(),
-  });
+type Draft = {
+  seo_title: string;
+  seo_description: string;
+  seo_keywords: string;
+  canonical_url: string;
+  seo_schema: string;
+  published: boolean;
+};
 
-  const bySlug = new Map(overrides.map((o) => [o.slug, o]));
-
-  return (
-    <Panel title="Ajustes de SEO por artigo (editável)">
-      {isLoading ? (
-        <p className="text-sm text-muted-foreground py-4">Carregando ajustes…</p>
-      ) : (
-        <ul className="divide-y divide-border">
-          {posts.map((post) => {
-            const override = bySlug.get(post.slug) ?? null;
-            const open = openSlug === post.slug;
-            return (
-              <li key={post.slug} className="py-3">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <p className="font-medium truncate">{override?.title ?? post.title}</p>
-                    <p className="text-xs text-muted-foreground">/blog/{post.slug}</p>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    {override && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                        ajustado
-                      </span>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => setOpenSlug(open ? null : post.slug)}
-                      className="text-sm px-3 py-1.5 rounded-lg border border-border hover:bg-muted"
-                    >
-                      {open ? "Fechar" : "Editar"}
-                    </button>
-                  </div>
-                </div>
-                {open && (
-                  <BlogSeoForm
-                    slug={post.slug}
-                    fallbackTitle={post.title}
-                    fallbackDescription={post.excerpt}
-                    override={override}
-                    onSaved={() => {
-                      void queryClient.invalidateQueries({ queryKey: ["blog-seo-overrides"] });
-                      setOpenSlug(null);
-                    }}
-                    save={save}
-                  />
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </Panel>
-  );
+function toDraft(row: ClientSettings): Draft {
+  return {
+    seo_title: row.seo_title,
+    seo_description: row.seo_description,
+    seo_keywords: row.seo_keywords,
+    canonical_url: row.canonical_url,
+    seo_schema: row.seo_schema,
+    published: row.published,
+  };
 }
 
-function BlogSeoForm({
-  slug,
-  fallbackTitle,
-  fallbackDescription,
-  override,
-  onSaved,
-  save,
-}: {
-  slug: string;
-  fallbackTitle: string;
-  fallbackDescription: string;
-  override: BlogSeoOverride | null;
-  onSaved: () => void;
-  save: (opts: { data: { slug: string; title: string; description: string; schemaExtra: string } }) => Promise<unknown>;
-}) {
-  const [title, setTitle] = useState(override?.title ?? "");
-  const [description, setDescription] = useState(override?.description ?? "");
-  const [schemaExtra, setSchemaExtra] = useState(
-    override?.schemaExtra ? JSON.stringify(override.schemaExtra, null, 2) : "",
-  );
+function SeoHubPage() {
+  const load = useServerFn(listClientSettings);
+  const save = useServerFn(upsertClientSettings);
+
+  const [rows, setRows] = useState<ClientSettings[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<"ALL" | "SITEMAP" | "OUT" | "NO_META" | "WITH_SCHEMA">("ALL");
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const [draft, setDraft] = useState<Draft | null>(null);
+  const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-  async function submit(event: React.FormEvent) {
-    event.preventDefault();
-    setSaving(true);
+  const refresh = useCallback(async () => {
+    setLoading(true);
     setError(null);
     try {
-      await save({ data: { slug, title, description, schemaExtra } });
-      onSaved();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Falha ao salvar.");
+      const list = await load();
+      setRows(list.rows);
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  }, [load]);
+
+  useEffect(() => {
+    void refresh();
+  }, [refresh]);
+
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return rows.filter((r) => {
+      if (q && !`${r.client_key} ${r.slug} ${r.display_name} ${r.seo_title}`.toLowerCase().includes(q)) {
+        return false;
+      }
+      if (filter === "SITEMAP") return r.published;
+      if (filter === "OUT") return !r.published;
+      if (filter === "NO_META") return !r.seo_title || !r.seo_description;
+      if (filter === "WITH_SCHEMA") return Boolean(r.seo_schema);
+      return true;
+    });
+  }, [rows, query, filter]);
+
+  const summary = useMemo(
+    () => ({
+      total: rows.length,
+      sitemap: rows.filter((r) => r.published).length,
+      semMeta: rows.filter((r) => !r.seo_title || !r.seo_description).length,
+      comSchema: rows.filter((r) => Boolean(r.seo_schema)).length,
+    }),
+    [rows],
+  );
+
+  const open = (row: ClientSettings) => {
+    setStatus(null);
+    setError(null);
+    if (openKey === row.client_key) {
+      setOpenKey(null);
+      setDraft(null);
+      return;
+    }
+    setOpenKey(row.client_key);
+    setDraft(toDraft(row));
+  };
+
+  const submit = async (row: ClientSettings, publishedOverride?: boolean) => {
+    if (!draft) return;
+    setSaving(true);
+    setStatus(null);
+    setError(null);
+    try {
+      if (draft.seo_schema.trim()) {
+        try {
+          JSON.parse(draft.seo_schema);
+        } catch {
+          throw new Error("O schema precisa ser um JSON válido.");
+        }
+      }
+      await save({
+        data: {
+          client_key: row.client_key,
+          slug: row.slug || row.client_key,
+          seo_title: draft.seo_title,
+          seo_description: draft.seo_description,
+          seo_keywords: draft.seo_keywords,
+          canonical_url: draft.canonical_url,
+          seo_schema: draft.seo_schema,
+          published: publishedOverride ?? draft.published,
+        },
+      });
+      setStatus(
+        publishedOverride === undefined
+          ? `Metadados de ${row.client_key} salvos.`
+          : publishedOverride
+            ? `${row.client_key} publicado no sitemap.`
+            : `${row.client_key} removido do sitemap.`,
+      );
+      await refresh();
+      if (publishedOverride !== undefined) {
+        setDraft((d) => (d ? { ...d, published: publishedOverride } : d));
+      }
+    } catch (e) {
+      setError((e as Error).message);
     } finally {
       setSaving(false);
     }
-  }
+  };
+
+  const input = (label: string, key: keyof Draft, textarea?: boolean, hint?: string) => (
+    <label className="block text-sm">
+      <span className="text-muted-foreground">{label}</span>
+      {textarea ? (
+        <textarea
+          value={String(draft?.[key] ?? "")}
+          onChange={(e) => setDraft((d) => (d ? { ...d, [key]: e.target.value } : d))}
+          rows={key === "seo_schema" ? 10 : 3}
+          className={`mt-1 w-full rounded-md border border-input bg-background p-2 ${
+            key === "seo_schema" ? "font-mono text-xs" : ""
+          }`}
+        />
+      ) : (
+        <input
+          value={String(draft?.[key] ?? "")}
+          onChange={(e) => setDraft((d) => (d ? { ...d, [key]: e.target.value } : d))}
+          className="mt-1 min-h-11 w-full rounded-md border border-input bg-background px-3"
+        />
+      )}
+      {hint && <span className="mt-1 block text-xs text-muted-foreground">{hint}</span>}
+    </label>
+  );
 
   return (
-    <form onSubmit={submit} className="mt-3 grid gap-3 rounded-xl border border-border bg-muted/30 p-3">
-      <label className="grid gap-1 text-xs">
-        <span className="font-medium">Title ({title.length}/120)</span>
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder={fallbackTitle}
-          className="rounded-lg border border-border bg-background px-3 py-2 text-sm"
-        />
-      </label>
-      <label className="grid gap-1 text-xs">
-        <span className="font-medium">Meta description ({description.length}/320)</span>
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder={fallbackDescription}
-          rows={3}
-          className="rounded-lg border border-border bg-background px-3 py-2 text-sm"
-        />
-      </label>
-      <label className="grid gap-1 text-xs">
-        <span className="font-medium">Schema JSON-LD adicional (opcional)</span>
-        <textarea
-          value={schemaExtra}
-          onChange={(e) => setSchemaExtra(e.target.value)}
-          rows={6}
-          spellCheck={false}
-          placeholder={'{\n  "@context": "https://schema.org",\n  "@type": "HowTo"\n}'}
-          className="rounded-lg border border-border bg-background px-3 py-2 font-mono text-xs"
-        />
-      </label>
-      <p className="text-xs text-muted-foreground">
-        Campos vazios voltam a usar o conteúdo versionado do artigo. Salvar tudo em branco remove o
-        ajuste.
-      </p>
-      {error && <p className="text-xs text-destructive">{error}</p>}
-      <div>
+    <div className="p-6 lg:p-8">
+      <header className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 className="font-display text-2xl font-bold">Metadados &amp; Sitemap</h1>
+          <p className="mt-1 max-w-[70ch] text-sm text-muted-foreground">
+            Título, descrição, palavras-chave, canonical e dados estruturados de cada landing, com a
+            situação no sitemap ao lado. Edite e publique sem abrir cada página.
+          </p>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Conteúdo de blocos da landing continua em{" "}
+            <Link to="/app/landing-overrides" className="underline">
+              Landing Overrides
+            </Link>
+            .
+          </p>
+        </div>
         <button
-          type="submit"
-          disabled={saving}
-          className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold disabled:opacity-60"
+          type="button"
+          onClick={() => void refresh()}
+          className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium"
         >
-          {saving ? "Salvando…" : "Salvar ajuste"}
+          <RefreshCw className="h-4 w-4" aria-hidden="true" /> Atualizar
         </button>
+      </header>
+
+      <dl className="mt-6 grid gap-3 sm:grid-cols-4">
+        {[
+          ["Landings", summary.total],
+          ["No sitemap", summary.sitemap],
+          ["Sem título/descrição", summary.semMeta],
+          ["Com schema próprio", summary.comSchema],
+        ].map(([label, value]) => (
+          <div key={String(label)} className="rounded-lg border border-border p-3">
+            <dt className="text-xs uppercase tracking-wide text-muted-foreground">{label}</dt>
+            <dd className="mt-1 text-xl font-semibold">{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div className="mt-6 flex flex-wrap items-end gap-3">
+        <label className="block text-sm">
+          <span className="text-muted-foreground">Buscar</span>
+          <span className="mt-1 flex min-h-11 items-center gap-2 rounded-md border border-input bg-background px-3">
+            <Search className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="cliente, slug ou título"
+              className="w-56 bg-transparent outline-none"
+            />
+          </span>
+        </label>
+        <label className="block text-sm">
+          <span className="text-muted-foreground">Situação</span>
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value as typeof filter)}
+            className="mt-1 min-h-11 rounded-md border border-input bg-background px-3"
+          >
+            <option value="ALL">Todas</option>
+            <option value="SITEMAP">No sitemap</option>
+            <option value="OUT">Fora do sitemap</option>
+            <option value="NO_META">Sem título ou descrição</option>
+            <option value="WITH_SCHEMA">Com schema próprio</option>
+          </select>
+        </label>
       </div>
-    </form>
+
+      {error && (
+        <p role="alert" className="mt-4 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm">
+          {error}
+        </p>
+      )}
+      {status && <p className="mt-4 rounded-md border border-border bg-muted/40 p-3 text-sm">{status}</p>}
+
+      <section className="mt-6 space-y-3">
+        {loading && <p className="text-sm text-muted-foreground">Carregando…</p>}
+        {!loading && visible.length === 0 && (
+          <p className="text-sm text-muted-foreground">Nenhuma landing encontrada com esse filtro.</p>
+        )}
+        {visible.map((row) => (
+          <article key={row.client_key} className="rounded-lg border border-border p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="min-w-0">
+                <p className="font-medium">{row.display_name || row.client_key}</p>
+                <p className="truncate text-xs text-muted-foreground">
+                  /portfolio/{row.slug || row.client_key} · {row.seo_title || "sem título"}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span
+                  className={`rounded-full border px-2 py-1 ${
+                    row.published ? "border-primary/40 text-primary" : "border-border text-muted-foreground"
+                  }`}
+                >
+                  {row.published ? "No sitemap" : "Fora do sitemap"}
+                </span>
+                <span className="rounded-full border border-border px-2 py-1 text-muted-foreground">
+                  {row.seo_schema ? "Schema próprio" : "Schema padrão"}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => open(row)}
+                  className="min-h-11 rounded-md border border-border px-3 font-medium"
+                >
+                  {openKey === row.client_key ? "Fechar" : "Editar"}
+                </button>
+              </div>
+            </div>
+
+            {openKey === row.client_key && draft && (
+              <div className="mt-4 grid gap-4 border-t border-border pt-4 md:grid-cols-2">
+                {input("Título (title)", "seo_title")}
+                {input("Canonical", "canonical_url", false, `https://0web.com.br/portfolio/${row.slug}`)}
+                <div className="md:col-span-2">{input("Descrição", "seo_description", true)}</div>
+                <div className="md:col-span-2">
+                  {input("Palavras-chave", "seo_keywords", false, "Separadas por vírgula.")}
+                </div>
+                <div className="md:col-span-2">
+                  {input(
+                    "Dados estruturados (JSON-LD)",
+                    "seo_schema",
+                    true,
+                    "JSON válido do schema.org. Vazio = a página usa o schema padrão dela.",
+                  )}
+                </div>
+                <div className="md:col-span-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    disabled={saving}
+                    onClick={() => void submit(row)}
+                    className="inline-flex min-h-11 items-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground disabled:opacity-60"
+                  >
+                    <Save className="h-4 w-4" aria-hidden="true" /> Salvar
+                  </button>
+                  <button
+                    type="button"
+                    disabled={saving}
+                    onClick={() => void submit(row, !row.published)}
+                    className="inline-flex min-h-11 items-center rounded-md border border-border px-4 text-sm font-medium disabled:opacity-60"
+                  >
+                    {row.published ? "Remover do sitemap" : "Publicar no sitemap"}
+                  </button>
+                </div>
+              </div>
+            )}
+          </article>
+        ))}
+      </section>
+    </div>
   );
 }
