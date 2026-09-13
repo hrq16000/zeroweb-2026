@@ -22,6 +22,9 @@ const clients = JSON.parse(read("src/config/portfolio-clients.json") || "[]");
 const lifecycleManifests =
   JSON.parse(read("src/config/portfolio-project-manifests.json") || "{}").projects ?? {};
 const blueprintRegistrySource = read("src/components/portfolio/blueprint/registry.ts");
+// Projetos novos entram no registry de composição autoral; o Blueprint segue
+// congelado nos três pilotos (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md).
+const compositionRegistrySource = read("src/components/portfolio/composition/registry.ts");
 const motionProfiles = JSON.parse(read("src/config/portfolio-motion-profiles.json") || "{}");
 const catalogProjects = (() => {
   const c = JSON.parse(read("src/config/portfolio-catalog.json") || "[]");
@@ -124,8 +127,11 @@ for (const client of clients) {
     if (!client.funnelType) {
       errors.push(`${label} projeto gerenciado sem funnelType (canal comercial do negócio)`);
     }
-    if (!blueprintRegistrySource.includes(`"${client.slug}"`)) {
-      errors.push(`${label} projeto gerenciado fora do PortfolioBlueprintRenderer (registry)`);
+    if (
+      !blueprintRegistrySource.includes(`"${client.slug}"`) &&
+      !compositionRegistrySource.includes(`"${client.slug}"`)
+    ) {
+      errors.push(`${label} projeto gerenciado fora dos registries de composição/Blueprint`);
     }
   }
 
