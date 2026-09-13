@@ -1,20 +1,27 @@
 {
-  "version": 2,
+  "version": 3,
   "doc": "docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md",
   "experienceDesignStandard": "docs/EXPERIENCE_DESIGN_MAX_STANDARD.md",
+  "layoutEngineeringStandard": "docs/LAYOUT_ENGINEERING_STANDARD.md",
+  "skillMarketplaceStandard": "docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md",
+  "skillMarketplaceCatalog": "src/config/skill-marketplace-catalog.json",
   "mandatorySkill": ".agents/skills/0web-experience-design-max/SKILL.md",
   "maximumRelevantSkillsPolicy": {
     "mode": "MAXIMUM_RELEVANT_NON_REDUNDANT",
+    "searchOnNewProject": true,
+    "searchOnMaterialMaintenance": true,
     "requiredCoverage": [
       "strategy",
       "artDirection",
       "uiUx",
+      "layoutEngineering",
       "conversion",
       "designSystem",
       "motion",
       "accessibility",
       "reactPerformance",
       "seoContent",
+      "browserQa",
       "privacySecurity",
       "qualityAssurance"
     ],
@@ -84,6 +91,7 @@
   "skillProfileSchema": {
     "strategy": "REQUIRED",
     "branding": "REQUIRED",
+    "layoutEngineering": "REQUIRED",
     "motion": "REQUIRED",
     "interaction": "REQUIRED",
     "storytelling": "OPTIONAL",
@@ -94,6 +102,56 @@
     "originality": "REQUIRED",
     "privacy": "REQUIRED",
     "qa": "REQUIRED"
+  },
+  "layoutCapabilityMatrix": {
+    "requiredAssessment": true,
+    "states": [
+      "REQUIRED",
+      "OPTIONAL",
+      "NOT_APPLICABLE"
+    ],
+    "capabilities": [
+      {
+        "id": "flexbox",
+        "purpose": "one-dimensional alignment, distribution and wrapping",
+        "checks": [
+          "main-axis-vs-cross-axis-intentional",
+          "wrap-evaluated",
+          "gap-preferred-for-container-spacing",
+          "semantic-order-preserved",
+          "mobile-flow-tested"
+        ]
+      },
+      {
+        "id": "css-grid",
+        "purpose": "two-dimensional macro composition",
+        "checks": [
+          "rows-columns-intentional",
+          "intrinsic-tracks-preferred",
+          "mobile-collapse-intentional"
+        ]
+      },
+      {
+        "id": "intrinsic-sizing",
+        "purpose": "content-resilient responsive sizing",
+        "checks": [
+          "min-width-zero-where-needed",
+          "clamp-minmax-max-width-considered",
+          "fixed-width-avoided-when-unnecessary"
+        ]
+      },
+      {
+        "id": "responsive-flow",
+        "purpose": "content-driven behavior across viewport classes",
+        "checks": [
+          "390-tested",
+          "768-tested",
+          "1440-tested",
+          "no-horizontal-overflow",
+          "focus-order-coherent"
+        ]
+      }
+    ]
   },
   "motionCapabilityMatrix": {
     "requiredAssessment": true,
@@ -228,6 +286,7 @@
     "inpMaxMs": 200
   },
   "minimumExperience": [
+    "layout responsivo intencional",
     "entrada de página",
     "tratamento próprio de hero",
     "reveal de seções",
