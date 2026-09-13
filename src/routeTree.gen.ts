@@ -17,6 +17,7 @@ import { Route as AreasDeAtendimentoRouteImport } from './routes/areas-de-atendi
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AutomacaoRouteImport } from './routes/automacao'
 import { Route as CalculadoraOrcamentoRouteImport } from './routes/calculadora-orcamento'
+import { Route as CaptacaoRouteImport } from './routes/captacao'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CidadesRouteImport } from './routes/cidades'
 import { Route as ConsultoriaRouteImport } from './routes/consultoria'
@@ -284,6 +285,11 @@ const AutomacaoRoute = AutomacaoRouteImport.update({
 const CalculadoraOrcamentoRoute = CalculadoraOrcamentoRouteImport.update({
   id: '/calculadora-orcamento',
   path: '/calculadora-orcamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaptacaoRoute = CaptacaoRouteImport.update({
+  id: '/captacao',
+  path: '/captacao',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutRoute = CheckoutRouteImport.update({
@@ -1531,6 +1537,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
   '/calculadora-orcamento': typeof CalculadoraOrcamentoRoute
+  '/captacao': typeof CaptacaoRoute
   '/checkout': typeof CheckoutRoute
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
@@ -1769,6 +1776,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
   '/calculadora-orcamento': typeof CalculadoraOrcamentoRoute
+  '/captacao': typeof CaptacaoRoute
   '/checkout': typeof CheckoutRoute
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
@@ -2005,6 +2013,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/automacao': typeof AutomacaoRoute
   '/calculadora-orcamento': typeof CalculadoraOrcamentoRoute
+  '/captacao': typeof CaptacaoRoute
   '/checkout': typeof CheckoutRoute
   '/cidades': typeof CidadesRoute
   '/consultoria': typeof ConsultoriaRoute
@@ -2245,6 +2254,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/automacao'
     | '/calculadora-orcamento'
+    | '/captacao'
     | '/checkout'
     | '/cidades'
     | '/consultoria'
@@ -2483,6 +2493,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/automacao'
     | '/calculadora-orcamento'
+    | '/captacao'
     | '/checkout'
     | '/cidades'
     | '/consultoria'
@@ -2718,6 +2729,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/automacao'
     | '/calculadora-orcamento'
+    | '/captacao'
     | '/checkout'
     | '/cidades'
     | '/consultoria'
@@ -2958,6 +2970,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   AutomacaoRoute: typeof AutomacaoRoute
   CalculadoraOrcamentoRoute: typeof CalculadoraOrcamentoRoute
+  CaptacaoRoute: typeof CaptacaoRoute
   CheckoutRoute: typeof CheckoutRoute
   CidadesRoute: typeof CidadesRoute
   ConsultoriaRoute: typeof ConsultoriaRoute
@@ -3153,6 +3166,13 @@ declare module '@tanstack/react-router' {
       path: '/calculadora-orcamento'
       fullPath: '/calculadora-orcamento'
       preLoaderRoute: typeof CalculadoraOrcamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/captacao': {
+      id: '/captacao'
+      path: '/captacao'
+      fullPath: '/captacao'
+      preLoaderRoute: typeof CaptacaoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout': {
@@ -5099,6 +5119,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   AutomacaoRoute: AutomacaoRoute,
   CalculadoraOrcamentoRoute: CalculadoraOrcamentoRoute,
+  CaptacaoRoute: CaptacaoRoute,
   CheckoutRoute: CheckoutRoute,
   CidadesRoute: CidadesRoute,
   ConsultoriaRoute: ConsultoriaRoute,
