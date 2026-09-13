@@ -144,10 +144,8 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
   header.push(brand
     ? `Olá${recipient ? `, ${recipient}` : ""}! Vim pela página da *${brand}* e quero conversar sobre ${requestSubject}.`
     : "Olá! Acabei de preencher uma solicitação na 0WEB.");
-  // Sem emojis fora do plano básico: chegavam corrompidos em parte dos
-  // aparelhos e quebravam a equivalência com a prévia mostrada na página.
-  if (ctx.pageUrl) header.push(`Página: ${sanitizeText(ctx.pageUrl, 300)}`);
-  header.push("A página é linda, parabéns! Encontrei exatamente o que procurava.");
+  if (ctx.pageUrl) header.push(`🔗 URL completa: ${sanitizeText(ctx.pageUrl, 300)}`);
+  header.push("✨ A página é linda, parabéns! Encontrei exatamente o que procurava.");
   header.push("");
   push(header, `PROTOCOLO`);
   push(header, ctx.protocol);

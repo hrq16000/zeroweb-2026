@@ -50,17 +50,10 @@ Todo CTA de cliente deve usar `PortfolioCTAQuiz`/`FunnelCTAButton` com
 com a identificação da página e preserva a URL completa:
 
 ```text
-Olá, [cliente]! Tudo bem?
-
-Vim pela página da *[nome do cliente]* e quero conversar sobre um atendimento.
-Página: [URL inteira do /portfolio/<slug>]
-A página é linda, parabéns! Encontrei exatamente o que procurava.
+Olá, [cliente]! Vim pela página da *[nome do cliente]* e quero conversar sobre um atendimento.
+🔗 URL completa: [URL inteira do /portfolio/<slug>]
+✨ A página é linda e encontrei exatamente o que procurava!
 ```
-
-A mensagem entregue no WhatsApp é gerada pelo MESMO gerador canônico da prévia
-(`buildPortfolioQuizMessage`, em `src/lib/portfolio-quiz-copy.ts`). Prévia e
-entrega são byte a byte iguais; nunca crie um segundo formatador. Emojis fora
-do plano básico não são usados: chegavam corrompidos em parte dos aparelhos.
 
 Quando disponível, o servidor acrescenta cidade, região e bairro estimados por
 IP. O bairro só é incluído se o provedor retornar `district`, `suburb` ou

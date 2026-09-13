@@ -478,3 +478,55 @@ export const suggestPartnerForLead = createServerFn({ method: "POST" })
       candidates: ranked.slice(0, 5).map((t) => ({ partner_id: t.partner_id, scope: t.scope, value: t.value })),
     };
   });
+
+/**
+ * Comissões por parceiro (admin, somente leitura).
+ *
+ * Fonte única: `partner_commissions` + `partners` já existentes. Nenhum valor é
+ * calculado aqui; a tela apenas mostra o que foi registrado pelo cálculo de
+ * comissões. Contato do parceiro nunca é exposto além do e-mail de cadastro.
+ */
+export const listPartnerCommissionsAdmin = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { supabase, userId } = context;
+    await assertAdmin(supabase, userId);
+    const [{ data: partners, error: pErr }, { data: commissions, error: cErr }] = await Promise.all([
+      supabase.from("partners").select("id, name, kind, status, city, state").limit(500),
+      supabase
+        .from("partner_commissions")
+        .select("id, partner_id, commission_type, base_amount_cents, commission_amount_cents, status, period, notes, created_at")
+        .order("created_at", { ascending: false })
+        .limit(500),
+    ]);
+    if (pErr) throw new Error(pErr.message);
+    if (cErr) throw new Error(cErr.message);
+    const byId = new Map((partners ?? []).map((p) => [p.id, p]));
+    return {
+      rows: (commissions ?? []).map((c) => {
+        const p = byId.get(c.partner_id);
+        return {
+          id: c.id as string,
+          partner_id: c.partner_id as string,
+          partner_name: p?.name ?? "Parceiro removido",
+          partner_kind: p?.kind ?? null,
+          partner_status: p?.status ?? null,
+          partner_place: [p?.city, p?.state].filter(Boolean).join(" / ") || null,
+          commission_type: c.commission_type as string,
+          base_amount_cents: (c.base_amount_cents ?? 0) as number,
+          commission_amount_cents: (c.commission_amount_cents ?? 0) as number,
+          status: (c.status ?? "pendente") as string,
+          period: (c.period ?? null) as string | null,
+          notes: (c.notes ?? null) as string | null,
+          created_at: c.created_at as string,
+        };
+      }),
+      partners: (partners ?? []).map((p) => ({
+        id: p.id as string,
+        name: p.name as string,
+        kind: p.kind as string,
+        status: p.status as string,
+        place: [p.city, p.state].filter(Boolean).join(" / ") || null,
+      })),
+    };
+  });

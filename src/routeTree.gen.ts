@@ -175,6 +175,7 @@ import { Route as AuthenticatedAppPagamentosRouteImport } from './routes/_authen
 import { Route as AuthenticatedAppPaginasRouteImport } from './routes/_authenticated/app.paginas'
 import { Route as AuthenticatedAppPaginasLocaisRouteImport } from './routes/_authenticated/app.paginas-locais'
 import { Route as AuthenticatedAppParceiroRouteImport } from './routes/_authenticated/app.parceiro'
+import { Route as AuthenticatedAppParceriasRouteImport } from './routes/_authenticated/app.parcerias'
 import { Route as AuthenticatedAppPedidosRouteImport } from './routes/_authenticated/app.pedidos'
 import { Route as AuthenticatedAppPortalsRouteImport } from './routes/_authenticated/app.portals'
 import { Route as AuthenticatedAppPortfolioBuscasRouteImport } from './routes/_authenticated/app.portfolio-buscas'
@@ -194,6 +195,7 @@ import { Route as AuthenticatedAppServicosRouteImport } from './routes/_authenti
 import { Route as AuthenticatedAppServicosImagensRouteImport } from './routes/_authenticated/app.servicos-imagens'
 import { Route as AuthenticatedAppSupportRouteImport } from './routes/_authenticated/app.support'
 import { Route as AuthenticatedAppTemplatesRouteImport } from './routes/_authenticated/app.templates'
+import { Route as AuthenticatedAppTrafegoRouteImport } from './routes/_authenticated/app.trafego'
 import { Route as AuthenticatedAppUsuariosRouteImport } from './routes/_authenticated/app.usuarios'
 import { Route as AuthenticatedAppVisitantesRouteImport } from './routes/_authenticated/app.visitantes'
 import { Route as ApiPublicFunnelRecoveryRouteImport } from './routes/api/public/funnel-recovery'
@@ -1118,6 +1120,12 @@ const AuthenticatedAppParceiroRoute =
     path: '/parceiro',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppParceriasRoute =
+  AuthenticatedAppParceriasRouteImport.update({
+    id: '/parcerias',
+    path: '/parcerias',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppPedidosRoute = AuthenticatedAppPedidosRouteImport.update({
   id: '/pedidos',
   path: '/pedidos',
@@ -1225,6 +1233,11 @@ const AuthenticatedAppTemplatesRoute =
     path: '/templates',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppTrafegoRoute = AuthenticatedAppTrafegoRouteImport.update({
+  id: '/trafego',
+  path: '/trafego',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
 const AuthenticatedAppUsuariosRoute =
   AuthenticatedAppUsuariosRouteImport.update({
     id: '/usuarios',
@@ -1721,6 +1734,7 @@ export interface FileRoutesByFullPath {
   '/app/paginas': typeof AuthenticatedAppPaginasRoute
   '/app/paginas-locais': typeof AuthenticatedAppPaginasLocaisRoute
   '/app/parceiro': typeof AuthenticatedAppParceiroRoute
+  '/app/parcerias': typeof AuthenticatedAppParceriasRoute
   '/app/pedidos': typeof AuthenticatedAppPedidosRoute
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/portfolio-buscas': typeof AuthenticatedAppPortfolioBuscasRoute
@@ -1740,6 +1754,7 @@ export interface FileRoutesByFullPath {
   '/app/servicos-imagens': typeof AuthenticatedAppServicosImagensRoute
   '/app/support': typeof AuthenticatedAppSupportRouteWithChildren
   '/app/templates': typeof AuthenticatedAppTemplatesRoute
+  '/app/trafego': typeof AuthenticatedAppTrafegoRoute
   '/app/usuarios': typeof AuthenticatedAppUsuariosRoute
   '/app/visitantes': typeof AuthenticatedAppVisitantesRoute
   '/api/public/funnel-recovery': typeof ApiPublicFunnelRecoveryRoute
@@ -1960,6 +1975,7 @@ export interface FileRoutesByTo {
   '/app/paginas': typeof AuthenticatedAppPaginasRoute
   '/app/paginas-locais': typeof AuthenticatedAppPaginasLocaisRoute
   '/app/parceiro': typeof AuthenticatedAppParceiroRoute
+  '/app/parcerias': typeof AuthenticatedAppParceriasRoute
   '/app/pedidos': typeof AuthenticatedAppPedidosRoute
   '/app/portals': typeof AuthenticatedAppPortalsRoute
   '/app/portfolio-buscas': typeof AuthenticatedAppPortfolioBuscasRoute
@@ -1979,6 +1995,7 @@ export interface FileRoutesByTo {
   '/app/servicos-imagens': typeof AuthenticatedAppServicosImagensRoute
   '/app/support': typeof AuthenticatedAppSupportRouteWithChildren
   '/app/templates': typeof AuthenticatedAppTemplatesRoute
+  '/app/trafego': typeof AuthenticatedAppTrafegoRoute
   '/app/usuarios': typeof AuthenticatedAppUsuariosRoute
   '/app/visitantes': typeof AuthenticatedAppVisitantesRoute
   '/api/public/funnel-recovery': typeof ApiPublicFunnelRecoveryRoute
@@ -2205,6 +2222,7 @@ export interface FileRoutesById {
   '/_authenticated/app/paginas': typeof AuthenticatedAppPaginasRoute
   '/_authenticated/app/paginas-locais': typeof AuthenticatedAppPaginasLocaisRoute
   '/_authenticated/app/parceiro': typeof AuthenticatedAppParceiroRoute
+  '/_authenticated/app/parcerias': typeof AuthenticatedAppParceriasRoute
   '/_authenticated/app/pedidos': typeof AuthenticatedAppPedidosRoute
   '/_authenticated/app/portals': typeof AuthenticatedAppPortalsRoute
   '/_authenticated/app/portfolio-buscas': typeof AuthenticatedAppPortfolioBuscasRoute
@@ -2224,6 +2242,7 @@ export interface FileRoutesById {
   '/_authenticated/app/servicos-imagens': typeof AuthenticatedAppServicosImagensRoute
   '/_authenticated/app/support': typeof AuthenticatedAppSupportRouteWithChildren
   '/_authenticated/app/templates': typeof AuthenticatedAppTemplatesRoute
+  '/_authenticated/app/trafego': typeof AuthenticatedAppTrafegoRoute
   '/_authenticated/app/usuarios': typeof AuthenticatedAppUsuariosRoute
   '/_authenticated/app/visitantes': typeof AuthenticatedAppVisitantesRoute
   '/api/public/funnel-recovery': typeof ApiPublicFunnelRecoveryRoute
@@ -2450,6 +2469,7 @@ export interface FileRouteTypes {
     | '/app/paginas'
     | '/app/paginas-locais'
     | '/app/parceiro'
+    | '/app/parcerias'
     | '/app/pedidos'
     | '/app/portals'
     | '/app/portfolio-buscas'
@@ -2469,6 +2489,7 @@ export interface FileRouteTypes {
     | '/app/servicos-imagens'
     | '/app/support'
     | '/app/templates'
+    | '/app/trafego'
     | '/app/usuarios'
     | '/app/visitantes'
     | '/api/public/funnel-recovery'
@@ -2689,6 +2710,7 @@ export interface FileRouteTypes {
     | '/app/paginas'
     | '/app/paginas-locais'
     | '/app/parceiro'
+    | '/app/parcerias'
     | '/app/pedidos'
     | '/app/portals'
     | '/app/portfolio-buscas'
@@ -2708,6 +2730,7 @@ export interface FileRouteTypes {
     | '/app/servicos-imagens'
     | '/app/support'
     | '/app/templates'
+    | '/app/trafego'
     | '/app/usuarios'
     | '/app/visitantes'
     | '/api/public/funnel-recovery'
@@ -2933,6 +2956,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/paginas'
     | '/_authenticated/app/paginas-locais'
     | '/_authenticated/app/parceiro'
+    | '/_authenticated/app/parcerias'
     | '/_authenticated/app/pedidos'
     | '/_authenticated/app/portals'
     | '/_authenticated/app/portfolio-buscas'
@@ -2952,6 +2976,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/servicos-imagens'
     | '/_authenticated/app/support'
     | '/_authenticated/app/templates'
+    | '/_authenticated/app/trafego'
     | '/_authenticated/app/usuarios'
     | '/_authenticated/app/visitantes'
     | '/api/public/funnel-recovery'
@@ -4326,6 +4351,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppParceiroRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/parcerias': {
+      id: '/_authenticated/app/parcerias'
+      path: '/parcerias'
+      fullPath: '/app/parcerias'
+      preLoaderRoute: typeof AuthenticatedAppParceriasRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/pedidos': {
       id: '/_authenticated/app/pedidos'
       path: '/pedidos'
@@ -4457,6 +4489,13 @@ declare module '@tanstack/react-router' {
       path: '/templates'
       fullPath: '/app/templates'
       preLoaderRoute: typeof AuthenticatedAppTemplatesRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/trafego': {
+      id: '/_authenticated/app/trafego'
+      path: '/trafego'
+      fullPath: '/app/trafego'
+      preLoaderRoute: typeof AuthenticatedAppTrafegoRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/usuarios': {
@@ -5004,6 +5043,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPaginasRoute: typeof AuthenticatedAppPaginasRoute
   AuthenticatedAppPaginasLocaisRoute: typeof AuthenticatedAppPaginasLocaisRoute
   AuthenticatedAppParceiroRoute: typeof AuthenticatedAppParceiroRoute
+  AuthenticatedAppParceriasRoute: typeof AuthenticatedAppParceriasRoute
   AuthenticatedAppPedidosRoute: typeof AuthenticatedAppPedidosRoute
   AuthenticatedAppPortalsRoute: typeof AuthenticatedAppPortalsRoute
   AuthenticatedAppPortfolioBuscasRoute: typeof AuthenticatedAppPortfolioBuscasRoute
@@ -5023,6 +5063,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppServicosImagensRoute: typeof AuthenticatedAppServicosImagensRoute
   AuthenticatedAppSupportRoute: typeof AuthenticatedAppSupportRouteWithChildren
   AuthenticatedAppTemplatesRoute: typeof AuthenticatedAppTemplatesRoute
+  AuthenticatedAppTrafegoRoute: typeof AuthenticatedAppTrafegoRoute
   AuthenticatedAppUsuariosRoute: typeof AuthenticatedAppUsuariosRoute
   AuthenticatedAppVisitantesRoute: typeof AuthenticatedAppVisitantesRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
@@ -5074,6 +5115,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppPaginasRoute: AuthenticatedAppPaginasRoute,
   AuthenticatedAppPaginasLocaisRoute: AuthenticatedAppPaginasLocaisRoute,
   AuthenticatedAppParceiroRoute: AuthenticatedAppParceiroRoute,
+  AuthenticatedAppParceriasRoute: AuthenticatedAppParceriasRoute,
   AuthenticatedAppPedidosRoute: AuthenticatedAppPedidosRoute,
   AuthenticatedAppPortalsRoute: AuthenticatedAppPortalsRoute,
   AuthenticatedAppPortfolioBuscasRoute: AuthenticatedAppPortfolioBuscasRoute,
@@ -5094,6 +5136,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppServicosImagensRoute: AuthenticatedAppServicosImagensRoute,
   AuthenticatedAppSupportRoute: AuthenticatedAppSupportRouteWithChildren,
   AuthenticatedAppTemplatesRoute: AuthenticatedAppTemplatesRoute,
+  AuthenticatedAppTrafegoRoute: AuthenticatedAppTrafegoRoute,
   AuthenticatedAppUsuariosRoute: AuthenticatedAppUsuariosRoute,
   AuthenticatedAppVisitantesRoute: AuthenticatedAppVisitantesRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,

@@ -7,7 +7,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { RefreshCw, CalendarCheck, Inbox } from "lucide-react";
+import { RefreshCw, CalendarCheck, Inbox, Copy, Check } from "lucide-react";
+import { getConfirmationReplyTemplate } from "@/lib/portfolio-confirmation-reply";
 import { Button } from "@/components/ui/button";
 import {
   listPortfolioFunnelLeads,
@@ -51,6 +52,23 @@ function ResultadosPage() {
   const [leads, setLeads] = useState<PortfolioFunnelLead[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+  const template = getConfirmationReplyTemplate(ADHONEP_KEY);
+
+  const copyReply = useCallback(
+    async (lead: PortfolioFunnelLead) => {
+      if (!template) return;
+      const text = template.build({ name: lead.contact_name });
+      try {
+        await navigator.clipboard.writeText(text);
+        setCopied(lead.id);
+        window.setTimeout(() => setCopied(null), 2500);
+      } catch {
+        setError("Não foi possível copiar. Use o texto exibido abaixo da tabela.");
+      }
+    },
+    [template],
+  );
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -128,6 +146,7 @@ function ResultadosPage() {
                 <th className="px-4 py-2 font-medium">Nome</th>
                 <th className="px-4 py-2 font-medium">WhatsApp</th>
                 <th className="px-4 py-2 font-medium">Situação</th>
+                <th className="px-4 py-2 font-medium">Resposta padrão</th>
               </tr>
             </thead>
             <tbody>
@@ -139,10 +158,34 @@ function ResultadosPage() {
                     {l.contact_phone_masked ?? "—"}
                   </td>
                   <td className="px-4 py-2 text-muted-foreground">{situacao(l)}</td>
+                  <td className="px-4 py-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => void copyReply(l)}
+                    >
+                      {copied === l.id ? (
+                        <Check className="h-4 w-4 mr-1" />
+                      ) : (
+                        <Copy className="h-4 w-4 mr-1" />
+                      )}
+                      {copied === l.id ? "Copiada" : "Copiar"}
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        )}
+        {template && (
+          <details className="border-t border-border px-4 py-3 text-sm">
+            <summary className="cursor-pointer text-muted-foreground">
+              Ver o texto da resposta padrão ({template.label})
+            </summary>
+            <pre className="mt-3 whitespace-pre-wrap rounded-lg bg-muted/40 p-3 text-xs text-foreground">
+              {template.build({ name: null })}
+            </pre>
+          </details>
         )}
       </section>
 

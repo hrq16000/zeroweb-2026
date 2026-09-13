@@ -261,8 +261,6 @@ export function BeautyBookingQuiz({
         proposalKind: quizConfig?.proposalKind ?? "service",
         answers,
         pageUrl: window.location.href,
-        // Mesma localização exibida na prévia: a entrega usa exatamente ela.
-        ...(previewLocation ? { previewLocation } : {}),
         orderContext,
         ...(normalized ? { recoveryContact } : {}),
         // Identificadores técnicos anônimos (mesmos de analytics_events):

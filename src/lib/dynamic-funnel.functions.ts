@@ -517,9 +517,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     // quando o projeto ainda não tem destino operacional configurado.
     // Finalidade declarada: contato sobre esta solicitação. Nunca marketing.
     recoveryContact: z.string().max(40).optional(),
-    // Localização exibida na prévia da mensagem. É persistida para que a
-    // mensagem entregue no WhatsApp seja idêntica à que o visitante viu.
-    previewLocation: softText(120).optional(),
     answers: z.object({
       service: softText(8000),
       experience: softText(400),
@@ -588,7 +585,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           ...(data.orderContext ? { order_context: data.orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
-          ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
           ...(data.sessionId ? { session_id: data.sessionId } : {}),
           ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
           ...(geo.city ? { city: geo.city } : {}),
