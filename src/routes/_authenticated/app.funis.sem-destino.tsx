@@ -6,6 +6,11 @@ import {
   listPendingDestinations,
   type PendingDestinationRow,
 } from "@/lib/portfolio-pending-destinations.functions";
+import {
+  createDestinationRequest,
+  listDestinationRequests,
+  type DestinationRequestRow,
+} from "@/lib/portfolio-destination-requests.functions";
 
 export const Route = createFileRoute("/_authenticated/app/funis/sem-destino")({
   head: () => ({
