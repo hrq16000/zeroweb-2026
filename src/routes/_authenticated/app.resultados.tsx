@@ -7,7 +7,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { RefreshCw, CalendarCheck, Inbox } from "lucide-react";
+import { RefreshCw, CalendarCheck, Inbox, Copy, Check } from "lucide-react";
+import { getConfirmationReplyTemplate } from "@/lib/portfolio-confirmation-reply";
 import { Button } from "@/components/ui/button";
 import {
   listPortfolioFunnelLeads,
