@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
- * Validador do BUILD (dist/): garante que nenhum contato operacional da 0WEB,
+ * Validador do BUILD público: garante que nenhum contato operacional da 0WEB,
  * segredo ou dado server-only vaze para o bundle público, HTML pré-renderizado,
  * JSON-LD ou sourcemaps.
+ *
+ * Suporta saídas públicas de Vite/Lovable, Nitro genérico e Vercel/Nitro.
  *
  * NÃO falha por: a palavra "WhatsApp", CTAs como "Continuar no WhatsApp",
  * a rota interna /r/whatsapp/:token, ou nomes de eventos de analytics.
@@ -12,7 +14,12 @@ import { join, relative } from "node:path";
 import { CLIENT_ALLOWED_DIGITS } from "./contact-allowlist.mjs";
 
 const ROOT = process.cwd();
-const DIST_CANDIDATES = [join(ROOT, "dist", "client"), join(ROOT, ".output", "public"), join(ROOT, "dist")];
+const DIST_CANDIDATES = [
+  join(ROOT, ".vercel", "output", "static"),
+  join(ROOT, "dist", "client"),
+  join(ROOT, ".output", "public"),
+  join(ROOT, "dist"),
+];
 const DIST = DIST_CANDIDATES.find((candidate) => existsSync(candidate)); // bundle entregue ao navegador
 
 const PATTERNS = [
@@ -41,7 +48,6 @@ const CLIENT_ALLOW = new RegExp(
   `wa\\.me/(?:${ALLOWED.join("|")})|tel:\\+?(?:55)?(?:${ALLOWED_TEL.join("|")})`,
 );
 
-
 const EXT = /\.(js|mjs|cjs|html|json|map|txt|xml)$/;
 
 function walk(dir, out = []) {
@@ -55,7 +61,9 @@ function walk(dir, out = []) {
 }
 
 if (!DIST) {
-  console.error("[dist-contact] diretório público não encontrado — rode `bun run build` antes.");
+  console.error(
+    `[dist-contact] diretório público não encontrado — procurado em: ${DIST_CANDIDATES.map((p) => relative(ROOT, p)).join(", ")}`,
+  );
   process.exit(1);
 }
 
