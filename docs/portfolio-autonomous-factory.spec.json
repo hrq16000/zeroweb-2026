@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "specVersion": "1.0.0",
+  "product": "0WEB Autonomous Portfolio Factory",
+  "scope": "/portfolio/:slug",
+  "objective": "Transformar uma descrição curta de um negócio em uma presença digital publicável, editável e transferível para domínio próprio, mantendo cada projeto visualmente autoral e operacionalmente isolado.",
+  "principles": {
+    "sharedInfrastructure": true,
+    "sharedVisualTemplate": false,
+    "standardize": [
+      "dados",
+      "segurança",
+      "permissões",
+      "telemetria",
+      "funil",
+      "SEO técnico",
+      "lifecycle",
+      "qualidade",
+      "promoção para domínio próprio"
+    ],
+    "neverStandardizeIntoSameness": [
+      "hero",
+      "ordem das seções",
+      "topologia de grid",
+      "ritmo visual",
+      "linguagem tipográfica",
+      "narrativa de mídia",
+      "motion signature",
+      "microinterações",
+      "fechamento",
+      "composição geral"
+    ],
+    "rule": "Parametrizado não significa visualmente padronizado. Dois projetos não podem parecer o mesmo template recolorido."
+  },
+  "benchmarkCapabilities": {
+    "note": "Referências externas são benchmark de capacidade, velocidade e experiência; nunca fonte para copiar layouts, textos, identidade ou ativos.",
+    "systems": [
+      "landingsite.ai",
+      "uxpilot.ai",
+      "useleadsite.com",
+      "faroleads.com"
+    ],
+    "targetCapabilities": [
+      "iniciar por linguagem natural",
+      "gerar a partir de poucas palavras",
+      "pesquisar negócio e contexto público",
+      "resolver identidade da entidade antes de usar dados",
+      "gerar copy contextual",
+      "selecionar/criar mídia",
+      "gerar múltiplas direções visuais divergentes",
+      "editar por conversa",
+      "preview imediato",
+      "versionamento e rollback",
+      "SEO automático",
+      "mobile-first",
+      "funil e captura de leads",
+      "subdomínio/URL pública imediata",
+      "domínio próprio sem reconstruir o projeto"
+    ]
+  },
+  "creationContract": {
+    "minimumInputExamples": [
+      "criar um site da minha oficina em Curitiba",
+      "site para confeitaria artesanal em São José dos Pinhais",
+      "landing para reunião semanal de empresários"
+    ],
+    "stages": [
+      "intent_parse",
+      "entity_discovery",
+      "entity_resolution",
+      "evidence_collection",
+      "gap_detection",
+      "adaptive_questions",
+      "creative_direction_generation",
+      "originality_rejection_test",
+      "composition_graph_generation",
+      "content_generation",
+      "media_plan",
+      "media_generation_or_selection",
+      "funnel_generation",
+      "seo_generation",
+      "responsive_implementation",
+      "quality_audit",
+      "preview",
+      "approval",
+      "publish",
+      "continuous_editing",
+      "custom_domain_promotion"
+    ],
+    "questionPolicy": {
+      "askOnlyForMissingMaterialFacts": true,
+      "neverAskWhatCanBeReliablyDerived": true,
+      "neverInventMissingBusinessFacts": true,
+      "examplesOfRequiredQuestions": [
+        "quem é o titular do projeto quando não for inferível",
+        "qual contato recebe leads quando não houver evidência confiável",
+        "quais preços devem ser publicados quando não houver fonte",
+        "quais imagens são oficiais quando houver dúvida de propriedade"
+      ]
+    }
+  },
+  "researchPolicy": {
+    "sourcesPriority": [
+      "client_supplied",
+      "existing_verified_record",
+      "official_website",
+      "official_google_business_profile",
+      "official_social_profile",
+      "internal_git_history",
+      "trusted_public_registry",
+      "third_party_directory"
+    ],
+    "entityResolutionRequiredBeforeUse": true,
+    "evidenceRecordRequired": true,
+    "confidenceLevels": ["verified", "strong", "weak", "conflict", "unknown"],
+    "forbidden": [
+      "inventar número de telefone",
+      "adicionar ou remover dígito para fazer telefone parecer celular",
+      "atribuir contato de marca diferente sem prova",
+      "usar WhatsApp institucional da 0WEB como destino de cliente",
+      "inventar depoimentos, avaliações, métricas ou certificações",
+      "tratar imagem conceitual como fotografia documental"
+    ]
+  },
+  "whatsappDestinationPolicy": {
+    "validBrazilianLocalLengths": [8, 9],
+    "landlineAllowed": true,
+    "mobileAllowed": true,
+    "neverNormalizeByInventingDigits": true,
+    "canonicalStorage": "portfolio_client_settings.funnel_recipient",
+    "canonicalConfirmationFlow": "confirmDestination",
+    "revisionHistory": "portfolio_destination_revisions",
+    "institutionalFallbackForbidden": true,
+    "whenUnresolved": "salvar lead primeiro e solicitar contato de retorno; nunca redirecionar para número institucional"
+  },
+  "creativeDirector": {
+    "minimumDirectionsBeforeSelection": 3,
+    "directionsMustBeDivergent": true,
+    "mustDefine": [
+      "business_personality",
+      "creative_concept",
+      "visual_metaphor",
+      "hero_geometry",
+      "section_graph",
+      "grid_topology",
+      "typography_language",
+      "color_strategy",
+      "media_narrative",
+      "proof_narrative",
+      "conversion_narrative",
+      "motion_narrative",
+      "signature_moments",
+      "closing_structure"
+    ],
+    "forbiddenGenerationPatterns": [
+      "escolher template fixo por segmento",
+      "mesma ordem de seções para todos",
+      "mesmo hero com textos e cores trocados",
+      "mesma sequência hero-serviços-sobre-depoimentos-faq-contato por padrão",
+      "cards idênticos em todos os projetos",
+      "motion ornamental sem relação com a narrativa",
+      "usar preset como decisão criativa final"
+    ],
+    "originalityGate": {
+      "compareAgainstExistingPortfolio": true,
+      "dimensions": [
+        "hero_geometry",
+        "section_order",
+        "grid_topology",
+        "component_family",
+        "visual_rhythm",
+        "media_distribution",
+        "motion_signature",
+        "cta_distribution",
+        "closing_structure"
+      ],
+      "actionOnSimilarity": "reject_and_regenerate_composition"
+    }
+  },
+  "projectModel": {
+    "projectIsPersistentEntity": true,
+    "projectIdSurvivesDomainPromotion": true,
+    "fieldsConceptuallyOwnedByProject": [
+      "identity",
+      "content",
+      "assets",
+      "composition_graph",
+      "seo",
+      "funnel",
+      "destination",
+      "analytics",
+      "members",
+      "domain",
+      "lifecycle",
+      "versions"
+    ],
+    "lifecycle": ["draft", "researching", "composing", "ready", "published", "archived"],
+    "publicationRule": "draft não deve aparecer na busca pública nem ser indexado"
+  },
+  "authorizationModel": {
+    "roles": ["super_admin", "admin", "seller", "project_owner", "project_editor", "project_viewer"],
+    "rules": {
+      "super_admin": "acesso global e concessão/revogação de acesso",
+      "admin": "gestão operacional conforme política do sistema",
+      "seller": "pode iniciar projeto para cliente e acompanhar até entrega, sem ganhar acesso global",
+      "project_owner": "pode editar o próprio projeto e convidar/gerenciar editores conforme política",
+      "project_editor": "pode editar conteúdo e ativos do projeto atribuído",
+      "project_viewer": "somente leitura/preview"
+    },
+    "serverSideEnforcementRequired": true,
+    "rlsRequired": true,
+    "uiHidingIsNotAuthorization": true,
+    "defaultDeny": true,
+    "projectIsolation": "usuário sem papel global só pode ler/escrever projetos com membership ativo"
+  },
+  "editorExperience": {
+    "modes": ["guided_form", "visual_controls", "chat_edit"],
+    "mustSupport": [
+      "editar textos",
+      "trocar imagens",
+      "ajustar serviços/produtos",
+      "ajustar horários e contatos",
+      "alterar identidade visual sem quebrar composição",
+      "preview desktop/mobile",
+      "versionar alterações",
+      "rollback",
+      "salvar rascunho",
+      "solicitar publicação"
+    ]
+  },
+  "qualityGates": {
+    "requiredBeforePublish": [
+      "identity_resolved",
+      "evidence_valid",
+      "no_fabricated_claims",
+      "funnel_functional",
+      "destination_or_safe_callback_flow",
+      "seo_complete",
+      "canonical_valid",
+      "mobile_qa",
+      "accessibility_baseline",
+      "privacy_gate",
+      "performance_baseline",
+      "originality_gate",
+      "visual_quality_gate",
+      "ownership_assigned"
+    ],
+    "visualQualityDimensions": [
+      "hierarchy",
+      "composition",
+      "typography",
+      "spacing",
+      "media_quality",
+      "brand_fit",
+      "depth",
+      "motion",
+      "mobile_expression",
+      "signature_moments"
+    ],
+    "notTestedIsPass": false
+  },
+  "domainPromotion": {
+    "rebuildForbidden": true,
+    "behavior": "o mesmo projectId recebe host/domain próprio; conteúdo, leads, analytics, funil, assets, histórico e permissões permanecem vinculados",
+    "canonicalSwitchRequired": true,
+    "redirectPlanRequired": true
+  },
+  "auditOutput": {
+    "perProject": [
+      "slug",
+      "published",
+      "owner_status",
+      "destination_status",
+      "funnel_status",
+      "seo_status",
+      "mobile_status",
+      "privacy_status",
+      "performance_status",
+      "visual_quality_score",
+      "originality_score",
+      "evidence_gaps",
+      "recommended_actions"
+    ],
+    "global": [
+      "total_projects",
+      "published_projects",
+      "projects_with_verified_destination",
+      "projects_with_safe_callback_only",
+      "projects_without_owner",
+      "projects_below_visual_quality_threshold",
+      "similarity_clusters",
+      "critical_blockers"
+    ]
+  }
+}
