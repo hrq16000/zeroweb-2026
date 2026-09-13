@@ -66,14 +66,71 @@ async function adminClient() {
   return supabaseAdmin as any;
 }
 
-async function assertAdmin(userId: string) {
-  const admin = await adminClient();
+type GlobalRoleSnapshot = { isAdmin: boolean; isSuper: boolean };
+
+async function globalRoleSnapshot(admin: any, userId: string): Promise<GlobalRoleSnapshot> {
   const [{ data: isAdmin }, { data: isSuper }] = await Promise.all([
     admin.rpc("has_role", { _user_id: userId, _role: "admin" }),
     admin.rpc("is_super_admin", { _uid: userId }),
   ]);
-  if (!isAdmin && !isSuper) throw new Error("Acesso restrito a administradores.");
+  return { isAdmin: Boolean(isAdmin), isSuper: Boolean(isSuper) };
+}
+
+async function assertAdmin(userId: string) {
+  const admin = await adminClient();
+  const roles = await globalRoleSnapshot(admin, userId);
+  if (!roles.isAdmin && !roles.isSuper) throw new Error("Acesso restrito a administradores.");
   return admin;
+}
+
+async function assertProjectAccess(
+  admin: any,
+  userId: string,
+  clientKey: string,
+  mode: "read" | "write" = "write",
+): Promise<{ global: boolean; role: "owner" | "editor" | "viewer" | null }> {
+  const roles = await globalRoleSnapshot(admin, userId);
+  if (roles.isAdmin || roles.isSuper) return { global: true, role: null };
+
+  const { data: membership, error } = await admin
+    .from("portfolio_project_members")
+    .select("role")
+    .eq("client_key", clientKey)
+    .eq("user_id", userId)
+    .is("revoked_at", null)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(
+      "O controle de acesso por projeto ainda não está disponível neste ambiente. Aplique a migration portfolio_project_members.",
+    );
+  }
+
+  const role = (membership?.role ?? null) as "owner" | "editor" | "viewer" | null;
+  const allowed = mode === "read" ? role === "owner" || role === "editor" || role === "viewer" : role === "owner" || role === "editor";
+  if (!allowed) throw new Error("Você não tem permissão para acessar este projeto.");
+  return { global: false, role };
+}
+
+async function listProjectMembershipKeys(admin: any, userId: string): Promise<string[] | null> {
+  const roles = await globalRoleSnapshot(admin, userId);
+  if (roles.isAdmin || roles.isSuper) return null;
+
+  const { data, error } = await admin
+    .from("portfolio_project_members")
+    .select("client_key")
+    .eq("user_id", userId)
+    .is("revoked_at", null)
+    .in("role", ["owner", "editor", "viewer"])
+    .limit(500);
+
+  if (error) {
+    throw new Error(
+      "O controle de acesso por projeto ainda não está disponível neste ambiente. Aplique a migration portfolio_project_members.",
+    );
+  }
+
+  return Array.from(new Set((data ?? []).map((row: { client_key: string }) => row.client_key).filter(Boolean)));
 }
 
 async function logHistory(
@@ -186,12 +243,17 @@ export type ManagedSaveResult = {
   canBeReady: boolean;
 };
 
-/** Cria ou atualiza um projeto Managed (wizard do painel). Nunca toca em legados. */
+/**
+ * Cria ou atualiza um projeto Managed.
+ *
+ * Admin/super-admin têm acesso global. Usuários comuns só podem criar/editar
+ * quando o super-admin já concedeu membership owner/editor ao client_key.
+ */
 export const saveManagedProject = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => wizardSchema.parse(data))
   .handler(async ({ data, context }): Promise<ManagedSaveResult> => {
-    const admin = await assertAdmin(context.userId);
+    const admin = await adminClient();
     const slug = data.slug.toLowerCase();
     if (!SLUG_RE.test(slug)) throw new Error("Endereço inválido: use apenas letras minúsculas, números e hífen.");
 
@@ -200,6 +262,9 @@ export const saveManagedProject = createServerFn({ method: "POST" })
       .select(MANAGED_COLUMNS)
       .eq("slug", slug)
       .maybeSingle();
+
+    const requestedClientKey = existing?.client_key ?? data.clientKey ?? slug;
+    await assertProjectAccess(admin, context.userId, requestedClientKey, "write");
 
     if (!existing && isSlugTaken(slug)) {
       throw new Error("Este endereço já pertence a um projeto existente.");
@@ -215,7 +280,7 @@ export const saveManagedProject = createServerFn({ method: "POST" })
       throw new Error("Outro editor salvou este projeto. Recarregue antes de continuar.");
     }
 
-    const row = buildManagedRow({ ...data, slug, clientKey: data.clientKey ?? slug });
+    const row = buildManagedRow({ ...data, slug, clientKey: requestedClientKey });
     const patch = {
       ...row,
       lifecycle_status: existing?.lifecycle_status ?? "draft",
@@ -245,17 +310,24 @@ export const saveManagedProject = createServerFn({ method: "POST" })
     return { project, issues: status.issues, canBeReady: status.canBeReady };
   });
 
-/** Lista os projetos Managed com conformidade calculada (painel). */
+/** Lista projetos globais para admins e somente projetos atribuídos aos demais usuários. */
 export const listManagedProjects = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const admin = await assertAdmin(context.userId);
-    const { data, error } = await admin
+    const admin = await adminClient();
+    const visibleKeys = await listProjectMembershipKeys(admin, context.userId);
+    if (visibleKeys && visibleKeys.length === 0) return { rows: [] };
+
+    let query = admin
       .from("portfolio_client_settings")
       .select(MANAGED_COLUMNS)
       .eq("project_kind", "managed")
       .order("updated_at", { ascending: false })
       .limit(300);
+
+    if (visibleKeys) query = query.in("client_key", visibleKeys);
+
+    const { data, error } = await query;
     if (error) throw new Error(error.message);
     return {
       rows: (data ?? [])
@@ -265,12 +337,12 @@ export const listManagedProjects = createServerFn({ method: "GET" })
     };
   });
 
-/** Um projeto Managed em qualquer etapa — usado pelo editor e pelo preview. */
+/** Um projeto Managed em qualquer etapa — escopado ao membership do usuário. */
 export const getManagedProjectAdmin = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => z.object({ slug: z.string().trim().max(120) }).parse(data))
   .handler(async ({ data, context }) => {
-    const admin = await assertAdmin(context.userId);
+    const admin = await adminClient();
     const { data: row } = await admin
       .from("portfolio_client_settings")
       .select(MANAGED_COLUMNS)
@@ -279,10 +351,15 @@ export const getManagedProjectAdmin = createServerFn({ method: "GET" })
       .maybeSingle();
     const project = sanitizeManagedProject(row);
     if (!project) return { project: null, issues: [], canBeReady: false };
+    await assertProjectAccess(admin, context.userId, project.clientKey, "read");
     return { project, ...managedStatus(project) };
   });
 
-/** Transição de ciclo de vida com gate de conformidade e histórico auditável. */
+/**
+ * Transição de ciclo de vida com gate de conformidade.
+ * Owner/editor pode trabalhar até READY. Publicar/arquivar permanece decisão global
+ * de admin/super-admin enquanto cobrança/contrato e domínio ainda não estão automatizados.
+ */
 export const setManagedLifecycle = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) =>
@@ -291,7 +368,7 @@ export const setManagedLifecycle = createServerFn({ method: "POST" })
       .parse(data),
   )
   .handler(async ({ data, context }) => {
-    const admin = await assertAdmin(context.userId);
+    const admin = await adminClient();
     const { data: row } = await admin
       .from("portfolio_client_settings")
       .select(MANAGED_COLUMNS)
@@ -301,8 +378,13 @@ export const setManagedLifecycle = createServerFn({ method: "POST" })
     const project = sanitizeManagedProject(row);
     if (!project) throw new Error("Projeto não encontrado.");
 
+    const access = await assertProjectAccess(admin, context.userId, project.clientKey, "write");
     const from = project.lifecycle;
     const to = data.to as ManagedLifecycle;
+
+    if ((to === "published" || to === "archived") && !access.global) {
+      throw new Error("Publicação e arquivamento ainda exigem aprovação administrativa.");
+    }
     if (!canTransition(from, to)) throw new Error(`Transição ${from} → ${to} não permitida.`);
     if ((to === "ready" || to === "published") && !managedStatus(project).canBeReady) {
       throw new Error("Existem pendências de conformidade bloqueando esta etapa.");
@@ -330,7 +412,6 @@ export const setManagedLifecycle = createServerFn({ method: "POST" })
       { field: "lifecycle_status", old_value: from, new_value: to },
     ]);
 
-    // Publicar/arquivar reflete imediatamente no sitemap e no IndexNow.
     if (to === "published" || from === "published") {
       try {
         const { syncPortfolioSitemapAndIndexing } = await import("@/lib/portfolio-sitemap.server");
@@ -341,4 +422,54 @@ export const setManagedLifecycle = createServerFn({ method: "POST" })
     }
 
     return { project: sanitizeManagedProject(saved)! };
+  });
+
+/** Concessão/revogação de acesso por projeto — apenas admin/super-admin. */
+export const setPortfolioProjectMembership = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z
+      .object({
+        clientKey: z.string().trim().min(2).max(80),
+        userId: z.string().uuid(),
+        role: z.enum(["owner", "editor", "viewer"]),
+        grant: z.boolean(),
+      })
+      .parse(data),
+  )
+  .handler(async ({ data, context }) => {
+    const admin = await assertAdmin(context.userId);
+    const now = new Date().toISOString();
+
+    if (data.grant) {
+      const { error } = await admin.from("portfolio_project_members").upsert(
+        {
+          client_key: data.clientKey,
+          user_id: data.userId,
+          role: data.role,
+          granted_by: context.userId,
+          revoked_at: null,
+          updated_at: now,
+        },
+        { onConflict: "client_key,user_id" },
+      );
+      if (error) throw new Error(error.message);
+    } else {
+      const { error } = await admin
+        .from("portfolio_project_members")
+        .update({ revoked_at: now, updated_at: now })
+        .eq("client_key", data.clientKey)
+        .eq("user_id", data.userId);
+      if (error) throw new Error(error.message);
+    }
+
+    await logHistory(admin, data.clientKey, context.userId, [
+      {
+        field: "project_membership",
+        old_value: null,
+        new_value: data.grant ? `${data.role}:${data.userId}` : `revoked:${data.userId}`,
+      },
+    ]);
+
+    return { ok: true };
   });
