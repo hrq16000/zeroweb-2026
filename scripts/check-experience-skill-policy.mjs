@@ -36,7 +36,7 @@ if (fail.length === 0) {
   const mustMention = [
     ["AGENTS.md", agents, "0web-experience-design-max"],
     ["router", router, "0web-experience-design-max"],
-    ["router", router, "MAXIMUM_RELEVANT_NON_REDUNDANT".toLowerCase().includes("never") ? "__never__" : "Maximum relevant skills"],
+    ["router", router, "Maximum relevant skills"],
     ["discovery", discovery, "LobeHub"],
     ["discovery", discovery, "AwesomeSkill"],
     ["governance", governance, "UI/UX Pro Max"],
