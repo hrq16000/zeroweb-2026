@@ -642,5 +642,15 @@
     "nextStepBody": "A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local.",
     "primaryCtaLabel": "Pedir orçamento",
     "theme": "gold"
+  },
+  "adhonep-curitiba": {
+    "intent": "contato",
+    "nextStepTitle": "Confirme sua presença na reunião",
+    "nextStepBody": "Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro.",
+    "primaryCtaLabel": "Confirmar presença",
+    "theme": "navy",
+    "whatsappPrompt": "Quero confirmar minha presença na reunião semanal. Pode me enviar as orientações de acesso ao local, por favor?",
+    "whatsappSubject": "a reunião semanal",
+    "proposalKind": "service"
   }
 }

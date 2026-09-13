@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-11",
+  "generatedAt": "2026-09-13",
   "summary": {
-    "total": 91,
+    "total": 92,
     "valid": 47,
-    "pending": 44,
+    "pending": 45,
     "byStatus": {
       "VALID": 47,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 11
+      "UNCERTAIN_ORIGIN": 12
     },
     "balanced": true
   },
@@ -31,6 +31,19 @@
       "cardValid": true,
       "businessName": "Açaí Total",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "adhonep-curitiba",
+      "asset": "/images/adhonep-curitiba/capa.jpg",
+      "catalogImage": "/images/adhonep-curitiba/capa.jpg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "ADHONEP Curitiba",
+      "segment": "prestadores-de-servicos"
     },
     {
       "slug": "ag-electrical-services",
