@@ -31,6 +31,7 @@ import {
   CreditCard,
   Users,
   ImageOff,
+  Images,
   Inbox,
   MapPin,
 } from "lucide-react";
@@ -77,6 +78,7 @@ const ADMIN_NAV: NavItem[] = [
 
   { to: "/app/servicos", icon: Briefcase, label: "Serviços" },
   { to: "/app/servicos-imagens", icon: ImageOff, label: "Imagens órfãs" },
+  { to: "/app/imagens-gerar", icon: Images, label: "Gerar imagens" },
   { to: "/app/pedidos", icon: ShoppingCart, label: "Pedidos" },
   { to: "/app/pagamentos", icon: CreditCard, label: "Pagamentos" },
   { to: "/app/master", icon: Globe, label: "Dashboard Master" },

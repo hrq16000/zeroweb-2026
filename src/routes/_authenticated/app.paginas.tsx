@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Globe, Briefcase, ImageOff, LayoutTemplate, BookOpen, Target,
-  ShoppingCart, CreditCard, Search, Inbox, Layers, Eye, Activity,
+  ShoppingCart, CreditCard, Search, Inbox, Layers, Eye, Activity, Images,
   FileText, Users, Shield, Fingerprint, Network, KeyRound,
 } from "lucide-react";
 
@@ -15,6 +15,7 @@ const CARDS: Card[] = [
   // Conteúdo / Páginas
   { group: "Páginas & Conteúdo", to: "/app/servicos",           icon: Briefcase,      title: "Serviços",          desc: "Catálogo público, preços, imagens e SEO por landing." },
   { group: "Páginas & Conteúdo", to: "/app/servicos-imagens",   icon: ImageOff,       title: "Imagens dos serviços", desc: "Uploads, imagens órfãs e capas em bulk." },
+  { group: "Páginas & Conteúdo", to: "/app/imagens-gerar",     icon: Images,         title: "Gerar imagens", desc: "Rascunhos editoriais para hero, capas e seções." },
   { group: "Páginas & Conteúdo", to: "/app/editorial",          icon: BookOpen,       title: "Editorial (Blog)",  desc: "Artigos, clusters e status de publicação." },
   { group: "Páginas & Conteúdo", to: "/app/editorial/skyscraper", icon: BookOpen,     title: "Blog Skyscraper",    desc: "24 artigos programáticos e blueprints." },
   { group: "Páginas & Conteúdo", to: "/app/editorial/skyscraper-review", icon: BookOpen, title: "Revisão editorial", desc: "SEO score, aprovação, A/B e exportação." },

@@ -86,6 +86,7 @@ import { Route as TrafegoPagoRouteImport } from './routes/trafego-pago'
 import { Route as TrafegoPagoLocalRouteImport } from './routes/trafego-pago-local'
 import { Route as CityServiceRouteImport } from './routes/$city.$service'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as ApiGeneratePortfolioImageRouteImport } from './routes/api/generate-portfolio-image'
 import { Route as BairrosBhIndexRouteImport } from './routes/bairros-bh.index'
 import { Route as BairrosBhSlugRouteImport } from './routes/bairros-bh.$slug'
 import { Route as BairrosCwbIndexRouteImport } from './routes/bairros-cwb.index'
@@ -637,6 +638,12 @@ const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
   path: '/app',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const ApiGeneratePortfolioImageRoute =
+  ApiGeneratePortfolioImageRouteImport.update({
+    id: '/api/generate-portfolio-image',
+    path: '/api/generate-portfolio-image',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BairrosBhIndexRoute = BairrosBhIndexRouteImport.update({
   id: '/bairros-bh/',
   path: '/bairros-bh/',
@@ -1586,6 +1593,7 @@ export interface FileRoutesByFullPath {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
+  '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
   '/blog-skyscraper/$slug': typeof BlogSkyscraperSlugRoute
@@ -1819,6 +1827,7 @@ export interface FileRoutesByTo {
   '/trafego-pago': typeof TrafegoPagoRoute
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
+  '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
   '/blog-skyscraper/$slug': typeof BlogSkyscraperSlugRoute
@@ -2056,6 +2065,7 @@ export interface FileRoutesById {
   '/trafego-pago-local': typeof TrafegoPagoLocalRoute
   '/$city/$service': typeof CityServiceRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/api/generate-portfolio-image': typeof ApiGeneratePortfolioImageRoute
   '/bairros-bh/$slug': typeof BairrosBhSlugRoute
   '/bairros-cwb/$slug': typeof BairrosCwbSlugRoute
   '/blog-skyscraper/$slug': typeof BlogSkyscraperSlugRoute
@@ -2294,6 +2304,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/app'
+    | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
     | '/blog-skyscraper/$slug'
@@ -2527,6 +2538,7 @@ export interface FileRouteTypes {
     | '/trafego-pago'
     | '/trafego-pago-local'
     | '/$city/$service'
+    | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
     | '/blog-skyscraper/$slug'
@@ -2763,6 +2775,7 @@ export interface FileRouteTypes {
     | '/trafego-pago-local'
     | '/$city/$service'
     | '/_authenticated/app'
+    | '/api/generate-portfolio-image'
     | '/bairros-bh/$slug'
     | '/bairros-cwb/$slug'
     | '/blog-skyscraper/$slug'
@@ -3000,6 +3013,7 @@ export interface RootRouteChildren {
   TrafegoPagoRoute: typeof TrafegoPagoRoute
   TrafegoPagoLocalRoute: typeof TrafegoPagoLocalRoute
   CityServiceRoute: typeof CityServiceRoute
+  ApiGeneratePortfolioImageRoute: typeof ApiGeneratePortfolioImageRoute
   BairrosBhSlugRoute: typeof BairrosBhSlugRoute
   BairrosCwbSlugRoute: typeof BairrosCwbSlugRoute
   BlogSkyscraperSlugRoute: typeof BlogSkyscraperSlugRoute
@@ -3610,6 +3624,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/app'
       preLoaderRoute: typeof AuthenticatedAppRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/generate-portfolio-image': {
+      id: '/api/generate-portfolio-image'
+      path: '/api/generate-portfolio-image'
+      fullPath: '/api/generate-portfolio-image'
+      preLoaderRoute: typeof ApiGeneratePortfolioImageRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/bairros-bh/': {
       id: '/bairros-bh/'
@@ -5125,6 +5146,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrafegoPagoRoute: TrafegoPagoRoute,
   TrafegoPagoLocalRoute: TrafegoPagoLocalRoute,
   CityServiceRoute: CityServiceRoute,
+  ApiGeneratePortfolioImageRoute: ApiGeneratePortfolioImageRoute,
   BairrosBhSlugRoute: BairrosBhSlugRoute,
   BairrosCwbSlugRoute: BairrosCwbSlugRoute,
   BlogSkyscraperSlugRoute: BlogSkyscraperSlugRoute,
