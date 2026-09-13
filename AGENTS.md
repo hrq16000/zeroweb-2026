@@ -6,6 +6,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Preciso de | Leia |
 |---|---|
 | Roteamento de skills | `.agents/skills/0web-skill-router/SKILL.md` · `docs/skills/ORCHESTRATION.md` |
+| Experience design global / máximo de skills relevantes | `.agents/skills/0web-experience-design-max/SKILL.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
@@ -13,11 +14,10 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
 | Ritmo visual, signature moments, media narrative, capabilities, results e quality profile | `docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md` |
-| Motion, microinterações, scroll, efeitos visuais e MOTION_QUALITY_GATE | `docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md` |
+| Motion, microinterações, scroll, efeitos visuais e MOTION_QUALITY_GATE | `docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
 | Camada institucional 0WEB obrigatória (host credit + popup) e `PLATFORM_0WEB_LAYER` | `docs/PORTFOLIO_0WEB_PLATFORM_LAYER_ADDENDUM.md` |
 | Originalidade estrutural, famílias de layout/hero e `STRUCTURAL_ORIGINALITY_GATE` (projetos novos) | `docs/PORTFOLIO_STRUCTURAL_ORIGINALITY_ADDENDUM.md` |
 | Composição autoral por projeto, Creative Composition Brief, fingerprint e `PROJECT_UNIQUENESS_GATE` (norma canônica: infraestrutura compartilhada, composição visual nunca) | `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md` |
-
 | Pesquisa automática, identidade/logo, hero acima da dobra, CTA flutuante, motion real, originalidade estrutural e embed no catálogo | `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Contato sempre pelo funil (sem `tel:`/`wa.me`) e finalidade obrigatória de cada asset | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` §21–§22 · `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` §18–§20 |
 | Checklist antes de concluir UI | `.agents/skills/0web-ui-quality-gates/SKILL.md` |
@@ -68,18 +68,25 @@ Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 Toda implementação nova ou revisão visual material em `/portfolio/` deve seguir
 `docs/AGENT_SKILLS_GOVERNANCE.md`. No mínimo:
 
-1. executar `0web-skill-discovery` para selecionar competências complementares;
-2. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
-3. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam
-   problemas reais da marca/jornada — o arquivo é repertório, nunca template;
-4. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar
-   estrutura fixa;
-5. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
-6. revisar acessibilidade/mobile, motion, performance e quality gates.
+1. executar `0web-skill-discovery` para selecionar competências complementares, incluindo discovery em fontes externas quando necessário;
+2. aplicar obrigatoriamente `0web-experience-design-max` para cobrir estratégia, UX/UI, design system, motion, acessibilidade, performance, SEO/conteúdo e QA;
+3. aplicar `0web-portfolio-art-direction` antes de escolher layout/seções;
+4. selecionar do `PORTFOLIO_CAPABILITY_PALETTE` somente capacidades que resolvam problemas reais da marca/jornada — o arquivo é repertório, nunca template;
+5. usar uma especialidade de landing/CRO adequada ao objetivo real, sem herdar estrutura fixa;
+6. aplicar `0web-design-system` como engenharia visual com identidade local do cliente;
+7. revisar acessibilidade/mobile, motion, performance e quality gates.
+
+A política global é **máximo de competências relevantes, não máximo de efeitos ou pacotes**. Skills redundantes, inseguras ou incompatíveis devem ser rejeitadas e registradas. LobeHub, AwesomeSkill e outros marketplaces são fontes de discovery; código de terceiros só pode ser executado após `docs/skills/SECURITY.md`.
 
 Não publique uma nova página sem creative brief v2, funil individual, SEO,
 imagens classificadas corretamente, estados, `prefers-reduced-motion`, viewport
 móvel, originality review e contato server-side quando houver número oficial.
+
+Toda mudança visual material também deve avaliar a matriz canônica de motion de
+`docs/EXPERIENCE_DESIGN_MAX_STANDARD.md`: `fade-up`, `fade-left/right`, `blur-in`,
+`scale-in`, `stagger-up`, `image-reveal`, `clip-reveal`, `parallax`, `marquee`,
+`float`, `header-scroll`, `menu-reveal`, `text-line-reveal`, `progress-line`.
+Cada capability recebe `REQUIRED`, `OPTIONAL` ou `NOT_APPLICABLE`.
 
 ## Princípio obrigatório
 
@@ -130,12 +137,14 @@ recolorir não é.
 # Norma global de experiência (resumo)
 
 Completo: `docs/GLOBAL_WEB_EXPERIENCE_STANDARD.md` ·
+`docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` ·
 `docs/PORTFOLIO_IMMERSIVE_EXPERIENCE_STANDARD.md` ·
 máquina: `src/config/experience-capabilities.json` e
 `src/config/portfolio-motion-profiles.json`.
 
-- Toda página cumpre engineering, brand, motion, interaction, content,
+- Toda página cumpre strategy, engineering, brand, motion, interaction, content,
   conversion, SEO, accessibility, performance, originality e privacy.
+- Toda UI material aplica `0web-experience-design-max` e o máximo de skills relevantes e não redundantes.
 - Motion usa primitives de `src/components/motion` / `motion/react` conforme o
   padrão local; conteúdo sempre existe sem JS.
 - `prefers-reduced-motion` remove deslocamento, nunca conteúdo.
@@ -147,7 +156,7 @@ máquina: `src/config/experience-capabilities.json` e
   só com justificativa. Skill não justifica dependência.
 - Capas: `PHOTO_DERIVED | BRAND_COMPOSITION | ABSTRACT_BRAND_ART`; nunca inventar
   evidência factual.
-- Gate: `bun run check:experience-standard` e `:enforce`.
+- Gate: `bun run check:experience-standard`, `bun run check:experience-standard:enforce` e `bun run check:experience-skill-policy`.
 - Rollout em ondas. Não redesenhar projetos autorais aprovados sem gatilho real.
 - Projeto novo só nasce válido com direção criativa, identidade, motion, funil,
   SEO, imagens e assinatura próprias, além dos gates técnicos.
