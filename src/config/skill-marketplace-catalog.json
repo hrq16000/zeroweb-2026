@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "generatedAt": "2026-09-13",
   "policyDoc": "docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md",
   "sources": [
@@ -76,11 +76,11 @@
       "status": "APPROVED_CONDITIONAL",
       "mode": "LONG_TASK_PLANNING",
       "triggers": ["multi-step", "research", "migration", "more-than-5-tool-calls"],
-      "notes": "Arquivos de planejamento nunca substituem origin/main como fonte operacional de verdade."
+      "notes": "Arquivos de planejamento nunca substituem origin/main como fonte operacional de verdade; usar somente quando reduzir perda de contexto."
     },
     {
       "id": "content-research-writer",
-      "source": "marketplace-candidate",
+      "source": "openakita/openakita",
       "status": "APPROVED_CONDITIONAL",
       "mode": "CONTENT_RESEARCH",
       "triggers": ["content-depth", "research", "seo-content", "entity-enrichment"],
@@ -88,7 +88,7 @@
     },
     {
       "id": "remotion-best-practices",
-      "source": "marketplace-candidate",
+      "source": "remotion-dev/skills",
       "status": "APPROVED_CONDITIONAL",
       "mode": "VIDEO_REACT",
       "triggers": ["video", "remotion", "motion-video"],
@@ -96,25 +96,27 @@
     },
     {
       "id": "seo-review",
-      "source": "marketplace-candidate",
-      "status": "APPROVED_CONDITIONAL",
+      "source": "leonardomso/33-js-concepts",
+      "status": "REFERENCE_ONLY",
       "mode": "SEO_REVIEW",
       "triggers": ["seo-audit", "content-optimization", "search-visibility"],
-      "notes": "Aplicar somente regras compatíveis com o tipo de página e SEO canônico do 0WEB."
+      "notes": "A skill original é especializada em páginas de conceitos JavaScript; aproveitar checklist de SEO somente quando generalizável. Gates SEO 0WEB continuam canônicos."
     },
     {
       "id": "canvas-design",
-      "source": "anthropics/skills-or-marketplace",
+      "source": "anthropics/skills",
       "status": "APPROVED_CONDITIONAL",
       "mode": "STATIC_CREATIVE",
-      "triggers": ["poster", "social-creative", "static-art", "brand-composition"]
+      "triggers": ["poster", "social-creative", "static-art", "brand-composition"],
+      "notes": "Arte original pode apoiar hero/capa/social, nunca ser classificada como prova documental."
     },
     {
       "id": "skill-creator",
-      "source": "marketplace-candidate",
+      "source": "anthropics/skills",
       "status": "APPROVED_CONDITIONAL",
       "mode": "SKILL_AUTHORING",
-      "triggers": ["create-skill", "update-skill", "internalize-workflow"]
+      "triggers": ["create-skill", "update-skill", "internalize-workflow"],
+      "notes": "Revisar scripts auxiliares antes de executar; usar para consolidar rotinas repetidas em contratos internos."
     },
     {
       "id": "brainstorming",
@@ -122,11 +124,11 @@
       "status": "REFERENCE_ONLY",
       "mode": "CREATIVE_EXPLORATION",
       "triggers": ["ambiguous-product", "high-risk-feature", "new-product-direction"],
-      "notes": "A regra upstream de aprovação humana antes de qualquer implementação conflita com a autorização contínua do projeto; internalizar apenas exploração de alternativas."
+      "notes": "Exploração de alternativas é útil; regra upstream de aprovação humana antes de toda implementação conflita com a autorização contínua do projeto."
     },
     {
       "id": "theme-factory",
-      "source": "marketplace-candidate",
+      "source": "anthropics/skills",
       "status": "REFERENCE_ONLY",
       "mode": "THEME_IDEATION",
       "triggers": ["theme-exploration"],
@@ -142,11 +144,19 @@
     },
     {
       "id": "notebooklm",
-      "source": "marketplace-candidate",
-      "status": "APPROVED_CONDITIONAL",
+      "source": "PleasePrompto/notebooklm-skill",
+      "status": "SECURITY_REVIEW_REQUIRED",
       "mode": "CONNECTED_RESEARCH",
       "triggers": ["notebooklm", "source-grounded-research"],
-      "notes": "Só usar com conector/autorização explícita e sem dados privados indevidos."
+      "notes": "AwesomeSkill sinaliza risco médio: acesso a .env e operações destrutivas no pacote. Só usar após revisão e autenticação explícita; não faz parte do fluxo padrão de portfolio."
+    },
+    {
+      "id": "nanobanana-ppt",
+      "source": "op7418/NanoBanana-PPT-Skills",
+      "status": "QUARANTINED",
+      "mode": "PRESENTATION_GENERATION",
+      "triggers": ["ppt", "presentation", "slide-deck"],
+      "notes": "Irrelevante ao runtime web e o marketplace sinaliza risco crítico: sudo, persistência em shell, .env/API keys e secret exposure. Não instalar/usar no 0WEB sem auditoria separada."
     }
   ]
 }
