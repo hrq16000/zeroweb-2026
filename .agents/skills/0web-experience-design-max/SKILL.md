@@ -1,6 +1,6 @@
 ---
 name: 0web-experience-design-max
-description: Mandatory experience-design review layer for 0WEB UI, landing pages and portfolio client sites. Combines business strategy, UX/UI, design systems, motion, accessibility, performance, SEO and conversion while preserving client-specific art direction and repository security rules.
+description: Mandatory experience-design review layer for 0WEB UI, landing pages and portfolio client sites. Combines business strategy, UX/UI, design systems, layout engineering, motion, accessibility, performance, SEO and conversion while preserving client-specific art direction and repository security rules.
 ---
 
 # 0WEB Experience Design Max
@@ -13,11 +13,13 @@ It is an **orchestration and quality skill**, not a visual template. It converts
 
 1. Read `AGENTS.md` and `docs/0WEB_EXECUTION_CONTRACT.md`.
 2. Run `0web-skill-discovery` and assemble the broadest **relevant** stack for the task.
-3. Define business goal, audience/persona, market context, conversion objective and factual evidence.
-4. Apply `0web-portfolio-art-direction` before choosing layout, section order, typography or motion grammar.
-5. Review the experience through all applicable lenses below.
-6. Implement only capabilities that add user value; classify the rest as `NOT_APPLICABLE` rather than forcing decorative effects.
-7. Validate mobile, keyboard, reduced motion, runtime visual evidence, performance, SEO and conversion before publication.
+3. For every new project and every material page maintenance, inspect `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` and `src/config/skill-marketplace-catalog.json`; search LobeHub/AwesomeSkill/original sources when complementary expertise may exist.
+4. Define business goal, audience/persona, market context, conversion objective and factual evidence.
+5. Apply `0web-portfolio-art-direction` before choosing layout, section order, typography or motion grammar.
+6. Review the experience through all applicable lenses below.
+7. Implement only capabilities that add user value; classify the rest as `NOT_APPLICABLE` rather than forcing decorative effects.
+8. Validate mobile, keyboard, reduced motion, runtime visual evidence, performance, SEO and conversion before publication.
+9. Register skill discovery/use/rejection evidence in the PR or `docs/skills/CHANGELOG.md`.
 
 ## Experience lenses
 
@@ -25,6 +27,7 @@ Every material UI delivery must explicitly consider:
 
 - **Digital strategy:** business objective, audience/persona, market/competitor context, distinct positioning, awareness/content/experience relationship.
 - **UX/UI:** information hierarchy, user journey, interaction clarity, touch targets, states, feedback, responsive behavior and usability.
+- **Layout engineering:** choose Flexbox, Grid and intrinsic/responsive sizing intentionally; avoid fixed-layout habits that create clones or breakpoints full of patches.
 - **Design system:** local client tokens, typography, spacing, component behavior and design-to-code consistency without imposing the 0WEB institutional skin.
 - **Web engineering:** semantic HTML, React/TanStack compatibility, performance, Web Vitals, accessible progressive enhancement and fail-open rendering.
 - **Content + SEO:** factual content, semantic headings, metadata, structured data, local/entity clarity, crawlability and LLM readability.
@@ -32,6 +35,24 @@ Every material UI delivery must explicitly consider:
 - **Design Ops / QA:** quality gates, evidence, consistency, originality review, regression prevention and documented decisions.
 
 These lenses reflect the useful parts of experience-design practice described by Dexa and the searchable UI/UX guidance exposed by UI/UX Pro Max, but repository rules, client identity, accessibility, factual integrity and security always take precedence.
+
+## Layout engineering — Flexbox + Grid
+
+Flexbox is the canonical one-dimensional layout primitive when the problem is alignment/distribution along one main axis. Grid is preferred when rows and columns form a two-dimensional composition. Do not treat either as a visual template.
+
+When using Flexbox, explicitly consider:
+
+- `display: flex` / `inline-flex` only when parent-child flow benefits from flexible distribution;
+- `flex-direction` based on semantic flow, not merely desktop appearance;
+- `justify-content` for the **main axis** and `align-items` for the **cross axis**;
+- `flex-wrap` whenever content must survive narrower widths without overflow;
+- `gap` instead of fragile child margins when spacing belongs to the container;
+- `min-width: 0` / intrinsic sizing where flexible children contain long text/media;
+- content order must remain logical for keyboard/screen-reader use; never use visual reordering to repair bad DOM semantics;
+- mobile-first behavior must be intentional: `row` can become `column`, but only when the hierarchy remains coherent;
+- avoid fixed widths where `flex`, `minmax`, `clamp`, `max-width`, `aspect-ratio` or container constraints solve the problem more robustly.
+
+For authorial portfolios, layout originality is evaluated above Flexbox/Grid. Two pages using different CSS properties but the same perceptual skeleton are still duplicates.
 
 ## UI/UX Pro Max usage contract
 
@@ -52,12 +73,15 @@ Pinned research revision: `nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900
 
 LobeHub, AwesomeSkill and similar marketplaces are **discovery sources**, not trusted executable dependencies.
 
-For substantial UI work, discovery may consult them to identify complementary skills. Before any third-party skill is installed or executed, follow `docs/skills/SECURITY.md`: inspect `SKILL.md`, scripts, dependencies, network behavior, secret access and license, then pin the reviewed revision in `docs/skills/REGISTRY.md`.
+For every **new portfolio/project** and every **material UI/UX maintenance**, discovery must at least inspect the local registry/catalog and decide whether a fresh external search is useful. When it is, consult original sources plus LobeHub and `https://awesomeskill.ai/search` as complementary indexes.
 
-The requested LobeHub CLI form is recognized as a discovery/install mechanism:
+Before any third-party skill is installed or executed, follow `docs/skills/SECURITY.md`: inspect `SKILL.md`, scripts, dependencies, network behavior, secret access and license, then pin the reviewed revision in `docs/skills/REGISTRY.md`.
+
+The reviewed LobeHub adapter is available at `.agents/skills/lobehub-skills-search-engine/SKILL.md`. The requested CLI forms are recognized as agent-setup mechanisms:
 
 ```bash
-npx -y @lobehub/market-cli skills install <skill-identifier> --agent <runtime>
+npx -y @lobehub/market-cli skills search --q "<task>" --output json
+npx -y @lobehub/market-cli skills install <skill-identifier> --agent codex
 ```
 
 Do **not** run marketplace installation automatically during application build/deploy. Marketplace tools belong to agent setup, not production runtime.
@@ -95,7 +119,9 @@ If removing logo/colors/copy would make two pages look substantially the same, t
 Record in the PR or `docs/skills/CHANGELOG.md`:
 
 - selected skill stack and why each skill was relevant;
+- marketplace/original-source discovery performed or explicit reason it was unnecessary;
 - experience/design direction;
+- layout decision (Flexbox/Grid/intrinsic strategy where material);
 - motion matrix decisions;
 - responsive and reduced-motion behavior;
 - runtime visual evidence for signature moments;
