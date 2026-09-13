@@ -26,6 +26,19 @@ export type DestinationProposal = {
   createdAt: string;
 };
 
+export type DestinationRevision = {
+  id: string;
+  clientKey: string;
+  slug: string;
+  previousStatus: string | null;
+  newStatus: string;
+  provenanceSource: string;
+  evidence: string;
+  destinationMasked: string | null;
+  confirmedAt: string;
+  validationResult: string;
+};
+
 async function assertAdmin(context: { supabase: { rpc: Function }; userId: string }) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const sb = context.supabase as any;
@@ -84,6 +97,39 @@ export const listDestinationProposals = createServerFn({ method: "GET" })
     const { data: rows, error } = await query;
     if (error) throw new Error(error.message);
     return { rows: ((rows ?? []) as any[]).map(toPublic) };
+  });
+
+/** Histórico canônico de confirmações e recusas, sem serializar o destino completo. */
+export const listDestinationRevisions = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z.object({ clientKey: z.string().max(80).optional(), limit: z.number().int().min(1).max(300).default(100) }).parse(data ?? {}),
+  )
+  .handler(async ({ data, context }): Promise<{ rows: DestinationRevision[] }> => {
+    await assertAdmin(context as never);
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    let query = (supabaseAdmin as any)
+      .from("portfolio_destination_revisions")
+      .select("id, client_key, slug, previous_status, new_status, provenance_source, evidence, destination_masked, confirmed_at, validation_result")
+      .order("confirmed_at", { ascending: false })
+      .limit(data.limit);
+    if (data.clientKey) query = query.eq("client_key", data.clientKey);
+    const { data: rows, error } = await query;
+    if (error) throw new Error(error.message);
+    return {
+      rows: ((rows ?? []) as any[]).map((row) => ({
+        id: row.id,
+        clientKey: row.client_key,
+        slug: row.slug,
+        previousStatus: row.previous_status ?? null,
+        newStatus: row.new_status,
+        provenanceSource: row.provenance_source,
+        evidence: row.evidence,
+        destinationMasked: row.destination_masked ?? null,
+        confirmedAt: row.confirmed_at,
+        validationResult: row.validation_result,
+      })),
+    };
   });
 
 /** Aprova a sugestão e grava o destino pelo mesmo caminho auditado do painel. */
