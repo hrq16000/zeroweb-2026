@@ -237,6 +237,7 @@ function PendingDestinationsPage() {
               <th className="py-2">Cidade</th>
               <th className="py-2">Publicada</th>
               <th className="py-2">Solicitação</th>
+              <th className="py-2">Último pedido</th>
               <th className="py-2">Última atividade</th>
               <th className="py-2" />
             </tr>
