@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T06:46:01.233Z",
+  "generatedAt": "2026-09-13T07:00:13.865Z",
   "base": "http://localhost:8080",
   "viewports": [
     {
@@ -484,7 +484,7 @@
         }
       },
       "consoleErrors": [
-        "ErrorUtils caught an error:\n\nroute config was null\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 17878, clientTime: 1789281476, extra: Object, guardList: Array("
+        "ErrorUtils caught an error:\n\nroute config was null\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 17878, clientTime: 1789282313, extra: Object, guardList: Array("
       ],
       "status": 200
     },
@@ -863,7 +863,7 @@
           },
           "textLength": 3998,
           "text": "CARREGANDO Copiar divulgação INAUGURAÇÃO Volume Brasileiro, Egípcio ou Fox Eyes por apenas R$ 100,00! RB Renata Beauty LASH & NAILS STUDIO Agendar no WhatsApp NOVO ENDEREÇO · RUA RONDÔNIA, 300 - BONECA DO IGUAÇU Transforme seu olhar com quem entende de cada detalhe. O novo Espaço Renata Beauty está de portas abertas. Mais conforto, mais beleza e um atendimento exclusivo para realçar sua essência. OFERTA INAUGURAÇÃO Brasileiro, Egípcio ou Fox Eyes R$ 180,00 R$ 100,00 Garantir Horário Leveza Zero peso nos fios Duração Até 30 dias Olhar Marcante Visagismo VIP @renatabeautystudiio Veja fotos e resultados reais Seguir MENU DE PROCEDIMENTOS Selecione o procedimento e veja os detalhes Trabalhamos exclusivamente com fios hipoalergênicos e esterilização rigorosa. Cílios Volume Egípcio (Fios W) Cílios Volume Brasileiro (Fios Y) Alongamento em Fibra de Vidro Design de Sobrancelhas & Henna Spa dos Pés Revitalizante 🔥 DESTAQUE INAUGURAÇÃO R$ 100 Cílios Volume Egípcio (Fios W) Técnica tecnológica com fios em formato W (3D/4D) que acoplam perfeitamente no fio natural. Cria um olhar denso, volumoso, com efeito delineador marcante e leveza incomparável. O QUE ESTÁ INCLUSO: Fios tecnológicos em formato W com base ultrafina Olhar marcante sem sensação de peso nos olhos Retenção superior de até 30 dias com alta durabilidade Mapeamento visagista personalizado incluso De R$ 180,00 R$ 100,00 Agendar Agora Volume Intenso & Leve 1h45 a 2h NOSSO DIFERENCIAL Mais que um atendimento, um momento feito para você relaxar. No Espaço Renata Beauty, nós não aceleramos seu procedimento. Cada cliente recebe atendimento exclusivo em ambiente climatizado, poltronas ergonômicas e café especial. Biossegurança e Higiene Rigorosa Materiais descartáveis e instrumentos autoclavados para total proteção. Mapeamento Visagista Personalizado Análise do formato dos seus olhos para desenhar a curvatura perfeita para seu rosto. Café e Acolhimento VIP Música ambiente relaxante e café fresco para seu momento de autocuidado. CONHECER FEED DO INSTAGRAM 100% Dedicação aos detalhes da sua beleza DIRETO DO INSTAGRAM Resultados reais e novidades do studio Confira de 3 a 6 publicações recentes de @renatabeautystudiio. O conteúdo é atualizado automaticamente pelo próprio Instagram. Ver perfil completo Se o feed não aparecer, o Instagram pode estar bloqueado pelas preferências de privacidade do navegador. LOCALIZAÇÃO & ACESSO Fácil acesso no Boneca do Iguaçu Venha conhecer nosso novo espaço físico preparado com todo carinho para você. ENDEREÇO FÍSICO Rua Rondônia, 300 Bairro Boneca do Iguaçu — São José dos Pinhais e Região Atendimento: Segunda a Sábado Agendamento: Exclusivo via WhatsApp WhatsApp: Atendimento protegido pelo funil ABRIR NO MAPS / WAZE COPIAR ENDEREÇO DÚVIDAS FREQUENTES Tire suas dúvidas antes de agendar Qual a diferença entre o Volume Egípcio e o Volume Brasileiro (extensão de cílios)? O Volume Egípcio utiliza fios tecnológicos em formato W (3 a 4 pontas em uma única base), gerando mais preenchimento, densidade e efeito delineador. Já o Volume Brasileiro utiliza fios em formato Y, conferindo um efeito rímel mais texturizado e curvado. Ambos estão na promoção de R$ 100 na inauguração! A extensão de cílios dói ou danifica meus fios naturais? Como funciona a promoção de inauguração de R$ 100? Quanto tempo duram os cílios? Quais são as formas de pagamento? VAGAS LIMITADAS POR SEMANA Pronta para realçar sua beleza e viver uma experiência única? Aproveite a promoção especial de inauguração e agende seu horário com quem ama cuidar de cada detalhe. Falar Direto no WhatsApp SOBRE O PROJETO Um momento de beleza começa com cuidado na escolha. Studio de beleza para cílios, unhas e procedimentos de autocuidado com atendimento sob agendamento. Atendimento em Curitiba — PR. Como começar Veja os procedimentos e indique o cuidado que procura para o seu horário. cilios unhas Ver procedimentos © 2026 · Renata Beauty Studio Site desenvolvido por 0WEB Também na região: Curitiba — PR Contato",
-          "docHeight": 8671,
+          "docHeight": 8689,
           "topColors": [
             {
               "color": "oklab(0.656006 0.239783 -0.0238809 / 0.2)",
@@ -1068,7 +1068,7 @@
         }
       },
       "consoleErrors": [
-        "ErrorUtils caught an error:\n\nroute config was null\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 17878, clientTime: 1789281504, extra: Object, guardList: Array("
+        "ErrorUtils caught an error:\n\nroute config was null\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 17878, clientTime: 1789282340, extra: Object, guardList: Array("
       ],
       "status": 200
     },
@@ -1524,7 +1524,58 @@
       "slug": "mp-festas-eventos",
       "viewports": {
         "mobile": {
-          "error": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+          "overflowX": 0,
+          "offenders": [],
+          "brokenImages": [],
+          "missingAlt": 0,
+          "imageCount": 3,
+          "imageSrcs": [
+            "/0web-logo.png",
+            "/images/mp-festas-eventos/capa.webp",
+            "/images/mp-festas-eventos/galeria.webp"
+          ],
+          "h1Count": 1,
+          "h1": "Sua festa linda, do jeitinho que você sonhou.",
+          "h2Count": 4,
+          "sections": 6,
+          "smallTargets": 2,
+          "hero": {
+            "height": 1268,
+            "backgroundImage": false,
+            "heading": "Sua festa linda, do jeitinho que você sonhou.",
+            "headingSize": 48,
+            "ctaCount": 2,
+            "imageCount": 1
+          },
+          "textLength": 1984,
+          "text": "CARREGANDO Copiar divulgação MP Festas & Eventos Consultar disponibilidade DECORAÇÃO AFETIVA · ARAUCÁRIA E REGIÃO Sua festa linda, do jeitinho que você sonhou. Festas infantis, celebrações e eventos especiais com cenários cheios de cor, carinho e personalidade — sem precisar gastar uma fortuna. Chamar no WhatsApp Ver pacotes Agenda com datas limitadas Araucária e região ESCOLHA O SEU CENÁRIO Três formas de deixar a data ainda mais especial. 01 Festa na Mesa R$ 160 Uma composição charmosa e prática para comemorar com economia. Quero este pacote 02 Decoração Clássica R$ 250 Painel, arco orgânico e detalhes coordenados para uma mesa completa. Quero este pacote 03 Decoração Premium R$ 350 Mais impacto, volume e personalidade para uma festa inesquecível. Quero este pacote INSPIRAÇÕES REAIS Temas para crianças, adultos e grandes histórias. @mp_festa_na_mesa Cada tema ganha uma composição pensada para a sua história. Carinho em cada detalhe Do primeiro briefing à montagem, tudo é planejado para a celebração fluir leve. Acervo em expansão Temas infantis e novas opções para casamentos e eventos especiais chegando. ATENDIMENTO LOCAL Araucária e região, com montagem inclusa. A MP Festas e Eventos leva a decoração até você e cobra apenas a taxa de deslocamento. Reserve com antecedência para garantir sua data. Reserve antes Agenda limitada por data. Onde atendemos Araucária e região. VAMOS CRIAR JUNTOS? Conte a sua ideia para a MP. Em poucos passos, você informa o tema, a data e o pacote que mais combina com a sua comemoração. Pedir orçamento SOBRE O PROJETO A memória da festa começa no cenário. Decoração de festas na mesa, clássica e premium para aniversários, casamentos e eventos em Araucária e região. Atendimento em Araucária — PR. Como começar Conte o tema, a data e o formato que combina com sua celebração. decoracao festas eventos festa na mesa Planejar decoração © 2026 · MP Festas e Eventos Site desenvolvido por 0WEB Também na região: Araucária — PR Contato",
+          "docHeight": 6392,
+          "topColors": [
+            {
+              "color": "rgb(11, 43, 98)",
+              "n": 5
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "n": 4
+            },
+            {
+              "color": "lab(96.5174 -0.967294 -2.82186)",
+              "n": 4
+            },
+            {
+              "color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+              "n": 3
+            },
+            {
+              "color": "lab(100 0 0)",
+              "n": 2
+            },
+            {
+              "color": "oklab(0.999998 -0.00000980496 0.0000234246 / 0.6)",
+              "n": 1
+            }
+          ]
         },
         "desktop": {
           "overflowX": 0,
@@ -1581,9 +1632,7 @@
           ]
         }
       },
-      "consoleErrors": [
-        "Failed to load resource: the server responded with a status of 500 ()"
-      ],
+      "consoleErrors": [],
       "status": 200
     },
     "studio-de-cilios": {
@@ -5080,7 +5129,7 @@
             "imageCount": 0
           },
           "textLength": 1707,
-          "text": "CARREGANDO Copiar divulgação REPAROS DO LITORAL GUARATUBA — PR SERVIÇO PEQUENO, RESOLVIDO Aquele conserto que você adia há semanas leva menos de uma tarde. Reparos elétricos e hidráulicos pequenos, montagem, vedação e acabamento em casas, apartamentos e casas de temporada em Guaratuba. Descrever meu problema Você manda a foto, recebe a faixa de valor e só então agenda. Sem visita cobrada para orçar serviço simples. TOCA SEM DRAMA Torneira pingando Tomada queimada Chuveiro elétrico Vazamento em caixa d'água Porta desalinhada Prateleira e suporte de TV Rejunte e silicone Fechadura e maçaneta Ralo entupido Pintura de parede pequena Não está na lista? Descreva mesmo assim — se não for serviço da equipe, você é avisado na hora. 01 Você descreve Foto e descrição do problema já bastam para a primeira estimativa. 02 Recebe a faixa de valor Serviço pequeno tem preço fechado; o maior fica combinado antes de começar. 02 Serviço feito e testado Nada de deixar pela metade: o reparo é testado com você presente. BAIRROS ATENDIDOS Brejatuba · Centro · Cohapar · Piçarras · Nereidas · Caieiras · Coroados Casa de temporada fechada? A equipe combina o acesso com quem guarda a chave. Junte dois ou três reparos e resolva tudo numa visita só. Pedir orçamento SOBRE O PROJETO Pequenos reparos ficam mais simples quando o escopo é claro. Presença digital de Reparos do Litoral: serviço local para reparos residenciais e comerciais em Guaratuba. Atendimento em Guaratuba — PR. Como começar Descreva o ambiente e o reparo que precisa organizar. reparos eletrica hidraulica Descrever o reparo © 2026 · Reparos do Litoral Site desenvolvido por 0WEB Também na região: Brejatuba · Guaratuba Guaratuba — PR Fale conosco",
+          "text": "CARREGANDO Copiar divulgação REPAROS DO LITORAL GUARATUBA — PR SERVIÇO PEQUENO, RESOLVIDO Aquele conserto que você adia há semanas leva menos de uma tarde. Reparos elétricos e hidráulicos pequenos, montagem, vedação e acabamento em casas, apartamentos e casas de temporada em Guaratuba. Descrever meu problema Você manda a foto, recebe a faixa de valor e só então agenda. Sem visita cobrada para orçar serviço simples. TOCA SEM DRAMA Torneira pingando Tomada queimada Chuveiro elétrico Vazamento em caixa d'água Porta desalinhada Prateleira e suporte de TV Rejunte e silicone Fechadura e maçaneta Ralo entupido Pintura de parede pequena Não está na lista? Descreva mesmo assim — se não for serviço da equipe, você é avisado na hora. 01 Você descreve Foto e descrição do problema já bastam para a primeira estimativa. 02 Recebe a faixa de valor Serviço pequeno tem preço fechado; o maior fica combinado antes de começar. 03 Serviço feito e testado Nada de deixar pela metade: o reparo é testado com você presente. BAIRROS ATENDIDOS Brejatuba · Centro · Cohapar · Piçarras · Nereidas · Caieiras · Coroados Casa de temporada fechada? A equipe combina o acesso com quem guarda a chave. Junte dois ou três reparos e resolva tudo numa visita só. Pedir orçamento SOBRE O PROJETO Pequenos reparos ficam mais simples quando o escopo é claro. Presença digital de Reparos do Litoral: serviço local para reparos residenciais e comerciais em Guaratuba. Atendimento em Guaratuba — PR. Como começar Descreva o ambiente e o reparo que precisa organizar. reparos eletrica hidraulica Descrever o reparo © 2026 · Reparos do Litoral Site desenvolvido por 0WEB Também na região: Brejatuba · Guaratuba Guaratuba — PR Fale conosco",
           "docHeight": 1938,
           "topColors": [
             {
@@ -9283,7 +9332,7 @@
         }
       },
       "consoleErrors": [
-        "ErrorUtils caught an error:\n\nroute config was null\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 17878, clientTime: 1789281899, extra: Object, guardList: Array("
+        "ErrorUtils caught an error:\n\nroute config was null\n\nSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 17878, clientTime: 1789282750, extra: Object, guardList: Array("
       ],
       "status": 200
     },
