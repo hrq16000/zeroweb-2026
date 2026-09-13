@@ -46,6 +46,8 @@ type CatalogRow = {
   status?: string;
   live?: boolean;
   projectType?: string;
+  city?: string;
+  state?: string;
 };
 
 const CATALOG = catalog as CatalogRow[];
