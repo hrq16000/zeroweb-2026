@@ -5,7 +5,7 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import type { CtaPlacement, CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
-import adhonepHeroEditorial from "@/assets/adhonep-curitiba-hero-editorial-v2.png";
+import adhonepHeroEditorial from "@/assets/adhonep-curitiba-hero-editorial-v2.png.asset.json";
 
 /**
  * ADHONEP Curitiba (/portfolio/adhonep-curitiba) — composição autoral.
