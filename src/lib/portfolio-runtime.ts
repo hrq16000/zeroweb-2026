@@ -295,6 +295,7 @@ export function applyPortfolioRuntime(
     gallery: overrides?.gallery ?? [],
     brandColors: overrides?.brandColors ?? {},
     motion: overrides?.motion,
+    seoSchema: overrides?.seoSchema,
     lifecycle,
     published,
     indexable,
