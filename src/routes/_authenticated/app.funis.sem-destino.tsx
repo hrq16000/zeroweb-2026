@@ -6,6 +6,11 @@ import {
   listPendingDestinations,
   type PendingDestinationRow,
 } from "@/lib/portfolio-pending-destinations.functions";
+import {
+  createDestinationRequest,
+  listDestinationRequests,
+  type DestinationRequestRow,
+} from "@/lib/portfolio-destination-requests.functions";
 
 export const Route = createFileRoute("/_authenticated/app/funis/sem-destino")({
   head: () => ({
@@ -29,13 +34,29 @@ const STATUS_LABEL: Record<PendingDestinationRow["request_status"], string> = {
   SUGESTAO_RECUSADA: "Sugestão recusada",
 };
 
+const REQUEST_LABEL: Record<string, string> = {
+  ENVIADO: "Enviado, aguardando resposta",
+  RESPONDIDO: "Respondido",
+  SEM_RESPOSTA: "Sem resposta",
+  RECUSADO: "Recusou informar",
+  NUMERO_RECEBIDO: "Número recebido",
+};
+
+const CHANNELS = ["whatsapp", "instagram", "e-mail", "telefone", "site", "presencial"];
+
 function PendingDestinationsPage() {
   const load = useServerFn(listPendingDestinations);
+  const loadRequests = useServerFn(listDestinationRequests);
+  const sendRequest = useServerFn(createDestinationRequest);
   const [rows, setRows] = useState<PendingDestinationRow[]>([]);
+  const [requests, setRequests] = useState<DestinationRequestRow[]>([]);
   const [cities, setCities] = useState<string[]>([]);
   const [city, setCity] = useState("");
   const [status, setStatus] = useState("");
   const [term, setTerm] = useState("");
+  const [channel, setChannel] = useState("whatsapp");
+  const [busy, setBusy] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -43,15 +64,16 @@ function PendingDestinationsPage() {
     setLoading(true);
     setError(null);
     try {
-      const result = await load();
+      const [result, reqs] = await Promise.all([load(), loadRequests()]);
       setRows(result.rows);
       setCities(result.cities);
+      setRequests(reqs.rows);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, [load]);
+  }, [load, loadRequests]);
 
   useEffect(() => {
     void refresh();
@@ -66,6 +88,39 @@ function PendingDestinationsPage() {
       return true;
     });
   }, [rows, city, status, term]);
+
+  const lastRequestByKey = useMemo(() => {
+    const map = new Map<string, DestinationRequestRow>();
+    for (const r of requests) if (!map.has(r.client_key)) map.set(r.client_key, r);
+    return map;
+  }, [requests]);
+
+  const register = useCallback(
+    async (targets: PendingDestinationRow[]) => {
+      if (targets.length === 0) return;
+      setBusy(targets.length === 1 ? targets[0]!.client_key : "bulk");
+      setNotice(null);
+      setError(null);
+      try {
+        for (const t of targets) {
+          await sendRequest({
+            data: { client_key: t.client_key, slug: t.slug, channel, sent_note: undefined },
+          });
+        }
+        setNotice(
+          targets.length === 1
+            ? `Envio registrado para ${targets[0]!.title}.`
+            : `${targets.length} envios registrados.`,
+        );
+        await refresh();
+      } catch (e) {
+        setError((e as Error).message);
+      } finally {
+        setBusy(null);
+      }
+    },
+    [channel, refresh, sendRequest],
+  );
 
   return (
     <div className="p-6 lg:p-8">
@@ -91,6 +146,12 @@ function PendingDestinationsPage() {
           {error}
         </p>
       )}
+      {notice && (
+        <p role="status" className="mt-4 rounded-md border border-border bg-muted/40 p-3 text-sm">
+          {notice}
+        </p>
+      )}
+
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         <label className="block text-sm">
@@ -134,9 +195,39 @@ function PendingDestinationsPage() {
         </label>
       </div>
 
+      <div className="mt-6 flex flex-wrap items-end gap-3 rounded-md border border-border p-4">
+        <label className="block text-sm">
+          <span className="text-muted-foreground">Canal do envio</span>
+          <select
+            value={channel}
+            onChange={(e) => setChannel(e.target.value)}
+            className="mt-1 min-h-11 rounded-md border border-input bg-background px-3"
+          >
+            {CHANNELS.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button
+          type="button"
+          disabled={busy !== null || filtered.length === 0}
+          onClick={() => void register(filtered)}
+          className="min-h-11 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground disabled:opacity-50"
+        >
+          {busy === "bulk" ? "Registrando…" : `Registrar envio para as ${filtered.length} marcas filtradas`}
+        </button>
+        <p className="max-w-[52ch] text-xs text-muted-foreground">
+          O registro é livre: serve para marcar que você pediu o número. A gravação do destino continua exigindo a
+          confirmação do titular.
+        </p>
+      </div>
+
       <p className="mt-4 text-sm text-muted-foreground">
         {loading ? "Carregando…" : `${filtered.length} marca(s) de ${rows.length} sem destino gravado.`}
       </p>
+
 
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[820px] text-left text-sm">
@@ -146,6 +237,7 @@ function PendingDestinationsPage() {
               <th className="py-2">Cidade</th>
               <th className="py-2">Publicada</th>
               <th className="py-2">Solicitação</th>
+              <th className="py-2">Último pedido</th>
               <th className="py-2">Última atividade</th>
               <th className="py-2" />
             </tr>
@@ -166,10 +258,32 @@ function PendingDestinationsPage() {
                   )}
                 </td>
                 <td className="py-2">
+                  {(() => {
+                    const last = lastRequestByKey.get(r.client_key);
+                    if (!last) return <span className="text-muted-foreground">Nunca pedido</span>;
+                    return (
+                      <>
+                        {REQUEST_LABEL[last.status] ?? last.status}
+                        <span className="block text-xs text-muted-foreground">
+                          {last.channel} · {new Date(last.sent_at).toLocaleString("pt-BR")}
+                        </span>
+                      </>
+                    );
+                  })()}
+                </td>
+                <td className="py-2">
                   {r.last_activity_at ? new Date(r.last_activity_at).toLocaleString("pt-BR") : "—"}
                 </td>
                 <td className="py-2">
-                  <Link to="/app/funis/numeros" className="min-h-11 text-primary underline">
+                  <button
+                    type="button"
+                    disabled={busy !== null}
+                    onClick={() => void register([r])}
+                    className="min-h-11 rounded-md border border-border px-3 text-sm font-medium disabled:opacity-50"
+                  >
+                    {busy === r.client_key ? "Registrando…" : "Registrar envio"}
+                  </button>
+                  <Link to="/app/funis/numeros" className="ml-3 min-h-11 text-primary underline">
                     Revisar
                   </Link>
                   <Link to="/app/funis/solicitacoes" className="ml-3 min-h-11 text-primary underline">
@@ -183,7 +297,7 @@ function PendingDestinationsPage() {
             ))}
             {!loading && filtered.length === 0 && (
               <tr>
-                <td colSpan={6} className="py-6 text-muted-foreground">
+                <td colSpan={7} className="py-6 text-muted-foreground">
                   Nenhuma marca nesse filtro.
                 </td>
               </tr>
