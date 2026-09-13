@@ -21,6 +21,11 @@ import {
   type AdminOverrides,
   type MergedProject,
 } from "@/lib/portfolio-admin";
+import {
+  managedStatus,
+  sanitizeManagedProject,
+  type ManagedProject,
+} from "@/lib/portfolio-managed";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -51,16 +56,78 @@ function mergeAll(rows: Map<string, AdminOverrides>): MergedProject[] {
   return SEED_PROJECTS.map((seed) => mergeProject(seed, rows.get(seed.slug) ?? null));
 }
 
-/** Lista os 68 projetos com conformidade, estado e divergência em relação ao seed. */
+type AdminListProject = MergedProject & { projectKind: "registry" | "managed" };
+
+function managedToAdminProject(project: ManagedProject): AdminListProject {
+  const status = managedStatus(project);
+  return {
+    slug: project.slug,
+    clientKey: project.clientKey,
+    projectKind: "managed",
+    structure: {
+      componentFile: "PortfolioManagedRenderer",
+      routeFile: "src/routes/portfolio.$slug.tsx",
+      assetsDir: project.heroImageUrl.split("/").slice(0, -1).join("/"),
+      ctaMode: "managed_funnel",
+      hasCta: Boolean(project.ctaLabel),
+      hasCustomComponent: true,
+      hasOwnDescription: Boolean(project.seoDescription),
+      requiresComponent: false,
+    },
+    displayName: project.displayName,
+    segment: project.segment,
+    city: project.city,
+    state: project.state,
+    summary: project.summary,
+    seoTitle: project.seoTitle,
+    seoDescription: project.seoDescription,
+    seoKeywords: project.seoKeywords,
+    canonicalUrl: project.canonicalUrl,
+    logoUrl: project.logoUrl,
+    heroImageUrl: project.heroImageUrl,
+    heroHeadline: project.heroHeadline,
+    heroSubheadline: project.heroSubheadline,
+    socialImageUrl: project.socialImage,
+    socialVersion: project.socialVersion,
+    ctaLabel: project.ctaLabel,
+    shareCopy: project.shareCopy,
+    gallery: project.gallery.map((item) => item.url),
+    brandColors: project.brandColors,
+    lifecycleStatus: project.lifecycle === "ready" ? "draft" : project.lifecycle,
+    published: project.published,
+    contentVersion: project.contentVersion,
+    updatedAt: null,
+    archivedAt: null,
+    imported: true,
+    conformance: {
+      status: status.blockers.length > 0 ? "LEGACY" : status.issues.length > 0 ? "PARTIAL" : "COMPLETE",
+      issues: status.issues.map((issue) => issue.code) as MergedProject["conformance"]["issues"],
+      blocking: status.blockers.map((issue) => issue.code) as MergedProject["conformance"]["blocking"],
+    },
+  };
+}
+
+/** Lista projetos versionados e projetos gerenciados, sem reclassificar registros legados órfãos. */
 export const listPortfolioAdminProjects = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const admin = await assertAdmin(context.userId);
     const rows = await loadRows(admin);
-    const projects = mergeAll(rows).map((p) => ({
+    const registryProjects: Array<AdminListProject & { driftFromSeed: string[] }> = mergeAll(rows).map((p) => ({
       ...p,
+      projectKind: "registry",
       driftFromSeed: diffAgainstSeed(seedBySlug(p.slug)!, p),
     }));
+    const registrySlugs = new Set(registryProjects.map((project) => project.slug));
+    const managedProjects = Array.from(rows.values())
+      .filter((row) => (row as AdminOverrides & { project_kind?: string }).project_kind === "managed")
+      .map(sanitizeManagedProject)
+      .filter((project): project is ManagedProject => Boolean(project))
+      .filter((project) => !registrySlugs.has(project.slug))
+      .map((project) => ({ ...managedToAdminProject(project), driftFromSeed: [] }));
+    const projects = [...registryProjects, ...managedProjects].sort((a, b) =>
+      a.displayName.localeCompare(b.displayName, "pt-BR"),
+    );
     return {
       projects,
       summary: {
