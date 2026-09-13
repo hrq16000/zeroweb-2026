@@ -52,9 +52,35 @@ export type ConfirmDestinationResult = {
   sharedWith?: string[];
 };
 
-function fingerprint(digits: string): string {
+export type DestinationRevisionState = {
+  status: string;
+  source: string;
+  verifiedAt: string | null;
+  evidence: string | null;
+  destinationFingerprint: string | null;
+  validationResult: string | null;
+};
+
+/**
+ * Fingerprint canônico do destino. O número nunca precisa sair do servidor
+ * para provar que uma revisão VERIFIED ainda corresponde ao destino atual.
+ */
+export function fingerprintDestination(digits: string): string {
   const salt = process.env.IP_HASH_SALT ?? "0web-default-salt";
   return createHash("sha256").update(`${salt}:wa:${digits}`).digest("hex").slice(0, 32);
+}
+
+export function revisionMatchesCurrentDestination(
+  revision: Pick<DestinationRevisionState, "status" | "destinationFingerprint" | "validationResult"> | null,
+  digits: string | null | undefined,
+): boolean {
+  if (!revision || !digits) return false;
+  return (
+    revision.status === "VERIFIED" &&
+    revision.validationResult === "PASS" &&
+    Boolean(revision.destinationFingerprint) &&
+    revision.destinationFingerprint === fingerprintDestination(digits)
+  );
 }
 
 function resolveProject(slug: string): { slug: string; clientKey: string } | null {
@@ -106,19 +132,36 @@ export async function currentDestination(clientKey: string) {
   };
 }
 
-async function latestRevision(clientKey: string) {
+async function latestRevision(clientKey: string): Promise<DestinationRevisionState | null> {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data } = await (supabaseAdmin as any)
     .from("portfolio_destination_revisions")
-    .select("new_status, provenance_source, confirmed_at, validated_at")
+    .select(
+      "new_status, provenance_source, evidence, confirmed_at, validated_at, destination_fingerprint, validation_result",
+    )
     .eq("client_key", clientKey)
     .order("confirmed_at", { ascending: false })
     .limit(1)
     .maybeSingle();
-  return (data ?? null) as
-    | { new_status: string; provenance_source: string; confirmed_at: string; validated_at: string | null }
-    | null;
+  if (!data) return null;
+  const row = data as {
+    new_status: string;
+    provenance_source: string;
+    evidence: string | null;
+    confirmed_at: string;
+    validated_at: string | null;
+    destination_fingerprint: string | null;
+    validation_result: string | null;
+  };
+  return {
+    status: row.new_status,
+    source: row.provenance_source,
+    evidence: row.evidence,
+    verifiedAt: row.validated_at ?? row.confirmed_at,
+    destinationFingerprint: row.destination_fingerprint,
+    validationResult: row.validation_result,
+  };
 }
 
 async function writeRevision(row: {
@@ -143,7 +186,7 @@ async function writeRevision(row: {
     provenance_source: row.provenanceSource,
     evidence: row.evidence.slice(0, 500),
     destination_masked: maskWhatsAppDigits(row.digits),
-    destination_fingerprint: fingerprint(row.digits),
+    destination_fingerprint: fingerprintDestination(row.digits),
     shared_with_ack: row.sharedAck,
     confirmed_by: row.userId,
     validated_at: row.validationResult === "PASS" ? new Date().toISOString() : null,
@@ -180,7 +223,13 @@ export async function confirmDestination(
 ): Promise<ConfirmDestinationResult> {
   const project = resolveProject(input.slug);
   if (!project) {
-    return { ok: false, status: "REJECTED", reason: "UNKNOWN_PROJECT", message: "Projeto não encontrado no catálogo.", masked: null };
+    return {
+      ok: false,
+      status: "REJECTED",
+      reason: "UNKNOWN_PROJECT",
+      message: "Projeto não encontrado no catálogo.",
+      masked: null,
+    };
   }
 
   const parsed = normalizeBrWhatsApp(input.whatsapp);
@@ -200,9 +249,13 @@ export async function confirmDestination(
 
   const current = await currentDestination(project.clientKey);
   const previous = await latestRevision(project.clientKey);
-  const previousStatus = previous?.new_status ?? (current.digits ? "CONFIGURED_UNVERIFIED" : "UNRESOLVED");
+  const previousStatus = revisionMatchesCurrentDestination(previous, current.digits)
+    ? "VERIFIED"
+    : previous?.status === "VERIFIED"
+      ? (current.digits ? "CONFIGURED_UNVERIFIED" : "UNRESOLVED")
+      : (previous?.status ?? (current.digits ? "CONFIGURED_UNVERIFIED" : "UNRESOLVED"));
 
-  // (15) troca de destino já verificado exige confirmação explícita
+  // Troca do MESMO destino atualmente verificado exige confirmação explícita.
   if (previousStatus === "VERIFIED" && current.digits && current.digits !== parsed.digits && !input.acknowledgeChange) {
     await writeRevision({
       clientKey: project.clientKey,
@@ -226,7 +279,7 @@ export async function confirmDestination(
     };
   }
 
-  // (10) destino compartilhado por outro projeto
+  // Destino compartilhado por outro projeto exige decisão humana explícita.
   const sharedWith = await findProjectsUsingDigits(parsed.digits, project.clientKey);
   if (sharedWith.length > 0 && !input.acknowledgeShared) {
     return {
@@ -239,7 +292,7 @@ export async function confirmDestination(
     };
   }
 
-  // (6) fonte única: grava no mecanismo canônico privado.
+  // Fonte única: grava no mecanismo canônico privado.
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const admin = supabaseAdmin as any;
@@ -271,7 +324,7 @@ export async function confirmDestination(
     };
   }
 
-  // (7)(8) teste automático logo após salvar
+  // Teste automático logo após salvar, pelo MESMO resolver do runtime.
   const validation = await validateDestination(project.slug, parsed.digits);
   const newStatus = validation.ok ? "VERIFIED" : "CONFIGURATION_ERROR";
 
@@ -303,16 +356,16 @@ export async function confirmDestination(
 }
 
 /** Última revisão administrativa por client_key, para a matriz de auditoria. */
-export async function loadDestinationRevisions(): Promise<
-  Map<string, { status: string; source: string; verifiedAt: string | null; evidence: string | null }>
-> {
-  const out = new Map<string, { status: string; source: string; verifiedAt: string | null; evidence: string | null }>();
+export async function loadDestinationRevisions(): Promise<Map<string, DestinationRevisionState>> {
+  const out = new Map<string, DestinationRevisionState>();
   try {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data } = await (supabaseAdmin as any)
       .from("portfolio_destination_revisions")
-      .select("client_key, new_status, provenance_source, evidence, confirmed_at, validated_at")
+      .select(
+        "client_key, new_status, provenance_source, evidence, confirmed_at, validated_at, destination_fingerprint, validation_result",
+      )
       .order("confirmed_at", { ascending: true });
     for (const r of (data ?? []) as {
       client_key: string;
@@ -321,12 +374,16 @@ export async function loadDestinationRevisions(): Promise<
       evidence: string | null;
       confirmed_at: string;
       validated_at: string | null;
+      destination_fingerprint: string | null;
+      validation_result: string | null;
     }[]) {
       out.set(r.client_key, {
         status: r.new_status,
         source: r.provenance_source,
         verifiedAt: r.validated_at ?? r.confirmed_at,
         evidence: r.evidence,
+        destinationFingerprint: r.destination_fingerprint,
+        validationResult: r.validation_result,
       });
     }
   } catch {
@@ -335,4 +392,4 @@ export async function loadDestinationRevisions(): Promise<
   return out;
 }
 
-export const __test = { fingerprint };
+export const __test = { fingerprintDestination, revisionMatchesCurrentDestination };
