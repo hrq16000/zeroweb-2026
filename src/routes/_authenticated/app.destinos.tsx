@@ -200,6 +200,7 @@ function DestinationsReviewPage() {
               <tr>
                 <th scope="col" className="px-3 py-2">clientKey</th>
                 <th scope="col" className="px-3 py-2">Projeto</th>
+                <th scope="col" className="px-3 py-2">Cidade</th>
                 <th scope="col" className="px-3 py-2">Destino</th>
                 <th scope="col" className="px-3 py-2">Status</th>
                 <th scope="col" className="px-3 py-2">Origem</th>
@@ -217,6 +218,7 @@ function DestinationsReviewPage() {
                       <span className="block">{row.projectName}</span>
                       <span className="block text-xs text-muted-foreground">/portfolio/{row.slug}</span>
                     </td>
+                    <td className="px-3 py-2 text-muted-foreground">{row.city ?? "—"}</td>
                     <td className="px-3 py-2 tabular-nums">{row.destinationValueMasked ?? "—"}</td>
                     <td className="px-3 py-2">
                       <span className="inline-flex items-center gap-1">
@@ -239,7 +241,7 @@ function DestinationsReviewPage() {
               })}
               {visible.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-3 py-6 text-center text-muted-foreground">
+                  <td colSpan={8} className="px-3 py-6 text-center text-muted-foreground">
                     Nenhum projeto neste filtro.
                   </td>
                 </tr>
