@@ -52,6 +52,45 @@ function MetadataPage() {
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [term, setTerm] = useState("");
+
+  /** Uma linha por landing: a do banco quando existe, senão a do catálogo versionado. */
+  const merged = useMemo(() => {
+    const byKey = new Map(rows.map((r) => [r.client_key, r]));
+    const items: Array<{
+      client_key: string;
+      slug: string;
+      display_name: string;
+      settings: ClientSettings | null;
+      seed: SeedProject | null;
+    }> = [];
+    const seen = new Set<string>();
+    for (const project of SEED) {
+      seen.add(project.clientKey);
+      const settings = byKey.get(project.clientKey) ?? null;
+      items.push({
+        client_key: project.clientKey,
+        slug: settings?.slug || project.slug,
+        display_name: settings?.display_name || project.title || project.clientKey,
+        settings,
+        seed: project,
+      });
+    }
+    for (const row of rows) {
+      if (seen.has(row.client_key)) continue;
+      items.push({
+        client_key: row.client_key,
+        slug: row.slug,
+        display_name: row.display_name || row.client_key,
+        settings: row,
+        seed: null,
+      });
+    }
+    const needle = term.trim().toLowerCase();
+    return items
+      .filter((i) => !needle || `${i.display_name} ${i.client_key} ${i.slug}`.toLowerCase().includes(needle))
+      .sort((a, b) => a.display_name.localeCompare(b.display_name, "pt-BR"));
+  }, [rows, term]);
 
   const refresh = useCallback(async () => {
     setLoading(true);
