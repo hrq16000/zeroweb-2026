@@ -244,6 +244,7 @@ export function sanitizePortfolioRuntimeRow(
     published: Boolean(row.published),
     contentVersion: Number(row.content_version ?? 0),
     motion: sanitizeMotionSettings(row.motion_settings),
+    seoSchema: sanitizeSeoSchema(row.seo_schema),
   };
 }
 
