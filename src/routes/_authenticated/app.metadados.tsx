@@ -94,8 +94,20 @@ function MetadataPage() {
       seo_keywords: row.seo_keywords,
       canonical_url: row.canonical_url,
       social_image_url: row.social_image_url,
+      seo_schema: row.seo_schema ?? "",
     });
     setPublished(row.published);
+  };
+
+  /** Abre o formulário já preenchido para uma landing que ainda não tem metadados. */
+  const startFromSeed = (project: SeedProject) => {
+    setForm({
+      ...EMPTY,
+      client_key: project.clientKey,
+      slug: project.slug,
+      display_name: project.title ?? "",
+    });
+    setPublished(false);
   };
 
   const field = (key: keyof typeof EMPTY, label: string, extra?: { textarea?: boolean; hint?: string }) => (
