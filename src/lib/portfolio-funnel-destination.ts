@@ -29,6 +29,7 @@ export const DESTINATION_PROVENANCE_SOURCES = [
   "OFFICIAL_GOOGLE",
   "OFFICIAL_WEBSITE",
   "OFFICIAL_SOCIAL",
+  "PUBLIC_BUSINESS_REGISTRY",
   "EXISTING_VERIFIED_RECORD",
 ] as const;
 
@@ -143,7 +144,6 @@ export function compareByOperationalRisk(a: DestinationRow, b: DestinationRow): 
   if (views) return views;
   return a.slug.localeCompare(b.slug);
 }
-
 
 /**
  * Máscara canônica: `(41) 9****-0764`.

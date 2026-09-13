@@ -36,7 +36,6 @@ type LedgerEntry = {
   humanDecision?: string;
 };
 
-
 const LEDGER = (ledger as { entries?: Record<string, LedgerEntry> }).entries ?? {};
 
 type CatalogRow = {
@@ -128,7 +127,6 @@ async function loadTelemetry(): Promise<{
       }
       if (page.length < PAGE) break;
     }
-
   } catch {
     /* telemetria é observacional: sua ausência nunca derruba a auditoria */
   }
@@ -143,25 +141,16 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
   } = await import("@/lib/whatsapp-redirect.server");
 
   const { bySlug, leadsByClientKey } = await loadTelemetry();
-  const { loadDestinationRevisions } = await import("@/lib/portfolio-destination-confirm.server");
+  const {
+    loadDestinationRevisions,
+    revisionMatchesCurrentDestination,
+  } = await import("@/lib/portfolio-destination-confirm.server");
   const revisions = await loadDestinationRevisions();
   const rows: DestinationRow[] = [];
 
   for (const project of CATALOG) {
     const clientKey = project.clientKey ?? project.slug;
     const context = resolvePortfolioFunnelContext(project.slug);
-    // Confirmação administrativa é a evidência mais recente e vence o
-    // livro-razão versionado; ausência dela preserva o estado atual.
-    const revision = revisions.get(clientKey);
-    const entry: LedgerEntry | undefined = revision
-      ? {
-          status: revision.status,
-          source: revision.source,
-          confidence: revision.status === "VERIFIED" ? 100 : 60,
-          verifiedAt: revision.verifiedAt,
-          evidence: revision.evidence ? [revision.evidence] : [],
-        }
-      : (LEDGER[clientKey] ?? LEDGER[project.slug]);
 
     const fromSecret = resolvePortfolioWhatsAppContact(clientKey);
     const contact = fromSecret ?? (await resolvePortfolioWhatsAppContactAsync(clientKey));
@@ -171,6 +160,28 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
         ? "CLIENT_SETTINGS"
         : "NONE";
 
+    // Uma revisão VERIFIED só é válida se o PASS foi emitido para exatamente o
+    // mesmo destino que o resolver usa agora. Isso impede status verde obsoleto
+    // depois de troca de número, segredo legado ou alteração direta no banco.
+    const revision = revisions.get(clientKey);
+    const staleVerified = Boolean(
+      revision?.status === "VERIFIED" &&
+        !revisionMatchesCurrentDestination(revision, contact?.digits ?? null),
+    );
+    const effectiveRevisionStatus = staleVerified ? "CONFIGURED_UNVERIFIED" : revision?.status;
+
+    // Confirmação administrativa mais recente vence o livro-razão apenas após
+    // passar pelo vínculo fingerprint ↔ destino atual acima.
+    const entry: LedgerEntry | undefined = revision
+      ? {
+          status: effectiveRevisionStatus,
+          source: revision.source,
+          confidence: effectiveRevisionStatus === "VERIFIED" ? 100 : 60,
+          verifiedAt: effectiveRevisionStatus === "VERIFIED" ? revision.verifiedAt : null,
+          evidence: revision.evidence ? [revision.evidence] : [],
+        }
+      : (LEDGER[clientKey] ?? LEDGER[project.slug]);
+
     let status: DestinationStatus;
     let note: string | null = null;
 
@@ -179,7 +190,9 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
       note = entry.conflict;
     } else if (!contact) {
       status = "UNRESOLVED";
-      note = "Sem destino operacional cadastrado: o funil termina apenas em protocolo.";
+      note = staleVerified
+        ? "Havia revisão VERIFIED, mas o destino validado não corresponde mais a nenhum destino operacional atual."
+        : "Sem destino operacional cadastrado: o funil termina apenas em protocolo.";
     } else if (entry?.status === "VERIFIED") {
       status = "VERIFIED";
     } else if (entry?.status === "AUTO_RESOLVED") {
@@ -197,7 +210,9 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
         "Destino configurado, sem evidência local de que ainda pertence ao negócio.";
     } else {
       status = "CONFIGURED_UNVERIFIED";
-      note = "Destino configurado, mas sem evidência de origem registrada.";
+      note = staleVerified
+        ? "Revisão VERIFIED obsoleta: o fingerprint validado não corresponde ao destino resolvido atualmente."
+        : "Destino configurado, mas sem evidência de origem registrada.";
     }
 
     const telemetry = bySlug.get(project.slug) ?? { ...EMPTY_TELEMETRY };
@@ -249,4 +264,3 @@ export function summarizeDestinations(rows: DestinationRow[]) {
     projectsWithDeliveryNotConfigured: rows.filter((r) => r.deliveryNotConfigured).length,
   };
 }
-
