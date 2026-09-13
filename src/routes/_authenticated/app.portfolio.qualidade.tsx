@@ -1,8 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { RefreshCw, Search } from "lucide-react";
-import { listPortfolioQuality, type PortfolioQualityRow } from "@/lib/portfolio-quality.functions";
+import { RefreshCw, Search, Upload } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  listPortfolioQuality,
+  publishPortfolioQuality,
+  type PortfolioQualityRow,
+} from "@/lib/portfolio-quality.functions";
 
 /**
  * Priorização das landings do portfólio.
@@ -36,11 +41,14 @@ const badge = "rounded-full border px-2 py-1 text-xs";
 
 function QualityPage() {
   const load = useServerFn(listPortfolioQuality);
+  const publish = useServerFn(publishPortfolioQuality);
   const [rows, setRows] = useState<PortfolioQualityRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("ALL");
+  const [publishing, setPublishing] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -81,6 +89,22 @@ function QualityPage() {
     }),
     [rows],
   );
+
+  const publishOne = async (row: PortfolioQualityRow) => {
+    if (!row.canPublish || row.published) return;
+    setPublishing(row.slug);
+    setError(null);
+    setMessage(null);
+    try {
+      await publish({ data: { slug: row.slug } });
+      setMessage(`${row.title} publicado após validação dos requisitos.`);
+      await refresh();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Não foi possível publicar o projeto.");
+    } finally {
+      setPublishing(null);
+    }
+  };
 
   return (
     <div className="p-6 lg:p-8">
@@ -158,6 +182,11 @@ function QualityPage() {
           {error}
         </p>
       )}
+      {message && (
+        <p role="status" className="mt-4 rounded-md border border-primary/30 bg-primary/5 p-3 text-sm">
+          {message}
+        </p>
+      )}
 
       <section className="mt-6 overflow-x-auto">
         {loading && <p className="text-sm text-muted-foreground">Carregando…</p>}
@@ -172,6 +201,7 @@ function QualityPage() {
               <th className="py-2">Nota</th>
               <th className="py-2">Conformidade</th>
               <th className="py-2">Situação</th>
+              <th className="py-2">Publicação</th>
             </tr>
           </thead>
           <tbody>
@@ -208,11 +238,32 @@ function QualityPage() {
                     </span>
                   </span>
                 </td>
+                <td className="py-2">
+                  {r.published ? (
+                    <span className="text-xs text-muted-foreground">Publicado</span>
+                  ) : (
+                    <Button
+                      type="button"
+                      size="sm"
+                      disabled={!r.canPublish || publishing === r.slug}
+                      title={r.canPublish ? "Publicar após os gates" : r.publishBlockers.join(" · ")}
+                      onClick={() => void publishOne(r)}
+                    >
+                      <Upload className="h-4 w-4" aria-hidden="true" />
+                      {publishing === r.slug ? "Validando…" : "Publicar"}
+                    </Button>
+                  )}
+                  {!r.published && !r.canPublish && (
+                    <span className="mt-1 block max-w-56 text-xs text-muted-foreground">
+                      {r.publishBlockers.join(" · ")}
+                    </span>
+                  )}
+                </td>
               </tr>
             ))}
             {!loading && visible.length === 0 && (
               <tr>
-                <td colSpan={8} className="py-6 text-muted-foreground">
+                <td colSpan={9} className="py-6 text-muted-foreground">
                   Nenhuma landing encontrada com esse filtro.
                 </td>
               </tr>

@@ -96,7 +96,7 @@ export const listPortfolioQuality = createServerFn({ method: "GET" })
     const admin = await assertAdmin(context.userId);
     const { data: settings } = await (admin as any)
       .from("portfolio_client_settings")
-      .select("client_key,slug,published,funnel_recipient,lifecycle_status")
+      .select("*")
       .limit(500);
 
     const byKey = new Map<string, any>();
