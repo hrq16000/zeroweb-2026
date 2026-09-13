@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "mode": "ZERO_GENERIC_TOLERANCE",
+  "canonicalDoc": "docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md",
+  "scope": {
+    "appliesToAllPortfolioProjects": true,
+    "includesExistingProjects": true,
+    "includesNewProjects": true,
+    "includesMaterialMaintenance": true,
+    "surfaces": [
+      "portfolio-route",
+      "catalog-card",
+      "catalog-cover",
+      "preview-modal",
+      "viewer-iframe",
+      "editor-preview",
+      "pr-preview",
+      "hero",
+      "social-og",
+      "thumbnail",
+      "share-media",
+      "funnel-ui",
+      "mobile",
+      "tablet",
+      "desktop",
+      "reduced-motion",
+      "ab-variant",
+      "campaign-derivative",
+      "own-domain-promotion"
+    ]
+  },
+  "skillPolicy": {
+    "discoveryRequired": true,
+    "searchLocalRegistry": true,
+    "searchOriginalSources": true,
+    "searchLobeHub": true,
+    "searchAwesomeSkill": true,
+    "awesomeSkillSearchUrl": "https://awesomeskill.ai/search",
+    "maximumRelevantNonRedundant": true,
+    "securityReviewBeforeExecution": true,
+    "neverInstallDuringBuild": true,
+    "requiredLayers": [
+      "strategy",
+      "entity-research",
+      "art-direction",
+      "ui-ux",
+      "layout-engineering",
+      "design-system",
+      "conversion",
+      "motion",
+      "accessibility",
+      "react-performance",
+      "seo-content",
+      "privacy-security",
+      "browser-qa"
+    ]
+  },
+  "creativePolicy": {
+    "minimumDivergentDirectionsBeforeFinal": 3,
+    "noPresetAsFinalDirection": true,
+    "noSharedVisualSkeleton": true,
+    "noBrandTestRequired": true,
+    "neighborComparisonRequired": true,
+    "compositionFingerprintRequired": true,
+    "signatureMomentRequired": true
+  },
+  "mediaPolicy": {
+    "purposeSlots": ["hero", "catalogCover", "socialOg", "preview"],
+    "mediaStrategyRequired": true,
+    "generatedContextualMediaAllowed": true,
+    "fabricatedEvidenceForbidden": true,
+    "mediaStarvationIsFailure": true
+  },
+  "layoutPolicy": {
+    "requiredAssessment": ["flexbox", "css-grid", "intrinsic-sizing", "responsive-flow"],
+    "viewports": [390, 768, 1440],
+    "semanticOrderRequired": true,
+    "horizontalOverflowForbidden": true
+  },
+  "motionPolicy": {
+    "assessmentRequired": true,
+    "capabilities": [
+      "fade-up",
+      "fade-left/right",
+      "blur-in",
+      "scale-in",
+      "stagger-up",
+      "image-reveal",
+      "clip-reveal",
+      "parallax",
+      "marquee",
+      "float",
+      "header-scroll",
+      "menu-reveal",
+      "text-line-reveal",
+      "progress-line"
+    ],
+    "reducedMotionRequired": true,
+    "maximumRelevantNotMaximumEffects": true
+  },
+  "hardBlockers": [
+    "SKILL_DISCOVERY_SKIPPED",
+    "GENERIC_COMPOSITION",
+    "SHARED_VISUAL_SKELETON",
+    "SKIN_SWAP",
+    "REUSED_HERO_GEOMETRY_WITHOUT_JUSTIFICATION",
+    "DEFAULT_SECTION_ORDER",
+    "DEFAULT_TYPOGRAPHY_WITHOUT_BRAND_REASON",
+    "REPEATED_GRID_TOPOLOGY",
+    "REPEATED_MOTION_GRAMMAR",
+    "NO_SIGNATURE_MOMENT",
+    "MEDIA_STARVATION",
+    "CATALOG_COVER_GENERIC",
+    "PREVIEW_ASSET_DRIFT",
+    "OG_DIRECTION_DRIFT",
+    "MOBILE_GENERIC_COLLAPSE",
+    "REDUCED_MOTION_BROKEN",
+    "NO_BRAND_TEST_FAIL",
+    "HIGH_SIMILARITY_UNRESOLVED",
+    "VISUAL_QA_MISSING"
+  ],
+  "legacyPolicy": {
+    "grandfatheredAsComplete": false,
+    "mayRemainPublishedDuringRemediation": true,
+    "fullPolicyAppliesOnMaterialMaintenance": true,
+    "priorityOrder": [
+      "HIGH_SIMILARITY",
+      "ATTENTION",
+      "weak-media-cover",
+      "generic-hero",
+      "missing-signature"
+    ]
+  }
+}
