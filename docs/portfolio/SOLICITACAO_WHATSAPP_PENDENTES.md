@@ -44,3 +44,33 @@ Enquanto o número não é confirmado, guardamos cada pedido com o contato de re
 | ton-e-cor | Ton & Cor · Pintura e Pequenas Reformas | Região de Curitiba/PR | /portfolio/ton-e-cor | Sem número próprio em material ou ficha oficial da marca | |
 | uberlandia-eletrica-residencial | Elétrica Bairro Brasil | Uberlândia/MG | /portfolio/uberlandia-eletrica-residencial | Sem número próprio em material ou ficha oficial da marca | |
 | woodhouse-hamburgueres | Woodhouse Hambúrgueres | São José dos Pinhais/PR | /portfolio/woodhouse-hamburgueres | Sem número próprio em material ou ficha oficial da marca | |
+
+## Rodada de verificação — 2026-09-13
+
+Critério aplicado: só grava destino quando o candidato oficial tem **nome idêntico**
+à marca **e** endereço na **mesma cidade** da ficha. Nada foi gravado nesta rodada.
+
+Resultado por grupo:
+
+- **Nenhuma correspondência exata nome + cidade:** almeida-torres, angel-mix-brecho,
+  artesanatos-darleia-oliveira, bh-barreiro-marmitas, casa-nativa, confeitaria-chyrley,
+  diego-montador-moveis, ecommerce-on, eletrovale-eletromecanica, fernanda-amaral-drywall,
+  galileu-locacao-brinquedos, guaratuba-atelie-presentes, guaratuba-oficina-nautica,
+  guaratuba-reparos-residenciais, guaratuba-sabores-da-baia, mary-diarista,
+  mirassol-conserta-celular, mirassol-delicias-caseiras, r-beauty, raphael-construcoes,
+  rj-servicos-drywall, santos-montador-de-moveis, ton-e-cor,
+  uberlandia-eletrica-residencial, woodhouse-hamburgueres, pinturas-nunes.
+  Os candidatos são empresas homônimas ou do mesmo ramo, não a marca hospedada.
+- **marido-de-aluguel (Mestre dos Serviços):** único nome idêntico encontrado, porém o
+  telefone da ficha é o número institucional da 0WEB → `INSTITUTIONAL_FORBIDDEN`.
+  Continua bloqueado até o dono confirmar um número próprio.
+- **espaco-cih-luh:** pesquisa oficial executada nesta rodada (4 candidatos em Manaus),
+  nenhum com nome idêntico.
+- **jkl-marcenaria:** slug descontinuado (301 para jkl-decor); sai da fila.
+
+### O que falta para destravar
+
+1. Confirmação do titular (WhatsApp próprio, com DDD) das 27 marcas acima — é o único
+   caminho possível: a pesquisa pública já foi esgotada e não produziu prova inequívoca.
+2. Para Mestre dos Serviços, um número da própria marca, diferente do institucional 0WEB.
+3. Registrar cada envio e resposta em **Painel → Funis → Solicitações de número**.
