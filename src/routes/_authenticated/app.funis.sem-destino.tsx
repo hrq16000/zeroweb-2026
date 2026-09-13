@@ -172,6 +172,12 @@ function PendingDestinationsPage() {
                   <Link to="/app/funis/numeros" className="min-h-11 text-primary underline">
                     Revisar
                   </Link>
+                  <Link to="/app/funis/solicitacoes" className="ml-3 min-h-11 text-primary underline">
+                    Solicitações
+                  </Link>
+                  <Link to="/app/metadados" className="ml-3 min-h-11 text-primary underline">
+                    Metadados
+                  </Link>
                 </td>
               </tr>
             ))}
