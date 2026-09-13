@@ -1,6 +1,6 @@
 ---
 id: 0web-portfolio-autonomous-factory
-version: 1.0.0
+version: 1.1.0
 status: NORMATIVE_TARGET
 scope:
   - /portfolio/:slug
@@ -38,406 +38,264 @@ Cada `/portfolio/:slug` é um projeto/cliente independente com:
 - histórico de versões próprio;
 - analytics próprios.
 
-A 0WEB compartilha infraestrutura. **O cliente nunca compartilha identidade, composição visual, conteúdo, dados ou destino comercial com outro cliente.**
+O mesmo `projectId/client_key` deve sobreviver a todas as fases. Promover um projeto para domínio próprio troca host/canonical e publicação; não recria o site.
 
-## 2. Experiência desejada: criação a partir de poucas palavras
+## 2. Princípio central
 
-Entradas válidas incluem:
+**Padronizar infraestrutura, dados, segurança, lifecycle, SEO técnico, telemetria e qualidade. Nunca padronizar a aparência final.**
 
-```text
-"criar um site para minha oficina"
-"Confeitaria Sabor da Realeza em Curitiba"
-"sou eletricista, atendo São José dos Pinhais"
-URL de site / Google / rede social
-logo ou foto
-nome + cidade
-```
+Parametrização não significa uniformidade visual. Dois clientes podem compartilhar o mesmo motor e os mesmos componentes primitivos sem compartilhar hero, ordem de seções, grid, ritmo, linguagem tipográfica, narrativa de mídia, motion, microinterações ou fechamento.
 
-O sistema deve:
+É falha de produto quando uma página parece “o mesmo template com outras cores”.
 
-1. entender a intenção;
-2. pesquisar o negócio e/ou segmento em fontes públicas permitidas;
-3. resolver a entidade correta;
-4. aproveitar automaticamente fatos confiáveis já disponíveis;
-5. perguntar **somente** o que continua crítico e não resolvido;
-6. criar 2–3 direções criativas internamente, materialmente diferentes;
-7. escolher ou regenerar a direção mais adequada e original;
-8. gerar site completo, responsivo, SEO, assets, funil e preview;
-9. permitir edição por linguagem natural e por controles estruturados;
-10. guardar cada alteração como revisão recuperável.
+## 3. Benchmark de capacidade — nunca de cópia
 
-Regra de UX: **não perguntar ao usuário o que a plataforma consegue descobrir com confiança. Não inventar o que não consegue descobrir.**
+Landingsite.ai, UXPilot, LeadSite, Faroleads e ferramentas equivalentes servem como referência de **velocidade, autonomia e experiência do criador**. Nunca são fonte para copiar layout, texto, marca, identidade ou ativos.
 
-## 3. Pesquisa e enriquecimento factual
+A capacidade-alvo da 0WEB é:
 
-A plataforma pode consultar, quando aplicável e permitido: material enviado pelo cliente, site oficial, Google Business/Maps, redes oficiais, cardápios/catálogos, diretórios públicos, páginas públicas, registros e outras fontes abertas relevantes.
+1. iniciar por linguagem natural e poucas palavras;
+2. pesquisar automaticamente empresa, segmento, cidade e contexto verificável;
+3. detectar o que é fato, inferência, conflito ou ausência de evidência;
+4. perguntar apenas gaps materiais;
+5. gerar no mínimo três direções visuais realmente divergentes antes da seleção;
+6. rejeitar composição parecida demais com projeto já existente;
+7. criar copy, mídia, SEO, motion e funil contextualizados;
+8. oferecer preview imediato desktop/mobile;
+9. permitir edição por formulário, controles visuais e conversa;
+10. versionar e permitir rollback;
+11. publicar em `/portfolio/:slug` e depois ligar domínio próprio ao mesmo projeto.
 
-A plataforma não promete “raspar literalmente toda a internet”. Ela executa **pesquisa pública proporcional, verificável e orientada a evidência**, respeitando autenticação, paywalls, direitos e termos das fontes.
+## 4. Pipeline obrigatório
 
-Cada fato utilizado deve poder carregar:
+`intent_parse → entity_discovery → entity_resolution → evidence_collection → gap_detection → adaptive_questions → creative_direction_generation → originality_rejection → composition_graph → content → media → funnel → SEO → responsive implementation → quality audit → preview → approval → publish → continuous editing → custom domain`
 
-```yaml
-field: phone | address | service | hours | social | image | claim | ...
-value: ...
-sourceType: OWNER_SUPPLIED | OFFICIAL_WEBSITE | GOOGLE | OFFICIAL_SOCIAL | PUBLIC_DIRECTORY | PUBLIC_WEB
-sourceUrl: ...
-retrievedAt: ...
-confidence: 0..1
-status: VERIFIED | PROBABLE | CONFLICT | UNKNOWN
-```
+Nenhuma etapa pode inventar dados apenas para completar a página.
 
-`CONFLICT` nunca vira fato publicado automaticamente. `UNKNOWN` nunca vira preço, avaliação, garantia, endereço, telefone, horário, número de clientes ou resultado inventado.
+## 5. Pesquisa e resolução de entidade
 
-## 4. Contato e WhatsApp: contrato canônico
+Antes de usar qualquer contato, endereço, nome legal, preço, depoimento, avaliação, estatística ou outra alegação externa, o sistema deve resolver a entidade.
 
-O objetivo operacional é chegar a **100% dos projetos com destino correto quando existir evidência suficiente**, sem fabricar número para completar a cobertura.
+Prioridade de fontes:
 
-Regras permanentes:
+1. material fornecido pelo cliente;
+2. registro interno previamente verificado;
+3. site oficial;
+4. perfil oficial Google/Google Business;
+5. rede social oficial;
+6. histórico interno/Git;
+7. registro público confiável;
+8. diretório de terceiros somente como evidência auxiliar.
 
-- telefone brasileiro com DDD + **8 dígitos locais** é válido;
-- telefone brasileiro com DDD + **9 dígitos locais** é válido;
-- pode ser fixo ou celular;
-- nunca acrescentar, retirar ou inferir o nono dígito;
-- o formato do número não é motivo para rejeição quando entidade e evidência batem;
-- número institucional da 0WEB é proibido como destino de cliente;
-- número compartilhado entre marcas exige evidência e regra explícita de compartilhamento;
-- troca de destino já VERIFIED exige proteção de mudança;
-- relatórios públicos/operacionais exibem máscara/fingerprint, não número completo;
-- ausência de destino nunca manda lead para 0WEB como fallback: salvar lead e coletar retorno do visitante.
+Cada evidência deve registrar origem, entidade, localidade, momento da coleta e confiança. Resultado possível: `VERIFIED`, `STRONG`, `WEAK`, `CONFLICT`, `UNKNOWN`.
 
-Fonte de verdade alvo do destino por cliente: `portfolio_client_settings`, com confirmação pelo fluxo canônico e trilha em `portfolio_destination_revisions`. Segredos/variáveis antigas são legado de runtime, não o modelo desejado para gestão editorial de destinos.
+### Nunca fazer
 
-## 5. Modelo de projeto: entidade, não pasta de arquivos
+- inventar telefone, e-mail, endereço, preço, depoimento ou número de clientes;
+- acrescentar ou remover o nono dígito de telefone;
+- rejeitar telefone apenas por ser fixo;
+- atribuir telefone de marca semelhante;
+- usar o WhatsApp institucional da 0WEB como destino de um cliente;
+- transformar imagem conceitual em “foto real da empresa”;
+- transformar resultado de busca em fato sem resolver identidade.
 
-O projeto é a unidade primária. Arquivos são implementação.
+## 6. WhatsApp e destino do funil
 
-Modelo conceitual mínimo:
+DDD + 8 ou DDD + 9 dígitos locais são válidos. Fixo e celular são válidos. O critério é pertencer à entidade certa.
 
-```yaml
-project:
-  id: immutable
-  clientKey: immutable
-  slug: mutable-with-history
-  ownerId: nullable
-  status: draft | researching | designing | qa | preview | published | suspended | archived
-  identity: {}
-  researchEvidence: []
-  content: {}
-  services: []
-  media: []
-  visualDNA: {}
-  compositionGraph: {}
-  motionGrammar: {}
-  funnel: {}
-  destination: {}
-  seo: {}
-  domains: []
-  permissions: []
-  revisions: []
-  analyticsScope: {}
-```
+Fonte canônica: `portfolio_client_settings.funnel_recipient`.
 
-Projetos novos **não devem exigir dezenas de arquivos artesanais para existir**. Configuração, conteúdo, evidência, composição e ownership devem migrar gradualmente para dados persistentes e versionados. Código compartilhado fornece primitives e renderização; dados do projeto fornecem a experiência específica.
+Confirmação canônica: `confirmDestination`.
 
-## 6. Parametrizado NÃO significa padronizado visualmente
+Histórico: `portfolio_destination_revisions`.
 
-Regra central:
+Destino institucional 0WEB é proibido como destino de cliente. Se não houver destino comprovado, o lead é salvo primeiro e o visitante deixa contato para retorno; não existe fallback silencioso para a 0WEB.
 
-> **Padronizar dados, segurança e engenharia. Nunca padronizar a aparência final.**
+## 7. Creative Director — criatividade antes de validação
 
-O sistema pode compartilhar botões, media primitives, motion engine, funil, analytics, SEO helpers, upload, autenticação, editor e renderer. O resultado final deve variar materialmente em:
+Presets podem existir temporariamente como compatibilidade técnica, mas **não podem ser a decisão criativa final**.
 
-- arquitetura de informação;
-- geometria da primeira dobra;
-- navegação;
-- ordem e quantidade de capítulos;
+Para cada projeto novo ou redesign relevante, o Creative Director deve produzir pelo menos três propostas divergentes. Cada proposta define:
+
+- personalidade do negócio;
+- conceito criativo;
+- metáfora visual;
+- geometria do hero;
+- grafo e ordem de seções;
 - topologia de grid;
-- densidade e whitespace;
-- tipografia;
-- paleta e materialidade;
-- linguagem de bordas/formas;
-- tratamento de mídia;
-- relação texto/imagem;
-- estratégia de prova;
-- distribuição dos CTAs;
-- motion grammar;
-- microinterações;
-- encerramento/footer;
-- pelo menos uma assinatura visual/interativa específica do negócio.
+- linguagem tipográfica;
+- estratégia cromática;
+- narrativa de mídia;
+- narrativa de prova;
+- narrativa de conversão;
+- narrativa de motion;
+- momentos de assinatura;
+- estrutura do fechamento.
 
-Trocar logo, cores, fotos e texto sobre o mesmo DOM/composição é **FAIL**.
+As propostas não podem ser variações cosméticas da mesma árvore.
 
-## 7. Motor criativo: gerar antes de renderizar
+### Padrões proibidos
 
-Antes da implementação final, o Creative Director deve produzir direções divergentes, por exemplo:
+- “segmento X sempre usa template Y”;
+- hero padrão com imagem à direita e copy à esquerda em todos os projetos;
+- ordem automática `hero → serviços → sobre → depoimentos → FAQ → contato`;
+- mesmos cards, mesmas bordas e mesmos grids apenas recoloridos;
+- mesma família de componentes para segmentos diferentes sem justificativa narrativa;
+- motion decorativo repetido;
+- usar o campo `preset` como resposta final para direção criativa.
 
-```yaml
-creativeCandidates:
-  - concept: ...
-    visualMetaphor: ...
-    spatialLanguage: ...
-    heroConcept: ...
-    contentRhythm: ...
-    mediaNarrative: ...
-    typographyStrategy: ...
-    motionNarrative: ...
-    signatureInteraction: ...
-  - ...
-  - ...
-```
+## 8. Originalidade é um gate de rejeição
 
-Essas direções **não são templates nomeados**. São hipóteses criativas derivadas da empresa, público, oferta, localidade, mídia, personalidade e objetivo comercial.
+Antes de publicar uma composição nova, comparar com todos os projetos existentes nas dimensões:
 
-O sistema deve comparar o candidato com o portfólio existente antes de gerar a versão final.
+- `hero_geometry`;
+- `section_order`;
+- `grid_topology`;
+- `component_family`;
+- `visual_rhythm`;
+- `media_distribution`;
+- `motion_signature`;
+- `cta_distribution`;
+- `closing_structure`.
 
-### Anti-template gate
+Se a combinação exceder o limite de similaridade, **não se corrige apenas cor ou copy**. A composição é rejeitada e regenerada.
 
-Um projeto novo reprova se repetir materialmente de outro projeto a combinação de:
+A baseline histórica serve para impedir regressão, não para declarar satisfatório o passivo visual existente. Pares `HIGH_SIMILARITY` entram em fila de redesign até deixarem de compartilhar a mesma linguagem estrutural.
 
-`heroGeometry + firstThreeChapters + gridTopology + typographyStrategy + mediaNarrative + motionGrammar + ctaDistribution`.
+## 9. Projeto como entidade persistente
 
-O `NO-BRAND TEST` de `PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md` continua obrigatório: sem logo, cor, texto e fotos, dois sites ainda devem parecer projetos diferentes.
+Cada projeto deve possuir, conceitualmente:
 
-## 8. Blueprint/composition graph gerável
+- identidade;
+- conteúdo;
+- ativos;
+- `composition_graph`;
+- SEO;
+- funil;
+- destino;
+- analytics;
+- membros/permissões;
+- domínio;
+- lifecycle;
+- versões e histórico.
 
-O Blueprint é contrato de fatos, capacidades e conteúdo; o `compositionGraph` descreve a composição criada para aquele projeto.
+Lifecycle alvo: `draft → researching → composing → ready → published → archived`.
 
-Exemplo conceitual:
+Rascunho não entra na busca pública e não deve ser indexado.
 
-```yaml
-compositionGraph:
-  root: experience
-  nodes:
-    - id: opening
-      primitive: immersive-stage
-      children: [brandMark, offer, mediaWindow, primaryAction]
-      behavior: layered-reveal
-    - id: services
-      primitive: editorial-path
-      layout: asymmetric
-    - id: proof
-      primitive: evidence-strip
-      source: verified-only
-```
-
-A biblioteca de primitives funciona como vocabulário, **não como conjunto fechado de templates**. Quando nenhuma composição existente expressa a direção, o sistema pode criar uma nova composição/primitive segura e incorporá-la à biblioteca depois de revisão.
-
-## 9. Qualidade: build verde não significa site bom
-
-Há dois eixos independentes:
-
-```text
-TECHNICAL_PASS
-+ EDITORIAL_CREATIVE_PASS
-= READY
-```
-
-`TECHNICAL_PASS`: types, build, SSR, privacidade, segurança, a11y, performance, SEO técnico, funil, responsive.
-
-`EDITORIAL_CREATIVE_PASS`: entidade correta, conteúdo útil, mídia resolvida, hierarquia forte, direção visual coerente, originalidade real, motion observado, conversão clara, acabamento premium, ausência de dead zones e evidência suficiente.
-
-Uma landing “quadrada”, genérica, vazia, apenas textual ou parecida com outra **não está pronta**, mesmo com todos os testes de código verdes.
-
-## 10. Usuários, ownership e isolamento
+## 10. Autorização e multi-tenant
 
 Papéis-alvo:
 
-```yaml
-roles:
-  super_admin:
-    scope: all
-    canAssignOwnership: true
-    canPublish: true
-    canPromoteDomain: true
-  seller:
-    canCreateDraft: true
-    canRunIntakeWithClient: true
-    canSharePreview: true
-    canEditAssignedProjects: true
-  client_owner:
-    canRead: own_projects
-    canEdit: own_projects
-    canUploadMedia: own_projects
-    canRequestPublish: true
-    canManageBusinessContent: true
-  client_editor:
-    canRead: assigned_projects
-    canEdit: assigned_scopes
-  visitor:
-    canRead: published_public_content
-```
+- `super_admin`: acesso global e autoridade para conceder/revogar acesso;
+- `admin`: operação global conforme política;
+- `seller`: inicia projeto para cliente sem virar administrador global;
+- `project_owner`: proprietário de um ou mais projetos atribuídos;
+- `project_editor`: edita projeto atribuído;
+- `project_viewer`: somente leitura/preview.
 
-Regras:
+Autorização deve ser validada no servidor e protegida por RLS. Esconder botão não é controle de acesso.
 
-- cadastro de usuário não concede automaticamente acesso a projeto de cliente;
-- `super_admin` aprova/atribui ownership;
-- autorização é verificada no servidor e no banco/RLS, nunca apenas escondendo botão na UI;
-- `client_owner` nunca lê ou modifica projeto, leads, assets, destino ou analytics de outro `clientKey`;
-- toda alteração sensível registra ator, projeto, antes/depois e timestamp;
-- publicação, troca de domínio, troca de owner e mudanças críticas podem exigir aprovação elevada.
+Um cliente comum nunca pode enumerar ou alterar projeto que não esteja explicitamente associado ao seu usuário.
 
-## 11. Editor do cliente
+O super admin deve poder pré-autorizar um `client_key` para que o próprio cliente crie o projeto reservado. Owner/editor pode editar até `READY`; publicação e arquivamento permanecem administrados até cobrança, contrato e domínio estarem automatizados.
 
-O cliente autorizado precisa conseguir, sem código:
+## 11. Experiência do editor
 
-- editar textos e títulos;
-- adicionar/remover/reordenar serviços quando permitido;
-- trocar/upload de fotos e logo;
-- atualizar horário, região e informações confirmáveis;
-- alterar preços que sejam declaradamente do próprio negócio;
-- pedir mudanças em cor, tipografia, densidade e direção por linguagem natural;
-- editar SEO básico com ajuda da IA;
-- testar o funil;
-- ver preview antes de publicar;
-- restaurar versões anteriores.
+O cliente/vendedor deve poder trabalhar de três formas complementares:
 
-Mudança livre não pode destruir acessibilidade, privacidade, estrutura SEO, segurança ou identidade sem aviso. O editor aplica constraints de qualidade em vez de expor CSS bruto ao cliente.
+1. **guided form** — edição objetiva de fatos, serviços, horários, imagens e identidade;
+2. **visual controls** — foco, imagem, ordem, opções contextuais e preview mobile/desktop;
+3. **chat edit** — pedidos como “deixe mais sofisticado”, “troque a foto do hero”, “adicione serviço X”, sempre como alteração estruturada e versionada.
 
-## 12. Seller live mode
+Toda alteração relevante gera versão e pode ser desfeita.
 
-Um vendedor da 0WEB deve poder criar a presença na frente do cliente:
+## 12. Media intelligence
 
-```text
-Nova presença
-→ nome/descrição curta
-→ pesquisa automática
-→ perguntas críticas restantes
-→ gerar direção e primeira versão
-→ preview compartilhável
-→ ajustar por conversa
-→ cliente aprova
-→ proposta/pagamento
-→ ownership + publicação
-```
+Mídia deve ter função narrativa. O sistema escolhe entre:
 
-O vendedor não precisa conhecer Git, Vercel, React, SEO técnico ou banco.
+- material real do cliente;
+- mídia oficial encontrada e comprovadamente utilizável;
+- ilustração/arte conceitual própria;
+- gráfico, ícone, textura, mockup ou composição gerada.
 
-## 13. Promoção para domínio próprio
+Nunca usar imagem genérica apenas para preencher espaço. Imagem conceitual deve ser identificada como conceitual quando houver risco de ser interpretada como fotografia documental.
 
-Pagamento/domínio **não cria um segundo site**.
+## 13. Qualidade antes de publicar
 
-O mesmo `project.id` deve poder servir:
+Gate mínimo:
 
-```text
-preview:      /portfolio/minha-oficina
-publicação:   /portfolio/minha-oficina
-promovido:    https://minhaoficina.com.br
-```
+- identidade resolvida;
+- evidência suficiente para alegações publicadas;
+- nenhuma alegação fabricada;
+- funil funcional;
+- destino verificado **ou** callback seguro;
+- SEO completo e canonical válido;
+- QA mobile;
+- acessibilidade baseline;
+- privacidade;
+- performance baseline;
+- originalidade;
+- qualidade visual;
+- ownership atribuído.
 
-Na promoção:
+`NOT_TESTED` nunca equivale a `PASS`.
 
-- associar domínio ao projeto;
-- provisionar/verificar DNS/SSL;
-- atualizar canonical/OG/sitemap/host awareness;
-- preservar conteúdo, assets, analytics, revisions, owner, funil e dados;
-- definir política do endereço antigo (`redirect`, `canonical-to-domain`, `showcase`, `noindex`) sem reconstruir manualmente a página.
+## 14. Qualidade visual
 
-## 14. Benchmarks externos: aprender capacidade, não copiar design
+Avaliar explicitamente:
 
-Referências de produto incluem Landingsite.ai, UX Pilot, LeadSite e outras ferramentas de geração assistida por IA.
+- hierarquia;
+- composição;
+- tipografia;
+- espaçamento;
+- qualidade e função da mídia;
+- adequação à marca;
+- profundidade;
+- motion;
+- expressão mobile;
+- momentos de assinatura.
 
-Capacidades observadas que servem de benchmark:
+Build verde é requisito técnico, não prova de boa direção de arte.
 
-- iniciar com uma frase ou poucas perguntas;
-- gerar página/site completo rapidamente;
-- escrever conteúdo e selecionar mídia;
-- oferecer múltiplas alternativas de layout/direção;
-- editar conversando em linguagem natural;
-- versionar e permitir rollback;
-- publicar preview compartilhável;
-- operar agência/equipe e múltiplos clientes;
-- conectar domínio próprio;
-- transformar pesquisa pública em contexto para geração quando permitido.
+## 15. Promoção para domínio próprio
 
-Referências são **capability benchmarks**. Proibido copiar marca, template, texto, layout proprietário ou assets.
+Após contratação, o mesmo projeto recebe domínio próprio. Preservar:
 
-## 15. Lifecycle alvo
+- `projectId/client_key`;
+- conteúdo;
+- assets;
+- funil;
+- leads;
+- analytics;
+- histórico;
+- versões;
+- permissões.
 
-```text
-INTAKE
-→ ENTITY_DISCOVERY
-→ ENTITY_RESOLUTION
-→ EVIDENCE
-→ MEDIA_DISCOVERY
-→ CONTENT_MODEL
-→ CREATIVE_DIRECTIONS
-→ UNIQUENESS_PREFLIGHT
-→ COMPOSITION_GRAPH
-→ FUNNEL/DESTINATION
-→ SEO
-→ RENDER
-→ TECHNICAL_QA
-→ EDITORIAL_CREATIVE_QA
-→ PREVIEW
-→ APPROVAL
-→ PUBLISH
-→ DOMAIN_PROMOTION
-→ CONTINUOUS_EDITING
-```
+A promoção exige troca de canonical, plano de redirect e configuração de host. Não recriar o projeto.
 
-A intervenção humana é prioritária em: conflito de entidade, contato conflitante, direitos de mídia, fatos comerciais críticos, aprovação de owner, publicação e exceções de segurança. O resto deve ser automatizado progressivamente.
+## 16. Auditoria global
 
-## 16. Auditoria global obrigatória
+A auditoria por projeto deve reportar no mínimo:
 
-A evolução para fábrica autônoma não ignora o legado. O catálogo deve ter auditoria por projeto com, no mínimo:
+- `slug`;
+- estado publicado;
+- owner/membership;
+- destino do funil;
+- funcionamento do funil;
+- SEO;
+- mobile;
+- privacidade;
+- performance;
+- qualidade visual;
+- originalidade;
+- gaps de evidência;
+- ação recomendada.
 
-```yaml
-audit:
-  catalogIntegrity: PASS|FAIL
-  identityResolution: PASS|WARN|FAIL
-  destination: VERIFIED|UNRESOLVED|CONFLICT
-  funnel: PASS|FAIL
-  ownership: ASSIGNED|UNASSIGNED|INVALID
-  authIsolation: PASS|FAIL|NOT_TESTED
-  visualOriginality: PASS|WARN|FAIL
-  visualQuality: PASS|WARN|FAIL
-  mobile: PASS|FAIL
-  accessibility: PASS|WARN|FAIL
-  seo: PASS|WARN|FAIL
-  media: PASS|WARN|FAIL
-  domain: PORTFOLIO|CUSTOM|NONE
-```
+O resumo global deve separar explicitamente passivo legado de regressões novas.
 
-Não mascarar `NOT_TESTED` como `PASS`.
+## 17. Estado de melhoria contínua
 
-## 17. Prioridades de implementação
+A meta não é “todos os gates verdes”. A meta é cada cliente possuir uma presença que pareça criada **para aquele negócio**, enquanto a 0WEB mantém um motor comum seguro e escalável.
 
-```text
-P0  destinos/funis corretos + nenhum lead perdido
-P0  isolamento de usuário/clientKey e segurança
-P1  auditoria canônica dos projetos atuais
-P1  modelo persistente de project/ownership/revisions
-P1  editor seguro do cliente
-P2  intake conversacional + pesquisa/enrichment automático
-P2  creative director + composition graph + similarity gate
-P2  preview/versioning
-P2  seller live mode
-P3  domínio próprio/pagamento/provisionamento
-P3  analytics e otimização contínua por cliente
-```
-
-P0 funcional e segurança vencem polimento. Depois dos P0, **qualidade/originalidade é requisito de produto, não cosmética opcional**.
-
-## 18. Definition of Done da plataforma
-
-A visão está cumprida quando:
-
-- uma pessoa inicia com poucas palavras;
-- a plataforma pesquisa e pergunta apenas gaps críticos;
-- fatos publicados possuem provenance e conflito é bloqueado;
-- o site gerado é claramente específico daquele negócio;
-- projetos diferentes não parecem skins do mesmo template;
-- preview fica disponível sem operação manual de deploy;
-- super admin controla ownership e publicação;
-- cliente autorizado edita apenas o próprio projeto;
-- cada edição é reversível;
-- funil chega ao destino correto do cliente;
-- nenhum contato institucional é usado como fallback de cliente;
-- o mesmo projeto pode ganhar domínio próprio sem reautoria;
-- o sistema continua responsivo, indexável, acessível, seguro e observável.
-
-## 19. Estado atual versus alvo
-
-Este documento é **contrato de direção e arquitetura**, não declaração de que todas as capacidades acima já estejam implementadas.
-
-Agentes devem informar explicitamente `IMPLEMENTED`, `PARTIAL`, `PLANNED` ou `BLOCKED` ao auditar cada capacidade. É proibido apresentar uma meta deste documento como funcionalidade já ativa sem teste/evidência.
+Quando houver conflito entre velocidade e clonagem visual, preservar a velocidade no motor e regenerar a composição — nunca reduzir a singularidade para entregar mais rápido.
