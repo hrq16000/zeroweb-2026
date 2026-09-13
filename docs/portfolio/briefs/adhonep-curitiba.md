@@ -15,7 +15,7 @@ comprovado e dos gates.
 - heroConcept: bloco tipográfico do tema da palestra ancorado por uma tabela de data/hora/local em fonte monoespaçada, sem foto de pessoas.
 - navigationConcept: sem menu; âncora única fixa no rodapé da tela para confirmar presença.
 - contentRhythm: convite → o que trava (medo de decidir) → a pauta da noite → como funciona o encontro → local e chegada → confirmação.
-- mediaNarrative: apenas arte de marca abstrata (ABSTRACT_BRAND_ART). Nenhuma foto de pessoas, sede, plateia ou palestrante — não há material fotográfico próprio recebido.
+- mediaNarrative: composição editorial de marca derivada da matriz visual enviada pelo responsável, complementada por arte abstrata própria. A sala executiva é contextual, sem pessoas identificáveis, e não representa sede, plateia, palestrante ou reunião real.
 - proofNarrative: nenhuma prova social. A página declara somente fatos do convite oficial: evento sem custo, palestrante, tema, data, horário, endereço e café de networking.
 - conversionNarrative: um único pedido — confirmar presença pelo formulário do projeto; sem telefone e sem link direto de WhatsApp na página.
 - motionNarrative: revelação linha a linha do trilho de horários, como uma pauta sendo lida; nada se move duas vezes.
@@ -51,15 +51,16 @@ comprovado e dos gates.
 - singleGoal: confirmar presença na reunião.
 - typePairing: display serifada para o tema + monoespaçada para horários.
 - colorRoles: navy profundo (base), âmbar (ação e horário), creme (texto longo).
-- imageStrategy: somente ABSTRACT_BRAND_ART gerada para a marca; nada que simule foto do grupo, da sede ou do palestrante.
+- imageStrategy: BRAND_COMPOSITION derivada da matriz visual recebida, sem texto ou marca reconstruída, mais ABSTRACT_BRAND_ART; nada é apresentado como foto documental do grupo, da sede ou do palestrante.
 - nearestPortfolioRisks: qualquer landing de serviço com hero fotográfico e grade de serviços — evitado por não haver hero fotográfico nem grade de cards.
 - antiTemplateDecisions: sem header, sem grid de serviços, sem depoimentos, sem métricas, sem FAQ, sem faixa de logos.
 
 ## Assets oficiais recebidos
 
-Somente o texto do convite (13/09/2026). Nenhuma foto, logo ou peça gráfica
-recebida. As duas imagens do projeto são arte de marca abstrata gerada para
-este projeto, sem representar pessoas, sede ou evento.
+Texto do convite (13/09/2026) e uma matriz visual enviada pelo responsável.
+A matriz orienta paleta, iluminação, materiais e atmosfera; a recomposição usada
+no hero remove texto, logotipo e pessoas identificáveis e permanece classificada
+como composição editorial, sem representar sede, participantes ou evento real.
 
 ## Skills selecionadas
 

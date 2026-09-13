@@ -1,5 +1,13 @@
 # Skill changelog / usage log
 
+## 2026-09-13 — matriz visual do convite ADHONEP Curitiba
+
+- **Tarefa:** integrar ao projeto a referência visual enviada pelo responsável.
+- **Skills:** roteamento 0WEB, direção de arte de portfólio, design system e quality gates.
+- **Aplicação:** a matriz foi recomposta como hero editorial em navy, dourado, vidro e mármore, sem texto, marcas ou pessoas identificáveis.
+- **Proteções:** a imagem está classificada como `BRAND_COMPOSITION`, não como prova documental; conteúdo, funil e zona institucional permaneceram inalterados.
+- **Validação:** tipagem, boundaries, privacidade, viewport desktop/mobile e build.
+
 ## 2026-09-13 — painel, publicação protegida, captação e mídia editorial
 
 - **Tarefa:** consolidar projetos legados e gerenciados no painel, expor perfil de
