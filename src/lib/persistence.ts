@@ -3,6 +3,7 @@
 // to operate as cache/fallback so the UI never blocks on network errors.
 
 import { supabase } from "@/integrations/supabase/client";
+import { submitPublicLead } from "@/lib/lead-intake.functions";
 import { getVisitorId, getSessionId, getDeviceType } from "./visitor";
 import { getActiveUtms, getAttributionPayload } from "./site-config";
 import {
@@ -91,7 +92,7 @@ export async function persistLead(input: {
     const c = ctx();
     const ab = abState();
     const attr = getAttributionPayload();
-    const { error } = await supabase.from("lead_submissions").insert({
+    const result = await submitPublicLead({ data: {
       name: input.name ?? null,
       email: input.email ?? null,
       phone: input.phone ?? null,
@@ -111,8 +112,8 @@ export async function persistLead(input: {
       offer_slug: input.offer_slug ?? null,
       audience_tag: input.audience_tag ?? null,
       payload_json: input.payload ?? null,
-    });
-    if (error) throw error;
+    } });
+    if (!result.ok) throw new Error(result.reason);
 
     // Atribuição a parceiro via cookie 0web_partner (fire-and-forget)
     try {
@@ -123,6 +124,7 @@ export async function persistLead(input: {
         void attachAttributionPublic({
           data: {
             partner_code: partnerCode,
+            lead_id: result.leadId,
             landing_path: c.path,
           },
         }).catch(() => { /* noop */ });
