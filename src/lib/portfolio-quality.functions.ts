@@ -45,7 +45,7 @@ type SeedProject = {
   city?: string | null;
   segment?: string | null;
   status?: string;
-  blocking?: boolean;
+  blocking?: unknown;
   issues?: unknown;
   published?: boolean;
 };
@@ -90,7 +90,7 @@ export const listPortfolioQuality = createServerFn({ method: "GET" })
     }
 
     const evaluations = matrixBySlug();
-    const projects = ((adminSeed as { projects?: SeedProject[] }).projects ?? []) as SeedProject[];
+    const projects = ((adminSeed as unknown as { projects?: SeedProject[] }).projects ?? []) as SeedProject[];
 
     const rows: PortfolioQualityRow[] = projects.map((project) => {
       const clientKey = project.clientKey ?? project.slug;
@@ -105,7 +105,9 @@ export const listPortfolioQuality = createServerFn({ method: "GET" })
         city: project.city ?? null,
         segment: project.segment ?? null,
         conformance: project.status ?? "LEGACY",
-        blocking: Boolean(project.blocking),
+        blocking: Array.isArray(project.blocking)
+          ? project.blocking.length > 0
+          : Boolean(project.blocking),
         issues: Array.isArray(project.issues) ? project.issues.map(String) : [],
         published: Boolean(settingsRow ? settingsRow.published : project.published),
         funnelConfigured: digits.length >= 10,
