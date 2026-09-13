@@ -1,0 +1,55 @@
+name: Front A · Turno 3 Validation
+
+on:
+  push:
+    branches: [front-a-turn3-validation]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      E2E_BASE_URL: http://127.0.0.1:8080
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
+      SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      WHATSAPP_NUMBER: ${{ secrets.WHATSAPP_NUMBER }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Instalar dependências
+        run: bun install --frozen-lockfile
+      - name: Testes unitários completos
+        run: bun run test
+      - name: Typecheck
+        run: bunx tsgo --noEmit
+      - name: Build + privacy gate
+        run: bun run build
+      - name: Validator de contato público
+        run: node scripts/validate-no-public-contact.mjs
+      - name: Validator de dist
+        run: node scripts/validate-no-public-contact-dist.mjs
+      - name: Validator de privacidade
+        run: node scripts/validate-client-privacy.mjs
+      - name: Instalar Chromium
+        run: bunx playwright install --with-deps chromium
+      - name: Subir artefato de produção
+        run: |
+          PREVIEW_PORT=8080 bun run preview:prod > /tmp/front-a-preview.log 2>&1 &
+          for i in $(seq 1 60); do
+            curl -sf -o /dev/null "$E2E_BASE_URL/" && exit 0
+            sleep 2
+          done
+          cat /tmp/front-a-preview.log
+          exit 1
+      - name: E2E Funnel-first
+        run: bun run test:e2e
+      - name: Logs do preview em caso de falha
+        if: failure()
+        run: tail -n 250 /tmp/front-a-preview.log || true
