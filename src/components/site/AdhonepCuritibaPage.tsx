@@ -5,14 +5,15 @@ import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit"
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import type { CtaPlacement, CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
+import adhonepHeroEditorial from "@/assets/adhonep-curitiba-hero-editorial.png.asset.json";
 
 /**
  * ADHONEP Curitiba (/portfolio/adhonep-curitiba) — composição autoral.
  *
  * Os fatos do encontro vêm do convite recebido pelo projeto. A cena executiva
- * usada no hero é uma ILUSTRAÇÃO EDITORIAL CONCEITUAL criada para esta landing,
- * inspirada na linguagem visual do material enviado pelo cliente; não é foto
- * documental de participante, sede, palestrante ou reunião real.
+ * usada no hero é uma COMPOSIÇÃO EDITORIAL CONCEITUAL derivada da matriz visual
+ * enviada pelo cliente; não é foto documental de participante, sede,
+ * palestrante ou reunião real.
  * Todo contato passa pelo funil `funnel-adhonep-curitiba` (contactMode=funnelOnly).
  */
 
@@ -197,10 +198,10 @@ export function AdhonepCuritibaPage() {
             <div className="relative lg:col-span-7">
               <MotionReveal variant="mask" className="relative overflow-hidden rounded-[2rem] border border-white/10">
                 <PortfolioImage
-                  src="/images/adhonep-curitiba/hero-reuniao-executiva.svg"
-                  alt="Ilustração editorial conceitual de uma reunião executiva noturna, criada para representar o clima do encontro sem retratar participantes reais"
-                  width={1600}
-                  height={900}
+                  src={adhonepHeroEditorial.url}
+                  alt="Composição editorial conceitual de uma sala de reunião executiva à noite, derivada da matriz visual do convite e sem retratar participantes reais"
+                  width={1264}
+                  height={848}
                   priority
                   managedField="heroImageUrl"
                   className="aspect-[16/10] min-h-[390px] w-full object-cover object-center sm:min-h-[500px] lg:min-h-[610px]"

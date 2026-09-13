@@ -83,17 +83,17 @@
       "title": "ADHONEP Curitiba",
       "segment": "prestadores-de-servicos",
       "componentFile": "src/components/site/AdhonepCuritibaPage.tsx",
-      "score": 25,
+      "score": 26,
       "originalityStatus": "ACCEPTABLE",
-      "nearestMatch": "reuse-house-brecho",
-      "nearestMatchScore": 25,
+      "nearestMatch": "r_beauty",
+      "nearestMatchScore": 26,
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 4,
+        "STRUCTURE_SIMILARITY": 22.7,
         "SECTION_ORDER_SIMILARITY": 66.7,
-        "COMPONENT_SIMILARITY": 37.5,
-        "STYLE_SIMILARITY": 18.5,
+        "COMPONENT_SIMILARITY": 6.7,
+        "STYLE_SIMILARITY": 28.1,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "ASSET_PATTERN_SIMILARITY": 9,
         "IDENTITY_SIMILARITY": 0
       },
       "reasons": [],
@@ -111,10 +111,10 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "dfa4f6be087f4225",
-        "structureHash": "a0ed4ab1bcd85958",
+        "skeletonHash": "7aa85eada03dfa00",
+        "structureHash": "7497763c1c2fd868",
         "sectionCount": 6,
-        "lines": 299
+        "lines": 374
       }
     },
     {
@@ -4238,18 +4238,18 @@
       ],
       "adhonep-curitiba": [
         {
-          "slug": "reuse-house-brecho",
-          "score": 25,
+          "slug": "r_beauty",
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "r_beauty",
-          "score": 23,
+          "slug": "reuse-house-brecho",
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
           "slug": "renata-beauty",
-          "score": 21,
+          "score": 23,
           "reason": "DISTINCT"
         }
       ],
@@ -5450,13 +5450,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 25,
+          "slug": "adhonep-curitiba",
+          "score": 26,
           "reason": "DISTINCT"
         },
         {
-          "slug": "emporio-lelecute",
-          "score": 24,
+          "slug": "mp-festas-eventos",
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -5524,7 +5524,7 @@
         },
         {
           "slug": "adhonep-curitiba",
-          "score": 25,
+          "score": 26,
           "reason": "DISTINCT"
         }
       ],
@@ -5815,15 +5815,15 @@
       },
       {
         "slug": "adhonep-curitiba",
-        "v1Score": 25,
-        "v2Score": 25,
+        "v1Score": 26,
+        "v2Score": 26,
         "delta": 0,
-        "v1Nearest": "reuse-house-brecho",
-        "v2Nearest": "reuse-house-brecho",
+        "v1Nearest": "r_beauty",
+        "v2Nearest": "r_beauty",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
         "v1AssetPattern": 0,
-        "v2AssetPattern": 7.5
+        "v2AssetPattern": 9
       },
       {
         "slug": "ag-electrical-services",

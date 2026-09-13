@@ -31,6 +31,7 @@ import { Route as EstadosRouteImport } from './routes/estados'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GoogleMeuNegocioRouteImport } from './routes/google-meu-negocio'
 import { Route as Home2RouteImport } from './routes/home2'
+import { Route as Home3RouteImport } from './routes/home3'
 import { Route as IaRouteImport } from './routes/ia'
 import { Route as InfraestruturaRouteImport } from './routes/infraestrutura'
 import { Route as LandingPagesRouteImport } from './routes/landing-pages'
@@ -357,6 +358,11 @@ const GoogleMeuNegocioRoute = GoogleMeuNegocioRouteImport.update({
 const Home2Route = Home2RouteImport.update({
   id: '/home2',
   path: '/home2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Home3Route = Home3RouteImport.update({
+  id: '/home3',
+  path: '/home3',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IaRoute = IaRouteImport.update({
@@ -1558,6 +1564,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/google-meu-negocio': typeof GoogleMeuNegocioRoute
   '/home2': typeof Home2Route
+  '/home3': typeof Home3Route
   '/ia': typeof IaRoute
   '/infraestrutura': typeof InfraestruturaRoute
   '/landing-pages': typeof LandingPagesRoute
@@ -1797,6 +1804,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/google-meu-negocio': typeof GoogleMeuNegocioRoute
   '/home2': typeof Home2Route
+  '/home3': typeof Home3Route
   '/ia': typeof IaRoute
   '/infraestrutura': typeof InfraestruturaRoute
   '/landing-pages': typeof LandingPagesRoute
@@ -2036,6 +2044,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/google-meu-negocio': typeof GoogleMeuNegocioRoute
   '/home2': typeof Home2Route
+  '/home3': typeof Home3Route
   '/ia': typeof IaRoute
   '/infraestrutura': typeof InfraestruturaRoute
   '/landing-pages': typeof LandingPagesRoute
@@ -2278,6 +2287,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/google-meu-negocio'
     | '/home2'
+    | '/home3'
     | '/ia'
     | '/infraestrutura'
     | '/landing-pages'
@@ -2517,6 +2527,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/google-meu-negocio'
     | '/home2'
+    | '/home3'
     | '/ia'
     | '/infraestrutura'
     | '/landing-pages'
@@ -2755,6 +2766,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/google-meu-negocio'
     | '/home2'
+    | '/home3'
     | '/ia'
     | '/infraestrutura'
     | '/landing-pages'
@@ -2997,6 +3009,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GoogleMeuNegocioRoute: typeof GoogleMeuNegocioRoute
   Home2Route: typeof Home2Route
+  Home3Route: typeof Home3Route
   IaRoute: typeof IaRoute
   InfraestruturaRoute: typeof InfraestruturaRoute
   LandingPagesRoute: typeof LandingPagesRoute
@@ -3277,6 +3290,13 @@ declare module '@tanstack/react-router' {
       path: '/home2'
       fullPath: '/home2'
       preLoaderRoute: typeof Home2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home3': {
+      id: '/home3'
+      path: '/home3'
+      fullPath: '/home3'
+      preLoaderRoute: typeof Home3RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ia': {
@@ -5155,6 +5175,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GoogleMeuNegocioRoute: GoogleMeuNegocioRoute,
   Home2Route: Home2Route,
+  Home3Route: Home3Route,
   IaRoute: IaRoute,
   InfraestruturaRoute: InfraestruturaRoute,
   LandingPagesRoute: LandingPagesRoute,
