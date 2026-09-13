@@ -112,10 +112,14 @@ export const approveDestinationProposal = createServerFn({ method: "POST" })
     if (!row) throw new Error("Sugestão não encontrada");
 
     const { confirmDestination } = await import("@/lib/portfolio-destination-confirm.server");
+    const fromClientMaterial = row.source === "CLIENT_MATERIAL";
     const evidence = [
-      `Ficha pública Google "${row.candidate_name ?? "—"}"`,
+      fromClientMaterial
+        ? `Material do próprio cliente "${row.candidate_name ?? row.slug}"`
+        : `Ficha pública Google "${row.candidate_name ?? "—"}"`,
       row.candidate_address ? `(${row.candidate_address})` : "",
       row.place_id ? `Place ID ${row.place_id}` : "",
+      row.query ? `· ${row.query}` : "",
       `correspondência ${row.match_strength}`,
       data.note ? `· ${data.note}` : "",
     ]
@@ -126,7 +130,7 @@ export const approveDestinationProposal = createServerFn({ method: "POST" })
       {
         slug: row.slug,
         whatsapp: String(row.phone_digits),
-        provenanceSource: "OFFICIAL_GOOGLE",
+        provenanceSource: fromClientMaterial ? "CLIENT_SUPPLIED" : "OFFICIAL_GOOGLE",
         evidence,
         acknowledgeShared: data.acknowledgeShared ?? false,
         acknowledgeChange: data.acknowledgeChange ?? false,
@@ -134,6 +138,7 @@ export const approveDestinationProposal = createServerFn({ method: "POST" })
       },
       context.userId,
     );
+
 
     if (result.ok) {
       await (supabaseAdmin as any)
