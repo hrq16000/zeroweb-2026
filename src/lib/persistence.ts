@@ -91,7 +91,7 @@ export async function persistLead(input: {
     const c = ctx();
     const ab = abState();
     const attr = getAttributionPayload();
-    const { data: row } = await supabase.from("lead_submissions").insert({
+    const { error } = await supabase.from("lead_submissions").insert({
       name: input.name ?? null,
       email: input.email ?? null,
       phone: input.phone ?? null,
@@ -111,7 +111,8 @@ export async function persistLead(input: {
       offer_slug: input.offer_slug ?? null,
       audience_tag: input.audience_tag ?? null,
       payload_json: input.payload ?? null,
-    }).select("id").maybeSingle();
+    });
+    if (error) throw error;
 
     // Atribuição a parceiro via cookie 0web_partner (fire-and-forget)
     try {
@@ -122,7 +123,6 @@ export async function persistLead(input: {
         void attachAttributionPublic({
           data: {
             partner_code: partnerCode,
-            lead_id: row?.id ?? undefined,
             landing_path: c.path,
           },
         }).catch(() => { /* noop */ });
