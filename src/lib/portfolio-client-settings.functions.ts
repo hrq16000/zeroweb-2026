@@ -110,6 +110,12 @@ function toPublic(row: any): ClientSettings {
     seo_keywords: row.seo_keywords ?? "",
     canonical_url: row.canonical_url ?? "",
     social_image_url: row.social_image_url ?? "",
+    seo_schema:
+      row.seo_schema === null || row.seo_schema === undefined
+        ? ""
+        : typeof row.seo_schema === "string"
+          ? row.seo_schema
+          : JSON.stringify(row.seo_schema, null, 2),
     funnel_recipient_masked: maskRecipient(recipient),
     funnel_configured: recipient.replace(/\D/g, "").length >= 10,
     funnel_enabled: Boolean(row.funnel_enabled),
