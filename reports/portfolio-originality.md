@@ -29,8 +29,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Logos placeholder | 25 |
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
-| Capas válidas (contrato canônico) | 47 |
-| Capas pendentes (contrato canônico) | 45 |
+| Capas válidas (contrato canônico) | 48 |
+| Capas pendentes (contrato canônico) | 44 |
 | Capas usando imagem social | 13 |
 | Capas compartilhadas | 0 |
 | Crop severo | 19 |
