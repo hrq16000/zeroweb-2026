@@ -156,6 +156,7 @@ import { Route as AuthenticatedAppDocumentsRouteImport } from './routes/_authent
 import { Route as AuthenticatedAppEcosystemRouteImport } from './routes/_authenticated/app.ecosystem'
 import { Route as AuthenticatedAppEditorialRouteImport } from './routes/_authenticated/app.editorial'
 import { Route as AuthenticatedAppHydrationRouteImport } from './routes/_authenticated/app.hydration'
+import { Route as AuthenticatedAppImagensGerarRouteImport } from './routes/_authenticated/app.imagens-gerar'
 import { Route as AuthenticatedAppIndexacaoRouteImport } from './routes/_authenticated/app.indexacao'
 import { Route as AuthenticatedAppIndexacaoPortfolioRouteImport } from './routes/_authenticated/app.indexacao-portfolio'
 import { Route as AuthenticatedAppIntegracoesRouteImport } from './routes/_authenticated/app.integracoes'
@@ -1003,6 +1004,12 @@ const AuthenticatedAppHydrationRoute =
     path: '/hydration',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppImagensGerarRoute =
+  AuthenticatedAppImagensGerarRouteImport.update({
+    id: '/imagens-gerar',
+    path: '/imagens-gerar',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppIndexacaoRoute =
   AuthenticatedAppIndexacaoRouteImport.update({
     id: '/indexacao',
@@ -1662,6 +1669,7 @@ export interface FileRoutesByFullPath {
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
+  '/app/imagens-gerar': typeof AuthenticatedAppImagensGerarRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
@@ -1896,6 +1904,7 @@ export interface FileRoutesByTo {
   '/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
   '/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/app/hydration': typeof AuthenticatedAppHydrationRoute
+  '/app/imagens-gerar': typeof AuthenticatedAppImagensGerarRoute
   '/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
   '/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
@@ -2134,6 +2143,7 @@ export interface FileRoutesById {
   '/_authenticated/app/ecosystem': typeof AuthenticatedAppEcosystemRoute
   '/_authenticated/app/editorial': typeof AuthenticatedAppEditorialRouteWithChildren
   '/_authenticated/app/hydration': typeof AuthenticatedAppHydrationRoute
+  '/_authenticated/app/imagens-gerar': typeof AuthenticatedAppImagensGerarRoute
   '/_authenticated/app/indexacao': typeof AuthenticatedAppIndexacaoRouteWithChildren
   '/_authenticated/app/indexacao-portfolio': typeof AuthenticatedAppIndexacaoPortfolioRoute
   '/_authenticated/app/integracoes': typeof AuthenticatedAppIntegracoesRoute
@@ -2373,6 +2383,7 @@ export interface FileRouteTypes {
     | '/app/ecosystem'
     | '/app/editorial'
     | '/app/hydration'
+    | '/app/imagens-gerar'
     | '/app/indexacao'
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
@@ -2607,6 +2618,7 @@ export interface FileRouteTypes {
     | '/app/ecosystem'
     | '/app/editorial'
     | '/app/hydration'
+    | '/app/imagens-gerar'
     | '/app/indexacao'
     | '/app/indexacao-portfolio'
     | '/app/integracoes'
@@ -2844,6 +2856,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/ecosystem'
     | '/_authenticated/app/editorial'
     | '/_authenticated/app/hydration'
+    | '/_authenticated/app/imagens-gerar'
     | '/_authenticated/app/indexacao'
     | '/_authenticated/app/indexacao-portfolio'
     | '/_authenticated/app/integracoes'
@@ -4115,6 +4128,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppHydrationRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/imagens-gerar': {
+      id: '/_authenticated/app/imagens-gerar'
+      path: '/imagens-gerar'
+      fullPath: '/app/imagens-gerar'
+      preLoaderRoute: typeof AuthenticatedAppImagensGerarRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/indexacao': {
       id: '/_authenticated/app/indexacao'
       path: '/indexacao'
@@ -4867,6 +4887,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppEcosystemRoute: typeof AuthenticatedAppEcosystemRoute
   AuthenticatedAppEditorialRoute: typeof AuthenticatedAppEditorialRouteWithChildren
   AuthenticatedAppHydrationRoute: typeof AuthenticatedAppHydrationRoute
+  AuthenticatedAppImagensGerarRoute: typeof AuthenticatedAppImagensGerarRoute
   AuthenticatedAppIndexacaoRoute: typeof AuthenticatedAppIndexacaoRouteWithChildren
   AuthenticatedAppIndexacaoPortfolioRoute: typeof AuthenticatedAppIndexacaoPortfolioRoute
   AuthenticatedAppIntegracoesRoute: typeof AuthenticatedAppIntegracoesRoute
@@ -4931,6 +4952,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppEcosystemRoute: AuthenticatedAppEcosystemRoute,
   AuthenticatedAppEditorialRoute: AuthenticatedAppEditorialRouteWithChildren,
   AuthenticatedAppHydrationRoute: AuthenticatedAppHydrationRoute,
+  AuthenticatedAppImagensGerarRoute: AuthenticatedAppImagensGerarRoute,
   AuthenticatedAppIndexacaoRoute: AuthenticatedAppIndexacaoRouteWithChildren,
   AuthenticatedAppIndexacaoPortfolioRoute:
     AuthenticatedAppIndexacaoPortfolioRoute,
