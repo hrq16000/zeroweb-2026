@@ -79,8 +79,8 @@ export type PortfolioRuntimeOverrides = {
   published: boolean;
   contentVersion: number;
   motion?: PortfolioMotionSettings;
-  /** JSON-LD administrável já sanitizado. */
-  seoSchema?: unknown;
+  /** JSON-LD administrável, já sanitizado e serializado (string JSON). */
+  seoSchema?: string;
 };
 
 /** Valores derivados dos registries/rota, usados como fallback. */
