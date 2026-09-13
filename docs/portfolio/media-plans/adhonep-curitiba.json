@@ -9,7 +9,7 @@
     "licensedMedia": [],
     "generatedMedia": [
       {
-        "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+        "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png.asset.json",
         "classification": "BRAND_COMPOSITION",
         "source": "OWNER_SUPPLIED_VISUAL_MATRIX",
         "purpose": "hero",
@@ -39,7 +39,7 @@
   "sections": [
     {
       "section": "hero",
-      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png.asset.json",
       "classification": "BRAND_COMPOSITION",
       "status": "complete"
     },

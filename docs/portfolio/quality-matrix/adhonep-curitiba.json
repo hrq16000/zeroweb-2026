@@ -233,7 +233,7 @@
       "rationale": "Composição autoral em código (PortfolioCompositionRoot), sem descritores do Blueprint congelado."
     },
     "heroMedia": {
-      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png.asset.json",
       "kind": "BRAND_COMPOSITION",
       "documentary": false,
       "provenance": "composição 0WEB derivada da matriz visual enviada pelo cliente"
@@ -278,7 +278,7 @@
       "section": "hero",
       "visualRole": "abertura editorial do convite",
       "mediaDecision": "BRAND_COMPOSITION",
-      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+      "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png.asset.json",
       "provenance": "composição 0WEB derivada da matriz visual enviada pelo cliente — não documental",
       "quality": "alta",
       "status": "PASS"
@@ -335,7 +335,7 @@
     "enviar logotipo oficial e fotos reais das reuniões para substituir as artes próprias"
   ],
   "mediaPlanHeroMedia": {
-    "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png",
+    "asset": "src/assets/adhonep-curitiba-hero-editorial-v2.png.asset.json",
     "kind": "BRAND_COMPOSITION",
     "documentary": false,
     "provenance": "composição 0WEB derivada da matriz visual enviada pelo cliente"

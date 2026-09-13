@@ -198,7 +198,7 @@ export function AdhonepCuritibaPage() {
             <div className="relative lg:col-span-7">
               <MotionReveal variant="mask" className="relative overflow-hidden rounded-[2rem] border border-white/10">
                 <PortfolioImage
-                  src={adhonepHeroEditorial}
+                  src={adhonepHeroEditorial.url}
                   alt="Composição editorial conceitual de uma sala executiva vazia à noite, inspirada na matriz visual do convite e sem retratar local ou participantes reais"
                   width={1600}
                   height={1000}
