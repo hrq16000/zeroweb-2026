@@ -35,8 +35,10 @@ export const DESTINATION_PROVENANCE_SOURCES = [
 export type DestinationProvenanceSource = (typeof DESTINATION_PROVENANCE_SOURCES)[number];
 
 /**
- * Normalização BR do WhatsApp: DDI 55 + DDD + número. Nunca "corrige"
- * silenciosamente um número improvável — apenas sinaliza.
+ * Normalização BR do WhatsApp: DDI 55 + DDD + número. DDD + 8 dígitos
+ * (típico de fixo) e DDD + 9 dígitos (típico de celular) são igualmente
+ * válidos. NUNCA acrescenta o 9, nunca remove dígitos e nunca tenta
+ * converter formato — apenas sinaliza `looksLikeLandline` para exibição.
  */
 export function normalizeBrWhatsApp(
   raw: string,

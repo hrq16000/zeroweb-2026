@@ -29,6 +29,7 @@ export type ConfirmDestinationInput = {
   evidence: string;
   acknowledgeShared?: boolean;
   acknowledgeChange?: boolean;
+  /** @deprecated mantido por compatibilidade; fixo/celular não é mais critério de bloqueio. */
   acknowledgeLandline?: boolean;
 };
 
