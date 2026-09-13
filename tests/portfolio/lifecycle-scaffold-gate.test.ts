@@ -143,13 +143,21 @@ describe("pipeline canônico de projetos novos", () => {
     }
   });
 
-  it("projeto gerenciado nasce funnelOnly, com funnelType e rodando pelo Blueprint", () => {
-    const registry = readFileSync("src/components/portfolio/blueprint/registry.ts", "utf8");
+  it("projeto gerenciado nasce funnelOnly, com funnelType e resolvido por um registry oficial", () => {
+    // Blueprint congelado nos três pilotos; projetos novos entram no registry
+    // de composição autoral (docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md).
+    const blueprintRegistry = readFileSync("src/components/portfolio/blueprint/registry.ts", "utf8");
+    const compositionRegistry = readFileSync(
+      "src/components/portfolio/composition/registry.ts",
+      "utf8",
+    );
     for (const slug of Object.keys(managed)) {
       const client = (clients as Array<Record<string, unknown>>).find((c) => c.slug === slug);
       expect(client?.contactMode).toBe("funnelOnly");
       expect(typeof client?.funnelType).toBe("string");
-      expect(registry).toContain(`"${slug}"`);
+      expect(
+        blueprintRegistry.includes(`"${slug}"`) || compositionRegistry.includes(`"${slug}"`),
+      ).toBe(true);
     }
   });
 
