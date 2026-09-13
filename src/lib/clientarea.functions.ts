@@ -29,7 +29,10 @@ async function getAdmin() {
 async function isAdmin(userId: string) {
   const sb = await getAdmin();
   const { data } = await sb.from("user_roles").select("role").eq("user_id", userId);
-  return (data ?? []).some((r: { role: string }) => r.role === "admin" || r.role === "collaborator");
+  return (data ?? []).some(
+    (r: { role: string }) =>
+      r.role === "admin" || r.role === "super_admin" || r.role === "collaborator"
+  );
 }
 
 // ── Profile ───────────────────────────────────────────────────
@@ -74,10 +77,16 @@ export const updateMyProfile = createServerFn({ method: "POST" })
 export const listMyProjects = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const sb = context.supabase as unknown as AnyClient;
-    const { data, error } = await sb.from("projects").select("*").order("created_at", { ascending: false });
+    // Administradores (admin / super_admin / colaborador) enxergam todos os
+    // projetos; clientes continuam limitados aos próprios pelas políticas RLS.
+    const admin = await isAdmin(context.userId);
+    const sb = admin ? await getAdmin() : (context.supabase as unknown as AnyClient);
+    const { data, error } = await sb
+      .from("projects")
+      .select("*")
+      .order("created_at", { ascending: false });
     if (error) throw new Error(error.message);
-    return { rows: data ?? [] };
+    return { rows: data ?? [], isAdmin: admin };
   });
 
 export const getProjectDetail = createServerFn({ method: "POST" })

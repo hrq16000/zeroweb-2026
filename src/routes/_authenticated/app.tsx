@@ -200,7 +200,11 @@ function AppShell() {
     setMobileOpen(false);
   }, [location.pathname]);
 
-  const isAdmin = !!(me?.roles.includes("admin") || me?.roles.includes("collaborator"));
+  const isAdmin = !!(
+    me?.roles.includes("admin") ||
+    me?.roles.includes("super_admin") ||
+    me?.roles.includes("collaborator")
+  );
 
   const signOut = async () => {
     await supabase.auth.signOut();
