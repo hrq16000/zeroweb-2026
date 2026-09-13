@@ -17,9 +17,9 @@
     "clone": 81
   },
   "summary": {
-    "total": 91,
+    "total": 92,
     "original": 1,
-    "acceptable": 28,
+    "acceptable": 29,
     "attention": 56,
     "highSimilarity": 6,
     "clone": 0,
@@ -29,8 +29,8 @@
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 47,
-    "coverPending": 44,
-    "coversAsSocialImage": 12,
+    "coverPending": 45,
+    "coversAsSocialImage": 13,
     "sharedCovers": 0,
     "severeCrop": 19,
     "invalidCrossClientAssets": 0,
@@ -76,6 +76,45 @@
         "structureHash": "a1ee939f16321cb8",
         "sectionCount": 7,
         "lines": 14
+      }
+    },
+    {
+      "slug": "adhonep-curitiba",
+      "title": "ADHONEP Curitiba",
+      "segment": "prestadores-de-servicos",
+      "componentFile": "src/components/site/AdhonepCuritibaPage.tsx",
+      "score": 25,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "reuse-house-brecho",
+      "nearestMatchScore": 25,
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 4,
+        "SECTION_ORDER_SIMILARITY": 66.7,
+        "COMPONENT_SIMILARITY": 37.5,
+        "STYLE_SIMILARITY": 18.5,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 0
+      },
+      "reasons": [],
+      "fallbackVertical": null,
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
+      "coverRatio": 1.88,
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "fingerprint": {
+        "skeletonHash": "dfa4f6be087f4225",
+        "structureHash": "a0ed4ab1bcd85958",
+        "sectionCount": 6,
+        "lines": 299
       }
     },
     {
@@ -4178,7 +4217,7 @@
       "high": 61,
       "clone": 81
     },
-    "totalPairs": 4095,
+    "totalPairs": 4186,
     "nearest": {
       "acai-total-araucaria": [
         {
@@ -4195,6 +4234,23 @@
           "slug": "ecommerce-on",
           "score": 54,
           "reason": "SAME_FAMILY"
+        }
+      ],
+      "adhonep-curitiba": [
+        {
+          "slug": "reuse-house-brecho",
+          "score": 25,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "r_beauty",
+          "score": 23,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "renata-beauty",
+          "score": 21,
+          "reason": "DISTINCT"
         }
       ],
       "ag-electrical-services": [
@@ -5467,8 +5523,8 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lolipa-arte-em-festas",
-          "score": 23,
+          "slug": "adhonep-curitiba",
+          "score": 25,
           "reason": "DISTINCT"
         }
       ],
@@ -5755,6 +5811,18 @@
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 20,
+        "v2AssetPattern": 7.5
+      },
+      {
+        "slug": "adhonep-curitiba",
+        "v1Score": 25,
+        "v2Score": 25,
+        "delta": 0,
+        "v1Nearest": "reuse-house-brecho",
+        "v2Nearest": "reuse-house-brecho",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
         "v2AssetPattern": 7.5
       },
       {
@@ -6862,9 +6930,9 @@
       "suspiciousSharedAssets": 0
     },
     "current": {
-      "total": 91,
+      "total": 92,
       "original": 1,
-      "acceptable": 28,
+      "acceptable": 29,
       "attention": 56,
       "highSimilarity": 6,
       "clone": 0,
@@ -6874,8 +6942,8 @@
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 47,
-      "coverPending": 44,
-      "coversAsSocialImage": 12,
+      "coverPending": 45,
+      "coversAsSocialImage": 13,
       "sharedCovers": 0,
       "severeCrop": 19,
       "invalidCrossClientAssets": 0,

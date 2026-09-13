@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-13T06:04:47.997Z
+Gerado em 2026-09-13T06:37:12.610Z
 
-- Projetos auditados: **91**
-- PASS: **91** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (24) · orcamento (32) · solicitacao (1) · agendamento (15) · contato (8) · reserva (4) · diagnostico (7)
+- Projetos auditados: **92**
+- PASS: **92** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (24) · orcamento (32) · solicitacao (1) · agendamento (15) · contato (9) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -99,3 +99,4 @@ Gerado em 2026-09-13T06:04:47.997Z
 | moreira-auto-mecanica | prestadores-de-servicos | agendamento | A equipe da Moreira Auto Mecânica recebe a descrição do veículo e combina o melhor dia para você levar o carro na oficina. | Agendar avaliação | PROJECT_CONTRACT | PASS | — |
 | carecas-infotec | prestadores-de-servicos | orcamento | A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo. | Agendar serviço | PROJECT_CONTRACT | PASS | — |
 | jkl-decor | prestadores-de-servicos | orcamento | A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |
+| adhonep-curitiba | prestadores-de-servicos | contato | Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro. | Confirmar presença | PROJECT_CONTRACT | PASS | — |

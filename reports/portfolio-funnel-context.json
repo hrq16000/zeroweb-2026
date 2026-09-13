@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-09-13T06:04:47.997Z",
-    "audited": 91,
-    "pass": 91,
+    "generatedAt": "2026-09-13T06:37:12.610Z",
+    "audited": 92,
+    "pass": 92,
     "warning": 0,
     "fail": 0,
     "byIntent": {
@@ -10,7 +10,7 @@
       "orcamento": 32,
       "solicitacao": 1,
       "agendamento": 15,
-      "contato": 8,
+      "contato": 9,
       "reserva": 4,
       "diagnostico": 7
     }
@@ -1196,6 +1196,19 @@
       "nextStepBody": "A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local.",
       "primaryCtaLabel": "Pedir orçamento",
       "whatsappIntent": "orcamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "adhonep-curitiba",
+      "businessName": "ADHONEP Curitiba",
+      "segment": "prestadores-de-servicos",
+      "intent": "contato",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Confirme sua presença na reunião",
+      "nextStepBody": "Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro.",
+      "primaryCtaLabel": "Confirmar presença",
+      "whatsappIntent": "contato",
       "status": "PASS",
       "issues": []
     }

@@ -18,9 +18,9 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 91 |
+| Total | 92 |
 | ORIGINAL | 1 |
-| ACCEPTABLE | 28 |
+| ACCEPTABLE | 29 |
 | ATTENTION | 56 |
 | HIGH_SIMILARITY | 6 |
 | CLONE | 0 |
@@ -30,8 +30,8 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
 | Capas válidas (contrato canônico) | 47 |
-| Capas pendentes (contrato canônico) | 44 |
-| Capas usando imagem social | 12 |
+| Capas pendentes (contrato canônico) | 45 |
+| Capas usando imagem social | 13 |
 | Capas compartilhadas | 0 |
 | Crop severo | 19 |
 | Assets de marca cruzados (inválidos) | 0 |
@@ -160,6 +160,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | reuse-house-brecho | 30 | ACCEPTABLE | beto-pasteis (30) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | emporio-lelecute | 29 | ACCEPTABLE | assistencia-microondas-santos (29) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | guaratuba-reparos-residenciais | 27 | ACCEPTABLE | bh-barreiro-marmitas (27) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| adhonep-curitiba | 25 | ACCEPTABLE | reuse-house-brecho (25) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dyzpromo | 25 | ACCEPTABLE | marido-de-aluguel (25) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
 | brecho-sao-francisco | 24 | ACCEPTABLE | toquinho-de-gente-brecho (24) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | paraiso-do-hot-dog | 24 | ACCEPTABLE | kitutes-na-mesa (24) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |

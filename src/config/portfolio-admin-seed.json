@@ -64,7 +64,7 @@
       "image": "/images/adhonep-curitiba/capa.jpg",
       "icon": "/images/adhonep-curitiba/icone-abstrato.png",
       "socialImage": "/images/adhonep-curitiba/capa.jpg",
-      "socialVersion": "",
+      "socialVersion": "73972c7c",
       "componentFile": "src/components/site/AdhonepCuritibaPage.tsx",
       "routeFile": "src/routes/portfolio.$slug.tsx",
       "assetsDir": "public/images/adhonep-curitiba",

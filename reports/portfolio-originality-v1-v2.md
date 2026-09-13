@@ -70,6 +70,7 @@ originalidade: nenhuma página pública mudou.
 | simone-lacerda-vaz | embalar-embalagens | embalar-embalagens | 49 | 48 | -1 | não | METRIC_CORRECTION | 37.5 | 1.9 |
 | sscons | jc-revestimentos | bruna-diarista | 25 | 24 | -1 | SIM | METRIC_CORRECTION | 13.3 | 1.7 |
 | vila-da-capivara | mp-festas-eventos | mp-festas-eventos | 54 | 53 | -1 | não | METRIC_CORRECTION | 20 | 5.6 |
+| adhonep-curitiba | reuse-house-brecho | reuse-house-brecho | 25 | 25 | 0 | não | UNCHANGED | 0 | 7.5 |
 | ag-electrical-services | lk-alvenaria | lk-alvenaria | 51 | 51 | 0 | não | UNCHANGED | 0 | 3.2 |
 | aguia-sul-sinalizacao | acai-total-araucaria | diego-montador-moveis | 59 | 59 | 0 | SIM | UNCHANGED | 20 | 7.5 |
 | artesanatos-darleia-oliveira | lk-alvenaria | lk-alvenaria | 42 | 42 | 0 | não | UNCHANGED | 8.3 | 7.5 |
