@@ -146,6 +146,12 @@ function PendingDestinationsPage() {
           {error}
         </p>
       )}
+      {notice && (
+        <p role="status" className="mt-4 rounded-md border border-border bg-muted/40 p-3 text-sm">
+          {notice}
+        </p>
+      )}
+
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         <label className="block text-sm">
