@@ -46,6 +46,7 @@ function DestinationsReviewPage() {
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<Filter>("ALL");
   const [term, setTerm] = useState("");
+  const [city, setCity] = useState<string>("ALL");
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -77,19 +78,29 @@ function DestinationsReviewPage() {
     };
   }, [rows]);
 
+  const cities = useMemo(
+    () =>
+      [...new Set(rows.map((r) => r.city).filter((c): c is string => Boolean(c)))].sort((a, b) =>
+        a.localeCompare(b),
+      ),
+    [rows],
+  );
+
   const visible = useMemo(() => {
     const q = term.trim().toLowerCase();
     return rows
       .filter((r) => matchesFilter(r, filter))
+      .filter((r) => city === "ALL" || r.city === city)
       .filter(
         (r) =>
           !q ||
           r.slug.toLowerCase().includes(q) ||
           (r.clientKey ?? "").toLowerCase().includes(q) ||
+          (r.city ?? "").toLowerCase().includes(q) ||
           r.projectName.toLowerCase().includes(q),
       )
       .sort((a, b) => (a.clientKey ?? a.slug).localeCompare(b.clientKey ?? b.slug));
-  }, [rows, filter, term]);
+  }, [rows, filter, term, city]);
 
   return (
     <div className="p-6 lg:p-8">
@@ -153,6 +164,21 @@ function DestinationsReviewPage() {
           </button>
         ))}
         <label className="ml-auto flex min-h-11 items-center gap-2 rounded-md border border-input px-3 text-sm">
+          <span className="text-muted-foreground">Cidade</span>
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="bg-transparent outline-none"
+          >
+            <option value="ALL">Todas</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="flex min-h-11 items-center gap-2 rounded-md border border-input px-3 text-sm">
           <Search className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
           <span className="sr-only">Buscar por cliente, slug ou nome</span>
           <input
@@ -174,6 +200,7 @@ function DestinationsReviewPage() {
               <tr>
                 <th scope="col" className="px-3 py-2">clientKey</th>
                 <th scope="col" className="px-3 py-2">Projeto</th>
+                <th scope="col" className="px-3 py-2">Cidade</th>
                 <th scope="col" className="px-3 py-2">Destino</th>
                 <th scope="col" className="px-3 py-2">Status</th>
                 <th scope="col" className="px-3 py-2">Origem</th>
@@ -191,6 +218,7 @@ function DestinationsReviewPage() {
                       <span className="block">{row.projectName}</span>
                       <span className="block text-xs text-muted-foreground">/portfolio/{row.slug}</span>
                     </td>
+                    <td className="px-3 py-2 text-muted-foreground">{row.city ?? "—"}</td>
                     <td className="px-3 py-2 tabular-nums">{row.destinationValueMasked ?? "—"}</td>
                     <td className="px-3 py-2">
                       <span className="inline-flex items-center gap-1">
@@ -213,7 +241,7 @@ function DestinationsReviewPage() {
               })}
               {visible.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-3 py-6 text-center text-muted-foreground">
+                  <td colSpan={8} className="px-3 py-6 text-center text-muted-foreground">
                     Nenhum projeto neste filtro.
                   </td>
                 </tr>

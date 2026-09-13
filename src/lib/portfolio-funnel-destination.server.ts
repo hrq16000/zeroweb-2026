@@ -46,6 +46,8 @@ type CatalogRow = {
   status?: string;
   live?: boolean;
   projectType?: string;
+  city?: string;
+  state?: string;
 };
 
 const CATALOG = catalog as CatalogRow[];
@@ -212,6 +214,11 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
       slug: project.slug,
       projectName: project.title ?? project.slug,
       clientKey,
+      city: project.city
+        ? project.state
+          ? `${project.city} — ${project.state}`
+          : project.city
+        : null,
       funnelType: context.quizMode === "booking" ? "booking" : `proposal:${context.proposalKind}`,
       contactMode: "funnelOnly",
       destinationStatus: status,

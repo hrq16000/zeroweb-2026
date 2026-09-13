@@ -89,6 +89,8 @@ export type DestinationRow = {
   slug: string;
   projectName: string;
   clientKey: string | null;
+  /** Cidade do catálogo, para filtro no painel. Nunca é PII. */
+  city: string | null;
   funnelType: string;
   contactMode: "funnelOnly" | "none";
   destinationStatus: DestinationStatus;
