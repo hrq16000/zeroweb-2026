@@ -110,7 +110,11 @@ export function buildRecords(root) {
     const social = assets?.socialImage;
     if (!social || !ownsPath(social) || !fileExists(social)) issues.push(CODES.SOCIAL);
 
-    const imageFiles = dirFiles.filter((f) => /\.(webp|avif|jpg|jpeg|png|svg)$/i.test(f));
+    // fs.readdirSync() does not guarantee directory-entry order across runtimes/filesystems.
+    // Sort explicitly so the generated admin seed is deterministic in Lovable, CI and Vercel.
+    const imageFiles = dirFiles
+      .filter((f) => /\.(webp|avif|jpg|jpeg|png|svg)$/i.test(f))
+      .sort();
     if (imageFiles.length < 2) issues.push(CODES.HERO);
 
     const componentFile = client?.componentFile;
