@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-09-13",
+  "scope": "/portfolio/:slug",
+  "sourceOfTruth": "git-build-audits-plus-live-db-when-available",
+  "policy": {
+    "notTestedIsPass": false,
+    "staticBuildIsNotLiveOperationalProof": true,
+    "destinationCountsRequireLiveDatabase": true,
+    "originalityBaselineIsNotQualityApproval": true
+  },
+  "catalog": {
+    "projects": 92,
+    "boundaries": "PASS",
+    "catalog": "PASS",
+    "conversionProfiles": "PASS_92_DISTINCT",
+    "scaffold": "PASS",
+    "regional": "PASS",
+    "presenceKit": "PASS",
+    "logosGate": "PASS",
+    "standards": "PASS",
+    "performance": { "status": "PASS", "projects": 92, "warnings": 0 },
+    "assets": "PASS",
+    "icons": { "status": "PASS", "projects": 92, "warnings": 0 },
+    "skillsConformant": 90,
+    "projectMatrix": { "complete": 92, "partial": 0, "blockers": 0 },
+    "funnelContext": { "pass": 92 }
+  },
+  "originality": {
+    "gateModeAtAudit": "REPORT_ONLY",
+    "total": 92,
+    "original": 1,
+    "acceptable": 29,
+    "attention": 56,
+    "highSimilarity": 6,
+    "clone": 0,
+    "sharedFallback": 0,
+    "placeholderLogos": 25,
+    "validCovers": 47,
+    "pendingCovers": 45,
+    "assessment": "FAIL_PRODUCT_TARGET_DESPITE_BUILD_PASS",
+    "priorityPairs": [
+      { "a": "btb-construcao", "b": "easy-clean", "score": 69, "reason": "VISUAL_COMPOSITION_CLONE" },
+      { "a": "bruna-diarista", "b": "popys-conservacao-limpeza", "score": 66, "reason": "NEAR_DUPLICATE_LAYOUT" },
+      { "a": "embalar-embalagens", "b": "maximos-cabeleireiros", "score": 61, "reason": "NEAR_DUPLICATE_LAYOUT" }
+    ],
+    "attentionExamples": [
+      { "a": "js-eletrica-manutencao", "b": "maximos-cabeleireiros", "score": 60 },
+      { "a": "aguia-sul-sinalizacao", "b": "diego-montador-moveis", "score": 59 },
+      { "a": "mp-festas-eventos", "b": "studio-de-cilios", "score": 59 }
+    ],
+    "requiredAction": "Redesign high-similarity pairs and enforce no-regression for new/modified projects. Do not claim uniqueness solely because CLONE=0."
+  },
+  "visualQuality": {
+    "inspected": 92,
+    "premium": 31,
+    "standard": 61,
+    "needsUpgrade": 0,
+    "averageScore": 88,
+    "p0": 0,
+    "p1": 74,
+    "p2": 151,
+    "p3": 63,
+    "warning": "Several project dimensions remain unevaluated. A numeric build score is not equivalent to creative approval."
+  },
+  "funnels": {
+    "structural": {
+      "projects": 92,
+      "portfolioQuiz": 69,
+      "dynamicFunnel": 22,
+      "externalStore": 1,
+      "leadSavedBeforeDestinationResolve": true,
+      "tokenOnlyWithResolvedDestination": true,
+      "serverSideRecoverability": true,
+      "safeCallbackWhenUnresolved": true,
+      "noDeadEndRedirect": true
+    },
+    "destinationLiveState": {
+      "status": "REQUIRES_LIVE_DB_READ",
+      "doNotInferFromStaticGate": true,
+      "reason": "Static funnel gate reports configuration shape, not canonical runtime recipients."
+    }
+  },
+  "ownership": {
+    "currentMain": "AUTHENTICATED_GLOBAL_ADMIN_MODEL",
+    "target": "PROJECT_SCOPED_MULTI_TENANT",
+    "featureBranch": {
+      "branch": "feat/portfolio-p0-autonomy-adhonep",
+      "migration": "supabase/migrations/20260913141500_portfolio_project_members.sql",
+      "roles": ["owner", "editor", "viewer"],
+      "serverEnforcement": true,
+      "adminGrantUi": "/app/portfolio-acessos",
+      "publishArchiveAdminOnly": true
+    },
+    "productionBlocker": "Migration not yet applied to the actual production Supabase project."
+  },
+  "vercel": {
+    "project": "zeroweb-2026",
+    "gitIntegration": "WORKING",
+    "tanstackNitroBuild": "WORKING",
+    "databaseRuntime": "BLOCKED_UNTIL_ENV_CONFIGURED",
+    "requiredServerVariables": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"],
+    "requiredPublicVariables": ["VITE_SUPABASE_URL", "VITE_SUPABASE_PUBLISHABLE_KEY"],
+    "secretsMustNeverBeCommitted": true
+  },
+  "adhonepCuritiba": {
+    "featureBranchRedesign": true,
+    "conceptualMedia": "/images/adhonep-curitiba/hero-reuniao-executiva.svg",
+    "designDirection": "EXECUTIVE_EDITORIAL_NIGHT",
+    "funnelOnly": true,
+    "directPublicPhone": false,
+    "knownRemainingGap": "Route-level SEO metadata/schema remains generic and should be converted to ADHONEP/event-specific metadata."
+  },
+  "destinationResearch": {
+    "policy": "Exact entity match before canonical write. Fixed/mobile and local 8/9 digits are equally valid.",
+    "recentResearch": [
+      { "slug": "papelemi-personalizados", "result": "ENTITY_STRONG_NO_PUBLIC_PHONE", "note": "Elo7 confirms brand and São José dos Pinhais but does not expose a reliable destination number." },
+      { "slug": "mania-de-limpeza", "result": "CONFLICT_OTHER_CITY", "note": "Search result with same/similar name points to Teresina; not usable for Curitiba project." },
+      { "slug": "easy-clean", "result": "CONFLICT_OTHER_ENTITY", "note": "Search results include unrelated brands/locations; no safe write." },
+      { "slug": "almeida-torres", "result": "CONFLICT_OTHER_ENTITY", "note": "Public results with Almeida/Torres names do not resolve to the project identity; no safe write." },
+      { "slug": "r-beauty", "result": "CONFLICT_OTHER_ENTITY", "note": "Public R/S&R Beauty result cannot be assumed to be this client." }
+    ]
+  },
+  "nextPriority": [
+    "Configure production Vercel Supabase environment without committing secrets",
+    "Connect correct production Supabase account/project and apply project-membership migration",
+    "Read canonical destination queue from live database",
+    "Research unresolved destinations in small exact-identity batches and confirm through canonical flow",
+    "Fix ADHONEP route-level event SEO/schema",
+    "Redesign 3 high-similarity pairs first",
+    "Replace preset-led new-project generation with Creative Director plus composition graph"
+  ]
+}
