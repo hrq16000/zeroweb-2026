@@ -2,11 +2,9 @@
 name: 0web-skill-discovery
 description: >
   Descoberta dinâmica, ranking, revisão de segurança e composição de skills para o 0WEB.
-  Use antes de qualquer tarefa substancial (nova página, redesign, landing page, design system,
-  refactor relevante, QA estratégico) para decidir quais skills usar — inclusive skills externas
-  ainda não instaladas. Também use quando o usuário pedir para "procurar skills", avaliar uma
-  skill de marketplace (Skills.sh, LobeHub, AwesomeSkill, SkillsMP, MCPMarket,
-  ClaudeMarketplaces, skills.ws) ou quando o catálogo local não cobrir bem a tarefa.
+  Use antes de qualquer tarefa substancial (novo projeto, nova página/portfolio, redesign,
+  manutenção visual material, landing page, design system, refactor relevante, QA estratégico)
+  para decidir quais skills usar — inclusive skills externas ainda não instaladas.
 ---
 
 # 0WEB — Skill Discovery & Dynamic Orchestration
@@ -17,8 +15,9 @@ pesquise novas skills sempre que o catálogo local não cobrir adequadamente a t
 ## Pipeline obrigatório
 
 ```text
-TASK → CLASSIFY → FIND SKILLS → RANK CANDIDATES → SECURITY REVIEW →
-SELECT SKILL STACK → EXECUTE → CROSS-REVIEW → TEST → VISUAL QA → SHIP
+TASK → CLASSIFY → READ LOCAL CATALOG → FIND SKILLS → RANK CANDIDATES →
+SECURITY REVIEW → SELECT SKILL STACK → EXECUTE → CROSS-REVIEW → TEST →
+VISUAL QA → REGISTER → SHIP
 ```
 
 ## 1. Fontes de descoberta
@@ -27,8 +26,8 @@ Ordem de prioridade:
 
 1. repositório oficial/original da skill ou do fornecedor;
 2. `vercel-labs/skills/find-skills` e mecanismos oficiais de descoberta;
-3. LobeHub Skills Marketplace / LobeHub market CLI;
-4. AwesomeSkill;
+3. LobeHub Skills Marketplace / `@lobehub/market-cli`;
+4. AwesomeSkill, incluindo `https://awesomeskill.ai/search`;
 5. Skills.sh;
 6. SkillsMP, MCPMarket, ClaudeMarketplaces e skills.ws.
 
@@ -37,119 +36,181 @@ skills.ws são **triagem e descoberta**. Nunca aprovam sozinhos: localize e revi
 o repositório/fonte original antes de qualquer aprovação definitiva. Sem fonte
 original localizável → no máximo `REFERENCE_ONLY` ou `QUARANTINED`.
 
-Quando a tarefa envolver UI/UX, pesquise explicitamente repertório de design
-intelligence. `nextlevelbuilder/ui-ux-pro-max-skill` é a referência primária
-atual para UI/UX Pro Max; marketplaces só ajudam a localizar/compare versões.
+Antes da busca externa, leia `src/config/skill-marketplace-catalog.json` e
+`docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` para não redescobrir cegamente o
+que já foi avaliado.
 
-A CLI do LobeHub pode ser usada em ambiente de agente para descoberta/instalação
-após revisão de segurança, por exemplo:
+### LobeHub
+
+O `lobehub-skills-search-engine` fornecido pelo responsável foi internalizado em
+`.agents/skills/lobehub-skills-search-engine/SKILL.md` com regras locais de segurança.
+
+Busca reconhecida:
 
 ```bash
-npx -y @lobehub/market-cli skills install <skill-identifier> --agent <runtime>
+npx -y @lobehub/market-cli skills search --q "<tarefa>" --output json
 ```
 
-Nunca execute instalação de marketplace durante build/deploy da aplicação e
-nunca trate uma instalação bem-sucedida como aprovação de segurança.
+Instalação para agente Codex, somente após security review:
 
-## 2. Ranking de candidatas
+```bash
+npx -y @lobehub/market-cli skills install <identifier> --agent codex
+```
+
+Nunca executar instalação durante build/deploy/runtime.
+
+### AwesomeSkill
+
+Use `https://awesomeskill.ai/search` como índice de triagem. Para cada candidata
+relevante, tente resolver o repositório original e a revisão/versão real antes de
+promovê-la a `APPROVED_*`.
+
+## 2. Quando a busca é obrigatória
+
+### Novo projeto / novo `/portfolio/:slug`
+
+Sempre. Mesmo que o stack local pareça suficiente, faça pelo menos a revisão do
+catálogo machine-readable e decida se uma busca externa acrescenta competência.
+
+### Manutenção visual/UX material
+
+Sempre. Uma manutenção que muda layout, motion, conversão, conteúdo estrutural,
+SEO de página, acessibilidade ou performance deve reavaliar o stack e verificar
+skills especializadas adequadas ao problema.
+
+### Bug trivial / mudança estritamente não visual
+
+Pode reutilizar o stack local sem busca externa completa, desde que a tarefa não
+altere comportamento de usuário, segurança, arquitetura ou experiência.
+
+## 3. Ranking de candidatas
 
 Pontue cada candidata por:
 
 - relevância específica para a tarefa;
 - fonte oficial/original;
-- qualidade do SKILL.md (instruções acionáveis, não marketing);
+- qualidade do `SKILL.md`;
 - segurança (scripts, rede, segredos, dependências);
 - manutenção recente;
-- compatibilidade com a stack (React 19 · TanStack Start · Tailwind v4 · Bun);
+- compatibilidade com React 19 · TanStack Start · Tailwind v4 · Bun;
 - capacidade de preservar a arquitetura existente;
 - evidência de uso real;
 - sobreposição com skills já instaladas;
 - custo de contexto e complexidade.
 
-Downloads, estrelas e popularidade são **sinais**, nunca prova de segurança ou qualidade.
+Downloads, estrelas e popularidade são sinais, nunca prova de segurança/qualidade.
 
-## 3. Revisão de segurança
+## 4. Revisão de segurança
 
-Aplicar `docs/skills/SECURITY.md`. Bloqueiam adoção: scripts executáveis não lidos
-linha a linha, acesso a segredos/env, chamadas de rede, instalação de dependências,
-instruções para contornar gates do projeto, ZIPs não auditados.
+Aplicar `docs/skills/SECURITY.md`. Bloqueiam execução automática:
+
+- scripts não lidos linha a linha;
+- acesso a `.env`, tokens, cookies, SSH ou credenciais;
+- chamadas de rede desnecessárias;
+- instalação de dependências sem justificativa;
+- `sudo`/elevação de privilégio;
+- instruções para contornar gates ou substituir a arquitetura do projeto.
 
 Uma skill pode ser adotada globalmente em **modo princípio/referência** mesmo
 quando sua distribuição completa inclui scripts que não foram aprovados. Nesse
-caso, apenas as regras revisadas são internalizadas em skill local 0WEB; o código
-de terceiros não é executado.
+caso apenas as regras revisadas são internalizadas; o código externo não é executado.
 
-## 4. Modelo de autoridade
+## 5. Matriz inicial de skills destacadas
+
+O catálogo `src/config/skill-marketplace-catalog.json` inclui candidatas já
+classificadas para facilitar seleção:
+
+- `agent-browser` — browser QA, screenshots, dogfood, scraping;
+- `web-design-guidelines` — UI/a11y/UX audit;
+- `find-skills` — discovery;
+- `react-best-practices` — performance React;
+- `ui-ux-pro-max` — design intelligence;
+- `frontend-design` — direção visual anti-genérica;
+- `planning-with-files` — planejamento longo;
+- `content-research-writer` — pesquisa/conteúdo;
+- `remotion-best-practices` — vídeo React;
+- `seo-review` — SEO especializado;
+- `canvas-design` — criativos estáticos;
+- `skill-creator` — autoria de skills;
+- `brainstorming`, `theme-factory`, `using-superpowers`, `notebooklm` — com restrições registradas.
+
+## 6. Modelo de autoridade
 
 Nenhuma skill isolada controla o trabalho. Para UI/UX, componha especialistas:
 
 | Camada | Candidatas |
 |---|---|
 | Estratégia/experience design | `0web-experience-design-max`, Dexa Experience Design como repertório |
-| Design intelligence | UI/UX Pro Max (fonte original), AwesomeSkill/LobeHub para discovery |
-| Direção criativa | `frontend-design` (Anthropic), Taste Skill, Tasteful UI, UI Craft |
-| Redesign de projeto existente | `redesign-existing-projects`, `design-taste-frontend` |
-| Landing page / CRO | `landing-page-builder`, `landing-page-guide-v2` (referência), `landing-page-design`, skills de copy/CRO |
-| Design system | `design-system-builder`, UI Craft, Open Design, Figma context |
-| Qualidade de interação | Apple HIG (`.design-rules/`), UX/UI Principles, Web Design Guidelines |
-| Engenharia | React Best Practices, Composition Patterns, skills do framework |
-| Motion | `0web-experience-design-max`, motion local, GSAP/Lottie/3D somente quando justificados |
-| QA | acessibilidade, Playwright/browser, performance, verificação visual |
+| Design intelligence | UI/UX Pro Max; LobeHub/AwesomeSkill para discovery |
+| Direção criativa | `frontend-design`, `0web-portfolio-art-direction`, Taste/UI Craft quando complementares |
+| Landing/CRO | especialistas adequados ao objetivo real, sem template fixo |
+| Layout | Flexbox/Grid/intrinsic layout + design system local |
+| Design system | `0web-design-system`, UI Craft/Open Design/Figma quando houver fonte verificável |
+| Interação/a11y | Apple HIG, `web-design-guidelines`, quality gates |
+| Engenharia | `react-best-practices`, composition patterns, stack local |
+| Motion | primitives locais + especialidades GSAP/Lottie/3D apenas quando justificadas |
+| Conteúdo/SEO | research/copy/SEO skills condicionais + evidência factual |
+| Browser QA | Playwright/local QA; `agent-browser` quando disponível e vantajoso |
 
-## 5. Política de landing page
+## 7. Política de landing page
 
 Landing-page skills são especialistas, **não templates obrigatórios**.
-Nenhuma skill pode impor automaticamente número fixo de seções (ex.: "11 seções"),
-pricing, testimonials, reviews, ratings, FAQ, social proof, countdown, urgência,
-estatísticas ou componentes específicos.
+Nenhuma skill pode impor automaticamente número fixo de seções, pricing,
+testimonials, FAQ, social proof, countdown, urgência, estatísticas ou componentes.
 
-Primeiro analise intenção, produto, tráfego, usuário e conversão; depois escolha as
+Primeiro analise intenção, produto, tráfego, usuário e conversão; depois escolha
 seções que realmente ajudam aquela página.
 
 Nunca fabricar reviews, ratings, clientes, estatísticas, logos, depoimentos,
 certificações, escassez, urgência ou resultados comerciais.
 **Evidence-first sempre vence conversion template.**
 
-## 6. Anti-redundância
+## 8. Anti-redundância
 
 ```text
 COMPARE → EXTRACT DIFFERENCES → SELECT PRIMARY → SELECT COMPLEMENTARY → REJECT REDUNDANT
 ```
 
-Três skills que repetem "Hero + Features + Testimonials + FAQ + CTA" são redundantes.
-Conversion architecture, direção visual, acessibilidade e implementação React são
-complementares — essas podem coexistir.
+Três skills que repetem `Hero + Features + Testimonials + FAQ + CTA` não geram
+mais inteligência. Estratégia, direção visual, CRO, acessibilidade, performance,
+SEO e browser QA são camadas complementares.
 
-## 7. Cross-review
+## 9. Cross-review
 
-Em interfaces estratégicas, quem constrói não é a única perspectiva de validação:
+Em interfaces estratégicas:
 
-- estratégia/experience design valida objetivo e jornada;
-- direção criativa cria a direção;
-- design intelligence amplia opções e checa anti-patterns;
-- especialista landing/CRO verifica conversão;
-- Apple HIG / UX verifica experiência;
-- acessibilidade verifica inclusão;
-- React/performance verifica implementação;
-- Taste / UI Craft executa crítica visual;
-- QA no navegador verifica o produto **realmente renderizado**.
+- strategy/experience valida objetivo e jornada;
+- direção criativa define identidade/composição;
+- design intelligence amplia opções e anti-patterns;
+- CRO valida conversão;
+- UX/a11y valida interação e inclusão;
+- React/performance valida implementação;
+- conteúdo/SEO valida profundidade e indexabilidade;
+- browser QA verifica o produto realmente renderizado.
 
-## 8. Status de skill
+## 10. Status de skill
 
-Toda skill avaliada recebe um status registrado em `docs/skills/REGISTRY.md`:
+Toda skill avaliada recebe um status em `docs/skills/REGISTRY.md` e, quando útil,
+no catálogo machine-readable:
 
 `APPROVED_GLOBAL` · `APPROVED_CONDITIONAL` · `REFERENCE_ONLY` ·
-`SECURITY_REVIEW_REQUIRED` · `REDUNDANT` · `QUARANTINED` · `REJECTED`
+`SECURITY_REVIEW_REQUIRED` · `REDUNDANT` · `QUARANTINED` · `REJECTED`.
 
-## 9. Registro
+## 11. Registro
 
-Registre em `docs/skills/CHANGELOG.md` (ou no PR): tarefa, candidatas encontradas,
-fonte original revisada, ranking, status atribuído, stack selecionado,
-skills rejeitadas e motivo, validação executada com saída real.
+Registre em `docs/skills/CHANGELOG.md` ou no PR:
+
+- tarefa;
+- fontes pesquisadas;
+- candidatas encontradas;
+- fonte original/revisão;
+- ranking/status;
+- stack selecionado;
+- skills rejeitadas e motivo;
+- validação executada com saída real.
 
 ## Precedência em conflito
 
 requisitos do projeto → segurança → acessibilidade → integridade de dados →
 regras de negócio → identidade/direção criativa → design system → arquitetura
-existente → limites do framework → performance → UX → skills especializadas →
-referências estéticas.
+existente → performance → UX → skills especializadas → repertório estético.

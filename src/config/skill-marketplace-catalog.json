@@ -1,0 +1,162 @@
+{
+  "version": 2,
+  "generatedAt": "2026-09-13",
+  "policyDoc": "docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md",
+  "sources": [
+    "official-original",
+    "vercel-labs/skills",
+    "lobehub",
+    "awesomeskill",
+    "skills.sh"
+  ],
+  "rules": {
+    "searchOnNewProject": true,
+    "searchOnMaterialMaintenance": true,
+    "preferOriginalSource": true,
+    "securityReviewBeforeExecution": true,
+    "neverInstallDuringBuild": true,
+    "neverSendSecrets": true,
+    "selectMaximumRelevantNonRedundant": true
+  },
+  "skills": [
+    {
+      "id": "lobehub-skills-search-engine",
+      "marketplace": "lobehub",
+      "status": "APPROVED_GLOBAL",
+      "mode": "DISCOVERY_INSTRUCTIONS",
+      "triggers": ["unknown-capability", "new-project", "material-maintenance", "skill-search"],
+      "notes": "SKILL.md fornecido pelo responsável foi revisado; CLI é setup de agente, não runtime/build."
+    },
+    {
+      "id": "find-skills",
+      "source": "vercel-labs/skills",
+      "status": "APPROVED_GLOBAL",
+      "mode": "DISCOVERY",
+      "triggers": ["skill-search", "unknown-capability", "new-project"]
+    },
+    {
+      "id": "agent-browser",
+      "source": "vercel-labs/agent-browser",
+      "status": "APPROVED_CONDITIONAL",
+      "mode": "BROWSER_QA_AUTOMATION",
+      "triggers": ["browser-qa", "screenshot", "dogfood", "scraping", "e2e"],
+      "notes": "Usar quando o ambiente do agente suportar CLI/browser; não substituir browser QA disponível por ferramenta mais simples sem necessidade."
+    },
+    {
+      "id": "web-design-guidelines",
+      "source": "vercel-labs/agent-skills",
+      "status": "APPROVED_GLOBAL",
+      "mode": "UI_REVIEW",
+      "triggers": ["ui-review", "accessibility", "ux-audit", "material-maintenance", "new-project"]
+    },
+    {
+      "id": "react-best-practices",
+      "source": "vercel-labs/agent-skills",
+      "status": "APPROVED_GLOBAL",
+      "mode": "REACT_PERFORMANCE_REVIEW",
+      "triggers": ["react", "performance", "refactor", "new-project", "material-maintenance"]
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900085f1bc3b263721f8ba025e2",
+      "status": "APPROVED_GLOBAL",
+      "mode": "DESIGN_INTELLIGENCE_PRINCIPLES",
+      "triggers": ["ui", "ux", "layout", "typography", "color", "motion", "design-system", "new-project", "material-maintenance"]
+    },
+    {
+      "id": "frontend-design",
+      "source": "anthropics/skills",
+      "status": "APPROVED_GLOBAL",
+      "mode": "CREATIVE_DIRECTION_PRINCIPLES",
+      "triggers": ["new-project", "redesign", "landing-page", "portfolio", "visual-polish"]
+    },
+    {
+      "id": "planning-with-files",
+      "source": "marketplace-candidate",
+      "status": "APPROVED_CONDITIONAL",
+      "mode": "LONG_TASK_PLANNING",
+      "triggers": ["multi-step", "research", "migration", "more-than-5-tool-calls"],
+      "notes": "Arquivos de planejamento nunca substituem origin/main como fonte operacional de verdade; usar somente quando reduzir perda de contexto."
+    },
+    {
+      "id": "content-research-writer",
+      "source": "openakita/openakita",
+      "status": "APPROVED_CONDITIONAL",
+      "mode": "CONTENT_RESEARCH",
+      "triggers": ["content-depth", "research", "seo-content", "entity-enrichment"],
+      "notes": "Conteúdo factual/evidência continua obrigatório; não fabricar dados."
+    },
+    {
+      "id": "remotion-best-practices",
+      "source": "remotion-dev/skills",
+      "status": "APPROVED_CONDITIONAL",
+      "mode": "VIDEO_REACT",
+      "triggers": ["video", "remotion", "motion-video"],
+      "notes": "Não carregar em landing comum sem necessidade de vídeo."
+    },
+    {
+      "id": "seo-review",
+      "source": "leonardomso/33-js-concepts",
+      "status": "REFERENCE_ONLY",
+      "mode": "SEO_REVIEW",
+      "triggers": ["seo-audit", "content-optimization", "search-visibility"],
+      "notes": "A skill original é especializada em páginas de conceitos JavaScript; aproveitar checklist de SEO somente quando generalizável. Gates SEO 0WEB continuam canônicos."
+    },
+    {
+      "id": "canvas-design",
+      "source": "anthropics/skills",
+      "status": "APPROVED_CONDITIONAL",
+      "mode": "STATIC_CREATIVE",
+      "triggers": ["poster", "social-creative", "static-art", "brand-composition"],
+      "notes": "Arte original pode apoiar hero/capa/social, nunca ser classificada como prova documental."
+    },
+    {
+      "id": "skill-creator",
+      "source": "anthropics/skills",
+      "status": "APPROVED_CONDITIONAL",
+      "mode": "SKILL_AUTHORING",
+      "triggers": ["create-skill", "update-skill", "internalize-workflow"],
+      "notes": "Revisar scripts auxiliares antes de executar; usar para consolidar rotinas repetidas em contratos internos."
+    },
+    {
+      "id": "brainstorming",
+      "source": "obra/superpowers",
+      "status": "REFERENCE_ONLY",
+      "mode": "CREATIVE_EXPLORATION",
+      "triggers": ["ambiguous-product", "high-risk-feature", "new-product-direction"],
+      "notes": "Exploração de alternativas é útil; regra upstream de aprovação humana antes de toda implementação conflita com a autorização contínua do projeto."
+    },
+    {
+      "id": "theme-factory",
+      "source": "anthropics/skills",
+      "status": "REFERENCE_ONLY",
+      "mode": "THEME_IDEATION",
+      "triggers": ["theme-exploration"],
+      "notes": "Presets não podem virar skin compartilhada de portfolios; anti-template tem precedência."
+    },
+    {
+      "id": "using-superpowers",
+      "source": "obra/superpowers",
+      "status": "REDUNDANT",
+      "mode": "ORCHESTRATION",
+      "triggers": [],
+      "notes": "Conflita/redunda com 0web-skill-router e 0web-skill-discovery; não é autoridade global do repositório."
+    },
+    {
+      "id": "notebooklm",
+      "source": "PleasePrompto/notebooklm-skill",
+      "status": "SECURITY_REVIEW_REQUIRED",
+      "mode": "CONNECTED_RESEARCH",
+      "triggers": ["notebooklm", "source-grounded-research"],
+      "notes": "AwesomeSkill sinaliza risco médio: acesso a .env e operações destrutivas no pacote. Só usar após revisão e autenticação explícita; não faz parte do fluxo padrão de portfolio."
+    },
+    {
+      "id": "nanobanana-ppt",
+      "source": "op7418/NanoBanana-PPT-Skills",
+      "status": "QUARANTINED",
+      "mode": "PRESENTATION_GENERATION",
+      "triggers": ["ppt", "presentation", "slide-deck"],
+      "notes": "Irrelevante ao runtime web e o marketplace sinaliza risco crítico: sudo, persistência em shell, .env/API keys e secret exposure. Não instalar/usar no 0WEB sem auditoria separada."
+    }
+  ]
+}

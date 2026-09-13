@@ -6,11 +6,11 @@ O popup **“Quero meu site”** continua sendo o único funil universal da 0WEB
 
 ## Política global: máximo de competências relevantes
 
-Toda tarefa substancial deve usar o maior conjunto **relevante e não redundante** de competências necessário para cobrir estratégia, UI/UX, direção criativa, design system, motion, acessibilidade, performance, SEO/conteúdo, segurança/privacidade, conversão e QA.
+Toda tarefa substancial deve usar o maior conjunto **relevante e não redundante** de competências necessário para cobrir estratégia, UI/UX, direção criativa, layout engineering, design system, motion, acessibilidade, performance, SEO/conteúdo, segurança/privacidade, conversão, browser QA e quality assurance.
 
 “Máximo de skills” não significa executar indiscriminadamente todos os pacotes encontrados. Skills redundantes, incompatíveis com a stack, inseguras, que exigem dependências desnecessárias ou que empurram templates visuais fixos devem ser rejeitadas e registradas.
 
-Para toda implementação ou revisão visual material, `.agents/skills/0web-experience-design-max/SKILL.md` é obrigatória junto do roteamento normal.
+Para toda implementação ou revisão visual material, `.agents/skills/0web-experience-design-max/SKILL.md` é obrigatória junto do roteamento normal. Todo novo projeto e toda manutenção visual/UX material também reavaliam o skill stack por `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`.
 
 ## Skills e referências adotadas globalmente
 
@@ -18,17 +18,36 @@ As skills são referências de execução e revisão; não substituem conteúdo 
 
 | Skill / referência | Uso no 0WEB |
 |---|---|
-| `0web-experience-design-max` | Orquestra estratégia digital, UX/UI, design system, web engineering, conteúdo/SEO, motion e QA como camada obrigatória de experiência. |
+| `0web-experience-design-max` | Orquestra estratégia digital, UX/UI, layout, design system, web engineering, conteúdo/SEO, motion e QA como camada obrigatória. |
+| `0web-skill-discovery` + `lobehub-skills-search-engine` | Descoberta contínua, ranking, security review e seleção do stack. |
 | `frontend-design` (Anthropic) | Direção visual antes do código: propósito, estética, tipografia, composição e diferencial por cliente. |
-| UI/UX Pro Max (`nextlevelbuilder/ui-ux-pro-max-skill`) | Design intelligence para estilos, paletas, tipografia, landing patterns, UX, acessibilidade, motion e stack. Usar como recomendação, nunca como template ou autoridade acima do repo. |
+| UI/UX Pro Max (`nextlevelbuilder/ui-ux-pro-max-skill`) | Design intelligence para estilos, paletas, tipografia, landing patterns, UX, acessibilidade, motion e stack. Recomendação, nunca template. |
 | Dexa Experience Design | Repertório de processo: estratégia, UX/UI, websites, produto, design systems, motion design e Design Ops integrados ao negócio. |
-| LobeHub Skills Marketplace | Descoberta de skills; toda candidata precisa apontar para fonte original e passar por revisão de segurança antes de executar. |
-| AwesomeSkill | Descoberta/comparação de skills e sinais de segurança; não substitui revisão da fonte original. |
-| Apple Design Skill | Revisão de hierarquia, acessibilidade, touch targets, estados, movimento e consistência em experiências mobile-first. |
+| `web-design-guidelines` (Vercel) | Revisão de UI, acessibilidade, foco, forms, animation, typography, images, performance, navigation e touch. |
+| `react-best-practices` (Vercel) | Performance/arquitetura React: waterfalls, bundle, rendering, data fetching e rerenders. |
+| `agent-browser` (Vercel) | Browser QA, screenshots, dogfood e scraping quando o ambiente suportar e houver ganho real. |
+| `planning-with-files` | Planejamento persistente para tarefas longas; nunca substitui `origin/main` como fonte de verdade. |
+| `content-research-writer` / `seo-review` | Pesquisa, profundidade editorial e SEO quando aplicáveis, sempre evidence-first. |
+| `remotion-best-practices` | Especialidade de vídeo React quando o projeto realmente usar vídeo/Remotion. |
+| `canvas-design` | Criativos estáticos originais para capa/social/cartaz, sem fingir prova documental. |
+| `skill-creator` | Criar/refinar skills internas quando uma rotina repetida merece contrato próprio. |
+| LobeHub Skills Marketplace | Discovery complementar; candidata precisa passar por revisão de segurança. |
+| AwesomeSkill / `https://awesomeskill.ai/search` | Discovery/comparação de skills; resultado de marketplace não substitui fonte original. |
+| Apple Design Skill | Revisão de hierarquia, acessibilidade, touch targets, estados, movimento e consistência mobile-first. |
 | `ui-craft` / adapt / animate / polish | Tokens, responsividade, motion intencional, microinterações e acabamento final. |
-| Vercel React Best Practices | Revisão de performance e arquitetura React quando houver alteração relevante de componentes. |
-| Snyk UI/UX skill references | Auditoria de acessibilidade, segurança de dependências e revisão de skills de terceiros antes de adoção. |
 | Figma/MCP e DESIGN.md | Referência visual verificável quando houver arquivo de design aprovado. |
+
+Skills como `brainstorming`, `theme-factory`, `using-superpowers` e `notebooklm` têm restrições específicas registradas em `docs/skills/REGISTRY.md` e `src/config/skill-marketplace-catalog.json`.
+
+## Layout engineering — Flexbox e Grid
+
+`docs/LAYOUT_ENGINEERING_STANDARD.md` é normativo para nova interface e manutenção material de layout.
+
+- **Flexbox**: problemas unidimensionais de alinhamento/distribuição/wrap; main axis e cross axis precisam estar corretos.
+- **Grid**: macrocomposição bidimensional.
+- **Intrinsic sizing**: `min-width:0`, `minmax`, `clamp`, `max-width`, `aspect-ratio` e limites de conteúdo antes de larguras fixas arbitrárias.
+- `flex-wrap`, `gap`, DOM/focus order e comportamento 390/768/1440 devem ser avaliados.
+- Primitive compartilhada não autoriza composição visual compartilhada.
 
 ## Matriz global de motion
 
@@ -45,40 +64,46 @@ Esta documentação é normativa para todos os projetos atuais e futuros do port
 ## Processo obrigatório para novos projetos
 
 1. Definir objetivo, público, identidade, conteúdo real e CTA do cliente.
-2. Executar discovery e selecionar stack de skills complementar, incluindo `0web-experience-design-max`.
-3. Escolher direção visual específica; evitar layout genérico de IA.
-4. Aplicar tokens, tipografia, responsividade mobile-first e estados de carregamento/erro.
-5. Definir motion grammar própria, avaliar a matriz global e documentar reduced motion/mobile.
-6. Configurar o funil individual (`companySlug`, intenção e variável privada de destino).
-7. Revisar acessibilidade, performance, SEO, imagens reais e comportamento em viewport móvel.
-8. Executar validações do repositório antes de publicar.
+2. Executar discovery local + fontes originais + LobeHub/AwesomeSkill quando aplicável e selecionar stack complementar.
+3. Aplicar `0web-experience-design-max`.
+4. Escolher direção visual específica; evitar layout genérico de IA.
+5. Definir Flexbox/Grid/intrinsic strategy e comportamento responsivo.
+6. Aplicar tokens, tipografia e estados de loading/error.
+7. Definir motion grammar própria, avaliar a matriz global e documentar reduced motion/mobile.
+8. Configurar o funil individual (`companySlug`, intenção e variável privada de destino).
+9. Revisar acessibilidade, performance, SEO, imagens reais e comportamento em viewport móvel.
+10. Executar validações do repositório antes de publicar.
+
+## Processo obrigatório para manutenção material
+
+Mudança material de layout, motion, UX, conversão, SEO estrutural ou conteúdo principal reexecuta discovery, seleciona/rejeita skills de forma explícita, preserva decisões aprovadas e fecha com browser/runtime QA. Não reaplicar automaticamente o mesmo stack só porque foi usado na página anterior.
 
 ## Marketplaces e instalação
 
 LobeHub, AwesomeSkill, Skills.sh, SkillsMP e similares são **fontes de descoberta**. A instalação de uma skill não significa aprovação automática.
 
-A CLI do LobeHub pode ser usada em ambiente de agente, após revisão, por exemplo:
+A CLI do LobeHub pode ser usada em ambiente de agente, após revisão:
 
 ```bash
-npx -y @lobehub/market-cli skills install <skill-identifier> --agent <runtime>
+npx -y @lobehub/market-cli skills search --q "<tarefa>" --output json
+npx -y @lobehub/market-cli skills install <skill-identifier> --agent codex
 ```
 
 Nunca executar marketplace installer durante build/deploy da aplicação. Nunca permitir que uma skill leia segredos, modifique o sistema operacional, introduza `sudo`, instale dependências globais ou envie dados privados sem revisão e necessidade explícitas.
 
 ## Skills recebidas em ZIP
 
-Os arquivos `seo-content-writer.zip`, `landing-page-scaffold.zip`, `whatsapp-integration.zip`, `ad-creative.zip`, `design-system-builder.zip` e `kimi-find-skills.zip` foram tratados como referências externas. Não são executados automaticamente: qualquer instalação futura deve passar por inspeção de `SKILL.md`, scripts e dependências, pois skills de terceiros podem conter instruções ou código inseguro.
+Os arquivos `seo-content-writer.zip`, `landing-page-scaffold.zip`, `whatsapp-integration.zip`, `ad-creative.zip`, `design-system-builder.zip` e `kimi-find-skills.zip` foram tratados como referências externas. Não são executados automaticamente: qualquer instalação futura deve passar por inspeção de `SKILL.md`, scripts e dependências.
 
 ## Referências consultadas
 
 - [Dexa — Experience Design](https://www.dexa.ag/pt-br/servicos/experience-design)
 - [UI/UX Pro Max](https://uupm.cc)
 - [UI/UX Pro Max — repositório original](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- [AwesomeSkill — UI/UX Pro Max](https://awesomeskill.ai/skill/ui-ux-pro-max-skill-ui-ux-pro-max)
+- [AwesomeSkill Search](https://awesomeskill.ai/search)
 - [LobeHub Skills](https://lobehub.com/pt-BR/skills)
-- [PUNKMETRICS — Skills de design para Claude Code](https://punkmetrics.com/skills-de-design-para-claude-code/)
-- [Snyk — Top Claude Skills for UI/UX Engineers](https://snyk.io/pt-BR/articles/top-claude-skills-ui-ux-engineers/)
-- [Kimi — UI/UX design skills for agents](https://www.kimi.ai/pt-br/resources/ui-ux-design-skills-for-agents)
 - [Anthropic — frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)
+- [Vercel — agent-skills](https://github.com/vercel-labs/agent-skills)
+- [Vercel — agent-browser](https://github.com/vercel-labs/agent-browser)
 
 No 0WEB, essas práticas são aplicadas conforme compatibilidade com React/TanStack, identidade específica de cada cliente e limites do repositório, sem copiar código, layout, marca ou conteúdo de terceiros.

@@ -13,11 +13,15 @@ const requiredFiles = [
   ".agents/skills/0web-skill-router/SKILL.md",
   ".agents/skills/0web-skill-discovery/SKILL.md",
   ".agents/skills/0web-experience-design-max/SKILL.md",
+  ".agents/skills/lobehub-skills-search-engine/SKILL.md",
   "docs/AGENT_SKILLS_GOVERNANCE.md",
   "docs/EXPERIENCE_DESIGN_MAX_STANDARD.md",
+  "docs/LAYOUT_ENGINEERING_STANDARD.md",
+  "docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md",
   "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
   "docs/skills/REGISTRY.md",
   "src/config/experience-capabilities.json",
+  "src/config/skill-marketplace-catalog.json",
 ];
 
 for (const file of requiredFiles) {
@@ -31,7 +35,10 @@ if (fail.length === 0) {
   const governance = read("docs/AGENT_SKILLS_GOVERNANCE.md");
   const registry = read("docs/skills/REGISTRY.md");
   const standard = read("docs/EXPERIENCE_DESIGN_MAX_STANDARD.md");
+  const layoutStandard = read("docs/LAYOUT_ENGINEERING_STANDARD.md");
+  const marketplaceStandard = read("docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md");
   const config = JSON.parse(read("src/config/experience-capabilities.json"));
+  const marketplace = JSON.parse(read("src/config/skill-marketplace-catalog.json"));
 
   const mustMention = [
     ["AGENTS.md", agents, "0web-experience-design-max"],
@@ -39,23 +46,43 @@ if (fail.length === 0) {
     ["router", router, "Maximum relevant skills"],
     ["discovery", discovery, "LobeHub"],
     ["discovery", discovery, "AwesomeSkill"],
+    ["discovery", discovery, "awesomeskill.ai/search"],
     ["governance", governance, "UI/UX Pro Max"],
     ["registry", registry, "nextlevelbuilder/ui-ux-pro-max-skill@7f69fed6a2717900085f1bc3b263721f8ba025e2"],
     ["registry", registry, "lobehub-skills-search-engine"],
     ["standard", standard, "Máximo de skills relevantes"],
+    ["layout", layoutStandard, "Flexbox"],
+    ["layout", layoutStandard, "main axis"],
+    ["marketplace", marketplaceStandard, "awesomeskill.ai/search"],
+    ["marketplace", marketplaceStandard, "@lobehub/market-cli"],
   ];
 
   for (const [label, text, needle] of mustMention) {
     if (!text.includes(needle)) fail.push(`${label}:missing:${needle}`);
   }
 
-  if (config.version < 2) fail.push("experience-capabilities:version<2");
+  if (config.version < 3) fail.push("experience-capabilities:version<3");
+  if (marketplace.version < 2) fail.push("skill-marketplace-catalog:version<2");
   if (config.mandatorySkill !== ".agents/skills/0web-experience-design-max/SKILL.md") {
     fail.push("experience-capabilities:mandatorySkill");
   }
   if (config.maximumRelevantSkillsPolicy?.mode !== "MAXIMUM_RELEVANT_NON_REDUNDANT") {
     fail.push("experience-capabilities:maximumRelevantSkillsPolicy");
   }
+  if (!config.maximumRelevantSkillsPolicy?.searchOnNewProject) {
+    fail.push("experience-capabilities:searchOnNewProject");
+  }
+  if (!config.maximumRelevantSkillsPolicy?.searchOnMaterialMaintenance) {
+    fail.push("experience-capabilities:searchOnMaterialMaintenance");
+  }
+
+  const expectedLayout = ["flexbox", "css-grid", "intrinsic-sizing", "responsive-flow"];
+  const actualLayout = (config.layoutCapabilityMatrix?.capabilities ?? []).map((x) => x.id);
+  const missingLayout = expectedLayout.filter((id) => !actualLayout.includes(id));
+  if (!config.layoutCapabilityMatrix?.requiredAssessment) {
+    fail.push("experience-capabilities:layoutCapabilityMatrix.requiredAssessment");
+  }
+  if (missingLayout.length) fail.push(`layout-matrix:missing:${missingLayout.join(",")}`);
 
   const expectedMotion = [
     "fade-up",
@@ -87,6 +114,42 @@ if (fail.length === 0) {
   for (const state of config.motionCapabilityMatrix?.states ?? []) {
     if (!allowedStates.has(state)) fail.push(`motion-matrix:invalid-state:${state}`);
   }
+  for (const state of config.layoutCapabilityMatrix?.states ?? []) {
+    if (!allowedStates.has(state)) fail.push(`layout-matrix:invalid-state:${state}`);
+  }
+
+  if (!marketplace.rules?.searchOnNewProject) fail.push("marketplace:searchOnNewProject");
+  if (!marketplace.rules?.searchOnMaterialMaintenance) fail.push("marketplace:searchOnMaterialMaintenance");
+  if (!marketplace.rules?.securityReviewBeforeExecution) fail.push("marketplace:securityReviewBeforeExecution");
+
+  const requiredSkills = [
+    "lobehub-skills-search-engine",
+    "find-skills",
+    "agent-browser",
+    "web-design-guidelines",
+    "react-best-practices",
+    "ui-ux-pro-max",
+    "frontend-design",
+    "planning-with-files",
+    "content-research-writer",
+    "remotion-best-practices",
+    "seo-review",
+    "canvas-design",
+    "skill-creator",
+    "brainstorming",
+    "theme-factory",
+    "using-superpowers",
+    "notebooklm",
+    "nanobanana-ppt",
+  ];
+  const skillIds = new Set((marketplace.skills ?? []).map((x) => x.id));
+  const missingSkills = requiredSkills.filter((id) => !skillIds.has(id));
+  if (missingSkills.length) fail.push(`marketplace:missing-skills:${missingSkills.join(",")}`);
+
+  const quarantined = new Map((marketplace.skills ?? []).map((x) => [x.id, x.status]));
+  if (quarantined.get("nanobanana-ppt") !== "QUARANTINED") {
+    fail.push("marketplace:nanobanana-ppt-must-remain-quarantined");
+  }
 }
 
 if (fail.length) {
@@ -97,6 +160,9 @@ if (fail.length) {
 
 console.log("[experience-skill-policy] PASS");
 console.log(" - mandatory skill: 0web-experience-design-max");
-console.log(" - external discovery: LobeHub + AwesomeSkill + original sources");
+console.log(" - external discovery: official sources + LobeHub + AwesomeSkill search");
+console.log(" - marketplace catalog: required for new projects and material maintenance");
+console.log(" - highlighted skills: 18/18 registered with security status");
+console.log(" - layout matrix: Flexbox + Grid + intrinsic sizing + responsive flow");
 console.log(" - motion matrix: 14/14 capabilities registered");
 console.log(" - policy: maximum relevant non-redundant skills");
