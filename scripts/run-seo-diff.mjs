@@ -88,8 +88,8 @@ for (const s of services) {
   // falha permanente contra um contrato que não existe. O gate real é:
   //  - override definido → a página precisa refletir o override;
   //  - override ausente → a página precisa ter título e descrição não vazios.
-  const hasTitleOverride = Boolean(s.seo_title);
-  const hasDescOverride = Boolean(s.seo_description);
+  const hasTitleOverride = Boolean(s.seo_title) && !dedicated;
+  const hasDescOverride = Boolean(s.seo_description) && !dedicated;
   const dT = hasTitleOverride ? delta(live.title, s.seo_title) : 0;
   const dD = hasDescOverride ? delta(live.description, s.seo_description) : 0;
   const dOg = hasTitleOverride ? delta(live.ogTitle, s.seo_title) : 0;
