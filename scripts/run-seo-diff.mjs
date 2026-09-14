@@ -75,18 +75,32 @@ for (const s of services) {
     continue;
   }
   const live = parse(html);
-  const expectedTitle = s.seo_title ?? s.name;
-  const expectedDesc = s.seo_description ?? "";
-
-  const dT = delta(live.title, expectedTitle);
-  const dD = delta(live.description, expectedDesc);
-  const dOg = delta(live.ogTitle, expectedTitle);
+  // `seo_title`/`seo_description` são OVERRIDES do painel. Quando nulos, a
+  // página compõe o próprio texto editorial — comparar com `s.name` produzia
+  // falha permanente contra um contrato que não existe. O gate real é:
+  //  - override definido → a página precisa refletir o override;
+  //  - override ausente → a página precisa ter título e descrição não vazios.
+  const hasTitleOverride = Boolean(s.seo_title);
+  const hasDescOverride = Boolean(s.seo_description);
+  const dT = hasTitleOverride ? delta(live.title, s.seo_title) : 0;
+  const dD = hasDescOverride ? delta(live.description, s.seo_description) : 0;
+  const dOg = hasTitleOverride ? delta(live.ogTitle, s.seo_title) : 0;
+  const missingBasics = !live.title?.trim() || !live.description?.trim();
   const hasJsonLd = live.jsonLd.length > 0;
   const expectsJsonLd = Array.isArray(s.schema_jsonld) && s.schema_jsonld.length > 0;
   const jsonMismatch = expectsJsonLd && !hasJsonLd;
 
-  const breach = dT > CONFIG.maxDelta || dD > CONFIG.maxDelta || dOg > CONFIG.maxDelta || jsonMismatch;
-  report.push({ slug: s.slug, dT: dT.toFixed(2), dD: dD.toFixed(2), dOg: dOg.toFixed(2), jsonMismatch, breach });
+  const breach =
+    dT > CONFIG.maxDelta || dD > CONFIG.maxDelta || dOg > CONFIG.maxDelta || jsonMismatch || missingBasics;
+  report.push({
+    slug: s.slug,
+    dT: dT.toFixed(2),
+    dD: dD.toFixed(2),
+    dOg: dOg.toFixed(2),
+    jsonMismatch,
+    missingBasics,
+    breach,
+  });
   if (breach) failures++;
 }
 
