@@ -90,14 +90,12 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
         let deliveredClientKey: string | null = null;
 
 
-        if (resolved.row.isLegacy && resolved.row.destination_digits && resolved.row.message) {
-          // Legacy compat path — no new writes go here.
-          finalDigits = String(resolved.row.destination_digits).replace(/\D/g, "");
-          finalMessage = String(resolved.row.message);
-          if (!finalDigits) {
-            return channelNotConfiguredPage(resolved.row.lead_id ? token : null);
-          }
-        } else {
+        // ZERO_FUNNEL_DRIFT / fail-closed: o caminho legado entregava dígitos e
+        // texto gravados no token, contornando o gerador canônico e a resolução
+        // de destino por client_key (risco de mensagem divergente e de destino
+        // indevido). Ele está aposentado: não há emissão nova nesse formato e
+        // nenhum token legado pendente. Todo token passa pelo caminho canônico.
+        {
           // Modern path: build from lead + session + form + questions.
           if (!resolved.row.lead_id) {
             // Token antigo sem vínculo com pedido: não há o que recuperar aqui
