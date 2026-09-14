@@ -60,10 +60,18 @@ function delta(a, b) {
 const url = `${URL_BASE.replace(/\/$/, "")}/rest/v1/services?select=slug,name,seo_title,seo_description,og_image_path,image_path,schema_jsonld&is_active=eq.true`;
 const services = await (await fetch(url, { headers: { apikey: ANON, Authorization: `Bearer ${ANON}` } })).json();
 
+// Alguns serviços têm página editorial dedicada (`src/routes/servicos.<slug>.tsx`)
+// que substitui a rota dinâmica e define o próprio texto de SEO. Para esses, o
+// override do catálogo não é o contrato — mas a página continua obrigada a
+// publicar título, descrição e JSON-LD válidos (verificados abaixo).
+const { existsSync: routeExists } = await import("node:fs");
+const hasDedicatedRoute = (slug) => routeExists(path.resolve(`src/routes/servicos.${slug}.tsx`));
+
 let failures = 0;
 const report = [];
 for (const s of services) {
   if (CONFIG.ignoreSlugs.includes(s.slug)) continue;
+  const dedicated = hasDedicatedRoute(s.slug);
   const target = `${BASE}/servicos/${s.slug}`;
   let html;
   try {
