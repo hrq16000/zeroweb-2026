@@ -147,16 +147,7 @@ export function getPortfolioQuizCopyForClient(
   return applyPortfolioFunnelIntentCopy(base, context);
 }
 
-export function buildPortfolioQuizPreviewMessage({
-  studioName,
-  answers,
-  recipientName,
-  mode = "booking",
-  proposalKind = "service",
-  pageUrl = "",
-  location = "",
-  funnelContext,
-}: {
+export type PortfolioQuizMessageInput = {
   studioName: string;
   answers: PortfolioQuizAnswers;
   recipientName: string;
@@ -165,7 +156,29 @@ export function buildPortfolioQuizPreviewMessage({
   pageUrl?: string;
   location?: string;
   funnelContext?: Pick<PortfolioFunnelContext, "intent" | "whatsappPrompt" | "whatsappSubject">;
-}): string {
+};
+
+/**
+ * GERADOR CANÔNICO da mensagem do funil de `/portfolio/:slug`.
+ *
+ * É a MESMA função usada na prévia exibida ao visitante e na mensagem
+ * entregue no WhatsApp do cliente (via `/r/whatsapp/:token`). Qualquer
+ * alteração aqui muda os dois lados ao mesmo tempo — é o que garante que
+ * prévia e entrega nunca fiquem fora de sincronismo.
+ *
+ * Sem emojis fora do plano básico: eles chegavam corrompidos em parte dos
+ * aparelhos e quebravam a equivalência exata entre prévia e entrega.
+ */
+export function buildPortfolioQuizMessage({
+  studioName,
+  answers,
+  recipientName,
+  mode = "booking",
+  proposalKind = "service",
+  pageUrl = "",
+  location = "",
+  funnelContext,
+}: PortfolioQuizMessageInput): string {
   const copy = applyPortfolioFunnelIntentCopy(
     getPortfolioQuizSemanticCopy(mode, proposalKind, recipientName),
     funnelContext,
@@ -177,9 +190,9 @@ export function buildPortfolioQuizPreviewMessage({
     `Olá, ${recipientName}! Tudo bem?`,
     "",
     `Vim pela página da *${studioName}* e quero conversar sobre ${copy.subject}.`,
-    ...(pageUrl ? [`🔗 URL completa: ${pageUrl}`] : []),
-    "✨ A página é linda, parabéns! Encontrei exatamente o que procurava.",
-    ...(location ? [`📍 Sou de ${location}.`] : []),
+    ...(pageUrl ? [`Página: ${pageUrl}`] : []),
+    "A página é linda, parabéns! Encontrei exatamente o que procurava.",
+    ...(location ? [`Sou de ${location}.`] : []),
     copy.intro,
     "",
     copy.sectionTitle,
@@ -193,3 +206,6 @@ export function buildPortfolioQuizPreviewMessage({
   lines.push("", "*PRÓXIMO PASSO*", copy.nextStep, "", "Aguardo seu retorno.");
   return lines.join("\n");
 }
+
+/** Alias histórico — a prévia usa exatamente o gerador canônico. */
+export const buildPortfolioQuizPreviewMessage = buildPortfolioQuizMessage;
