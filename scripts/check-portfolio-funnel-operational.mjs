@@ -63,6 +63,7 @@ const runner = readFileSync("src/components/funnel/FunnelRunner.tsx", "utf8");
 const quiz = readFileSync("src/components/site/BeautyBookingQuiz.tsx", "utf8");
 const redirect = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
 const recoveryApi = "src/routes/api/public/funnel-recovery.ts";
+const messageSyncTest = "tests/leads/funnel-message-sync.test.ts";
 
 const structural = [
   ["lead salvo antes de resolver destino", funnelFns.indexOf('.from("dynamic_form_leads")') < funnelFns.indexOf("getPortfolioWhatsAppChannelStateAsync")],
@@ -74,6 +75,9 @@ const structural = [
   ["redirect sem beco sem saída", redirect.includes("recoveryToken") && !redirect.includes("Canal indisponível")],
   ["endpoint de recuperação existe", existsSync(recoveryApi)],
   ["redirect marca entrega e falha", redirect.includes("markLeadDelivered") && redirect.includes("markLeadDeliveryFailed")],
+  ["ZERO_FUNNEL_DRIFT usa gerador canônico", redirect.includes("buildPortfolioQuizMessage") && quiz.includes("buildPortfolioQuizPreviewMessage")],
+  ["localização da prévia é persistida", funnelFns.includes("preview_location: data.previewLocation") && redirect.includes("meta.preview_location")],
+  ["gate de sincronismo existe", existsSync(messageSyncTest)],
 ];
 
 const failures = rows.filter((r) => !r.ok);

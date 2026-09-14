@@ -22,20 +22,10 @@ if (SKIP) {
   process.exit(0);
 }
 
-const URL_BASE =
-  process.env.SUPABASE_URL ||
-  process.env.VITE_SUPABASE_URL ||
-  "https://lxajhxocyqzwwbcfahya.supabase.co";
-const ANON =
-  process.env.SUPABASE_PUBLISHABLE_KEY ||
-  process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-  process.env.SUPABASE_ANON_KEY ||
-  process.env.VITE_SUPABASE_ANON_KEY;
-
-if (!ANON) {
-  console.error("[catalog-images] missing SUPABASE_PUBLISHABLE_KEY env");
-  process.exit(2);
-}
+// Leitura pública (RLS + chave publicável). Sem dependência de segredo de CI.
+const { resolvePublicSupabaseUrl, resolvePublicSupabaseKey } = await import("./lib/public-supabase.mjs");
+const URL_BASE = resolvePublicSupabaseUrl();
+const ANON = resolvePublicSupabaseKey();
 
 async function fetchServices() {
   const url = `${URL_BASE.replace(/\/$/, "")}/rest/v1/services?select=slug,name,image_path,og_image_path,is_active&is_active=eq.true&order=slug.asc`;

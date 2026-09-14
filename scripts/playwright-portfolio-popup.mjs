@@ -57,6 +57,10 @@ function isInfraCrash(error) {
 }
 
 const failures = [];
+const CONCURRENCY = Number(process.env.POPUP_CONCURRENCY ?? 6);
+// O timer do pop-up é de 10s; as janelas abaixo são o mínimo seguro acima dele.
+const REAPPEAR_WAIT_MS = Number(process.env.POPUP_REAPPEAR_MS ?? 13000);
+const SILENT_WAIT_MS = Number(process.env.POPUP_SILENT_MS ?? 13000);
 
 async function countPopups(url, { expect = 1, waitMs = 20000 } = {}) {
   const active = await getBrowser();
@@ -82,9 +86,6 @@ async function checkSlug(slug) {
   const url = `${baseUrl}/portfolio/${slug}`;
   const local = [];
 
-  // Warm-up: primeira compilação da rota não deve contar como falha.
-  const warm = await countPopups(url, { waitMs: 25000 });
-  await warm.context.close();
   const { context, page, count } = await countPopups(url);
   if (count !== 1) {
     local.push(`/portfolio/${slug}: esperado 1 pop-up, encontrado ${count}`);
@@ -94,7 +95,7 @@ async function checkSlug(slug) {
       .screenshot({ path: join(shotDir, `${slug}.png`) });
     // Uma vez por sessão: recarregar não pode exibir de novo.
     await page.reload({ waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(15000);
+    await page.waitForTimeout(REAPPEAR_WAIT_MS);
     const again = await page.locator('[data-testid="portfolio-upsell"]').count();
     if (again !== 0) local.push(`/portfolio/${slug}: pop-up reapareceu na mesma sessão`);
   }
@@ -108,7 +109,7 @@ async function checkSlug(slug) {
   await previewRun.context.close();
 
   // Preview interno da 0WEB continua silencioso.
-  const internal = await countPopups(`${url}?0web_preview=1`, { expect: 0, waitMs: 13000 });
+  const internal = await countPopups(`${url}?0web_preview=1`, { expect: 0, waitMs: SILENT_WAIT_MS });
   if (internal.count !== 0) {
     local.push(`/portfolio/${slug}?0web_preview=1: overlay deveria estar silenciado`);
   }
@@ -116,7 +117,7 @@ async function checkSlug(slug) {
   return local;
 }
 
-for (const slug of slugs) {
+async function runSlug(slug) {
   let result = null;
   for (let attempt = 1; attempt <= 2 && result === null; attempt += 1) {
     try {
@@ -140,6 +141,17 @@ for (const slug of slugs) {
   if (local.length === 0) console.log(`[popup] /portfolio/${slug} OK`);
   else console.error(`[popup] /portfolio/${slug} FALHOU`);
 }
+
+// As esperas são temporais por natureza (o pop-up tem timer próprio). Em série,
+// o catálogo inteiro estoura qualquer job de CI. A verificação por slug continua
+// idêntica; apenas passa a rodar em contextos isolados e paralelos.
+const queue = [...slugs];
+const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
+  for (let slug = queue.shift(); slug; slug = queue.shift()) {
+    await runSlug(slug);
+  }
+});
+await Promise.all(workers);
 
 if (browser) await browser.close();
 

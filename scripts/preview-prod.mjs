@@ -14,7 +14,7 @@
  * necessária apenas para os gates que exercitam escrita (funis/leads).
  */
 import { spawn } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const CONFIG = resolve("dist/server/wrangler.json");
@@ -58,11 +58,62 @@ for (const [key, value] of Object.entries(PASSTHROUGH)) {
 }
 
 const port = process.env.PREVIEW_PORT ?? "8080";
-const args = ["dev", "--config", CONFIG, "--ip", "127.0.0.1", "--port", port, ...vars];
 
-const child = spawn("wrangler", args, {
-  stdio: "inherit",
-  env: process.env,
-  shell: process.platform === "win32",
-});
-child.on("exit", (code) => process.exit(code ?? 1));
+/**
+ * O build gera `compatibility_date` com a DATA DO BUILD. Quando o binário do
+ * workerd instalado é mais antigo que essa data, o runtime se recusa a subir
+ * com "This Worker requires compatibility date X, but the newest date
+ * supported by this server binary is Y" — e o job de CI falha em "Subir
+ * artefato de produção", sem nenhuma relação com o código da aplicação.
+ *
+ * Solução determinística: subir com uma configuração derivada e, se o runtime
+ * reportar o teto suportado, reescrever a data para esse teto e subir de novo.
+ * O artefato publicado (dist/server/wrangler.json) permanece intacto.
+ */
+const PREVIEW_CONFIG = resolve("dist/server/wrangler.preview.json");
+
+function writePreviewConfig(compatibilityDate) {
+  const base = JSON.parse(readFileSync(CONFIG, "utf8"));
+  if (compatibilityDate) base.compatibility_date = compatibilityDate;
+  writeFileSync(PREVIEW_CONFIG, JSON.stringify(base, null, 2));
+  return base.compatibility_date;
+}
+
+const UNSUPPORTED_DATE = /newest date supported by this server binary is "(\d{4}-\d{2}-\d{2})"/;
+
+function start(compatibilityDate, { allowRetry }) {
+  const used = writePreviewConfig(compatibilityDate);
+  console.log(`[preview:prod] compatibility_date=${used}`);
+  const args = ["dev", "--config", PREVIEW_CONFIG, "--ip", "127.0.0.1", "--port", port, ...vars];
+  // `wrangler` só está no PATH quando o script roda por um gerenciador de
+  // pacotes. Resolver o binário local mantém o comando utilizável por `node`
+  // direto (CI, depuração) sem depender do PATH herdado.
+  const localBin = resolve("node_modules/.bin/wrangler");
+  const bin = existsSync(localBin) ? localBin : "wrangler";
+  const child = spawn(bin, args, {
+    stdio: ["inherit", "inherit", "pipe"],
+    env: process.env,
+    shell: process.platform === "win32",
+  });
+
+  let supported = null;
+  child.stderr.on("data", (chunk) => {
+    const text = chunk.toString();
+    process.stderr.write(text);
+    const match = UNSUPPORTED_DATE.exec(text);
+    if (match) supported = match[1];
+  });
+
+  child.on("exit", (code) => {
+    if (code !== 0 && supported && allowRetry) {
+      console.warn(
+        `[preview:prod] workerd suporta no máximo ${supported}; reiniciando com essa data.`,
+      );
+      start(supported, { allowRetry: false });
+      return;
+    }
+    process.exit(code ?? 1);
+  });
+}
+
+start(null, { allowRetry: true });

@@ -517,6 +517,9 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     // quando o projeto ainda não tem destino operacional configurado.
     // Finalidade declarada: contato sobre esta solicitação. Nunca marketing.
     recoveryContact: z.string().max(40).optional(),
+    // Snapshot do texto de localização já exibido na prévia. A entrega não
+    // recalcula esse valor e, portanto, não altera o que o visitante aprovou.
+    previewLocation: softText(120).optional(),
     answers: z.object({
       service: softText(8000),
       experience: softText(400),
@@ -585,6 +588,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           ...(data.orderContext ? { order_context: data.orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
+          ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
           ...(data.sessionId ? { session_id: data.sessionId } : {}),
           ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
           ...(geo.city ? { city: geo.city } : {}),

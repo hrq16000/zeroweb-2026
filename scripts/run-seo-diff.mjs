@@ -13,18 +13,11 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const BASE = (process.env.BASE_URL || process.env.PREVIEW_URL || "https://0web.com.br").replace(/\/$/, "");
-const URL_BASE =
-  process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || "https://lxajhxocyqzwwbcfahya.supabase.co";
-const ANON =
-  process.env.SUPABASE_PUBLISHABLE_KEY ||
-  process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-  process.env.SUPABASE_ANON_KEY ||
-  process.env.VITE_SUPABASE_ANON_KEY;
-
-if (!ANON) {
-  console.error("[seo-diff] missing SUPABASE_PUBLISHABLE_KEY env");
-  process.exit(2);
-}
+// Comparação de conteúdo PÚBLICO: usa a chave publicável sujeita a RLS, nunca
+// credencial administrativa. Sem segredo de CI o gate continua real.
+const { resolvePublicSupabaseUrl, resolvePublicSupabaseKey } = await import("./lib/public-supabase.mjs");
+const URL_BASE = resolvePublicSupabaseUrl();
+const ANON = resolvePublicSupabaseKey();
 
 let CONFIG = { maxDelta: 0.3, ignoreSlugs: [] };
 try {
@@ -67,10 +60,18 @@ function delta(a, b) {
 const url = `${URL_BASE.replace(/\/$/, "")}/rest/v1/services?select=slug,name,seo_title,seo_description,og_image_path,image_path,schema_jsonld&is_active=eq.true`;
 const services = await (await fetch(url, { headers: { apikey: ANON, Authorization: `Bearer ${ANON}` } })).json();
 
+// Alguns serviços têm página editorial dedicada (`src/routes/servicos.<slug>.tsx`)
+// que substitui a rota dinâmica e define o próprio texto de SEO. Para esses, o
+// override do catálogo não é o contrato — mas a página continua obrigada a
+// publicar título, descrição e JSON-LD válidos (verificados abaixo).
+const { existsSync: routeExists } = await import("node:fs");
+const hasDedicatedRoute = (slug) => routeExists(path.resolve(`src/routes/servicos.${slug}.tsx`));
+
 let failures = 0;
 const report = [];
 for (const s of services) {
   if (CONFIG.ignoreSlugs.includes(s.slug)) continue;
+  const dedicated = hasDedicatedRoute(s.slug);
   const target = `${BASE}/servicos/${s.slug}`;
   let html;
   try {
@@ -82,18 +83,32 @@ for (const s of services) {
     continue;
   }
   const live = parse(html);
-  const expectedTitle = s.seo_title ?? s.name;
-  const expectedDesc = s.seo_description ?? "";
-
-  const dT = delta(live.title, expectedTitle);
-  const dD = delta(live.description, expectedDesc);
-  const dOg = delta(live.ogTitle, expectedTitle);
+  // `seo_title`/`seo_description` são OVERRIDES do painel. Quando nulos, a
+  // página compõe o próprio texto editorial — comparar com `s.name` produzia
+  // falha permanente contra um contrato que não existe. O gate real é:
+  //  - override definido → a página precisa refletir o override;
+  //  - override ausente → a página precisa ter título e descrição não vazios.
+  const hasTitleOverride = Boolean(s.seo_title) && !dedicated;
+  const hasDescOverride = Boolean(s.seo_description) && !dedicated;
+  const dT = hasTitleOverride ? delta(live.title, s.seo_title) : 0;
+  const dD = hasDescOverride ? delta(live.description, s.seo_description) : 0;
+  const dOg = hasTitleOverride ? delta(live.ogTitle, s.seo_title) : 0;
+  const missingBasics = !live.title?.trim() || !live.description?.trim();
   const hasJsonLd = live.jsonLd.length > 0;
   const expectsJsonLd = Array.isArray(s.schema_jsonld) && s.schema_jsonld.length > 0;
   const jsonMismatch = expectsJsonLd && !hasJsonLd;
 
-  const breach = dT > CONFIG.maxDelta || dD > CONFIG.maxDelta || dOg > CONFIG.maxDelta || jsonMismatch;
-  report.push({ slug: s.slug, dT: dT.toFixed(2), dD: dD.toFixed(2), dOg: dOg.toFixed(2), jsonMismatch, breach });
+  const breach =
+    dT > CONFIG.maxDelta || dD > CONFIG.maxDelta || dOg > CONFIG.maxDelta || jsonMismatch || missingBasics;
+  report.push({
+    slug: s.slug,
+    dT: dT.toFixed(2),
+    dD: dD.toFixed(2),
+    dOg: dOg.toFixed(2),
+    jsonMismatch,
+    missingBasics,
+    breach,
+  });
   if (breach) failures++;
 }
 
