@@ -36,6 +36,16 @@ const eventSchema = z.object({
 export const trackQuizEvent = createServerFn({ method: "POST" })
   .inputValidator((d) => eventSchema.parse(d))
   .handler(async ({ data }) => {
+    // Antiabuso: telemetria pública aceita volume alto por sessão, mas um teto
+    // por IP impede flood/poluição da base analítica.
+    let ip: string | null = null;
+    try {
+      const { getRequestIP } = await import("@tanstack/react-start/server");
+      ip = getRequestIP({ xForwardedFor: true }) ?? null;
+    } catch { /* sem contexto de request (testes) */ }
+    const { allowPublicIntake } = await import("@/lib/public-intake-throttle.server");
+    if (!(await allowPublicIntake("quiz_pixel_event", ip))) return { ok: false as const };
+
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { error } = await supabaseAdmin.from("quiz_pixel_events").insert({
       session_key: data.sessionKey,

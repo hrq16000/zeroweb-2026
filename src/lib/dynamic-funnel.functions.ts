@@ -217,6 +217,13 @@ export const submitFunnel = createServerFn({ method: "POST" })
       referrer = getRequestHeader("referer") ?? "";
     } catch { /* */ }
 
+    // Antiabuso: teto generoso por IP para envios públicos. Nenhum lead é
+    // descartado em silêncio — quem excede recebe erro explícito.
+    const { allowPublicIntake } = await import("@/lib/public-intake-throttle.server");
+    if (!(await allowPublicIntake("funnel_submit", ip))) {
+      throw new Error("Muitos envios seguidos. Aguarde alguns minutos e tente novamente.");
+    }
+
     const geo = await lookupGeo(ip);
     const metadata: Record<string, unknown> = {
       ip, user_agent,
@@ -566,6 +573,12 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       ip = getRequestIP({ xForwardedFor: true }) ?? null;
       pageUrl = getRequest().url;
     } catch { /* request context unavailable in tests */ }
+
+    const { allowPublicIntake } = await import("@/lib/public-intake-throttle.server");
+    if (!(await allowPublicIntake("portfolio_quiz_submit", ip))) {
+      throw new Error("Muitos envios seguidos. Aguarde alguns minutos e tente novamente.");
+    }
+
     const geo = await lookupGeo(ip);
 
     const { normalizeRecoveryPhone, decideLeadRecoverability, RECOVERY_CONTACT_PURPOSE } =
