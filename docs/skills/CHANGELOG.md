@@ -1312,3 +1312,19 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - Auditoria: 89 projetos com title, description e og:image absolutos, únicos, sem duplicidade.
 - Validação: tsgo 0, 395 testes, build 495 arquivos limpos, marca/boundaries OK, Playwright 393px e 1440px sem imagem quebrada nem overflow.
 - Publicado; IndexNow 200 com 190 URLs (portfólio + regionais); sitemap regional enviado ao Search Console (portfólio: 151 URLs, 0 erros).
+
+## 2026-09-13 — Blindagem ZERO_FUNNEL_DRIFT
+
+- Tarefa: restaurar a equivalência entre a prévia aprovada no quiz de
+  `/portfolio/:slug` e a mensagem entregue pelo redirect tokenizado.
+- Skills/padrões: `0web-skill-router`, `0web-experience-design-max` para o
+  fluxo de formulário, `PORTFOLIO_FUNNELS`, Supabase e verificação ponta a
+  ponta Vercel. Revisão visual foi classificada como `NOT_APPLICABLE`: nenhuma
+  composição, identidade ou layout foi alterado.
+- Achado: o merge `229e27c9` separou os geradores, deixou de persistir a
+  localização mostrada na prévia e removeu o teste de sincronismo.
+- Alterações: gerador canônico único restaurado; localização da prévia
+  persistida no lead; redirect final reutiliza o mesmo gerador; gate
+  operacional agora exige o contrato e o teste `ZERO_FUNNEL_DRIFT`.
+- Validação focada: 26 testes, 102 asserções, zero falhas; gate operacional
+  aplicado aos 92 projetos do catálogo.

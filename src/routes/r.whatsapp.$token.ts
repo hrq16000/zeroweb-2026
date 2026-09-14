@@ -252,7 +252,33 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
             typeof meta.client_key === "string" && meta.client_key
               ? resolvePortfolioFunnelContext(meta.client_key)
               : null;
-          finalMessage = buildWhatsAppLeadMessage({
+          const quizAnswers = (lead.answers_json ?? {}) as Record<string, unknown>;
+          const isPortfolioQuizLead =
+            meta.source === "portfolio_client" &&
+            typeof meta.studio_name === "string" &&
+            typeof meta.recipient_name === "string" &&
+            ["service", "experience", "period", "timing"].every((key) => key in quizAnswers);
+
+          if (isPortfolioQuizLead) {
+            const { buildPortfolioQuizMessage } = await import("@/lib/portfolio-quiz-copy");
+            finalMessage = buildPortfolioQuizMessage({
+              studioName: meta.studio_name as string,
+              recipientName: meta.recipient_name as string,
+              mode: meta.mode === "proposal" ? "proposal" : "booking",
+              proposalKind: meta.proposal_kind === "campaign" ? "campaign" : "service",
+              pageUrl: pageUrl ?? "",
+              location: typeof meta.preview_location === "string" ? meta.preview_location : "",
+              answers: {
+                service: String(quizAnswers.service ?? ""),
+                experience: String(quizAnswers.experience ?? ""),
+                period: String(quizAnswers.period ?? ""),
+                timing: String(quizAnswers.timing ?? ""),
+                note: String(quizAnswers.note ?? ""),
+              },
+              funnelContext: portfolioFunnel ?? undefined,
+            });
+          } else {
+            finalMessage = buildWhatsAppLeadMessage({
             protocol: session?.protocol ?? makeProtocol(),
             brandName:
               typeof (lead.metadata_json as Record<string, unknown> | null)?.studio_name ===
@@ -280,7 +306,8 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
               meta.mode === "proposal"
                 ? meta.proposal_kind === "campaign" ? "campaign" : "service"
                 : "booking",
-          });
+            });
+          }
         }
 
         // Atomic consume.
