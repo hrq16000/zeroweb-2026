@@ -13,18 +13,11 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const BASE = (process.env.BASE_URL || process.env.PREVIEW_URL || "https://0web.com.br").replace(/\/$/, "");
-const URL_BASE =
-  process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || "https://lxajhxocyqzwwbcfahya.supabase.co";
-const ANON =
-  process.env.SUPABASE_PUBLISHABLE_KEY ||
-  process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-  process.env.SUPABASE_ANON_KEY ||
-  process.env.VITE_SUPABASE_ANON_KEY;
-
-if (!ANON) {
-  console.error("[seo-diff] missing SUPABASE_PUBLISHABLE_KEY env");
-  process.exit(2);
-}
+// Comparação de conteúdo PÚBLICO: usa a chave publicável sujeita a RLS, nunca
+// credencial administrativa. Sem segredo de CI o gate continua real.
+const { resolvePublicSupabaseUrl, resolvePublicSupabaseKey } = await import("./lib/public-supabase.mjs");
+const URL_BASE = resolvePublicSupabaseUrl();
+const ANON = resolvePublicSupabaseKey();
 
 let CONFIG = { maxDelta: 0.3, ignoreSlugs: [] };
 try {
