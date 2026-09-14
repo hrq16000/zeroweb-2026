@@ -268,6 +268,36 @@ await Promise.all(
 
 await browser.close();
 
+// Relatório de evidência (JSON + HTML). Nenhum número/telefone é gravado:
+// apenas identificadores de cenário e o status do contrato.
+const report = {
+  generatedAt: new Date().toISOString(),
+  baseUrl,
+  scenarios: queue.length,
+  ok: ok.length,
+  pendingConfiguration: pending.length,
+  failed: failures.length,
+  details: { ok, pending, failures },
+};
+try {
+  const { mkdirSync, writeFileSync } = await import("node:fs");
+  mkdirSync("seo-reports", { recursive: true });
+  writeFileSync("seo-reports/portfolio-funnels-e2e.json", JSON.stringify(report, null, 2));
+  const li = (items) => items.map((i) => `<li>${String(i).replace(/[<>&]/g, "")}</li>`).join("");
+  writeFileSync(
+    "seo-reports/portfolio-funnels-e2e.html",
+    `<!doctype html><meta charset="utf-8"><title>E2E funis de portfólio</title>` +
+      `<h1>E2E funis de portfólio</h1>` +
+      `<p>${report.generatedAt} · base ${baseUrl}</p>` +
+      `<p><strong>${report.scenarios}</strong> cenários · ${report.ok} OK · ${report.pendingConfiguration} pendentes de configuração · ${report.failed} falhas</p>` +
+      `<h2>OK</h2><ul>${li(ok)}</ul>` +
+      `<h2>Pendentes de configuração</h2><ul>${li(pending)}</ul>` +
+      `<h2>Falhas</h2><ul>${li(failures)}</ul>`,
+  );
+} catch (error) {
+  console.error(`Aviso: não foi possível gravar o relatório (${String(error).slice(0, 120)})`);
+}
+
 console.log(`\nResumo: ${ok.length} OK · ${pending.length} pendentes de configuração · ${queue.length} executados.`);
 if (pending.length) {
   console.log("\nPendências de configuração (não bloqueiam o gate):");
