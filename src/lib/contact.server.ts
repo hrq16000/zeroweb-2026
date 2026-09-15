@@ -6,6 +6,8 @@
  * operational destination. Resolution happens server-side at handoff time.
  */
 
+import { hydrateLegacyResolverFromVersionedRegistry } from "@/lib/portfolio-whatsapp-registry.server";
+
 const SERVER_ONLY_MARKER = "__contact_server_only__" as const;
 
 if (typeof window !== "undefined") {
@@ -13,6 +15,10 @@ if (typeof window !== "undefined") {
     "contact.server.ts was imported from client code — this module is server-only.",
   );
 }
+
+// Compatibilidade temporária: projetos já migrados para o registro versionado
+// deixam de depender de secret externo sem alterar o resolvedor estabilizado.
+hydrateLegacyResolverFromVersionedRegistry();
 
 export type OperationalContact = {
   whatsappNumber: string;
