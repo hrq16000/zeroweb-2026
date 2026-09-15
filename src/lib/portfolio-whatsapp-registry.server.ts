@@ -5,8 +5,9 @@
  * Os valores aqui são versionados porque são dados operacionais do próprio
  * projeto, não credenciais. Este arquivo não pode ser importado pelo browser.
  *
- * Env e portfolio_client_settings continuam sendo lidos pelo resolvedor apenas
- * como compatibilidade para projetos legados ainda não migrados para cá.
+ * O resolvedor legado ainda lê env/tabela para os projetos que já estavam em
+ * produção. Para os destinos migrados para este registro, a env é apenas um
+ * adaptador de compatibilidade em memória — nenhum secret externo é necessário.
  */
 if (typeof window !== "undefined") {
   throw new Error("portfolio-whatsapp-registry.server.ts imported from client code");
@@ -44,6 +45,11 @@ const WHATSAPP_NOT_APPLICABLE = new Set<string>([
   "papelemi-personalizados",
 ]);
 
+function envNameForVersionedClient(clientKey: string): string {
+  if (clientKey === "marido-de-aluguel") return "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER";
+  return `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+}
+
 export function resolveVersionedPortfolioWhatsApp(
   clientKey?: string | null,
 ): string | null {
@@ -51,6 +57,21 @@ export function resolveVersionedPortfolioWhatsApp(
   const digits = VERSIONED_PORTFOLIO_WHATSAPP[clientKey]?.replace(/\D/g, "") ?? "";
   if (digits.length < 10 || digits.length > 15) return null;
   return digits;
+}
+
+/**
+ * Ponte temporária para o resolvedor já estabilizado em produção. O valor
+ * versionado só preenche a env em memória quando ela está vazia; configuração
+ * operacional existente nunca é sobrescrita. Isso elimina a dependência do
+ * "cofre" para os projetos migrados sem quebrar os legados ainda não migrados.
+ */
+export function hydrateLegacyResolverFromVersionedRegistry(
+  env: Record<string, string | undefined> = process.env,
+): void {
+  for (const [clientKey, digits] of Object.entries(VERSIONED_PORTFOLIO_WHATSAPP)) {
+    const envName = envNameForVersionedClient(clientKey);
+    if (!env[envName]?.trim()) env[envName] = digits;
+  }
 }
 
 export function isPortfolioWhatsAppNotApplicable(
