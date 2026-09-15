@@ -80,7 +80,14 @@ completa dos 184 cenários também esbarra no limite de taxa de admissão públi
 
 ## 6. Decisão de publicação
 
-**PUBLICAÇÃO BLOQUEADA — INCOMPLETO.** Regra 8: existem 28 clientKeys MISSING.
-Nenhum valor foi inventado para fechar a conta. Desbloqueio depende apenas de
-evidência do titular de cada marca (número oficial confirmado), que então é
-salvo como secret/registro privado — sem alteração de código.
+**CÓDIGO PUBLICÁVEL — ENTREGA DIRETA PARCIALMENTE PENDENTE.** Os 92 projetos
+estão conformes ao contrato de isolamento, privacidade, funil e recuperação de
+lead. A presença de 28 `clientKeys` em `MISSING` não autoriza inventar nem
+reaproveitar um destinatário: nesses casos o fluxo registra a intenção e pede
+um contato de retorno, sem redirect para número incorreto.
+
+O preenchimento futuro depende exclusivamente de confirmação do titular de cada
+marca. Quando houver evidência oficial, o valor deve ser salvo como secret ou
+registro privado, sem alteração do bundle público. Assim, a publicação do
+portal permanece segura e a entrega direta só é ativada para destinos
+comprovados.

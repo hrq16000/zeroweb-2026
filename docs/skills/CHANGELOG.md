@@ -1328,3 +1328,23 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   operacional agora exige o contrato e o teste `ZERO_FUNNEL_DRIFT`.
 - Validação focada: 26 testes, 102 asserções, zero falhas; gate operacional
   aplicado aos 92 projetos do catálogo.
+
+## 2026-09-15 — Fechamento de alinhamento seguro dos portfólios
+
+- **Tarefa:** consolidar a versão remota atual dos 92 sites de cliente e
+  confirmar o contrato global de catálogo, isolamento, metadados, scaffolding,
+  camada padrão e funis sem expor destinos operacionais.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-ui-quality-gates`, `PORTFOLIO_CLIENT_STANDARD`,
+  `PORTFOLIO_GLOBAL_STANDARDS` e `PORTFOLIO_FUNNELS`. Skills externas foram
+  rejeitadas por não serem necessárias para uma reconciliação de configuração
+  e por não ampliarem a superfície de segurança.
+- **Achado:** 92/92 projetos passam nos contratos globais. Os destinatários
+  comprovados seguem resolvidos exclusivamente no servidor; os casos sem fonte
+  oficial permanecem em recuperação de lead, sem fallback ou reutilização de
+  outro cliente.
+- **Validação:** catálogo, boundaries, meta, scaffold, standards, privacidade
+  de fonte, contrato operacional de funil, projetos completos e matriz
+  runtime/admin passaram na cópia remota auditada. O relatório de
+  reconciliação foi atualizado para distinguir publicação segura do portal de
+  ativação de entrega direta por destinatário comprovado.
