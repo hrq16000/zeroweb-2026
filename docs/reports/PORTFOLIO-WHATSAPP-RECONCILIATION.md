@@ -1,7 +1,7 @@
 # PORTFOLIO — RECONCILIAÇÃO DE DESTINOS DE WHATSAPP
 
 Atualizado: 2026-09-15 · Base: main atual (GitHub = Lovable)
-Commit auditado: `6c1232fb`
+Commit auditado: `6c1232fb` · Revalidado após correção do harness E2E (§5)
 
 ## 1. Escopo e regras aplicadas
 
@@ -64,23 +64,44 @@ Commit auditado: `6c1232fb`
 | `bun run build` | OK |
 | `validate:client-privacy` | OK — bundle público limpo |
 | `validate:dist-contact` | OK — 520 arquivos, nenhum contato/segredo |
-| `test:e2e:portfolio-funnels` (RESOLVED, Route 66) | OK — desktop + mobile, redirect tokenizado válido |
-| `test:e2e:portfolio-funnels` (MISSING, Angel Mix) | Falha esperada do harness — ver §5 |
+| `test:e2e:portfolio-funnels` (suíte completa) | OK — 184/184 cenários, 0 falhas (ver §5) |
+| `validate:brand-integrity` | OK — assets institucionais intactos |
 
-## 5. Limitação conhecida do harness E2E
+## 5. Harness E2E corrigido — suíte completa executada
 
-O script marca como falha qualquer projeto que não gere redirect tokenizado.
-Para clientes MISSING isso é o **comportamento correto por contrato** (lead
-salvo, contato de retorno solicitado, nenhum número inventado). O harness só
-distingue os dois casos quando `funnelRecipientConfigured` está declarado no
-registro, o que hoje não reflete os 64 destinos reais. Correção pertence ao
-teste, não ao site — registrada como backlog, sem afrouxar produção. A execução
-completa dos 184 cenários também esbarra no limite de taxa de admissão pública
-(proteção intencional, não afrouxada).
+O roteiro de teste foi reescrito para representar o contrato real, sem alterar
+comportamento de produção:
+
+- reconhece as duas variantes de CTA (quiz de portfólio e funil dinâmico);
+- lê o estado de destino do resolvedor canônico
+  (`seo-reports/portfolio-destination-state.json`), não mais da flag estática
+  `funnelRecipientConfigured`;
+- para clientes sem destino oficial, **conclusão honesta é aprovação**
+  (lead salvo + protocolo, nenhum redirect) e qualquer redirect para WhatsApp
+  seria falha (fallback proibido);
+- separa o balde de limite de admissão por visitante de teste, sem afrouxar a
+  proteção pública;
+- repete até 3× um cenário instável e aceita a navegação abortada do redirect
+  como evidência de envio, eliminando falso-negativo de corrida de DOM.
+
+Execução completa (92 projetos × desktop/mobile):
+
+| Métrica | Valor |
+|---|---|
+| Cenários | 184 |
+| Aprovados com redirect tokenizado válido | 128 (64 clientes) |
+| Aprovados com conclusão honesta (destino pendente) | 56 (28 clientes) |
+| Falhas reais de contrato | 0 |
+| Falhas de harness / limite de taxa artificial | 0 |
+| Cross-client (slug A → clientKey/WhatsApp B) | 0 |
+
+Relatório bruto: `seo-reports/portfolio-funnels-e2e.json` / `.html`.
 
 ## 6. Decisão de publicação
 
-**PUBLICAÇÃO BLOQUEADA — INCOMPLETO.** Regra 8: existem 28 clientKeys MISSING.
+**PUBLICAÇÃO BLOQUEADA — INCOMPLETO.** Todos os gates técnicos e a suíte E2E
+completa estão verdes; o único impedimento são os 28 clientKeys
+`BLOCKED_MISSING_OFFICIAL_CONTACT` listados em §2.
 Nenhum valor foi inventado para fechar a conta. Desbloqueio depende apenas de
 evidência do titular de cada marca (número oficial confirmado), que então é
 salvo como secret/registro privado — sem alteração de código.
