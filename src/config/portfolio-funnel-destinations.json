@@ -151,58 +151,123 @@
       "conflict": "Telefone da ficha Google = número institucional 0WEB"
     },
     "ag-electrical-services": {
-      "verifiedAt": null,
-      "status": "UNRESOLVED",
-      "source": "NONE",
-      "confidence": 0,
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
       "evidence": [
-        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
-        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"A&G Electrical Services\" (nome, categoria e identidade divergem)",
-        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+        "Destino operacional informado pelo titular no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
       ]
     },
     "confeitaria-chyrley": {
-      "verifiedAt": null,
-      "status": "UNRESOLVED",
-      "source": "NONE",
-      "confidence": 0,
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
       "evidence": [
-        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
-        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"Chyrley Doces & Festas\" (nome, categoria e identidade divergem)",
-        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+        "Destino operacional informado pela proprietária no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
       ]
     },
     "rj-servicos-drywall": {
-      "verifiedAt": null,
-      "status": "UNRESOLVED",
-      "source": "NONE",
-      "confidence": 0,
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
       "evidence": [
-        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
-        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"RJ Serviços de Drywall\" (nome, categoria e identidade divergem)",
-        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+        "Destino operacional informado pelo responsável no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
       ]
     },
     "mp-festas-eventos": {
-      "verifiedAt": null,
-      "status": "UNRESOLVED",
-      "source": "NONE",
-      "confidence": 0,
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
       "evidence": [
-        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
-        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"MP Festas e Eventos\" (nome, categoria e identidade divergem)",
-        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+        "Destino operacional informado pela responsável no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
       ]
     },
     "refrigeracao-maresia": {
-      "verifiedAt": null,
-      "status": "UNRESOLVED",
-      "source": "NONE",
-      "confidence": 0,
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
       "evidence": [
-        "Onda 1 (2026-09-12): busca local em client registry, catálogo, contexto de funil, segredos operacionais e configuração privada — nenhum destino encontrado (funnel_enabled=true com recipient vazio)",
-        "Uma chamada google_maps (type=search) por projeto, em cache: nenhum candidato corresponde inequivocamente à entidade \"Refrigeração Maresia\" (nome, categoria e identidade divergem)",
-        "Sem evidência suficiente para verificar titularidade — número operacional deve vir do cliente"
+        "Destino operacional informado pelo responsável no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
+      ]
+    },
+    "diego-montador-moveis": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino operacional informado pelo titular no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
+      ]
+    },
+    "ecommerce-on": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino comercial informado no briefing institucional do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
+      ]
+    },
+    "espaco-cih-luh": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino operacional informado no briefing do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
+      ]
+    },
+    "mary-diarista": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino operacional confirmado no material visual fornecido pelo titular",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
+      ]
+    },
+    "eletrovale-eletromecanica": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino operacional informado no briefing institucional do projeto",
+        "Configuração privada validada no fluxo tokenizado em 2026-09-14"
+      ]
+    },
+    "lk-alvenaria": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino operacional confirmado no material visual fornecido pelo titular",
+        "Configuração privada normalizada e validada em 2026-09-14"
+      ]
+    },
+    "renata-beauty": {
+      "verifiedAt": "2026-09-14",
+      "status": "VERIFIED",
+      "source": "CLIENT_SUPPLIED",
+      "confidence": 100,
+      "evidence": [
+        "Destino operacional confirmado na oferta oficial fornecida pelo titular",
+        "Configuração privada normalizada e validada em 2026-09-14"
       ]
     },
     "adhonep-curitiba": {

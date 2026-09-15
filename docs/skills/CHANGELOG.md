@@ -1328,3 +1328,18 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   operacional agora exige o contrato e o teste `ZERO_FUNNEL_DRIFT`.
 - Validação focada: 26 testes, 102 asserções, zero falhas; gate operacional
   aplicado aos 92 projetos do catálogo.
+
+## 2026-09-14 — Reconciliação privada de destinos dos 92 portfolios
+
+- **Tarefa:** cruzar referências de atendimento fornecidas nos briefings com
+  catálogo, histórico, migrations e configuração privada, sem expor números.
+- **Skills:** `0web-skill-router`, `0web-skill-discovery`,
+  `0web-ui-quality-gates` e Supabase; nenhuma skill externa adicional foi
+  adotada, pois o stack local cobre a auditoria sem introduzir dependências.
+- **Achados:** 64 destinos configurados, 27 pendentes por falta de evidência,
+  zero formatos inválidos e um conflito institucional bloqueado.
+- **Alterações:** atualizada a proveniência sem PII de destinos confirmados;
+  dois destinos documentados que divergiam da configuração privada foram
+  normalizados e registrados em auditoria server-side.
+- **Validação:** catálogo, boundaries, contexto de funil e scanner de
+  privacidade executados na cópia limpa da `main` remota.
