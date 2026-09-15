@@ -16,8 +16,6 @@ if (typeof window !== "undefined") {
 const VERSIONED_PORTFOLIO_WHATSAPP: Readonly<Record<string, string>> = Object.freeze({
   // Histórico do próprio resolvedor + página atual identificada com Renata Beauty.
   "r-beauty": "554196048639",
-  // Evidência first-party: proposta Mestre dos Serviços para serviço Marido de Aluguel.
-  "marido-de-aluguel": "5541997452053",
   // Perfil profissional atual com CTA explícito de WhatsApp.
   "simone-lacerda-vaz": "5541995129384",
   // Entidade exata atual em São José dos Pinhais; canal móvel do negócio.
@@ -49,7 +47,6 @@ const WHATSAPP_NOT_APPLICABLE = new Set<string>([
 ]);
 
 function envNameForVersionedClient(clientKey: string): string {
-  if (clientKey === "marido-de-aluguel") return "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER";
   return `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
 }
 
