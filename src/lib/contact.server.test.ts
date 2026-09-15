@@ -37,9 +37,8 @@ describe("portfolio WhatsApp registry", () => {
     expect(env.PORTFOLIO_WHATSAPP_WOODHOUSE_HAMBURGUERES).toBe("5541984771179");
   });
 
-  it("classifica amostras/conceitos e loja externa como WhatsApp não aplicável", () => {
+  it("classifica apenas amostras explícitas e loja externa como WhatsApp não aplicável", () => {
     for (const key of [
-      "angel-mix-brecho",
       "bh-barreiro-marmitas",
       "guaratuba-atelie-presentes",
       "guaratuba-oficina-nautica",
@@ -52,6 +51,7 @@ describe("portfolio WhatsApp registry", () => {
     ]) {
       expect(isPortfolioWhatsAppNotApplicable(key)).toBe(true);
     }
+    expect(isPortfolioWhatsAppNotApplicable("angel-mix-brecho")).toBe(false);
     expect(isPortfolioWhatsAppNotApplicable("r-beauty")).toBe(false);
   });
 
