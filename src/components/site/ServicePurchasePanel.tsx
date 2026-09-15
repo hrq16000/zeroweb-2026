@@ -86,11 +86,17 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
         </span>
       </div>
 
-      <Button size="lg" className="w-full" onClick={handleAdd} aria-label={`Adicionar ${item.name} ao carrinho`}>
+      <Button
+        size="lg"
+        className="w-full"
+        onClick={handleAdd}
+        aria-label={`Adicionar ${item.name} ao carrinho`}
+        data-testid="product-buy"
+        data-product-slug={item.slug}
+      >
         {added ? <Check className="w-4 h-4 mr-2" /> : <ShoppingBag className="w-4 h-4 mr-2" />}
         {added ? "Adicionado" : "Adicionar ao carrinho"}
       </Button>
     </div>
   );
 }
-

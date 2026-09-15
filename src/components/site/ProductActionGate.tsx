@@ -99,6 +99,8 @@ export function ProductActionGate({
         onClick={handleClick}
         className={className}
         aria-label={label}
+        data-testid="product-orientation"
+        data-product-slug={product.slug}
       >
         {label}
       </Button>
@@ -107,6 +109,7 @@ export function ProductActionGate({
         <DialogPrimitive.Portal>
           <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" />
           <DialogPrimitive.Content
+            data-testid="cart-suggestion-dialog"
             className="fixed z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                        w-[min(440px,calc(100vw-2rem))] rounded-2xl border border-border
                        bg-background text-foreground shadow-2xl p-6"
@@ -143,6 +146,7 @@ export function ProductActionGate({
               <Button
                 onClick={acceptSuggestion}
                 className="w-full sm:flex-1 gap-2"
+                data-testid="cart-suggestion-accept"
               >
                 <ShoppingBag className="w-4 h-4" />
                 Adicionar e continuar
@@ -151,6 +155,7 @@ export function ProductActionGate({
                 variant="outline"
                 onClick={declineSuggestion}
                 className="w-full sm:flex-1 gap-2"
+                data-testid="cart-suggestion-decline"
               >
                 Continuar sem adicionar
                 <ArrowRight className="w-4 h-4" />

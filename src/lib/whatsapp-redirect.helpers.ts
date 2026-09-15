@@ -5,11 +5,11 @@
  */
 import type { FunnelOption } from "@/lib/dynamic-funnel.functions";
 
-/** Janela em que o mesmo token pode ser reaproveitado (duplo clique, voltar). */
-export const WHATSAPP_REDIRECT_REUSE_WINDOW_MS = 30 * 60 * 1000;
+/** Janela curta para tolerar duplo toque/reabertura imediata no mobile. */
+export const WHATSAPP_REDIRECT_REUSE_WINDOW_MS = 60 * 1000;
 export const WHATSAPP_MESSAGE_MAX_LENGTH = 1400;
-/** TTL do link de redirecionamento — 24h. */
-export const WHATSAPP_TOKEN_TTL_MS = 24 * 60 * 60 * 1000;
+/** TTL curto do link de redirecionamento. */
+export const WHATSAPP_TOKEN_TTL_MS = 15 * 60 * 1000;
 const ANSWER_VALUE_MAX = 240;
 
 export function sanitizeText(input: unknown, maxLen = ANSWER_VALUE_MAX): string {
@@ -49,7 +49,6 @@ export type LeadMessageContext = {
   requestSubject?: string | null;
   nextStepPrompt?: string | null;
 };
-
 
 /**
  * Origem de cada campo candidato à mensagem. A sanitização é feita POR ORIGEM
@@ -208,7 +207,6 @@ export function buildWhatsAppLeadMessage(ctx: LeadMessageContext): string {
         : "Pode me enviar as próximas opções disponíveis para o atendimento, por favor?";
     sections.push({ title: "PRÓXIMO PASSO", lines: [nextStep], priority: 1 });
   }
-
 
   const assemble = (secs: typeof sections): string => {
     const out = [...header];

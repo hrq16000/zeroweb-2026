@@ -47,7 +47,6 @@ const originSnapshotSchema = z
   })
   .strict();
 
-
 const createSchema = z.object({
   visitor_id: z.string().min(4).max(120),
   session_id: z.string().min(4).max(120),
@@ -103,7 +102,6 @@ export const createVisitorFunnelSession = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const net = await pickNetworkContext();
 
-    // Rate limit por visitor_id + ip_hash — evita spam de criação de sessão.
     const rlHash = (net.ip_hash ?? data.visitor_id).slice(0, 64);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: rlOk } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
@@ -167,10 +165,17 @@ export const createVisitorFunnelSession = createServerFn({ method: "POST" })
 export const updateVisitorFunnelSession = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => updateSchema.parse(data))
   .handler(async ({ data }) => {
+    // Security invariant: a public/client-callable server function is never
+    // allowed to claim that the external handoff happened. Only the internal
+    // /r/whatsapp/:token handler may mark this terminal state through the
+    // service-role RPC `mark_visitor_funnel_redirected`.
+    if (data.status === "whatsapp_redirected") {
+      return { ok: false as const, error: "server_only_status" };
+    }
+
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const net = await pickNetworkContext();
 
-    // Rate limit permissivo (fluxo normal de wizard).
     const rlHash = (net.ip_hash ?? data.session_id).slice(0, 64);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: rlOk } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
@@ -193,7 +198,6 @@ export const updateVisitorFunnelSession = createServerFn({ method: "POST" })
     const now = new Date().toISOString();
     if (data.status === "funnel_started") patch.started_at = now;
     if (data.status === "form_submitted") patch.submitted_at = now;
-    if (data.status === "whatsapp_redirected") patch.redirected_at = now;
     if (data.status === "abandoned") patch.abandoned_at = now;
 
     const { error } = await supabaseAdmin
@@ -234,7 +238,6 @@ export async function completeVisitorFunnelSession(
       protocol,
     } as never)
     .eq("session_id", sessionId)
-    // Idempotent: don't downgrade whatsapp_redirected → form_submitted.
     .in("status", [
       "session_created",
       "funnel_opened",

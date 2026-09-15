@@ -6,6 +6,7 @@ import {
   sanitizeText,
   WHATSAPP_MESSAGE_MAX_LENGTH,
   WHATSAPP_REDIRECT_REUSE_WINDOW_MS,
+  WHATSAPP_TOKEN_TTL_MS,
 } from "./whatsapp-redirect.helpers";
 
 describe("sanitizeText", () => {
@@ -159,11 +160,14 @@ describe("buildWhatsAppLeadMessage", () => {
 });
 
 describe("constants", () => {
-  it("reuse window is 30min", () => {
-    expect(WHATSAPP_REDIRECT_REUSE_WINDOW_MS).toBe(30 * 60 * 1000);
+  it("reuse window is 60 seconds", () => {
+    expect(WHATSAPP_REDIRECT_REUSE_WINDOW_MS).toBe(60 * 1000);
+  });
+
+  it("token TTL is 15 minutes", () => {
+    expect(WHATSAPP_TOKEN_TTL_MS).toBe(15 * 60 * 1000);
   });
 });
-
 
 describe("classificação por origem (não por formato textual)", () => {
   it("classifica respostas do visitante como visitor_answer", () => {
