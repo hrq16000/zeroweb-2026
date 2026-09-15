@@ -18,6 +18,34 @@ if (typeof window !== "undefined") {
   );
 }
 
+/**
+ * Destinos históricos comprovados de portfolios.
+ *
+ * Estes valores existiam como contatos operacionais dos próprios projetos e
+ * deixaram de ser resolvidos quando o fluxo passou a depender exclusivamente
+ * de env/tabela privada. Eles são defaults server-only: uma configuração
+ * explícita de ambiente continua tendo precedência e nunca é sobrescrita.
+ *
+ * Manter esta lista pequena e baseada em evidência. Não usar como fallback
+ * entre clientes e não adicionar número inferido.
+ */
+const VERSIONED_PORTFOLIO_WHATSAPP_DEFAULTS = {
+  PORTFOLIO_WHATSAPP_R_BEAUTY: "554196048639",
+  MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER: "5541997452053",
+} as const;
+
+export function applyVersionedPortfolioWhatsAppDefaults(
+  env: Record<string, string | undefined> = process.env,
+): void {
+  for (const [name, value] of Object.entries(VERSIONED_PORTFOLIO_WHATSAPP_DEFAULTS)) {
+    if (!env[name]?.trim()) env[name] = value;
+  }
+}
+
+// Compatibilidade com o resolvedor existente: recupera somente destinos
+// comprovados que ficaram órfãos na migração para env/private settings.
+applyVersionedPortfolioWhatsAppDefaults();
+
 export type OperationalContact = {
   whatsappNumber: string;
   supportEmail: string | null;
