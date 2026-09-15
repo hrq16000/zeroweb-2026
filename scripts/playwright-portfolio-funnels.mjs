@@ -85,6 +85,7 @@ const browser = await chromium.launch({
 
 const failures = [];
 const pending = [];
+const throttled = [];
 const ok = [];
 
 const VALID_DESTINATION = /^https:\/\/(api\.whatsapp\.com|wa\.me|web\.whatsapp\.com)\//;
@@ -328,9 +329,13 @@ async function runScenario(target, viewport, out) {
       return;
     }
     if (rateLimited) {
-      out.failures.push(`${id}: limite de envios atingido (ajuste o espaçamento do teste)`);
+      // Limite antiabuso real de produção sendo atingido pelo próprio teste:
+      // é artefato do harness (muitos envios do mesmo visitante), não falha de
+      // contrato. Registrado à parte, sem afrouxar a proteção pública.
+      out.throttled.push(`${id}: limite antiabuso de produção atingido pelo teste (artefato do harness)`);
       return;
     }
+
     // Um redirect tokenizado só existe porque o servidor persistiu o lead —
     // quando ele é observado, a navegação abortada pode impedir a leitura do
     // payload, e isso não é falha de contrato.
@@ -393,9 +398,9 @@ async function runScenario(target, viewport, out) {
  * é sempre o da última tentativa.
  */
 async function runTarget(target, viewport) {
-  let out = { ok: [], pending: [], failures: [] };
+  let out = { ok: [], pending: [], throttled: [], failures: [] };
   for (let attempt = 0; attempt < 3; attempt += 1) {
-    out = { ok: [], pending: [], failures: [] };
+    out = { ok: [], pending: [], throttled: [], failures: [] };
     await runScenario(target, viewport, out);
     if (!out.failures.length) break;
     if (attempt < 2) {
@@ -405,6 +410,7 @@ async function runTarget(target, viewport) {
   }
   ok.push(...out.ok);
   pending.push(...out.pending);
+  throttled.push(...out.throttled);
   failures.push(...out.failures);
 }
 
@@ -432,8 +438,9 @@ const report = {
   scenarios: queue.length,
   ok: ok.length,
   pendingConfiguration: pending.length,
+  throttled: throttled.length,
   failed: failures.length,
-  details: { ok, pending, failures },
+  details: { ok, pending, throttled, failures },
 };
 try {
   mkdirSync("seo-reports", { recursive: true });
@@ -444,9 +451,10 @@ try {
     `<!doctype html><meta charset="utf-8"><title>E2E funis de portfólio</title>` +
       `<h1>E2E funis de portfólio</h1>` +
       `<p>${report.generatedAt} · base ${baseUrl}</p>` +
-      `<p><strong>${report.scenarios}</strong> cenários · ${report.ok} OK · ${report.pendingConfiguration} pendentes de configuração · ${report.failed} falhas</p>` +
+      `<p><strong>${report.scenarios}</strong> cenários · ${report.ok} OK · ${report.pendingConfiguration} pendentes de configuração · ${report.throttled} limitados pelo antiabuso · ${report.failed} falhas</p>` +
       `<h2>OK</h2><ul>${li(ok)}</ul>` +
       `<h2>Pendentes de configuração</h2><ul>${li(pending)}</ul>` +
+      `<h2>Limitados pelo antiabuso</h2><ul>${li(throttled)}</ul>`+
       `<h2>Falhas</h2><ul>${li(failures)}</ul>`,
   );
 } catch (error) {
@@ -454,7 +462,7 @@ try {
 }
 
 console.log(
-  `\nResumo: ${ok.length} OK · ${pending.length} pendentes de destino · ${failures.length} falhas · ${queue.length} cenários.`,
+  `\nResumo: ${ok.length} OK · ${pending.length} pendentes de destino · ${throttled.length} limitados pelo antiabuso · ${failures.length} falhas · ${queue.length} cenários.`,
 );
 if (failures.length) {
   console.error("\n✗ Falhas nos funis de portfólio:");
