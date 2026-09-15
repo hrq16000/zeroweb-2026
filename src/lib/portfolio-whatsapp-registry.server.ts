@@ -14,16 +14,10 @@ if (typeof window !== "undefined") {
 }
 
 const VERSIONED_PORTFOLIO_WHATSAPP: Readonly<Record<string, string>> = Object.freeze({
-  // Histórico do próprio resolvedor + página atual identificada com Renata Beauty.
+  // Histórico do próprio resolvedor + identidade interna explícita com Renata Beauty.
   "r-beauty": "554196048639",
-  // Perfil profissional atual com CTA explícito de WhatsApp.
+  // Perfil profissional atual: botão oficial "Fale comigo no WhatsApp agora" resolve para este número.
   "simone-lacerda-vaz": "5541995129384",
-  // Entidade exata atual em São José dos Pinhais; canal móvel do negócio.
-  "kitutes-na-mesa": "5541996637899",
-  // Entidade exata atual em Quatro Barras; canal móvel da oficina/auto socorro.
-  "auto-socorro-dentinho": "5541991481647",
-  // Entidade exata + endereço/site do cardápio atual do WoodHouse.
-  "woodhouse-hamburgueres": "5541984771179",
 });
 
 /**
