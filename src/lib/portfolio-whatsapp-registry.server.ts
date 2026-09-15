@@ -1,0 +1,68 @@
+/**
+ * Registro canônico server-only dos destinos WhatsApp de portfolios.
+ *
+ * Regra: clientKey exato -> destino próprio. Nunca há fallback entre clientes.
+ * Os valores aqui são versionados porque são dados operacionais do próprio
+ * projeto, não credenciais. Este arquivo não pode ser importado pelo browser.
+ *
+ * Env e portfolio_client_settings continuam sendo lidos pelo resolvedor apenas
+ * como compatibilidade para projetos legados ainda não migrados para cá.
+ */
+if (typeof window !== "undefined") {
+  throw new Error("portfolio-whatsapp-registry.server.ts imported from client code");
+}
+
+const VERSIONED_PORTFOLIO_WHATSAPP: Readonly<Record<string, string>> = Object.freeze({
+  // Histórico do próprio resolvedor/allowlist do projeto.
+  "r-beauty": "554196048639",
+  // Evidência first-party Mestre dos Serviços / Marido de Aluguel.
+  "marido-de-aluguel": "5541997452053",
+  // Perfil profissional atual com CTA explícito de WhatsApp.
+  "simone-lacerda-vaz": "5541995129384",
+  // Entidade exata atual em São José dos Pinhais; canal móvel do negócio.
+  "kitutes-na-mesa": "5541996637899",
+  // Entidade exata atual em Quatro Barras; canal móvel da oficina/auto socorro.
+  "auto-socorro-dentinho": "5541991481647",
+  // Entidade exata + endereço/site do cardápio atual do WoodHouse.
+  "woodhouse-hamburgueres": "5541984771179",
+});
+
+/**
+ * Portfolios publicados que deliberadamente não possuem destinatário WhatsApp
+ * de cliente: amostras/conceitos sem titular real ou conversão externa própria.
+ */
+const WHATSAPP_NOT_APPLICABLE = new Set<string>([
+  "angel-mix-brecho",
+  "bh-barreiro-marmitas",
+  "guaratuba-atelie-presentes",
+  "guaratuba-oficina-nautica",
+  "guaratuba-reparos-residenciais",
+  "guaratuba-sabores-da-baia",
+  "mirassol-conserta-celular",
+  "mirassol-delicias-caseiras",
+  "uberlandia-eletrica-residencial",
+  "papelemi-personalizados",
+]);
+
+export function resolveVersionedPortfolioWhatsApp(
+  clientKey?: string | null,
+): string | null {
+  if (!clientKey) return null;
+  const digits = VERSIONED_PORTFOLIO_WHATSAPP[clientKey]?.replace(/\D/g, "") ?? "";
+  if (digits.length < 10 || digits.length > 15) return null;
+  return digits;
+}
+
+export function isPortfolioWhatsAppNotApplicable(
+  clientKey?: string | null,
+): boolean {
+  return Boolean(clientKey && WHATSAPP_NOT_APPLICABLE.has(clientKey));
+}
+
+export function getVersionedPortfolioWhatsAppClientKeys(): readonly string[] {
+  return Object.freeze(Object.keys(VERSIONED_PORTFOLIO_WHATSAPP));
+}
+
+export function getWhatsAppNotApplicableClientKeys(): readonly string[] {
+  return Object.freeze([...WHATSAPP_NOT_APPLICABLE]);
+}
