@@ -30,10 +30,12 @@ const VERSIONED_PORTFOLIO_WHATSAPP: Readonly<Record<string, string>> = Object.fr
 
 /**
  * Portfolios publicados que deliberadamente não possuem destinatário WhatsApp
- * de cliente: amostras explicitamente identificadas no catálogo ou conversão
- * externa própria. Casos apenas suspeitos nunca entram nesta lista.
+ * de cliente: amostras/conceitos explicitamente identificados no histórico ou
+ * conversão externa própria. Casos apenas suspeitos nunca entram nesta lista.
  */
 const WHATSAPP_NOT_APPLICABLE = new Set<string>([
+  // Criado em 01/09/2026 como projeto conceitual/draft da onda de brechós.
+  "angel-mix-brecho",
   "bh-barreiro-marmitas",
   "guaratuba-atelie-presentes",
   "guaratuba-oficina-nautica",
@@ -42,6 +44,7 @@ const WHATSAPP_NOT_APPLICABLE = new Set<string>([
   "mirassol-conserta-celular",
   "mirassol-delicias-caseiras",
   "uberlandia-eletrica-residencial",
+  // Conversão própria por loja externa.
   "papelemi-personalizados",
 ]);
 
