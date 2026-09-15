@@ -84,18 +84,20 @@ comportamento de produção:
 - repete até 3× um cenário instável e aceita a navegação abortada do redirect
   como evidência de envio, eliminando falso-negativo de corrida de DOM.
 
-Execução completa (92 projetos × desktop/mobile):
+Execução completa (92 projetos × desktop/mobile), reexecutada em 2026-09-15 com
+tolerância de espera ampliada e classificação separada do limite antiabuso:
 
 | Métrica | Valor |
 |---|---|
 | Cenários | 184 |
 | Aprovados com redirect tokenizado válido | 128 (64 clientes) |
 | Aprovados com conclusão honesta (destino pendente) | 56 (28 clientes) |
+| Limitados pelo antiabuso (artefato do harness) | 0 |
 | Falhas reais de contrato | 0 |
-| Falhas de harness / limite de taxa artificial | 0 |
 | Cross-client (slug A → clientKey/WhatsApp B) | 0 |
 
 Relatório bruto: `seo-reports/portfolio-funnels-e2e.json` / `.html`.
+
 
 ## 6. Decisão de publicação
 
