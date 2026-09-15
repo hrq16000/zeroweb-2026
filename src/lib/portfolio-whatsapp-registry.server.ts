@@ -1,0 +1,83 @@
+/**
+ * Registro canônico server-only dos destinos WhatsApp de portfolios.
+ *
+ * Regra: clientKey exato -> destino próprio. Nunca há fallback entre clientes.
+ * Os valores aqui são versionados porque são dados operacionais do próprio
+ * projeto, não credenciais. Este arquivo não pode ser importado pelo browser.
+ *
+ * O resolvedor legado ainda lê env/tabela para os projetos que já estavam em
+ * produção. Para os destinos migrados para este registro, a env é apenas um
+ * adaptador de compatibilidade em memória — nenhum secret externo é necessário.
+ */
+if (typeof window !== "undefined") {
+  throw new Error("portfolio-whatsapp-registry.server.ts imported from client code");
+}
+
+const VERSIONED_PORTFOLIO_WHATSAPP: Readonly<Record<string, string>> = Object.freeze({
+  // Histórico do próprio resolvedor + identidade interna explícita com Renata Beauty.
+  "r-beauty": "554196048639",
+  // Perfil profissional atual: botão oficial "Fale comigo no WhatsApp agora" resolve para este número.
+  "simone-lacerda-vaz": "5541995129384",
+});
+
+/**
+ * Portfolios publicados que deliberadamente não possuem destinatário WhatsApp
+ * de cliente: amostras/conceitos explicitamente identificados no histórico ou
+ * conversão externa própria. Casos apenas suspeitos nunca entram nesta lista.
+ */
+const WHATSAPP_NOT_APPLICABLE = new Set<string>([
+  // Criado em 01/09/2026 como projeto conceitual/draft da onda de brechós.
+  "angel-mix-brecho",
+  "bh-barreiro-marmitas",
+  "guaratuba-atelie-presentes",
+  "guaratuba-oficina-nautica",
+  "guaratuba-reparos-residenciais",
+  "guaratuba-sabores-da-baia",
+  "mirassol-conserta-celular",
+  "mirassol-delicias-caseiras",
+  "uberlandia-eletrica-residencial",
+  // Conversão própria por loja externa.
+  "papelemi-personalizados",
+]);
+
+function envNameForVersionedClient(clientKey: string): string {
+  return `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+}
+
+export function resolveVersionedPortfolioWhatsApp(
+  clientKey?: string | null,
+): string | null {
+  if (!clientKey) return null;
+  const digits = VERSIONED_PORTFOLIO_WHATSAPP[clientKey]?.replace(/\D/g, "") ?? "";
+  if (digits.length < 10 || digits.length > 15) return null;
+  return digits;
+}
+
+/**
+ * Ponte temporária para o resolvedor já estabilizado em produção. O valor
+ * versionado só preenche a env em memória quando ela está vazia; configuração
+ * operacional existente nunca é sobrescrita. Isso elimina a dependência do
+ * "cofre" para os projetos migrados sem quebrar os legados ainda não migrados.
+ */
+export function hydrateLegacyResolverFromVersionedRegistry(
+  env: Record<string, string | undefined> = process.env,
+): void {
+  for (const [clientKey, digits] of Object.entries(VERSIONED_PORTFOLIO_WHATSAPP)) {
+    const envName = envNameForVersionedClient(clientKey);
+    if (!env[envName]?.trim()) env[envName] = digits;
+  }
+}
+
+export function isPortfolioWhatsAppNotApplicable(
+  clientKey?: string | null,
+): boolean {
+  return Boolean(clientKey && WHATSAPP_NOT_APPLICABLE.has(clientKey));
+}
+
+export function getVersionedPortfolioWhatsAppClientKeys(): readonly string[] {
+  return Object.freeze(Object.keys(VERSIONED_PORTFOLIO_WHATSAPP));
+}
+
+export function getWhatsAppNotApplicableClientKeys(): readonly string[] {
+  return Object.freeze([...WHATSAPP_NOT_APPLICABLE]);
+}
