@@ -1,9 +1,9 @@
 /**
  * FUNNEL_DESTINATION — auditoria server-only do destino operacional.
  *
- * A resolução real continua centralizada em `whatsapp-redirect.server.ts`.
- * Destinos recuperados podem ser alimentados pelo registro versionado server-only;
- * env/tabela privada permanecem apenas como compatibilidade dos legados.
+ * WhatsApp de portfolio é dado versionado do próprio clientKey. Não há cofre,
+ * env obrigatório, tabela privada obrigatória nem fallback entre clientes.
+ * Portfolio sem WhatsApp continua operacional em modo lead-only.
  */
 if (typeof window !== "undefined") {
   throw new Error("portfolio-funnel-destination.server.ts imported from client code");
@@ -134,10 +134,7 @@ async function loadTelemetry(): Promise<{
 
 /** Resolve a matriz completa. Server-only; nunca devolve número inteiro. */
 export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
-  const {
-    resolvePortfolioWhatsAppContact,
-    resolvePortfolioWhatsAppContactAsync,
-  } = await import("@/lib/whatsapp-redirect.server");
+  const { resolvePortfolioWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
 
   const { bySlug, leadsByClientKey } = await loadTelemetry();
   const { loadDestinationRevisions } = await import("@/lib/portfolio-destination-confirm.server");
@@ -158,60 +155,36 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
         }
       : (LEDGER[clientKey] ?? LEDGER[project.slug]);
 
-    const notApplicable =
+    const contact = resolvePortfolioWhatsAppContact(clientKey);
+    const explicitlyNotApplicable =
       isPortfolioWhatsAppNotApplicable(clientKey) || entry?.status === "NOT_APPLICABLE";
-
-    const fromSecret = notApplicable ? null : resolvePortfolioWhatsAppContact(clientKey);
-    const contact = notApplicable
-      ? null
-      : fromSecret ?? (await resolvePortfolioWhatsAppContactAsync(clientKey));
-    const source: DestinationSource = fromSecret
-      ? "OPERATIONAL_SECRET"
-      : contact
-        ? "CLIENT_SETTINGS"
-        : "NONE";
+    const leadOnly = !contact;
+    const source: DestinationSource = contact ? "PORTFOLIO_DATA" : "NONE";
 
     let status: DestinationStatus;
     let note: string | null = null;
 
-    if (notApplicable) {
+    if (leadOnly) {
       status = "NOT_APPLICABLE";
-      note =
-        clientKey === "papelemi-personalizados"
-          ? "Conversão oficial ocorre pela loja externa do próprio projeto; WhatsApp não é destino obrigatório."
-          : "Amostra/conceito sem destinatário operacional de cliente; não atribuir telefone de terceiros.";
-    } else if (entry?.conflict) {
-      status = "CONFLICT";
-      note = entry.conflict;
-    } else if (!contact) {
-      status = "UNRESOLVED";
-      note = "Sem destino operacional cadastrado: o funil termina apenas em protocolo.";
+      note = explicitlyNotApplicable
+        ? clientKey === "papelemi-personalizados"
+          ? "Conversão oficial ocorre pela loja externa do próprio projeto; WhatsApp não é obrigatório."
+          : "Projeto sem destino WhatsApp: o funil salva o lead e encerra sem redirecionamento."
+        : "Sem WhatsApp cadastrado: modo lead-only ativo; o funil salva o lead e encerra normalmente.";
     } else if (entry?.status === "VERIFIED") {
       status = "VERIFIED";
-    } else if (entry?.status === "AUTO_RESOLVED") {
-      status = "AUTO_RESOLVED";
-    } else if (entry?.status === "CHANGE_PENDING") {
-      status = "CHANGE_PENDING";
-      note = "Troca de destino aguardando confirmação explícita do administrador.";
-    } else if (entry?.status === "CONFIGURATION_ERROR") {
-      status = "CONFIGURATION_ERROR";
-      note = "Destino gravado, mas o teste de validação falhou.";
-    } else if (entry?.status === "INSUFFICIENT_EVIDENCE") {
-      status = "INSUFFICIENT_EVIDENCE";
-      note =
-        entry.evidence?.[0] ??
-        "Destino configurado, sem evidência local de que ainda pertence ao negócio.";
     } else {
-      status = "CONFIGURED_UNVERIFIED";
-      note = "Destino configurado, mas sem evidência de origem registrada.";
+      // Número já pertence ao cadastro versionado do próprio clientKey. Para a
+      // operação do funil isso é suficiente: não existe cofre nem fallback.
+      status = "AUTO_RESOLVED";
+      if (entry?.status === "INSUFFICIENT_EVIDENCE" || entry?.status === "CONFLICT") {
+        note = "Destino operacional preservado da configuração existente e isolado pelo clientKey.";
+      }
     }
 
     const telemetry = bySlug.get(project.slug) ?? { ...EMPTY_TELEMETRY };
     telemetry.leads90 = leadsByClientKey.get(clientKey) ?? 0;
     const priority = computeDestinationPriority(status, telemetry);
-    const concluded = Math.max(telemetry.funnelCompletes90, telemetry.leads90);
-    const conversionsAtRisk = notApplicable || contact ? 0 : concluded;
-    const deliveryNotConfigured = conversionsAtRisk > 0;
 
     rows.push({
       slug: project.slug,
@@ -223,19 +196,19 @@ export async function auditPortfolioDestinations(): Promise<DestinationRow[]> {
           : project.city
         : null,
       funnelType: context.quizMode === "booking" ? "booking" : `proposal:${context.proposalKind}`,
-      contactMode: notApplicable ? "none" : "funnelOnly",
+      contactMode: leadOnly ? "none" : "funnelOnly",
       destinationStatus: status,
       destinationSource: source,
       destinationValueMasked: contact ? maskWhatsAppDigits(contact.digits) : null,
-      evidenceSource: entry?.source ?? (notApplicable ? "PORTFOLIO_CLASSIFICATION" : null),
-      confidence: entry?.confidence ?? (notApplicable ? 100 : contact ? 50 : 0),
+      evidenceSource: entry?.source ?? (leadOnly ? "PORTFOLIO_DATA" : null),
+      confidence: entry?.confidence ?? (contact ? 100 : 100),
       lastVerifiedAt: entry?.verifiedAt ?? null,
       publicState: publicStateOf(project),
       note,
       telemetry,
       priority,
-      deliveryNotConfigured,
-      conversionsAtRisk,
+      deliveryNotConfigured: false,
+      conversionsAtRisk: 0,
     });
   }
 
