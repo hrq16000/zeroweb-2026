@@ -1,32 +1,27 @@
 /**
- * Registro canônico server-only dos destinos WhatsApp de portfolios.
+ * Dados canônicos de WhatsApp dos portfolios.
  *
- * Regra: clientKey exato -> destino próprio. Nunca há fallback entre clientes.
- * Os valores aqui são versionados porque são dados operacionais do próprio
- * projeto, não credenciais. Este arquivo não pode ser importado pelo browser.
- *
- * O resolvedor legado ainda lê env/tabela para os projetos que já estavam em
- * produção. Para os destinos migrados para este registro, a env é apenas um
- * adaptador de compatibilidade em memória — nenhum secret externo é necessário.
+ * WhatsApp é dado do próprio projeto, não credencial. A fonte é o arquivo
+ * versionado `src/config/portfolio-whatsapp.json`, por clientKey exato.
+ * Nunca existe fallback entre clientes e ausência de número é válida.
  */
 if (typeof window !== "undefined") {
   throw new Error("portfolio-whatsapp-registry.server.ts imported from client code");
 }
 
-const VERSIONED_PORTFOLIO_WHATSAPP: Readonly<Record<string, string>> = Object.freeze({
-  // Histórico do próprio resolvedor + identidade interna explícita com Renata Beauty.
-  "r-beauty": "554196048639",
-  // Perfil profissional atual: botão oficial "Fale comigo no WhatsApp agora" resolve para este número.
-  "simone-lacerda-vaz": "5541995129384",
-});
+import contactData from "@/config/portfolio-whatsapp.json";
+
+type PortfolioContactRow = { whatsapp?: string | null };
+type PortfolioContactData = { contacts?: Record<string, PortfolioContactRow> };
+
+const CONTACTS = (contactData as PortfolioContactData).contacts ?? {};
 
 /**
- * Portfolios publicados que deliberadamente não possuem destinatário WhatsApp
- * de cliente: amostras/conceitos explicitamente identificados no histórico ou
- * conversão externa própria. Casos apenas suspeitos nunca entram nesta lista.
+ * Portfolios em que WhatsApp não é o canal operacional esperado. Esta
+ * classificação é apenas de auditoria; no funil, `whatsapp: null` já é um
+ * estado normal e sempre preserva o lead.
  */
 const WHATSAPP_NOT_APPLICABLE = new Set<string>([
-  // Criado em 01/09/2026 como projeto conceitual/draft da onda de brechós.
   "angel-mix-brecho",
   "bh-barreiro-marmitas",
   "guaratuba-atelie-presentes",
@@ -36,36 +31,17 @@ const WHATSAPP_NOT_APPLICABLE = new Set<string>([
   "mirassol-conserta-celular",
   "mirassol-delicias-caseiras",
   "uberlandia-eletrica-residencial",
-  // Conversão própria por loja externa.
   "papelemi-personalizados",
 ]);
-
-function envNameForVersionedClient(clientKey: string): string {
-  return `PORTFOLIO_WHATSAPP_${clientKey.toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
-}
 
 export function resolveVersionedPortfolioWhatsApp(
   clientKey?: string | null,
 ): string | null {
   if (!clientKey) return null;
-  const digits = VERSIONED_PORTFOLIO_WHATSAPP[clientKey]?.replace(/\D/g, "") ?? "";
+  const raw = CONTACTS[clientKey]?.whatsapp;
+  const digits = typeof raw === "string" ? raw.replace(/\D/g, "") : "";
   if (digits.length < 10 || digits.length > 15) return null;
   return digits;
-}
-
-/**
- * Ponte temporária para o resolvedor já estabilizado em produção. O valor
- * versionado só preenche a env em memória quando ela está vazia; configuração
- * operacional existente nunca é sobrescrita. Isso elimina a dependência do
- * "cofre" para os projetos migrados sem quebrar os legados ainda não migrados.
- */
-export function hydrateLegacyResolverFromVersionedRegistry(
-  env: Record<string, string | undefined> = process.env,
-): void {
-  for (const [clientKey, digits] of Object.entries(VERSIONED_PORTFOLIO_WHATSAPP)) {
-    const envName = envNameForVersionedClient(clientKey);
-    if (!env[envName]?.trim()) env[envName] = digits;
-  }
 }
 
 export function isPortfolioWhatsAppNotApplicable(
@@ -75,7 +51,13 @@ export function isPortfolioWhatsAppNotApplicable(
 }
 
 export function getVersionedPortfolioWhatsAppClientKeys(): readonly string[] {
-  return Object.freeze(Object.keys(VERSIONED_PORTFOLIO_WHATSAPP));
+  return Object.freeze(
+    Object.keys(CONTACTS).filter((clientKey) => Boolean(resolveVersionedPortfolioWhatsApp(clientKey))),
+  );
+}
+
+export function getPortfolioContactClientKeys(): readonly string[] {
+  return Object.freeze(Object.keys(CONTACTS));
 }
 
 export function getWhatsAppNotApplicableClientKeys(): readonly string[] {
