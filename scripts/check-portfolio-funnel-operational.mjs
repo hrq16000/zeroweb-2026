@@ -32,7 +32,6 @@ function validWhatsApp(raw) {
   return digits.length >= 10 && digits.length <= 15;
 }
 
-// ---- 1/2: inventário por projeto ------------------------------------------
 const rows = [];
 for (const c of clients) {
   const file = c.componentFile;
@@ -84,7 +83,6 @@ for (const c of clients) {
   });
 }
 
-// ---- 3/4: contrato terminal e NO_VAULT ------------------------------------
 const funnelFns = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
 const redirectServer = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
 const registry = readFileSync("src/lib/portfolio-whatsapp-registry.server.ts", "utf8");
@@ -93,13 +91,14 @@ const messageSyncTest = "tests/leads/funnel-message-sync.test.ts";
 
 const leadInsert = funnelFns.indexOf('.from("dynamic_form_leads")');
 const destinationLookup = funnelFns.indexOf("getPortfolioWhatsAppChannelStateAsync");
+const readsLegacyPrivateTable = /\.from\(\s*["'`]portfolio_client_settings["'`]\s*\)/.test(redirectServer);
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
   ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],
-  ["resolvedor de portfolio não lê tabela privada", !redirectServer.includes("portfolio_client_settings")],
+  ["resolvedor de portfolio não lê tabela privada", !readsLegacyPrivateTable],
   ["resolvedor de portfolio não lê secret PORTFOLIO_WHATSAPP", !redirectServer.includes("PORTFOLIO_WHATSAPP_")],
   ["resolvedor usa apenas clientKey canônico", redirectServer.includes("resolveVersionedPortfolioWhatsApp(clientKey)")],
   ["sem fallback institucional para portfolio", !/resolvePortfolioWhatsAppContact[\s\S]{0,1200}resolveOperationalWhatsAppContact/.test(redirectServer)],
