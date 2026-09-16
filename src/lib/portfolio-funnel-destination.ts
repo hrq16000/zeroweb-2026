@@ -2,9 +2,8 @@
  * Contrato público (client-safe) do destino operacional do funil.
  *
  * Aqui NÃO existe número: apenas o vocabulário de estados, a máscara e os
- * tipos usados pelo painel. A resolução real é server-only
- * (`portfolio-funnel-destination.server.ts`), sobre o resolver canônico já
- * existente (`whatsapp-redirect.server.ts`).
+ * tipos usados pelo painel. A resolução real é feita pelo clientKey do próprio
+ * portfolio, usando dados versionados do projeto.
  */
 
 /** Estados formais do destino operacional de conclusão do funil. */
@@ -59,6 +58,7 @@ export function normalizeBrWhatsApp(
 
 /** Origem do destino. Nunca inclui valor. */
 export type DestinationSource =
+  | "PORTFOLIO_DATA"
   | "OPERATIONAL_SECRET"
   | "CLIENT_SETTINGS"
   | "NONE";
@@ -147,7 +147,6 @@ export function compareByOperationalRisk(a: DestinationRow, b: DestinationRow): 
   if (views) return views;
   return a.slug.localeCompare(b.slug);
 }
-
 
 /**
  * Máscara canônica: `(41) 9****-0764`.
