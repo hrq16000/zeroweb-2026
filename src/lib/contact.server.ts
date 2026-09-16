@@ -1,12 +1,10 @@
 /**
- * Server-only contact data. This module MUST NOT be imported from client
- * code (route components, hooks, `*.functions.ts` module scope, etc.).
+ * Server-only contact data for the institutional 0WEB operation.
  *
- * The site-wide policy is Funnel-first: public pages do not need to know the
- * operational destination. Resolution happens server-side at handoff time.
+ * Portfolio WhatsApp destinations do not live here and do not depend on
+ * secrets. They are ordinary project data resolved by clientKey from
+ * `src/config/portfolio-whatsapp.json`.
  */
-
-import { hydrateLegacyResolverFromVersionedRegistry } from "@/lib/portfolio-whatsapp-registry.server";
 
 const SERVER_ONLY_MARKER = "__contact_server_only__" as const;
 
@@ -16,19 +14,13 @@ if (typeof window !== "undefined") {
   );
 }
 
-// Compatibilidade temporária: projetos já migrados para o registro versionado
-// deixam de depender de secret externo sem alterar o resolvedor estabilizado.
-hydrateLegacyResolverFromVersionedRegistry();
-
 export type OperationalContact = {
   whatsappNumber: string;
   supportEmail: string | null;
 };
 
 /**
- * Contato operacional institucional da 0WEB. Não é fallback de portfolio.
- * Portfolios são resolvidos exclusivamente pelo respectivo clientKey no
- * registro canônico / compatibilidade legada do resolvedor de portfolio.
+ * Contato operacional institucional da 0WEB. Nunca é fallback de portfolio.
  */
 export function getOperationalContact(): OperationalContact {
   const whatsappNumber =
