@@ -1,11 +1,10 @@
 /**
  * DESTINATION INTAKE — confirmação administrativa do destino operacional.
  *
- * Não cria uma segunda fonte de destino: o número continua vivendo apenas no
- * mecanismo canônico privado (segredo operacional do projeto ou
- * `portfolio_client_settings.funnel_recipient`). Aqui ficam a validação, a
- * detecção de destino compartilhado, o teste de resolução e o histórico de
- * proveniência (sem número).
+ * A fonte canônica do número é `src/config/portfolio-whatsapp.json`, versionada
+ * junto do próprio portfolio. Este módulo valida o valor já versionado e grava
+ * apenas proveniência/histórico mascarado. Ele nunca grava número em cofre,
+ * env ou tabela privada.
  */
 if (typeof window !== "undefined") {
   throw new Error("portfolio-destination-confirm.server.ts imported from client code");
@@ -64,7 +63,7 @@ function resolveProject(slug: string): { slug: string; clientKey: string } | nul
   return { slug: row.slug, clientKey: row.clientKey ?? row.slug };
 }
 
-/** Projetos que já usam exatamente este número (segredo ou configuração). */
+/** Projetos cujo dado versionado já usa exatamente este número. */
 async function findProjectsUsingDigits(digits: string, exceptKey: string): Promise<string[]> {
   const used = new Set<string>();
   const { resolvePortfolioWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
@@ -73,37 +72,19 @@ async function findProjectsUsingDigits(digits: string, exceptKey: string): Promi
     if (key === exceptKey) continue;
     if (resolvePortfolioWhatsAppContact(key)?.digits === digits) used.add(row.slug);
   }
-  try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { data } = await (supabaseAdmin as any)
-      .from("portfolio_client_settings")
-      .select("slug, client_key, funnel_recipient");
-    for (const r of (data ?? []) as {
-      slug: string;
-      client_key: string;
-      funnel_recipient: string | null;
-    }[]) {
-      if (r.client_key === exceptKey) continue;
-      if (String(r.funnel_recipient ?? "").replace(/\D/g, "") === digits) used.add(r.slug);
-    }
-  } catch {
-    /* ausência de leitura nunca inventa isolamento: apenas não amplia a lista */
-  }
   return [...used].sort();
 }
 
-/** Estado atual (mascarado) do destino de um projeto. */
+/** Estado atual (mascarado) vindo exclusivamente do dado versionado. */
 export async function currentDestination(clientKey: string) {
-  const { resolvePortfolioWhatsAppContact, resolvePortfolioWhatsAppContactAsync } = await import(
-    "@/lib/whatsapp-redirect.server"
-  );
-  const fromSecret = resolvePortfolioWhatsAppContact(clientKey);
-  const contact = fromSecret ?? (await resolvePortfolioWhatsAppContactAsync(clientKey));
+  const { resolvePortfolioWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
+  const contact = resolvePortfolioWhatsAppContact(clientKey);
   return {
     digits: contact?.digits ?? null,
     masked: contact ? maskWhatsAppDigits(contact.digits) : null,
-    fromSecret: Boolean(fromSecret),
+    // Campo legado preservado para consumidores antigos; não existe mais secret.
+    fromSecret: false,
+    source: contact ? ("PORTFOLIO_DATA" as const) : ("NONE" as const),
   };
 }
 
@@ -153,8 +134,8 @@ async function writeRevision(row: {
 }
 
 /**
- * Teste de destino: resolve pelo mesmo caminho do runtime e confere que a URL
- * final de WhatsApp é válida. Nenhuma mensagem é enviada.
+ * Teste de destino: resolve pelo mesmo dado versionado usado no runtime e
+ * confere que a URL final de WhatsApp é válida. Nenhuma mensagem é enviada.
  */
 export async function validateDestination(slug: string, expectedDigits?: string) {
   const project = resolveProject(slug);
@@ -174,27 +155,42 @@ export async function validateDestination(slug: string, expectedDigits?: string)
   };
 }
 
-/** Confirmação administrativa: grava no mecanismo canônico e valida. */
+/**
+ * Confirmação administrativa.
+ *
+ * Este endpoint NÃO altera o número operacional em runtime. Se o valor digitado
+ * difere do dado versionado, registra somente uma revisão mascarada como
+ * CHANGE_PENDING. A mudança real deve ser feita no cadastro versionado do
+ * portfolio e publicada por Git/PR. Quando o valor já coincide com o cadastro,
+ * este fluxo valida e registra a proveniência como VERIFIED.
+ */
 export async function confirmDestination(
   input: ConfirmDestinationInput,
   userId: string,
 ): Promise<ConfirmDestinationResult> {
   const project = resolveProject(input.slug);
   if (!project) {
-    return { ok: false, status: "REJECTED", reason: "UNKNOWN_PROJECT", message: "Projeto não encontrado no catálogo.", masked: null };
+    return {
+      ok: false,
+      status: "REJECTED",
+      reason: "UNKNOWN_PROJECT",
+      message: "Projeto não encontrado no catálogo.",
+      masked: null,
+    };
   }
 
   const parsed = normalizeBrWhatsApp(input.whatsapp);
   if (!parsed.ok) {
-    return { ok: false, status: "REJECTED", reason: "INVALID_NUMBER", message: parsed.message, masked: null };
+    return {
+      ok: false,
+      status: "REJECTED",
+      reason: "INVALID_NUMBER",
+      message: parsed.message,
+      masked: null,
+    };
   }
-  // Fixo ou celular, DDD+8 ou DDD+9: o formato nunca é motivo de bloqueio
-  // quando a evidência liga o número ao MESMO cliente. `acknowledgeLandline`
-  // permanece no tipo por compatibilidade, mas não é exigido.
 
-  // O contato operacional/institucional da 0WEB NUNCA pode ser destino de um
-  // projeto — nem com acknowledgeShared/acknowledgeChange. Resolvido via
-  // resolver server-side existente; o número não fica hardcoded aqui.
+  // O contato institucional da 0WEB nunca pode ser destino de portfolio.
   const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
   const institutional = resolveOperationalWhatsAppContact()?.digits ?? null;
   if (institutional && parsed.digits === institutional) {
@@ -202,8 +198,7 @@ export async function confirmDestination(
       ok: false,
       status: "REJECTED",
       reason: "INSTITUTIONAL_FORBIDDEN",
-      message:
-        "Este número é o contato operacional da 0WEB e nunca pode ser destino de um projeto.",
+      message: "Este número é o contato operacional da 0WEB e nunca pode ser destino de um projeto.",
       masked: maskWhatsAppDigits(parsed.digits),
     };
   }
@@ -212,31 +207,6 @@ export async function confirmDestination(
   const previous = await latestRevision(project.clientKey);
   const previousStatus = previous?.new_status ?? (current.digits ? "CONFIGURED_UNVERIFIED" : "UNRESOLVED");
 
-  // (15) troca de destino já verificado exige confirmação explícita
-  if (previousStatus === "VERIFIED" && current.digits && current.digits !== parsed.digits && !input.acknowledgeChange) {
-    await writeRevision({
-      clientKey: project.clientKey,
-      slug: project.slug,
-      previousStatus,
-      newStatus: "CHANGE_PENDING",
-      provenanceSource: input.provenanceSource,
-      evidence: input.evidence,
-      digits: parsed.digits,
-      sharedAck: Boolean(input.acknowledgeShared),
-      userId,
-      validationResult: null,
-    });
-    return {
-      ok: false,
-      status: "CHANGE_PENDING",
-      reason: "CHANGE_REQUIRES_ACK",
-      message:
-        "Este projeto já tem destino verificado. Confirme explicitamente a troca de número para concluir.",
-      masked: maskWhatsAppDigits(parsed.digits),
-    };
-  }
-
-  // (10) destino compartilhado por outro projeto
   const sharedWith = await findProjectsUsingDigits(parsed.digits, project.clientKey);
   if (sharedWith.length > 0 && !input.acknowledgeShared) {
     return {
@@ -249,39 +219,33 @@ export async function confirmDestination(
     };
   }
 
-  // (6) fonte única: grava no mecanismo canônico privado.
-  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const admin = supabaseAdmin as any;
-  const { data: existing } = await admin
-    .from("portfolio_client_settings")
-    .select("id")
-    .eq("client_key", project.clientKey)
-    .maybeSingle();
-
-  const write = existing?.id
-    ? await admin
-        .from("portfolio_client_settings")
-        .update({ funnel_recipient: parsed.digits, funnel_enabled: true, updated_at: new Date().toISOString() })
-        .eq("id", existing.id)
-    : await admin.from("portfolio_client_settings").insert({
-        client_key: project.clientKey,
-        slug: project.slug,
-        funnel_recipient: parsed.digits,
-        funnel_enabled: true,
-      });
-
-  if (write.error) {
+  // Novo número ou troca: nunca grava em tabela privada. A revisão registra a
+  // intenção sem persistir o número completo; a alteração operacional é Git.
+  if (current.digits !== parsed.digits) {
+    await writeRevision({
+      clientKey: project.clientKey,
+      slug: project.slug,
+      previousStatus,
+      newStatus: "CHANGE_PENDING",
+      provenanceSource: input.provenanceSource,
+      evidence: input.evidence,
+      digits: parsed.digits,
+      sharedAck: sharedWith.length > 0,
+      userId,
+      validationResult: null,
+    });
     return {
       ok: false,
-      status: "CONFIGURATION_ERROR",
-      reason: "PERSIST_FAILED",
-      message: "Não foi possível gravar o destino operacional.",
+      status: "CHANGE_PENDING",
+      reason: "CHANGE_REQUIRES_ACK",
+      message:
+        "Alteração registrada. Atualize o WhatsApp deste clientKey no cadastro versionado do portfolio e publique a PR; nenhum cofre ou tabela privada será usado.",
       masked: maskWhatsAppDigits(parsed.digits),
+      ...(sharedWith.length > 0 ? { sharedWith } : {}),
     };
   }
 
-  // (7)(8) teste automático logo após salvar
+  // O valor já é o dado canônico do portfolio: valida sem mutar destino.
   const validation = await validateDestination(project.slug, parsed.digits);
   const newStatus = validation.ok ? "VERIFIED" : "CONFIGURATION_ERROR";
 
@@ -303,10 +267,8 @@ export async function confirmDestination(
     status: newStatus,
     reason: validation.ok ? undefined : "VALIDATION_FAILED",
     message: validation.ok
-      ? "Destino confirmado e validado: novos leads passam a ser entregues diretamente."
-      : validation.result === "RESOLVER_MISMATCH"
-        ? "O resolver ainda devolve outro número (segredo operacional tem precedência). Destino não promovido."
-        : "O teste de destino falhou. Estado mantido como CONFIGURATION_ERROR.",
+      ? "Destino versionado confirmado e validado para este portfolio."
+      : "O teste do destino versionado falhou. Nenhuma fonte alternativa foi usada.",
     masked: maskWhatsAppDigits(parsed.digits),
     ...(sharedWith.length > 0 ? { sharedWith } : {}),
   };
@@ -340,7 +302,7 @@ export async function loadDestinationRevisions(): Promise<
       });
     }
   } catch {
-    /* sem revisões o livro-razão versionado continua valendo */
+    /* sem revisões, o dado versionado continua sendo a fonte operacional */
   }
   return out;
 }
