@@ -1,39 +1,59 @@
-# Restauração de destinos WhatsApp — 2026-09-15
+# Migração dos destinos WhatsApp dos portfolios — 2026-09-15/16
 
 ## Motivo
 
-A reconciliação atual classificou 28 portfolios como `MISSING` porque passou a
-aceitar como fonte operacional somente env/secret e `portfolio_client_settings`.
-O histórico comprova que parte desses destinos existia antes da migração e ficou
-órfã quando os defaults em código foram removidos.
+A arquitetura anterior passou a depender de env/secret e de
+`portfolio_client_settings` para resolver o WhatsApp dos portfolios. Isso fez
+contatos históricos desaparecerem da operação e transformou um dado simples do
+cliente em configuração externa obrigatória.
 
-## Causa comprovada
+A decisão definitiva desta PR é diferente: **WhatsApp é dado comum do próprio
+portfolio**, assim como endereço e demais informações de contato.
 
-- 2026-08-27: o commit `ec3067bd1e0cf942e5dea6d8b68dcac15073a9c5`
-  removeu defaults de WhatsApp do resolvedor e passou a depender de env.
-- O caso `r-beauty` possuía explicitamente o destino histórico
-  `554196048639`; o valor continuou inclusive na allowlist de contato de cliente,
-  mas deixou de ser encontrado pelo resolvedor.
-- O caso `marido-de-aluguel` / Mestre dos Serviços possui documentação
-  first-party identificando `5541997452053` como WhatsApp da operação. Uma regra
-  posterior classificou esse mesmo número apenas como institucional e bloqueou o
-  portfolio.
+## Fotografia operacional usada na migração
 
-## Correção aplicada nesta branch
+Em 2026-09-16 foi lida diretamente a configuração existente do projeto Lovable:
 
-`src/lib/contact.server.ts` passou a reidratar somente defaults históricos
-comprovados quando a configuração atual está vazia. Env/configuração explícita
-continua tendo precedência. Não existe fallback entre clientes.
+- registros em `portfolio_client_settings`: **86**;
+- registros com `funnel_recipient` preenchido: **64**;
+- registros sem número: **22**.
 
-Restaurados até esta etapa:
+Os 64 destinos existentes foram copiados para o cadastro versionado por
+`clientKey`. Nenhum número novo foi inventado para preencher lacunas.
 
-- `r-beauty`
-- `marido-de-aluguel`
+Dois destinos já comprovados/versionados durante a própria PR foram preservados:
 
-Nenhum layout, copy, imagem, SEO, motion ou CTA foi alterado.
+- `r-beauty`: `554196048639`;
+- `simone-lacerda-vaz`: `5541995129384`.
 
-## Regra para os demais
+## Estado canônico da branch
 
-Recuperar somente mediante evidência inequívoca do próprio cliente: histórico
-Git, material first-party ou presença oficial compatível. Não inventar dígito e
-não compartilhar destino entre marcas sem prova.
+Fonte: `src/config/portfolio-whatsapp.json`.
+
+- portfolios cadastrados: **92**;
+- portfolios com WhatsApp: **66**;
+- portfolios com `whatsapp: null`: **26**.
+
+`null` não é erro. É o modo **lead-only**: o funil coleta e salva o lead,
+gera protocolo e termina normalmente sem redirecionamento.
+
+## Arquitetura definitiva
+
+1. Cada `clientKey` possui sua própria entrada de contato.
+2. O lead é salvo antes de qualquer tentativa de redirect.
+3. Se houver WhatsApp válido, o redirect usa somente o número daquele mesmo
+   `clientKey`.
+4. Se o WhatsApp for `null`, o funil encerra após registrar o lead/protocolo.
+5. Não existe fallback para outro cliente nem para o WhatsApp institucional da
+   0WEB.
+6. O resolvedor de portfolio não consulta `PORTFOLIO_WHATSAPP_*` nem
+   `portfolio_client_settings`.
+7. O gate `check:portfolio-funnel-operational` falha se essas dependências forem
+   reintroduzidas.
+
+## Escopo preservado
+
+Nenhum layout, texto comercial, imagem, SEO, animação ou identidade visual foi
+alterado por esta migração. `/servicos` permanece fora deste escopo.
+
+Documento canônico da decisão: `docs/PORTFOLIO_WHATSAPP_POLICY.md`.
