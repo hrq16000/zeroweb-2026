@@ -1,26 +1,31 @@
 import { describe, expect, it } from "bun:test";
 import {
+  getPortfolioContactClientKeys,
   getVersionedPortfolioWhatsAppClientKeys,
   getWhatsAppNotApplicableClientKeys,
-  hydrateLegacyResolverFromVersionedRegistry,
   isPortfolioWhatsAppNotApplicable,
   resolveVersionedPortfolioWhatsApp,
 } from "./portfolio-whatsapp-registry.server";
 
-describe("portfolio WhatsApp registry", () => {
-  it("resolve somente destinos com prova explícita de WhatsApp", () => {
+describe("portfolio WhatsApp data", () => {
+  it("mantém os 92 portfolios no cadastro canônico", () => {
+    expect(getPortfolioContactClientKeys()).toHaveLength(92);
+  });
+
+  it("migra os 64 destinos atuais e preserva os 2 já comprovados na PR", () => {
+    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(66);
+    expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
+    expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");
+    expect(resolveVersionedPortfolioWhatsApp("adhonep-curitiba")).toBe("5541995610718");
     expect(resolveVersionedPortfolioWhatsApp("r-beauty")).toBe("554196048639");
     expect(resolveVersionedPortfolioWhatsApp("simone-lacerda-vaz")).toBe("5541995129384");
   });
 
-  it("mantém telefone público sem prova de WhatsApp fora do registro", () => {
+  it("trata portfolio sem número como estado normal", () => {
+    expect(resolveVersionedPortfolioWhatsApp("marido-de-aluguel")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("kitutes-na-mesa")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("auto-socorro-dentinho")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("woodhouse-hamburgueres")).toBeNull();
-  });
-
-  it("mantém o Marido de Aluguel sem fallback institucional", () => {
-    expect(resolveVersionedPortfolioWhatsApp("marido-de-aluguel")).toBeNull();
   });
 
   it("não cria fallback entre clientes", () => {
@@ -28,22 +33,7 @@ describe("portfolio WhatsApp registry", () => {
     expect(resolveVersionedPortfolioWhatsApp("cliente-inexistente")).toBeNull();
   });
 
-  it("hidrata o resolvedor legado sem sobrescrever configuração explícita", () => {
-    const env: Record<string, string | undefined> = {
-      PORTFOLIO_WHATSAPP_R_BEAUTY: "5511999999999",
-    };
-
-    hydrateLegacyResolverFromVersionedRegistry(env);
-
-    expect(env.PORTFOLIO_WHATSAPP_R_BEAUTY).toBe("5511999999999");
-    expect(env.MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER).toBeUndefined();
-    expect(env.PORTFOLIO_WHATSAPP_SIMONE_LACERDA_VAZ).toBe("5541995129384");
-    expect(env.PORTFOLIO_WHATSAPP_KITUTES_NA_MESA).toBeUndefined();
-    expect(env.PORTFOLIO_WHATSAPP_AUTO_SOCORRO_DENTINHO).toBeUndefined();
-    expect(env.PORTFOLIO_WHATSAPP_WOODHOUSE_HAMBURGUERES).toBeUndefined();
-  });
-
-  it("classifica apenas conceitos/amostras comprovados e loja externa como não aplicável", () => {
+  it("mantém classificação de auditoria sem interferir na conclusão do funil", () => {
     for (const key of [
       "angel-mix-brecho",
       "bh-barreiro-marmitas",
