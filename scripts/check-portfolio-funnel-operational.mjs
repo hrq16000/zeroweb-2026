@@ -8,8 +8,8 @@
  *     `portfolio-whatsapp.json`; número ou null são estados válidos.
  *  3. TERMINAL_CONTRACT — lead é salvo antes do redirect; com número abre o
  *     WhatsApp do mesmo clientKey; sem número conclui em modo LEAD_ONLY.
- *  4. NO_VAULT — o resolvedor de portfolio não pode depender de env/secret,
- *     `portfolio_client_settings` nem fallback institucional/cross-client.
+ *  4. NO_VAULT — runtime e confirmação administrativa não podem depender de
+ *     env/secret, `portfolio_client_settings` nem fallback cross-client.
  *
  * Uso: node scripts/check-portfolio-funnel-operational.mjs [--json]
  */
@@ -85,22 +85,27 @@ for (const c of clients) {
 
 const funnelFns = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
 const redirectServer = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
+const destinationConfirm = readFileSync("src/lib/portfolio-destination-confirm.server.ts", "utf8");
 const registry = readFileSync("src/lib/portfolio-whatsapp-registry.server.ts", "utf8");
 const redirectRoute = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
 const messageSyncTest = "tests/leads/funnel-message-sync.test.ts";
 
 const leadInsert = funnelFns.indexOf('.from("dynamic_form_leads")');
 const destinationLookup = funnelFns.indexOf("getPortfolioWhatsAppChannelStateAsync");
-const readsLegacyPrivateTable = /\.from\(\s*["'`]portfolio_client_settings["'`]\s*\)/.test(redirectServer);
+const privateTableReadOrWrite = /\.from\(\s*["'`]portfolio_client_settings["'`]\s*\)/;
+const runtimeReadsLegacyPrivateTable = privateTableReadOrWrite.test(redirectServer);
+const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destinationConfirm);
 
 const structural = [
   ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
   ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
   ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
   ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],
-  ["resolvedor de portfolio não lê tabela privada", !readsLegacyPrivateTable],
+  ["resolvedor de portfolio não lê tabela privada", !runtimeReadsLegacyPrivateTable],
+  ["admin de destino não lê/grava tabela privada", !adminReadsOrWritesLegacyPrivateTable],
   ["resolvedor de portfolio não lê secret PORTFOLIO_WHATSAPP", !redirectServer.includes("PORTFOLIO_WHATSAPP_")],
   ["resolvedor usa apenas clientKey canônico", redirectServer.includes("resolveVersionedPortfolioWhatsApp(clientKey)")],
+  ["admin valida apenas dado versionado", destinationConfirm.includes("current.digits !== parsed.digits") && destinationConfirm.includes("CHANGE_PENDING") && !destinationConfirm.includes("funnel_recipient")],
   ["sem fallback institucional para portfolio", !/resolvePortfolioWhatsAppContact[\s\S]{0,1200}resolveOperationalWhatsAppContact/.test(redirectServer)],
   ["ledger de entrega continua registrado", funnelFns.includes("recordLeadDelivery")],
   ["redirect marca entrega e falha", redirectRoute.includes("markLeadDelivered") && redirectRoute.includes("markLeadDeliveryFailed")],
