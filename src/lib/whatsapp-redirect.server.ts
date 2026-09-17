@@ -5,8 +5,9 @@
  *   lead saved -> resolve clientKey in versioned portfolio data -> open WhatsApp
  *   when present; otherwise keep the lead/protocol and finish without redirect.
  *
- * Portfolio destinations are ordinary versioned project data. They do not
- * depend on env/secrets or `portfolio_client_settings`.
+ * Portfolio destinations are ordinary versioned project data (single source of
+ * truth: src/config/portfolio-whatsapp.json). No vault, no per-portfolio env
+ * secret, no private settings table, no cross-client or institutional fallback.
  */
 if (typeof window !== "undefined") {
   throw new Error("whatsapp-redirect.server.ts imported from client code");
@@ -98,39 +99,15 @@ export function getPortfolioWhatsAppChannelState(
 }
 
 /**
- * Versão assíncrona: além do dado versionado do próprio clientKey, aceita a
- * confirmação administrativa do MESMO clientKey feita no painel
- * (`portfolio_whatsapp_confirmations`). Não é cofre nem secret: é o mesmo dado
- * operacional do portfolio, apenas editável sem deploy. Nunca há fallback
- * entre clientes nem institucional.
+ * Versão assíncrona mantida por compatibilidade das chamadas existentes.
+ *
+ * FONTE ÚNICA DE VERDADE: `src/config/portfolio-whatsapp.json`, por clientKey.
+ * Não existe segunda fonte operacional (nem tabela privada, nem env/secret,
+ * nem confirmação administrativa), nem fallback entre clientes/institucional.
  */
 export async function resolvePortfolioWhatsAppContactAsync(
   clientKey?: string | null,
 ): Promise<OperationalWhatsAppContact | null> {
-  if (!isPortfolioClientKey(clientKey)) return null;
-  try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data } = await (supabaseAdmin as never as {
-      from: (t: string) => {
-        select: (c: string) => {
-          eq: (c: string, v: string) => {
-            is: (c: string, v: null) => {
-              maybeSingle: () => Promise<{ data: { whatsapp_digits?: string } | null }>;
-            };
-          };
-        };
-      };
-    })
-      .from("portfolio_whatsapp_confirmations")
-      .select("whatsapp_digits")
-      .eq("client_key", clientKey as string)
-      .is("revoked_at", null)
-      .maybeSingle();
-    const digits = (data?.whatsapp_digits ?? "").replace(/\D/g, "");
-    if (digits.length >= 10 && digits.length <= 15) return { digits };
-  } catch {
-    // Confirmação indisponível não pode quebrar o funil: cai no dado versionado.
-  }
   return resolvePortfolioWhatsAppContact(clientKey);
 }
 
