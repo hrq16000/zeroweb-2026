@@ -149,6 +149,26 @@ function PortfolioLeadsByProjectPage() {
                   ))}
                 </dl>
               )}
+              <details className="mt-3 rounded-md border">
+                <summary className="cursor-pointer px-3 py-2 text-sm">
+                  Mensagem pronta para enviar ao WhatsApp oficial
+                </summary>
+                <div className="space-y-2 border-t p-3">
+                  <pre className="whitespace-pre-wrap break-words text-sm">{lead.handoffMessage}</pre>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      void navigator.clipboard.writeText(lead.handoffMessage);
+                      setCopiedId(lead.id);
+                      window.setTimeout(() => setCopiedId(null), 2000);
+                    }}
+                    className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm"
+                  >
+                    <Copy className="h-4 w-4" />
+                    {copiedId === lead.id ? "Copiado" : "Copiar mensagem"}
+                  </button>
+                </div>
+              </details>
             </article>
           ))}
       </div>
