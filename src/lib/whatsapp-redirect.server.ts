@@ -98,19 +98,48 @@ export function getPortfolioWhatsAppChannelState(
 }
 
 /**
- * Compatibilidade de assinatura para chamadores assíncronos. Não consulta
- * banco privado, cofre ou env: retorna exatamente a mesma fonte canônica.
+ * Versão assíncrona: além do dado versionado do próprio clientKey, aceita a
+ * confirmação administrativa do MESMO clientKey feita no painel
+ * (`portfolio_whatsapp_confirmations`). Não é cofre nem secret: é o mesmo dado
+ * operacional do portfolio, apenas editável sem deploy. Nunca há fallback
+ * entre clientes nem institucional.
  */
 export async function resolvePortfolioWhatsAppContactAsync(
   clientKey?: string | null,
 ): Promise<OperationalWhatsAppContact | null> {
+  if (!isPortfolioClientKey(clientKey)) return null;
+  try {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data } = await (supabaseAdmin as never as {
+      from: (t: string) => {
+        select: (c: string) => {
+          eq: (c: string, v: string) => {
+            is: (c: string, v: null) => {
+              maybeSingle: () => Promise<{ data: { whatsapp_digits?: string } | null }>;
+            };
+          };
+        };
+      };
+    })
+      .from("portfolio_whatsapp_confirmations")
+      .select("whatsapp_digits")
+      .eq("client_key", clientKey as string)
+      .is("revoked_at", null)
+      .maybeSingle();
+    const digits = (data?.whatsapp_digits ?? "").replace(/\D/g, "");
+    if (digits.length >= 10 && digits.length <= 15) return { digits };
+  } catch {
+    // Confirmação indisponível não pode quebrar o funil: cai no dado versionado.
+  }
   return resolvePortfolioWhatsAppContact(clientKey);
 }
 
 export async function getPortfolioWhatsAppChannelStateAsync(
   clientKey?: string | null,
 ): Promise<WhatsAppChannelState> {
-  return getPortfolioWhatsAppChannelState(clientKey);
+  return (await resolvePortfolioWhatsAppContactAsync(clientKey))
+    ? "CONFIGURED"
+    : "NOT_CONFIGURED";
 }
 
 // ============================================================================
