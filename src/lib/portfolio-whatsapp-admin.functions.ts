@@ -1,10 +1,10 @@
 /**
- * Painel: confirmação do WhatsApp oficial por portfolio, protocolos e leads.
+ * Painel (somente leitura): estado do WhatsApp por portfolio, protocolos e leads.
  *
- * Política SEM COFRE: o número é dado operacional do próprio clientKey.
- * O painel grava em `portfolio_whatsapp_confirmations` (mesmo clientKey),
- * com precedência sobre o registro versionado. Nunca há fallback entre
- * clientes nem institucional, e o número completo nunca sai do servidor.
+ * Política SEM COFRE: o número é dado versionado do próprio clientKey e a
+ * única fonte de verdade é src/config/portfolio-whatsapp.json. O painel exibe
+ * e valida, mas não cria segunda fonte operacional: alteração de número é
+ * feita no cadastro do projeto, por revisão de código.
  */
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
@@ -47,97 +47,25 @@ export const listPortfolioWhatsAppStatus = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }): Promise<{ rows: PortfolioWhatsAppRow[] }> => {
     await assertAdmin(context as never);
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { resolveVersionedPortfolioWhatsApp, isPortfolioWhatsAppNotApplicable } = await import(
       "@/lib/portfolio-whatsapp-registry.server"
     );
 
-    const { data: confirmations } = await (supabaseAdmin as any)
-      .from("portfolio_whatsapp_confirmations")
-      .select("client_key, whatsapp_digits, evidence, confirmed_at, revoked_at")
-      .is("revoked_at", null);
-
-    const byKey = new Map<string, any>(
-      ((confirmations ?? []) as any[]).map((r) => [r.client_key as string, r]),
-    );
-
     const rows = CLIENTS.map((c) => {
-      const confirmed = byKey.get(c.clientKey);
-      const versioned = resolveVersionedPortfolioWhatsApp(c.clientKey);
-      const digits = confirmed?.whatsapp_digits ?? versioned ?? null;
+      const digits = resolveVersionedPortfolioWhatsApp(c.clientKey);
       return {
         clientKey: c.clientKey,
         slug: c.slug,
         siteName: c.siteName,
-        source: confirmed ? "panel" : versioned ? "catalog" : "none",
+        source: digits ? "catalog" : "none",
         masked: digits ? maskPhoneForDisplay(digits) : null,
         notApplicable: isPortfolioWhatsAppNotApplicable(c.clientKey),
-        evidence: confirmed?.evidence ?? null,
-        confirmedAt: confirmed?.confirmed_at ?? null,
+        evidence: null,
+        confirmedAt: null,
       } as PortfolioWhatsAppRow;
     }).sort((a, b) => a.siteName.localeCompare(b.siteName, "pt-BR"));
 
     return { rows };
-  });
-
-const confirmSchema = z.object({
-  clientKey: z.string().min(1).max(80),
-  whatsapp: z.string().min(8).max(32),
-  evidence: z.string().min(3).max(400),
-});
-
-export const confirmPortfolioWhatsApp = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) => confirmSchema.parse(data))
-  .handler(async ({ data, context }) => {
-    await assertAdmin(context as never);
-    if (!CLIENT_KEYS.has(data.clientKey)) throw new Error("clientKey fora do catálogo.");
-    const digits = data.whatsapp.replace(/\D/g, "");
-    if (digits.length < 10 || digits.length > 15) {
-      throw new Error("Número inválido: informe DDI + DDD + número.");
-    }
-
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: clash } = await (supabaseAdmin as any)
-      .from("portfolio_whatsapp_confirmations")
-      .select("client_key")
-      .eq("whatsapp_digits", digits)
-      .is("revoked_at", null)
-      .neq("client_key", data.clientKey)
-      .maybeSingle();
-    if (clash) throw new Error("Este número já está confirmado para outro portfólio.");
-
-    const { error } = await (supabaseAdmin as any)
-      .from("portfolio_whatsapp_confirmations")
-      .upsert(
-        {
-          client_key: data.clientKey,
-          whatsapp_digits: digits,
-          evidence: data.evidence,
-          confirmed_by: context.userId,
-          confirmed_at: new Date().toISOString(),
-          revoked_at: null,
-        },
-        { onConflict: "client_key" },
-      );
-    if (error) throw new Error(error.message);
-    return { ok: true, masked: maskPhoneForDisplay(digits) };
-  });
-
-export const revokePortfolioWhatsApp = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) =>
-    z.object({ clientKey: z.string().min(1).max(80) }).parse(data),
-  )
-  .handler(async ({ data, context }) => {
-    await assertAdmin(context as never);
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await (supabaseAdmin as any)
-      .from("portfolio_whatsapp_confirmations")
-      .update({ revoked_at: new Date().toISOString() })
-      .eq("client_key", data.clientKey);
-    if (error) throw new Error(error.message);
-    return { ok: true };
   });
 
 // ============================================================================
