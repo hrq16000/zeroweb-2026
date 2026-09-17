@@ -449,10 +449,10 @@ const report = {
 };
 try {
   mkdirSync("seo-reports", { recursive: true });
-  writeFileSync(`seo-reports/portfolio-funnels-e2e${reportSuffix}.json", JSON.stringify(report, null, 2));
+  writeFileSync(`seo-reports/portfolio-funnels-e2e${reportSuffix}.json`, JSON.stringify(report, null, 2));
   const li = (items) => items.map((i) => `<li>${String(i).replace(/[<>&]/g, "")}</li>`).join("");
   writeFileSync(
-    "seo-reports/portfolio-funnels-e2e${reportSuffix}.html",
+    `seo-reports/portfolio-funnels-e2e${reportSuffix}.html`,
     `<!doctype html><meta charset="utf-8"><title>E2E funis de portfólio</title>` +
       `<h1>E2E funis de portfólio</h1>` +
       `<p>${report.generatedAt} · base ${baseUrl}</p>` +
