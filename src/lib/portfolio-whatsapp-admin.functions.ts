@@ -318,6 +318,14 @@ export const listPortfolioProjectLeads = createServerFn({ method: "POST" })
           name: r.contact_name ?? null,
           phoneMasked: r.contact_phone ? maskPhoneForDisplay(r.contact_phone) : null,
           answers,
+          handoffMessage: buildLeadHandoffMessage({
+            siteName: client?.siteName ?? clientKey,
+            slug: client?.slug ?? clientKey,
+            createdAt: r.created_at as string,
+            name: (r.contact_name as string | null) ?? null,
+            phone: (r.contact_phone as string | null) ?? null,
+            answers,
+          }),
           whatsappStatus: token
             ? token.used_at
               ? ("OPENED" as const)
