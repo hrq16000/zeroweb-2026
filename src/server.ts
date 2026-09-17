@@ -1,6 +1,10 @@
 import "./lib/error-capture";
 
-import { consumeLastCapturedError, isClientAbortError } from "./lib/error-capture";
+import {
+  consumeLastCapturedError,
+  consumeRecentOutboundFailures,
+  isClientAbortError,
+} from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 import { applySecurityHeaders } from "./lib/security-headers";
 
@@ -41,7 +45,23 @@ async function normalizeCatastrophicSsrResponse(
   if (isClientAbortError(capturedError)) {
     return new Response(null, { status: 499 });
   }
-  console.error(capturedError ?? new Error(`h3 swallowed SSR error: ${body}`));
+  const outbound = consumeRecentOutboundFailures();
+  const requestPath = (() => {
+    try {
+      return new URL(request.url).pathname;
+    } catch {
+      return "unknown";
+    }
+  })();
+  const context =
+    `route=${request.method} ${requestPath}` +
+    (outbound.length ? ` outbound_failures=${outbound.join(" | ")}` : " outbound_failures=none");
+  if (capturedError instanceof Error) {
+    capturedError.message = `${capturedError.message} [${context}]`;
+    console.error(capturedError);
+  } else {
+    console.error(capturedError ?? new Error(`h3 swallowed SSR error [${context}]: ${body}`));
+  }
   return new Response(renderErrorPage(), {
     status: 500,
     headers: { "content-type": "text/html; charset=utf-8" },
