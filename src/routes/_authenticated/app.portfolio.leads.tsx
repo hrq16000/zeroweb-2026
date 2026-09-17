@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { RefreshCcw } from "lucide-react";
+import { Copy, RefreshCcw } from "lucide-react";
 import {
   listPortfolioProjectLeads,
   type PortfolioProjectLead,
@@ -35,6 +35,7 @@ function PortfolioLeadsByProjectPage() {
   const [clientKey, setClientKey] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
     setLoading(true);
