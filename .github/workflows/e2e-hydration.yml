@@ -22,9 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Mantém o mesmo runtime já validado pelos portfolio-gates. Usar `latest`
+      # tornava a subida do worker não determinística entre workflows.
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
 
       - name: Instalar dependências
         run: bun install --frozen-lockfile
