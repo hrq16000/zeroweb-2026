@@ -414,8 +414,13 @@ async function runTarget(target, viewport) {
   failures.push(...out.failures);
 }
 
-const queue = [];
-for (const target of TARGETS) for (const viewport of VIEWPORTS) queue.push([target, viewport]);
+const fullQueue = [];
+for (const target of TARGETS) for (const viewport of VIEWPORTS) fullQueue.push([target, viewport]);
+/** Lotes opcionais: permite rodar a suíte completa em execuções encadeadas. */
+const batchOffset = Number(process.env.E2E_BATCH_OFFSET || 0);
+const batchLimit = Number(process.env.E2E_BATCH_LIMIT || 0);
+const queue = batchLimit > 0 ? fullQueue.slice(batchOffset, batchOffset + batchLimit) : fullQueue;
+const reportSuffix = process.env.E2E_REPORT_SUFFIX ? `-${process.env.E2E_REPORT_SUFFIX}` : "";
 
 const CONCURRENCY = Number(process.env.E2E_CONCURRENCY || 2);
 let cursor = 0;
@@ -444,10 +449,10 @@ const report = {
 };
 try {
   mkdirSync("seo-reports", { recursive: true });
-  writeFileSync("seo-reports/portfolio-funnels-e2e.json", JSON.stringify(report, null, 2));
+  writeFileSync(`seo-reports/portfolio-funnels-e2e${reportSuffix}.json`, JSON.stringify(report, null, 2));
   const li = (items) => items.map((i) => `<li>${String(i).replace(/[<>&]/g, "")}</li>`).join("");
   writeFileSync(
-    "seo-reports/portfolio-funnels-e2e.html",
+    `seo-reports/portfolio-funnels-e2e${reportSuffix}.html`,
     `<!doctype html><meta charset="utf-8"><title>E2E funis de portfólio</title>` +
       `<h1>E2E funis de portfólio</h1>` +
       `<p>${report.generatedAt} · base ${baseUrl}</p>` +

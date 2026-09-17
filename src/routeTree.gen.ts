@@ -229,9 +229,12 @@ import { Route as AuthenticatedAppMarketplaceCompanyRouteImport } from './routes
 import { Route as AuthenticatedAppMarketplaceProviderRouteImport } from './routes/_authenticated/app.marketplace.provider'
 import { Route as AuthenticatedAppPortfolioIndexRouteImport } from './routes/_authenticated/app.portfolio.index'
 import { Route as AuthenticatedAppPortfolioSlugRouteImport } from './routes/_authenticated/app.portfolio.$slug'
+import { Route as AuthenticatedAppPortfolioLeadsRouteImport } from './routes/_authenticated/app.portfolio.leads'
 import { Route as AuthenticatedAppPortfolioNovoRouteImport } from './routes/_authenticated/app.portfolio.novo'
 import { Route as AuthenticatedAppPortfolioOriginalidadeRouteImport } from './routes/_authenticated/app.portfolio.originalidade'
+import { Route as AuthenticatedAppPortfolioProtocolosRouteImport } from './routes/_authenticated/app.portfolio.protocolos'
 import { Route as AuthenticatedAppPortfolioQualidadeRouteImport } from './routes/_authenticated/app.portfolio.qualidade'
+import { Route as AuthenticatedAppPortfolioWhatsappRouteImport } from './routes/_authenticated/app.portfolio.whatsapp'
 import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authenticated/app.projects.$id'
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
@@ -1427,6 +1430,12 @@ const AuthenticatedAppPortfolioSlugRoute =
     path: '/portfolio/$slug',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPortfolioLeadsRoute =
+  AuthenticatedAppPortfolioLeadsRouteImport.update({
+    id: '/portfolio/leads',
+    path: '/portfolio/leads',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppPortfolioNovoRoute =
   AuthenticatedAppPortfolioNovoRouteImport.update({
     id: '/portfolio/novo',
@@ -1439,10 +1448,22 @@ const AuthenticatedAppPortfolioOriginalidadeRoute =
     path: '/portfolio/originalidade',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPortfolioProtocolosRoute =
+  AuthenticatedAppPortfolioProtocolosRouteImport.update({
+    id: '/portfolio/protocolos',
+    path: '/portfolio/protocolos',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppPortfolioQualidadeRoute =
   AuthenticatedAppPortfolioQualidadeRouteImport.update({
     id: '/portfolio/qualidade',
     path: '/portfolio/qualidade',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppPortfolioWhatsappRoute =
+  AuthenticatedAppPortfolioWhatsappRouteImport.update({
+    id: '/portfolio/whatsapp',
+    path: '/portfolio/whatsapp',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
 const AuthenticatedAppProjectsIdRoute =
@@ -1786,9 +1807,12 @@ export interface FileRoutesByFullPath {
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
   '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
+  '/app/portfolio/leads': typeof AuthenticatedAppPortfolioLeadsRoute
   '/app/portfolio/novo': typeof AuthenticatedAppPortfolioNovoRoute
   '/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  '/app/portfolio/protocolos': typeof AuthenticatedAppPortfolioProtocolosRoute
   '/app/portfolio/qualidade': typeof AuthenticatedAppPortfolioQualidadeRoute
+  '/app/portfolio/whatsapp': typeof AuthenticatedAppPortfolioWhatsappRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2027,9 +2051,12 @@ export interface FileRoutesByTo {
   '/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
   '/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
+  '/app/portfolio/leads': typeof AuthenticatedAppPortfolioLeadsRoute
   '/app/portfolio/novo': typeof AuthenticatedAppPortfolioNovoRoute
   '/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  '/app/portfolio/protocolos': typeof AuthenticatedAppPortfolioProtocolosRoute
   '/app/portfolio/qualidade': typeof AuthenticatedAppPortfolioQualidadeRoute
+  '/app/portfolio/whatsapp': typeof AuthenticatedAppPortfolioWhatsappRoute
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2274,9 +2301,12 @@ export interface FileRoutesById {
   '/_authenticated/app/marketplace/company': typeof AuthenticatedAppMarketplaceCompanyRoute
   '/_authenticated/app/marketplace/provider': typeof AuthenticatedAppMarketplaceProviderRoute
   '/_authenticated/app/portfolio/$slug': typeof AuthenticatedAppPortfolioSlugRoute
+  '/_authenticated/app/portfolio/leads': typeof AuthenticatedAppPortfolioLeadsRoute
   '/_authenticated/app/portfolio/novo': typeof AuthenticatedAppPortfolioNovoRoute
   '/_authenticated/app/portfolio/originalidade': typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  '/_authenticated/app/portfolio/protocolos': typeof AuthenticatedAppPortfolioProtocolosRoute
   '/_authenticated/app/portfolio/qualidade': typeof AuthenticatedAppPortfolioQualidadeRoute
+  '/_authenticated/app/portfolio/whatsapp': typeof AuthenticatedAppPortfolioWhatsappRoute
   '/_authenticated/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/_authenticated/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/_authenticated/app/support/$id': typeof AuthenticatedAppSupportIdRoute
@@ -2521,9 +2551,12 @@ export interface FileRouteTypes {
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
     | '/app/portfolio/$slug'
+    | '/app/portfolio/leads'
     | '/app/portfolio/novo'
     | '/app/portfolio/originalidade'
+    | '/app/portfolio/protocolos'
     | '/app/portfolio/qualidade'
+    | '/app/portfolio/whatsapp'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -2762,9 +2795,12 @@ export interface FileRouteTypes {
     | '/app/marketplace/company'
     | '/app/marketplace/provider'
     | '/app/portfolio/$slug'
+    | '/app/portfolio/leads'
     | '/app/portfolio/novo'
     | '/app/portfolio/originalidade'
+    | '/app/portfolio/protocolos'
     | '/app/portfolio/qualidade'
+    | '/app/portfolio/whatsapp'
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
@@ -3008,9 +3044,12 @@ export interface FileRouteTypes {
     | '/_authenticated/app/marketplace/company'
     | '/_authenticated/app/marketplace/provider'
     | '/_authenticated/app/portfolio/$slug'
+    | '/_authenticated/app/portfolio/leads'
     | '/_authenticated/app/portfolio/novo'
     | '/_authenticated/app/portfolio/originalidade'
+    | '/_authenticated/app/portfolio/protocolos'
     | '/_authenticated/app/portfolio/qualidade'
+    | '/_authenticated/app/portfolio/whatsapp'
     | '/_authenticated/app/projects/$id'
     | '/_authenticated/app/servicos/seo-diff'
     | '/_authenticated/app/support/$id'
@@ -4729,6 +4768,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppPortfolioSlugRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/portfolio/leads': {
+      id: '/_authenticated/app/portfolio/leads'
+      path: '/portfolio/leads'
+      fullPath: '/app/portfolio/leads'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioLeadsRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/portfolio/novo': {
       id: '/_authenticated/app/portfolio/novo'
       path: '/portfolio/novo'
@@ -4743,11 +4789,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppPortfolioOriginalidadeRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/portfolio/protocolos': {
+      id: '/_authenticated/app/portfolio/protocolos'
+      path: '/portfolio/protocolos'
+      fullPath: '/app/portfolio/protocolos'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioProtocolosRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/portfolio/qualidade': {
       id: '/_authenticated/app/portfolio/qualidade'
       path: '/portfolio/qualidade'
       fullPath: '/app/portfolio/qualidade'
       preLoaderRoute: typeof AuthenticatedAppPortfolioQualidadeRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/portfolio/whatsapp': {
+      id: '/_authenticated/app/portfolio/whatsapp'
+      path: '/portfolio/whatsapp'
+      fullPath: '/app/portfolio/whatsapp'
+      preLoaderRoute: typeof AuthenticatedAppPortfolioWhatsappRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/projects/$id': {
@@ -5076,9 +5136,12 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppFunisSemDestinoRoute: typeof AuthenticatedAppFunisSemDestinoRoute
   AuthenticatedAppFunisSolicitacoesRoute: typeof AuthenticatedAppFunisSolicitacoesRoute
   AuthenticatedAppPortfolioSlugRoute: typeof AuthenticatedAppPortfolioSlugRoute
+  AuthenticatedAppPortfolioLeadsRoute: typeof AuthenticatedAppPortfolioLeadsRoute
   AuthenticatedAppPortfolioNovoRoute: typeof AuthenticatedAppPortfolioNovoRoute
   AuthenticatedAppPortfolioOriginalidadeRoute: typeof AuthenticatedAppPortfolioOriginalidadeRoute
+  AuthenticatedAppPortfolioProtocolosRoute: typeof AuthenticatedAppPortfolioProtocolosRoute
   AuthenticatedAppPortfolioQualidadeRoute: typeof AuthenticatedAppPortfolioQualidadeRoute
+  AuthenticatedAppPortfolioWhatsappRoute: typeof AuthenticatedAppPortfolioWhatsappRoute
   AuthenticatedAppFunisIndexRoute: typeof AuthenticatedAppFunisIndexRoute
   AuthenticatedAppPortfolioIndexRoute: typeof AuthenticatedAppPortfolioIndexRoute
   AuthenticatedAppFunisPipelineRegrasRoute: typeof AuthenticatedAppFunisPipelineRegrasRoute
@@ -5151,11 +5214,16 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppFunisSolicitacoesRoute:
     AuthenticatedAppFunisSolicitacoesRoute,
   AuthenticatedAppPortfolioSlugRoute: AuthenticatedAppPortfolioSlugRoute,
+  AuthenticatedAppPortfolioLeadsRoute: AuthenticatedAppPortfolioLeadsRoute,
   AuthenticatedAppPortfolioNovoRoute: AuthenticatedAppPortfolioNovoRoute,
   AuthenticatedAppPortfolioOriginalidadeRoute:
     AuthenticatedAppPortfolioOriginalidadeRoute,
+  AuthenticatedAppPortfolioProtocolosRoute:
+    AuthenticatedAppPortfolioProtocolosRoute,
   AuthenticatedAppPortfolioQualidadeRoute:
     AuthenticatedAppPortfolioQualidadeRoute,
+  AuthenticatedAppPortfolioWhatsappRoute:
+    AuthenticatedAppPortfolioWhatsappRoute,
   AuthenticatedAppFunisIndexRoute: AuthenticatedAppFunisIndexRoute,
   AuthenticatedAppPortfolioIndexRoute: AuthenticatedAppPortfolioIndexRoute,
   AuthenticatedAppFunisPipelineRegrasRoute:
