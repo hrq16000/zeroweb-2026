@@ -1,6 +1,10 @@
 import "./lib/error-capture";
 
-import { consumeLastCapturedError, isClientAbortError } from "./lib/error-capture";
+import {
+  consumeLastCapturedError,
+  consumeRecentOutboundFailures,
+  isClientAbortError,
+} from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 import { applySecurityHeaders } from "./lib/security-headers";
 
