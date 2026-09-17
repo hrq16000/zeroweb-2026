@@ -1,19 +1,15 @@
 /**
  * PORTFOLIO_FUNNEL_OPERATIONAL_GATE
  *
- * Verifica, para TODOS os projetos públicos de /portfolio, três dimensões
- * independentes:
+ * Verifica, para TODOS os projetos públicos de /portfolio:
  *
- *  1. FUNNEL_OPERATIONAL — o projeto tem uma variante de funil reconhecida e
- *     nenhum contato direto no bundle (`wa.me`, `api.whatsapp`, `tel:`).
- *  2. DIRECT_DELIVERY    — existe destino operacional (segredo do projeto).
- *     Ausente = PENDING_DESTINATION, que é estado aceitável, não falha.
- *  3. RECOVERABILITY     — a camada compartilhada garante que nenhuma conclusão
- *     termine sem entrega E sem meio de retorno (checagem estrutural do
- *     caminho terminal comum a todas as variantes).
- *
- * Falham o gate: projeto sem funil declarado, contato direto no código e
- * qualquer regressão estrutural na garantia de recuperabilidade.
+ *  1. FUNNEL_OPERATIONAL — variante reconhecida e sem CTA direto que burle o funil.
+ *  2. DESTINATION_ISOLATION — cada clientKey possui entrada canônica em
+ *     `portfolio-whatsapp.json`; número ou null são estados válidos.
+ *  3. TERMINAL_CONTRACT — lead é salvo antes do redirect; com número abre o
+ *     WhatsApp do mesmo clientKey; sem número conclui em modo LEAD_ONLY.
+ *  4. NO_VAULT — runtime e confirmação administrativa não podem depender de
+ *     env/secret, `portfolio_client_settings` nem fallback cross-client.
  *
  * Uso: node scripts/check-portfolio-funnel-operational.mjs [--json]
  */
@@ -21,62 +17,100 @@ import { readFileSync, existsSync } from "node:fs";
 
 const json = process.argv.includes("--json");
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
+const contactConfig = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
+const contacts = contactConfig?.contacts ?? {};
 
 const VARIANTS = [
-  ["portfolio_quiz", /BeautyBookingQuiz/],
+  ["portfolio_quiz", /BeautyBookingQuiz|PortfolioCTAQuiz/],
   ["dynamic_funnel", /FunnelCTAButton|FunnelModalWrapper|FloatingFunnelCTA/],
 ];
 const DIRECT_CONTACT = /wa\.me|api\.whatsapp\.com|href=["'`]tel:/;
 
-function envName(clientKey) {
-  return `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+function validWhatsApp(raw) {
+  if (typeof raw !== "string") return false;
+  const digits = raw.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
 }
 
-// ---- 1/2: inventário por projeto ------------------------------------------
 const rows = [];
 for (const c of clients) {
   const file = c.componentFile;
   if (!file || !existsSync(file)) {
-    rows.push({ slug: c.slug, variant: "MISSING_COMPONENT", directContact: false, delivery: "UNKNOWN", ok: false });
+    rows.push({
+      slug: c.slug,
+      clientKey: c.clientKey,
+      variant: "MISSING_COMPONENT",
+      directContact: false,
+      contactEntry: false,
+      delivery: "UNKNOWN",
+      ok: false,
+    });
     continue;
   }
+
   const src = readFileSync(file, "utf8");
   const found = VARIANTS.filter(([, re]) => re.test(src)).map(([n]) => n);
   const declared = c.funnelVariant ?? null;
   const variant = found[0] ?? declared ?? "NONE";
   const directContact = DIRECT_CONTACT.test(src);
-  const configured = (process.env[envName(c.clientKey)] ?? "").replace(/\D/g, "").length >= 10;
+  const contactEntry = Object.prototype.hasOwnProperty.call(contacts, c.clientKey);
+  const whatsapp = contactEntry ? contacts[c.clientKey]?.whatsapp : undefined;
+  const configured = validWhatsApp(whatsapp);
+  const explicitNull = contactEntry && whatsapp === null;
+
   const delivery =
-    variant === "external_store" ? "NOT_APPLICABLE" : configured ? "VERIFIED" : "PENDING_DESTINATION";
+    variant === "external_store"
+      ? "EXTERNAL_STORE"
+      : configured
+        ? "WHATSAPP"
+        : explicitNull
+          ? "LEAD_ONLY"
+          : "INVALID_CONTACT_DATA";
+
   rows.push({
     slug: c.slug,
+    clientKey: c.clientKey,
     variant,
     directContact,
+    contactEntry,
     delivery,
-    ok: variant !== "NONE" && variant !== "MISSING_COMPONENT" && !directContact,
+    ok:
+      variant !== "NONE" &&
+      variant !== "MISSING_COMPONENT" &&
+      !directContact &&
+      contactEntry &&
+      (configured || explicitNull || variant === "external_store"),
   });
 }
 
-// ---- 3: contrato terminal compartilhado ------------------------------------
 const funnelFns = readFileSync("src/lib/dynamic-funnel.functions.ts", "utf8");
-const runner = readFileSync("src/components/funnel/FunnelRunner.tsx", "utf8");
-const quiz = readFileSync("src/components/site/BeautyBookingQuiz.tsx", "utf8");
-const redirect = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
-const recoveryApi = "src/routes/api/public/funnel-recovery.ts";
+const redirectServer = readFileSync("src/lib/whatsapp-redirect.server.ts", "utf8");
+const destinationConfirm = readFileSync("src/lib/portfolio-destination-confirm.server.ts", "utf8");
+const registry = readFileSync("src/lib/portfolio-whatsapp-registry.server.ts", "utf8");
+const redirectRoute = readFileSync("src/routes/r.whatsapp.$token.ts", "utf8");
 const messageSyncTest = "tests/leads/funnel-message-sync.test.ts";
 
+const leadInsert = funnelFns.indexOf('.from("dynamic_form_leads")');
+const destinationLookup = funnelFns.indexOf("getPortfolioWhatsAppChannelStateAsync");
+const privateTableReadOrWrite = /\.from\(\s*["'`]portfolio_client_settings["'`]\s*\)/;
+const runtimeReadsLegacyPrivateTable = privateTableReadOrWrite.test(redirectServer);
+const adminReadsOrWritesLegacyPrivateTable = privateTableReadOrWrite.test(destinationConfirm);
+
 const structural = [
-  ["lead salvo antes de resolver destino", funnelFns.indexOf('.from("dynamic_form_leads")') < funnelFns.indexOf("getPortfolioWhatsAppChannelStateAsync")],
-  ["token só é criado com destino resolvido", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
-  ["decisão de recuperabilidade no servidor", funnelFns.includes("decideLeadRecoverability")],
-  ["ledger registrado em todos os desfechos", funnelFns.includes("recordLeadDelivery")],
-  ["runner pede contato de retorno", runner.includes("requiresRecoveryContact") && runner.includes("attachFunnelRecoveryContact")],
-  ["quiz pede contato de retorno", quiz.includes("normalizeRecoveryPhone")],
-  ["redirect sem beco sem saída", redirect.includes("recoveryToken") && !redirect.includes("Canal indisponível")],
-  ["endpoint de recuperação existe", existsSync(recoveryApi)],
-  ["redirect marca entrega e falha", redirect.includes("markLeadDelivered") && redirect.includes("markLeadDeliveryFailed")],
-  ["ZERO_FUNNEL_DRIFT usa gerador canônico", redirect.includes("buildPortfolioQuizMessage") && quiz.includes("buildPortfolioQuizPreviewMessage")],
-  ["localização da prévia é persistida", funnelFns.includes("preview_location: data.previewLocation") && redirect.includes("meta.preview_location")],
+  ["lead salvo antes de resolver destino", leadInsert >= 0 && destinationLookup >= 0 && leadInsert < destinationLookup],
+  ["token só é criado quando existe destino", /destinationConfigured\s*\n?\s*\?\s*await createWhatsAppRedirectToken|channel !== "CONFIGURED"/.test(funnelFns)],
+  ["portfolio sem número conclui sem recuperação obrigatória", funnelFns.includes("requiresRecoveryContact: clientKey ? false") && funnelFns.includes("leadOnly: !destinationConfigured") && funnelFns.includes("requiresRecoveryContact: false")],
+  ["registro canônico versionado existe", registry.includes("@/config/portfolio-whatsapp.json") && registry.includes("resolveVersionedPortfolioWhatsApp")],
+  ["resolvedor de portfolio não lê tabela privada", !runtimeReadsLegacyPrivateTable],
+  ["admin de destino não lê/grava tabela privada", !adminReadsOrWritesLegacyPrivateTable],
+  ["resolvedor de portfolio não lê secret PORTFOLIO_WHATSAPP", !redirectServer.includes("PORTFOLIO_WHATSAPP_")],
+  ["resolvedor usa apenas clientKey canônico", redirectServer.includes("resolveVersionedPortfolioWhatsApp(clientKey)")],
+  ["admin valida apenas dado versionado", destinationConfirm.includes("current.digits !== parsed.digits") && destinationConfirm.includes("CHANGE_PENDING") && !destinationConfirm.includes("funnel_recipient")],
+  ["sem fallback institucional para portfolio", !/resolvePortfolioWhatsAppContact[\s\S]{0,1200}resolveOperationalWhatsAppContact/.test(redirectServer)],
+  ["ledger de entrega continua registrado", funnelFns.includes("recordLeadDelivery")],
+  ["redirect marca entrega e falha", redirectRoute.includes("markLeadDelivered") && redirectRoute.includes("markLeadDeliveryFailed")],
+  ["ZERO_FUNNEL_DRIFT usa gerador canônico", redirectRoute.includes("buildPortfolioQuizMessage")],
+  ["localização da prévia é persistida", funnelFns.includes("preview_location: data.previewLocation") && redirectRoute.includes("meta.preview_location")],
   ["gate de sincronismo existe", existsSync(messageSyncTest)],
 ];
 
@@ -99,10 +133,16 @@ if (json) {
       Object.entries(summary.byVariant).map(([k, v]) => `${k}=${v}`).join(" · "),
   );
   console.log(
-    `entrega direta: ` + Object.entries(summary.delivery).map(([k, v]) => `${k}=${v}`).join(" · "),
+    `destinos: ` + Object.entries(summary.delivery).map(([k, v]) => `${k}=${v}`).join(" · "),
   );
   for (const [name, ok] of structural) console.log(`  ${ok ? "OK  " : "FAIL"} ${name}`);
-  for (const f of failures) console.log(`  FAIL ${f.slug} (variante=${f.variant}${f.directContact ? ", contato direto no código" : ""})`);
+  for (const f of failures) {
+    console.log(
+      `  FAIL ${f.slug} (variante=${f.variant}, destino=${f.delivery}` +
+        `${f.directContact ? ", contato direto no código" : ""}` +
+        `${!f.contactEntry ? ", sem entrada canônica" : ""})`,
+    );
+  }
 }
 
 process.exit(failures.length || structuralFailures.length ? 1 : 0);

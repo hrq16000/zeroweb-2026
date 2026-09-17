@@ -31,14 +31,14 @@ hospedagem/criação, sem competir com a marca atendida.
 |---|---|
 | Hospedagem, segurança e observabilidade | Compartilhadas pela plataforma |
 | Mecanismo de CTA/funil | Compartilhado e parametrizável |
-| Redirecionamento de contato | Compartilhado, tokenizado e resolvido no servidor |
+| Redirecionamento de contato | Compartilhado e resolvido pelo `clientKey` do próprio portfolio |
 | Mecanismo de pop-up/prova social | Compartilhado e parametrizável |
 | Pop-up de captação da 0WEB | Camada externa obrigatória da vitrine/hospedagem |
 | Analytics e privacidade | Compartilhados, sempre identificados por `clientKey` |
 | Design, layout e animações | Exclusivos de cada cliente |
 | Textos, perguntas, respostas e ofertas | Exclusivos de cada cliente |
 | Logo, imagens, ícone e imagem social | Exclusivos de cada cliente |
-| Destinatário e canais de atendimento | Exclusivos e mantidos no servidor |
+| Destinatário e canais de atendimento | Dados exclusivos do próprio portfolio, versionados por `clientKey` |
 | SEO e Schema.org | Exclusivos de cada cliente |
 
 Compartilhar um mecanismo significa compartilhar comportamento, acessibilidade,
@@ -54,18 +54,18 @@ com uma chave imutável (`clientKey`) e possuir:
 2. componente raiz exclusivo;
 3. diretório exclusivo de imagens;
 4. título, descrição, canonical, `og:site_name`, imagem social e ícone próprios;
-5. CTA usando o funil seguro com `clientKey` explícito;
+5. CTA usando o funil com `clientKey` explícito;
 6. perguntas e mensagem final coerentes com o ramo do cliente;
 7. pop-up de prova social usando `PortfolioSocialProofPopup` com conteúdo do
    próprio cliente;
 8. pop-up de captação da 0WEB usando `PortfolioUpsellPopup`;
 9. botão flutuante de contato quando adequado ao negócio;
-10. redirecionamento do contato resolvido somente no servidor;
-11. experiência responsiva, acessível e validada em mobile.
+10. entrada de contato em `src/config/portfolio-whatsapp.json`, com número ou `null`;
+11. experiência responsiva, acessível e validada em mobile;
 12. crédito discreto no rodapé usando `PortfolioHostCredit`, com link para
     `https://0web.com.br`;
 13. uma logo/marca própria, usada como identidade visual e registrada no campo
-    `icon` de `src/config/portfolio-assets.json`;
+    `icon` de `src/config/portfolio-assets.json`.
 
 Os itens 8 e 12 são universais e não podem ser desativados por configuração do
 cliente. O script `npm run validate:portfolio-boundaries` falha se qualquer
@@ -111,16 +111,20 @@ acessibilidade, enquanto cada cliente pode definir apenas cores e acabamento
 compatíveis com sua identidade. O validador de boundaries bloqueia portfolios
 registrados sem o crédito ou sem `PortfolioUpsellPopup`.
 
-São proibidos no código público: `wa.me`, números de telefone, e-mails
-operacionais, chaves, destinatários sensíveis e qualquer fallback que direcione
-um cliente para o atendimento da 0WEB.
+Número de WhatsApp de cliente é dado comum do portfolio, não segredo. Ele pode
+ser versionado junto dos demais dados do projeto. O que continua proibido é
+fallback para outro cliente/0WEB, compartilhamento acidental entre `clientKey`s,
+chaves/credenciais e qualquer lógica que misture atendimento entre portfolios.
 
 ## 5. Fluxo de atendimento
 
 O fluxo oficial é:
 
-`CTA do cliente → mini questionário próprio → registro da intenção → token
-temporário → resolução server-side do destinatário → aplicativo de contato`.
+`CTA do cliente → mini questionário próprio → registro da intenção/lead →
+consulta do WhatsApp do mesmo clientKey → redirect quando houver número`.
+
+Se `whatsapp` for `null`, o lead e o protocolo permanecem salvos e o funil
+encerra normalmente, sem “canal indisponível”, sem cofre e sem fallback.
 
 O texto enviado deve identificar a página vista, organizar as respostas e falar
 com o prestador correto. A estética do botão e do modal acompanha o site do
@@ -143,7 +147,7 @@ possuam diretório exclusivo.
 1. cadastrar o cliente no registro;
 2. criar assets e componente exclusivos;
 3. criar rota e metadados próprios;
-4. configurar CTA, perguntas, destinatário server-side, prova social e captação
+4. configurar CTA, perguntas, `whatsapp` (número ou `null`), prova social e captação
    da 0WEB;
 5. executar `npm run validate:portfolio-boundaries`;
 6. executar TypeScript, build e validadores de privacidade/SEO;
@@ -165,6 +169,8 @@ sitemap, SEO, Lighthouse CI e testes consomem essa mesma fonte.
 
 - `src/config/portfolio-clients.json` continua responsável pelo contrato
   técnico do site do cliente (rota, componente, assets, CTA, isolamento).
+- `src/config/portfolio-whatsapp.json` contém o dado de WhatsApp por `clientKey`;
+  ausência de número é representada explicitamente por `null`.
 - `src/lib/portfolio-site-registry.ts` permanece como camada de SEO/sitemap e
   deve conter todo slug publicado do catálogo.
 - Campos visuais legados na rota `/portfolio` são um fallback temporário e vão
@@ -184,8 +190,8 @@ alvos de toque de 44px e respeito a `prefers-reduced-motion`.
 `public.portfolio_web_vitals` (RLS ativa, acesso público revogado, escrita e
 leitura apenas por `service_role`, índices por slug/métrica/data), com fallback
 em memória quando o banco está indisponível. O painel `/painel-web-vitals`
-  (restrito a administradores) mostra p75 por métrica, volume de amostras e
-  alertas de regressão contra os budgets 2500 ms / 0,1 / 200 ms.
+(restrito a administradores) mostra p75 por métrica, volume de amostras e
+alertas de regressão contra os budgets 2500 ms / 0,1 / 200 ms.
 
 ## 10. Padrão de interface responsiva e acessível
 
