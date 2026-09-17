@@ -233,7 +233,40 @@ export type PortfolioProjectLead = {
   phoneMasked: string | null;
   answers: { label: string; value: string }[];
   whatsappStatus: "OPENED" | "PENDING" | "NO_DESTINATION";
+  /**
+   * Mensagem pronta para repasse manual ao WhatsApp oficial do próprio
+   * cliente. Contém apenas dados do lead; nunca o destino do portfolio.
+   */
+  handoffMessage: string;
 };
+
+function buildLeadHandoffMessage(input: {
+  siteName: string;
+  slug: string;
+  createdAt: string;
+  name: string | null;
+  phone: string | null;
+  answers: { label: string; value: string }[];
+}): string {
+  const when = new Date(input.createdAt).toLocaleString("pt-BR", {
+    dateStyle: "short",
+    timeStyle: "short",
+  });
+  const lines = [
+    `*Novo contato pela página ${input.siteName}*`,
+    "",
+    `• *Data:* ${when}`,
+    `• *Nome:* ${input.name?.trim() || "não informado"}`,
+    `• *Telefone:* ${input.phone?.trim() || "não informado"}`,
+    `• *Página:* https://0web.com.br/portfolio/${input.slug}`,
+  ];
+  if (input.answers.length > 0) {
+    lines.push("", "*Respostas do formulário*");
+    for (const a of input.answers) lines.push(`• *${a.label}:* ${a.value}`);
+  }
+  lines.push("", "Retorne diretamente para esse contato.");
+  return lines.join("\n");
+}
 
 export const listPortfolioProjectLeads = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
@@ -285,6 +318,14 @@ export const listPortfolioProjectLeads = createServerFn({ method: "POST" })
           name: r.contact_name ?? null,
           phoneMasked: r.contact_phone ? maskPhoneForDisplay(r.contact_phone) : null,
           answers,
+          handoffMessage: buildLeadHandoffMessage({
+            siteName: client?.siteName ?? clientKey,
+            slug: client?.slug ?? clientKey,
+            createdAt: r.created_at as string,
+            name: (r.contact_name as string | null) ?? null,
+            phone: (r.contact_phone as string | null) ?? null,
+            answers,
+          }),
           whatsappStatus: token
             ? token.used_at
               ? ("OPENED" as const)
