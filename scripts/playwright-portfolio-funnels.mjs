@@ -414,8 +414,13 @@ async function runTarget(target, viewport) {
   failures.push(...out.failures);
 }
 
-const queue = [];
-for (const target of TARGETS) for (const viewport of VIEWPORTS) queue.push([target, viewport]);
+const fullQueue = [];
+for (const target of TARGETS) for (const viewport of VIEWPORTS) fullQueue.push([target, viewport]);
+/** Lotes opcionais: permite rodar a suíte completa em execuções encadeadas. */
+const batchOffset = Number(process.env.E2E_BATCH_OFFSET || 0);
+const batchLimit = Number(process.env.E2E_BATCH_LIMIT || 0);
+const queue = batchLimit > 0 ? fullQueue.slice(batchOffset, batchOffset + batchLimit) : fullQueue;
+const reportSuffix = process.env.E2E_REPORT_SUFFIX ? `-${process.env.E2E_REPORT_SUFFIX}` : "";
 
 const CONCURRENCY = Number(process.env.E2E_CONCURRENCY || 2);
 let cursor = 0;
