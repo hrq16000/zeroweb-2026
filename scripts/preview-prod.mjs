@@ -96,8 +96,15 @@ function start(compatibilityDate, { allowRetry }) {
   // pacotes. Resolver o binário local mantém o comando utilizável por `node`
   // direto (CI, depuração) sem depender do PATH herdado.
   const localBin = resolve("node_modules/.bin/wrangler");
-  const bin = existsSync(localBin) ? localBin : "wrangler";
-  const child = spawn(bin, args, {
+  // O runner já reportou crash interno do Wrangler 4.127.1. Em CI usamos uma
+  // versão de runtime atual e fixa via bunx, sem alterar o lockfile da aplicação.
+  // Localmente continua valendo a dependência versionada do projeto.
+  const ciWranglerVersion = process.env.PREVIEW_WRANGLER_VERSION || "4.134.0";
+  const useCiWrangler = Boolean(process.env.CI) && ciWranglerVersion !== "local";
+  const bin = useCiWrangler ? "bunx" : (existsSync(localBin) ? localBin : "wrangler");
+  const spawnArgs = useCiWrangler ? [`wrangler@${ciWranglerVersion}`, ...args] : args;
+  if (useCiWrangler) console.log(`[preview:prod] CI Wrangler ${ciWranglerVersion}`);
+  const child = spawn(bin, spawnArgs, {
     stdio: ["inherit", "inherit", "pipe"],
     env: process.env,
     shell: process.platform === "win32",
