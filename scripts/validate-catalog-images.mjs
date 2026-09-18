@@ -16,7 +16,7 @@
  *   SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY (ou VITE_*)
  *   SKIP_CATALOG_IMAGE_CHECK=1 → pula
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 
 const SKIP = process.env.SKIP_CATALOG_IMAGE_CHECK === "1";
