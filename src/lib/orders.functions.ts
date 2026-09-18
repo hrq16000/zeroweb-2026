@@ -6,6 +6,8 @@ const CartItemSchema = z.object({
   slug: z.string().min(1).max(120),
   name: z.string().min(1).max(255),
   category: z.string().max(120).optional(),
+  variantId: z.string().max(120).nullable().optional(),
+  variantLabel: z.string().max(200).nullable().optional(),
   price: z.number().min(0).max(1_000_000).nullable().optional(),
   pricePeriod: z.string().max(40).nullable().optional(),
   // Capas do catálogo podem ser URL absoluta ou caminho relativo do próprio

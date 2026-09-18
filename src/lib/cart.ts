@@ -15,6 +15,9 @@ export type CartItem = {
   slug: string;
   name: string;
   category?: string;
+  /** Variação comercial dentro do mesmo serviço (plano/pacote). */
+  variantId?: string | null;
+  variantLabel?: string | null;
   price?: number | null;
   pricePeriod?: string | null;
   imageUrl?: string | null;
@@ -38,6 +41,10 @@ export function readCart(): CartItem[] {
   }
 }
 
+export function cartItemKey(item: Pick<CartItem, "slug" | "variantId">) {
+  return item.variantId ? `${item.slug}::${item.variantId}` : item.slug;
+}
+
 function writeCart(items: CartItem[]) {
   if (!isBrowser()) return;
   localStorage.setItem(KEY, JSON.stringify(items));
@@ -57,13 +64,22 @@ export type AddOptions = { onLoginNudge?: (distinctAfter: number) => void };
 
 export function addToCart(item: Omit<CartItem, "qty" | "addedAt">, opts: AddOptions = {}) {
   const list = readCart();
-  const existing = list.find((i) => i.slug === item.slug);
+  const key = cartItemKey(item);
+  const existing = list.find((i) => cartItemKey(i) === key);
   if (existing) {
     // /servicos vende serviços, não unidades físicas. Repetir o clique atualiza
     // o snapshot do produto sem multiplicar preço/quantidade.
     Object.assign(existing, item, { qty: 1 });
   } else {
-    list.push({ ...item, qty: 1, addedAt: Date.now() });
+    // Planos diferentes do MESMO serviço são alternativas, não itens cumulativos:
+    // escolher outra variante substitui a anterior e preserva 1 item por serviço.
+    const sameServiceIndex = item.variantId ? list.findIndex((i) => i.slug === item.slug) : -1;
+    if (sameServiceIndex >= 0) {
+      const previous = list[sameServiceIndex];
+      list[sameServiceIndex] = { ...item, qty: 1, addedAt: previous.addedAt };
+    } else {
+      list.push({ ...item, qty: 1, addedAt: Date.now() });
+    }
   }
   writeCart(list);
   const distinct = list.length;
@@ -72,18 +88,18 @@ export function addToCart(item: Omit<CartItem, "qty" | "addedAt">, opts: AddOpti
   return list;
 }
 
-export function removeFromCart(slug: string) {
-  writeCart(readCart().filter((i) => i.slug !== slug));
+export function removeFromCart(key: string) {
+  writeCart(readCart().filter((i) => cartItemKey(i) !== key));
 }
 
-export function setQty(slug: string, qty: number) {
+export function setQty(key: string, qty: number) {
   // Compatibilidade defensiva com chamadas antigas. Serviços permanecem
   // unitários; qty <= 0 remove o item.
   if (qty <= 0) {
-    removeFromCart(slug);
+    removeFromCart(key);
     return;
   }
-  writeCart(readCart().map((i) => (i.slug === slug ? { ...i, qty: 1 } : i)));
+  writeCart(readCart().map((i) => (cartItemKey(i) === key ? { ...i, qty: 1 } : i)));
 }
 
 export function clearCart() {

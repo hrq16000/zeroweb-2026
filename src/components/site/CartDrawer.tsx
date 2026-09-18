@@ -16,6 +16,7 @@ import {
   clearCart,
   cartTotal,
   formatBRL,
+  cartItemKey,
   type CartItem,
 } from "@/lib/cart";
 import { saveCartFunnelStep } from "@/lib/cart-funnel.functions";
@@ -140,7 +141,7 @@ export function CartDrawer() {
           ) : (
             items.map((i) => (
               <div
-                key={i.slug}
+                key={cartItemKey(i)}
                 className="flex gap-3 p-3 rounded-2xl border border-border bg-card animate-fade-in"
               >
                 <div className="w-16 h-16 rounded-xl bg-muted overflow-hidden shrink-0">
@@ -174,7 +175,7 @@ export function CartDrawer() {
                     <button
                       type="button"
                       aria-label="Remover"
-                      onClick={() => removeFromCart(i.slug)}
+                      onClick={() => removeFromCart(cartItemKey(i))}
                       className="text-muted-foreground hover:text-destructive transition active:scale-90"
                     >
                       <Trash2 className="w-4 h-4" />

@@ -7,17 +7,38 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { trackEvent, trackConversion } from "@/lib/analytics";
 import { InstitutionalDiagnosticQuizModal } from "@/components/site/InstitutionalDiagnosticQuiz";
 import cover from "@/assets/google-meu-negocio-capa.png.asset.json";
+import { AddToCartButton } from "@/components/site/AddToCartButton";
 
 const TITLE = "Google Meu Negócio para Empresas · 0WEB Marketing Digital";
 const DESC =
   "A 0WEB configura e otimiza o Google Meu Negócio para sua empresa aparecer no Maps, gerar confiança e atrair clientes. Planos a partir de R$247/mês.";
 const URL = "https://0web.com.br/servicos/google-meu-negocio";
+
+const GMB_UNICO_PRODUCT = {
+  slug: "google-meu-negocio",
+  variantId: "plano-unico",
+  variantLabel: "Plano Único",
+  name: "Google Meu Negócio — Plano Único",
+  category: "Marketing Local",
+  price: 397,
+  pricePeriod: null,
+  imageUrl: cover.url,
+};
+
+const GMB_PRO_PRODUCT = {
+  slug: "google-meu-negocio",
+  variantId: "plano-pro",
+  variantLabel: "Plano PRO · mínimo 3 meses",
+  name: "Google Meu Negócio — Plano PRO",
+  category: "Marketing Local",
+  price: 247,
+  pricePeriod: "mês",
+  imageUrl: cover.url,
+};
 
 const benefits = [
   { icon: MapPin, t: "Aparecer no Google", d: "Sua empresa nas primeiras posições do Maps e da busca local." },
@@ -168,18 +189,18 @@ function GMBPage() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "gmb_hero_pro", pagePath: "/servicos/google-meu-negocio", placement: "hero", serviceSlug: "google-meu-negocio" }}
-                label="Quero meu Plano PRO"
-                location="gmb_hero_pro"
+              <a
+                href="#planos-gmb"
                 className="inline-flex items-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold px-6 py-3.5 shadow-glow-primary hover:scale-[1.02] transition"
-              />
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "gmb_hero_unico", pagePath: "/servicos/google-meu-negocio", placement: "hero", serviceSlug: "google-meu-negocio" }}
-                label="Plano Único · R$397"
-                location="gmb_hero_unico"
+              >
+                Escolher plano <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#diagnostico-gmb"
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white/10 transition"
-              />
+              >
+                Preciso de orientação
+              </a>
             </div>
 
             <div className="mt-6 flex items-center gap-2 text-sm text-white/70">
@@ -261,7 +282,7 @@ function GMBPage() {
       </section>
 
       {/* PRICING */}
-      <section className="py-20">
+      <section id="planos-gmb" className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-600">
@@ -285,11 +306,10 @@ function GMBPage() {
                   <li key={i} className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5" /> {i}</li>
                 ))}
               </ul>
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "gmb_pricing_unico", pagePath: "/servicos/google-meu-negocio", placement: "section", serviceSlug: "google-meu-negocio" }}
-                label="Contratar Plano Único"
-                location="gmb_pricing_unico"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-foreground text-foreground font-semibold px-6 py-3.5 hover:bg-foreground hover:text-background transition"
+              <AddToCartButton
+                item={GMB_UNICO_PRODUCT}
+                variant="outline"
+                className="mt-8 w-full rounded-full border-foreground"
               />
             </div>
 
@@ -309,19 +329,20 @@ function GMBPage() {
                   <li key={i} className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5" /> {i}</li>
                 ))}
               </ul>
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "gmb_pricing_pro", pagePath: "/servicos/google-meu-negocio", placement: "section", serviceSlug: "google-meu-negocio" }}
-                label="Quero o Plano PRO"
-                location="gmb_pricing_pro"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold px-6 py-3.5 hover:scale-[1.02] transition"
+              <AddToCartButton
+                item={GMB_PRO_PRODUCT}
+                className="mt-8 w-full rounded-full bg-amber-400 text-slate-900 hover:bg-amber-300"
               />
+              <p className="mt-2 text-center text-[11px] text-white/60">
+                Plano recorrente: a ativação e a cobrança dos 3 meses mínimos são confirmadas no atendimento.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* DIAGNÓSTICO GRATUITO */}
-      <section className="py-16">
+      <section id="diagnostico-gmb" className="py-16 scroll-mt-24">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <div className="rounded-3xl border border-primary/25 bg-gradient-to-r from-primary/10 via-card to-card p-8 lg:p-10 grid lg:grid-cols-[1fr_auto] gap-6 items-center">
             <div>
@@ -388,13 +409,12 @@ function GMBPage() {
                   Conectamos sua empresa a mais clientes todos os dias.
                 </p>
               </div>
-              <FunnelCTAButton
-                pageType="service"
-                serviceSlug="google-meu-negocio"
-                label="Solicitar orçamento gratuito"
-                location="gmb_cta_final"
+              <a
+                href="#planos-gmb"
                 className="inline-flex items-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold px-7 py-4 hover:scale-[1.02] transition"
-              />
+              >
+                Escolher plano <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -419,7 +439,6 @@ function GMBPage() {
       />
 
       <Footer />
-      <WhatsAppFloat />
-    </div>
+</div>
   );
 }

@@ -10,9 +10,9 @@ import {
 import { RedesSimulator } from "@/components/site/RedesSimulator";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { trackEvent, trackWhatsAppClick } from "@/lib/analytics";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { AddToCartButton } from "@/components/site/AddToCartButton";
 const TITLE = "Gestão de Redes Sociais · 0WEB · Planos a partir de R$149,99/mês";
 const DESC =
   "Sua marca ativa todos os dias no Instagram, Facebook, TikTok e LinkedIn. Calendário editorial, design profissional, reels, copywriting e relatórios reais. Planos a partir de R$149,99/mês.";
@@ -114,6 +114,32 @@ const PLANS: Plan[] = [
     cta: "Quero o plano Premium de R$1.290/mês",
   },
 ];
+
+function planPrice(plan: Plan): number {
+  return Number(plan.price.replace(".", "") + (plan.cents ?? "").replace(",", "."));
+}
+
+function planVariantId(plan: Plan): string {
+  return plan.name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function planCartItem(plan: Plan) {
+  return {
+    slug: "gestao-redes-sociais",
+    variantId: planVariantId(plan),
+    variantLabel: `Plano ${plan.name}`,
+    name: `Gestão de Redes Sociais — ${plan.name}`,
+    category: "Social",
+    price: planPrice(plan),
+    pricePeriod: "mês",
+    imageUrl: HERO_IMG,
+  };
+}
 
 const BENEFITS = [
   { icon: Calendar, t: "Calendário editorial", d: "Planejamento mensal alinhado com datas, campanhas e lançamentos da sua empresa." },
@@ -246,12 +272,12 @@ function GestaoRedesSociaisPage() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "redes_hero_principal", pagePath: "/servicos/gestao-redes-sociais", placement: "hero", serviceSlug: "gestao-redes-sociais" }}
-                label="Iniciar diagnóstico"
-                location="redes_hero_principal"
+              <a
+                href="#planos"
                 className="inline-flex items-center gap-2 rounded-full bg-fuchsia-400 text-slate-900 font-bold px-6 py-3.5 shadow-glow-primary hover:scale-[1.02] transition"
-              />
+              >
+                Escolher plano <ArrowRight className="w-4 h-4" />
+              </a>
               <a
                 href="#planos"
                 onClick={() => trackEvent("cta_click", { label: "Ver planos", location: "redes_hero" })}
@@ -415,14 +441,13 @@ function GestaoRedesSociaisPage() {
                     </li>
                   ))}
                 </ul>
-                <FunnelCTAButton
-                  intent={{ purpose: "proposal", source: `redes_plano_${p.name.toLowerCase()}`, pagePath: "/servicos/gestao-redes-sociais", placement: "section", serviceSlug: "gestao-redes-sociais", campaign: p.name.toLowerCase() }}
-                  label="Contratar"
-                  location={`redes_plano_${p.name.toLowerCase()}`}
+                <AddToCartButton
+                  item={planCartItem(p)}
+                  variant="default"
                   className={[
-                    "mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full font-bold px-5 py-3 transition hover:scale-[1.02]",
+                    "mt-7 w-full rounded-full font-bold transition hover:scale-[1.02]",
                     p.highlight
-                      ? "bg-fuchsia-400 text-slate-900"
+                      ? "bg-fuchsia-400 text-slate-900 hover:bg-fuchsia-300"
                       : "bg-foreground text-background",
                   ].join(" ")}
                 />
@@ -905,18 +930,17 @@ function GestaoRedesSociaisPage() {
           <p className="mt-3 text-white/90 max-w-xl mx-auto">
             Começa hoje com o plano Essencial por R$149,99/mês. Cancela quando quiser.
           </p>
-          <FunnelCTAButton
-            intent={{ purpose: "proposal", source: "redes_cta_final", pagePath: "/servicos/gestao-redes-sociais", placement: "section", serviceSlug: "gestao-redes-sociais" }}
-            label="Iniciar diagnóstico agora"
-            location="redes_cta_final"
+          <a
+            href="#planos"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-white text-fuchsia-700 font-bold px-7 py-4 hover:scale-[1.02] transition"
-          />
+          >
+            Escolher plano <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </section>
 
       <Footer />
-      <WhatsAppFloat />
-    </div>
+</div>
   );
 }
 

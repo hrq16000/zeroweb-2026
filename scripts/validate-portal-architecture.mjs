@@ -37,6 +37,8 @@ const architecturePath = "docs/PORTAL_ARCHITECTURE.md";
 const cartPath = "src/lib/cart.ts";
 const cartDrawerPath = "src/components/site/CartDrawer.tsx";
 const checkoutPath = "src/routes/checkout.tsx";
+const googleMeuNegocioPath = "src/routes/servicos.google-meu-negocio.tsx";
+const redesSociaisPath = "src/routes/servicos.gestao-redes-sociais.tsx";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -49,6 +51,8 @@ const architecture = source(architecturePath);
 const cart = source(cartPath);
 const cartDrawer = source(cartDrawerPath);
 const checkout = source(checkoutPath);
+const googleMeuNegocio = source(googleMeuNegocioPath);
+const redesSociais = source(redesSociaisPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -126,6 +130,30 @@ if (/aria-label="Aumentar"|aria-label="Diminuir"/.test(cartDrawer)) {
 if (/wa\.me|api\.whatsapp\.com|href=["'`]tel:/i.test(checkout)) {
   errors.push(`${checkoutPath}: checkout voltou a expor contato direto`);
 }
+requirePattern(
+  checkoutPath,
+  checkout,
+  /hasRecurring[\s\S]*handleAssistedCheckout/,
+  "checkout recorrente não está protegido contra cobrança Stripe one-time",
+);
+requirePattern(
+  googleMeuNegocioPath,
+  googleMeuNegocio,
+  /variantId:\s*"plano-unico"[\s\S]*variantId:\s*"plano-pro"/,
+  "Google Meu Negócio perdeu as variantes comerciais do carrinho",
+);
+requirePattern(
+  googleMeuNegocioPath,
+  googleMeuNegocio,
+  /<AddToCartButton[\s\S]*GMB_UNICO_PRODUCT[\s\S]*<AddToCartButton[\s\S]*GMB_PRO_PRODUCT/,
+  "planos do Google Meu Negócio não fecham pela loja",
+);
+requirePattern(
+  redesSociaisPath,
+  redesSociais,
+  /function\s+planCartItem[\s\S]*<AddToCartButton/,
+  "planos de Gestão de Redes Sociais não fecham pela loja",
+);
 
 if (errors.length) {
   console.error("[portal-architecture] FAIL");

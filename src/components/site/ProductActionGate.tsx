@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ShoppingBag, ArrowRight, X } from "lucide-react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { addToCart, readCart, type CartItem } from "@/lib/cart";
+import { addToCart, readCart, cartItemKey, type CartItem } from "@/lib/cart";
 import { trackEvent } from "@/lib/analytics";
 import { FunnelModalWrapper } from "@/components/funnel/FunnelModalWrapper";
 import { useFunnel } from "@/hooks/useFunnel";
@@ -56,7 +56,8 @@ export function ProductActionGate({
   );
 
   function alreadyInCart(): boolean {
-    return readCart().some((c) => c.slug === product.slug);
+    const key = cartItemKey(product);
+    return readCart().some((c) => cartItemKey(c) === key);
   }
 
   function handleClick(e: React.MouseEvent) {
@@ -65,30 +66,31 @@ export function ProductActionGate({
       slug: product.slug,
       name: product.name,
       purpose: runtimeIntent.purpose,
+      variant_id: product.variantId ?? null,
     });
     if (alreadyInCart()) {
       openFunnel();
-      trackEvent("product_funnel_open", { slug: product.slug, from: "in_cart" });
+      trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? null, from: "in_cart" });
       return;
     }
     setSuggesting(true);
-    trackEvent("cart_suggestion_view", { slug: product.slug });
+    trackEvent("cart_suggestion_view", { slug: product.slug, variant_id: product.variantId ?? null });
   }
 
   function acceptSuggestion() {
     addToCart(product);
-    trackEvent("cart_suggestion_accept", { slug: product.slug });
+    trackEvent("cart_suggestion_accept", { slug: product.slug, variant_id: product.variantId ?? null });
     trackEvent("product_added_to_cart", { slug: product.slug, source: "gate_suggestion" });
     setSuggesting(false);
     openFunnel();
-    trackEvent("product_funnel_open", { slug: product.slug, from: "cart_accept" });
+    trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? null, from: "cart_accept" });
   }
 
   function declineSuggestion() {
-    trackEvent("cart_suggestion_decline", { slug: product.slug });
+    trackEvent("cart_suggestion_decline", { slug: product.slug, variant_id: product.variantId ?? null });
     setSuggesting(false);
     openFunnel();
-    trackEvent("product_funnel_open", { slug: product.slug, from: "cart_decline" });
+    trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? null, from: "cart_decline" });
   }
 
   return (

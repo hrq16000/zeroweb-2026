@@ -131,3 +131,15 @@ serviços diferentes no mesmo pedido.
 O checkout preserva o pedido e decide entre pagamento online, quando habilitado,
 ou atendimento assistido. Ele não expõe link direto de WhatsApp, telefone ou
 e-mail.
+
+
+## 10. Variantes comerciais e recorrência
+
+Quando uma página de serviço oferece planos reais, o carrinho usa o slug
+canônico do serviço mais um `variantId`. Trocar de plano substitui a variante
+anterior do mesmo serviço; não cria dois planos concorrentes no mesmo pedido.
+
+Produtos com `pricePeriod` (mensal/recorrente) são registrados no checkout,
+mas não são enviados ao Stripe one-time. Até existir cobrança recorrente
+nativa, esses pedidos seguem para ativação assistida. Produtos de pagamento
+único continuam elegíveis ao pagamento online quando o Stripe estiver ativo.

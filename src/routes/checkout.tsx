@@ -57,6 +57,7 @@ function CheckoutPage() {
   });
   const total = useMemo(() => cartTotal(items), [items]);
   const hasUnpriced = items.some((i) => !i.price);
+  const hasRecurring = items.some((i) => Boolean(i.pricePeriod));
 
   useEffect(() => {
     setItems(readCart());
@@ -111,8 +112,11 @@ function CheckoutPage() {
     try {
       const { order } = await createOrder({
         data: {
-          items: items.map(({ slug, name, category, price, pricePeriod, imageUrl, qty }) => ({
-            slug, name, category, price: price ?? null, pricePeriod: pricePeriod ?? null,
+          items: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod, imageUrl, qty }) => ({
+            slug, name, category,
+            variantId: variantId ?? null,
+            variantLabel: variantLabel ?? null,
+            price: price ?? null, pricePeriod: pricePeriod ?? null,
             imageUrl: imageUrl ?? null, qty,
           })),
           notes: notes || undefined,
@@ -141,7 +145,16 @@ function CheckoutPage() {
   async function handlePayNow() {
     if (!session) return handleGoogle();
     if (items.length === 0) return;
-    // Stripe desativado no admin → cai para WhatsApp, salvando como pendente.
+    // Produtos recorrentes ainda passam pelo atendimento assistido: o checkout
+    // Stripe atual é one-time e não deve cobrar uma mensalidade como compra única.
+    if (hasRecurring) {
+      toast("Plano recorrente", {
+        description: "Seu pedido será registrado para ativação assistida e cobrança recorrente correta.",
+        duration: 4000,
+      });
+      return handleAssistedCheckout();
+    }
+    // Stripe desativado no admin → cai para atendimento assistido, salvando o pedido.
     if (!settings.stripeEnabled) {
       toast("Pagamento online ainda não está ativo", {
         description: "Vamos finalizar pelo WhatsApp. Seu pedido fica salvo como pendente de pagamento.",
@@ -153,8 +166,11 @@ function CheckoutPage() {
     try {
       const { order } = await createOrder({
         data: {
-          items: items.map(({ slug, name, category, price, pricePeriod, imageUrl, qty }) => ({
-            slug, name, category, price: price ?? null, pricePeriod: pricePeriod ?? null,
+          items: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod, imageUrl, qty }) => ({
+            slug, name, category,
+            variantId: variantId ?? null,
+            variantLabel: variantLabel ?? null,
+            price: price ?? null, pricePeriod: pricePeriod ?? null,
             imageUrl: imageUrl ?? null, qty,
           })),
           notes: notes || undefined,
@@ -230,7 +246,7 @@ function CheckoutPage() {
                       <div className="min-w-0 flex-1">
                         <p className="font-semibold truncate">{i.name}</p>
                         <p className="text-xs text-muted-foreground truncate">
-                          {i.category ?? ""}{i.qty > 1 ? ` · ${i.qty}×` : ""}
+                          {i.category ?? ""}{i.variantLabel ? ` · ${i.variantLabel}` : ""}
                         </p>
                       </div>
                       <span className="tabular-nums text-sm font-semibold">
@@ -284,7 +300,7 @@ function CheckoutPage() {
                     </Button>
                   ) : (
                     <>
-                      {settings.stripeEnabled && (
+                      {settings.stripeEnabled && !hasRecurring && (
                         <Button
                           size="lg" className="w-full"
                           onClick={handlePayNow}
@@ -296,7 +312,7 @@ function CheckoutPage() {
                       )}
                       <Button
                         size="lg"
-                        variant={settings.stripeEnabled ? "outline" : "default"}
+                        variant={settings.stripeEnabled && !hasRecurring ? "outline" : "default"}
                         className="w-full"
                         onClick={handleAssistedCheckout}
                         disabled={submitting !== "none"}

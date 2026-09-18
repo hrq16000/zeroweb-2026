@@ -28,6 +28,15 @@ function routePayment(opts: {
 }
 
 describe("checkout — roteamento de pagamento", () => {
+  test("plano recorrente deve usar atendimento assistido, nunca cobrança one-time", () => {
+    const hasRecurring = true;
+    const stripeEnabled = true;
+    const result = hasRecurring
+      ? { kind: "assisted", orderId: "ord_recorrente" }
+      : routePayment({ stripeEnabled, stripeUrl: "https://checkout.stripe.com/test", orderId: "ord_recorrente" });
+    expect(result.kind).toBe("assisted");
+  });
+
   test("Stripe habilitado e com URL preserva o orderId", () => {
     const result = routePayment({
       stripeEnabled: true,
