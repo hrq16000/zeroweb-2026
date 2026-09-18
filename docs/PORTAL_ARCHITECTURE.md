@@ -143,3 +143,13 @@ Produtos com `pricePeriod` (mensal/recorrente) são registrados no checkout,
 mas não são enviados ao Stripe one-time. Até existir cobrança recorrente
 nativa, esses pedidos seguem para ativação assistida. Produtos de pagamento
 único continuam elegíveis ao pagamento online quando o Stripe estiver ativo.
+
+
+## 11. Página dinâmica de produto
+
+Em `/servicos/:slug`, quando `price > 0`, a página é transacional: compra e
+ajuda contextual do próprio produto. CTAs institucionais genéricos não aparecem
+no fim da página nem depois das recomendações.
+
+Quando não há preço transacional, o serviço pode continuar no fluxo consultivo
+e usar `ServiceCTA`.

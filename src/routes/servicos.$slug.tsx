@@ -2,7 +2,6 @@ import { createFileRoute, notFound, Link, redirect } from "@tanstack/react-route
 import { ArrowRight, CheckCircle2, XCircle, HelpCircle, MapPin, Timer, BadgeCheck } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { CTA } from "@/components/site/CTA";
 import { ServiceCTA } from "@/components/site/ServiceCTA";
 import { ProductActionGate } from "@/components/site/ProductActionGate";
@@ -546,20 +545,41 @@ function ServicePage() {
             </div>
             <RelatedServicesCarousel items={otherSvcs} />
             <div className="mt-10 flex justify-center">
-              <ServiceCTA
-                serviceSlug={slug}
-                funnels={funnels}
-                location="detail"
-                label={data.ctaLabel}
-              />
+              {isProduct ? (
+                <ProductActionGate
+                  product={{
+                    slug,
+                    name: data.name,
+                    category: data.category,
+                    price: data.price!,
+                    pricePeriod: data.pricePeriod ?? null,
+                    imageUrl: data.imageUrl ?? null,
+                  }}
+                  intent={{
+                    purpose: "diagnosis",
+                    source: `product_${slug}_related`,
+                    pagePath: `/servicos/${slug}`,
+                    placement: "section",
+                    serviceSlug: slug,
+                  }}
+                  label="Tirar dúvida sobre este produto"
+                  variant="outline"
+                />
+              ) : (
+                <ServiceCTA
+                  serviceSlug={slug}
+                  funnels={funnels}
+                  location="detail"
+                  label={data.ctaLabel}
+                />
+              )}
             </div>
           </div>
         </section>
 
-        <CTA />
+        {!isProduct && <CTA />}
       </main>
       <Footer />
-      <WhatsAppFloat />
-    </div>
+</div>
   );
 }

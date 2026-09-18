@@ -39,6 +39,7 @@ const cartDrawerPath = "src/components/site/CartDrawer.tsx";
 const checkoutPath = "src/routes/checkout.tsx";
 const googleMeuNegocioPath = "src/routes/servicos.google-meu-negocio.tsx";
 const redesSociaisPath = "src/routes/servicos.gestao-redes-sociais.tsx";
+const dynamicServicePath = "src/routes/servicos.$slug.tsx";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -53,6 +54,7 @@ const cartDrawer = source(cartDrawerPath);
 const checkout = source(checkoutPath);
 const googleMeuNegocio = source(googleMeuNegocioPath);
 const redesSociais = source(redesSociaisPath);
+const dynamicService = source(dynamicServicePath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -153,6 +155,18 @@ requirePattern(
   redesSociais,
   /function\s+planCartItem[\s\S]*<AddToCartButton/,
   "planos de Gestão de Redes Sociais não fecham pela loja",
+);
+requirePattern(
+  dynamicServicePath,
+  dynamicService,
+  /\{!isProduct\s*&&\s*<CTA\s*\/>\}/,
+  "CTA institucional final pode reaparecer em produto da loja",
+);
+requirePattern(
+  dynamicServicePath,
+  dynamicService,
+  /isProduct\s*\?\s*\([\s\S]*?<ProductActionGate[\s\S]*?\)\s*:\s*\([\s\S]*?<ServiceCTA/,
+  "CTA pós-recomendações não diferencia produto de serviço consultivo",
 );
 
 if (errors.length) {
