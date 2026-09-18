@@ -346,4 +346,3 @@ export const listFunnelsForServices = createServerFn({ method: "GET" })
     type Row = { slug: string; name: string; status: string | null };
     return { funnels: (data ?? []) as Row[] };
   });
-
