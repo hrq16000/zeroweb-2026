@@ -96,6 +96,24 @@ async function fetchServices() {
 
 const SITE_BASE = (process.env.CATALOG_SITE_BASE || "https://0web.com.br").replace(/\/$/, "");
 
+// Serviços conhecidos que ainda não possuem fotografia/capa definitiva no CMS.
+// O runtime já entrega capa provisória 0WEB para eles via generatedServiceCover().
+// A lista é explícita para não mascarar novos cadastros sem imagem no futuro.
+const TEMPORARY_COVER_SLUGS = new Set([
+  "cartao-digital",
+  "catalogo-digital",
+  "comunicacao-visual",
+  "consultoria",
+  "ebook-profissional",
+  "identidade-visual",
+  "marketplace",
+  "outdoor-digital",
+  "parceiros",
+  "portfolio-empresarial",
+  "presenca-digital",
+  "videos-empresariais",
+]);
+
 /**
  * Resolve o alvo verificável da capa.
  * - URL absoluta: verificada diretamente.
@@ -137,11 +155,16 @@ async function headOk(target) {
   console.log(`[catalog-images] checking ${services.length} active service(s)`);
 
   const orphans = [];
+  const temporary = [];
   const broken = [];
 
   for (const s of services) {
     const path = s.image_path || s.og_image_path;
     if (!path) {
+      if (TEMPORARY_COVER_SLUGS.has(s.slug)) {
+        temporary.push(s.slug);
+        continue;
+      }
       orphans.push(s.slug);
       continue;
     }
@@ -151,8 +174,17 @@ async function headOk(target) {
   }
 
 
+  if (temporary.length) {
+    console.log(
+      `[catalog-images] ℹ️ ${temporary.length} serviço(s) usando capa provisória 0WEB até receberem material definitivo:`,
+    );
+    for (const slug of temporary) console.log(`  - ${slug}`);
+  }
+
   if (orphans.length === 0 && broken.length === 0) {
-    console.log(`[catalog-images] ✅ all ${services.length} services have valid cover images`);
+    console.log(
+      `[catalog-images] ✅ catálogo operacional: ${services.length - temporary.length} capa(s) definitiva(s) + ${temporary.length} provisória(s)`,
+    );
     process.exit(0);
   }
 
