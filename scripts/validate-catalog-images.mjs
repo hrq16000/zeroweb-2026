@@ -36,14 +36,26 @@ async function fetchServices() {
   return r.json();
 }
 
-function publicImageUrl(path) {
+// O bucket `service-images` é privado por política do workspace. A leitura é
+// liberada por RLS para a chave publicável, então validamos o objeto pelo
+// endpoint autenticado. Caminhos absolutos (asset do app ou URL completa) são
+// verificados diretamente no site publicado.
+const SITE_BASE = (process.env.SITE_BASE_URL || "https://0web.com.br").replace(/\/$/, "");
+
+function imageTarget(path) {
   if (!path) return null;
-  return `${URL_BASE.replace(/\/$/, "")}/storage/v1/object/public/service-images/${path}`;
+  if (/^https?:\/\//i.test(path)) return { url: path, headers: {} };
+  if (path.startsWith("/")) return { url: `${SITE_BASE}${path}`, headers: {} };
+  return {
+    url: `${URL_BASE.replace(/\/$/, "")}/storage/v1/object/service-images/${path}`,
+    headers: { apikey: ANON, Authorization: `Bearer ${ANON}` },
+  };
 }
 
-async function headOk(url) {
+async function headOk(target) {
+  const { url, headers } = target;
   try {
-    const r = await fetch(url, { method: "HEAD" });
+    const r = await fetch(url, { method: "HEAD", headers });
     if (!r.ok) return { ok: false, reason: `HTTP ${r.status}` };
     const ct = r.headers.get("content-type") ?? "";
     if (!/^image\//.test(ct)) return { ok: false, reason: `content-type=${ct}` };
@@ -72,9 +84,9 @@ async function headOk(url) {
       orphans.push(s.slug);
       continue;
     }
-    const url = publicImageUrl(path);
-    const r = await headOk(url);
-    if (!r.ok) broken.push({ slug: s.slug, url, reason: r.reason });
+    const target = imageTarget(path);
+    const r = await headOk(target);
+    if (!r.ok) broken.push({ slug: s.slug, url: target.url, reason: r.reason });
   }
 
   if (orphans.length === 0 && broken.length === 0) {
