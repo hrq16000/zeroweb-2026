@@ -96,23 +96,49 @@ async function fetchServices() {
 
 const SITE_BASE = (process.env.CATALOG_SITE_BASE || "https://0web.com.br").replace(/\/$/, "");
 
-// Serviços conhecidos que ainda não possuem fotografia/capa definitiva no CMS.
-// O runtime já entrega capa provisória 0WEB para eles via generatedServiceCover().
-// A lista é explícita para não mascarar novos cadastros sem imagem no futuro.
-const TEMPORARY_COVER_SLUGS = new Set([
-  "cartao-digital",
-  "catalogo-digital",
-  "comunicacao-visual",
-  "consultoria",
-  "ebook-profissional",
-  "identidade-visual",
-  "marketplace",
-  "outdoor-digital",
-  "parceiros",
-  "portfolio-empresarial",
-  "presenca-digital",
-  "videos-empresariais",
+// Capas institucionais canônicas 0WEB para serviços cujo CMS ainda não tem
+// image_path/og_image_path. O gate confirma o vínculo em DOIS pontos:
+ // 1) arquivo embutido na rota pública cacheável;
+ // 2) mapeamento por slug em services-public.functions.ts.
+ // Assim uma refatoração não pode apagar silenciosamente a capa.
+const CANONICAL_FALLBACK_COVERS = new Map([
+  ["cartao-digital", "cartao-digital.jpg"],
+  ["catalogo-digital", "catalogo-digital.jpg"],
+  ["comunicacao-visual", "comunicacao-visual.jpg"],
+  ["consultoria-estrategica", "consultoria-estrategica.jpg"],
+  ["consultoria", "consultoria-estrategica.jpg"],
+  ["ebook-profissional", "ebook-profissional.jpg"],
+  ["identidade-visual", "identidade-visual.jpg"],
+  ["marketplace-de-servicos", "marketplace-de-servicos.jpg"],
+  ["marketplace-servicos", "marketplace-de-servicos.jpg"],
+  ["marketplace", "marketplace-de-servicos.jpg"],
+  ["outdoor-digital", "outdoor-digital.jpg"],
+  ["programa-de-parceiros", "programa-de-parceiros.jpg"],
+  ["programa-parceiros", "programa-de-parceiros.jpg"],
+  ["parceiros", "programa-de-parceiros.jpg"],
+  ["portfolio-empresarial", "portfolio-empresarial.jpg"],
+  ["presenca-digital", "presenca-digital.jpg"],
+  ["videos-empresariais", "videos-empresariais.jpg"],
 ]);
+
+const BUNDLED_ROUTE_SOURCE = readFileSync(
+  "src/routes/api/public/catalog-image.$file.ts",
+  "utf8",
+);
+const SERVICE_PUBLIC_SOURCE = readFileSync(
+  "src/lib/services-public.functions.ts",
+  "utf8",
+);
+
+function hasCanonicalFallback(slug) {
+  const file = CANONICAL_FALLBACK_COVERS.get(slug);
+  if (!file) return false;
+  const routeHasBytes = BUNDLED_ROUTE_SOURCE.includes(`"${file}":`);
+  const expectedUrl = `/api/public/catalog-image/${file}`;
+  const runtimeHasBinding =
+    SERVICE_PUBLIC_SOURCE.includes(`"${slug}": "${expectedUrl}"`);
+  return routeHasBytes && runtimeHasBinding;
+}
 
 /**
  * Resolve o alvo verificável da capa.
@@ -155,14 +181,14 @@ async function headOk(target) {
   console.log(`[catalog-images] checking ${services.length} active service(s)`);
 
   const orphans = [];
-  const temporary = [];
+  const canonicalFallbacks = [];
   const broken = [];
 
   for (const s of services) {
     const path = s.image_path || s.og_image_path;
     if (!path) {
-      if (TEMPORARY_COVER_SLUGS.has(s.slug)) {
-        temporary.push(s.slug);
+      if (hasCanonicalFallback(s.slug)) {
+        canonicalFallbacks.push(s.slug);
         continue;
       }
       orphans.push(s.slug);
@@ -174,16 +200,16 @@ async function headOk(target) {
   }
 
 
-  if (temporary.length) {
+  if (canonicalFallbacks.length) {
     console.log(
-      `[catalog-images] ℹ️ ${temporary.length} serviço(s) usando capa provisória 0WEB até receberem material definitivo:`,
+      `[catalog-images] ℹ️ ${canonicalFallbacks.length} serviço(s) usando capa institucional canônica 0WEB:`,
     );
-    for (const slug of temporary) console.log(`  - ${slug}`);
+    for (const slug of canonicalFallbacks) console.log(`  - ${slug}`);
   }
 
   if (orphans.length === 0 && broken.length === 0) {
     console.log(
-      `[catalog-images] ✅ catálogo operacional: ${services.length - temporary.length} capa(s) definitiva(s) + ${temporary.length} provisória(s)`,
+      `[catalog-images] ✅ catálogo operacional: ${services.length - canonicalFallbacks.length} capa(s) do CMS + ${canonicalFallbacks.length} capa(s) institucionais canônicas 0WEB`,
     );
     process.exit(0);
   }
