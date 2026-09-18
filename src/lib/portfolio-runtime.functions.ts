@@ -20,6 +20,9 @@ export const getPortfolioRuntimeOverrides = createServerFn({ method: "GET" })
       .parse(data),
   )
   .handler(async ({ data }): Promise<PortfolioRuntimeOverrides | null> => {
+    // O runtime versionado continua válido sem credencial administrativa.
+    // Preview/CI não deve tentar abrir cliente service-role inexistente.
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return null;
     try {
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
       const { data: row, error } = await supabaseAdmin
