@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Minus, Plus, Trash2, ShoppingBag, Sparkles } from "lucide-react";
+import { Trash2, ShoppingBag, Sparkles } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -13,7 +13,6 @@ import { Separator } from "@/components/ui/separator";
 import {
   readCart,
   removeFromCart,
-  setQty,
   clearCart,
   cartTotal,
   formatBRL,
@@ -68,10 +67,11 @@ function reportStep(
  *  - "0web:cart-open" → abre o Sheet
  *  - "0web:cart-changed" → recarrega itens
  *
- * CTAs do rodapé seguem a Onda 3:
- *  - "Finalizar compra" → fluxo de checkout + login Google + pagamento
- *  - "Fechar pelo WhatsApp" → handoff humano
- * Por ora ambos navegam para /servicos (placeholder seguro) até a Onda 3.
+ * CTAs do rodapé:
+ *  - "Finalizar compra" → checkout + login Google + pagamento quando habilitado
+ *  - "Finalizar com atendimento" → checkout assistido, preservando o pedido
+ *
+ * Serviços são unitários no carrinho: não há multiplicador de quantidade.
  */
 export function CartDrawer() {
   const [open, setOpen] = useState(false);
@@ -170,28 +170,7 @@ export function CartDrawer() {
                     {formatBRL(i.price)}
                     {i.pricePeriod ? `/${i.pricePeriod}` : ""}
                   </p>
-                  <div className="mt-2 flex items-center justify-between">
-                    <div className="inline-flex items-center gap-0 rounded-full border border-border">
-                      <button
-                        type="button"
-                        aria-label="Diminuir"
-                        onClick={() => setQty(i.slug, i.qty - 1)}
-                        className="w-7 h-7 grid place-items-center hover:text-primary active:scale-90 transition"
-                      >
-                        <Minus className="w-3 h-3" />
-                      </button>
-                      <span className="w-6 text-center text-xs font-semibold tabular-nums">
-                        {i.qty}
-                      </span>
-                      <button
-                        type="button"
-                        aria-label="Aumentar"
-                        onClick={() => setQty(i.slug, i.qty + 1)}
-                        className="w-7 h-7 grid place-items-center hover:text-primary active:scale-90 transition"
-                      >
-                        <Plus className="w-3 h-3" />
-                      </button>
-                    </div>
+                  <div className="mt-2 flex items-center justify-end">
                     <button
                       type="button"
                       aria-label="Remover"

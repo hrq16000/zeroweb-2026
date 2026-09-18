@@ -59,7 +59,9 @@ export function addToCart(item: Omit<CartItem, "qty" | "addedAt">, opts: AddOpti
   const list = readCart();
   const existing = list.find((i) => i.slug === item.slug);
   if (existing) {
-    existing.qty += 1;
+    // /servicos vende serviços, não unidades físicas. Repetir o clique atualiza
+    // o snapshot do produto sem multiplicar preço/quantidade.
+    Object.assign(existing, item, { qty: 1 });
   } else {
     list.push({ ...item, qty: 1, addedAt: Date.now() });
   }
@@ -75,10 +77,13 @@ export function removeFromCart(slug: string) {
 }
 
 export function setQty(slug: string, qty: number) {
-  const next = readCart()
-    .map((i) => (i.slug === slug ? { ...i, qty: Math.max(0, qty) } : i))
-    .filter((i) => i.qty > 0);
-  writeCart(next);
+  // Compatibilidade defensiva com chamadas antigas. Serviços permanecem
+  // unitários; qty <= 0 remove o item.
+  if (qty <= 0) {
+    removeFromCart(slug);
+    return;
+  }
+  writeCart(readCart().map((i) => (i.slug === slug ? { ...i, qty: 1 } : i)));
 }
 
 export function clearCart() {

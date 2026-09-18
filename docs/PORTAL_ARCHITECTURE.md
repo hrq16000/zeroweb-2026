@@ -120,3 +120,14 @@ fronteiras principais do portal. Ele deve reprovar regressões como:
 - breadcrumb de serviço voltando a apontar para âncora antiga da Home.
 
 A documentação explica a intenção; o gate impede que a intenção se perca no código.
+
+
+## 9. Carrinho da loja
+
+Serviços são unitários no carrinho: clicar novamente no mesmo serviço atualiza
+o snapshot, mas não multiplica quantidade nem preço. O cliente pode combinar
+serviços diferentes no mesmo pedido.
+
+O checkout preserva o pedido e decide entre pagamento online, quando habilitado,
+ou atendimento assistido. Ele não expõe link direto de WhatsApp, telefone ou
+e-mail.

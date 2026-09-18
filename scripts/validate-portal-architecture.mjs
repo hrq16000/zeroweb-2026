@@ -34,6 +34,9 @@ const marketplacePath = "src/routes/servicos.marketplace.tsx";
 const marketplaceRedirectPath = "src/routes/marketplace.tsx";
 const gmbPath = "src/routes/servicos.google-meu-negocio.tsx";
 const architecturePath = "docs/PORTAL_ARCHITECTURE.md";
+const cartPath = "src/lib/cart.ts";
+const cartDrawerPath = "src/components/site/CartDrawer.tsx";
+const checkoutPath = "src/routes/checkout.tsx";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -43,6 +46,9 @@ const marketplace = source(marketplacePath);
 const marketplaceRedirect = source(marketplaceRedirectPath);
 const gmb = source(gmbPath);
 const architecture = source(architecturePath);
+const cart = source(cartPath);
+const cartDrawer = source(cartDrawerPath);
+const checkout = source(checkoutPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -104,6 +110,22 @@ requirePattern(
   /\/servicos[\s\S]*loja virtual/i,
   "documentação não fixa /servicos como loja",
 );
+
+requirePattern(
+  cartPath,
+  cart,
+  /Object\.assign\(existing, item, \{ qty: 1 \}\)/,
+  "carrinho de serviços voltou a multiplicar quantidade por clique",
+);
+if (/existing\.qty\s*\+=\s*1/.test(cart)) {
+  errors.push(`${cartPath}: serviço não pode multiplicar quantidade`);
+}
+if (/aria-label="Aumentar"|aria-label="Diminuir"/.test(cartDrawer)) {
+  errors.push(`${cartDrawerPath}: controle de quantidade reapareceu para serviços`);
+}
+if (/wa\.me|api\.whatsapp\.com|href=["'`]tel:/i.test(checkout)) {
+  errors.push(`${checkoutPath}: checkout voltou a expor contato direto`);
+}
 
 if (errors.length) {
   console.error("[portal-architecture] FAIL");
