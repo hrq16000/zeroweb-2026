@@ -306,7 +306,28 @@ const RETIRED_SERVICE_SLUGS = new Set(["site-24h"]);
 // Recupera capas que já existem no projeto quando o painel perdeu a referência
 // do Storage. Cada fallback é explícito e semanticamente ligado ao produto.
 const RECOVERED_COVERS: Record<string, string> = {
-  "comunicacao-visual": "/images/services/comunicacao-visual.png",
+  // Capas institucionais 0WEB — vínculo canônico versionado.
+  // Os bytes vivem em /api/public/catalog-image/$file e não dependem do CMS.
+  // Não remover/renomear sem atualizar a rota e o gate de catálogo.
+  "cartao-digital": "/api/public/catalog-image/cartao-digital.jpg",
+  "catalogo-digital": "/api/public/catalog-image/catalogo-digital.jpg",
+  "comunicacao-visual": "/api/public/catalog-image/comunicacao-visual.jpg",
+  "consultoria-estrategica": "/api/public/catalog-image/consultoria-estrategica.jpg",
+  "consultoria": "/api/public/catalog-image/consultoria-estrategica.jpg",
+  "ebook-profissional": "/api/public/catalog-image/ebook-profissional.jpg",
+  "identidade-visual": "/api/public/catalog-image/identidade-visual.jpg",
+  "marketplace-de-servicos": "/api/public/catalog-image/marketplace-de-servicos.jpg",
+  "marketplace-servicos": "/api/public/catalog-image/marketplace-de-servicos.jpg",
+  "marketplace": "/api/public/catalog-image/marketplace-de-servicos.jpg",
+  "outdoor-digital": "/api/public/catalog-image/outdoor-digital.jpg",
+  "programa-de-parceiros": "/api/public/catalog-image/programa-de-parceiros.jpg",
+  "programa-parceiros": "/api/public/catalog-image/programa-de-parceiros.jpg",
+  "parceiros": "/api/public/catalog-image/programa-de-parceiros.jpg",
+  "portfolio-empresarial": "/api/public/catalog-image/portfolio-empresarial.jpg",
+  "presenca-digital": "/api/public/catalog-image/presenca-digital.jpg",
+  "videos-empresariais": "/api/public/catalog-image/videos-empresariais.jpg",
+
+  // Capas já recuperadas de ativos históricos do portal.
   "site-profissional-197": "/images/services/site-profissional-197.png",
   "site-express": coverSiteExpress,
   "trafego-pago": coverTrafegoPago,
@@ -314,12 +335,11 @@ const RECOVERED_COVERS: Record<string, string> = {
   "google-ads-299": googleAds299Cover.url,
   seo: coverSeo,
   "google-meu-negocio": googleMeuNegocioCover.url,
-  "presenca-digital": presencaDigitalCover.url,
   "marketing-digital": blogMarketingCover,
   "automacao-com-ia": blogAutomacaoCover,
   "chatbot-whatsapp": blogChatbotCover,
   "gestao-redes-sociais": blogSocialCover,
-};
+}
 
 const COVER_PALETTES = [
   ["#dff8f0", "#0f766e"],
