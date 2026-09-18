@@ -4,8 +4,10 @@
  *
  * Para cada serviço ativo no banco (table `services` via REST Supabase),
  * garante:
- *   - image_path não nulo OU og_image_path não nulo
- *   - a imagem responde HEAD 200 com Content-Type image/*
+ *   - image_path/og_image_path válido OU capa institucional canônica versionada
+ *   - a imagem do CMS responde HEAD 200 com Content-Type image/*
+ *   - o fallback canônico existe na rota pública e é consumido pelas duas
+ *     camadas de catálogo/navegação
  *
  * Falha o processo se houver qualquer órfão (exit 1), permitindo gating em CI.
  *
@@ -108,8 +110,16 @@ const BUNDLED_ROUTE_SOURCE = readFileSync(
   "src/routes/api/public/catalog-image.$file.ts",
   "utf8",
 );
+const COVER_HELPER_SOURCE = readFileSync(
+  "src/lib/service-cover-bindings.ts",
+  "utf8",
+);
 const SERVICE_PUBLIC_SOURCE = readFileSync(
   "src/lib/services-public.functions.ts",
+  "utf8",
+);
+const SERVICE_NAV_SOURCE = readFileSync(
+  "src/lib/services-nav.functions.ts",
   "utf8",
 );
 
@@ -117,10 +127,14 @@ function hasCanonicalFallback(slug) {
   const file = CANONICAL_FALLBACK_COVERS.get(slug);
   if (!file) return false;
   const routeHasBytes = BUNDLED_ROUTE_SOURCE.includes(`"${file}":`);
-  const expectedUrl = `${COVER_BASE_PATH}/${file}`;
-  const runtimeHasBinding =
-    SERVICE_PUBLIC_SOURCE.includes(`"${slug}": "${expectedUrl}"`);
-  return routeHasBytes && runtimeHasBinding;
+  const helperUsesManifest =
+    COVER_HELPER_SOURCE.includes("service-cover-bindings.json") &&
+    COVER_HELPER_SOURCE.includes("canonicalServiceCoverUrl");
+  const publicUsesHelper =
+    SERVICE_PUBLIC_SOURCE.includes('canonicalServiceCoverUrl(row.slug)');
+  const navUsesHelper =
+    SERVICE_NAV_SOURCE.includes('canonicalServiceCoverUrl(r.slug)');
+  return routeHasBytes && helperUsesManifest && publicUsesHelper && navUsesHelper;
 }
 
 /**
