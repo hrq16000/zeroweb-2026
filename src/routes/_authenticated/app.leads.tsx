@@ -6,6 +6,7 @@ export const Route = createFileRoute("/_authenticated/app/leads")({
 
 const TABS = [
   { to: "/app/leads", label: "Unificados", end: true },
+  { to: "/app/leads/por-portfolio", label: "Pedidos por portfólio", end: false },
   { to: "/app/leads/heloa-gas", label: "Pedidos · Heloá Gás", end: false },
 ] as const;
 

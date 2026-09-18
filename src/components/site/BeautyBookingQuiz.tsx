@@ -369,7 +369,13 @@ export function BeautyBookingQuiz({
                         ? `Seus dados foram registrados para ${recipientName} e o retorno será feito no WhatsApp que você informou.`
                         : `Seus dados foram registrados para ${recipientName}. O atendimento direto por WhatsApp deste site ainda não está disponível.`}
                     </p>
-
+                    {!recoveryContact && (
+                      <p className="text-sm leading-relaxed text-gray-400">
+                        Este site é uma <strong className="text-white">amostra de demonstração</strong>:
+                        ele mostra como a presença digital desta marca pode funcionar. Sua solicitação
+                        fica registrada com o protocolo abaixo.
+                      </p>
+                    )}
                   </div>
                   {savedProtocol && (
                     <p className="rounded-2xl border border-dashed border-white/20 bg-black/20 px-4 py-3 text-center text-sm text-gray-300">

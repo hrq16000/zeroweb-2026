@@ -331,6 +331,13 @@ export const submitFunnel = createServerFn({ method: "POST" })
       "@/lib/whatsapp-redirect.server"
     );
     const protocol = makeProtocol();
+    // O protocolo fica junto do lead para que o painel possa acompanhar a
+    // requisição pelo mesmo código mostrado ao visitante.
+    metadata.protocol = protocol;
+    await supabaseAdmin
+      .from("dynamic_form_leads")
+      .update({ metadata_json: metadata as any })
+      .eq("id", lead.id);
 
     // Best-effort: associate a client-created funnel session (if any).
     const clientSessionId = (data.client_metadata as unknown as { session_id?: string } | undefined)?.session_id;
@@ -549,38 +556,40 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       await import("@/lib/lead-recoverability");
     const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
 
+    const quizMetadata: Record<string, unknown> = {
+      source: "portfolio_client",
+      client_key: data.clientKey,
+      funnel_slug: `portfolio-${data.clientKey}`,
+      studio_name: data.studioName,
+      recipient_name: data.recipientName,
+      mode: data.mode,
+      proposal_kind: data.proposalKind,
+      ...(hasOrderContext ? { order_context: orderContext } : {}),
+      completed_at: new Date().toISOString(),
+      page_url: data.pageUrl ?? pageUrl,
+      ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
+      ...(data.sessionId ? { session_id: data.sessionId } : {}),
+      ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
+      ...(geo.city ? { city: geo.city } : {}),
+      ...(geo.region ? { region: geo.region } : {}),
+      ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
+      ...(geo.isp ? { isp: geo.isp } : {}),
+      ...(recoveryPhone
+        ? {
+            recovery_contact_kind: "whatsapp",
+            recovery_contact_purpose: RECOVERY_CONTACT_PURPOSE,
+            recovery_contact_collected_at: new Date().toISOString(),
+          }
+        : {}),
+    };
+
     // O lead é persistido antes da resolução do canal.
     const { data: lead, error: leadError } = await supabaseAdmin
       .from("dynamic_form_leads")
       .insert({
         form_id: form.id,
         answers_json: data.answers,
-        metadata_json: {
-          source: "portfolio_client",
-          client_key: data.clientKey,
-          funnel_slug: `portfolio-${data.clientKey}`,
-          studio_name: data.studioName,
-          recipient_name: data.recipientName,
-          mode: data.mode,
-          proposal_kind: data.proposalKind,
-          ...(hasOrderContext ? { order_context: orderContext } : {}),
-          completed_at: new Date().toISOString(),
-          page_url: data.pageUrl ?? pageUrl,
-          ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
-          ...(data.sessionId ? { session_id: data.sessionId } : {}),
-          ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
-          ...(geo.city ? { city: geo.city } : {}),
-          ...(geo.region ? { region: geo.region } : {}),
-          ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
-          ...(geo.isp ? { isp: geo.isp } : {}),
-          ...(recoveryPhone
-            ? {
-                recovery_contact_kind: "whatsapp",
-                recovery_contact_purpose: RECOVERY_CONTACT_PURPOSE,
-                recovery_contact_collected_at: new Date().toISOString(),
-              }
-            : {}),
-        },
+        metadata_json: quizMetadata,
         contact_name: null,
         contact_email: null,
         contact_phone: recoveryPhone,
@@ -595,6 +604,13 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       await import("@/lib/whatsapp-redirect.server");
     const { recordLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
     const protocol = makeProtocol();
+    // Protocolo junto do lead: é como o painel acompanha a mesma requisição
+    // que o visitante viu na tela.
+    quizMetadata.protocol = protocol;
+    await supabaseAdmin
+      .from("dynamic_form_leads")
+      .update({ metadata_json: quizMetadata as any })
+      .eq("id", lead.id);
     const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
     const decision = decideLeadRecoverability({
       destinationConfigured: channel === "CONFIGURED",
