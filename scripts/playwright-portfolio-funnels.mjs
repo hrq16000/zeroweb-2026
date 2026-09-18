@@ -274,7 +274,7 @@ async function runTarget(target, viewport) {
 const queue = [];
 for (const target of TARGETS) for (const viewport of VIEWPORTS) queue.push([target, viewport]);
 
-const CONCURRENCY = Number(process.env.E2E_CONCURRENCY || 2);
+const CONCURRENCY = Number(process.env.E2E_CONCURRENCY || 1);
 let cursor = 0;
 await Promise.all(
   Array.from({ length: CONCURRENCY }, async () => {
