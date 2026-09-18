@@ -258,6 +258,64 @@ function ParceriasPage() {
           </div>
         )}
       </section>
+
+      <section className="rounded-xl border border-border">
+        <div className="flex flex-wrap items-center gap-2 px-4 py-3 border-b border-border">
+          <Handshake className="h-4 w-4 text-muted-foreground" />
+          <h2 className="font-medium text-foreground">
+            Contatos recebidos nos portfólios em modo amostra
+          </h2>
+          <span className="ml-auto text-sm text-muted-foreground">
+            {sampleLeads.length} nos últimos 90 dias
+          </span>
+        </div>
+        <p className="px-4 pt-3 text-xs text-muted-foreground">
+          Projetos sem WhatsApp próprio ficam publicados como amostra: o pedido é salvo com
+          protocolo e o retorno é feito por aqui.
+        </p>
+        {sampleLeads.length === 0 ? (
+          <p className="px-4 py-6 text-sm text-muted-foreground">
+            Nenhum contato registrado nesses projetos no período.
+          </p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted/50 text-left text-muted-foreground">
+                <tr>
+                  <th className="px-4 py-2 font-medium">Protocolo</th>
+                  <th className="px-4 py-2 font-medium">Marca</th>
+                  <th className="px-4 py-2 font-medium">Contato</th>
+                  <th className="px-4 py-2 font-medium">Recebido</th>
+                  <th className="px-4 py-2 font-medium">Situação</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sampleLeads.map((l) => (
+                  <tr key={l.id} className="border-t border-border">
+                    <td className="px-4 py-2 font-mono text-xs text-foreground">
+                      {l.protocol ?? "—"}
+                    </td>
+                    <td className="px-4 py-2 text-foreground">
+                      {l.brand_name ?? l.client_key}
+                      <span className="block text-xs text-muted-foreground">{l.client_key}</span>
+                    </td>
+                    <td className="px-4 py-2 text-foreground">
+                      {l.contact_name ?? "—"}
+                      <span className="block text-xs text-muted-foreground">
+                        {l.contact_phone_masked ?? "sem telefone"}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2 text-muted-foreground">{dt(l.created_at)}</td>
+                    <td className="px-4 py-2 text-muted-foreground">
+                      {l.recoverability_status ?? l.delivery_status ?? "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
