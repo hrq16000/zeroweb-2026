@@ -18,7 +18,7 @@ if (!command.length) {
 }
 
 const host = "127.0.0.1";
-const port = process.env.PREVIEW_PORT ?? "8080";
+const port = process.env.PREVIEW_PORT ?? String(18080 + (process.pid % 1000));
 const baseUrl = `http://${host}:${port}`;
 const logPath = `/tmp/0web-preview-${process.pid}.log`;
 const logStream = createWriteStream(logPath, { flags: "w" });
