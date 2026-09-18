@@ -17,6 +17,10 @@ import {
   listDestinationRequests,
   type DestinationRequestRow,
 } from "@/lib/portfolio-destination-requests.functions";
+import {
+  listPortfolioRequests,
+  type PortfolioRequestRow,
+} from "@/lib/portfolio-requests.functions";
 
 export const Route = createFileRoute("/_authenticated/app/parcerias")({
   head: () => ({
