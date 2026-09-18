@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "basePath": "/api/public/catalog-image",
+  "bindings": {
+    "cartao-digital": "cartao-digital.jpg",
+    "catalogo-digital": "catalogo-digital.jpg",
+    "comunicacao-visual": "comunicacao-visual.jpg",
+    "consultoria-estrategica": "consultoria-estrategica.jpg",
+    "consultoria": "consultoria-estrategica.jpg",
+    "ebook-profissional": "ebook-profissional.jpg",
+    "identidade-visual": "identidade-visual.jpg",
+    "marketplace-de-servicos": "marketplace-de-servicos.jpg",
+    "marketplace-servicos": "marketplace-de-servicos.jpg",
+    "marketplace": "marketplace-de-servicos.jpg",
+    "outdoor-digital": "outdoor-digital.jpg",
+    "programa-de-parceiros": "programa-de-parceiros.jpg",
+    "programa-parceiros": "programa-de-parceiros.jpg",
+    "parceiros": "programa-de-parceiros.jpg",
+    "portfolio-empresarial": "portfolio-empresarial.jpg",
+    "presenca-digital": "presenca-digital.jpg",
+    "videos-empresariais": "videos-empresariais.jpg"
+  }
+}

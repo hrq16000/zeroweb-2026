@@ -95,32 +95,15 @@ async function fetchServices() {
 }
 
 const SITE_BASE = (process.env.CATALOG_SITE_BASE || "https://0web.com.br").replace(/\/$/, "");
+const COVER_BINDINGS_MANIFEST = JSON.parse(
+  readFileSync("src/config/service-cover-bindings.json", "utf8"),
+);
+const COVER_BASE_PATH = String(COVER_BINDINGS_MANIFEST.basePath || "/api/public/catalog-image").replace(/\/$/, "");
+const CANONICAL_FALLBACK_COVERS = new Map(
+  Object.entries(COVER_BINDINGS_MANIFEST.bindings || {}),
+);
 
-// Capas institucionais canônicas 0WEB para serviços cujo CMS ainda não tem
-// image_path/og_image_path. O gate confirma o vínculo em DOIS pontos:
- // 1) arquivo embutido na rota pública cacheável;
- // 2) mapeamento por slug em services-public.functions.ts.
- // Assim uma refatoração não pode apagar silenciosamente a capa.
-const CANONICAL_FALLBACK_COVERS = new Map([
-  ["cartao-digital", "cartao-digital.jpg"],
-  ["catalogo-digital", "catalogo-digital.jpg"],
-  ["comunicacao-visual", "comunicacao-visual.jpg"],
-  ["consultoria-estrategica", "consultoria-estrategica.jpg"],
-  ["consultoria", "consultoria-estrategica.jpg"],
-  ["ebook-profissional", "ebook-profissional.jpg"],
-  ["identidade-visual", "identidade-visual.jpg"],
-  ["marketplace-de-servicos", "marketplace-de-servicos.jpg"],
-  ["marketplace-servicos", "marketplace-de-servicos.jpg"],
-  ["marketplace", "marketplace-de-servicos.jpg"],
-  ["outdoor-digital", "outdoor-digital.jpg"],
-  ["programa-de-parceiros", "programa-de-parceiros.jpg"],
-  ["programa-parceiros", "programa-de-parceiros.jpg"],
-  ["parceiros", "programa-de-parceiros.jpg"],
-  ["portfolio-empresarial", "portfolio-empresarial.jpg"],
-  ["presenca-digital", "presenca-digital.jpg"],
-  ["videos-empresariais", "videos-empresariais.jpg"],
-]);
-
+// O manifesto JSON é a fonte única slug → arquivo.
 const BUNDLED_ROUTE_SOURCE = readFileSync(
   "src/routes/api/public/catalog-image.$file.ts",
   "utf8",
@@ -134,7 +117,7 @@ function hasCanonicalFallback(slug) {
   const file = CANONICAL_FALLBACK_COVERS.get(slug);
   if (!file) return false;
   const routeHasBytes = BUNDLED_ROUTE_SOURCE.includes(`"${file}":`);
-  const expectedUrl = `/api/public/catalog-image/${file}`;
+  const expectedUrl = `${COVER_BASE_PATH}/${file}`;
   const runtimeHasBinding =
     SERVICE_PUBLIC_SOURCE.includes(`"${slug}": "${expectedUrl}"`);
   return routeHasBytes && runtimeHasBinding;

@@ -2,6 +2,7 @@
 // Faz fallback para o arquivo services-data.ts caso a tabela esteja vazia ou
 // o serviço não exista lá ainda. Usado por /servicos e /servicos/$slug.
 import { createServerFn } from "@tanstack/react-start";
+import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
 import { z } from "zod";
 import { SERVICES, type ServiceData, type ServiceCategory } from "@/lib/services-data";
 import blogMarketingCover from "@/assets/blog-marketing.webp";
@@ -246,7 +247,7 @@ function mapRow(
     keywords: asStringArray(row.keywords),
     ctaLabel: row.cta_label,
     imagePath: row.image_path,
-    imageUrl: imageUrl ?? RECOVERED_COVERS[row.slug] ?? generatedServiceCover(row.slug, row.name, row.category),
+    imageUrl: imageUrl ?? canonicalServiceCoverUrl(row.slug) ?? RECOVERED_COVERS[row.slug] ?? generatedServiceCover(row.slug, row.name, row.category),
     imageAlt: row.image_alt,
     seoTitle: row.seo_title,
     seoDescription: row.seo_description,
@@ -264,7 +265,7 @@ function mapRow(
     gallery,
     sections: asSections(row.sections),
     ogImagePath: row.og_image_path,
-    ogImageUrl: ogImageUrl ?? imageUrl ?? RECOVERED_COVERS[row.slug] ?? generatedServiceCover(row.slug, row.name, row.category),
+    ogImageUrl: ogImageUrl ?? imageUrl ?? canonicalServiceCoverUrl(row.slug) ?? RECOVERED_COVERS[row.slug] ?? generatedServiceCover(row.slug, row.name, row.category),
     ogType: row.og_type || "website",
     schemaJsonLd: asSchemaBlocks(row.schema_jsonld),
     richHtml: row.rich_html,
@@ -306,27 +307,6 @@ const RETIRED_SERVICE_SLUGS = new Set(["site-24h"]);
 // Recupera capas que já existem no projeto quando o painel perdeu a referência
 // do Storage. Cada fallback é explícito e semanticamente ligado ao produto.
 const RECOVERED_COVERS: Record<string, string> = {
-  // Capas institucionais 0WEB — vínculo canônico versionado.
-  // Os bytes vivem em /api/public/catalog-image/$file e não dependem do CMS.
-  // Não remover/renomear sem atualizar a rota e o gate de catálogo.
-  "cartao-digital": "/api/public/catalog-image/cartao-digital.jpg",
-  "catalogo-digital": "/api/public/catalog-image/catalogo-digital.jpg",
-  "comunicacao-visual": "/api/public/catalog-image/comunicacao-visual.jpg",
-  "consultoria-estrategica": "/api/public/catalog-image/consultoria-estrategica.jpg",
-  "consultoria": "/api/public/catalog-image/consultoria-estrategica.jpg",
-  "ebook-profissional": "/api/public/catalog-image/ebook-profissional.jpg",
-  "identidade-visual": "/api/public/catalog-image/identidade-visual.jpg",
-  "marketplace-de-servicos": "/api/public/catalog-image/marketplace-de-servicos.jpg",
-  "marketplace-servicos": "/api/public/catalog-image/marketplace-de-servicos.jpg",
-  "marketplace": "/api/public/catalog-image/marketplace-de-servicos.jpg",
-  "outdoor-digital": "/api/public/catalog-image/outdoor-digital.jpg",
-  "programa-de-parceiros": "/api/public/catalog-image/programa-de-parceiros.jpg",
-  "programa-parceiros": "/api/public/catalog-image/programa-de-parceiros.jpg",
-  "parceiros": "/api/public/catalog-image/programa-de-parceiros.jpg",
-  "portfolio-empresarial": "/api/public/catalog-image/portfolio-empresarial.jpg",
-  "presenca-digital": "/api/public/catalog-image/presenca-digital.jpg",
-  "videos-empresariais": "/api/public/catalog-image/videos-empresariais.jpg",
-
   // Capas já recuperadas de ativos históricos do portal.
   "site-profissional-197": "/images/services/site-profissional-197.png",
   "site-express": coverSiteExpress,

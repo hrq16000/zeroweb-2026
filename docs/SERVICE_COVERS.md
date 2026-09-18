@@ -10,9 +10,13 @@ bucket do CMS para continuar aparecendo. Os bytes estão versionados na rota:
 
 `src/routes/api/public/catalog-image.$file.ts`
 
-O vínculo slug → arquivo está em:
+A fonte única do vínculo slug → arquivo está em:
 
-`src/lib/services-public.functions.ts` → `RECOVERED_COVERS`
+`src/config/service-cover-bindings.json`
+
+As camadas públicas de catálogo e navegação consomem esse manifesto por:
+
+`src/lib/service-cover-bindings.ts`
 
 E o gate que impede a perda silenciosa do vínculo está em:
 
@@ -60,7 +64,7 @@ prioridade; a capa canônica permanece como fallback seguro.
 
 - um novo serviço ativo não possui imagem nem fallback autorizado;
 - o arquivo canônico deixa de existir na rota;
-- o slug deixa de apontar para a URL canônica em `RECOVERED_COVERS`;
+- o slug deixa de apontar para um arquivo do manifesto canônico;
 - uma imagem cadastrada no CMS retorna quebrada.
 
 Assim, uma refatoração não pode fazer estas capas desaparecerem silenciosamente.

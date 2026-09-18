@@ -6,6 +6,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { isServiceSolution } from "@/lib/is-solution";
 import { getSupabasePublicServer, getSupabaseAdminOptional } from "@/lib/supabase-public.server";
+import { canonicalServiceCoverUrl } from "@/lib/service-cover-bindings";
 
 export type NavService = {
   slug: string;
@@ -86,7 +87,7 @@ export const listServicesNav = createServerFn({ method: "GET" }).handler(async (
       name: r.name,
       category: r.category,
       description: r.description,
-      imageUrl: signedMap.get(r.slug) ?? null,
+      imageUrl: signedMap.get(r.slug) ?? canonicalServiceCoverUrl(r.slug),
       imageAlt: r.image_alt,
     });
 
