@@ -4732,6 +4732,36 @@ export type Database = {
         }
         Relationships: []
       }
+      portfolio_whatsapp_confirmations: {
+        Row: {
+          client_key: string
+          confirmed_at: string
+          confirmed_by: string | null
+          evidence: string
+          revoked_at: string | null
+          updated_at: string
+          whatsapp_digits: string
+        }
+        Insert: {
+          client_key: string
+          confirmed_at?: string
+          confirmed_by?: string | null
+          evidence: string
+          revoked_at?: string | null
+          updated_at?: string
+          whatsapp_digits: string
+        }
+        Update: {
+          client_key?: string
+          confirmed_at?: string
+          confirmed_by?: string | null
+          evidence?: string
+          revoked_at?: string | null
+          updated_at?: string
+          whatsapp_digits?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
