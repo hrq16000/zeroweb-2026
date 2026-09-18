@@ -5,8 +5,8 @@
     "public/0web-logo.png": "aabcf97139cc2f2b96013f65ff0aa876cf4ff346bba3d38d423a46ff86e89b0d",
     "src/assets/logo-0web.png.asset.json": "e23e6080e6097733ad368b8d442ba02684ae0bd33ca866e143c1e9535565a219",
     "src/components/site/BrandLogo.tsx": "ad81eacd235f42bba40c7bb29b09785b6298975ea6b7e8e61fb92996c83adf5d",
-    "src/components/site/Header.tsx": "f5370e4a109a1e11b77ee43de12e3f014b8413bfbaf0a5fcbfc6ab1868f42f85",
-    "src/components/site/Footer.tsx": "487a5710e70bba5114455c74f3a94e0f65a1ae137ad71e72e7f68697ba7e88b0",
+    "src/components/site/Header.tsx": "ec5965c49b97b8f2250fa58b836c3a22dea16068393adc07969d9719d5c807f7",
+    "src/components/site/Footer.tsx": "33eaf1cdf6b65c6661571ac7f88899b5d7d2b8c07e40a861200fd720bd545c65",
     "src/styles.css": "65b59ca04e06262a03866dd10c440be3b143b445fb800159a86608836d867f7a"
   }
 }
