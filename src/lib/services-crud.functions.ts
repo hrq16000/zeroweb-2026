@@ -94,9 +94,16 @@ function asArr<T>(v: unknown): T[] {
 
 function publicImageUrl(path: string | null): string | null {
   if (!path) return null;
-  const base = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-  if (!base) return null;
-  return `${base.replace(/\/$/, "")}/storage/v1/object/public/service-images/${path}`;
+  // Caminhos absolutos (asset estático do próprio site) seguem como estão.
+  if (/^(https?:)?\/\//.test(path) || path.startsWith("/")) return path;
+  // Bucket privado: capas do catálogo são servidas pelo proxy público.
+  if (path.startsWith("catalog/")) {
+    return `/api/public/catalog-image/${path.slice("catalog/".length)}`;
+  }
+  if (path.startsWith("landings/")) {
+    return `/api/public/landing-image/${path.slice("landings/".length)}`;
+  }
+  return null;
 }
 
 function normalize(row: Record<string, unknown>): ServiceRow {
