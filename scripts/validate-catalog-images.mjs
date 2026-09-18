@@ -39,23 +39,28 @@ function prTouchesServiceCatalog() {
   if (!eventPath) return true;
 
   let baseSha = "";
+  let headSha = "";
   try {
     const event = JSON.parse(readFileSync(eventPath, "utf8"));
     baseSha = event?.pull_request?.base?.sha ?? "";
+    headSha = event?.pull_request?.head?.sha ?? "";
   } catch {
     return true;
   }
-  if (!baseSha) return true;
+  if (!baseSha || !headSha) return true;
 
-  const diffArgs = ["diff", "--name-only", `${baseSha}...HEAD`];
+  // GitHub Actions faz checkout do merge sintético refs/pull/*/merge. Usar HEAD
+  // aqui inclui mudanças recentes de main e pode atribuir dívida de /servicos
+  // a uma PR que só toca /portfolio. Compare os SHAs reais base...head.
+  const diffArgs = ["diff", "--name-only", `${baseSha}...${headSha}`];
   let diff = spawnSync("git", diffArgs, { encoding: "utf8" });
   if (diff.status !== 0) {
-    const fetchBase = spawnSync(
+    const fetchRefs = spawnSync(
       "git",
-      ["fetch", "--no-tags", "--depth=1", "origin", baseSha],
+      ["fetch", "--no-tags", "--depth=1", "origin", baseSha, headSha],
       { encoding: "utf8" },
     );
-    if (fetchBase.status !== 0) return true;
+    if (fetchRefs.status !== 0) return true;
     diff = spawnSync("git", diffArgs, { encoding: "utf8" });
   }
   if (diff.status !== 0) return true;
