@@ -554,6 +554,16 @@ export function FunnelRunner({
               <ArrowRight className="h-4 w-4" />
             </a>
           )}
+          {!hasRedirect && clientKey && (
+            <p
+              data-testid="funnel-sample-notice"
+              className="rounded-xl border border-border bg-muted/40 px-4 py-3 text-xs text-muted-foreground"
+            >
+              Este site é uma <strong className="text-foreground">amostra de demonstração</strong>:
+              ele mostra como a presença digital desta marca pode funcionar. Sua solicitação fica
+              registrada com o protocolo acima e é acompanhada pela equipe responsável.
+            </p>
+          )}
           {!hasRedirect && (
             <a
               href={done.nextPath}
