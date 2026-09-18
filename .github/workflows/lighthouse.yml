@@ -13,8 +13,63 @@ on:
         default: "https://0web.com.br"
 
 jobs:
+  scope:
+    name: Detectar impacto em Performance + SEO
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.diff.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Classificar escopo
+        id: diff
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"
+            HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"
+            HEAD="$PUSH_HEAD_SHA"
+          fi
+
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+          RUN=false
+
+          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|package\.json|bun\.lock)'; then
+            RUN=true
+          fi
+
+          if printf '%s\n' "$FILES" | grep -E '^src/routes/' | grep -Fvx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
+            RUN=true
+          fi
+
+          if printf '%s\n' "$FILES" | grep -Fx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
+            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:' || true)"
+            if [ -n "$ROUTE_DIFF" ]; then
+              RUN=true
+            fi
+          fi
+
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+          echo "impacto Lighthouse: $RUN"
+
   lighthouse:
     name: Performance + SEO Gate (shard ${{ matrix.shard }})
+    needs: scope
+    if: needs.scope.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     strategy:
