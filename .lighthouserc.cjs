@@ -9,22 +9,29 @@
  */
 const fs = require("node:fs");
 const TARGET_URL =
-  process.env.LHCI_TARGET_URL || "https://zeroweb.lovable.app";
+  process.env.LHCI_TARGET_URL || "https://0web.com.br";
 const clients = JSON.parse(fs.readFileSync("src/config/portfolio-clients.json", "utf8"));
-const portfolioUrls = clients.map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
-
-module.exports = {
-  ci: {
-    collect: {
-      url: [
+const shardCount = Math.max(1, Number(process.env.LHCI_SHARD_COUNT || 1));
+const shardIndex = Math.max(0, Number(process.env.LHCI_SHARD_INDEX || 0));
+const portfolioUrls = clients
+  .filter((_, index) => index % shardCount === shardIndex)
+  .map(({ slug }) => `${TARGET_URL}/portfolio/${slug}`);
+const commonUrls =
+  shardIndex === 0
+    ? [
         `${TARGET_URL}/`,
         `${TARGET_URL}/blog`,
         `${TARGET_URL}/blog/3-palavras-chatgpt-respostas-inteligentes`,
         `${TARGET_URL}/servicos`,
         `${TARGET_URL}/servicos/criacao-de-sites`,
         `${TARGET_URL}/portfolio`,
-        ...portfolioUrls,
-      ],
+      ]
+    : [];
+
+module.exports = {
+  ci: {
+    collect: {
+      url: [...commonUrls, ...portfolioUrls],
       numberOfRuns: 2,
       settings: {
         preset: "desktop",
