@@ -62,9 +62,24 @@ const redirectCache = new Map<string, RedirectHit>();
 let redirectCacheAt = 0;
 const REDIRECT_CACHE_TTL_MS = 60_000;
 
+// Ambientes de build/CI e previews locais rodam sem a chave de serviço do banco.
+// Nesses casos as rotinas de infraestrutura (redirects, blocklist, tracking)
+// simplesmente não executam, em vez de lançar erro a cada requisição — o que
+// inundava o log e derrubava o worker de produção nos testes.
+let serviceRoleWarned = false;
+export function hasServerServiceRole(): boolean {
+  const ok = Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
+  if (!ok && !serviceRoleWarned) {
+    serviceRoleWarned = true;
+    console.info("[start] service role ausente — rotinas de banco desativadas neste ambiente");
+  }
+  return ok;
+}
+
 async function loadRedirectsIntoCache(): Promise<void> {
   const now = Date.now();
   if (redirectCache.size > 0 && now - redirectCacheAt < REDIRECT_CACHE_TTL_MS) return;
+  if (!hasServerServiceRole()) return;
   try {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data } = await supabaseAdmin
@@ -87,6 +102,7 @@ async function loadRedirectsIntoCache(): Promise<void> {
 }
 
 function recordRedirectHit(fromPath: string): void {
+  if (!hasServerServiceRole()) return;
   // Fire-and-forget hit counter (best-effort, ignore errors).
   (async () => {
     try {
@@ -143,6 +159,7 @@ const globalBlockMiddleware = createMiddleware().server(async ({ next, request }
   try {
     const url = new URL(request.url);
     if (request.method !== "GET" || shouldSkip(url.pathname)) return next();
+    if (!hasServerServiceRole()) return next();
 
     const headers = request.headers;
     const ipRaw =
@@ -259,7 +276,7 @@ const visitorTrackingMiddleware = createMiddleware().server(async ({ next, reque
         ? await sha256Hex(`${ipRaw}|${day}|${salt}`)
         : await sha256Hex(`${decision.visitorId}|${day}|${salt}`);
 
-      if (allowInsert(ipHash)) {
+      if (allowInsert(ipHash) && hasServerServiceRole()) {
         const sp = url.searchParams;
         const insertPromise = (async () => {
           try {
