@@ -25,6 +25,11 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
 const blockedCache = new Map<string, { until: number; reason: string }>();
 const CACHE_TTL_MS = 60_000;
 
+/** Admin-only telemetry/redirect/blocking is optional in local/CI previews. */
+function hasSupabaseAdminConfig(): boolean {
+  return Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+}
+
 async function sha256Hex(text: string): Promise<string> {
   const buf = new TextEncoder().encode(text);
   const hash = await crypto.subtle.digest("SHA-256", buf);
@@ -64,6 +69,10 @@ const REDIRECT_CACHE_TTL_MS = 60_000;
 
 async function loadRedirectsIntoCache(): Promise<void> {
   const now = Date.now();
+  if (!hasSupabaseAdminConfig()) {
+    redirectCacheAt = now;
+    return;
+  }
   if (redirectCache.size > 0 && now - redirectCacheAt < REDIRECT_CACHE_TTL_MS) return;
   try {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -140,6 +149,8 @@ const canonicalRedirectMiddleware = createMiddleware().server(async ({ next, req
 
 const globalBlockMiddleware = createMiddleware().server(async ({ next, request }) => {
   if (new URL(request.url).pathname.startsWith("/lovable/")) return next();
+  // Fail-open by design: CI/local previews do not carry the service-role secret.
+  if (!hasSupabaseAdminConfig()) return next();
   try {
     const url = new URL(request.url);
     if (request.method !== "GET" || shouldSkip(url.pathname)) return next();
@@ -259,7 +270,7 @@ const visitorTrackingMiddleware = createMiddleware().server(async ({ next, reque
         ? await sha256Hex(`${ipRaw}|${day}|${salt}`)
         : await sha256Hex(`${decision.visitorId}|${day}|${salt}`);
 
-      if (allowInsert(ipHash)) {
+      if (allowInsert(ipHash) && hasSupabaseAdminConfig()) {
         const sp = url.searchParams;
         const insertPromise = (async () => {
           try {
