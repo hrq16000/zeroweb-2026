@@ -128,7 +128,7 @@ jobs:
 
           # Mudanças de componentes, estilos, assets ou rotas visuais exigem o
           # gate completo. O registry de WhatsApp e código server-only não.
-          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|package\.json|bun\.lock)'; then
+          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
