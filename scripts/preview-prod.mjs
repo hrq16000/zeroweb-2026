@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Sobe o artefato REAL de produção (worker Cloudflare gerado em dist/server)
+ * Sobe o artefato REAL de produção (worker Cloudflare gerado em .output/server;
+ * mantém compatibilidade com o layout legado dist/server).
  * com Wrangler local — nunca `vite dev`.
  *
  * Por que existe: `wrangler dev` não herda automaticamente o ambiente do
@@ -17,9 +18,15 @@ import { spawn } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
-const CONFIG = resolve("dist/server/wrangler.json");
-if (!existsSync(CONFIG)) {
-  console.error("[preview:prod] dist/server/wrangler.json ausente — rode `bun run build` antes.");
+const CONFIG_CANDIDATES = [
+  resolve(".output/server/wrangler.json"),
+  resolve("dist/server/wrangler.json"),
+];
+const CONFIG = CONFIG_CANDIDATES.find((candidate) => existsSync(candidate));
+if (!CONFIG) {
+  console.error(
+    "[preview:prod] wrangler.json ausente em .output/server e dist/server — rode `bun run build` antes.",
+  );
   process.exit(1);
 }
 
@@ -68,7 +75,7 @@ const port = process.env.PREVIEW_PORT ?? "8080";
  *
  * Solução determinística: subir com uma configuração derivada e, se o runtime
  * reportar o teto suportado, reescrever a data para esse teto e subir de novo.
- * O artefato publicado (dist/server/wrangler.json) permanece intacto.
+ * O artefato publicado permanece intacto.
  */
 const PREVIEW_CONFIG = resolve(dirname(CONFIG), "wrangler.preview.json");
 
