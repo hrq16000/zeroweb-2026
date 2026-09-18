@@ -48,7 +48,7 @@ jobs:
           FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
           RUN=false
 
-          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|package\.json|bun\.lock)'; then
+          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|src/lib/seo|src/config/portfolio-(clients|meta)|tailwind|vite\.config|bun\.lock)'; then
             RUN=true
           fi
 
