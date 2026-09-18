@@ -214,25 +214,28 @@ function evaluate(slug, manifest) {
   checks.funnelTypeDeclared = Boolean(client?.funnelType);
   if (!checks.funnelTypeDeclared) blockers.push("funnelType não declarado (orçamento, pedido, agendamento, diagnóstico, reserva…)");
 
-  // --- FUNNEL_DESTINATION_GATE (projeto novo não chega a READY/PUBLISH só com protocolo)
+  // --- FUNNEL_DESTINATION_GATE
+  // Fonte operacional única: portfolio-whatsapp.json. Número => WHATSAPP;
+  // null => LEAD_ONLY intencional; entrada ausente/inválida => bloqueio.
   const destination = evaluateFunnelDestination(slug, { clients });
   checks.funnelDestinationGate = destination.status !== "FAIL";
   blockers.push(...destination.blockers);
   warnings.push(...destination.warnings);
 
-  // --- LEAD_RECOVERABILITY_GATE: nenhuma conclusão pode terminar perdida.
-  // Sem destino verificado, o funil compartilhado exige contato de retorno;
-  // o projeto novo só passa se rodar pela infraestrutura que garante isso.
+  // --- LEAD_RECOVERABILITY_GATE
+  // Em ambos os modos válidos o lead precisa ser persistido antes do terminal.
+  // LEAD_ONLY não pede contato de retorno nem inventa fallback: conclui com
+  // protocolo, conforme o contrato operacional atual.
   const funnelSource = read("src/lib/dynamic-funnel.functions.ts");
   const sharedGuarantee =
-    /decideLeadRecoverability/.test(funnelSource) && /recordLeadDelivery/.test(funnelSource);
+    /recordLeadDelivery/.test(funnelSource) &&
+    /leadOnly:\s*!destinationConfigured/.test(funnelSource) &&
+    /requiresRecoveryContact:\s*false/.test(funnelSource);
 
   checks.leadRecoverabilityGate = sharedGuarantee && destination.status !== "FAIL";
   if (!sharedGuarantee) {
-    blockers.push("LEAD_RECOVERABILITY_GATE: funil compartilhado sem garantia de recuperação do lead");
-  } else if (destination.status !== "VERIFIED") {
-    warnings.push(
-      "LEAD_RECOVERABILITY_GATE: sem destino verificado o funil exigirá WhatsApp de retorno do visitante",
+    blockers.push(
+      "LEAD_RECOVERABILITY_GATE: funil compartilhado não preserva o contrato WHATSAPP/LEAD_ONLY",
     );
   }
 

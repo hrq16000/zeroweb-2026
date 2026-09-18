@@ -1,12 +1,14 @@
 /**
- * FUNNEL_DESTINATION_GATE — projetos NOVOS (ciclo de vida gerenciado).
+ * FUNNEL_DESTINATION_GATE — projetos do ciclo de vida gerenciado.
  *
- * Um projeto novo cujo fluxo comercial termina em WhatsApp não pode ficar
- * READY nem ser publicado apenas com protocolo: precisa de destino operacional
- * resolvido (segredo do projeto) E evidência registrada no livro-razão.
+ * Fonte operacional única: src/config/portfolio-whatsapp.json.
+ * - whatsapp válido => WHATSAPP do próprio clientKey
+ * - whatsapp null => LEAD_ONLY intencional (lead + protocolo, sem redirect)
+ * - entrada ausente / valor inválido => FAIL
  *
- * Legado NÃO é avaliado aqui: continua publicado, com aviso operacional P0.
- * Nada neste módulo lê, imprime ou compara números — apenas presença e estado.
+ * O livro-razão de proveniência continua útil como evidência histórica, mas
+ * não substitui nem bloqueia o registro operacional versionado.
+ * Nenhum secret/env/tabela privada participa desta decisão.
  */
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -24,27 +26,34 @@ function readJson(rel, fallback) {
   }
 }
 
-const OK_STATUSES = new Set(["VERIFIED", "AUTO_RESOLVED", "NOT_APPLICABLE"]);
-
-/** Convenção canônica de novos projetos (sem mapa legado). */
-export function canonicalDestinationEnvName(clientKey) {
-  if (!clientKey) return null;
-  return `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
+function validWhatsApp(raw) {
+  if (typeof raw !== "string") return false;
+  const digits = raw.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
 }
 
-/** Um funil que espera entrega operacional termina em WhatsApp do cliente. */
+/** Cliente sem canal comercial não participa do gate. */
 export function expectsOperationalDelivery(client) {
   if (!client) return true;
-  if (client.contactMode === "none") return false;
-  return client.funnelDelivery !== "protocol_only";
+  return client.contactMode !== "none";
 }
 
 /**
- * @returns {{ status: "PASS"|"FAIL"|"NOT_APPLICABLE", blockers: string[], warnings: string[] }}
+ * @returns {{
+ *   status: "PASS"|"FAIL"|"NOT_APPLICABLE",
+ *   mode: "WHATSAPP"|"LEAD_ONLY"|"NONE"|"INVALID",
+ *   blockers: string[],
+ *   warnings: string[],
+ *   provenanceStatus: string|null
+ * }}
  */
-export function evaluateFunnelDestination(slug, { clients, ledger } = {}) {
+export function evaluateFunnelDestination(slug, { clients, ledger, contacts } = {}) {
   const allClients = clients ?? readJson("src/config/portfolio-clients.json", []);
   const book = ledger ?? readJson("src/config/portfolio-funnel-destinations.json", { entries: {} });
+  const registry =
+    contacts ??
+    readJson("src/config/portfolio-whatsapp.json", { contacts: {} }).contacts ??
+    {};
   const entries = book.entries ?? {};
 
   const client = allClients.find((c) => c.slug === slug);
@@ -53,29 +62,71 @@ export function evaluateFunnelDestination(slug, { clients, ledger } = {}) {
   const warnings = [];
 
   if (!expectsOperationalDelivery(client)) {
-    return { status: "NOT_APPLICABLE", blockers, warnings };
+    return {
+      status: "NOT_APPLICABLE",
+      mode: "NONE",
+      blockers,
+      warnings,
+      provenanceStatus: null,
+    };
   }
 
-  const envName = canonicalDestinationEnvName(clientKey);
-  const configured = Boolean((process.env[envName] ?? "").replace(/\D/g, "").length >= 10);
-  const entry = entries[clientKey] ?? entries[slug] ?? null;
-  const status = entry?.status ?? (configured ? "CONFIGURED_UNVERIFIED" : "UNRESOLVED");
-
-  if (!configured) {
+  if (!Object.prototype.hasOwnProperty.call(registry, clientKey)) {
     blockers.push(
-      `FUNNEL_DESTINATION_GATE: destino operacional ausente (cadastre o segredo ${envName}); o funil terminaria só em protocolo`,
+      "FUNNEL_DESTINATION_GATE: clientKey sem entrada em src/config/portfolio-whatsapp.json",
+    );
+    return {
+      status: "FAIL",
+      mode: "INVALID",
+      blockers,
+      warnings,
+      provenanceStatus: entries[clientKey]?.status ?? null,
+    };
+  }
+
+  const whatsapp = registry[clientKey]?.whatsapp;
+  const provenance = entries[clientKey] ?? entries[slug] ?? null;
+  const provenanceStatus = provenance?.status ?? null;
+
+  if (whatsapp === null) {
+    // Estado deliberado: o projeto salva lead/protocolo e não redireciona.
+    return {
+      status: "PASS",
+      mode: "LEAD_ONLY",
+      blockers,
+      warnings,
+      provenanceStatus,
+    };
+  }
+
+  if (!validWhatsApp(whatsapp)) {
+    blockers.push(
+      "FUNNEL_DESTINATION_GATE: entrada canônica possui WhatsApp inválido",
+    );
+    return {
+      status: "FAIL",
+      mode: "INVALID",
+      blockers,
+      warnings,
+      provenanceStatus,
+    };
+  }
+
+  if (!provenance) {
+    warnings.push(
+      "FUNNEL_DESTINATION_GATE: destino operacional versionado sem entrada detalhada no livro-razão de proveniência",
+    );
+  } else if (provenanceStatus === "CONFLICT") {
+    warnings.push(
+      "FUNNEL_DESTINATION_GATE: livro-razão histórico ainda registra CONFLICT; o runtime usa exclusivamente o destino canônico versionado",
     );
   }
-  if (status === "CONFLICT") {
-    blockers.push("FUNNEL_DESTINATION_GATE: conflito de destino registrado — exige decisão humana");
-  } else if (!OK_STATUSES.has(status)) {
-    blockers.push(
-      `FUNNEL_DESTINATION_GATE: destino sem evidência verificada (${status}); registre a proveniência em src/config/portfolio-funnel-destinations.json`,
-    );
-  }
-  if (!entry?.evidence?.length && !blockers.length) {
-    warnings.push("FUNNEL_DESTINATION_GATE: destino verificado sem evidência detalhada no livro-razão");
-  }
 
-  return { status: blockers.length ? "FAIL" : "PASS", blockers, warnings };
+  return {
+    status: "PASS",
+    mode: "WHATSAPP",
+    blockers,
+    warnings,
+    provenanceStatus,
+  };
 }

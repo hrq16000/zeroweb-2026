@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "docs": "Livro-razão de PROVENIÊNCIA do destino operacional do funil. NÃO guarda número: o número vive apenas no segredo operacional do projeto ou na configuração privada do cliente, sempre server-side. Aqui ficam origem, evidência, confiança e data de verificação. Ausência de entrada = destino não verificado (nunca inventar).",
+  "docs": "Livro-razão histórico de PROVENIÊNCIA dos destinos. A fonte operacional única é src/config/portfolio-whatsapp.json: número válido = WHATSAPP do próprio clientKey; null = LEAD_ONLY intencional. Este arquivo não guarda nem resolve o destino e não depende de secrets/env ou tabela privada.",
   "statuses": [
     "VERIFIED",
     "CONFIGURED_UNVERIFIED",
