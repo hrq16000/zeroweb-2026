@@ -94,14 +94,29 @@ async function fetchServices() {
   return r.json();
 }
 
-function publicImageUrl(path) {
-  if (!path) return null;
-  return `${URL_BASE.replace(/\/$/, "")}/storage/v1/object/public/service-images/${path}`;
+const SITE_BASE = (process.env.CATALOG_SITE_BASE || "https://0web.com.br").replace(/\/$/, "");
+
+/**
+ * Resolve o alvo verificável da capa.
+ * - URL absoluta: verificada diretamente.
+ * - Caminho `/...`: asset estático do site (verifica arquivo local; senão HEAD no site).
+ * - Caminho de bucket: objeto privado `service-images`, lido com a chave publicável.
+ */
+function imageTarget(path) {
+  if (/^https?:\/\//.test(path)) return { url: path };
+  if (path.startsWith("/")) {
+    return { url: `${SITE_BASE}${path}`, localFile: `public${path}` };
+  }
+  return {
+    url: `${URL_BASE.replace(/\/$/, "")}/storage/v1/object/service-images/${path}`,
+    headers: { apikey: ANON, Authorization: `Bearer ${ANON}` },
+  };
 }
 
-async function headOk(url) {
+async function headOk(target) {
+  if (target.localFile && existsSync(target.localFile)) return { ok: true };
   try {
-    const r = await fetch(url, { method: "HEAD" });
+    const r = await fetch(target.url, { method: "HEAD", headers: target.headers });
     if (!r.ok) return { ok: false, reason: `HTTP ${r.status}` };
     const ct = r.headers.get("content-type") ?? "";
     if (!/^image\//.test(ct)) return { ok: false, reason: `content-type=${ct}` };
@@ -130,10 +145,11 @@ async function headOk(url) {
       orphans.push(s.slug);
       continue;
     }
-    const url = publicImageUrl(path);
-    const r = await headOk(url);
-    if (!r.ok) broken.push({ slug: s.slug, url, reason: r.reason });
+    const target = imageTarget(path);
+    const r = await headOk(target);
+    if (!r.ok) broken.push({ slug: s.slug, url: target.url, reason: r.reason });
   }
+
 
   if (orphans.length === 0 && broken.length === 0) {
     console.log(`[catalog-images] ✅ all ${services.length} services have valid cover images`);
