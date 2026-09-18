@@ -235,6 +235,7 @@ import { Route as AuthenticatedAppPortfolioQualidadeRouteImport } from './routes
 import { Route as AuthenticatedAppProjectsIdRouteImport } from './routes/_authenticated/app.projects.$id'
 import { Route as AuthenticatedAppServicosSeoDiffRouteImport } from './routes/_authenticated/app.servicos.seo-diff'
 import { Route as AuthenticatedAppSupportIdRouteImport } from './routes/_authenticated/app.support.$id'
+import { Route as ApiPublicCatalogImageFileRouteImport } from './routes/api/public/catalog-image.$file'
 import { Route as ApiPublicHooksAnomalyScanRouteImport } from './routes/api/public/hooks/anomaly-scan'
 import { Route as ApiPublicHooksDiscardsScanRouteImport } from './routes/api/public/hooks/discards-scan'
 import { Route as ApiPublicHooksGscIngestRouteImport } from './routes/api/public/hooks/gsc-ingest'
@@ -1463,6 +1464,12 @@ const AuthenticatedAppSupportIdRoute =
     path: '/$id',
     getParentRoute: () => AuthenticatedAppSupportRoute,
   } as any)
+const ApiPublicCatalogImageFileRoute =
+  ApiPublicCatalogImageFileRouteImport.update({
+    id: '/api/public/catalog-image/$file',
+    path: '/api/public/catalog-image/$file',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicHooksAnomalyScanRoute =
   ApiPublicHooksAnomalyScanRouteImport.update({
     id: '/api/public/hooks/anomaly-scan',
@@ -1792,6 +1799,7 @@ export interface FileRoutesByFullPath {
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
+  '/api/public/catalog-image/$file': typeof ApiPublicCatalogImageFileRoute
   '/api/public/hooks/anomaly-scan': typeof ApiPublicHooksAnomalyScanRoute
   '/api/public/hooks/discards-scan': typeof ApiPublicHooksDiscardsScanRoute
   '/api/public/hooks/gsc-ingest': typeof ApiPublicHooksGscIngestRoute
@@ -2033,6 +2041,7 @@ export interface FileRoutesByTo {
   '/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/app/support/$id': typeof AuthenticatedAppSupportIdRoute
+  '/api/public/catalog-image/$file': typeof ApiPublicCatalogImageFileRoute
   '/api/public/hooks/anomaly-scan': typeof ApiPublicHooksAnomalyScanRoute
   '/api/public/hooks/discards-scan': typeof ApiPublicHooksDiscardsScanRoute
   '/api/public/hooks/gsc-ingest': typeof ApiPublicHooksGscIngestRoute
@@ -2280,6 +2289,7 @@ export interface FileRoutesById {
   '/_authenticated/app/projects/$id': typeof AuthenticatedAppProjectsIdRoute
   '/_authenticated/app/servicos/seo-diff': typeof AuthenticatedAppServicosSeoDiffRoute
   '/_authenticated/app/support/$id': typeof AuthenticatedAppSupportIdRoute
+  '/api/public/catalog-image/$file': typeof ApiPublicCatalogImageFileRoute
   '/api/public/hooks/anomaly-scan': typeof ApiPublicHooksAnomalyScanRoute
   '/api/public/hooks/discards-scan': typeof ApiPublicHooksDiscardsScanRoute
   '/api/public/hooks/gsc-ingest': typeof ApiPublicHooksGscIngestRoute
@@ -2527,6 +2537,7 @@ export interface FileRouteTypes {
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
+    | '/api/public/catalog-image/$file'
     | '/api/public/hooks/anomaly-scan'
     | '/api/public/hooks/discards-scan'
     | '/api/public/hooks/gsc-ingest'
@@ -2768,6 +2779,7 @@ export interface FileRouteTypes {
     | '/app/projects/$id'
     | '/app/servicos/seo-diff'
     | '/app/support/$id'
+    | '/api/public/catalog-image/$file'
     | '/api/public/hooks/anomaly-scan'
     | '/api/public/hooks/discards-scan'
     | '/api/public/hooks/gsc-ingest'
@@ -3014,6 +3026,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/projects/$id'
     | '/_authenticated/app/servicos/seo-diff'
     | '/_authenticated/app/support/$id'
+    | '/api/public/catalog-image/$file'
     | '/api/public/hooks/anomaly-scan'
     | '/api/public/hooks/discards-scan'
     | '/api/public/hooks/gsc-ingest'
@@ -3168,6 +3181,7 @@ export interface RootRouteChildren {
   BlogClusterClusterRoute: typeof BlogClusterClusterRoute
   PortfolioSegmentoBairroRoute: typeof PortfolioSegmentoBairroRoute
   RWhatsappTokenRoute: typeof RWhatsappTokenRoute
+  ApiPublicCatalogImageFileRoute: typeof ApiPublicCatalogImageFileRoute
   ApiPublicHooksAnomalyScanRoute: typeof ApiPublicHooksAnomalyScanRoute
   ApiPublicHooksDiscardsScanRoute: typeof ApiPublicHooksDiscardsScanRoute
   ApiPublicHooksGscIngestRoute: typeof ApiPublicHooksGscIngestRoute
@@ -4771,6 +4785,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppSupportIdRouteImport
       parentRoute: typeof AuthenticatedAppSupportRoute
     }
+    '/api/public/catalog-image/$file': {
+      id: '/api/public/catalog-image/$file'
+      path: '/api/public/catalog-image/$file'
+      fullPath: '/api/public/catalog-image/$file'
+      preLoaderRoute: typeof ApiPublicCatalogImageFileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/anomaly-scan': {
       id: '/api/public/hooks/anomaly-scan'
       path: '/api/public/hooks/anomaly-scan'
@@ -5372,6 +5393,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogClusterClusterRoute: BlogClusterClusterRoute,
   PortfolioSegmentoBairroRoute: PortfolioSegmentoBairroRoute,
   RWhatsappTokenRoute: RWhatsappTokenRoute,
+  ApiPublicCatalogImageFileRoute: ApiPublicCatalogImageFileRoute,
   ApiPublicHooksAnomalyScanRoute: ApiPublicHooksAnomalyScanRoute,
   ApiPublicHooksDiscardsScanRoute: ApiPublicHooksDiscardsScanRoute,
   ApiPublicHooksGscIngestRoute: ApiPublicHooksGscIngestRoute,
