@@ -2,18 +2,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import {
-  CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck, Star,
+  CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck,
   TrendingUp, Sparkles, Flame, ArrowRight, Search, Users, DollarSign,
   Monitor, BarChart3, Bot, Cloud,
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
-import { ServiceCTA } from "@/components/site/ServiceCTA";
-import { trackEvent, trackWhatsAppClick } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import cover from "@/assets/presenca-digital-google-capa.png.asset.json";
+import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
+import { ProductActionGate } from "@/components/site/ProductActionGate";
 
 const TITLE = "Presença Digital para Empresas · 0WEB · Planos a partir de R$399/mês";
 const DESC =
@@ -117,6 +116,15 @@ export const Route = createFileRoute("/servicos/presenca-digital")({
 });
 
 function PresencaDigitalPage() {
+  const product = {
+    slug: "presenca-digital",
+    name: "Presença Digital",
+    category: "Marketing",
+    price: 399,
+    pricePeriod: "mês",
+    imageUrl: cover.url,
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -138,28 +146,23 @@ function PresencaDigitalPage() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "presdig_hero_principal", pagePath: "/servicos/presenca-digital", placement: "hero", serviceSlug: "presenca-digital" }}
-                label="Fale Conosco"
-                location="presdig_hero_principal"
+              <a
+                href="#comprar"
                 className="inline-flex items-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold px-6 py-3.5 shadow-glow-primary hover:scale-[1.02] transition"
-              />
-              <Link
-                to="/solicitar-diagnostico"
-                onClick={() => trackEvent("cta_click", { label: "Solicitar Diagnóstico", location: "presdig_hero" })}
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-semibold px-6 py-3.5 hover:bg-white/10 transition"
               >
-                Solicitar diagnóstico gratuito
-              </Link>
+                Contratar Presença Digital <ArrowRight className="w-4 h-4" />
+              </a>
+              <ProductActionGate
+                product={product}
+                intent={{ purpose: "diagnosis", source: "product_presenca-digital_hero", pagePath: "/servicos/presenca-digital", placement: "hero", serviceSlug: "presenca-digital" }}
+                label="Tirar dúvida"
+                variant="outline"
+                className="rounded-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              />
             </div>
 
-            <div className="mt-6 flex items-center gap-2 text-sm text-white/70">
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <span className="ml-1">Planos a partir de R$399/mês · sem contrato</span>
+            <div className="mt-6 text-sm text-white/70">
+              Plano a partir de R$399/mês · sem contrato
             </div>
           </motion.div>
 
@@ -264,7 +267,7 @@ function PresencaDigitalPage() {
       </section>
 
       {/* PLANO */}
-      <section className="py-20 bg-surface">
+      <section id="comprar" className="py-20 bg-surface scroll-mt-24">
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
           <div className="text-center">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-600">
@@ -299,12 +302,9 @@ function PresencaDigitalPage() {
                   <li key={i} className="flex items-start gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5" /> {i}</li>
                 ))}
               </ul>
-              <FunnelCTAButton
-                intent={{ purpose: "proposal", source: "presdig_pricing", pagePath: "/servicos/presenca-digital", placement: "section", serviceSlug: "presenca-digital" }}
-                label="Quero começar agora"
-                location="presdig_pricing"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold px-6 py-3.5 hover:scale-[1.02] transition"
-              />
+              <div className="mt-8 text-foreground">
+                <ServicePurchasePanel item={product} />
+              </div>
             </div>
           </div>
         </div>
@@ -346,10 +346,11 @@ function PresencaDigitalPage() {
               Responda perguntas rápidas no WhatsApp e enviamos sua proposta em até 1 hora útil.
             </p>
             <div className="mt-6 flex justify-center">
-              <ServiceCTA
-                serviceSlug="presenca-digital"
-                location="footer"
-                label="Solicitar proposta agora"
+              <ProductActionGate
+                product={product}
+                intent={{ purpose: "diagnosis", source: "product_presenca-digital_support", pagePath: "/servicos/presenca-digital", placement: "section", serviceSlug: "presenca-digital" }}
+                label="Tirar dúvida sobre este plano"
+                variant="outline"
               />
             </div>
           </div>
@@ -370,16 +371,15 @@ function PresencaDigitalPage() {
                   Pare de torcer. <span className="text-amber-400">Comece a vender.</span>
                 </h2>
                 <p className="mt-3 text-white/80">
-                  Fale conosco no WhatsApp agora mesmo e comece a aparecer no Google esta semana.
+                  Adicione o plano ao carrinho e siga para a contratação sem sair do contexto desta oferta.
                 </p>
               </div>
-              <FunnelCTAButton
-                pageType="service"
-                serviceSlug="presenca-digital"
-                label="Solicitar orçamento gratuito"
-                location="presdig_cta_final"
+              <a
+                href="#comprar"
                 className="inline-flex items-center gap-2 rounded-full bg-amber-400 text-slate-900 font-bold px-7 py-4 hover:scale-[1.02] transition"
-              />
+              >
+                Contratar agora <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -404,7 +404,6 @@ function PresencaDigitalPage() {
       />
 
       <Footer />
-      <WhatsAppFloat />
-    </div>
+</div>
   );
 }

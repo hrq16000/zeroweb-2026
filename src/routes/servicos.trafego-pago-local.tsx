@@ -2,12 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { CheckCircle2, XCircle, MessageCircle, Phone, ShoppingCart, Rocket, AlertTriangle, ArrowRight, Sparkles, Target } from "lucide-react";
 import capa from "@/assets/trafego-pago-499-capa.png.asset.json";
-import { ServiceCTA } from "@/components/site/ServiceCTA";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
+import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
+import { ProductActionGate } from "@/components/site/ProductActionGate";
 const URL = "https://0web.com.br/servicos/trafego-pago-local";
 const TITLE = "Tráfego Pago para Negócios Locais a partir de R$499/mês · 0WEB";
 const DESC = "Tráfego pago estratégico para negócios locais: anúncios no Instagram, Facebook e Google que geram mensagens, ligações e vendas reais. Sem contrato, sem fidelidade, planos a partir de R$499/mês.";
@@ -92,6 +91,15 @@ export const Route = createFileRoute("/servicos/trafego-pago-local")({
 });
 
 function TrafegoPagoLocalPage() {
+  const product = {
+    slug: "trafego-pago-local",
+    name: "Tráfego Pago Local",
+    category: "Tráfego",
+    price: 499,
+    pricePeriod: "mês",
+    imageUrl: capa.url,
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -113,7 +121,9 @@ function TrafegoPagoLocalPage() {
                 Anúncios no Instagram, Facebook e Google com foco total em gerar clientes — não curtidas.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <FunnelCTAButton intent={{ purpose: "proposal", source: "lp_trafego_local_hero", pagePath: "/servicos/trafego-pago-local", placement: "hero", serviceSlug: "trafego-pago-local" }} label="Quero receber clientes essa semana" location="lp_trafego_local_hero" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold shadow-glow-primary" />
+                <a href="#comprar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold shadow-glow-primary">
+                  Contratar Tráfego Pago Local <ArrowRight className="w-4 h-4" />
+                </a>
                 <Link to="/planos" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-border hover:bg-muted text-sm font-medium">
                   Ver planos
                 </Link>
@@ -199,7 +209,7 @@ function TrafegoPagoLocalPage() {
         </section>
 
         {/* OFERTA */}
-        <section className="py-20 px-6">
+        <section id="comprar" className="py-20 px-6 scroll-mt-24">
           <div className="max-w-3xl mx-auto rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/10 via-card to-card p-10 text-center shadow-glow-primary">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-semibold">
               <Target className="w-3.5 h-3.5" /> Oferta
@@ -213,7 +223,16 @@ function TrafegoPagoLocalPage() {
                 <li key={x} className="rounded-xl border border-border bg-background/60 py-2 font-medium">{x}</li>
               ))}
             </ul>
-            <FunnelCTAButton intent={{ purpose: "proposal", source: "lp_trafego_local_pricing", pagePath: "/servicos/trafego-pago-local", placement: "section", serviceSlug: "trafego-pago-local" }} label="Começar agora" location="lp_trafego_local_pricing" className="mt-8 inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-primary text-primary-foreground font-semibold" />
+            <div className="mt-8">
+              <ServicePurchasePanel item={product} />
+              <ProductActionGate
+                product={product}
+                intent={{ purpose: "diagnosis", source: "product_trafego-pago-local_pricing", pagePath: "/servicos/trafego-pago-local", placement: "section", serviceSlug: "trafego-pago-local" }}
+                label="Tirar dúvida antes de contratar"
+                variant="outline"
+                className="mt-3"
+              />
+            </div>
           </div>
         </section>
 
@@ -246,10 +265,11 @@ function TrafegoPagoLocalPage() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold">Quero começar com tráfego pago</h2>
             <p className="mt-3 text-muted-foreground">Responda 3 perguntas rápidas e enviamos uma proposta no seu WhatsApp em até 1 hora útil.</p>
             <div className="mt-6 flex justify-center">
-              <ServiceCTA
-                serviceSlug="trafego-pago-local"
-                location="footer"
-                label="Falar com um especialista"
+              <ProductActionGate
+                product={product}
+                intent={{ purpose: "diagnosis", source: "product_trafego-pago-local_support", pagePath: "/servicos/trafego-pago-local", placement: "section", serviceSlug: "trafego-pago-local" }}
+                label="Falar sobre este produto"
+                variant="outline"
               />
             </div>
           </div>
@@ -270,11 +290,12 @@ function TrafegoPagoLocalPage() {
             Se você não anuncia, seu concorrente anuncia — e ele fica com seus clientes.
             Ou você aparece. Ou você desaparece.
           </p>
-          <FunnelCTAButton intent={{ purpose: "proposal", source: "lp_trafego_local_final", pagePath: "/servicos/trafego-pago-local", placement: "section", serviceSlug: "trafego-pago-local" }} label="Quero meus primeiros clientes" location="lp_trafego_local_final" className="mt-7 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold" />
+          <a href="#comprar" className="mt-7 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold">
+            Contratar este serviço <ArrowRight className="w-4 h-4" />
+          </a>
         </section>
       </main>
       <Footer />
-      <WhatsAppFloat />
-    </div>
+</div>
   );
 }
