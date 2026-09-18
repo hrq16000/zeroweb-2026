@@ -53,7 +53,7 @@ function managedHead(project: ManagedProject) {
     links: [
       { rel: "canonical", href: url },
       { rel: "icon", href: icon },
-      { rel: "apple-touch-icon", href: icon },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
     scripts: [
       {
@@ -905,7 +905,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       links: [
         { rel: "canonical", href: eff.canonicalUrl },
         { rel: "icon", href: effIcon },
-        { rel: "apple-touch-icon", href: effIcon },
+        { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       ],
       scripts: vertical
         ? [
