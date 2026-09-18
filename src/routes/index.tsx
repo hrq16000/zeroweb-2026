@@ -202,8 +202,8 @@ function Index() {
             <MotionChoreo surface="root-editorial" role="offer">
               <Suspense key="featured-services-v2" fallback={<Skel />}>
                 <FeaturedServices
-                  title="Soluções para cada etapa"
-                  subtitle="Veja uma seleção do catálogo e entre na solução certa sem transformar a Home em uma lista infinita de recursos."
+                  title="Serviços para contratar"
+                  subtitle="Uma seleção da loja 0WEB com produtos digitais de escopo claro. O catálogo completo fica em /servicos."
                   limit={4}
                 />
               </Suspense>

@@ -52,6 +52,8 @@ export function Header() {
   const isLojaArea =
     pathname.startsWith("/servicos") ||
     pathname.startsWith("/checkout") ||
+    pathname.startsWith("/pedido") ||
+    pathname.startsWith("/suporte-pedido") ||
     pathname.startsWith("/categoria") ||
     pathname.startsWith("/marketplace");
 
@@ -192,7 +194,7 @@ export function Header() {
                       onClick={() => setServicesOpen(false)}
                       className="col-span-2 mt-1 text-center text-sm font-semibold text-primary hover:underline py-2"
                     >
-                      Ver Serviços →
+                      Abrir loja de serviços →
                     </Link>
                   </div>
                 </motion.div>
@@ -259,13 +261,15 @@ export function Header() {
           >
             <LogIn className="w-4 h-4" /> Conectar
           </Link>
-          <FunnelCTAButton
-            intent={{ purpose: "diagnosis", source: "header", pagePath: "/", placement: "header" }}
-            label="Solicitar Diagnóstico"
-            location="header"
-            showArrow={false}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 shadow-glow-primary hover:opacity-95 transition"
-          />
+          {!isLojaArea && (
+            <FunnelCTAButton
+              intent={{ purpose: "diagnosis", source: "header", pagePath: "/", placement: "header" }}
+              label="Solicitar Diagnóstico"
+              location="header"
+              showArrow={false}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 shadow-glow-primary hover:opacity-95 transition"
+            />
+          )}
         </div>
 
         <div className="lg:hidden flex items-center gap-1">
@@ -348,7 +352,7 @@ export function Header() {
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-between px-3 py-3 rounded-xl bg-muted/60 text-foreground font-semibold hover:bg-muted transition-colors"
                 >
-                  <span>Serviços</span>
+                  <span>Loja de Serviços</span>
                   <span className="text-xs font-mono text-primary">{menuServices.length || "—"}</span>
                 </Link>
                 <div className="mt-1 mb-2 grid gap-0.5">
@@ -393,13 +397,15 @@ export function Header() {
                 >
                   <LogIn className="w-4 h-4" /> Conectar
                 </Link>
-                <FunnelCTAButton
-                  intent={{ purpose: "diagnosis", source: "mobile_menu", pagePath: "/", placement: "header" }}
-                  label="Solicitar Diagnóstico"
-                  location="mobile_menu"
-                  showArrow={false}
-                  className="mt-1 justify-center text-center rounded-full bg-gradient-primary text-primary-foreground font-semibold px-5 py-3 shadow-glow-primary hover:opacity-95 transition inline-flex items-center"
-                />
+                {!isLojaArea && (
+                  <FunnelCTAButton
+                    intent={{ purpose: "diagnosis", source: "mobile_menu", pagePath: "/", placement: "header" }}
+                    label="Solicitar Diagnóstico"
+                    location="mobile_menu"
+                    showArrow={false}
+                    className="mt-1 justify-center text-center rounded-full bg-gradient-primary text-primary-foreground font-semibold px-5 py-3 shadow-glow-primary hover:opacity-95 transition inline-flex items-center"
+                  />
+                )}
               </nav>
             </motion.div>
           </>

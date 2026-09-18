@@ -163,7 +163,8 @@ export function HomePositioningV2() {
           <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Em vez de concentrar tudo na mesma tela, a 0WEB organiza a experiência para que cada
             parte do ecossistema trabalhe com um objetivo claro. A Home posiciona e direciona; a
-            área de Serviços detalha as soluções; o Portfólio mostra projetos publicados.
+            Loja de Serviços reúne produtos digitais com escopo e contratação próprios; o Portfólio
+            funciona como galeria de projetos independentes publicados.
           </p>
 
           <div className="mt-10 border-y border-border">
@@ -171,16 +172,16 @@ export function HomePositioningV2() {
               to="/servicos"
               className="group grid gap-2 border-b border-border py-6 sm:grid-cols-[160px_1fr_auto] sm:items-center"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Soluções</span>
-              <span className="text-lg font-semibold text-foreground">Escolha a frente certa para o seu objetivo.</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Loja de Serviços</span>
+              <span className="text-lg font-semibold text-foreground">Escolha um produto digital com escopo e contratação claros.</span>
               <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
             </Link>
             <Link
               to="/portfolio"
               className="group grid gap-2 py-6 sm:grid-cols-[160px_1fr_auto] sm:items-center"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Projetos</span>
-              <span className="text-lg font-semibold text-foreground">Veja páginas reais publicadas para negócios diferentes.</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Portfólio</span>
+              <span className="text-lg font-semibold text-foreground">Explore projetos independentes, cada um com identidade e jornada próprias.</span>
               <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
             </Link>
           </div>
