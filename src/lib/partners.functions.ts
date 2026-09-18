@@ -168,7 +168,10 @@ export const setPartnerStatus = createServerFn({ method: "POST" })
       patch.approved_at = new Date().toISOString();
       patch.approved_by = userId;
     }
-    const { error } = await supabase.from("partners").update(patch).eq("id", data.id);
+    // Colunas de aprovação não são graváveis pelo papel `authenticated`;
+    // só o caminho administrativo já verificado acima pode alterá-las.
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("partners").update(patch).eq("id", data.id);
     if (error) throw new Error(error.message);
     return { ok: true };
   });
