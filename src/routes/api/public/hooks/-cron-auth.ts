@@ -1,5 +1,5 @@
 /**
- * Shared auth for pg_cron / external scheduler endpoints under /api/public/hooks/.
+ * Shared auth for pg_cron / external scheduler endpoints under /api/public/hooks/.\n * Prefixo '-' mantém este helper fora da árvore de rotas do TanStack.
  *
  * Requires a randomly-generated CRON_SECRET env var (never a VITE_ variable
  * and never the Supabase publishable/anon key, which are public).

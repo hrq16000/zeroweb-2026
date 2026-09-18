@@ -3,13 +3,13 @@ import { runHealthChecks } from "@/lib/settings.functions";
 
 /**
  * Periodic integration health-check. Called every 15 minutes by pg_cron.
- * Auth: requires the project's anon/publishable key in the `apikey` header.
+ * Auth: requires CRON_SECRET in the `x-cron-secret` header.
  */
 export const Route = createFileRoute("/api/public/hooks/integration-healthcheck")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { requireCronSecret } = await import("./_cron-auth");
+        const { requireCronSecret } = await import("./-cron-auth");
         const unauth = requireCronSecret(request);
         if (unauth) return unauth;
         try {

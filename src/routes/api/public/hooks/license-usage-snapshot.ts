@@ -8,7 +8,7 @@ export const Route = createFileRoute("/api/public/hooks/license-usage-snapshot")
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { requireCronSecret } = await import("./_cron-auth");
+        const { requireCronSecret } = await import("./-cron-auth");
         const unauth = requireCronSecret(request);
         if (unauth) return unauth;
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");

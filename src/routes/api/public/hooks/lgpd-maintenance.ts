@@ -3,13 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 /**
  * Cron endpoint — chamado diariamente por pg_cron para anonimizar e purgar
  * registros conforme prazo LGPD. Roteado em /api/public/* (bypass de auth);
- * a segurança vem do `apikey` header.
+ * a segurança vem de CRON_SECRET no header `x-cron-secret`.
  */
 export const Route = createFileRoute("/api/public/hooks/lgpd-maintenance")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { requireCronSecret } = await import("./_cron-auth");
+        const { requireCronSecret } = await import("./-cron-auth");
         const unauth = requireCronSecret(request);
         if (unauth) return unauth;
         try {

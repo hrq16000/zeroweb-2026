@@ -21,7 +21,7 @@ export const Route = createFileRoute("/api/public/hooks/gsc-ingest")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { requireCronSecret } = await import("./_cron-auth");
+        const { requireCronSecret } = await import("./-cron-auth");
         const unauth = requireCronSecret(request);
         if (unauth) return unauth;
         let body: unknown;

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { sendWhatsAppAlert } from "@/lib/alerts.functions";
 
-const BASE = "https://grow-evolution-engine.lovable.app";
+const BASE = (process.env.SEO_MONITOR_BASE || "https://0web.com.br").replace(/\/$/, "");
 const ROUTES_TO_CHECK = ["/", "/blog", "/servicos", "/contato", "/servicos/google-meu-negocio"];
 
 async function checkUrl(url: string): Promise<{ ok: boolean; status: number; body?: string }> {
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/api/public/hooks/seo-monitor")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { requireCronSecret } = await import("./_cron-auth");
+        const { requireCronSecret } = await import("./-cron-auth");
         const unauth = requireCronSecret(request);
         if (unauth) return unauth;
 
