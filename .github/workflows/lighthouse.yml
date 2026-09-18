@@ -34,6 +34,7 @@ jobs:
       - name: Run Lighthouse CI
         env:
           LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
+          LHCI_IS_PULL_REQUEST: ${{ github.event_name == 'pull_request' && '1' || '0' }}
           LHCI_SHARD_INDEX: ${{ matrix.shard }}
           LHCI_SHARD_COUNT: 4
         run: bunx lhci autorun --config=.lighthouserc.cjs
