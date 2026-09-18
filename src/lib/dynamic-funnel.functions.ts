@@ -556,38 +556,40 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       await import("@/lib/lead-recoverability");
     const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
 
+    const quizMetadata: Record<string, unknown> = {
+      source: "portfolio_client",
+      client_key: data.clientKey,
+      funnel_slug: `portfolio-${data.clientKey}`,
+      studio_name: data.studioName,
+      recipient_name: data.recipientName,
+      mode: data.mode,
+      proposal_kind: data.proposalKind,
+      ...(hasOrderContext ? { order_context: orderContext } : {}),
+      completed_at: new Date().toISOString(),
+      page_url: data.pageUrl ?? pageUrl,
+      ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
+      ...(data.sessionId ? { session_id: data.sessionId } : {}),
+      ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
+      ...(geo.city ? { city: geo.city } : {}),
+      ...(geo.region ? { region: geo.region } : {}),
+      ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
+      ...(geo.isp ? { isp: geo.isp } : {}),
+      ...(recoveryPhone
+        ? {
+            recovery_contact_kind: "whatsapp",
+            recovery_contact_purpose: RECOVERY_CONTACT_PURPOSE,
+            recovery_contact_collected_at: new Date().toISOString(),
+          }
+        : {}),
+    };
+
     // O lead é persistido antes da resolução do canal.
     const { data: lead, error: leadError } = await supabaseAdmin
       .from("dynamic_form_leads")
       .insert({
         form_id: form.id,
         answers_json: data.answers,
-        metadata_json: {
-          source: "portfolio_client",
-          client_key: data.clientKey,
-          funnel_slug: `portfolio-${data.clientKey}`,
-          studio_name: data.studioName,
-          recipient_name: data.recipientName,
-          mode: data.mode,
-          proposal_kind: data.proposalKind,
-          ...(hasOrderContext ? { order_context: orderContext } : {}),
-          completed_at: new Date().toISOString(),
-          page_url: data.pageUrl ?? pageUrl,
-          ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
-          ...(data.sessionId ? { session_id: data.sessionId } : {}),
-          ...(data.visitorId ? { visitor_id: data.visitorId } : {}),
-          ...(geo.city ? { city: geo.city } : {}),
-          ...(geo.region ? { region: geo.region } : {}),
-          ...(geo.neighborhood ? { neighborhood: geo.neighborhood } : {}),
-          ...(geo.isp ? { isp: geo.isp } : {}),
-          ...(recoveryPhone
-            ? {
-                recovery_contact_kind: "whatsapp",
-                recovery_contact_purpose: RECOVERY_CONTACT_PURPOSE,
-                recovery_contact_collected_at: new Date().toISOString(),
-              }
-            : {}),
-        },
+        metadata_json: quizMetadata,
         contact_name: null,
         contact_email: null,
         contact_phone: recoveryPhone,
