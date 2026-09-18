@@ -15,12 +15,12 @@ export const Route = createFileRoute("/servicos/marketplace")({
       { name: "description", content: "Encontre profissionais e empresas verificadas em todo o Brasil para sites, SEO, Google Meu Negócio, tráfego pago e automação." },
       { property: "og:title", content: "Marketplace 0WEB" },
       { property: "og:description", content: "Catálogo nacional de prestadores e empresas verificadas." },
-      { property: "og:url", content: `${ORIGIN}/marketplace` },
+      { property: "og:url", content: `${ORIGIN}/servicos/marketplace` },
     ],
     links: [
-      { rel: "canonical", href: `${ORIGIN}/marketplace` },
-      { rel: "alternate", hrefLang: "pt-BR", href: `${ORIGIN}/marketplace` },
-      { rel: "alternate", hrefLang: "x-default", href: `${ORIGIN}/marketplace` },
+      { rel: "canonical", href: `${ORIGIN}/servicos/marketplace` },
+      { rel: "alternate", hrefLang: "pt-BR", href: `${ORIGIN}/servicos/marketplace` },
+      { rel: "alternate", hrefLang: "x-default", href: `${ORIGIN}/servicos/marketplace` },
     ],
 
   }),

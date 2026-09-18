@@ -90,7 +90,7 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Início", item: "https://0web.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://0web.com.br/#solucoes" },
+            { "@type": "ListItem", position: 2, name: "Serviços", item: "https://0web.com.br/servicos" },
             { "@type": "ListItem", position: 3, name: "Google Meu Negócio", item: URL },
           ],
         }),

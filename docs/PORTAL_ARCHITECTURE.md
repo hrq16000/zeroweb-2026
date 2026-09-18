@@ -106,3 +106,17 @@ Mudanças futuras devem preservar estas fronteiras:
 
 Qualquer alteração que atravesse essas fronteiras deve ser tratada como mudança
 de arquitetura, não como ajuste visual isolado.
+
+
+## 8. Gate automatizado
+
+`scripts/validate-portal-architecture.mjs` roda no `prebuild` e protege as
+fronteiras principais do portal. Ele deve reprovar regressões como:
+
+- CTA institucional reaparecendo na loja;
+- botão flutuante institucional reaparecendo em rotas de compra;
+- Home perdendo os caminhos explícitos para Loja e Portfólio;
+- canonical de uma rota pública apontando para URL que redireciona;
+- breadcrumb de serviço voltando a apontar para âncora antiga da Home.
+
+A documentação explica a intenção; o gate impede que a intenção se perca no código.
