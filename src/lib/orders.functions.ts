@@ -8,7 +8,17 @@ const CartItemSchema = z.object({
   category: z.string().max(120).optional(),
   price: z.number().min(0).max(1_000_000).nullable().optional(),
   pricePeriod: z.string().max(40).nullable().optional(),
-  imageUrl: z.string().url().max(2048).nullable().optional(),
+  // Capas do catálogo podem ser URL absoluta ou caminho relativo do próprio
+  // site (ex.: /api/public/catalog-image/..., /images/servicos/...).
+  imageUrl: z
+    .string()
+    .max(2048)
+    .refine(
+      (v) => /^https?:\/\//.test(v) || v.startsWith("/"),
+      "imageUrl deve ser uma URL absoluta ou um caminho do próprio site",
+    )
+    .nullable()
+    .optional(),
   qty: z.number().int().min(1).max(99),
 });
 
