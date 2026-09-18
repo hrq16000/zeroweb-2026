@@ -331,6 +331,13 @@ export const submitFunnel = createServerFn({ method: "POST" })
       "@/lib/whatsapp-redirect.server"
     );
     const protocol = makeProtocol();
+    // O protocolo fica junto do lead para que o painel possa acompanhar a
+    // requisição pelo mesmo código mostrado ao visitante.
+    metadata.protocol = protocol;
+    await supabaseAdmin
+      .from("dynamic_form_leads")
+      .update({ metadata_json: metadata as any })
+      .eq("id", lead.id);
 
     // Best-effort: associate a client-created funnel session (if any).
     const clientSessionId = (data.client_metadata as unknown as { session_id?: string } | undefined)?.session_id;
