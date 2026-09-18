@@ -276,7 +276,7 @@ const visitorTrackingMiddleware = createMiddleware().server(async ({ next, reque
         ? await sha256Hex(`${ipRaw}|${day}|${salt}`)
         : await sha256Hex(`${decision.visitorId}|${day}|${salt}`);
 
-      if (allowInsert(ipHash)) {
+      if (allowInsert(ipHash) && hasServerServiceRole()) {
         const sp = url.searchParams;
         const insertPromise = (async () => {
           try {
