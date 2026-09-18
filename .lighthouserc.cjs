@@ -8,7 +8,9 @@
  * CI:    .github/workflows/lighthouse.yml
  */
 const fs = require("node:fs");
-const IS_PULL_REQUEST = process.env.GITHUB_EVENT_NAME === "pull_request";
+const IS_PULL_REQUEST =
+  process.env.LHCI_IS_PULL_REQUEST === "1" ||
+  process.env.GITHUB_EVENT_NAME === "pull_request";
 const TARGET_URL = IS_PULL_REQUEST
   ? "http://127.0.0.1:8080"
   : process.env.LHCI_TARGET_URL || "https://0web.com.br";
