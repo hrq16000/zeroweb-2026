@@ -7,7 +7,6 @@ import {
   MessageCircle,
   Rocket,
   Smartphone,
-  Star,
   Sparkles,
   Zap,
   ShieldCheck,
@@ -17,7 +16,6 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { RelatedLinksGrid } from "@/components/site/RelatedLinksGrid";
-import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import {
   Accordion,
   AccordionContent,
@@ -27,6 +25,8 @@ import {
 import { absUrl, ORIGIN, ORG_REF, breadcrumbLd } from "@/lib/seo";
 import { SITE_EXPRESS_FAQ as FAQ } from "@/lib/site-express-faq";
 import { TrustStrip } from "@/components/site/TrustStrip";
+import { ServicePurchasePanel } from "@/components/site/ServicePurchasePanel";
+import { ProductActionGate } from "@/components/site/ProductActionGate";
 
 const SLUG = "site-express";
 const PATH = `/servicos/${SLUG}`;
@@ -89,13 +89,6 @@ export const Route = createFileRoute("/servicos/site-express")({
                 priceValidUntil: "2026-12-31",
                 seller: ORG_REF,
               },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "127",
-                bestRating: "5",
-                worstRating: "1",
-              },
             },
             {
               "@type": "Product",
@@ -109,11 +102,6 @@ export const Route = createFileRoute("/servicos/site-express")({
                 priceCurrency: "BRL",
                 availability: "https://schema.org/InStock",
                 url: URL,
-              },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "127",
               },
             },
             {
@@ -148,10 +136,16 @@ export const Route = createFileRoute("/servicos/site-express")({
 });
 
 function SiteExpressPage() {
+  const product = {
+    slug: SLUG,
+    name: "Site Express",
+    category: "Sites",
+    price: Number(PRICE),
+    pricePeriod: null,
+    imageUrl: null,
+  };
   const ctaClass =
     "w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wide px-7 py-4 text-sm shadow-lg shadow-orange-600/30 transition";
-  const ctaWhiteClass =
-    "mt-7 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white text-orange-600 hover:bg-orange-50 font-bold uppercase tracking-wide px-6 py-4 text-sm shadow-lg transition";
   const ctaFinalClass =
     "mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-white text-orange-600 hover:bg-orange-50 font-bold uppercase tracking-wide px-8 py-4 text-sm shadow-xl transition";
 
@@ -200,14 +194,9 @@ function SiteExpressPage() {
               transition={{ delay: 0.15 }}
               className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
             >
-              <FunnelCTAButton
-                pageType="service"
-                serviceSlug="site-express"
-                funnelSlug="funnel-site-express"
-                label="Quero meu Site Express"
-                className={ctaClass}
-                location="site_express_hero"
-              />
+              <a href="#comprar" className={ctaClass}>
+                Comprar Site Express <ArrowRight className="w-4 h-4" />
+              </a>
               <div className="text-sm text-gray-500 flex items-center gap-2">
                 <Clock className="w-4 h-4 text-orange-600" />
                 Do briefing ao site no ar, com nosso time cuidando de tudo
@@ -215,9 +204,6 @@ function SiteExpressPage() {
             </motion.div>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
-              <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 fill-orange-500 text-orange-500" /> 4.9/5 de clientes
-              </span>
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-orange-600" /> Suporte pós-entrega incluso
               </span>
@@ -348,7 +334,7 @@ function SiteExpressPage() {
         </section>
 
         {/* PREÇO */}
-        <section className="py-20 px-5">
+        <section id="comprar" className="py-20 px-5 scroll-mt-24">
           <div className="max-w-md mx-auto">
             <div className="relative rounded-3xl bg-gradient-to-br from-orange-600 to-orange-500 p-8 text-white shadow-2xl shadow-orange-600/30">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white text-orange-600 text-[11px] font-bold uppercase tracking-wider shadow">
@@ -377,14 +363,22 @@ function SiteExpressPage() {
                 ))}
               </ul>
 
-              <FunnelCTAButton
-                pageType="service"
-                serviceSlug="site-express"
-                funnelSlug="funnel-site-express"
-                label="Quero meu site agora"
-                className={ctaWhiteClass}
-                location="site_express_pricing"
-              />
+              <div className="mt-7 text-gray-900">
+                <ServicePurchasePanel item={product} />
+                <ProductActionGate
+                  product={product}
+                  intent={{
+                    purpose: "diagnosis",
+                    source: "product_site-express_pricing",
+                    pagePath: PATH,
+                    placement: "section",
+                    serviceSlug: SLUG,
+                  }}
+                  label="Tirar dúvida antes de comprar"
+                  variant="outline"
+                  className="mt-3 w-full bg-white text-orange-700 border-white/70 hover:bg-orange-50"
+                />
+              </div>
             </div>
             <p className="mt-4 text-center text-xs text-gray-500">
               Agências cobram R$ 3.000 a R$ 8.000 pelo mesmo escopo.
@@ -463,14 +457,9 @@ function SiteExpressPage() {
             <p className="mt-4 text-lg opacity-95">
               Site Express turnkey: nosso time entrega chave-na-mão e seu site começa a vender por você.
             </p>
-            <FunnelCTAButton
-              pageType="service"
-              serviceSlug="site-express"
-              funnelSlug="funnel-site-express"
-              label="Quero meu Site Express"
-              className={ctaFinalClass}
-              location="site_express_final"
-            />
+            <a href="#comprar" className={ctaFinalClass}>
+              Comprar Site Express <ArrowRight className="w-4 h-4" />
+            </a>
             <p className="mt-6 text-sm opacity-90">
               <Link to="/servicos" className="underline hover:opacity-100">Ver todos os serviços da 0WEB</Link>
             </p>
