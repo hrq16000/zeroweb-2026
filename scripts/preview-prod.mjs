@@ -15,7 +15,7 @@
  */
 import { spawn } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 
 const CONFIG = resolve("dist/server/wrangler.json");
 if (!existsSync(CONFIG)) {
@@ -70,7 +70,7 @@ const port = process.env.PREVIEW_PORT ?? "8080";
  * reportar o teto suportado, reescrever a data para esse teto e subir de novo.
  * O artefato publicado (dist/server/wrangler.json) permanece intacto.
  */
-const PREVIEW_CONFIG = resolve("dist/server/wrangler.preview.json");
+const PREVIEW_CONFIG = resolve(dirname(CONFIG), "wrangler.preview.json");
 
 function writePreviewConfig(compatibilityDate) {
   const base = JSON.parse(readFileSync(CONFIG, "utf8"));
