@@ -8,8 +8,12 @@
  *  - o clique (sem force) abre o modal do funil, sem "funil indisponível";
  *  - as 5 etapas avançam e chegam à mensagem pronta;
  *  - o envio usa o clientKey do próprio cliente (isolamento);
- *  - o desfecho é um redirect tokenizado que resolve para WhatsApp
- *    (3xx com destino válido), nunca 5xx nem "Canal indisponível".
+ *  - com WhatsApp versionado: gera redirect tokenizado para WhatsApp;
+ *  - com whatsapp:null: salva/encerra em modo lead-only, sem redirect e sem erro.
+ *
+ * Em CI sem SUPABASE_SERVICE_ROLE_KEY, E2E_DRY_RUN=1 valida todo o fluxo visual
+ * até a etapa final sem executar escrita externa. O gate completo de escrita é
+ * exercitado automaticamente quando a credencial de integração está disponível.
  *
  * Nenhum número/telefone é impresso: apenas o host de destino é validado.
  *
@@ -24,16 +28,17 @@ const configuredBrowser = process.env.E2E_BROWSER_PATH;
 const only = process.env.E2E_ONLY_SLUG;
 
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
+const whatsappRegistry = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
+const DRY_RUN = process.env.E2E_DRY_RUN === "1";
 const TARGETS = clients
   .filter((client) => !only || client.slug === only)
   .map((client) => ({
     slug: client.slug,
     clientKey: client.clientKey,
     siteName: client.siteName,
-    // Sites sem número próprio ainda não têm destinatário: o redirect responde
-    // 503 por contrato (nunca cai no WhatsApp da 0WEB). Isso é pendência de
-    // configuração do cliente, não regressão de código.
-    recipientConfigured: client.funnelRecipientConfigured === true,
+    // A fonte canônica é o cadastro versionado por clientKey. Metadados legados
+    // em portfolio-clients.json não decidem mais o destino operacional.
+    recipientConfigured: Boolean(whatsappRegistry.contacts?.[client.clientKey]?.whatsapp),
   }));
 
 
@@ -62,7 +67,8 @@ const browser = await chromium.launch({
 });
 
 const failures = [];
-const pending = [];
+const leadOnly = [];
+const dryRunOk = [];
 const ok = [];
 
 const VALID_DESTINATION = /^https:\/\/(api\.whatsapp\.com|wa\.me|web\.whatsapp\.com)\//;
@@ -202,6 +208,12 @@ async function runTarget(target, viewport) {
       failures.push(`${id}: etapa final sem botão de conclusão`);
       return;
     }
+    if (DRY_RUN) {
+      dryRunOk.push(id);
+      console.log(`✓ ${id} → fluxo visual completo até a conclusão (dry-run)`);
+      return;
+    }
+
     await finish.click({ timeout: 8000 });
     await page.waitForTimeout(4000);
 
@@ -224,13 +236,18 @@ async function runTarget(target, viewport) {
       failures.push(`${id}: envio usou clientKey de outro cliente`);
       return;
     }
-    if (!redirect) {
-      failures.push(`${id}: funil não gerou redirect tokenizado`);
+    if (!target.recipientConfigured) {
+      if (redirect) {
+        failures.push(`${id}: portfolio lead-only gerou redirect indevido`);
+        return;
+      }
+      leadOnly.push(id);
+      console.log(`✓ ${id} → funil completo em modo lead-only, sem redirect`);
       return;
     }
-    if (redirect.status === 503 && !target.recipientConfigured) {
-      pending.push(`${id}: destinatário do cliente ainda não configurado (503 por contrato)`);
-      console.log(`• ${id} → funil completo; destinatário pendente de configuração`);
+
+    if (!redirect) {
+      failures.push(`${id}: funil com WhatsApp configurado não gerou redirect tokenizado`);
       return;
     }
     if (redirect.status >= 500) {
@@ -274,10 +291,12 @@ const report = {
   generatedAt: new Date().toISOString(),
   baseUrl,
   scenarios: queue.length,
+  mode: DRY_RUN ? "dry-run" : "write",
   ok: ok.length,
-  pendingConfiguration: pending.length,
+  leadOnly: leadOnly.length,
+  dryRunOk: dryRunOk.length,
   failed: failures.length,
-  details: { ok, pending, failures },
+  details: { ok, leadOnly, dryRunOk, failures },
 };
 try {
   const { mkdirSync, writeFileSync } = await import("node:fs");
@@ -289,23 +308,26 @@ try {
     `<!doctype html><meta charset="utf-8"><title>E2E funis de portfólio</title>` +
       `<h1>E2E funis de portfólio</h1>` +
       `<p>${report.generatedAt} · base ${baseUrl}</p>` +
-      `<p><strong>${report.scenarios}</strong> cenários · ${report.ok} OK · ${report.pendingConfiguration} pendentes de configuração · ${report.failed} falhas</p>` +
-      `<h2>OK</h2><ul>${li(ok)}</ul>` +
-      `<h2>Pendentes de configuração</h2><ul>${li(pending)}</ul>` +
+      `<p><strong>${report.scenarios}</strong> cenários · modo ${report.mode} · ${report.ok} redirects OK · ${report.leadOnly} lead-only · ${report.dryRunOk} dry-run OK · ${report.failed} falhas</p>` +
+      `<h2>Redirects OK</h2><ul>${li(ok)}</ul>` +
+      `<h2>Lead-only</h2><ul>${li(leadOnly)}</ul>` +
+      `<h2>Dry-run OK</h2><ul>${li(dryRunOk)}</ul>` +
       `<h2>Falhas</h2><ul>${li(failures)}</ul>`,
   );
 } catch (error) {
   console.error(`Aviso: não foi possível gravar o relatório (${String(error).slice(0, 120)})`);
 }
 
-console.log(`\nResumo: ${ok.length} OK · ${pending.length} pendentes de configuração · ${queue.length} executados.`);
-if (pending.length) {
-  console.log("\nPendências de configuração (não bloqueiam o gate):");
-  pending.forEach((p) => console.log(`  - ${p}`));
-}
+console.log(
+  `\nResumo: ${ok.length} redirects OK · ${leadOnly.length} lead-only · ${dryRunOk.length} dry-run OK · ${queue.length} executados.`,
+);
 if (failures.length) {
   console.error("\n✗ Falhas nos funis de portfólio:");
   failures.forEach((f) => console.error(`  - ${f}`));
   process.exit(1);
 }
-console.log("✓ Todos os funis de portfólio concluíram com redirect válido.");
+console.log(
+  DRY_RUN
+    ? "✓ Todos os funis de portfólio chegaram à etapa final no gate sem escrita."
+    : "✓ Todos os funis de portfólio respeitaram o contrato de redirect/lead-only.",
+);
