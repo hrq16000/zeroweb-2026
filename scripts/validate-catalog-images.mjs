@@ -16,6 +16,8 @@
  *   SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY (ou VITE_*)
  *   SKIP_CATALOG_IMAGE_CHECK=1 → pula
  */
+import { existsSync } from "node:fs";
+
 const SKIP = process.env.SKIP_CATALOG_IMAGE_CHECK === "1";
 if (SKIP) {
   console.log("[catalog-images] skipped via SKIP_CATALOG_IMAGE_CHECK=1");
@@ -45,7 +47,7 @@ const SITE_BASE = (process.env.SITE_BASE_URL || "https://0web.com.br").replace(/
 function imageTarget(path) {
   if (!path) return null;
   if (/^https?:\/\//i.test(path)) return { url: path, headers: {} };
-  if (path.startsWith("/")) return { url: `${SITE_BASE}${path}`, headers: {} };
+  if (path.startsWith("/")) return { url: `${SITE_BASE}${path}`, headers: {}, localFile: `public${path}` };
   return {
     url: `${URL_BASE.replace(/\/$/, "")}/storage/v1/object/service-images/${path}`,
     headers: { apikey: ANON, Authorization: `Bearer ${ANON}` },
@@ -53,7 +55,10 @@ function imageTarget(path) {
 }
 
 async function headOk(target) {
-  const { url, headers } = target;
+  const { url, headers, localFile } = target;
+  // Arquivo versionado no próprio repositório: vale como imagem real mesmo
+  // antes do deploy que o publica.
+  if (localFile && existsSync(localFile)) return { ok: true };
   try {
     const r = await fetch(url, { method: "HEAD", headers });
     if (!r.ok) return { ok: false, reason: `HTTP ${r.status}` };
