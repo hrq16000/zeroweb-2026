@@ -18,6 +18,7 @@
  * Nenhum número/telefone é impresso: apenas o host de destino é validado.
  *
  * Uso: node scripts/playwright-portfolio-funnels.mjs
+ * Sharding CI: E2E_SHARD_COUNT=4 E2E_SHARD_INDEX=0..3
  */
 import { chromium } from "playwright";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
@@ -26,12 +27,14 @@ import { join } from "node:path";
 const baseUrl = process.env.E2E_BASE_URL || "http://localhost:8080";
 const configuredBrowser = process.env.E2E_BROWSER_PATH;
 const only = process.env.E2E_ONLY_SLUG;
+const shardCount = Math.max(1, Number(process.env.E2E_SHARD_COUNT || 1));
+const shardIndex = Math.max(0, Number(process.env.E2E_SHARD_INDEX || 0));
 
 const clients = JSON.parse(readFileSync("src/config/portfolio-clients.json", "utf8"));
 const whatsappRegistry = JSON.parse(readFileSync("src/config/portfolio-whatsapp.json", "utf8"));
 const DRY_RUN = process.env.E2E_DRY_RUN === "1";
 const TARGETS = clients
-  .filter((client) => !only || client.slug === only)
+  .filter((client, index) => (!only || client.slug === only) && index % shardCount === shardIndex)
   .map((client) => ({
     slug: client.slug,
     clientKey: client.clientKey,
