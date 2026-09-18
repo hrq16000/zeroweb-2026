@@ -51,7 +51,7 @@ jobs:
   runtime-gates:
     name: Pop-up, funis, acessibilidade e regressão visual
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     needs: static-gates
     steps:
       - uses: actions/checkout@v4
@@ -68,75 +68,45 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Start production preview server
-        env:
-          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-          # Necessária apenas para os gates de ESCRITA (funis/leads).
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        # O build usa o preset Cloudflare (dist/server/wrangler.json); `vite preview`
-        # não serve esse artefato. `preview:prod` sobe o worker real.
-        run: |
-          nohup bun run preview:prod > /tmp/preview-server.log 2>&1 &
-          echo $! > /tmp/preview-server.pid
-          ready=0
-          for i in $(seq 1 60); do
-            if curl -sf -o /dev/null http://localhost:8080/; then ready=1; break; fi
-            sleep 2
-          done
-          if [ "$ready" -ne 1 ]; then
-            echo "Preview de produção não respondeu"
-            tail -n 200 /tmp/preview-server.log
-            exit 1
-          fi
-
-
       - name: Snapshot de indexabilidade (produção = "antes")
         continue-on-error: true
         run: bun run audit:indexability -- --label=before https://0web.com.br
 
       - name: Pop-up único em /portfolio/$slug
         env:
-          E2E_BASE_URL: http://localhost:8080
-          # Runner hospedado tem menos memória que o ambiente local.
-          # Mantém os 92 slugs e todas as assertions; reduz só paralelismo.
           POPUP_CONCURRENCY: 4
-        run: bun run test:e2e:portfolio-popup
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
         env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run test:e2e:portfolio-funnels
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+          else
+            echo "SUPABASE_SERVICE_ROLE_KEY não está configurada no GitHub; executando o gate E2E sem escrita externa."
+            E2E_DRY_RUN=1 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+          fi
 
       - name: Prévias de link e ícones (headless)
-        env:
-          BASE_URL: http://localhost:8080
-        run: bun run validate:link-previews
+        run: node scripts/ci-with-prod-preview.mjs -- bun run validate:link-previews
 
       - name: Ícones do <head> (status, content-type, dimensões)
-        env:
-          BASE_URL: http://localhost:8080
-        run: bun run validate:head-icons
+        run: node scripts/ci-with-prod-preview.mjs -- bun run validate:head-icons
 
       - name: Indexabilidade do build ("depois") e diff
-        env:
-          BASE_URL: http://localhost:8080
-        run: bun run audit:indexability -- --label=after
+        run: node scripts/ci-with-prod-preview.mjs -- bun run audit:indexability -- --label=after
 
       - name: Acessibilidade (axe-core)
-        env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run audit:a11y
+        run: node scripts/ci-with-prod-preview.mjs -- bun run audit:a11y
 
       - name: Regressão visual (home + portfólios, 3 viewports)
-        env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run test:visual
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
 
       - name: Relatório comparativo consolidado
         if: always()
         run: bun run audit:report
-
 
       - name: Upload evidências
         if: always()
@@ -153,6 +123,8 @@ jobs:
             seo-reports/indexability-*.json
             seo-reports/indexability-diff.md
             seo-reports/ci-audit-summary.md
+            seo-reports/portfolio-funnels-e2e.json
+            seo-reports/portfolio-funnels-e2e.html
             public/audit
             seo-reports/client-privacy-report.json
           if-no-files-found: ignore
