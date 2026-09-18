@@ -10,13 +10,17 @@ on:
       target_url:
         description: "URL alvo (default: produção)"
         required: false
-        default: "https://grow-evolution-engine.lovable.app"
+        default: "https://0web.com.br"
 
 jobs:
   lighthouse:
-    name: Performance + SEO Gate
+    name: Performance + SEO Gate (shard ${{ matrix.shard }})
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v4
 
@@ -29,14 +33,16 @@ jobs:
 
       - name: Run Lighthouse CI
         env:
-          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://zeroweb.lovable.app' }}
+          LHCI_TARGET_URL: ${{ github.event.inputs.target_url || 'https://0web.com.br' }}
+          LHCI_SHARD_INDEX: ${{ matrix.shard }}
+          LHCI_SHARD_COUNT: 4
         run: bunx lhci autorun --config=.lighthouserc.cjs
 
       - name: Upload Lighthouse reports (JSON/HTML)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-portfolio-${{ github.run_id }}
+          name: lighthouse-portfolio-${{ github.run_id }}-shard-${{ matrix.shard }}
           path: |
             .lighthouseci/**
             lhci-reports/**
