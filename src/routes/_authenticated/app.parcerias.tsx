@@ -72,8 +72,10 @@ const SITUACAO: Record<string, string> = {
 function ParceriasPage() {
   const loadCommissions = useServerFn(listPartnerCommissionsAdmin);
   const loadRequests = useServerFn(listDestinationRequests);
+  const loadSampleLeads = useServerFn(listPortfolioRequests);
   const [rows, setRows] = useState<CommissionRow[]>([]);
   const [requests, setRequests] = useState<DestinationRequestRow[]>([]);
+  const [sampleLeads, setSampleLeads] = useState<PortfolioRequestRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState("");
@@ -82,15 +84,20 @@ function ParceriasPage() {
     setLoading(true);
     setError(null);
     try {
-      const [c, r] = await Promise.all([loadCommissions(), loadRequests()]);
+      const [c, r, s] = await Promise.all([
+        loadCommissions(),
+        loadRequests(),
+        loadSampleLeads({ data: { only_sample: true, days: 90, limit: 200 } }),
+      ]);
       setRows(c.rows as CommissionRow[]);
       setRequests(r.rows);
+      setSampleLeads(s.requests);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, [loadCommissions, loadRequests]);
+  }, [loadCommissions, loadRequests, loadSampleLeads]);
 
   useEffect(() => {
     void refresh();
