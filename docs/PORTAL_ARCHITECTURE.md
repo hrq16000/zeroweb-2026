@@ -41,6 +41,10 @@ Rotas de loja incluem, no mínimo:
 O CTA institucional genérico "Solicitar Diagnóstico" não deve competir com a
 compra dentro dessas rotas. A ação principal vem do produto/carrinho.
 
+O botão flutuante institucional de atendimento também fica fora da loja. Em
+páginas de produto, qualquer ajuda deve manter o contexto do produto por
+`serviceSlug`, `ProductActionGate` ou fluxo equivalente.
+
 ## 3. Portfólio `/portfolio`
 
 `/portfolio` é galeria e catálogo de projetos publicados.
@@ -94,7 +98,7 @@ deve terminar em `/servicos/<slug>`.
 Mudanças futuras devem preservar estas fronteiras:
 
 1. Não transformar a Home em catálogo completo.
-2. Não colocar funil institucional concorrendo com compra na loja.
+2. Não colocar funil ou botão flutuante institucional concorrendo com compra na loja.
 3. Não colocar contato/funil 0WEB dentro de uma landing de cliente.
 4. Não compartilhar destinos entre `clientKey`.
 5. Não converter `/portfolio` em loja.

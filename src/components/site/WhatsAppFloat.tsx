@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, useAnimationControls } from "motion/react";
+import { useRouterState } from "@tanstack/react-router";
 import { useWaFunnel } from "@/components/site/WaFunnelModal";
 import { useNearFooter } from "@/hooks/useNearFooter";
 import { usePrefersReducedMotion } from "@/components/motion";
@@ -11,11 +12,19 @@ export function WhatsAppFloat() {
   const [showBubble, setShowBubble] = useState(false);
   const nearFooter = useNearFooter();
   const reduced = usePrefersReducedMotion();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isLojaArea =
+    pathname.startsWith("/servicos") ||
+    pathname.startsWith("/checkout") ||
+    pathname.startsWith("/pedido") ||
+    pathname.startsWith("/suporte-pedido") ||
+    pathname.startsWith("/categoria") ||
+    pathname.startsWith("/marketplace");
 
   // Chamada periódica de atenção — o contrato global proíbe loop sem guarda
   // de prefers-reduced-motion, então aqui ele simplesmente não existe.
   useEffect(() => {
-    if (reduced) return;
+    if (reduced || isLojaArea) return;
     let cancelled = false;
     const tick = async () => {
       if (cancelled) return;
@@ -34,7 +43,9 @@ export function WhatsAppFloat() {
       clearTimeout(first);
       clearInterval(interval);
     };
-  }, [controls, reduced]);
+  }, [controls, reduced, isLojaArea]);
+
+  if (isLojaArea) return null;
 
   return (
     <div className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] right-4 z-40 flex items-end gap-2 transition-[opacity,transform] duration-300 sm:right-6 ${nearFooter ? "pointer-events-none translate-y-6 opacity-0" : "opacity-100"}`} aria-hidden={nearFooter}>

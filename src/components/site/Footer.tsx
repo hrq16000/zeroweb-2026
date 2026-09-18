@@ -1,5 +1,5 @@
 import { Instagram, Linkedin, Youtube, Sparkles } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { BrandLogo } from "@/components/site/BrandLogo";
 
@@ -37,6 +37,15 @@ const suporteCol: { label: string; to?: string; href?: string }[] = [
 ];
 
 export function Footer() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isLojaArea =
+    pathname.startsWith("/servicos") ||
+    pathname.startsWith("/checkout") ||
+    pathname.startsWith("/pedido") ||
+    pathname.startsWith("/suporte-pedido") ||
+    pathname.startsWith("/categoria") ||
+    pathname.startsWith("/marketplace");
+
   return (
     <footer className="bg-foreground text-background pt-20 pb-10">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -50,19 +59,21 @@ export function Footer() {
               Tecnologia que gera crescimento. Sites, IA e marketing digital para empresas que querem liderar.
             </p>
 
-            <div className="mt-6 text-sm text-background/80">
-              <FunnelCTAButton
-                intent={{
-                  purpose: "commercial",
-                  source: "footer",
-                  pagePath: typeof window === "undefined" ? "/" : window.location.pathname,
-                  placement: "footer",
-                }}
-                label="Iniciar diagnóstico"
-                location="footer"
-                className="inline-flex items-center gap-2 rounded-full bg-background/10 border border-background/15 px-5 py-3 font-semibold hover:bg-background/15 transition"
-              />
-            </div>
+            {!isLojaArea && (
+              <div className="mt-6 text-sm text-background/80">
+                <FunnelCTAButton
+                  intent={{
+                    purpose: "commercial",
+                    source: "footer",
+                    pagePath: typeof window === "undefined" ? "/" : window.location.pathname,
+                    placement: "footer",
+                  }}
+                  label="Iniciar diagnóstico"
+                  location="footer"
+                  className="inline-flex items-center gap-2 rounded-full bg-background/10 border border-background/15 px-5 py-3 font-semibold hover:bg-background/15 transition"
+                />
+              </div>
+            )}
 
             <div className="mt-6 flex gap-3">
               {[
