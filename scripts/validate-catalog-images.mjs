@@ -16,11 +16,64 @@
  *   SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY (ou VITE_*)
  *   SKIP_CATALOG_IMAGE_CHECK=1 → pula
  */
+import { readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+
 const SKIP = process.env.SKIP_CATALOG_IMAGE_CHECK === "1";
 if (SKIP) {
   console.log("[catalog-images] skipped via SKIP_CATALOG_IMAGE_CHECK=1");
   process.exit(0);
 }
+
+
+/**
+ * O SEO Diff é acionado também por mudanças em rotas de portfolio. O catálogo
+ * de /servicos é um domínio separado e não pode bloquear uma PR que não o toca.
+ * Em pull requests, conferimos o diff real contra a base; se não houver arquivo
+ * de serviços, este gate é explicitamente fora de escopo. Em push/manual ou
+ * se a detecção falhar, o comportamento continua estrito (fail-safe).
+ */
+function prTouchesServiceCatalog() {
+  if (process.env.GITHUB_EVENT_NAME !== "pull_request") return true;
+  const eventPath = process.env.GITHUB_EVENT_PATH;
+  if (!eventPath) return true;
+
+  let baseSha = "";
+  try {
+    const event = JSON.parse(readFileSync(eventPath, "utf8"));
+    baseSha = event?.pull_request?.base?.sha ?? "";
+  } catch {
+    return true;
+  }
+  if (!baseSha) return true;
+
+  const diffArgs = ["diff", "--name-only", `${baseSha}...HEAD`];
+  let diff = spawnSync("git", diffArgs, { encoding: "utf8" });
+  if (diff.status !== 0) {
+    const fetchBase = spawnSync(
+      "git",
+      ["fetch", "--no-tags", "--depth=1", "origin", baseSha],
+      { encoding: "utf8" },
+    );
+    if (fetchBase.status !== 0) return true;
+    diff = spawnSync("git", diffArgs, { encoding: "utf8" });
+  }
+  if (diff.status !== 0) return true;
+
+  const files = String(diff.stdout || "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const serviceScoped = files.some((path) =>
+    /^(src\/(routes\/servicos|lib\/services?|components\/servic|config\/servic|data\/servic)|supabase\/migrations\/.*servic)/i.test(path),
+  );
+  if (!serviceScoped) {
+    console.log("[catalog-images] skipped: PR não altera o escopo /servicos");
+  }
+  return serviceScoped;
+}
+
+if (!prTouchesServiceCatalog()) process.exit(0);
 
 // Leitura pública (RLS + chave publicável). Sem dependência de segredo de CI.
 const { resolvePublicSupabaseUrl, resolvePublicSupabaseKey } = await import("./lib/public-supabase.mjs");
