@@ -22,7 +22,7 @@ export const Route = createFileRoute('/api/public/health-db')({
         // usado pelos hooks de manutenção. Sem ele, apenas o health-check roda.
         let reload = false;
         if (wantsReload) {
-          const { requireCronSecret } = await import('./hooks/_cron-auth');
+          const { requireCronSecret } = await import('./hooks/-cron-auth');
           const unauth = requireCronSecret(request);
           if (unauth) return unauth;
           reload = true;
