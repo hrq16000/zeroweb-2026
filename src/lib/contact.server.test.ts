@@ -12,12 +12,14 @@ describe("portfolio WhatsApp data", () => {
     expect(getPortfolioContactClientKeys()).toHaveLength(92);
   });
 
-  it("migra os 64 destinos atuais e preserva os 2 já comprovados na PR", () => {
-    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(66);
+  it("migra os destinos atuais e preserva o comprovado na PR", () => {
+    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(65);
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
     expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");
     expect(resolveVersionedPortfolioWhatsApp("adhonep-curitiba")).toBe("5541995610718");
-    expect(resolveVersionedPortfolioWhatsApp("r-beauty")).toBe("554196048639");
+    // r-beauty não possui número próprio comprovado (variante derivada de
+    // renata-beauty foi removida): portfolio lead-only.
+    expect(resolveVersionedPortfolioWhatsApp("r-beauty")).toBeNull();
     expect(resolveVersionedPortfolioWhatsApp("simone-lacerda-vaz")).toBe("5541995129384");
   });
 
