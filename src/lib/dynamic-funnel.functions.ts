@@ -604,6 +604,13 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       await import("@/lib/whatsapp-redirect.server");
     const { recordLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
     const protocol = makeProtocol();
+    // Protocolo junto do lead: é como o painel acompanha a mesma requisição
+    // que o visitante viu na tela.
+    quizMetadata.protocol = protocol;
+    await supabaseAdmin
+      .from("dynamic_form_leads")
+      .update({ metadata_json: quizMetadata as any })
+      .eq("id", lead.id);
     const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
     const decision = decideLeadRecoverability({
       destinationConfigured: channel === "CONFIGURED",
