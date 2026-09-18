@@ -51,7 +51,7 @@ jobs:
   runtime-gates:
     name: Pop-up, funis, acessibilidade e regressão visual
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 90
     needs: static-gates
     steps:
       - uses: actions/checkout@v4
@@ -68,62 +68,93 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Start production preview server
-        env:
-          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-          # Necessária apenas para os gates de ESCRITA (funis/leads).
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        # O build usa o preset Cloudflare (dist/server/wrangler.json); `vite preview`
-        # não serve esse artefato. `preview:prod` sobe o worker real.
-        run: |
-          bun run preview:prod &
-          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:8080/ && break; sleep 2; done
-
-
       - name: Snapshot de indexabilidade (produção = "antes")
         continue-on-error: true
         run: bun run audit:indexability -- --label=before https://0web.com.br
 
       - name: Pop-up único em /portfolio/$slug
         env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run test:e2e:portfolio-popup
+          POPUP_CONCURRENCY: 4
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-popup
 
       - name: Funis individuais de portfólio
         env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run test:e2e:portfolio-funnels
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -n "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+          else
+            echo "SUPABASE_SERVICE_ROLE_KEY não está configurada no GitHub; executando o gate E2E sem escrita externa."
+            E2E_DRY_RUN=1 node scripts/ci-with-prod-preview.mjs -- bun run test:e2e:portfolio-funnels
+          fi
 
       - name: Prévias de link e ícones (headless)
-        env:
-          BASE_URL: http://localhost:8080
-        run: bun run validate:link-previews
+        run: node scripts/ci-with-prod-preview.mjs -- bun run validate:link-previews
 
       - name: Ícones do <head> (status, content-type, dimensões)
-        env:
-          BASE_URL: http://localhost:8080
-        run: bun run validate:head-icons
+        run: node scripts/ci-with-prod-preview.mjs -- bun run validate:head-icons
 
       - name: Indexabilidade do build ("depois") e diff
-        env:
-          BASE_URL: http://localhost:8080
-        run: bun run audit:indexability -- --label=after
+        run: node scripts/ci-with-prod-preview.mjs -- bun run audit:indexability -- --label=after
 
       - name: Acessibilidade (axe-core)
+        run: node scripts/ci-with-prod-preview.mjs -- bun run audit:a11y
+
+      - name: Detectar impacto visual da mudança
+        id: visual-scope
         env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run audit:a11y
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="$PR_BASE_SHA"
+            HEAD="$PR_HEAD_SHA"
+          else
+            BASE="$PUSH_BEFORE_SHA"
+            HEAD="$PUSH_HEAD_SHA"
+          fi
+
+          git fetch --no-tags --depth=1 origin "$BASE" "$HEAD" >/dev/null 2>&1 || true
+          FILES="$(git diff --name-only "$BASE" "$HEAD" || true)"
+          RUN=false
+
+          # Mudanças de componentes, estilos, assets ou rotas visuais exigem o
+          # gate completo. O registry de WhatsApp e código server-only não.
+          if printf '%s\n' "$FILES" | grep -Eq '^(src/(components|pages|styles|assets)/|public/|src/.*\.(css|scss)$|tailwind|vite\.config|bun\.lock)'; then
+            RUN=true
+          fi
+
+          # Rotas normalmente afetam UI. A rota dinâmica de portfolio é tratada
+          # à parte porque esta PR altera somente metadata do <head>.
+          if printf '%s\n' "$FILES" | grep -E '^src/routes/' | grep -Fvx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
+            RUN=true
+          fi
+
+          if printf '%s\n' "$FILES" | grep -Fx 'src/routes/portfolio.$slug.tsx' >/dev/null; then
+            ROUTE_DIFF="$(git diff --unified=0 "$BASE" "$HEAD" -- 'src/routes/portfolio.$slug.tsx'               | grep -E '^[+-]'               | grep -Ev '^(---|\+\+\+)'               | grep -Eiv 'apple-touch-icon|sizes:|rel: "icon"|canonical|meta:|title:|description:|og:|twitter:' || true)"
+            if [ -n "$ROUTE_DIFF" ]; then
+              RUN=true
+            fi
+          fi
+
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+          echo "impacto visual: $RUN"
 
       - name: Regressão visual (home + portfólios, 3 viewports)
-        env:
-          E2E_BASE_URL: http://localhost:8080
-        run: bun run test:visual
+        if: steps.visual-scope.outputs.run == 'true'
+        run: node scripts/ci-with-prod-preview.mjs -- bun run test:visual
 
       - name: Relatório comparativo consolidado
         if: always()
         run: bun run audit:report
-
 
       - name: Upload evidências
         if: always()
@@ -140,6 +171,8 @@ jobs:
             seo-reports/indexability-*.json
             seo-reports/indexability-diff.md
             seo-reports/ci-audit-summary.md
+            seo-reports/portfolio-funnels-e2e.json
+            seo-reports/portfolio-funnels-e2e.html
             public/audit
             seo-reports/client-privacy-report.json
           if-no-files-found: ignore

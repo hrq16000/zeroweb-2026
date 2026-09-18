@@ -114,8 +114,7 @@ const submitSchema = z.object({
       fbclid: z.string().max(255).optional(),
       started_at: z.string().max(50).optional(),
       session_id: z.string().min(4).max(120).optional(),
-      // Chave do cliente de portfólio: roteia o lead para o WhatsApp privado
-      // do cliente (resolvido apenas no servidor).
+      // Chave do cliente de portfólio: isola o lead e o destino pelo clientKey.
       client_key: z.enum(PORTFOLIO_CLIENT_KEYS).optional(),
       // Contexto de carrinho/pedido preservado em todas as transições.
       order_context: z
@@ -129,9 +128,7 @@ const submitSchema = z.object({
         .optional(),
     })
     .optional(),
-  // Meio mínimo de retorno informado pelo visitante quando o funil não tem
-  // destino operacional resolvido. Finalidade declarada: contato sobre esta
-  // solicitação. Nunca marketing, nunca compartilhado.
+  // Compatibilidade com fluxos institucionais que ainda coletam um meio de retorno.
   recovery_contact: z.string().max(40).optional(),
 });
 
@@ -216,7 +213,6 @@ export const submitFunnel = createServerFn({ method: "POST" })
       user_agent = req.headers.get("user-agent") ?? "";
       referrer = getRequestHeader("referer") ?? "";
     } catch { /* */ }
-
     // Antiabuso: teto generoso por IP para envios públicos. Nenhum lead é
     // descartado em silêncio — quem excede recebe erro explícito.
     const { allowPublicIntake } = await import("@/lib/public-intake-throttle.server");
@@ -247,14 +243,11 @@ export const submitFunnel = createServerFn({ method: "POST" })
       ...geo,
     };
 
-
     // pull contact fields
     const contact_name = (data.answers.nome ?? data.answers.name ?? null) as string | null;
     const contact_email = (data.answers.email ?? null) as string | null;
     const answeredPhone = (data.answers.telefone ?? data.answers.phone ?? data.answers.whatsapp ?? null) as string | null;
 
-    // LEAD_RECOVERABILITY: o contato de retorno informado no encerramento
-    // entra no mesmo campo canônico do lead, com finalidade declarada.
     const { normalizeRecoveryPhone, RECOVERY_CONTACT_PURPOSE } = await import(
       "@/lib/lead-recoverability"
     );
@@ -270,13 +263,12 @@ export const submitFunnel = createServerFn({ method: "POST" })
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
     const answersText = fmtAnswers(data.answers, questions);
     const metadataText = fmtMetadata(metadata);
-
     const whatsapp_user_url: string | null = null;
 
     // ---- Scoring + tags ----
     const scoring = scoreLead(data.answers);
 
-    // ---- Insert lead ----
+    // ---- Insert lead: sempre antes da decisão de redirect ----
     const { data: lead, error: insErr } = await supabaseAdmin
       .from("dynamic_form_leads")
       .insert({
@@ -335,19 +327,12 @@ export const submitFunnel = createServerFn({ method: "POST" })
     }
 
     // ---- Tokenized WhatsApp redirect (funnel-first) ----
-    // Client only gets an opaque token/path. Number + message are resolved
-    // and built at consume time; the token row no longer persists
-    // destination_digits nor message.
     const { createWhatsAppRedirectToken, hashIp, makeProtocol } = await import(
       "@/lib/whatsapp-redirect.server"
     );
-
     const protocol = makeProtocol();
 
-    // Best-effort: associate a client-created funnel session (if any) and
-    // mark it form_submitted. FK note: visitor_funnel_sessions.lead_id
-    // references lead_submissions (NOT dynamic_form_leads), so we do NOT
-    // set session.lead_id here — correlation stays via session_id + protocol.
+    // Best-effort: associate a client-created funnel session (if any).
     const clientSessionId = (data.client_metadata as unknown as { session_id?: string } | undefined)?.session_id;
     let funnelSessionUuid: string | null = null;
     if (clientSessionId && typeof clientSessionId === "string" && clientSessionId.length >= 4) {
@@ -369,9 +354,6 @@ export const submitFunnel = createServerFn({ method: "POST" })
       }
     }
 
-    // ---- LEAD_RECOVERABILITY (camada compartilhada) ----
-    // O destino é verificado ANTES de gerar o link: sem destino operacional,
-    // um redirect só levaria o visitante a uma página de canal indisponível.
     const clientKey = (data.client_metadata?.client_key ?? null) as string | null;
     const { decideLeadRecoverability } = await import("@/lib/lead-recoverability");
     const {
@@ -392,7 +374,6 @@ export const submitFunnel = createServerFn({ method: "POST" })
           ipHash: hashIp(ip),
         })
       : ({ ok: false as const, redirectPath: null });
-
     const redirectPath = tokenResult.ok ? tokenResult.redirectPath : null;
 
     const hasRecoverableContact = Boolean(
@@ -428,14 +409,15 @@ export const submitFunnel = createServerFn({ method: "POST" })
       alert_status: alertStatus,
       deliveryState: decision.deliveryStatus,
       recoverability: decision.recoverability,
-      requiresRecoveryContact: decision.requiresRecoveryContact,
+      // Portfolio sem WhatsApp é lead-only e conclui normalmente. A exigência
+      // de contato de recuperação fica restrita aos fluxos institucionais.
+      requiresRecoveryContact: clientKey ? false : decision.requiresRecoveryContact,
     };
   });
 
 /**
- * Anexa o meio de retorno a um lead já salvo do funil dinâmico.
- * Usado somente quando a conclusão ficou sem destino operacional resolvido.
- * O número é normalizado e guardado no lead; o livro-razão nunca recebe PII.
+ * Compatibilidade para fluxos institucionais que ainda podem anexar um meio de
+ * retorno a um lead já salvo. Portfolios não dependem deste passo para concluir.
  */
 export const attachFunnelRecoveryContact = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
@@ -490,12 +472,9 @@ export const attachFunnelRecoveryContact = createServerFn({ method: "POST" })
 
 /**
  * Envia os cinco passos dos portfólios de clientes para o mesmo handoff
- * tokenizado usado pelos funis oficiais. O destinatário é resolvido somente
- * no servidor a partir de uma chave permitida; nunca chega ao bundle público.
+ * tokenizado usado pelos funis oficiais. O destinatário é resolvido pelo
+ * clientKey a partir do dado versionado do próprio portfolio.
  */
-// Campo de texto tolerante: nunca rejeita por tamanho — apenas apara o
-// excedente no servidor. Pedidos longos (dezenas de itens + observação)
-// deixam de virar erro de envio.
 const softText = (max: number) =>
   z.preprocess(
     (v) => (typeof v === "string" ? v.slice(0, max) : v),
@@ -510,8 +489,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     mode: z.enum(["booking", "proposal"]),
     proposalKind: z.enum(["campaign", "service"]).default("service"),
     pageUrl: z.string().url().max(500).optional(),
-    // Vínculo técnico com a telemetria (analytics_events.session_id/visitor_id).
-    // São identificadores opacos: nunca carregam nome, telefone ou e-mail.
     sessionId: z.string().min(4).max(120).optional(),
     visitorId: z.string().min(4).max(120).optional(),
     orderContext: z.object({
@@ -520,12 +497,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       fulfillment: softText(120).optional(),
       customer_note: softText(2000).optional(),
     }).optional(),
-    // Meio mínimo de retorno informado pelo visitante. Só é solicitado pela UI
-    // quando o projeto ainda não tem destino operacional configurado.
-    // Finalidade declarada: contato sobre esta solicitação. Nunca marketing.
+    // Campo opcional mantido por compatibilidade; portfolio sem número não o exige.
     recoveryContact: z.string().max(40).optional(),
-    // Snapshot do texto de localização já exibido na prévia. A entrega não
-    // recalcula esse valor e, portanto, não altera o que o visitante aprovou.
     previewLocation: softText(120).optional(),
     answers: z.object({
       service: softText(8000),
@@ -538,8 +511,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
 
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    // Painel de leads lê sempre de order_context: quando o componente não
-    // envia o contexto do carrinho, derivamos das respostas do quiz.
     const orderContext = {
       order_items: data.orderContext?.order_items || data.answers.service || undefined,
       order_total: data.orderContext?.order_total || undefined,
@@ -547,12 +518,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       customer_note: data.orderContext?.customer_note || data.answers.note || undefined,
     };
     const hasOrderContext = Object.values(orderContext).some(Boolean);
-    // Funil do cliente quando existir (portfolio-<clientKey>); o funil
-    // genérico de serviço permanece apenas como fallback.
     const clientFunnelSlug = `portfolio-${data.clientKey}`;
-    // Alguns funis de cliente foram criados com o prefixo `funnel-` no banco.
-    // Aceitamos os dois formatos para o pedido cair no funil do próprio
-    // cliente em vez de escorregar para o funil genérico de serviço.
     const clientFunnelSlugAlt = `funnel-${data.clientKey}`;
     const { data: forms, error: formError } = await supabaseAdmin
       .from("dynamic_forms")
@@ -565,7 +531,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       (forms ?? []).find((f) => f.slug === clientFunnelSlugAlt) ??
       (forms ?? []).find((f) => f.slug === "funnel-service");
     if (!form) throw new Error("Funil de atendimento indisponível");
-
 
     let ip: string | null = null;
     let pageUrl = "";
@@ -580,11 +545,11 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     }
 
     const geo = await lookupGeo(ip);
-
     const { normalizeRecoveryPhone, decideLeadRecoverability, RECOVERY_CONTACT_PURPOSE } =
       await import("@/lib/lead-recoverability");
     const recoveryPhone = normalizeRecoveryPhone(data.recoveryContact ?? null);
 
+    // O lead é persistido antes da resolução do canal.
     const { data: lead, error: leadError } = await supabaseAdmin
       .from("dynamic_form_leads")
       .insert({
@@ -598,7 +563,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
           recipient_name: data.recipientName,
           mode: data.mode,
           proposal_kind: data.proposalKind,
-          ...(data.orderContext ? { order_context: data.orderContext } : {}),
+          ...(hasOrderContext ? { order_context: orderContext } : {}),
           completed_at: new Date().toISOString(),
           page_url: data.pageUrl ?? pageUrl,
           ...(data.previewLocation ? { preview_location: data.previewLocation } : {}),
@@ -618,8 +583,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         },
         contact_name: null,
         contact_email: null,
-        // A submissão nunca é descartada: o contato de retorno, quando
-        // informado, é o que mantém o lead recuperável se a entrega falhar.
         contact_phone: recoveryPhone,
         whatsapp_user_url: null,
         whatsapp_alert_status: "disabled",
@@ -632,10 +595,6 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       await import("@/lib/whatsapp-redirect.server");
     const { recordLeadDelivery } = await import("@/lib/lead-delivery-ledger.server");
     const protocol = makeProtocol();
-
-    // O lead já está salvo. O WhatsApp é apenas o passo seguinte: quando o
-    // cliente ainda não tem número oficial cadastrado, devolvemos um estado
-    // honesto em vez de gerar um redirect que termina em erro.
     const channel = await getPortfolioWhatsAppChannelStateAsync(data.clientKey);
     const decision = decideLeadRecoverability({
       destinationConfigured: channel === "CONFIGURED",
@@ -643,14 +602,8 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     });
 
     if (channel !== "CONFIGURED") {
-      const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
-      await reportRoutingIncident({
-        clientKey: data.clientKey,
-        leadId: lead.id as string,
-        token: null,
-        reason: "missing_client_whatsapp_number",
-        fellBackToCentral: false,
-      });
+      // Lead-only é um estado válido do portfolio. Não há incidente de roteamento
+      // nem obrigação de pedir outro WhatsApp ao visitante.
       await recordLeadDelivery({
         leadId: lead.id as string,
         clientKey: data.clientKey,
@@ -658,17 +611,15 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
         deliveryStatus: decision.deliveryStatus,
         recoverability: decision.recoverability,
         hasRecoverableContact: Boolean(recoveryPhone),
-        failureReason: "missing_client_whatsapp_number",
+        failureReason: null,
       });
-      // Garantia global: sem destino E sem contato recuperável, a conclusão
-      // não é aceita como final — a UI precisa pedir um meio de retorno.
       return {
         redirectPath: null,
         protocol,
         whatsappChannel: channel,
         deliveryState: decision.deliveryStatus,
         recoverability: decision.recoverability,
-        requiresRecoveryContact: decision.requiresRecoveryContact,
+        requiresRecoveryContact: false,
       };
     }
 
@@ -715,14 +666,12 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       recoverability: decision.recoverability,
       requiresRecoveryContact: false,
     };
-
   });
 
 /**
- * Estado de entrega do funil de um projeto, ANTES da conclusão.
- * Público e sem PII: devolve apenas se existe destino operacional, para a UI
- * decidir se precisa pedir um contato de retorno ao visitante.
- * Nunca devolve número, nome de variável ou origem do destino.
+ * Estado público do canal do portfolio. Sem PII: nunca devolve número.
+ * A UI usa apenas para saber se haverá redirect; ausência de número não exige
+ * coleta adicional para concluir o funil.
  */
 export const getPortfolioFunnelDelivery = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
@@ -736,7 +685,7 @@ export const getPortfolioFunnelDelivery = createServerFn({ method: "POST" })
     const destinationConfigured = channel === "CONFIGURED";
     return {
       destinationConfigured,
-      /** Quando não há destino, o contato de retorno é obrigatório. */
-      requiresRecoveryContact: !destinationConfigured,
+      leadOnly: !destinationConfigured,
+      requiresRecoveryContact: false,
     };
   });

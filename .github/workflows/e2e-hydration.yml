@@ -12,19 +12,17 @@ jobs:
     timeout-minutes: 25
     env:
       E2E_BASE_URL: http://127.0.0.1:8080
-      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-      VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-      VITE_SUPABASE_PROJECT_ID: ${{ secrets.VITE_SUPABASE_PROJECT_ID }}
-      # O worker recebe estas variáveis via scripts/preview-prod.mjs (--var).
-      # Leitura pública do catálogo usa a chave publicável + RLS.
-      SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-      SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      # A configuração pública do Supabase já é versionada em .env.
+      # Não sobrescrever com secrets opcionais vazios: Vite prioriza o
+      # ambiente do processo e uma string vazia anulava o .env no CI.
     steps:
       - uses: actions/checkout@v4
 
+      # Mantém o mesmo runtime já validado pelos portfolio-gates. Usar `latest`
+      # tornava a subida do worker não determinística entre workflows.
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
 
       - name: Instalar dependências
         run: bun install --frozen-lockfile

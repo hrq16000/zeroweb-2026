@@ -20,6 +20,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          # O gate de imagens decide o escopo pela diferença base...head da PR.
+          # Checkout raso não contém esses commits e fazia o detector cair no fail-safe.
+          fetch-depth: 0
 
       - uses: oven-sh/setup-bun@v2
         with:

@@ -38,17 +38,32 @@ const installed = existsSync(root)
   : undefined;
 
 let browser = null;
+let browserLaunch = null;
 
 async function getBrowser() {
   // Sessões longas (dezenas de slugs) podem derrubar o Chromium por consumo de
-  // memória. Relançar é obrigatório para não transformar crash de infraestrutura
-  // em falso negativo do gate.
+  // memória. Um lançamento compartilhado evita que workers concorrentes criem
+  // múltiplas instâncias ao mesmo tempo durante uma recuperação.
   if (browser && browser.isConnected()) return browser;
-  browser = await chromium.launch({
-    headless: true,
-    executablePath: existsSync(bundled) ? bundled : installed,
-  });
-  return browser;
+  if (browserLaunch) return browserLaunch;
+
+  browserLaunch = chromium
+    .launch({
+      headless: true,
+      executablePath: existsSync(bundled) ? bundled : installed,
+    })
+    .then((instance) => {
+      browser = instance;
+      instance.on("disconnected", () => {
+        if (browser === instance) browser = null;
+      });
+      return instance;
+    })
+    .finally(() => {
+      browserLaunch = null;
+    });
+
+  return browserLaunch;
 }
 
 function isInfraCrash(error) {
@@ -124,13 +139,11 @@ async function runSlug(slug) {
       result = await checkSlug(slug);
     } catch (error) {
       if (isInfraCrash(error) && attempt === 1) {
-        // Chromium caiu: encerra a instância e repete o slug com browser novo.
-        try {
-          if (browser) await browser.close();
-        } catch {
-          /* já derrubado */
-        }
-        browser = null;
+        // Não fecha o browser compartilhado aqui: outro worker pode estar usando
+        // contextos válidos. Se a instância inteira caiu, `disconnected` limpa a
+        // referência e `getBrowser()` relança de forma sincronizada no retry.
+        if (browser && !browser.isConnected()) browser = null;
+        await new Promise((resolveRetry) => setTimeout(resolveRetry, 250));
         continue;
       }
       result = [`/portfolio/${slug}: ${error instanceof Error ? error.message : String(error)}`];

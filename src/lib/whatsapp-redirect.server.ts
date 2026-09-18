@@ -1,15 +1,12 @@
 /**
  * Server-only helpers for the tokenized WhatsApp redirect flow.
  *
- * Contract:
- *   submit → createWhatsAppRedirectToken → client navigates → /r/whatsapp/:token →
- *   resolveWhatsAppRedirectToken → buildWhatsAppLeadMessage → resolveOperationalWhatsAppContact →
- *   consumeWhatsAppRedirectToken → mark_visitor_funnel_redirected → 302
+ * Portfolio rule:
+ *   lead saved -> resolve clientKey in versioned portfolio data -> open WhatsApp
+ *   when present; otherwise keep the lead/protocol and finish without redirect.
  *
- * New tokens do NOT persist destination_digits or message. Both are derived
- * server-side at consumption time. Legacy rows (created before this refactor)
- * may still carry destination_digits + message; the resolver returns those
- * in `isLegacy` mode for compatibility until they expire.
+ * Portfolio destinations are ordinary versioned project data. They do not
+ * depend on env/secrets or `portfolio_client_settings`.
  */
 if (typeof window !== "undefined") {
   throw new Error("whatsapp-redirect.server.ts imported from client code");
@@ -18,6 +15,7 @@ if (typeof window !== "undefined") {
 import { randomBytes, createHash } from "node:crypto";
 import { getOperationalContact } from "@/lib/contact.server";
 import { isPortfolioClientKey } from "@/lib/portfolio-client-keys";
+import { resolveVersionedPortfolioWhatsApp } from "@/lib/portfolio-whatsapp-registry.server";
 import {
   WHATSAPP_TOKEN_TTL_MS,
   WHATSAPP_REDIRECT_REUSE_WINDOW_MS,
@@ -40,7 +38,7 @@ export const CREATE_TOKEN_RATE_MAX = 3;
 export const CONSUME_TOKEN_RATE_WINDOW_S = 60;
 export const CONSUME_TOKEN_RATE_MAX = 10;
 /** Reemissão: no máximo 3 por lead a cada 24h. IP não é usado como chave
- *  primária de limite para não bloquear redes corporativas (NAT). */
+ * primária de limite para não bloquear redes corporativas (NAT). */
 export const REISSUE_TOKEN_RATE_WINDOW_S = 24 * 60 * 60;
 export const REISSUE_TOKEN_RATE_MAX = 3;
 
@@ -65,11 +63,12 @@ export function makeProtocol(): string {
 }
 
 // ============================================================================
-// (1) resolveOperationalWhatsAppContact
+// (1) WhatsApp destination resolution
 // ============================================================================
 
 export type OperationalWhatsAppContact = { digits: string };
 
+/** Institucional 0WEB: usado somente por fluxos próprios da 0WEB. */
 export function resolveOperationalWhatsAppContact(): OperationalWhatsAppContact | null {
   const { whatsappNumber } = getOperationalContact();
   const digits = (whatsappNumber ?? "").replace(/\D/g, "");
@@ -77,116 +76,41 @@ export function resolveOperationalWhatsAppContact(): OperationalWhatsAppContact 
   return { digits };
 }
 
-/**
- * Destinatário do site de um cliente. Sem fallback para o WhatsApp da 0WEB
- * e sem número no código-fonte: só a env do cliente.
- */
-export function portfolioWhatsAppEnvName(clientKey?: string | null): string | null {
-  if (!isPortfolioClientKey(clientKey)) return null;
-  const legacy =
-    clientKey === "dyzpromo"
-      ? "DYZ_PROMO_WHATSAPP_NUMBER"
-      : // Cada marca tem destino próprio. `r-beauty`/`r_beauty` NÃO herda mais o
-      // número da Renata Beauty: só passa a ter canal quando o titular
-      // confirmar e o segredo PORTFOLIO_WHATSAPP_R_BEAUTY for cadastrado.
-      clientKey === "renata-beauty"
-        ? "RENATA_BEAUTY_WHATSAPP_NUMBER"
-        : clientKey === "marido-de-aluguel"
-          ? "MARIDO_DE_ALUGUEL_WHATSAPP_NUMBER"
-          : clientKey === "emporio-lelecute"
-            ? "EMPORIO_LELECUTE_WHATSAPP_NUMBER"
-            : clientKey === "paraiso-do-hot-dog"
-              ? "PARAISO_HOT_DOG_WHATSAPP_NUMBER"
-              : clientKey === "rm-fretes"
-                ? "RM_FRETES_WHATSAPP_NUMBER"
-                : clientKey === "rj-servicos-drywall"
-                  ? "RJ_SERVICOS_DRYWALL_WHATSAPP_NUMBER"
-                  : clientKey === "assistencia-microondas-santos"
-                    ? "ASSISTENCIA_MICROONDAS_SANTOS_WHATSAPP_NUMBER"
-                    : clientKey === "artesanatos-darleia-oliveira"
-                      ? "ARTESANATOS_DARLEIA_OLIVEIRA_WHATSAPP_NUMBER"
-                      : clientKey === "thays-camilla"
-                        ? "THAYS_CAMILLA_WHATSAPP_NUMBER"
-                        : clientKey === "fernanda-amaral-drywall"
-                          ? "FERNANDA_AMARAL_DRYWALL_WHATSAPP_NUMBER"
-                          : clientKey === "refrigeracao-maresia"
-                            ? "REFRIGERACAO_MARESIA_WHATSAPP_NUMBER"
-                            : clientKey === "ton-e-cor"
-                              ? "TON_E_COR_WHATSAPP_NUMBER"
-                              : clientKey === "raphael-construcoes"
-                                ? "RAPHAEL_CONSTRUCOES_WHATSAPP_NUMBER"
-                                : clientKey === "jc-revestimentos"
-                                  ? "JC_REVESTIMENTOS_WHATSAPP_NUMBER"
-                                  : clientKey === "hbk-iluminacao-led"
-                                    ? "HBK_ILUMINACAO_LED_WHATSAPP_NUMBER"
-                                    : clientKey === "heloa-gas"
-                                      ? "HELOA_GAS_WHATSAPP_NUMBER"
-                                       : null;
-  if (legacy) return legacy;
-  // Convenção canônica para novos clientes: cadastrar o segredo
-  // PORTFOLIO_WHATSAPP_<CLIENT_KEY> e o canal passa a funcionar sem
-  // qualquer alteração de página, rota ou código.
-  return `PORTFOLIO_WHATSAPP_${String(clientKey).toUpperCase().replace(/[^A-Z0-9]+/g, "_")}`;
-}
+export type WhatsAppChannelState = "CONFIGURED" | "NOT_CONFIGURED" | "INVALID";
 
 /**
- * Estado do canal WhatsApp de um projeto. Server-only e sem PII: devolve
- * apenas o estado de configuração, nunca o número.
+ * Portfolio: resolve exclusivamente o dado versionado do próprio clientKey.
+ * Ausência de número é um estado normal e não dispara fallback.
  */
-export type WhatsAppChannelState = "CONFIGURED" | "NOT_CONFIGURED" | "INVALID";
+export function resolvePortfolioWhatsAppContact(
+  clientKey?: string | null,
+): OperationalWhatsAppContact | null {
+  if (!isPortfolioClientKey(clientKey)) return null;
+  const digits = resolveVersionedPortfolioWhatsApp(clientKey);
+  return digits ? { digits } : null;
+}
 
 export function getPortfolioWhatsAppChannelState(
   clientKey?: string | null,
 ): WhatsAppChannelState {
-  const envName = portfolioWhatsAppEnvName(clientKey);
-  if (!envName) return "NOT_CONFIGURED";
-  const raw = (process.env[envName] ?? "").trim();
-  if (!raw) return "NOT_CONFIGURED";
-  const digits = raw.replace(/\D/g, "");
-  // Número oficial precisa ser válido; nunca corrigimos silenciosamente.
-  if (digits.length < 10 || digits.length > 15) return "INVALID";
-  return "CONFIGURED";
-}
-
-export function resolvePortfolioWhatsAppContact(
-  clientKey?: string | null,
-): OperationalWhatsAppContact | null {
-  if (getPortfolioWhatsAppChannelState(clientKey) !== "CONFIGURED") return null;
-  const envName = portfolioWhatsAppEnvName(clientKey)!;
-  return { digits: (process.env[envName] ?? "").replace(/\D/g, "") };
+  if (!isPortfolioClientKey(clientKey)) return "NOT_CONFIGURED";
+  return resolvePortfolioWhatsAppContact(clientKey) ? "CONFIGURED" : "NOT_CONFIGURED";
 }
 
 /**
- * Resolve o destinatário também pela configuração privada administrável do
- * projeto. A env continua tendo precedência; a tabela nunca é serializada ao
- * cliente e só é consultada no servidor durante o handoff.
+ * Compatibilidade de assinatura para chamadores assíncronos. Não consulta
+ * banco privado, cofre ou env: retorna exatamente a mesma fonte canônica.
  */
 export async function resolvePortfolioWhatsAppContactAsync(
   clientKey?: string | null,
 ): Promise<OperationalWhatsAppContact | null> {
-  const fromEnv = resolvePortfolioWhatsAppContact(clientKey);
-  if (fromEnv) return fromEnv;
-  if (!isPortfolioClientKey(clientKey)) return null;
-  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { data } = await (supabaseAdmin as any)
-    .from("portfolio_client_settings")
-    .select("funnel_recipient, funnel_enabled")
-    .eq("client_key", clientKey)
-    .maybeSingle();
-  if (!data?.funnel_enabled) return null;
-  const digits = String(data.funnel_recipient ?? "").replace(/\D/g, "");
-  if (digits.length < 10 || digits.length > 15) return null;
-  return { digits };
+  return resolvePortfolioWhatsAppContact(clientKey);
 }
 
 export async function getPortfolioWhatsAppChannelStateAsync(
   clientKey?: string | null,
 ): Promise<WhatsAppChannelState> {
-  if (resolvePortfolioWhatsAppContact(clientKey)) return "CONFIGURED";
-  if (!isPortfolioClientKey(clientKey)) return "NOT_CONFIGURED";
-  const contact = await resolvePortfolioWhatsAppContactAsync(clientKey);
-  return contact ? "CONFIGURED" : "NOT_CONFIGURED";
+  return getPortfolioWhatsAppChannelState(clientKey);
 }
 
 // ============================================================================
@@ -389,27 +313,24 @@ export function assembleWaMeUrl(digits: string, message: string): string {
 }
 
 // ---------------------------------------------------------------------------
-// Legacy compat — will be removed once no legacy valid tokens remain.
+// Legacy token compatibility only. Portfolio destination resolution above is
+// already fully independent from env/vault/private settings.
 // ---------------------------------------------------------------------------
 /** @deprecated legacy alias — use buildWhatsAppLeadMessage */
 export const buildFunnelWhatsAppMessage = _buildLead;
-/** @deprecated legacy — new writes must NOT persist number in the token row */
+/** @deprecated legacy institutional helper; never used as portfolio fallback. */
 export function getWhatsAppDestinationDigits(): string | null {
   return resolveOperationalWhatsAppContact()?.digits ?? null;
 }
 
 // ============================================================================
-// (6) Reemissão de token expirado — evita "beco sem saída" no link expirado
+// (6) Reemissão de token expirado
 // ============================================================================
 
 export type ReissueResult =
   | { ok: true; redirectPath: string }
   | { ok: false; reason: "not_found" | "rate_limited" | "db_error" };
 
-/**
- * Emite um novo token para o MESMO lead de um token antigo/expirado.
- * Limite: REISSUE_TOKEN_RATE_MAX por lead dentro da janela.
- */
 export async function reissueWhatsAppRedirectToken(
   oldToken: string,
   ipHash?: string | null,
