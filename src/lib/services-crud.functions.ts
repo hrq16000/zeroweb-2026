@@ -94,9 +94,14 @@ function asArr<T>(v: unknown): T[] {
 
 function publicImageUrl(path: string | null): string | null {
   if (!path) return null;
-  const base = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-  if (!base) return null;
-  return `${base.replace(/\/$/, "")}/storage/v1/object/public/service-images/${path}`;
+  // Caminhos já absolutos (asset do app ou URL completa) seguem como estão.
+  if (/^https?:\/\//i.test(path) || path.startsWith("/")) return path;
+  // O bucket é privado: as imagens do catálogo são servidas pelo proxy do site.
+  const file = path.replace(/^catalog\//, "");
+  if (!path.includes("/") || path.startsWith("catalog/")) {
+    return `/api/public/catalog-image/${file}`;
+  }
+  return null;
 }
 
 function normalize(row: Record<string, unknown>): ServiceRow {
