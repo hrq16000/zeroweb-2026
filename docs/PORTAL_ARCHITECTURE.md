@@ -310,3 +310,15 @@ bloqueadas pelo `robots.txt`.
 As rotas transacionais não entram em sitemap e não devem competir com páginas
 de produto nos resultados de busca.
 
+
+## 26. Confiabilidade do checkout
+
+A sessão canônica do carrinho passa a ser a chave de idempotência da jornada.
+Pedidos autenticados usam UUID determinístico por usuário + sessão; tentativas
+concorrentes convergem no mesmo pedido. O handoff anônimo verifica replay da
+sessão antes do rate limit.
+
+A Checkout Session do Stripe usa `Idempotency-Key` estável por pedido. O
+carrinho não é apagado antes do redirecionamento: cancelamento ou falha preservam
+a seleção, e a limpeza/rotação acontece somente no retorno de sucesso. Uma trava
+local reduz duplo clique; a proteção server-side cobre retries e timeouts.

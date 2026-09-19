@@ -36,7 +36,7 @@ export const createStripeCheckoutSession = createServerFn({ method: "POST" })
     const { supabase, userId } = context;
     const { data: order, error } = await supabase
       .from("orders")
-      .select("id, items, total, currency, status, customer_email, customer_name")
+      .select("id, items, total, currency, status, customer_email, customer_name, metadata")
       .eq("id", data.orderId)
       .eq("user_id", userId)
       .single();
@@ -57,8 +57,10 @@ export const createStripeCheckoutSession = createServerFn({ method: "POST" })
 
     const body = new URLSearchParams();
     body.set("mode", "payment");
-    body.set("success_url", `${data.successUrl}?order_id=${order.id}&session_id={CHECKOUT_SESSION_ID}`);
-    body.set("cancel_url", `${data.cancelUrl}?order_id=${order.id}`);
+    const successSeparator = data.successUrl.includes("?") ? "&" : "?";
+    const cancelSeparator = data.cancelUrl.includes("?") ? "&" : "?";
+    body.set("success_url", `${data.successUrl}${successSeparator}session_id={CHECKOUT_SESSION_ID}`);
+    body.set("cancel_url", `${data.cancelUrl}${cancelSeparator}order_id=${order.id}`);
     body.set("client_reference_id", order.id);
     body.set("metadata[order_id]", order.id);
     if (order.customer_email) body.set("customer_email", order.customer_email);
@@ -79,6 +81,7 @@ export const createStripeCheckoutSession = createServerFn({ method: "POST" })
       headers: {
         Authorization: `Bearer ${secret}`,
         "Content-Type": "application/x-www-form-urlencoded",
+        "Idempotency-Key": `0web-checkout-${order.id}`,
       },
       body: body.toString(),
     });
@@ -93,7 +96,12 @@ export const createStripeCheckoutSession = createServerFn({ method: "POST" })
       .from("orders")
       .update({
         payment_method: "stripe",
-        metadata: { stripe_session_id: session.id },
+        metadata: {
+          ...(order.metadata && typeof order.metadata === "object" && !Array.isArray(order.metadata)
+            ? order.metadata
+            : {}),
+          stripe_session_id: session.id,
+        },
       })
       .eq("id", order.id)
       .eq("user_id", userId);

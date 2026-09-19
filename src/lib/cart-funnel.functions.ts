@@ -5,6 +5,7 @@
 // fallback admin via service role).
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { assistedCheckoutProtocol, readAssistedProtocol } from "@/lib/checkout-reliability";
 
 const StepSchema = z.enum([
   "cart_open",
@@ -45,26 +46,28 @@ const Input = z.object({
   metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
-async function assistedProtocol(sessionKey: string) {
-  const digest = await crypto.subtle.digest(
-    "SHA-256",
-    new TextEncoder().encode(`0web-assisted:${sessionKey}`),
-  );
-  const code = Array.from(new Uint8Array(digest))
-    .slice(0, 5)
-    .map((byte) => byte.toString(16).padStart(2, "0"))
-    .join("")
-    .toUpperCase();
-  return `0W-${code}`;
-}
-
 export const saveCartFunnelStep = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => Input.parse(d))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    // O handoff anônimo é público por natureza, mas não irrestrito.
+    // Replay da mesma jornada não cria novo lead nem consome rate limit.
     if (data.step === "handoff_assisted") {
+      const { data: existing, error: existingError } = await supabaseAdmin
+        .from("cart_funnel_progress")
+        .select("step, metadata")
+        .eq("session_key", data.sessionKey)
+        .maybeSingle();
+
+      if (existingError) {
+        console.warn("[saveCartFunnelStep] replay lookup failed", existingError);
+      } else if (existing?.step === "handoff_assisted") {
+        const protocol =
+          readAssistedProtocol(existing.metadata) ??
+          await assistedCheckoutProtocol(data.sessionKey);
+        return { ok: true, protocol, idempotent: true as const };
+      }
+
       let fingerprintSource = "unknown";
       try {
         const { getRequestHeader } = await import("@tanstack/react-start/server");
@@ -108,7 +111,7 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
 
     const protocol =
       data.step === "handoff_assisted"
-        ? await assistedProtocol(data.sessionKey)
+        ? await assistedCheckoutProtocol(data.sessionKey)
         : null;
 
     const payload = {
@@ -138,5 +141,5 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
       console.error("[saveCartFunnelStep] upsert failed", error);
       return { ok: false, error: error.message };
     }
-    return { ok: true, protocol };
+    return { ok: true, protocol, idempotent: false as const };
   });

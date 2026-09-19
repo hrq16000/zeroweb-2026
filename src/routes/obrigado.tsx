@@ -13,6 +13,7 @@ import { getLeadAttribution, attributionToEventParams } from "@/lib/lead-attribu
 import { loadAttributionSnapshot } from "@/lib/lead-attribution-snapshot";
 import { THANK_YOU_CTA, buildThankYouCtaParams } from "@/lib/event-taxonomy";
 import { OrderSummaryCard } from "@/components/site/OrderSummaryCard";
+import { clearCart, readCart, rotateCartSessionKey } from "@/lib/cart";
 
 const TITLE = "Obrigado pelo contato · 0WEB";
 const DESC = "Recebemos sua solicitação. A equipe dará continuidade conforme o canal e o produto escolhido.";
@@ -79,6 +80,12 @@ function ObrigadoPage() {
     if (typeof window === "undefined") return { source: resolvedSource, channel: content.channel };
     return attributionToEventParams(attr ?? getLeadAttribution(resolvedSource));
   }, [attr, resolvedSource, content.channel]);
+
+  useEffect(() => {
+    if (resolvedSource !== "checkout-stripe" || !order || readCart().length === 0) return;
+    clearCart();
+    rotateCartSessionKey();
+  }, [resolvedSource, order]);
 
   useEffect(() => {
     // Canonical taxonomy event — fires once per /obrigado view.

@@ -58,6 +58,7 @@ function CheckoutPage() {
     stripeEnabled: false,
   });
   const checkoutStartedRef = useRef(false);
+  const submitLockRef = useRef(false);
   const total = useMemo(() => cartTotal(items), [items]);
   const hasUnpriced = items.some((i) => !i.price);
   const hasRecurring = items.some((i) => Boolean(i.pricePeriod));
@@ -160,12 +161,14 @@ function CheckoutPage() {
   async function handleAssistedCheckout() {
     if (items.length === 0) return;
     if (!validateAssistedContact()) return;
+    if (submitLockRef.current) return;
+    submitLockRef.current = true;
     setSubmitting("assisted");
+    const sessionKey = getCartSessionKey();
     try {
       // Visitante anônimo: registra a intenção como lead público rate-limited,
       // com snapshot do carrinho. Não exige OAuth para pedir atendimento.
       if (!session) {
-        const sessionKey = getCartSessionKey();
         const phoneDigits = phone.replace(/\D/g, "");
         const result = await saveCartFunnelStep({
           data: {
@@ -234,6 +237,7 @@ function CheckoutPage() {
           notes: notes || undefined,
           customerName: name || undefined,
           customerPhone: phone || undefined,
+          checkoutSessionKey: sessionKey,
         },
       });
       await markOrderAssistedHandoff({ data: { orderId: order.id } });
@@ -244,11 +248,13 @@ function CheckoutPage() {
         persistEvent("checkout_assisted_handoff", { order_id: order.id, total, items: items.length }),
       );
       clearCart();
+      rotateCartSessionKey();
       toast.success("Pedido registrado", { description: "Nossa equipe continuará pelo fluxo de atendimento." });
       navigate({ to: "/obrigado", search: { source: "checkout-assisted", order: order.id } });
     } catch (e) {
       toast.error("Não foi possível registrar o pedido", { description: (e as Error).message });
     } finally {
+      submitLockRef.current = false;
       setSubmitting("none");
     }
   }
@@ -273,7 +279,10 @@ function CheckoutPage() {
       });
       return handleAssistedCheckout();
     }
+    if (submitLockRef.current) return;
+    submitLockRef.current = true;
     setSubmitting("stripe");
+    const sessionKey = getCartSessionKey();
     try {
       const { order } = await createOrder({
         data: {
@@ -287,6 +296,7 @@ function CheckoutPage() {
           notes: notes || undefined,
           customerName: name || undefined,
           customerPhone: phone || undefined,
+          checkoutSessionKey: sessionKey,
         },
       });
       void import("@/lib/analytics").then(({ trackConversion }) =>
@@ -310,11 +320,13 @@ function CheckoutPage() {
         });
         return;
       }
-      clearCart();
+      // Mantém o carrinho até o retorno de sucesso. Cancelamento ou falha de
+      // navegação preservam a seleção para uma nova tentativa.
       window.location.href = res.url;
     } catch (e) {
       toast.error("Não foi possível iniciar o pagamento", { description: (e as Error).message });
     } finally {
+      submitLockRef.current = false;
       setSubmitting("none");
     }
   }

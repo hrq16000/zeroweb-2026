@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { deterministicCheckoutOrderId } from "@/lib/checkout-reliability";
 
 const CartItemSchema = z.object({
   slug: z.string().min(1).max(120),
@@ -29,6 +30,7 @@ const CreateOrderSchema = z.object({
   notes: z.string().max(2000).optional(),
   customerName: z.string().max(200).optional(),
   customerPhone: z.string().max(40).optional(),
+  checkoutSessionKey: z.string().min(8).max(120).optional(),
 });
 
 export type CreateOrderInput = z.infer<typeof CreateOrderSchema>;
@@ -46,10 +48,14 @@ export const createOrder = createServerFn({ method: "POST" })
       (sum, i) => sum + (typeof i.price === "number" ? i.price : 0) * i.qty,
       0,
     );
+    const checkoutOrderId = data.checkoutSessionKey
+      ? await deterministicCheckoutOrderId(userId, data.checkoutSessionKey)
+      : undefined;
 
     const { data: order, error } = await supabase
       .from("orders")
       .insert({
+        ...(checkoutOrderId ? { id: checkoutOrderId } : {}),
         user_id: userId,
         items: data.items,
         total,
@@ -59,12 +65,28 @@ export const createOrder = createServerFn({ method: "POST" })
         customer_name: data.customerName ?? claims?.user_metadata?.full_name ?? null,
         customer_email: claims?.email ?? null,
         customer_phone: data.customerPhone ?? null,
+        metadata: data.checkoutSessionKey
+          ? { checkout_session_key: data.checkoutSessionKey, idempotency_version: 1 }
+          : {},
       })
       .select("id, total, status, created_at")
       .single();
 
-    if (error) throw new Error(`Falha ao criar pedido: ${error.message}`);
-    return { order };
+    if (error) {
+      if (checkoutOrderId && error.code === "23505") {
+        const { data: existing, error: existingError } = await supabase
+          .from("orders")
+          .select("id, total, status, created_at")
+          .eq("id", checkoutOrderId)
+          .eq("user_id", userId)
+          .maybeSingle();
+        if (!existingError && existing) {
+          return { order: existing, reused: true as const };
+        }
+      }
+      throw new Error(`Falha ao criar pedido: ${error.message}`);
+    }
+    return { order, reused: false as const };
   });
 
 /**

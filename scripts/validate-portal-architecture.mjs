@@ -52,6 +52,8 @@ const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
 const servicePurchasePanelPath = "src/components/site/ServicePurchasePanel.tsx";
 const orderSummaryPath = "src/components/site/OrderSummaryCard.tsx";
 const ordersFunctionsPath = "src/lib/orders.functions.ts";
+const stripeCheckoutPath = "src/lib/stripe-checkout.functions.ts";
+const checkoutReliabilityPath = "src/lib/checkout-reliability.ts";
 const unifiedLeadsGrantPath = "supabase/migrations/20260919014500_harden_unified_leads_view_grants.sql";
 const dynamicFunnelPath = "src/lib/dynamic-funnel.functions.ts";
 const adminLeadsPath = "src/routes/_authenticated/app.leads.index.tsx";
@@ -82,6 +84,8 @@ const addToCartButton = source(addToCartButtonPath);
 const servicePurchasePanel = source(servicePurchasePanelPath);
 const orderSummary = source(orderSummaryPath);
 const ordersFunctions = source(ordersFunctionsPath);
+const stripeCheckout = source(stripeCheckoutPath);
+const checkoutReliability = source(checkoutReliabilityPath);
 const unifiedLeadsGrant = source(unifiedLeadsGrantPath);
 const dynamicFunnel = source(dynamicFunnelPath);
 const adminLeads = source(adminLeadsPath);
@@ -298,6 +302,17 @@ requirePattern(
   /saveCartFunnelStep\([\s\S]*step:\s*"handoff_assisted"/,
   "checkout assistido público deixou de registrar no pipeline do carrinho",
 );
+requirePattern(checkoutPath, checkout, /submitLockRef[\s\S]*if \(submitLockRef\.current\) return;/, "checkout perdeu a trava local contra submissão duplicada");
+requirePattern(checkoutPath, checkout, /checkoutSessionKey:\s*sessionKey/, "pedido autenticado não recebe a sessão canônica do carrinho");
+requirePattern(ordersFunctionsPath, ordersFunctions, /deterministicCheckoutOrderId[\s\S]*error\.code === "23505"[\s\S]*reused:\s*true/, "pedido autenticado perdeu idempotência por sessão");
+requirePattern(cartFunnelPath, cartFunnel, /\.eq\("session_key", data\.sessionKey\)[\s\S]*idempotent:\s*true[\s\S]*check_and_record_rate_limit/, "handoff anônimo não verifica replay antes do rate limit");
+requirePattern(stripeCheckoutPath, stripeCheckout, /"Idempotency-Key":\s*`0web-checkout-\$\{order\.id\}`/, "Stripe perdeu idempotência por pedido");
+requirePattern(stripeCheckoutPath, stripeCheckout, /successSeparator[\s\S]*session_id=\{CHECKOUT_SESSION_ID\}/, "URL de sucesso do Stripe pode voltar a ser malformada");
+requirePattern(thankYouRoutePath, thankYouRoute, /checkout-stripe[\s\S]*readCart\(\)[\s\S]*clearCart\(\)[\s\S]*rotateCartSessionKey\(\)/, "retorno de sucesso do Stripe não encerra a jornada local");
+if (/clearCart\(\);\s*window\.location\.href\s*=\s*res\.url/.test(checkout)) {
+  errors.push(`${checkoutPath}: carrinho volta a ser apagado antes do retorno de sucesso do Stripe`);
+}
+requirePattern(checkoutReliabilityPath, checkoutReliability, /assistedCheckoutProtocol[\s\S]*deterministicCheckoutOrderId/, "helpers de idempotência do checkout estão ausentes");
 if (/submitPublicLead\(/.test(checkout)) {
   errors.push(`${checkoutPath}: checkout anônimo voltou a criar fonte paralela fora do pipeline do carrinho`);
 }
@@ -385,7 +400,7 @@ requirePattern(
 requirePattern(
   cartFunnelPath,
   cartFunnel,
-  /assistedProtocol[\s\S]*protocol/,
+  /assisted(?:Checkout)?Protocol[\s\S]*protocol/,
   "checkout assistido não emite protocolo server-side",
 );
 requirePattern(
