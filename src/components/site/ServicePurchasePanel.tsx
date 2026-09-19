@@ -26,29 +26,16 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
   const [added, setAdded] = useState(false);
 
   function handleAdd() {
-    addToCart(
-      {
-        slug: item.slug,
-        name: item.name,
-        category: item.category,
-        variantId: item.variantId ?? null,
-        variantLabel: item.variantLabel ?? null,
-        price: item.price,
-        pricePeriod: item.pricePeriod ?? null,
-        imageUrl: item.imageUrl ?? null,
-      },
-      {
-        onLoginNudge: (distinct) => {
-          if (distinct === 2) {
-            toast("Salve seu carrinho", {
-              description: "Entre com Google e a 0WEB guarda seus itens em qualquer dispositivo.",
-              action: { label: "Entrar", onClick: () => { window.location.href = "/auth"; } },
-              duration: 6000,
-            });
-          }
-        },
-      },
-    );
+    addToCart({
+      slug: item.slug,
+      name: item.name,
+      category: item.category,
+      variantId: item.variantId ?? null,
+      variantLabel: item.variantLabel ?? null,
+      price: item.price,
+      pricePeriod: item.pricePeriod ?? null,
+      imageUrl: item.imageUrl ?? null,
+    });
     void import("@/lib/analytics").then(({ trackEvent }) =>
       trackEvent("add_to_cart", {
         slug: item.slug,
@@ -57,9 +44,6 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
         total: item.price,
         name: item.name,
       }),
-    );
-    void import("@/lib/persistence").then(({ persistEvent }) =>
-      persistEvent("add_to_cart", { slug: item.slug, variant_id: item.variantId ?? null, total: item.price }),
     );
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
@@ -102,4 +86,3 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
     </div>
   );
 }
-

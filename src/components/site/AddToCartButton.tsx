@@ -25,9 +25,6 @@ export function AddToCartButton({ item, variant = "outline", size = "lg", classN
     void import("@/lib/analytics").then(({ trackEvent }) =>
       trackEvent("add_to_cart", { slug: item.slug, variant_id: item.variantId ?? null, name: item.name, price: item.price ?? 0, category: item.category ?? "" }),
     );
-    void import("@/lib/persistence").then(({ persistEvent }) =>
-      persistEvent("add_to_cart", { slug: item.slug, variant_id: item.variantId ?? null, name: item.name, price: item.price ?? null }),
-    );
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
     toast.success(`${item.name} adicionado`, {

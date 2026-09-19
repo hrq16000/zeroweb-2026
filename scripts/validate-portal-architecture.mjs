@@ -44,6 +44,7 @@ const servicosIndexPath = "src/routes/servicos.index.tsx";
 const cartFunnelPath = "src/lib/cart-funnel.functions.ts";
 const thankYouContentPath = "src/lib/thank-you-content.ts";
 const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
+const servicePurchasePanelPath = "src/components/site/ServicePurchasePanel.tsx";
 const orderSummaryPath = "src/components/site/OrderSummaryCard.tsx";
 const ordersFunctionsPath = "src/lib/orders.functions.ts";
 const unifiedLeadsGrantPath = "supabase/migrations/20260919014500_harden_unified_leads_view_grants.sql";
@@ -68,6 +69,7 @@ const servicosIndex = source(servicosIndexPath);
 const cartFunnel = source(cartFunnelPath);
 const thankYouContent = source(thankYouContentPath);
 const addToCartButton = source(addToCartButtonPath);
+const servicePurchasePanel = source(servicePurchasePanelPath);
 const orderSummary = source(orderSummaryPath);
 const ordersFunctions = source(ordersFunctionsPath);
 const unifiedLeadsGrant = source(unifiedLeadsGrantPath);
@@ -345,6 +347,25 @@ requirePattern(
   /Protocolo[\s\S]*cartDetails\.protocol/,
   "painel não exibe o protocolo assistido",
 );
+
+
+if (/onLoginNudge|Salve seu carrinho|window\.location\.href\s*=\s*"\/auth"/.test(servicePurchasePanel)) {
+  errors.push(`${servicePurchasePanelPath}: painel de compra voltou a pressionar login antes do checkout`);
+}
+for (const [path, text] of [
+  [addToCartButtonPath, addToCartButton],
+  [servicePurchasePanelPath, servicePurchasePanel],
+]) {
+  if (/import\("@\/lib\/persistence"\)[\s\S]*persistEvent\("add_to_cart"/.test(text)) {
+    errors.push(`${path}: add_to_cart voltou a ser persistido em duplicidade fora de trackEvent`);
+  }
+  requirePattern(
+    path,
+    text,
+    /trackEvent\("add_to_cart"/,
+    "ação de adicionar ao carrinho perdeu a telemetria canônica",
+  );
+}
 
 if (errors.length) {
   console.error("[portal-architecture] FAIL");

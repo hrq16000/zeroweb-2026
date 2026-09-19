@@ -277,3 +277,14 @@ Ao abrir `/checkout` com itens, o portal registra uma única etapa
 `checkout_started` para a sessão atual, com snapshot dos itens, variantes,
 total estimado e indicação de recorrência. Isso permite medir a conversão real
 entre carrinho, checkout e atendimento/pagamento sem depender apenas de pageview.
+
+## 23. Telemetria canônica do carrinho
+
+Os componentes de compra registram `add_to_cart` somente por `trackEvent()`.
+A função de analytics já persiste o evento de forma best-effort; componentes não
+devem chamar `persistEvent("add_to_cart")` em paralelo, evitando contagem
+duplicada no funil.
+
+Adicionar um serviço ao carrinho não sugere nem exige login. Autenticação fica
+restrita ao pagamento online e ao acompanhamento de pedidos, dentro do checkout.
+
