@@ -86,19 +86,8 @@ export const Route = createFileRoute("/servicos/")({
     };
   },
   loader: async () => {
-    const { listServicesPublic } = await import("@/lib/services-public.functions");
-    const { services: allServices } = await listServicesPublic();
-    // /servicos é uma loja: produto publicado precisa ter capa e preço.
-    // Soluções e cadastros incompletos ficam fora da vitrine até serem preparados.
-    const services = allServices.filter((s) => {
-      const galleryCover = s.gallery.find((g) => Boolean(g.url));
-      // A capa pode estar no campo principal, na galeria ou no OG próprio.
-      // O OG nunca deve ser substituído por imagem de outro produto/blog.
-      const hasImage = Boolean(s.imageUrl || galleryCover?.url || s.ogImageUrl);
-      const hasPrice = typeof s.price === "number" && s.price > 0;
-      return !s.isSolution && hasImage && hasPrice;
-    });
-    return { services };
+    const { listServicesStorefront } = await import("@/lib/services-public.functions");
+    return listServicesStorefront();
   },
   errorComponent: ({ error }) => (
     <div className="min-h-screen grid place-items-center p-8 text-center">
@@ -333,14 +322,8 @@ function ServicosHub() {
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-4">
                 {paginated.map((s) => {
-                  // Capa da miniatura: prefere imagem principal do produto e,
-                  // se ausente, usa a primeira imagem da galeria — assim
-                  // produtos que só têm galeria não caem no placeholder de sigla.
-                  const galleryCover = Array.isArray(s.gallery)
-                    ? (s.gallery.find((g: { url?: string | null; alt?: string | null }) => typeof g?.url === "string" && g.url) ?? null)
-                    : null;
-                  const coverUrl = s.imageUrl || galleryCover?.url || s.ogImageUrl || null;
-                  const coverAlt = s.imageAlt || galleryCover?.alt || s.name;
+                  const coverUrl = s.imageUrl;
+                  const coverAlt = s.imageAlt || s.name;
                   return (
                   <article
                     key={s.slug}

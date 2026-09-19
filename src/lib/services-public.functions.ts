@@ -367,6 +367,119 @@ const fileFallback = (s: ServiceData): PublicServiceFull => ({
   richHtml: null,
 });
 
+
+type DbStorefrontRow = {
+  slug: string;
+  name: string;
+  category: string;
+  description: string;
+  keywords: unknown;
+  display_order: number;
+  price: number | string | null;
+  price_period: string | null;
+  is_solution: boolean | null;
+  image_path: string | null;
+  image_alt: string | null;
+};
+
+export type PublicStorefrontService = {
+  slug: string;
+  name: string;
+  category: string;
+  description: string;
+  keywords: string[];
+  displayOrder: number;
+  price: number;
+  pricePeriod: string | null;
+  imageUrl: string;
+  imageAlt: string | null;
+};
+
+const STOREFRONT_COLS =
+  "slug,name,category,description,keywords,display_order,price,price_period,is_solution,image_path,image_alt";
+
+function normalizeStorefrontRow(row: DbStorefrontRow): DbStorefrontRow {
+  if (row.slug === "site-express") {
+    return {
+      ...row,
+      name: "Site Express",
+      description:
+        "Site profissional sob medida, mobile-first e focado em conversão, entregue chave-na-mão pelo nosso time. A partir de R$ 499.",
+    };
+  }
+  if (row.slug === "google-meu-negocio") {
+    return { ...row, price: 397, price_period: null };
+  }
+  if (row.slug === "trafego-pago") {
+    return { ...row, price: 0, price_period: null };
+  }
+  return row;
+}
+
+/**
+ * Loader enxuto da vitrine /servicos.
+ *
+ * Não carrega FAQ, processo, benefícios, sections, rich HTML, schema, galeria
+ * nem OG image. Assina somente a capa principal; fallbacks de capa preservam
+ * a mesma identidade já usada pelo catálogo completo.
+ */
+export const listServicesStorefront = createServerFn({ method: "GET" }).handler(async () => {
+  try {
+    const sbPublic = getSupabasePublicServer();
+    if (!sbPublic) throw new Error("supabase public client indisponível");
+    const signer = await getSupabaseAdminOptional();
+    const { data, error } = await sbPublic
+      .from("services")
+      .select(STOREFRONT_COLS)
+      .eq("is_active", true)
+      .order("display_order", { ascending: true });
+    if (error) throw error;
+
+    const rows = (data ?? []) as unknown as DbStorefrontRow[];
+    const mapped = await Promise.all(
+      rows.map(async (raw) => {
+        if (RETIRED_SERVICE_SLUGS.has(raw.slug)) return null;
+        const row = normalizeStorefrontRow(raw);
+        const price = row.price == null ? null : Number(row.price);
+        const isSolution = isServiceSolution({
+          is_solution: row.is_solution,
+          price: row.price,
+        });
+        if (isSolution || !Number.isFinite(price) || !price || price <= 0) return null;
+
+        const signedCover = await signImage(signer, row.image_path);
+        const imageUrl =
+          signedCover ??
+          canonicalServiceCoverUrl(row.slug) ??
+          RECOVERED_COVERS[row.slug] ??
+          generatedServiceCover(row.slug, row.name, row.category);
+
+        return {
+          slug: row.slug,
+          name: row.name,
+          category: row.category,
+          description: row.description,
+          keywords: asStringArray(row.keywords),
+          displayOrder: row.display_order,
+          price,
+          pricePeriod: row.price_period,
+          imageUrl,
+          imageAlt: row.image_alt,
+        } satisfies PublicStorefrontService;
+      }),
+    );
+
+    return {
+      services: mapped.filter(
+        (service): service is PublicStorefrontService => service !== null,
+      ),
+    };
+  } catch (err) {
+    console.error("[listServicesStorefront] unavailable", err);
+    return { services: [] as PublicStorefrontService[] };
+  }
+});
+
 export const listServicesPublic = createServerFn({ method: "GET" }).handler(async () => {
   try {
     const sbPublic = getSupabasePublicServer();

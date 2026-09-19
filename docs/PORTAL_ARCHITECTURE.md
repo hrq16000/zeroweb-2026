@@ -338,3 +338,14 @@ O painel administrativo calcula o funil a partir do histórico append-only de
 `analytics_events`, deduplicado por jornada. A antiga visualização de leads é
 explicitamente uma distribuição do estado atual, não uma taxa de conversão.
 Atendimento assistido e pagamento online são saídas alternativas do checkout.
+
+## 28. Loader enxuto da vitrine
+
+A rota `/servicos` não usa mais o catálogo editorial completo. A vitrine lê
+somente slug, nome, categoria, descrição, palavras-chave, ordem, preço,
+periodicidade e a capa principal.
+
+FAQ, benefícios, processo, sections, rich HTML, schema, galeria e OG image ficam
+restritos à página individual do produto. A listagem assina apenas uma capa por
+serviço e preserva os fallbacks visuais já existentes. Isso reduz consultas,
+assinaturas de Storage e payload sem alterar o conteúdo de `/servicos/:slug`.
