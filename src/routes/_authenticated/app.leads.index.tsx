@@ -22,6 +22,44 @@ export const Route = createFileRoute("/_authenticated/app/leads/")({
   component: LeadsPage,
 });
 
+function stageLabel(stage: string) {
+  const labels: Record<string, string> = {
+    handoff_assisted: "Atendimento solicitado",
+    checkout_started: "Checkout iniciado",
+    cart_open: "Carrinho aberto",
+    cart_update: "Carrinho atualizado",
+    payment_pending: "Pagamento pendente",
+    payment_paid: "Pago",
+    payment_failed: "Pagamento falhou",
+    abandoned: "Abandonado",
+    novo: "Novo",
+    qualificado: "Qualificado",
+  };
+  return labels[stage] ?? stage.replaceAll("_", " ");
+}
+
+function cartLeadDetails(lead: UnifiedLead) {
+  const extra = (lead.dados_extras ?? {}) as Record<string, any>;
+  const meta = (extra.metadata ?? {}) as Record<string, any>;
+  const cart = Array.isArray(extra.cart_snapshot) ? extra.cart_snapshot : [];
+  const phone = typeof meta.phone === "string" ? meta.phone : null;
+  const total =
+    typeof extra.total_amount === "number"
+      ? extra.total_amount
+      : Number(extra.total_amount || 0) || null;
+  const itemNames = cart
+    .map((item: any) => item?.variantLabel ? `${item.name} · ${item.variantLabel}` : item?.name)
+    .filter(Boolean)
+    .join(" | ");
+  return {
+    phone,
+    total,
+    itemNames,
+    channel: typeof extra.payment_channel === "string" ? extra.payment_channel : null,
+    recurring: Boolean(meta.has_recurring),
+  };
+}
+
 function toCsv(rows: UnifiedLead[]) {
   const esc = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
   const head = ["nome", "origem", "etapa_atual", "criado_em", "atualizado_em"];
@@ -163,7 +201,7 @@ function LeadsPage() {
               {funnelStages.map((s) => (
                 <li key={s.etapa}>
                   <div className="flex items-center justify-between text-xs mb-1">
-                    <span>{s.etapa}</span>
+                    <span className="capitalize">{stageLabel(s.etapa)}</span>
                     <span className="font-semibold tabular-nums">{s.count}</span>
                   </div>
                   <div className="h-2 rounded-full bg-muted overflow-hidden">
@@ -196,7 +234,7 @@ function LeadsPage() {
           <option value="all">Todas as etapas</option>
           {etapas.map((e) => (
             <option key={e} value={e}>
-              {e}
+              {stageLabel(e)}
             </option>
           ))}
         </select>
@@ -287,7 +325,7 @@ function LeadsPage() {
                 </td>
                 <td className="px-4 py-3">
                   <span className="inline-flex px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                    {l.etapa_atual}
+                    {stageLabel(l.etapa_atual)}
                   </span>
                 </td>
                 <td className="px-4 py-3 hidden md:table-cell text-muted-foreground text-xs">
@@ -312,14 +350,27 @@ function LeadsPage() {
           <SheetHeader>
             <SheetTitle>{open?.nome}</SheetTitle>
           </SheetHeader>
-          {open && (
+          {open && (() => {
+            const cartDetails = open.origem === "carrinho" ? cartLeadDetails(open) : null;
+            return (
             <div className="mt-4 space-y-3 text-sm">
               <div className="grid grid-cols-2 gap-3">
                 <Field label="Origem" value={open.origem} />
-                <Field label="Etapa" value={open.etapa_atual} />
+                <Field label="Etapa" value={stageLabel(open.etapa_atual)} />
                 <Field label="Criado" value={new Date(open.created_at).toLocaleString("pt-BR")} />
                 <Field label="Atualizado" value={new Date(open.updated_at).toLocaleString("pt-BR")} />
               </div>
+              {cartDetails && (
+                <div className="grid grid-cols-2 gap-3">
+                  <Field label="WhatsApp" value={cartDetails.phone ?? "—"} />
+                  <Field label="Canal" value={cartDetails.channel === "assisted" ? "Atendimento assistido" : cartDetails.channel ?? "—"} />
+                  <Field label="Valor estimado" value={cartDetails.total != null ? cartDetails.total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : "—"} />
+                  <Field label="Recorrente" value={cartDetails.recurring ? "Sim" : "Não"} />
+                  <div className="col-span-2">
+                    <Field label="Itens" value={cartDetails.itemNames || "—"} />
+                  </div>
+                </div>
+              )}
               <div>
                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Dados extras</p>
                 <pre className="bg-muted/40 rounded-lg p-3 text-xs overflow-auto max-h-[60vh]">
@@ -327,7 +378,8 @@ function LeadsPage() {
                 </pre>
               </div>
             </div>
-          )}
+            );
+          })()}
         </SheetContent>
       </Sheet>
     </div>

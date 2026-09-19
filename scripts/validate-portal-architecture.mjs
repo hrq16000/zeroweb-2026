@@ -47,6 +47,8 @@ const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
 const orderSummaryPath = "src/components/site/OrderSummaryCard.tsx";
 const ordersFunctionsPath = "src/lib/orders.functions.ts";
 const unifiedLeadsGrantPath = "supabase/migrations/20260919014500_harden_unified_leads_view_grants.sql";
+const dynamicFunnelPath = "src/lib/dynamic-funnel.functions.ts";
+const adminLeadsPath = "src/routes/_authenticated/app.leads.index.tsx";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -69,6 +71,8 @@ const addToCartButton = source(addToCartButtonPath);
 const orderSummary = source(orderSummaryPath);
 const ordersFunctions = source(ordersFunctionsPath);
 const unifiedLeadsGrant = source(unifiedLeadsGrantPath);
+const dynamicFunnel = source(dynamicFunnelPath);
+const adminLeads = source(adminLeadsPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -307,6 +311,21 @@ requirePattern(
   unifiedLeadsGrant,
   /REVOKE ALL ON TABLE public\.vw_unified_leads FROM anon/,
   "view unificada voltou a conceder acesso direto ao papel anon",
+);
+if (/digitsOnly\(String\(wa\.alert_phone\)\)|Boolean\(wa\.redirect_phone\)/.test(dynamicFunnel)) {
+  errors.push(`${dynamicFunnelPath}: funil voltou a usar telefone operacional armazenado no formulário`);
+}
+requirePattern(
+  dynamicFunnelPath,
+  dynamicFunnel,
+  /resolveOperationalWhatsAppContact[\s\S]*operationalAlert/,
+  "alerta institucional não usa o contato operacional canônico",
+);
+requirePattern(
+  adminLeadsPath,
+  adminLeads,
+  /handoff_assisted:\s*"Atendimento solicitado"[\s\S]*cartLeadDetails/,
+  "painel unificado não apresenta checkout assistido de forma operacional",
 );
 
 if (errors.length) {

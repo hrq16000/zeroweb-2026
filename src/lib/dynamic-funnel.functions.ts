@@ -71,13 +71,15 @@ export const getPublicFunnel = createServerFn({ method: "GET" })
     ]);
 
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
+    const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
+    const operationalWhatsApp = wa.enabled ? resolveOperationalWhatsAppContact() : null;
     return {
       id: form.id,
       slug: form.slug,
       name: form.name,
       description: form.description,
       config: (form.config_json ?? {}) as Record<string, any>,
-      whatsapp_enabled: Boolean(wa.enabled) && Boolean(wa.redirect_phone),
+      whatsapp_enabled: Boolean(operationalWhatsApp),
       questions: (qs ?? []).map((q) => ({
         id: q.id,
         key: q.key,
@@ -261,6 +263,8 @@ export const submitFunnel = createServerFn({ method: "POST" })
 
     // ---- Internal notification metadata ----
     const wa = (form.whatsapp_config ?? {}) as Record<string, unknown>;
+    const { resolveOperationalWhatsAppContact } = await import("@/lib/whatsapp-redirect.server");
+    const operationalAlert = wa.enabled ? resolveOperationalWhatsAppContact() : null;
     const answersText = fmtAnswers(data.answers, questions);
     const metadataText = fmtMetadata(metadata);
     const whatsapp_user_url: string | null = null;
@@ -277,7 +281,7 @@ export const submitFunnel = createServerFn({ method: "POST" })
         metadata_json: metadata as any,
         contact_name, contact_email, contact_phone,
         whatsapp_user_url,
-        whatsapp_alert_status: wa.enabled && wa.alert_phone ? "pending" : "disabled",
+        whatsapp_alert_status: operationalAlert ? "pending" : "disabled",
         score: scoring.score,
         score_breakdown: scoring.breakdown,
         tags: scoring.tags,
@@ -291,7 +295,7 @@ export const submitFunnel = createServerFn({ method: "POST" })
     // ---- Internal alert (best-effort, non-blocking semantics) ----
     let alertStatus: "sent" | "failed" | "disabled" = "disabled";
     let alertError: string | null = null;
-    if (wa.enabled && wa.alert_phone) {
+    if (operationalAlert) {
       try {
         const tpl = (wa.alert_message_template as string) ||
           "*Novo lead — {{form}}*\n\n{{answers}}\n\n{{metadata}}";
@@ -305,7 +309,7 @@ export const submitFunnel = createServerFn({ method: "POST" })
           const r = await fetch(`${baseUrl.replace(/\/$/, "")}/send/text`, {
             method: "POST",
             headers: { "Content-Type": "application/json", token: alertToken },
-            body: JSON.stringify({ number: digitsOnly(String(wa.alert_phone)), text: msg }),
+            body: JSON.stringify({ number: operationalAlert.digits, text: msg }),
             signal: AbortSignal.timeout(5000),
           });
           if (!r.ok) { alertStatus = "failed"; alertError = `HTTP ${r.status}`; }

@@ -246,3 +246,16 @@ A view administrativa `vw_unified_leads` não concede acesso direto ao papel
 `anon`. A migration de hardening mantém leitura autenticada sujeita a RLS e
 o fluxo administrativo server-side continua usando service role após validar
 a função de administrador.
+
+
+## 20. Contato operacional institucional
+
+`dynamic_forms.whatsapp_config` controla templates/provider e pode habilitar
+alerta, mas números gravados dentro do formulário não são fonte operacional.
+Redirect e alerta institucional resolvem o contato pelo módulo server-only
+canônico da 0WEB. Isso impede que números de seed, demo ou configuração antiga
+voltem a receber leads.
+
+O painel de Leads Unificados traduz `handoff_assisted` para "Atendimento
+solicitado" e destaca WhatsApp, valor estimado, recorrência e itens do carrinho
+para o operador, mantendo o JSON completo apenas como detalhe técnico.
