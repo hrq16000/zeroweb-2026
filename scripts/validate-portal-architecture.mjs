@@ -124,8 +124,20 @@ requirePattern(
 requirePattern(
   cartPath,
   cart,
-  /Object\.assign\(existing, item, \{ qty: 1 \}\)/,
-  "carrinho de serviços voltou a multiplicar quantidade por clique",
+  /export function upsertCartItem[\s\S]*qty:\s*1/,
+  "carrinho perdeu a regra unitária de serviços",
+);
+requirePattern(
+  cartPath,
+  cart,
+  /const list = upsertCartItem\(readCart\(\), item\)/,
+  "addToCart não usa a regra canônica do carrinho",
+);
+requirePattern(
+  cartPath,
+  cart,
+  /sameServiceIndex[\s\S]*variantId/,
+  "troca de variante do mesmo serviço não está protegida",
 );
 if (/existing\.qty\s*\+=\s*1/.test(cart)) {
   errors.push(`${cartPath}: serviço não pode multiplicar quantidade`);
