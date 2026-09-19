@@ -288,3 +288,14 @@ duplicada no funil.
 Adicionar um serviço ao carrinho não sugere nem exige login. Autenticação fica
 restrita ao pagamento online e ao acompanhamento de pedidos, dentro do checkout.
 
+## 24. Busca enxuta da loja
+
+A barra compartilhada de `/servicos/*` usa um índice textual próprio com apenas
+slug, nome, categoria, descrição e palavras-chave. Ela não deve carregar o
+catálogo completo nem assinar imagens, galeria ou OG image só para oferecer
+sugestões de busca.
+
+A página de vitrine e a página de produto continuam usando suas fontes completas
+quando precisam de preço, mídia, conteúdo ou schema. Isso reduz trabalho de
+servidor e payload repetido nas rotas da loja sem alterar o catálogo publicado.
+

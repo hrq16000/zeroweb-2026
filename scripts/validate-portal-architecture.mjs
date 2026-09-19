@@ -41,6 +41,8 @@ const googleMeuNegocioPath = "src/routes/servicos.google-meu-negocio.tsx";
 const redesSociaisPath = "src/routes/servicos.gestao-redes-sociais.tsx";
 const dynamicServicePath = "src/routes/servicos.$slug.tsx";
 const servicosIndexPath = "src/routes/servicos.index.tsx";
+const servicosLayoutPath = "src/routes/servicos.tsx";
+const servicesSearchPath = "src/lib/services-search.functions.ts";
 const cartFunnelPath = "src/lib/cart-funnel.functions.ts";
 const thankYouContentPath = "src/lib/thank-you-content.ts";
 const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
@@ -66,6 +68,8 @@ const googleMeuNegocio = source(googleMeuNegocioPath);
 const redesSociais = source(redesSociaisPath);
 const dynamicService = source(dynamicServicePath);
 const servicosIndex = source(servicosIndexPath);
+const servicosLayout = source(servicosLayoutPath);
+const servicesSearch = source(servicesSearchPath);
 const cartFunnel = source(cartFunnelPath);
 const thankYouContent = source(thankYouContentPath);
 const addToCartButton = source(addToCartButtonPath);
@@ -200,6 +204,26 @@ requirePattern(
   /isProduct\s*\?\s*\([\s\S]*?<ProductActionGate[\s\S]*?\)\s*:\s*\([\s\S]*?<ServiceCTA/,
   "CTA pós-recomendações não diferencia produto de serviço consultivo",
 );
+
+requirePattern(
+  servicosLayoutPath,
+  servicosLayout,
+  /listServicesSearch/,
+  "layout compartilhado da loja não usa o índice textual enxuto",
+);
+if (/listServicesPublic/.test(servicosLayout)) {
+  errors.push(`${servicosLayoutPath}: busca compartilhada voltou a carregar o catálogo completo`);
+}
+requirePattern(
+  servicesSearchPath,
+  servicesSearch,
+  /select\("slug,name,category,description,keywords,display_order"\)/,
+  "índice de busca deixou de limitar a consulta aos campos textuais necessários",
+);
+if (/image_path|og_image_path|gallery|createSignedUrl/.test(servicesSearch)) {
+  errors.push(`${servicesSearchPath}: índice de busca voltou a carregar ou assinar mídia`);
+}
+
 requirePattern(
   servicosIndexPath,
   servicosIndex,

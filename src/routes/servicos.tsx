@@ -2,7 +2,7 @@ import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "motion/react";
-import { SmartServiceSearch, type SearchableService } from "@/components/site/SmartServiceSearch";
+import { SmartServiceSearch } from "@/components/site/SmartServiceSearch";
 import { ServicosBreadcrumbs } from "@/components/site/ServicosBreadcrumbs";
 
 
@@ -12,15 +12,8 @@ import { ServicosBreadcrumbs } from "@/components/site/ServicosBreadcrumbs";
  */
 export const Route = createFileRoute("/servicos")({
   loader: async () => {
-    const { listServicesPublic } = await import("@/lib/services-public.functions");
-    const { services } = await listServicesPublic();
-    const searchable: SearchableService[] = services.map((s) => ({
-      slug: s.slug,
-      name: s.name,
-      category: s.category,
-      description: s.description,
-      keywords: s.keywords,
-    }));
+    const { listServicesSearch } = await import("@/lib/services-search.functions");
+    const { services: searchable } = await listServicesSearch();
     return { searchable };
   },
   component: ServicosLayout,
