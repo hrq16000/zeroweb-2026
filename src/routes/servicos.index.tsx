@@ -3,12 +3,12 @@ import { useEffect, useMemo, useState, useTransition } from "react";
 import { ArrowRight, Sparkles, Search, AlertCircle } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { SERVICES } from "@/lib/services-data";
 
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
+import { AddToCartButton } from "@/components/site/AddToCartButton";
 import {
   SITE_EXPRESS_FAQ_KEYS,
   normalizeFaqKey,
@@ -454,6 +454,20 @@ function ServicosHub() {
                         </div>
                       </div>
                     </Link>
+                    <div className="px-3 pb-3 sm:px-4 sm:pb-4">
+                      <AddToCartButton
+                        item={{
+                          slug: s.slug,
+                          name: s.name,
+                          category: s.category,
+                          price: s.price,
+                          pricePeriod: s.pricePeriod ?? null,
+                          imageUrl: coverUrl,
+                        }}
+                        size="sm"
+                        className="w-full rounded-full"
+                      />
+                    </div>
                   </article>
                   );
                 })}
@@ -509,7 +523,6 @@ function ServicosHub() {
 
       </main>
       <Footer />
-      <WhatsAppFloat />
-    </div>
+</div>
   );
 }
