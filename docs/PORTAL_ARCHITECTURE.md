@@ -269,3 +269,11 @@ página de obrigado e também no painel de Leads Unificados.
 
 A URL pública não expõe a chave interna da sessão do carrinho. O protocolo é um
 identificador operacional para conversa com o cliente, não uma credencial.
+
+
+## 22. Entrada no checkout
+
+Ao abrir `/checkout` com itens, o portal registra uma única etapa
+`checkout_started` para a sessão atual, com snapshot dos itens, variantes,
+total estimado e indicação de recorrência. Isso permite medir a conversão real
+entre carrinho, checkout e atendimento/pagamento sem depender apenas de pageview.

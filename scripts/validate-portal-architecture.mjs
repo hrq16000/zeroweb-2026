@@ -240,6 +240,12 @@ requirePattern(
 requirePattern(
   checkoutPath,
   checkout,
+  /step:\s*"checkout_started"[\s\S]*paymentChannel:\s*"site"/,
+  "entrada no checkout não está registrada na telemetria comercial",
+);
+requirePattern(
+  checkoutPath,
+  checkout,
   /saveCartFunnelStep\([\s\S]*step:\s*"handoff_assisted"/,
   "checkout assistido público deixou de registrar no pipeline do carrinho",
 );

@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CreditCard, ShieldCheck, LogIn, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
@@ -57,6 +57,7 @@ function CheckoutPage() {
   const [settings, setSettings] = useState<PaymentSettings>({
     stripeEnabled: false,
   });
+  const checkoutStartedRef = useRef(false);
   const total = useMemo(() => cartTotal(items), [items]);
   const hasUnpriced = items.some((i) => !i.price);
   const hasRecurring = items.some((i) => Boolean(i.pricePeriod));
@@ -71,6 +72,41 @@ function CheckoutPage() {
   useEffect(() => {
     void fetchSettings().then(setSettings).catch(() => {});
   }, [fetchSettings]);
+
+  useEffect(() => {
+    if (checkoutStartedRef.current || items.length === 0) return;
+    checkoutStartedRef.current = true;
+    const sessionKey = getCartSessionKey();
+    void saveCartFunnelStep({
+      data: {
+        sessionKey,
+        visitorId: getVisitorId(),
+        step: "checkout_started",
+        cart: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod }) => ({
+          slug,
+          name,
+          category: category ?? null,
+          variantId: variantId ?? null,
+          variantLabel: variantLabel ?? null,
+          price: price ?? null,
+          pricePeriod: pricePeriod ?? null,
+          qty: 1,
+        })),
+        totalAmount: total || null,
+        paymentChannel: "site",
+        paymentStatus: "open",
+        metadata: {
+          source: "checkout",
+          has_recurring: hasRecurring,
+          started_at: new Date().toISOString(),
+        },
+      },
+    }).then((result) => {
+      if (!result.ok) checkoutStartedRef.current = false;
+    }).catch(() => {
+      checkoutStartedRef.current = false;
+    });
+  }, [items, total, hasRecurring]);
 
   useEffect(() => {
     void supabase.auth.getUser().then(({ data }) => {
