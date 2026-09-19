@@ -61,26 +61,43 @@ export function distinctCount(items?: CartItem[]) {
 }
 
 export type AddOptions = { onLoginNudge?: (distinctAfter: number) => void };
+export type NewCartItem = Omit<CartItem, "qty" | "addedAt">;
 
-export function addToCart(item: Omit<CartItem, "qty" | "addedAt">, opts: AddOptions = {}) {
-  const list = readCart();
+/**
+ * Regra pura do carrinho de serviços:
+ * - repetir o mesmo item atualiza o snapshot;
+ * - escolher outra variante do mesmo serviço substitui a anterior;
+ * - serviços diferentes convivem no mesmo pedido;
+ * - quantidade permanece sempre 1.
+ */
+export function upsertCartItem(
+  current: CartItem[],
+  item: NewCartItem,
+  addedAt = Date.now(),
+): CartItem[] {
+  const list = current.map((i) => ({ ...i }));
   const key = cartItemKey(item);
-  const existing = list.find((i) => cartItemKey(i) === key);
-  if (existing) {
-    // /servicos vende serviços, não unidades físicas. Repetir o clique atualiza
-    // o snapshot do produto sem multiplicar preço/quantidade.
-    Object.assign(existing, item, { qty: 1 });
-  } else {
-    // Planos diferentes do MESMO serviço são alternativas, não itens cumulativos:
-    // escolher outra variante substitui a anterior e preserva 1 item por serviço.
-    const sameServiceIndex = item.variantId ? list.findIndex((i) => i.slug === item.slug) : -1;
+  const exactIndex = list.findIndex((i) => cartItemKey(i) === key);
+
+  if (exactIndex >= 0) {
+    list[exactIndex] = { ...list[exactIndex], ...item, qty: 1 };
+    return list;
+  }
+
+  if (item.variantId) {
+    const sameServiceIndex = list.findIndex((i) => i.slug === item.slug);
     if (sameServiceIndex >= 0) {
       const previous = list[sameServiceIndex];
       list[sameServiceIndex] = { ...item, qty: 1, addedAt: previous.addedAt };
-    } else {
-      list.push({ ...item, qty: 1, addedAt: Date.now() });
+      return list;
     }
   }
+
+  return [...list, { ...item, qty: 1, addedAt }];
+}
+
+export function addToCart(item: NewCartItem, opts: AddOptions = {}) {
+  const list = upsertCartItem(readCart(), item);
   writeCart(list);
   const distinct = list.length;
   // Híbrido: a partir do 2º item distinto, sugere login Google.
