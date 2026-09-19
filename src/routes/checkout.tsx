@@ -105,9 +105,24 @@ function CheckoutPage() {
     }
   }
 
+  function validateAssistedContact() {
+    const cleanName = name.trim();
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (cleanName.length < 2) {
+      toast.error("Informe seu nome", { description: "Precisamos saber com quem falar para continuar o atendimento." });
+      return false;
+    }
+    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+      toast.error("Informe um WhatsApp válido", { description: "Use DDD + número para conseguirmos retornar sobre o pedido." });
+      return false;
+    }
+    return true;
+  }
+
   async function handleAssistedCheckout() {
     if (!session) return handleGoogle();
     if (items.length === 0) return;
+    if (!validateAssistedContact()) return;
     setSubmitting("assisted");
     try {
       const { order } = await createOrder({
@@ -262,11 +277,11 @@ function CheckoutPage() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
                     <Label htmlFor="ck-name">Nome</Label>
-                    <Input id="ck-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Como podemos te chamar?" />
+                    <Input id="ck-name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Como podemos te chamar?" autoComplete="name" />
                   </div>
                   <div className="space-y-1.5">
                     <Label htmlFor="ck-phone">WhatsApp</Label>
-                    <Input id="ck-phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(11) 90000-0000" />
+                    <Input id="ck-phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(41) 99999-9999" inputMode="tel" autoComplete="tel" />
                   </div>
                 </div>
                 <div className="space-y-1.5">
