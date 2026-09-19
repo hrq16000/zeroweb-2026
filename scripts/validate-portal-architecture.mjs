@@ -136,7 +136,7 @@ requirePattern(
 requirePattern(
   cartPath,
   cart,
-  /sameServiceIndex[\s\S]*variantId/,
+  /item\.variantId[\s\S]*sameServiceIndex/,
   "troca de variante do mesmo serviço não está protegida",
 );
 if (/existing\.qty\s*\+=\s*1/.test(cart)) {
