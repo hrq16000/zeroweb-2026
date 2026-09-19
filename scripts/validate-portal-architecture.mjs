@@ -327,6 +327,18 @@ requirePattern(
   /handoff_assisted:\s*"Atendimento solicitado"[\s\S]*cartLeadDetails/,
   "painel unificado não apresenta checkout assistido de forma operacional",
 );
+requirePattern(
+  cartFunnelPath,
+  cartFunnel,
+  /assistedProtocol[\s\S]*protocol/,
+  "checkout assistido não emite protocolo server-side",
+);
+requirePattern(
+  adminLeadsPath,
+  adminLeads,
+  /Protocolo[\s\S]*cartDetails\.protocol/,
+  "painel não exibe o protocolo assistido",
+);
 
 if (errors.length) {
   console.error("[portal-architecture] FAIL");

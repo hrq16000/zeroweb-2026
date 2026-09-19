@@ -45,6 +45,19 @@ const Input = z.object({
   metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
+async function assistedProtocol(sessionKey: string) {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(`0web-assisted:${sessionKey}`),
+  );
+  const code = Array.from(new Uint8Array(digest))
+    .slice(0, 5)
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
+  return `0W-${code}`;
+}
+
 export const saveCartFunnelStep = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => Input.parse(d))
   .handler(async ({ data }) => {
@@ -93,6 +106,11 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
       /* anônimo */
     }
 
+    const protocol =
+      data.step === "handoff_assisted"
+        ? await assistedProtocol(data.sessionKey)
+        : null;
+
     const payload = {
       user_id: userId,
       visitor_id: data.visitorId ?? null,
@@ -105,7 +123,10 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
       payment_ref: data.paymentRef ?? null,
       total_amount: data.totalAmount ?? null,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      metadata: (data.metadata ?? {}) as any,
+      metadata: ({
+        ...(data.metadata ?? {}),
+        ...(protocol ? { protocol } : {}),
+      }) as any,
       updated_at: new Date().toISOString(),
     };
 
@@ -117,5 +138,5 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
       console.error("[saveCartFunnelStep] upsert failed", error);
       return { ok: false, error: error.message };
     }
-    return { ok: true };
+    return { ok: true, protocol };
   });

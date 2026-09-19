@@ -89,7 +89,7 @@ function ObrigadoPage() {
       event_category: "conversion",
       order_id: order ?? undefined,
       lead_id: lead ?? undefined,
-      cart_session: protocol ?? undefined,
+      checkout_protocol: protocol ?? undefined,
       checkout_method:
         resolvedSource === "checkout-stripe" ? "stripe" :
         resolvedSource === "checkout-assisted" || resolvedSource === "checkout-whatsapp" ? "assisted" :
@@ -229,7 +229,7 @@ function ObrigadoPage() {
               <Package className="w-4 h-4 text-primary" />
               <span>
                 Protocolo de atendimento{" "}
-                <strong>{protocol.replace(/^cart_/, "").slice(0, 8).toUpperCase()}</strong>
+                <strong>{protocol}</strong>
               </span>
             </motion.div>
           ) : lead && !order ? (

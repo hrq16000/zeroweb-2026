@@ -259,3 +259,13 @@ voltem a receber leads.
 O painel de Leads Unificados traduz `handoff_assisted` para "Atendimento
 solicitado" e destaca WhatsApp, valor estimado, recorrência e itens do carrinho
 para o operador, mantendo o JSON completo apenas como detalhe técnico.
+
+
+## 21. Protocolo de atendimento assistido
+
+Checkout assistido anônimo recebe um protocolo curto emitido no servidor a partir
+da sessão do carrinho. O protocolo é persistido no metadata do lead, exibido na
+página de obrigado e também no painel de Leads Unificados.
+
+A URL pública não expõe a chave interna da sessão do carrinho. O protocolo é um
+identificador operacional para conversa com o cliente, não uma credencial.

@@ -52,6 +52,7 @@ function cartLeadDetails(lead: UnifiedLead) {
     .filter(Boolean)
     .join(" | ");
   return {
+    protocol: typeof meta.protocol === "string" ? meta.protocol : null,
     phone,
     total,
     itemNames,
@@ -362,6 +363,7 @@ function LeadsPage() {
               </div>
               {cartDetails && (
                 <div className="grid grid-cols-2 gap-3">
+                  <Field label="Protocolo" value={cartDetails.protocol ?? "—"} />
                   <Field label="WhatsApp" value={cartDetails.phone ?? "—"} />
                   <Field label="Canal" value={cartDetails.channel === "assisted" ? "Atendimento assistido" : cartDetails.channel ?? "—"} />
                   <Field label="Valor estimado" value={cartDetails.total != null ? cartDetails.total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : "—"} />

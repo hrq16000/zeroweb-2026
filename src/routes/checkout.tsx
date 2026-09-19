@@ -175,7 +175,13 @@ function CheckoutPage() {
         clearCart();
         rotateCartSessionKey();
         toast.success("Pedido registrado", { description: "Recebemos seus dados e o resumo do carrinho." });
-        navigate({ to: "/obrigado", search: { source: "checkout-assisted", protocol: sessionKey } });
+        navigate({
+          to: "/obrigado",
+          search: {
+            source: "checkout-assisted",
+            protocol: result.protocol ?? undefined,
+          },
+        });
         return;
       }
 
