@@ -8,6 +8,8 @@ export type ServicePurchaseBase = {
   slug: string;
   name: string;
   category?: string;
+  variantId?: string | null;
+  variantLabel?: string | null;
   price: number; // price > 0 (caller already filtered)
   pricePeriod?: string | null;
   imageUrl?: string | null;
@@ -16,11 +18,9 @@ export type ServicePurchaseBase = {
 /**
  * Painel de compra simplificado para serviços digitais.
  *
- * Serviços da 0WEB têm preço fixo por escopo — sem variantes fictícias
- * ("Essencial/Pro/Avançado") e sem quantidade (não faz sentido multiplicar
- * uma gestão mensal). Se um produto precisar de múltiplas opções reais,
- * elas virão como serviços distintos no catálogo, cada um com seu próprio
- * card e slug.
+ * Serviços são unitários e não têm multiplicação de quantidade.
+ * Variantes só existem quando representam opções comerciais reais do mesmo
+ * serviço (plano/pacote), identificadas por variantId.
  */
 export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
   const [added, setAdded] = useState(false);
@@ -31,6 +31,8 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
         slug: item.slug,
         name: item.name,
         category: item.category,
+        variantId: item.variantId ?? null,
+        variantLabel: item.variantLabel ?? null,
         price: item.price,
         pricePeriod: item.pricePeriod ?? null,
         imageUrl: item.imageUrl ?? null,
@@ -50,13 +52,14 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
     void import("@/lib/analytics").then(({ trackEvent }) =>
       trackEvent("add_to_cart", {
         slug: item.slug,
+        variant_id: item.variantId ?? null,
         unit_price: item.price,
         total: item.price,
         name: item.name,
       }),
     );
     void import("@/lib/persistence").then(({ persistEvent }) =>
-      persistEvent("add_to_cart", { slug: item.slug, total: item.price }),
+      persistEvent("add_to_cart", { slug: item.slug, variant_id: item.variantId ?? null, total: item.price }),
     );
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
@@ -72,7 +75,7 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
       <div>
         <h3 className="font-semibold text-lg">Contratar este serviço</h3>
         <p className="text-sm text-muted-foreground">
-          Escopo único definido pela equipe — sem variantes ou multiplicação.
+          {item.variantLabel ? `${item.variantLabel} · ` : ""}1 contratação por serviço, sem multiplicação de quantidade.
         </p>
       </div>
 
@@ -85,6 +88,12 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
           ) : null}
         </span>
       </div>
+
+      {item.pricePeriod ? (
+        <p className="text-xs text-muted-foreground">
+          Plano recorrente: a periodicidade e a ativação são confirmadas no checkout assistido.
+        </p>
+      ) : null}
 
       <Button size="lg" className="w-full" onClick={handleAdd} aria-label={`Adicionar ${item.name} ao carrinho`}>
         {added ? <Check className="w-4 h-4 mr-2" /> : <ShoppingBag className="w-4 h-4 mr-2" />}
