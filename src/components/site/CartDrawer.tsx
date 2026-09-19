@@ -48,7 +48,9 @@ function reportStep(
         cart: items.map((i) => ({
           slug: i.slug,
           name: i.name,
-          qty: i.qty,
+          variantId: i.variantId ?? null,
+          variantLabel: i.variantLabel ?? null,
+          qty: 1,
           price: i.price ?? null,
           pricePeriod: i.pricePeriod ?? null,
           category: i.category ?? null,
@@ -83,7 +85,7 @@ export function CartDrawer() {
     const sync = () => {
       const next = readCart();
       setItems(next);
-      const sig = JSON.stringify(next.map((i) => [i.slug, i.qty]));
+      const sig = JSON.stringify(next.map((i) => [cartItemKey(i), i.price ?? null, i.pricePeriod ?? null]));
       if (sig !== lastSnapshot.current) {
         lastSnapshot.current = sig;
         if (next.length > 0) reportStep("cart_update", next);
@@ -191,6 +193,11 @@ export function CartDrawer() {
           <>
             <Separator />
             <div className="px-5 py-4 space-y-3">
+              {items.some((i) => Boolean(i.pricePeriod)) && (
+                <p className="rounded-xl border border-primary/20 bg-primary/5 px-3 py-2 text-[11px] text-muted-foreground">
+                  Planos recorrentes são ativados com atendimento assistido para garantir a periodicidade correta.
+                </p>
+              )}
               <div className="flex justify-between items-baseline">
                 <span className="text-sm text-muted-foreground">
                   Total estimado{hasUnpriced ? " *" : ""}
