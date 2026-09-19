@@ -202,6 +202,18 @@ requirePattern(
   /variantId:[\s\S]*variantLabel:/,
   "schema do funil do carrinho não preserva variantes",
 );
+requirePattern(
+  checkoutPath,
+  checkout,
+  /function\s+validateAssistedContact\(\)[\s\S]*phoneDigits\.length\s*<\s*10/,
+  "checkout assistido pode aceitar pedido sem contato válido",
+);
+requirePattern(
+  cartDrawerPath,
+  cartDrawer,
+  /i\.variantLabel[\s\S]*font-medium text-primary/,
+  "carrinho deixou de exibir a variante escolhida",
+);
 
 if (errors.length) {
   console.error("[portal-architecture] FAIL");
