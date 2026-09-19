@@ -233,3 +233,16 @@ entregue. O endpoint aplica rate limit antes do handoff.
 
 Não criar tabela ou fonte paralela para checkout anônimo: o painel unificado já
 consome `cart_funnel_progress` como origem `carrinho`.
+
+
+## 19. Uma decisão por etapa
+
+O drawer do carrinho não apresenta dois botões que levam para a mesma rota.
+Ele tem uma única progressão: `Continuar para checkout`. A escolha entre
+pagamento online e atendimento assistido pertence ao checkout, onde há contexto
+suficiente para explicar autenticação, recorrência e disponibilidade.
+
+A view administrativa `vw_unified_leads` não concede acesso direto ao papel
+`anon`. A migration de hardening mantém leitura autenticada sujeita a RLS e
+o fluxo administrativo server-side continua usando service role após validar
+a função de administrador.

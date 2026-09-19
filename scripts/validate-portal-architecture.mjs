@@ -46,6 +46,7 @@ const thankYouContentPath = "src/lib/thank-you-content.ts";
 const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
 const orderSummaryPath = "src/components/site/OrderSummaryCard.tsx";
 const ordersFunctionsPath = "src/lib/orders.functions.ts";
+const unifiedLeadsGrantPath = "supabase/migrations/20260919014500_harden_unified_leads_view_grants.sql";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -67,6 +68,7 @@ const thankYouContent = source(thankYouContentPath);
 const addToCartButton = source(addToCartButtonPath);
 const orderSummary = source(orderSummaryPath);
 const ordersFunctions = source(ordersFunctionsPath);
+const unifiedLeadsGrant = source(unifiedLeadsGrantPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -290,6 +292,21 @@ requirePattern(
   cartDrawer,
   /i\.variantLabel[\s\S]*font-medium text-primary/,
   "carrinho deixou de exibir a variante escolhida",
+);
+requirePattern(
+  cartDrawerPath,
+  cartDrawer,
+  /Continuar para checkout/,
+  "carrinho perdeu o CTA único de progressão",
+);
+if (/Finalizar compra[\s\S]*Finalizar com atendimento/.test(cartDrawer)) {
+  errors.push(`${cartDrawerPath}: drawer voltou a duplicar decisões que pertencem ao checkout`);
+}
+requirePattern(
+  unifiedLeadsGrantPath,
+  unifiedLeadsGrant,
+  /REVOKE ALL ON TABLE public\.vw_unified_leads FROM anon/,
+  "view unificada voltou a conceder acesso direto ao papel anon",
 );
 
 if (errors.length) {

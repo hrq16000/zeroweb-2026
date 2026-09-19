@@ -204,6 +204,9 @@ export function CartDrawer() {
                 </p>
               )}
               <div className="grid grid-cols-1 gap-2">
+                <p className="text-[11px] text-muted-foreground">
+                  No checkout você escolhe pagamento online, quando disponível, ou atendimento assistido.
+                </p>
                 <Button
                   size="lg"
                   className="w-full"
@@ -219,19 +222,7 @@ export function CartDrawer() {
                     window.location.href = "/checkout";
                   }}
                 >
-                  Finalizar compra
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full"
-                  onClick={() => {
-                    reportStep("checkout_started", items, { paymentChannel: "site", paymentStatus: "pending" });
-                    setOpen(false);
-                    window.location.href = "/checkout";
-                  }}
-                >
-                  Finalizar com atendimento
+                  Continuar para checkout
                 </Button>
                 <button
                   type="button"
