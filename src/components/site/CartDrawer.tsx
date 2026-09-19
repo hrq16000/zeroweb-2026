@@ -169,6 +169,11 @@ export function CartDrawer() {
                   >
                     {i.name}
                   </Link>
+                  {i.variantLabel ? (
+                    <p className="text-[11px] font-medium text-primary mt-0.5 truncate">
+                      {i.variantLabel}
+                    </p>
+                  ) : null}
                   <p className="text-xs text-muted-foreground mt-0.5">
                     {formatBRL(i.price)}
                     {i.pricePeriod ? `/${i.pricePeriod}` : ""}
