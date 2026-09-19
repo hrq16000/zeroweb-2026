@@ -299,3 +299,14 @@ A página de vitrine e a página de produto continuam usando suas fontes complet
 quando precisam de preço, mídia, conteúdo ou schema. Isso reduz trabalho de
 servidor e payload repetido nas rotas da loja sem alterar o catálogo publicado.
 
+## 25. Noindex das rotas transacionais
+
+`/checkout`, `/obrigado` e `/pedido/:id` são páginas operacionais, não
+páginas de aquisição. Elas permanecem acessíveis ao crawler apenas para que a
+meta `robots=noindex,nofollow` possa ser lida; por isso não devem ser
+bloqueadas pelo `robots.txt`.
+
+Áreas administrativas e endpoints continuam bloqueados no `robots.txt`.
+As rotas transacionais não entram em sitemap e não devem competir com páginas
+de produto nos resultados de busca.
+

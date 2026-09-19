@@ -37,6 +37,9 @@ const architecturePath = "docs/PORTAL_ARCHITECTURE.md";
 const cartPath = "src/lib/cart.ts";
 const cartDrawerPath = "src/components/site/CartDrawer.tsx";
 const checkoutPath = "src/routes/checkout.tsx";
+const thankYouRoutePath = "src/routes/obrigado.tsx";
+const orderRoutePath = "src/routes/pedido.$id.tsx";
+const robotsPath = "public/robots.txt";
 const googleMeuNegocioPath = "src/routes/servicos.google-meu-negocio.tsx";
 const redesSociaisPath = "src/routes/servicos.gestao-redes-sociais.tsx";
 const dynamicServicePath = "src/routes/servicos.$slug.tsx";
@@ -64,6 +67,9 @@ const architecture = source(architecturePath);
 const cart = source(cartPath);
 const cartDrawer = source(cartDrawerPath);
 const checkout = source(checkoutPath);
+const thankYouRoute = source(thankYouRoutePath);
+const orderRoute = source(orderRoutePath);
+const robots = source(robotsPath);
 const googleMeuNegocio = source(googleMeuNegocioPath);
 const redesSociais = source(redesSociaisPath);
 const dynamicService = source(dynamicServicePath);
@@ -165,6 +171,23 @@ if (/existing\.qty\s*\+=\s*1/.test(cart)) {
 if (/aria-label="Aumentar"|aria-label="Diminuir"/.test(cartDrawer)) {
   errors.push(`${cartDrawerPath}: controle de quantidade reapareceu para serviços`);
 }
+
+for (const [path, text] of [
+  [checkoutPath, checkout],
+  [thankYouRoutePath, thankYouRoute],
+  [orderRoutePath, orderRoute],
+]) {
+  requirePattern(
+    path,
+    text,
+    /name:\s*"robots",\s*content:\s*"noindex,\s*nofollow"/,
+    "rota transacional pública perdeu meta robots noindex,nofollow",
+  );
+}
+if (/^Disallow:\s*\/(?:checkout|obrigado|pedido\/)/m.test(robots)) {
+  errors.push(`${robotsPath}: robots.txt voltou a bloquear rota transacional antes do crawler ler o noindex`);
+}
+
 if (/wa\.me|api\.whatsapp\.com|href=["'`]tel:/i.test(checkout)) {
   errors.push(`${checkoutPath}: checkout voltou a expor contato direto`);
 }

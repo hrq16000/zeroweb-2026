@@ -34,7 +34,7 @@ export const Route = createFileRoute("/obrigado")({
       { property: "og:description", content: DESC },
       { property: "og:url", content: absUrl("/obrigado") },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "robots", content: "noindex, follow" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: absUrl("/obrigado") }],
     scripts: [

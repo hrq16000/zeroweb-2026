@@ -23,7 +23,7 @@ Allow: /*.woff$
 Allow: /*.woff2$
 Allow: /*.ttf$
 
-# Áreas administrativas / autenticadas (não indexar)
+# Áreas administrativas / autenticadas (não rastrear)
 Disallow: /app
 Disallow: /app/
 Disallow: /auth
@@ -32,9 +32,10 @@ Disallow: /painel-crm
 Disallow: /qa-events
 Disallow: /r/
 Disallow: /api/
-Disallow: /checkout
-Disallow: /pedido/
-Disallow: /obrigado
+
+# Rotas transacionais públicas não são bloqueadas aqui: checkout, obrigado e
+# pedido usam meta robots noindex,nofollow. O crawler precisa poder ler essa
+# diretiva para removê-las/evitar indexá-las corretamente.
 
 # Crawl-delay leve para bots agressivos (Google ignora; protege contra outros)
 User-agent: AhrefsBot
