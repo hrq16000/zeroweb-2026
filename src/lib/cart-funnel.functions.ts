@@ -26,6 +26,8 @@ const CartItemSchema = z.object({
   price: z.number().nullable().optional(),
   pricePeriod: z.string().nullable().optional(),
   category: z.string().nullable().optional(),
+  variantId: z.string().max(120).nullable().optional(),
+  variantLabel: z.string().max(200).nullable().optional(),
 });
 
 const Input = z.object({
