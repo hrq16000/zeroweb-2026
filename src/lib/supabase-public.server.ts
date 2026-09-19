@@ -18,9 +18,17 @@ let cached: PublicClient | null | undefined;
 export function getSupabasePublicServer(): PublicClient | null {
   if (cached !== undefined) return cached;
 
-  const url = process.env.SUPABASE_URL ?? process.env.VITE_SUPABASE_URL;
+  // Em runtimes como Vercel, as variáveis públicas podem existir apenas no
+  // build do Vite. Como URL e publishable key são públicas por definição,
+  // usamos import.meta.env como último fallback sem elevar privilégios.
+  const url =
+    process.env.SUPABASE_URL ??
+    process.env.VITE_SUPABASE_URL ??
+    import.meta.env.VITE_SUPABASE_URL;
   const key =
-    process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    process.env.SUPABASE_PUBLISHABLE_KEY ??
+    process.env.VITE_SUPABASE_PUBLISHABLE_KEY ??
+    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
   if (!url || !key) {
     console.error(
@@ -42,7 +50,11 @@ export function getSupabasePublicServer(): PublicClient | null {
  * para `null` em vez de derrubar a página inteira.
  */
 export async function getSupabaseAdminOptional(): Promise<unknown | null> {
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return null;
+  const url =
+    process.env.SUPABASE_URL ??
+    process.env.VITE_SUPABASE_URL ??
+    import.meta.env.VITE_SUPABASE_URL;
+  if (!url || !process.env.SUPABASE_SERVICE_ROLE_KEY) return null;
   try {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     return supabaseAdmin;
