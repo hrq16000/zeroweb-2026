@@ -40,6 +40,8 @@ const checkoutPath = "src/routes/checkout.tsx";
 const googleMeuNegocioPath = "src/routes/servicos.google-meu-negocio.tsx";
 const redesSociaisPath = "src/routes/servicos.gestao-redes-sociais.tsx";
 const dynamicServicePath = "src/routes/servicos.$slug.tsx";
+const servicosIndexPath = "src/routes/servicos.index.tsx";
+const cartFunnelPath = "src/lib/cart-funnel.functions.ts";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -55,6 +57,8 @@ const checkout = source(checkoutPath);
 const googleMeuNegocio = source(googleMeuNegocioPath);
 const redesSociais = source(redesSociaisPath);
 const dynamicService = source(dynamicServicePath);
+const servicosIndex = source(servicosIndexPath);
+const cartFunnel = source(cartFunnelPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -167,6 +171,24 @@ requirePattern(
   dynamicService,
   /isProduct\s*\?\s*\([\s\S]*?<ProductActionGate[\s\S]*?\)\s*:\s*\([\s\S]*?<ServiceCTA/,
   "CTA pós-recomendações não diferencia produto de serviço consultivo",
+);
+requirePattern(
+  servicosIndexPath,
+  servicosIndex,
+  /paginated\.map[\s\S]*<AddToCartButton/,
+  "vitrine perdeu o atalho de adicionar produto ao carrinho",
+);
+requirePattern(
+  cartDrawerPath,
+  cartDrawer,
+  /variantId:\s*i\.variantId[\s\S]*variantLabel:\s*i\.variantLabel/,
+  "telemetria do carrinho perdeu a variante comercial",
+);
+requirePattern(
+  cartFunnelPath,
+  cartFunnel,
+  /variantId:[\s\S]*variantLabel:/,
+  "schema do funil do carrinho não preserva variantes",
 );
 
 if (errors.length) {

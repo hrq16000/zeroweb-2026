@@ -153,3 +153,13 @@ no fim da página nem depois das recomendações.
 
 Quando não há preço transacional, o serviço pode continuar no fluxo consultivo
 e usar `ServiceCTA`.
+
+
+## 12. Atalho de compra na vitrine
+
+A vitrine de `/servicos` oferece "Adicionar ao carrinho" diretamente no card
+de cada produto com preço publicado, sem obrigar o visitante a abrir a página
+de detalhes. A página de detalhes continua disponível para comparação e leitura.
+
+Troca de variante do mesmo serviço deve ser registrada na telemetria como nova
+seleção comercial, mesmo que o slug canônico permaneça igual.
