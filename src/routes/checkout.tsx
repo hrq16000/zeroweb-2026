@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { readCart, cartTotal, formatBRL, clearCart, type CartItem } from "@/lib/cart";
-import { createOrder, markOrderWhatsAppHandoff } from "@/lib/orders.functions";
+import { createOrder, markOrderAssistedHandoff } from "@/lib/orders.functions";
 import { createStripeCheckoutSession } from "@/lib/stripe-checkout.functions";
 import { getPaymentSettings, type PaymentSettings } from "@/lib/payment-settings.functions";
 import { submitPublicLead } from "@/lib/lead-intake.functions";
@@ -188,7 +188,7 @@ function CheckoutPage() {
           customerPhone: phone || undefined,
         },
       });
-      await markOrderWhatsAppHandoff({ data: { orderId: order.id } });
+      await markOrderAssistedHandoff({ data: { orderId: order.id } });
       void import("@/lib/analytics").then(({ trackConversion }) =>
         trackConversion("checkout_assisted_handoff", { order_id: order.id, total, items: items.length, location: "checkout" }),
       );

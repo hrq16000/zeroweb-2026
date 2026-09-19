@@ -205,3 +205,15 @@ estático. A fonte real da vitrine é o loader conectado ao catálogo público;
 por isso o índice declara `CollectionPage` e deixa o schema detalhado para
 cada rota de produto. Isso evita anunciar no Google produtos, FAQs ou contagens
 que não estejam realmente publicados na loja.
+
+
+## 17. Semântica de pedido e conversão
+
+Atendimento assistido autenticado usa `payment_method=manual`; o valor
+`whatsapp` fica apenas como legado histórico. A interface não presume canal
+de contato.
+
+O evento GA4 `purchase` só pode disparar quando `orders.status = paid`.
+Criar pedido, abrir a página de obrigado ou entrar em `awaiting_payment`
+não contam como venda. Variante comercial é enviada em `item_variant` e
+a quantidade permanece 1 para serviços.

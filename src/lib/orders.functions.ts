@@ -68,11 +68,11 @@ export const createOrder = createServerFn({ method: "POST" })
   });
 
 /**
- * Marca o pedido como transferido para WhatsApp e pendente de pagamento.
- * O cliente continua o atendimento pelo WhatsApp; internamente o pedido
- * fica salvo como `pending_payment` para acompanhamento financeiro.
+ * Marca o pedido como atendimento assistido e pendente de pagamento.
+ * Não presume WhatsApp nem outro canal externo; o pedido permanece rastreável
+ * no painel e o contato usa os dados informados no checkout.
  */
-export const markOrderWhatsAppHandoff = createServerFn({ method: "POST" })
+export const markOrderAssistedHandoff = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) =>
     z.object({ orderId: z.string().uuid() }).parse(input),
@@ -83,14 +83,16 @@ export const markOrderWhatsAppHandoff = createServerFn({ method: "POST" })
       .from("orders")
       .update({
         status: "awaiting_payment",
-        payment_method: "whatsapp",
-        whatsapp_handoff_at: new Date().toISOString(),
+        payment_method: "manual",
       })
       .eq("id", data.orderId)
       .eq("user_id", userId);
     if (error) throw new Error(error.message);
     return { ok: true };
   });
+
+// Compatibilidade temporária com imports antigos; não use em código novo.
+export const markOrderWhatsAppHandoff = markOrderAssistedHandoff;
 
 
 /**

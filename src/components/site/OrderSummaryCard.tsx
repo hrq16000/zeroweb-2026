@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Loader2, Package, MessageCircle, ExternalLink } from "lucide-react";
+import { Loader2, Package, ExternalLink } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { getMyOrder } from "@/lib/orders.functions";
 import { formatBRL } from "@/lib/cart";
@@ -9,6 +9,8 @@ type OrderItem = {
   slug: string;
   name: string;
   category?: string | null;
+  variantId?: string | null;
+  variantLabel?: string | null;
   price?: number | null;
   qty: number;
 };
@@ -39,25 +41,25 @@ const STATUS_LABEL: Record<string, string> = {
  * uma mensagem amigável com link para a área do cliente.
  */
 const DEFAULT_STEPS = [
-  { t: "Confirmação", d: "Recebemos seu pedido e nosso time já foi notificado." },
-  { t: "Atendimento", d: "Em até 1h útil entramos em contato para alinhar o escopo." },
-  { t: "Execução", d: "Após o briefing, o entregável começa conforme o prazo combinado." },
+  { t: "Pedido registrado", d: "Recebemos seu pedido e preservamos o resumo da contratação." },
+  { t: "Atendimento", d: "A equipe dará continuidade usando os dados informados no checkout." },
+  { t: "Execução", d: "Após aprovação e condições comerciais confirmadas, a entrega segue o escopo contratado." },
 ];
 
-const WHATSAPP_STEPS = [
-  { t: "Pedido registrado", d: "Seu pedido foi salvo e nosso time comercial já foi notificado." },
-  { t: "Proposta no WhatsApp", d: "Em até 1h útil te enviamos a proposta final pelo WhatsApp." },
-  { t: "Aprovação e início", d: "Assim que aprovar, iniciamos o projeto conforme o prazo combinado." },
+const ASSISTED_STEPS = [
+  { t: "Pedido registrado", d: "Seu pedido foi salvo e está disponível para continuidade comercial." },
+  { t: "Contato da equipe", d: "A equipe confirma escopo, recorrência e forma de pagamento com você." },
+  { t: "Aprovação e início", d: "A execução começa após a aprovação das condições do pedido." },
 ];
 
 const STRIPE_STEPS = [
-  { t: "Pagamento confirmado", d: "Seu pagamento foi processado com segurança pelo Stripe." },
-  { t: "Briefing de início", d: "Em até 1h útil entramos em contato para alinhar o escopo final." },
-  { t: "Execução do projeto", d: "Após o briefing, começamos a entrega conforme o pacote escolhido." },
+  { t: "Validação do pagamento", d: "O provedor de pagamento confirma o status do pedido por evento seguro." },
+  { t: "Briefing de início", d: "Com o pagamento confirmado, a equipe alinha o briefing do produto contratado." },
+  { t: "Execução do projeto", d: "A entrega segue conforme o escopo e o prazo do produto escolhido." },
 ];
 
 function stepsForSource(source?: string | null) {
-  if (source === "checkout-whatsapp") return WHATSAPP_STEPS;
+  if (source === "checkout-assisted" || source === "checkout-whatsapp") return ASSISTED_STEPS;
   if (source === "checkout-stripe") return STRIPE_STEPS;
   return DEFAULT_STEPS;
 }
@@ -85,7 +87,7 @@ export function OrderSummaryCard({ orderId, source }: { orderId: string; source?
             const packages = items.map((i) => i.slug).join(",");
             const itemNames = items.map((i) => i.name).join(" | ");
             const selectedPackage = items
-              .map((i) => (i.slug.includes("--") ? i.slug.split("--").pop() : "default"))
+              .map((i) => i.variantId ?? "default")
               .filter(Boolean)
               .join(",") || "default";
             const checkoutMethod = order.payment_method ?? "unknown";
@@ -101,36 +103,39 @@ export function OrderSummaryCard({ orderId, source }: { orderId: string; source?
               item_names: itemNames,
               source: source ?? "direct",
             });
-            // Canonical GA4 ecommerce `purchase` — one per order, deduped por
-            // localStorage para refresh em /obrigado não contar em duplicidade.
-            try {
-              const dedupKey = `0web_purchase_fired:${order.id}`;
-              if (typeof window !== "undefined" && !localStorage.getItem(dedupKey)) {
-                localStorage.setItem(dedupKey, "1");
-                const ecomItems = items.map((i, idx) => ({
-                  item_id: i.slug,
-                  item_name: i.name,
-                  item_category: i.category ?? undefined,
-                  price: Number(i.price ?? 0),
-                  quantity: Math.max(1, Number(i.qty) || 1),
-                  index: idx,
-                }));
-                const payload = {
-                  transaction_id: order.id,
-                  value: Number(order.total) || 0,
-                  currency: "BRL",
-                  payment_type: checkoutMethod,
-                  items: ecomItems,
-                };
-                const w = window as unknown as {
-                  dataLayer?: Array<Record<string, unknown>>;
-                  gtag?: (...args: unknown[]) => void;
-                };
-                w.dataLayer = w.dataLayer ?? [];
-                w.dataLayer.push({ event: "purchase", ecommerce: payload });
-                if (typeof w.gtag === "function") w.gtag("event", "purchase", payload);
-              }
-            } catch { /* noop */ }
+            // GA4 purchase só existe quando o pedido está realmente pago.
+            // "awaiting_payment" e atendimento assistido não são venda concluída.
+            if (order.status === "paid") {
+              try {
+                const dedupKey = `0web_purchase_fired:${order.id}`;
+                if (typeof window !== "undefined" && !localStorage.getItem(dedupKey)) {
+                  localStorage.setItem(dedupKey, "1");
+                  const ecomItems = items.map((i, idx) => ({
+                    item_id: i.variantId ? `${i.slug}::${i.variantId}` : i.slug,
+                    item_name: i.name,
+                    item_category: i.category ?? undefined,
+                    item_variant: i.variantLabel ?? undefined,
+                    price: Number(i.price ?? 0),
+                    quantity: 1,
+                    index: idx,
+                  }));
+                  const payload = {
+                    transaction_id: order.id,
+                    value: Number(order.total) || 0,
+                    currency: "BRL",
+                    payment_type: checkoutMethod,
+                    items: ecomItems,
+                  };
+                  const w = window as unknown as {
+                    dataLayer?: Array<Record<string, unknown>>;
+                    gtag?: (...args: unknown[]) => void;
+                  };
+                  w.dataLayer = w.dataLayer ?? [];
+                  w.dataLayer.push({ event: "purchase", ecommerce: payload });
+                  if (typeof w.gtag === "function") w.gtag("event", "purchase", payload);
+                }
+              } catch { /* noop */ }
+            }
           });
         } else {
           setState({ kind: "missing" });
@@ -192,7 +197,7 @@ export function OrderSummaryCard({ orderId, source }: { orderId: string; source?
                       <div className="min-w-0 flex-1">
                         <p className="font-semibold truncate">{i.name}</p>
                         <p className="text-xs text-muted-foreground truncate">
-                          {i.category ?? ""}{i.qty > 1 ? ` · ${i.qty}×` : ""}
+                          {i.category ?? ""}{i.variantLabel ? ` · ${i.variantLabel}` : ""}
                         </p>
                       </div>
                       <span className="tabular-nums text-sm font-semibold">
@@ -211,9 +216,9 @@ export function OrderSummaryCard({ orderId, source }: { orderId: string; source?
                   <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold">
                     {STATUS_LABEL[state.order.status] ?? state.order.status}
                   </span>
-                  {state.order.payment_method === "whatsapp" && (
-                    <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold inline-flex items-center gap-1">
-                      <MessageCircle className="w-3 h-3" /> WhatsApp
+                  {state.order.payment_method === "manual" && (
+                    <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold">
+                      Atendimento assistido
                     </span>
                   )}
                 </div>

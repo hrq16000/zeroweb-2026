@@ -44,6 +44,8 @@ const servicosIndexPath = "src/routes/servicos.index.tsx";
 const cartFunnelPath = "src/lib/cart-funnel.functions.ts";
 const thankYouContentPath = "src/lib/thank-you-content.ts";
 const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
+const orderSummaryPath = "src/components/site/OrderSummaryCard.tsx";
+const ordersFunctionsPath = "src/lib/orders.functions.ts";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -63,6 +65,8 @@ const servicosIndex = source(servicosIndexPath);
 const cartFunnel = source(cartFunnelPath);
 const thankYouContent = source(thankYouContentPath);
 const addToCartButton = source(addToCartButtonPath);
+const orderSummary = source(orderSummaryPath);
+const ordersFunctions = source(ordersFunctionsPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -244,6 +248,21 @@ if (/Salve seu carrinho|window\.location\.href\s*=\s*["']\/auth/i.test(addToCart
 }
 if (/Abrir WhatsApp|Pagamento confirmado!|R\$ 28M\+|4\.9\/5/i.test(thankYouContent)) {
   errors.push(`${thankYouContentPath}: mensagem de obrigado voltou a afirmar canal/resultado sem confirmação`);
+}
+requirePattern(
+  ordersFunctionsPath,
+  ordersFunctions,
+  /markOrderAssistedHandoff[\s\S]*payment_method:\s*"manual"/,
+  "pedido assistido voltou a ser registrado como WhatsApp",
+);
+requirePattern(
+  orderSummaryPath,
+  orderSummary,
+  /if \(order\.status === "paid"\)[\s\S]*event:\s*"purchase"/,
+  "evento purchase pode disparar antes do pagamento confirmado",
+);
+if (/Proposta no WhatsApp|Em até 1h útil|payment_method === "whatsapp"/i.test(orderSummary)) {
+  errors.push(`${orderSummaryPath}: resumo do pedido voltou a prometer canal/SLA legado`);
 }
 requirePattern(
   cartDrawerPath,
