@@ -11,6 +11,7 @@ import { readCart, cartTotal, formatBRL, clearCart, type CartItem } from "@/lib/
 import { createOrder, markOrderWhatsAppHandoff } from "@/lib/orders.functions";
 import { createStripeCheckoutSession } from "@/lib/stripe-checkout.functions";
 import { getPaymentSettings, type PaymentSettings } from "@/lib/payment-settings.functions";
+import { submitPublicLead } from "@/lib/lead-intake.functions";
 import { useServerFn } from "@tanstack/react-start";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -120,11 +121,59 @@ function CheckoutPage() {
   }
 
   async function handleAssistedCheckout() {
-    if (!session) return handleGoogle();
     if (items.length === 0) return;
     if (!validateAssistedContact()) return;
     setSubmitting("assisted");
     try {
+      // Visitante anônimo: registra a intenção como lead público rate-limited,
+      // com snapshot do carrinho. Não exige OAuth para pedir atendimento.
+      if (!session) {
+        const result = await submitPublicLead({
+          data: {
+            name: name.trim(),
+            phone: phone.replace(/\D/g, ""),
+            source: "checkout_assisted",
+            landing_page: "/checkout",
+            offer_slug: items.length === 1 ? items[0].slug : "carrinho-0web",
+            audience_tag: "checkout_assisted",
+            payload_json: {
+              checkout_mode: "assisted_guest",
+              total,
+              has_recurring: hasRecurring,
+              notes: notes.trim() || null,
+              items: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod, qty }) => ({
+                slug,
+                name,
+                category: category ?? null,
+                variant_id: variantId ?? null,
+                variant_label: variantLabel ?? null,
+                price: price ?? null,
+                price_period: pricePeriod ?? null,
+                qty: 1,
+              })),
+            },
+          },
+        });
+        if (!result.ok) {
+          const message =
+            result.reason === "rate_limited"
+              ? "Muitas tentativas em pouco tempo. Aguarde alguns minutos."
+              : "Não conseguimos registrar seu pedido agora.";
+          throw new Error(message);
+        }
+        void import("@/lib/analytics").then(({ trackConversion }) =>
+          trackConversion("checkout_assisted_guest", { lead_id: result.leadId, total, items: items.length, location: "checkout" }),
+        );
+        void import("@/lib/persistence").then(({ persistEvent }) =>
+          persistEvent("checkout_assisted_guest", { lead_id: result.leadId, total, items: items.length }),
+        );
+        clearCart();
+        toast.success("Pedido registrado", { description: "Recebemos seus dados e o resumo do carrinho." });
+        navigate({ to: "/obrigado", search: { source: "checkout-assisted", lead: result.leadId } });
+        return;
+      }
+
+      // Cliente autenticado preserva o fluxo completo de pedido na área do cliente.
       const { order } = await createOrder({
         data: {
           items: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod, imageUrl, qty }) => ({
@@ -132,7 +181,7 @@ function CheckoutPage() {
             variantId: variantId ?? null,
             variantLabel: variantLabel ?? null,
             price: price ?? null, pricePeriod: pricePeriod ?? null,
-            imageUrl: imageUrl ?? null, qty,
+            imageUrl: imageUrl ?? null, qty: 1,
           })),
           notes: notes || undefined,
           customerName: name || undefined,
@@ -140,7 +189,6 @@ function CheckoutPage() {
         },
       });
       await markOrderWhatsAppHandoff({ data: { orderId: order.id } });
-      // CRO tracking — assisted checkout handoff
       void import("@/lib/analytics").then(({ trackConversion }) =>
         trackConversion("checkout_assisted_handoff", { order_id: order.id, total, items: items.length, location: "checkout" }),
       );
@@ -308,40 +356,31 @@ function CheckoutPage() {
 
                 {authReady && !session && (
                   <div className="rounded-xl border border-primary/30 bg-primary/5 p-3 text-xs text-foreground">
-                    Para finalizar, entre com sua conta Google. É rápido e seguro.
+                    O atendimento assistido não exige cadastro. Login Google é necessário apenas para pagamento online e acompanhamento no painel.
                   </div>
                 )}
 
                 <div className="grid gap-2">
-                  {!session ? (
-                    <Button size="lg" onClick={handleGoogle} disabled={authBusy} className="w-full">
-                      <LogIn className="w-4 h-4 mr-2" />
-                      {authBusy ? "Conectando…" : "Entrar com Google"}
+                  {settings.stripeEnabled && !hasRecurring && (
+                    <Button
+                      size="lg"
+                      className="w-full"
+                      onClick={session ? handlePayNow : handleGoogle}
+                      disabled={submitting !== "none" || authBusy}
+                    >
+                      {session ? <CreditCard className="w-4 h-4 mr-2" /> : <LogIn className="w-4 h-4 mr-2" />}
+                      {authBusy ? "Conectando…" : session ? "Pagar agora" : "Entrar com Google para pagar"}
                     </Button>
-                  ) : (
-                    <>
-                      {settings.stripeEnabled && !hasRecurring && (
-                        <Button
-                          size="lg" className="w-full"
-                          onClick={handlePayNow}
-                          disabled={submitting !== "none"}
-                        >
-                          <CreditCard className="w-4 h-4 mr-2" />
-                          Pagar agora
-                        </Button>
-                      )}
-                      <Button
-                        size="lg"
-                        variant={settings.stripeEnabled && !hasRecurring ? "outline" : "default"}
-                        className="w-full"
-                        onClick={handleAssistedCheckout}
-                        disabled={submitting !== "none"}
-                      >
-                        {submitting === "assisted" ? "Registrando…" : "Finalizar com atendimento"}
-                      </Button>
-                    </>
                   )}
-
+                  <Button
+                    size="lg"
+                    variant={settings.stripeEnabled && !hasRecurring ? "outline" : "default"}
+                    className="w-full"
+                    onClick={handleAssistedCheckout}
+                    disabled={submitting !== "none"}
+                  >
+                    {submitting === "assisted" ? "Registrando…" : "Finalizar com atendimento"}
+                  </Button>
                 </div>
 
                 <div className="pt-3 border-t border-border flex items-start gap-2 text-[11px] text-muted-foreground">

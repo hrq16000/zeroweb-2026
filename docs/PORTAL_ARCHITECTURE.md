@@ -163,3 +163,23 @@ de detalhes. A página de detalhes continua disponível para comparação e leit
 
 Troca de variante do mesmo serviço deve ser registrada na telemetria como nova
 seleção comercial, mesmo que o slug canônico permaneça igual.
+
+
+## 13. Checkout assistido sem conta
+
+O visitante pode finalizar pelo atendimento assistido sem criar conta Google.
+Nome + WhatsApp válido são obrigatórios; o servidor aplica rate limit e grava
+um snapshot do carrinho na fonte pública de leads. O retorno fornece protocolo
+opaco e não expõe contato interno.
+
+Login continua necessário para pagamento online e para acompanhar pedidos
+autenticados no painel.
+
+Produtos com múltiplos planos não usam "Adicionar ao carrinho" genérico na
+vitrine: o card direciona para "Escolher plano" e só então grava a variante.
+
+## 14. Credibilidade da página de obrigado
+
+Métricas, avaliações e depoimentos só podem aparecer em `/obrigado` quando
+houver fonte auditável e consentimento documentados. Na ausência dessa prova,
+o bloco inteiro fica oculto em vez de publicar números ou histórias exemplificativas.

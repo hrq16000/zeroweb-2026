@@ -42,6 +42,7 @@ const redesSociaisPath = "src/routes/servicos.gestao-redes-sociais.tsx";
 const dynamicServicePath = "src/routes/servicos.$slug.tsx";
 const servicosIndexPath = "src/routes/servicos.index.tsx";
 const cartFunnelPath = "src/lib/cart-funnel.functions.ts";
+const thankYouContentPath = "src/lib/thank-you-content.ts";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -59,6 +60,7 @@ const redesSociais = source(redesSociaisPath);
 const dynamicService = source(dynamicServicePath);
 const servicosIndex = source(servicosIndexPath);
 const cartFunnel = source(cartFunnelPath);
+const thankYouContent = source(thankYouContentPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -191,6 +193,12 @@ requirePattern(
   "vitrine perdeu o atalho de adicionar produto ao carrinho",
 );
 requirePattern(
+  servicosIndexPath,
+  servicosIndex,
+  /MULTI_VARIANT_SERVICE_SLUGS[\s\S]*Escolher plano/,
+  "produto com múltiplas variantes pode voltar a entrar no carrinho sem escolha",
+);
+requirePattern(
   cartDrawerPath,
   cartDrawer,
   /variantId:\s*i\.variantId[\s\S]*variantLabel:\s*i\.variantLabel/,
@@ -208,6 +216,18 @@ requirePattern(
   /function\s+validateAssistedContact\(\)[\s\S]*phoneDigits\.length\s*<\s*10/,
   "checkout assistido pode aceitar pedido sem contato válido",
 );
+requirePattern(
+  checkoutPath,
+  checkout,
+  /submitPublicLead\([\s\S]*source:\s*"checkout_assisted"/,
+  "checkout assistido público deixou de registrar lead recuperável",
+);
+if (/handleAssistedCheckout\(\)[\s\S]{0,180}if\s*\(!session\)\s*return\s+handleGoogle/.test(checkout)) {
+  errors.push(`${checkoutPath}: checkout assistido voltou a exigir login Google`);
+}
+if (/R\$ 28M\+|98%|4\.9\/5|ROAS médio|custo médio por lead/i.test(thankYouContent)) {
+  errors.push(`${thankYouContentPath}: prova social/resultado sem evidência auditável reapareceu`);
+}
 requirePattern(
   cartDrawerPath,
   cartDrawer,

@@ -20,6 +20,7 @@ const DESC = "Recebemos sua mensagem. Nossa equipe vai responder em até 1 hora 
 const searchSchema = z.object({
   source: z.string().max(80).optional(),
   order: z.string().uuid().optional(),
+  lead: z.string().uuid().optional(),
 });
 
 export const Route = createFileRoute("/obrigado")({
@@ -61,7 +62,7 @@ export const Route = createFileRoute("/obrigado")({
 
 
 function ObrigadoPage() {
-  const { source, order } = Route.useSearch();
+  const { source, order, lead } = Route.useSearch();
   // Snapshot persisted at submit-time wins over the URL ?source= param.
   // Fallbacks: query string, then "direct".
   const attr = useMemo(() => {
@@ -83,14 +84,15 @@ function ObrigadoPage() {
       page: "/obrigado",
       event_category: "conversion",
       order_id: order ?? undefined,
+      lead_id: lead ?? undefined,
       checkout_method:
         resolvedSource === "checkout-stripe" ? "stripe" :
-        resolvedSource === "checkout-whatsapp" ? "whatsapp" :
+        resolvedSource === "checkout-assisted" || resolvedSource === "checkout-whatsapp" ? "assisted" :
         "other",
     });
     // Legacy event preserved for one sprint while dashboards transition.
     trackEvent("obrigado_page_view", { ...evtAttr, surface: "page", legacy: true });
-  }, [evtAttr, order, resolvedSource]);
+  }, [evtAttr, order, lead, resolvedSource]);
 
   const handleCta = (eventName: string, ctaId: string, label: string, position: number, target: string) => {
     const params = buildThankYouCtaParams({
@@ -212,6 +214,18 @@ function ObrigadoPage() {
             </motion.p>
           ) : null}
 
+          {lead && !order ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.65 }}
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm"
+            >
+              <Package className="w-4 h-4 text-primary" />
+              <span>Protocolo de atendimento <strong>{lead.slice(0, 8).toUpperCase()}</strong></span>
+            </motion.div>
+          ) : null}
+
           {order && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -309,7 +323,8 @@ function ObrigadoPage() {
           </div>
         </section>
 
-        {/* Prova social personalizada por origem */}
+        {/* Prova social só aparece quando existe evidência auditável configurada. */}
+        {(content.stats.length > 0 || content.testimonials.length > 0) ? (
         <section className="mt-20">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
             <h2 className="text-center text-2xl font-bold font-display mb-8">{content.socialProofHeadline}</h2>
@@ -338,6 +353,7 @@ function ObrigadoPage() {
             </div>
           </div>
         </section>
+        ) : null}
 
         {/* FAQ adaptado ao método de checkout */}
         {content.faq && content.faq.length > 0 ? (
@@ -408,7 +424,7 @@ function ObrigadoPage() {
         </section>
       </main>
       <Footer />
-      <WhatsAppFloat />
+      {!resolvedSource.startsWith("checkout-") ? <WhatsAppFloat /> : null}
     </div>
   );
 }

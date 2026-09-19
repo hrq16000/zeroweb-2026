@@ -16,6 +16,12 @@ import {
 
 const SERVICE_LIST = Object.values(SERVICES);
 
+/** Produtos com mais de uma opção comercial real exigem escolha do plano. */
+const MULTI_VARIANT_SERVICE_SLUGS = new Set([
+  "google-meu-negocio",
+  "gestao-redes-sociais",
+]);
+
 type ServicosSearch = { q?: string; cat?: string; sort?: SortKey; page?: number };
 
 export const Route = createFileRoute("/servicos/")({
@@ -455,18 +461,28 @@ function ServicosHub() {
                       </div>
                     </Link>
                     <div className="px-3 pb-3 sm:px-4 sm:pb-4">
-                      <AddToCartButton
-                        item={{
-                          slug: s.slug,
-                          name: s.name,
-                          category: s.category,
-                          price: s.price,
-                          pricePeriod: s.pricePeriod ?? null,
-                          imageUrl: coverUrl,
-                        }}
-                        size="sm"
-                        className="w-full rounded-full"
-                      />
+                      {MULTI_VARIANT_SERVICE_SLUGS.has(s.slug) ? (
+                        <Link
+                          to="/servicos/$slug"
+                          params={{ slug: s.slug }}
+                          className="inline-flex h-9 w-full items-center justify-center gap-1 rounded-full border border-primary/35 bg-primary/5 px-3 text-sm font-semibold text-primary hover:bg-primary/10 transition"
+                        >
+                          Escolher plano <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      ) : (
+                        <AddToCartButton
+                          item={{
+                            slug: s.slug,
+                            name: s.name,
+                            category: s.category,
+                            price: s.price,
+                            pricePeriod: s.pricePeriod ?? null,
+                            imageUrl: coverUrl,
+                          }}
+                          size="sm"
+                          className="w-full rounded-full"
+                        />
+                      )}
                     </div>
                   </article>
                   );
