@@ -21,7 +21,7 @@ export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
       { title: "Finalizar pedido · 0WEB" },
-      { name: "description", content: "Conclua seu pedido na 0WEB: pague agora com cartão ou finalize pelo WhatsApp em segundos." },
+      { name: "description", content: "Conclua seu pedido na 0WEB: pague online quando disponível ou finalize com atendimento assistido." },
       { name: "robots", content: "noindex,nofollow" },
       { property: "og:title", content: "Finalizar pedido · 0WEB" },
       { property: "og:description", content: "Conclua seu pedido na 0WEB com pagamento seguro ou atendimento humano." },
@@ -48,7 +48,7 @@ function CheckoutPage() {
   const [session, setSession] = useState<{ email?: string; name?: string } | null>(null);
   const [authReady, setAuthReady] = useState(false);
   const [authBusy, setAuthBusy] = useState(false);
-  const [submitting, setSubmitting] = useState<"none" | "stripe" | "whatsapp">("none");
+  const [submitting, setSubmitting] = useState<"none" | "stripe" | "assisted">("none");
   const [notes, setNotes] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
@@ -108,7 +108,7 @@ function CheckoutPage() {
   async function handleAssistedCheckout() {
     if (!session) return handleGoogle();
     if (items.length === 0) return;
-    setSubmitting("whatsapp");
+    setSubmitting("assisted");
     try {
       const { order } = await createOrder({
         data: {
@@ -157,7 +157,7 @@ function CheckoutPage() {
     // Stripe desativado no admin → cai para atendimento assistido, salvando o pedido.
     if (!settings.stripeEnabled) {
       toast("Pagamento online ainda não está ativo", {
-        description: "Vamos finalizar pelo WhatsApp. Seu pedido fica salvo como pendente de pagamento.",
+        description: "Seu pedido será salvo e seguirá pelo atendimento assistido, sem perder os itens selecionados.",
         duration: 4000,
       });
       return handleAssistedCheckout();
@@ -224,7 +224,7 @@ function CheckoutPage() {
           <BrandLogo size={40} alt="" priority />
           <div>
             <h1 className="text-2xl sm:text-3xl font-display font-bold tracking-tight">Finalizar pedido</h1>
-            <p className="text-sm text-muted-foreground">Confirme os itens, escolha pagar agora ou pelo WhatsApp.</p>
+            <p className="text-sm text-muted-foreground">Confirme os itens e finalize com pagamento online ou atendimento assistido.</p>
           </div>
         </div>
 
@@ -242,7 +242,7 @@ function CheckoutPage() {
                 </header>
                 <ul className="divide-y divide-border">
                   {items.map((i) => (
-                    <li key={i.slug} className="px-5 py-4 flex items-center gap-4">
+                    <li key={`${i.slug}::${i.variantId ?? "base"}`} className="px-5 py-4 flex items-center gap-4">
                       <div className="min-w-0 flex-1">
                         <p className="font-semibold truncate">{i.name}</p>
                         <p className="text-xs text-muted-foreground truncate">
@@ -285,6 +285,11 @@ function CheckoutPage() {
                 {hasUnpriced && (
                   <p className="text-[11px] text-muted-foreground">* Itens "sob consulta" são orçados durante o atendimento.</p>
                 )}
+                {hasRecurring && (
+                  <p className="rounded-xl border border-primary/20 bg-primary/5 p-3 text-[11px] text-muted-foreground">
+                    Este pedido contém plano recorrente. O valor exibido corresponde ao ciclo informado e a ativação será confirmada pelo atendimento assistido.
+                  </p>
+                )}
 
                 {authReady && !session && (
                   <div className="rounded-xl border border-primary/30 bg-primary/5 p-3 text-xs text-foreground">
@@ -317,7 +322,7 @@ function CheckoutPage() {
                         onClick={handleAssistedCheckout}
                         disabled={submitting !== "none"}
                       >
-                        {submitting === "whatsapp" ? "Enviando…" : "Finalizar com atendimento"}
+                        {submitting === "assisted" ? "Registrando…" : "Finalizar com atendimento"}
                       </Button>
                     </>
                   )}
