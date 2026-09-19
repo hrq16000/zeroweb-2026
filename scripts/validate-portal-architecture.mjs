@@ -200,6 +200,15 @@ requirePattern(
   /MULTI_VARIANT_SERVICE_SLUGS[\s\S]*Escolher plano/,
   "produto com múltiplas variantes pode voltar a entrar no carrinho sem escolha",
 );
+if (/SERVICE_LIST|numberOfItems:\s*SERVICE_LIST\.length|faqItems/.test(servicosIndex)) {
+  errors.push(`${servicosIndexPath}: schema estático pode divergir do catálogo real da loja`);
+}
+requirePattern(
+  servicosIndexPath,
+  servicosIndex,
+  /"@type":\s*"CollectionPage"/,
+  "índice da loja perdeu o schema CollectionPage",
+);
 requirePattern(
   cartDrawerPath,
   cartDrawer,

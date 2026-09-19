@@ -196,3 +196,12 @@ A página de obrigado também não deve prometer canal, SLA, resultado ou
 confirmação de pagamento que ainda dependa de evento externo. Para checkout
 assistido anônimo, o protocolo substitui a falsa promessa de "ver meu pedido"
 no painel.
+
+
+## 16. Schema da vitrine
+
+A página `/servicos` não publica uma lista estruturada baseada em catálogo
+estático. A fonte real da vitrine é o loader conectado ao catálogo público;
+por isso o índice declara `CollectionPage` e deixa o schema detalhado para
+cada rota de produto. Isso evita anunciar no Google produtos, FAQs ou contagens
+que não estejam realmente publicados na loja.

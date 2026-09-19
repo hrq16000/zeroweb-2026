@@ -5,16 +5,9 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, ORIGIN, breadcrumbLd, DEFAULT_OG_IMAGE } from "@/lib/seo";
-import { SERVICES } from "@/lib/services-data";
 
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { AddToCartButton } from "@/components/site/AddToCartButton";
-import {
-  SITE_EXPRESS_FAQ_KEYS,
-  normalizeFaqKey,
-} from "@/lib/site-express-faq";
-
-const SERVICE_LIST = Object.values(SERVICES);
 
 /** Produtos com mais de uma opção comercial real exigem escolha do plano. */
 const MULTI_VARIANT_SERVICE_SLUGS = new Set([
@@ -41,71 +34,11 @@ export const Route = createFileRoute("/servicos/")({
     const url = absUrl("/servicos");
     const title = "Serviços da 0WEB · Sites, SEO, IA, Marketing Digital e Sistemas";
     const desc =
-      "Catálogo completo de serviços da 0WEB: criação de sites, landing pages, e-commerce, SEO, marketing digital, automação com IA, chatbot WhatsApp, SaaS e sistemas web sob medida.";
+      "Loja de serviços digitais da 0WEB: produtos com preço publicado, escopo claro e contratação online ou assistida.";
 
-    // FAQ agregado: exclui perguntas que já pertencem ao Site Express,
-    // que terão seu próprio FAQPage dedicado no mesmo @graph.
-    const seenQ = new Set<string>(SITE_EXPRESS_FAQ_KEYS);
-    const faqItems: { q: string; a: string }[] = [];
-    for (const s of SERVICE_LIST) {
-      if (s.slug === "site-express") continue; // tratado separadamente
-      for (const f of s.faq ?? []) {
-        const key = normalizeFaqKey(f.q);
-        if (seenQ.has(key)) continue;
-        seenQ.add(key);
-        faqItems.push(f);
-        if (faqItems.length >= 20) break;
-      }
-      if (faqItems.length >= 20) break;
-    }
-
-    const itemList = {
-      "@type": "ItemList",
-      "@id": `${url}#services`,
-      name: "Serviços 0WEB",
-      numberOfItems: SERVICE_LIST.length,
-      itemListElement: SERVICE_LIST.map((s, i) => {
-        const sUrl = absUrl(`/servicos/${s.slug}`);
-        const sId = `${sUrl}#service`;
-        return {
-          "@type": "ListItem",
-          position: i + 1,
-          url: sUrl,
-          item: {
-            "@type": "Service",
-            "@id": sId,
-            name: s.name,
-            serviceType: s.serviceType,
-            description: s.description,
-            category: s.category,
-            url: sUrl,
-            areaServed: { "@type": "Country", name: "Brasil" },
-            provider: { "@id": `${ORIGIN}/#org` },
-          },
-        };
-      }),
-    };
-
-    // FAQPage do Site Express vive na página dedicada do produto
-    // (/servicos/site-express) para evitar duplicar schema FAQ entre URLs.
-
-
-    // FAQPage agregado dos demais serviços (sem duplicar Site Express)
-    const aggregatedFaqPage = faqItems.length
-      ? {
-          "@type": "FAQPage",
-          "@id": `${url}#faq-servicos`,
-          name: "Perguntas sobre os demais serviços",
-          inLanguage: "pt-BR",
-          isPartOf: { "@id": url },
-          mainEntity: faqItems.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        }
-      : null;
-
+    // A lista real da loja vem do loader/Supabase. Para não publicar schema
+    // divergente do catálogo vivo, o índice declara somente a CollectionPage;
+    // cada produto mantém seu próprio schema na rota dedicada.
     const graph: unknown[] = [
       {
         "@type": "CollectionPage",
@@ -116,14 +49,9 @@ export const Route = createFileRoute("/servicos/")({
         inLanguage: "pt-BR",
         isPartOf: { "@type": "WebSite", "@id": `${ORIGIN}/#website` },
         publisher: { "@id": `${ORIGIN}/#org` },
-        about: SERVICE_LIST.map((s) => ({ "@type": "Service", name: s.name })),
-        mainEntity: { "@id": `${url}#services` },
       },
       breadcrumbLd([{ name: "Serviços", path: "/servicos" }]),
-      itemList,
-
     ];
-    if (aggregatedFaqPage) graph.push(aggregatedFaqPage);
 
     return {
       meta: [
