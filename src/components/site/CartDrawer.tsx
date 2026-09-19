@@ -17,31 +17,22 @@ import {
   cartTotal,
   formatBRL,
   cartItemKey,
+  getCartSessionKey,
   type CartItem,
 } from "@/lib/cart";
 import { saveCartFunnelStep } from "@/lib/cart-funnel.functions";
 import { getVisitorId } from "@/lib/visitor";
 
-function getSessionKey() {
-  if (typeof window === "undefined") return "ssr";
-  let k = localStorage.getItem("0web_cart_session");
-  if (!k) {
-    k = `cart_${crypto.randomUUID()}`;
-    localStorage.setItem("0web_cart_session", k);
-  }
-  return k;
-}
-
 function reportStep(
   step: string,
   items: CartItem[],
-  extra: { paymentChannel?: "site" | "whatsapp" | "unknown"; paymentStatus?: string } = {},
+  extra: { paymentChannel?: "site" | "assisted" | "whatsapp" | "unknown"; paymentStatus?: string } = {},
 ) {
   try {
     const total = cartTotal(items);
     void saveCartFunnelStep({
       data: {
-        sessionKey: getSessionKey(),
+        sessionKey: getCartSessionKey(),
         visitorId: getVisitorId(),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         step: step as any,
@@ -70,10 +61,8 @@ function reportStep(
  *  - "0web:cart-open" → abre o Sheet
  *  - "0web:cart-changed" → recarrega itens
  *
- * CTAs do rodapé:
- *  - "Finalizar compra" → checkout + login Google + pagamento quando habilitado
- *  - "Finalizar com atendimento" → checkout assistido, preservando o pedido
- *
+ * CTAs do rodapé levam ao mesmo checkout.
+ * Pagamento online pode exigir login; atendimento assistido não exige conta.
  * Serviços são unitários no carrinho: não há multiplicador de quantidade.
  */
 export function CartDrawer() {

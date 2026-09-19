@@ -234,8 +234,29 @@ requirePattern(
 requirePattern(
   checkoutPath,
   checkout,
-  /submitPublicLead\([\s\S]*source:\s*"checkout_assisted"/,
-  "checkout assistido público deixou de registrar lead recuperável",
+  /saveCartFunnelStep\([\s\S]*step:\s*"handoff_assisted"/,
+  "checkout assistido público deixou de registrar no pipeline do carrinho",
+);
+if (/submitPublicLead\(/.test(checkout)) {
+  errors.push(`${checkoutPath}: checkout anônimo voltou a criar fonte paralela fora do pipeline do carrinho`);
+}
+requirePattern(
+  checkoutPath,
+  checkout,
+  /rotateCartSessionKey\(\)/,
+  "sessão concluída do carrinho pode ser sobrescrita por uma nova jornada",
+);
+requirePattern(
+  cartFunnelPath,
+  cartFunnel,
+  /"handoff_assisted"[\s\S]*"assisted"[\s\S]*p_scope:\s*"checkout_assisted"/,
+  "pipeline assistido perdeu step, canal ou rate limit",
+);
+requirePattern(
+  cartPath,
+  cart,
+  /getCartSessionKey[\s\S]*rotateCartSessionKey/,
+  "carrinho perdeu a sessão canônica compartilhada",
 );
 if (/handleAssistedCheckout\(\)[\s\S]{0,180}if\s*\(!session\)\s*return\s+handleGoogle/.test(checkout)) {
   errors.push(`${checkoutPath}: checkout assistido voltou a exigir login Google`);

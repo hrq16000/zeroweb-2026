@@ -7,11 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { readCart, cartTotal, formatBRL, clearCart, type CartItem } from "@/lib/cart";
+import { readCart, cartTotal, formatBRL, clearCart, getCartSessionKey, rotateCartSessionKey, type CartItem } from "@/lib/cart";
 import { createOrder, markOrderAssistedHandoff } from "@/lib/orders.functions";
 import { createStripeCheckoutSession } from "@/lib/stripe-checkout.functions";
 import { getPaymentSettings, type PaymentSettings } from "@/lib/payment-settings.functions";
-import { submitPublicLead } from "@/lib/lead-intake.functions";
+import { saveCartFunnelStep } from "@/lib/cart-funnel.functions";
+import { getVisitorId } from "@/lib/visitor";
 import { useServerFn } from "@tanstack/react-start";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -128,48 +129,53 @@ function CheckoutPage() {
       // Visitante anônimo: registra a intenção como lead público rate-limited,
       // com snapshot do carrinho. Não exige OAuth para pedir atendimento.
       if (!session) {
-        const result = await submitPublicLead({
+        const sessionKey = getCartSessionKey();
+        const phoneDigits = phone.replace(/\D/g, "");
+        const result = await saveCartFunnelStep({
           data: {
-            name: name.trim(),
-            phone: phone.replace(/\D/g, ""),
-            source: "checkout_assisted",
-            landing_page: "/checkout",
-            offer_slug: items.length === 1 ? items[0].slug : "carrinho-0web",
-            audience_tag: "checkout_assisted",
-            payload_json: {
-              checkout_mode: "assisted_guest",
-              total,
-              has_recurring: hasRecurring,
+            sessionKey,
+            visitorId: getVisitorId(),
+            step: "handoff_assisted",
+            cart: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod }) => ({
+              slug,
+              name,
+              category: category ?? null,
+              variantId: variantId ?? null,
+              variantLabel: variantLabel ?? null,
+              price: price ?? null,
+              pricePeriod: pricePeriod ?? null,
+              qty: 1,
+            })),
+            totalAmount: total || null,
+            paymentChannel: "assisted",
+            paymentStatus: "handoff",
+            metadata: {
+              source: "checkout_assisted",
+              name: name.trim(),
+              phone: phoneDigits,
               notes: notes.trim() || null,
-              items: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod, qty }) => ({
-                slug,
-                name,
-                category: category ?? null,
-                variant_id: variantId ?? null,
-                variant_label: variantLabel ?? null,
-                price: price ?? null,
-                price_period: pricePeriod ?? null,
-                qty: 1,
-              })),
+              has_recurring: hasRecurring,
+              submitted_at: new Date().toISOString(),
             },
           },
         });
         if (!result.ok) {
           const message =
-            result.reason === "rate_limited"
+            result.error === "rate_limited"
               ? "Muitas tentativas em pouco tempo. Aguarde alguns minutos."
               : "Não conseguimos registrar seu pedido agora.";
           throw new Error(message);
         }
         void import("@/lib/analytics").then(({ trackConversion }) =>
-          trackConversion("checkout_assisted_guest", { lead_id: result.leadId, total, items: items.length, location: "checkout" }),
+          trackConversion("checkout_assisted_guest", { cart_session: sessionKey, total, items: items.length, location: "checkout" }),
         );
         void import("@/lib/persistence").then(({ persistEvent }) =>
-          persistEvent("checkout_assisted_guest", { lead_id: result.leadId, total, items: items.length }),
+          persistEvent("checkout_assisted_guest", { cart_session: sessionKey, total, items: items.length }),
         );
         clearCart();
+        rotateCartSessionKey();
         toast.success("Pedido registrado", { description: "Recebemos seus dados e o resumo do carrinho." });
-        navigate({ to: "/obrigado", search: { source: "checkout-assisted", lead: result.leadId } });
+        navigate({ to: "/obrigado", search: { source: "checkout-assisted", protocol: sessionKey } });
         return;
       }
 

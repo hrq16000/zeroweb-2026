@@ -21,6 +21,7 @@ const searchSchema = z.object({
   source: z.string().max(80).optional(),
   order: z.string().uuid().optional(),
   lead: z.string().uuid().optional(),
+  protocol: z.string().max(120).optional(),
 });
 
 export const Route = createFileRoute("/obrigado")({
@@ -62,15 +63,18 @@ export const Route = createFileRoute("/obrigado")({
 
 
 function ObrigadoPage() {
-  const { source, order, lead } = Route.useSearch();
+  const { source, order, lead, protocol } = Route.useSearch();
   // Snapshot persisted at submit-time wins over the URL ?source= param.
   // Fallbacks: query string, then "direct".
   const attr = useMemo(() => {
     if (typeof window === "undefined") return null;
     return loadAttributionSnapshot() ?? getLeadAttribution(source || "direct");
   }, [source]);
-  const resolvedSource = attr?.source ?? source ?? "direct";
-  const content = attr?.content ?? getThankYouContent(resolvedSource);
+  const explicitCheckoutSource = source?.startsWith("checkout-") ? source : null;
+  const resolvedSource = explicitCheckoutSource ?? attr?.source ?? source ?? "direct";
+  const content = explicitCheckoutSource
+    ? getThankYouContent(resolvedSource)
+    : attr?.content ?? getThankYouContent(resolvedSource);
   const evtAttr = useMemo(() => {
     if (typeof window === "undefined") return { source: resolvedSource, channel: content.channel };
     return attributionToEventParams(attr ?? getLeadAttribution(resolvedSource));
@@ -85,6 +89,7 @@ function ObrigadoPage() {
       event_category: "conversion",
       order_id: order ?? undefined,
       lead_id: lead ?? undefined,
+      cart_session: protocol ?? undefined,
       checkout_method:
         resolvedSource === "checkout-stripe" ? "stripe" :
         resolvedSource === "checkout-assisted" || resolvedSource === "checkout-whatsapp" ? "assisted" :
@@ -92,7 +97,7 @@ function ObrigadoPage() {
     });
     // Legacy event preserved for one sprint while dashboards transition.
     trackEvent("obrigado_page_view", { ...evtAttr, surface: "page", legacy: true });
-  }, [evtAttr, order, lead, resolvedSource]);
+  }, [evtAttr, order, lead, protocol, resolvedSource]);
 
   const handleCta = (eventName: string, ctaId: string, label: string, position: number, target: string) => {
     const params = buildThankYouCtaParams({
@@ -214,7 +219,20 @@ function ObrigadoPage() {
             </motion.p>
           ) : null}
 
-          {lead && !order ? (
+          {protocol && !order ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.65 }}
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm"
+            >
+              <Package className="w-4 h-4 text-primary" />
+              <span>
+                Protocolo de atendimento{" "}
+                <strong>{protocol.replace(/^cart_/, "").slice(0, 8).toUpperCase()}</strong>
+              </span>
+            </motion.div>
+          ) : lead && !order ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

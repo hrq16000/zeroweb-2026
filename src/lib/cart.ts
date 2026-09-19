@@ -1,15 +1,12 @@
 /**
- * Carrinho híbrido (Onda 2 da loja).
+ * Carrinho local da loja 0WEB.
  * - Persistência: localStorage ("0web_cart").
- * - Eventos: "0web:cart-changed" (atualização) e "0web:cart-open" (abrir drawer).
- * - Sem dependência de login. A migração para uma tabela `cart_items`
- *   acontece na Onda 3 (checkout + login Google), quando os itens do
- *   localStorage são "drenados" para o usuário autenticado.
- *
- * Regra híbrida: ao chegar no 2º item distinto, disparamos um toast/CTA
- * de login (não-bloqueante) através do callback `onLoginNudge`.
+ * - Eventos: "0web:cart-changed" e "0web:cart-open".
+ * - Não exige login para montar carrinho nem para atendimento assistido.
+ * - A sessão opaca do carrinho liga telemetria, checkout e pipeline comercial.
  */
 const KEY = "0web_cart";
+const SESSION_KEY = "0web_cart_session";
 
 export type CartItem = {
   slug: string;
@@ -27,6 +24,28 @@ export type CartItem = {
 
 function isBrowser() {
   return typeof window !== "undefined" && typeof localStorage !== "undefined";
+}
+
+function newCartSessionKey() {
+  return `cart_${crypto.randomUUID()}`;
+}
+
+export function getCartSessionKey() {
+  if (!isBrowser()) return "ssr_cart_session";
+  let key = localStorage.getItem(SESSION_KEY);
+  if (!key) {
+    key = newCartSessionKey();
+    localStorage.setItem(SESSION_KEY, key);
+  }
+  return key;
+}
+
+/** Inicia uma nova jornada depois que a anterior foi concluída. */
+export function rotateCartSessionKey() {
+  if (!isBrowser()) return "ssr_cart_session";
+  const key = newCartSessionKey();
+  localStorage.setItem(SESSION_KEY, key);
+  return key;
 }
 
 export function readCart(): CartItem[] {
@@ -60,7 +79,6 @@ export function distinctCount(items?: CartItem[]) {
   return (items ?? readCart()).length;
 }
 
-export type AddOptions = { onLoginNudge?: (distinctAfter: number) => void };
 export type NewCartItem = Omit<CartItem, "qty" | "addedAt">;
 
 /**
@@ -96,12 +114,9 @@ export function upsertCartItem(
   return [...list, { ...item, qty: 1, addedAt }];
 }
 
-export function addToCart(item: NewCartItem, opts: AddOptions = {}) {
+export function addToCart(item: NewCartItem) {
   const list = upsertCartItem(readCart(), item);
   writeCart(list);
-  const distinct = list.length;
-  // Híbrido: a partir do 2º item distinto, sugere login Google.
-  if (distinct >= 2) opts.onLoginNudge?.(distinct);
   return list;
 }
 

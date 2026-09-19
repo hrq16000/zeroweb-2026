@@ -1,6 +1,6 @@
 // Server fns para persistir progresso do funil do carrinho.
 // Usado pelo CartDrawer (abrir, adicionar, remover) e pelo checkout
-// (iniciar pagamento, pagar, handoff WhatsApp). Aceita usuários
+// (iniciar pagamento, pagar, atendimento assistido). Aceita usuários
 // autenticados (RLS scope user_id=auth.uid()) e anônimos (sem user_id,
 // fallback admin via service role).
 import { createServerFn } from "@tanstack/react-start";
@@ -12,6 +12,7 @@ const StepSchema = z.enum([
   "checkout_started",
   "checkout_completed",
   "handoff_whatsapp",
+  "handoff_assisted",
   "payment_pending",
   "payment_paid",
   "payment_failed",
@@ -36,7 +37,7 @@ const Input = z.object({
   step: StepSchema,
   cart: z.array(CartItemSchema).max(50),
   totalAmount: z.number().nullable().optional(),
-  paymentChannel: z.enum(["site", "whatsapp", "unknown"]).optional(),
+  paymentChannel: z.enum(["site", "assisted", "whatsapp", "unknown"]).optional(),
   paymentStatus: z
     .enum(["open", "pending", "paid", "failed", "cancelled", "handoff"])
     .optional(),
@@ -48,6 +49,35 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => Input.parse(d))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    // O handoff anônimo é público por natureza, mas não irrestrito.
+    if (data.step === "handoff_assisted") {
+      let fingerprintSource = "unknown";
+      try {
+        const { getRequestHeader } = await import("@tanstack/react-start/server");
+        fingerprintSource =
+          getRequestHeader("cf-connecting-ip") ??
+          getRequestHeader("x-forwarded-for")?.split(",")[0]?.trim() ??
+          getRequestHeader("user-agent") ??
+          "unknown";
+      } catch {
+        /* testes/prerender */
+      }
+      const digest = await crypto.subtle.digest(
+        "SHA-256",
+        new TextEncoder().encode(`checkout-assisted:${fingerprintSource}`),
+      );
+      const ipHash = Array.from(new Uint8Array(digest))
+        .map((byte) => byte.toString(16).padStart(2, "0"))
+        .join("");
+      const { data: allowed } = await (supabaseAdmin as any).rpc("check_and_record_rate_limit", {
+        p_scope: "checkout_assisted",
+        p_ip_hash: ipHash,
+        p_window_seconds: 600,
+        p_max_hits: 8,
+      });
+      if (allowed === false) return { ok: false, error: "rate_limited" };
+    }
 
     // Best-effort: tenta resolver user_id pelo bearer token quando presente.
     let userId: string | null = null;

@@ -169,8 +169,9 @@ seleção comercial, mesmo que o slug canônico permaneça igual.
 
 O visitante pode finalizar pelo atendimento assistido sem criar conta Google.
 Nome + WhatsApp válido são obrigatórios; o servidor aplica rate limit e grava
-um snapshot do carrinho na fonte pública de leads. O retorno fornece protocolo
-opaco e não expõe contato interno.
+o snapshot na própria jornada do carrinho (`cart_funnel_progress`), que já
+alimenta o painel unificado. O retorno usa a sessão opaca como protocolo e não
+expõe contato interno.
 
 Login continua necessário para pagamento online e para acompanhar pedidos
 autenticados no painel.
@@ -217,3 +218,18 @@ O evento GA4 `purchase` só pode disparar quando `orders.status = paid`.
 Criar pedido, abrir a página de obrigado ou entrar em `awaiting_payment`
 não contam como venda. Variante comercial é enviada em `item_variant` e
 a quantidade permanece 1 para serviços.
+
+
+## 18. Pipeline unificado do checkout anônimo
+
+O atendimento assistido sem login termina na mesma linha de
+`cart_funnel_progress` que começou em `cart_open/cart_update`. A conclusão
+usa `step=handoff_assisted`, `payment_channel=assisted` e mantém nome,
+WhatsApp e contexto comercial em metadata protegida no servidor.
+
+A sessão do carrinho é o protocolo técnico da jornada. Depois de uma conclusão
+válida ela é rotacionada, impedindo que um novo carrinho sobrescreva o lead já
+entregue. O endpoint aplica rate limit antes do handoff.
+
+Não criar tabela ou fonte paralela para checkout anônimo: o painel unificado já
+consome `cart_funnel_progress` como origem `carrinho`.
