@@ -183,3 +183,16 @@ vitrine: o card direciona para "Escolher plano" e só então grava a variante.
 Métricas, avaliações e depoimentos só podem aparecer em `/obrigado` quando
 houver fonte auditável e consentimento documentados. Na ausência dessa prova,
 o bloco inteiro fica oculto em vez de publicar números ou histórias exemplificativas.
+
+
+## 15. Login não é etapa do carrinho
+
+Adicionar um segundo serviço não deve disparar convite de login. O carrinho
+continua local e utilizável anonimamente. Login é uma escolha funcional do
+checkout: necessário para pagamento online e para histórico autenticado, mas
+não para pedir atendimento assistido.
+
+A página de obrigado também não deve prometer canal, SLA, resultado ou
+confirmação de pagamento que ainda dependa de evento externo. Para checkout
+assistido anônimo, o protocolo substitui a falsa promessa de "ver meu pedido"
+no painel.

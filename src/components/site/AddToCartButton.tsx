@@ -12,31 +12,15 @@ type Props = {
 };
 
 /**
- * Botão "Adicionar ao carrinho" do carrinho híbrido.
- * - 1º item: silencioso (toast simples).
- * - 2º item distinto: dispara toast com CTA de login Google (não-bloqueante),
- *   incentivando salvar o carrinho — alinhado à decisão da Onda 2.
+ * Botão de compra rápida.
+ * O carrinho é local e não exige login. Autenticação só aparece quando o
+ * visitante escolhe pagamento online ou quer acompanhar pedidos no painel.
  */
 export function AddToCartButton({ item, variant = "outline", size = "lg", className }: Props) {
   const [added, setAdded] = useState(false);
 
   function handleClick() {
-    addToCart(item, {
-      onLoginNudge: (distinct) => {
-        if (distinct === 2) {
-          toast("Salve seu carrinho", {
-            description: "Entre com Google e a 0WEB guarda seus itens em qualquer dispositivo.",
-            action: {
-              label: "Entrar",
-              onClick: () => {
-                window.location.href = "/auth";
-              },
-            },
-            duration: 6000,
-          });
-        }
-      },
-    });
+    addToCart(item);
     // CRO tracking — captura intenção de compra por serviço
     void import("@/lib/analytics").then(({ trackEvent }) =>
       trackEvent("add_to_cart", { slug: item.slug, variant_id: item.variantId ?? null, name: item.name, price: item.price ?? 0, category: item.category ?? "" }),

@@ -43,6 +43,7 @@ const dynamicServicePath = "src/routes/servicos.$slug.tsx";
 const servicosIndexPath = "src/routes/servicos.index.tsx";
 const cartFunnelPath = "src/lib/cart-funnel.functions.ts";
 const thankYouContentPath = "src/lib/thank-you-content.ts";
+const addToCartButtonPath = "src/components/site/AddToCartButton.tsx";
 
 const header = source(headerPath);
 const footer = source(footerPath);
@@ -61,6 +62,7 @@ const dynamicService = source(dynamicServicePath);
 const servicosIndex = source(servicosIndexPath);
 const cartFunnel = source(cartFunnelPath);
 const thankYouContent = source(thankYouContentPath);
+const addToCartButton = source(addToCartButtonPath);
 
 requirePattern(headerPath, header, /const\s+isLojaArea\s*=/, "não classifica as rotas da loja");
 requirePattern(
@@ -227,6 +229,12 @@ if (/handleAssistedCheckout\(\)[\s\S]{0,180}if\s*\(!session\)\s*return\s+handleG
 }
 if (/R\$ 28M\+|98%|4\.9\/5|ROAS médio|custo médio por lead/i.test(thankYouContent)) {
   errors.push(`${thankYouContentPath}: prova social/resultado sem evidência auditável reapareceu`);
+}
+if (/Salve seu carrinho|window\.location\.href\s*=\s*["']\/auth/i.test(addToCartButton)) {
+  errors.push(`${addToCartButtonPath}: compra rápida voltou a pressionar login antes do checkout`);
+}
+if (/Abrir WhatsApp|Pagamento confirmado!|R\$ 28M\+|4\.9\/5/i.test(thankYouContent)) {
+  errors.push(`${thankYouContentPath}: mensagem de obrigado voltou a afirmar canal/resultado sem confirmação`);
 }
 requirePattern(
   cartDrawerPath,

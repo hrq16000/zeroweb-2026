@@ -15,7 +15,7 @@ import { THANK_YOU_CTA, buildThankYouCtaParams } from "@/lib/event-taxonomy";
 import { OrderSummaryCard } from "@/components/site/OrderSummaryCard";
 
 const TITLE = "Obrigado pelo contato · 0WEB";
-const DESC = "Recebemos sua mensagem. Nossa equipe vai responder em até 1 hora útil. Enquanto isso, explore nossos planos e cases.";
+const DESC = "Recebemos sua solicitação. A equipe dará continuidade conforme o canal e o produto escolhido.";
 
 const searchSchema = z.object({
   source: z.string().max(80).optional(),
