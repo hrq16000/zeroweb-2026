@@ -83,18 +83,105 @@ export const Route = createFileRoute("/api/public/hooks/stripe")({
             event.type === "payment_intent.succeeded") &&
           orderId
         ) {
+          const { data: existingOrder, error: orderLookupError } = await supabaseAdmin
+            .from("orders")
+            .select("id, total, metadata")
+            .eq("id", orderId)
+            .maybeSingle();
+          if (orderLookupError) {
+            console.error("[stripe-webhook] order lookup error:", orderLookupError.message);
+            return new Response("DB error", { status: 500 });
+          }
+
+          const currentOrderMetadata =
+            existingOrder?.metadata &&
+            typeof existingOrder.metadata === "object" &&
+            !Array.isArray(existingOrder.metadata)
+              ? (existingOrder.metadata as Record<string, unknown>)
+              : {};
+          const checkoutSessionKey =
+            typeof currentOrderMetadata.checkout_session_key === "string"
+              ? currentOrderMetadata.checkout_session_key
+              : null;
+
           const { error } = await supabaseAdmin
             .from("orders")
             .update({
               status: "paid",
               payment_method: "stripe",
               paid_at: new Date().toISOString(),
-              metadata: { stripe_event: event.type, stripe_id: stripeId, amount },
+              metadata: {
+                ...currentOrderMetadata,
+                stripe_event: event.type,
+                stripe_id: stripeId,
+                amount,
+              },
             })
             .eq("id", orderId);
           if (error) {
             console.error("[stripe-webhook] order update error:", error.message);
             return new Response("DB error", { status: 500 });
+          }
+
+          let visitorId: string | null = null;
+          if (checkoutSessionKey) {
+            const { data: progress } = await supabaseAdmin
+              .from("cart_funnel_progress")
+              .select("metadata, visitor_id")
+              .eq("session_key", checkoutSessionKey)
+              .maybeSingle();
+            visitorId = progress?.visitor_id ?? null;
+            const currentProgressMetadata =
+              progress?.metadata &&
+              typeof progress.metadata === "object" &&
+              !Array.isArray(progress.metadata)
+                ? (progress.metadata as Record<string, unknown>)
+                : {};
+            const { error: progressError } = await supabaseAdmin
+              .from("cart_funnel_progress")
+              .update({
+                step: "payment_paid",
+                payment_status: "paid",
+                payment_channel: "site",
+                payment_ref: stripeId,
+                metadata: {
+                  ...currentProgressMetadata,
+                  order_id: orderId,
+                  stripe_event: event.type,
+                  paid_at: new Date().toISOString(),
+                },
+                updated_at: new Date().toISOString(),
+              })
+              .eq("session_key", checkoutSessionKey);
+            if (progressError) {
+              console.warn("[stripe-webhook] cart funnel update failed:", progressError.message);
+            }
+          }
+
+          if (existingOrder) {
+            const { error: analyticsError } = await supabaseAdmin
+              .from("analytics_events")
+              .insert({
+                // O UUID do pedido funciona como chave idempotente do evento pago.
+                id: orderId,
+                event_name: "payment_paid",
+                path: "/checkout",
+                page: "Stripe webhook",
+                location: "stripe_webhook",
+                visitor_id: visitorId,
+                metadata_json: {
+                  tv: 2,
+                  traffic_type: "human",
+                  cart_session: checkoutSessionKey,
+                  order_id: orderId,
+                  value: Number(existingOrder.total) || 0,
+                  currency: "BRL",
+                  stripe_event: event.type,
+                },
+              });
+            if (analyticsError && analyticsError.code !== "23505") {
+              console.warn("[stripe-webhook] payment analytics failed:", analyticsError.message);
+            }
           }
         }
 

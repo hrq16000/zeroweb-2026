@@ -78,6 +78,15 @@ function CheckoutPage() {
     if (checkoutStartedRef.current || items.length === 0) return;
     checkoutStartedRef.current = true;
     const sessionKey = getCartSessionKey();
+    void import("@/lib/analytics").then(({ trackEvent }) =>
+      trackEvent("checkout_started", {
+        cart_session: sessionKey,
+        items: items.length,
+        total,
+        has_recurring: hasRecurring,
+        location: "checkout",
+      }),
+    );
     void saveCartFunnelStep({
       data: {
         sessionKey,
@@ -206,10 +215,12 @@ function CheckoutPage() {
           throw new Error(message);
         }
         void import("@/lib/analytics").then(({ trackConversion }) =>
-          trackConversion("checkout_assisted_guest", { cart_session: sessionKey, total, items: items.length, location: "checkout" }),
-        );
-        void import("@/lib/persistence").then(({ persistEvent }) =>
-          persistEvent("checkout_assisted_guest", { cart_session: sessionKey, total, items: items.length }),
+          trackConversion("checkout_assisted_guest", {
+            cart_session: sessionKey,
+            total,
+            items: items.length,
+            location: "checkout",
+          }),
         );
         clearCart();
         rotateCartSessionKey();
@@ -242,10 +253,13 @@ function CheckoutPage() {
       });
       await markOrderAssistedHandoff({ data: { orderId: order.id } });
       void import("@/lib/analytics").then(({ trackConversion }) =>
-        trackConversion("checkout_assisted_handoff", { order_id: order.id, total, items: items.length, location: "checkout" }),
-      );
-      void import("@/lib/persistence").then(({ persistEvent }) =>
-        persistEvent("checkout_assisted_handoff", { order_id: order.id, total, items: items.length }),
+        trackConversion("checkout_assisted_handoff", {
+          cart_session: sessionKey,
+          order_id: order.id,
+          total,
+          items: items.length,
+          location: "checkout",
+        }),
       );
       clearCart();
       rotateCartSessionKey();
@@ -299,12 +313,6 @@ function CheckoutPage() {
           checkoutSessionKey: sessionKey,
         },
       });
-      void import("@/lib/analytics").then(({ trackConversion }) =>
-        trackConversion("checkout_stripe_start", { order_id: order.id, total, items: items.length, location: "checkout" }),
-      );
-      void import("@/lib/persistence").then(({ persistEvent }) =>
-        persistEvent("checkout_stripe_start", { order_id: order.id, total, items: items.length }),
-      );
       const res = await createStripeCheckoutSession({
         data: {
           orderId: order.id,
@@ -320,6 +328,41 @@ function CheckoutPage() {
         });
         return;
       }
+      void saveCartFunnelStep({
+        data: {
+          sessionKey,
+          visitorId: getVisitorId(),
+          step: "payment_pending",
+          cart: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod }) => ({
+            slug,
+            name,
+            category: category ?? null,
+            variantId: variantId ?? null,
+            variantLabel: variantLabel ?? null,
+            price: price ?? null,
+            pricePeriod: pricePeriod ?? null,
+            qty: 1,
+          })),
+          totalAmount: total || null,
+          paymentChannel: "site",
+          paymentStatus: "pending",
+          paymentRef: res.sessionId,
+          metadata: {
+            source: "checkout_stripe",
+            order_id: order.id,
+            started_at: new Date().toISOString(),
+          },
+        },
+      }).catch(() => {});
+      void import("@/lib/analytics").then(({ trackConversion }) =>
+        trackConversion("checkout_stripe_start", {
+          cart_session: sessionKey,
+          order_id: order.id,
+          total,
+          items: items.length,
+          location: "checkout",
+        }),
+      );
       // Mantém o carrinho até o retorno de sucesso. Cancelamento ou falha de
       // navegação preservam a seleção para uma nova tentativa.
       window.location.href = res.url;

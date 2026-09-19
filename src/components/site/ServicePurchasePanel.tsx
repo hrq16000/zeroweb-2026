@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ShoppingBag, Check } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { addToCart, openCart, formatBRL } from "@/lib/cart";
+import { addToCart, getCartSessionKey, openCart, formatBRL } from "@/lib/cart";
 
 export type ServicePurchaseBase = {
   slug: string;
@@ -36,13 +36,15 @@ export function ServicePurchasePanel({ item }: { item: ServicePurchaseBase }) {
       pricePeriod: item.pricePeriod ?? null,
       imageUrl: item.imageUrl ?? null,
     });
+    const cartSession = getCartSessionKey();
     void import("@/lib/analytics").then(({ trackEvent }) =>
       trackEvent("add_to_cart", {
+        cart_session: cartSession,
+        service_slug: item.slug,
         slug: item.slug,
         variant_id: item.variantId ?? null,
         unit_price: item.price,
         total: item.price,
-        name: item.name,
       }),
     );
     setAdded(true);

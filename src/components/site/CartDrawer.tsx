@@ -211,11 +211,14 @@ export function CartDrawer() {
                   size="lg"
                   className="w-full"
                   onClick={() => {
+                    const cartSession = getCartSessionKey();
                     void import("@/lib/analytics").then(({ trackConversion }) =>
-                      trackConversion("cart_checkout_click", { items: items.length, total, location: "cart_drawer" }),
-                    );
-                    void import("@/lib/persistence").then(({ persistEvent }) =>
-                      persistEvent("cart_checkout_click", { items: items.length, total }),
+                      trackConversion("cart_checkout_click", {
+                        cart_session: cartSession,
+                        items: items.length,
+                        total,
+                        location: "cart_drawer",
+                      }),
                     );
                     reportStep("checkout_started", items, { paymentChannel: "site", paymentStatus: "pending" });
                     setOpen(false);

@@ -322,3 +322,19 @@ A Checkout Session do Stripe usa `Idempotency-Key` estável por pedido. O
 carrinho não é apagado antes do redirecionamento: cancelamento ou falha preservam
 a seleção, e a limpeza/rotação acontece somente no retorno de sucesso. Uma trava
 local reduz duplo clique; a proteção server-side cobre retries e timeouts.
+
+## 27. Funil comercial da loja
+
+Eventos comerciais usam uma única persistência por ação: `trackEvent` ou
+`trackConversion` já encaminham para `persistEvent`, portanto componentes
+não podem gravar o mesmo evento uma segunda vez.
+
+A chave `cart_session` acompanha `add_to_cart`, entrada no checkout,
+atendimento assistido e início de pagamento. O webhook do Stripe preserva a
+metadata do pedido, marca `cart_funnel_progress=payment_paid` e grava
+`payment_paid` com o UUID do pedido como chave idempotente.
+
+O painel administrativo calcula o funil a partir do histórico append-only de
+`analytics_events`, deduplicado por jornada. A antiga visualização de leads é
+explicitamente uma distribuição do estado atual, não uma taxa de conversão.
+Atendimento assistido e pagamento online são saídas alternativas do checkout.

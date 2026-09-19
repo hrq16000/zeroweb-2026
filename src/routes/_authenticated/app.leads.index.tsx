@@ -17,6 +17,7 @@ import { Inbox, Filter, ShoppingCart, ClipboardList, Download, Mail } from "luci
 import { QuizConversionCharts } from "@/components/app/QuizConversionCharts";
 import { QuizPixelPanel } from "@/components/app/QuizPixelPanel";
 import { CityPixelPanel } from "@/components/app/CityPixelPanel";
+import { CommerceFunnelPanel } from "@/components/app/CommerceFunnelPanel";
 
 export const Route = createFileRoute("/_authenticated/app/leads/")({
   component: LeadsPage,
@@ -134,7 +135,7 @@ function LeadsPage() {
     return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
   }, [leads]);
 
-  /** Funil de conversão simples por etapa, ordenado por volume. */
+  /** Distribuição do estado atual dos leads; não representa sequência histórica. */
   const funnelStages = useMemo(() => {
     const map = new Map<string, number>();
     for (const l of leads) map.set(l.etapa_atual, (map.get(l.etapa_atual) ?? 0) + 1);
@@ -168,6 +169,8 @@ function LeadsPage() {
         <Stat label="Funis" value={stats.funil} icon={<ClipboardList className="w-4 h-4" />} />
       </div>
 
+      <CommerceFunnelPanel />
+
       <QuizPixelPanel />
       <CityPixelPanel />
 
@@ -194,7 +197,7 @@ function LeadsPage() {
         </section>
 
         <section className="rounded-2xl border border-border bg-card p-4">
-          <h2 className="text-sm font-semibold mb-3">Funil de conversão por etapa</h2>
+          <h2 className="text-sm font-semibold mb-3">Distribuição atual por etapa</h2>
           {funnelStages.length === 0 ? (
             <p className="text-xs text-muted-foreground">Sem etapas registradas.</p>
           ) : (
