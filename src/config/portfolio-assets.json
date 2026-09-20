@@ -1139,7 +1139,7 @@
     },
     "catharine-lima-studio": {
       "icon": "/images/catharine-lima-studio/logo.svg",
-      "socialImage": "/images/catharine-lima-studio/social.png",
+      "socialImage": "/images/catharine-lima-studio/social.jpg",
       "proof": {
         "eyebrow": "Catharine Lima Studio",
         "title": "Seu próximo cuidado começa escolhendo o que faz sentido para você.",
@@ -1147,7 +1147,7 @@
         "ctaLabel": "Agendar horário",
         "ctaHref": "#agendamento"
       },
-      "socialVersion": "20260920a"
+      "socialVersion": "bf168e50"
     }
   }
 }
