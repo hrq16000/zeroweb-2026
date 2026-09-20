@@ -453,7 +453,7 @@ export const setPortfolioAdminArchived = createServerFn({ method: "POST" })
 
 const uploadSchema = z.object({
   slug: z.string().trim().min(1).max(120),
-  kind: z.enum(["logo", "hero", "social", "gallery"]),
+  kind: z.enum(["logo", "hero", "cover", "social", "gallery"]),
   fileName: z.string().trim().min(1).max(120),
   contentType: z.enum(["image/jpeg", "image/png", "image/webp", "image/avif"]),
   /** Conteúdo em base64 puro (sem data: prefix). Limite 4 MB. */
@@ -466,7 +466,15 @@ export const uploadPortfolioAdminAsset = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => uploadSchema.parse(data))
   .handler(async ({ data, context }) => {
     const admin = await assertAdmin(context.userId);
-    if (!seedBySlug(data.slug)) throw new Error("Projeto inexistente no registry.");
+    if (!seedBySlug(data.slug)) {
+      const { data: managed } = await admin
+        .from("portfolio_client_settings")
+        .select("slug, project_kind")
+        .eq("slug", data.slug)
+        .eq("project_kind", "managed")
+        .maybeSingle();
+      if (!managed) throw new Error("Projeto inexistente ou ainda não salvo.");
+    }
 
     const bytes = Buffer.from(data.base64, "base64");
     if (bytes.byteLength === 0) throw new Error("Arquivo vazio.");

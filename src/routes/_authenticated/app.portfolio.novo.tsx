@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, Check, Monitor, Save, Smartphone } from "lucide-react";
+import { ArrowLeft, Check, Monitor, Save, Smartphone, Upload } from "lucide-react";
 import {
   getManagedProjectAdmin,
   listManagedProjects,
@@ -22,6 +22,7 @@ import {
   type PortfolioFunnelIntent,
 } from "@/lib/portfolio-funnel-context";
 import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
+import { uploadPortfolioAdminAsset } from "@/lib/portfolio-admin.functions";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/novo")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -171,6 +172,56 @@ function Text({
   );
 }
 
+const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/avif"]);
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+
+function UploadAsset({
+  label,
+  value,
+  disabled,
+  busy,
+  onSelect,
+}: {
+  label: string;
+  value?: string;
+  disabled?: boolean;
+  busy?: boolean;
+  onSelect: (file: File) => void;
+}) {
+  return (
+    <label className="block rounded-xl border border-dashed border-border p-3">
+      <span className="text-xs font-semibold text-muted-foreground">{label}</span>
+      <span className="mt-2 flex flex-wrap items-center gap-2">
+        <span
+          className={`inline-flex min-h-10 items-center gap-2 rounded-lg border border-border px-3 py-2 text-xs font-semibold ${
+            disabled || busy ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+          }`}
+        >
+          <Upload className="h-4 w-4" />
+          {busy ? "Enviando…" : "Selecionar imagem"}
+        </span>
+        {value ? <span className="max-w-full truncate text-[11px] text-muted-foreground">{value}</span> : null}
+      </span>
+      <input
+        type="file"
+        accept="image/jpeg,image/png,image/webp,image/avif"
+        disabled={disabled || busy}
+        className="sr-only"
+        onChange={(event) => {
+          const file = event.target.files?.[0];
+          if (file) onSelect(file);
+          event.currentTarget.value = "";
+        }}
+      />
+      {disabled ? (
+        <span className="mt-2 block text-[11px] text-muted-foreground">
+          Salve o rascunho uma vez antes de enviar arquivos.
+        </span>
+      ) : null}
+    </label>
+  );
+}
+
 function PortfolioWizard() {
   const search = Route.useSearch();
   const [draft, setDraft] = useState<Draft>(EMPTY);
@@ -189,6 +240,7 @@ function PortfolioWizard() {
   const transition = useServerFn(setManagedLifecycle);
   const load = useServerFn(getManagedProjectAdmin);
   const list = useServerFn(listManagedProjects);
+  const uploadAsset = useServerFn(uploadPortfolioAdminAsset);
 
   useEffect(() => {
     list({})
@@ -260,6 +312,63 @@ function PortfolioWizard() {
       }),
     [draft, saved],
   );
+
+  async function handleUpload(
+    kind: "logo" | "hero" | "cover" | "social" | "gallery",
+    file: File,
+  ) {
+    if (!saved?.project.slug) {
+      setMessage("Salve o rascunho antes de enviar imagens.");
+      return;
+    }
+    if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
+      setMessage("Formato não aceito. Use JPG, PNG, WebP ou AVIF.");
+      return;
+    }
+    if (file.size <= 0 || file.size > MAX_IMAGE_BYTES) {
+      setMessage("A imagem precisa ter até 4 MB.");
+      return;
+    }
+
+    setBusy(true);
+    setMessage(null);
+    try {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      let binary = "";
+      const chunk = 0x8000;
+      for (let offset = 0; offset < bytes.length; offset += chunk) {
+        binary += String.fromCharCode(...bytes.subarray(offset, offset + chunk));
+      }
+      const res = await uploadAsset({
+        data: {
+          slug: saved.project.slug,
+          kind,
+          fileName: file.name,
+          contentType: file.type as "image/jpeg" | "image/png" | "image/webp" | "image/avif",
+          base64: btoa(binary),
+        },
+      });
+
+      if (kind === "logo") set("logoUrl", res.url);
+      if (kind === "hero") set("heroImageUrl", res.url);
+      if (kind === "cover") set("catalogCoverUrl", res.url);
+      if (kind === "social") {
+        set("socialImageUrl", res.url);
+        set("socialVersion", String(Date.now()));
+      }
+      if (kind === "gallery") {
+        set("gallery", [
+          ...draft.gallery,
+          { url: res.url, alt: draft.displayName || "Imagem do projeto", focal: { x: 50, y: 50 } },
+        ]);
+      }
+      setMessage("Imagem enviada. Salve o rascunho para aplicar o novo asset.");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Falha ao enviar imagem.");
+    } finally {
+      setBusy(false);
+    }
+  }
 
   async function handleSave() {
     setBusy(true);
@@ -384,6 +493,13 @@ function PortfolioWizard() {
           {step === 2 ? (
             <>
               <Text label="Logo (caminho interno)" value={draft.logoUrl} onChange={(v) => set("logoUrl", v)} />
+              <UploadAsset
+                label="Enviar logo"
+                value={draft.logoUrl}
+                disabled={!saved}
+                busy={busy}
+                onSelect={(file) => void handleUpload("logo", file)}
+              />
               {(["primary", "accent", "surface", "ink"] as const).map((key) => (
                 <label key={key} className="flex items-center justify-between gap-3 text-sm">
                   <span className="text-xs font-semibold text-muted-foreground uppercase">{key}</span>
@@ -401,6 +517,13 @@ function PortfolioWizard() {
           {step === 3 ? (
             <>
               <Text label="Imagem de destaque" value={draft.heroImageUrl} onChange={(v) => set("heroImageUrl", v)} />
+              <UploadAsset
+                label="Enviar imagem de destaque"
+                value={draft.heroImageUrl}
+                disabled={!saved}
+                busy={busy}
+                onSelect={(file) => void handleUpload("hero", file)}
+              />
               <div className="grid grid-cols-2 gap-3">
                 <Text
                   label="Foco destaque X (%)"
@@ -425,6 +548,13 @@ function PortfolioWizard() {
                 value={draft.catalogCoverUrl}
                 onChange={(v) => set("catalogCoverUrl", v)}
                 hint="Imagem própria do cliente exibida em /portfolio."
+              />
+              <UploadAsset
+                label="Enviar capa do catálogo"
+                value={draft.catalogCoverUrl}
+                disabled={!saved}
+                busy={busy}
+                onSelect={(file) => void handleUpload("cover", file)}
               />
               <div className="grid grid-cols-2 gap-3">
                 <Text
@@ -523,6 +653,12 @@ function PortfolioWizard() {
                 }
                 textarea
               />
+              <UploadAsset
+                label="Adicionar imagem à galeria"
+                disabled={!saved}
+                busy={busy}
+                onSelect={(file) => void handleUpload("gallery", file)}
+              />
             </div>
           ) : null}
 
@@ -602,6 +738,13 @@ function PortfolioWizard() {
                 label="Imagem social (1200x630)"
                 value={draft.socialImageUrl}
                 onChange={(v) => set("socialImageUrl", v)}
+              />
+              <UploadAsset
+                label="Enviar imagem social"
+                value={draft.socialImageUrl}
+                disabled={!saved}
+                busy={busy}
+                onSelect={(file) => void handleUpload("social", file)}
               />
               <Text label="Versão da imagem social" value={draft.socialVersion} onChange={(v) => set("socialVersion", v)} />
               <Text label="Texto do botão de contato" value={draft.ctaLabel} onChange={(v) => set("ctaLabel", v)} />

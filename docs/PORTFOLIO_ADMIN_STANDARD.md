@@ -148,3 +148,16 @@ de entrega.
   `portfolio_client_settings.funnel_recipient`. Projetos legados continuam
   usando exclusivamente `src/config/portfolio-whatsapp.json`.
 - Não existe fallback de destino entre clientes.
+
+## Assets dos novos projetos Managed
+
+O wizard `/app/portfolio/novo` reutiliza o mesmo upload administrativo já
+existente para os projetos do registry. O bucket privado `portfolio-admin`
+continua sendo a única camada de armazenamento desse fluxo, e o navegador
+recebe somente URLs internas em `/api/public/portfolio-asset/<slug>/...`.
+
+Para projetos Managed, o upload só é aceito depois que o rascunho existe em
+`portfolio_client_settings` com `project_kind=managed`. Isso evita upload
+para slugs arbitrários. Logo, hero, capa do catálogo, imagem social e galeria
+podem ser enviados diretamente pelo wizard; caminhos internos continuam
+editáveis para manutenção avançada.
