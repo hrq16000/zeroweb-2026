@@ -30,11 +30,22 @@ export const Route = createFileRoute("/servicos/")({
     const page = Number.isFinite(pageNum) && pageNum >= 1 ? Math.floor(pageNum) : undefined;
     return { q, cat, sort, page };
   },
-  head: () => {
-    const url = absUrl("/servicos");
-    const title = "Serviços da 0WEB · Sites, SEO, IA, Marketing Digital e Sistemas";
+  head: ({ match, loaderData }) => {
+    const search = (match.search ?? {}) as ServicosSearch;
+    const hasFilter = Boolean(search.q || search.cat || (search.sort && search.sort !== "shop"));
+    const perPage = 12;
+    const totalServices = loaderData?.services?.length ?? 0;
+    const totalPages = Math.max(1, Math.ceil(totalServices / perPage));
+    const requestedPage = search.page ?? 1;
+    const page = Math.min(Math.max(requestedPage, 1), totalPages);
+    const paginated = !hasFilter && page > 1;
+    const url = paginated ? absUrl(`/servicos?page=${page}`) : absUrl("/servicos");
+    const baseTitle = "Serviços da 0WEB · Sites, SEO, IA, Marketing Digital e Sistemas";
+    const title = paginated ? `${baseTitle} · Página ${page}` : baseTitle;
     const desc =
-      "Loja de serviços digitais da 0WEB: produtos com preço publicado, escopo claro e contratação online ou assistida.";
+      paginated
+        ? `Página ${page} da loja de serviços digitais da 0WEB: produtos com preço publicado, escopo claro e contratação online ou assistida.`
+        : "Loja de serviços digitais da 0WEB: produtos com preço publicado, escopo claro e contratação online ou assistida.";
 
     // A lista real da loja vem do loader/Supabase. Para não publicar schema
     // divergente do catálogo vivo, o índice declara somente a CollectionPage;
@@ -70,12 +81,23 @@ export const Route = createFileRoute("/servicos/")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
         { name: "twitter:image", content: DEFAULT_OG_IMAGE },
-        { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+        {
+          name: "robots",
+          content: hasFilter
+            ? "noindex, follow, max-image-preview:large, max-snippet:-1"
+            : "index, follow, max-image-preview:large, max-snippet:-1",
+        },
       ],
       links: [
         { rel: "canonical", href: url },
         { rel: "alternate", hrefLang: "pt-BR", href: url },
         { rel: "alternate", hrefLang: "x-default", href: url },
+        ...(!hasFilter && page > 1
+          ? [{ rel: "prev", href: page === 2 ? absUrl("/servicos") : absUrl(`/servicos?page=${page - 1}`) }]
+          : []),
+        ...(!hasFilter && page < totalPages
+          ? [{ rel: "next", href: absUrl(`/servicos?page=${page + 1}`) }]
+          : []),
       ],
       scripts: [
         {

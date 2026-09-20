@@ -349,3 +349,13 @@ FAQ, benefícios, processo, sections, rich HTML, schema, galeria e OG image fica
 restritos à página individual do produto. A listagem assina apenas uma capa por
 serviço e preserva os fallbacks visuais já existentes. Isso reduz consultas,
 assinaturas de Storage e payload sem alterar o conteúdo de `/servicos/:slug`.
+
+## 29. SEO da paginação e filtros da loja
+
+Paginação limpa de `/servicos` é indexável e recebe canonical próprio:
+`/servicos?page=N`, com relações `prev` e `next` quando aplicáveis.
+
+Busca, categoria e ordenação são estados de navegação, não novas páginas de
+aquisição. Combinações com `q`, `cat` ou `sort` usam
+`noindex,follow` e canonical da coleção principal. Página solicitada fora do
+intervalo real é canonicalizada para a página válida correspondente.
