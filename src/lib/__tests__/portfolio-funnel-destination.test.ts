@@ -58,25 +58,35 @@ describe("prioridade operacional por risco real", () => {
 describe("FUNNEL_DESTINATION_GATE para projetos novos", () => {
   const clients = [{ slug: "novo-projeto", clientKey: "novo-projeto", contactMode: "funnelOnly" }];
 
-  it("reprova projeto novo sem destino operacional", () => {
+  it("reprova projeto novo sem entrada no cadastro versionado", () => {
     const r = evaluateFunnelDestination("novo-projeto", { clients, ledger: { entries: {} } });
     expect(r.status).toBe("FAIL");
-    expect(r.blockers.join(" ")).toContain("destino operacional ausente");
+    expect(r.blockers.join(" ")).toContain("portfolio-whatsapp.json");
   });
 
-  it("reprova destino configurado sem evidência verificada", () => {
-    process.env["PORTFOLIO_WHATSAPP_NOVO_PROJETO"] = "5541900000000";
-    const r = evaluateFunnelDestination("novo-projeto", {
+  it("reprova número inválido e aceita cadastro válido ou lead-only", () => {
+    const invalid = evaluateFunnelDestination("novo-projeto", {
       clients,
-      ledger: { entries: { "novo-projeto": { status: "INSUFFICIENT_EVIDENCE" } } },
+      ledger: { entries: {} },
+      contacts: { "novo-projeto": { whatsapp: "123" } },
     });
-    expect(r.status).toBe("FAIL");
+    expect(invalid.status).toBe("FAIL");
+
+    const leadOnly = evaluateFunnelDestination("novo-projeto", {
+      clients,
+      ledger: { entries: {} },
+      contacts: { "novo-projeto": { whatsapp: null } },
+    });
+    expect(leadOnly.status).toBe("PASS");
+    expect(leadOnly.mode).toBe("LEAD_ONLY");
+
     const ok = evaluateFunnelDestination("novo-projeto", {
       clients,
       ledger: { entries: { "novo-projeto": { status: "VERIFIED", evidence: ["owner"] } } },
+      contacts: { "novo-projeto": { whatsapp: "5541900000000" } },
     });
     expect(ok.status).toBe("PASS");
-    delete process.env["PORTFOLIO_WHATSAPP_NOVO_PROJETO"];
+    expect(ok.mode).toBe("WHATSAPP");
   });
 });
 

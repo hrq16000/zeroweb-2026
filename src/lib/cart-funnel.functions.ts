@@ -136,7 +136,11 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       cart_snapshot: data.cart as any,
       payment_status: data.paymentStatus ?? "open",
-      payment_channel: data.paymentChannel ?? "unknown",
+      // "assisted" é canal de atendimento do site; o enum do banco só conhece
+      // site | whatsapp | unknown, então persistimos como "site".
+      payment_channel: (data.paymentChannel === "assisted"
+        ? "site"
+        : data.paymentChannel ?? "unknown") as "site" | "whatsapp" | "unknown",
       payment_ref: data.paymentRef ?? previousPaymentRef,
       total_amount: data.totalAmount ?? null,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
