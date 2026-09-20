@@ -58,25 +58,24 @@ describe("prioridade operacional por risco real", () => {
 describe("FUNNEL_DESTINATION_GATE para projetos novos", () => {
   const clients = [{ slug: "novo-projeto", clientKey: "novo-projeto", contactMode: "funnelOnly" }];
 
-  it("reprova projeto novo sem destino operacional", () => {
+  it("reprova projeto novo sem entrada no cadastro versionado", () => {
     const r = evaluateFunnelDestination("novo-projeto", { clients, ledger: { entries: {} } });
     expect(r.status).toBe("FAIL");
-    expect(r.blockers.join(" ")).toContain("destino operacional ausente");
+    expect(r.blockers.join(" ")).toContain("portfolio-whatsapp.json");
   });
 
-  it("reprova destino configurado sem evidência verificada", () => {
-    process.env["PORTFOLIO_WHATSAPP_NOVO_PROJETO"] = "5541900000000";
-    const r = evaluateFunnelDestination("novo-projeto", {
-      clients,
-      ledger: { entries: { "novo-projeto": { status: "INSUFFICIENT_EVIDENCE" } } },
+  it("reprova destino cadastrado sem evidência verificada", () => {
+    const registered = [{ slug: "heloa-gas", clientKey: "heloa-gas", contactMode: "funnelOnly" }];
+    const r = evaluateFunnelDestination("heloa-gas", {
+      clients: registered,
+      ledger: { entries: { "heloa-gas": { status: "INSUFFICIENT_EVIDENCE" } } },
     });
     expect(r.status).toBe("FAIL");
-    const ok = evaluateFunnelDestination("novo-projeto", {
-      clients,
-      ledger: { entries: { "novo-projeto": { status: "VERIFIED", evidence: ["owner"] } } },
+    const ok = evaluateFunnelDestination("heloa-gas", {
+      clients: registered,
+      ledger: { entries: { "heloa-gas": { status: "VERIFIED", evidence: ["owner"] } } },
     });
     expect(ok.status).toBe("PASS");
-    delete process.env["PORTFOLIO_WHATSAPP_NOVO_PROJETO"];
   });
 });
 
