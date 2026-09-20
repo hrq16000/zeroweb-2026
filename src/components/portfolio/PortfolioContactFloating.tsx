@@ -3,11 +3,11 @@ import { MessageCircle } from "lucide-react";
 import { PortfolioCTAQuiz, type PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
 import { trackEvent } from "@/lib/analytics";
 import { FLOATING_SLOT, FLOATING_Z, hideNearFooter } from "@/lib/floating-stack";
-import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import type { ContactMode, ContactTheme, FloatingPosition } from "@/lib/portfolio-global-config";
+import type { PortfolioFunnelIntent } from "@/lib/portfolio-funnel-context";
 
 type Props = {
-  clientKey: PortfolioClientKey;
+  clientKey: string;
   studioName: string;
   recipientName: string;
   theme: ContactTheme;
@@ -15,6 +15,7 @@ type Props = {
   label: string;
   position: FloatingPosition;
   quizConfig?: PortfolioQuizConfig;
+  funnelIntent?: PortfolioFunnelIntent;
   slug?: string;
 };
 
@@ -43,6 +44,7 @@ export function PortfolioContactFloating({
   label,
   position,
   quizConfig,
+  funnelIntent,
   slug,
 }: Props) {
   const [nearFooter, setNearFooter] = useState(false);
@@ -63,6 +65,7 @@ export function PortfolioContactFloating({
       theme={theme}
       mode={mode}
       quizConfig={quizConfig}
+      funnelIntent={funnelIntent}
       ariaLabel={label}
       onOpen={() =>
         trackEvent("portfolio_contact_floating_click", {

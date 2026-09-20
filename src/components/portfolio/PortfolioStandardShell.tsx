@@ -14,6 +14,9 @@ import { PortfolioBackToTop } from "@/components/portfolio/PortfolioBackToTop";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { resolvePortfolioAssets } from "@/lib/portfolio-assets";
 import { PortfolioConversionNarrative } from "@/components/portfolio/PortfolioConversionNarrative";
+import type { PortfolioQuizConfig } from "@/components/site/BeautyBookingQuiz";
+import type { ContactMode } from "@/lib/portfolio-global-config";
+import type { PortfolioFunnelIntent } from "@/lib/portfolio-funnel-context";
 
 type Props = {
   slug: string;
@@ -23,6 +26,12 @@ type Props = {
    * footer, so legacy client footers are hidden inside the client region.
    */
   includePlatformFooter?: boolean;
+  clientKeyOverride?: string;
+  siteNameOverride?: string;
+  contactModeOverride?: ContactMode;
+  contactLabelOverride?: string;
+  funnelIntentOverride?: PortfolioFunnelIntent;
+  quizConfigOverride?: PortfolioQuizConfig;
 };
 
 /**
@@ -34,14 +43,24 @@ type Props = {
  *
  * Overrides por cliente ficam em `src/config/portfolio-global-config.json`.
  */
-export function PortfolioStandardShell({ slug, children, includePlatformFooter = false }: Props) {
+export function PortfolioStandardShell({
+  slug,
+  children,
+  includePlatformFooter = false,
+  clientKeyOverride,
+  siteNameOverride,
+  contactModeOverride,
+  contactLabelOverride,
+  funnelIntentOverride,
+  quizConfigOverride,
+}: Props) {
   // Older dedicated routes still pass this flag. Footer ownership is now
   // centralized so the client footer can never appear above the About block.
   void includePlatformFooter;
   const standards = resolvePortfolioStandards(slug);
   const client = findPortfolioClient(slug);
-  const clientKey = resolvePortfolioClientKey(slug);
-  const siteName = client?.siteName ?? "Projeto";
+  const clientKey = resolvePortfolioClientKey(slug) ?? clientKeyOverride;
+  const siteName = client?.siteName ?? siteNameOverride ?? "Projeto";
   const proof = resolvePortfolioAssets(slug)?.proof;
 
   return (
@@ -98,10 +117,11 @@ export function PortfolioStandardShell({ slug, children, includePlatformFooter =
           studioName={standards.contactFloating.studioName}
           recipientName={standards.contactFloating.recipientName}
           theme={standards.contactFloating.theme}
-          mode={standards.contactFloating.mode}
-          label={standards.contactFloating.label}
+          mode={contactModeOverride ?? standards.contactFloating.mode}
+          label={contactLabelOverride ?? standards.contactFloating.label}
           position={standards.contactFloating.position}
-          quizConfig={standards.contactFloating.quizConfig}
+          quizConfig={quizConfigOverride ?? standards.contactFloating.quizConfig}
+          funnelIntent={funnelIntentOverride}
           slug={slug}
         />
       ) : null}

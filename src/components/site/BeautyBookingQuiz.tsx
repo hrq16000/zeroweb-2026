@@ -8,9 +8,12 @@ import { getSessionId, getVisitorId } from "@/lib/visitor";
 import { getPortfolioFunnelDelivery, submitPortfolioQuiz } from "@/lib/dynamic-funnel.functions";
 import { normalizeRecoveryPhone } from "@/lib/lead-recoverability";
 
-import type { PortfolioClientKey } from "@/lib/portfolio-client-keys";
 import { mergePortfolioFunnelConfig } from "@/lib/portfolio-funnel-config";
-import { resolvePortfolioFunnelContext } from "@/lib/portfolio-funnel-context";
+import {
+  buildPortfolioFunnelContextForIntent,
+  resolvePortfolioFunnelContext,
+  type PortfolioFunnelIntent,
+} from "@/lib/portfolio-funnel-context";
 import { formatLocation, getGeoForLead } from "@/lib/geo-location";
 import {
   applyPortfolioFunnelIntentCopy,
@@ -35,13 +38,14 @@ export type PortfolioQuizConfig = {
 };
 
 type Props = {
-  clientKey: PortfolioClientKey;
+  clientKey: string;
   studioName: string;
   theme: Theme;
   service?: string;
   recipientName: string;
   mode?: "booking" | "proposal";
   quizConfig?: PortfolioQuizConfig;
+  funnelIntent?: PortfolioFunnelIntent;
   className?: string;
   ariaLabel?: string;
   onOpen?: () => void;
@@ -138,6 +142,7 @@ export function BeautyBookingQuiz({
   recipientName,
   mode = "booking",
   quizConfig: localQuizConfig,
+  funnelIntent,
   className,
   ariaLabel,
   onOpen,
@@ -172,7 +177,13 @@ export function BeautyBookingQuiz({
   const isServiceProposal = isProposal && quizConfig?.proposalKind !== "campaign";
   // Coerência semântica: o contrato do projeto define a intenção comercial e,
   // com ela, título da mensagem, assunto e próximo passo enviados ao cliente.
-  const intentContext = useMemo(() => resolvePortfolioFunnelContext(clientKey), [clientKey]);
+  const intentContext = useMemo(
+    () =>
+      funnelIntent
+        ? buildPortfolioFunnelContextForIntent(clientKey, funnelIntent, recipientName)
+        : resolvePortfolioFunnelContext(clientKey),
+    [clientKey, funnelIntent, recipientName],
+  );
   const semanticCopy = applyPortfolioFunnelIntentCopy(
     getPortfolioQuizSemanticCopy(mode, quizConfig?.proposalKind, recipientName),
     intentContext,
@@ -259,6 +270,7 @@ export function BeautyBookingQuiz({
         recipientName,
         mode: mode ?? "booking",
         proposalKind: quizConfig?.proposalKind ?? "service",
+        funnelIntent: intentContext.intent,
         answers,
         pageUrl: window.location.href,
         // A entrega server-side reutiliza exatamente a localização exibida na

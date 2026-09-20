@@ -15,19 +15,22 @@
 import funnelContext from "@/config/portfolio-funnel-context.json";
 import catalog from "@/config/portfolio-catalog.json";
 
-export type PortfolioFunnelIntent =
-  | "orcamento"
-  | "agendamento"
-  | "pedido"
-  | "avaliacao"
-  | "visita"
-  | "contato"
-  | "reserva"
-  | "diagnostico"
-  | "solicitacao";
+export const PORTFOLIO_FUNNEL_INTENTS = [
+  "orcamento",
+  "agendamento",
+  "pedido",
+  "avaliacao",
+  "visita",
+  "contato",
+  "reserva",
+  "diagnostico",
+  "solicitacao",
+] as const;
+export type PortfolioFunnelIntent = (typeof PORTFOLIO_FUNNEL_INTENTS)[number];
 
 export type PortfolioFunnelContextSource =
   | "PROJECT_CONTRACT"
+  | "MANAGED_PROJECT"
   | "SEGMENT_FALLBACK"
   | "NEUTRAL_FALLBACK";
 
@@ -111,8 +114,30 @@ const SEGMENT_INTENT: Record<string, PortfolioFunnelIntent> = {
   agencias: "contato",
 };
 
-function bookingIntent(intent: PortfolioFunnelIntent): boolean {
+export function bookingIntent(intent: PortfolioFunnelIntent): boolean {
   return intent === "agendamento" || intent === "reserva";
+}
+
+export function buildPortfolioFunnelContextForIntent(
+  slug: string,
+  intent: PortfolioFunnelIntent,
+  businessName: string,
+  primaryCtaLabel = "Fale com a empresa",
+): PortfolioFunnelContext {
+  const name = businessName.trim() || "a empresa";
+  return {
+    slug,
+    intent,
+    nextStepTitle: `Fale com ${name} sobre o que você precisa.`,
+    nextStepBody: `Conte os detalhes para ${name} preparar o próximo passo.`,
+    primaryCtaLabel,
+    whatsappPrompt: FUNNEL_INTENT_PROMPTS[intent],
+    whatsappSubject: FUNNEL_INTENT_SUBJECTS[intent],
+    theme: "navy",
+    quizMode: bookingIntent(intent) ? "booking" : "proposal",
+    proposalKind: "service",
+    source: "MANAGED_PROJECT",
+  };
 }
 
 function resolveSlug(slugOrKey: string): string {
