@@ -226,6 +226,17 @@
         "O mesmo material informa Rua Victor Alves Ferreira, 211 e os serviços Alongamento, Banho em gel, Pé em gel, Volume brasileiro e Progressiva.",
         "Destino configurado exclusivamente para client_key catharine-lima-studio; sem fallback entre clientes."
       ]
+    },
+    "cris-presentes-colonia-rio-grande": {
+      "status": "VERIFIED",
+      "source": "PUBLIC_BUSINESS_REGISTRY",
+      "confidence": 96,
+      "verifiedAt": "2026-09-20",
+      "evidence": [
+        "Casa dos Dados lista 41 99687-9299 como WhatsApp da Cris Presentes Filial 2, CNPJ 01.340.329/0003-26.",
+        "Econodata confirma a mesma filial no endereço Rua Pedro Trevisan, 58, Colônia Rio Grande, São José dos Pinhais.",
+        "Destino versionado exclusivamente para client_key cris-presentes-colonia-rio-grande; sem fallback cross-client."
+      ]
     }
   }
 }

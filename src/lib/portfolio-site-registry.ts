@@ -11,6 +11,7 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
+  { slug: "cris-presentes-colonia-rio-grande", vertical: "comercios", siteName: "Cris Presentes · Colônia Rio Grande · São José dos Pinhais", kind: "prototype", indexable: true },
   {
     slug: "adhonep-curitiba",
     vertical: "prestadores-de-servicos",

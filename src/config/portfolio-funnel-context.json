@@ -659,5 +659,12 @@
     "nextStepBody": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
     "primaryCtaLabel": "Abrir cardápio",
     "theme": "gold"
+  },
+  "cris-presentes-colonia-rio-grande": {
+    "intent": "pedido",
+    "nextStepTitle": "Conte o que você procura e deixe a loja confirmar a disponibilidade.",
+    "nextStepBody": "Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade.",
+    "primaryCtaLabel": "Encontrar um presente",
+    "theme": "gold"
   }
 }

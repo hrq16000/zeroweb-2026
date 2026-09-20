@@ -1,0 +1,92 @@
+{
+  "slug": "cris-presentes-colonia-rio-grande",
+  "generatedAt": "2026-09-20T16:40:00.000Z",
+  "entity": {
+    "name": "Cris Presentes Filial 2",
+    "resolutionStatus": "RESOLVED",
+    "confidence": 0.98
+  },
+  "identity": {
+    "legalName": "Rodrigo Bertoncello e Cia LTDA",
+    "tradeName": "Cris Presentes Filial 2",
+    "cnpj": "01.340.329/0003-26",
+    "status": "ATIVA",
+    "openedAt": "2014-11-12",
+    "location": {
+      "street": "Rua Pedro Trevisan, 58",
+      "complement": "Lojas 06 e 07",
+      "neighborhood": "Colônia Rio Grande",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "postalCode": "83025-580"
+    },
+    "whatsapp": {
+      "value": "41996879299",
+      "sourceType": "PUBLIC_BUSINESS_REGISTRY",
+      "status": "listed_as_whatsapp"
+    }
+  },
+  "evidence": [
+    {
+      "source": "Casa dos Dados",
+      "url": "https://casadosdados.com.br/solucao/cnpj/rodrigo-bertoncello-01340329000326",
+      "facts": [
+        "CNPJ",
+        "endereço",
+        "situação ativa",
+        "WhatsApp",
+        "CNAEs"
+      ]
+    },
+    {
+      "source": "Econodata",
+      "url": "https://www.econodata.com.br/consulta-empresa/01340329000326-rodrigo-bertoncello-e-cia-ltda",
+      "facts": [
+        "nome fantasia",
+        "endereço",
+        "filial",
+        "atividade principal"
+      ]
+    },
+    {
+      "source": "Apontador",
+      "url": "https://www.apontador.com.br/local/pr/sao_jose_dos_pinhais/moda_e_acessorios/C41835830B0D5O0D57/cris_presentes_filial_2.html",
+      "facts": [
+        "endereço",
+        "telefone comercial"
+      ]
+    },
+    {
+      "source": "Google Business result — Jacomar Colônia Rio Grande",
+      "placeId": "ChIJR-vPWeP53JQRe8CFiaKsxpg",
+      "facts": [
+        "Jacomar no mesmo endereço Rua Pedro Trevisan, 58"
+      ]
+    }
+  ],
+  "categories": [
+    "Comércio varejista de brinquedos e artigos recreativos",
+    "Doces, balas, bombons e semelhantes",
+    "Artigos de armarinho",
+    "Artigos de papelaria",
+    "Artigos de joalheria",
+    "Artigos de relojoaria"
+  ],
+  "media": {
+    "realBusinessPhotos": [],
+    "generated": [
+      "/images/cris-presentes-colonia-rio-grande/hero.svg",
+      "/images/cris-presentes-colonia-rio-grande/capa-card.svg",
+      "/images/cris-presentes-colonia-rio-grande/social.jpg"
+    ]
+  },
+  "unverified": [
+    "estoque atual",
+    "marcas",
+    "preços",
+    "horário atual da filial",
+    "redes sociais oficiais da filial"
+  ],
+  "conflicts": [],
+  "publicationPolicy": "Não inventar estoque, preço, avaliação ou mídia real; usar o funil para confirmar disponibilidade."
+}

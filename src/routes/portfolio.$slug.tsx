@@ -337,6 +337,9 @@ const SantosMontadorDeMoveisPage = lazy(() =>
 const CatharineLimaStudioPage = lazy(() =>
   import("@/components/site/CatharineLimaStudioPage").then((m) => ({ default: m.CatharineLimaStudioPage })),
 );
+const CrisPresentesColoniaRioGrandePage = lazy(() =>
+  import("@/components/site/CrisPresentesColoniaRioGrandePage").then((m) => ({ default: m.CrisPresentesColoniaRioGrandePage })),
+);
 const SosPresentesCosmeticosPage = lazy(() =>
   import("@/components/site/SosPresentesCosmeticosPage").then((m) => ({
     default: m.SosPresentesCosmeticosPage,
@@ -528,6 +531,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isJkl = loaderData?.slug === "jkl-marcenaria";
     const isSantos = loaderData?.slug === "santos-montador-de-moveis";
     const isCatharineLima = loaderData?.slug === "catharine-lima-studio";
+    const isCrisPresentesColoniaRioGrande = loaderData?.slug === "cris-presentes-colonia-rio-grande";
     const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
     const isLolipa = loaderData?.slug === "lolipa-arte-em-festas";
     const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
@@ -570,7 +574,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
     const isJklDecor = loaderData?.slug === "jkl-decor";
-    const description = isCatharineLima
+    const description = isCrisPresentesColoniaRioGrande
+      ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e outras categorias de presentes, com consulta de disponibilidade pelo funil."
+      : isCatharineLima
       ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com solicitação de horário pelo funil do studio."
       : isJklDecor
       ? "JKL Decor em São José dos Pinhais: marcenaria de móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região com orçamento pelo formulário."
@@ -1340,7 +1346,9 @@ function PortfolioPrototypePage() {
     <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
 
-        {slug === "catharine-lima-studio" ? (
+        {slug === "cris-presentes-colonia-rio-grande" ? (
+          <CrisPresentesColoniaRioGrandePage />
+        ) : slug === "catharine-lima-studio" ? (
           <CatharineLimaStudioPage />
         ) : slug === "sos-presentes-cosmeticos" ? (
           <SosPresentesCosmeticosPage />

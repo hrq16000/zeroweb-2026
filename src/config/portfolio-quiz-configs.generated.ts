@@ -477,6 +477,42 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: bolo para 20 pessoas, tema Jurassic Park, salgados assados e endereço para Uber."
   },
+  "cris-presentes-colonia-rio-grande": {
+    "services": [
+      "Brinquedos e artigos recreativos",
+      "Papelaria",
+      "Armarinho",
+      "Doces, balas e bombons",
+      "Joalheria e relojoaria",
+      "Quero ajuda para encontrar um presente"
+    ],
+    "experienceOptions": [
+      "Presente para criança",
+      "Presente para adulto",
+      "Material de papelaria",
+      "Item para uso do dia a dia",
+      "Ainda estou escolhendo"
+    ],
+    "periodOptions": [
+      "Quero retirar na loja",
+      "Quero confirmar se tem disponível",
+      "Quero combinar antes de ir"
+    ],
+    "timingOptions": [
+      "Hoje",
+      "Nesta semana",
+      "Estou pesquisando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "O que você está procurando?",
+      "experience": "Para quem ou para qual necessidade?",
+      "period": "Como prefere seguir?",
+      "timing": "Para quando você precisa?",
+      "note": "Quer dar mais algum detalhe?"
+    },
+    "notePlaceholder": "Ex.: idade, ocasião, faixa de preço, tipo de brinquedo ou item de papelaria."
+  },
   "denise-gomes-psicologa": {
     "services": [
       "Avaliação psicológica",

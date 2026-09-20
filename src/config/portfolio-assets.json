@@ -1148,6 +1148,18 @@
         "ctaHref": "#agendamento"
       },
       "socialVersion": "bf168e50"
+    },
+    "cris-presentes-colonia-rio-grande": {
+      "icon": "/images/cris-presentes-colonia-rio-grande/logo.svg",
+      "socialImage": "/images/cris-presentes-colonia-rio-grande/social.jpg",
+      "proof": {
+        "eyebrow": "Cris Presentes",
+        "title": "Encontre uma ideia de presente sem precisar saber exatamente o que comprar.",
+        "description": "Brinquedos, papelaria e outras categorias com consulta organizada pelo funil da unidade.",
+        "ctaLabel": "Encontrar um presente",
+        "ctaHref": "#pedido"
+      },
+      "socialVersion": "20260920"
     }
   }
 }

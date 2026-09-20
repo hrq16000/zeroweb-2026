@@ -291,6 +291,62 @@
         "SJP",
         "PR"
       ]
+    },
+    "cris-presentes-colonia-rio-grande": {
+      "aliases": [
+        "Cris Presentes",
+        "Cris Presentes Filial 2",
+        "Cris Presentes Colônia Rio Grande",
+        "Cris Presentes Jacomar"
+      ],
+      "categories": [
+        "loja de presentes",
+        "brinquedos",
+        "papelaria",
+        "armarinho",
+        "doces",
+        "joalheria",
+        "relojoaria"
+      ],
+      "services": [
+        "brinquedos e artigos recreativos",
+        "artigos de papelaria",
+        "artigos de armarinho",
+        "doces balas e bombons",
+        "artigos de joalheria",
+        "artigos de relojoaria"
+      ],
+      "products": [
+        "brinquedos",
+        "presentes",
+        "papelaria",
+        "armarinho",
+        "doces",
+        "acessórios"
+      ],
+      "useCases": [
+        "comprar presente",
+        "procurar brinquedo",
+        "comprar material de papelaria",
+        "encontrar lembrança",
+        "consultar disponibilidade"
+      ],
+      "keywords": [
+        "Cris Presentes São José dos Pinhais",
+        "Cris Presentes Colônia Rio Grande",
+        "Cris Presentes Jacomar",
+        "brinquedos Colônia Rio Grande",
+        "papelaria Colônia Rio Grande",
+        "loja de presentes São José dos Pinhais"
+      ],
+      "locality": [
+        "Rua Pedro Trevisan 58",
+        "Colônia Rio Grande",
+        "Jacomar Colônia Rio Grande",
+        "São José dos Pinhais",
+        "SJP",
+        "PR"
+      ]
     }
   }
 }

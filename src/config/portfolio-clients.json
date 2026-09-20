@@ -1226,5 +1226,26 @@
       "source": "Post público do Facebook e dados fornecidos pelo operador em 20/09/2026",
       "reference": "https://www.facebook.com/caah.lima.39"
     }
+  },
+  {
+    "clientKey": "cris-presentes-colonia-rio-grande",
+    "slug": "cris-presentes-colonia-rio-grande",
+    "siteName": "Cris Presentes · Colônia Rio Grande",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/CrisPresentesColoniaRioGrandePage.tsx",
+    "assetsDir": "public/images/cris-presentes-colonia-rio-grande",
+    "ctaMode": "proposal",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true,
+    "contactMode": "funnelOnly",
+    "funnelType": "pedido",
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/cris-presentes-colonia-rio-grande.md",
+    "provenance": {
+      "kind": "PUBLIC_ENTITY_EVIDENCE",
+      "source": "CNPJ público + diretórios locais + endereço do Jacomar",
+      "reference": "CNPJ 01.340.329/0003-26"
+    }
   }
 ]

@@ -2168,5 +2168,31 @@
     "fallbackImage": "/images/catharine-lima-studio/hero.svg",
     "metrics": "Agendamento pelo funil",
     "summary": "Catharine Lima Studio reúne serviços de alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com atendimento por agendamento."
+  },
+  {
+    "slug": "cris-presentes-colonia-rio-grande",
+    "clientKey": "cris-presentes-colonia-rio-grande",
+    "title": "Cris Presentes · Colônia Rio Grande",
+    "segment": "comercios",
+    "projectType": "catalog",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "presentes",
+      "brinquedos",
+      "papelaria",
+      "armarinho",
+      "colonia-rio-grande",
+      "jacomar"
+    ],
+    "subtitle": "Presentes, brinquedos e papelaria no Colônia Rio Grande",
+    "location": "Rua Pedro Trevisan, 58 · lojas 06 e 07 · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/cris-presentes-colonia-rio-grande/capa-card.svg",
+    "fallbackImage": "/images/cris-presentes-colonia-rio-grande/hero.svg",
+    "metrics": "Consulta pelo funil",
+    "summary": "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria e outras categorias de presentes com consulta pelo funil."
   }
 ]
