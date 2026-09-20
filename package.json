@@ -100,7 +100,7 @@
     "test:storefront-performance": "bun test tests/commerce/storefront-performance.test.ts",
     "test:servicos-seo": "bun test tests/seo/servicos-pagination-seo.test.ts",
     "test:e2e:commerce": "node scripts/playwright-commerce-e2e.mjs",
-    "test:portfolio-ops": "bun test tests/portfolio/leads-destination-history.test.ts"
+    "test:portfolio-ops": "bun test tests/portfolio/leads-destination-history.test.ts tests/portfolio/destination-request-privacy.test.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
