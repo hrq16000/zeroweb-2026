@@ -64,18 +64,29 @@ describe("FUNNEL_DESTINATION_GATE para projetos novos", () => {
     expect(r.blockers.join(" ")).toContain("portfolio-whatsapp.json");
   });
 
-  it("reprova destino cadastrado sem evidência verificada", () => {
-    const registered = [{ slug: "heloa-gas", clientKey: "heloa-gas", contactMode: "funnelOnly" }];
-    const r = evaluateFunnelDestination("heloa-gas", {
-      clients: registered,
-      ledger: { entries: { "heloa-gas": { status: "INSUFFICIENT_EVIDENCE" } } },
+  it("reprova número inválido e aceita cadastro válido ou lead-only", () => {
+    const invalid = evaluateFunnelDestination("novo-projeto", {
+      clients,
+      ledger: { entries: {} },
+      contacts: { "novo-projeto": { whatsapp: "123" } },
     });
-    expect(r.status).toBe("FAIL");
-    const ok = evaluateFunnelDestination("heloa-gas", {
-      clients: registered,
-      ledger: { entries: { "heloa-gas": { status: "VERIFIED", evidence: ["owner"] } } },
+    expect(invalid.status).toBe("FAIL");
+
+    const leadOnly = evaluateFunnelDestination("novo-projeto", {
+      clients,
+      ledger: { entries: {} },
+      contacts: { "novo-projeto": { whatsapp: null } },
+    });
+    expect(leadOnly.status).toBe("PASS");
+    expect(leadOnly.mode).toBe("LEAD_ONLY");
+
+    const ok = evaluateFunnelDestination("novo-projeto", {
+      clients,
+      ledger: { entries: { "novo-projeto": { status: "VERIFIED", evidence: ["owner"] } } },
+      contacts: { "novo-projeto": { whatsapp: "5541900000000" } },
     });
     expect(ok.status).toBe("PASS");
+    expect(ok.mode).toBe("WHATSAPP");
   });
 });
 
