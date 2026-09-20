@@ -20,6 +20,13 @@ export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   },
   { slug: "your-brutus-burguer", vertical: "restaurantes", siteName: "Your Brutus Burguer · São José dos Pinhais", kind: "prototype", indexable: true },
   {
+    slug: "catharine-lima-studio",
+    vertical: "beleza",
+    siteName: "Catharine Lima Studio · São José dos Pinhais",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
     slug: "sos-presentes-cosmeticos",
     vertical: "comercios",
     siteName: "SOS Presentes & Cosméticos · São José dos Pinhais",

@@ -334,6 +334,9 @@ const SantosMontadorDeMoveisPage = lazy(() =>
     default: m.SantosMontadorDeMoveisPage,
   })),
 );
+const CatharineLimaStudioPage = lazy(() =>
+  import("@/components/site/CatharineLimaStudioPage").then((m) => ({ default: m.CatharineLimaStudioPage })),
+);
 const SosPresentesCosmeticosPage = lazy(() =>
   import("@/components/site/SosPresentesCosmeticosPage").then((m) => ({
     default: m.SosPresentesCosmeticosPage,
@@ -524,6 +527,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isAcai = loaderData?.slug === "acai-total-araucaria";
     const isJkl = loaderData?.slug === "jkl-marcenaria";
     const isSantos = loaderData?.slug === "santos-montador-de-moveis";
+    const isCatharineLima = loaderData?.slug === "catharine-lima-studio";
     const isSosPresentes = loaderData?.slug === "sos-presentes-cosmeticos";
     const isLolipa = loaderData?.slug === "lolipa-arte-em-festas";
     const isRealeza = loaderData?.slug === "confeitaria-sabor-da-realeza";
@@ -566,7 +570,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
     const isJklDecor = loaderData?.slug === "jkl-decor";
-    const description = isJklDecor
+    const description = isCatharineLima
+      ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com solicitação de horário pelo funil do studio."
+      : isJklDecor
       ? "JKL Decor em São José dos Pinhais: marcenaria de móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região com orçamento pelo formulário."
       : isMoreiraAutoMecanica
       ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais — PR: oficina de mecânica para carros com avaliação presencial do veículo e agendamento pelo formulário do site."
@@ -766,7 +772,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       ),
       loaderData?.slug,
     );
-    const socialImageType = socialImage.includes(".png") ? "image/png" : "image/jpeg";
+    const socialImageType = socialImage.includes(".svg") ? "image/svg+xml" : socialImage.includes(".png") ? "image/png" : "image/jpeg";
     const icon = absUrl(
       assetConfig?.icon ??
         (loaderData?.slug === "rm-fretes" ? "/images/rm-fretes/anuncio-oficial.png" : socialImage),
@@ -1334,7 +1340,9 @@ function PortfolioPrototypePage() {
     <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
       <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
 
-        {slug === "sos-presentes-cosmeticos" ? (
+        {slug === "catharine-lima-studio" ? (
+          <CatharineLimaStudioPage />
+        ) : slug === "sos-presentes-cosmeticos" ? (
           <SosPresentesCosmeticosPage />
         ) : slug === "lolipa-arte-em-festas" ? (
           <LolipaArteEmFestasPage />

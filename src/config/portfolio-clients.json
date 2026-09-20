@@ -1205,5 +1205,26 @@
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/adhonep-curitiba.md"
+  },
+  {
+    "clientKey": "catharine-lima-studio",
+    "slug": "catharine-lima-studio",
+    "siteName": "Catharine Lima Studio",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/CatharineLimaStudioPage.tsx",
+    "assetsDir": "public/images/catharine-lima-studio",
+    "ctaMode": "booking",
+    "socialProofRequired": true,
+    "hostCaptureRequired": true,
+    "funnelRecipientConfigured": true,
+    "contactMode": "funnelOnly",
+    "funnelType": "agendamento",
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/catharine-lima-studio.md",
+    "provenance": {
+      "kind": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "source": "Post público do Facebook e dados fornecidos pelo operador em 20/09/2026",
+      "reference": "https://www.facebook.com/caah.lima.39"
+    }
   }
 ]

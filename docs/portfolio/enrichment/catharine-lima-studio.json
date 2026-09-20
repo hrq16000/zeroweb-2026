@@ -1,0 +1,135 @@
+{
+  "slug": "catharine-lima-studio",
+  "lastResearchAt": "2026-09-20T15:00:00Z",
+  "entity": {
+    "resolutionStatus": "RESOLVED",
+    "resolutionBasis": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+    "notes": "Identidade e oferta baseadas no material público do Facebook fornecido pelo operador. A busca externa confirmou a localidade do endereço, mas encontrou outra atividade no mesmo número; não foi usada para substituir a evidência do studio."
+  },
+  "researchLedger": {
+    "ownerEvidence": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "conversation + facebook profile URL"
+    },
+    "googleSearch": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "note": "endereço encontrado; identidade independente do studio não resolvida"
+    },
+    "facebook": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "url": "https://www.facebook.com/caah.lima.39"
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false
+    },
+    "website": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false
+    },
+    "photos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "Facebook não acessível à ingestão; nenhuma mídia foi copiada"
+    },
+    "videos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "Facebook não acessível à ingestão; nenhum vídeo foi copiado"
+    }
+  },
+  "identity": {
+    "name": "Catharine Lima Studio",
+    "segment": "beleza",
+    "locality": "São José dos Pinhais — PR",
+    "address": "Rua Victor Alves Ferreira, 211",
+    "facebook": "https://www.facebook.com/caah.lima.39"
+  },
+  "services": [
+    "Alongamento",
+    "Alongamento Molde F1",
+    "Banho em gel",
+    "Pé em gel",
+    "Volume brasileiro",
+    "Progressiva"
+  ],
+  "facts": [
+    {
+      "field": "promotion",
+      "value": "condições especiais para clientes novas",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "VERIFIED_BY_OPERATOR"
+    },
+    {
+      "field": "whatsapp",
+      "value": "41 99888-4095",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "VERIFIED_BY_OPERATOR"
+    },
+    {
+      "field": "address",
+      "value": "Rua Victor Alves Ferreira, 211",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "VERIFIED_BY_OPERATOR"
+    }
+  ],
+  "sources": [
+    {
+      "type": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "url": "https://www.facebook.com/caah.lima.39"
+    },
+    {
+      "type": "PUBLIC_WEB",
+      "url": "https://www.locaisdobrasil.com.br/encontre/servico-de-conserto-de-refrigeradores-perto-de-mim-em-sao-jose-dos-pinhais-pr",
+      "purpose": "confirmar localidade do endereço, não identidade do studio"
+    }
+  ],
+  "media": {
+    "discovery": {
+      "searched": true
+    },
+    "assets": [
+      {
+        "path": "/images/catharine-lima-studio/hero.svg",
+        "purpose": "GENERATED_CONTEXTUAL_MEDIA"
+      },
+      {
+        "path": "/images/catharine-lima-studio/capa-card.svg",
+        "purpose": "COVER_MEDIA"
+      },
+      {
+        "path": "/images/catharine-lima-studio/social.svg",
+        "purpose": "OG_MEDIA"
+      }
+    ]
+  },
+  "unverified": [
+    "horários",
+    "preços atuais",
+    "mídia real do estabelecimento",
+    "avaliações",
+    "Instagram oficial"
+  ],
+  "conflicts": [
+    "O endereço aparece em diretório público associado a outra atividade comercial; por isso a identidade do studio não foi inferida desse diretório."
+  ]
+}

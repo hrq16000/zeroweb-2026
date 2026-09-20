@@ -215,6 +215,17 @@
         "Confirmação gravada pelo fluxo canônico (portfolio_destination_revisions, new_status=VERIFIED, validation_result=PASS)",
         "Divergência registrada sem escolha automática: o diretório oficial do capítulo 0714 lista outro contato (presidência); o destino publicado é o autorizado pelo titular"
       ]
+    },
+    "catharine-lima-studio": {
+      "status": "VERIFIED",
+      "source": "OWNER_CONFIRMED",
+      "confidence": 98,
+      "verifiedAt": "2026-09-20",
+      "evidence": [
+        "O operador forneceu o post público do Catharine Lima Studio com chamada explícita para WhatsApp e o contato 41 99888-4095.",
+        "O mesmo material informa Rua Victor Alves Ferreira, 211 e os serviços Alongamento, Banho em gel, Pé em gel, Volume brasileiro e Progressiva.",
+        "Destino configurado exclusivamente para client_key catharine-lima-studio; sem fallback entre clientes."
+      ]
     }
   }
 }

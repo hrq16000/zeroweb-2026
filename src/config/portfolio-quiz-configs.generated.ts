@@ -374,6 +374,42 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Data comemorativa"
     ]
   },
+  "catharine-lima-studio": {
+    "services": [
+      "Alongamento / Molde F1",
+      "Banho em gel",
+      "Pé em gel",
+      "Volume brasileiro",
+      "Progressiva"
+    ],
+    "experienceOptions": [
+      "É minha primeira vez no studio",
+      "Já faço esse procedimento",
+      "Quero entender qual opção combina comigo",
+      "Quero aproveitar a condição para novas clientes"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Noite",
+      "Tenho flexibilidade"
+    ],
+    "timingOptions": [
+      "Quero o primeiro horário disponível",
+      "Nesta semana",
+      "Na próxima semana",
+      "Estou me organizando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual cuidado você quer agendar?",
+      "experience": "Como você chega para este atendimento?",
+      "period": "Qual período facilita para você?",
+      "timing": "Quando gostaria de ir?",
+      "note": "Quer contar mais algum detalhe?"
+    },
+    "notePlaceholder": "Ex.: formato desejado, referência de unha, cílios, comprimento do cabelo ou disponibilidade."
+  },
   "clinica-integrada": {
     "stepTitles": {
       "service": "Qual especialidade você procura?",

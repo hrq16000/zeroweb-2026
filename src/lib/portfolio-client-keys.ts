@@ -3,6 +3,7 @@ export const PORTFOLIO_CLIENT_KEYS = [
   
   
   
+  "catharine-lima-studio",
   "adhonep-curitiba","jkl-decor","moreira-auto-mecanica","denise-gomes-psicologa",
   "ton-e-cor",
   "raphael-construcoes",

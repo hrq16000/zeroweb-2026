@@ -1136,6 +1136,18 @@
         "ctaHref": "#convite"
       },
       "socialVersion": "82c58671"
+    },
+    "catharine-lima-studio": {
+      "icon": "/images/catharine-lima-studio/logo.svg",
+      "socialImage": "/images/catharine-lima-studio/social.svg",
+      "proof": {
+        "eyebrow": "Catharine Lima Studio",
+        "title": "Seu próximo cuidado começa escolhendo o que faz sentido para você.",
+        "description": "Alongamento, gel, cílios e progressiva com solicitação de horário pelo funil do studio.",
+        "ctaLabel": "Agendar horário",
+        "ctaHref": "#agendamento"
+      },
+      "socialVersion": "20260920a"
     }
   }
 }
