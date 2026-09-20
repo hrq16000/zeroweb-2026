@@ -5,7 +5,6 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const quizConfig = {
   services: [
@@ -193,7 +192,6 @@ export function CatharineLimaStudioPage() {
           className="border-[#a54e6e]/35 bg-[#4c1d32]/95 text-white"
           accentClassName="text-[#efb7c9]"
         />
-        <PortfolioUpsellPopup pageName="portfolio-catharine-lima-studio" />
       </div>
     </MotionScope>
   );
