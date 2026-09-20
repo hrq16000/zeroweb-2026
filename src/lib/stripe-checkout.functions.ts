@@ -63,6 +63,7 @@ export const createStripeCheckoutSession = createServerFn({ method: "POST" })
     body.set("cancel_url", `${data.cancelUrl}${cancelSeparator}order_id=${order.id}`);
     body.set("client_reference_id", order.id);
     body.set("metadata[order_id]", order.id);
+    body.set("payment_intent_data[metadata][order_id]", order.id);
     if (order.customer_email) body.set("customer_email", order.customer_email);
 
     items.forEach((it, idx) => {

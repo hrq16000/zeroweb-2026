@@ -13,10 +13,8 @@ export async function assistedCheckoutProtocol(sessionKey: string) {
   return `0W-${code}`;
 }
 
-export async function deterministicCheckoutOrderId(userId: string, sessionKey: string) {
-  const digest = await sha256Bytes(`0web-order:${userId}:${sessionKey}`);
+function uuidV8FromDigest(digest: Uint8Array) {
   const bytes = digest.slice(0, 16);
-
   // UUID v8: conteúdo determinístico próprio, mantendo formato e variante RFC.
   bytes[6] = ((bytes[6] ?? 0) & 0x0f) | 0x80;
   bytes[8] = ((bytes[8] ?? 0) & 0x3f) | 0x80;
@@ -32,6 +30,14 @@ export async function deterministicCheckoutOrderId(userId: string, sessionKey: s
     hex.slice(16, 20),
     hex.slice(20, 32),
   ].join("-");
+}
+
+export async function deterministicCheckoutOrderId(userId: string, sessionKey: string) {
+  return uuidV8FromDigest(await sha256Bytes(`0web-order:${userId}:${sessionKey}`));
+}
+
+export async function deterministicCheckoutEventId(eventName: string, orderId: string) {
+  return uuidV8FromDigest(await sha256Bytes(`0web-event:${eventName}:${orderId}`));
 }
 
 export function readAssistedProtocol(metadata: unknown) {

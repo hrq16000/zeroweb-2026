@@ -30,6 +30,9 @@ describe("commerce funnel", () => {
       checkoutStarted: 1,
       assisted: 1,
       paymentStarted: 0,
+      checkoutExited: 0,
+      paymentCancelled: 0,
+      paymentFailed: 0,
       paid: 0,
     });
     expect(result.topProducts[0]).toEqual({
@@ -52,6 +55,24 @@ describe("commerce funnel", () => {
     expect(result.counts.paid).toBe(1);
     expect(result.paidRevenue).toBe(397);
     expect(result.rates.paymentStartedToPaid).toBe(100);
+  });
+
+  test("separa saída explícita, cancelamento Stripe e falha do provedor", () => {
+    const result = aggregateCommerceFunnel([
+      row("checkout_started", "cart_loss"),
+      row("checkout_exit_store", "cart_loss"),
+      row("checkout_stripe_start", "cart_cancel"),
+      row("checkout_stripe_cancelled", "cart_cancel"),
+      row("checkout_stripe_start", "cart_failed"),
+      row("payment_failed", "cart_failed"),
+    ]);
+
+    expect(result.counts.checkoutExited).toBe(1);
+    expect(result.counts.paymentCancelled).toBe(1);
+    expect(result.counts.paymentFailed).toBe(1);
+    expect(result.rates.checkoutExitRate).toBe(100);
+    expect(result.rates.paymentCancelRate).toBe(50);
+    expect(result.rates.paymentFailureRate).toBe(50);
   });
 
   test("exclui tráfego interno e mantém compatibilidade com sessão analítica antiga", () => {

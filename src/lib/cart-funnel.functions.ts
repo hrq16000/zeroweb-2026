@@ -114,6 +114,20 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
         ? await assistedCheckoutProtocol(data.sessionKey)
         : null;
 
+    let previousPaymentRef: string | null = null;
+    let previousMetadata: Record<string, unknown> = {};
+    if (data.step === "payment_cancelled" || data.step === "abandoned") {
+      const { data: previous } = await supabaseAdmin
+        .from("cart_funnel_progress")
+        .select("payment_ref, metadata")
+        .eq("session_key", data.sessionKey)
+        .maybeSingle();
+      previousPaymentRef = previous?.payment_ref ?? null;
+      if (previous?.metadata && typeof previous.metadata === "object" && !Array.isArray(previous.metadata)) {
+        previousMetadata = previous.metadata as Record<string, unknown>;
+      }
+    }
+
     const payload = {
       user_id: userId,
       visitor_id: data.visitorId ?? null,
@@ -123,10 +137,11 @@ export const saveCartFunnelStep = createServerFn({ method: "POST" })
       cart_snapshot: data.cart as any,
       payment_status: data.paymentStatus ?? "open",
       payment_channel: data.paymentChannel ?? "unknown",
-      payment_ref: data.paymentRef ?? null,
+      payment_ref: data.paymentRef ?? previousPaymentRef,
       total_amount: data.totalAmount ?? null,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       metadata: ({
+        ...previousMetadata,
         ...(data.metadata ?? {}),
         ...(protocol ? { protocol } : {}),
       }) as any,

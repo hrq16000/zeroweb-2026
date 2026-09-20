@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   assistedCheckoutProtocol,
+  deterministicCheckoutEventId,
   deterministicCheckoutOrderId,
   readAssistedProtocol,
 } from "./checkout-reliability";
@@ -25,6 +26,15 @@ describe("checkout reliability helpers", () => {
     expect(a).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-8[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
     expect(otherSession).not.toBe(a);
     expect(otherUser).not.toBe(a);
+  });
+
+  test("evento operacional recebe UUID determinístico separado do pedido", async () => {
+    const failed = await deterministicCheckoutEventId("payment_failed", "order-123");
+    const failedAgain = await deterministicCheckoutEventId("payment_failed", "order-123");
+    const cancelled = await deterministicCheckoutEventId("payment_cancelled", "order-123");
+    expect(failed).toBe(failedAgain);
+    expect(failed).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-8[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+    expect(cancelled).not.toBe(failed);
   });
 
   test("só reutiliza protocolo público no formato canônico", () => {

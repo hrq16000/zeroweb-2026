@@ -5,6 +5,9 @@ export const COMMERCE_EVENT_NAMES = [
   "checkout_assisted_guest",
   "checkout_assisted_handoff",
   "checkout_stripe_start",
+  "checkout_stripe_cancelled",
+  "checkout_exit_store",
+  "payment_failed",
   "payment_paid",
 ] as const;
 
@@ -47,6 +50,9 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
     checkoutStarted: new Set<string>(),
     assisted: new Set<string>(),
     paymentStarted: new Set<string>(),
+    checkoutExited: new Set<string>(),
+    paymentCancelled: new Set<string>(),
+    paymentFailed: new Set<string>(),
     paid: new Set<string>(),
   };
   const allJourneys = new Set<string>();
@@ -95,6 +101,18 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
       stages.paymentStarted.add(journey);
     }
 
+    if (row.event_name === "checkout_exit_store") {
+      stages.checkoutExited.add(journey);
+    }
+
+    if (row.event_name === "checkout_stripe_cancelled") {
+      stages.paymentCancelled.add(journey);
+    }
+
+    if (row.event_name === "payment_failed") {
+      stages.paymentFailed.add(journey);
+    }
+
     if (row.event_name === "payment_paid") {
       stages.paid.add(journey);
       if (!paidValues.has(journey)) {
@@ -108,6 +126,9 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
     checkoutStarted: stages.checkoutStarted.size,
     assisted: stages.assisted.size,
     paymentStarted: stages.paymentStarted.size,
+    checkoutExited: stages.checkoutExited.size,
+    paymentCancelled: stages.paymentCancelled.size,
+    paymentFailed: stages.paymentFailed.size,
     paid: stages.paid.size,
   };
 
@@ -127,6 +148,9 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
       cartToPaymentStarted: pct(counts.paymentStarted, counts.cartAdded),
       cartToPaid: pct(counts.paid, counts.cartAdded),
       paymentStartedToPaid: pct(counts.paid, counts.paymentStarted),
+      checkoutExitRate: pct(counts.checkoutExited, counts.checkoutStarted),
+      paymentCancelRate: pct(counts.paymentCancelled, counts.paymentStarted),
+      paymentFailureRate: pct(counts.paymentFailed, counts.paymentStarted),
     },
     paidRevenue: Array.from(paidValues.values()).reduce((sum, value) => sum + value, 0),
     topProducts,

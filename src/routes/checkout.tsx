@@ -19,7 +19,21 @@ import { Footer } from "@/components/site/Footer";
 import { BrandLogo } from "@/components/site/BrandLogo";
 import { toast } from "sonner";
 
+type CheckoutSearch = {
+  payment?: "cancelled";
+  order_id?: string;
+};
+
+const ORDER_ID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 export const Route = createFileRoute("/checkout")({
+  validateSearch: (raw: Record<string, unknown>): CheckoutSearch => ({
+    payment: raw.payment === "cancelled" ? "cancelled" : undefined,
+    order_id:
+      typeof raw.order_id === "string" && ORDER_ID_RE.test(raw.order_id)
+        ? raw.order_id
+        : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Finalizar pedido · 0WEB" },
@@ -45,6 +59,7 @@ export const Route = createFileRoute("/checkout")({
 
 function CheckoutPage() {
   const navigate = useNavigate();
+  const search = Route.useSearch();
   const fetchSettings = useServerFn(getPaymentSettings);
   const [items, setItems] = useState<CartItem[]>([]);
   const [session, setSession] = useState<{ email?: string; name?: string } | null>(null);
@@ -59,6 +74,7 @@ function CheckoutPage() {
   });
   const checkoutStartedRef = useRef(false);
   const submitLockRef = useRef(false);
+  const paymentCancelRef = useRef<string | null>(null);
   const total = useMemo(() => cartTotal(items), [items]);
   const hasUnpriced = items.some((i) => !i.price);
   const hasRecurring = items.some((i) => Boolean(i.pricePeriod));
@@ -119,6 +135,61 @@ function CheckoutPage() {
   }, [items, total, hasRecurring]);
 
   useEffect(() => {
+    if (
+      search.payment !== "cancelled" ||
+      !search.order_id ||
+      items.length === 0 ||
+      paymentCancelRef.current === search.order_id
+    ) {
+      return;
+    }
+
+    paymentCancelRef.current = search.order_id;
+    const sessionKey = getCartSessionKey();
+    void saveCartFunnelStep({
+      data: {
+        sessionKey,
+        visitorId: getVisitorId(),
+        step: "payment_cancelled",
+        cart: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod }) => ({
+          slug,
+          name,
+          category: category ?? null,
+          variantId: variantId ?? null,
+          variantLabel: variantLabel ?? null,
+          price: price ?? null,
+          pricePeriod: pricePeriod ?? null,
+          qty: 1,
+        })),
+        totalAmount: total || null,
+        paymentChannel: "site",
+        paymentStatus: "cancelled",
+        metadata: {
+          source: "stripe_cancel_return",
+          order_id: search.order_id,
+          cancelled_at: new Date().toISOString(),
+        },
+      },
+    }).catch(() => {});
+
+    void import("@/lib/analytics").then(({ trackEvent }) =>
+      trackEvent("checkout_stripe_cancelled", {
+        cart_session: sessionKey,
+        order_id: search.order_id,
+        total,
+        items: items.length,
+        location: "checkout",
+      }),
+    );
+
+    toast("Pagamento não concluído", {
+      description: "Seu carrinho foi preservado. Você pode tentar novamente ou escolher atendimento assistido.",
+      duration: 5000,
+    });
+    void navigate({ to: "/checkout", search: {}, replace: true });
+  }, [search.payment, search.order_id, items, total, navigate]);
+
+  useEffect(() => {
     void supabase.auth.getUser().then(({ data }) => {
       if (data.user) {
         setSession({
@@ -141,6 +212,52 @@ function CheckoutPage() {
     });
     return () => sub.subscription.unsubscribe();
   }, []);
+
+  async function handleCheckoutExit() {
+    if (items.length > 0) {
+      const sessionKey = getCartSessionKey();
+      void import("@/lib/analytics").then(({ trackEvent }) =>
+        trackEvent("checkout_exit_store", {
+          cart_session: sessionKey,
+          total,
+          items: items.length,
+          after_payment_cancel: Boolean(paymentCancelRef.current),
+          location: "checkout",
+        }),
+      );
+
+      // "abandoned" só é gravado por uma saída explícita do checkout.
+      // Se a tentativa Stripe acabou de ser cancelada, preservamos esse estado.
+      if (!paymentCancelRef.current) {
+        await saveCartFunnelStep({
+          data: {
+            sessionKey,
+            visitorId: getVisitorId(),
+            step: "abandoned",
+            cart: items.map(({ slug, name, category, variantId, variantLabel, price, pricePeriod }) => ({
+              slug,
+              name,
+              category: category ?? null,
+              variantId: variantId ?? null,
+              variantLabel: variantLabel ?? null,
+              price: price ?? null,
+              pricePeriod: pricePeriod ?? null,
+              qty: 1,
+            })),
+            totalAmount: total || null,
+            paymentChannel: "site",
+            paymentStatus: "open",
+            metadata: {
+              source: "checkout",
+              reason: "explicit_exit_to_store",
+              exited_at: new Date().toISOString(),
+            },
+          },
+        }).catch(() => ({ ok: false }));
+      }
+    }
+    navigate({ to: "/servicos" });
+  }
 
   async function handleGoogle() {
     setAuthBusy(true);
@@ -317,7 +434,7 @@ function CheckoutPage() {
         data: {
           orderId: order.id,
           successUrl: `${window.location.origin}/obrigado?source=checkout-stripe&order=${order.id}`,
-          cancelUrl: `${window.location.origin}/checkout`,
+          cancelUrl: `${window.location.origin}/checkout?payment=cancelled`,
         },
       });
       if (!res.enabled || !res.url) {
@@ -380,7 +497,7 @@ function CheckoutPage() {
       <Header />
       <main className="flex-1 mx-auto w-full max-w-4xl px-5 py-10 sm:py-16">
         <button
-          onClick={() => navigate({ to: "/servicos" })}
+          onClick={() => void handleCheckoutExit()}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition mb-6"
         >
           <ArrowLeft className="w-4 h-4" /> Voltar à loja

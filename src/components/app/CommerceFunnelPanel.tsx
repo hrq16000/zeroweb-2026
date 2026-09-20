@@ -104,6 +104,35 @@ export function CommerceFunnelPanel() {
             ))}
           </div>
 
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-border p-3">
+              <p className="text-xs text-muted-foreground">Saída explícita do checkout</p>
+              <p className="mt-1 text-lg font-bold tabular-nums">{metrics.counts.checkoutExited}</p>
+              <p className="mt-1 text-[11px] text-muted-foreground">
+                {metrics.rates.checkoutExitRate}% dos checkouts iniciados.
+              </p>
+            </div>
+            <div className="rounded-xl border border-border p-3">
+              <p className="text-xs text-muted-foreground">Pagamento cancelado</p>
+              <p className="mt-1 text-lg font-bold tabular-nums">{metrics.counts.paymentCancelled}</p>
+              <p className="mt-1 text-[11px] text-muted-foreground">
+                {metrics.rates.paymentCancelRate}% dos pagamentos iniciados.
+              </p>
+            </div>
+            <div className="rounded-xl border border-border p-3">
+              <p className="text-xs text-muted-foreground">Falha confirmada pelo provedor</p>
+              <p className="mt-1 text-lg font-bold tabular-nums">{metrics.counts.paymentFailed}</p>
+              <p className="mt-1 text-[11px] text-muted-foreground">
+                {metrics.rates.paymentFailureRate}% dos pagamentos iniciados.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-2 text-[11px] text-muted-foreground">
+            Abandono não é inferido por tempo. A saída só conta quando o visitante deixa o checkout explicitamente;
+            cancelamento e falha de pagamento vêm de sinais próprios.
+          </p>
+
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <div className="rounded-xl border border-border p-3">
               <p className="text-xs text-muted-foreground">Receita confirmada no período</p>

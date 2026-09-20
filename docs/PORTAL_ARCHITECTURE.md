@@ -359,3 +359,19 @@ Busca, categoria e ordenação são estados de navegação, não novas páginas 
 aquisição. Combinações com `q`, `cat` ou `sort` usam
 `noindex,follow` e canonical da coleção principal. Página solicitada fora do
 intervalo real é canonicalizada para a página válida correspondente.
+
+## 30. Saídas e falhas observáveis do checkout
+
+O portal não inventa abandono por timeout. `abandoned` só é gravado quando o
+visitante usa explicitamente "Voltar à loja" a partir do checkout. O histórico
+append-only registra `checkout_exit_store` para essa decisão.
+
+O retorno do `cancel_url` do Stripe grava `payment_cancelled`, preservando o
+carrinho e a referência/metadata já existentes da jornada. O usuário pode tentar
+novamente sem gerar um novo pedido.
+
+Falhas confirmadas pelo Stripe usam `payment_intent.payment_failed`. O
+`order_id` também é enviado no metadata do PaymentIntent, a jornada passa para
+`payment_failed` e o evento analítico recebe UUID determinístico para que
+reenvios do webhook não dupliquem a falha. O status comercial do pedido não é
+encerrado automaticamente: uma nova tentativa ainda pode resultar em pagamento.

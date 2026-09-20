@@ -12,7 +12,7 @@ import { createHmac, timingSafeEqual } from "crypto";
  *
  * Configuração no painel Stripe:
  *   URL: https://0web.com.br/api/public/hooks/stripe
- *   Eventos: checkout.session.completed, payment_intent.succeeded
+ *   Eventos: checkout.session.completed, payment_intent.succeeded, payment_intent.payment_failed
  *   Sempre inclua `metadata.order_id` (UUID do pedido) no Checkout Session
  *   ou `client_reference_id = order_id`.
  */
@@ -181,6 +181,118 @@ export const Route = createFileRoute("/api/public/hooks/stripe")({
               });
             if (analyticsError && analyticsError.code !== "23505") {
               console.warn("[stripe-webhook] payment analytics failed:", analyticsError.message);
+            }
+          }
+        }
+
+        if (event.type === "payment_intent.payment_failed" && orderId) {
+          const { data: failedOrder, error: failedLookupError } = await supabaseAdmin
+            .from("orders")
+            .select("id, total, metadata")
+            .eq("id", orderId)
+            .maybeSingle();
+          if (failedLookupError) {
+            console.error("[stripe-webhook] failed payment lookup error:", failedLookupError.message);
+            return new Response("DB error", { status: 500 });
+          }
+
+          if (failedOrder) {
+            const failedOrderMetadata =
+              failedOrder.metadata &&
+              typeof failedOrder.metadata === "object" &&
+              !Array.isArray(failedOrder.metadata)
+                ? (failedOrder.metadata as Record<string, unknown>)
+                : {};
+            const checkoutSessionKey =
+              typeof failedOrderMetadata.checkout_session_key === "string"
+                ? failedOrderMetadata.checkout_session_key
+                : null;
+            const lastPaymentError =
+              obj.last_payment_error &&
+              typeof obj.last_payment_error === "object" &&
+              !Array.isArray(obj.last_payment_error)
+                ? (obj.last_payment_error as Record<string, unknown>)
+                : {};
+            const failureCode =
+              typeof lastPaymentError.code === "string"
+                ? lastPaymentError.code.slice(0, 80)
+                : null;
+
+            const { error: orderFailureUpdateError } = await supabaseAdmin
+              .from("orders")
+              .update({
+                payment_method: "stripe",
+                metadata: {
+                  ...failedOrderMetadata,
+                  stripe_last_failure_at: new Date().toISOString(),
+                  stripe_last_failure_code: failureCode,
+                },
+              })
+              .eq("id", orderId);
+            if (orderFailureUpdateError) {
+              console.warn("[stripe-webhook] failed payment order metadata:", orderFailureUpdateError.message);
+            }
+
+            let visitorId: string | null = null;
+            if (checkoutSessionKey) {
+              const { data: progress } = await supabaseAdmin
+                .from("cart_funnel_progress")
+                .select("metadata, visitor_id")
+                .eq("session_key", checkoutSessionKey)
+                .maybeSingle();
+              visitorId = progress?.visitor_id ?? null;
+              const currentProgressMetadata =
+                progress?.metadata &&
+                typeof progress.metadata === "object" &&
+                !Array.isArray(progress.metadata)
+                  ? (progress.metadata as Record<string, unknown>)
+                  : {};
+              const { error: progressError } = await supabaseAdmin
+                .from("cart_funnel_progress")
+                .update({
+                  step: "payment_failed",
+                  payment_status: "failed",
+                  payment_channel: "site",
+                  payment_ref: stripeId,
+                  metadata: {
+                    ...currentProgressMetadata,
+                    order_id: orderId,
+                    stripe_event: event.type,
+                    failure_code: failureCode,
+                    failed_at: new Date().toISOString(),
+                  },
+                  updated_at: new Date().toISOString(),
+                })
+                .eq("session_key", checkoutSessionKey);
+              if (progressError) {
+                console.warn("[stripe-webhook] failed payment funnel update:", progressError.message);
+              }
+            }
+
+            const { deterministicCheckoutEventId } = await import("@/lib/checkout-reliability");
+            const eventId = await deterministicCheckoutEventId("payment_failed", orderId);
+            const { error: analyticsError } = await supabaseAdmin
+              .from("analytics_events")
+              .insert({
+                id: eventId,
+                event_name: "payment_failed",
+                path: "/checkout",
+                page: "Stripe webhook",
+                location: "stripe_webhook",
+                visitor_id: visitorId,
+                metadata_json: {
+                  tv: 2,
+                  traffic_type: "human",
+                  cart_session: checkoutSessionKey,
+                  order_id: orderId,
+                  value: Number(failedOrder.total) || 0,
+                  currency: "BRL",
+                  failure_code: failureCode,
+                  stripe_event: event.type,
+                },
+              });
+            if (analyticsError && analyticsError.code !== "23505") {
+              console.warn("[stripe-webhook] failed payment analytics:", analyticsError.message);
             }
           }
         }
