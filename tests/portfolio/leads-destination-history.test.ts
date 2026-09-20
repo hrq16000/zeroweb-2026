@@ -11,10 +11,13 @@ describe("operação de destino no painel de leads", () => {
     expect(leads).toContain("request.response_note ?? request.sent_note");
   });
 
-  test("notas de solicitação permanecem mascaradas no servidor", () => {
-    expect(requests).toContain("function maskDigits");
-    expect(requests).toMatch(/sent_note:\s*maskDigits/);
-    expect(requests).toMatch(/response_note:\s*maskDigits/);
+  test("telefone e e-mail permanecem mascarados no servidor, inclusive na leitura", () => {
+    expect(requests).toContain("function maskContactText");
+    expect(requests).toContain("[e-mail oculto]");
+    expect(requests).toMatch(/sent_note:\s*maskContactText/);
+    expect(requests).toMatch(/response_note:\s*maskContactText/);
+    expect(requests).toMatch(/sent_note:\s*maskContactText\(row\.sent_note\)/);
+    expect(requests).toMatch(/response_note:\s*maskContactText\(row\.response_note\)/);
   });
 
   test("a tela de leads não escreve no destino canônico", () => {

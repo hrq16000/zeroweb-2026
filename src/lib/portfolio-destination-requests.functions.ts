@@ -21,10 +21,14 @@ export type DestinationRequestRow = {
 
 const STATUS = ["ENVIADO", "RESPONDIDO", "SEM_RESPOSTA", "RECUSADO", "NUMERO_RECEBIDO"] as const;
 
-/** Nunca persistir número completo em texto livre: sequências longas viram máscara. */
-function maskDigits(text: string | null | undefined): string | null {
+/** Nunca enviar contato completo ao navegador, inclusive em registros legados. */
+function maskContactText(text: string | null | undefined): string | null {
   if (!text) return null;
-  return text.replace(/\d[\d\s().-]{7,}\d/g, (match) => {
+  const withoutEmails = text.replace(
+    /[\w.+-]+@[\w-]+(?:\.[\w-]+)+/gi,
+    "[e-mail oculto]",
+  );
+  return withoutEmails.replace(/\d[\d\s().-]{7,}\d/g, (match) => {
     const digits = match.replace(/\D/g, "");
     return `••••${digits.slice(-4)}`;
   });
@@ -51,7 +55,12 @@ export const listDestinationRequests = createServerFn({ method: "GET" })
       .order("sent_at", { ascending: false })
       .limit(500);
     if (error) throw new Error(error.message);
-    return { rows: (data ?? []) as DestinationRequestRow[] };
+    const rows = ((data ?? []) as DestinationRequestRow[]).map((row) => ({
+      ...row,
+      sent_note: maskContactText(row.sent_note),
+      response_note: maskContactText(row.response_note),
+    }));
+    return { rows };
   });
 
 export const createDestinationRequest = createServerFn({ method: "POST" })
@@ -74,7 +83,7 @@ export const createDestinationRequest = createServerFn({ method: "POST" })
         client_key: data.client_key,
         slug: data.slug ?? null,
         channel: data.channel,
-        sent_note: maskDigits(data.sent_note ?? null),
+        sent_note: maskContactText(data.sent_note ?? null),
         status: "ENVIADO",
         created_by: context.userId,
       });
@@ -100,7 +109,7 @@ export const updateDestinationRequest = createServerFn({ method: "POST" })
       .from("portfolio_destination_requests")
       .update({
         status: data.status,
-        response_note: maskDigits(data.response_note ?? null),
+        response_note: maskContactText(data.response_note ?? null),
         response_at: answered ? new Date().toISOString() : null,
       })
       .eq("id", data.id);
