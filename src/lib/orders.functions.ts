@@ -81,6 +81,32 @@ export const createOrder = createServerFn({ method: "POST" })
           .eq("user_id", userId)
           .maybeSingle();
         if (!existingError && existing) {
+          // Pedido já pago/cancelado não pode ser reescrito; só o que segue
+          // aberto recebe o carrinho atual (o visitante pode ter editado
+          // itens depois de cancelar o pagamento).
+          const reopenable = existing.status === "pending" || existing.status === "awaiting_payment";
+          if (!reopenable) return { order: existing, reused: true as const };
+
+          const { data: updated, error: updateError } = await supabase
+            .from("orders")
+            .update({
+              items: data.items,
+              total,
+              status: "pending",
+              notes: data.notes ?? null,
+              customer_name: data.customerName ?? claims?.user_metadata?.full_name ?? null,
+              customer_phone: data.customerPhone ?? null,
+              metadata: data.checkoutSessionKey
+                ? { checkout_session_key: data.checkoutSessionKey, idempotency_version: 1 }
+                : {},
+            })
+            .eq("id", checkoutOrderId)
+            .eq("user_id", userId)
+            .select("id, total, status, created_at")
+            .single();
+          if (!updateError && updated) {
+            return { order: updated, reused: true as const };
+          }
           return { order: existing, reused: true as const };
         }
       }
