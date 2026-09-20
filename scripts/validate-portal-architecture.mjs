@@ -306,7 +306,7 @@ requirePattern(checkoutPath, checkout, /submitLockRef[\s\S]*if \(submitLockRef\.
 requirePattern(checkoutPath, checkout, /checkoutSessionKey:\s*sessionKey/, "pedido autenticado não recebe a sessão canônica do carrinho");
 requirePattern(ordersFunctionsPath, ordersFunctions, /deterministicCheckoutOrderId[\s\S]*error\.code === "23505"[\s\S]*reused:\s*true/, "pedido autenticado perdeu idempotência por sessão");
 requirePattern(cartFunnelPath, cartFunnel, /\.eq\("session_key", data\.sessionKey\)[\s\S]*idempotent:\s*true[\s\S]*check_and_record_rate_limit/, "handoff anônimo não verifica replay antes do rate limit");
-requirePattern(stripeCheckoutPath, stripeCheckout, /"Idempotency-Key":\s*`0web-checkout-\$\{order\.id\}`/, "Stripe perdeu idempotência por pedido");
+requirePattern(stripeCheckoutPath, stripeCheckout, /"Idempotency-Key":\s*`0web-checkout-\$\{order\.id\}-\$\{cartFingerprint\}`/, "Stripe perdeu idempotência por pedido + snapshot do carrinho");
 requirePattern(stripeCheckoutPath, stripeCheckout, /successSeparator[\s\S]*session_id=\{CHECKOUT_SESSION_ID\}/, "URL de sucesso do Stripe pode voltar a ser malformada");
 requirePattern(thankYouRoutePath, thankYouRoute, /checkout-stripe[\s\S]*readCart\(\)[\s\S]*clearCart\(\)[\s\S]*rotateCartSessionKey\(\)/, "retorno de sucesso do Stripe não encerra a jornada local");
 if (/clearCart\(\);\s*window\.location\.href\s*=\s*res\.url/.test(checkout)) {
