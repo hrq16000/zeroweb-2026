@@ -8,7 +8,7 @@
     "dev": "vite dev",
     "test": "bun test",
     "check:portfolio-blueprints": "bun scripts/validate-portfolio-blueprints.ts",
-    "prebuild": "bun run test:portfolio-ops",
+    "prebuild": "bun run test:checkout-reliability && bun run test:commerce-funnel && bun run test:storefront-performance && bun run test:servicos-seo && node scripts/validate-brand-integrity.mjs && node scripts/validate-portal-architecture.mjs && node scripts/check-experience-skill-policy.mjs && node scripts/generate-portfolio-identity-assets.mjs && node scripts/generate-social-jpg.mjs && node scripts/validate-route-files.mjs && node scripts/validate-breadcrumbs.mjs && node scripts/validate-portfolio-boundaries.mjs && node scripts/validate-portfolio-catalog.mjs && node scripts/validate-portfolio-conversion-profiles.mjs && node scripts/validate-portfolio-meta.mjs && node scripts/validate-portfolio-scaffold.mjs && node scripts/validate-portfolio-regional.mjs",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",
