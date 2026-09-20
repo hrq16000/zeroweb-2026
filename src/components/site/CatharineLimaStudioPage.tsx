@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const quiz = {
   services: [
@@ -228,7 +227,6 @@ export function CatharineLimaStudioPage() {
           <PortfolioHostCredit linkClassName="font-semibold text-white underline underline-offset-4 hover:text-[#f183a8]" />
         </div>
       </footer>
-      <PortfolioUpsellPopup pageName="portfolio-catharine-lima-studio" />
     </div>
   );
 }
