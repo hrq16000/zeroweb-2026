@@ -27,7 +27,7 @@ describe("checkout reliability contract", () => {
   });
 
   test("Stripe é idempotente e cancelamento preserva o carrinho", () => {
-    expect(stripe).toContain('"Idempotency-Key": `0web-checkout-${order.id}`');
+    expect(stripe).toContain('"Idempotency-Key": `0web-checkout-${order.id}-${cartFingerprint}`');
     expect(checkout).not.toMatch(/clearCart\(\);\s*window\.location\.href\s*=\s*res\.url/);
     expect(obrigado).toContain('resolvedSource !== "checkout-stripe"');
     expect(obrigado).toContain("rotateCartSessionKey()");
