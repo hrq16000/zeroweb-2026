@@ -1,15 +1,15 @@
 {
   "summary": {
-    "generatedAt": "2026-09-15T00:49:12.358Z",
-    "audited": 92,
-    "pass": 92,
+    "generatedAt": "2026-09-20T23:59:24.627Z",
+    "audited": 94,
+    "pass": 94,
     "warning": 0,
     "fail": 0,
     "byIntent": {
-      "pedido": 24,
+      "pedido": 25,
       "orcamento": 32,
       "solicitacao": 1,
-      "agendamento": 15,
+      "agendamento": 16,
       "contato": 9,
       "reserva": 4,
       "diagnostico": 7
@@ -1209,6 +1209,32 @@
       "nextStepBody": "Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro.",
       "primaryCtaLabel": "Confirmar presença",
       "whatsappIntent": "contato",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "catharine-lima-studio",
+      "businessName": "Catharine Lima Studio",
+      "segment": "beleza",
+      "intent": "agendamento",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Seu próximo cuidado começa com um horário pensado para você.",
+      "nextStepBody": "Escolha o procedimento, conte sua preferência e indique o melhor período para o Catharine Lima Studio organizar o atendimento.",
+      "primaryCtaLabel": "Agendar meu horário",
+      "whatsappIntent": "agendamento",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "slug": "cris-presentes-colonia-rio-grande",
+      "businessName": "Cris Presentes · Colônia Rio Grande",
+      "segment": "comercios",
+      "intent": "pedido",
+      "source": "PROJECT_CONTRACT",
+      "nextStepTitle": "Conte o que você procura e deixe a loja confirmar a disponibilidade.",
+      "nextStepBody": "Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade.",
+      "primaryCtaLabel": "Encontrar um presente",
+      "whatsappIntent": "pedido",
       "status": "PASS",
       "issues": []
     }

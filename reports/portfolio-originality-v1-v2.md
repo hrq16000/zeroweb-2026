@@ -46,6 +46,8 @@ originalidade: nenhuma página pública mudou.
 | moreira-auto-mecanica | jkl-decor | jkl-decor | 48 | 45 | -3 | não | METRIC_CORRECTION | 16.7 | 12.5 |
 | uberlandia-eletrica-residencial | bh-barreiro-marmitas | bh-barreiro-marmitas | 40 | 37 | -3 | não | METRIC_CORRECTION | 100 | 15 |
 | assistencia-microondas-santos | liz-moraes-nail-designer | liz-moraes-nail-designer | 51 | 49 | -2 | não | METRIC_CORRECTION | 50 | 9 |
+| catharine-lima-studio | cris-presentes-colonia-rio-grande | cris-presentes-colonia-rio-grande | 59 | 57 | -2 | não | METRIC_CORRECTION | 80 | 7.5 |
+| cris-presentes-colonia-rio-grande | catharine-lima-studio | catharine-lima-studio | 59 | 57 | -2 | não | METRIC_CORRECTION | 80 | 7.5 |
 | eletro-solucoes-eficazes | eletrovale-eletromecanica | eletrovale-eletromecanica | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
 | eletrovale-eletromecanica | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
 | kitutes-na-mesa | liz-moraes-nail-designer | liz-moraes-nail-designer | 55 | 53 | -2 | não | METRIC_CORRECTION | 40 | 9 |
@@ -53,7 +55,7 @@ originalidade: nenhuma página pública mudou.
 | acai-total-araucaria | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 59 | 58 | -1 | não | METRIC_CORRECTION | 20 | 7.5 |
 | almeida-torres | guaratuba-atelie-presentes | estrutura-nacional | 34 | 33 | -1 | SIM | METRIC_CORRECTION | 100 | 6 |
 | bruna-diarista | easy-clean | popys-conservacao-limpeza | 67 | 66 | -1 | SIM | METRIC_CORRECTION | 66.7 | 15 |
-| clinica-integrada | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 45 | 44 | -1 | não | METRIC_CORRECTION | 27.3 | 6 |
+| clinica-integrada | sos-presentes-cosmeticos | cris-presentes-colonia-rio-grande | 45 | 44 | -1 | SIM | METRIC_CORRECTION | 27.3 | 7.5 |
 | estrutura-nacional | pinturas-nunes | pinturas-nunes | 42 | 41 | -1 | não | METRIC_CORRECTION | 25 | 9 |
 | fernanda-amaral-drywall | rj-servicos-drywall | rj-servicos-drywall | 50 | 49 | -1 | não | METRIC_CORRECTION | 9.1 | 3.3 |
 | liz-moraes-nail-designer | kitutes-na-mesa | mp-festas-eventos | 55 | 54 | -1 | SIM | METRIC_CORRECTION | 40 | 2.1 |
@@ -99,9 +101,9 @@ originalidade: nenhuma página pública mudou.
 | renata-beauty | r_beauty | r_beauty | 51 | 51 | 0 | não | UNCHANGED | 14.3 | 7.5 |
 | rm-fretes | marido-de-aluguel | marido-de-aluguel | 35 | 35 | 0 | não | UNCHANGED | 0 | 1.7 |
 | salao-da-marcia | liz-moraes-nail-designer | liz-moraes-nail-designer | 47 | 47 | 0 | não | UNCHANGED | 7.1 | 1.9 |
-| sos-presentes-cosmeticos | confeitaria-sabor-da-realeza | confeitaria-sabor-da-realeza | 50 | 50 | 0 | não | UNCHANGED | 7.7 | 5 |
+| sos-presentes-cosmeticos | cris-presentes-colonia-rio-grande | cris-presentes-colonia-rio-grande | 54 | 54 | 0 | não | UNCHANGED | 7.1 | 6 |
 | studio-de-cilios | mp-festas-eventos | mp-festas-eventos | 59 | 59 | 0 | não | UNCHANGED | 0 | 4.3 |
-| thays-camilla | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 46 | 46 | 0 | não | UNCHANGED | 14.3 | 2.1 |
+| thays-camilla | cris-presentes-colonia-rio-grande | cris-presentes-colonia-rio-grande | 46 | 46 | 0 | não | UNCHANGED | 0 | 6 |
 | your-brutus-burguer | mimo-salgados-doces | mimo-salgados-doces | 45 | 45 | 0 | não | UNCHANGED | 0 | 7.5 |
 | auto-socorro-dentinho | mimo-salgados-doces | mimo-salgados-doces | 39 | 40 | 1 | não | METRIC_SENSITIVITY | 0 | 5 |
 | confeitaria-chyrley | studio-de-cilios | studio-de-cilios | 55 | 56 | 1 | não | METRIC_SENSITIVITY | 0 | 8.6 |

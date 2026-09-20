@@ -1147,7 +1147,7 @@
         "ctaLabel": "Agendar horário",
         "ctaHref": "#agendamento"
       },
-      "socialVersion": "bf168e50"
+      "socialVersion": "4e20c209"
     },
     "cris-presentes-colonia-rio-grande": {
       "icon": "/images/cris-presentes-colonia-rio-grande/logo.svg",
@@ -1159,7 +1159,7 @@
         "ctaLabel": "Encontrar um presente",
         "ctaHref": "#pedido"
       },
-      "socialVersion": "20260920"
+      "socialVersion": "c3f20df0"
     }
   }
 }
