@@ -210,6 +210,18 @@
         "v2AssetPattern": 15
       },
       {
+        "slug": "catharine-lima-studio",
+        "v1Score": 59,
+        "v2Score": 57,
+        "delta": -2,
+        "v1Nearest": "cris-presentes-colonia-rio-grande",
+        "v2Nearest": "cris-presentes-colonia-rio-grande",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 80,
+        "v2AssetPattern": 7.5
+      },
+      {
         "slug": "centro-mega",
         "v1Score": 48,
         "v2Score": 45,
@@ -227,11 +239,11 @@
         "v2Score": 44,
         "delta": -1,
         "v1Nearest": "sos-presentes-cosmeticos",
-        "v2Nearest": "sos-presentes-cosmeticos",
-        "neighbourChanged": false,
+        "v2Nearest": "cris-presentes-colonia-rio-grande",
+        "neighbourChanged": true,
         "reason": "METRIC_CORRECTION",
         "v1AssetPattern": 27.3,
-        "v2AssetPattern": 6
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "confeitaria-chyrley",
@@ -256,6 +268,18 @@
         "reason": "UNCHANGED",
         "v1AssetPattern": 7.7,
         "v2AssetPattern": 5
+      },
+      {
+        "slug": "cris-presentes-colonia-rio-grande",
+        "v1Score": 59,
+        "v2Score": 57,
+        "delta": -2,
+        "v1Nearest": "catharine-lima-studio",
+        "v2Nearest": "catharine-lima-studio",
+        "neighbourChanged": false,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 80,
+        "v2AssetPattern": 7.5
       },
       {
         "slug": "denise-gomes-psicologa",
@@ -1003,15 +1027,15 @@
       },
       {
         "slug": "sos-presentes-cosmeticos",
-        "v1Score": 50,
-        "v2Score": 50,
+        "v1Score": 54,
+        "v2Score": 54,
         "delta": 0,
-        "v1Nearest": "confeitaria-sabor-da-realeza",
-        "v2Nearest": "confeitaria-sabor-da-realeza",
+        "v1Nearest": "cris-presentes-colonia-rio-grande",
+        "v2Nearest": "cris-presentes-colonia-rio-grande",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 7.7,
-        "v2AssetPattern": 5
+        "v1AssetPattern": 7.1,
+        "v2AssetPattern": 6
       },
       {
         "slug": "sscons",
@@ -1042,12 +1066,12 @@
         "v1Score": 46,
         "v2Score": 46,
         "delta": 0,
-        "v1Nearest": "sos-presentes-cosmeticos",
-        "v2Nearest": "sos-presentes-cosmeticos",
+        "v1Nearest": "cris-presentes-colonia-rio-grande",
+        "v2Nearest": "cris-presentes-colonia-rio-grande",
         "neighbourChanged": false,
         "reason": "UNCHANGED",
-        "v1AssetPattern": 14.3,
-        "v2AssetPattern": 2.1
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 6
       },
       {
         "slug": "ton-e-cor",
@@ -1139,19 +1163,19 @@
     "clone": 81
   },
   "summary": {
-    "total": 92,
+    "total": 94,
     "original": 1,
     "acceptable": 29,
-    "attention": 56,
+    "attention": 58,
     "highSimilarity": 6,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 25,
+    "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 48,
-    "coverPending": 44,
+    "coverPending": 46,
     "coversAsSocialImage": 13,
     "sharedCovers": 0,
     "severeCrop": 19,
@@ -1285,8 +1309,8 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mp-festas-eventos",
-          "score": 44,
+          "slug": "cris-presentes-colonia-rio-grande",
+          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -1862,9 +1886,54 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "lolipa-arte-em-festas",
-          "score": 31,
+          "slug": "cris-presentes-colonia-rio-grande",
+          "score": 32,
           "reason": "DISTINCT"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
+      "slug": "catharine-lima-studio",
+      "score": 57,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "cris-presentes-colonia-rio-grande",
+      "nearestMatchScore": 57,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 78.7,
+        "SECTION_ORDER_SIMILARITY": 37.5,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 89.7,
+        "COPY_SIMILARITY": 1.4,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 9.1
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT",
+        "LOGO_PLACEHOLDER"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "cris-presentes-colonia-rio-grande",
+          "score": 57,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "kitutes-na-mesa",
+          "score": 48,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mimo-salgados-doces",
+          "score": 46,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -1918,19 +1987,19 @@
       "slug": "clinica-integrada",
       "score": 44,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "sos-presentes-cosmeticos",
+      "nearestMatch": "cris-presentes-colonia-rio-grande",
       "nearestMatchScore": 44,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 31.3,
+        "STRUCTURE_SIMILARITY": 32.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 35.7,
-        "STYLE_SIMILARITY": 48.8,
+        "COMPONENT_SIMILARITY": 38.5,
+        "STYLE_SIMILARITY": 39.8,
         "COPY_SIMILARITY": 0,
-        "ASSET_PATTERN_SIMILARITY": 6,
-        "IDENTITY_SIMILARITY": 0
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 2.4
       },
       "coverSignals": [
         "COVER_IS_SOCIAL_IMAGE",
@@ -1943,6 +2012,11 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "cris-presentes-colonia-rio-grande",
+          "score": 44,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "sos-presentes-cosmeticos",
           "score": 44,
           "reason": "SAME_FAMILY"
@@ -1950,11 +2024,6 @@
         {
           "slug": "lk-alvenaria",
           "score": 43,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "ag-electrical-services",
-          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2041,13 +2110,57 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
+          "slug": "cris-presentes-colonia-rio-grande",
           "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
+          "slug": "miro-tech",
+          "score": 45,
+          "reason": "SAME_FAMILY"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
+      "slug": "cris-presentes-colonia-rio-grande",
+      "score": 57,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "catharine-lima-studio",
+      "nearestMatchScore": 57,
+      "reasons": [
+        "SAME_FAMILY"
+      ],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 78.7,
+        "SECTION_ORDER_SIMILARITY": 37.5,
+        "COMPONENT_SIMILARITY": 76.9,
+        "STYLE_SIMILARITY": 89.7,
+        "COPY_SIMILARITY": 1.4,
+        "ASSET_PATTERN_SIMILARITY": 7.5,
+        "IDENTITY_SIMILARITY": 9.1
+      },
+      "coverSignals": [
+        "COVER_NO_FOCAL_POINT"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "catharine-lima-studio",
+          "score": 57,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "sos-presentes-cosmeticos",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "mp-festas-eventos",
-          "score": 44,
+          "score": 49,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -2225,14 +2338,14 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "heloa-gas",
-          "score": 42,
+          "slug": "catharine-lima-studio",
+          "score": 43,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "embalar-embalagens",
-          "score": 39,
-          "reason": "DISTINCT"
+          "slug": "heloa-gas",
+          "score": 42,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -2986,13 +3099,13 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "uberlandia-eletrica-residencial",
+          "slug": "catharine-lima-studio",
           "score": 27,
           "reason": "DISTINCT"
         },
         {
-          "slug": "mirassol-delicias-caseiras",
-          "score": 26,
+          "slug": "uberlandia-eletrica-residencial",
+          "score": 27,
           "reason": "DISTINCT"
         }
       ],
@@ -3076,13 +3189,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "miro-tech",
-          "score": 38,
-          "reason": "DISTINCT"
+          "slug": "catharine-lima-studio",
+          "score": 41,
+          "reason": "SAME_FAMILY"
         },
         {
-          "slug": "mimo-salgados-doces",
-          "score": 36,
+          "slug": "miro-tech",
+          "score": 38,
           "reason": "DISTINCT"
         }
       ],
@@ -3390,13 +3503,13 @@
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "sos-presentes-cosmeticos",
+          "slug": "cris-presentes-colonia-rio-grande",
           "score": 45,
           "reason": "SAME_FAMILY"
         },
         {
-          "slug": "clinica-integrada",
-          "score": 43,
+          "slug": "sos-presentes-cosmeticos",
+          "score": 45,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4841,21 +4954,21 @@
     },
     {
       "slug": "sos-presentes-cosmeticos",
-      "score": 50,
+      "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "confeitaria-sabor-da-realeza",
-      "nearestMatchScore": 50,
+      "nearestMatch": "cris-presentes-colonia-rio-grande",
+      "nearestMatchScore": 54,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 27.9,
+        "STRUCTURE_SIMILARITY": 48.2,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 57.1,
-        "STYLE_SIMILARITY": 70.9,
-        "COPY_SIMILARITY": 0.9,
-        "ASSET_PATTERN_SIMILARITY": 5,
-        "IDENTITY_SIMILARITY": 8.8
+        "COMPONENT_SIMILARITY": 53.3,
+        "STYLE_SIMILARITY": 62.1,
+        "COPY_SIMILARITY": 1.2,
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 6.5
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -4868,6 +4981,11 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "cris-presentes-colonia-rio-grande",
+          "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "confeitaria-sabor-da-realeza",
           "score": 50,
           "reason": "SAME_FAMILY"
@@ -4875,11 +4993,6 @@
         {
           "slug": "mp-festas-eventos",
           "score": 49,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "ag-electrical-services",
-          "score": 46,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4978,19 +5091,19 @@
       "slug": "thays-camilla",
       "score": 46,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "sos-presentes-cosmeticos",
+      "nearestMatch": "cris-presentes-colonia-rio-grande",
       "nearestMatchScore": 46,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 32.1,
+        "STRUCTURE_SIMILARITY": 31.5,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 42.5,
-        "COPY_SIMILARITY": 1,
-        "ASSET_PATTERN_SIMILARITY": 2.1,
-        "IDENTITY_SIMILARITY": 5.1
+        "COMPONENT_SIMILARITY": 53.8,
+        "STYLE_SIMILARITY": 40.2,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 6,
+        "IDENTITY_SIMILARITY": 9.1
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -5001,6 +5114,11 @@
       "assetSharing": [],
       "nearest": [
         {
+          "slug": "cris-presentes-colonia-rio-grande",
+          "score": 46,
+          "reason": "SAME_FAMILY"
+        },
+        {
           "slug": "sos-presentes-cosmeticos",
           "score": 46,
           "reason": "SAME_FAMILY"
@@ -5008,11 +5126,6 @@
         {
           "slug": "denise-gomes-psicologa",
           "score": 42,
-          "reason": "SAME_FAMILY"
-        },
-        {
-          "slug": "ag-electrical-services",
-          "score": 41,
           "reason": "SAME_FAMILY"
         }
       ],

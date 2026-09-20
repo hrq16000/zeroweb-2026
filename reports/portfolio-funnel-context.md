@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-15T00:49:12.358Z
+Gerado em 2026-09-20T23:59:24.627Z
 
-- Projetos auditados: **92**
-- PASS: **92** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (24) · orcamento (32) · solicitacao (1) · agendamento (15) · contato (9) · reserva (4) · diagnostico (7)
+- Projetos auditados: **94**
+- PASS: **94** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (25) · orcamento (32) · solicitacao (1) · agendamento (16) · contato (9) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -100,3 +100,5 @@ Gerado em 2026-09-15T00:49:12.358Z
 | carecas-infotec | prestadores-de-servicos | orcamento | A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo. | Agendar serviço | PROJECT_CONTRACT | PASS | — |
 | jkl-decor | prestadores-de-servicos | orcamento | A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local. | Pedir orçamento | PROJECT_CONTRACT | PASS | — |
 | adhonep-curitiba | prestadores-de-servicos | contato | Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro. | Confirmar presença | PROJECT_CONTRACT | PASS | — |
+| catharine-lima-studio | beleza | agendamento | Escolha o procedimento, conte sua preferência e indique o melhor período para o Catharine Lima Studio organizar o atendimento. | Agendar meu horário | PROJECT_CONTRACT | PASS | — |
+| cris-presentes-colonia-rio-grande | comercios | pedido | Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade. | Encontrar um presente | PROJECT_CONTRACT | PASS | — |

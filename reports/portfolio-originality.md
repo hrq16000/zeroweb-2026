@@ -18,19 +18,19 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 92 |
+| Total | 94 |
 | ORIGINAL | 1 |
 | ACCEPTABLE | 29 |
-| ATTENTION | 56 |
+| ATTENTION | 58 |
 | HIGH_SIMILARITY | 6 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
 | Clusters | 0 |
-| Logos placeholder | 25 |
+| Logos placeholder | 26 |
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
 | Capas válidas (contrato canônico) | 48 |
-| Capas pendentes (contrato canônico) | 44 |
+| Capas pendentes (contrato canônico) | 46 |
 | Capas usando imagem social | 13 |
 | Capas compartilhadas | 0 |
 | Crop severo | 19 |
@@ -58,13 +58,13 @@ Nenhum cluster acima do limiar.
 | acai-total-araucaria | aguia-sul-sinalizacao | 58 | SAME_FAMILY | 73.5 | 57.1 | 71.4 | 91.3 | 0 | 7.5 | 10.7 |
 | aguia-sul-sinalizacao | mary-diarista | 58 | SAME_FAMILY | 78.7 | 50 | 71.4 | 92.5 | 0 | 2.5 | 9.1 |
 | aguia-sul-sinalizacao | bruna-diarista | 57 | SAME_FAMILY | 60 | 100 | 41.7 | 78.9 | 0 | 2.5 | 9.1 |
+| catharine-lima-studio | cris-presentes-colonia-rio-grande | 57 | SAME_FAMILY | 78.7 | 37.5 | 76.9 | 89.7 | 1.4 | 7.5 | 9.1 |
 | btb-construcao | enoel-portas | 56 | SAME_FAMILY | 58.6 | 100 | 50 | 56.7 | 4.1 | 11.2 | 12 |
 | btb-construcao | popys-conservacao-limpeza | 56 | SAME_FAMILY | 56.9 | 100 | 53.3 | 61.6 | 1.1 | 15 | 5.9 |
 | confeitaria-chyrley | studio-de-cilios | 56 | SAME_FAMILY | 54 | 100 | 37.5 | 86.5 | 0.5 | 8.6 | 6.7 |
 | mimo-salgados-doces | popys-conservacao-limpeza | 56 | SAME_FAMILY | 66.7 | 50 | 76.9 | 88.4 | 0 | 5 | 13.3 |
 | acai-total-araucaria | mary-diarista | 55 | SAME_FAMILY | 76.1 | 37.5 | 71.4 | 92.5 | 0 | 6 | 10 |
 | aguia-sul-sinalizacao | btb-construcao | 55 | SAME_FAMILY | 60 | 100 | 41.7 | 64.3 | 0.6 | 2.5 | 10.3 |
-| diego-montador-moveis | paulo-mestre-de-obras | 55 | SAME_FAMILY | 62.7 | 75 | 60 | 70.9 | 3 | 4.3 | 15.2 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -87,6 +87,8 @@ Nenhum asset percebido compartilhado entre clientes.
 | studio-de-cilios | 59 | ATTENTION | mp-festas-eventos (59) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | acai-total-araucaria | 58 | ATTENTION | aguia-sul-sinalizacao (58) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | mary-diarista | 58 | ATTENTION | aguia-sul-sinalizacao (58) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| catharine-lima-studio | 57 | ATTENTION | cris-presentes-colonia-rio-grande (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| cris-presentes-colonia-rio-grande | 57 | ATTENTION | catharine-lima-studio (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | enoel-portas | 56 | ATTENTION | btb-construcao (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mimo-salgados-doces | 56 | ATTENTION | popys-conservacao-limpeza (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
@@ -94,6 +96,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | ecommerce-on | 54 | ATTENTION | acai-total-araucaria (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
 | liz-moraes-nail-designer | 54 | ATTENTION | mp-festas-eventos (54) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mania-de-limpeza | 54 | ATTENTION | js-eletrica-manutencao (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| sos-presentes-cosmeticos | 54 | ATTENTION | cris-presentes-colonia-rio-grande (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | denise-gomes-psicologa | 53 | ATTENTION | mp-festas-eventos (53) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_PLACEHOLDER | — |
 | kitutes-na-mesa | 53 | ATTENTION | liz-moraes-nail-designer (53) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | vila-da-capivara | 53 | ATTENTION | mp-festas-eventos (53) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
@@ -106,7 +109,6 @@ Nenhum asset percebido compartilhado entre clientes.
 | eletrovale-eletromecanica | 50 | ATTENTION | eletro-solucoes-eficazes (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | miro-tech | 50 | ATTENTION | kitutes-na-mesa (50) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | refrigeracao-maresia | 50 | ATTENTION | liz-moraes-nail-designer (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
-| sos-presentes-cosmeticos | 50 | ATTENTION | confeitaria-sabor-da-realeza (50) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | assistencia-microondas-santos | 49 | ATTENTION | liz-moraes-nail-designer (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | fernanda-amaral-drywall | 49 | ATTENTION | rj-servicos-drywall (49) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | — | — |
 | papelemi-personalizados | 49 | ATTENTION | embalar-embalagens (49) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -114,7 +116,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | simone-lacerda-vaz | 48 | ATTENTION | embalar-embalagens (48) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | salao-da-marcia | 47 | ATTENTION | liz-moraes-nail-designer (47) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | pinturas-nunes | 46 | ATTENTION | eletro-solucoes-eficazes (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| thays-camilla | 46 | ATTENTION | sos-presentes-cosmeticos (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
+| thays-camilla | 46 | ATTENTION | cris-presentes-colonia-rio-grande (46) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | toquinho-de-gente-brecho | 46 | ATTENTION | woodhouse-hamburgueres (46) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | woodhouse-hamburgueres | 46 | ATTENTION | toquinho-de-gente-brecho (46) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | centro-mega | 45 | ATTENTION | mania-de-limpeza (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -123,7 +125,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | lj-cleaning | 45 | ATTENTION | galileu-locacao-brinquedos (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | moreira-auto-mecanica | 45 | ATTENTION | jkl-decor (45) | EXCESSIVE_COPY_SIMILARITY | COVER_IS_LOGO, COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | your-brutus-burguer | 45 | ATTENTION | mimo-salgados-doces (45) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
-| clinica-integrada | 44 | ATTENTION | sos-presentes-cosmeticos (44) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| clinica-integrada | 44 | ATTENTION | cris-presentes-colonia-rio-grande (44) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dona-lucy-salgados | 44 | ATTENTION | mania-de-limpeza (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | lucas-arruma-maquina-lavar | 44 | ATTENTION | denise-gomes-psicologa (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | eisenfer-tubos-acos | 43 | ATTENTION | no-brilho-higienizacao (43) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
@@ -169,8 +171,8 @@ Nenhum asset percebido compartilhado entre clientes.
 
 ## Regressão
 
-Veredito: **PASS**
+Veredito: **FAIL**
 
-Nenhuma regressão em relação à baseline.
+- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":25,"after":26}
 
 
