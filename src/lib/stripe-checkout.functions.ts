@@ -77,12 +77,29 @@ export const createStripeCheckoutSession = createServerFn({ method: "POST" })
       }
     });
 
+    // A chave de idempotência precisa acompanhar o conteúdo do pedido: se o
+    // visitante cancelou e editou o carrinho, a nova tentativa tem que gerar
+    // uma sessão com os itens e o total atuais, não repetir a anterior.
+    const fingerprintDigest = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(
+        JSON.stringify({
+          total: order.total,
+          items: items.map((it) => [it.slug ?? it.name, it.price ?? 0, it.qty]),
+        }),
+      ),
+    );
+    const cartFingerprint = Array.from(new Uint8Array(fingerprintDigest))
+      .slice(0, 8)
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+
     const res = await fetch("https://api.stripe.com/v1/checkout/sessions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${secret}`,
         "Content-Type": "application/x-www-form-urlencoded",
-        "Idempotency-Key": `0web-checkout-${order.id}`,
+        "Idempotency-Key": `0web-checkout-${order.id}-${cartFingerprint}`,
       },
       body: body.toString(),
     });
