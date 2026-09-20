@@ -6,6 +6,16 @@
     "primaryCtaLabel": "Escolher meu açaí",
     "theme": "gold"
   },
+  "adhonep-curitiba": {
+    "intent": "contato",
+    "nextStepTitle": "Confirme sua presença na reunião",
+    "nextStepBody": "Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro.",
+    "primaryCtaLabel": "Confirmar presença",
+    "theme": "navy",
+    "whatsappPrompt": "Quero confirmar minha presença na reunião semanal. Pode me enviar as orientações de acesso ao local, por favor?",
+    "whatsappSubject": "a reunião semanal",
+    "proposalKind": "service"
+  },
   "ag-electrical-services": {
     "intent": "orcamento",
     "nextStepTitle": "Infraestrutura clara antes de qualquer instalação.",
@@ -90,12 +100,26 @@
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "gold"
   },
+  "carecas-infotec": {
+    "intent": "orcamento",
+    "nextStepTitle": "Conte o aparelho e o defeito para receber o orçamento.",
+    "nextStepBody": "A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo.",
+    "primaryCtaLabel": "Agendar serviço",
+    "theme": "gold"
+  },
   "casa-nativa": {
     "intent": "reserva",
     "nextStepTitle": "Uma boa experiência à mesa começa antes da reserva.",
     "nextStepBody": "Conte a data, o número de pessoas e o horário que pretende visitar o bistrô.",
     "primaryCtaLabel": "Planejar minha visita",
     "theme": "gold"
+  },
+  "catharine-lima-studio": {
+    "intent": "agendamento",
+    "nextStepTitle": "Seu próximo cuidado começa com um horário pensado para você.",
+    "nextStepBody": "Escolha entre unhas, cílios ou cabelo, conte sua preferência e indique o melhor período para atendimento.",
+    "primaryCtaLabel": "Agendar meu cuidado",
+    "theme": "pink"
   },
   "centro-mega": {
     "intent": "contato",
@@ -223,6 +247,13 @@
     "primaryCtaLabel": "Escolher atendimento",
     "theme": "pink"
   },
+  "estrutura-nacional": {
+    "intent": "orcamento",
+    "nextStepTitle": "Uma solução em aço começa com um escopo bem explicado.",
+    "nextStepBody": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
+    "primaryCtaLabel": "Iniciar solicitação",
+    "theme": "navy"
+  },
   "fernanda-amaral-drywall": {
     "intent": "orcamento",
     "nextStepTitle": "Sua casa muda quando o serviço certo encontra o espaço.",
@@ -285,6 +316,13 @@
     "nextStepBody": "Informe o produto, o ambiente e a metragem para organizar a orientação e o orçamento.",
     "primaryCtaLabel": "Solicitar orçamento",
     "theme": "navy"
+  },
+  "jkl-decor": {
+    "intent": "orcamento",
+    "nextStepTitle": "Conte qual ambiente você quer planejar para receber o orçamento.",
+    "nextStepBody": "A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local.",
+    "primaryCtaLabel": "Pedir orçamento",
+    "theme": "gold"
   },
   "jkl-marcenaria": {
     "intent": "orcamento",
@@ -412,6 +450,13 @@
     "primaryCtaLabel": "Solicitar avaliação",
     "theme": "navy"
   },
+  "moreira-auto-mecanica": {
+    "intent": "agendamento",
+    "nextStepTitle": "Conte o que o carro está apresentando para agendar a avaliação.",
+    "nextStepBody": "A equipe da Moreira Auto Mecânica recebe a descrição do veículo e combina o melhor dia para você levar o carro na oficina.",
+    "primaryCtaLabel": "Agendar avaliação",
+    "theme": "steel"
+  },
   "mp-festas-eventos": {
     "intent": "reserva",
     "nextStepTitle": "A memória da festa começa no cenário.",
@@ -453,6 +498,13 @@
     "nextStepBody": "Conte o que deseja construir, reformar ou reparar.",
     "primaryCtaLabel": "Planejar minha obra",
     "theme": "gold"
+  },
+  "pinturas-nunes": {
+    "intent": "orcamento",
+    "nextStepTitle": "Um bom acabamento começa por uma superfície bem explicada.",
+    "nextStepBody": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
+    "primaryCtaLabel": "Solicitar orçamento",
+    "theme": "navy"
   },
   "popys-conservacao-limpeza": {
     "intent": "orcamento",
@@ -607,50 +659,5 @@
     "nextStepBody": "Escolha se quer conhecer o cardápio, montar um burger ou combinar porções antes de seguir pelo canal oficial.",
     "primaryCtaLabel": "Abrir cardápio",
     "theme": "gold"
-  },
-  "pinturas-nunes": {
-    "intent": "orcamento",
-    "nextStepTitle": "Um bom acabamento começa por uma superfície bem explicada.",
-    "nextStepBody": "Conte o serviço, o tipo de ambiente e os detalhes que precisam de atenção para organizar o orçamento.",
-    "primaryCtaLabel": "Solicitar orçamento",
-    "theme": "navy"
-  },
-  "estrutura-nacional": {
-    "intent": "orcamento",
-    "nextStepTitle": "Uma solução em aço começa com um escopo bem explicado.",
-    "nextStepBody": "Conte a frente de atuação, o contexto e os detalhes disponíveis para organizar a solicitação.",
-    "primaryCtaLabel": "Iniciar solicitação",
-    "theme": "navy"
-  },
-  "moreira-auto-mecanica": {
-    "intent": "agendamento",
-    "nextStepTitle": "Conte o que o carro está apresentando para agendar a avaliação.",
-    "nextStepBody": "A equipe da Moreira Auto Mecânica recebe a descrição do veículo e combina o melhor dia para você levar o carro na oficina.",
-    "primaryCtaLabel": "Agendar avaliação",
-    "theme": "steel"
-  },
-  "carecas-infotec": {
-    "intent": "orcamento",
-    "nextStepTitle": "Conte o aparelho e o defeito para receber o orçamento.",
-    "nextStepBody": "A equipe da Careca's Infotec avalia o que você descreveu e responde com o diagnóstico e o próximo passo.",
-    "primaryCtaLabel": "Agendar serviço",
-    "theme": "gold"
-  },
-  "jkl-decor": {
-    "intent": "orcamento",
-    "nextStepTitle": "Conte qual ambiente você quer planejar para receber o orçamento.",
-    "nextStepBody": "A JKL Decor recebe a descrição do ambiente e retorna com o próximo passo do orçamento, à distância ou com medição no local.",
-    "primaryCtaLabel": "Pedir orçamento",
-    "theme": "gold"
-  },
-  "adhonep-curitiba": {
-    "intent": "contato",
-    "nextStepTitle": "Confirme sua presença na reunião",
-    "nextStepBody": "Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro.",
-    "primaryCtaLabel": "Confirmar presença",
-    "theme": "navy",
-    "whatsappPrompt": "Quero confirmar minha presença na reunião semanal. Pode me enviar as orientações de acesso ao local, por favor?",
-    "whatsappSubject": "a reunião semanal",
-    "proposalKind": "service"
   }
 }
