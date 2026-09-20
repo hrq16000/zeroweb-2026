@@ -1342,6 +1342,24 @@
       "desktopBehavior": "ficha de data sticky e linhas da pauta reveladas em sequência",
       "tabletBehavior": "sticky desativado, sequência da pauta mantida",
       "mobileBehavior": "apenas revelação por opacidade, barra de confirmação fixa"
+    },
+    "catharine-lima-studio": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL_BEAUTY",
+      "heroMotion": "asymmetric",
+      "sectionReveal": "stagger",
+      "imageReveal": "fade",
+      "textReveal": "line",
+      "iconMotion": "subtle",
+      "hoverBehavior": "lift",
+      "depthBehavior": "layered",
+      "scrollBehavior": "progressive",
+      "staggerPattern": "sequence",
+      "reducedMotionFallback": "opacityOnly",
+      "narrative": "movimento editorial de beleza: hero assimétrico com entrada suave, serviços em sequência e transições curtas que priorizam leitura e agendamento",
+      "desktopBehavior": "hero em duas colunas com mídia entrando após a copy; cartões de serviços respondem com elevação curta",
+      "tabletBehavior": "hero empilha mantendo copy antes da mídia; cards em duas colunas",
+      "mobileBehavior": "fluxo vertical, distância de movimento reduzida e sem dependência de hover"
     }
   },
   "decisions": {
