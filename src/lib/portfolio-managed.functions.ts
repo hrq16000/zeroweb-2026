@@ -4,6 +4,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import portfolioCatalog from "@/config/portfolio-catalog.json";
 import { PORTFOLIO_PROTOTYPES } from "@/lib/portfolio-site-registry";
 import {
+  MANAGED_DELIVERY_MODES,
   MANAGED_LIFECYCLES,
   MANAGED_PRESETS,
   RESERVED_SLUGS,
@@ -15,6 +16,7 @@ import {
   type ManagedLifecycle,
   type ManagedProject,
 } from "@/lib/portfolio-managed";
+import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
 
 export const MANAGED_COLUMNS = [
   "client_key",
@@ -23,6 +25,9 @@ export const MANAGED_COLUMNS = [
   "preset",
   "display_name",
   "segment",
+  "funnel_enabled",
+  "funnel_recipient",
+  "source_snapshot",
   "city",
   "state",
   "summary",
@@ -74,6 +79,54 @@ async function assertAdmin(userId: string) {
   ]);
   if (!isAdmin && !isSuper) throw new Error("Acesso restrito a administradores.");
   return admin;
+}
+
+function record(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {};
+}
+
+function normalizeWhatsApp(value: unknown): string {
+  const digits = typeof value === "string" ? value.replace(/\D/g, "") : "";
+  return digits.length >= 10 && digits.length <= 15 ? digits : "";
+}
+
+async function syncManagedFunnelForm(
+  admin: any,
+  input: {
+    clientKey: string;
+    displayName: string;
+    intent: string | null;
+    published: boolean;
+  },
+) {
+  const slug = `portfolio-${input.clientKey}`;
+  const { data: existing } = await admin
+    .from("dynamic_forms")
+    .select("id, config_json")
+    .eq("slug", slug)
+    .maybeSingle();
+  const existingConfig = record(existing?.config_json);
+  if (existing && existingConfig.portfolio_managed !== true) {
+    throw new Error("Já existe um funil não gerenciado usando este identificador.");
+  }
+  const { error } = await admin.from("dynamic_forms").upsert(
+    {
+      slug,
+      name: input.displayName || input.clientKey,
+      description: `Funil individual do portfolio ${input.clientKey}`,
+      status: input.published ? "published" : "draft",
+      config_json: {
+        ...existingConfig,
+        portfolio_managed: true,
+        client_key: input.clientKey,
+        funnel_intent: input.intent,
+      },
+    },
+    { onConflict: "slug" },
+  );
+  if (error) throw new Error(error.message);
 }
 
 async function logHistory(
@@ -158,6 +211,9 @@ const wizardSchema = z.object({
   socialVersion: z.string().trim().max(40).optional(),
   ctaLabel: z.string().trim().max(80).optional(),
   shareCopy: z.string().trim().max(2000).optional(),
+  funnelIntent: z.union([z.enum(PORTFOLIO_FUNNEL_INTENTS), z.literal("")]).optional(),
+  funnelDeliveryMode: z.union([z.enum(MANAGED_DELIVERY_MODES), z.literal("")]).optional(),
+  funnelRecipient: z.string().trim().max(40).optional(),
   services: z.array(z.object({ title: z.string(), description: z.string().optional() })).optional(),
   gallery: z
     .array(
@@ -215,9 +271,42 @@ export const saveManagedProject = createServerFn({ method: "POST" })
       throw new Error("Outro editor salvou este projeto. Recarregue antes de continuar.");
     }
 
-    const row = buildManagedRow({ ...data, slug, clientKey: data.clientKey ?? slug });
+    const existingSnapshot = record(existing?.source_snapshot);
+    const existingFunnel = record(existingSnapshot.managed_funnel);
+    const effectiveIntent =
+      data.funnelIntent || (typeof existingFunnel.intent === "string" ? existingFunnel.intent : "");
+    const effectiveDeliveryMode =
+      data.funnelDeliveryMode ||
+      (typeof existingFunnel.delivery_mode === "string" ? existingFunnel.delivery_mode : "");
+    const row = buildManagedRow({
+      ...data,
+      slug,
+      clientKey: data.clientKey ?? slug,
+      funnelIntent: effectiveIntent,
+      funnelDeliveryMode: effectiveDeliveryMode,
+    });
+    const requestedRecipient = normalizeWhatsApp(data.funnelRecipient);
+    const existingRecipient = normalizeWhatsApp(existing?.funnel_recipient);
+    const funnelRecipient =
+      effectiveDeliveryMode === "whatsapp" ? requestedRecipient || existingRecipient : "";
+    const funnelEnabled = effectiveDeliveryMode === "whatsapp" && Boolean(funnelRecipient);
+    const sourceSnapshot = {
+      ...existingSnapshot,
+      ...record(row.source_snapshot),
+    };
+
+    await syncManagedFunnelForm(admin, {
+      clientKey: row.client_key,
+      displayName: row.display_name || slug,
+      intent: effectiveIntent || null,
+      published: existing?.lifecycle_status === "published" && Boolean(existing?.published),
+    });
+
     const patch = {
       ...row,
+      source_snapshot: sourceSnapshot,
+      funnel_enabled: funnelEnabled,
+      funnel_recipient: funnelRecipient,
       lifecycle_status: existing?.lifecycle_status ?? "draft",
       published: Boolean(existing?.published) && existing?.lifecycle_status === "published",
       content_version: Number(existing?.content_version ?? 0) + 1,
@@ -237,6 +326,18 @@ export const saveManagedProject = createServerFn({ method: "POST" })
         field: existing ? "managed_update" : "managed_create",
         old_value: existing ? String(existing.content_version ?? 1) : null,
         new_value: String(patch.content_version),
+      },
+      {
+        field: "managed_funnel",
+        old_value: existing
+          ? `${String(existingFunnel.intent ?? "unset")}:${String(existingFunnel.delivery_mode ?? "unset")}`
+          : null,
+        new_value: `${effectiveIntent || "unset"}:${effectiveDeliveryMode || "unset"}`,
+      },
+      {
+        field: "managed_destination",
+        old_value: existing?.funnel_enabled ? "configured" : "lead_only_or_unset",
+        new_value: funnelEnabled ? "configured" : "lead_only_or_unset",
       },
     ]);
 
@@ -309,6 +410,14 @@ export const setManagedLifecycle = createServerFn({ method: "POST" })
     }
 
     const now = new Date().toISOString();
+    if (to === "published") {
+      await syncManagedFunnelForm(admin, {
+        clientKey: project.clientKey,
+        displayName: project.displayName,
+        intent: project.funnelIntent,
+        published: true,
+      });
+    }
     const patch: Record<string, unknown> = {
       lifecycle_status: to,
       published: to === "published",
@@ -325,6 +434,15 @@ export const setManagedLifecycle = createServerFn({ method: "POST" })
       .select(MANAGED_COLUMNS)
       .single();
     if (error) throw new Error(error.message);
+
+    if (to !== "published") {
+      await syncManagedFunnelForm(admin, {
+        clientKey: project.clientKey,
+        displayName: project.displayName,
+        intent: project.funnelIntent,
+        published: false,
+      });
+    }
 
     await logHistory(admin, project.clientKey, context.userId, [
       { field: "lifecycle_status", old_value: from, new_value: to },
