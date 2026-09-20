@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
+import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
+import { bookingIntent } from "@/lib/portfolio-funnel-context";
 import type { ManagedProject } from "@/lib/portfolio-managed";
 
 /**
@@ -65,6 +67,13 @@ export function PortfolioManagedView({ project }: Props) {
 
   const overlay = project.preset === "impact" || project.preset === "immersive";
   const location = [project.city, project.state].filter(Boolean).join(" — ");
+  const quizMode = bookingIntent(project.funnelIntent) ? "booking" : "proposal";
+  const quizConfig = {
+    services: project.services.map((service) => service.title),
+    proposalKind: "service" as const,
+  };
+  const managedCtaClass =
+    "mt-6 inline-flex w-fit rounded-full bg-[var(--managed-accent)] px-5 py-3 text-sm font-bold text-white";
 
   return (
     <main
@@ -111,6 +120,17 @@ export function PortfolioManagedView({ project }: Props) {
                     {project.heroSubheadline}
                   </p>
                 ) : null}
+                <PortfolioCTAQuiz
+                  clientKey={project.clientKey}
+                  studioName={project.displayName}
+                  recipientName={project.displayName}
+                  mode={quizMode}
+                  funnelIntent={project.funnelIntent}
+                  quizConfig={quizConfig}
+                  className={managedCtaClass}
+                >
+                  {project.ctaLabel}
+                </PortfolioCTAQuiz>
               </div>
             </div>
           ) : (
@@ -126,9 +146,17 @@ export function PortfolioManagedView({ project }: Props) {
               {project.summary ? (
                 <p className="mt-4 max-w-xl text-sm opacity-70">{project.summary}</p>
               ) : null}
-              <p className="mt-6 inline-flex w-fit rounded-full bg-[var(--managed-accent)] px-5 py-3 text-sm font-bold text-white">
+              <PortfolioCTAQuiz
+                clientKey={project.clientKey}
+                studioName={project.displayName}
+                recipientName={project.displayName}
+                mode={quizMode}
+                funnelIntent={project.funnelIntent}
+                quizConfig={quizConfig}
+                className={managedCtaClass}
+              >
                 {project.ctaLabel}
-              </p>
+              </PortfolioCTAQuiz>
             </>
           )}
         </div>

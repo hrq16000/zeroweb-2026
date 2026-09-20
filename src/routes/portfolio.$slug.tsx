@@ -19,6 +19,7 @@ import type { ManagedProject } from "@/lib/portfolio-managed";
 import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
 import { getBlueprintPage } from "@/components/portfolio/blueprint/registry";
 import { getCompositionPage } from "@/components/portfolio/composition/registry";
+import { bookingIntent } from "@/lib/portfolio-funnel-context";
 
 /** Metadados dos projetos criados pelo painel: 100% derivados dos dados salvos. */
 function managedHead(project: ManagedProject) {
@@ -1311,7 +1312,19 @@ function PortfolioPrototypePage() {
   // Projeto criado pelo painel: mesma casca comercial, conteúdo 100% do cliente.
   if (managed) {
     return (
-      <PortfolioStandardShell slug={slug} includePlatformFooter={false}>
+      <PortfolioStandardShell
+        slug={slug}
+        includePlatformFooter={false}
+        clientKeyOverride={managed.clientKey}
+        siteNameOverride={managed.displayName}
+        contactModeOverride={bookingIntent(managed.funnelIntent) ? "booking" : "proposal"}
+        contactLabelOverride={managed.ctaLabel}
+        funnelIntentOverride={managed.funnelIntent}
+        quizConfigOverride={{
+          services: managed.services.map((service) => service.title),
+          proposalKind: "service",
+        }}
+      >
         <PortfolioManagedView project={managed} />
       </PortfolioStandardShell>
     );
