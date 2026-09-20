@@ -66,31 +66,31 @@ export function ProductActionGate({
       slug: product.slug,
       name: product.name,
       purpose: runtimeIntent.purpose,
-      variant_id: product.variantId ?? null,
+      variant_id: product.variantId ?? undefined,
     });
     if (alreadyInCart()) {
       openFunnel();
-      trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? null, from: "in_cart" });
+      trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? undefined, from: "in_cart" });
       return;
     }
     setSuggesting(true);
-    trackEvent("cart_suggestion_view", { slug: product.slug, variant_id: product.variantId ?? null });
+    trackEvent("cart_suggestion_view", { slug: product.slug, variant_id: product.variantId ?? undefined });
   }
 
   function acceptSuggestion() {
     addToCart(product);
-    trackEvent("cart_suggestion_accept", { slug: product.slug, variant_id: product.variantId ?? null });
+    trackEvent("cart_suggestion_accept", { slug: product.slug, variant_id: product.variantId ?? undefined });
     trackEvent("product_added_to_cart", { slug: product.slug, source: "gate_suggestion" });
     setSuggesting(false);
     openFunnel();
-    trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? null, from: "cart_accept" });
+    trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? undefined, from: "cart_accept" });
   }
 
   function declineSuggestion() {
-    trackEvent("cart_suggestion_decline", { slug: product.slug, variant_id: product.variantId ?? null });
+    trackEvent("cart_suggestion_decline", { slug: product.slug, variant_id: product.variantId ?? undefined });
     setSuggesting(false);
     openFunnel();
-    trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? null, from: "cart_decline" });
+    trackEvent("product_funnel_open", { slug: product.slug, variant_id: product.variantId ?? undefined, from: "cart_decline" });
   }
 
   return (

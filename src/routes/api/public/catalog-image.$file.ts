@@ -52,7 +52,7 @@ function imageResponse(bytes: Uint8Array, file: string, contentType: string, req
       headers: { ETag: etag, "Cache-Control": "public, max-age=31536000, immutable" },
     });
   }
-  return new Response(bytes, {
+  return new Response(bytes.buffer as ArrayBuffer, {
     status: 200,
     headers: {
       "Content-Type": contentType,

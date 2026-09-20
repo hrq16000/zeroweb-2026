@@ -28,7 +28,7 @@ export function AddToCartButton({ item, variant = "outline", size = "lg", classN
         cart_session: cartSession,
         service_slug: item.slug,
         slug: item.slug,
-        variant_id: item.variantId ?? null,
+        variant_id: item.variantId ?? undefined,
         price: item.price ?? 0,
         category: item.category ?? "",
       }),
