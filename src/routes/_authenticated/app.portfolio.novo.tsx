@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, Check, Monitor, Save, Smartphone } from "lucide-react";
+import { ArrowLeft, Check, Monitor, Save, Smartphone, Upload } from "lucide-react";
 import {
   getManagedProjectAdmin,
   listManagedProjects,
   saveManagedProject,
   setManagedLifecycle,
+  uploadManagedPortfolioAsset,
 } from "@/lib/portfolio-managed.functions";
 import {
   MANAGED_DELIVERY_MODES,
@@ -187,6 +188,7 @@ function PortfolioWizard() {
 
   const save = useServerFn(saveManagedProject);
   const transition = useServerFn(setManagedLifecycle);
+  const uploadAsset = useServerFn(uploadManagedPortfolioAsset);
   const load = useServerFn(getManagedProjectAdmin);
   const list = useServerFn(listManagedProjects);
 
@@ -261,21 +263,84 @@ function PortfolioWizard() {
     [draft, saved],
   );
 
+  async function persistDraft(
+    source: Draft,
+    expectedVersion?: number,
+  ) {
+    const res = await save({
+      data: {
+        ...source,
+        slug: source.slug.trim().toLowerCase(),
+        expectedVersion,
+      },
+    });
+    setSaved(res as never);
+    return res;
+  }
+
   async function handleSave() {
     setBusy(true);
     setMessage(null);
     try {
-      const res = await save({
-        data: {
-          ...draft,
-          slug: draft.slug.trim().toLowerCase(),
-          expectedVersion: saved?.project.contentVersion,
-        },
-      });
-      setSaved(res as never);
+      await persistDraft(draft, saved?.project.contentVersion);
       setMessage("Rascunho salvo.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Falha ao salvar.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleAssetUpload(
+    kind: "logo" | "hero" | "cover" | "social" | "gallery",
+    file: File,
+  ) {
+    setBusy(true);
+    setMessage(null);
+    try {
+      const slug = draft.slug.trim().toLowerCase();
+      if (!slug) throw new Error("Defina o endereço público (slug) antes de enviar imagens.");
+
+      let current = saved;
+      if (!current || current.project.slug !== slug) {
+        current = (await persistDraft(draft)) as never;
+      }
+
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      let binary = "";
+      for (const byte of bytes) binary += String.fromCharCode(byte);
+      const uploaded = await uploadAsset({
+        data: {
+          slug,
+          kind,
+          fileName: file.name,
+          contentType: file.type as "image/jpeg" | "image/png" | "image/webp" | "image/avif",
+          base64: btoa(binary),
+        },
+      });
+
+      const nextDraft: Draft =
+        kind === "logo"
+          ? { ...draft, logoUrl: uploaded.url }
+          : kind === "hero"
+            ? { ...draft, heroImageUrl: uploaded.url }
+            : kind === "cover"
+              ? { ...draft, catalogCoverUrl: uploaded.url }
+              : kind === "social"
+                ? { ...draft, socialImageUrl: uploaded.url }
+                : {
+                    ...draft,
+                    gallery: [
+                      ...draft.gallery,
+                      { url: uploaded.url, alt: "", focal: { x: 50, y: 50 } },
+                    ],
+                  };
+
+      setDraft(nextDraft);
+      await persistDraft(nextDraft, current.project.contentVersion);
+      setMessage("Imagem enviada e vinculada ao projeto.");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Falha no envio da imagem.");
     } finally {
       setBusy(false);
     }
@@ -384,6 +449,20 @@ function PortfolioWizard() {
           {step === 2 ? (
             <>
               <Text label="Logo (caminho interno)" value={draft.logoUrl} onChange={(v) => set("logoUrl", v)} />
+              <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold">
+                <Upload className="h-4 w-4" /> Enviar logo
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif"
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) void handleAssetUpload("logo", file);
+                    e.currentTarget.value = "";
+                  }}
+                />
+              </label>
               {(["primary", "accent", "surface", "ink"] as const).map((key) => (
                 <label key={key} className="flex items-center justify-between gap-3 text-sm">
                   <span className="text-xs font-semibold text-muted-foreground uppercase">{key}</span>
@@ -401,6 +480,20 @@ function PortfolioWizard() {
           {step === 3 ? (
             <>
               <Text label="Imagem de destaque" value={draft.heroImageUrl} onChange={(v) => set("heroImageUrl", v)} />
+              <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold">
+                <Upload className="h-4 w-4" /> Enviar imagem de destaque
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif"
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) void handleAssetUpload("hero", file);
+                    e.currentTarget.value = "";
+                  }}
+                />
+              </label>
               <div className="grid grid-cols-2 gap-3">
                 <Text
                   label="Foco destaque X (%)"
@@ -426,6 +519,20 @@ function PortfolioWizard() {
                 onChange={(v) => set("catalogCoverUrl", v)}
                 hint="Imagem própria do cliente exibida em /portfolio."
               />
+              <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold">
+                <Upload className="h-4 w-4" /> Enviar capa do catálogo
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif"
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) void handleAssetUpload("cover", file);
+                    e.currentTarget.value = "";
+                  }}
+                />
+              </label>
               <div className="grid grid-cols-2 gap-3">
                 <Text
                   label="Foco capa X (%)"
@@ -504,6 +611,20 @@ function PortfolioWizard() {
                 }
                 textarea
               />
+              <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold">
+                <Upload className="h-4 w-4" /> Adicionar imagem à galeria
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif"
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) void handleAssetUpload("gallery", file);
+                    e.currentTarget.value = "";
+                  }}
+                />
+              </label>
               <Text
                 label="Galeria (um caminho por linha)"
                 value={draft.gallery.map((item) => item.url).join("\n")}
@@ -603,6 +724,20 @@ function PortfolioWizard() {
                 value={draft.socialImageUrl}
                 onChange={(v) => set("socialImageUrl", v)}
               />
+              <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-semibold">
+                <Upload className="h-4 w-4" /> Enviar imagem social
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp,image/avif"
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) void handleAssetUpload("social", file);
+                    e.currentTarget.value = "";
+                  }}
+                />
+              </label>
               <Text label="Versão da imagem social" value={draft.socialVersion} onChange={(v) => set("socialVersion", v)} />
               <Text label="Texto do botão de contato" value={draft.ctaLabel} onChange={(v) => set("ctaLabel", v)} />
               <Text

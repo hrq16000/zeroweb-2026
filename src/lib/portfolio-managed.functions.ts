@@ -17,6 +17,7 @@ import {
   type ManagedProject,
 } from "@/lib/portfolio-managed";
 import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
+import { UPLOAD_PUBLIC_PREFIX } from "@/lib/portfolio-admin";
 
 export const MANAGED_COLUMNS = [
   "client_key",
@@ -187,6 +188,63 @@ export const listPublishedManagedProjects = createServerFn({ method: "GET" }).ha
     }
   },
 );
+
+
+const managedAssetUploadSchema = z.object({
+  slug: z.string().trim().min(3).max(80),
+  kind: z.enum(["logo", "hero", "cover", "social", "gallery"]),
+  fileName: z.string().trim().min(1).max(120),
+  contentType: z.enum(["image/jpeg", "image/png", "image/webp", "image/avif"]),
+  base64: z.string().min(16).max(6_000_000),
+});
+
+/**
+ * Upload de asset para projeto Managed.
+ *
+ * Exige que o rascunho já exista como project_kind=managed; nunca reutiliza
+ * registry legado e nunca escreve URL externa. O bucket continua privado e
+ * a página pública recebe somente a rota controlada de leitura.
+ */
+export const uploadManagedPortfolioAsset = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => managedAssetUploadSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const admin = await assertAdmin(context.userId);
+    const slug = data.slug.toLowerCase();
+    if (!SLUG_RE.test(slug)) throw new Error("Projeto inválido.");
+
+    const { data: project } = await admin
+      .from("portfolio_client_settings")
+      .select("client_key, project_kind")
+      .eq("slug", slug)
+      .maybeSingle();
+    if (!project || project.project_kind !== "managed") {
+      throw new Error("Salve o rascunho Managed antes de enviar imagens.");
+    }
+
+    const bytes = Buffer.from(data.base64, "base64");
+    if (bytes.byteLength === 0) throw new Error("Arquivo vazio.");
+    if (bytes.byteLength > 4 * 1024 * 1024) throw new Error("Arquivo acima de 4 MB.");
+
+    const ext = data.contentType.split("/")[1].replace("jpeg", "jpg");
+    const safeName = data.fileName
+      .toLowerCase()
+      .replace(/\.[a-z0-9]+$/, "")
+      .replace(/[^a-z0-9-]+/g, "-")
+      .slice(0, 60);
+    const objectPath = `${slug}/${data.kind}-${Date.now()}-${safeName || "asset"}.${ext}`;
+
+    const { error } = await admin.storage
+      .from("portfolio-admin")
+      .upload(objectPath, bytes, { contentType: data.contentType, upsert: false });
+    if (error) throw new Error(error.message);
+
+    await logHistory(admin, String(project.client_key ?? slug), context.userId, [
+      { field: `managed_asset_${data.kind}`, old_value: null, new_value: objectPath },
+    ]);
+
+    return { url: `${UPLOAD_PUBLIC_PREFIX}/${objectPath}`, path: objectPath };
+  });
 
 const wizardSchema = z.object({
   slug: z.string().trim().min(3).max(80),
