@@ -119,3 +119,15 @@ Fluxo comprovado: **ADMIN → `portfolio_client_settings` → resolver único �
 | override `seo_title` no banco | `<title>TESTE RUNTIME 0WEB — Paulo Mestre de Obras</title>` e `og:title` idêntico |
 | `lifecycle_status = draft` | `robots noindex,nofollow` e URL fora do `sitemap-portfolio.xml` |
 | limpar override + `published` | volta ao registry e ao sitemap |
+
+## Histórico de solicitações de destino no painel de leads
+
+A tela `/app/leads/marcas` reúne a operação comercial da marca sem criar uma
+segunda fonte de verdade: os leads continuam vindo do pipeline de funil e o
+histórico de solicitação de WhatsApp vem de
+`portfolio_destination_requests`.
+
+Cada marca exibe envios, canal, status, data da resposta e observações já
+mascaradas no servidor. O painel nunca expõe telefone ou e-mail completos e
+não altera o destino operacional. A fonte canônica do destino continua sendo
+`src/config/portfolio-whatsapp.json`.

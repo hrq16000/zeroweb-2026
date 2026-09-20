@@ -24,6 +24,10 @@ import {
   listPortfolioFunnelLeads,
   type PortfolioFunnelLead,
 } from "@/lib/portfolio-funnel-leads.functions";
+import {
+  listDestinationRequests,
+  type DestinationRequestRow,
+} from "@/lib/portfolio-destination-requests.functions";
 
 export const Route = createFileRoute("/_authenticated/app/leads/marcas")({
   head: () => ({
@@ -47,6 +51,16 @@ export const Route = createFileRoute("/_authenticated/app/leads/marcas")({
 const dt = (iso: string) =>
   new Date(iso).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" });
 
+const REQUEST_STATUS_LABEL: Record<string, string> = {
+  ENVIADO: "Enviado, aguardando resposta",
+  RESPONDIDO: "Respondido",
+  SEM_RESPOSTA: "Sem resposta",
+  RECUSADO: "Recusou informar",
+  NUMERO_RECEBIDO: "Número recebido",
+};
+
+const requestStatusLabel = (status: string) => REQUEST_STATUS_LABEL[status] ?? status;
+
 const statusLabel = (lead: PortfolioFunnelLead) => {
   const s = (lead.status ?? "").toLowerCase();
   if (s === "sent" || s === "delivered") return "Encaminhado";
@@ -66,7 +80,9 @@ type Brand = {
 
 function LeadsPorMarcaPage() {
   const load = useServerFn(listPortfolioFunnelLeads);
+  const loadDestinationRequests = useServerFn(listDestinationRequests);
   const [leads, setLeads] = useState<PortfolioFunnelLead[]>([]);
+  const [destinationRequests, setDestinationRequests] = useState<DestinationRequestRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [term, setTerm] = useState("");
@@ -79,14 +95,25 @@ function LeadsPorMarcaPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await load({ data: { limit: 300, from: from || undefined, to: to || undefined, recoverability: recoverability || undefined } });
+      const [res, requestHistory] = await Promise.all([
+        load({
+          data: {
+            limit: 300,
+            from: from || undefined,
+            to: to || undefined,
+            recoverability: recoverability || undefined,
+          },
+        }),
+        loadDestinationRequests(),
+      ]);
       setLeads(res.leads);
+      setDestinationRequests(requestHistory.rows);
     } catch (e) {
       setError((e as Error).message);
     } finally {
       setLoading(false);
     }
-  }, [load, from, to, recoverability]);
+  }, [load, loadDestinationRequests, from, to, recoverability]);
 
   useEffect(() => {
     void refresh();
@@ -116,6 +143,19 @@ function LeadsPorMarcaPage() {
       .filter((b) => !q || b.name.toLowerCase().includes(q) || b.key.toLowerCase().includes(q))
       .sort((a, b) => b.last.localeCompare(a.last));
   }, [leads, term]);
+
+  const requestsByBrand = useMemo(() => {
+    const map = new Map<string, DestinationRequestRow[]>();
+    for (const request of destinationRequests) {
+      const keys = new Set([request.client_key, request.slug].filter(Boolean) as string[]);
+      for (const key of keys) {
+        const current = map.get(key) ?? [];
+        current.push(request);
+        map.set(key, current);
+      }
+    }
+    return map;
+  }, [destinationRequests]);
 
   return (
     <div className="p-6 space-y-6">
@@ -185,6 +225,8 @@ function LeadsPorMarcaPage() {
       <div className="space-y-3">
         {brands.map((brand) => {
           const expanded = open === brand.key;
+          const requestHistory = requestsByBrand.get(brand.key) ?? [];
+          const latestRequest = requestHistory[0] ?? null;
           return (
             <section key={brand.key} className="rounded-lg border border-border">
               <button
@@ -199,11 +241,52 @@ function LeadsPorMarcaPage() {
                 <span className="text-xs text-muted-foreground">
                   {brand.leads.length} pedidos · {brand.withContact} com contato de retorno · último{" "}
                   {dt(brand.last)}
+                  {latestRequest
+                    ? ` · solicitação de destino: ${requestStatusLabel(latestRequest.status)}`
+                    : " · sem solicitação de destino registrada"}
                 </span>
               </button>
 
               {expanded && (
-                <div className="overflow-x-auto border-t border-border">
+                <div className="border-t border-border">
+                  <div className="border-b border-border bg-muted/20 px-4 py-3">
+                    <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      Histórico de solicitações do destino
+                    </h3>
+                    {requestHistory.length === 0 ? (
+                      <p className="mt-2 text-xs text-muted-foreground">
+                        Nenhuma solicitação de número registrada para esta marca.
+                      </p>
+                    ) : (
+                      <div className="mt-2 overflow-x-auto">
+                        <table className="w-full min-w-[720px] text-xs">
+                          <thead className="text-left uppercase text-muted-foreground">
+                            <tr>
+                              <th className="py-2 pr-4">Envio</th>
+                              <th className="py-2 pr-4">Canal</th>
+                              <th className="py-2 pr-4">Status</th>
+                              <th className="py-2 pr-4">Resposta</th>
+                              <th className="py-2">Observação</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {requestHistory.map((request) => (
+                              <tr key={request.id} className="border-t border-border/60">
+                                <td className="py-2 pr-4 whitespace-nowrap">{dt(request.sent_at)}</td>
+                                <td className="py-2 pr-4">{request.channel}</td>
+                                <td className="py-2 pr-4">{requestStatusLabel(request.status)}</td>
+                                <td className="py-2 pr-4 whitespace-nowrap">
+                                  {request.response_at ? dt(request.response_at) : "—"}
+                                </td>
+                                <td className="py-2">{request.response_note ?? request.sent_note ?? "—"}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
+                  <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead className="bg-muted/40 text-left text-xs uppercase text-muted-foreground">
                       <tr>
@@ -231,6 +314,7 @@ function LeadsPorMarcaPage() {
                       ))}
                     </tbody>
                   </table>
+                  </div>
                 </div>
               )}
             </section>

@@ -1,7 +1,7 @@
 /**
  * Solicitações de WhatsApp às marcas sem destino comprovado.
  * Registro operacional: envio, status e resposta — sempre com número mascarado.
- * Fonte única continua `portfolio_client_settings`; aqui é só o rastro do contato.
+ * A fonte operacional de destino é `src/config/portfolio-whatsapp.json`; aqui fica apenas o rastro auditável de envio/resposta.
  */
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
