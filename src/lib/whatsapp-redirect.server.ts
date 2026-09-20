@@ -104,13 +104,33 @@ export function getPortfolioWhatsAppChannelState(
 export async function resolvePortfolioWhatsAppContactAsync(
   clientKey?: string | null,
 ): Promise<OperationalWhatsAppContact | null> {
-  return resolvePortfolioWhatsAppContact(clientKey);
+  if (!clientKey) return null;
+  if (isPortfolioClientKey(clientKey)) return resolvePortfolioWhatsAppContact(clientKey);
+  if (!/^[a-z0-9][a-z0-9-]{1,78}[a-z0-9]$/.test(clientKey)) return null;
+
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  // Projetos Managed são dinâmicos por definição. Somente eles podem resolver
+  // o destino no banco; clientes legados continuam exclusivamente no registry
+  // versionado. A consulta é por client_key exato e nunca tem fallback.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { data } = await (supabaseAdmin as any)
+    .from("portfolio_client_settings")
+    .select("client_key, funnel_enabled, funnel_recipient, project_kind, lifecycle_status, published")
+    .eq("client_key", clientKey)
+    .eq("project_kind", "managed")
+    .eq("lifecycle_status", "published")
+    .eq("published", true)
+    .maybeSingle();
+  if (!data || data.client_key !== clientKey || !data.funnel_enabled) return null;
+  const digits =
+    typeof data.funnel_recipient === "string" ? data.funnel_recipient.replace(/\D/g, "") : "";
+  return digits.length >= 10 && digits.length <= 15 ? { digits } : null;
 }
 
 export async function getPortfolioWhatsAppChannelStateAsync(
   clientKey?: string | null,
 ): Promise<WhatsAppChannelState> {
-  return getPortfolioWhatsAppChannelState(clientKey);
+  return (await resolvePortfolioWhatsAppContactAsync(clientKey)) ? "CONFIGURED" : "NOT_CONFIGURED";
 }
 
 // ============================================================================

@@ -1,7 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest, getRequestHeader, getRequestIP } from "@tanstack/react-start/server";
 import { z } from "zod";
-import { PORTFOLIO_CLIENT_KEYS } from "@/lib/portfolio-client-keys";
+import { PORTFOLIO_CLIENT_KEYS, isPortfolioClientKey } from "@/lib/portfolio-client-keys";
+import { PORTFOLIO_FUNNEL_INTENTS } from "@/lib/portfolio-funnel-context";
 import { scoreLead } from "./lead-scoring";
 
 // ============ Types (also used by the client UI) ============
@@ -30,6 +31,28 @@ export interface FunnelCondition {
   target_question_id: string | null;
   priority: number;
 }
+const MANAGED_PORTFOLIO_KEY_RE = /^[a-z0-9][a-z0-9-]{1,78}[a-z0-9]$/;
+const portfolioRoutingKeySchema = z.union([
+  z.enum(PORTFOLIO_CLIENT_KEYS),
+  z.string().trim().regex(MANAGED_PORTFOLIO_KEY_RE),
+]);
+
+async function resolvePortfolioRoutingKind(
+  admin: any,
+  clientKey: string,
+): Promise<"legacy" | "managed" | null> {
+  if (isPortfolioClientKey(clientKey)) return "legacy";
+  const { data } = await admin
+    .from("portfolio_client_settings")
+    .select("client_key")
+    .eq("client_key", clientKey)
+    .eq("project_kind", "managed")
+    .eq("lifecycle_status", "published")
+    .eq("published", true)
+    .maybeSingle();
+  return data?.client_key === clientKey ? "managed" : null;
+}
+
 export interface FunnelDefinition {
   id: string;
   slug: string;
@@ -494,11 +517,12 @@ const softText = (max: number) =>
 
 export const submitPortfolioQuiz = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => z.object({
-    clientKey: z.enum(PORTFOLIO_CLIENT_KEYS),
+    clientKey: portfolioRoutingKeySchema,
     studioName: z.string().min(1).max(100),
     recipientName: z.string().min(1).max(80),
     mode: z.enum(["booking", "proposal"]),
     proposalKind: z.enum(["campaign", "service"]).default("service"),
+    funnelIntent: z.enum(PORTFOLIO_FUNNEL_INTENTS).optional(),
     pageUrl: z.string().url().max(500).optional(),
     sessionId: z.string().min(4).max(120).optional(),
     visitorId: z.string().min(4).max(120).optional(),
@@ -522,6 +546,9 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
 
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const routingKind = await resolvePortfolioRoutingKind(supabaseAdmin as any, data.clientKey);
+    if (!routingKind) throw new Error("Projeto de portfólio não registrado.");
+
     const orderContext = {
       order_items: data.orderContext?.order_items || data.answers.service || undefined,
       order_total: data.orderContext?.order_total || undefined,
@@ -531,16 +558,22 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     const hasOrderContext = Object.values(orderContext).some(Boolean);
     const clientFunnelSlug = `portfolio-${data.clientKey}`;
     const clientFunnelSlugAlt = `funnel-${data.clientKey}`;
+    const funnelSlugs =
+      routingKind === "managed"
+        ? [clientFunnelSlug, clientFunnelSlugAlt]
+        : [clientFunnelSlug, clientFunnelSlugAlt, "funnel-service"];
     const { data: forms, error: formError } = await supabaseAdmin
       .from("dynamic_forms")
       .select("id, slug")
-      .in("slug", [clientFunnelSlug, clientFunnelSlugAlt, "funnel-service"])
+      .in("slug", funnelSlugs)
       .eq("status", "published");
     if (formError) throw new Error("Funil de atendimento indisponível");
     const form =
       (forms ?? []).find((f) => f.slug === clientFunnelSlug) ??
       (forms ?? []).find((f) => f.slug === clientFunnelSlugAlt) ??
-      (forms ?? []).find((f) => f.slug === "funnel-service");
+      (routingKind === "legacy"
+        ? (forms ?? []).find((f) => f.slug === "funnel-service")
+        : undefined);
     if (!form) throw new Error("Funil de atendimento indisponível");
 
     let ip: string | null = null;
@@ -568,6 +601,7 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       recipient_name: data.recipientName,
       mode: data.mode,
       proposal_kind: data.proposalKind,
+      ...(data.funnelIntent ? { funnel_intent: data.funnelIntent } : {}),
       ...(hasOrderContext ? { order_context: orderContext } : {}),
       completed_at: new Date().toISOString(),
       page_url: data.pageUrl ?? pageUrl,
@@ -695,9 +729,12 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
  */
 export const getPortfolioFunnelDelivery = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) =>
-    z.object({ clientKey: z.enum(PORTFOLIO_CLIENT_KEYS) }).parse(data),
+    z.object({ clientKey: portfolioRoutingKeySchema }).parse(data),
   )
   .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const routingKind = await resolvePortfolioRoutingKind(supabaseAdmin as any, data.clientKey);
+    if (!routingKind) throw new Error("Projeto de portfólio não registrado.");
     const { getPortfolioWhatsAppChannelStateAsync } = await import(
       "@/lib/whatsapp-redirect.server"
     );

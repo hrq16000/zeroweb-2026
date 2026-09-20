@@ -35,7 +35,11 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
           CONSUME_TOKEN_RATE_MAX,
         } = await import("@/lib/whatsapp-redirect.server");
 
-        const { resolvePortfolioFunnelContext } = await import("@/lib/portfolio-funnel-context");
+        const {
+          buildPortfolioFunnelContextForIntent,
+          PORTFOLIO_FUNNEL_INTENTS,
+          resolvePortfolioFunnelContext,
+        } = await import("@/lib/portfolio-funnel-context");
 
         const { reportRoutingIncident } = await import("@/lib/funnel-routing-incidents.server");
 
@@ -246,9 +250,20 @@ export const Route = createFileRoute("/r/whatsapp/$token")({
 
           // Contrato de funil do projeto: assunto e próximo passo coerentes com
           // o negócio do cliente (nunca com o funil comercial da 0WEB).
+          const metadataIntent =
+            typeof meta.funnel_intent === "string" &&
+            (PORTFOLIO_FUNNEL_INTENTS as readonly string[]).includes(meta.funnel_intent)
+              ? meta.funnel_intent
+              : null;
           const portfolioFunnel =
             typeof meta.client_key === "string" && meta.client_key
-              ? resolvePortfolioFunnelContext(meta.client_key)
+              ? metadataIntent
+                ? buildPortfolioFunnelContextForIntent(
+                    meta.client_key,
+                    metadataIntent as (typeof PORTFOLIO_FUNNEL_INTENTS)[number],
+                    typeof meta.studio_name === "string" ? meta.studio_name : "a empresa",
+                  )
+                : resolvePortfolioFunnelContext(meta.client_key)
               : null;
           const quizAnswers = (lead.answers_json ?? {}) as Record<string, unknown>;
           const isPortfolioQuizLead =
