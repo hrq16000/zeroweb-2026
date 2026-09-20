@@ -141,27 +141,78 @@ export function CommerceFunnelPanel() {
                 Conversão carrinho → pago: {metrics.rates.cartToPaid}%.
               </p>
             </div>
-            <div className="rounded-xl border border-border p-3">
-              <p className="text-xs font-semibold mb-2">Itens mais adicionados</p>
-              {metrics.topProducts.length === 0 ? (
+            <div className="rounded-xl border border-border p-3 overflow-x-auto">
+              <p className="text-xs font-semibold mb-2">Conversão por produto / variante</p>
+              {metrics.productPerformance.length === 0 ? (
                 <p className="text-xs text-muted-foreground">Sem adições no período.</p>
               ) : (
-                <ul className="space-y-1.5">
-                  {metrics.topProducts.map((item) => (
-                    <li
-                      key={`${item.serviceSlug}::${item.variantId}`}
-                      className="flex items-center justify-between gap-3 text-xs"
-                    >
-                      <span className="truncate">
-                        {item.serviceSlug}
-                        {item.variantId !== "base" ? ` · ${item.variantId}` : ""}
-                      </span>
-                      <strong className="tabular-nums">{item.count}</strong>
-                    </li>
-                  ))}
-                </ul>
+                <table className="w-full min-w-[520px] text-xs">
+                  <thead className="text-muted-foreground">
+                    <tr>
+                      <th className="text-left py-1 pr-3">Produto</th>
+                      <th className="text-right px-2">Carrinho</th>
+                      <th className="text-right px-2">Checkout</th>
+                      <th className="text-right px-2">Resultado</th>
+                      <th className="text-right pl-2">Pago</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {metrics.productPerformance.slice(0, 8).map((item) => (
+                      <tr key={`${item.serviceSlug}::${item.variantId}`} className="border-t border-border/60">
+                        <td className="py-1.5 pr-3">
+                          <span className="font-medium">{item.serviceSlug}</span>
+                          {item.variantId !== "base" ? (
+                            <span className="text-muted-foreground"> · {item.variantId}</span>
+                          ) : null}
+                        </td>
+                        <td className="text-right px-2 tabular-nums">{item.added}</td>
+                        <td className="text-right px-2 tabular-nums">{item.checkoutRate}%</td>
+                        <td className="text-right px-2 tabular-nums">{item.resultRate}%</td>
+                        <td className="text-right pl-2 tabular-nums">{item.paidRate}%</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               )}
             </div>
+          </div>
+
+          <div className="mt-4 rounded-xl border border-border p-3 overflow-x-auto">
+            <p className="text-xs font-semibold mb-2">Origem de aquisição</p>
+            {metrics.sourcePerformance.length === 0 ? (
+              <p className="text-xs text-muted-foreground">Sem origem comercial no período.</p>
+            ) : (
+              <table className="w-full min-w-[620px] text-xs">
+                <thead className="text-muted-foreground">
+                  <tr>
+                    <th className="text-left py-1 pr-3">Origem / campanha</th>
+                    <th className="text-right px-2">Carrinhos</th>
+                    <th className="text-right px-2">Checkout</th>
+                    <th className="text-right px-2">Resultado</th>
+                    <th className="text-right px-2">Pago</th>
+                    <th className="text-right pl-2">Receita</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {metrics.sourcePerformance.slice(0, 8).map((item) => (
+                    <tr
+                      key={`${item.source}::${item.campaign ?? ""}`}
+                      className="border-t border-border/60"
+                    >
+                      <td className="py-1.5 pr-3">
+                        <span className="font-medium">{item.source}</span>
+                        {item.campaign ? <span className="text-muted-foreground"> · {item.campaign}</span> : null}
+                      </td>
+                      <td className="text-right px-2 tabular-nums">{item.carts}</td>
+                      <td className="text-right px-2 tabular-nums">{item.checkoutRate}%</td>
+                      <td className="text-right px-2 tabular-nums">{item.resultRate}%</td>
+                      <td className="text-right px-2 tabular-nums">{item.paidRate}%</td>
+                      <td className="text-right pl-2 tabular-nums">{brl(item.revenue)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
 
           <p className="mt-3 text-[11px] text-muted-foreground">

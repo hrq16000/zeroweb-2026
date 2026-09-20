@@ -375,3 +375,19 @@ Falhas confirmadas pelo Stripe usam `payment_intent.payment_failed`. O
 `payment_failed` e o evento analítico recebe UUID determinístico para que
 reenvios do webhook não dupliquem a falha. O status comercial do pedido não é
 encerrado automaticamente: uma nova tentativa ainda pode resultar em pagamento.
+
+## 31. Conversão por produto e aquisição
+
+O funil comercial administrativo também cruza a jornada do carrinho com o
+produto/variante efetivamente selecionado. Como uma nova variante substitui a
+anterior no mesmo serviço, somente a seleção mais recente da jornada entra na
+leitura por produto.
+
+Para cada produto o painel mostra entrada no carrinho, avanço ao checkout,
+resultado comercial (atendimento solicitado ou pagamento confirmado) e venda
+paga. A atribuição por origem usa o first touch da própria telemetria V2 e
+mantém campanha quando disponível.
+
+Receita é atribuída à origem da jornada usando o `cart_session` do pagamento
+confirmado. Essas métricas são operacionais: não misturam tráfego interno,
+automação ou bots e não transformam atendimento assistido em venda paga.

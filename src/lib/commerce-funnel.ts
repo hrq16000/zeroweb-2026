@@ -15,6 +15,8 @@ export type CommerceEventRow = {
   event_name: string;
   session_id: string | null;
   visitor_id: string | null;
+  utm_source?: string | null;
+  utm_campaign?: string | null;
   metadata_json: unknown;
   created_at: string;
 };
@@ -32,6 +34,18 @@ function numberOf(value: unknown) {
 
 function pct(value: number, base: number) {
   return base > 0 ? Math.round((value / base) * 1000) / 10 : 0;
+}
+
+function intersectCount(a: Set<string>, b: Set<string>) {
+  let count = 0;
+  for (const value of a) if (b.has(value)) count += 1;
+  return count;
+}
+
+function unionSet(...sets: Set<string>[]) {
+  const out = new Set<string>();
+  for (const set of sets) for (const value of set) out.add(value);
+  return out;
 }
 
 export function commerceJourneyKey(row: CommerceEventRow) {
@@ -57,7 +71,8 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
   };
   const allJourneys = new Set<string>();
   const canonicalJourneys = new Set<string>();
-  const productJourneys = new Map<string, Set<string>>();
+  const latestProductsByJourney = new Map<string, Map<string, string>>();
+  const journeyAcquisition = new Map<string, { source: string; campaign: string | null }>();
   const paidValues = new Map<string, number>();
 
   for (const row of rows) {
@@ -72,6 +87,18 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
     allJourneys.add(journey);
     if (journey.startsWith("cart_")) canonicalJourneys.add(journey);
 
+    if (!journeyAcquisition.has(journey)) {
+      const source =
+        typeof metadata.ft_source === "string"
+          ? metadata.ft_source
+          : row.utm_source || "direct";
+      const campaign =
+        typeof metadata.ft_campaign === "string"
+          ? metadata.ft_campaign
+          : row.utm_campaign ?? null;
+      journeyAcquisition.set(journey, { source, campaign });
+    }
+
     if (row.event_name === "add_to_cart") {
       stages.cartAdded.add(journey);
       const slug =
@@ -82,10 +109,10 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
             : null;
       if (slug) {
         const variantId = typeof metadata.variant_id === "string" ? metadata.variant_id : "base";
-        const productKey = `${slug}::${variantId}`;
-        const journeys = productJourneys.get(productKey) ?? new Set<string>();
-        journeys.add(journey);
-        productJourneys.set(productKey, journeys);
+        const selected = latestProductsByJourney.get(journey) ?? new Map<string, string>();
+        // Carrinho é unitário por serviço: variante posterior substitui a anterior.
+        selected.set(slug, variantId);
+        latestProductsByJourney.set(journey, selected);
       }
     }
 
@@ -132,13 +159,88 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
     paid: stages.paid.size,
   };
 
-  const topProducts = Array.from(productJourneys.entries())
+  const productJourneys = new Map<string, Set<string>>();
+  for (const [journey, selected] of latestProductsByJourney.entries()) {
+    for (const [serviceSlug, variantId] of selected.entries()) {
+      const productKey = `${serviceSlug}::${variantId}`;
+      const journeys = productJourneys.get(productKey) ?? new Set<string>();
+      journeys.add(journey);
+      productJourneys.set(productKey, journeys);
+    }
+  }
+
+  const resultJourneys = unionSet(stages.assisted, stages.paid);
+  const productPerformance = Array.from(productJourneys.entries())
     .map(([key, journeys]) => {
       const [serviceSlug, variantId] = key.split("::");
-      return { serviceSlug, variantId, count: journeys.size };
+      const added = journeys.size;
+      const checkout = intersectCount(journeys, stages.checkoutStarted);
+      const assisted = intersectCount(journeys, stages.assisted);
+      const paymentStarted = intersectCount(journeys, stages.paymentStarted);
+      const paid = intersectCount(journeys, stages.paid);
+      const results = intersectCount(journeys, resultJourneys);
+      return {
+        serviceSlug,
+        variantId,
+        added,
+        checkout,
+        assisted,
+        paymentStarted,
+        paid,
+        results,
+        checkoutRate: pct(checkout, added),
+        resultRate: pct(results, added),
+        paidRate: pct(paid, added),
+      };
     })
-    .sort((a, b) => b.count - a.count || a.serviceSlug.localeCompare(b.serviceSlug))
-    .slice(0, 6);
+    .sort((a, b) => b.added - a.added || b.results - a.results || a.serviceSlug.localeCompare(b.serviceSlug))
+    .slice(0, 12);
+
+  const topProducts = productPerformance.slice(0, 6).map((row) => ({
+    serviceSlug: row.serviceSlug,
+    variantId: row.variantId,
+    count: row.added,
+  }));
+
+  const sourceBuckets = new Map<
+    string,
+    { source: string; campaign: string | null; journeys: Set<string> }
+  >();
+  for (const journey of stages.cartAdded) {
+    const acquisition = journeyAcquisition.get(journey) ?? { source: "unknown", campaign: null };
+    const key = `${acquisition.source}::${acquisition.campaign ?? ""}`;
+    const bucket = sourceBuckets.get(key) ?? {
+      source: acquisition.source,
+      campaign: acquisition.campaign,
+      journeys: new Set<string>(),
+    };
+    bucket.journeys.add(journey);
+    sourceBuckets.set(key, bucket);
+  }
+
+  const sourcePerformance = Array.from(sourceBuckets.values())
+    .map((bucket) => {
+      const carts = bucket.journeys.size;
+      const checkout = intersectCount(bucket.journeys, stages.checkoutStarted);
+      const results = intersectCount(bucket.journeys, resultJourneys);
+      const paid = intersectCount(bucket.journeys, stages.paid);
+      let revenue = 0;
+      for (const journey of bucket.journeys) revenue += paidValues.get(journey) ?? 0;
+      return {
+        source: bucket.source,
+        campaign: bucket.campaign,
+        carts,
+        checkout,
+        results,
+        paid,
+        revenue,
+        checkoutRate: pct(checkout, carts),
+        resultRate: pct(results, carts),
+        paidRate: pct(paid, carts),
+      };
+    })
+    .sort((a, b) => b.carts - a.carts || b.results - a.results || a.source.localeCompare(b.source))
+    .slice(0, 10);
 
   return {
     counts,
@@ -154,6 +256,8 @@ export function aggregateCommerceFunnel(rows: CommerceEventRow[]) {
     },
     paidRevenue: Array.from(paidValues.values()).reduce((sum, value) => sum + value, 0),
     topProducts,
+    productPerformance,
+    sourcePerformance,
     quality: {
       journeys: allJourneys.size,
       canonicalJourneys: canonicalJourneys.size,

@@ -75,6 +75,53 @@ describe("commerce funnel", () => {
     expect(result.rates.paymentFailureRate).toBe(50);
   });
 
+  test("variante posterior substitui a anterior na leitura por produto", () => {
+    const result = aggregateCommerceFunnel([
+      row("add_to_cart", "cart_variant", { service_slug: "google-meu-negocio", variant_id: "unico" }),
+      row("add_to_cart", "cart_variant", { service_slug: "google-meu-negocio", variant_id: "pro" }),
+      row("checkout_started", "cart_variant"),
+      row("checkout_assisted_handoff", "cart_variant"),
+    ]);
+
+    expect(result.productPerformance).toHaveLength(1);
+    expect(result.productPerformance[0]).toMatchObject({
+      serviceSlug: "google-meu-negocio",
+      variantId: "pro",
+      added: 1,
+      checkout: 1,
+      results: 1,
+      resultRate: 100,
+    });
+  });
+
+  test("atribui conversão e receita à origem da jornada", () => {
+    const events: CommerceEventRow[] = [
+      {
+        ...row("add_to_cart", "cart_source", { service_slug: "seo", ft_source: "google", ft_campaign: "seo-pr" }),
+        utm_source: "google",
+        utm_campaign: "seo-pr",
+      },
+      {
+        ...row("checkout_started", "cart_source", { ft_source: "google", ft_campaign: "seo-pr" }),
+        utm_source: "google",
+        utm_campaign: "seo-pr",
+      },
+      row("payment_paid", "cart_source", { value: 499 }),
+    ];
+    const result = aggregateCommerceFunnel(events);
+
+    expect(result.sourcePerformance[0]).toMatchObject({
+      source: "google",
+      campaign: "seo-pr",
+      carts: 1,
+      checkout: 1,
+      results: 1,
+      paid: 1,
+      revenue: 499,
+      paidRate: 100,
+    });
+  });
+
   test("exclui tráfego interno e mantém compatibilidade com sessão analítica antiga", () => {
     const legacy: CommerceEventRow = {
       event_name: "add_to_cart",

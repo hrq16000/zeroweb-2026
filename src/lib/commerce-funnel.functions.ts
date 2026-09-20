@@ -32,7 +32,7 @@ export const getCommerceFunnelMetrics = createServerFn({ method: "GET" })
     const since = new Date(Date.now() - data.days * 24 * 60 * 60 * 1000).toISOString();
     const { data: rows, error } = await supabaseAdmin
       .from("analytics_events")
-      .select("event_name,session_id,visitor_id,metadata_json,created_at")
+      .select("event_name,session_id,visitor_id,utm_source,utm_campaign,metadata_json,created_at")
       .in("event_name", [...COMMERCE_EVENT_NAMES])
       .gte("created_at", since)
       .order("created_at", { ascending: true })
