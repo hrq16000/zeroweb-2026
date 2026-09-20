@@ -44,6 +44,7 @@ export const ISSUES = {
   LOGO_BROKEN: { severity: "P0", group: "logo", penalty: 10, label: "Logo ausente ou quebrada" },
   IMAGE_BROKEN_RUNTIME: { severity: "P0", group: "mobile", penalty: 10, label: "Imagem quebrada na renderização real" },
   PAGE_ERROR: { severity: "P0", group: "mobile", penalty: 10, label: "Página não renderizou (erro ou status != 200)" },
+  RUNTIME_NOT_COLLECTED: { severity: "P1", group: "mobile", penalty: 6, label: "Inspeção visual de runtime ainda não coletada" },
 
   COVER_NOT_DEDICATED: { severity: "P1", group: "cover", penalty: 6, label: "Sem capa dedicada no catálogo (card cai no fallback social/logo)" },
   COVER_SEVERE_CROP: { severity: "P1", group: "cover", penalty: 7, label: "Capa com proporção incompatível com o card (corte severo)" },
@@ -361,8 +362,13 @@ export async function buildVisualQuality(root, opts = {}) {
     }
 
     // --- runtime / hero / mobile ---
-    if (!rt || rt.status !== 200 || mob?.error || desk?.error) {
-      add("PAGE_ERROR", rt ? `status ${rt.status}` : "sem coleta de runtime");
+    if (!rt) {
+      // Ausência de medição é estado desconhecido, não prova de erro de página.
+      // Continua bloqueando PREMIUM (via `sem inspeção visual`) e vira P1 até
+      // que o runtime seja coletado, mas P0 fica reservado para falha observada.
+      add("RUNTIME_NOT_COLLECTED", "sem coleta de runtime");
+    } else if (rt.status !== 200 || mob?.error || desk?.error) {
+      add("PAGE_ERROR", `status ${rt.status}`);
     }
     const hero = mob?.hero ?? desk?.hero ?? null;
     if (hero) {
