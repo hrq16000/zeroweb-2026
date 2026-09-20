@@ -343,6 +343,43 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Conte a marca, o modelo e o que aconteceu com o aparelho."
   },
+  "catharine-lima-studio": {
+    "services": [
+      "Alongamento",
+      "Banho em gel",
+      "Pé em gel",
+      "Volume brasileiro",
+      "Progressiva",
+      "Quero orientação para escolher"
+    ],
+    "experienceOptions": [
+      "É minha primeira vez no Studio",
+      "Já faço esse procedimento",
+      "Quero manutenção",
+      "Quero conhecer as opções"
+    ],
+    "periodOptions": [
+      "Manhã",
+      "Tarde",
+      "Noite",
+      "Tenho flexibilidade"
+    ],
+    "timingOptions": [
+      "O quanto antes",
+      "Ainda nesta semana",
+      "Na próxima semana",
+      "Estou planejando"
+    ],
+    "proposalKind": "service",
+    "stepTitles": {
+      "service": "Qual cuidado você quer agendar?",
+      "experience": "Como é seu momento hoje?",
+      "period": "Qual período funciona melhor?",
+      "timing": "Quando gostaria de vir?",
+      "note": "Conte um pouco mais"
+    },
+    "notePlaceholder": "Ex.: procedimento desejado, referência, data ou dúvida antes de agendar."
+  },
   "casa-nativa": {
     "stepTitles": {
       "service": "Que experiência procura?",

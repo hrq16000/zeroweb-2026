@@ -1146,7 +1146,8 @@
         "ctaLabel": "Ver serviços",
         "ctaHref": "#servicos"
       },
-      "socialVersion": "20260920"
+      "socialVersion": "20260920",
+      "icon": "/images/catharine-lima-studio/social.svg"
     }
   }
 }
