@@ -8,7 +8,7 @@
     "dev": "vite dev",
     "test": "bun test",
     "check:portfolio-blueprints": "bun scripts/validate-portfolio-blueprints.ts",
-    "prebuild": "node scripts/audit-portfolio-skill-parametrization.mjs && node scripts/build-portfolio-admin-seed.mjs --check && node scripts/check-portfolio-projects.mjs && node scripts/check-portfolio-runtime-overrides.mjs && node scripts/audit-portfolio-funnel-context.mjs --check && bun run check:portfolio-blueprints",
+    "prebuild": "bun run check:portfolio-originality && bun run check:portfolio-uniqueness && bun run check:portfolio-funnel-operational",
     "breadcrumbs:validate": "node scripts/validate-breadcrumbs.mjs",
     "build": "vite build && bun run postbuild",
     "build:dev": "vite build --mode development && bun run postbuild",
