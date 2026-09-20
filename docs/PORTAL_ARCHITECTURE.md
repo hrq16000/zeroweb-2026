@@ -391,3 +391,19 @@ mantém campanha quando disponível.
 Receita é atribuída à origem da jornada usando o `cart_session` do pagamento
 confirmado. Essas métricas são operacionais: não misturam tráfego interno,
 automação ou bots e não transformam atendimento assistido em venda paga.
+
+## 32. E2E de navegador da loja
+
+`bun run test:e2e:commerce` percorre a loja em Chromium real: adiciona um
+produto, abre o drawer, entra no checkout, confirma que o carrinho continua
+preservado, testa a validação obrigatória e comprova que plano recorrente não
+oferece Stripe one-time.
+
+O modo padrão é deliberadamente não destrutivo e usa
+`http://localhost:8080`. Ele não conclui atendimento, não cria pedido e não
+chama Stripe. `E2E_BASE_URL` pode apontar para outro ambiente.
+
+Os sinais que persistem telemetria (saída explícita e retorno de cancelamento)
+só rodam com `E2E_COMMERCE_WRITE=1`, preferencialmente em QA/local. Mesmo
+nesse modo o teste não conclui lead nem pagamento. O contrato do harness roda
+no prebuild para impedir que essa proteção seja removida silenciosamente.

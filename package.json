@@ -96,9 +96,10 @@
     "check:portfolio-platform-layer": "node scripts/check-portfolio-platform-layer.mjs",
     "validate:portal-architecture": "node scripts/validate-portal-architecture.mjs",
     "test:checkout-reliability": "bun test src/lib/checkout-reliability.test.ts tests/checkout/reliability-contract.test.ts",
-    "test:commerce-funnel": "bun test src/lib/commerce-funnel.test.ts tests/commerce/commercial-telemetry-contract.test.ts",
+    "test:commerce-funnel": "bun test src/lib/commerce-funnel.test.ts tests/commerce/commercial-telemetry-contract.test.ts tests/commerce/e2e-harness-contract.test.ts",
     "test:storefront-performance": "bun test tests/commerce/storefront-performance.test.ts",
-    "test:servicos-seo": "bun test tests/seo/servicos-pagination-seo.test.ts"
+    "test:servicos-seo": "bun test tests/seo/servicos-pagination-seo.test.ts",
+    "test:e2e:commerce": "node scripts/playwright-commerce-e2e.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
