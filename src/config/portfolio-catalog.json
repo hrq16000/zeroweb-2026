@@ -2141,5 +2141,32 @@
     "fallbackImage": "/images/adhonep-curitiba/hero-abstrato.jpg",
     "metrics": "Confirmação pelo formulário",
     "summary": "Página de convite da reunião semanal aberta da ADHONEP em Curitiba, com pauta da noite, local e confirmação de presença pelo formulário do projeto."
+  },
+  {
+    "slug": "catharine-lima-studio",
+    "clientKey": "catharine-lima-studio",
+    "title": "Catharine Lima Studio",
+    "segment": "beleza",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "nail-designer",
+      "alongamento",
+      "banho-em-gel",
+      "pe-em-gel",
+      "volume-brasileiro",
+      "progressiva",
+      "beleza"
+    ],
+    "subtitle": "Unhas, cílios e cabelo com agendamento",
+    "location": "Rua Victor Alves Ferreira, 211 · São José dos Pinhais — PR",
+    "badge": "Novo projeto",
+    "image": "/images/catharine-lima-studio/social.svg",
+    "fallbackImage": "/images/catharine-lima-studio/hero-editorial.svg",
+    "metrics": "Agendamento pelo formulário",
+    "summary": "Catharine Lima Studio em São José dos Pinhais: alongamento, banho em gel, pé em gel, volume brasileiro e progressiva, com atendimento por agendamento."
   }
 ]

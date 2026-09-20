@@ -12,6 +12,13 @@ export type PortfolioPrototype = {
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
   {
+    slug: "catharine-lima-studio",
+    vertical: "beleza",
+    siteName: "Catharine Lima Studio · São José dos Pinhais",
+    kind: "prototype",
+    indexable: true,
+  },
+  {
     slug: "adhonep-curitiba",
     vertical: "prestadores-de-servicos",
     siteName: "ADHONEP Curitiba · Reunião semanal aberta",

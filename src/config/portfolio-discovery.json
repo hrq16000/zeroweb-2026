@@ -238,6 +238,51 @@
       ],
       "city": "Curitiba",
       "state": "PR"
+    },
+    "catharine-lima-studio": {
+      "aliases": [
+        "Catharine Lima Studio",
+        "Catharine Studio",
+        "Catharine Lima Nail Designer",
+        "Caah Lima"
+      ],
+      "categories": [
+        "studio de beleza",
+        "nail designer",
+        "unhas",
+        "cílios",
+        "cabelo"
+      ],
+      "services": [
+        "alongamento",
+        "banho em gel",
+        "pé em gel",
+        "volume brasileiro",
+        "progressiva"
+      ],
+      "useCases": [
+        "agendar unhas",
+        "fazer alongamento",
+        "banho em gel",
+        "pé em gel",
+        "extensão de cílios",
+        "progressiva"
+      ],
+      "locality": [
+        "Rua Victor Alves Ferreira",
+        "São José dos Pinhais",
+        "SJP",
+        "Jardim Itália",
+        "Braga"
+      ],
+      "keywords": [
+        "Catharine Lima Studio",
+        "nail designer São José dos Pinhais",
+        "alongamento São José dos Pinhais",
+        "banho em gel SJP",
+        "volume brasileiro cílios SJP",
+        "progressiva São José dos Pinhais"
+      ]
     }
   }
 }

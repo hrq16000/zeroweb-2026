@@ -1,0 +1,132 @@
+{
+  "slug": "catharine-lima-studio",
+  "generatedAt": "2026-09-20T16:27:00.000Z",
+  "entity": {
+    "name": "Catharine Lima Studio",
+    "resolutionStatus": "RESOLVED",
+    "confidence": 0.88,
+    "signals": [
+      "owner supplied public Facebook URL",
+      "owner supplied promotional post",
+      "street/city corroboration on public web"
+    ],
+    "unresolvedJustification": null
+  },
+  "researchLedger": {
+    "googleMaps": {
+      "searched": true,
+      "result": "NO_CONFIRMED_BUSINESS_PROFILE"
+    },
+    "googleSearch": {
+      "searched": true,
+      "result": "PARTIAL"
+    },
+    "facebook": {
+      "searched": true,
+      "result": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "url": "https://www.facebook.com/caah.lima.39",
+      "accessible": false,
+      "ingestable": false
+    },
+    "instagram": {
+      "searched": true,
+      "result": "NO_RESULTS"
+    },
+    "website": {
+      "searched": true,
+      "result": "NO_RESULTS"
+    },
+    "reviews": {
+      "searched": true,
+      "result": "NO_RESULTS"
+    },
+    "photos": {
+      "searched": true,
+      "result": "FACEBOOK_MEDIA_NOT_INGESTABLE_FROM_CURRENT_ENVIRONMENT"
+    }
+  },
+  "identity": {
+    "name": "Catharine Lima Studio",
+    "category": "beauty studio",
+    "segment": "beleza",
+    "location": {
+      "street": "Rua Victor Alves Ferreira, 211",
+      "city": "São José dos Pinhais",
+      "state": "PR"
+    },
+    "phone": {
+      "value": "41998884095",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "status": "confirmed_in_supplied_post"
+    },
+    "facebook": "https://www.facebook.com/caah.lima.39"
+  },
+  "services": [
+    "Alongamento",
+    "Banho em gel",
+    "Pé em gel",
+    "Volume brasileiro",
+    "Progressiva"
+  ],
+  "facts": [
+    {
+      "field": "promotion",
+      "value": "Condições especiais para clientes novas / primeira visita",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": 1
+    },
+    {
+      "field": "availability",
+      "value": "Vagas limitadas na publicação compartilhada",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": 1
+    },
+    {
+      "field": "profession",
+      "value": "Nail designer",
+      "sourceType": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "confidence": 1
+    }
+  ],
+  "sources": [
+    {
+      "type": "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "url": "https://www.facebook.com/caah.lima.39",
+      "note": "Texto promocional e contato fornecidos pelo operador."
+    },
+    {
+      "type": "PUBLIC_WEB",
+      "url": "https://www.locaisdobrasil.com.br/encontre/servico-de-conserto-de-refrigeradores-perto-de-mim-em-sao-jose-dos-pinhais-pr",
+      "note": "Corrobora Rua Victor Alves Ferreira, 211 como endereço em São José dos Pinhais; não usado como prova da identidade do Studio."
+    },
+    {
+      "type": "PUBLIC_WEB",
+      "url": "https://www.sjp.pr.gov.br/tag/jardim-italia/page/2/",
+      "note": "Prefeitura referencia a Rua Victor Alves Ferreira na região do Jardim Itália."
+    }
+  ],
+  "media": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "referenceOnlyAssets": [
+      "Facebook profile supplied by operator"
+    ],
+    "generatedMedia": [
+      "/images/catharine-lima-studio/hero-editorial.svg",
+      "/images/catharine-lima-studio/beauty-editorial.svg",
+      "/images/catharine-lima-studio/social.svg"
+    ],
+    "missingMedia": [
+      "direct Facebook photos/videos unavailable for ingestion"
+    ]
+  },
+  "unverified": [
+    "horários fixos",
+    "preços atuais",
+    "duração da promoção",
+    "avaliações públicas"
+  ],
+  "conflicts": [],
+  "lastResearchAt": "2026-09-20T16:27:00.000Z",
+  "publicationPolicy": "Conteúdo publicado usa fatos fornecidos e corroborados. Artes SVG são GENERATED_CONTEXTUAL_MEDIA e não representam foto real do estabelecimento."
+}

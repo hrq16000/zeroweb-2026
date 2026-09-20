@@ -1136,6 +1136,17 @@
         "ctaHref": "#convite"
       },
       "socialVersion": "82c58671"
+    },
+    "catharine-lima-studio": {
+      "socialImage": "/images/catharine-lima-studio/social.svg",
+      "proof": {
+        "eyebrow": "Catharine Lima Studio",
+        "title": "Uma presença digital para transformar interesse em agendamento.",
+        "description": "Alongamento, banho em gel, pé em gel, volume brasileiro e progressiva em São José dos Pinhais.",
+        "ctaLabel": "Ver serviços",
+        "ctaHref": "#servicos"
+      },
+      "socialVersion": "20260920"
     }
   }
 }

@@ -186,6 +186,9 @@ const MpFestasEventosPage = lazy(() =>
 const StudioDeCiliosPage = lazy(() =>
   import("@/components/site/StudioDeCiliosPage").then((m) => ({ default: m.StudioDeCiliosPage })),
 );
+const CatharineLimaStudioPage = lazy(() =>
+  import("@/components/site/CatharineLimaStudioPage").then((m) => ({ default: m.CatharineLimaStudioPage })),
+);
 const RefrigeracaoMaresiaPage = lazy(() =>
   import("@/components/site/RefrigeracaoMaresiaPage").then((m) => ({
     default: m.RefrigeracaoMaresiaPage,
@@ -533,6 +536,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isLjCleaning = loaderData?.slug === "lj-cleaning";
     const isManuPasteis = loaderData?.slug === "manu-pasteis";
     const isLizMoraes = loaderData?.slug === "liz-moraes-nail-designer";
+    const isCatharineLima = loaderData?.slug === "catharine-lima-studio";
     const isAssistenciaMicroondas = loaderData?.slug === "assistencia-microondas-santos";
     const isArtesanatosDarleia = loaderData?.slug === "artesanatos-darleia-oliveira";
     const isThaysCamilla = loaderData?.slug === "thays-camilla";
@@ -566,7 +570,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
     const isJklDecor = loaderData?.slug === "jkl-decor";
-    const description = isJklDecor
+    const description = isCatharineLima
+      ? "Catharine Lima Studio em São José dos Pinhais: alongamento, banho em gel, pé em gel, volume brasileiro e progressiva, com atendimento e agendamento pelo formulário."
+      : isJklDecor
       ? "JKL Decor em São José dos Pinhais: marcenaria de móveis planejados sob medida em MDF para cozinha, dormitório, banheiro, home office e ambientes em geral, atendendo Curitiba e região com orçamento pelo formulário."
       : isMoreiraAutoMecanica
       ? "Moreira Auto Mecânica no Cidade Jardim, São José dos Pinhais — PR: oficina de mecânica para carros com avaliação presencial do veículo e agendamento pelo formulário do site."
@@ -814,6 +820,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
               ? "marido de aluguel, marido de aluguel Curitiba, reparos residenciais, manutenção residencial"
               : isManuPasteis
                 ? "Manu Pastéis, pastel recheado, pastel quentinho, cardápio online, delivery, São José dos Pinhais"
+                : isCatharineLima
+                  ? "Catharine Lima Studio, nail designer São José dos Pinhais, alongamento, banho em gel, pé em gel, volume brasileiro, progressiva, agendamento beleza"
                 : isLizMoraes
                   ? "Liz Moraes Nail Designer, manicure, pedicure, esmaltação em gel, alongamento molde F1, Centro, São José dos Pinhais"
                   : isAssistenciaMicroondas
@@ -1350,6 +1358,8 @@ function PortfolioPrototypePage() {
           <LjCleaningPage />
         ) : slug === "manu-pasteis" ? (
           <ManuPasteisPage />
+        ) : slug === "catharine-lima-studio" ? (
+          <CatharineLimaStudioPage />
         ) : slug === "liz-moraes-nail-designer" ? (
           <LizMoraesNailDesignerPage />
         ) : slug === "assistencia-microondas-santos" ? (

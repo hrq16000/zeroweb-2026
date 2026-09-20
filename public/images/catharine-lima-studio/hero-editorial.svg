@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-label="Arte editorial abstrata de beleza">
+<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#160d13"/><stop offset=".5" stop-color="#351827"/><stop offset="1" stop-color="#8c2f57"/></linearGradient><radialGradient id="p"><stop stop-color="#ffd2e1" stop-opacity=".9"/><stop offset="1" stop-color="#f06f9e" stop-opacity="0"/></radialGradient><filter id="blur"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<rect width="1200" height="1400" rx="54" fill="url(#b)"/><circle cx="870" cy="260" r="330" fill="url(#p)" filter="url(#blur)"/><circle cx="280" cy="1080" r="290" fill="#7d5cff" opacity=".12" filter="url(#blur)"/>
+<path d="M158 1065C327 913 456 743 535 514c47-138 146-235 290-269 107-25 204 6 287 95-188-20-314 39-391 177-58 105-62 232-134 331-102 141-253 224-429 217z" fill="#f9bfd2" opacity=".92"/>
+<path d="M352 1090c75-106 123-232 142-370 16-118 58-206 126-264 50-43 109-61 177-56-103 64-147 166-150 307-3 151-70 281-201 389z" fill="#fff7fa" opacity=".9"/>
+<path d="M784 682c42-92 101-155 177-190 48-22 92-23 133-4-68 25-111 72-129 142-19 76-69 130-149 162" fill="none" stroke="#1a0e14" stroke-width="20" stroke-linecap="round"/>
+<path d="M800 650c36-31 75-52 118-62M820 696c44-26 89-40 135-41M848 739c42-16 84-22 126-17" fill="none" stroke="#1a0e14" stroke-width="12" stroke-linecap="round"/>
+<circle cx="995" cy="1080" r="120" fill="#e45c8d" opacity=".18"/><circle cx="1050" cy="1125" r="58" fill="#ffd5e3" opacity=".65"/>
+</svg>
