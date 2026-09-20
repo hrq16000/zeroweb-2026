@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, Check, Monitor, Save, Smartphone, Upload } from "lucide-react";
 import {
+  createAutonomousManagedPortfolio,
   getManagedProjectAdmin,
   listManagedProjects,
   saveManagedProject,
@@ -175,6 +176,9 @@ function Text({
 function PortfolioWizard() {
   const search = Route.useSearch();
   const [draft, setDraft] = useState<Draft>(EMPTY);
+  const [autoName, setAutoName] = useState("");
+  const [autoLocation, setAutoLocation] = useState("");
+  const [autoSummary, setAutoSummary] = useState<string | null>(null);
   const [step, setStep] = useState(0);
   const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
   const [message, setMessage] = useState<string | null>(null);
@@ -186,6 +190,7 @@ function PortfolioWizard() {
   } | null>(null);
   const [projects, setProjects] = useState<Array<{ project: ManagedProject }>>([]);
 
+  const autonomousCreate = useServerFn(createAutonomousManagedPortfolio);
   const save = useServerFn(saveManagedProject);
   const transition = useServerFn(setManagedLifecycle);
   const uploadAsset = useServerFn(uploadManagedPortfolioAsset);
@@ -262,6 +267,33 @@ function PortfolioWizard() {
       }),
     [draft, saved],
   );
+
+  async function handleAutonomousCreate() {
+    setBusy(true);
+    setMessage(null);
+    setAutoSummary(null);
+    try {
+      const res = await autonomousCreate({
+        data: { name: autoName, locationText: autoLocation },
+      });
+      setDraft(fromProject(res.project));
+      setSaved({
+        project: res.project,
+        issues: res.issues,
+        canBeReady: res.canBeReady,
+      });
+      const socialCount = res.research.socialProfiles.length;
+      const webCount = res.research.webResults.length;
+      setAutoSummary(
+        `Pesquisa: ${res.research.resolution.status} (${res.research.resolution.confidence}%) · presença ${res.research.footprint} · ${socialCount} rede(s) candidata(s) · ${webCount} referência(s) web.`,
+      );
+      setMessage("Rascunho criado a partir de nome + localização. Próximas etapas permanecem bloqueadas até conteúdo, mídia e QA estarem completos.");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Falha na criação autônoma.");
+    } finally {
+      setBusy(false);
+    }
+  }
 
   async function persistDraft(
     source: Draft,
@@ -386,6 +418,36 @@ function PortfolioWizard() {
           </button>
         </div>
       </div>
+
+      {!search.slug && !saved ? (
+        <section className="mt-5 rounded-2xl border border-primary/30 bg-primary/5 p-5">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-wide text-primary">Criação autônoma</p>
+            <h2 className="mt-1 text-lg font-bold text-foreground">Nome + localização. O sistema pesquisa antes de perguntar.</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              A pesquisa procura ficha local, web pública e redes sociais. Se não houver presença digital, isso vira um resultado válido — nunca conteúdo inventado.
+            </p>
+          </div>
+          <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1.5fr_auto] md:items-end">
+            <Text label="Nome do negócio" value={autoName} onChange={setAutoName} />
+            <Text
+              label="Endereço, bairro ou cidade"
+              value={autoLocation}
+              onChange={setAutoLocation}
+              hint="Quanto mais específico, melhor a resolução de homônimos."
+            />
+            <button
+              type="button"
+              disabled={busy || autoName.trim().length < 2 || autoLocation.trim().length < 3}
+              onClick={() => void handleAutonomousCreate()}
+              className="min-h-10 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground disabled:opacity-50"
+            >
+              Pesquisar e criar
+            </button>
+          </div>
+          {autoSummary ? <p className="mt-3 text-xs text-muted-foreground">{autoSummary}</p> : null}
+        </section>
+      ) : null}
 
       <h1 className="mt-4 font-display text-2xl font-black text-foreground">
         {search.slug ? `Editar projeto · ${draft.displayName || search.slug}` : "Novo projeto do portfólio"}

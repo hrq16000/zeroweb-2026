@@ -246,6 +246,148 @@ export const uploadManagedPortfolioAsset = createServerFn({ method: "POST" })
     return { url: `${UPLOAD_PUBLIC_PREFIX}/${objectPath}`, path: objectPath };
   });
 
+const autonomousCreateSchema = z.object({
+  name: z.string().trim().min(2).max(160),
+  locationText: z.string().trim().min(3).max(280),
+});
+
+function slugifyManaged(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 70) || "novo-negocio";
+}
+
+async function chooseAutonomousSlug(admin: any, name: string): Promise<string> {
+  const root = slugifyManaged(name);
+  for (let i = 1; i <= 99; i += 1) {
+    const slug = i === 1 ? root : `${root}-${i}`;
+    if (isSlugTaken(slug)) continue;
+    const { data } = await admin
+      .from("portfolio_client_settings")
+      .select("client_key")
+      .eq("slug", slug)
+      .maybeSingle();
+    if (!data) return slug;
+  }
+  throw new Error("Não foi possível reservar um endereço único para este projeto.");
+}
+
+/**
+ * Entrada mínima autônoma: nome + localização.
+ *
+ * Cria somente DRAFT. Pesquisa pública, resolução de entidade e ledger de
+ * evidências ficam em source_snapshot; nenhuma ausência é preenchida com fato
+ * inventado e telefone público nunca é promovido automaticamente a WhatsApp.
+ */
+export const createAutonomousManagedPortfolio = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => autonomousCreateSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const admin = await assertAdmin(context.userId);
+    const { runAutonomousPortfolioResearch } = await import(
+      "@/lib/portfolio-autonomous-research.server"
+    );
+    const research = await runAutonomousPortfolioResearch({
+      name: data.name,
+      locationText: data.locationText,
+    });
+    const slug = await chooseAutonomousSlug(admin, data.name);
+    const city = research.locality.city;
+    const state = research.locality.state;
+    const locationLabel = [city, state].filter(Boolean).join(" - ") || data.locationText;
+    const summary = `${data.name} — negócio localizado em ${locationLabel}.`;
+    const seoTitle = city ? `${data.name} em ${city}` : data.name;
+    const seoDescription = `Conheça ${data.name}, negócio local em ${locationLabel}. Informações confirmadas são incorporadas à página conforme a pesquisa pública.`;
+
+    const row = buildManagedRow({
+      slug,
+      clientKey: slug,
+      displayName: data.name,
+      segment: research.segmentHint,
+      city,
+      state,
+      summary,
+      preset: "editorial",
+      heroHeadline: data.name,
+      heroSubheadline: city ? `Conheça ${data.name} em ${city}.` : `Conheça ${data.name}.`,
+      seoTitle,
+      seoDescription,
+      ctaLabel: research.funnelIntentHint === "pedido" ? "Consultar opções" : "Falar com a empresa",
+      shareCopy: city ? `Conheça ${data.name} em ${city}.` : `Conheça ${data.name}.`,
+      funnelIntent: research.funnelIntentHint,
+      funnelDeliveryMode: "lead_only",
+      services: [],
+      gallery: [],
+      content: { about: "", differentials: [], steps: [], faq: [] },
+      brandColors: {},
+    });
+    const sourceSnapshot = {
+      ...record(row.source_snapshot),
+      autonomous_research: research,
+      autonomous_pipeline: {
+        contract: 1,
+        input_mode: "name_location_only",
+        status: "research_complete",
+        next: "content_composition",
+      },
+    };
+    const patch = {
+      ...row,
+      source_snapshot: sourceSnapshot,
+      funnel_enabled: false,
+      funnel_recipient: "",
+      lifecycle_status: "draft",
+      published: false,
+      content_version: 1,
+      updated_by: context.userId,
+      updated_at: new Date().toISOString(),
+    };
+
+    await syncManagedFunnelForm(admin, {
+      clientKey: slug,
+      displayName: data.name,
+      intent: research.funnelIntentHint,
+      published: false,
+    });
+
+    const { data: saved, error } = await admin
+      .from("portfolio_client_settings")
+      .insert(patch)
+      .select(MANAGED_COLUMNS)
+      .single();
+    if (error) throw new Error(error.message);
+
+    await logHistory(admin, slug, context.userId, [
+      { field: "autonomous_create", old_value: null, new_value: "name_location_only" },
+      {
+        field: "autonomous_research",
+        old_value: null,
+        new_value: `${research.resolution.status}:${research.resolution.confidence}`,
+      },
+    ]);
+
+    const project = sanitizeManagedProject(saved)!;
+    const status = managedStatus(project);
+    return {
+      project,
+      issues: status.issues,
+      canBeReady: status.canBeReady,
+      research: {
+        resolution: research.resolution,
+        footprint: research.footprint,
+        categoryHint: research.categoryHint,
+        socialProfiles: research.socialProfiles,
+        webResults: research.webResults.slice(0, 8),
+        providerErrors: research.providerErrors,
+        missing: research.missing,
+      },
+    };
+  });
+
 const wizardSchema = z.object({
   slug: z.string().trim().min(3).max(80),
   clientKey: z.string().trim().min(2).max(80).optional(),

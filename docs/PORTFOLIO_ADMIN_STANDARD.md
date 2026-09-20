@@ -162,3 +162,15 @@ imagem social e galeria podem ser enviados diretamente no próprio fluxo.
 - o vínculo do asset é salvo imediatamente no mesmo projeto;
 - cada upload é registrado no histórico do `client_key`;
 - projetos legados continuam usando o fluxo administrativo existente, sem alteração.
+
+## Criação autônoma por nome + localização
+
+O wizard Managed possui uma entrada mínima de nome + localização. Ela cria um
+rascunho isolado, executa a pesquisa pública e persiste o ledger em
+`source_snapshot.autonomous_research`. A página nunca é promovida para READY
+apenas porque a pesquisa terminou; conteúdo, mídia, funil e QA continuam
+submetidos aos gates do projeto.
+
+A pesquisa usa a infraestrutura server-side existente. Quando não há ficha
+Google, amplia para web e redes sociais; quando não há presença digital, registra
+`footprint=NONE` e segue sem inventar fatos.
