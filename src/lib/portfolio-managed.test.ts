@@ -30,6 +30,11 @@ const complete = {
   social_version: "1",
   cta_label: "Solicitar orçamento",
   share_copy: "Conheça a Fixture Managed Demo em 0web.com.br/portfolio/fixture-managed-demo",
+  funnel_enabled: false,
+  funnel_recipient: "",
+  source_snapshot: {
+    managed_funnel: { configured: true, intent: "orcamento", delivery_mode: "lead_only" },
+  },
   services: [
     { title: "Serviço A", description: "Descrição A" },
     { title: "Serviço B", description: "Descrição B" },
@@ -80,6 +85,28 @@ describe("projetos managed do portfólio", () => {
     }
   });
 
+  it("aceita lead-only explícito e bloqueia funil não configurado", () => {
+    const leadOnly = sanitizeManagedProject(complete)!;
+    expect(leadOnly.funnelConfigured).toBe(true);
+    expect(leadOnly.funnelDeliveryMode).toBe("lead_only");
+    expect(managedStatus(leadOnly).blockers.some((b) => b.code === "PORTFOLIO_FUNNEL_MISSING")).toBe(false);
+
+    const missing = sanitizeManagedProject({ ...complete, source_snapshot: {} })!;
+    expect(managedStatus(missing).blockers.map((b) => b.code)).toContain("PORTFOLIO_FUNNEL_MISSING");
+  });
+
+  it("bloqueia WhatsApp sem destino exclusivo", () => {
+    const project = sanitizeManagedProject({
+      ...complete,
+      source_snapshot: {
+        managed_funnel: { configured: true, intent: "orcamento", delivery_mode: "whatsapp" },
+      },
+      funnel_enabled: false,
+      funnel_recipient: "",
+    })!;
+    expect(managedStatus(project).blockers.map((b) => b.code)).toContain("PORTFOLIO_DESTINATION_MISSING");
+  });
+
   it("conformidade bloqueia READY enquanto faltar identidade", () => {
     const incomplete = sanitizeManagedProject({
       ...complete,
@@ -117,6 +144,8 @@ describe("projetos managed do portfólio", () => {
       logoUrl: "javascript:alert(1)",
       services: [{ title: "A" }, { title: "" }],
       heroFocal: { x: 300, y: -20 },
+      funnelIntent: "orcamento",
+      funnelDeliveryMode: "lead_only",
     });
     expect(row.preset).toBe("editorial");
     expect(row.logo_url).toBe("");
@@ -124,5 +153,8 @@ describe("projetos managed do portfólio", () => {
     expect(row.hero_focal).toEqual({ x: 100, y: 0 });
     expect(row.canonical_url).toBe("https://0web.com.br/portfolio/fixture-managed-demo");
     expect(row.project_kind).toBe("managed");
+    expect(row.source_snapshot).toEqual({
+      managed_funnel: { configured: true, intent: "orcamento", delivery_mode: "lead_only" },
+    });
   });
 });

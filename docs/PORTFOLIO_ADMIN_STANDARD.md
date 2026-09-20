@@ -131,3 +131,20 @@ Cada marca exibe envios, canal, status, data da resposta e observações já
 mascaradas no servidor. O painel nunca expõe telefone ou e-mail completos e
 não altera o destino operacional. A fonte canônica do destino continua sendo
 `src/config/portfolio-whatsapp.json`.
+
+## Novo portfolio: funil obrigatório
+
+O wizard `/app/portfolio/novo` trata o funil como parte do próprio projeto.
+Antes de READY o administrador precisa escolher a intenção comercial e o modo
+de entrega.
+
+- `lead_only`: estado explícito e válido; o pedido é persistido sem fallback
+  para o WhatsApp institucional da 0WEB.
+- `whatsapp`: exige um número oficial válido do próprio cliente.
+- Cada projeto Managed mantém seu próprio `dynamic_forms.slug` no formato
+  `portfolio-<clientKey>`; ele só fica `published` quando a landing também
+  fica publicada.
+- O destino do Managed fica server-only em
+  `portfolio_client_settings.funnel_recipient`. Projetos legados continuam
+  usando exclusivamente `src/config/portfolio-whatsapp.json`.
+- Não existe fallback de destino entre clientes.

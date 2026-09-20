@@ -9,12 +9,18 @@ import {
   setManagedLifecycle,
 } from "@/lib/portfolio-managed.functions";
 import {
+  MANAGED_DELIVERY_MODES,
   MANAGED_PRESETS,
   sanitizeManagedProject,
+  type ManagedDeliveryMode,
   type ManagedLifecycle,
   type ManagedPreset,
   type ManagedProject,
 } from "@/lib/portfolio-managed";
+import {
+  PORTFOLIO_FUNNEL_INTENTS,
+  type PortfolioFunnelIntent,
+} from "@/lib/portfolio-funnel-context";
 import { PortfolioManagedView } from "@/components/portfolio/PortfolioManagedView";
 
 export const Route = createFileRoute("/_authenticated/app/portfolio/novo")({
@@ -46,6 +52,9 @@ type Draft = {
   socialVersion: string;
   ctaLabel: string;
   shareCopy: string;
+  funnelIntent: PortfolioFunnelIntent | "";
+  funnelDeliveryMode: ManagedDeliveryMode | "";
+  funnelRecipient: string;
   services: Array<{ title: string; description: string }>;
   gallery: Array<{ url: string; alt: string; focal: { x: number; y: number } }>;
   content: {
@@ -79,6 +88,9 @@ const EMPTY: Draft = {
   socialVersion: "",
   ctaLabel: "Falar com a equipe",
   shareCopy: "",
+  funnelIntent: "",
+  funnelDeliveryMode: "",
+  funnelRecipient: "",
   services: [{ title: "", description: "" }],
   gallery: [],
   content: { about: "", differentials: [], steps: [], faq: [] },
@@ -92,6 +104,7 @@ const STEPS = [
   "Capa & destaque",
   "Serviços",
   "Conteúdo",
+  "Funil & destino",
   "SEO & divulgação",
   "Publicação",
 ] as const;
@@ -119,6 +132,9 @@ function fromProject(project: ManagedProject): Draft {
     socialVersion: project.socialVersion,
     ctaLabel: project.ctaLabel,
     shareCopy: project.shareCopy,
+    funnelIntent: project.funnelConfigured ? project.funnelIntent : "",
+    funnelDeliveryMode: project.funnelConfigured ? project.funnelDeliveryMode : "",
+    funnelRecipient: "",
     services: project.services.length ? project.services : EMPTY.services,
     gallery: project.gallery,
     content: project.content,
@@ -222,6 +238,19 @@ function PortfolioWizard() {
         social_version: draft.socialVersion,
         cta_label: draft.ctaLabel,
         share_copy: draft.shareCopy,
+        source_snapshot: {
+          managed_funnel: {
+            configured: Boolean(draft.funnelIntent && draft.funnelDeliveryMode),
+            intent: draft.funnelIntent || null,
+            delivery_mode: draft.funnelDeliveryMode || null,
+          },
+        },
+        funnel_enabled:
+          draft.funnelDeliveryMode === "whatsapp" &&
+          Boolean(draft.funnelRecipient || saved?.project.hasFunnelDestination),
+        funnel_recipient:
+          draft.funnelRecipient ||
+          (saved?.project.hasFunnelDestination ? "5541000000000" : ""),
         services: draft.services,
         gallery_items: draft.gallery,
         content_blocks: draft.content,
@@ -498,6 +527,68 @@ function PortfolioWizard() {
           ) : null}
 
           {step === 6 ? (
+            <div className="space-y-4">
+              <label className="block space-y-1">
+                <span className="text-xs font-semibold text-muted-foreground">Tipo de funil</span>
+                <select
+                  className={field}
+                  value={draft.funnelIntent}
+                  onChange={(e) => set("funnelIntent", e.target.value as PortfolioFunnelIntent | "")}
+                >
+                  <option value="">Selecione…</option>
+                  {PORTFOLIO_FUNNEL_INTENTS.map((intent) => (
+                    <option key={intent} value={intent}>
+                      {intent.replace(/_/g, " ")}
+                    </option>
+                  ))}
+                </select>
+                <span className="block text-[11px] text-muted-foreground">
+                  Define a intenção do atendimento e a mensagem final: orçamento, pedido, agendamento, reserva etc.
+                </span>
+              </label>
+
+              <label className="block space-y-1">
+                <span className="text-xs font-semibold text-muted-foreground">Entrega do pedido</span>
+                <select
+                  className={field}
+                  value={draft.funnelDeliveryMode}
+                  onChange={(e) => set("funnelDeliveryMode", e.target.value as ManagedDeliveryMode | "")}
+                >
+                  <option value="">Selecione…</option>
+                  {MANAGED_DELIVERY_MODES.map((mode) => (
+                    <option key={mode} value={mode}>
+                      {mode === "whatsapp" ? "WhatsApp do cliente" : "Somente lead (sem redirecionamento)"}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              {draft.funnelDeliveryMode === "whatsapp" ? (
+                <Text
+                  label="WhatsApp oficial do cliente"
+                  value={draft.funnelRecipient}
+                  onChange={(v) => set("funnelRecipient", v)}
+                  hint={
+                    saved?.project.hasFunnelDestination
+                      ? "Já existe um destino configurado. Deixe em branco para preservá-lo ou informe outro número comprovado para substituir."
+                      : "Informe DDI + DDD + número. Esse dado fica no servidor e nunca aparece na página pública."
+                  }
+                />
+              ) : null}
+
+              <div className="rounded-xl border border-border bg-muted/30 p-3 text-xs text-muted-foreground">
+                {draft.funnelDeliveryMode === "lead_only"
+                  ? "Lead-only é um estado válido: o pedido é salvo e não cai no WhatsApp da 0WEB."
+                  : draft.funnelDeliveryMode === "whatsapp"
+                    ? saved?.project.hasFunnelDestination || draft.funnelRecipient
+                      ? "Destino deste cliente configurado para validação no gate."
+                      : "Ainda falta o WhatsApp oficial deste cliente; READY/PUBLISHED ficará bloqueado."
+                    : "Selecione como este portfolio deve entregar as solicitações."}
+              </div>
+            </div>
+          ) : null}
+
+          {step === 7 ? (
             <>
               <Text label="Título SEO" value={draft.seoTitle} onChange={(v) => set("seoTitle", v)} />
               <Text
@@ -524,7 +615,7 @@ function PortfolioWizard() {
             </>
           ) : null}
 
-          {step === 7 ? (
+          {step === 8 ? (
             <div className="space-y-3 text-sm">
               <p className="text-xs font-semibold uppercase text-muted-foreground">
                 Etapa atual: {saved?.project.lifecycle ?? "não salvo"}
