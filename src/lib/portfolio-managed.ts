@@ -9,6 +9,10 @@
  * precisa ser um caminho interno permitido (`isSafeAssetPath`).
  */
 import { containsPublicContact, isSafeAssetPath } from "@/lib/portfolio-admin";
+import {
+  PORTFOLIO_FUNNEL_INTENTS,
+  type PortfolioFunnelIntent,
+} from "@/lib/portfolio-funnel-context";
 
 export const MANAGED_PRESETS = [
   "editorial",
@@ -18,6 +22,9 @@ export const MANAGED_PRESETS = [
   "service_focused",
 ] as const;
 export type ManagedPreset = (typeof MANAGED_PRESETS)[number];
+
+export const MANAGED_DELIVERY_MODES = ["lead_only", "whatsapp"] as const;
+export type ManagedDeliveryMode = (typeof MANAGED_DELIVERY_MODES)[number];
 
 export const MANAGED_LIFECYCLES = ["draft", "ready", "published", "archived"] as const;
 export type ManagedLifecycle = (typeof MANAGED_LIFECYCLES)[number];
@@ -48,6 +55,10 @@ export type ManagedProject = {
   heroHeadline: string;
   heroSubheadline: string;
   ctaLabel: string;
+  funnelIntent: PortfolioFunnelIntent;
+  funnelDeliveryMode: ManagedDeliveryMode;
+  funnelConfigured: boolean;
+  hasFunnelDestination: boolean;
   services: ManagedService[];
   gallery: ManagedGalleryItem[];
   content: ManagedContentBlocks;
@@ -185,6 +196,42 @@ function content(value: unknown): ManagedContentBlocks {
   };
 }
 
+function record(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {};
+}
+
+function fallbackFunnelIntent(segment: string): PortfolioFunnelIntent {
+  const key = segment.trim().toLowerCase();
+  if (["restaurantes", "comercios", "alimentacao", "delivery"].includes(key)) return "pedido";
+  if (["beleza", "saude"].includes(key)) return "agendamento";
+  if (["construcao", "servicos", "prestadores-de-servicos"].includes(key)) return "orcamento";
+  return "contato";
+}
+
+function managedFunnelState(row: Record<string, unknown>, segment: string) {
+  const snapshot = record(row.source_snapshot);
+  const config = record(snapshot.managed_funnel);
+  const rawIntent = typeof config.intent === "string" ? config.intent : "";
+  const explicitIntent = (PORTFOLIO_FUNNEL_INTENTS as readonly string[]).includes(rawIntent)
+    ? (rawIntent as PortfolioFunnelIntent)
+    : null;
+  const rawMode = typeof config.delivery_mode === "string" ? config.delivery_mode : "";
+  const explicitMode = (MANAGED_DELIVERY_MODES as readonly string[]).includes(rawMode)
+    ? (rawMode as ManagedDeliveryMode)
+    : null;
+  const recipientDigits =
+    typeof row.funnel_recipient === "string" ? row.funnel_recipient.replace(/\D/g, "") : "";
+  return {
+    funnelIntent: explicitIntent ?? fallbackFunnelIntent(segment),
+    funnelDeliveryMode: explicitMode ?? ("lead_only" as const),
+    funnelConfigured: config.configured === true && Boolean(explicitIntent && explicitMode),
+    hasFunnelDestination:
+      Boolean(row.funnel_enabled) && recipientDigits.length >= 10 && recipientDigits.length <= 15,
+  };
+}
+
 function brandColors(value: unknown): Record<string, string> {
   const out: Record<string, string> = {};
   if (value && typeof value === "object" && !Array.isArray(value)) {
@@ -208,6 +255,8 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
   const status = lifecycle(row.lifecycle_status, published);
   const indexable = status === "published" && published;
   const displayName = text(row.display_name, 160) || slug;
+  const segment = text(row.segment, 60);
+  const funnel = managedFunnelState(row as Record<string, unknown>, segment);
   const socialImage = asset(row.social_image_url);
   const socialVersion = /^[A-Za-z0-9._-]{1,40}$/.test(String(row.social_version ?? ""))
     ? String(row.social_version)
@@ -217,7 +266,7 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     slug,
     clientKey: text(row.client_key, 80) || slug,
     displayName,
-    segment: text(row.segment, 60),
+    segment,
     city: text(row.city, 80),
     state: text(row.state, 4),
     summary: text(row.summary, 300),
@@ -229,6 +278,10 @@ export function sanitizeManagedProject(row: any): ManagedProject | null {
     heroHeadline: text(row.hero_headline, 160) || displayName,
     heroSubheadline: text(row.hero_subheadline, 300),
     ctaLabel: text(row.cta_label, 80) || "Falar com a equipe",
+    funnelIntent: funnel.funnelIntent,
+    funnelDeliveryMode: funnel.funnelDeliveryMode,
+    funnelConfigured: funnel.funnelConfigured,
+    hasFunnelDestination: funnel.hasFunnelDestination,
     services: services(row.services),
     gallery: gallery(row.gallery_items ?? row.gallery),
     content: content(row.content_blocks),
@@ -294,6 +347,15 @@ export function evaluateManagedConformance(project: ManagedProject): ManagedConf
     blocker("PORTFOLIO_SERVICES_MISSING", "Cadastre pelo menos 3 serviços ou produtos.");
   }
   if (!project.ctaLabel) blocker("PORTFOLIO_CTA_MISSING", "Defina o texto do botão de contato.");
+  if (!project.funnelConfigured) {
+    blocker("PORTFOLIO_FUNNEL_MISSING", "Defina o tipo de funil e o modo de entrega deste projeto.");
+  }
+  if (project.funnelDeliveryMode === "whatsapp" && !project.hasFunnelDestination) {
+    blocker(
+      "PORTFOLIO_DESTINATION_MISSING",
+      "O modo WhatsApp exige um destino válido e exclusivo deste cliente.",
+    );
+  }
   if (!project.shareCopy) {
     blocker("PORTFOLIO_SHARE_COPY_MISSING", "Escreva a copy de divulgação do projeto.");
   }
@@ -334,6 +396,14 @@ export function canTransition(from: ManagedLifecycle, to: ManagedLifecycle): boo
 
 /** Linha de banco a partir dos dados do wizard (usada pelo admin e pela fixture). */
 export function buildManagedRow(input: Record<string, unknown>) {
+  const rawIntent = String(input.funnelIntent ?? "").trim();
+  const rawDeliveryMode = String(input.funnelDeliveryMode ?? "").trim();
+  const funnelIntent = (PORTFOLIO_FUNNEL_INTENTS as readonly string[]).includes(rawIntent)
+    ? rawIntent
+    : null;
+  const funnelDeliveryMode = (MANAGED_DELIVERY_MODES as readonly string[]).includes(rawDeliveryMode)
+    ? rawDeliveryMode
+    : null;
   return {
     client_key: String(input.clientKey ?? input.slug ?? ""),
     slug: String(input.slug ?? ""),
@@ -365,5 +435,12 @@ export function buildManagedRow(input: Record<string, unknown>) {
     gallery_items: gallery(input.gallery),
     content_blocks: content(input.content),
     brand_colors: brandColors(input.brandColors),
+    source_snapshot: {
+      managed_funnel: {
+        configured: Boolean(funnelIntent && funnelDeliveryMode),
+        intent: funnelIntent,
+        delivery_mode: funnelDeliveryMode,
+      },
+    },
   };
 }
