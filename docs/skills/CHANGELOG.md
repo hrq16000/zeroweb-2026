@@ -1348,3 +1348,13 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   runtime/admin passaram na cópia remota auditada. O relatório de
   reconciliação foi atualizado para distinguir publicação segura do portal de
   ativação de entrega direta por destinatário comprovado.
+
+# 2026-09-20 — Auditoria premium: mídia real, identidade, motion e zero-template
+
+- **Tarefa:** somente inspecionar, estudar referências e consolidar o entendimento de qualidade exigido para novos `/portfolio/:slug`; nenhum componente/página foi alterado.
+- **Skills/lentes revisadas:** `0web-skill-router`, `0web-skill-discovery`, `0web-experience-design-max`, `0web-landing-experience`, `0web-portfolio-art-direction`, `frontend-design`, UI/UX Pro Max, Apple/interaction review, Web Motion/UX Motion/UI Animator, `web-design-guidelines`, `react-best-practices`, browser QA e `canvas-design` para criativos quando aplicável.
+- **Referências externas auditadas:** UX Motion Design (Medium), Wix Animation, SVGator animated landing pages, Landingi, Nicepage, Awwwards, A1 Gallery e Exhibita.
+- **Achado principal:** os padrões existentes já proibiam clone visual e já exigiam mídia/identidade/motion; a lacuna observada nos dois projetos recentes foi de **aceitação**. Assets e motion básicos estavam sendo tratados como suficientes.
+- **Documentação criada:** `PORTFOLIO_PREMIUM_EXPERIENCE_ACCEPTANCE_STANDARD.md` e `reports/PORTFOLIO_PREMIUM_GAP_AUDIT_2026-09-20.md`.
+- **Nova leitura normativa:** `logo exists`, `cover exists`, `motion exists` e `media searched` deixam de ser checks binários suficientes; precisam passar qualidade, provenance, originalidade perceptual e evidência de runtime.
+- **Escopo preservado:** zero mudanças em TSX, assets de cliente, rotas, funis, WhatsApps, catálogo, SEO runtime ou layouts nesta rodada.

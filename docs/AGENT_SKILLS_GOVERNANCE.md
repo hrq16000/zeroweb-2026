@@ -39,6 +39,27 @@ As skills são referências de execução e revisão; não substituem conteúdo 
 
 Skills como `brainstorming`, `theme-factory`, `using-superpowers` e `notebooklm` têm restrições específicas registradas em `docs/skills/REGISTRY.md` e `src/config/skill-marketplace-catalog.json`.
 
+
+## Aceitação premium de novos portfolios
+
+`docs/PORTFOLIO_PREMIUM_EXPERIENCE_ACCEPTANCE_STANDARD.md` é a camada de aceitação final para projetos novos e para recriações visuais materiais.
+
+A existência de um arquivo chamado `logo.svg`, `hero.svg` ou `capa-card.svg` não equivale a identidade, hero ou capa aprovados. A existência de `MotionReveal`/fade também não equivale a UX Motion concluído.
+
+Antes de chamar uma landing de pronta para cliente, a revisão precisa responder com evidência:
+
+- a marca oficial foi procurada antes de criar uma nova?
+- Facebook/Instagram e demais fontes públicas foram pesquisados por mídia real?
+- mídia real do próprio cliente foi usada quando havia asset apropriado e uso permitido?
+- a capa funciona como peça comercial, não apenas como placeholder?
+- a primeira dobra possui assinatura própria?
+- o projeto possui motion narrative e signature moment próprios?
+- o NO-BRAND TEST diferencia esta página das recentes?
+- skills efetivamente usadas estão registradas?
+- browser QA comprovou o resultado em runtime?
+
+Se a resposta for “não” para qualquer eixo principal, o projeto não é visualmente concluído, mesmo com build verde.
+
 ## Layout engineering — Flexbox e Grid
 
 `docs/LAYOUT_ENGINEERING_STANDARD.md` é normativo para nova interface e manutenção material de layout.

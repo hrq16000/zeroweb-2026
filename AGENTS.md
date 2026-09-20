@@ -17,6 +17,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
 | Ritmo visual, signature moments, media narrative, capabilities, results e quality profile | `docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md` |
 | Motion, microinterações, scroll, efeitos visuais e MOTION_QUALITY_GATE | `docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md` · `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md` |
+| Aceitação premium não negociável: mídia real, logo/brand system, hero, capa/OG, motion, skill evidence e NO-BRAND TEST | `docs/PORTFOLIO_PREMIUM_EXPERIENCE_ACCEPTANCE_STANDARD.md` |
 | Camada institucional 0WEB obrigatória (host credit + popup) e `PLATFORM_0WEB_LAYER` | `docs/PORTFOLIO_0WEB_PLATFORM_LAYER_ADDENDUM.md` |
 | Originalidade estrutural, famílias de layout/hero e `STRUCTURAL_ORIGINALITY_GATE` (projetos novos) | `docs/PORTFOLIO_STRUCTURAL_ORIGINALITY_ADDENDUM.md` |
 | Composição autoral por projeto, Creative Composition Brief, fingerprint e `PROJECT_UNIQUENESS_GATE` (norma canônica: infraestrutura compartilhada, composição visual nunca) | `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md` |
