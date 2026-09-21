@@ -18,20 +18,20 @@ Limiares: 0–20 ORIGINAL · 21–40 ACCEPTABLE · 41–60 ATTENTION · 61–80 
 
 | Métrica | Valor |
 |---|---|
-| Total | 94 |
+| Total | 95 |
 | ORIGINAL | 1 |
-| ACCEPTABLE | 29 |
-| ATTENTION | 58 |
-| HIGH_SIMILARITY | 6 |
+| ACCEPTABLE | 30 |
+| ATTENTION | 59 |
+| HIGH_SIMILARITY | 5 |
 | CLONE | 0 |
 | SHARED_FALLBACK | 0 |
 | Clusters | 0 |
 | Logos placeholder | 26 |
 | Logos ausentes | 0 |
 | Capas sem arquivo no catálogo (legado) | 24 |
-| Capas válidas (contrato canônico) | 48 |
+| Capas válidas (contrato canônico) | 49 |
 | Capas pendentes (contrato canônico) | 46 |
-| Capas usando imagem social | 13 |
+| Capas usando imagem social | 14 |
 | Capas compartilhadas | 0 |
 | Crop severo | 19 |
 | Assets de marca cruzados (inválidos) | 0 |
@@ -45,11 +45,9 @@ Nenhum cluster acima do limiar.
 
 | A | B | Score | Motivo | STRUCTURE | SECTION_ORDER | COMPONENT | STYLE | COPY | ASSET | IDENTITY |
 |---|---|---|---|---|---|---|---|---|---|---|
-| btb-construcao | easy-clean | 69 | VISUAL_COMPOSITION_CLONE | 85.1 | 100 | 69.2 | 74.7 | 1.8 | 15 | 9.7 |
 | bruna-diarista | popys-conservacao-limpeza | 66 | NEAR_DUPLICATE_LAYOUT | 65.5 | 100 | 76.9 | 80.3 | 0 | 15 | 11.1 |
 | bruna-diarista | easy-clean | 65 | NEAR_DUPLICATE_LAYOUT | 74 | 100 | 69.2 | 68.2 | 2.6 | 15 | 8.6 |
 | easy-clean | popys-conservacao-limpeza | 62 | NEAR_DUPLICATE_LAYOUT | 63.6 | 100 | 64.3 | 70.7 | 2.2 | 15 | 8.1 |
-| bruna-diarista | btb-construcao | 61 | NEAR_DUPLICATE_LAYOUT | 66 | 100 | 57.1 | 69 | 0 | 15 | 6.3 |
 | embalar-embalagens | maximos-cabeleireiros | 61 | NEAR_DUPLICATE_LAYOUT | 89.1 | 57.1 | 58.3 | 88.6 | 5.9 | 7.5 | 4.5 |
 | js-eletrica-manutencao | maximos-cabeleireiros | 60 | SAME_FAMILY | 73.1 | 85.7 | 54.5 | 77.1 | 0.9 | 9 | 1.9 |
 | aguia-sul-sinalizacao | diego-montador-moveis | 59 | SAME_FAMILY | 74 | 50 | 85.7 | 85.9 | 1.1 | 7.5 | 23.1 |
@@ -59,12 +57,14 @@ Nenhum cluster acima do limiar.
 | aguia-sul-sinalizacao | mary-diarista | 58 | SAME_FAMILY | 78.7 | 50 | 71.4 | 92.5 | 0 | 2.5 | 9.1 |
 | aguia-sul-sinalizacao | bruna-diarista | 57 | SAME_FAMILY | 60 | 100 | 41.7 | 78.9 | 0 | 2.5 | 9.1 |
 | catharine-lima-studio | cris-presentes-colonia-rio-grande | 57 | SAME_FAMILY | 78.7 | 37.5 | 76.9 | 89.7 | 1.4 | 7.5 | 9.1 |
-| btb-construcao | enoel-portas | 56 | SAME_FAMILY | 58.6 | 100 | 50 | 56.7 | 4.1 | 11.2 | 12 |
-| btb-construcao | popys-conservacao-limpeza | 56 | SAME_FAMILY | 56.9 | 100 | 53.3 | 61.6 | 1.1 | 15 | 5.9 |
 | confeitaria-chyrley | studio-de-cilios | 56 | SAME_FAMILY | 54 | 100 | 37.5 | 86.5 | 0.5 | 8.6 | 6.7 |
 | mimo-salgados-doces | popys-conservacao-limpeza | 56 | SAME_FAMILY | 66.7 | 50 | 76.9 | 88.4 | 0 | 5 | 13.3 |
 | acai-total-araucaria | mary-diarista | 55 | SAME_FAMILY | 76.1 | 37.5 | 71.4 | 92.5 | 0 | 6 | 10 |
-| aguia-sul-sinalizacao | btb-construcao | 55 | SAME_FAMILY | 60 | 100 | 41.7 | 64.3 | 0.6 | 2.5 | 10.3 |
+| diego-montador-moveis | paulo-mestre-de-obras | 55 | SAME_FAMILY | 62.7 | 75 | 60 | 70.9 | 3 | 4.3 | 15.2 |
+| embalar-embalagens | js-eletrica-manutencao | 55 | SAME_FAMILY | 64.2 | 71.4 | 63.6 | 72 | 0.5 | 4.3 | 3.9 |
+| acai-total-araucaria | ecommerce-on | 54 | SAME_FAMILY | 73.5 | 42.9 | 75 | 77.5 | 0 | 7.5 | 11.1 |
+| acai-total-araucaria | embalar-embalagens | 54 | SAME_FAMILY | 48.2 | 100 | 60 | 53.1 | 0 | 2.1 | 12.1 |
+| aguia-sul-sinalizacao | enoel-portas | 54 | SAME_FAMILY | 50.8 | 100 | 60 | 50.5 | 1 | 3 | 15.4 |
 
 ## Compartilhamento de assets entre clientes
 
@@ -74,10 +74,9 @@ Nenhum asset percebido compartilhado entre clientes.
 
 | Projeto | Score | Status | Mais parecido | Motivo | Capa | Logo | Fallback |
 |---|---|---|---|---|---|---|---|
-| btb-construcao | 69 | HIGH_SIMILARITY | easy-clean (69) | VISUAL_COMPOSITION_CLONE | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
-| easy-clean | 69 | HIGH_SIMILARITY | btb-construcao (69) | VISUAL_COMPOSITION_CLONE | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | bruna-diarista | 66 | HIGH_SIMILARITY | popys-conservacao-limpeza (66) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | popys-conservacao-limpeza | 66 | HIGH_SIMILARITY | bruna-diarista (66) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
+| easy-clean | 65 | HIGH_SIMILARITY | bruna-diarista (65) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | embalar-embalagens | 61 | HIGH_SIMILARITY | maximos-cabeleireiros (61) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | maximos-cabeleireiros | 61 | HIGH_SIMILARITY | embalar-embalagens (61) | NEAR_DUPLICATE_LAYOUT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | js-eletrica-manutencao | 60 | ATTENTION | maximos-cabeleireiros (60) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
@@ -90,10 +89,10 @@ Nenhum asset percebido compartilhado entre clientes.
 | catharine-lima-studio | 57 | ATTENTION | cris-presentes-colonia-rio-grande (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | cris-presentes-colonia-rio-grande | 57 | ATTENTION | catharine-lima-studio (57) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | confeitaria-chyrley | 56 | ATTENTION | studio-de-cilios (56) | SAME_FAMILY | COVER_IS_LOGO, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
-| enoel-portas | 56 | ATTENTION | btb-construcao (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mimo-salgados-doces | 56 | ATTENTION | popys-conservacao-limpeza (56) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | paulo-mestre-de-obras | 55 | ATTENTION | diego-montador-moveis (55) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
 | ecommerce-on | 54 | ATTENTION | acai-total-araucaria (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
+| enoel-portas | 54 | ATTENTION | aguia-sul-sinalizacao (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | liz-moraes-nail-designer | 54 | ATTENTION | mp-festas-eventos (54) | SAME_FAMILY | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | mania-de-limpeza | 54 | ATTENTION | js-eletrica-manutencao (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | sos-presentes-cosmeticos | 54 | ATTENTION | cris-presentes-colonia-rio-grande (54) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | LOGO_NO_CONTRAST_VARIANT | — |
@@ -125,6 +124,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | lj-cleaning | 45 | ATTENTION | galileu-locacao-brinquedos (45) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
 | moreira-auto-mecanica | 45 | ATTENTION | jkl-decor (45) | EXCESSIVE_COPY_SIMILARITY | COVER_IS_LOGO, COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | your-brutus-burguer | 45 | ATTENTION | mimo-salgados-doces (45) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
+| btb-construcao | 44 | ATTENTION | embalar-embalagens (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | clinica-integrada | 44 | ATTENTION | cris-presentes-colonia-rio-grande (44) | SAME_FAMILY | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dona-lucy-salgados | 44 | ATTENTION | mania-de-limpeza (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | lucas-arruma-maquina-lavar | 44 | ATTENTION | denise-gomes-psicologa (44) | SAME_FAMILY | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
@@ -164,6 +164,7 @@ Nenhum asset percebido compartilhado entre clientes.
 | guaratuba-reparos-residenciais | 27 | ACCEPTABLE | bh-barreiro-marmitas (27) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT, LOGO_PLACEHOLDER | — |
 | adhonep-curitiba | 26 | ACCEPTABLE | r_beauty (26) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | dyzpromo | 25 | ACCEPTABLE | marido-de-aluguel (25) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH, COVER_SEVERE_CROP | — | — |
+| autoescola-aptos | 24 | ACCEPTABLE | auto-socorro-dentinho (24) | DISTINCT | COVER_IS_SOCIAL_IMAGE, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | brecho-sao-francisco | 24 | ACCEPTABLE | toquinho-de-gente-brecho (24) | DISTINCT | COVER_MISSING, COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | paraiso-do-hot-dog | 24 | ACCEPTABLE | kitutes-na-mesa (24) | DISTINCT | COVER_NO_FOCAL_POINT, COVER_RATIO_MISMATCH | LOGO_NO_CONTRAST_VARIANT | — |
 | sscons | 24 | ACCEPTABLE | bruna-diarista (24) | DISTINCT | COVER_NO_FOCAL_POINT | LOGO_NO_CONTRAST_VARIANT | — |
@@ -175,4 +176,6 @@ Veredito: **FAIL**
 
 - COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":25,"after":26}
 
-
+Melhorias:
+- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":6,"after":5}
+- {"kind":"MODIFIED_PROJECT","slug":"btb-construcao","before":"HIGH_SIMILARITY","after":"ATTENTION"}

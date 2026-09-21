@@ -5,16 +5,16 @@
     "v1": {
       "metricVersion": 1,
       "clones": 0,
-      "over60": 6,
+      "over60": 5,
       "clusters": 0,
-      "highSimilarity": 6
+      "highSimilarity": 5
     },
     "v2": {
       "metricVersion": 2,
       "clones": 0,
-      "over60": 6,
+      "over60": 5,
       "clusters": 0,
-      "highSimilarity": 6
+      "highSimilarity": 5
     },
     "projects": [
       {
@@ -126,6 +126,18 @@
         "v2AssetPattern": 5
       },
       {
+        "slug": "autoescola-aptos",
+        "v1Score": 24,
+        "v2Score": 24,
+        "delta": 0,
+        "v1Nearest": "auto-socorro-dentinho",
+        "v2Nearest": "auto-socorro-dentinho",
+        "neighbourChanged": false,
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 0,
+        "v2AssetPattern": 3.3
+      },
+      {
         "slug": "beto-pasteis",
         "v1Score": 33,
         "v2Score": 30,
@@ -175,15 +187,15 @@
       },
       {
         "slug": "btb-construcao",
-        "v1Score": 73,
-        "v2Score": 69,
-        "delta": -4,
-        "v1Nearest": "easy-clean",
-        "v2Nearest": "easy-clean",
+        "v1Score": 44,
+        "v2Score": 44,
+        "delta": 0,
+        "v1Nearest": "embalar-embalagens",
+        "v2Nearest": "embalar-embalagens",
         "neighbourChanged": false,
-        "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
-        "v2AssetPattern": 15
+        "reason": "UNCHANGED",
+        "v1AssetPattern": 10,
+        "v2AssetPattern": 4.3
       },
       {
         "slug": "carecas-infotec",
@@ -343,14 +355,14 @@
       },
       {
         "slug": "easy-clean",
-        "v1Score": 73,
-        "v2Score": 69,
-        "delta": -4,
-        "v1Nearest": "btb-construcao",
-        "v2Nearest": "btb-construcao",
+        "v1Score": 67,
+        "v2Score": 65,
+        "delta": -2,
+        "v1Nearest": "bruna-diarista",
+        "v2Nearest": "bruna-diarista",
         "neighbourChanged": false,
         "reason": "METRIC_CORRECTION",
-        "v1AssetPattern": 100,
+        "v1AssetPattern": 66.7,
         "v2AssetPattern": 15
       },
       {
@@ -427,15 +439,15 @@
       },
       {
         "slug": "enoel-portas",
-        "v1Score": 56,
-        "v2Score": 56,
-        "delta": 0,
-        "v1Nearest": "btb-construcao",
-        "v2Nearest": "btb-construcao",
-        "neighbourChanged": false,
-        "reason": "UNCHANGED",
-        "v1AssetPattern": 11.1,
-        "v2AssetPattern": 11.2
+        "v1Score": 55,
+        "v2Score": 54,
+        "delta": -1,
+        "v1Nearest": "maximos-cabeleireiros",
+        "v2Nearest": "aguia-sul-sinalizacao",
+        "neighbourChanged": true,
+        "reason": "METRIC_CORRECTION",
+        "v1AssetPattern": 100,
+        "v2AssetPattern": 3
       },
       {
         "slug": "espaco-cih-luh",
@@ -1163,20 +1175,20 @@
     "clone": 81
   },
   "summary": {
-    "total": 94,
+    "total": 95,
     "original": 1,
-    "acceptable": 29,
-    "attention": 58,
-    "highSimilarity": 6,
+    "acceptable": 30,
+    "attention": 59,
+    "highSimilarity": 5,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
     "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 48,
+    "coverValid": 49,
     "coverPending": 46,
-    "coversAsSocialImage": 13,
+    "coversAsSocialImage": 14,
     "sharedCovers": 0,
     "severeCrop": 19,
     "invalidCrossClientAssets": 0,
@@ -1583,6 +1595,50 @@
       "fallbackVertical": null
     },
     {
+      "slug": "autoescola-aptos",
+      "score": 24,
+      "originalityStatus": "ACCEPTABLE",
+      "nearestMatch": "auto-socorro-dentinho",
+      "nearestMatchScore": 24,
+      "reasons": [],
+      "dimensions": {
+        "STRUCTURE_SIMILARITY": 18.9,
+        "SECTION_ORDER_SIMILARITY": 30,
+        "COMPONENT_SIMILARITY": 27.8,
+        "STYLE_SIMILARITY": 48.4,
+        "COPY_SIMILARITY": 0,
+        "ASSET_PATTERN_SIMILARITY": 3.3,
+        "IDENTITY_SIMILARITY": 11.5
+      },
+      "coverSignals": [
+        "COVER_IS_SOCIAL_IMAGE",
+        "COVER_NO_FOCAL_POINT",
+        "COVER_RATIO_MISMATCH"
+      ],
+      "logoSignals": [
+        "LOGO_NO_CONTRAST_VARIANT"
+      ],
+      "assetSharing": [],
+      "nearest": [
+        {
+          "slug": "auto-socorro-dentinho",
+          "score": 24,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "estrutura-nacional",
+          "score": 23,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "marido-de-aluguel",
+          "score": 23,
+          "reason": "DISTINCT"
+        }
+      ],
+      "fallbackVertical": null
+    },
+    {
       "slug": "beto-pasteis",
       "score": 30,
       "originalityStatus": "ACCEPTABLE",
@@ -1753,30 +1809,30 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "btb-construcao",
-          "score": 61,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
+          "slug": "aguia-sul-sinalizacao",
+          "score": 57,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
     },
     {
       "slug": "btb-construcao",
-      "score": 69,
-      "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "easy-clean",
-      "nearestMatchScore": 69,
+      "score": 44,
+      "originalityStatus": "ATTENTION",
+      "nearestMatch": "embalar-embalagens",
+      "nearestMatchScore": 44,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 85.1,
+        "STRUCTURE_SIMILARITY": 29.9,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 69.2,
-        "STYLE_SIMILARITY": 74.7,
-        "COPY_SIMILARITY": 1.8,
-        "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 9.7
+        "COMPONENT_SIMILARITY": 43.8,
+        "STYLE_SIMILARITY": 40.9,
+        "COPY_SIMILARITY": 1,
+        "ASSET_PATTERN_SIMILARITY": 4.3,
+        "IDENTITY_SIMILARITY": 7.7
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -1788,19 +1844,19 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "easy-clean",
-          "score": 69,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
-          "slug": "bruna-diarista",
-          "score": 61,
-          "reason": "NEAR_DUPLICATE_LAYOUT"
-        },
-        {
-          "slug": "enoel-portas",
-          "score": 56,
+          "slug": "embalar-embalagens",
+          "score": 44,
           "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "acai-total-araucaria",
+          "score": 40,
+          "reason": "DISTINCT"
+        },
+        {
+          "slug": "easy-clean",
+          "score": 40,
+          "reason": "DISTINCT"
         }
       ],
       "fallbackVertical": null
@@ -2394,21 +2450,21 @@
     },
     {
       "slug": "easy-clean",
-      "score": 69,
+      "score": 65,
       "originalityStatus": "HIGH_SIMILARITY",
-      "nearestMatch": "btb-construcao",
-      "nearestMatchScore": 69,
+      "nearestMatch": "bruna-diarista",
+      "nearestMatchScore": 65,
       "reasons": [
-        "VISUAL_COMPOSITION_CLONE"
+        "NEAR_DUPLICATE_LAYOUT"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 85.1,
+        "STRUCTURE_SIMILARITY": 74,
         "SECTION_ORDER_SIMILARITY": 100,
         "COMPONENT_SIMILARITY": 69.2,
-        "STYLE_SIMILARITY": 74.7,
-        "COPY_SIMILARITY": 1.8,
+        "STYLE_SIMILARITY": 68.2,
+        "COPY_SIMILARITY": 2.6,
         "ASSET_PATTERN_SIMILARITY": 15,
-        "IDENTITY_SIMILARITY": 9.7
+        "IDENTITY_SIMILARITY": 8.6
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT"
@@ -2420,11 +2476,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "btb-construcao",
-          "score": 69,
-          "reason": "VISUAL_COMPOSITION_CLONE"
-        },
-        {
           "slug": "bruna-diarista",
           "score": 65,
           "reason": "NEAR_DUPLICATE_LAYOUT"
@@ -2433,6 +2484,11 @@
           "slug": "popys-conservacao-limpeza",
           "score": 62,
           "reason": "NEAR_DUPLICATE_LAYOUT"
+        },
+        {
+          "slug": "aguia-sul-sinalizacao",
+          "score": 59,
+          "reason": "SAME_FAMILY"
         }
       ],
       "fallbackVertical": null
@@ -2710,21 +2766,21 @@
     },
     {
       "slug": "enoel-portas",
-      "score": 56,
+      "score": 54,
       "originalityStatus": "ATTENTION",
-      "nearestMatch": "btb-construcao",
-      "nearestMatchScore": 56,
+      "nearestMatch": "aguia-sul-sinalizacao",
+      "nearestMatchScore": 54,
       "reasons": [
         "SAME_FAMILY"
       ],
       "dimensions": {
-        "STRUCTURE_SIMILARITY": 58.6,
+        "STRUCTURE_SIMILARITY": 50.8,
         "SECTION_ORDER_SIMILARITY": 100,
-        "COMPONENT_SIMILARITY": 50,
-        "STYLE_SIMILARITY": 56.7,
-        "COPY_SIMILARITY": 4.1,
-        "ASSET_PATTERN_SIMILARITY": 11.2,
-        "IDENTITY_SIMILARITY": 12
+        "COMPONENT_SIMILARITY": 60,
+        "STYLE_SIMILARITY": 50.5,
+        "COPY_SIMILARITY": 1,
+        "ASSET_PATTERN_SIMILARITY": 3,
+        "IDENTITY_SIMILARITY": 15.4
       },
       "coverSignals": [
         "COVER_NO_FOCAL_POINT",
@@ -2736,11 +2792,6 @@
       "assetSharing": [],
       "nearest": [
         {
-          "slug": "btb-construcao",
-          "score": 56,
-          "reason": "SAME_FAMILY"
-        },
-        {
           "slug": "aguia-sul-sinalizacao",
           "score": 54,
           "reason": "SAME_FAMILY"
@@ -2748,6 +2799,11 @@
         {
           "slug": "easy-clean",
           "score": 54,
+          "reason": "SAME_FAMILY"
+        },
+        {
+          "slug": "mania-de-limpeza",
+          "score": 51,
           "reason": "SAME_FAMILY"
         }
       ],
@@ -4454,7 +4510,7 @@
           "reason": "NEAR_DUPLICATE_LAYOUT"
         },
         {
-          "slug": "btb-construcao",
+          "slug": "mimo-salgados-doces",
           "score": 56,
           "reason": "SAME_FAMILY"
         }
@@ -5028,12 +5084,12 @@
           "reason": "DISTINCT"
         },
         {
-          "slug": "btb-construcao",
+          "slug": "easy-clean",
           "score": 24,
           "reason": "DISTINCT"
         },
         {
-          "slug": "easy-clean",
+          "slug": "jc-revestimentos",
           "score": 24,
           "reason": "DISTINCT"
         }
