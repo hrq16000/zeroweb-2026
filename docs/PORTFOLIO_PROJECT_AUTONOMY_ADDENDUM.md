@@ -60,6 +60,21 @@ Regra de promoção factual da R2: um item só entra em `services` ou
 Candidato, inferência de categoria, snippet ambíguo ou conhecimento genérico do
 segmento não vira claim público.
 
+### 1.2 Evidência estruturada de serviços
+
+A R1 pode promover automaticamente um serviço para `facts[]` somente quando a
+entidade já tiver confiança `>= 70` e a fonte resolvida trouxer um campo
+estruturado explicitamente identificado como serviço/especialidade.
+
+Allowlist canônica de chaves normalizadas:
+`service`, `services`, `servico`, `servicos`, `specialty`,
+`specialties`, `especialidade`, `especialidades`, `service_list`,
+`services_list`.
+
+Descrição livre, snippet, categoria, produto, inferência por segmento e flags
+booleanas de conveniência não viram serviço. Se não houver campo elegível,
+`verified_services` continua pendente.
+
 ## 2. IDENTITY_COMPLETENESS_GATE (§3–§6)
 
 Toda landing declara uma decisão explícita de identidade:

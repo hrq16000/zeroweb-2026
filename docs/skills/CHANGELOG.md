@@ -1390,3 +1390,21 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   `AGENT_SKILLS_GOVERNANCE.md`, `REGISTRY.md` e `ORCHESTRATION.md`.
 - **Validação anterior da implementação:** preview Vercel e produção ficaram
   `READY` no commit `dbe0babd053b01e7499b27ada947d82aca09134a`.
+
+
+# 2026-09-20 — R1 · promoção conservadora de serviços estruturados
+
+- **Tarefa:** ampliar a pesquisa autônoma sem transformar inferência em oferta
+  comercial.
+- **Skill:** `0web-portfolio-autonomous-pipeline`.
+- **Alteração:** novo `portfolio-autonomous-evidence.ts` promove para
+  `facts[].field=service` apenas campos estruturados explícitos de
+  serviço/especialidade vindos da entidade Google/KG resolvida com confiança
+  `>= 70`.
+- **Bloqueios preservados:** descrição, snippet, categoria, produtos, flags
+  booleanas de atendimento e conhecimento genérico do segmento não viram
+  serviço.
+- **Testes:** cobertura adicionada para allowlist, deduplicação implícita,
+  exclusão de texto livre/produto e rejeição de entidade com confiança 60.
+- **Escopo:** sem UI, sem alteração de WhatsApp, sem promoção automática de
+  review, preço, diferencial ou mídia.
