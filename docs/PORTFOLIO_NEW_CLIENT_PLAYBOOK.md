@@ -3,6 +3,7 @@
 Status: **obrigatório**. Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md`,
 `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`,
+`docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`,
 `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md`,
 `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md`,
 `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`,
@@ -80,24 +81,25 @@ Nunca partir do componente de outro cliente para “ganhar tempo”. Consulte ou
 1. Rodar o scaffold ou registrar manualmente os mesmos contratos.
 2. Executar discovery de skills conforme `SKILL_MARKETPLACE_DISCOVERY_STANDARD` e registrar o stack.
 3. Pesquisar/resolver a entidade e evidências; pesquisa não realizada é bloqueio, dado honestamente ausente não.
-4. Gerar pelo menos **três** direções criativas substancialmente divergentes e selecionar a que melhor equilibra identidade, conversão, evidência e originalidade.
-5. Preencher o creative brief v2 antes do layout final.
-6. Registrar catálogo e `portfolio-site-registry.ts`.
-7. Criar diretório exclusivo `public/images/<slug>/` e identidade própria.
-8. Criar componente exclusivo em `src/components/site/<Cliente>Page.tsx`.
-9. Definir macro-layout próprio e documentar Flexbox/Grid/híbrido, wrapping, sizing e comportamento 390/768/1440.
-10. Usar tokens/tipografia escopados ao cliente quando a identidade exigir.
-11. Declarar **override próprio** em `src/config/portfolio-motion-profiles.json`; default por segmento é fallback legado, não direção final de novo cliente.
-12. Avaliar as 14 capacidades de motion como `REQUIRED`, `OPTIONAL` ou `NOT_APPLICABLE`; motion não pode ser a mesma coreografia reaplicada a todos.
-13. Ligar rota/lazy loader e completar metadata/OG/Twitter/JSON-LD próprios do projeto, sem herdar descrição de outro vertical.
-14. Criar/preencher o funil `funnel-<slug>`.
-15. Usar `FunnelCTAButton` com `clientKey`, `companySlug` e `formSlug` próprios.
-16. Cadastrar destino real somente no mecanismo server-side canônico quando houver evidência confiável; número não confirmado permanece `UNRESOLVED` e o lead deve continuar sendo salvo com recuperação/callback.
-17. Criar `hero`, `catalogCover`, `social/OG` e `preview` próprios/resolvidos; um hero novo não deixa a capa velha válida automaticamente.
-18. Validar logo/ícone exclusivos e assets sem compartilhamento indevido.
-19. Comparar originalidade contra os portfolios mais próximos e registrar `antiTemplateDecisions`/fingerprint.
-20. Fazer browser/runtime QA antes de publicar.
-21. Verificar explicitamente `PORTFOLIO_ZERO_GENERIC_STANDARD.md`: nenhum hard blocker pode permanecer como `DONE`.
+4. Declarar `LandingIntentProfile` + `LandingDecisionProfileV2` e avaliar a extensão aditiva `LandingDecisionProfileV3` (decision velocity, information scent, self-segmentation, context carryover, claim/evidence, freshness, mobile decision budget e pós-conversão) antes de qualquer direção visual.
+5. Gerar pelo menos **três** direções criativas substancialmente divergentes e selecionar a que melhor equilibra identidade, conversão, evidência e originalidade.
+6. Preencher o creative brief v2 antes do layout final.
+7. Registrar catálogo e `portfolio-site-registry.ts`.
+8. Criar diretório exclusivo `public/images/<slug>/` e identidade própria.
+9. Criar componente exclusivo em `src/components/site/<Cliente>Page.tsx`.
+10. Definir macro-layout próprio e documentar Flexbox/Grid/híbrido, wrapping, sizing e comportamento 390/768/1440.
+11. Usar tokens/tipografia escopados ao cliente quando a identidade exigir.
+12. Declarar **override próprio** em `src/config/portfolio-motion-profiles.json`; default por segmento é fallback legado, não direção final de novo cliente.
+13. Avaliar as 14 capacidades de motion como `REQUIRED`, `OPTIONAL` ou `NOT_APPLICABLE`; motion não pode ser a mesma coreografia reaplicada a todos.
+14. Ligar rota/lazy loader e completar metadata/OG/Twitter/JSON-LD próprios do projeto, sem herdar descrição de outro vertical.
+15. Criar/preencher o funil `funnel-<slug>`.
+16. Usar `FunnelCTAButton` com `clientKey`, `companySlug` e `formSlug` próprios.
+17. Cadastrar destino real somente no mecanismo server-side canônico quando houver evidência confiável; número não confirmado permanece `UNRESOLVED` e o lead deve continuar sendo salvo com recuperação/callback.
+18. Criar `hero`, `catalogCover`, `social/OG` e `preview` próprios/resolvidos; um hero novo não deixa a capa velha válida automaticamente.
+19. Validar logo/ícone exclusivos e assets sem compartilhamento indevido.
+20. Comparar originalidade contra os portfolios mais próximos e registrar `antiTemplateDecisions`/fingerprint.
+21. Fazer browser/runtime QA antes de publicar.
+22. Verificar explicitamente `PORTFOLIO_ZERO_GENERIC_STANDARD.md`: nenhum hard blocker pode permanecer como `DONE`.
 
 Nenhum telefone, `wa.me` ou e-mail operacional pode existir no bundle público.
 
@@ -205,3 +207,14 @@ Gates: `CONTACT_FUNNEL_GATE` (§21.4) e `MEDIA_PURPOSE_GATE` (§22.5) do Bluepri
 A mesma política vale para todo projeto legado sempre que houver manutenção material, redesign, troca de hero/capa, correção estrutural, alteração de navegação, nova campanha/variante ou republicação visual relevante.
 
 Projeto antigo pode permanecer online enquanto entra na fila de remediação, mas **legado não é sinônimo de aprovado**. `HIGH_SIMILARITY`, `ATTENTION`, capa fraca, mídia insuficiente, hero genérico e ausência de assinatura devem ser priorizados até o catálogo inteiro convergir para `ZERO_GENERIC_TOLERANCE`.
+
+
+### Inteligência de decisão R3
+
+Novo projeto não escolhe estrutura por segmento nem por referência visual. Antes
+da composição, aplicar o padrão de pesquisa de landing pages e registrar as
+decisões R1/R2/R3. Em especial: preservar origem e escolhas até o handoff,
+evitar pedir dado já conhecido, usar auto-segmentação somente quando ela altera
+a jornada, associar claims materiais a evidência/freshness e garantir que o
+mobile contenha o orçamento mínimo de decisão. A R3 é aditiva; nada substitui
+factualidade, identidade, originalidade, funnel isolation ou quality gates.
