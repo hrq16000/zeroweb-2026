@@ -1189,21 +1189,23 @@
       "mobileBehavior": "reveal reduzido para fade, sem animação no toque"
     },
     "centro-mega": {
-      "intensity": "BALANCED",
-      "preset": "TECHNICAL",
-      "heroMotion": "maskedSplit",
+      "intensity": "IMMERSIVE",
+      "preset": "NEON_COMMERCE",
+      "heroMotion": "layered",
       "sectionReveal": "stagger",
       "imageReveal": "clip",
       "textReveal": "line",
       "iconMotion": "pop",
-      "hoverBehavior": "lift",
-      "depthBehavior": "flat",
-      "scrollBehavior": "none",
+      "hoverBehavior": "depth",
+      "depthBehavior": "crossing",
+      "scrollBehavior": "progressive",
       "staggerPattern": "grid",
       "reducedMotionFallback": "opacityOnly",
-      "desktopBehavior": "blueprint técnico com reveal lateral do hero",
-      "tabletBehavior": "split vira pilha preservando canais",
-      "mobileBehavior": "sem deslocamento no toque; âncoras permanecem acessíveis"
+      "narrative": "social commerce em camadas: feed → produto → categoria → seleção → atendimento; brilho e profundidade servem à descoberta, sem esconder conteúdo",
+      "desktopBehavior": "hero em camadas neon, vitrine com hover de profundidade e cards sociais; outlet alterna sticky narrative e grid",
+      "tabletBehavior": "efeitos de profundidade reduzidos, vitrine em duas colunas e seleção sempre no fluxo",
+      "mobileBehavior": "uma coluna, sem dependência de hover/parallax; filtros e sacola permanecem acessíveis; reduced-motion remove deslocamentos",
+      "wave": "CENTRO_MEGA_STORE_DEMO"
     },
     "pastelaria-route-66": {
       "intensity": "BALANCED",
