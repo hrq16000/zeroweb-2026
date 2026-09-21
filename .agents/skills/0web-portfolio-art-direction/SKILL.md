@@ -185,3 +185,19 @@ A page is not done until it has:
 - mobile/keyboard/reduced-motion validation;
 - originality comparison and visual QA;
 - performance/privacy/build gates green.
+
+
+## 2.2 Decision intelligence R3 — before composition
+
+After V2 and before choosing hero geometry, section graph or motion, evaluate the
+R3 extension in
+`docs/research/LANDING-PAGE-OFFICIAL-SITE-SWEEP-R3-2026-09-21.md`.
+The creative direction must explicitly account for decision velocity,
+information scent, legitimate self-segmentation, context carryover,
+claim→evidence placement, risk-adjusted persuasion, freshness, navigation
+leakage and the mobile decision budget.
+
+Do not translate these fields into a fixed layout. They describe **what the
+experience must solve**, while art direction remains project-specific. A
+selector, comparison, simulator, preview or short fast path is only selected
+when it removes a real decision barrier.
