@@ -622,7 +622,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       : isDonaLucySalgados
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isCentroMega
-      ? "Centro Mega: assistência técnica especializada e acessórios para tecnologia, com canais em Curitiba e Região Metropolitana."
+      ? "Centro Mega em São José dos Pinhais: amostra de loja virtual com celulares, acessórios e outlet. Produtos vistos nas redes aparecem com data; estoque, valor atual, variações e envio são confirmados pela equipe."
       : isAutoSocorroDentinho
       ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
       : isHeloaGas
@@ -813,7 +813,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isJklDecor
+          content: eff.keywords ?? (isCentroMega
+            ? "Centro Mega, Centro Mega São José dos Pinhais, celulares São José dos Pinhais, smartphones, acessórios para celular, outlet São José dos Pinhais, tênis, bonés, calçados, loja virtual Centro Mega, Poco X5 Pro, Dunk Low Pro"
+            : isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
             : isAutoescolaAptos
             ? "Autoescola APTOS, autoescola São José dos Pinhais, primeira habilitação, carro automático autoescola, moto automática, categoria A, categoria B, categoria AB, reteste, renovação CNH, reciclagem, curso online"
@@ -942,7 +944,53 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   inLanguage: "pt-BR",
                   isPartOf: { "@id": "https://0web.com.br/portfolio" },
                 },
-                ...(isBtb
+                ...(isCentroMega
+                  ? [
+                      {
+                        "@type": "Store",
+                        additionalType: "https://schema.org/MobilePhoneStore",
+                        "@id": `${url}#store`,
+                        name: "Centro Mega",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/centro-mega/logo.png"),
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua XV de Novembro, 1821",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83005-000",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "São José dos Pinhais" },
+                          { "@type": "City", name: "Curitiba" },
+                        ],
+                        sameAs: [
+                          "https://www.instagram.com/centro.mega/",
+                          "https://www.facebook.com/CentroMega.com.br/",
+                          "https://linktr.ee/centro.mega",
+                        ],
+                        hasOfferCatalog: {
+                          "@type": "OfferCatalog",
+                          name: "Vitrine Centro Mega — amostra",
+                          itemListElement: [
+                            "Celulares e smartphones",
+                            "Acessórios para celular",
+                            "Tênis",
+                            "Bonés",
+                            "Calçados",
+                            "Outlet e achadinhos",
+                          ].map((name) => ({
+                            "@type": "Offer",
+                            availability: "https://schema.org/LimitedAvailability",
+                            itemOffered: { "@type": "Product", name },
+                          })),
+                        },
+                      },
+                    ]
+                  : isBtb
                   ? [
                       {
                         "@type": "GeneralContractor",
