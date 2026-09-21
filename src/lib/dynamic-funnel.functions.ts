@@ -568,12 +568,42 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
       .in("slug", funnelSlugs)
       .eq("status", "published");
     if (formError) throw new Error("Funil de atendimento indisponível");
-    const form =
+    let form =
       (forms ?? []).find((f) => f.slug === clientFunnelSlug) ??
       (forms ?? []).find((f) => f.slug === clientFunnelSlugAlt) ??
       (routingKind === "legacy"
         ? (forms ?? []).find((f) => f.slug === "funnel-service")
         : undefined);
+    // Projetos managed publicados antes do funil individual não têm a linha própria.
+    // Provisiona o funil isolado do próprio clientKey (nunca compartilhado) para não perder o lead.
+    if (!form && routingKind === "managed") {
+      const { data: owned } = await supabaseAdmin
+        .from("dynamic_forms")
+        .select("id, slug, config_json")
+        .eq("slug", clientFunnelSlug)
+        .maybeSingle();
+      const ownedConfig =
+        owned?.config_json && typeof owned.config_json === "object" && !Array.isArray(owned.config_json)
+          ? (owned.config_json as Record<string, unknown>)
+          : {};
+      if (!owned || ownedConfig.portfolio_managed === true) {
+        const { data: provisioned } = await supabaseAdmin
+          .from("dynamic_forms")
+          .upsert(
+            {
+              slug: clientFunnelSlug,
+              name: data.studioName || data.clientKey,
+              description: `Funil individual do portfolio ${data.clientKey}`,
+              status: "published",
+              config_json: { ...ownedConfig, portfolio_managed: true, client_key: data.clientKey },
+            },
+            { onConflict: "slug" },
+          )
+          .select("id, slug")
+          .maybeSingle();
+        if (provisioned) form = provisioned;
+      }
+    }
     if (!form) throw new Error("Funil de atendimento indisponível");
 
     let ip: string | null = null;

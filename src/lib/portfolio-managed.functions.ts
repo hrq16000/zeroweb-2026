@@ -475,9 +475,17 @@ export const saveManagedProject = createServerFn({ method: "POST" })
     const existingFunnel = record(existingSnapshot.managed_funnel);
     const effectiveIntent =
       data.funnelIntent || (typeof existingFunnel.intent === "string" ? existingFunnel.intent : "");
+    const requestedRecipient = normalizeWhatsApp(data.funnelRecipient);
+    const existingRecipient = normalizeWhatsApp(existing?.funnel_recipient);
+    // Projetos salvos antes do campo "modo de entrega" não têm delivery_mode no snapshot.
+    // Nesse caso, um destino já configurado na linha é a evidência do modo — nunca apagar.
     const effectiveDeliveryMode =
       data.funnelDeliveryMode ||
-      (typeof existingFunnel.delivery_mode === "string" ? existingFunnel.delivery_mode : "");
+      (typeof existingFunnel.delivery_mode === "string" && existingFunnel.delivery_mode
+        ? existingFunnel.delivery_mode
+        : existingRecipient && existing?.funnel_enabled
+          ? "whatsapp"
+          : "");
     const row = buildManagedRow({
       ...data,
       slug,
@@ -485,8 +493,6 @@ export const saveManagedProject = createServerFn({ method: "POST" })
       funnelIntent: effectiveIntent,
       funnelDeliveryMode: effectiveDeliveryMode,
     });
-    const requestedRecipient = normalizeWhatsApp(data.funnelRecipient);
-    const existingRecipient = normalizeWhatsApp(existing?.funnel_recipient);
     const funnelRecipient =
       effectiveDeliveryMode === "whatsapp" ? requestedRecipient || existingRecipient : "";
     const funnelEnabled = effectiveDeliveryMode === "whatsapp" && Boolean(funnelRecipient);
