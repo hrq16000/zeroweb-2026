@@ -865,10 +865,18 @@
     "componentFile": "src/components/site/BtbConstrucaoPage.tsx",
     "assetsDir": "public/images/btb-construcao",
     "ctaMode": "proposal",
+    "funnelType": "orcamento",
+    "contactMode": "funnelOnly",
     "socialProofRequired": false,
     "hostCaptureRequired": true,
-    "creativeContractVersion": 2,
-    "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md"
+    "funnelRecipientConfigured": true,
+    "creativeContractVersion": 3,
+    "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md",
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Flyer e dados fornecidos pelo cliente; pesquisa pública revalidada em 21/09/2026 sem promover homônimos",
+      "reference": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png"
+    }
   },
   {
     "clientKey": "easy-clean",
