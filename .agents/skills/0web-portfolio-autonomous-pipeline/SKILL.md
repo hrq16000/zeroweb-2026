@@ -129,3 +129,18 @@ R3 is **SOME/additive**. It never replaces V1/V2 evidence, lifecycle, creative
 originality, funnel isolation or premium gates. Unsupported fields remain
 unknown/NA. Persist known source/offer/item/plan/unit context instead of asking
 for it again when the architecture can carry it forward.
+
+
+## 9. Resource utilization duty
+
+For every new autonomous project, enforce
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`. After R1/R2/R3, actively
+attempt the relevant resources that can improve the result: official sources,
+real media, brand assets, useful skills, decision aids, local context, safe
+interaction, SEO/entity data, accessibility, performance, funnel continuity,
+measurement and runtime QA.
+
+Do not stop at the first functional implementation when a relevant resource is
+available and would materially improve the page. Record important unused
+resources as `REJECTED`, `ATTEMPTED_BLOCKED` or `NOT_APPLICABLE` with a reason.
+Do not add decorative or heavy capabilities merely to satisfy this rule.
