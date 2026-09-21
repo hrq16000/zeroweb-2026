@@ -56,6 +56,18 @@ A partir do mix informado pelo responsável e da atividade pública/cadastral da
 
 Bonés e calçados entram como **categorias demonstrativas**, sem SKU, foto, preço ou estoque fabricado.
 
+
+
+## Catálogo público complementar
+
+Além dos produtos convertidos de posts sociais, a pesquisa resolveu a página pública do seller **Centro Mega** no Magazine Luiza pelo mesmo CNPJ `17.991.627/0001-54`. A amostra usa três itens adicionais como demonstração de profundidade de catálogo, sem copiar preço/estoque temporário:
+
+- Xiaomi Mi Box S;
+- Controle PlayStation 4 Original Sony;
+- Suporte de celular para Moto & Bike Renux 5203.
+
+Esses produtos têm `sourceType=MARKETPLACE_SELLER`. A finalidade é mostrar como a futura loja pode combinar **social commerce + catálogo público**. Preço, estoque, garantia e condição comercial continuam sujeitos a revalidação.
+
 ## Instagram/Facebook
 
 Links públicos de posts/reels já existentes no projeto foram preservados como cards de fonte/descoberta.
