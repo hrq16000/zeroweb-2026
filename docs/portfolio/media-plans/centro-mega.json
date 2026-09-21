@@ -1,0 +1,119 @@
+{
+  "doc": "Media plan canônico da amostra de loja virtual Centro Mega.",
+  "slug": "centro-mega",
+  "status": "DEMO_STORE_WITH_OWNER_ASSETS_AND_GRAPHIC_COMMERCE_MEDIA",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [
+      {
+        "asset": "public/images/centro-mega/logo.png",
+        "classification": "OWNER_SUPPLIED_BRAND_ASSET",
+        "purpose": "logo/header/footer",
+        "documentary": true,
+        "notes": "Asset já versionado e usado na presença anterior da Centro Mega."
+      }
+    ],
+    "externalMedia": [
+      {
+        "classification": "SOCIAL_SOURCE_LINKS",
+        "purpose": "research-and-discovery",
+        "documentary": true,
+        "usageMode": "LINK_ONLY",
+        "notes": "Links Facebook/Instagram são preservados como fontes. Imagens dos posts não foram copiadas quando não houve ingestão segura."
+      }
+    ],
+    "licensedMedia": [],
+    "generatedMedia": [
+      {
+        "asset": "public/images/centro-mega/hero.png",
+        "classification": "LEGACY_CONTEXTUAL_MEDIA",
+        "purpose": "legacy-reference",
+        "documentary": false,
+        "usageMode": "NOT_RENDERED_IN_STORE_HERO",
+        "notes": "A Store Concept atual prefere composição CSS/DOM para reduzir peso e não criar falsa fotografia de produto."
+      },
+      {
+        "asset": "public/images/centro-mega/social-og.jpg",
+        "classification": "OG_MEDIA",
+        "purpose": "social-preview",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/centro-mega/social.png",
+        "classification": "BRAND_COMPOSITION",
+        "purpose": "legacy-social",
+        "documentary": false
+      }
+    ],
+    "graphicMedia": [
+      {
+        "asset": null,
+        "classification": "DOM_CSS_GRAPHIC_COMPOSITION",
+        "purpose": "active-store-hero",
+        "documentary": false,
+        "notes": "Grid, glow, neon, glyphs e cards são composição autoral renderizada em CSS/DOM."
+      },
+      {
+        "asset": null,
+        "classification": "FUNCTIONAL_PRODUCT_GLYPHS",
+        "purpose": "product-card-placeholder",
+        "documentary": false,
+        "notes": "Ícones deixam claro que não se trata de fotografia atual do estoque."
+      }
+    ],
+    "missingMedia": [
+      "fotos atuais dos celulares em estoque",
+      "fotos atuais dos itens de outlet",
+      "fotos atuais de bonés/calçados/tênis",
+      "fotos atuais das unidades",
+      "vídeos/reels ingeríveis com provenance confirmado"
+    ]
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "resolution": "CSS_DOM_NEON_COMMERCE",
+      "status": "complete"
+    },
+    {
+      "section": "vitrine",
+      "resolution": "PRODUCT_DATA_PLUS_FUNCTIONAL_GLYPHS",
+      "status": "complete",
+      "notes": "Produtos sociais verificados recebem nome/dado real; demais cards são categorias explicitamente demonstrativas."
+    },
+    {
+      "section": "outlet",
+      "resolution": "TYPOGRAPHY_AND_INTERACTION",
+      "status": "complete"
+    },
+    {
+      "section": "social-feed",
+      "resolution": "SOURCE_LINK_CARDS",
+      "status": "complete"
+    },
+    {
+      "section": "locations",
+      "resolution": "OFFICIAL_LINKTREE_CHANNELS",
+      "status": "complete"
+    },
+    {
+      "section": "selection-bag",
+      "resolution": "INTERACTION_ONLY",
+      "status": "complete"
+    }
+  ],
+  "cover": {
+    "asset": "public/images/centro-mega/social-og.jpg",
+    "strategy": "EXISTING_BRAND_COMPOSITION",
+    "approved": false,
+    "notes": "Mantido para não bloquear a evolução; uma futura capa específica da Store Concept deve ser criada/revisada em tarefa de mídia dedicada."
+  },
+  "performance": {
+    "activeHeroRaster": false,
+    "heavyVideo": false,
+    "webgl": false,
+    "newDependencies": false,
+    "decision": "Exagero visual foi construído com CSS, gradientes, blur, shadows, grids e primitives existentes; nenhum pacote pesado foi adicionado."
+  },
+  "lastUpdatedAt": "2026-09-21"
+}
