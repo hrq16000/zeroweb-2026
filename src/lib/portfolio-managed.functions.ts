@@ -288,51 +288,58 @@ export const createAutonomousManagedPortfolio = createServerFn({ method: "POST" 
   .inputValidator((data: unknown) => autonomousCreateSchema.parse(data))
   .handler(async ({ data, context }) => {
     const admin = await assertAdmin(context.userId);
-    const { runAutonomousPortfolioResearch } = await import(
-      "@/lib/portfolio-autonomous-research.server"
-    );
+    const [{ runAutonomousPortfolioResearch }, { buildAutonomousContentPlan }] =
+      await Promise.all([
+        import("@/lib/portfolio-autonomous-research.server"),
+        import("@/lib/portfolio-autonomous-content"),
+      ]);
     const research = await runAutonomousPortfolioResearch({
       name: data.name,
       locationText: data.locationText,
     });
+    const contentPlan = buildAutonomousContentPlan(research);
     const slug = await chooseAutonomousSlug(admin, data.name);
     const city = research.locality.city;
     const state = research.locality.state;
-    const locationLabel = [city, state].filter(Boolean).join(" - ") || data.locationText;
-    const summary = `${data.name} — negócio localizado em ${locationLabel}.`;
-    const seoTitle = city ? `${data.name} em ${city}` : data.name;
-    const seoDescription = `Conheça ${data.name}, negócio local em ${locationLabel}. Informações confirmadas são incorporadas à página conforme a pesquisa pública.`;
 
     const row = buildManagedRow({
       slug,
       clientKey: slug,
       displayName: data.name,
-      segment: research.segmentHint,
+      segment: contentPlan.segment,
       city,
       state,
-      summary,
+      summary: contentPlan.summary,
       preset: "editorial",
-      heroHeadline: data.name,
-      heroSubheadline: city ? `Conheça ${data.name} em ${city}.` : `Conheça ${data.name}.`,
-      seoTitle,
-      seoDescription,
-      ctaLabel: research.funnelIntentHint === "pedido" ? "Consultar opções" : "Falar com a empresa",
-      shareCopy: city ? `Conheça ${data.name} em ${city}.` : `Conheça ${data.name}.`,
-      funnelIntent: research.funnelIntentHint,
+      heroHeadline: contentPlan.heroHeadline,
+      heroSubheadline: contentPlan.heroSubheadline,
+      seoTitle: contentPlan.seo.title,
+      seoDescription: contentPlan.seo.description,
+      seoKeywords: contentPlan.seo.keywords,
+      ctaLabel: contentPlan.ctaLabel,
+      shareCopy: contentPlan.shareCopy,
+      funnelIntent: contentPlan.funnelIntent,
       funnelDeliveryMode: "lead_only",
-      services: [],
+      services: contentPlan.services,
       gallery: [],
-      content: { about: "", differentials: [], steps: [], faq: [] },
+      content: contentPlan.content,
       brandColors: {},
     });
     const sourceSnapshot = {
       ...record(row.source_snapshot),
       autonomous_research: research,
+      autonomous_content: contentPlan,
       autonomous_pipeline: {
-        contract: 1,
+        contract: 2,
         input_mode: "name_location_only",
-        status: "research_complete",
-        next: "content_composition",
+        research_status: "research_complete",
+        status: contentPlan.status,
+        next:
+          contentPlan.status === "content_composed"
+            ? "media_composition"
+            : contentPlan.status === "content_partial"
+              ? "content_evidence"
+              : "identity_resolution",
       },
     };
     const patch = {
