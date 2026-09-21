@@ -4,6 +4,7 @@ Status: **obrigatório**. Complementa `docs/PORTFOLIO_CLIENT_STANDARD.md`,
 `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`,
 `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`,
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`,
 `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md`,
 `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md`,
 `docs/PORTFOLIO_UNIQUE_COMPOSITION_STANDARD.md`,
@@ -75,6 +76,16 @@ O contrato de consistência exige rota resolvível, componente e assets próprio
 O marcador de scaffold deve ser removido quando a composição real do cliente for implementada. Projeto `published` com marcador pendente falha no gate.
 
 Nunca partir do componente de outro cliente para “ganhar tempo”. Consulte outros projetos apenas para **evitar** semelhança.
+
+## 2.1 Regra obrigatória de empenho em recursos
+
+Antes do checklist de lançamento, abrir o repertório de recursos aplicáveis e
+montar um **Resource Effort Ledger** proporcional ao projeto. O agente deve
+procurar recursos relevantes em pesquisa, mídia, skills, identidade, decisão,
+interação, SEO, acessibilidade, performance, funil, analytics e QA.
+
+Recursos centrais não utilizados precisam de estado e motivo. Ausência de esforço
+é bloqueio; ausência real de dado/recurso após tentativa honesta não é falha.
 
 ## 3. Checklist de lançamento
 

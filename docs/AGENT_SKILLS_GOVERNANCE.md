@@ -12,6 +12,23 @@ Toda tarefa substancial deve usar o maior conjunto **relevante e não redundante
 
 Para toda implementação ou revisão visual material, `.agents/skills/0web-experience-design-max/SKILL.md` é obrigatória junto do roteamento normal. Todo novo projeto e toda manutenção visual/UX material também reavaliam o skill stack por `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`.
 
+## Política oficial de empenho em recursos
+
+Além de selecionar skills, todo trabalho material de portfolio deve cumprir
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`. O agente deve procurar e
+usar ativamente recursos relevantes de pesquisa, mídia, identidade, decisão,
+interação, SEO, acessibilidade, performance, funil, medição e QA.
+
+O esforço é auditável: recurso material não usado precisa estar `REJECTED`,
+`ATTEMPTED_BLOCKED` ou `NOT_APPLICABLE` com motivo. “Não usei porque o caminho
+simples já funciona” não é justificativa quando o recurso reduziria incerteza,
+aumentaria prova, melhoraria identidade ou eliminaria fricção real.
+
+Ao mesmo tempo, **máximo de recursos relevantes não é máximo de pacotes**.
+Dependência, efeito, skill ou integração redundante, insegura, pesada ou sem
+benefício deve ser rejeitada. O objetivo é cobertura máxima de competências e
+uso útil, não um Frankenstein técnico/visual.
+
 ## Skills e referências adotadas globalmente
 
 As skills são referências de execução e revisão; não substituem conteúdo real, testes ou validação humana.

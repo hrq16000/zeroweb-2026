@@ -37,6 +37,7 @@ conversionNarrative:
 proofStrategy:
 nearestPortfolioRisks:
 antiTemplateDecisions:
+resourceEffortLedger:
 ```
 
 Para projeto publicado, nenhum campo pode permanecer como `[PREENCHER]`.
@@ -79,6 +80,15 @@ context carryover, commitment ladder, claim→evidence, persuasão ajustada ao
 risco, estados da jornada, escalada humana, contrato de resposta, freshness,
 navigation leakage, mobile decision budget e experiment readiness. **SOME:** V3
 não substitui V2; só amplia a decisão.
+
+## 1.2 Resource effort obrigatório
+
+Antes da composição final, o brief precisa registrar os principais recursos
+considerados conforme `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`.
+Recursos materialmente relevantes recebem `USED`, `REJECTED`,
+`ATTEMPTED_BLOCKED` ou `NOT_APPLICABLE`, com motivo/evidência. O agente não
+pode usar “não precisei” como atalho se o recurso melhoraria de forma material a
+verdade, a decisão, a identidade ou a conversão.
 
 ## 2. Competências obrigatórias
 

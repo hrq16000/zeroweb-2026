@@ -26,6 +26,20 @@ segurança, conversão/WhatsApp, SEO local e legibilidade por mecanismos de busc
 e LLMs. Capacidades só entram quando resolvem uma necessidade real; não há
 template visual obrigatório.
 
+### Empenho obrigatório em recursos relevantes
+
+Em portfolio, “usar o máximo de recursos” significa obrigatoriamente descobrir,
+avaliar e tentar o maior conjunto **relevante e não redundante** de recursos
+capaz de melhorar verdade, decisão, identidade, conversão e qualidade. Seguir
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`.
+
+Não é permitido escolher a implementação mais pobre apenas por ser mais rápida
+quando já existe recurso adequado de pesquisa, mídia, skill, decision aid,
+layout/interação, SEO, acessibilidade, performance, funil, analytics ou QA.
+Também não é permitido ligar recursos indiscriminadamente. Toda omissão material
+deve ser justificável como `REJECTED`, `ATTEMPTED_BLOCKED` ou
+`NOT_APPLICABLE`.
+
 Todo projeto deve ter identidade própria, logo quando disponível, imagem social,
 metadata completa, canonical, dados estruturados adequados, CTA funcional e
 contato seguro. O catálogo deve priorizar descoberta, comparação, prova visual,

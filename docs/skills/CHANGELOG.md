@@ -1,5 +1,15 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — norma oficial · empenho máximo no uso de recursos do portfolio
+
+- **Decisão oficial:** todo novo `/portfolio/:slug`, redesign material e evolução relevante deve descobrir, avaliar, tentar e registrar o uso do máximo de recursos **relevantes e não redundantes**; ignorar recurso útil por conveniência passa a reprovar a entrega.
+- **Novo padrão:** criado `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md` com classes de recursos, `Resource Effort Ledger`, regra de parada razoável, anti-Frankenstein, Definition of Done e `RESOURCE_UTILIZATION_GATE`.
+- **Escopo de recursos:** fontes/evidência, mídia/identidade, skills, layout/interação/motion, decision aids R1/R2/R3, SEO/IA, acessibilidade, performance, funil, analytics, QA e continuidade de contexto.
+- **Obrigação:** recurso material não usado precisa ser `REJECTED`, `ATTEMPTED_BLOCKED` ou `NOT_APPLICABLE` com justificativa. Ausência de dado após tentativa honesta é aceitável; ausência de esforço não é.
+- **Proteção:** “usar mais recursos” não significa instalar mais bibliotecas nem adicionar efeitos sem função. Factualidade, segurança, privacidade, acessibilidade, performance e isolamento do cliente continuam com precedência.
+- **Propagação oficial:** regra adicionada a `AGENTS.md`, contrato de execução, Lifecycle, Skills Governance, Premium Acceptance, Capability Palette, New Client Playbook, Creative Direction, Autonomy Addendum e skills de Experience Design Max, Art Direction e Autonomous Pipeline.
+- **Runtime:** mudança exclusivamente de governança/documentação; nenhuma landing, CTA, funil, WhatsApp, asset ou identidade pública foi alterada nesta rodada.
+
 ## 2026-09-21 — varredura R3 · inteligência profunda para novas landing pages
 
 - **Tarefa:** revarrer as referências do material RD Station “34 Exemplos de Landing Pages que convertem” e somar conhecimento atual sem substituir contratos existentes.

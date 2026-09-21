@@ -56,6 +56,7 @@ conversionNarrative:
 proofStrategy:
 nearestPortfolioRisks:
 antiTemplateDecisions:
+resourceEffortLedger:
 ```
 
 `layoutTopology`, `heroArchetype`, `typePairing`, `imageStrategy` and
@@ -201,3 +202,16 @@ Do not translate these fields into a fixed layout. They describe **what the
 experience must solve**, while art direction remains project-specific. A
 selector, comparison, simulator, preview or short fast path is only selected
 when it removes a real decision barrier.
+
+
+## 2.3 Resource effort — mandatory
+
+Before final composition, apply
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`. Art direction must prove that
+relevant media, research, interaction, decision aids and experience capabilities
+were considered rather than defaulting to the cheapest composition.
+
+Record material choices as `USED`, `REJECTED`, `ATTEMPTED_BLOCKED` or
+`NOT_APPLICABLE`. The art director's job is not to activate everything; it is to
+make sure useful resources are not ignored and irrelevant ones do not pollute the
+experience.
