@@ -11,6 +11,13 @@ export type PortfolioPrototype = {
 };
 
 export const PORTFOLIO_PROTOTYPES: readonly PortfolioPrototype[] = [
+  {
+    slug: "autoescola-aptos",
+    vertical: "prestadores-de-servicos",
+    siteName: "Autoescola APTOS — carro e moto automáticos em São José dos Pinhais",
+    kind: "prototype",
+    indexable: true,
+  },
   { slug: "cris-presentes-colonia-rio-grande", vertical: "comercios", siteName: "Cris Presentes · Colônia Rio Grande · São José dos Pinhais", kind: "prototype", indexable: true },
   {
     slug: "adhonep-curitiba",
