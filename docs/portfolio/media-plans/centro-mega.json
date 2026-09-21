@@ -1,0 +1,98 @@
+{
+  "doc": "Media plan canônico — Centro Mega Store sample",
+  "slug": "centro-mega",
+  "status": "SAMPLE_WITH_OFFICIAL_BRAND_ASSETS_AND_ORIGINAL_PRODUCT_VISUALS",
+  "inventory": {
+    "officialBrandAssets": [
+      {
+        "asset": "public/images/centro-mega/logo.png",
+        "classification": "OWNER_SUPPLIED_OR_PREVIOUSLY_VERIFIED_ASSET",
+        "purpose": "logo",
+        "documentary": true
+      },
+      {
+        "asset": "public/images/centro-mega/hero.png",
+        "classification": "OWNER_SUPPLIED_OR_PREVIOUSLY_VERIFIED_ASSET",
+        "purpose": "hero-brand-composition",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/centro-mega/social-og.jpg",
+        "classification": "BRAND_SOCIAL_ASSET",
+        "purpose": "og",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/centro-mega/social.png",
+        "classification": "BRAND_SOCIAL_ASSET",
+        "purpose": "social-reference",
+        "documentary": false
+      }
+    ],
+    "productVisuals": {
+      "strategy": "ORIGINAL_GRAPHIC_COMPOSITION",
+      "implementation": "Lucide icons + CSS gradients/grid/glow",
+      "documentary": false,
+      "disclosure": "visual de amostra",
+      "rationale": "Evita copiar/hotlinkar fotos de terceiros e mantém performance/proveniência segura."
+    },
+    "externalMedia": [
+      {
+        "source": "Facebook/FindGlocal public mirror",
+        "purpose": "TEXTUAL_PRODUCT_EVIDENCE_ONLY",
+        "republishedMedia": false
+      },
+      {
+        "source": "Instagram official URLs",
+        "purpose": "SOURCE_LINKS_ONLY",
+        "republishedMedia": false,
+        "note": "Captions/media não foram ingeridas; não gerar produto a partir de conteúdo ilegível."
+      },
+      {
+        "source": "Magazine Luiza seller Centro Mega",
+        "purpose": "PRODUCT_NAME_AND_SELLER_EVIDENCE",
+        "republishedMedia": false
+      }
+    ],
+    "missingMedia": [
+      "fotos oficiais atuais de cada SKU",
+      "fotos atuais do outlet",
+      "fotos de bonés/calçados com modelo e estoque confirmados",
+      "feed exportável com licença/proveniência para republicação"
+    ]
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "resolution": "existing-centro-mega-brand-hero",
+      "status": "complete"
+    },
+    {
+      "section": "catalog",
+      "resolution": "original-css-icon-product-visuals",
+      "status": "complete"
+    },
+    {
+      "section": "social-drop",
+      "resolution": "original-graphic-product-composition",
+      "status": "complete"
+    },
+    {
+      "section": "social-feed",
+      "resolution": "official-links-without-media-copy",
+      "status": "complete"
+    },
+    {
+      "section": "stores",
+      "resolution": "typography-cards-from-official-linktree",
+      "status": "complete"
+    }
+  ],
+  "performance": {
+    "noThirdPartyProductImages": true,
+    "noNewHeavyMotionLibrary": true,
+    "desktopParallaxOnly": true,
+    "reducedMotion": "opacity/static fallback through canonical primitives"
+  },
+  "lastUpdatedAt": "2026-09-21"
+}
