@@ -574,7 +574,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
     const isJklDecor = loaderData?.slug === "jkl-decor";
-    const description = isCrisPresentesColoniaRioGrande
+    const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
+    const description = isAutoescolaAptos
+      ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação, categorias A/B/AB, reteste, renovação e reciclagem, agora com destaque para carro e moto automáticos."
+      : isCrisPresentesColoniaRioGrande
       ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e outras categorias de presentes, com consulta de disponibilidade pelo funil."
       : isCatharineLima
       ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com solicitação de horário pelo funil do studio."
@@ -810,7 +813,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isJklDecor
+          content: eff.keywords ?? (isAutoescolaAptos
+            ? "Autoescola APTOS, autoescola São José dos Pinhais, CNH São José dos Pinhais, carro automático autoescola, moto automática autoescola, primeira habilitação, categoria A, categoria B, categoria AB, reteste DETRAN, reciclagem CNH"
+            : isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
             : isMoreiraAutoMecanica
             ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
@@ -958,6 +963,52 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           "@type": "Question",
                           name: faq.q,
                           acceptedAnswer: { "@type": "Answer", text: faq.a },
+                        })),
+                      },
+                    ]
+                  : []),
+                ...(isAutoescolaAptos
+                  ? [
+                      {
+                        "@type": "LocalBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "Autoescola APTOS",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/autoescola-aptos/logo.svg"),
+                        taxID: "10.233.266/0001-38",
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Passos de Oliveira, 810",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          postalCode: "83030-720",
+                          addressCountry: "BR",
+                        },
+                        areaServed: { "@type": "City", name: "São José dos Pinhais" },
+                        knowsAbout: [
+                          "Primeira habilitação",
+                          "Categoria A",
+                          "Categoria B",
+                          "Categoria AB",
+                          "Reteste prático",
+                          "Renovação de CNH",
+                          "Reciclagem de CNH",
+                          "Carro automático",
+                          "Moto automática",
+                        ],
+                        makesOffer: [
+                          "Primeira habilitação",
+                          "Categoria A",
+                          "Categoria B",
+                          "Categoria AB",
+                          "Reteste prático",
+                          "Renovação de CNH",
+                          "Reciclagem de CNH",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
                         })),
                       },
                     ]
