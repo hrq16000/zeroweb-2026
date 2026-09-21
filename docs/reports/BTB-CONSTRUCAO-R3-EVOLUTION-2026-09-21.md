@@ -48,7 +48,7 @@ Registro factual: `docs/portfolio/enrichment/btb-construcao.json`.
 
 ### Hero
 
-Sai o split genérico. Entra um hero full-bleed editorial, com manifesto tipográfico e disclosure explícito de que a imagem é composição contextual, não fotografia documental de obra executada.
+Sai o split genérico. Entra um hero full-bleed editorial, com manifesto tipográfico e uma composição gráfica construída em CSS/DOM. O raster contextual legado foi retirado do caminho crítico após o Lighthouse apontar performance abaixo do gate; a linguagem visual continua não documental e sem fingir ser obra executada.
 
 ### Mapa da Reforma
 
@@ -100,7 +100,8 @@ Nenhum rating, depoimento, volume de obras, prazo padrão ou preço foi criado.
 
 `docs/portfolio/media-plans/btb-construcao.json` classifica explicitamente:
 
-- `hero.png` = `GENERATED_CONTEXTUAL_MEDIA`, documentary=false;
+- hero ativo = `DOM_CSS_GRAPHIC_COMPOSITION`, documentary=false e sem raster no caminho crítico;
+- `hero.png` = asset contextual legado preservado, mas não renderizado no hero ativo;
 - flyer = `OWNER_SUPPLIED_REFERENCE / EVIDENCE_ONLY`;
 - capa/OG = composições editoriais, não prova documental;
 - `logo.svg` legado não é apresentado como marca histórica/oficial.
@@ -164,3 +165,18 @@ O ledger completo está no creative brief v3. Destaques:
 Este relatório é criado antes do merge. Estados de preview, gates finais, merge e produção só podem ser marcados como PASS depois de observados no head final da PR.
 
 A BTB permanece fora do `portfolio-project-manifests.json` nesta evolução. Isso é deliberado: enrollment retroativo no lifecycle gerenciado exigiria registry/composition, quality matrix e readiness próprios e deve ser tratado como migração estrutural separada, não como efeito colateral de um redesign.
+
+
+## Remediação de performance
+
+No head de 2026-09-21, o Lighthouse da BTB mediu performance 0,87–0,88, abaixo do gate de 0,90. Os mesmos shards também registraram problemas históricos em outros portfolios, mas a BTB tinha um custo evitável próprio: o hero raster `hero.png` (~455 KB) carregado como imagem prioritária.
+
+A correção desta evolução substitui o raster do hero por composição CSS/DOM com grid, linhas técnicas e geometria editorial. Resultado esperado:
+
+- remover ~455 KB do caminho crítico da BTB;
+- eliminar o hero da auditoria `modern-image-formats`;
+- eliminar o hero da auditoria `uses-responsive-images`;
+- manter identidade, contraste e narrativa sem dependência de foto sintética;
+- preservar o asset antigo apenas como referência contextual versionada.
+
+Esta remediação precisa ser confirmada pelo novo run de Lighthouse antes do merge.
