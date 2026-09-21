@@ -89,7 +89,7 @@ export function AutoescolaAptosPage() {
       <main className="aptos-site pb-24 md:pb-0">
         <header className="aptos-nav fixed inset-x-3 top-3 z-40 mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-md border px-4 py-3 md:inset-x-6 md:px-6">
           <a href="#inicio" aria-label="Autoescola APTOS — início" className="shrink-0">
-            <img src="/images/autoescola-aptos/logo.webp" width="150" height="50" alt="Autoescola APTOS" className="h-8 w-auto md:h-10" />
+            <img src="/images/autoescola-aptos/logo.webp" width="150" height="50" alt="Autoescola APTOS" className="h-8 w-auto md:h-10" loading="eager" decoding="async" />
           </a>
           <nav aria-label="Navegação da Autoescola APTOS" className="hidden items-center gap-6 text-sm font-semibold md:flex">
             <a href="#escolhas">Escolhas</a><a href="#processo">Como começar</a><a href="#estrutura">Local</a><a href="#duvidas">Dúvidas</a>
@@ -114,7 +114,7 @@ export function AutoescolaAptosPage() {
               </div>
             </MotionReveal>
             <MotionImageReveal direction="left" className="aptos-photo-frame aspect-[4/3] md:aspect-[5/6] lg:aspect-[4/3]">
-              <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" fetchPriority="high" />
+              <img src="/images/autoescola-aptos/carro-aptos.webp" alt="Carro oficial da Autoescola APTOS em São José dos Pinhais" className="h-full w-full object-cover" width="1600" height="900" loading="eager" decoding="async" fetchPriority="high" />
             </MotionImageReveal>
           </div>
         </section>
@@ -143,7 +143,7 @@ export function AutoescolaAptosPage() {
         <section className="aptos-red-band">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:px-8 md:py-20">
             <MotionImageReveal className="aspect-[16/10] overflow-hidden rounded-md">
-              <img src="/images/autoescola-aptos/fachada.webp" alt="Fachada oficial da Autoescola APTOS" className="h-full w-full object-cover" width="1600" height="900" loading="lazy" />
+              <img src="/images/autoescola-aptos/fachada.webp" alt="Fachada oficial da Autoescola APTOS" className="h-full w-full object-cover" width="1600" height="900" loading="lazy" decoding="async" />
             </MotionImageReveal>
             <MotionReveal variant="right" className="flex flex-col justify-center">
               <p className="text-sm font-bold uppercase">Dados divulgados pela APTOS</p>
@@ -185,7 +185,7 @@ export function AutoescolaAptosPage() {
               </div>
             </MotionReveal>
             <MotionImageReveal className="min-h-80 md:min-h-[34rem]">
-              <img src="/images/autoescola-aptos/curso-online.webp" alt="Imagem contextual de estudo usada no site oficial da APTOS" className="h-full w-full object-cover" width="800" height="800" loading="lazy" />
+              <img src="/images/autoescola-aptos/curso-online.webp" alt="Imagem contextual de estudo usada no site oficial da APTOS" className="h-full w-full object-cover" width="800" height="800" loading="lazy" decoding="async" />
             </MotionImageReveal>
           </div>
         </section>
