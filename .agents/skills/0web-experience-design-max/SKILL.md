@@ -129,3 +129,17 @@ Record in the PR or `docs/skills/CHANGELOG.md`:
 - skills or effects rejected as redundant, unsafe or not applicable.
 
 Do not claim an effect, skill or runtime behavior was used without evidence.
+
+## Landing intelligence R3
+
+For new landings, the mandatory decision review includes the additive R3 layer
+from `docs/research/LANDING-PAGE-OFFICIAL-SITE-SWEEP-R3-2026-09-21.md` in
+addition to V1/V2. Review the full journey as a stateful system — arrival,
+orientation, self-segmentation when useful, information, qualification,
+commitment and confirmation — and verify that source/offer/item/plan/unit
+context survives into the funnel and handoff.
+
+Also review mutable commercial facts for freshness windows, material claims for
+evidence placement, high-risk decisions for evidence-first persuasion, and
+mobile for a deliberate decision budget. A/B testing is not a quality signal by
+itself; it requires a decision-barrier hypothesis, primary metric and guardrail.
