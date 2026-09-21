@@ -997,7 +997,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
                             "Tênis e calçados",
                             "Bonés e outlet",
                             "Acessórios e tecnologia",
-                            "Assistência técnica",
+                            "Perfumes",
                           ].map((name) => ({
                             "@type": "Offer",
                             itemOffered: { "@type": "Product", name },
