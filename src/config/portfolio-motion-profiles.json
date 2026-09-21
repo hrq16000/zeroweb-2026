@@ -1378,6 +1378,46 @@
       "tabletBehavior": "hero empilhado; categorias em duas colunas",
       "mobileBehavior": "cards em coluna única; sem parallax; CTA prioritário",
       "wave": "onda4"
+    },
+    "autoescola-aptos": {
+      "intensity": "BALANCED",
+      "personality": "road-signals",
+      "preset": "TECHNICAL",
+      "heroMotion": [
+        "fade",
+        "slide"
+      ],
+      "sectionReveal": [
+        "fade",
+        "slide",
+        "stagger"
+      ],
+      "cardMotion": [
+        "hoverLift",
+        "iconMotion"
+      ],
+      "ctaMotion": [
+        "hoverLift"
+      ],
+      "galleryMotion": [],
+      "backgroundEffects": [
+        "colorTransition"
+      ],
+      "typographyEffects": [
+        "textReveal"
+      ],
+      "mediaEffects": [
+        "imageReveal"
+      ],
+      "transitionEffects": [
+        "colorTransition"
+      ],
+      "signatureEffects": [
+        "lane-reveal",
+        "roadmap-stagger"
+      ],
+      "reducedMotionStrategy": "instant-with-opacity",
+      "mobileStrategy": "amplitude reduzida e sem loops; conteúdo estático completo"
     }
   },
   "decisions": {
@@ -1903,6 +1943,10 @@
         "scroll hijack"
       ],
       "performanceNote": "Somente transform/opacity; hero WebP único com priority."
+    },
+    "autoescola-aptos": {
+      "source": "creative brief",
+      "reason": "A linguagem de pista pede progressão curta e direcional; loops e parallax foram rejeitados para manter leitura e performance."
     }
   }
 }
