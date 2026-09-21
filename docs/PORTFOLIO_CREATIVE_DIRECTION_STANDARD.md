@@ -71,6 +71,15 @@ Primeiro se decide **qual incerteza comercial precisa ser removida**; depois se
 decide como isso vira composição, mídia e motion. Nenhum campo pode ser
 preenchido por conhecimento genérico do segmento quando faltar evidência.
 
+A extensão aditiva `LandingDecisionProfileV3` também é obrigatoriamente avaliada
+antes da composição, conforme o Anexo R3 de
+`docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`. Ela acrescenta
+`pageMode`, velocidade de decisão, information scent, auto-segmentação,
+context carryover, commitment ladder, claim→evidence, persuasão ajustada ao
+risco, estados da jornada, escalada humana, contrato de resposta, freshness,
+navigation leakage, mobile decision budget e experiment readiness. **SOME:** V3
+não substitui V2; só amplia a decisão.
+
 ## 2. Competências obrigatórias
 
 As categorias abaixo são capacidades, não obrigação de trocar a stack:
