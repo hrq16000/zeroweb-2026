@@ -5,7 +5,11 @@ export type CentroMegaDemoProduct = {
   eyebrow: string;
   description: string;
   badge: string;
-  sourceType: "PUBLIC_SOCIAL_POST" | "OWNER_SUPPLIED_ASSORTMENT" | "OFFICIAL_STORE_CONTEXT";
+  sourceType:
+    | "PUBLIC_SOCIAL_POST"
+    | "OWNER_SUPPLIED_ASSORTMENT"
+    | "OFFICIAL_STORE_CONTEXT"
+    | "MARKETPLACE_SELLER";
   sourceLabel: string;
   sourceUrl?: string;
   sourceDate?: string;
@@ -61,6 +65,57 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     availabilityNote: "Numeração, preço e estoque atuais precisam ser confirmados pela loja.",
     visual: "sneaker",
     accent: "violet",
+  },
+  {
+    id: "mi-box-s-xiaomi",
+    name: "Xiaomi Mi Box S",
+    category: "Acessórios",
+    eyebrow: "Catálogo público do seller Centro Mega",
+    description:
+      "Streaming box Xiaomi identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
+    badge: "Catálogo público",
+    sourceType: "MARKETPLACE_SELLER",
+    sourceLabel: "Magazine Luiza · seller Centro Mega",
+    sourceUrl:
+      "https://www.magazineluiza.com.br/mi-box-s-xiaomi-com-entrada-hdmi/p/ag2jg12eeb/in/plcr/",
+    detail: "Mi Box S · entrada HDMI · item listado pelo seller Centro Mega",
+    availabilityNote: "Preço e estoque podem mudar no marketplace; consulte as condições atuais.",
+    visual: "accessory",
+    accent: "blue",
+  },
+  {
+    id: "controle-ps4-original-sony",
+    name: "Controle PlayStation 4 · Sony",
+    category: "Acessórios",
+    eyebrow: "Catálogo público do seller Centro Mega",
+    description:
+      "Controle PlayStation 4 identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
+    badge: "Gaming",
+    sourceType: "MARKETPLACE_SELLER",
+    sourceLabel: "Magazine Luiza · seller Centro Mega",
+    sourceUrl:
+      "https://www.magazineluiza.com.br/controle-play-station-4-original-sony/p/edb5ac0gd4/in/dcks/?seller_id=centromega",
+    detail: "Controle PS4 Original Sony · listagem pública do seller Centro Mega",
+    availabilityNote: "Preço, cor, garantia e estoque devem ser confirmados na oferta atual do marketplace ou com a loja.",
+    visual: "accessory",
+    accent: "violet",
+  },
+  {
+    id: "suporte-celular-moto-bike-renux",
+    name: "Suporte de celular para Moto & Bike · Renux",
+    category: "Acessórios",
+    eyebrow: "Catálogo público do seller Centro Mega",
+    description:
+      "Suporte para smartphone identificado em listagem pública do Magazine Luiza como vendido pela Centro Mega.",
+    badge: "Achado tech",
+    sourceType: "MARKETPLACE_SELLER",
+    sourceLabel: "Magazine Luiza · seller Centro Mega",
+    sourceUrl:
+      "https://www.magazineluiza.com.br/suporte-de-celular-para-moto-e-bike-renux-5203/p/ea29ebff4b/te/spcl/",
+    detail: "Suporte para celular · Moto & Bike · Renux 5203",
+    availabilityNote: "Preço e estoque são temporais e precisam ser conferidos na oferta atual.",
+    visual: "accessory",
+    accent: "amber",
   },
   {
     id: "bones-outlet",
