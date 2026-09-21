@@ -1,5 +1,20 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — conhecimento aditivo · Landing Page Premium 0WEB
+
+- **Origem:** documentação fornecida pelo responsável e incorporada como conhecimento complementar, sem alterar páginas públicas nesta rodada.
+- **Nova skill:** `.agents/skills/0web-landing-page-premium/SKILL.md`.
+- **Princípio central:** cada landing/portfolio deve funcionar como mini-site completo da marca, não como catálogo ou template recolorido.
+- **Arquitetura:** modular e adaptativa; módulos são repertório, nunca checklist nem ordem fixa.
+- **Anti-template:** se trocar nome e cor e a página ainda servir para outro cliente, a composição continua genérica.
+- **Completude:** identidade + conteúdo + mídia + prova + navegação + SEO + mobile + acessibilidade + performance + conversão.
+- **Evidência:** fatos, prova social, localização, preços, ratings, certificações e mídia documental permanecem evidence-first; ausência de prova não autoriza invenção.
+- **Conversão:** em `/portfolio/:slug`, funil e `client_key` continuam individuais, sem cross-client ou fallback de outro cliente.
+- **Referências:** estudar princípios de estrutura, hierarquia, densidade, ritmo e conversão; nunca clonar marca, texto, imagem ou composição proprietária.
+- **Integração:** skill registrada em `REGISTRY.md` e adicionada ao roteamento/orquestração de novas landings, portfolios e redesigns materiais.
+- **Regra SOME:** esta camada **soma/agrega** às normas existentes; não substitui Zero Generic, Decision Intelligence, Art Direction, Resource Utilization, Landing Experience ou Quality Gates.
+- **Runtime:** nenhuma landing, CTA, funil, WhatsApp, asset ou identidade pública foi alterada.
+
 ## 2026-09-21 — piloto R3 · BTB Construção / Mapa da Reforma
 
 - **Escopo:** primeiro portfolio legado escolhido para aplicar de forma explícita R1/R2/R3 + Resource Utilization Gate em uma evolução material, sem usar os demais projetos como lote automático.
