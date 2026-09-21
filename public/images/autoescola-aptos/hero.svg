@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="t d">
+<title id="t">Carro e moto automáticos APTOS</title><desc id="d">Composição editorial não documental com pista, carro e moto estilizados.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10141a"/><stop offset="1" stop-color="#06080b"/></linearGradient>
+<linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff5360"/><stop offset="1" stop-color="#d82231"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1600" height="1200" rx="58" fill="url(#bg)"/>
+<circle cx="1265" cy="230" r="210" fill="#ef3340" opacity=".11"/>
+<circle cx="300" cy="900" r="230" fill="#ffcc00" opacity=".055"/>
+<path d="M-130 1120L1730 380" stroke="#232a33" stroke-width="270"/>
+<path d="M-130 1120L1730 380" stroke="#ffcc00" stroke-width="12" stroke-dasharray="88 55" opacity=".78"/>
+<path d="M-20 1030L1620 380" stroke="#fff" stroke-width="4" opacity=".16"/>
+<g transform="translate(175 250)">
+<rect x="0" y="0" width="440" height="125" rx="32" fill="#171d25" stroke="#ffffff" stroke-opacity=".10"/>
+<circle cx="65" cy="62" r="32" fill="#ef3340"/><text x="65" y="74" text-anchor="middle" font-family="Arial Black,Arial" font-size="36" fill="#fff">A</text>
+<text x="120" y="52" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#8c949e">MODO</text>
+<text x="120" y="86" font-family="Arial Black,Arial" font-size="29" fill="#fff">AUTOMÁTICO</text>
+</g>
+<g transform="translate(290 545)">
+<path d="M55 205h730c41 0 74-28 82-65l12-55c6-29-12-57-41-64L692-14c-47-11-95-15-143-12l-165 9c-48 2-93 24-125 60L146 169H70c-32 0-58 16-58 36z" fill="url(#red)"/>
+<path d="M260 44l129-91c22-15 49-24 76-25h165c40 0 78 13 108 37l73 58H260z" fill="#28313d"/>
+<path d="M326 25l93-66c14-10 31-15 48-16h54v82H326zm219 0v-82h75c25 0 49 8 68 23l73 59H545z" fill="#9aa5b2" opacity=".30"/>
+<circle cx="203" cy="207" r="68" fill="#090b0e" stroke="#59616d" stroke-width="15"/><circle cx="203" cy="207" r="24" fill="#c6cbd1"/>
+<circle cx="728" cy="207" r="68" fill="#090b0e" stroke="#59616d" stroke-width="15"/><circle cx="728" cy="207" r="24" fill="#c6cbd1"/>
+<path d="M78 126h98" stroke="#ffcc00" stroke-width="16" stroke-linecap="round"/>
+<text x="432" y="142" font-family="Arial Black,Arial" font-size="48" font-style="italic" fill="#fff">APTOS</text>
+</g>
+<g transform="translate(1030 695)">
+<circle cx="100" cy="245" r="74" fill="#080a0d" stroke="#59616d" stroke-width="16"/><circle cx="100" cy="245" r="23" fill="#c8ccd2"/>
+<circle cx="385" cy="245" r="74" fill="#080a0d" stroke="#59616d" stroke-width="16"/><circle cx="385" cy="245" r="23" fill="#c8ccd2"/>
+<path d="M100 245l95-162h112l78 162M195 83l74 162M170 123h170" fill="none" stroke="#ef3340" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M192 76h122l-34-60h-74z" fill="#ef3340"/><path d="M337 108l54-60" stroke="#d9dde2" stroke-width="15" stroke-linecap="round"/>
+<circle cx="391" cy="48" r="17" fill="#ffcc00"/>
+</g>
+<text x="1225" y="1110" text-anchor="end" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="5" fill="#8e96a0">COMPOSIÇÃO EDITORIAL · NÃO DOCUMENTAL</text>
+</svg>
