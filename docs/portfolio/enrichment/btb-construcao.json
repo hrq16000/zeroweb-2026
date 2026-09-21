@@ -122,7 +122,8 @@
         "file": "public/images/btb-construcao/hero.png",
         "type": "GENERATED_CONTEXTUAL_MEDIA",
         "documentary": false,
-        "purpose": "HERO_SUPPORT"
+        "purpose": "ARCHIVED_CONTEXTUAL_REFERENCE",
+        "note": "Asset legado preservado, mas removido do hero ativo por decisão de performance."
       },
       {
         "file": "public/images/btb-construcao/capa-card.jpg",
@@ -148,6 +149,13 @@
         "documentary": false,
         "purpose": "ICON_ONLY",
         "note": "Não tratado como logo histórico/oficial do cliente nesta evolução."
+      },
+      {
+        "file": null,
+        "type": "DOM_CSS_GRAPHIC_COMPOSITION",
+        "documentary": false,
+        "purpose": "ACTIVE_HERO_VISUAL",
+        "note": "Composição editorial gráfica renderizada em CSS/DOM; zero raster no caminho crítico."
       }
     ],
     "missing": [
@@ -178,7 +186,8 @@
       "linha de processo",
       "remoção de claim de parcelamento/desconto não revalidado",
       "disclosure visível de mídia conceitual",
-      "schema específico da BTB sem telefone/endereço inventado"
+      "schema específico da BTB sem telefone/endereço inventado",
+      "hero raster removido do caminho crítico e substituído por composição gráfica CSS/DOM para performance"
     ]
   },
   "conflicts": [
