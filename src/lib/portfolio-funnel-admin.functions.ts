@@ -176,16 +176,29 @@ export const listPortfolioFunnels = createServerFn({ method: "GET" })
     const questionCounts = new Map<string, number>();
     const leadCounts = new Map<string, number>();
     if (ids.length) {
-      const [{ data: questions }, { data: leads }] = await Promise.all([
-        admin.from("dynamic_form_questions").select("form_id").in("form_id", ids),
-        admin.from("dynamic_form_leads").select("form_id").in("form_id", ids),
+      const countPaged = async (
+        table: "dynamic_form_questions" | "dynamic_form_leads",
+        target: Map<string, number>,
+      ) => {
+        const pageSize = 1000;
+        for (let from = 0; from < 100000; from += pageSize) {
+          const { data, error: pageError } = await admin
+            .from(table)
+            .select("form_id")
+            .in("form_id", ids)
+            .range(from, from + pageSize - 1);
+          if (pageError) throw new Error(pageError.message);
+          const page = data ?? [];
+          for (const row of page) {
+            target.set(row.form_id, (target.get(row.form_id) ?? 0) + 1);
+          }
+          if (page.length < pageSize) break;
+        }
+      };
+      await Promise.all([
+        countPaged("dynamic_form_questions", questionCounts),
+        countPaged("dynamic_form_leads", leadCounts),
       ]);
-      for (const row of questions ?? []) {
-        questionCounts.set(row.form_id, (questionCounts.get(row.form_id) ?? 0) + 1);
-      }
-      for (const row of leads ?? []) {
-        leadCounts.set(row.form_id, (leadCounts.get(row.form_id) ?? 0) + 1);
-      }
     }
 
     const bySlug = new Map<string, any>(relevant.map((form: any) => [form.slug, form]));
@@ -252,6 +265,8 @@ export const provisionPortfolioFunnel = createServerFn({ method: "POST" })
       };
     }
 
+    // Nasce sempre em draft; só publica depois de todas as perguntas existirem.
+    // Isso elimina a janela transitória de um formulário publicado porém vazio.
     const status = data.publish ? "published" : "draft";
     const { data: form, error: formError } = await admin
       .from("dynamic_forms")
@@ -259,7 +274,7 @@ export const provisionPortfolioFunnel = createServerFn({ method: "POST" })
         slug: canonical,
         name: `Atendimento · ${project.title}`,
         description: `Funil individual do portfolio ${project.slug}`,
-        status,
+        status: "draft",
         config_json: {
           portfolio_owned: true,
           client_key: clientKey,
@@ -286,6 +301,17 @@ export const provisionPortfolioFunnel = createServerFn({ method: "POST" })
     if (questionError) {
       await admin.from("dynamic_forms").delete().eq("id", form.id);
       throw new Error(`Falha ao criar perguntas; o funil foi revertido. ${questionError.message}`);
+    }
+
+    if (data.publish) {
+      const { error: publishError } = await admin
+        .from("dynamic_forms")
+        .update({ status: "published", updated_at: new Date().toISOString() })
+        .eq("id", form.id);
+      if (publishError) {
+        await admin.from("dynamic_forms").delete().eq("id", form.id);
+        throw new Error(`Falha ao publicar; o funil foi revertido. ${publishError.message}`);
+      }
     }
 
     return { id: form.id as string, slug: form.slug as string, status, created: true };
