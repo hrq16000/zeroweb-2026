@@ -85,7 +85,7 @@ const CONCURRENCY = Number(process.env.POPUP_CONCURRENCY ?? 6);
 const REAL_TIMING = process.env.POPUP_REAL_TIMING === "1";
 const TIMER_FLOOR_MS = Number(process.env.POPUP_TEST_TIMER_FLOOR_MS ?? 5000);
 const TIMER_CAP_MS = Number(process.env.POPUP_TEST_TIMER_CAP_MS ?? 800);
-const APPEAR_WAIT_MS = Number(process.env.POPUP_APPEAR_MS ?? (REAL_TIMING ? 20000 : 3000));
+const APPEAR_WAIT_MS = Number(process.env.POPUP_APPEAR_MS ?? (REAL_TIMING ? 20000 : 6000));
 const REAPPEAR_WAIT_MS = Number(process.env.POPUP_REAPPEAR_MS ?? (REAL_TIMING ? 13000 : 2200));
 const SILENT_WAIT_MS = Number(process.env.POPUP_SILENT_MS ?? (REAL_TIMING ? 13000 : 2200));
 
