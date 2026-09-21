@@ -1,5 +1,15 @@
 # Skill changelog / usage log
 
+## 2026-09-20 — Pesquisa profunda de landing pages · corpus RD Station 34 + sites atuais
+
+- **Tarefa:** fazer nova varredura aditiva (“somar/agregar, nunca substituir”) sobre os 34 exemplos de LP enviados e revalidar as marcas/páginas oficiais ainda acessíveis.
+- **Corpus:** RD Station, Lexos, Suri Shop, Dinbrasil, Cristallux, Grupo Paraíso, SENAI/educação, UNIFACIG, Sincor-SP, NR, FAISP, Mercafacil, Dígitro, Cocari, Psicologus, Biscoitê, Suprimed, Lavland, Hemocord, PSG Academy, Fibercom e LOCLAV; campanhas/templates sem URL pública atual foram tratados apenas pelo material-fonte, sem inferência.
+- **Achado:** não existe estrutura universal curta/longa. Profundidade, prova, CTA, formulário e ordem narrativa precisam seguir estágio do funil, risco da decisão, audiência e quantidade de evidência.
+- **Padrão novo:** criado `PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` com `LandingIntentProfile`, oito arcos narrativos, gates de clareza/fricção/prova/continuidade, parâmetros de densidade e baseline técnico de performance/acessibilidade/schema.
+- **Integração:** skill autônoma, adendo de autonomia e router `AGENTS.md` passam a exigir essa inteligência antes da composição visual de projeto novo.
+- **Proteções:** referências servem para repertório e CRO; continuam proibidos clone visual, reutilização de identidade/assets e claims sem evidência. Funil individual e contato server-side permanecem inalterados.
+- **Runtime:** zero mudança em páginas públicas, CTAs, WhatsApp, catálogo ou componentes nesta rodada documental.
+
 ## 2026-09-20 — fechamento canônico · Catharine Lima Studio
 
 - **Tarefa:** consolidar em uma única fonte o estado publicado da Catharine, sem reabrir auditoria nem alterar a experiência do cliente.
