@@ -935,20 +935,48 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   inLanguage: "pt-BR",
                   isPartOf: { "@id": "https://0web.com.br/portfolio" },
                 },
-                {
-                  ...serviceNode({
-                    slug: vertical.slug,
-                    name: vertical.name,
-                    keyword: vertical.keywords,
-                    intent: vertical.hero,
-                    services: vertical.services.map((service) => service.to),
-                    hubs: [],
-                    showcases: [],
-                    deliverables: vertical.services.map((service) => service.title),
-                  }),
-                  "@id": `${url}#service`,
-                  url,
-                },
+                ...(isBtb
+                  ? [
+                      {
+                        "@type": "GeneralContractor",
+                        "@id": `${url}#business`,
+                        name: "BTB Construção",
+                        description,
+                        url,
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+                        ],
+                        makesOffer: [
+                          "Pintura",
+                          "Elétrica",
+                          "Hidráulica",
+                          "Pisos e revestimentos",
+                          "Drywall e forro",
+                          "Acabamentos",
+                          "Iluminação LED",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : [
+                      {
+                        ...serviceNode({
+                          slug: vertical.slug,
+                          name: vertical.name,
+                          keyword: vertical.keywords,
+                          intent: vertical.hero,
+                          services: vertical.services.map((service) => service.to),
+                          hubs: [],
+                          showcases: [],
+                          deliverables: vertical.services.map((service) => service.title),
+                        }),
+                        "@id": `${url}#service`,
+                        url,
+                      },
+                    ]),
                 ...(isMarido
                   ? [
                       {
