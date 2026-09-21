@@ -17,9 +17,48 @@ ENTITY_DISCOVERY → ENTITY_RESOLUTION → GOOGLE_MAPS → REVIEWS → PHOTOS
 → GOOGLE_SEARCH / KNOWLEDGE GRAPH → SOCIAL DISCOVERY → MEDIA DISCOVERY
 ```
 
-Só há parada para intervenção humana em `CONFLICT` ou `UNRESOLVED`.
+Só há parada para intervenção humana em `CONFLICT`, `UNRESOLVED` relevante,
+`PROVIDER_BLOCKED`, direito de uso incerto ou decisão editorial que mude fatos.
 Pesquisar automaticamente **não** é publicar automaticamente: provenance,
 confidence, direitos, coerência e quality gates continuam obrigatórios.
+
+### 1.1 Contrato do pipeline autônomo R1 → R2
+
+A entrada mínima oficial é `nome + localização`. O pipeline preserva duas
+camadas independentes em `source_snapshot`:
+
+```text
+R1 research  → autonomous_research
+R2 content   → autonomous_content
+state        → autonomous_pipeline
+```
+
+**R1 — pesquisa factual** (`src/lib/portfolio-autonomous-research.server.ts`):
+resolve entidade, procura Maps/web/redes, registra `providerCalls`, erros,
+`facts[]`, mídia candidata, reviews e lacunas. Telefone público nunca vira
+WhatsApp automaticamente.
+
+**R2 — composição evidence-only** (`src/lib/portfolio-autonomous-content.ts`):
+transforma apenas evidências suficientes em briefing, hero, sobre, CTA, SEO,
+discovery, schema draft, FAQ e etapas. Serviços/diferenciais ausentes continuam
+ausentes; não são derivados do segmento por conveniência.
+
+Estados de R2:
+
+```text
+content_composed  → há evidência suficiente para conteúdo estruturado
+content_partial   → conteúdo seguro gerado, mas faltam fatos importantes
+blocked_identity  → conflito de entidade; não compor como se estivesse resolvido
+blocked_provider  → provider indisponível; reexecutar pesquisa antes de avançar
+```
+
+`autonomous_pipeline.contract = 2` é o contrato vigente. A R1 é sempre
+preservada e auditável; a R2 não substitui nem reescreve a proveniência.
+
+Regra de promoção factual da R2: um item só entra em `services` ou
+`differentials` quando existe como fato explícito com confiança suficiente.
+Candidato, inferência de categoria, snippet ambíguo ou conhecimento genérico do
+segmento não vira claim público.
 
 ## 2. IDENTITY_COMPLETENESS_GATE (§3–§6)
 

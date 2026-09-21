@@ -20,6 +20,7 @@ As skills são referências de execução e revisão; não substituem conteúdo 
 |---|---|
 | `0web-experience-design-max` | Orquestra estratégia digital, UX/UI, layout, design system, web engineering, conteúdo/SEO, motion e QA como camada obrigatória. |
 | `0web-skill-discovery` + `lobehub-skills-search-engine` | Descoberta contínua, ranking, security review e seleção do stack. |
+| `0web-portfolio-autonomous-pipeline` | Orquestra criação autônoma de portfolio por nome + localização, separando pesquisa factual, composição editorial, mídia, funil e gates sem promover inferência a fato. |
 | `frontend-design` (Anthropic) | Direção visual antes do código: propósito, estética, tipografia, composição e diferencial por cliente. |
 | UI/UX Pro Max (`nextlevelbuilder/ui-ux-pro-max-skill`) | Design intelligence para estilos, paletas, tipografia, landing patterns, UX, acessibilidade, motion e stack. Recomendação, nunca template. |
 | Dexa Experience Design | Repertório de processo: estratégia, UX/UI, websites, produto, design systems, motion design e Design Ops integrados ao negócio. |

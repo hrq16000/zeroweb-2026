@@ -11,7 +11,7 @@ O catálogo é dinâmico: antes de tarefas substanciais, rode
 `.agents/skills/0web-skill-discovery/SKILL.md` e consulte
 `src/config/skill-marketplace-catalog.json` + `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`.
 
-Última revisão: 2026-09-13.
+Última revisão: 2026-09-20.
 
 ## Locais (fonte de verdade)
 
@@ -19,6 +19,7 @@ O catálogo é dinâmico: antes de tarefas substanciais, rode
 |---|---|---|---|---|---|---|---|
 | `0web-skill-router` | `.agents/skills/0web-skill-router` | APPROVED_GLOBAL | orquestração | qualquer tarefa não trivial | autoral 0WEB | interna | N/A |
 | `0web-skill-discovery` | `.agents/skills/0web-skill-discovery` | APPROVED_GLOBAL | descoberta | tarefa substancial, nova skill | autoral 0WEB | interna | N/A |
+| `0web-portfolio-autonomous-pipeline` | `.agents/skills/0web-portfolio-autonomous-pipeline` | APPROVED_GLOBAL | portfolio / research / content orchestration | intake por nome + localização, enrichment autônomo, composição factual R2 | autoral 0WEB | interna | N/A |
 | `0web-experience-design-max` | `.agents/skills/0web-experience-design-max` | APPROVED_GLOBAL | experience design / UI UX / motion / layout | toda UI material, landing, portfolio, redesign | autoral 0WEB com princípios revisados de fontes externas | interna | sem scripts externos |
 | `lobehub-skills-search-engine` | `.agents/skills/lobehub-skills-search-engine` | APPROVED_GLOBAL | discovery adapter | novo projeto, manutenção material, skill ausente | instrução fornecida pelo responsável, sanitizada para 0WEB | interna/adaptada | sem execução automática |
 | `0web-portfolio-art-direction` | `.agents/skills/0web-portfolio-art-direction` | APPROVED_GLOBAL | direção criativa/anti-template | nova landing, novo portfolio, redesign material | autoral 0WEB; destila práticas de frontend-design/landing design | interna | N/A |
