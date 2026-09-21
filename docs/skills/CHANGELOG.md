@@ -1408,3 +1408,14 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   exclusão de texto livre/produto e rejeição de entidade com confiança 60.
 - **Escopo:** sem UI, sem alteração de WhatsApp, sem promoção automática de
   review, preço, diferencial ou mídia.
+
+
+# 2026-09-20 — JSON-LD Google Meu Negócio · provider sem @id duplicado
+
+- **Tarefa:** fechar o gate SEO da rota `/servicos/google-meu-negocio`.
+- **Causa:** o bloco `Service.provider` ainda referenciava
+  `https://0web.com.br/#localbusiness`; o validador interno trata a segunda
+  ocorrência do mesmo `@id` como duplicação, mesmo sendo uma referência.
+- **Correção:** o provider do serviço voltou a ser `Organization` inline, sem
+  `@id`; o nó institucional global permanece como fonte canônica separada.
+- **Escopo:** sem alteração visual, preço, CTA, funil ou conteúdo público.
