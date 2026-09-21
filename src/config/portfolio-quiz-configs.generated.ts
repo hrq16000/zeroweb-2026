@@ -417,37 +417,40 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
   },
   "centro-mega": {
     "services": [
-      "Celulares e smartphones",
+      "Celular / smartphone",
       "Tênis e calçados",
-      "Bonés e outlet",
+      "Bonés / outlet",
       "Acessórios",
-      "Quero ajuda para escolher"
+      "Assistência técnica",
+      "Quero consultar outro produto"
     ],
     "experienceOptions": [
-      "Quero um produto específico",
-      "Estou comparando opções",
-      "Quero ver ofertas e outlet",
-      "Quero confirmar estoque e valor"
+      "Vi um produto nesta loja-demo",
+      "Vi uma oferta nas redes sociais",
+      "Quero comparar algumas opções",
+      "Preciso de orientação da loja"
     ],
     "periodOptions": [
-      "Retirada em loja",
-      "Entrega / envio",
+      "São José dos Pinhais",
+      "Curitiba",
+      "Quero combinar retirada / entrega",
       "Ainda vou decidir"
     ],
     "timingOptions": [
-      "Quero resolver hoje",
+      "Quero consultar agora",
       "Ainda nesta semana",
-      "Só estou pesquisando"
+      "Estou pesquisando",
+      "Sem pressa — quero conhecer as opções"
     ],
     "proposalKind": "service",
     "stepTitles": {
-      "service": "O que você quer encontrar?",
-      "experience": "Como podemos ajudar na compra?",
-      "period": "Como prefere receber?",
-      "timing": "Quando pretende comprar?",
-      "note": "Quer deixar algum detalhe?"
+      "service": "O que você quer consultar?",
+      "experience": "Como você chegou nesta seleção?",
+      "period": "Qual região faz mais sentido para você?",
+      "timing": "Quando pretende avançar?",
+      "note": "Quer acrescentar algum detalhe?"
     },
-    "notePlaceholder": "Modelo, cor, tamanho, faixa de preço ou qualquer detalhe que ajude a loja a conferir a opção certa."
+    "notePlaceholder": "Modelo, cor, tamanho, faixa de preço ou outra preferência."
   },
   "clinica-integrada": {
     "stepTitles": {
