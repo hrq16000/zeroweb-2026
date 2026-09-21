@@ -1567,6 +1567,22 @@
       "logoFile": "/images/jkl-decor/logo.png",
       "socialFile": "/images/jkl-decor/capa.jpg",
       "identityNote": "Wordmark criado pela 0WEB (WORDMARK_CREATED / GENERATED_BRAND_ASSET) por ausência de logotipo público; substituir se o cliente enviar marca oficial."
+    },
+    "autoescola-aptos": {
+      "brandCharacter": "urbana, direta, confiável e contemporânea",
+      "visualConcept": "Circuito Noturno — pista, painel e sinalização transformam o processo da CNH em uma rota visual.",
+      "heroComposition": "dashboard-asymmetric-road",
+      "sectionRhythm": "hero automático-dual caminhos roadmap confiança local faq fechamento",
+      "typographicCharacter": "Sans pesada e condensada na decisão; corpo neutro e legível para orientação.",
+      "colorBehavior": "Asfalto e grafite como base, vermelho APTOS como ação, amarelo de sinalização como orientação e prata como apoio.",
+      "imageDirection": "Composições vetoriais não documentais; fotos oficiais com contato embutido permanecem apenas como evidência.",
+      "signatureElement": "Duas faixas — carro e moto automáticos — convergindo para a mesma rota de habilitação.",
+      "logoStatus": "NORMALIZED_LOGO",
+      "coverStatus": "BRAND_COMPOSITION",
+      "identityStatus": "DOCUMENTED_EXISTING_BRAND_NORMALIZED",
+      "logoFile": "/images/autoescola-aptos/logo.svg",
+      "socialFile": "/images/autoescola-aptos/social.svg",
+      "identityNote": "Wordmark vetorial normalizado a partir da marca pública no site oficial. Não altera a marca; deve ser substituído pelo arquivo oficial original caso seja fornecido."
     }
   }
 }
