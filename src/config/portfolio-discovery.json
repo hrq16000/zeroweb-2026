@@ -399,6 +399,66 @@
         "drywall e revestimentos Curitiba",
         "BTB Construção Curitiba"
       ]
+    },
+    "autoescola-aptos": {
+      "aliases": [
+        "Autoescola APTOS",
+        "APTOS São José dos Pinhais"
+      ],
+      "categories": [
+        "autoescola",
+        "centro de formação de condutores",
+        "habilitação"
+      ],
+      "services": [
+        "primeira habilitação",
+        "categoria A",
+        "categoria B",
+        "categoria AB",
+        "carro automático",
+        "moto automática",
+        "reteste",
+        "renovação de CNH",
+        "reciclagem",
+        "curso online"
+      ],
+      "equipment": [
+        "carro manual",
+        "carro automático",
+        "moto automática"
+      ],
+      "products": [],
+      "problems": [
+        "quero tirar a primeira CNH",
+        "quero aprender em carro automático",
+        "quero habilitação de moto automática",
+        "preciso fazer reteste",
+        "preciso renovar a CNH",
+        "preciso de reciclagem"
+      ],
+      "useCases": [
+        "começar primeira habilitação",
+        "escolher entre manual e automático",
+        "organizar reteste",
+        "renovar habilitação",
+        "fazer curso online"
+      ],
+      "locality": [
+        "Centro",
+        "São José dos Pinhais",
+        "SJP",
+        "próximo ao DETRAN",
+        "Paraná"
+      ],
+      "keywords": [
+        "Autoescola APTOS",
+        "autoescola São José dos Pinhais",
+        "carro automático autoescola",
+        "moto automática autoescola",
+        "primeira habilitação SJP",
+        "categoria A B AB",
+        "curso online autoescola"
+      ]
     }
   }
 }

@@ -1255,5 +1255,20 @@
       "source": "CNPJ público + diretórios locais + endereço do Jacomar",
       "reference": "CNPJ 01.340.329/0003-26"
     }
+  },
+  {
+    "clientKey": "autoescola-aptos",
+    "slug": "autoescola-aptos",
+    "siteName": "Autoescola APTOS",
+    "routeFile": "src/routes/portfolio.$slug.tsx",
+    "componentFile": "src/components/site/AutoescolaAptosPage.tsx",
+    "assetsDir": "public/images/autoescola-aptos",
+    "ctaMode": "proposal",
+    "funnelType": "agendamento",
+    "contactMode": "funnelOnly",
+    "socialProofRequired": false,
+    "hostCaptureRequired": true,
+    "creativeContractVersion": 2,
+    "creativeBriefFile": "docs/portfolio/briefs/autoescola-aptos.md"
   }
 ]

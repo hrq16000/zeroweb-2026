@@ -16,3 +16,10 @@
 - [ ] Rodada 5: consolidar motion, SEO e mídia no editor de cada landing existente
 - [ ] Rodada 6: publicar individualmente um projeto real após gates; manter Mestre dos Serviços bloqueado sem destino comprovado
 - [ ] Executar testes, gates, QA autenticado e publicação por lote validado
+
+## Autoescola APTOS
+
+- [ ] Pesquisar e registrar entidade, evidências e proveniência oficial
+- [ ] Criar identidade, mídia e composição autoral mobile-first
+- [ ] Integrar catálogo, registros, funil individual, destino e SEO/schema
+- [ ] Executar gates, QA visual/runtime e publicar em 0web.com.br
