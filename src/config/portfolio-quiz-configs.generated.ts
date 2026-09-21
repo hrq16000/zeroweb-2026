@@ -277,14 +277,13 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
       "Hidráulica",
       "Pisos e revestimentos",
       "Drywall e forro",
-      "Acabamentos",
-      "Iluminação em LED"
+      "Acabamentos e LED"
     ],
     "experienceOptions": [
-      "Reforma interna",
-      "Ambiente comercial",
-      "Construção nova",
-      "Manutenção ou reparo"
+      "Casa ou apartamento",
+      "Comércio ou escritório",
+      "Condomínio ou área comum",
+      "Outro ambiente"
     ],
     "periodOptions": [
       "Curitiba",
@@ -298,12 +297,18 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     ],
     "proposalKind": "service",
     "stepTitles": {
-      "service": "Qual frente da obra você precisa?",
-      "experience": "Que tipo de reforma é?",
+      "service": "Quais frentes entram na sua reforma?",
+      "experience": "Que tipo de espaço é?",
       "period": "Onde será o serviço?",
-      "timing": "Quando pretende começar?"
+      "timing": "Quando você pretende começar?"
     },
-    "notePlaceholder": "Conte os ambientes, metragem aproximada e o que você quer transformar."
+    "stepSubtitles": {
+      "service": "Escolha a frente principal. Se houver mais de uma, use o Mapa da Reforma antes de abrir o orçamento.",
+      "experience": "Esse contexto ajuda a organizar a conversa inicial.",
+      "period": "A localização participa da avaliação do atendimento.",
+      "timing": "Não é uma promessa de agenda; serve para indicar a urgência do seu pedido."
+    },
+    "notePlaceholder": "Conte os ambientes, metragem aproximada e qualquer detalhe que ajude a entender a reforma."
   },
   "carecas-infotec": {
     "proposalKind": "service",
