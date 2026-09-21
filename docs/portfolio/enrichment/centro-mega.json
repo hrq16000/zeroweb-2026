@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-21T17:56:00Z",
+  "lastResearchAt": "2026-09-21T23:50:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -94,6 +94,21 @@
       "resolved": false,
       "verified": false,
       "note": "Reels públicos foram identificados por URL, mas não tiveram conteúdo individual interpretado com segurança; permanecem como links de descoberta."
+    },
+    "marketplaceSeller": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "PUBLIC_SELLER_CATALOG",
+      "url": "https://www.magazineluiza.com.br/lojista/centromega/",
+      "evidence": [
+        "seller Centro Mega com CNPJ 17.991.627/0001-54",
+        "Xiaomi Mi Box S listado como vendido por Centro Mega",
+        "Controle PlayStation 4 Sony listado como vendido por Centro Mega",
+        "Suporte de celular para Moto & Bike Renux 5203 listado como vendido por Centro Mega"
+      ],
+      "freshnessRule": "Produto listado comprova mix/catálogo público; preço, estoque e condições continuam temporais e não são persistidos como atuais na amostra."
     }
   },
   "verifiedProductEvidence": [
@@ -162,6 +177,10 @@
     {
       "type": "PUBLIC_BUSINESS_REGISTRY_MIRROR",
       "url": "https://cnpj.biz/17991627000154"
+    },
+    {
+      "type": "PUBLIC_MARKETPLACE_SELLER",
+      "url": "https://www.magazineluiza.com.br/lojista/centromega/"
     }
   ],
   "unverified": [
@@ -181,5 +200,10 @@
     "Categoria fornecida pelo responsável pode virar categoria de amostra sem SKU/preço inventado.",
     "Post social não legível não autoriza inferir nome/modelo/preço.",
     "Nenhuma mídia gerada ou ícone pode ser apresentado como foto real de estoque."
+  ],
+  "marketplaceProducts": [
+    "Xiaomi Mi Box S",
+    "Controle PlayStation 4 Original Sony",
+    "Suporte de celular para Moto & Bike Renux 5203"
   ]
 }
