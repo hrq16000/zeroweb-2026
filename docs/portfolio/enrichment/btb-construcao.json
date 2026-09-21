@@ -1,0 +1,187 @@
+{
+  "doc": "Entity Enrichment — BTB Construção. Evolução R3 de 2026-09-21. Fonte factual primária: material fornecido pelo cliente e registros versionados; busca pública usada apenas para tentar resolver entidade e detectar conflitos.",
+  "slug": "btb-construcao",
+  "lastResearchAt": "2026-09-21",
+  "entityResolution": {
+    "status": "OWNER_SUPPLIED_IDENTITY_EXTERNAL_UNRESOLVED",
+    "confidence": "HIGH_FOR_OWNER_SUPPLIED_FACTS_LOW_FOR_EXTERNAL_ENTITY",
+    "decision": "Preservar apenas fatos do material do cliente. Não associar homônimos externos."
+  },
+  "researchLedger": {
+    "website": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "queries": [
+        ""BTB Construção" Curitiba reforma elétrica hidráulica drywall iluminação LED"
+      ]
+    },
+    "social": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "queries": [
+        ""BTB Construção" Curitiba Instagram Facebook"
+      ]
+    },
+    "phoneResolution": {
+      "searched": true,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "query": ""BTB Construção" "99970-6634"",
+      "note": "O destino operacional permanece no registro server-side; busca pública não confirmou titularidade."
+    },
+    "media": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "usable": false,
+      "note": "Nenhuma foto pública foi associada à BTB Curitiba com confiança suficiente."
+    }
+  },
+  "rejectedEntities": [
+    {
+      "name": "BTB Construções e Participações",
+      "url": "https://btbconstrucoes.com.br/",
+      "reason": "Empresa sediada em Goiás e orientada a infraestrutura/rodovias; identidade, localidade e escopo não correspondem ao cliente BTB Construção de Curitiba."
+    },
+    {
+      "name": "BTB Engenharia",
+      "url": "https://play.google.com/store/apps/details?id=br.com.btbEngenharia.btb_engenharia_app",
+      "reason": "Entidade diferente; nenhum sinal suficiente de correspondência com o cliente."
+    }
+  ],
+  "identity": {
+    "name": {
+      "value": "BTB Construção",
+      "sourceType": "OWNER_SUPPLIED",
+      "source": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png + briefing versionado",
+      "confidence": "HIGH"
+    },
+    "category": {
+      "value": "Reformas internas e acabamentos",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH"
+    },
+    "location": {
+      "value": "Curitiba e região — PR",
+      "sourceType": "OWNER_SUPPLIED",
+      "confidence": "HIGH",
+      "precision": "CITY_REGION_ONLY"
+    }
+  },
+  "services": {
+    "sourceType": "OWNER_SUPPLIED",
+    "confidence": "HIGH",
+    "value": [
+      "Pintura",
+      "Elétrica",
+      "Hidráulica",
+      "Pisos e revestimentos",
+      "Drywall e forro",
+      "Acabamentos",
+      "Iluminação LED"
+    ]
+  },
+  "commercialFacts": [
+    {
+      "key": "warranty",
+      "value": "90 dias",
+      "sourceType": "OWNER_SUPPLIED",
+      "source": "briefing BTB já versionado",
+      "publication": "ALLOWED_WITH_ATTRIBUTION_CONTEXT",
+      "freshness": "REVERIFY_ON_COMMERCIAL_CHANGE"
+    }
+  ],
+  "notPublished": [
+    "condições de parcelamento/desconto que não foram revalidadas nesta evolução",
+    "CNPJ",
+    "endereço pontual",
+    "redes sociais não resolvidas",
+    "número operacional como texto público",
+    "avaliações/depoimentos",
+    "quantidade de obras",
+    "prazo padrão de execução"
+  ],
+  "media": {
+    "state": "CONTEXTUAL_ONLY_NO_REAL_BUSINESS_MEDIA",
+    "existing": [
+      {
+        "file": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png",
+        "type": "OWNER_SUPPLIED_REFERENCE",
+        "purpose": "EVIDENCE_ONLY",
+        "editorialAllowed": false
+      },
+      {
+        "file": "public/images/btb-construcao/hero.png",
+        "type": "GENERATED_CONTEXTUAL_MEDIA",
+        "documentary": false,
+        "purpose": "HERO_SUPPORT"
+      },
+      {
+        "file": "public/images/btb-construcao/capa-card.jpg",
+        "type": "EDITORIAL_COVER",
+        "documentary": false,
+        "purpose": "CATALOG_COVER"
+      },
+      {
+        "file": "public/images/btb-construcao/capa-marca.jpg",
+        "type": "BRAND_COMPOSITION",
+        "documentary": false,
+        "purpose": "FALLBACK_COVER"
+      },
+      {
+        "file": "public/images/btb-construcao/hero-og.jpg",
+        "type": "OG_MEDIA",
+        "documentary": false,
+        "purpose": "SOCIAL_PREVIEW"
+      },
+      {
+        "file": "public/images/btb-construcao/logo.svg",
+        "type": "GENERATED_BRAND_ASSET_LEGACY",
+        "documentary": false,
+        "purpose": "ICON_ONLY",
+        "note": "Não tratado como logo histórico/oficial do cliente nesta evolução."
+      }
+    ],
+    "missing": [
+      "logotipo oficial isolado, se existir",
+      "fotos próprias de obras",
+      "fotos de equipe/execução com autorização",
+      "site ou perfil social oficial resolvido"
+    ]
+  },
+  "decisionIntelligence": {
+    "primaryJob": "organizar uma reforma que pode combinar várias frentes antes de pedir orçamento",
+    "primaryBarrier": "necessidade difusa e multisservidor",
+    "decisionAid": "Mapa da Reforma",
+    "contextCarryover": [
+      "service",
+      "experience"
+    ],
+    "riskAdjustedPersuasion": "evidence_first",
+    "pageMode": "local_service"
+  },
+  "appliedToLanding": {
+    "appliedAt": "2026-09-21",
+    "changes": [
+      "hero full-bleed em vez de hero split",
+      "Mapa da Reforma com multi-seleção",
+      "carryover das escolhas para o funil",
+      "lista linear de frentes em vez de grade dominante de cards",
+      "linha de processo",
+      "remoção de claim de parcelamento/desconto não revalidado",
+      "disclosure visível de mídia conceitual",
+      "schema específico da BTB sem telefone/endereço inventado"
+    ]
+  },
+  "conflicts": [
+    "Homônimos públicos BTB encontrados em outros estados/segmentos; associação rejeitada."
+  ]
+}
