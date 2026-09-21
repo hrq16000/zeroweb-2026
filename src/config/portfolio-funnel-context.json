@@ -123,13 +123,10 @@
   },
   "centro-mega": {
     "intent": "pedido",
-    "nextStepTitle": "Seu próximo achado começa confirmando o que está disponível hoje.",
-    "nextStepBody": "Conte o produto, categoria ou publicação que você viu. A equipe Centro Mega confirma estoque, valor atual, unidade e próximo passo.",
-    "primaryCtaLabel": "Consultar produto",
-    "theme": "navy",
-    "whatsappPrompt": "Pode confirmar a disponibilidade, o valor atual e as opções para este produto, por favor?",
-    "whatsappSubject": "um produto da Centro Mega",
-    "proposalKind": "service"
+    "nextStepTitle": "Sua sacola já conta o que você quer encontrar.",
+    "nextStepBody": "A seleção da vitrine segue para a equipe Centro Mega confirmar preço, estoque, cor, tamanho, unidade e forma de entrega.",
+    "primaryCtaLabel": "Enviar minha seleção",
+    "theme": "navy"
   },
   "clinica-integrada": {
     "intent": "agendamento",
