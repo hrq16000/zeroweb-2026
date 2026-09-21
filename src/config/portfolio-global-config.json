@@ -1312,6 +1312,55 @@
           "notePlaceholder": "Dúvidas sobre acesso ao prédio, estacionamento ou horário (opcional)."
         }
       }
+    },
+    "autoescola-aptos": {
+      "contactFloating": {
+        "theme": "steel",
+        "recipientName": "Autoescola APTOS",
+        "label": "Consultar minha CNH",
+        "quizConfig": {
+          "proposalKind": "service",
+          "services": [
+            "Primeira habilitação",
+            "Categoria B · carro automático",
+            "Categoria A · moto automática",
+            "Categoria AB · carro + moto",
+            "Reteste prático",
+            "Renovação de CNH",
+            "Reciclagem de CNH",
+            "Quero orientação para escolher"
+          ],
+          "experienceOptions": [
+            "Ainda não comecei meu processo",
+            "Já tenho processo aberto",
+            "Já fiz aulas e quero continuar",
+            "Fui reprovado e quero me preparar para o reteste"
+          ],
+          "periodOptions": [
+            "Manhã",
+            "Tarde",
+            "Noite",
+            "Tenho flexibilidade"
+          ],
+          "timingOptions": [
+            "Quero começar agora",
+            "Ainda nesta semana",
+            "Nas próximas semanas",
+            "Estou pesquisando e quero entender as opções"
+          ],
+          "stepTitles": {
+            "service": "Qual é o seu próximo passo na CNH?",
+            "experience": "Em que momento do processo você está?",
+            "period": "Qual período funciona melhor para você?",
+            "timing": "Quando você pretende começar?",
+            "note": "Tem algo importante para a equipe saber?"
+          },
+          "notePlaceholder": "Ex.: quero categoria B com carro automático e ainda não abri meu processo."
+        }
+      },
+      "footer": {
+        "variant": "dark"
+      }
     }
   }
 }
