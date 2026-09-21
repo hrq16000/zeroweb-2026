@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { buildAutonomousContentPlan } from "../../src/lib/portfolio-autonomous-content";
+import { extractAutonomousStructuredEvidence } from "../../src/lib/portfolio-autonomous-evidence";
 
 const research = readFileSync("src/lib/portfolio-autonomous-research.server.ts", "utf8");
 const managed = readFileSync("src/lib/portfolio-managed.functions.ts", "utf8");
@@ -117,4 +118,38 @@ describe("portfolio autônomo: intake mínimo e pesquisa", () => {
     expect(contentComposer).toContain("Inferências editoriais não podem ser publicadas como fatos");
     expect(contentComposer).toContain('services.length ? null : "verified_services"');
   });
+  test("R1 promove apenas serviços explícitos em campos estruturados", () => {
+    const facts = extractAutonomousStructuredEvidence({
+      resolutionConfidence: 91,
+      sourceUrl: "https://maps.example/business",
+      placeServiceOptions: { dine_in: true, delivery: false },
+      placeExtraFields: {
+        services: ["Troca de óleo", "Alinhamento"],
+        description: "Oficina completa com tudo que seu carro precisa.",
+        products: ["Pneu"],
+      },
+      knowledgeGraph: { especialidades: "Balanceamento; Revisão preventiva" },
+    });
+
+    expect(facts.map((fact) => fact.value)).toEqual([
+      "Troca de óleo",
+      "Alinhamento",
+      "Balanceamento",
+      "Revisão preventiva",
+    ]);
+    expect(facts.every((fact) => fact.field === "service")).toBe(true);
+    expect(facts.some((fact) => fact.value === "Pneu")).toBe(false);
+    expect(facts.some((fact) => fact.value.includes("Oficina completa"))).toBe(false);
+  });
+
+  test("R1 não promove evidência estruturada quando a entidade ainda é fraca", () => {
+    expect(
+      extractAutonomousStructuredEvidence({
+        resolutionConfidence: 60,
+        sourceUrl: null,
+        placeExtraFields: { services: ["Serviço não confirmado"] },
+      }),
+    ).toEqual([]);
+  });
+
 });

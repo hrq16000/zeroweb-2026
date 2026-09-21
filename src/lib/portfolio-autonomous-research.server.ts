@@ -8,6 +8,7 @@
  * compacto para source_snapshot do projeto Managed.
  */
 
+import { extractAutonomousStructuredEvidence } from "@/lib/portfolio-autonomous-evidence";
 import {
   buildEnrichmentSnapshot,
   fetchGoogleSearch,
@@ -289,6 +290,15 @@ export async function runAutonomousPortfolioResearch(input: {
   if (enrichment?.place?.website) {
     facts.push({ field: "website", value: enrichment.place.website, sourceType: "GOOGLE", confidence: resolution.confidence, sourceUrl: enrichment.google.mapsUrl });
   }
+  facts.push(
+    ...extractAutonomousStructuredEvidence({
+      resolutionConfidence: resolution.confidence,
+      sourceUrl: enrichment?.google.mapsUrl ?? first?.mapsUrl ?? null,
+      placeServiceOptions: enrichment?.place?.serviceOptions,
+      placeExtraFields: enrichment?.place?.extraFields,
+      knowledgeGraph: enrichment?.knowledgeGraph,
+    }),
+  );
   for (const profile of socialProfiles.filter((p) => p.confidence >= 70).slice(0, 4)) {
     facts.push({ field: profile.platform, value: profile.url, sourceType: "OFFICIAL_SOCIAL", confidence: profile.confidence, sourceUrl: profile.url });
   }

@@ -11,6 +11,7 @@ Use this skill whenever a project starts from **name + location**, when
 ## Canonical files
 
 - `src/lib/portfolio-autonomous-research.server.ts` — R1 research.
+- `src/lib/portfolio-autonomous-evidence.ts` — promoção conservadora de evidência estruturada.
 - `src/lib/portfolio-autonomous-content.ts` — R2 evidence-only composition.
 - `src/lib/portfolio-managed.functions.ts` — persistence and lifecycle entry.
 - `tests/portfolio/autonomous-intake-research.test.ts` — contract tests.
@@ -27,6 +28,23 @@ Read `origin/main` and the current implementation before planning. Never restart
 Input is only `name + location`. R1 records entity resolution, locality, facts, web/social footprint, media candidates, review evidence, provider calls/errors and missing fields.
 
 Treat `VERIFIED`, `RESOLVED`, `FOUND`, `UNRESOLVED`, `CONFLICT` and `PROVIDER_BLOCKED` as distinct states. Provider failure is not “business not found”; public phone is not presumed WhatsApp.
+
+### Structured service evidence
+
+The first automatic factual promotion layer is deliberately narrow:
+
+- entity resolution confidence must be at least 70;
+- only structured keys explicitly named `service(s)`, `serviço(s)`,
+  `specialty/specialties` or `especialidade(s)` are eligible;
+- accepted structured sources are resolved Google place fields and Knowledge
+  Graph fields already captured by R1;
+- free-text description, snippet, category and generic segment knowledge never
+  become services;
+- boolean service options such as delivery/dine-in are not converted into
+  service names;
+- duplicate labels are normalized and capped before entering `facts[]`.
+
+When no eligible field exists, `verified_services` remains missing.
 
 ## 3. R2 — compose only from evidence
 
