@@ -55,6 +55,13 @@ type Props = {
     fulfillment?: string;
     customer_note?: string;
   };
+  /**
+   * Contexto já escolhido antes de abrir o funil. Mantém continuidade sem
+   * obrigar o visitante a responder novamente o que a landing já sabe.
+   */
+  initialAnswers?: Partial<Answers>;
+  /** Quando true, começa na primeira etapa ainda não preenchida. */
+  skipPrefilledSteps?: boolean;
   children: ReactNode;
 };
 
@@ -147,11 +154,26 @@ export function BeautyBookingQuiz({
   ariaLabel,
   onOpen,
   orderContext,
+  initialAnswers,
+  skipPrefilledSteps = false,
   children,
 }: Props) {
+  const buildSeedAnswers = (): Answers => ({
+    service: service ?? initialAnswers?.service ?? "",
+    experience: initialAnswers?.experience ?? "",
+    period: initialAnswers?.period ?? "",
+    timing: initialAnswers?.timing ?? "",
+    note: initialAnswers?.note ?? "",
+  });
+  const firstIncompleteStep = (seeded: Answers) => {
+    const ordered = [seeded.service, seeded.experience, seeded.period, seeded.timing];
+    const index = ordered.findIndex((value) => !String(value ?? "").trim());
+    return index === -1 ? 4 : index;
+  };
+
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Answers>({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
+  const [answers, setAnswers] = useState<Answers>(buildSeedAnswers);
   const [redirecting, setRedirecting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [previewLocation, setPreviewLocation] = useState("");
@@ -209,8 +231,9 @@ export function BeautyBookingQuiz({
   const start = () => {
     onOpen?.();
     window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open", { detail: { clientKey } }));
-    setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
-    setStep(0);
+    const seeded = buildSeedAnswers();
+    setAnswers(seeded);
+    setStep(skipPrefilledSteps ? firstIncompleteStep(seeded) : 0);
     setRecoveryError(null);
     void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));
     setOpen(true);
