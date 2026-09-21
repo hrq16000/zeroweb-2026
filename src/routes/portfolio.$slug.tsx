@@ -622,7 +622,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
       : isDonaLucySalgados
       ? "Dona Lucy Salgados: delivery de salgados fritos e churros de doce de leite em Araucária, com combos a partir de R$ 11,99."
       : isCentroMega
-      ? "Centro Mega: assistência técnica especializada e acessórios para tecnologia, com canais em Curitiba e Região Metropolitana."
+      ? "Centro Mega em São José dos Pinhais: amostra de loja virtual com celulares, acessórios e outlet, usando produtos de postagens públicas verificadas e consulta de preço e estoque atual pelo funil."
       : isAutoSocorroDentinho
       ? "Auto Socorro Dentinho em Quatro Barras: auto mecânica, elétrica automotiva, diagnóstico e socorro para veículos na região."
       : isHeloaGas
@@ -813,7 +813,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isJklDecor
+          content: eff.keywords ?? (isCentroMega
+            ? "Centro Mega São José dos Pinhais, Centro Mega celulares, Centro Mega outlet, celulares SJP, tênis outlet São José dos Pinhais, bonés e calçados, acessórios, Centro Mega Instagram, loja virtual Centro Mega"
+            : isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
             : isAutoescolaAptos
             ? "Autoescola APTOS, autoescola São José dos Pinhais, primeira habilitação, carro automático autoescola, moto automática, categoria A, categoria B, categoria AB, reteste, renovação CNH, reciclagem, curso online"
@@ -968,7 +970,46 @@ export const Route = createFileRoute("/portfolio/$slug")({
                         })),
                       },
                     ]
-                  : [
+                  : isCentroMega
+                    ? [
+                        {
+                          "@type": "Store",
+                          "@id": `${url}#store`,
+                          name: "Centro Mega",
+                          description,
+                          url,
+                          image: socialImage,
+                          logo: absUrl("/images/centro-mega/logo.png"),
+                          address: {
+                            "@type": "PostalAddress",
+                            streetAddress: "Rua Quinze de Novembro, 1821 · Galeria Di Bruno",
+                            addressLocality: "São José dos Pinhais",
+                            addressRegion: "PR",
+                            postalCode: "83005-000",
+                            addressCountry: "BR",
+                          },
+                          areaServed: [
+                            { "@type": "City", name: "São José dos Pinhais" },
+                            { "@type": "City", name: "Curitiba" },
+                          ],
+                          sameAs: [
+                            "https://www.instagram.com/centro.mega/",
+                            "https://www.facebook.com/CentroMega.com.br/",
+                            "https://linktr.ee/centro.mega",
+                          ],
+                          makesOffer: [
+                            "Celulares e smartphones",
+                            "Tênis e calçados",
+                            "Bonés e outlet",
+                            "Acessórios e tecnologia",
+                            "Perfumes",
+                          ].map((name) => ({
+                            "@type": "Offer",
+                            itemOffered: { "@type": "Product", name },
+                          })),
+                        },
+                      ]
+                    : [
                       {
                         ...serviceNode({
                           slug: vertical.slug,
