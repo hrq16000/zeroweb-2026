@@ -1367,3 +1367,26 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Documentação criada:** `PORTFOLIO_PREMIUM_EXPERIENCE_ACCEPTANCE_STANDARD.md` e `reports/PORTFOLIO_PREMIUM_GAP_AUDIT_2026-09-20.md`.
 - **Nova leitura normativa:** `logo exists`, `cover exists`, `motion exists` e `media searched` deixam de ser checks binários suficientes; precisam passar qualidade, provenance, originalidade perceptual e evidência de runtime.
 - **Escopo preservado:** zero mudanças em TSX, assets de cliente, rotas, funis, WhatsApps, catálogo, SEO runtime ou layouts nesta rodada.
+
+# 2026-09-20 — Pipeline autônomo R2 + skill canônica
+
+- **Tarefa:** consolidar a criação autônoma de `/portfolio` por nome + localização
+  e documentar o contrato R1 → R2 já integrado ao runtime.
+- **Skills:** `0web-skill-router`, nova
+  `0web-portfolio-autonomous-pipeline`; UI/motion classificados como
+  `NOT_APPLICABLE` nesta rodada documental.
+- **R1:** `portfolio-autonomous-research.server.ts` continua responsável por
+  entity resolution, pesquisa pública, provenance, provider calls/errors,
+  mídia/reviews candidatos e lacunas.
+- **R2:** `portfolio-autonomous-content.ts` transforma somente evidências
+  suficientes em briefing, hero, copy, CTA, SEO, discovery, schema draft, FAQ
+  e etapas. Serviço/diferencial ausente permanece ausente.
+- **Persistência:** `source_snapshot.autonomous_research` e
+  `source_snapshot.autonomous_content` ficam separados; o estado geral usa
+  `autonomous_pipeline.contract = 2`.
+- **Estados:** `content_composed`, `content_partial`, `blocked_identity` e
+  `blocked_provider`.
+- **Governança:** skill registrada em `AGENTS.md`,
+  `AGENT_SKILLS_GOVERNANCE.md`, `REGISTRY.md` e `ORCHESTRATION.md`.
+- **Validação anterior da implementação:** preview Vercel e produção ficaram
+  `READY` no commit `dbe0babd053b01e7499b27ada947d82aca09134a`.

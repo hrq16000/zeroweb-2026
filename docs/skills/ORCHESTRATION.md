@@ -20,6 +20,7 @@ classificar tarefa
 |---|---|
 | Landing page / nova página comercial | `0web-skill-router` → `0web-skill-discovery` → `0web-portfolio-art-direction` → `PORTFOLIO_CAPABILITY_PALETTE` → 1 especialista landing/CRO → `0web-design-system` → `0web-ui-quality-gates` → QA no navegador |
 | Site de cliente em `/portfolio/<slug>` | `PORTFOLIO_NEW_CLIENT_PLAYBOOK` → `0web-skill-discovery` → `0web-portfolio-art-direction` → `PORTFOLIO_CAPABILITY_PALETTE` → 1 especialista landing/CRO → `0web-design-system` (identidade escopada do cliente) → motion/a11y/perf conforme necessidade → `0web-ui-quality-gates` → originality/funnel/browser QA |
+| Criação autônoma por nome + localização | `0web-skill-router` → `0web-portfolio-autonomous-pipeline` → R1 entity/public research → R2 evidence-only content plan → identity/media/composition skills quando houver evidência → funnel/SEO/QA → readiness |
 | Dashboard / painel admin | `0web-design-system` (densidade, tabelas, estados) → `0web-ui-quality-gates` |
 | Formulário / etapa de funil | `0web-ui-quality-gates` (labels, erros, alvos de toque) → `docs/PORTFOLIO_FUNNELS.md` |
 | Redesign material | `0web-portfolio-art-direction` → `PORTFOLIO_CAPABILITY_PALETTE` → `0web-design-system` → revisão Apple HIG (`.design-rules`) → `0web-ui-quality-gates` |

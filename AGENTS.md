@@ -13,6 +13,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
+| Pipeline autônomo nome + localização (R1 pesquisa → R2 composição factual → mídia/QA) | `.agents/skills/0web-portfolio-autonomous-pipeline/SKILL.md` · `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
 | Matriz global de qualidade editorial/visual da landing | `docs/PORTFOLIO_LANDING_QUALITY_MATRIX.md` |
 | Ritmo visual, signature moments, media narrative, capabilities, results e quality profile | `docs/PORTFOLIO_LANDING_EXPERIENCE_ADDENDUM.md` |
