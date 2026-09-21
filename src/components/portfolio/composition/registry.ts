@@ -7,7 +7,7 @@
  */
 import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 
-export const compositionPages: Record<string, LazyExoticComponent<ComponentType>> = {
+export const compositionPages: Record<string, LazyExoticComponent<ComponentType>> = {\n  "autoescola-aptos": lazy(() =>\n    import("@/components/site/AutoescolaAptosPage").then((m) => ({ default: m.AutoescolaAptosPage })),\n  ),
   "adhonep-curitiba": lazy(() =>
     import("@/components/site/AdhonepCuritibaPage").then((m) => ({ default: m.AdhonepCuritibaPage })),
   ),
