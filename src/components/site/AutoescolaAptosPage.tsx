@@ -2,6 +2,8 @@ import { ArrowDown, ArrowRight, BookOpen, CarFront, Check, Clock3, MapPin, Shiel
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { MotionImageReveal, MotionReveal, MotionStagger, MotionTextReveal } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
+import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
+import { PortfolioUpsellPopup } from "@/components/portfolio/PortfolioUpsellPopup";
 import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import "./autoescola-aptos.css";
@@ -203,10 +205,18 @@ export function AutoescolaAptosPage() {
           </div>
         </section>
 
+        <footer className="aptos-dark-band border-t border-background/15 px-5 py-8 md:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-background/70 sm:flex-row sm:items-center sm:justify-between">
+            <p>Autoescola APTOS · São José dos Pinhais</p>
+            <PortfolioHostCredit linkClassName="font-semibold text-background underline underline-offset-4 hover:text-primary" />
+          </div>
+        </footer>
+
         <div className="aptos-mobile-cta fixed inset-x-3 bottom-3 z-30 flex items-center justify-between gap-3 rounded-md border p-3 md:hidden">
           <div className="min-w-0"><p className="truncate text-xs text-background/70">Autoescola APTOS</p><p className="truncate text-sm font-bold">Automático ou manual</p></div>
           {composition.renderCta({ children: <><Check className="h-4 w-4" /> Começar</>, placement: "floating", className: "aptos-cta inline-flex min-h-11 shrink-0 items-center gap-2 rounded-md px-4 py-2 text-sm font-bold" })}
         </div>
+        <PortfolioUpsellPopup pageName="portfolio-autoescola-aptos" />
       </main>
     </PortfolioCompositionRoot>
   );
