@@ -2,7 +2,8 @@ import { ArrowDown, ArrowRight, BookOpen, CarFront, Check, Clock3, MapPin, Shiel
 import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { MotionImageReveal, MotionReveal, MotionStagger, MotionTextReveal } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
-import type { CtaRenderOptions, PortfolioComposition } from "@/lib/portfolio-composition";
+import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
+import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import "./autoescola-aptos.css";
 
 /**
@@ -168,7 +169,7 @@ export function AutoescolaAptosPage() {
               </article>
             ))}
           </MotionStagger>
-          <div className="mt-12">{composition.renderCta({ children: "Montar minha proposta", placement: "route", className: "aptos-cta inline-flex min-h-12 items-center rounded-md px-6 py-3 font-bold" })}</div>
+          <div className="mt-12">{composition.renderCta({ children: "Montar minha proposta", placement: "inline", className: "aptos-cta inline-flex min-h-12 items-center rounded-md px-6 py-3 font-bold" })}</div>
         </section>
 
         <section id="estrutura" className="aptos-dark-band">
@@ -191,7 +192,7 @@ export function AutoescolaAptosPage() {
         <section className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
           <div className="aptos-yellow-band grid overflow-hidden rounded-md md:grid-cols-[0.9fr_1.1fr]">
             <div className="p-7 md:p-12"><CarFront className="h-10 w-10" /><h2 className="aptos-display mt-8 text-4xl sm:text-5xl">Manual ou automático. A escolha começa com você.</h2></div>
-            <div className="bg-card p-7 text-card-foreground md:p-12"><p className="text-lg leading-relaxed text-muted-foreground">Informe o objetivo, seu estágio, o melhor período e quando quer começar. A solicitação fica registrada antes de seguir ao atendimento oficial da APTOS.</p><div className="mt-8">{composition.renderCta({ children: <>Começar agora <ArrowRight className="h-4 w-4" /></>, placement: "closing", className: "aptos-cta inline-flex min-h-12 items-center gap-2 rounded-md px-6 py-3 font-bold" })}</div><p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground"><Clock3 className="h-4 w-4" /> Você responde em poucos passos.</p></div>
+            <div className="bg-card p-7 text-card-foreground md:p-12"><p className="text-lg leading-relaxed text-muted-foreground">Informe o objetivo, seu estágio, o melhor período e quando quer começar. A solicitação fica registrada antes de seguir ao atendimento oficial da APTOS.</p><div className="mt-8">{composition.renderCta({ children: <>Começar agora <ArrowRight className="h-4 w-4" /></>, placement: "cta", className: "aptos-cta inline-flex min-h-12 items-center gap-2 rounded-md px-6 py-3 font-bold" })}</div><p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground"><Clock3 className="h-4 w-4" /> Você responde em poucos passos.</p></div>
           </div>
         </section>
 
