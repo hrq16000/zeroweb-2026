@@ -33,7 +33,6 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import {
   CENTRO_MEGA_DEMO_PRODUCTS,
   CENTRO_MEGA_SOCIAL_FEED,
@@ -915,7 +914,6 @@ export function CentroMegaPage() {
           className="border-cyan-300/25 bg-[#07111f]/95 text-white"
           accentClassName="text-cyan-300"
         />
-        <PortfolioUpsellPopup pageName="portfolio-centro-mega" />
       </div>
     </MotionScope>
   );
