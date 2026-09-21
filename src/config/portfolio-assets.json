@@ -1021,13 +1021,13 @@
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
       "proof": {
-        "eyebrow": "Centro Mega · Assistência técnica",
-        "title": "Tecnologia que funciona. Atendimento que resolve.",
-        "description": "Consulte os canais oficiais e fale com a unidade mais conveniente.",
-        "ctaLabel": "Falar com a equipe",
-        "ctaHref": "#contato"
+        "eyebrow": "Centro Mega · Store Concept",
+        "title": "Do feed para uma vitrine organizada de tecnologia + outlet.",
+        "description": "Amostra de loja virtual com produtos sociais, categorias, filtros e seleção que segue para o funil da Centro Mega.",
+        "ctaLabel": "Explorar a loja",
+        "ctaHref": "#vitrine"
       },
-      "socialVersion": "9e729e85"
+      "socialVersion": "store-demo-20260921"
     },
     "your_brutus_burguer": {
       "icon": "/images/your-brutus-burguer/logo.svg",
