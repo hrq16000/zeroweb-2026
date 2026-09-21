@@ -123,9 +123,9 @@
   },
   "centro-mega": {
     "intent": "pedido",
-    "nextStepTitle": "Sua próxima compra começa escolhendo o que chamou sua atenção.",
-    "nextStepBody": "Selecione produtos ou categorias da amostra e leve esse contexto para a Centro Mega confirmar estoque, valor, tamanho, cor e forma de entrega.",
-    "primaryCtaLabel": "Consultar produtos",
+    "nextStepTitle": "Sua seleção pode seguir para a equipe sem perder o contexto.",
+    "nextStepBody": "Escolha os produtos ou categorias na loja-demo; a equipe confirma preço, estoque, tamanho, cor e forma de atendimento antes da compra.",
+    "primaryCtaLabel": "Consultar minha seleção",
     "theme": "navy"
   },
   "clinica-integrada": {
