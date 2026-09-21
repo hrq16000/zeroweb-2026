@@ -666,5 +666,14 @@
     "nextStepBody": "Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade.",
     "primaryCtaLabel": "Encontrar um presente",
     "theme": "gold"
+  },
+  "autoescola-aptos": {
+    "intent": "orcamento",
+    "nextStepTitle": "Organizar sua próxima etapa na CNH",
+    "nextStepBody": "A equipe recebe categoria, momento do processo, período e preferência por veículo automático para orientar o próximo passo.",
+    "primaryCtaLabel": "Consultar minha opção",
+    "theme": "navy",
+    "serviceQuestion": "Qual é o seu próximo passo na CNH?",
+    "detailsPrompt": "Conte se prefere carro ou moto automática e em que etapa do processo você está."
   }
 }
