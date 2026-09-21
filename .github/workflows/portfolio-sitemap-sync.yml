@@ -7,7 +7,8 @@ on:
       - "src/config/portfolio-catalog.json"
       - "src/lib/portfolio-site-registry.ts"
       - "src/lib/portfolio-sitemap.server.ts"
-      - "src/routes/sitemap-portfolio[.]xml.ts"
+      - "src/routes/sitemap-portfolio*.ts"
+      - ".github/workflows/portfolio-sitemap-sync.yml"
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
