@@ -1905,6 +1905,7 @@
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
+      "loja-virtual",
       "celulares",
       "smartphones",
       "acessorios",
@@ -1912,17 +1913,16 @@
       "tenis",
       "bones",
       "calcados",
-      "loja-virtual",
       "sao-jose-dos-pinhais"
     ],
     "live": true,
-    "subtitle": "Amostra de loja virtual · tecnologia + outlet",
-    "location": "São José dos Pinhais · Curitiba e região — PR",
+    "subtitle": "Loja virtual demo · celulares, acessórios e outlet",
+    "location": "São José dos Pinhais · Curitiba — PR",
     "badge": "Amostra de loja virtual",
     "image": "/images/centro-mega/hero.png",
     "fallbackImage": "/images/centro-mega/social-og.jpg",
-    "metrics": "Vitrine social + seleção de produtos",
-    "summary": "Amostra de loja virtual da Centro Mega que organiza celulares, acessórios, tênis, bonés, calçados e oportunidades de outlet a partir de conteúdo público e categorias fornecidas, preservando consulta de estoque e preço."
+    "metrics": "Produtos sociais + seleção inteligente",
+    "summary": "Amostra de loja virtual da Centro Mega com celulares, acessórios e categorias de outlet, convertendo publicações sociais em uma vitrine pesquisável com seleção de itens e funil próprio."
   },
   {
     "slug": "pastelaria-route-66",
