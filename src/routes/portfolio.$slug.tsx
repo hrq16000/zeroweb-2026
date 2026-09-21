@@ -816,6 +816,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
             : isCarecasInfotec
             ? "Careca's Infotec, assistência técnica São José dos Pinhais, conserto de celular São José dos Pinhais, conserto de notebook, conserto de impressora, recarga de cartucho, recarga de toner, Santo Antônio"
+            : isBtb
+            ? "BTB Construção Curitiba, reforma interna Curitiba, orçamento de reforma, pintura, elétrica, hidráulica, pisos e revestimentos, drywall, forro, acabamentos, iluminação LED"
             : isSscons
             ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
             : isEstruturaNacional
