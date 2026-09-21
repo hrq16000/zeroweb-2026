@@ -133,6 +133,7 @@ export const centroMegaSocialFeed = [
     title: "Feed oficial Centro Mega",
     description: "Amostra conecta o visitante às publicações oficiais já cadastradas no portfolio.",
     href: "https://www.instagram.com/centro.mega/",
+    date: undefined,
     status: "CANAL_OFICIAL",
   },
   {
@@ -140,6 +141,7 @@ export const centroMegaSocialFeed = [
     title: "Publicações e Reels",
     description: "Links oficiais existentes continuam acessíveis como fonte viva de novidades e oportunidades.",
     href: "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+    date: undefined,
     status: "LINK_OFICIAL",
   },
 ] as const;
