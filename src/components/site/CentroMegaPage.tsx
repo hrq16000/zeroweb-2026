@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import {
   ArrowRight,
-  BadgeCheck,
   Check,
   Crown,
   ExternalLink,
@@ -36,11 +35,11 @@ import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import {
-  centroMegaDemoProducts,
-  centroMegaSocialFeed,
-  centroMegaStoreSources,
+  CENTRO_MEGA_DEMO_PRODUCTS,
+  CENTRO_MEGA_SOCIAL_FEED,
+  CENTRO_MEGA_STORE_SOURCES,
   type CentroMegaDemoProduct,
-} from "@/config/centro-mega-store-demo";
+} from "@/config/centro-mega-demo-products";
 
 const quiz = {
   services: [
@@ -101,6 +100,18 @@ const accentStyles = {
     glow: "from-amber-300/30 via-amber-300/5 to-transparent",
     chip: "bg-amber-300 text-[#171005]",
     icon: "text-amber-200",
+  },
+  amber: {
+    border: "border-amber-300/35",
+    glow: "from-amber-300/30 via-amber-300/5 to-transparent",
+    chip: "bg-amber-300 text-[#171005]",
+    icon: "text-amber-200",
+  },
+  blue: {
+    border: "border-blue-300/30",
+    glow: "from-blue-400/30 via-blue-400/5 to-transparent",
+    chip: "bg-blue-300 text-[#06101f]",
+    icon: "text-blue-200",
   },
   pink: {
     border: "border-fuchsia-300/30",
@@ -229,15 +240,15 @@ function ProductCard({
           </div>
 
           <h3 className="mt-5 text-2xl font-black tracking-[-.035em] text-white">{product.name}</h3>
-          <p className="mt-3 min-h-14 text-sm leading-6 text-white/58">{product.short}</p>
+          <p className="mt-3 min-h-14 text-sm leading-6 text-white/58">{product.description}</p>
 
           {product.historicalPrice ? (
             <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
               <p className="text-[10px] font-black uppercase tracking-[.18em] text-white/40">Preço histórico da publicação</p>
               <div className="mt-1 flex items-end gap-3">
-                <strong className="text-2xl font-black text-white">{product.historicalPrice}</strong>
-                {product.previousHistoricalPrice && (
-                  <span className="pb-0.5 text-sm text-white/35 line-through">{product.previousHistoricalPrice}</span>
+                <strong className="text-2xl font-black text-white">{product.historicalPrice.after}</strong>
+                {product.historicalPrice.before && (
+                  <span className="pb-0.5 text-sm text-white/35 line-through">{product.historicalPrice.before}</span>
                 )}
               </div>
             </div>
@@ -285,17 +296,17 @@ export function CentroMegaPage() {
   const [activeProduct, setActiveProduct] = useState<CentroMegaDemoProduct | null>(null);
 
   const selectedProducts = useMemo(
-    () => centroMegaDemoProducts.filter((product) => cartIds.includes(product.id)),
+    () => CENTRO_MEGA_DEMO_PRODUCTS.filter((product) => cartIds.includes(product.id)),
     [cartIds],
   );
 
   const filteredProducts = useMemo(() => {
     const query = search.trim().toLocaleLowerCase("pt-BR");
-    return centroMegaDemoProducts.filter((product) => {
+    return CENTRO_MEGA_DEMO_PRODUCTS.filter((product) => {
       const categoryMatch = category === "Todos" || product.category === category;
       const searchMatch =
         !query ||
-        [product.name, product.category, product.short, product.badge]
+        [product.name, product.category, product.description, product.badge]
           .join(" ")
           .toLocaleLowerCase("pt-BR")
           .includes(query);
@@ -449,15 +460,15 @@ export function CentroMegaPage() {
                     </div>
 
                     <div className="absolute left-0 top-5 w-[68%] rotate-[-5deg] rounded-[2rem] border border-white/15 bg-[#0a1020]/90 p-5 shadow-2xl backdrop-blur-xl">
-                      <ProductVisual product={centroMegaDemoProducts[0]} compact />
+                      <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[0]} compact />
                       <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-cyan-300">Social drop</p>
-                      <p className="mt-1 text-xl font-black">{centroMegaDemoProducts[0].name}</p>
+                      <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[0].name}</p>
                     </div>
 
                     <div className="absolute bottom-2 right-0 w-[68%] rotate-[5deg] rounded-[2rem] border border-violet-300/20 bg-[#0d0a19]/90 p-5 shadow-2xl backdrop-blur-xl">
-                      <ProductVisual product={centroMegaDemoProducts[1]} compact />
+                      <ProductVisual product={CENTRO_MEGA_DEMO_PRODUCTS[1]} compact />
                       <p className="mt-3 text-xs font-black uppercase tracking-[.18em] text-violet-300">Outlet drop</p>
-                      <p className="mt-1 text-xl font-black">{centroMegaDemoProducts[1].name}</p>
+                      <p className="mt-1 text-xl font-black">{CENTRO_MEGA_DEMO_PRODUCTS[1].name}</p>
                     </div>
 
                     <div className="mega-glow absolute left-[42%] top-[42%] grid h-28 w-28 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_80px_rgba(34,211,238,.25)] backdrop-blur-xl">
@@ -581,7 +592,7 @@ export function CentroMegaPage() {
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href={centroMegaStoreSources.instagram}
+                      href={CENTRO_MEGA_STORE_SOURCES.instagram}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex min-h-12 items-center gap-2 rounded-full border border-fuchsia-300/30 bg-fuchsia-300/10 px-5 text-sm font-black text-fuchsia-100 transition hover:bg-fuchsia-300/20"
@@ -589,7 +600,7 @@ export function CentroMegaPage() {
                       <Instagram className="h-4 w-4" /> Instagram oficial
                     </a>
                     <a
-                      href={centroMegaStoreSources.facebook}
+                      href={CENTRO_MEGA_STORE_SOURCES.facebook}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex min-h-12 items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-5 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/20"
@@ -600,7 +611,7 @@ export function CentroMegaPage() {
                 </div>
 
                 <MotionStagger className="grid gap-4 sm:grid-cols-2" variant="up" step={90}>
-                  {centroMegaSocialFeed.map((post) => (
+                  {CENTRO_MEGA_SOCIAL_FEED.map((post) => (
                     <a
                       key={post.href + post.title}
                       href={post.href}
@@ -657,7 +668,7 @@ export function CentroMegaPage() {
                     ))}
                   </div>
                   <a
-                    href={centroMegaStoreSources.linktree}
+                    href={CENTRO_MEGA_STORE_SOURCES.linktree}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-5 text-sm font-black text-[#06101f] transition hover:-translate-y-1"
@@ -773,10 +784,10 @@ export function CentroMegaPage() {
                   <h2 className="text-3xl font-black tracking-[-.04em]">{activeProduct.name}</h2>
                   <p className="mt-4 leading-7 text-white/55">{activeProduct.short}</p>
 
-                  {activeProduct.sizes && (
+                  {activeProduct.detail && (
                     <div className="mt-5 flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[.035] p-4">
                       <Tag className="mt-0.5 h-4 w-4 shrink-0 text-violet-300" />
-                      <p className="text-sm leading-6 text-white/60">{activeProduct.sizes}</p>
+                      <p className="text-sm leading-6 text-white/60">{activeProduct.detail}</p>
                     </div>
                   )}
 
