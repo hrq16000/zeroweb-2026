@@ -1419,3 +1419,17 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
 - **Correção:** o provider do serviço voltou a ser `Organization` inline, sem
   `@id`; o nó institucional global permanece como fonte canônica separada.
 - **Escopo:** sem alteração visual, preço, CTA, funil ou conteúdo público.
+
+
+# 2026-09-20 — Workflow de sitemap · gatilho compatível
+
+- **Tarefa:** remover a falha de startup do workflow
+  `portfolio-sitemap-sync.yml`.
+- **Diagnóstico:** o workflow falhava sem criar jobs inclusive em pushes de
+  branches fora de `main`, sinal de falha na avaliação da configuração.
+- **Correção:** o filtro de rota deixou de usar o glob
+  `sitemap-portfolio[.]xml.ts` e passou a usar
+  `src/routes/sitemap-portfolio*.ts`, cobrindo os nomes TanStack com
+  `[.]xml` sem depender de classe de caracteres no filtro.
+- **Autoverificação:** o próprio YAML entra em `paths`, para que esta correção
+  gere uma execução real ao chegar em `main`.
