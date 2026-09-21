@@ -15,7 +15,8 @@ describe("Centro Mega Store — amostra social-commerce evidence-first", () => {
     expect(storefront).toContain("POCO X5 Pro · 8 GB / 256 GB");
     expect(storefront).toContain("Tênis Dunk Low Pro");
     expect(storefront).toContain('source: "SOCIAL_PUBLIC_POST_MIRROR"');
-    expect(storefront).toContain("HISTORICAL_ONLY").not;
+    expect(storefront).toContain("historicalPrice");
+    expect(storefront).toContain("Preço exibido na amostra é histórico");
     expect(enrichment.socialProducts).toHaveLength(2);
     expect(enrichment.socialProducts[0].currentState).toContain("REVALIDATION");
     expect(enrichment.socialProducts[1].currentState).toContain("REVALIDATION");
