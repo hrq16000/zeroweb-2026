@@ -1189,21 +1189,22 @@
       "mobileBehavior": "reveal reduzido para fade, sem animação no toque"
     },
     "centro-mega": {
-      "intensity": "BALANCED",
-      "preset": "TECHNICAL",
-      "heroMotion": "maskedSplit",
+      "intensity": "IMMERSIVE",
+      "preset": "NEON_RETAIL_DROP",
+      "heroMotion": "layered",
       "sectionReveal": "stagger",
-      "imageReveal": "clip",
+      "imageReveal": "scale",
       "textReveal": "line",
       "iconMotion": "pop",
-      "hoverBehavior": "lift",
-      "depthBehavior": "flat",
-      "scrollBehavior": "none",
+      "hoverBehavior": "depth",
+      "depthBehavior": "layered",
+      "scrollBehavior": "progressive",
       "staggerPattern": "grid",
       "reducedMotionFallback": "opacityOnly",
-      "desktopBehavior": "blueprint técnico com reveal lateral do hero",
-      "tabletBehavior": "split vira pilha preservando canais",
-      "mobileBehavior": "sem deslocamento no toque; âncoras permanecem acessíveis"
+      "desktopBehavior": "hero em camadas neon, vitrines com profundidade e tilt curto, status pulsante, departamentos com hover dimensional e sacola contextual",
+      "tabletBehavior": "profundidade reduzida, grids 2x e transições preservadas sem depender de hover",
+      "mobileBehavior": "glows e pulsos leves, sem deslocamento agressivo; seleção, sacola e CTA permanecem prioritários",
+      "narrative": "linguagem de drop digital: luz, profundidade, vitrine social e cards que respondem ao interesse sem esconder conteúdo"
     },
     "pastelaria-route-66": {
       "intensity": "BALANCED",
