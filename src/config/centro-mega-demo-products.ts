@@ -15,6 +15,8 @@ export type CentroMegaDemoProduct = {
     label: string;
   };
   detail?: string;
+  availabilityNote: string;
+  visual: "phone" | "sneaker" | "cap" | "shoe" | "accessory" | "outlet";
   accent: "cyan" | "violet" | "lime" | "amber" | "pink" | "blue";
 };
 
@@ -38,6 +40,8 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
       label: "Preço exibido na postagem de 25/01/2024 — confirmar valor e estoque atuais",
     },
     detail: "8 GB de RAM · 256 GB de memória interna",
+    availabilityNote: "Preço reproduzido apenas como histórico da publicação. Consulte valor e estoque atuais.",
+    visual: "phone",
     accent: "cyan",
   },
   {
@@ -54,6 +58,8 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
       "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
     sourceDate: "2023-11-08",
     detail: "Numeração da postagem variava entre 34–39 e 34–43 · confirmar disponibilidade atual",
+    availabilityNote: "Numeração, preço e estoque atuais precisam ser confirmados pela loja.",
+    visual: "sneaker",
     accent: "violet",
   },
   {
@@ -67,6 +73,8 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceType: "OWNER_SUPPLIED_ASSORTMENT",
     sourceLabel: "Mix informado pelo responsável da 0WEB",
     detail: "Modelos e cores entram conforme as postagens atuais da loja",
+    availabilityNote: "Itens específicos, marcas, cores e valores dependem do estoque atual.",
+    visual: "cap",
     accent: "lime",
   },
   {
@@ -80,6 +88,8 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceType: "OWNER_SUPPLIED_ASSORTMENT",
     sourceLabel: "Mix informado pelo responsável da 0WEB",
     detail: "Disponibilidade, tamanhos e preço sempre confirmados no atendimento",
+    availabilityNote: "Amostra de categoria; consulte modelos, tamanhos e estoque atuais.",
+    visual: "shoe",
     accent: "amber",
   },
   {
@@ -93,6 +103,8 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceType: "OFFICIAL_STORE_CONTEXT",
     sourceLabel: "Presença atual Centro Mega + loja/canais oficiais",
     detail: "Produtos específicos entram apenas quando houver postagem, catálogo ou evidência atual",
+    availabilityNote: "Amostra funcional; itens e preços específicos devem ser confirmados.",
+    visual: "accessory",
     accent: "blue",
   },
   {
@@ -106,6 +118,8 @@ export const CENTRO_MEGA_DEMO_PRODUCTS: CentroMegaDemoProduct[] = [
     sourceType: "OWNER_SUPPLIED_ASSORTMENT",
     sourceLabel: "Estratégia de loja virtual solicitada para a Centro Mega",
     detail: "Ideal para produtos de estoque curto, ponta de grade e novidades sociais",
+    availabilityNote: "A seleção muda conforme as publicações e o estoque da loja.",
+    visual: "outlet",
     accent: "pink",
   },
 ];
@@ -147,3 +161,49 @@ export const CENTRO_MEGA_SOCIAL_SOURCES = [
     href: "https://www.facebook.com/CentroMega.com.br/",
   },
 ] as const;
+
+
+export const CENTRO_MEGA_SOCIAL_FEED = [
+  {
+    platform: "Facebook",
+    title: "Poco X5 Pro 8GB / 256GB",
+    description: "Oferta pública indexada: de R$ 2.399,00 por R$ 1.899,00 na publicação de 25/01/2024.",
+    date: "25/01/2024",
+    href: "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+    status: "POST_INDEXADO",
+  },
+  {
+    platform: "Facebook",
+    title: "Tênis Dunk Low Pro",
+    description: "Postagens públicas indexadas com grades 34–39 e 34–43 e menção a cartões.",
+    date: "08/11/2023",
+    href: "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+    status: "POST_INDEXADO",
+  },
+  {
+    platform: "Instagram",
+    title: "Feed oficial Centro Mega",
+    description: "Canal oficial usado como fonte viva de novidades; produtos individuais só viram SKU quando o conteúdo puder ser validado.",
+    href: "https://www.instagram.com/centro.mega/",
+    date: undefined,
+    status: "CANAL_OFICIAL",
+  },
+  {
+    platform: "Instagram",
+    title: "Publicações e Reels",
+    description: "Links oficiais existentes continuam acessíveis como descoberta, sem inferir produto quando o post não pôde ser lido.",
+    href: "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+    date: undefined,
+    status: "LINK_OFICIAL",
+  },
+] as const;
+
+export const CENTRO_MEGA_STORE_SOURCES = {
+  instagram: "https://www.instagram.com/centro.mega/",
+  facebook: "https://www.facebook.com/CentroMega.com.br/",
+  linktree: "https://linktr.ee/centro.mega",
+  currentStore: "https://www.vhsys.net/centromega/contato/",
+  indexedSocialMirror:
+    "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+  marketplaceSeller: "https://www.magazineluiza.com.br/lojista/centromega/",
+} as const;
