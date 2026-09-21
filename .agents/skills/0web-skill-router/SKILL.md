@@ -30,10 +30,10 @@ For any material UI task, `0web-experience-design-max` is mandatory after discov
 
 | Task class | Stack (in order) |
 |---|---|
-| New commercial page / landing | `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` → layout engineering → Apple HIG / UX review → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → browser QA with runtime visual evidence |
-| Portfolio client site (`/portfolio/<slug>`) | `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md` → `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` (client-scoped identity) → Flexbox/Grid/intrinsic layout review → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → originality + funnel + browser QA |
+| New commercial page / landing | `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` → layout engineering → Apple HIG / UX review → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → browser QA with runtime visual evidence |
+| Portfolio client site (`/portfolio/<slug>`) | `docs/PORTFOLIO_ZERO_GENERIC_STANDARD.md` → `docs/PORTFOLIO_NEW_CLIENT_PLAYBOOK.md` → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → one appropriate landing/CRO specialist → `0web-design-system` (client-scoped identity) → Flexbox/Grid/intrinsic layout review → motion/a11y/performance specialists as needed → `0web-ui-quality-gates` → originality + funnel + browser QA |
 | Portfolio derivative (cover/modal/OG/preview/variant/domain) | `PORTFOLIO_ZERO_GENERIC_STANDARD` → `0web-skill-discovery` → `0web-experience-design-max` → reuse **identity**, never generic skeleton → media-purpose + crop/aspect review → responsive/browser QA → drift check against canonical client composition |
-| Material redesign / material maintenance | `PORTFOLIO_ZERO_GENERIC_STANDARD` when portfolio → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-experience` → `0web-design-system` → layout engineering → Apple HIG review → `0web-ui-quality-gates` |
+| Material redesign / material maintenance | `PORTFOLIO_ZERO_GENERIC_STANDARD` when portfolio → `0web-skill-discovery` → marketplace/original-source discovery → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → `0web-design-system` → layout engineering → Apple HIG review → `0web-ui-quality-gates` |
 | Dashboard / admin panel | `0web-skill-discovery` → `0web-experience-design-max` → `0web-design-system` (density, tables, states) → layout engineering → `0web-ui-quality-gates` (keyboard, empty/loading/error) |
 | Form / funnel step | `0web-experience-design-max` → `0web-ui-quality-gates` (labels, errors, touch targets) → funnel rules in `docs/PORTFOLIO_FUNNELS.md` |
 | React refactor | `react-best-practices` when relevant → composition first (see `0web-design-system` → Component API), then `bun test` + typecheck |
@@ -69,9 +69,15 @@ At minimum compare against the nearest pages/sites on:
 
 If the design differs mostly by color/logo/copy, do not implement it yet. `GENERIC_COMPOSITION`, `SHARED_VISUAL_SKELETON`, `SKIN_SWAP`, `NO_SIGNATURE_MOMENT`, `MEDIA_STARVATION` and `HIGH_SIMILARITY_UNRESOLVED` are blockers, not warnings cosmeticamente ignoráveis.
 
+## Step 2.55 — Premium completeness
+
+Antes de fechar a arquitetura, aplicar `0web-landing-page-premium` para verificar se a página funciona como **mini-site completo da marca**: identidade própria, módulos pertinentes, conteúdo suficiente, navegação, prova, mídia, SEO, mobile e conversão. Esta camada não prescreve ordem fixa de seções; ela impede páginas visualmente bonitas porém rasas ou incompletas.
+
+O teste obrigatório permanece: se nome e cor puderem ser trocados e a página continuar servindo para outro cliente, não concluir.
+
 ## Step 2.6 — Landing experience requirement
 
-Toda landing/home comercial deve aplicar `.agents/skills/0web-landing-experience/SKILL.md`, `.agents/skills/0web-experience-design-max/SKILL.md`, `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md`, `docs/LAYOUT_ENGINEERING_STANDARD.md` e `docs/LANDING_PAGE_MOTION_EVIDENCE_STANDARD.md`.
+Toda landing/home comercial deve aplicar `.agents/skills/0web-landing-page-premium/SKILL.md`, `.agents/skills/0web-landing-experience/SKILL.md`, `.agents/skills/0web-experience-design-max/SKILL.md`, `docs/EXPERIENCE_DESIGN_MAX_STANDARD.md`, `docs/LAYOUT_ENGINEERING_STANDARD.md` e `docs/LANDING_PAGE_MOTION_EVIDENCE_STANDARD.md`.
 
 Isso inclui:
 

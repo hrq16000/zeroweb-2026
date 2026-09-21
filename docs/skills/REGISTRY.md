@@ -11,7 +11,7 @@ O catálogo é dinâmico: antes de tarefas substanciais, rode
 `.agents/skills/0web-skill-discovery/SKILL.md` e consulte
 `src/config/skill-marketplace-catalog.json` + `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md`.
 
-Última revisão: 2026-09-20.
+Última revisão: 2026-09-21.
 
 ## Locais (fonte de verdade)
 
@@ -23,6 +23,7 @@ O catálogo é dinâmico: antes de tarefas substanciais, rode
 | `0web-experience-design-max` | `.agents/skills/0web-experience-design-max` | APPROVED_GLOBAL | experience design / UI UX / motion / layout | toda UI material, landing, portfolio, redesign | autoral 0WEB com princípios revisados de fontes externas | interna | sem scripts externos |
 | `lobehub-skills-search-engine` | `.agents/skills/lobehub-skills-search-engine` | APPROVED_GLOBAL | discovery adapter | novo projeto, manutenção material, skill ausente | instrução fornecida pelo responsável, sanitizada para 0WEB | interna/adaptada | sem execução automática |
 | `0web-portfolio-art-direction` | `.agents/skills/0web-portfolio-art-direction` | APPROVED_GLOBAL | direção criativa/anti-template | nova landing, novo portfolio, redesign material | autoral 0WEB; destila práticas de frontend-design/landing design | interna | N/A |
+| `0web-landing-page-premium` | `.agents/skills/0web-landing-page-premium` | APPROVED_GLOBAL | landing architecture / completeness / adaptive modules | nova landing, novo portfolio, redesign material | autoral 0WEB; consolida metodologia premium fornecida pelo responsável | interna | N/A |
 | `0web-design-system` | `.agents/skills/0web-design-system` | APPROVED_GLOBAL | design-engineering | nova página, redesign, componente | autoral 0WEB | interna | N/A |
 | `0web-ui-quality-gates` | `.agents/skills/0web-ui-quality-gates` | APPROVED_GLOBAL | QA/a11y/perf | antes de concluir UI | autoral 0WEB | interna | N/A |
 | Apple HIG design review | `.design-rules/` | REFERENCE_ONLY | acessibilidade/interação | revisão de UI, mobile, modais, motion | Apple HIG (adaptado) | referência textual | sem scripts executáveis |
