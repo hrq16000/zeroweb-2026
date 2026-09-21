@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 144" role="img" aria-labelledby="t d">
+<title id="t">Autoescola APTOS</title><desc id="d">Versão vetorial normalizada da marca pública APTOS para o portfolio.</desc>
+<rect width="440" height="144" rx="22" fill="#ffffff"/>
+<path d="M29 93C79 72 106 49 137 24" fill="none" stroke="#ef3340" stroke-width="8" stroke-linecap="round"/>
+<path d="M33 107C90 88 119 64 150 36" fill="none" stroke="#aeb3ba" stroke-width="4" stroke-linecap="round"/>
+<text x="126" y="88" font-family="Arial Black,Arial,sans-serif" font-size="62" font-style="italic" font-weight="900" letter-spacing="-5" fill="#171a1f">APT</text>
+<text x="249" y="88" font-family="Arial Black,Arial,sans-serif" font-size="62" font-style="italic" font-weight="900" letter-spacing="-5" fill="#ef3340">OS</text>
+<text x="132" y="116" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4" fill="#555b64">AUTOESCOLA</text>
+</svg>
