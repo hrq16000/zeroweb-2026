@@ -4,11 +4,11 @@
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
   "generatedAt": "2026-09-13",
   "summary": {
-    "total": 92,
-    "valid": 47,
+    "total": 93,
+    "valid": 48,
     "pending": 45,
     "byStatus": {
-      "VALID": 47,
+      "VALID": 48,
       "NEEDS_CROP": 0,
       "CONTACT_OR_PII": 7,
       "PROMOTIONAL_MATERIAL": 2,
@@ -1214,6 +1214,19 @@
       "cardValid": false,
       "businessName": "Your Brutus Burguer",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "autoescola-aptos",
+      "asset": "/images/autoescola-aptos/capa-og.jpg",
+      "catalogImage": "/images/autoescola-aptos/capa-og.jpg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "OFFICIAL_WEBSITE_DERIVED",
+      "reviewedAt": "2026-09-21",
+      "status": "VALID",
+      "reason": null,
+      "cardValid": true,
+      "businessName": "Autoescola APTOS",
+      "segment": "servicos"
     }
   ]
 }
