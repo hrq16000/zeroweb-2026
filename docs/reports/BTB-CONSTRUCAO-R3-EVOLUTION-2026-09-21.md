@@ -162,7 +162,15 @@ O ledger completo está no creative brief v3. Destaques:
 
 ## Publicação
 
-Este relatório é criado antes do merge. Estados de preview, gates finais, merge e produção só podem ser marcados como PASS depois de observados no head final da PR.
+Estado observado nesta rodada:
+
+- PR canônica de publicação: #120;
+- runtime final da landing consolidado em `f0d5437637818ce9f3eb405e5276802f5cce9f76`;
+- preview Vercel desse runtime: `dpl_GRZr1UkdjafYkBmu5NKF3h9r87iw` — READY;
+- os commits posteriores até o head da PR alteraram apenas documentação/ledger, sem mudar o runtime da BTB;
+- PR #120 mesclada em `main` como `f0399143387d85b146de0c10006c297b3dba8c5a`;
+- Lovable sincronizado no mesmo SHA e projeto publicado;
+- o primeiro gatilho Vercel do merge foi recusado por `build-rate-limit`; esta rodada de closeout existe também para reacionar o deploy de produção depois que previews voltaram a ficar READY.
 
 A BTB permanece fora do `portfolio-project-manifests.json` nesta evolução. Isso é deliberado: enrollment retroativo no lifecycle gerenciado exigiria registry/composition, quality matrix e readiness próprios e deve ser tratado como migração estrutural separada, não como efeito colateral de um redesign.
 
@@ -179,4 +187,4 @@ A correção desta evolução substitui o raster do hero por composição CSS/DO
 - manter identidade, contraste e narrativa sem dependência de foto sintética;
 - preservar o asset antigo apenas como referência contextual versionada.
 
-Esta remediação precisa ser confirmada pelo novo run de Lighthouse antes do merge.
+A remediação foi incorporada antes do merge; o preview Vercel do runtime final ficou READY. O Lighthouse global ainda contém dívidas históricas de outros portfolios e não é usado para reclassificar automaticamente essas páginas como parte desta evolução da BTB.
