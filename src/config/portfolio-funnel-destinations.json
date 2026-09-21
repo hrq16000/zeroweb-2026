@@ -237,6 +237,13 @@
         "Econodata confirma a mesma filial no endereço Rua Pedro Trevisan, 58, Colônia Rio Grande, São José dos Pinhais.",
         "Destino versionado exclusivamente para client_key cris-presentes-colonia-rio-grande; sem fallback cross-client."
       ]
+    },
+    "autoescola-aptos": {
+      "status": "VERIFIED",
+      "source": "OFFICIAL_WEBSITE",
+      "evidence": "https://autoescolaaptos.com.br/ — WhatsApp direto publicado pela própria Autoescola APTOS",
+      "verifiedAt": "2026-09-21",
+      "notes": "Destino pertence ao mesmo clientKey; não há fallback nem número exposto no componente."
     }
   }
 }
