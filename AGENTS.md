@@ -11,6 +11,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Flexbox / Grid / layout responsivo | `docs/LAYOUT_ENGINEERING_STANDARD.md` |
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
+| Uso obrigatório de recursos relevantes / Resource Utilization Gate | `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
 | Inteligência de decisão/CRO baseada em 34 LPs + sites oficiais revalidados | `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` |
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
@@ -96,6 +97,22 @@ Toda mudança visual material também deve avaliar a matriz canônica de motion 
 Cada capability recebe `REQUIRED`, `OPTIONAL` ou `NOT_APPLICABLE`.
 
 Toda mudança material de layout também deve avaliar `docs/LAYOUT_ENGINEERING_STANDARD.md`: Flexbox para problemas unidimensionais, Grid para macrocomposição bidimensional e sizing intrínseco/responsivo para evitar widths rígidos, overflow e cascatas de remendos por breakpoint.
+
+## Empenho obrigatório no uso de recursos
+
+Todo novo portfolio e toda revisão material devem seguir
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`. O agente é obrigado a
+**descobrir, avaliar, tentar e registrar** os recursos relevantes disponíveis —
+pesquisa, mídia, skills, decision aids, layout, motion, SEO, acessibilidade,
+performance, funil, analytics e QA. `NOT_APPLICABLE`, `REJECTED` e
+`ATTEMPTED_BLOCKED` precisam ter motivo quando o recurso for material para a
+decisão.
+
+A obrigação é maximizar **recursos relevantes e esforço de seleção**, não
+quantidade de efeitos. Ignorar recurso útil por conveniência reprova o
+`RESOURCE_UTILIZATION_GATE`; instalar/ativar recurso sem benefício também
+reprova. Factualidade, segurança, privacidade, acessibilidade e isolamento de
+cliente têm precedência.
 
 ## Princípio obrigatório
 
