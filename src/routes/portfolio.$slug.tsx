@@ -810,7 +810,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { name: "robots", content: eff.robots },
         {
           name: "keywords",
-          content: eff.keywords ?? (isJklDecor
+          content: eff.keywords ?? (isBtb
+            ? "BTB Construção Curitiba, reformas internas Curitiba, pintura, elétrica, hidráulica, pisos e revestimentos, drywall, forro, acabamentos, iluminação LED, Região Metropolitana de Curitiba"
+            : isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
             : isMoreiraAutoMecanica
             ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
@@ -935,20 +937,83 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   inLanguage: "pt-BR",
                   isPartOf: { "@id": "https://0web.com.br/portfolio" },
                 },
-                {
-                  ...serviceNode({
-                    slug: vertical.slug,
-                    name: vertical.name,
-                    keyword: vertical.keywords,
-                    intent: vertical.hero,
-                    services: vertical.services.map((service) => service.to),
-                    hubs: [],
-                    showcases: [],
-                    deliverables: vertical.services.map((service) => service.title),
-                  }),
-                  "@id": `${url}#service`,
-                  url,
-                },
+                isBtb
+                  ? {
+                      "@type": "Service",
+                      "@id": `${url}#service`,
+                      name: "Reformas internas — BTB Construção",
+                      serviceType:
+                        "Reformas internas, pintura, elétrica, hidráulica, pisos e revestimentos, drywall, forro, acabamentos e iluminação LED",
+                      provider: { "@id": `${url}#localbusiness` },
+                      areaServed: [
+                        { "@type": "City", name: "Curitiba" },
+                        { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+                      ],
+                      hasOfferCatalog: {
+                        "@type": "OfferCatalog",
+                        name: "Frentes de reforma — BTB Construção",
+                        itemListElement: [
+                          "Pintura",
+                          "Elétrica",
+                          "Hidráulica",
+                          "Pisos e revestimentos",
+                          "Drywall e forro",
+                          "Acabamentos",
+                          "Iluminação em LED",
+                        ].map((name, position) => ({
+                          "@type": "Offer",
+                          position: position + 1,
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                      url,
+                    }
+                  : {
+                      ...serviceNode({
+                        slug: vertical.slug,
+                        name: vertical.name,
+                        keyword: vertical.keywords,
+                        intent: vertical.hero,
+                        services: vertical.services.map((service) => service.to),
+                        hubs: [],
+                        showcases: [],
+                        deliverables: vertical.services.map((service) => service.title),
+                      }),
+                      "@id": `${url}#service`,
+                      url,
+                    },
+                ...(isBtb
+                  ? [
+                      {
+                        "@type": "HomeAndConstructionBusiness",
+                        "@id": `${url}#localbusiness`,
+                        name: "BTB Construção",
+                        description,
+                        url,
+                        image: socialImage,
+                        address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Curitiba",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+                        ],
+                        knowsAbout: [
+                          "Reformas internas",
+                          "Pintura",
+                          "Elétrica",
+                          "Hidráulica",
+                          "Pisos e revestimentos",
+                          "Drywall e forro",
+                          "Acabamentos",
+                          "Iluminação em LED",
+                        ],
+                      },
+                    ]
+                  : []),
                 ...(isMarido
                   ? [
                       {
