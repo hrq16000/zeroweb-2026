@@ -984,7 +984,6 @@ export const Route = createFileRoute("/portfolio/$slug")({
                             "Outlet e achadinhos",
                           ].map((name) => ({
                             "@type": "Offer",
-                            availability: "https://schema.org/LimitedAvailability",
                             itemOffered: { "@type": "Product", name },
                           })),
                         },
