@@ -347,6 +347,58 @@
         "SJP",
         "PR"
       ]
+    },
+    "btb-construcao": {
+      "aliases": [
+        "BTB Construção",
+        "BTB Construcao",
+        "BTB reformas Curitiba"
+      ],
+      "categories": [
+        "reformas internas",
+        "reforma residencial",
+        "reforma comercial",
+        "acabamentos",
+        "construção civil"
+      ],
+      "services": [
+        "pintura",
+        "elétrica",
+        "hidráulica",
+        "pisos e revestimentos",
+        "drywall",
+        "forro",
+        "acabamentos",
+        "iluminação LED"
+      ],
+      "equipment": [],
+      "products": [],
+      "problems": [
+        "preciso reformar vários ambientes",
+        "preciso combinar pintura e elétrica",
+        "preciso combinar hidráulica e revestimento",
+        "quero organizar uma reforma interna",
+        "quero pedir orçamento de reforma"
+      ],
+      "useCases": [
+        "reforma de casa ou apartamento",
+        "reforma de comércio ou escritório",
+        "manutenção com várias frentes",
+        "organizar escopo de reforma",
+        "pedir orçamento de reforma em Curitiba"
+      ],
+      "locality": [
+        "Curitiba",
+        "Região Metropolitana de Curitiba",
+        "Paraná"
+      ],
+      "keywords": [
+        "reforma interna Curitiba",
+        "orçamento reforma Curitiba",
+        "pintura elétrica hidráulica Curitiba",
+        "drywall e revestimentos Curitiba",
+        "BTB Construção Curitiba"
+      ]
     }
   }
 }
