@@ -14,6 +14,17 @@ verdade do cliente → objetivo → direção de arte → topologia de layout �
 
 Nunca o inverso. Não montar automaticamente `header + hero + 3 cards + números + depoimentos + FAQ + CTA + footer` só porque as capacidades existem.
 
+## Uso obrigatório da palette como repertório
+
+A palette não é opcional como **fonte de avaliação**. Todo novo projeto e toda
+revisão material devem percorrê-la para identificar capacidades relevantes e
+registrar as principais como `USED`, `REJECTED`, `ATTEMPTED_BLOCKED` ou
+`NOT_APPLICABLE`, conforme
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`.
+
+Isso não autoriza ligar todas as capacidades. O gate exige **consideração e
+esforço**, enquanto a direção de arte decide o que realmente entra.
+
 ## 1. Papéis/competências que o agente deve representar
 
 Uma execução substancial pode compor várias perspectivas, sem criar dependências só para “ter mais skills”:
