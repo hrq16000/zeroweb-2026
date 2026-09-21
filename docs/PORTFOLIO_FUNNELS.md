@@ -65,3 +65,27 @@ com precedência para um override explícito em `portfolio-global-config.json`.
 
 Funis montados em runtime (ex.: pedido do Paraíso do Hot Dog) não entram no
 registro; nesses casos declare o funil no override do cliente.
+
+
+## Painel administrativo por portfólio
+
+A rota interna `/app/funis/portfolios` oferece uma visão operacional única dos
+95 projetos sem alterar as páginas públicas.
+
+Princípios:
+
+- o slug canônico de funil individual continua sendo `funnel-<clientKey>`;
+- o alias histórico `portfolio-<clientKey>` é reconhecido apenas para leitura,
+  evitando duplicação;
+- a tela mostra somente o destino mascarado resolvido do cadastro versionado do
+  próprio projeto;
+- ausência de destino é exibida como `lead-only`, não como falha;
+- criar/publicar/despublicar atua apenas em `dynamic_forms` e
+  `dynamic_form_questions`; HTML, SEO, imagens e lifecycle da landing não são
+  tocados;
+- o provisionamento é idempotente e deriva as perguntas da configuração
+  canônica já existente do projeto;
+- nenhum fallback entre clientes é criado.
+
+A publicação automática existe apenas como ação administrativa explícita
+“Criar e publicar”; a alternativa segura “Criar rascunho” permanece disponível.
