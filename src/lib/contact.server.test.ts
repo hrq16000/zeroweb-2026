@@ -8,12 +8,12 @@ import {
 } from "./portfolio-whatsapp-registry.server";
 
 describe("portfolio WhatsApp data", () => {
-  it("mantém os 92 portfolios no cadastro canônico", () => {
-    expect(getPortfolioContactClientKeys()).toHaveLength(92);
+  it("mantém os 95 portfolios no cadastro canônico", () => {
+    expect(getPortfolioContactClientKeys()).toHaveLength(95);
   });
 
   it("migra os destinos atuais e preserva o comprovado na PR", () => {
-    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(65);
+    expect(getVersionedPortfolioWhatsAppClientKeys()).toHaveLength(68);
     expect(resolveVersionedPortfolioWhatsApp("carecas-infotec")).toBe("5541995072700");
     expect(resolveVersionedPortfolioWhatsApp("jkl-decor")).toBe("5541991425088");
     expect(resolveVersionedPortfolioWhatsApp("adhonep-curitiba")).toBe("5541995610718");

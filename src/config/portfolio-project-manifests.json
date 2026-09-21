@@ -460,7 +460,8 @@
           "carecas-infotec",
           "adhonep-curitiba"
         ],
-        "noBrandTest": "PASS — sem marca, a combinação de faixa de sinalização, painel de modalidades e convergência continua identificável como escola de direção."
+        "noBrandTest": "PASS",
+        "notes": "Sem marca, a combinação de faixa de sinalização, painel de modalidades e convergência continua identificável como escola de direção."
       },
       "contentFacts": {
         "ownSourcedContent": true,
