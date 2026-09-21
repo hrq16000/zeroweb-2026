@@ -459,6 +459,69 @@
         "categoria A B AB",
         "curso online autoescola"
       ]
+    },
+    "centro-mega": {
+      "aliases": [
+        "Centro Mega",
+        "Centro Mega Store",
+        "Centro Mega Outlet",
+        "centro.mega"
+      ],
+      "categories": [
+        "loja de celulares",
+        "acessórios para celular",
+        "outlet",
+        "tênis",
+        "bonés",
+        "calçados",
+        "varejo"
+      ],
+      "services": [
+        "consulta de disponibilidade",
+        "reserva/compra assistida",
+        "retirada em loja",
+        "consulta de envio"
+      ],
+      "equipment": [],
+      "products": [
+        "Poco X5 Pro 8GB/256GB (post histórico)",
+        "Tênis Dunk Low Pro (post histórico)",
+        "celulares",
+        "acessórios mobile",
+        "tênis",
+        "bonés",
+        "calçados",
+        "itens outlet"
+      ],
+      "problems": [
+        "quero saber se o produto ainda está disponível",
+        "quero confirmar o valor atual",
+        "quero separar um item visto nas redes",
+        "quero consultar retirada ou envio"
+      ],
+      "useCases": [
+        "transformar post de rede social em pedido",
+        "montar uma sacola de interesse",
+        "consultar produto de outlet",
+        "consultar smartphone",
+        "consultar tênis/calçados"
+      ],
+      "locality": [
+        "Centro",
+        "São José dos Pinhais",
+        "SJP",
+        "Curitiba",
+        "Paraná"
+      ],
+      "keywords": [
+        "Centro Mega São José dos Pinhais",
+        "Centro Mega outlet",
+        "celulares São José dos Pinhais",
+        "smartphones SJP",
+        "tênis outlet São José dos Pinhais",
+        "bonés outlet",
+        "Centro Mega loja virtual"
+      ]
     }
   }
 }
