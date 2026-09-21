@@ -49,6 +49,15 @@ type Product = {
   historicalMeta?: string;
 };
 
+const socialDrops = [
+  ["Reel", "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/"],
+  ["Reel", "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/"],
+  ["Post", "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/"],
+  ["Reel", "https://www.instagram.com/centro.mega/reel/DHmlQd6tCNi/"],
+  ["Post", "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/"],
+  ["Post", "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"],
+] as const;
+
 const products: Product[] = [
   {
     id: "poco-x5-pro-8-256",
@@ -711,6 +720,32 @@ export function CentroMegaPage() {
                     </a>
                   </article>
                 ))}
+                <div className="mt-6 rounded-[2rem] border border-fuchsia-300/15 bg-fuchsia-300/[.035] p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-[.2em] text-fuchsia-300">Instagram oficial</p>
+                      <h3 className="mt-2 text-xl font-black">Drops que podem abastecer o catálogo</h3>
+                      <p className="mt-2 max-w-xl text-sm leading-6 text-white/45">
+                        Estes links já estavam versionados como publicações oficiais. Como o fetch automatizado não recuperou captions/mídia nesta rodada, entram como fontes de discovery — sem inventar nome, preço ou estoque.
+                      </p>
+                    </div>
+                    <Instagram className="h-6 w-6 shrink-0 text-fuchsia-300" />
+                  </div>
+                  <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                    {socialDrops.map(([kind, href], index) => (
+                      <a
+                        key={href}
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group inline-flex min-h-12 items-center justify-between gap-3 rounded-xl border border-white/10 bg-black/20 px-4 text-xs font-black text-white/60 transition hover:border-fuchsia-300/30 hover:text-white"
+                      >
+                        <span>{kind} oficial · {String(index + 1).padStart(2, "0")}</span>
+                        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
