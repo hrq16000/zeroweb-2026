@@ -1080,9 +1080,10 @@
     "contactMode": "funnelOnly",
     "provenance": {
       "kind": "PUBLIC_ENTITY_EVIDENCE",
-      "source": "Linktree oficial @centro.mega + loja/contato VHSYS + postagens públicas indexadas + mix de outlet informado pelo responsável da 0WEB",
+      "source": "Linktree oficial + Instagram/Facebook oficiais + posts públicos indexados + dados fornecidos pelo responsável em 21/09/2026",
       "reference": "https://linktr.ee/centro.mega"
-    }
+    },
+    "funnelRecipientConfigured": false
   },
   {
     "clientKey": "pastelaria-route-66",
