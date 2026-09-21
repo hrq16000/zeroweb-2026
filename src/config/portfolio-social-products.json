@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "doc": "Registro evidence-first de produtos derivados de publicações sociais. Um item só entra em `products` quando nome/característica possuem evidência pública legível e atribuível ao cliente. Preço, estoque, grade e disponibilidade são temporais e nunca são promovidos a estado atual sem revalidação.",
+  "clients": {
+    "centro-mega": {
+      "lastResearchAt": "2026-09-21",
+      "policy": "POST -> EVIDENCE -> PRODUCT_DRAFT. Links oficiais sem conteúdo legível ficam em unresolvedOfficialPosts e NÃO viram SKU.",
+      "products": [
+        {
+          "id": "poco-x5-pro-8-256",
+          "name": "Poco X5 Pro",
+          "category": "Celulares",
+          "description": "8 GB de RAM · 256 GB de memória interna",
+          "evidence": {
+            "type": "PUBLIC_POST_MIRROR",
+            "source": "FindGlocal — espelho/indexação pública atribuída à Centro Mega",
+            "sourceDate": "2024-01-25",
+            "sourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+            "capturedText": "Poco X5 Pro 8GB De Ram Com 256GB De Memória Interna ... Na Centro Mega",
+            "verifiedAt": "2026-09-21"
+          },
+          "historicalCommercialFact": {
+            "from": "R$ 2.399,00",
+            "offer": "R$ 1.899,00",
+            "asOf": "2024-01-25",
+            "displayPolicy": "HISTORICAL_ONLY"
+          },
+          "currentState": "Preço e estoque atuais precisam ser confirmados com a loja.",
+          "visual": "phone"
+        },
+        {
+          "id": "tenis-dunk-low-pro",
+          "name": "Tênis Dunk Low Pro",
+          "category": "Outlet · Tênis",
+          "description": "Postagens públicas registraram grades 34–39 e 34–43",
+          "evidence": {
+            "type": "PUBLIC_POST_MIRROR",
+            "source": "FindGlocal — espelho/indexação pública atribuída à Centro Mega",
+            "sourceDate": "2023-11-08",
+            "sourceUrl": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+            "capturedText": "TENIS DUNK LOW PRO · grades 34 ao 39 e 34 ao 43",
+            "verifiedAt": "2026-09-21"
+          },
+          "currentState": "Grade, cores, preço e estoque atuais precisam ser confirmados com a loja.",
+          "visual": "sneaker"
+        }
+      ],
+      "unresolvedOfficialPosts": [
+        {
+          "network": "instagram",
+          "kind": "reel",
+          "url": "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE",
+          "action": "KEEP_AS_SOURCE_LINK_ONLY"
+        },
+        {
+          "network": "instagram",
+          "kind": "reel",
+          "url": "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE",
+          "action": "KEEP_AS_SOURCE_LINK_ONLY"
+        },
+        {
+          "network": "instagram",
+          "kind": "post",
+          "url": "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE",
+          "action": "KEEP_AS_SOURCE_LINK_ONLY"
+        },
+        {
+          "network": "instagram",
+          "kind": "reel",
+          "url": "https://www.instagram.com/centro.mega/reel/DHmlQd6tCNi/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE",
+          "action": "KEEP_AS_SOURCE_LINK_ONLY"
+        },
+        {
+          "network": "instagram",
+          "kind": "post",
+          "url": "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE",
+          "action": "KEEP_AS_SOURCE_LINK_ONLY"
+        },
+        {
+          "network": "instagram",
+          "kind": "post",
+          "url": "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE",
+          "action": "KEEP_AS_SOURCE_LINK_ONLY"
+        },
+        {
+          "network": "facebook",
+          "kind": "page",
+          "url": "https://www.facebook.com/CentroMega.com.br/",
+          "status": "OFFICIAL_URL_CONTENT_NOT_READABLE_DIRECTLY",
+          "action": "USE_PUBLIC_MIRROR_ONLY_WHEN_CONTENT_IS_ATTRIBUTABLE"
+        }
+      ]
+    }
+  }
+}
