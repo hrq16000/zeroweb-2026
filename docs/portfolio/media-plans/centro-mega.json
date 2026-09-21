@@ -1,0 +1,97 @@
+{
+  "doc": "Media plan canônico — Centro Mega Store sample.",
+  "slug": "centro-mega",
+  "status": "PUBLISHED_WITH_BRAND_ASSETS_AND_ORIGINAL_PRODUCT_COMPOSITIONS",
+  "inventory": {
+    "officialBrandAssets": [
+      {
+        "asset": "public/images/centro-mega/logo.png",
+        "classification": "BRAND_ASSET",
+        "purpose": "logo/runtime",
+        "documentary": false
+      }
+    ],
+    "existingPublicAssets": [
+      {
+        "asset": "public/images/centro-mega/hero.png",
+        "classification": "LEGACY_CONTEXTUAL_MEDIA",
+        "purpose": "archived legacy hero",
+        "documentary": false,
+        "usageMode": "ARCHIVED_NOT_RENDERED_IN_STORE_HERO"
+      },
+      {
+        "asset": "public/images/centro-mega/social-og.jpg",
+        "classification": "OG_MEDIA",
+        "purpose": "social preview",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/centro-mega/social.png",
+        "classification": "BRAND_COMPOSITION",
+        "purpose": "legacy social asset",
+        "documentary": false
+      }
+    ],
+    "realProductMedia": [],
+    "externalMedia": [],
+    "generatedOrGraphicMedia": [
+      {
+        "asset": null,
+        "classification": "DOM_CSS_PRODUCT_COMPOSITION",
+        "purpose": "hero-and-product-cards",
+        "documentary": false,
+        "notes": "Silhuetas/ícones, glow, grid, glass e cor são composição original. Não representam foto real do produto nem prova de estoque."
+      }
+    ],
+    "missingMedia": [
+      "fotos originais dos posts de produto",
+      "fotos atuais de smartphones em estoque",
+      "fotos atuais de tênis/bonés/calçados",
+      "fotos reais das unidades para a nova loja",
+      "vídeos/reels com permissão/extração técnica utilizável"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OFFICIAL_LINKTREE",
+      "OFFICIAL_INSTAGRAM",
+      "OFFICIAL_FACEBOOK",
+      "PUBLIC_BUSINESS_SITE",
+      "INDEXED_SOCIAL_FEED"
+    ],
+    "result": "Texto de posts públicos indexados permitiu seedar dois produtos. Mídia/captions dos posts individuais do Instagram não foram recuperados via fetch automatizado nesta rodada; nenhum asset externo foi copiado ou hotlinkado."
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "resolution": "DOM_CSS_GRAPHIC_COMPOSITION",
+      "status": "complete",
+      "note": "Hero tech/outlet sem raster crítico."
+    },
+    {
+      "section": "vitrine",
+      "resolution": "DOM_CSS_PRODUCT_COMPOSITION",
+      "status": "complete",
+      "note": "Cards distinguem produtos vindos do feed de categorias de amostra."
+    },
+    {
+      "section": "outlet",
+      "resolution": "TYPOGRAPHY+ICON+MOTION",
+      "status": "complete"
+    },
+    {
+      "section": "feed",
+      "resolution": "TEXTUAL_PROVENANCE",
+      "status": "complete",
+      "note": "Data e natureza histórica do post permanecem visíveis."
+    }
+  ],
+  "cover": {
+    "asset": "public/images/centro-mega/social-og.jpg",
+    "strategy": "LEGACY_OG_PRESERVED",
+    "approved": false,
+    "notes": "A nova Store pode receber capa/OG própria em rodada visual posterior. Nenhum asset novo é inventado como fotografia de produto."
+  },
+  "lastUpdatedAt": "2026-09-21"
+}
