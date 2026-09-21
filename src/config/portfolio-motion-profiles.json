@@ -1004,19 +1004,19 @@
     "btb-construcao": {
       "intensity": "BALANCED",
       "preset": "BOLD",
-      "heroMotion": "maskedSplit",
-      "sectionReveal": "stagger",
+      "heroMotion": "layered",
+      "sectionReveal": "up",
       "imageReveal": "clip",
       "textReveal": "line",
-      "iconMotion": "pop",
+      "iconMotion": "none",
       "hoverBehavior": "lift",
       "depthBehavior": "flat",
       "scrollBehavior": "none",
-      "staggerPattern": "grid",
+      "staggerPattern": "linear",
       "reducedMotionFallback": "opacityOnly",
-      "desktopBehavior": "manifesto em camadas e imagem com máscara lateral",
-      "tabletBehavior": "hero empilhado, stagger curto",
-      "mobileBehavior": "sem deslocamento no toque"
+      "desktopBehavior": "hero full-bleed com manifesto; Mapa da Reforma usa estados instantâneos; frentes e linha de obra entram em sequência curta",
+      "tabletBehavior": "mantém full-bleed e builder em uma coluna, sem depender de hover",
+      "mobileBehavior": "sem deslocamento no toque; seleção, CTA e conteúdo permanecem acessíveis com reduced motion"
     },
     "easy-clean": {
       "intensity": "BALANCED",
