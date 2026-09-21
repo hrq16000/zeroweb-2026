@@ -1,0 +1,151 @@
+{
+  "slug": "btb-construcao",
+  "lastResearchAt": "2026-09-21T04:20:00Z",
+  "entity": {
+    "resolutionStatus": "PARTIALLY_RESOLVED",
+    "resolutionBasis": "OWNER_SUPPLIED_SOURCE_MATERIAL",
+    "notes": "O projeto BTB local continua ancorado no flyer fornecido pelo cliente e nos dados já versionados. A busca pública atual encontrou empresas homônimas, inclusive uma BTB Construções e Participações de Goiânia/GO, e não resolveu com segurança uma presença oficial correspondente à BTB Construção de Curitiba. Nenhuma entidade externa foi promovida automaticamente."
+  },
+  "researchLedger": {
+    "ownerEvidence": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png"
+    },
+    "googleSearch": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "note": "Resultados públicos atuais incluem homônimos de outras regiões; não houve correspondência inequívoca com a BTB local do projeto."
+    },
+    "googleMaps": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "Busca local não retornou entidade inequívoca BTB Construção em Curitiba."
+    },
+    "website": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "btbconstrucoes.com.br pertence a uma empresa de Goiânia/GO e não foi associado ao cliente."
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false
+    },
+    "photos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "Nenhuma fotografia pública pôde ser atribuída com segurança ao cliente desta landing."
+    },
+    "videos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false
+    }
+  },
+  "identity": {
+    "name": "BTB Construção",
+    "segment": "construcao",
+    "locality": "Curitiba e Região Metropolitana — PR",
+    "source": "OWNER_SUPPLIED_SOURCE_MATERIAL"
+  },
+  "services": [
+    "Pintura",
+    "Elétrica",
+    "Hidráulica",
+    "Pisos e revestimentos",
+    "Drywall e forro",
+    "Acabamentos",
+    "Iluminação em LED"
+  ],
+  "facts": [
+    {
+      "field": "areaServed",
+      "value": "Curitiba e Região Metropolitana — PR",
+      "sourceType": "OWNER_SUPPLIED_SOURCE_MATERIAL",
+      "status": "VERSIONED_CLIENT_EVIDENCE"
+    },
+    {
+      "field": "guarantee",
+      "value": "90 dias",
+      "sourceType": "OWNER_SUPPLIED_SOURCE_MATERIAL",
+      "status": "VERSIONED_CLIENT_EVIDENCE"
+    },
+    {
+      "field": "whatsappOperational",
+      "value": "CONFIGURED_SERVER_SIDE",
+      "sourceType": "PORTFOLIO_OPERATIONAL_REGISTRY",
+      "status": "CONFIGURED",
+      "notes": "Número não é exposto nesta documentação pública de conteúdo; resolução continua isolada por client_key."
+    }
+  ],
+  "sources": [
+    {
+      "type": "OWNER_SUPPLIED_SOURCE_MATERIAL",
+      "path": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png"
+    },
+    {
+      "type": "PUBLIC_WEB_EXCLUDED_HOMONYM",
+      "url": "https://btbconstrucoes.com.br/",
+      "purpose": "registrar conflito de identidade; empresa de Goiânia/GO, não usar como fonte do cliente local"
+    }
+  ],
+  "media": {
+    "discovery": {
+      "searched": true
+    },
+    "assets": [
+      {
+        "path": "/images/btb-construcao/hero.png",
+        "purpose": "GENERATED_CONTEXTUAL_MEDIA"
+      },
+      {
+        "path": "/images/btb-construcao/capa-card.jpg",
+        "purpose": "COVER_MEDIA"
+      },
+      {
+        "path": "/images/btb-construcao/hero-og.jpg",
+        "purpose": "OG_MEDIA"
+      },
+      {
+        "path": "/images/btb-construcao/logo.svg",
+        "purpose": "GENERATED_BRAND_ASSET"
+      }
+    ]
+  },
+  "unverified": [
+    "endereço completo",
+    "CNPJ",
+    "horários de atendimento",
+    "avaliações públicas",
+    "site oficial do cliente",
+    "Instagram oficial",
+    "Facebook oficial",
+    "preços",
+    "parcelamento",
+    "desconto à vista",
+    "prazo de execução",
+    "fotos reais de obras executadas"
+  ],
+  "conflicts": [
+    "Existe empresa homônima BTB Construções e Participações com atuação e sede em Goiânia/GO. Ela não corresponde de forma segura ao cliente deste projeto e foi explicitamente excluída como fonte."
+  ]
+}
