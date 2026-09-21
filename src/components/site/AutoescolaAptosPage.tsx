@@ -3,7 +3,7 @@ import { FunnelCTAButton } from "@/components/funnel/FunnelCTAButton";
 import { MotionImageReveal, MotionReveal, MotionStagger, MotionTextReveal } from "@/components/motion";
 import { PortfolioCompositionRoot } from "@/components/portfolio/composition/PortfolioCompositionRoot";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioUpsellPopup } from "@/components/portfolio/PortfolioUpsellPopup";
+import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import type { CtaRenderOptions } from "@/lib/portfolio-blueprint";
 import type { PortfolioComposition } from "@/lib/portfolio-composition";
 import "./autoescola-aptos.css";
