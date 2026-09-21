@@ -3,7 +3,7 @@
 Status: normativo · Escopo: criação e evolução de qualquer página em
 `/portfolio/<slug>` · Complementa: `PORTFOLIO_CLIENT_STANDARD.md`,
 `PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`, `PORTFOLIO_CAPABILITY_PALETTE.md`,
-`PORTFOLIO_FUNNEL_CONTEXT_STANDARD.md`, `GLOBAL_WEB_EXPERIENCE_STANDARD.md`.
+`PORTFOLIO_FUNNEL_CONTEXT_STANDARD.md`, `PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`, `GLOBAL_WEB_EXPERIENCE_STANDARD.md`.
 
 > **Precedência (2026):** para projetos novos, o Blueprint é contrato de
 > **conteúdo e capacidades**, não renderer visual obrigatório. A composição
@@ -35,6 +35,17 @@ visual.
 
 Nem todos os projetos terão as mesmas seções. Todos serão construídos a partir
 do mesmo vocabulário governado.
+
+### 2.1 Decision profile antes da biblioteca estrutural
+
+Antes de selecionar seções, o projeto novo declara `LandingIntentProfile` e
+`LandingDecisionProfileV2`. Isso cobre intenção/origem do tráfego, tipo de
+oferta, complexidade e riscos da decisão, incertezas, apoios necessários,
+demonstração de valor, fricção/finalidade do formulário, transparência,
+localidade/viabilidade, continuidade de contexto, pós-conversão e mensuração.
+
+O Blueprint recebe essas decisões como **conteúdo e capacidades**. Ele não
+transforma o perfil em uma ordem fixa de seções.
 
 ## 3. Princípio narrativo
 

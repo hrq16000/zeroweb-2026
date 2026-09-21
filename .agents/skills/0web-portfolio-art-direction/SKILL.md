@@ -67,6 +67,21 @@ service-path, magazine grid, immersive scroll story, local/map-led, product
 shelf, before/after narrative, monolithic typography, or a new topology invented
 for the client.
 
+## 2.1 Decision intelligence — mandatory before layout
+
+For every new landing, pair the Creative DNA with the additive
+`LandingDecisionProfileV2` from
+`docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`.
+
+At minimum decide: traffic intent/source, offer type, decision complexity/risk,
+visitor uncertainties, decision support, value demonstration, form strategy,
+transparency, locality/coverage need, source continuity, cross-channel
+continuity, post-conversion plan and measurement.
+
+This layer answers **what the visitor still needs to decide**. Art direction then
+answers **how that decision becomes a unique experience**. Never choose a
+reference brand's section order as a template.
+
 ## 3. Skill stack — use breadth without creating a Frankenstein UI
 
 For new commercial pages, compose expertise across these layers:
