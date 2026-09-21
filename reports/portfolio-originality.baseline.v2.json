@@ -1,20 +1,20 @@
 {
   "generatedBy": "check:portfolio-originality --write-baseline",
   "summary": {
-    "total": 91,
+    "total": 95,
     "original": 1,
-    "acceptable": 28,
-    "attention": 56,
-    "highSimilarity": 6,
+    "acceptable": 30,
+    "attention": 59,
+    "highSimilarity": 5,
     "clone": 0,
     "sharedFallback": 0,
     "clusters": 0,
-    "placeholderLogos": 25,
+    "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
     "coverValid": 47,
-    "coverPending": 44,
-    "coversAsSocialImage": 12,
+    "coverPending": 48,
+    "coversAsSocialImage": 14,
     "sharedCovers": 0,
     "severeCrop": 19,
     "invalidCrossClientAssets": 0,
@@ -24,6 +24,15 @@
     "acai-total-araucaria": {
       "score": 58,
       "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "adhonep-curitiba": {
+      "score": 26,
+      "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
       "missingLogo": false,
@@ -93,6 +102,15 @@
       "missingCover": false,
       "sharedCover": false
     },
+    "autoescola-aptos": {
+      "score": 24,
+      "status": "ACCEPTABLE",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
     "beto-pasteis": {
       "score": 30,
       "status": "ACCEPTABLE",
@@ -130,8 +148,8 @@
       "sharedCover": false
     },
     "btb-construcao": {
-      "score": 69,
-      "status": "HIGH_SIMILARITY",
+      "score": 44,
+      "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": true,
       "missingLogo": false,
@@ -152,6 +170,15 @@
       "status": "ACCEPTABLE",
       "fallback": false,
       "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
+      "sharedCover": false
+    },
+    "catharine-lima-studio": {
+      "score": 57,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": true,
       "missingLogo": false,
       "missingCover": false,
       "sharedCover": false
@@ -190,6 +217,15 @@
       "placeholderLogo": false,
       "missingLogo": false,
       "missingCover": true,
+      "sharedCover": false
+    },
+    "cris-presentes-colonia-rio-grande": {
+      "score": 57,
+      "status": "ATTENTION",
+      "fallback": false,
+      "placeholderLogo": false,
+      "missingLogo": false,
+      "missingCover": false,
       "sharedCover": false
     },
     "denise-gomes-psicologa": {
@@ -238,7 +274,7 @@
       "sharedCover": false
     },
     "easy-clean": {
-      "score": 69,
+      "score": 65,
       "status": "HIGH_SIMILARITY",
       "fallback": false,
       "placeholderLogo": true,
@@ -301,7 +337,7 @@
       "sharedCover": false
     },
     "enoel-portas": {
-      "score": 56,
+      "score": 54,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,
@@ -751,7 +787,7 @@
       "sharedCover": false
     },
     "sos-presentes-cosmeticos": {
-      "score": 50,
+      "score": 54,
       "status": "ATTENTION",
       "fallback": false,
       "placeholderLogo": false,

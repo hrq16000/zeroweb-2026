@@ -28,8 +28,8 @@
     "placeholderLogos": 26,
     "missingLogos": 0,
     "missingCovers": 24,
-    "coverValid": 49,
-    "coverPending": 46,
+    "coverValid": 47,
+    "coverPending": 48,
     "coversAsSocialImage": 14,
     "sharedCovers": 0,
     "severeCrop": 19,
@@ -103,8 +103,8 @@
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
-      "canonicalCoverStatus": "VALID",
-      "canonicalCoverReason": null,
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.88,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
@@ -415,8 +415,8 @@
         "COVER_NO_FOCAL_POINT",
         "COVER_RATIO_MISMATCH"
       ],
-      "canonicalCoverStatus": "VALID",
-      "canonicalCoverReason": null,
+      "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": 1.9,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
@@ -731,7 +731,7 @@
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
-      "canonicalCoverReason": null,
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": null,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT",
@@ -935,7 +935,7 @@
         "COVER_NO_FOCAL_POINT"
       ],
       "canonicalCoverStatus": "UNCERTAIN_ORIGIN",
-      "canonicalCoverReason": null,
+      "canonicalCoverReason": "Sem julgamento humano registrado para a capa.",
       "coverRatio": null,
       "logoSignals": [
         "LOGO_NO_CONTRAST_VARIANT"
@@ -7146,8 +7146,8 @@
       "placeholderLogos": 26,
       "missingLogos": 0,
       "missingCovers": 24,
-      "coverValid": 49,
-      "coverPending": 46,
+      "coverValid": 47,
+      "coverPending": 48,
       "coversAsSocialImage": 14,
       "sharedCovers": 0,
       "severeCrop": 19,
