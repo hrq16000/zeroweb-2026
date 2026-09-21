@@ -558,22 +558,20 @@ export const submitPortfolioQuiz = createServerFn({ method: "POST" })
     const hasOrderContext = Object.values(orderContext).some(Boolean);
     const clientFunnelSlug = `portfolio-${data.clientKey}`;
     const clientFunnelSlugAlt = `funnel-${data.clientKey}`;
-    const funnelSlugs =
-      routingKind === "managed"
-        ? [clientFunnelSlug, clientFunnelSlugAlt]
-        : [clientFunnelSlug, clientFunnelSlugAlt, "funnel-service"];
+    const funnelSlugs = [clientFunnelSlug, clientFunnelSlugAlt, "funnel-service"];
     const { data: forms, error: formError } = await supabaseAdmin
       .from("dynamic_forms")
       .select("id, slug")
       .in("slug", funnelSlugs)
       .eq("status", "published");
     if (formError) throw new Error("Funil de atendimento indisponível");
+    // O container do formulário é infraestrutura compartilhada; o destino e os dados do lead
+    // continuam resolvidos por clientKey. Sem fallback, projetos publicados antes do funil
+    // individual perderiam o lead inteiro.
     const form =
       (forms ?? []).find((f) => f.slug === clientFunnelSlug) ??
       (forms ?? []).find((f) => f.slug === clientFunnelSlugAlt) ??
-      (routingKind === "legacy"
-        ? (forms ?? []).find((f) => f.slug === "funnel-service")
-        : undefined);
+      (forms ?? []).find((f) => f.slug === "funnel-service");
     if (!form) throw new Error("Funil de atendimento indisponível");
 
     let ip: string | null = null;
