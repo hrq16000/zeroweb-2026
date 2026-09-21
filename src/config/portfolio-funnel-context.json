@@ -122,11 +122,14 @@
     "theme": "pink"
   },
   "centro-mega": {
-    "intent": "contato",
-    "nextStepTitle": "Seu próximo reparo começa com uma conversa clara.",
-    "nextStepBody": "Conte o aparelho, acessório ou unidade que procura para a equipe Centro Mega indicar o canal mais adequado.",
-    "primaryCtaLabel": "Falar com a equipe",
-    "theme": "navy"
+    "intent": "pedido",
+    "nextStepTitle": "Sua sacola vira um pedido organizado.",
+    "nextStepBody": "Selecione produtos da vitrine e envie a lista para a Centro Mega confirmar estoque, valor atual, variação e retirada ou envio.",
+    "primaryCtaLabel": "Consultar minha sacola",
+    "theme": "navy",
+    "whatsappPrompt": "Quero consultar disponibilidade e valor atual dos produtos que selecionei na loja virtual da Centro Mega.",
+    "whatsappSubject": "os produtos selecionados na loja virtual",
+    "proposalKind": "service"
   },
   "clinica-integrada": {
     "intent": "agendamento",
