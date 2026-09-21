@@ -95,9 +95,9 @@
   },
   "btb-construcao": {
     "intent": "orcamento",
-    "nextStepTitle": "Sua reforma pode começar agora.",
-    "nextStepBody": "Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo.",
-    "primaryCtaLabel": "Solicitar orçamento",
+    "nextStepTitle": "Organize o escopo antes do orçamento.",
+    "nextStepBody": "Marque as frentes da reforma e leve esse contexto para a equipe BTB. Região, prazo e detalhes são confirmados no funil.",
+    "primaryCtaLabel": "Montar meu escopo",
     "theme": "gold"
   },
   "carecas-infotec": {
