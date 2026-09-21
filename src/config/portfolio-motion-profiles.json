@@ -1189,21 +1189,22 @@
       "mobileBehavior": "reveal reduzido para fade, sem animação no toque"
     },
     "centro-mega": {
-      "intensity": "BALANCED",
-      "preset": "TECHNICAL",
-      "heroMotion": "maskedSplit",
+      "intensity": "IMMERSIVE",
+      "preset": "NEON_RETAIL_DROP",
+      "heroMotion": "layered",
       "sectionReveal": "stagger",
-      "imageReveal": "clip",
+      "imageReveal": "scale",
       "textReveal": "line",
       "iconMotion": "pop",
-      "hoverBehavior": "lift",
-      "depthBehavior": "flat",
-      "scrollBehavior": "none",
+      "hoverBehavior": "depth",
+      "depthBehavior": "layered",
+      "scrollBehavior": "progressive",
       "staggerPattern": "grid",
       "reducedMotionFallback": "opacityOnly",
-      "desktopBehavior": "blueprint técnico com reveal lateral do hero",
-      "tabletBehavior": "split vira pilha preservando canais",
-      "mobileBehavior": "sem deslocamento no toque; âncoras permanecem acessíveis"
+      "desktopBehavior": "hero em camadas neon, vitrines com profundidade e tilt curto, status pulsante, departamentos com hover dimensional e sacola contextual",
+      "tabletBehavior": "profundidade reduzida, grids 2x e transições preservadas sem depender de hover",
+      "mobileBehavior": "glows e pulsos leves, sem deslocamento agressivo; seleção, sacola e CTA permanecem prioritários",
+      "narrative": "linguagem de drop digital: luz, profundidade, vitrine social e cards que respondem ao interesse sem esconder conteúdo"
     },
     "pastelaria-route-66": {
       "intensity": "BALANCED",
@@ -1825,22 +1826,22 @@
       "accessibilityNotes": "Conteúdo fica no DOM; reduced motion remove deslocamentos."
     },
     "centro-mega": {
-      "wave": "MEGA_BLUEPRINT",
-      "segment": "prestadores-de-servicos",
-      "motionIntent": "DIAGNOSTICO TECNICO",
-      "whyThisMotion": "Linhas e reveals curtos sugerem conexão entre dispositivo, diagnóstico e solução.",
+      "wave": "STORE_SOCIAL_R3",
+      "segment": "comercios",
+      "motionIntent": "DROP DIGITAL / SOCIAL COMMERCE",
+      "whyThisMotion": "A vitrine nasce de publicações e estoque rotativo; motion organiza descoberta, filtros, cards e sacola sem esconder conteúdo.",
       "signatureMoments": {
-        "hero": "headline revela em máscara curta",
-        "section": "cards entram em sequência de grade",
-        "interaction": "âncoras conduzem pelos canais"
+        "hero": "camadas neon + parallax editorial em desktop",
+        "section": "catálogo troca/filtro com MotionSwap e cards em depth",
+        "interaction": "sacola/drawer + sticky cart preservam seleção"
       },
-      "motionIntensity": "BALANCED",
+      "motionIntensity": "IMMERSIVE",
       "effectsAvoided": [
-        "parallax",
         "scroll hijack",
-        "loops infinitos"
+        "video autoplay pesado",
+        "WebGL/3D sem função"
       ],
-      "performanceNote": "Somente transform/opacity; hero único prioritário e imagens abaixo da dobra lazy."
+      "performanceNote": "Primitives existentes, transform/opacity, reduced motion fail-open; visuais de produto por CSS/ícones sem copiar fotos externas."
     },
     "auto-socorro-dentinho": {
       "wave": "DENTINHO_DIAGNOSTIC",
