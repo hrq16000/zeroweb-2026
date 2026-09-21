@@ -1433,3 +1433,18 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   `[.]xml` sem depender de classe de caracteres no filtro.
 - **Autoverificação:** o próprio YAML entra em `paths`, para que esta correção
   gere uma execução real ao chegar em `main`.
+
+
+# 2026-09-20 — CI de pop-up · mesma cobertura, sem espera artificial longa
+
+- **Tarefa:** reduzir a duração do `portfolio-gates` sem remover asserções.
+- **Causa:** o E2E aguardava timers reais de 10–25 s em cada slug; com todo o
+  catálogo, a etapa de pop-up consumia grande parte dos ~40 min do workflow.
+- **Correção:** somente no browser Playwright do teste, timers >= 5 s são
+  comprimidos para 800 ms. O teste continua verificando popup único, não
+  reaparecer na sessão, `?preview=1` e supressão de
+  `?0web_preview=1`.
+- **Auditoria temporal:** `POPUP_REAL_TIMING=1` restaura integralmente os
+  tempos reais sem alterar o código público.
+- **Runtime:** zero mudança no componente `PortfolioUpsellPopup` ou na
+  experiência do visitante.

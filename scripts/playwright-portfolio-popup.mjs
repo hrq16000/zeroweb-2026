@@ -73,14 +73,44 @@ function isInfraCrash(error) {
 
 const failures = [];
 const CONCURRENCY = Number(process.env.POPUP_CONCURRENCY ?? 6);
-// O timer do pop-up é de 10s; as janelas abaixo são o mínimo seguro acima dele.
-const REAPPEAR_WAIT_MS = Number(process.env.POPUP_REAPPEAR_MS ?? 13000);
-const SILENT_WAIT_MS = Number(process.env.POPUP_SILENT_MS ?? 13000);
 
-async function countPopups(url, { expect = 1, waitMs = 20000 } = {}) {
+/**
+ * O gate verifica estado/comportamento, não a precisão do relógio de 10s.
+ * Para o catálogo inteiro, timers longos do browser são comprimidos somente
+ * no contexto E2E. Isso mantém as mesmas asserções (inclusive regressões que
+ * voltariam a agendar o popup), sem multiplicar 10–25s por slug.
+ *
+ * POPUP_REAL_TIMING=1 restaura os tempos reais para uma auditoria temporal.
+ */
+const REAL_TIMING = process.env.POPUP_REAL_TIMING === "1";
+const TIMER_FLOOR_MS = Number(process.env.POPUP_TEST_TIMER_FLOOR_MS ?? 5000);
+const TIMER_CAP_MS = Number(process.env.POPUP_TEST_TIMER_CAP_MS ?? 800);
+const APPEAR_WAIT_MS = Number(process.env.POPUP_APPEAR_MS ?? (REAL_TIMING ? 20000 : 6000));
+const REAPPEAR_WAIT_MS = Number(process.env.POPUP_REAPPEAR_MS ?? (REAL_TIMING ? 13000 : 2200));
+const SILENT_WAIT_MS = Number(process.env.POPUP_SILENT_MS ?? (REAL_TIMING ? 13000 : 2200));
+
+async function installTimerAcceleration(page) {
+  if (REAL_TIMING) return;
+  await page.addInitScript(
+    ({ floorMs, capMs }) => {
+      const nativeSetTimeout = window.setTimeout.bind(window);
+      window.setTimeout = (handler, timeout, ...args) => {
+        const delay =
+          typeof timeout === "number" && timeout >= floorMs
+            ? Math.min(timeout, capMs)
+            : timeout;
+        return nativeSetTimeout(handler, delay, ...args);
+      };
+    },
+    { floorMs: TIMER_FLOOR_MS, capMs: TIMER_CAP_MS },
+  );
+}
+
+async function countPopups(url, { expect = 1, waitMs = APPEAR_WAIT_MS } = {}) {
   const active = await getBrowser();
   const context = await active.newContext({ viewport: { width: 1280, height: 1200 } });
   const page = await context.newPage();
+  await installTimerAcceleration(page);
   await page.goto(url, { waitUntil: "domcontentloaded" });
   if (expect > 0) {
     // Timer padrão do pop-up é 10s; espera orientada a evento com folga para
@@ -155,9 +185,9 @@ async function runSlug(slug) {
   else console.error(`[popup] /portfolio/${slug} FALHOU`);
 }
 
-// As esperas são temporais por natureza (o pop-up tem timer próprio). Em série,
-// o catálogo inteiro estoura qualquer job de CI. A verificação por slug continua
-// idêntica; apenas passa a rodar em contextos isolados e paralelos.
+// O catálogo continua sendo verificado por slug em contextos isolados e
+// paralelos. Por padrão, apenas os timers longos do browser são comprimidos no
+// E2E; use POPUP_REAL_TIMING=1 quando o objetivo for auditar o atraso temporal.
 const queue = [...slugs];
 const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
   for (let slug = queue.shift(); slug; slug = queue.shift()) {
