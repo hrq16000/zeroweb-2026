@@ -17,6 +17,7 @@ Use this skill whenever a project starts from **name + location**, when
 - `tests/portfolio/autonomous-intake-research.test.ts` — contract tests.
 - `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` — evidence/provenance.
 - `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` — autonomy/readiness rules.
+- `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` — repertório de CRO/arquitetura de decisão derivado de 34 LPs + revalidação pública.
 - `docs/PORTFOLIO_PROJECT_LIFECYCLE.md` — master lifecycle.
 
 ## 1. Start from the real repository state
@@ -53,6 +54,12 @@ R2 may create briefing, hero, about copy, CTA, SEO, discovery metadata, schema d
 It must not invent services/products, differentiators, prices/offers, availability, ratings/reviews, years in business, certifications, team size, results or unsupported contact/location data.
 
 Only explicit `service` / `service:*` or `differential` / `differential:*` facts with sufficient confidence may be promoted into those public lists.
+
+### Landing intent before layout
+
+Before creative composition, classify `funnelStage`, audience, primary job, primary conversion, decision risk, evidence need, content depth, form friction, proof modes, hero strategy and post-conversion behavior according to `PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`.
+
+Use the reference corpus to **add decision intelligence, never to clone layouts**. Pick a narrative arc because it resolves the visitor's decision (local service, consultive quote, B2B software, event/course, rich material, franchise, catalog or sensitive educational flow). Section order remains project-specific.
 
 ## 4. Persist layers separately
 
