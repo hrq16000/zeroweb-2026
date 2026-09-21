@@ -415,6 +415,49 @@ export const PORTFOLIO_QUIZ_CONFIGS: Record<string, PortfolioQuizConfig> = {
     },
     "notePlaceholder": "Ex.: formato desejado, referência de unha, cílios, comprimento do cabelo ou disponibilidade."
   },
+  "centro-mega": {
+    "services": [
+      "Celular ou smartphone",
+      "Tênis / calçados",
+      "Bonés / moda outlet",
+      "Acessórios mobile",
+      "Outro produto visto nas redes"
+    ],
+    "experienceOptions": [
+      "Quero consultar disponibilidade",
+      "Quero comprar ou reservar",
+      "Quero saber o valor atual",
+      "Quero comparar opções"
+    ],
+    "periodOptions": [
+      "Retirada em São José dos Pinhais",
+      "Outra unidade Centro Mega",
+      "Quero consultar envio",
+      "Ainda não sei"
+    ],
+    "timingOptions": [
+      "Quero resolver hoje",
+      "Nos próximos dias",
+      "Estou pesquisando",
+      "Sem urgência"
+    ],
+    "stepTitles": {
+      "service": "O que você quer encontrar na Centro Mega?",
+      "experience": "O que você quer fazer agora?",
+      "period": "Como prefere receber ou retirar?",
+      "timing": "Quando você pretende comprar?",
+      "note": "Quer deixar algum detalhe?"
+    },
+    "stepSubtitles": {
+      "service": "Escolha uma categoria ou continue com os produtos que já colocou na sacola.",
+      "experience": "A equipe recebe sua intenção organizada antes do atendimento.",
+      "period": "A disponibilidade de unidade, retirada e envio é confirmada pela equipe.",
+      "timing": "Isso ajuda a priorizar o retorno sem criar promessa de estoque ou prazo.",
+      "note": "Modelo, cor, tamanho ou qualquer detalhe ajuda a equipe a responder melhor."
+    },
+    "notePlaceholder": "Ex.: quero tamanho 39, cor escura e gostaria de saber o valor atual.",
+    "proposalKind": "service"
+  },
   "clinica-integrada": {
     "stepTitles": {
       "service": "Qual especialidade você procura?",
