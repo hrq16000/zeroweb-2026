@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T06:26:47.612Z",
+  "generatedAt": "2026-09-21T06:26:59.170Z",
   "totalCatalogProjects": 95,
   "totalPages": 95,
   "auditCoverage": "100%",
@@ -236,42 +236,6 @@
     {
       "code": "INVALID_MOTION_PROFILE",
       "detail": "overrides.cris-presentes-colonia-rio-grande.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"segment\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"motionIntent\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"whyThisMotion\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"signatureMoments\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"motionIntensity\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"effectsAvoided\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"performanceNote\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"accessibilityNotes\""
-    },
-    {
-      "code": "INVALID_MOTION_PROFILE",
-      "detail": "overrides.autoescola-aptos: campo desconhecido \"originalityNotes\""
     }
   ],
   "warnings": [],
@@ -3236,7 +3200,7 @@
         "sectionSignature": "—",
         "interactionSignature": "—",
         "motionIntensity": "BALANCED",
-        "scrollBehavior": "—",
+        "scrollBehavior": "progressive",
         "textMotion": "TEXT_REVEAL",
         "imageMotion": "IMAGE_REVEAL",
         "tokens": [
