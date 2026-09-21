@@ -1,0 +1,119 @@
+{
+  "doc": "Media plan — Autoescola APTOS",
+  "slug": "autoescola-aptos",
+  "status": "COMPLETE_WITH_EDITORIAL_MEDIA",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [
+      {
+        "asset": "https://autoescolaaptos.com.br/assets/logo-BsXmR_aX.jpeg",
+        "classification": "BRAND_REFERENCE",
+        "notes": "fonte oficial; normalizada localmente para SVG"
+      }
+    ],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [
+      {
+        "asset": "public/images/autoescola-aptos/hero.svg",
+        "classification": "BRAND_COMPOSITION",
+        "purpose": "hero",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/autoescola-aptos/catalog-cover.svg",
+        "classification": "COVER_MEDIA",
+        "purpose": "catalogCover",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/autoescola-aptos/social.svg",
+        "classification": "OG_MEDIA",
+        "purpose": "social",
+        "documentary": false
+      }
+    ],
+    "graphicMedia": [
+      {
+        "asset": "public/images/autoescola-aptos/logo.svg",
+        "classification": "NORMALIZED_LOGO",
+        "source": "official website logo reference"
+      }
+    ],
+    "missingMedia": []
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OFFICIAL_WEBSITE",
+      "WEB_SEARCH",
+      "OWNER_SUPPLIED"
+    ],
+    "result": "Fachada e veículo oficiais encontrados, mas com contato impresso. Para respeitar privacidade/CTA funnel-only, a landing usa composição editorial não documental e logo normalizada."
+  },
+  "referenceOnlyAssets": [
+    {
+      "file": "https://autoescolaaptos.com.br/assets/fachada-aptos-D2ZcLN6p.jpg",
+      "classification": "EVIDENCE_ONLY",
+      "editorialAllowed": false,
+      "reason": "telefone embutido"
+    },
+    {
+      "file": "https://autoescolaaptos.com.br/assets/carro-aptos-mVaoBWuN.jpg",
+      "classification": "EVIDENCE_ONLY",
+      "editorialAllowed": false,
+      "reason": "telefone/endereço embutidos"
+    }
+  ],
+  "heroMedia": {
+    "asset": "public/images/autoescola-aptos/hero.svg",
+    "source": "0WEB editorial composition",
+    "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+    "narrativeRole": "ESTABLISH_DIFFERENTIAL — carro e moto automáticos como duas faixas do mesmo percurso",
+    "crop": "4:3 responsivo",
+    "focalPoint": "veículos estilizados no terço inferior",
+    "mobileStrategy": "arte inteira, sem texto embutido essencial e sem parallax"
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "asset": "public/images/autoescola-aptos/hero.svg",
+      "classification": "BRAND_COMPOSITION",
+      "status": "complete"
+    },
+    {
+      "section": "automaticos",
+      "asset": null,
+      "resolution": "iconografia + contraste assimétrico; sem foto documental",
+      "classification": "STRUCTURED_ICONOGRAPHY",
+      "status": "complete"
+    },
+    {
+      "section": "processo",
+      "asset": null,
+      "resolution": "roadmap numerado como mídia de informação",
+      "classification": "INFORMATION_DESIGN",
+      "status": "complete"
+    },
+    {
+      "section": "fechamento",
+      "asset": "public/images/autoescola-aptos/social.svg",
+      "classification": "OG_MEDIA",
+      "status": "complete"
+    }
+  ],
+  "cover": {
+    "asset": "public/images/autoescola-aptos/catalog-cover.svg",
+    "strategy": "BRAND_LED",
+    "approved": true,
+    "approvedAt": "2026-09-21",
+    "checks": {
+      "identityMatch": "PASS",
+      "smallCardReadability": "PASS",
+      "contrast": "PASS",
+      "duplicatePenalty": "PASS"
+    },
+    "notes": "Capa tipográfica/viária própria; nenhum número de contato."
+  },
+  "lastUpdatedAt": "2026-09-21"
+}
