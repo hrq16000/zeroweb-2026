@@ -1827,22 +1827,23 @@
       "accessibilityNotes": "Conteúdo fica no DOM; reduced motion remove deslocamentos."
     },
     "centro-mega": {
-      "wave": "MEGA_BLUEPRINT",
-      "segment": "prestadores-de-servicos",
-      "motionIntent": "DIAGNOSTICO TECNICO",
-      "whyThisMotion": "Linhas e reveals curtos sugerem conexão entre dispositivo, diagnóstico e solução.",
+      "wave": "CENTRO_MEGA_STORE_DEMO",
+      "segment": "varejo tech + outlet",
+      "motionIntent": "ENERGIA DE VITRINE",
+      "whyThisMotion": "A amostra comunica giro de oferta e variedade com camadas, glow, ticker, filtros e microinterações; o movimento serve à descoberta e seleção sem fingir estoque em tempo real.",
       "signatureMoments": {
-        "hero": "headline revela em máscara curta",
-        "section": "cards entram em sequência de grade",
-        "interaction": "âncoras conduzem pelos canais"
+        "hero": "headline em máscara + cartões de produto flutuantes em camadas neon",
+        "section": "ticker de categorias e vitrine em stagger com filtros/busca",
+        "interaction": "quick-view, sacola demonstrativa e carryover da seleção para o funil"
       },
-      "motionIntensity": "BALANCED",
+      "motionIntensity": "IMMERSIVE",
       "effectsAvoided": [
-        "parallax",
         "scroll hijack",
-        "loops infinitos"
+        "autoplay de vídeo",
+        "WebGL/Three.js",
+        "efeitos que escondem conteúdo sem JS"
       ],
-      "performanceNote": "Somente transform/opacity; hero único prioritário e imagens abaixo da dobra lazy."
+      "performanceNote": "CSS + primitives 0WEB existentes; sem dependência nova. Reduced-motion remove loops/parallax e preserva todo o conteúdo."
     },
     "auto-socorro-dentinho": {
       "wave": "DENTINHO_DIAGNOSTIC",
