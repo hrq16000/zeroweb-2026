@@ -75,6 +75,29 @@ Descrição livre, snippet, categoria, produto, inferência por segmento e flags
 booleanas de conveniência não viram serviço. Se não houver campo elegível,
 `verified_services` continua pendente.
 
+### 1.3 Inteligência de landing antes da direção de arte
+
+Depois da R2 factual e antes de escolher topologia visual, todo projeto novo deve
+classificar a decisão comercial conforme
+`docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`.
+
+O pipeline registra/decide pelo menos: estágio do funil, audiência, trabalho
+principal do visitante, conversão primária, risco da decisão, necessidade de
+prova, profundidade de conteúdo, fricção do formulário, modos de prova,
+estratégia do hero e continuidade pós-conversão.
+
+Isso **soma** repertório aos gates atuais; não cria template. A narrativa pode
+seguir arcos como serviço local, orçamento consultivo, B2B/software,
+evento/curso, material rico, franquia, catálogo ou educação sensível. A ordem
+das seções continua derivada da decisão real e da evidência do cliente.
+
+Novos gates aditivos de decisão: `OFFER_SINGULARITY_GATE`,
+`FIRST_FOLD_CLARITY_GATE`, `MESSAGE_MATCH_GATE`,
+`CTA_INTENT_CONSISTENCY_GATE`, `FORM_FRICTION_GATE`,
+`PROOF_PROXIMITY_GATE`, `DECISION_PACKET_GATE`,
+`DELIVERABLE_PREVIEW_GATE`, `PRIVACY_CONSENT_GATE` e
+`POST_CONVERSION_CONTINUITY_GATE`.
+
 ## 2. IDENTITY_COMPLETENESS_GATE (§3–§6)
 
 Toda landing declara uma decisão explícita de identidade:
