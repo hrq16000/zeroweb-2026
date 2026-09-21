@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t d">
+<title id="t">Autoescola APTOS — carro e moto automáticos</title><desc id="d">Capa editorial do portfolio.</desc>
+<rect width="1200" height="900" fill="#0b0d10"/>
+<path d="M-80 870L1280 280" stroke="#1e252e" stroke-width="230"/>
+<path d="M-80 870L1280 280" stroke="#ffcc00" stroke-width="10" stroke-dasharray="70 50"/>
+<rect x="72" y="72" width="250" height="82" rx="18" fill="#fff"/>
+<text x="101" y="129" font-family="Arial Black,Arial" font-size="43" font-style="italic" fill="#171a1f">APT</text><text x="206" y="129" font-family="Arial Black,Arial" font-size="43" font-style="italic" fill="#ef3340">OS</text>
+<text x="72" y="310" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="5" fill="#ffcc00">SÃO JOSÉ DOS PINHAIS</text>
+<text x="72" y="400" font-family="Arial Black,Arial" font-size="82" letter-spacing="-4" fill="#fff">AGORA NO</text>
+<text x="72" y="480" font-family="Arial Black,Arial" font-size="82" letter-spacing="-4" fill="#ef3340">AUTOMÁTICO.</text>
+<text x="72" y="555" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#d6dae0">Carro + moto automáticos</text>
+<g transform="translate(72 670)"><rect width="430" height="88" rx="44" fill="#ef3340"/><text x="215" y="56" text-anchor="middle" font-family="Arial Black,Arial" font-size="25" fill="#fff">AUTOESCOLA APTOS</text></g>
+<circle cx="1005" cy="715" r="130" fill="#ef3340"/><text x="1005" y="752" text-anchor="middle" font-family="Arial Black,Arial" font-size="105" fill="#fff">A</text>
+</svg>
