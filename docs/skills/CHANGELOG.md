@@ -12,7 +12,7 @@
 - **Conversão:** itens selecionados seguem em `initialAnswers` + `orderContext.order_items` para o funil `pedido` do próprio cliente; preço, estoque, cor, tamanho, unidade e entrega são confirmados pela equipe.
 - **SEO/entity:** Centro Mega passa a usar descrição/keywords/store schema específicos de varejo, não o `Service` genérico da vertical.
 - **Proveniência:** fotos externas de marketplace/social não foram republicadas; cards usam composição gráfica original e disclosure “visual de amostra”.
-- **Documentação:** creative brief v3, enrichment, media plan, social-product ledger, relatório de evolução e teste dedicado.
+- **Documentação:** creative brief de evolução, enrichment, media plan, `centro-mega-storefront.ts` como catálogo/provenance canônico, relatório de evolução e teste dedicado.
 - **Skills/camadas aplicadas:** Landing Page Premium, Decision Intelligence R1/R2/R3, Art Direction, Experience Design Max, Resource Utilization, Landing Experience, Funnel Isolation e Quality Gates.
 - **Publicação:** somente após gates e preview do head final; este registro não presume PASS.
 
