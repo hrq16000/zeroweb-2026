@@ -1160,6 +1160,18 @@
         "ctaHref": "#pedido"
       },
       "socialVersion": "c3f20df0"
+    },
+    "autoescola-aptos": {
+      "icon": "/images/autoescola-aptos/logo.svg",
+      "socialImage": "/images/autoescola-aptos/social.svg",
+      "proof": {
+        "eyebrow": "Autoescola APTOS",
+        "title": "Agora com carro e moto automáticos em São José dos Pinhais.",
+        "description": "Primeira habilitação, categorias A/B/AB, reteste, renovação e reciclagem com orientação pelo funil individual.",
+        "ctaLabel": "Consultar opções",
+        "ctaHref": "#comecar"
+      },
+      "socialVersion": "aptos-20260921"
     }
   }
 }
