@@ -47,6 +47,12 @@ localidade/viabilidade, continuidade de contexto, pós-conversão e mensuração
 O Blueprint recebe essas decisões como **conteúdo e capacidades**. Ele não
 transforma o perfil em uma ordem fixa de seções.
 
+Para projetos novos, a extensão aditiva `LandingDecisionProfileV3` do padrão de
+Research Intelligence também deve ser avaliada antes da biblioteca estrutural.
+Ela não adiciona um renderer; adiciona requisitos de decisão: velocidade,
+information scent, auto-segmentação útil, continuidade de contexto,
+claim→evidence, freshness, risco, estados, pós-conversão e orçamento mobile.
+
 ## 3. Princípio narrativo
 
 A página responde progressivamente: quem é · o que oferece · por que importa ·

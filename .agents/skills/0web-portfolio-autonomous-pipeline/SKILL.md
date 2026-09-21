@@ -112,3 +112,20 @@ When a real portfolio is produced, also run lifecycle/readiness, funnel, privacy
 Every material contract change updates this skill, `PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` when normative behavior changes, and `docs/skills/CHANGELOG.md`.
 
 Do not claim “fully autonomous” while any stage still requires manual evidence promotion or media/composition work. Report the exact stage that is automated.
+
+
+### R3 — decision velocity and continuity
+
+For every new landing, extend the V2 decision profile with the additive R3 layer
+from `docs/research/LANDING-PAGE-OFFICIAL-SITE-SWEEP-R3-2026-09-21.md`:
+`pageMode`, `decisionVelocity`, `informationScent`, `selfSegmentation`,
+`contextCarryover`, `commitmentLadder`, `claimEvidenceGraph`,
+`riskAdjustedPersuasion`, `actionStateModel`, `humanEscalationPolicy`,
+`responseExpectationContract`, `freshnessPolicy`,
+`navigationLeakagePolicy`, `mobileDecisionBudget` and
+`experimentReadiness`.
+
+R3 is **SOME/additive**. It never replaces V1/V2 evidence, lifecycle, creative
+originality, funnel isolation or premium gates. Unsupported fields remain
+unknown/NA. Persist known source/offer/item/plan/unit context instead of asking
+for it again when the architecture can carry it forward.
