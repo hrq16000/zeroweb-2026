@@ -427,7 +427,7 @@ export function BtbConstrucaoPage() {
             </div>
           </section>
 
-          <section className="bg-[#f1eee6] px-5 py-18 lg:px-8 lg:py-20">
+          <section className="bg-[#f1eee6] px-5 py-20 lg:px-8">
             <div className="mx-auto grid max-w-7xl gap-0 border-2 border-[#171717] lg:grid-cols-3">
               <div className="border-b-2 border-[#171717] p-6 lg:border-b-0 lg:border-r-2">
                 <MapPinned className="h-6 w-6 text-[#df136e]" aria-hidden="true" />
