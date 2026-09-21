@@ -1,0 +1,139 @@
+{
+  "slug": "centro-mega",
+  "lastResearchAt": "2026-09-21T06:15:00Z",
+  "entity": {
+    "name": "Centro Mega",
+    "legalName": "Ereque Fernandes Cardoso",
+    "cnpj": "17.991.627/0001-54",
+    "resolutionStatus": "RESOLVED_WITH_MULTIPLE_PUBLIC_SOURCES",
+    "locality": "São José dos Pinhais — PR",
+    "notes": "CNPJ, nome fantasia e presença pública convergem. Endereços/unidades aparecem com variações históricas; a amostra usa São José dos Pinhais como localidade principal e não transforma todas as listagens históricas em endereço atual único."
+  },
+  "officialSurfaces": {
+    "linktree": "https://linktr.ee/centro.mega",
+    "instagram": "https://www.instagram.com/centro.mega/",
+    "facebook": "https://www.facebook.com/CentroMega.com.br/",
+    "publicStoreContact": "https://www.vhsys.net/centromega/contato/",
+    "marketplaceSeller": "https://www.magazineluiza.com.br/lojista/centromega/"
+  },
+  "researchLedger": {
+    "facebookDirect": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "status": "OFFICIAL_PAGE_NOT_DIRECTLY_READABLE",
+      "note": "A página oficial foi resolvida, mas o conteúdo de posts não ficou legível diretamente no crawler."
+    },
+    "facebookPublicMirror": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "USED_FOR_ATTRIBUTABLE_POST_TEXT",
+      "source": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega"
+    },
+    "instagram": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "OFFICIAL_PROFILE_AND_POST_URLS_RESOLVED_CAPTIONS_NOT_READABLE",
+      "note": "URLs oficiais já existentes no projeto foram reusadas; nenhum produto foi inferido de caption indisponível."
+    },
+    "linktree": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "OFFICIAL",
+      "note": "Lista SAC, Outlet São José dos Pinhais, Galeria Di Brunno, Shopping Cidade, Pinheirinho e Instagram."
+    },
+    "publicStore": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "PUBLIC_STORE_CONTACT",
+      "note": "Página pública traz CNPJ e referência à Galeria Di Bruno / São José dos Pinhais."
+    },
+    "marketplaceSeller": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "status": "PUBLIC_SELLER_CATALOG",
+      "note": "Usado para complementar o mix com produtos identificados como vendidos pelo seller Centro Mega. Preço e estoque não são persistidos como atuais."
+    }
+  },
+  "socialProducts": [
+    {
+      "id": "poco-x5-pro-8-256",
+      "name": "POCO X5 Pro",
+      "facts": [
+        "8 GB RAM",
+        "256 GB armazenamento"
+      ],
+      "sourceDate": "2024-01-25",
+      "historicalCommercialFact": {
+        "from": "R$ 2.399,00",
+        "offer": "R$ 1.899,00",
+        "displayPolicy": "HISTORICAL_ONLY"
+      },
+      "source": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+      "currentState": "PRICE_AND_STOCK_REQUIRE_REVALIDATION"
+    },
+    {
+      "id": "tenis-dunk-low-pro",
+      "name": "Tênis Dunk Low Pro",
+      "sourceDate": "2023-11-08",
+      "historicalFacts": [
+        "post indexado registra grade 34–39",
+        "outro registro do mesmo dia traz grade 34–43"
+      ],
+      "source": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+      "currentState": "SIZE_PRICE_COLOR_AND_STOCK_REQUIRE_REVALIDATION"
+    }
+  ],
+  "instagramOfficialPosts": [
+    "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+    "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
+    "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
+    "https://www.instagram.com/centro.mega/reel/DHmlQd6tCNi/",
+    "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
+    "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
+  ],
+  "marketplaceProducts": [
+    "Xiaomi Mi Box S",
+    "Controle PlayStation 4 Original Sony",
+    "Case para HD externo 2,5 Exbom",
+    "Suporte de celular para Moto & Bike Renux",
+    "Pilha AAA recarregável Mox 3000 mAh",
+    "Lattafa Yara Eau de Parfum 100 ml",
+    "Lattafa Asad Zanzibar EDP 100 ml"
+  ],
+  "ownerInput": {
+    "categories": [
+      "bonés",
+      "calçados",
+      "tênis",
+      "itens variados de outlet"
+    ],
+    "policy": "Categoria fornecida pelo responsável pode orientar arquitetura e filtros; modelo/variante/estoque específico só vira produto atual com evidência adicional."
+  },
+  "unverified": [
+    "estoque atual de qualquer produto",
+    "preço atual de qualquer produto",
+    "cores e variantes atuais",
+    "grade atual do Tênis Dunk Low Pro",
+    "prazo de entrega",
+    "frete",
+    "política de troca específica desta amostra",
+    "estoque por unidade",
+    "conteúdo/caption atual dos seis posts oficiais do Instagram"
+  ],
+  "conflicts": [
+    "Listagens públicas históricas apresentam variações de endereço/número de loja; não consolidar endereço de unidade sem revalidação específica.",
+    "Preços sociais e de marketplace são temporais e não podem ser tratados como preço corrente."
+  ]
+}
