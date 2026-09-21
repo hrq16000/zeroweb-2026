@@ -423,7 +423,7 @@
       ],
       "assetSharing": [],
       "fingerprint": {
-        "skeletonHash": "451d6ecd20b7a876",
+        "skeletonHash": "b8f2edc06e86a53c",
         "structureHash": "ab39b9613b64c761",
         "sectionCount": 10,
         "lines": 222
@@ -7115,20 +7115,20 @@
   "regression": {
     "mode": "REPORT_ONLY",
     "baseline": {
-      "total": 91,
+      "total": 95,
       "original": 1,
-      "acceptable": 28,
-      "attention": 56,
-      "highSimilarity": 6,
+      "acceptable": 30,
+      "attention": 59,
+      "highSimilarity": 5,
       "clone": 0,
       "sharedFallback": 0,
       "clusters": 0,
-      "placeholderLogos": 25,
+      "placeholderLogos": 26,
       "missingLogos": 0,
       "missingCovers": 24,
       "coverValid": 47,
-      "coverPending": 44,
-      "coversAsSocialImage": 12,
+      "coverPending": 48,
+      "coversAsSocialImage": 14,
       "sharedCovers": 0,
       "severeCrop": 19,
       "invalidCrossClientAssets": 0,
@@ -7154,30 +7154,8 @@
       "invalidCrossClientAssets": 0,
       "suspiciousSharedAssets": 0
     },
-    "verdict": "FAIL",
-    "regressions": [
-      {
-        "kind": "COUNTER",
-        "key": "placeholderLogos",
-        "label": "logos placeholder",
-        "before": 25,
-        "after": 26
-      }
-    ],
-    "improvements": [
-      {
-        "kind": "COUNTER",
-        "key": "highSimilarity",
-        "label": "projetos HIGH_SIMILARITY",
-        "before": 6,
-        "after": 5
-      },
-      {
-        "kind": "MODIFIED_PROJECT",
-        "slug": "btb-construcao",
-        "before": "HIGH_SIMILARITY",
-        "after": "ATTENTION"
-      }
-    ]
+    "verdict": "PASS",
+    "regressions": [],
+    "improvements": []
   }
 }

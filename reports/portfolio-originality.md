@@ -172,10 +172,8 @@ Nenhum asset percebido compartilhado entre clientes.
 
 ## Regressão
 
-Veredito: **FAIL**
+Veredito: **PASS**
 
-- COUNTER: {"kind":"COUNTER","key":"placeholderLogos","label":"logos placeholder","before":25,"after":26}
+Nenhuma regressão em relação à baseline.
 
-Melhorias:
-- {"kind":"COUNTER","key":"highSimilarity","label":"projetos HIGH_SIMILARITY","before":6,"after":5}
-- {"kind":"MODIFIED_PROJECT","slug":"btb-construcao","before":"HIGH_SIMILARITY","after":"ATTENTION"}
+
