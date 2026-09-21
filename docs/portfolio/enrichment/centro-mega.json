@@ -1,0 +1,149 @@
+{
+  "slug": "centro-mega",
+  "lastResearchAt": "2026-09-21T18:40:00Z",
+  "entity": {
+    "resolutionStatus": "RESOLVED",
+    "resolutionBasis": "PUBLIC_OFFICIAL_CHANNELS+BUSINESS_SITE+INDEXED_SOCIAL",
+    "notes": "Centro Mega foi resolvida por Linktree oficial @centro.mega, Instagram/Facebook oficiais já versionados no projeto, VHSYS público com CNPJ 17.991.627/0001-54 e telefone, e presença social indexada com endereço e posts de produto."
+  },
+  "researchLedger": {
+    "linktree": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "https://linktr.ee/centro.mega",
+      "note": "Lista SAC, Outlet São José dos Pinhais, Galeria Di Brunno, Shopping Cidade, Pinheirinho e Instagram."
+    },
+    "instagram": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "https://www.instagram.com/centro.mega/",
+      "note": "Perfil oficial resolvido. Fetch automatizado de posts individuais falhou nesta rodada; não foi inventado conteúdo de caption."
+    },
+    "facebook": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "https://www.facebook.com/CentroMega.com.br/",
+      "note": "Página oficial já versionada no projeto. Conteúdo de produto foi usado somente quando também apareceu em índice público legível."
+    },
+    "businessSite": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "https://www.vhsys.net/centromega/contato/",
+      "note": "Exibe CNPJ 17.991.627/0001-54, endereço em São José dos Pinhais e telefone 41 99858-9419."
+    },
+    "indexedSocial": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "source": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+      "note": "Espelho/indexador público registra Poco X5 Pro em 25/01/2024 e Tênis Dunk Low Pro em 08/11/2023."
+    },
+    "productMedia": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "Mídia original dos posts não foi ingerida com segurança. A amostra usa composição gráfica original e não documental."
+    }
+  },
+  "identity": {
+    "name": "Centro Mega",
+    "legalName": "Ereque Fernandes Cardoso",
+    "cnpj": "17.991.627/0001-54",
+    "segment": "varejo-tech-outlet",
+    "locality": "São José dos Pinhais e Curitiba — PR"
+  },
+  "products": [
+    {
+      "name": "Poco X5 Pro",
+      "spec": "8GB RAM / 256GB armazenamento",
+      "source": "INDEXED_SOCIAL_POST",
+      "sourceDate": "2024-01-25",
+      "historicalPrice": "R$ 1.899,00",
+      "historicalCompareAt": "R$ 2.399,00",
+      "currentStockVerified": false,
+      "currentPriceVerified": false
+    },
+    {
+      "name": "Tênis Dunk Low Pro",
+      "source": "INDEXED_SOCIAL_POST",
+      "sourceDate": "2023-11-08",
+      "currentStockVerified": false,
+      "currentPriceVerified": false,
+      "notes": "Duas cópias indexadas divergem na grade de tamanhos (34–39 e 34–43); nenhuma grade é promovida como atual."
+    }
+  ],
+  "categories": [
+    {
+      "name": "celulares",
+      "source": "PUBLIC_ENTITY_EVIDENCE"
+    },
+    {
+      "name": "acessórios mobile",
+      "source": "PROJECT_HISTORY+OWNER_BRIEF"
+    },
+    {
+      "name": "tênis",
+      "source": "INDEXED_SOCIAL_POST"
+    },
+    {
+      "name": "bonés",
+      "source": "OWNER_BRIEF"
+    },
+    {
+      "name": "calçados",
+      "source": "OWNER_BRIEF"
+    },
+    {
+      "name": "outlet/achadinhos",
+      "source": "LINKTREE+OWNER_BRIEF"
+    }
+  ],
+  "operational": {
+    "whatsapp": "5541998589419",
+    "whatsappStatus": "VERIFIED",
+    "contactMode": "funnelOnly",
+    "funnelType": "pedido",
+    "notes": "Número validado em VHSYS público e presença social indexada; usado exclusivamente no client_key centro-mega."
+  },
+  "sources": [
+    {
+      "type": "OFFICIAL_LINKTREE",
+      "url": "https://linktr.ee/centro.mega"
+    },
+    {
+      "type": "OFFICIAL_INSTAGRAM",
+      "url": "https://www.instagram.com/centro.mega/"
+    },
+    {
+      "type": "OFFICIAL_FACEBOOK",
+      "url": "https://www.facebook.com/CentroMega.com.br/"
+    },
+    {
+      "type": "PUBLIC_BUSINESS_SITE",
+      "url": "https://www.vhsys.net/centromega/contato/"
+    },
+    {
+      "type": "INDEXED_SOCIAL_FEED",
+      "url": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega"
+    }
+  ],
+  "unverified": [
+    "estoque atual de qualquer produto",
+    "preço atual de qualquer produto",
+    "cores/variações atuais",
+    "grade atual do Dunk Low Pro",
+    "prazo atual de envio",
+    "política atual de frete",
+    "lista completa atual de produtos do Instagram/Facebook"
+  ]
+}
