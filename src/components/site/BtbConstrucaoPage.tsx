@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
-import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { MotionImageReveal, MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 
@@ -179,16 +178,20 @@ export function BtbConstrucaoPage() {
 
         <main>
           <section id="inicio" className="relative isolate min-h-[88svh] overflow-hidden bg-[#111] text-white">
-            <PortfolioImage
-              managedField="heroImageUrl"
-              src="/images/btb-construcao/hero.png"
-              alt="Composição editorial de um ambiente em reforma usada como apoio visual"
-              priority
-              width={1536}
-              height={1024}
-              className="absolute inset-0 -z-30 h-full w-full object-cover object-center"
-            />
-            <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(9,9,9,.96)_0%,rgba(9,9,9,.78)_43%,rgba(9,9,9,.34)_72%,rgba(9,9,9,.58)_100%)]" />
+            <div aria-hidden="true" className="absolute inset-0 -z-30 overflow-hidden bg-[#101010]">
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,219,25,.055)_1px,transparent_1px),linear-gradient(rgba(255,219,25,.045)_1px,transparent_1px)] bg-[size:64px_64px]" />
+              <div className="absolute -right-[8%] top-[8%] h-[82%] w-[62%] border-[3px] border-[#ffdb19]/35 [transform:skewY(-5deg)]" />
+              <div className="absolute right-[4%] top-[17%] h-[64%] w-[48%] border border-white/20 [transform:skewY(-5deg)]" />
+              <div className="absolute right-[13%] top-[25%] h-[47%] w-[35%] bg-[linear-gradient(135deg,rgba(255,219,25,.18),rgba(238,25,119,.08)_55%,transparent_55%)] [clip-path:polygon(0_0,100%_10%,86%_100%,10%_86%)]" />
+              <div className="absolute right-[2%] top-[9%] h-2 w-[54%] origin-right rotate-[8deg] bg-[#ee1977]/55" />
+              <div className="absolute bottom-[14%] right-[2%] h-px w-[58%] bg-white/20" />
+              <div className="absolute bottom-[12%] right-[9%] h-6 w-px bg-[#ffdb19]/80" />
+              <div className="absolute bottom-[12%] right-[43%] h-6 w-px bg-[#ffdb19]/80" />
+              <div className="absolute bottom-[8%] right-[9%] font-mono text-[10px] font-bold uppercase tracking-[.24em] text-white/35">
+                escopo → estrutura → acabamento
+              </div>
+            </div>
+            <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(9,9,9,.98)_0%,rgba(9,9,9,.88)_43%,rgba(9,9,9,.42)_72%,rgba(9,9,9,.68)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t from-black/80 to-transparent" />
 
             <div className="mx-auto flex min-h-[88svh] max-w-7xl flex-col justify-end px-5 pb-10 pt-36 lg:px-8 lg:pb-14">
@@ -241,7 +244,7 @@ export function BtbConstrucaoPage() {
                       </span>
                     </div>
                     <p className="mt-5 text-[11px] uppercase tracking-[0.13em] text-white/45">
-                      Imagem principal: composição editorial de apoio, não fotografia documental de obra executada.
+                      Composição gráfica de apoio: linguagem editorial, não fotografia documental de obra executada.
                     </p>
                   </aside>
                 </MotionImageReveal>
