@@ -1,5 +1,14 @@
 # Skill changelog / usage log
 
+## 2026-09-20 — varredura R2 · 25 referências e parâmetros de decisão
+
+- **Tarefa:** completar a varredura marca a marca do material RD Station e transformar os achados em parâmetros aditivos para novas landing pages.
+- **Cobertura:** 25 referências nomeadas registradas em ledger próprio; 22 presenças oficiais atuais acessíveis, 2 revalidações parciais e Ext Trade Tech mantida como `REFERENCE_ONLY` por ausência de resolução oficial atual segura.
+- **Novos parâmetros:** origem/intenção do tráfego, tipo de oferta, complexidade/riscos, incertezas, decision aids, demonstração de valor, profiling progressivo/finalidade por campo, transparência, localidade/viabilidade, continuidade multicanal, pós-conversão e mensuração.
+- **Gates adicionados:** continuidade de contexto, finalidade de campo, decision aid, location fit, transparência operacional, continuidade cross-channel e resolução da fonte atual.
+- **Integração:** Research Intelligence, Creative Direction, Art Direction skill, Experience Design Max, Blueprint e pipeline autônomo passam a ler o perfil de decisão antes de definir composição.
+- **Regra:** SOME = somar/agregar; nenhuma referência vira template e nenhum claim externo entra sem provenance/evidência.
+
 ## 2026-09-20 — Pesquisa profunda de landing pages · corpus RD Station 34 + sites atuais
 
 - **Tarefa:** fazer nova varredura aditiva (“somar/agregar, nunca substituir”) sobre os 34 exemplos de LP enviados e revalidar as marcas/páginas oficiais ainda acessíveis.

@@ -47,6 +47,15 @@ sazonais/antigas sem uma URL pública atual identificável. Nesses casos, o
 padrão usa somente o que o material documenta e não transforma ausência de URL
 em suposição.
 
+A varredura R2 marca a marca está versionada em
+`docs/research/LANDING-PAGE-OFFICIAL-SITE-SWEEP-R2-2026-09-20.md`. Ela fecha a
+lista das **25 referências nomeadas** do material: 22 com presença oficial atual
+acessível nesta rodada, 2 com presença oficial apenas parcialmente revalidada e
+1 (`Ext Trade Tech`) mantida como `REFERENCE_ONLY` porque não foi possível
+resolver com segurança um domínio oficial atual correspondente. Comtele e
+Machado Alimentos, que apareciam na matriz de exemplos mas não na enumeração
+resumida da primeira rodada, ficam explicitamente cobertos no ledger R2.
+
 ## 2. O que os 34 exemplos ensinam
 
 ### 2.1 Oferta única e primeira dobra
@@ -478,7 +487,70 @@ Além das referências comerciais, este padrão adota como baseline:
 Esses limites são engenharia de qualidade, não justificativa para tornar todas
 as páginas visualmente iguais.
 
-## 12. Regra de fechamento
+## 12. Anexo normativo R2 — Landing Decision Profile
+
+O `LandingIntentProfile` define a intenção macro. Para todo projeto novo, ele
+deve ser acompanhado pelo `LandingDecisionProfileV2` detalhado no ledger R2,
+antes de qualquer decisão de hero, grid, section order ou motion.
+
+Campos mínimos adicionais:
+
+- `trafficIntent` e `trafficSource`;
+- `offerType`;
+- `decisionComplexity` e `decisionRiskDimensions[]`;
+- `uncertainties[]` e `decisionSupport[]`;
+- `valueDemonstration[]`;
+- `formStrategy.friction`, `progressiveProfiling` e finalidade por campo;
+- `transparencyPlan[]`;
+- `locationRequirement`;
+- `sourceContinuity = required`;
+- `crossChannelContinuity`;
+- `postConversionPlan`;
+- `measurementPlan[]`.
+
+Esses parâmetros **não são um template**. Eles forçam o agente a explicar qual
+decisão está sendo facilitada e quais incertezas precisam ser removidas.
+
+### 12.1 SOURCE_CONTEXT_CONTINUITY_GATE
+
+Origem, UTM/referrer, oferta, item/plano/serviço selecionado e respostas já
+capturadas não podem desaparecer entre landing, funil, lead e handoff.
+
+### 12.2 FIELD_PURPOSE_GATE
+
+Cada campo precisa ter finalidade operacional, de personalização ou de
+qualificação. Dado já conhecido não deve ser pedido novamente quando a
+arquitetura permitir supressão/profiling progressivo.
+
+### 12.3 DECISION_AID_GATE
+
+Antes de acrescentar texto, avaliar se uma comparação, catálogo, simulador,
+seletor, busca, agenda, workflow ou preview reduz melhor a incerteza.
+
+### 12.4 LOCATION_FIT_GATE
+
+Quando a oferta depender de unidade, região, endereço ou viabilidade técnica,
+essa restrição precisa ser resolvida sem prometer cobertura inexistente.
+
+### 12.5 OPERATIONAL_TRANSPARENCY_GATE
+
+Preço/investimento, duração, modalidade, disponibilidade, especificações,
+requisitos, área de cobertura e ressalvas relevantes devem ser exibidos quando
+forem decisivos, públicos e verificados.
+
+### 12.6 CROSS_CHANNEL_CONTINUITY_GATE
+
+Se a jornada continuar por CRM, e-mail, WhatsApp ou outro canal, intenção,
+`clientKey`, contexto e identidade da oferta permanecem consistentes. Isso
+nunca autoriza destino compartilhado ou fallback cross-client.
+
+### 12.7 CURRENT_SOURCE_RESOLUTION_GATE
+
+Uma referência externa só pode ser tratada como atual depois de resolver
+entidade/URL. Fonte não resolvida fica explicitamente como `REFERENCE_ONLY` e
+não fornece claims atuais.
+
+## 13. Regra de fechamento
 
 Uma nova landing não é “boa” porque contém Hero + Serviços + Benefícios + FAQ.
 Ela é boa quando a estrutura escolhida reduz a incerteza específica daquela
