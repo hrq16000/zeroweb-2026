@@ -471,7 +471,7 @@
         ],
         "claimsAttribution": "Métricas apresentadas somente como divulgadas pela APTOS."
       },
-      "stage": "ready",
+      "stage": "published",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -487,7 +487,7 @@
         "funnel": "complete",
         "cover": "complete",
         "qa": "complete",
-        "publish": "not_started"
+        "publish": "complete"
       },
       "blockers": [],
       "warnings": [
@@ -495,12 +495,42 @@
       ],
       "ownerRequired": [],
       "searchQa": [
-        { "query": "Autoescola APTOS", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
-        { "query": "autoescola São José dos Pinhais", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
-        { "query": "primeira habilitação A B AB", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
-        { "query": "carro automático e moto automática", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
-        { "query": "reteste renovação reciclagem", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
-        { "query": "Centro São José dos Pinhais", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" }
+        {
+          "query": "Autoescola APTOS",
+          "expect": "must_find",
+          "slug": "autoescola-aptos",
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "query": "autoescola São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "autoescola-aptos",
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "query": "primeira habilitação A B AB",
+          "expect": "must_find",
+          "slug": "autoescola-aptos",
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "query": "carro automático e moto automática",
+          "expect": "must_find",
+          "slug": "autoescola-aptos",
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "query": "reteste renovação reciclagem",
+          "expect": "must_find",
+          "slug": "autoescola-aptos",
+          "verifiedAt": "2026-09-21"
+        },
+        {
+          "query": "Centro São José dos Pinhais",
+          "expect": "must_find",
+          "slug": "autoescola-aptos",
+          "verifiedAt": "2026-09-21"
+        }
       ],
       "visualQa": {
         "status": "PASS",
