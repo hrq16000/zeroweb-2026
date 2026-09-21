@@ -1071,16 +1071,16 @@
     "routeFile": "src/routes/portfolio.$slug.tsx",
     "componentFile": "src/components/site/CentroMegaPage.tsx",
     "assetsDir": "public/images/centro-mega",
-    "ctaMode": "ordering",
-    "socialProofRequired": false,
+    "ctaMode": "order",
+    "socialProofRequired": true,
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/centro-mega.md",
     "funnelType": "pedido",
     "contactMode": "funnelOnly",
     "provenance": {
-      "kind": "PUBLIC_EVIDENCE_AND_CLIENT_DIRECTION",
-      "source": "Linktree oficial, Instagram/Facebook oficiais, loja/contacto público da Centro Mega, postagens públicas indexadas e orientação do responsável para a amostra de loja virtual",
+      "kind": "PUBLIC_ENTITY_EVIDENCE",
+      "source": "Facebook/Instagram públicos registrados no projeto + Linktree oficial + seller Centro Mega no Magazine Luiza + informações fornecidas pelo responsável",
       "reference": "https://linktr.ee/centro.mega"
     }
   },
