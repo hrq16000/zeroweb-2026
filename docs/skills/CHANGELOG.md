@@ -1,5 +1,18 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — Centro Mega Store · social commerce autônomo
+
+- **Escopo:** evolução material de `/portfolio/centro-mega` para amostra premium de loja virtual.
+- **Pesquisa social:** POCO X5 Pro 8 GB / 256 GB e Tênis Dunk Low Pro foram convertidos em produtos a partir de publicações públicas atribuíveis à Centro Mega; preço do POCO permanece explicitamente histórico.
+- **Instagram:** seis URLs oficiais já versionadas foram preservadas como fontes; como as captions não ficaram legíveis no crawler, não foram inventados SKUs a partir delas.
+- **Catálogo complementar:** seller público Centro Mega no Magazine Luiza adiciona variedade verificável sem copiar fotos nem persistir preço/estoque transitório.
+- **Experiência:** `IMMERSIVE / NEON_RETAIL_DROP`, busca, filtros, cards com depth, social drops, sacola, drawer, sticky cart e carryover de itens para o funil.
+- **Funil:** `clientKey=centro-mega`, `funnelType=pedido`, `contactMode=funnelOnly`; nenhum contato direto/cross-client foi introduzido.
+- **Factualidade:** produto social só vira SKU quando a fonte permite identificar o item; estoque, variante, tamanho, preço e entrega atuais exigem confirmação.
+- **Mídia:** visuais de produto são composições editoriais próprias por CSS/ícones, com disclosure; nenhuma foto externa foi copiada como prova.
+- **Documentação:** creative brief, enrichment, media plan, relatório e teste dedicado.
+- **Regra SOME:** evolução soma a loja social à presença Centro Mega sem apagar provenance, isolamento, SEO, acessibilidade, performance ou gates existentes.
+
 ## 2026-09-21 — conhecimento aditivo · Landing Page Premium 0WEB
 
 - **Origem:** documentação fornecida pelo responsável e incorporada como conhecimento complementar, sem alterar páginas públicas nesta rodada.
