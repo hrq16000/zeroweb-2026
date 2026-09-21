@@ -1,192 +1,193 @@
-import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
-  BatteryCharging,
-  Bike,
+  BadgePercent,
   Check,
-  ChevronRight,
   Facebook,
   Footprints,
-  Gamepad2,
-  HardDrive,
+  Headphones,
   Instagram,
-  MapPin,
-  PackageCheck,
+  PackageOpen,
   Search,
   ShoppingBag,
+  ShoppingCart,
   Smartphone,
   Sparkles,
   Store,
-  Tag,
-  Tv2,
   X,
+  Zap,
 } from "lucide-react";
 import {
-  MotionCard,
-  MotionImageReveal,
-  MotionOverlay,
-  MotionParallax,
   MotionReveal,
   MotionScope,
-  MotionSwap,
+  MotionStagger,
   MotionTextReveal,
 } from "@/components/motion";
 import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
-import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
 import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import {
-  CENTRO_MEGA_SOCIAL_POSTS,
-  CENTRO_MEGA_STORE_CATEGORIES,
-  CENTRO_MEGA_STORE_PRODUCTS,
-  type CentroMegaProduct,
-} from "@/config/centro-mega-storefront";
+  centroMegaInstagramPosts,
+  centroMegaOfficialLinks,
+  centroMegaStoreCategories,
+  centroMegaStoreProducts,
+  type CentroMegaStoreProduct,
+} from "@/config/centro-mega-store-products";
 
-const links = {
-  instagram: "https://www.instagram.com/centro.mega/",
-  facebook: "https://www.facebook.com/CentroMega.com.br/",
-  linktree: "https://linktr.ee/centro.mega",
-  seller: "https://www.magazineluiza.com.br/lojista/centromega/",
-};
-
-const storeQuiz = {
+const quizConfig = {
   services: [
-    "Celulares e smartphones",
-    "Gaming",
-    "Acessórios e tecnologia",
-    "Outlet e calçados",
-    "Perfumes",
-    "Quero ajuda para escolher",
+    "Celular / smartphone",
+    "Tênis / calçado",
+    "Boné / moda outlet",
+    "Acessório para celular",
+    "Quero consultar novidades",
   ],
   experienceOptions: [
-    "Compra para uso pessoal",
-    "Quero presentear",
-    "Estou comparando opções",
-    "Quero consultar vários itens",
+    "Quero comprar para mim",
+    "Estou pesquisando presente",
+    "Quero comparar opções",
+    "Só quero saber o que está disponível",
   ],
   periodOptions: [
-    "Retirada em São José dos Pinhais",
-    "Quero consultar outra unidade",
-    "Preciso de envio",
-    "Quero orientação da equipe",
+    "São José dos Pinhais",
+    "Curitiba",
+    "Outra cidade / consultar envio",
+    "Prefiro confirmar depois",
   ],
-  timingOptions: ["Hoje", "Nesta semana", "Ainda estou pesquisando", "Sem urgência"],
-  proposalKind: "service" as const,
+  timingOptions: [
+    "Quero ver disponibilidade agora",
+    "Ainda nesta semana",
+    "Estou só pesquisando",
+    "Quero acompanhar próximas ofertas",
+  ],
   stepTitles: {
     service: "O que você quer encontrar?",
-    experience: "Como pretende comprar?",
-    period: "Como prefere receber ou retirar?",
-    timing: "Quando pretende fechar?",
+    experience: "Qual é a sua intenção de compra?",
+    period: "Onde você está?",
+    timing: "Quando pretende comprar?",
   },
   notePlaceholder:
-    "Se quiser, informe modelo, cor, tamanho, capacidade, numeração ou outra preferência.",
+    "Se quiser, informe modelo, numeração, cor, faixa de preço ou outro detalhe.",
+  proposalKind: "service" as const,
 };
 
-const accentStyles: Record<CentroMegaProduct["accent"], { glow: string; border: string; pill: string }> = {
-  cyan: {
-    glow: "from-cyan-300/35 via-cyan-400/10 to-transparent",
-    border: "hover:border-cyan-300/70",
-    pill: "bg-cyan-300 text-slate-950",
-  },
-  violet: {
-    glow: "from-violet-400/35 via-fuchsia-400/10 to-transparent",
-    border: "hover:border-violet-300/70",
-    pill: "bg-violet-300 text-slate-950",
-  },
-  lime: {
-    glow: "from-lime-300/35 via-emerald-400/10 to-transparent",
-    border: "hover:border-lime-300/70",
-    pill: "bg-lime-300 text-slate-950",
-  },
-  amber: {
-    glow: "from-amber-300/35 via-orange-400/10 to-transparent",
-    border: "hover:border-amber-300/70",
-    pill: "bg-amber-300 text-slate-950",
-  },
-  rose: {
-    glow: "from-rose-300/35 via-pink-400/10 to-transparent",
-    border: "hover:border-rose-300/70",
-    pill: "bg-rose-300 text-slate-950",
-  },
-  blue: {
-    glow: "from-blue-300/35 via-sky-400/10 to-transparent",
-    border: "hover:border-blue-300/70",
-    pill: "bg-blue-300 text-slate-950",
-  },
-};
+function money(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 2,
+  }).format(value);
+}
 
-function ProductGlyph({ product }: { product: CentroMegaProduct }) {
-  const common = "h-20 w-20 stroke-[1.25]";
-  const glyph =
-    product.visual === "phone" ? (
-      <Smartphone className={common} />
-    ) : product.visual === "shoe" ? (
-      <Footprints className={common} />
-    ) : product.visual === "tvbox" ? (
-      <Tv2 className={common} />
-    ) : product.visual === "gamepad" ? (
-      <Gamepad2 className={common} />
-    ) : product.visual === "harddrive" ? (
-      <HardDrive className={common} />
-    ) : product.visual === "bike" ? (
-      <Bike className={common} />
-    ) : product.visual === "battery" ? (
-      <BatteryCharging className={common} />
-    ) : product.visual === "perfume" ? (
-      <Sparkles className={common} />
-    ) : (
-      <Tag className={common} />
+function ProductVisual({ product }: { product: CentroMegaStoreProduct }) {
+  const base =
+    "relative isolate grid aspect-[4/3] place-items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d1023]";
+
+  if (product.visual === "phone") {
+    return (
+      <div className={base}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_24%,rgba(0,239,255,.28),transparent_28%),radial-gradient(circle_at_28%_72%,rgba(255,0,119,.25),transparent_28%)]" />
+        <div className="mega-float relative h-44 w-24 rotate-[10deg] rounded-[1.7rem] border-4 border-[#11162a] bg-[linear-gradient(145deg,#0ef,#5d3df5_48%,#ff247c)] p-2 shadow-[0_28px_80px_rgba(0,239,255,.28)]">
+          <div className="h-full rounded-[1.2rem] border border-white/20 bg-[radial-gradient(circle_at_50%_15%,#fff6,transparent_20%),linear-gradient(160deg,#161a34,#42137d_42%,#0ddbd0)]">
+            <div className="mx-auto mt-2 h-1.5 w-8 rounded-full bg-black/60" />
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-black tracking-[.2em] text-white/85">
+              POCO
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.18em] text-cyan-200 backdrop-blur">
+          visual editorial
+        </div>
+      </div>
     );
+  }
+
+  if (product.visual === "sneaker" || product.visual === "footwear") {
+    return (
+      <div className={base}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_28%,rgba(255,221,0,.22),transparent_24%),radial-gradient(circle_at_78%_68%,rgba(255,0,119,.23),transparent_28%)]" />
+        <div className="mega-float relative h-28 w-56 -rotate-[8deg] rounded-[48%_55%_32%_40%] border-[5px] border-white bg-[linear-gradient(135deg,#f8f8f8_0_52%,#171717_52%_66%,#f8f8f8_66%)] shadow-[0_30px_80px_rgba(255,0,119,.22)]">
+          <div className="absolute bottom-0 left-0 h-4 w-full rounded-b-[3rem] bg-[#e8e8e8]" />
+          <div className="absolute left-16 top-10 h-5 w-24 -rotate-[20deg] rounded-full bg-[#121212]" />
+          <div className="absolute left-8 top-5 text-[11px] font-black tracking-[.2em] text-black/45">
+            {product.visual === "sneaker" ? "DUNK" : "OUTLET"}
+          </div>
+        </div>
+        <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.18em] text-fuchsia-200 backdrop-blur">
+          visual editorial
+        </div>
+      </div>
+    );
+  }
+
+  if (product.visual === "cap") {
+    return (
+      <div className={base}>
+        <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,rgba(0,239,255,.15),rgba(255,0,119,.2),rgba(255,221,0,.15),rgba(0,239,255,.15))]" />
+        <div className="mega-float relative h-28 w-40 rounded-t-[5rem] rounded-bl-[2rem] bg-[linear-gradient(145deg,#0de0ff,#29309d)] shadow-[0_28px_70px_rgba(0,239,255,.25)]">
+          <div className="absolute -right-14 bottom-0 h-10 w-24 -rotate-6 rounded-[100%_20%_80%_20%] bg-[#ffdd00]" />
+          <div className="absolute inset-x-0 top-8 text-center text-xs font-black tracking-[.22em] text-white">
+            MEGA
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (product.visual === "accessory") {
+    return (
+      <div className={base}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(67,255,170,.24),transparent_36%)]" />
+        <Headphones className="mega-float h-32 w-32 text-emerald-300 drop-shadow-[0_22px_35px_rgba(67,255,170,.28)]" strokeWidth={1.25} />
+      </div>
+    );
+  }
 
   return (
-    <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#071323]">
-      <div
-        className={[
-          "absolute -inset-20 bg-gradient-to-br blur-3xl transition duration-500 group-hover:scale-125",
-          accentStyles[product.accent].glow,
-        ].join(" ")}
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.055)_1px,transparent_1px)] bg-[size:28px_28px] opacity-35" />
-      <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/20 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-white/65 backdrop-blur">
-        visual de amostra
-      </div>
-      <div className="relative text-white/90 transition duration-500 group-hover:-translate-y-2 group-hover:scale-110">
-        {glyph}
-      </div>
-      <div className="absolute bottom-4 right-4 h-16 w-16 rounded-full border border-white/15 shadow-[0_0_60px_rgba(255,255,255,.08)]" />
+    <div className={base}>
+      <div className="mega-scan absolute inset-0 bg-[linear-gradient(115deg,transparent_0_35%,rgba(255,255,255,.12)_48%,transparent_61%)]" />
+      <PackageOpen className="mega-float h-32 w-32 text-[#ffdd00] drop-shadow-[0_24px_36px_rgba(255,221,0,.18)]" strokeWidth={1.2} />
+      <Sparkles className="absolute right-8 top-8 h-8 w-8 text-cyan-300" />
     </div>
   );
 }
 
 function StoreCTA({
   children,
-  products,
+  selectedProducts,
   className,
 }: {
-  children: ReactNode;
-  products?: CentroMegaProduct[];
+  children: React.ReactNode;
+  selectedProducts?: CentroMegaStoreProduct[];
   className?: string;
 }) {
-  const productNames = products?.map((item) => item.name) ?? [];
-  const selected = productNames.length ? productNames.join(" + ") : undefined;
+  const names = selectedProducts?.map((item) => item.name) ?? [];
+  const orderItems = names.join(" | ");
+  const service =
+    names.length > 0
+      ? names.length === 1
+        ? names[0]
+        : `Seleção da vitrine: ${names.join(" + ")}`
+      : undefined;
+
   return (
     <PortfolioCTAQuiz
       clientKey="centro-mega"
-      studioName="Centro Mega Store"
+      studioName="Centro Mega"
       recipientName="a equipe Centro Mega"
       theme="navy"
       mode="proposal"
       funnelIntent="pedido"
-      quizConfig={storeQuiz}
-      initialAnswers={selected ? { service: selected } : undefined}
-      skipPrefilledSteps={Boolean(selected)}
+      quizConfig={quizConfig}
+      initialAnswers={service ? { service } : undefined}
+      skipPrefilledSteps={Boolean(service)}
       orderContext={
-        selected
+        names.length
           ? {
-              order_items: productNames.join(" | "),
+              order_items: orderItems,
               customer_note:
-                "Amostra de loja virtual Centro Mega — confirmar preço, estoque, cor, tamanho e condição antes de fechar o pedido.",
+                "Seleção criada na amostra de loja virtual. Confirmar disponibilidade, preço e condições atuais.",
             }
           : undefined
       }
@@ -197,633 +198,582 @@ function StoreCTA({
   );
 }
 
-function ProductCard({
-  product,
-  selected,
-  onToggle,
-}: {
-  product: CentroMegaProduct;
-  selected: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <article
-      className={[
-        "group relative overflow-hidden rounded-[2rem] border bg-white/[.045] p-3 shadow-[0_22px_80px_rgba(0,0,0,.24)] backdrop-blur-xl transition duration-500 hover:-translate-y-2",
-        selected ? "border-cyan-300/70 ring-1 ring-cyan-300/30" : "border-white/10",
-        accentStyles[product.accent].border,
-      ].join(" ")}
-    >
-      <ProductGlyph product={product} />
-      <div className="p-4 sm:p-5">
-        <div className="flex flex-wrap items-center gap-2">
-          {product.badge ? (
-            <span
-              className={[
-                "rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[.16em]",
-                accentStyles[product.accent].pill,
-              ].join(" ")}
-            >
-              {product.badge}
-            </span>
-          ) : null}
-          <span className="text-[10px] font-black uppercase tracking-[.18em] text-white/45">
-            {product.category}
-          </span>
-        </div>
-
-        <h3 className="mt-5 text-2xl font-black leading-tight tracking-[-.03em] text-white">
-          {product.name}
-        </h3>
-        <p className="mt-2 text-sm font-semibold text-cyan-200/80">{product.subtitle}</p>
-        <p className="mt-4 min-h-20 text-sm leading-6 text-white/58">{product.description}</p>
-
-        {product.historicalPrice ? (
-          <div className="mt-5 rounded-2xl border border-amber-300/20 bg-amber-300/[.06] p-4">
-            <p className="text-[10px] font-black uppercase tracking-[.18em] text-amber-200">
-              referência histórica da publicação
-            </p>
-            <div className="mt-2 flex flex-wrap items-end gap-3">
-              {product.historicalCompareAt ? (
-                <span className="text-sm font-bold text-white/35 line-through">
-                  {product.historicalCompareAt}
-                </span>
-              ) : null}
-              <span className="text-2xl font-black text-white">{product.historicalPrice}</span>
-            </div>
-            <p className="mt-2 text-[11px] leading-5 text-white/45">
-              Não representa preço ou estoque atual. Consulte a equipe.
-            </p>
-          </div>
-        ) : null}
-
-        <div className="mt-6 flex gap-2">
-          <button
-            type="button"
-            onClick={onToggle}
-            aria-pressed={selected}
-            className={[
-              "inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl px-4 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300",
-              selected
-                ? "bg-cyan-300 text-slate-950 hover:bg-white"
-                : "bg-white text-slate-950 hover:bg-cyan-200",
-            ].join(" ")}
-          >
-            {selected ? <Check className="h-4 w-4" aria-hidden="true" /> : <ShoppingBag className="h-4 w-4" aria-hidden="true" />}
-            {selected ? "Na sacola" : "Adicionar"}
-          </button>
-          <StoreCTA
-            products={[product]}
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/15 px-4 text-sm font-black text-white transition hover:border-cyan-300/70 hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-          >
-            Consultar
-          </StoreCTA>
-        </div>
-      </div>
-    </article>
-  );
-}
-
 export function CentroMegaPage() {
-  const [category, setCategory] = useState<(typeof CENTRO_MEGA_STORE_CATEGORIES)[number]>("Todos");
+  const [category, setCategory] = useState<(typeof centroMegaStoreCategories)[number]["id"]>("todos");
   const [query, setQuery] = useState("");
-  const [cartIds, setCartIds] = useState<string[]>([]);
-  const [cartOpen, setCartOpen] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-  const filteredProducts = useMemo(() => {
-    const normalized = query.trim().toLocaleLowerCase("pt-BR");
-    return CENTRO_MEGA_STORE_PRODUCTS.filter((product) => {
-      const categoryMatch = category === "Todos" || product.category === category;
-      const searchMatch =
+  const visibleProducts = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return centroMegaStoreProducts.filter((product) => {
+      const categoryMatches = category === "todos" || product.category === category;
+      const queryMatches =
         !normalized ||
-        [product.name, product.subtitle, product.description, product.category]
-          .join(" ")
-          .toLocaleLowerCase("pt-BR")
-          .includes(normalized);
-      return categoryMatch && searchMatch;
+        product.name.toLowerCase().includes(normalized) ||
+        product.description.toLowerCase().includes(normalized) ||
+        product.badges?.some((badge) => badge.toLowerCase().includes(normalized));
+      return categoryMatches && queryMatches;
     });
   }, [category, query]);
 
-  const cartProducts = useMemo(
-    () => CENTRO_MEGA_STORE_PRODUCTS.filter((product) => cartIds.includes(product.id)),
-    [cartIds],
+  const selectedProducts = useMemo(
+    () => centroMegaStoreProducts.filter((product) => selectedIds.includes(product.id)),
+    [selectedIds],
   );
 
-  useEffect(() => {
-    if (!cartOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setCartOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [cartOpen]);
-
   const toggleProduct = (id: string) => {
-    setCartIds((current) =>
+    setSelectedIds((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
     );
   };
 
   return (
-    <MotionScope intensity="IMMERSIVE">
+    <MotionScope intensity="EXPRESSIVE">
       <div
         data-client-slug="centro-mega"
-        className="min-h-dvh overflow-x-clip bg-[#030812] text-white selection:bg-cyan-300 selection:text-slate-950"
+        className="min-h-dvh overflow-x-hidden bg-[#060711] text-white selection:bg-[#ffdd00] selection:text-black"
         style={
           {
-            "--mega-cyan": "#59e7ff",
-            "--mega-lime": "#c9ff4d",
-            "--mega-violet": "#9c7cff",
-            "--mega-pink": "#ff5fb8",
-          } as CSSProperties
+            "--mega-cyan": "#1EE7FF",
+            "--mega-pink": "#FF257E",
+            "--mega-lime": "#A8FF35",
+            "--mega-gold": "#FFDD00",
+            "--mega-violet": "#725BFF",
+          } as React.CSSProperties
         }
       >
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#030812]/88 px-4 py-3 backdrop-blur-2xl lg:px-8">
-          <div className="mx-auto flex max-w-[1480px] items-center justify-between gap-4">
+        <style>{`
+          @keyframes mega-float {
+            0%,100% { transform: translate3d(0,0,0) rotate(var(--mega-rotate,0deg)); }
+            50% { transform: translate3d(0,-10px,0) rotate(var(--mega-rotate,0deg)); }
+          }
+          @keyframes mega-scan {
+            0% { transform: translateX(-55%); }
+            100% { transform: translateX(55%); }
+          }
+          @keyframes mega-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+          @media (prefers-reduced-motion: no-preference) {
+            .mega-float { animation: mega-float 5s ease-in-out infinite; }
+            .mega-scan { animation: mega-scan 4.5s linear infinite; }
+            .mega-marquee-track { animation: mega-marquee 22s linear infinite; }
+          }
+        `}</style>
+
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#060711]/82 px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-10">
+          <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4">
             <a href="#inicio" className="flex min-w-0 items-center gap-3" aria-label="Centro Mega Store — início">
-              <PortfolioImage
-                src="/images/centro-mega/logo.png"
-                alt="Logo Centro Mega"
-                width={500}
-                height={500}
-                priority
-                managedField="logoUrl"
-                className="h-10 w-10 rounded-xl object-cover shadow-[0_0_35px_rgba(89,231,255,.22)] sm:h-12 sm:w-12"
-              />
-              <div className="min-w-0">
-                <p className="truncate text-sm font-black uppercase tracking-[.12em] sm:text-base">Centro Mega</p>
-                <p className="truncate text-[9px] font-black uppercase tracking-[.2em] text-cyan-300/70 sm:text-[10px]">
-                  Store sample · tech + outlet
-                </p>
-              </div>
-            </a>
-
-            <nav className="hidden items-center gap-7 text-xs font-black uppercase tracking-[.16em] text-white/55 lg:flex">
-              <a className="transition hover:text-cyan-300" href="#drops">Drops</a>
-              <a className="transition hover:text-cyan-300" href="#catalogo">Catálogo</a>
-              <a className="transition hover:text-cyan-300" href="#social">Social</a>
-              <a className="transition hover:text-cyan-300" href="#lojas">Lojas</a>
-            </nav>
-
-            <button
-              type="button"
-              onClick={() => setCartOpen(true)}
-              className="relative inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 text-sm font-black text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-300/70 hover:bg-cyan-300/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-              aria-label={`Abrir sacola com ${cartProducts.length} itens`}
-            >
-              <ShoppingBag className="h-4 w-4" aria-hidden="true" />
-              <span className="hidden sm:inline">Sacola</span>
-              <span className="grid h-6 min-w-6 place-items-center rounded-full bg-cyan-300 px-1 text-xs text-slate-950">
-                {cartProducts.length}
-              </span>
-            </button>
-          </div>
-        </header>
-
-        <main>
-          <section id="inicio" className="relative isolate overflow-hidden px-5 pb-20 pt-14 lg:px-8 lg:pb-28 lg:pt-20">
-            <div className="pointer-events-none absolute inset-0 -z-30 bg-[#030812]" />
-            <div className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(rgba(89,231,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(89,231,255,.055)_1px,transparent_1px)] bg-[size:64px_64px]" />
-            <div className="pointer-events-none absolute -left-40 top-20 -z-10 h-[34rem] w-[34rem] rounded-full bg-cyan-400/20 blur-[120px]" />
-            <div className="pointer-events-none absolute -right-40 top-1/3 -z-10 h-[38rem] w-[38rem] rounded-full bg-violet-500/20 blur-[130px]" />
-
-            <div className="mx-auto max-w-[1480px]">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5 text-[10px] font-black uppercase tracking-[.2em] text-white/45">
-                <span className="inline-flex items-center gap-2 text-cyan-200">
-                  <Sparkles className="h-4 w-4" aria-hidden="true" />
-                  amostra interativa de loja virtual
-                </span>
-                <span>produtos derivados de fontes públicas + mix informado</span>
-              </div>
-
-              <div className="grid gap-12 pt-10 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
-                <div className="relative z-10">
-                  <MotionReveal variant="mask">
-                    <p className="inline-flex items-center gap-2 rounded-full border border-lime-300/20 bg-lime-300/10 px-4 py-2 text-[10px] font-black uppercase tracking-[.2em] text-lime-200">
-                      <PackageCheck className="h-4 w-4" aria-hidden="true" />
-                      tecnologia · outlet · achados
-                    </p>
-                  </MotionReveal>
-
-                  <h1 className="mt-7 max-w-4xl text-[clamp(3.8rem,9vw,8.7rem)] font-black uppercase leading-[.78] tracking-[-.075em]">
-                    <MotionTextReveal text="Centro Mega" as="span" />
-                    <span className="mt-2 block bg-gradient-to-r from-cyan-300 via-white to-violet-300 bg-clip-text text-transparent">
-                      Store.
-                    </span>
-                  </h1>
-
-                  <MotionReveal variant="up" delay={140}>
-                    <p className="mt-8 max-w-2xl text-lg leading-8 text-white/66 sm:text-xl">
-                      Uma vitrine digital viva para celulares, gaming, acessórios, perfumes e produtos de outlet.
-                      A seleção mistura itens encontrados em publicações públicas da marca e catálogo público do seller.
-                    </p>
-                  </MotionReveal>
-
-                  <MotionReveal variant="up" delay={240}>
-                    <div className="mt-8 flex flex-wrap gap-3">
-                      <a
-                        href="#catalogo"
-                        className="inline-flex min-h-13 items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-black text-slate-950 shadow-[0_0_50px_rgba(89,231,255,.2)] transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                      >
-                        Explorar catálogo
-                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                      </a>
-                      <StoreCTA className="inline-flex min-h-13 items-center gap-3 rounded-full border border-white/15 bg-white/[.04] px-6 py-3.5 text-sm font-black text-white backdrop-blur transition hover:-translate-y-1 hover:border-violet-300/60 hover:bg-violet-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300">
-                        Pedir uma indicação
-                        <Sparkles className="h-4 w-4" aria-hidden="true" />
-                      </StoreCTA>
-                    </div>
-                  </MotionReveal>
-
-                  <div className="mt-10 grid max-w-2xl grid-cols-3 gap-3">
-                    {[
-                      ["10", "itens na amostra"],
-                      ["6", "categorias"],
-                      ["1", "sacola inteligente"],
-                    ].map(([value, label]) => (
-                      <div key={label} className="border-t border-white/15 pt-4">
-                        <p className="text-2xl font-black text-cyan-200 sm:text-3xl">{value}</p>
-                        <p className="mt-1 text-[10px] font-black uppercase tracking-[.16em] text-white/40">{label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <MotionParallax speed={28} className="relative">
-                  <div className="relative mx-auto max-w-3xl">
-                    <div className="absolute -inset-8 -z-10 rounded-[3rem] bg-gradient-to-br from-cyan-300/15 via-violet-400/10 to-pink-400/10 blur-3xl" />
-                    <MotionImageReveal direction="left">
-                      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/[.04] p-3 shadow-[0_35px_120px_rgba(0,0,0,.45)] backdrop-blur">
-                        <PortfolioImage
-                          src="/images/centro-mega/hero.png"
-                          alt="Composição visual Centro Mega"
-                          width={1600}
-                          height={900}
-                          priority
-                          managedField="heroImageUrl"
-                          className="aspect-[4/3] w-full rounded-[2rem] object-cover"
-                        />
-                        <div className="absolute inset-3 rounded-[2rem] bg-gradient-to-t from-[#030812] via-transparent to-transparent" />
-                        <div className="absolute bottom-7 left-7 right-7 flex flex-wrap items-end justify-between gap-4">
-                          <div>
-                            <p className="text-[10px] font-black uppercase tracking-[.2em] text-cyan-200">social commerce demo</p>
-                            <p className="mt-2 max-w-sm text-2xl font-black leading-tight">O feed vira vitrine. A vitrine vira pedido.</p>
-                          </div>
-                          <span className="rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-black backdrop-blur">
-                            SJP · Curitiba
-                          </span>
-                        </div>
-                      </div>
-                    </MotionImageReveal>
-
-                    <div className="absolute -left-5 top-10 hidden rounded-2xl border border-cyan-300/30 bg-[#071323]/90 p-4 shadow-2xl backdrop-blur sm:block lg:-left-10">
-                      <Smartphone className="h-7 w-7 text-cyan-300" aria-hidden="true" />
-                      <p className="mt-3 text-xs font-black uppercase tracking-[.16em]">Celulares</p>
-                      <p className="mt-1 text-[11px] text-white/45">social drop</p>
-                    </div>
-                    <div className="absolute -right-4 bottom-10 hidden rounded-2xl border border-violet-300/30 bg-[#071323]/90 p-4 shadow-2xl backdrop-blur sm:block lg:-right-8">
-                      <Footprints className="h-7 w-7 text-violet-300" aria-hidden="true" />
-                      <p className="mt-3 text-xs font-black uppercase tracking-[.16em]">Outlet</p>
-                      <p className="mt-1 text-[11px] text-white/45">achados rotativos</p>
-                    </div>
-                  </div>
-                </MotionParallax>
-              </div>
-            </div>
-          </section>
-
-          <section id="drops" className="border-y border-white/10 bg-white/[.025]">
-            <div className="mx-auto flex max-w-[1480px] gap-8 overflow-x-auto px-5 py-5 text-[11px] font-black uppercase tracking-[.18em] text-white/50 lg:px-8">
-              {["SOCIAL DROPS", "CELULARES", "GAMING", "OUTLET", "PERFUMES", "ACESSÓRIOS", "ACHADOS", "SÃO JOSÉ DOS PINHAIS"].map((item) => (
-                <span key={item} className="shrink-0">
-                  {item} <span className="ml-8 text-cyan-300">✦</span>
-                </span>
-              ))}
-            </div>
-          </section>
-
-          <section id="catalogo" className="px-5 py-20 lg:px-8 lg:py-28">
-            <div className="mx-auto max-w-[1480px]">
-              <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-end">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-cyan-300">Vitrine dinâmica</p>
-                  <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] tracking-[-.055em] sm:text-7xl">
-                    Do post
-                    <span className="block text-white/35">para a sacola.</span>
-                  </h2>
-                </div>
-                <div className="max-w-3xl lg:justify-self-end">
-                  <p className="text-lg leading-8 text-white/58">
-                    Produtos exatos quando a fonte pública permite; categorias rotativas quando o modelo específico não foi confirmado.
-                    Preço e estoque só são tratados como atuais depois de confirmação.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-12 rounded-[2rem] border border-white/10 bg-white/[.035] p-3 sm:p-4">
-                <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-                  <div className="relative flex-1">
-                    <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/35" aria-hidden="true" />
-                    <input
-                      value={query}
-                      onChange={(event) => setQuery(event.target.value)}
-                      placeholder="Buscar produto, categoria ou tipo..."
-                      aria-label="Buscar no catálogo Centro Mega"
-                      className="min-h-12 w-full rounded-xl border border-white/10 bg-black/25 pl-11 pr-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/20"
-                    />
-                  </div>
-                  <div className="flex gap-2 overflow-x-auto pb-1 xl:pb-0">
-                    {CENTRO_MEGA_STORE_CATEGORIES.map((item) => (
-                      <button
-                        key={item}
-                        type="button"
-                        onClick={() => setCategory(item)}
-                        aria-pressed={category === item}
-                        className={[
-                          "min-h-11 shrink-0 rounded-xl px-4 text-xs font-black uppercase tracking-[.12em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300",
-                          category === item
-                            ? "bg-cyan-300 text-slate-950"
-                            : "border border-white/10 bg-white/[.035] text-white/55 hover:border-white/25 hover:text-white",
-                        ].join(" ")}
-                      >
-                        {item}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <MotionSwap swapKey={`${category}:${query}`} variant="fade" className="mt-8">
-                {filteredProducts.length ? (
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {filteredProducts.map((product, index) => (
-                      <MotionCard key={product.id} index={index}>
-                        <ProductCard
-                          product={product}
-                          selected={cartIds.includes(product.id)}
-                          onToggle={() => toggleProduct(product.id)}
-                        />
-                      </MotionCard>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="rounded-[2rem] border border-dashed border-white/15 py-20 text-center">
-                    <p className="text-2xl font-black">Nenhum item encontrado.</p>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setCategory("Todos");
-                        setQuery("");
-                      }}
-                      className="mt-4 text-sm font-black text-cyan-300 underline underline-offset-4"
-                    >
-                      Limpar busca
-                    </button>
-                  </div>
-                )}
-              </MotionSwap>
-            </div>
-          </section>
-
-          <section className="relative overflow-hidden bg-white px-5 py-20 text-[#071323] lg:px-8 lg:py-28">
-            <div className="pointer-events-none absolute -right-40 top-0 h-96 w-96 rounded-full bg-cyan-200/60 blur-[120px]" />
-            <div className="mx-auto max-w-[1480px]">
-              <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-violet-700">Social drop em destaque</p>
-                  <h2 className="mt-4 text-5xl font-black uppercase leading-[.88] tracking-[-.055em] sm:text-7xl">
-                    POCO X5 Pro.
-                    <span className="block text-slate-300">O post virou produto.</span>
-                  </h2>
-                  <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                    A publicação pública de 25/01/2024 informa POCO X5 Pro com 8 GB de RAM e 256 GB de armazenamento.
-                    A amostra preserva o preço daquele post apenas como referência histórica.
-                  </p>
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <StoreCTA
-                      products={[CENTRO_MEGA_STORE_PRODUCTS[0]]}
-                      className="inline-flex min-h-13 items-center gap-3 rounded-full bg-[#071323] px-6 py-3.5 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-                    >
-                      Consultar o POCO
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </StoreCTA>
-                    <button
-                      type="button"
-                      onClick={() => toggleProduct("poco-x5-pro-8-256")}
-                      className="inline-flex min-h-13 items-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 text-sm font-black transition hover:border-cyan-500 hover:bg-cyan-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
-                    >
-                      <ShoppingBag className="h-4 w-4" aria-hidden="true" />
-                      {cartIds.includes("poco-x5-pro-8-256") ? "Remover da sacola" : "Adicionar à sacola"}
-                    </button>
-                  </div>
-                </div>
-
-                <MotionReveal variant="scale">
-                  <div className="relative mx-auto max-w-2xl rounded-[2.5rem] bg-[#071323] p-5 shadow-[0_40px_120px_rgba(7,19,35,.25)]">
-                    <div className="absolute -right-5 -top-5 h-28 w-28 rounded-full bg-violet-400/40 blur-2xl" />
-                    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_30%_20%,rgba(89,231,255,.22),transparent_34%),radial-gradient(circle_at_75%_75%,rgba(156,124,255,.24),transparent_35%),#06101e] px-8 py-12">
-                      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:34px_34px]" />
-                      <div className="relative mx-auto grid h-80 max-w-sm place-items-center">
-                        <div className="absolute h-72 w-44 -rotate-6 rounded-[2.5rem] border-4 border-cyan-200/60 bg-gradient-to-br from-cyan-200/30 to-blue-700/20 shadow-[0_0_90px_rgba(89,231,255,.22)]" />
-                        <div className="absolute h-72 w-44 rotate-6 rounded-[2.5rem] border-4 border-violet-200/50 bg-gradient-to-br from-violet-200/25 to-fuchsia-700/20 shadow-[0_0_90px_rgba(156,124,255,.22)]" />
-                        <Smartphone className="relative h-28 w-28 text-white" strokeWidth={1.15} aria-hidden="true" />
-                      </div>
-                      <div className="relative mt-5 flex items-end justify-between gap-5">
-                        <div>
-                          <p className="text-xs font-black uppercase tracking-[.18em] text-cyan-200">Preço publicado em 2024</p>
-                          <p className="mt-2 text-4xl font-black text-white">R$ 1.899,00</p>
-                          <p className="mt-1 text-sm text-white/35 line-through">R$ 2.399,00</p>
-                        </div>
-                        <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-4 py-2 text-[10px] font-black uppercase tracking-[.14em] text-amber-200">
-                          referência histórica
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </MotionReveal>
-              </div>
-            </div>
-          </section>
-
-          <section id="social" className="px-5 py-20 lg:px-8 lg:py-28">
-            <div className="mx-auto max-w-[1480px]">
-              <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-pink-300">Feed como motor comercial</p>
-                  <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[.9] tracking-[-.055em] sm:text-7xl">
-                    O social não fica
-                    <span className="block text-white/35">separado da loja.</span>
-                  </h2>
-                </div>
-                <p className="max-w-xl text-lg leading-8 text-white/58">
-                  A amostra mantém links para publicações oficiais já registradas no projeto e usa produtos somente quando a fonte permite identificar o item com segurança.
-                </p>
-              </div>
-
-              <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {CENTRO_MEGA_SOCIAL_POSTS.map((post, index) => (
-                  <MotionCard key={post.href} index={index}>
-                    <a
-                      href={post.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group block min-h-48 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.04] p-6 transition hover:-translate-y-1 hover:border-pink-300/50 hover:bg-pink-300/[.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-300"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <Instagram className="h-7 w-7 text-pink-300" aria-hidden="true" />
-                        <span className="text-[10px] font-black uppercase tracking-[.2em] text-white/35">#{String(index + 1).padStart(2, "0")}</span>
-                      </div>
-                      <p className="mt-10 text-xs font-black uppercase tracking-[.18em] text-pink-200/70">{post.label}</p>
-                      <p className="mt-2 flex items-center justify-between gap-4 text-xl font-black">
-                        Abrir publicação
-                        <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" aria-hidden="true" />
-                      </p>
-                    </a>
-                  </MotionCard>
-                ))}
-              </div>
-
-              <div className="mt-8 grid gap-4 lg:grid-cols-2">
-                <a
-                  href={links.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex min-h-24 items-center justify-between gap-5 rounded-2xl border border-white/10 bg-gradient-to-r from-pink-400/10 to-violet-400/10 px-6 transition hover:border-pink-300/50"
-                >
-                  <span className="inline-flex items-center gap-3 font-black">
-                    <Instagram className="h-5 w-5 text-pink-300" aria-hidden="true" />
-                    Instagram oficial @centro.mega
-                  </span>
-                  <ChevronRight className="h-5 w-5 transition group-hover:translate-x-1" aria-hidden="true" />
-                </a>
-                <a
-                  href={links.facebook}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex min-h-24 items-center justify-between gap-5 rounded-2xl border border-white/10 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 px-6 transition hover:border-cyan-300/50"
-                >
-                  <span className="inline-flex items-center gap-3 font-black">
-                    <Facebook className="h-5 w-5 text-cyan-300" aria-hidden="true" />
-                    Facebook oficial Centro Mega
-                  </span>
-                  <ChevronRight className="h-5 w-5 transition group-hover:translate-x-1" aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <section id="lojas" className="relative overflow-hidden border-y border-white/10 bg-[#071323] px-5 py-20 lg:px-8 lg:py-28">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(89,231,255,.13),transparent_25%),radial-gradient(circle_at_88%_78%,rgba(156,124,255,.15),transparent_30%)]" />
-            <div className="relative mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[.24em] text-lime-300">Marca com presença física</p>
-                <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] tracking-[-.055em] sm:text-7xl">
-                  Loja virtual
-                  <span className="block text-white/35">com pé no balcão.</span>
-                </h2>
-                <p className="mt-6 max-w-xl text-lg leading-8 text-white/58">
-                  O Linktree público da Centro Mega lista SAC e canais para Outlet São José dos Pinhais, Galeria Di Brunno, Shopping Cidade e Pinheirinho.
-                </p>
-                <StoreCTA className="mt-8 inline-flex min-h-13 items-center gap-3 rounded-full bg-lime-300 px-6 py-3.5 text-sm font-black text-slate-950 transition hover:-translate-y-1 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300">
-                  Consultar uma unidade
-                  <MapPin className="h-4 w-4" aria-hidden="true" />
-                </StoreCTA>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  ["Centro Mega Outlet", "São José dos Pinhais", "outlet"],
-                  ["Galeria Di Brunno", "São José dos Pinhais", "loja"],
-                  ["Shopping Cidade", "Curitiba", "loja"],
-                  ["Pinheirinho", "Curitiba", "canal"],
-                ].map(([name, city, kind], index) => (
-                  <MotionCard key={name} index={index}>
-                    <div className="rounded-[2rem] border border-white/10 bg-white/[.04] p-6">
-                      <div className="flex items-center justify-between gap-4">
-                        <Store className="h-6 w-6 text-lime-300" aria-hidden="true" />
-                        <span className="text-[10px] font-black uppercase tracking-[.18em] text-white/30">{kind}</span>
-                      </div>
-                      <h3 className="mt-10 text-2xl font-black">{name}</h3>
-                      <p className="mt-2 text-white/50">{city}</p>
-                    </div>
-                  </MotionCard>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="px-5 py-20 lg:px-8 lg:py-28">
-            <div className="mx-auto max-w-[1480px] overflow-hidden rounded-[2.7rem] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/15 via-violet-400/10 to-pink-400/10 p-7 shadow-[0_40px_130px_rgba(0,0,0,.35)] sm:p-10 lg:p-14">
-              <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[.24em] text-cyan-200">Finalizar a experiência</p>
-                  <h2 className="mt-4 max-w-5xl text-5xl font-black uppercase leading-[.88] tracking-[-.055em] sm:text-7xl">
-                    Monte a sacola.
-                    <span className="block text-white/45">A equipe confirma o resto.</span>
-                  </h2>
-                  <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
-                    A amostra não inventa estoque nem preço. Ela leva o contexto do que você escolheu para o funil individual da Centro Mega.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setCartOpen(true)}
-                  className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-black text-slate-950 transition hover:-translate-y-1 hover:bg-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                >
-                  <ShoppingBag className="h-5 w-5" aria-hidden="true" />
-                  Abrir sacola ({cartProducts.length})
-                </button>
-              </div>
-            </div>
-          </section>
-        </main>
-
-        <footer className="border-t border-white/10 bg-[#02060d] px-5 py-10 lg:px-8">
-          <div className="mx-auto flex max-w-[1480px] flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div>
               <PortfolioImage
                 src="/images/centro-mega/logo.png"
                 alt="Centro Mega"
                 width={500}
                 height={500}
+                priority
                 managedField="logoUrl"
-                className="h-14 w-14 rounded-xl object-cover"
+                className="h-11 w-11 rounded-xl object-cover ring-1 ring-white/15"
               />
-              <p className="mt-4 text-xl font-black">Centro Mega Store · amostra de loja virtual</p>
-              <p className="mt-2 max-w-xl text-sm leading-6 text-white/45">
-                Produtos e categorias usados nesta demonstração vêm de publicações públicas, seller público e informações fornecidas pelo responsável. Disponibilidade e preço atual dependem de confirmação.
+              <div className="min-w-0">
+                <p className="truncate text-sm font-black uppercase tracking-[.08em]">Centro Mega Store</p>
+                <p className="truncate text-[10px] font-black uppercase tracking-[.18em] text-cyan-300">
+                  amostra de loja virtual
+                </p>
+              </div>
+            </a>
+
+            <nav className="hidden items-center gap-6 text-xs font-black uppercase tracking-[.14em] text-white/70 lg:flex">
+              <a href="#vitrine" className="transition hover:text-white">Vitrine</a>
+              <a href="#outlet" className="transition hover:text-white">Outlet</a>
+              <a href="#redes" className="transition hover:text-white">Drops</a>
+              <a href="#lojas" className="transition hover:text-white">Presença</a>
+            </nav>
+
+            <div className="flex items-center gap-2">
+              <a
+                href="#vitrine"
+                className="hidden min-h-11 items-center gap-2 rounded-full border border-white/15 px-4 text-xs font-black sm:inline-flex"
+              >
+                <Search className="h-4 w-4" aria-hidden="true" />
+                Explorar
+              </a>
+              <StoreCTA
+                selectedProducts={selectedProducts}
+                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--mega-gold)] px-4 text-xs font-black text-black transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <ShoppingBag className="h-4 w-4" aria-hidden="true" />
+                {selectedIds.length ? `Seleção (${selectedIds.length})` : "Consultar"}
+              </StoreCTA>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <section id="inicio" className="relative isolate overflow-hidden px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pb-24 lg:pt-16">
+            <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_12%_8%,rgba(30,231,255,.18),transparent_28%),radial-gradient(circle_at_86%_18%,rgba(255,37,126,.22),transparent_30%),radial-gradient(circle_at_66%_82%,rgba(114,91,255,.18),transparent_30%)]" />
+            <div className="absolute inset-0 -z-20 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.045)_1px,transparent_1px)] [background-size:48px_48px]" />
+            <div className="absolute left-[8%] top-20 -z-10 h-64 w-64 rounded-full bg-cyan-400/15 blur-[90px]" />
+            <div className="absolute right-[4%] top-10 -z-10 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-[110px]" />
+
+            <div className="mx-auto grid max-w-[90rem] gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+              <div>
+                <MotionReveal>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-[10px] font-black uppercase tracking-[.22em] text-cyan-200">
+                    <Zap className="h-4 w-4" aria-hidden="true" />
+                    Centro Mega · Store Concept
+                  </div>
+                </MotionReveal>
+
+                <h1 className="mt-6 max-w-5xl text-[clamp(3.25rem,8vw,8.4rem)] font-black uppercase leading-[.82] tracking-[-.065em]">
+                  <MotionTextReveal text="Tech." className="block text-white" />
+                  <MotionTextReveal text="Outlet." className="block text-[var(--mega-cyan)]" />
+                  <MotionTextReveal text="Achados." className="block text-[var(--mega-pink)]" />
+                </h1>
+
+                <MotionReveal delay={180}>
+                  <p className="mt-7 max-w-2xl text-lg leading-8 text-white/68 sm:text-xl">
+                    Uma amostra de loja virtual inspirada no que a Centro Mega já publica:
+                    celulares, acessórios e oportunidades de outlet em uma experiência muito mais
+                    visual, navegável e pronta para transformar postagem em interesse de compra.
+                  </p>
+                </MotionReveal>
+
+                <MotionReveal delay={260}>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <a
+                      href="#vitrine"
+                      className="inline-flex min-h-13 items-center gap-2 rounded-full bg-white px-6 py-3.5 font-black text-black transition hover:-translate-y-1 hover:bg-[var(--mega-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                    >
+                      Entrar na vitrine
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                    <StoreCTA
+                      selectedProducts={selectedProducts}
+                      className="inline-flex min-h-13 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 font-black text-white backdrop-blur transition hover:-translate-y-1 hover:border-cyan-300/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                    >
+                      Montar pedido
+                      <ShoppingCart className="h-4 w-4" aria-hidden="true" />
+                    </StoreCTA>
+                  </div>
+                </MotionReveal>
+
+                <div className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+                  {[
+                    ["Celulares", "Produtos publicados"],
+                    ["Outlet", "Tênis + moda"],
+                    ["Acessórios", "Tech diária"],
+                    ["Drops", "Redes oficiais"],
+                  ].map(([title, subtitle]) => (
+                    <div key={title} className="rounded-2xl border border-white/10 bg-white/[.035] p-4 backdrop-blur">
+                      <p className="text-sm font-black">{title}</p>
+                      <p className="mt-1 text-xs text-white/45">{subtitle}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative min-h-[34rem] lg:min-h-[42rem]">
+                <div className="absolute left-[4%] top-[10%] w-[58%] rotate-[-7deg]">
+                  <ProductVisual product={centroMegaStoreProducts[0]} />
+                </div>
+                <div className="absolute bottom-[7%] right-[0%] w-[56%] rotate-[6deg]">
+                  <ProductVisual product={centroMegaStoreProducts[1]} />
+                </div>
+                <div className="absolute right-[4%] top-[4%] rounded-2xl border border-white/15 bg-black/55 px-4 py-3 text-right shadow-2xl backdrop-blur">
+                  <p className="text-[10px] font-black uppercase tracking-[.18em] text-[var(--mega-gold)]">
+                    vitrine social
+                  </p>
+                  <p className="mt-1 text-sm font-black">Posts viram produtos</p>
+                </div>
+                <div className="absolute bottom-[14%] left-[2%] rounded-2xl border border-fuchsia-300/20 bg-fuchsia-500/10 px-4 py-3 backdrop-blur">
+                  <p className="text-xs font-black uppercase tracking-[.14em] text-fuchsia-200">
+                    disponibilidade sob consulta
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="overflow-hidden border-y border-white/10 bg-[var(--mega-gold)] py-3 text-black">
+            <div className="mega-marquee-track flex w-max gap-10 whitespace-nowrap text-xs font-black uppercase tracking-[.22em]">
+              {Array.from({ length: 2 }).flatMap((_, loop) =>
+                ["Celulares", "Outlet", "Tênis", "Bonés", "Calçados", "Acessórios", "Novidades"].map(
+                  (item) => (
+                    <span key={`${loop}-${item}`} className="inline-flex items-center gap-10">
+                      {item}
+                      <span aria-hidden="true">✦</span>
+                    </span>
+                  ),
+                ),
+              )}
+            </div>
+          </section>
+
+          <section id="vitrine" className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+            <div className="mx-auto max-w-[90rem]">
+              <div className="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[.24em] text-cyan-300">
+                    Vitrine experimental
+                  </p>
+                  <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] tracking-[-.04em] sm:text-7xl">
+                    Produtos que já nasceram nas redes.
+                  </h2>
+                </div>
+                <div className="max-w-2xl lg:justify-self-end">
+                  <p className="text-lg leading-8 text-white/62">
+                    Dois produtos abaixo vieram de publicações públicas indexadas da Centro Mega.
+                    Os demais mostram como categorias reais da operação podem virar uma loja viva sem
+                    inventar estoque, preço ou marca.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
+                <div className="flex flex-wrap gap-2">
+                  {centroMegaStoreCategories.map((item) => {
+                    const active = category === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setCategory(item.id)}
+                        className={[
+                          "rounded-full border px-4 py-2.5 text-xs font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300",
+                          active
+                            ? "border-white bg-white text-black"
+                            : "border-white/12 bg-white/[.035] text-white/68 hover:border-white/30 hover:text-white",
+                        ].join(" ")}
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <label className="relative block min-w-0 lg:w-80">
+                  <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/35" aria-hidden="true" />
+                  <span className="sr-only">Buscar na vitrine</span>
+                  <input
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    placeholder="Buscar na vitrine..."
+                    className="min-h-12 w-full rounded-full border border-white/12 bg-white/[.035] pl-11 pr-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-cyan-300/60"
+                  />
+                </label>
+              </div>
+
+              <MotionStagger className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {visibleProducts.map((product) => {
+                  const selected = selectedIds.includes(product.id);
+                  return (
+                    <article
+                      key={product.id}
+                      className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.035] p-3 transition duration-300 hover:-translate-y-2 hover:border-white/25 hover:bg-white/[.055]"
+                    >
+                      <ProductVisual product={product} />
+                      <div className="p-3 pt-5">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="rounded-full bg-white/7 px-2.5 py-1 text-[9px] font-black uppercase tracking-[.16em] text-cyan-200">
+                            {product.kicker}
+                          </span>
+                          {product.sampleOnly ? (
+                            <span className="rounded-full border border-white/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[.16em] text-white/45">
+                              demonstração
+                            </span>
+                          ) : null}
+                        </div>
+
+                        <h3 className="mt-4 text-2xl font-black leading-tight">{product.name}</h3>
+                        <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-white/55">
+                          {product.description}
+                        </p>
+
+                        {product.historicalPrice ? (
+                          <div className="mt-5 rounded-2xl border border-[var(--mega-gold)]/20 bg-[var(--mega-gold)]/8 p-4">
+                            {product.historicalPrice.from ? (
+                              <p className="text-xs text-white/38 line-through">
+                                {money(product.historicalPrice.from)}
+                              </p>
+                            ) : null}
+                            <p className="mt-1 text-3xl font-black text-[var(--mega-gold)]">
+                              {money(product.historicalPrice.to)}
+                            </p>
+                            <p className="mt-1 text-[10px] font-bold uppercase tracking-[.12em] text-white/40">
+                              {product.historicalPrice.label} · não é preço atual garantido
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="mt-5 flex min-h-[5.7rem] items-center rounded-2xl border border-white/8 bg-white/[.025] p-4">
+                            <p className="text-sm font-black text-white/66">Preço e disponibilidade sob consulta</p>
+                          </div>
+                        )}
+
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {product.badges?.map((badge) => (
+                            <span key={badge} className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-bold text-white/50">
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mt-5 flex gap-2">
+                          <button
+                            type="button"
+                            onClick={() => toggleProduct(product.id)}
+                            aria-pressed={selected}
+                            className={[
+                              "inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full px-4 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300",
+                              selected
+                                ? "bg-[var(--mega-lime)] text-black"
+                                : "bg-white text-black hover:bg-[var(--mega-gold)]",
+                            ].join(" ")}
+                          >
+                            {selected ? <Check className="h-4 w-4" aria-hidden="true" /> : <ShoppingCart className="h-4 w-4" aria-hidden="true" />}
+                            {selected ? "Na seleção" : "Adicionar"}
+                          </button>
+                          <a
+                            href={product.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="grid min-h-12 min-w-12 place-items-center rounded-full border border-white/12 text-white/60 transition hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                            aria-label={`Abrir fonte de ${product.name}`}
+                            title={product.sourceLabel}
+                          >
+                            <ArrowRight className="h-4 w-4 -rotate-45" aria-hidden="true" />
+                          </a>
+                        </div>
+
+                        <p className="mt-4 text-[10px] leading-5 text-white/32">
+                          {product.sourceNote}
+                        </p>
+                      </div>
+                    </article>
+                  );
+                })}
+              </MotionStagger>
+
+              {visibleProducts.length === 0 ? (
+                <div className="mt-10 rounded-[2rem] border border-dashed border-white/15 p-10 text-center">
+                  <PackageOpen className="mx-auto h-10 w-10 text-white/30" aria-hidden="true" />
+                  <p className="mt-4 font-black">Nada encontrado nesta combinação.</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setQuery("");
+                      setCategory("todos");
+                    }}
+                    className="mt-4 text-sm font-black text-cyan-300 underline underline-offset-4"
+                  >
+                    Limpar filtros
+                  </button>
+                </div>
+              ) : null}
+            </div>
+          </section>
+
+          <section id="outlet" className="relative overflow-hidden bg-white px-4 py-20 text-black sm:px-6 lg:px-10 lg:py-28">
+            <div className="absolute -right-32 top-0 h-96 w-96 rounded-full bg-fuchsia-400/25 blur-[120px]" />
+            <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-cyan-300/30 blur-[120px]" />
+            <div className="relative mx-auto max-w-[90rem]">
+              <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-[10px] font-black uppercase tracking-[.2em] text-white">
+                    <BadgePercent className="h-4 w-4 text-[var(--mega-gold)]" aria-hidden="true" />
+                    Outlet Mode
+                  </div>
+                  <h2 className="mt-5 max-w-4xl text-5xl font-black uppercase leading-[.86] tracking-[-.05em] sm:text-7xl">
+                    Uma loja que muda conforme as oportunidades aparecem.
+                  </h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
+                    A proposta não é congelar um catálogo. É transformar as postagens recorrentes da
+                    Centro Mega em uma vitrine digital com origem, data, categoria e CTA de consulta.
+                  </p>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {[
+                    ["01", "Post entra", "A publicação é verificada e ganha origem/data."],
+                    ["02", "Produto nasce", "Nome, categoria e detalhes publicados viram card."],
+                    ["03", "Estoque não é inventado", "Preço, grade e disponibilidade recebem tratamento de freshness."],
+                    ["04", "Interesse continua", "A seleção segue para o funil individual da Centro Mega."],
+                  ].map(([n, title, body], index) => (
+                    <MotionReveal key={n} delay={index * 90}>
+                      <article className="min-h-52 rounded-[2rem] border-2 border-black p-6 shadow-[8px_8px_0_#ffdd00]">
+                        <p className="text-sm font-black text-fuchsia-600">{n}</p>
+                        <h3 className="mt-8 text-2xl font-black uppercase">{title}</h3>
+                        <p className="mt-3 text-sm leading-6 text-black/58">{body}</p>
+                      </article>
+                    </MotionReveal>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="redes" className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+            <div className="mx-auto max-w-[90rem]">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[.24em] text-fuchsia-300">
+                    Social commerce
+                  </p>
+                  <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[.9] tracking-[-.045em] sm:text-7xl">
+                    A rede social vira a fila de abastecimento da loja.
+                  </h2>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={centroMegaOfficialLinks.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-black hover:border-fuchsia-300/60"
+                  >
+                    <Instagram className="h-4 w-4" aria-hidden="true" />
+                    @centro.mega
+                  </a>
+                  <a
+                    href={centroMegaOfficialLinks.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-black hover:border-cyan-300/60"
+                  >
+                    <Facebook className="h-4 w-4" aria-hidden="true" />
+                    Facebook
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {centroMegaInstagramPosts.map((href, index) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative min-h-40 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,37,126,.12),rgba(30,231,255,.06))] p-6 transition hover:-translate-y-1 hover:border-white/25"
+                  >
+                    <div className="mega-scan absolute inset-0 bg-[linear-gradient(115deg,transparent_0_35%,rgba(255,255,255,.08)_48%,transparent_61%)]" />
+                    <div className="relative">
+                      <p className="text-[10px] font-black uppercase tracking-[.2em] text-fuchsia-200">
+                        publicação oficial {String(index + 1).padStart(2, "0")}
+                      </p>
+                      <p className="mt-12 flex items-center justify-between text-lg font-black">
+                        Abrir no Instagram
+                        <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" aria-hidden="true" />
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              <p className="mt-6 max-w-3xl text-xs leading-6 text-white/38">
+                Os links oficiais são preservados como fonte. Quando o conteúdo da postagem não está
+                acessível ao crawler, a loja não inventa produto, preço ou descrição: o item só entra
+                após resolução verificável.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 text-xs font-black uppercase tracking-[.14em] text-white/45">
-              <a className="hover:text-cyan-300" href={links.instagram} target="_blank" rel="noreferrer">Instagram</a>
-              <a className="hover:text-cyan-300" href={links.facebook} target="_blank" rel="noreferrer">Facebook</a>
-              <a className="hover:text-cyan-300" href={links.seller} target="_blank" rel="noreferrer">Seller público</a>
-            </div>
-          </div>
-          <div className="mx-auto mt-8 max-w-[1480px]">
-            <PortfolioHostCredit />
-          </div>
-        </footer>
+          </section>
 
-        {cartProducts.length ? (
-          <div className="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-3xl rounded-[1.5rem] border border-cyan-300/30 bg-[#071323]/94 p-3 shadow-[0_30px_100px_rgba(0,0,0,.55)] backdrop-blur-xl sm:bottom-5">
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setCartOpen(true)}
-                className="flex min-h-12 flex-1 items-center justify-between gap-4 rounded-xl px-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-              >
-                <span>
-                  <span className="block text-[10px] font-black uppercase tracking-[.18em] text-cyan-300">sacola da amostra</span>
-                  <span className="mt-1 block text-sm font-black">
-                    {cartProducts.length} {cartProducts.length === 1 ? "item selecionado" : "itens selecionados"}
-                  </span>
-                </span>
-                <ShoppingBag className="h-5 w-5 text-cyan-300" aria-hidden="true" />
-              </button>
+          <section id="lojas" className="border-y border-white/10 bg-[#0c0e1d] px-4 py-20 sm:px-6 lg:px-10">
+            <div className="mx-auto grid max-w-[90rem] gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[.24em] text-[var(--mega-lime)]">
+                  Presença real
+                </p>
+                <h2 className="mt-4 text-5xl font-black uppercase leading-[.9] sm:text-7xl">
+                  O digital aponta para uma operação que já existe.
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
+                  O Linktree público da Centro Mega lista SAC e frentes como Outlet São José dos
+                  Pinhais, Galeria Di Brunno, Shopping Cidade e Pinheirinho. A amostra usa essa
+                  presença como contexto, sem transformar canais externos em atalhos que quebrem o
+                  funil do portfolio.
+                </p>
+              </div>
+
+              <div className="grid gap-3">
+                {[
+                  "Centro Mega Outlet · São José dos Pinhais",
+                  "Centro Mega · Galeria Di Brunno",
+                  "Centro Mega · Shopping Cidade",
+                  "Centro Mega · Pinheirinho",
+                  "SAC · canais oficiais",
+                ].map((item, index) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[.035] p-5"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="grid h-9 w-9 place-items-center rounded-full bg-white/5 text-xs font-black text-cyan-200">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-black">{item}</span>
+                    </div>
+                    <Store className="h-5 w-5 text-white/30" aria-hidden="true" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+            <div className="mx-auto max-w-[90rem] rounded-[2.5rem] border border-white/10 bg-[radial-gradient(circle_at_18%_20%,rgba(30,231,255,.16),transparent_26%),radial-gradient(circle_at_78%_80%,rgba(255,37,126,.18),transparent_30%),#0c0e1d] p-7 sm:p-10 lg:p-14">
+              <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[.24em] text-[var(--mega-gold)]">
+                    Sua seleção
+                  </p>
+                  <h2 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[.88] sm:text-7xl">
+                    Gostou? Leve os produtos escolhidos para o atendimento.
+                  </h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
+                    A amostra não fecha compra com preço antigo. Ela preserva o que você escolheu e
+                    entrega esse contexto ao funil para confirmar estoque, valor e próximo passo.
+                  </p>
+                </div>
+                <StoreCTA
+                  selectedProducts={selectedProducts}
+                  className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[var(--mega-gold)] px-7 py-4 text-sm font-black text-black transition hover:-translate-y-1 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                >
+                  <ShoppingBag className="h-5 w-5" aria-hidden="true" />
+                  {selectedIds.length ? `Consultar ${selectedIds.length} item(ns)` : "Consultar produtos"}
+                </StoreCTA>
+              </div>
+
+              {selectedProducts.length ? (
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {selectedProducts.map((product) => (
+                    <button
+                      key={product.id}
+                      type="button"
+                      onClick={() => toggleProduct(product.id)}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[.04] px-3 py-2 text-xs font-bold text-white/70 hover:border-white/25"
+                      aria-label={`Remover ${product.name} da seleção`}
+                    >
+                      {product.name}
+                      <X className="h-3.5 w-3.5" aria-hidden="true" />
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </section>
+        </main>
+
+        {selectedProducts.length ? (
+          <div className="fixed inset-x-0 bottom-4 z-50 px-4 sm:bottom-6">
+            <div className="mx-auto flex max-w-2xl items-center justify-between gap-4 rounded-full border border-white/12 bg-black/80 p-2 pl-5 shadow-[0_25px_90px_rgba(0,0,0,.45)] backdrop-blur-xl">
+              <div className="min-w-0">
+                <p className="text-[10px] font-black uppercase tracking-[.18em] text-cyan-200">
+                  sacola de interesse
+                </p>
+                <p className="truncate text-sm font-black">
+                  {selectedProducts.length} item(ns) selecionado(s)
+                </p>
+              </div>
               <StoreCTA
-                products={cartProducts}
-                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-cyan-300 px-5 text-sm font-black text-slate-950 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                selectedProducts={selectedProducts}
+                className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-white px-5 text-sm font-black text-black transition hover:bg-[var(--mega-gold)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               >
                 Continuar
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -832,103 +782,19 @@ export function CentroMegaPage() {
           </div>
         ) : null}
 
-        {cartOpen ? (
-          <div className="fixed inset-0 z-50 bg-black/70 p-3 backdrop-blur-md sm:p-6" onMouseDown={() => setCartOpen(false)}>
-            <MotionOverlay className="ml-auto h-full max-w-xl">
-              <aside
-                role="dialog"
-                aria-modal="true"
-                aria-label="Sacola Centro Mega"
-                onMouseDown={(event) => event.stopPropagation()}
-                className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#071323] shadow-[0_40px_140px_rgba(0,0,0,.65)]"
-              >
-                <div className="flex items-center justify-between border-b border-white/10 p-5 sm:p-6">
-                  <div>
-                    <p className="text-[10px] font-black uppercase tracking-[.18em] text-cyan-300">Centro Mega Store</p>
-                    <h2 className="mt-1 text-2xl font-black">Sua sacola</h2>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setCartOpen(false)}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-white/60 transition hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-                    aria-label="Fechar sacola"
-                  >
-                    <X className="h-5 w-5" aria-hidden="true" />
-                  </button>
-                </div>
-
-                <div className="flex-1 overflow-y-auto p-5 sm:p-6">
-                  {cartProducts.length ? (
-                    <div className="space-y-3">
-                      {cartProducts.map((product) => (
-                        <div key={product.id} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.035] p-4">
-                          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-cyan-300/10 text-cyan-200">
-                            {product.visual === "phone" ? (
-                              <Smartphone className="h-5 w-5" />
-                            ) : product.visual === "shoe" ? (
-                              <Footprints className="h-5 w-5" />
-                            ) : product.visual === "gamepad" ? (
-                              <Gamepad2 className="h-5 w-5" />
-                            ) : (
-                              <Tag className="h-5 w-5" />
-                            )}
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <p className="truncate font-black">{product.name}</p>
-                            <p className="mt-1 text-xs text-white/40">{product.category} · confirmar disponibilidade</p>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => toggleProduct(product.id)}
-                            className="text-xs font-black uppercase tracking-[.12em] text-white/35 hover:text-rose-300"
-                          >
-                            remover
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="grid min-h-64 place-items-center text-center">
-                      <div>
-                        <ShoppingBag className="mx-auto h-10 w-10 text-white/25" />
-                        <p className="mt-4 text-xl font-black">Sua sacola está vazia.</p>
-                        <p className="mt-2 text-sm text-white/45">Volte ao catálogo e selecione os itens que quer consultar.</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="border-t border-white/10 p-5 sm:p-6">
-                  <div className="rounded-2xl border border-amber-300/15 bg-amber-300/[.055] p-4 text-xs leading-5 text-amber-100/70">
-                    Esta é uma amostra de loja virtual. Preço, estoque, cor, tamanho, garantia e disponibilidade são confirmados antes de qualquer fechamento.
-                  </div>
-                  {cartProducts.length ? (
-                    <StoreCTA
-                      products={cartProducts}
-                      className="mt-4 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-xl bg-cyan-300 px-6 text-sm font-black text-slate-950 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    >
-                      Enviar seleção para a Centro Mega
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </StoreCTA>
-                  ) : null}
-                </div>
-              </aside>
-            </MotionOverlay>
+        <footer className="border-t border-white/10 bg-[#03040a] px-4 py-8 sm:px-6 lg:px-10">
+          <div className="mx-auto flex max-w-[90rem] flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-lg font-black uppercase">Centro Mega Store</p>
+              <p className="mt-1 text-xs text-white/40">
+                Amostra de loja virtual · produtos e disponibilidade sujeitos a confirmação.
+              </p>
+            </div>
+            <PortfolioHostCredit linkClassName="text-white/60 underline underline-offset-4" />
           </div>
-        ) : null}
+        </footer>
 
-        <PortfolioSocialProofPopup
-          clientKey="centro-mega"
-          eyebrow="Centro Mega Store · amostra"
-          title="Viu algo que combina com você?"
-          description="Monte a sacola e leve a seleção para a equipe confirmar preço, estoque e disponibilidade."
-          ctaLabel="Explorar catálogo"
-          ctaHref="#catalogo"
-          delayMs={12000}
-          className="border-cyan-300/30 bg-[#071323]/95 text-white"
-          accentClassName="text-cyan-300"
-        />
-        <PortfolioUpsellPopup pageName="portfolio-centro-mega-store-sample" />
+        <PortfolioUpsellPopup pageName="portfolio-centro-mega" />
       </div>
     </MotionScope>
   );
