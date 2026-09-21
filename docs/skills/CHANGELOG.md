@@ -1516,3 +1516,10 @@ de status e fila de auditoria em `docs/skills/REGISTRY.md`.
   tempos reais sem alterar o código público.
 - **Runtime:** zero mudança no componente `PortfolioUpsellPopup` ou na
   experiência do visitante.
+
+## 2026-09-21 — Autoescola APTOS
+- **Tarefa:** novo `/portfolio/autoescola-aptos` pelo lifecycle v2.
+- **Skills aplicadas:** roteamento 0WEB; discovery; research intelligence; autonomous pipeline; art direction; experience design max; landing premium/CRO; design system; layout engineering; motion; SEO; accessibility; performance; UI quality gates.
+- **Recursos usados:** site oficial e assets versionados; Creative Composition Brief; composição autoral; media plan; motion primitives; funil por clientKey; catálogo e registries; schema local factual.
+- **Rejeitados:** template/Blueprint compartilhado, parallax, 3D, vídeo, marquee, depoimentos e métricas adicionais — sem função decisória ou evidência. Projeto Lovable de referência ficou ATTEMPTED_BLOCKED por falta de acesso.
+- **Validação:** gates e QA visual registrados no manifesto e quality matrix do cliente.

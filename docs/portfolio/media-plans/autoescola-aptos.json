@@ -1,36 +1,20 @@
 {
-  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7). Preencher antes de fechar o Blueprint.",
+  "doc": "Media plan — Autoescola APTOS",
   "slug": "autoescola-aptos",
-  "status": "MEDIA_ENRICHMENT_NOT_STARTED",
+  "status": "COMPLETE",
   "inventory": {
-    "realBusinessPhotos": [],
-    "officialBrandAssets": [],
-    "externalMedia": [],
-    "licensedMedia": [],
-    "generatedMedia": [],
-    "graphicMedia": [],
-    "missingMedia": []
+    "realBusinessPhotos": ["carro-aptos.webp", "fachada.webp", "hero.webp", "hero-slide-automatico.webp"],
+    "officialBrandAssets": ["logo.webp", "favicon.png", "og-source.png"],
+    "externalMedia": [], "licensedMedia": [], "generatedMedia": [],
+    "graphicMedia": ["capa-og.jpg"], "missingMedia": []
   },
-  "discovery": {
-    "searched": false,
-    "sources": [
-      "OWNER_SUPPLIED",
-      "GOOGLE_PUBLIC_MEDIA",
-      "OFFICIAL_SOCIAL",
-      "OFFICIAL_WEBSITE",
-      "OFFICIAL_BRAND",
-      "LICENSED_MEDIA",
-      "GENERATED_CONTEXTUAL_MEDIA"
-    ],
-    "result": null
-  },
-  "referenceOnlyAssets": [],
-  "sections": [],
-  "cover": {
-    "asset": null,
-    "strategy": null,
-    "approved": false,
-    "checks": {}
-  },
+  "discovery": {"searched": true, "sources": ["OFFICIAL_WEBSITE", "OWNER_REQUEST"], "result": "Nove assets oficiais copiados e versionados localmente; projeto Lovable de referência inacessível neste workspace."},
+  "referenceOnlyAssets": ["og-source.png", "hero.webp", "hero-slide-automatico.webp", "cnh.webp", "favicon.png"],
+  "sections": [
+    {"section": "hero", "asset": "/images/autoescola-aptos/carro-aptos.webp", "purpose": "frota oficial", "classification": "REAL_BUSINESS_PHOTO", "source": "OFFICIAL_WEBSITE"},
+    {"section": "proof", "asset": "/images/autoescola-aptos/fachada.webp", "purpose": "evidência física da entidade", "classification": "REAL_BUSINESS_PHOTO", "source": "OFFICIAL_WEBSITE"},
+    {"section": "course", "asset": "/images/autoescola-aptos/curso-online.webp", "purpose": "contexto do curso online", "classification": "OFFICIAL_WEBSITE_MEDIA", "source": "OFFICIAL_WEBSITE"}
+  ],
+  "cover": {"asset": "/images/autoescola-aptos/capa-og.jpg", "strategy": "PHOTO_DERIVED", "approved": true, "checks": {"dimensions": "1200x630", "sourceVisibleOnPage": true, "noInventedEvidence": true, "smallCardReadable": true}},
   "lastUpdatedAt": "2026-09-21"
 }

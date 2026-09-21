@@ -1,181 +1,33 @@
 {
-  "doc": "Registro de Entity Enrichment (docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md). Stub do scaffold: nenhuma pesquisa realizada ainda.",
+  "doc": "Entity Enrichment — Autoescola APTOS",
   "slug": "autoescola-aptos",
-  "lastResearchAt": null,
+  "lastResearchAt": "2026-09-21",
   "researchLedger": {
-    "googleEntity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "website": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "instagram": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "facebook": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "otherSocial": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "directories": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "phone": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "address": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "hours": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "services": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "products": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "media": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "reviews": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    },
-    "identity": {
-      "searched": false,
-      "found": false,
-      "resolved": false,
-      "verified": false,
-      "accessible": false,
-      "ingestable": false,
-      "usable": false
-    }
+    "website": {"searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true},
+    "googleEntity": {"searched": true, "found": false, "resolved": false, "verified": false, "accessible": false, "ingestable": false, "usable": false},
+    "services": {"searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true},
+    "media": {"searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true},
+    "identity": {"searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true},
+    "phone": {"searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": false, "usable": true},
+    "address": {"searched": true, "found": true, "resolved": true, "verified": true, "accessible": true, "ingestable": true, "usable": true},
+    "reviews": {"searched": true, "found": true, "resolved": false, "verified": false, "accessible": true, "ingestable": true, "usable": true}
   },
-  "identity": {},
-  "entity": {
-    "candidates": [],
-    "resolutionStatus": "UNRESOLVED",
-    "resolutionSignals": [],
-    "unresolvedJustification": null
-  },
-  "evidence": [],
-  "sources": [],
-  "google": {
-    "placeId": null,
-    "dataId": null,
-    "cid": null,
-    "status": "not_searched"
-  },
-  "reviews": {
-    "items": [],
-    "status": "NOT_SEARCHED"
-  },
-  "photos": {
-    "items": [],
-    "status": "NOT_SEARCHED"
-  },
-  "social": {
-    "instagram": {
-      "searched": false
-    },
-    "facebook": {
-      "searched": false
-    },
-    "other": []
-  },
-  "website": {
-    "searched": false,
-    "url": null
-  },
-  "location": {},
-  "services": [],
-  "media": {
-    "discovery": {
-      "searched": false
-    },
-    "assets": []
-  },
-  "facts": [],
-  "conflicts": [],
-  "unverified": [],
-  "providerCalls": []
+  "identity": {"name": "Autoescola APTOS", "officialWebsite": "https://autoescolaaptos.com.br", "brandAsset": "/images/autoescola-aptos/logo.webp"},
+  "entity": {"candidates": [{"name": "Autoescola APTOS", "source": "OFFICIAL_WEBSITE", "url": "https://autoescolaaptos.com.br"}], "resolutionStatus": "RESOLVED", "resolutionSignals": ["nome", "cidade", "marca", "serviços", "mídia oficial"], "unresolvedJustification": null},
+  "evidence": [
+    {"fact": "primeira habilitação e categorias A/B/AB", "source": "OFFICIAL_WEBSITE"},
+    {"fact": "reteste, renovação, reciclagem e curso online", "source": "OFFICIAL_WEBSITE"},
+    {"fact": "carro automático e moto automática", "source": "OWNER_PROVIDED"},
+    {"fact": "Rua Passos de Oliveira, 810, Centro, São José dos Pinhais; próximo ao DETRAN", "source": "OWNER_PROVIDED"},
+    {"fact": "+15 anos, +5.000 alunos e 4,9 no Google", "source": "OFFICIAL_WEBSITE", "usage": "somente como dados divulgados pela APTOS"}
+  ],
+  "sources": [{"type": "OFFICIAL_WEBSITE", "url": "https://autoescolaaptos.com.br", "accessedAt": "2026-09-21"}, {"type": "OWNER_REQUEST", "accessedAt": "2026-09-21"}],
+  "website": {"searched": true, "url": "https://autoescolaaptos.com.br"},
+  "location": {"streetAddress": "Rua Passos de Oliveira, 810", "district": "Centro", "city": "São José dos Pinhais", "state": "PR", "source": "OWNER_PROVIDED"},
+  "services": ["primeira habilitação", "categoria A", "categoria B", "categoria AB", "reteste", "renovação", "reciclagem", "curso online", "carro automático", "moto automática"],
+  "media": {"discovery": {"searched": true, "source": "OFFICIAL_WEBSITE"}, "assets": ["logo.webp", "carro-aptos.webp", "fachada.webp", "hero.webp", "hero-slide-automatico.webp", "curso-online.webp", "cnh.webp", "favicon.png", "og-source.png"]},
+  "facts": ["instrutores credenciados pelo DETRAN-PR", "próximo ao DETRAN", "curso online"],
+  "conflicts": [{"field": "phone", "ownerRequested": "destino móvel informado no pedido", "officialHomepage": "telefone fixo diferente", "decision": "usar destino OWNER_REQUEST apenas no registro canônico do clientKey; não publicar contato no bundle"}],
+  "unverified": ["horários", "CNPJ", "nomes de instrutores", "quantidade atual de avaliações"],
+  "providerCalls": [{"provider": "official-website", "purpose": "entidade, serviços, claims e assets", "status": "success"}]
 }
