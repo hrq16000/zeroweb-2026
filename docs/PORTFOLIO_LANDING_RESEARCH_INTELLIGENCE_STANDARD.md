@@ -611,3 +611,76 @@ nunca autoriza destino compartilhado ou fallback cross-client.
 Uma referência externa só pode ser tratada como atual depois de resolver
 entidade/URL. Fonte não resolvida fica explicitamente como `REFERENCE_ONLY` e
 não fornece claims atuais.
+
+
+## 15. Anexo normativo R3 — Decision Velocity, contexto e freshness
+
+A varredura R3 está versionada em
+`docs/research/LANDING-PAGE-OFFICIAL-SITE-SWEEP-R3-2026-09-21.md` e aplica
+novamente o princípio **SOME: somar/agregar, nunca substituir**. Todos os
+campos, gates e princípios R1/R2 permanecem válidos.
+
+### 15.1 LandingDecisionProfileV3
+
+Todo novo projeto deve avaliar **antes do hero/layout/motion** uma extensão
+aditiva do `LandingDecisionProfileV2` com estes eixos:
+
+- `pageMode`: campanha, evergreen comercial, serviço local, produto/plano,
+  lançamento, evento/coorte, catálogo/seleção ou confirmação;
+- `decisionVelocity`: barreira principal, fast path e passos evitáveis;
+- `informationScent`: rótulos de ação que antecipam corretamente o próximo
+  estado, evitando links genéricos quando um rótulo específico reduz dúvida;
+- `selfSegmentation`: perfil/categoria/item/unidade/modalidade quando caminhos
+  reais divergem;
+- `contextCarryover`: origem, oferta e escolhas persistem até lead/handoff;
+- `commitmentLadder`: preview/comparação/seletor/simulador como ajuda à decisão,
+  nunca como conversões finais concorrentes;
+- `claimEvidenceGraph`: claim → evidência → validade → placement;
+- `riskAdjustedPersuasion`: quanto maior o risco, mais evidência/processo e
+  menos hype/pressão;
+- `actionStateModel`: `ARRIVAL → ORIENTED → SELF_SEGMENTED → INFORMED →
+  QUALIFIED → COMMITTED → CONFIRMED`, removendo estados não aplicáveis;
+- `humanEscalationPolicy`: quando automação basta e quando especialista é
+  necessário por exceção/risco/viabilidade;
+- `responseExpectationContract`: confirmar o que foi registrado e explicar
+  próximo passo/canal/prazo somente quando factual;
+- `freshnessPolicy`: `lastVerifiedAt/validFrom/validUntil/staleBehavior` para
+  fatos mutáveis;
+- `navigationLeakagePolicy`: focused/selective/exploratory conforme intenção;
+- `mobileDecisionBudget`: fatos e ação prioritários em viewport móvel;
+- `experimentReadiness`: A/B só com hipótese, barreira, métrica e guardrail.
+
+A definição completa e os tipos de referência vivem no ledger R3. Campos sem
+evidência continuam desconhecidos/NA; não completar com estereótipos de
+segmento.
+
+### 15.2 Gates R3
+
+Passam a ser considerados em toda nova landing:
+
+- `DECISION_VELOCITY_GATE`;
+- `INFORMATION_SCENT_GATE`;
+- `SELF_SEGMENTATION_GATE`;
+- `CONTEXT_CARRYOVER_GATE`;
+- `CLAIM_EVIDENCE_GRAPH_GATE`;
+- `RISK_ADJUSTED_PERSUASION_GATE`;
+- `RESPONSE_EXPECTATION_GATE`;
+- `FRESHNESS_WINDOW_GATE`;
+- `NAVIGATION_LEAKAGE_GATE`;
+- `MOBILE_DECISION_BUDGET_GATE`;
+- `EXPERIENCE_COHERENCE_GATE`;
+- `EXPERIMENT_READINESS_GATE`.
+
+Esses gates são **aditivos** aos gates R1/R2. Nenhum deles autoriza contato
+direto, fallback entre clientes, claim inventado ou composição visual compartilhada.
+
+### 15.3 Regra operacional de decisão
+
+Antes de acrescentar seção, campo, CTA, link ou efeito, responder:
+
+> Isso reduz uma incerteza real, preserva o contexto já conhecido ou melhora a
+> confiança/velocidade da decisão? Se não, remova ou marque NOT_APPLICABLE.
+
+A landing é um sistema contínuo: origem → página → auto-segmentação/ajuda → funil
+→ lead → handoff → confirmação. A intenção e o contexto não podem se perder
+entre essas camadas.
