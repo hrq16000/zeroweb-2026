@@ -20,7 +20,6 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 import { MotionImageReveal, MotionReveal, MotionScope, MotionStagger } from "@/components/motion";
 
 const SERVICE_OPTIONS = [
@@ -488,7 +487,6 @@ export function BtbConstrucaoPage() {
           className="border-[#ffdb19]/40 bg-[#171717]/95 text-white"
           accentClassName="text-[#ffdb19]"
         />
-        <PortfolioUpsellPopup pageName="portfolio-btb-construcao" />
       </div>
     </MotionScope>
   );
