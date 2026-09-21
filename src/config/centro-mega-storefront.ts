@@ -1,5 +1,5 @@
 export type CentroMegaProductSource =
-  | "FACEBOOK_PUBLIC_POST"
+  | "SOCIAL_PUBLIC_POST_MIRROR"
   | "INSTAGRAM_PROFILE"
   | "MAGALU_SELLER"
   | "OWNER_INPUT";
@@ -30,8 +30,8 @@ export const CENTRO_MEGA_STORE_PRODUCTS: CentroMegaProduct[] = [
     subtitle: "Smartphone destacado em publicação da Centro Mega",
     description:
       "Produto identificado em publicação pública associada à Centro Mega. Preço exibido na amostra é histórico e não representa estoque ou oferta atual.",
-    source: "FACEBOOK_PUBLIC_POST",
-    sourceLabel: "Facebook · publicação pública indexada",
+    source: "SOCIAL_PUBLIC_POST_MIRROR",
+    sourceLabel: "Post social · espelho público indexado",
     sourceUrl:
       "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
     sourceDate: "2024-01-25",
@@ -50,8 +50,8 @@ export const CENTRO_MEGA_STORE_PRODUCTS: CentroMegaProduct[] = [
     subtitle: "Modelo divulgado no outlet da Centro Mega",
     description:
       "Tênis identificado em publicações públicas da Centro Mega. Numeração e disponibilidade variam; a amostra não presume estoque atual.",
-    source: "FACEBOOK_PUBLIC_POST",
-    sourceLabel: "Facebook · publicação pública indexada",
+    source: "SOCIAL_PUBLIC_POST_MIRROR",
+    sourceLabel: "Post social · espelho público indexado",
     sourceUrl:
       "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
     sourceDate: "2023-11-08",
@@ -197,12 +197,12 @@ export const CENTRO_MEGA_STORE_PRODUCTS: CentroMegaProduct[] = [
 ];
 
 export const CENTRO_MEGA_SOCIAL_POSTS = [
-  { label: "Instagram · Reel", href: "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/" },
-  { label: "Instagram · Reel", href: "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/" },
-  { label: "Instagram · Post", href: "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/" },
-  { label: "Instagram · Reel", href: "https://www.instagram.com/centro.mega/reel/DHmlQd6tCNi/" },
-  { label: "Instagram · Post", href: "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/" },
-  { label: "Instagram · Post", href: "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/" },
+  { label: "Instagram · Reel", href: "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/", evidenceState: "OFFICIAL_URL_CONTENT_NOT_READABLE", productConversion: "SOURCE_ONLY" },
+  { label: "Instagram · Reel", href: "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/", evidenceState: "OFFICIAL_URL_CONTENT_NOT_READABLE", productConversion: "SOURCE_ONLY" },
+  { label: "Instagram · Post", href: "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/", evidenceState: "OFFICIAL_URL_CONTENT_NOT_READABLE", productConversion: "SOURCE_ONLY" },
+  { label: "Instagram · Reel", href: "https://www.instagram.com/centro.mega/reel/DHmlQd6tCNi/", evidenceState: "OFFICIAL_URL_CONTENT_NOT_READABLE", productConversion: "SOURCE_ONLY" },
+  { label: "Instagram · Post", href: "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/", evidenceState: "OFFICIAL_URL_CONTENT_NOT_READABLE", productConversion: "SOURCE_ONLY" },
+  { label: "Instagram · Post", href: "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/", evidenceState: "OFFICIAL_URL_CONTENT_NOT_READABLE", productConversion: "SOURCE_ONLY" },
 ] as const;
 
 export const CENTRO_MEGA_STORE_CATEGORIES = [
