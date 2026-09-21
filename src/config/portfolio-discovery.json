@@ -347,6 +347,64 @@
         "SJP",
         "PR"
       ]
+    },
+    "autoescola-aptos": {
+      "aliases": [
+        "Autoescola APTOS",
+        "APTOS Autoescola",
+        "CFC APTOS"
+      ],
+      "categories": [
+        "autoescola",
+        "centro de formação de condutores",
+        "CNH",
+        "habilitação"
+      ],
+      "services": [
+        "primeira habilitação",
+        "categoria A",
+        "categoria B",
+        "categoria AB",
+        "carro automático",
+        "moto automática",
+        "reteste prático",
+        "renovação de CNH",
+        "reciclagem de CNH"
+      ],
+      "equipment": [
+        "carro automático",
+        "moto automática"
+      ],
+      "problems": [
+        "quero tirar minha primeira CNH",
+        "quero aprender em carro automático",
+        "quero aprender em moto automática",
+        "preciso fazer reteste",
+        "preciso renovar CNH",
+        "preciso de reciclagem"
+      ],
+      "useCases": [
+        "começar primeira habilitação",
+        "consultar carro automático",
+        "consultar moto automática",
+        "continuar processo de CNH",
+        "preparar reteste"
+      ],
+      "keywords": [
+        "Autoescola Aptos São José dos Pinhais",
+        "autoescola carro automático São José dos Pinhais",
+        "autoescola moto automática São José dos Pinhais",
+        "CNH São José dos Pinhais",
+        "primeira habilitação São José dos Pinhais",
+        "reteste Detran São José dos Pinhais"
+      ],
+      "locality": [
+        "Rua Passos de Oliveira 810",
+        "Centro",
+        "São José dos Pinhais",
+        "SJP",
+        "PR"
+      ]
     }
   }
 }
