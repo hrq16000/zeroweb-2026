@@ -10,12 +10,13 @@
     "generatedMedia": [
       {
         "asset": "public/images/btb-construcao/hero.png",
-        "purpose": "HERO_SUPPORT",
+        "purpose": "ARCHIVED_CONTEXTUAL_REFERENCE",
         "source": "ORIGINAL_CONTEXTUAL_COMPOSITION",
         "documentary": false,
         "mediaNarrative": "ESTABLISH_RENOVATION_CONTEXT",
-        "usageMode": "EDITORIAL_NON_DOCUMENTARY",
-        "disclosure": "A landing informa que a imagem é composição editorial de apoio."
+        "usageMode": "ARCHIVED_NOT_RENDERED",
+        "disclosure": "A landing informa que a imagem é composição editorial de apoio.",
+        "note": "Retirado do hero ativo na evolução de performance; preservado apenas como asset contextual legado."
       }
     ],
     "graphicMedia": [
@@ -81,12 +82,12 @@
   "sections": [
     {
       "section": "hero",
-      "requiredMediaRole": "context-hero",
-      "sourceType": "GENERATED_CONTEXTUAL_MEDIA",
-      "asset": "public/images/btb-construcao/hero.png",
+      "requiredMediaRole": "editorial-graphic-composition",
+      "sourceType": "DOM_CSS_GRAPHIC_COMPOSITION",
+      "asset": null,
       "status": "done",
-      "resolution": "non-documentary-contextual",
-      "note": "Disclosure visível no hero."
+      "resolution": "zero-raster-hero",
+      "note": "Hero ativo usa composição gráfica em CSS/DOM para manter identidade e reduzir custo de LCP; não é mídia documental."
     },
     {
       "section": "mapa-da-reforma",
@@ -138,14 +139,13 @@
     "reason": "Cover registry ainda não possui julgamento humano de origem; preservar até revisão visual específica, sem promover a foto como prova real."
   },
   "heroMedia": {
-    "asset": "public/images/btb-construcao/hero.png",
-    "source": "Composição contextual existente derivada do material do cliente",
-    "provenance": "GENERATED_CONTEXTUAL_MEDIA",
+    "asset": null,
+    "source": "Composição editorial gráfica construída em CSS/DOM",
+    "provenance": "ORIGINAL_GRAPHIC_COMPOSITION",
     "narrativeRole": "ESTABLISH_RENOVATION_CONTEXT",
     "documentary": false,
-    "crop": "full-bleed, center",
-    "focalPoint": "centro do ambiente",
-    "mobileStrategy": "full-bleed com overlay forte para preservar texto e sem depender do detalhe da imagem"
+    "crop": "NOT_APPLICABLE",
+    "performanceDecision": "Raster hero removido do caminho crítico para elevar performance/LCP."
   },
   "brandIdentity": {
     "decision": "TEXT_WORDMARK_WITH_LEGACY_GENERATED_ICON",
