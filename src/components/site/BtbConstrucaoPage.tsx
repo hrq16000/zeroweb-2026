@@ -244,7 +244,7 @@ export function BtbConstrucaoPage() {
                       </span>
                     </div>
                     <p className="mt-5 text-[11px] uppercase tracking-[0.13em] text-white/45">
-                      Composição gráfica de apoio: linguagem editorial, não fotografia documental de obra executada.
+                      Composição editorial gráfica de apoio, não fotografia documental de obra executada.
                     </p>
                   </aside>
                 </MotionImageReveal>
