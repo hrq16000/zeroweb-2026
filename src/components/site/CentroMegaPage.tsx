@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import {
   ArrowRight,
   BatteryCharging,
@@ -164,7 +164,7 @@ function StoreCTA({
   products,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   products?: CentroMegaProduct[];
   className?: string;
 }) {
@@ -309,6 +309,15 @@ export function CentroMegaPage() {
     [cartIds],
   );
 
+  useEffect(() => {
+    if (!cartOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setCartOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [cartOpen]);
+
   const toggleProduct = (id: string) => {
     setCartIds((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
@@ -326,7 +335,7 @@ export function CentroMegaPage() {
             "--mega-lime": "#c9ff4d",
             "--mega-violet": "#9c7cff",
             "--mega-pink": "#ff5fb8",
-          } as React.CSSProperties
+          } as CSSProperties
         }
       >
         <header className="sticky top-0 z-40 border-b border-white/10 bg-[#030812]/88 px-4 py-3 backdrop-blur-2xl lg:px-8">
