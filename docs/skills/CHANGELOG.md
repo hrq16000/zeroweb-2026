@@ -1,5 +1,19 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — Centro Mega Store · amostra autônoma de loja virtual
+
+- **Projeto:** `/portfolio/centro-mega`.
+- **Objetivo:** transformar o portfolio existente em uma amostra de loja virtual espetacular, com maior intensidade visual e uso amplo de recursos pertinentes.
+- **Pesquisa:** Linktree oficial, Instagram/Facebook oficiais, VHSYS público e feed social indexado; captions/mídia dos posts individuais do Instagram não foram recuperadas automaticamente e não foram inventadas.
+- **Produtos seedados:** Poco X5 Pro 8GB/256GB (post indexado de 25/01/2024, preço histórico rotulado) e Tênis Dunk Low Pro (post indexado de 08/11/2023). Bonés/calçados/outlet entram como categorias de amostra informadas pelo responsável.
+- **Experiência:** hero orbital, motion/glow, marquee, filtro de categorias, vitrine, outlet em drops, seção feed-to-store, links de drops oficiais do Instagram, sacola lateral e CTA persistente mobile.
+- **Conversão:** sacola carrega produtos via `orderContext` para o funil individual; `intent=pedido`; sem checkout fictício e sem `wa.me` público.
+- **Destino:** 41 99858-9419 restaurado como WhatsApp exclusivo do `client_key=centro-mega`, verificado em VHSYS público e presença social indexada.
+- **Factualidade:** estoque/preço atual/grade/frete nunca são presumidos; preço do Poco aparece apenas como histórico datado.
+- **SEO/entity:** schema próprio `Store` + `MobilePhoneStore` + `OfferCatalog`, sem disponibilidade ou preço inventados.
+- **Mídia:** sem hotlink/cópia de foto social nesta rodada; produto é representado por composição DOM/CSS declaradamente editorial.
+- **Gates:** preview/build/browser QA ainda pendentes neste registro pré-merge.
+
 ## 2026-09-21 — conhecimento aditivo · Landing Page Premium 0WEB
 
 - **Origem:** documentação fornecida pelo responsável e incorporada como conhecimento complementar, sem alterar páginas públicas nesta rodada.
