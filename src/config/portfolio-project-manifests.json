@@ -452,11 +452,15 @@
       },
       "perceptualReview": {
         "screenshots": {
-          "390": null,
-          "1440": null
+          "390": "/tmp/browser/aptos/screenshots/390.png",
+          "1440": "/tmp/browser/aptos/screenshots/1440.png"
         },
-        "comparedWith": [],
-        "noBrandTest": null
+        "comparedWith": [
+          "moreira-auto-mecanica",
+          "carecas-infotec",
+          "adhonep-curitiba"
+        ],
+        "noBrandTest": "PASS — sem marca, a combinação de faixa de sinalização, painel de modalidades e convergência continua identificável como escola de direção."
       },
       "contentFacts": {
         "ownSourcedContent": true,
@@ -466,7 +470,7 @@
         ],
         "claimsAttribution": "Métricas apresentadas somente como divulgadas pela APTOS."
       },
-      "stage": "qa",
+      "stage": "ready",
       "lifecycle": {
         "intake": "complete",
         "entityDiscovery": "complete",
@@ -481,25 +485,26 @@
         "seo": "complete",
         "funnel": "complete",
         "cover": "complete",
-        "qa": "in_progress",
+        "qa": "complete",
         "publish": "not_started"
       },
-      "blockers": [
-        "Visual QA 390/768/1440 e runtime ainda não executados."
-      ],
+      "blockers": [],
       "warnings": [
         "Destino móvel OWNER_REQUEST diverge do telefone fixo exibido na home oficial; conflito documentado e sem exposição no bundle."
       ],
       "ownerRequired": [],
       "searchQa": [
-        "Official website inspected",
-        "Entity resolved by name, city, services and official assets",
-        "Metrics kept attributed to APTOS"
+        "Autoescola APTOS",
+        "autoescola São José dos Pinhais",
+        "primeira habilitação A B AB",
+        "carro automático e moto automática",
+        "reteste renovação reciclagem",
+        "Centro São José dos Pinhais"
       ],
       "visualQa": {
-        "status": "NOT_EXECUTED",
-        "notes": null,
-        "evaluatedAt": null
+        "status": "PASS",
+        "notes": "Capturas reais aprovadas em 390x844, 768x1024 e 1440x1100; zero overflow, hero/frota/CTA legíveis, sem erros de console. Reduced motion validado com conteúdo fail-open.",
+        "evaluatedAt": "2026-09-21"
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/autoescola-aptos.json",

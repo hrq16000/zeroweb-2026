@@ -4,7 +4,7 @@
   "matrixVersion": 2,
   "contractVersion": 3,
   "evaluatedAt": "2026-09-21",
-  "technicalPass": false,
+  "technicalPass": true,
   "editorialPass": true,
   "score": {
     "total": 90,
@@ -24,18 +24,90 @@
     }
   },
   "dimensions": {
-    "strategy": "PASS",
-    "engineering": "PENDING_RUNTIME",
-    "brand": "PASS",
-    "motion": "PASS_SOURCE",
-    "interaction": "PENDING_RUNTIME",
-    "content": "PASS",
-    "conversion": "PASS_SOURCE",
-    "seo": "PASS_SOURCE",
-    "accessibility": "PASS_SOURCE",
-    "performance": "PASS_SOURCE",
-    "originality": "PASS",
-    "privacy": "PASS"
+    "ENTITY": {
+      "status": "PASS",
+      "notes": "Entidade resolvida por site oficial, marca, cidade, serviços e mídia próprios."
+    },
+    "CONTENT": {
+      "status": "PASS",
+      "notes": "Conteúdo derivado do pedido do responsável e site oficial; claims atribuídos."
+    },
+    "MEDIA": {
+      "status": "PASS",
+      "notes": "Carro, fachada, marca e curso vêm do site oficial, versionados localmente."
+    },
+    "VISUAL_COMPOSITION": {
+      "status": "PASS",
+      "notes": "Road-stage, painel de escolhas, travessia de prova, marcos e convergência criam ritmo próprio."
+    },
+    "ORIGINALITY": {
+      "status": "PASS",
+      "notes": "Fingerprint e no-brand test aprovados contra três projetos próximos."
+    },
+    "DISCOVERY": {
+      "status": "PASS",
+      "notes": "Nome, segmento, serviços, problemas, modalidade e localização indexados."
+    },
+    "SEO": {
+      "status": "PASS",
+      "notes": "Title, description, canonical, OG 1200x630, DrivingSchool/LocalBusiness e FAQ factuais."
+    },
+    "CONVERSION": {
+      "status": "PASS",
+      "notes": "Funil individual em quatro pontos; destino canônico isolado e sem contato no bundle."
+    },
+    "PROOF": {
+      "status": "PASS",
+      "notes": "Somente dados divulgados pela APTOS, explicitamente atribuídos, ao lado da fachada oficial."
+    },
+    "RESPONSIVENESS": {
+      "status": "PASS",
+      "notes": "Capturas reais 390, 768 e 1440 sem overflow; composição específica por faixa."
+    },
+    "PERFORMANCE": {
+      "status": "PASS",
+      "notes": "WebP locais dimensionados, lazy abaixo da dobra e nenhum pacote novo."
+    },
+    "ACCESSIBILITY": {
+      "status": "PASS",
+      "notes": "Foco visível, alts, hierarquia, targets e reduced motion verificados."
+    },
+    "QA": {
+      "status": "PASS",
+      "notes": "Browser real sem erro de console, sem overflow e conteúdo integral."
+    },
+    "CONTENT_DEPTH": {
+      "status": "PASS",
+      "notes": "Decisão cobre modalidade, objetivo, estágio, processo, local e dúvidas."
+    },
+    "VISUAL_RHYTHM": {
+      "status": "PASS",
+      "notes": "Papel, travessia vermelha, asfalto e painel amarelo alternam densidade e função."
+    },
+    "MEDIA_NARRATIVE": {
+      "status": "PASS",
+      "notes": "Carro apresenta modalidade; fachada prova entidade; curso apoia conveniência."
+    },
+    "SECTION_VARIETY": {
+      "status": "PASS",
+      "notes": "Sete topologias distintas, sem cards repetidos como estrutura dominante."
+    },
+    "SIGNATURE_MOMENTS": {
+      "status": "PASS",
+      "notes": "Faixa automática, painel de rotas e convergência final."
+    },
+    "PROOF_DENSITY": {
+      "status": "PASS",
+      "notes": "Três claims oficiais em um único bloco atribuído, sem repetição inflacionada."
+    },
+    "CONVERSION_CONTINUITY": {
+      "status": "PASS",
+      "notes": "Um pedido consistente do hero à barra móvel e fechamento."
+    },
+    "MOTION_DESIGN": {
+      "status": "PASS",
+      "notes": "Máscara, stagger e linha de rota têm função e fail-open."
+    }
   },
   "experience": {
     "visualRhythm": "impacto→escolha→travessia→percurso→local→convergência",
@@ -86,8 +158,19 @@
       "closing": "convergence"
     },
     "gate": {
-      "sourceReviewed": true,
-      "browserReviewed": false
+      "motionProfileDefined": "PASS",
+      "effectsMatchBrand": "PASS",
+      "entranceNotRepetitive": "PASS",
+      "contextualMicrointeraction": "PASS",
+      "signatureMotion": "PASS",
+      "ctaFeedback": "PASS",
+      "mobileAdapted": "PASS",
+      "reducedMotionCovered": "PASS",
+      "contentAccessibleWithoutMotion": "PASS",
+      "noTransformOverflow": "PASS",
+      "noHeavyDependency": "PASS",
+      "noPerformanceRegression": "PASS",
+      "noAggressiveLoop": "PASS"
     },
     "qualityProfile": {
       "motionIntensity": "BALANCED",
@@ -157,32 +240,85 @@
     }
   },
   "hero": {
-    "status": "PASS_SOURCE",
+    "status": "PASS",
+    "notes": "Brand, oferta automática, carro oficial e CTA visíveis na primeira dobra.",
     "criteria": {
-      "brandFirstViewport": true,
-      "officialVehicle": true,
-      "ownerProvidedMessage": true,
-      "primaryCta": true,
-      "nextSectionHint": true
+      "brandMatch": "PASS",
+      "segmentMatch": "PASS",
+      "visualImpact": "PASS",
+      "premiumFeel": "PASS",
+      "legibility": "PASS",
+      "contrast": "PASS",
+      "composition": "PASS",
+      "mediaQuality": "PASS",
+      "CTAVisibility": "PASS",
+      "mobileCrop": "PASS",
+      "desktopCrop": "PASS",
+      "originality": "PASS"
     }
   },
   "cover": {
     "status": "PASS",
+    "notes": "Capa 1200x630 derivada do carro oficial e exibida na página.",
     "criteria": {
-      "dimensions": "1200x630",
-      "sameSubjectAsPage": true,
-      "realPhotoDerived": true,
-      "noFalseEvidence": true
+      "identityMatch": "PASS",
+      "segmentMatch": "PASS",
+      "smallCardReadability": "PASS",
+      "contrast": "PASS",
+      "focalPoint": "PASS",
+      "crop": "PASS",
+      "visualQuality": "PASS",
+      "genericPenalty": "PASS",
+      "duplicatePenalty": "PASS",
+      "portfolioRecognition": "PASS"
     }
   },
   "coverage": [
-    "desktop source",
-    "mobile composition source",
-    "reduced motion",
-    "keyboard focus",
-    "schema factual",
-    "isolated funnel",
-    "canonical destination"
+    {
+      "section": "hero",
+      "visualRole": "frota e novidade",
+      "mediaDecision": "REAL_PHOTO",
+      "asset": "/images/autoescola-aptos/carro-aptos.webp",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "escolhas",
+      "visualRole": "painel de decisão",
+      "mediaDecision": "TYPOGRAPHY_ONLY",
+      "asset": null,
+      "provenance": "identidade local",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "prova",
+      "visualRole": "entidade e claims atribuídos",
+      "mediaDecision": "REAL_PHOTO",
+      "asset": "/images/autoescola-aptos/fachada.webp",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "local",
+      "visualRole": "curso e contexto",
+      "mediaDecision": "OFFICIAL_CONTEXT_MEDIA",
+      "asset": "/images/autoescola-aptos/curso-online.webp",
+      "provenance": "OFFICIAL_WEBSITE",
+      "quality": "alta",
+      "status": "PASS"
+    },
+    {
+      "section": "fechamento",
+      "visualRole": "convergência",
+      "mediaDecision": "TYPOGRAPHY_ONLY",
+      "asset": null,
+      "provenance": "composição autoral",
+      "quality": "alta",
+      "status": "PASS"
+    }
   ],
   "deadZones": [],
   "mediaSourceMix": {
@@ -190,11 +326,7 @@
     "PHOTO_DERIVED": 1,
     "GENERATED": 0
   },
-  "p0": [
-    "Visual QA and funnel runtime before publish"
-  ],
-  "warnings": [
-    "Final browser evidence pending"
-  ],
+  "p0": [],
+  "warnings": [],
   "ownerRequired": []
 }
