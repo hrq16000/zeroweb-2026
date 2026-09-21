@@ -1,0 +1,288 @@
+{
+  "doc": "Entity enrichment Autoescola APTOS — pesquisa pública + atualização do responsável.",
+  "slug": "autoescola-aptos",
+  "lastResearchAt": "2026-09-21T04:20:00Z",
+  "researchLedger": {
+    "googleEntity": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": true,
+      "note": "Entidade local corroborada por diretório SJP 360 e site oficial."
+    },
+    "website": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "https://autoescolaaptos.com.br/"
+    },
+    "instagram": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false,
+      "note": "Nenhum perfil oficial necessário para a página foi confirmado nesta rodada."
+    },
+    "facebook": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "otherSocial": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "accessible": false,
+      "ingestable": false,
+      "usable": false
+    },
+    "directories": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "SJP 360 lista a Autoescola Aptos no mesmo endereço e telefone direto."
+    },
+    "phone": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "note": "Destino operacional encontrado no site oficial; somente server-side."
+    },
+    "address": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Rua Passos de Oliveira, 810, Centro, São José dos Pinhais."
+    },
+    "hours": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Site oficial publica atendimento de segunda a sexta, 9h–18h."
+    },
+    "services": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Primeira habilitação, A/B/AB, renovação, reciclagem e reteste publicados."
+    },
+    "products": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Carro automático e moto automática são atualização operacional fornecida pelo responsável em 21/09/2026."
+    },
+    "media": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "note": "Logo/fachada/frota no site; fotos com contato embutido não são ingeridas."
+    },
+    "reviews": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "accessible": true,
+      "ingestable": false,
+      "usable": false,
+      "note": "Site menciona avaliação Google, mas contagens variam entre páginas/indexação; não usada como prova numérica."
+    },
+    "identity": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "accessible": true,
+      "ingestable": true,
+      "usable": true,
+      "note": "Marca APTOS observada no site oficial; normalizada em SVG local."
+    }
+  },
+  "entity": {
+    "resolutionStatus": "VERIFIED",
+    "candidates": [
+      {
+        "name": "Autoescola Aptos - Centro de Formação de Condutores",
+        "source": "https://autoescolaaptos.com.br/",
+        "match": "nome, cidade e endereço coincidentes"
+      }
+    ],
+    "resolutionSignals": [
+      "domínio oficial",
+      "endereço Rua Passos de Oliveira 810",
+      "São José dos Pinhais",
+      "CNPJ publicado no site oficial"
+    ]
+  },
+  "identity": {
+    "displayName": "Autoescola APTOS",
+    "cnpj": "10.233.266/0001-38",
+    "officialWebsite": "https://autoescolaaptos.com.br/",
+    "logoSource": "https://autoescolaaptos.com.br/assets/logo-BsXmR_aX.jpeg",
+    "localDecision": "NORMALIZED_LOGO",
+    "provenance": "OFFICIAL_WEBSITE"
+  },
+  "location": {
+    "address": "Rua Passos de Oliveira, 810",
+    "neighborhood": "Centro",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "source": "https://autoescolaaptos.com.br/"
+  },
+  "services": [
+    {
+      "name": "Primeira habilitação",
+      "source": "official_website"
+    },
+    {
+      "name": "Categoria A",
+      "source": "official_website"
+    },
+    {
+      "name": "Categoria B",
+      "source": "official_website"
+    },
+    {
+      "name": "Categoria AB",
+      "source": "official_website"
+    },
+    {
+      "name": "Renovação de CNH",
+      "source": "official_website"
+    },
+    {
+      "name": "Reciclagem de CNH",
+      "source": "official_website"
+    },
+    {
+      "name": "Reteste prático",
+      "source": "official_website"
+    },
+    {
+      "name": "Carro automático",
+      "source": "owner_supplied_2026-09-21"
+    },
+    {
+      "name": "Moto automática",
+      "source": "owner_supplied_2026-09-21"
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "Autoescola APTOS atua em São José dos Pinhais e publica endereço no Centro",
+      "source": "https://autoescolaaptos.com.br/",
+      "collectedAt": "2026-09-21"
+    },
+    {
+      "fact": "Credenciada pelo DETRAN-PR",
+      "source": "https://autoescolaaptos.com.br/",
+      "collectedAt": "2026-09-21"
+    },
+    {
+      "fact": "Mais de 15 anos de experiência (informação publicada pela empresa)",
+      "source": "https://autoescolaaptos.com.br/",
+      "collectedAt": "2026-09-21"
+    },
+    {
+      "fact": "Carro automático e moto automática agora disponíveis como destaque",
+      "source": "OWNER_SUPPLIED_CURRENT_OPERATIONAL_UPDATE",
+      "collectedAt": "2026-09-21"
+    }
+  ],
+  "website": {
+    "searched": true,
+    "url": "https://autoescolaaptos.com.br/"
+  },
+  "media": {
+    "discovery": {
+      "searched": true
+    },
+    "assets": [
+      {
+        "kind": "official_logo",
+        "url": "https://autoescolaaptos.com.br/assets/logo-BsXmR_aX.jpeg",
+        "use": "brand_reference"
+      },
+      {
+        "kind": "official_facade",
+        "url": "https://autoescolaaptos.com.br/assets/fachada-aptos-D2ZcLN6p.jpg",
+        "use": "evidence_only",
+        "reason": "embedded contact data"
+      },
+      {
+        "kind": "official_vehicle",
+        "url": "https://autoescolaaptos.com.br/assets/carro-aptos-mVaoBWuN.jpg",
+        "use": "evidence_only",
+        "reason": "embedded contact data"
+      }
+    ]
+  },
+  "conflicts": [],
+  "unverified": [
+    "modelo exato do carro automático",
+    "modelo exato da moto automática",
+    "quantidade de veículos automáticos",
+    "condições comerciais específicas"
+  ],
+  "providerCalls": [
+    {
+      "provider": "web_search",
+      "query": "Autoescola Aptos São José dos Pinhais",
+      "at": "2026-09-21"
+    },
+    {
+      "provider": "web_search",
+      "query": "Autoescola Aptos carro automático moto automática",
+      "at": "2026-09-21"
+    },
+    {
+      "provider": "official_website",
+      "url": "https://autoescolaaptos.com.br/",
+      "at": "2026-09-21"
+    }
+  ]
+}
