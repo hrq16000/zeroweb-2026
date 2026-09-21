@@ -55,11 +55,26 @@ It must not invent services/products, differentiators, prices/offers, availabili
 
 Only explicit `service` / `service:*` or `differential` / `differential:*` facts with sufficient confidence may be promoted into those public lists.
 
-### Landing intent before layout
+### Landing intent + decision profile before layout
 
-Before creative composition, classify `funnelStage`, audience, primary job, primary conversion, decision risk, evidence need, content depth, form friction, proof modes, hero strategy and post-conversion behavior according to `PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`.
+Before creative composition, classify `funnelStage`, audience, primary job,
+primary conversion, decision risk, evidence need, content depth, form friction,
+proof modes, hero strategy and post-conversion behavior according to
+`PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md`.
 
-Use the reference corpus to **add decision intelligence, never to clone layouts**. Pick a narrative arc because it resolves the visitor's decision (local service, consultive quote, B2B software, event/course, rich material, franchise, catalog or sensitive educational flow). Section order remains project-specific.
+Then persist/derive the additive `LandingDecisionProfileV2`: traffic
+intent/source, offer type, risk dimensions, unresolved decision questions,
+decision aids, value-demonstration mode, form purpose/progressive profiling,
+transparency plan, location/coverage requirement, source continuity,
+cross-channel continuity, post-conversion and measurement.
+
+R2 may propose these parameters from evidence, but must leave unsupported values
+unknown/not-applicable instead of filling them from segment stereotypes.
+
+Use the reference corpus to **add decision intelligence, never to clone layouts**.
+Pick a narrative arc because it resolves the visitor's decision (local service,
+consultive quote, B2B software, event/course, rich material, franchise, catalog
+or sensitive educational flow). Section order remains project-specific.
 
 ## 4. Persist layers separately
 

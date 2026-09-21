@@ -41,6 +41,36 @@ antiTemplateDecisions:
 
 Para projeto publicado, nenhum campo pode permanecer como `[PREENCHER]`.
 
+## 1.1 Decision brief obrigatório — antes da composição
+
+O Creative DNA visual não começa no vácuo. Para projeto novo, anexar ao brief o
+perfil de decisão definido em
+`docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` e no ledger R2.
+
+Campos mínimos:
+
+```text
+trafficIntent:
+trafficSource:
+offerType:
+decisionComplexity:
+decisionRiskDimensions:
+uncertainties:
+decisionSupport:
+valueDemonstration:
+formStrategy:
+transparencyPlan:
+locationRequirement:
+sourceContinuity:
+crossChannelContinuity:
+postConversionPlan:
+measurementPlan:
+```
+
+Primeiro se decide **qual incerteza comercial precisa ser removida**; depois se
+decide como isso vira composição, mídia e motion. Nenhum campo pode ser
+preenchido por conhecimento genérico do segmento quando faltar evidência.
+
 ## 2. Competências obrigatórias
 
 As categorias abaixo são capacidades, não obrigação de trocar a stack:

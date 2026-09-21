@@ -14,7 +14,7 @@ It is an **orchestration and quality skill**, not a visual template. It converts
 1. Read `AGENTS.md` and `docs/0WEB_EXECUTION_CONTRACT.md`.
 2. Run `0web-skill-discovery` and assemble the broadest **relevant** stack for the task.
 3. For every new project and every material page maintenance, inspect `docs/SKILL_MARKETPLACE_DISCOVERY_STANDARD.md` and `src/config/skill-marketplace-catalog.json`; search LobeHub/AwesomeSkill/original sources when complementary expertise may exist.
-4. Define business goal, audience/persona, market context, conversion objective and factual evidence.
+4. Define business goal, audience/persona, market context, conversion objective and factual evidence; for a new landing, also declare `LandingIntentProfile` + `LandingDecisionProfileV2` from `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` before art direction.
 5. Apply `0web-portfolio-art-direction` before choosing layout, section order, typography or motion grammar.
 6. Review the experience through all applicable lenses below.
 7. Implement only capabilities that add user value; classify the rest as `NOT_APPLICABLE` rather than forcing decorative effects.
