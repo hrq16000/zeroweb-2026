@@ -36,6 +36,15 @@ describe("Centro Mega — Store Concept", () => {
     expect(products).not.toContain("estoque disponível");
   });
 
+  test("catálogo complementar do seller é rastreável sem congelar preço atual", () => {
+    expect(products).toContain('sourceType: "MARKETPLACE_SELLER"');
+    expect(products).toContain("Xiaomi Mi Box S");
+    expect(products).toContain("Controle PlayStation 4 · Sony");
+    expect(products).toContain("Suporte de celular para Moto & Bike · Renux");
+    expect(enrichment.marketplaceProducts).toContain("Xiaomi Mi Box S");
+    expect(enrichment.researchLedger.marketplaceSeller.verified).toBe(true);
+  });
+
   test("categorias demonstrativas não são promovidas a SKU com preço", () => {
     expect(products).toContain('name: "Bonés · seleção Outlet"');
     expect(products).toContain('name: "Calçados · oportunidades"');
