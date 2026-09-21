@@ -124,6 +124,7 @@ export function PortfolioManagedView({ project }: Props) {
                   clientKey={project.clientKey}
                   studioName={project.displayName}
                   recipientName={project.displayName}
+                  theme="steel"
                   mode={quizMode}
                   funnelIntent={project.funnelIntent}
                   quizConfig={quizConfig}
@@ -150,6 +151,7 @@ export function PortfolioManagedView({ project }: Props) {
                 clientKey={project.clientKey}
                 studioName={project.displayName}
                 recipientName={project.displayName}
+                theme="steel"
                 mode={quizMode}
                 funnelIntent={project.funnelIntent}
                 quizConfig={quizConfig}
