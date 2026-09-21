@@ -1,10 +1,10 @@
 # Auditoria de coerência de funil — /portfolio/:slug
 
-Gerado em 2026-09-20T23:59:24.627Z
+Gerado em 2026-09-21T06:35:38.724Z
 
-- Projetos auditados: **94**
-- PASS: **94** · WARNING: **0** · FAIL: **0**
-- Intenções: pedido (25) · orcamento (32) · solicitacao (1) · agendamento (16) · contato (9) · reserva (4) · diagnostico (7)
+- Projetos auditados: **95**
+- PASS: **95** · WARNING: **0** · FAIL: **0**
+- Intenções: pedido (25) · orcamento (32) · solicitacao (1) · agendamento (17) · contato (9) · reserva (4) · diagnostico (7)
 
 | slug | segmento | intenção | próximo passo | CTA | origem | status | problema |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ Gerado em 2026-09-20T23:59:24.627Z
 | mimo-salgados-doces | comercios | pedido | Conte o que deseja, a quantidade e para quando precisa. A equipe Mimo combina os próximos passos. | Montar meu pedido | PROJECT_CONTRACT | PASS | — |
 | popys-conservacao-limpeza | servicos | orcamento | Conte o tipo de espaço, a frequência e o que precisa. A equipe POPYS organiza um próximo passo personalizado. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | bruna-diarista | servicos | agendamento | Conte o ambiente, a duração desejada e quando gostaria de receber a Bruna. | Consultar horários | PROJECT_CONTRACT | PASS | — |
-| btb-construcao | construcao | orcamento | Conte o ambiente, os serviços necessários e o prazo para a equipe BTB preparar o próximo passo. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
+| btb-construcao | construcao | orcamento | Marque as frentes da reforma e leve esse contexto para a equipe BTB. Região, prazo e detalhes são confirmados no funil. | Montar meu escopo | PROJECT_CONTRACT | PASS | — |
 | easy-clean | servicos | orcamento | Conte qual peça precisa de higienização e se deseja impermeabilização. | Solicitar orçamento | PROJECT_CONTRACT | PASS | — |
 | js-eletrica-manutencao | servicos | orcamento | Conte se precisa de elétrica, ar-condicionado ou sistema solar e informe a região do atendimento. | Solicitar avaliação | PROJECT_CONTRACT | PASS | — |
 | papelemi-personalizados | comercios | pedido | Conte a ocasião, o produto e a identidade visual que deseja criar para receber uma orientação inicial. | Criar meu personalizado | PROJECT_CONTRACT | PASS | — |
@@ -102,3 +102,4 @@ Gerado em 2026-09-20T23:59:24.627Z
 | adhonep-curitiba | prestadores-de-servicos | contato | Envie seu nome pelo formulário e receba a confirmação do encontro, com endereço, andar e sala. A participação não tem custo financeiro. | Confirmar presença | PROJECT_CONTRACT | PASS | — |
 | catharine-lima-studio | beleza | agendamento | Escolha o procedimento, conte sua preferência e indique o melhor período para o Catharine Lima Studio organizar o atendimento. | Agendar meu horário | PROJECT_CONTRACT | PASS | — |
 | cris-presentes-colonia-rio-grande | comercios | pedido | Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade. | Encontrar um presente | PROJECT_CONTRACT | PASS | — |
+| autoescola-aptos | servicos | agendamento | Informe o objetivo, seu estágio, o período preferido e quando deseja começar para a APTOS organizar o próximo passo. | Montar minha proposta | PROJECT_CONTRACT | PASS | — |
