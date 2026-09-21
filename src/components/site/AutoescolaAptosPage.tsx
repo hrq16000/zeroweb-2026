@@ -89,7 +89,7 @@ export function AutoescolaAptosPage() {
       <main className="aptos-site pb-24 md:pb-0">
         <header className="aptos-nav fixed inset-x-3 top-3 z-40 mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-md border px-4 py-3 md:inset-x-6 md:px-6">
           <a href="#inicio" aria-label="Autoescola APTOS — início" className="shrink-0">
-            <img src="/images/autoescola-aptos/logo.webp" width="150" height="50" alt="Autoescola APTOS" className="h-8 w-auto md:h-10" decoding="async" />
+            <img src="/images/autoescola-aptos/logo.webp" width="150" height="50" alt="Autoescola APTOS" className="h-8 w-auto md:h-10" loading="lazy" decoding="async" />
           </a>
           <nav aria-label="Navegação da Autoescola APTOS" className="hidden items-center gap-6 text-sm font-semibold md:flex">
             <a href="#escolhas">Escolhas</a><a href="#processo">Como começar</a><a href="#estrutura">Local</a><a href="#duvidas">Dúvidas</a>
