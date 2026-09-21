@@ -1160,6 +1160,18 @@
         "ctaHref": "#pedido"
       },
       "socialVersion": "c3f20df0"
+    },
+    "autoescola-aptos": {
+      "icon": "/images/autoescola-aptos/logo.webp",
+      "socialImage": "/images/autoescola-aptos/capa-og.jpg",
+      "proof": {
+        "eyebrow": "Autoescola APTOS · São José dos Pinhais",
+        "title": "Sua CNH, do seu jeito.",
+        "description": "Primeira habilitação, categorias A, B e AB, opções automáticas, reteste, renovação, reciclagem e curso online.",
+        "ctaLabel": "Escolher meu caminho",
+        "ctaHref": "/f/funnel-autoescola-aptos"
+      },
+      "socialVersion": "aptos-20260921"
     }
   }
 }

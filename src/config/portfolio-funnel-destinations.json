@@ -248,6 +248,18 @@
         "Busca pública reexecutada em 21/09/2026 não resolveu com segurança a entidade BTB Construção de Curitiba; homônimos de outros estados/segmentos foram rejeitados.",
         "A evolução não alterou o número nem criou fallback; titularidade externa permanece pendente de evidência adicional."
       ]
+    },
+    "autoescola-aptos": {
+      "status": "VERIFIED",
+      "source": "OWNER_REQUEST+OFFICIAL_WEBSITE",
+      "confidence": 95,
+      "verifiedAt": "2026-09-21",
+      "evidence": [
+        "Destino direto de WhatsApp informado explicitamente pelo responsável no pedido do projeto.",
+        "O responsável identificou autoescolaaptos.com.br como fonte oficial e autorizou o uso operacional do número fornecido.",
+        "Divergência registrada: a home oficial também exibe um telefone fixo; nenhum número foi inferido ou substituído automaticamente.",
+        "Destino versionado exclusivamente para client_key autoescola-aptos, sem fallback cross-client."
+      ]
     }
   }
 }

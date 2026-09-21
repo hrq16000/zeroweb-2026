@@ -1378,6 +1378,27 @@
       "tabletBehavior": "hero empilhado; categorias em duas colunas",
       "mobileBehavior": "cards em coluna única; sem parallax; CTA prioritário",
       "wave": "onda4"
+    },
+    "autoescola-aptos": {
+      "wave": "NEW_CLIENT_AUTOESCOLA_APTOS",
+      "segment": "autoescola",
+      "motionIntent": "ESCOLHA DE FAIXA",
+      "whyThisMotion": "Revelações direcionais e a linha de rota traduzem escolhas de habilitação que convergem no agendamento, sem simular velocidade ou direção real.",
+      "signatureMoments": {
+        "hero": "fotografia oficial entra por máscara ao lado da faixa amarela de novidade",
+        "section": "opções e etapas surgem em progressão como marcos de rota",
+        "interaction": "linha de pista avança e CTAs respondem com deslocamento curto"
+      },
+      "motionIntensity": "BALANCED",
+      "effectsAvoided": [
+        "parallax",
+        "scroll hijack",
+        "contadores",
+        "loops agressivos"
+      ],
+      "performanceNote": "Somente transform, opacity e clip-path; fotos WebP locais e nenhuma dependência nova.",
+      "accessibilityNotes": "prefers-reduced-motion elimina deslocamentos e animação da linha, mantendo todo conteúdo visível.",
+      "originalityNotes": "A linguagem de faixas convergentes e painel de escolhas não reutiliza hero split de oficina, timeline mecânica ou paleta laranja."
     }
   },
   "decisions": {

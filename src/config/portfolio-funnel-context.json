@@ -666,5 +666,15 @@
     "nextStepBody": "Escolha a categoria, diga para quem é ou qual a necessidade e informe quando precisa. A solicitação segue organizada para a própria unidade.",
     "primaryCtaLabel": "Encontrar um presente",
     "theme": "gold"
+  },
+  "autoescola-aptos": {
+    "intent": "agendamento",
+    "nextStepTitle": "Sua CNH começa por uma escolha que combina com você.",
+    "nextStepBody": "Informe o objetivo, seu estágio, o período preferido e quando deseja começar para a APTOS organizar o próximo passo.",
+    "primaryCtaLabel": "Montar minha proposta",
+    "theme": "navy",
+    "whatsappPrompt": "Quero receber uma proposta para começar meu processo de habilitação na APTOS.",
+    "whatsappSubject": "meu processo de habilitação",
+    "proposalKind": "service"
   }
 }
