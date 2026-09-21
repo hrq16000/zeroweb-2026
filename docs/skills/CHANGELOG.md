@@ -1,5 +1,15 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — varredura R3 · inteligência profunda para novas landing pages
+
+- **Tarefa:** revarrer as referências do material RD Station “34 Exemplos de Landing Pages que convertem” e somar conhecimento atual sem substituir contratos existentes.
+- **Princípio:** `SOME = SOMAR/AGREGAR`; R1/R2, Blueprint, Creative Direction, Premium Acceptance, Unique Composition, Funnel, SEO, Privacy, Accessibility, Performance e quality gates permanecem válidos.
+- **Pesquisa:** 25 referências nomeadas reavaliadas; 23 continuam com presença oficial atual resolvida, UNIFACIG permanece `OFFICIAL_PARTIAL` para a campanha exata e Ext Trade Tech permanece `REFERENCE_ONLY` por ausência de domínio atual resolvido com segurança.
+- **R3 agregada:** `pageMode`, `decisionVelocity`, `informationScent`, `selfSegmentation`, `contextCarryover`, `commitmentLadder`, `claimEvidenceGraph`, `riskAdjustedPersuasion`, `actionStateModel`, `humanEscalationPolicy`, `responseExpectationContract`, `freshnessPolicy`, `navigationLeakagePolicy`, `mobileDecisionBudget` e `experimentReadiness`.
+- **Gates novos:** velocidade de decisão, scent, auto-segmentação, carryover, claim/evidence, risco, expectativa pós-conversão, freshness, leakage, orçamento mobile, coerência ponta a ponta e experiment readiness.
+- **Adoção:** padrão normativo, playbook, Blueprint, Creative Direction e skills `0web-portfolio-autonomous-pipeline`, `0web-portfolio-art-direction` e `0web-experience-design-max` passaram a exigir a avaliação aditiva V3 antes da composição de novos projetos.
+- **Proteções:** nenhum template visual foi criado; nenhum claim externo foi promovido para clientes; nenhuma regra de isolamento de funil/WhatsApp foi alterada.
+
 ## 2026-09-20 — varredura R2 · 25 referências e parâmetros de decisão
 
 - **Tarefa:** completar a varredura marca a marca do material RD Station e transformar os achados em parâmetros aditivos para novas landing pages.
