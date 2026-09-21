@@ -195,18 +195,18 @@
   "autonomy": {
     "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
     "identity": {
-      "decision": "OFFICIAL_IDENTITY",
+      "decision": "REAL_LOGO",
       "asset": "/images/autoescola-aptos/logo.webp",
       "provenance": "OFFICIAL_WEBSITE",
       "evidence": "local copy present"
     },
     "aboveTheFold": {
-      "status": "PASS_SOURCE",
+      "status": "PASS",
       "visualStrategy": "official vehicle + brand + automatic novelty",
       "notes": "No generic stock."
     },
     "motionPresence": {
-      "state": "IMPLEMENTED",
+      "state": "MOTION_OBSERVED",
       "evidence": [
         "MotionReveal",
         "MotionImageReveal",
@@ -216,13 +216,13 @@
       ]
     },
     "floatingConversion": {
-      "mode": "contextual-mobile",
+      "mode": "enabled",
       "label": "Escolher meu caminho",
       "destination": "funnel",
       "reason": "persists after value proposition without exposing contact"
     },
     "embed": {
-      "status": "REGISTERED",
+      "status": "PASS",
       "checkedAt": "2026-09-21",
       "notes": "Catalog and composition registries include the slug."
     },
@@ -237,6 +237,12 @@
         "faq"
       ],
       "rationale": "Local driver decision journey, not a generic service stack."
+    },
+    "heroMedia": {
+      "asset": "/images/autoescola-aptos/carro-aptos.webp",
+      "kind": "REAL_PHOTO",
+      "documentary": true,
+      "provenance": "OFFICIAL_WEBSITE"
     }
   },
   "hero": {

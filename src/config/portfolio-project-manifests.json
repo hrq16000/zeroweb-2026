@@ -422,12 +422,12 @@
       "structuralContract": 1,
       "structuralSignature": {
         "segment": "autoescola",
-        "layoutFamily": "painel-de-decisao-viaria",
-        "heroFamily": "road-stage-assimetrico",
-        "sectionRhythm": "impacto→escolha→prova→percurso→local→convergencia→FAQ",
-        "proofStyle": "travessia documental atribuída",
-        "mediaNarrative": "carro oficial→fachada→curso online",
-        "ctaStyle": "convergência de faixas",
+        "layoutFamily": "local-de-bairro",
+        "heroFamily": "media-led",
+        "sectionRhythm": "crescendo",
+        "proofStyle": "local-seal",
+        "mediaNarrative": "storefront-proof",
+        "ctaStyle": "floating-persistent",
         "motionProfile": "aptos-route-balanced"
       },
       "structuralOriginalityReview": {
@@ -494,12 +494,12 @@
       ],
       "ownerRequired": [],
       "searchQa": [
-        "Autoescola APTOS",
-        "autoescola São José dos Pinhais",
-        "primeira habilitação A B AB",
-        "carro automático e moto automática",
-        "reteste renovação reciclagem",
-        "Centro São José dos Pinhais"
+        { "query": "Autoescola APTOS", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
+        { "query": "autoescola São José dos Pinhais", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
+        { "query": "primeira habilitação A B AB", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
+        { "query": "carro automático e moto automática", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
+        { "query": "reteste renovação reciclagem", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" },
+        { "query": "Centro São José dos Pinhais", "expect": "must_find", "slug": "autoescola-aptos", "verifiedAt": "2026-09-21" }
       ],
       "visualQa": {
         "status": "PASS",
