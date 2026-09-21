@@ -1,0 +1,100 @@
+{
+  "doc": "Media plan (docs/PORTFOLIO_PROJECT_LIFECYCLE.md §7) — registro canônico de fechamento da Catharine Lima Studio.",
+  "slug": "catharine-lima-studio",
+  "status": "PUBLISHED_WITH_GENERATED_CONTEXTUAL_MEDIA",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [
+      {
+        "asset": "public/images/catharine-lima-studio/hero.svg",
+        "classification": "GENERATED_CONTEXTUAL_MEDIA",
+        "source": "OWNER_SUPPLIED_PUBLIC_EVIDENCE + ORIGINAL_COMPOSITION",
+        "purpose": "hero",
+        "documentary": false,
+        "notes": "Composição editorial própria; não representa fotografia real do estabelecimento, equipe, cliente ou trabalho executado."
+      },
+      {
+        "asset": "public/images/catharine-lima-studio/capa-card.svg",
+        "classification": "COVER_MEDIA",
+        "source": "ORIGINAL_COMPOSITION",
+        "purpose": "catalog-cover",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/catharine-lima-studio/social.jpg",
+        "classification": "OG_MEDIA",
+        "source": "ORIGINAL_COMPOSITION",
+        "purpose": "social-preview",
+        "documentary": false
+      }
+    ],
+    "graphicMedia": [
+      {
+        "asset": "public/images/catharine-lima-studio/logo.svg",
+        "classification": "GENERATED_BRAND_ASSET",
+        "purpose": "brand-mark",
+        "documentary": false,
+        "notes": "Identidade autoral criada para a presença digital; não é registrada como logotipo oficial anterior fornecido pela empresa."
+      }
+    ],
+    "missingMedia": [
+      "fotos reais do estabelecimento",
+      "fotos reais de trabalhos/procedimentos",
+      "vídeos reais do estabelecimento"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OWNER_SUPPLIED_PUBLIC_EVIDENCE",
+      "FACEBOOK",
+      "PUBLIC_WEB"
+    ],
+    "result": "O perfil público do Facebook foi identificado, porém não ficou acessível à ingestão técnica nesta rodada. Nenhuma foto ou vídeo foi copiado, hotlinkado ou reclassificado como mídia própria."
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "asset": "public/images/catharine-lima-studio/hero.svg",
+      "classification": "GENERATED_CONTEXTUAL_MEDIA",
+      "status": "complete"
+    },
+    {
+      "section": "servicos",
+      "resolution": "no-media-needed",
+      "status": "complete"
+    },
+    {
+      "section": "condicao-novas-clientes",
+      "resolution": "no-media-needed",
+      "status": "complete"
+    },
+    {
+      "section": "local-e-identidade",
+      "resolution": "no-media-needed",
+      "status": "complete"
+    },
+    {
+      "section": "agendamento",
+      "resolution": "no-media-needed",
+      "status": "complete"
+    },
+    {
+      "section": "social-preview",
+      "asset": "public/images/catharine-lima-studio/social.jpg",
+      "classification": "OG_MEDIA",
+      "status": "complete"
+    }
+  ],
+  "cover": {
+    "asset": "public/images/catharine-lima-studio/capa-card.svg",
+    "strategy": "GENERATED_EDITORIAL",
+    "approved": true,
+    "approvedAt": "2026-09-20",
+    "notes": "Asset operacional já publicado no catálogo; composição editorial própria, não documental."
+  },
+  "lastUpdatedAt": "2026-09-20"
+}
