@@ -1567,6 +1567,39 @@
       "logoFile": "/images/jkl-decor/logo.png",
       "socialFile": "/images/jkl-decor/capa.jpg",
       "identityNote": "Wordmark criado pela 0WEB (WORDMARK_CREATED / GENERATED_BRAND_ASSET) por ausência de logotipo público; substituir se o cliente enviar marca oficial."
+    },
+    "autoescola-aptos": {
+      "brandCharacter": [
+        "direta",
+        "confiável",
+        "contemporânea"
+      ],
+      "visualConcept": "Painel de decisão viária: faixas claras, cortes de sinalização e fotos documentais oficiais da frota.",
+      "heroComposition": "road-stage-assimetrico-com-faixa-transversal",
+      "sectionRhythm": [
+        "hero-rota",
+        "painel-de-escolhas",
+        "travessia-de-prova",
+        "marcos-de-processo",
+        "local-documental",
+        "convergencia-final",
+        "faq"
+      ],
+      "typographicCharacter": "Sans geométrica de alto peso nos títulos e corpo funcional para leitura rápida.",
+      "colorBehavior": "Papel quente dominante, grafite para estrutura, vermelho oficial nos pontos de ação e amarelo-sinal como novidade.",
+      "imageDirection": "Fotografia oficial real de carro, fachada e contexto de curso; sem banco genérico ou imagem fabricada.",
+      "signatureElement": "Faixa amarela de novidade atravessando o hero e duas rotas convergindo no fechamento.",
+      "logoStatus": "OFFICIAL_BRAND_ASSET",
+      "coverStatus": "REAL_PHOTO",
+      "forbiddenSimilarities": [
+        "moreira-auto-mecanica",
+        "auto-socorro-dentinho",
+        "carecas-infotec"
+      ],
+      "identityStatus": "OFFICIAL_IDENTITY_APPLIED",
+      "logoFile": "/images/autoescola-aptos/logo.webp",
+      "socialFile": "/images/autoescola-aptos/capa-og.jpg",
+      "identityNote": "Logo e fotografias copiados e versionados do site oficial autoescolaaptos.com.br; paleta derivada da identidade oficial."
     }
   }
 }

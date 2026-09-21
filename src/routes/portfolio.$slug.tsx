@@ -574,7 +574,10 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const isCarecasInfotec = loaderData?.slug === "carecas-infotec";
     const isMoreiraAutoMecanica = loaderData?.slug === "moreira-auto-mecanica";
     const isJklDecor = loaderData?.slug === "jkl-decor";
-    const description = isCrisPresentesColoniaRioGrande
+    const isAutoescolaAptos = loaderData?.slug === "autoescola-aptos";
+    const description = isAutoescolaAptos
+      ? "Autoescola APTOS em São José dos Pinhais: primeira habilitação A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
+      : isCrisPresentesColoniaRioGrande
       ? "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria, armarinho e outras categorias de presentes, com consulta de disponibilidade pelo funil."
       : isCatharineLima
       ? "Catharine Lima Studio em São José dos Pinhais: alongamento, Molde F1, banho em gel, pé em gel, volume brasileiro e progressiva, com solicitação de horário pelo funil do studio."
@@ -812,6 +815,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
           name: "keywords",
           content: eff.keywords ?? (isJklDecor
             ? "JKL Decor, móveis planejados São José dos Pinhais, marcenaria Curitiba e região, cozinha planejada MDF, guarda-roupa sob medida, painel de TV planejado, nichos para quarto, porta-tempero, cozinha infantil em MDF"
+            : isAutoescolaAptos
+            ? "Autoescola APTOS, autoescola São José dos Pinhais, primeira habilitação, carro automático autoescola, moto automática, categoria A, categoria B, categoria AB, reteste, renovação CNH, reciclagem, curso online"
             : isMoreiraAutoMecanica
             ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
             : isCarecasInfotec
@@ -989,6 +994,47 @@ export const Route = createFileRoute("/portfolio/$slug")({
                           name: faq.q,
                           acceptedAnswer: { "@type": "Answer", text: faq.a },
                         })),
+                      },
+                    ]
+                  : []),
+                ...(isAutoescolaAptos
+                  ? [
+                      {
+                        "@type": ["DrivingSchool", "LocalBusiness"],
+                        "@id": `${url}#localbusiness`,
+                        name: "Autoescola APTOS",
+                        description,
+                        url,
+                        image: socialImage,
+                        logo: absUrl("/images/autoescola-aptos/logo.webp"),
+                        address: {
+                          "@type": "PostalAddress",
+                          streetAddress: "Rua Passos de Oliveira, 810",
+                          addressLocality: "São José dos Pinhais",
+                          addressRegion: "PR",
+                          addressCountry: "BR",
+                        },
+                        areaServed: { "@type": "City", name: "São José dos Pinhais" },
+                        makesOffer: [
+                          "Primeira habilitação",
+                          "Categoria A",
+                          "Categoria B",
+                          "Categoria AB",
+                          "Reteste",
+                          "Renovação de CNH",
+                          "Reciclagem",
+                          "Curso online",
+                        ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+                      },
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${url}#faq`,
+                        mainEntity: [
+                          ["A APTOS oferece aulas em carro automático?", "Sim. A opção de carro automático é divulgada oficialmente pela APTOS."],
+                          ["Também existe opção de moto automática?", "Sim. A moto automática foi informada pelo responsável como novidade da APTOS."],
+                          ["Quais processos posso solicitar?", "Primeira habilitação A, B ou AB, reteste, renovação e reciclagem."],
+                          ["O curso teórico pode ser feito online?", "A APTOS divulga curso online e confirma as condições no atendimento."],
+                        ].map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })),
                       },
                     ]
                   : []),

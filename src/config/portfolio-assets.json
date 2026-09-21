@@ -890,10 +890,10 @@
       "socialImage": "/images/btb-construcao/hero-og.jpg",
       "proof": {
         "eyebrow": "BTB Construção",
-        "title": "Organize a reforma antes de pedir o orçamento.",
-        "description": "Monte um escopo inicial com as frentes que você precisa e continue pelo funil da própria BTB.",
-        "ctaLabel": "Montar mapa da reforma",
-        "ctaHref": "#mapa-da-reforma"
+        "title": "BTB Construção com uma presença que explica o que faz.",
+        "description": "BTB Construção realiza reformas internas em Curitiba e região: pintura, elétrica, hidráulica, pisos, drywall, acabamentos e iluminação LED.",
+        "ctaLabel": "Conhecer a presença",
+        "ctaHref": "#presenca"
       },
       "socialVersion": "a295c53f"
     },
@@ -1160,6 +1160,18 @@
         "ctaHref": "#pedido"
       },
       "socialVersion": "c3f20df0"
+    },
+    "autoescola-aptos": {
+      "icon": "/images/autoescola-aptos/logo.webp",
+      "socialImage": "/images/autoescola-aptos/capa-og.jpg",
+      "proof": {
+        "eyebrow": "Autoescola APTOS · São José dos Pinhais",
+        "title": "Sua CNH, do seu jeito.",
+        "description": "Primeira habilitação, categorias A, B e AB, opções automáticas, reteste, renovação, reciclagem e curso online.",
+        "ctaLabel": "Escolher meu caminho",
+        "ctaHref": "/f/funnel-autoescola-aptos"
+      },
+      "socialVersion": "4d6ace96"
     }
   }
 }

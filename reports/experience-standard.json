@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-08T19:57:21.108Z",
-  "totalCatalogProjects": 88,
-  "totalPages": 88,
+  "generatedAt": "2026-09-21T06:26:59.170Z",
+  "totalCatalogProjects": 95,
+  "totalPages": 95,
   "auditCoverage": "100%",
   "missingSlugs": [],
-  "premium": 47,
-  "signature": 24,
-  "baseline": 17,
+  "premium": 50,
+  "signature": 25,
+  "baseline": 20,
   "static": 0,
   "motion": {
     "cloneThreshold": 95,
     "groupThreshold": 85,
-    "clones": 10,
-    "groups": 10,
+    "clones": 11,
+    "groups": 11,
     "signalFloor": 5,
-    "lowSignalPairs": 1748,
+    "lowSignalPairs": 2187,
     "maxSimilarity": 100,
     "topNearestMatches": [
       {
@@ -74,6 +74,14 @@
         "signal": "COMPARABLE"
       },
       {
+        "a": "catharine-lima-studio",
+        "b": "cris-presentes-colonia-rio-grande",
+        "similarity": 100,
+        "perceptual": 100,
+        "tokens": 100,
+        "signal": "COMPARABLE"
+      },
+      {
         "a": "popys-conservacao-limpeza",
         "b": "btb-construcao",
         "similarity": 95,
@@ -84,14 +92,6 @@
       {
         "a": "bruna-diarista",
         "b": "btb-construcao",
-        "similarity": 95,
-        "perceptual": 100,
-        "tokens": 83,
-        "signal": "COMPARABLE"
-      },
-      {
-        "a": "btb-construcao",
-        "b": "easy-clean",
         "similarity": 95,
         "perceptual": 100,
         "tokens": 83,
@@ -116,6 +116,10 @@
       [
         "mania-de-limpeza",
         "dona-lucy-salgados"
+      ],
+      [
+        "catharine-lima-studio",
+        "cris-presentes-colonia-rio-grande"
       ],
       [
         "confeitaria-chyrley",
@@ -152,7 +156,88 @@
       ]
     ]
   },
-  "errors": [],
+  "errors": [
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.heroMotion: \"asymmetric\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.imageReveal: \"scale\" fora de [none, clip, zoom, crossfade]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.textReveal: \"block\" fora de [none, word, line]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.hoverBehavior: \"border\" fora de [none, lift, crop, underline, depth]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.scrollBehavior: \"sticky\" fora de [none, progressive, stickyStory]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica.staggerPattern: \"sequence\" fora de [none, linear, grid, diagonal]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.moreira-auto-mecanica: campo desconhecido \"narrative\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.carecas-infotec.imageReveal: \"fade\" fora de [none, clip, zoom, crossfade]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.carecas-infotec.hoverBehavior: \"border\" fora de [none, lift, crop, underline, depth]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor.heroMotion: \"fullBleed\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor.imageReveal: \"scale\" fora de [none, clip, zoom, crossfade]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor.iconMotion: \"subtle\" fora de [none, draw, pop]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor.scrollBehavior: \"progress\" fora de [none, progressive, stickyStory]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor.staggerPattern: \"sequence\" fora de [none, linear, grid, diagonal]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.jkl-decor: campo desconhecido \"narrative\""
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.adhonep-curitiba.heroMotion: \"none\" fora de [static, textReveal, imageReveal, layered, maskedSplit]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.catharine-lima-studio.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
+    },
+    {
+      "code": "INVALID_MOTION_PROFILE",
+      "detail": "overrides.cris-presentes-colonia-rio-grande.depthBehavior: \"layered\" fora de [flat, overlap, crossing, sticky]"
+    }
+  ],
   "warnings": [],
   "pages": [
     {
@@ -276,6 +361,54 @@
       }
     },
     {
+      "slug": "moreira-auto-mecanica",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/MoreiraAutoMecanicaPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "sticky",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
+      }
+    },
+    {
+      "slug": "jkl-decor",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/JklDecorPage.tsx",
+      "score": 4,
+      "level": "BASELINE",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 4,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "EXPRESSIVE",
+        "scrollBehavior": "progress",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
+      }
+    },
+    {
       "slug": "vila-da-capivara",
       "segment": "servicos",
       "file": "src/components/site/VilaDaCapivaraPage.tsx",
@@ -294,6 +427,30 @@
         "interactionSignature": "—",
         "motionIntensity": "BALANCED",
         "scrollBehavior": "—",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": []
+      }
+    },
+    {
+      "slug": "carecas-infotec",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/CarecasInfotecPage.tsx",
+      "score": 5,
+      "level": "BASELINE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 0,
+        "transitions": 0,
+        "hover": 5,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Selo amarelo, título em caixa alta e CTAs entrando em camadas",
+        "sectionSignature": "Grade de oito aparelhos revelada em stagger",
+        "interactionSignature": "Cartões destacam a borda amarela no hover",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
         "textMotion": "NONE",
         "imageMotion": "NONE",
         "tokens": []
@@ -844,39 +1001,6 @@
       }
     },
     {
-      "slug": "jkl-marcenaria",
-      "segment": "servicos",
-      "file": "src/components/site/JklMarcenariaPage.tsx",
-      "score": 37,
-      "level": "PREMIUM",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 8,
-        "transitions": 1,
-        "hover": 4,
-        "animate": 0
-      },
-      "fingerprint": {
-        "heroSignature": "—",
-        "sectionSignature": "—",
-        "interactionSignature": "—",
-        "motionIntensity": "BALANCED",
-        "scrollBehavior": "none",
-        "textMotion": "NONE",
-        "imageMotion": "IMAGE_REVEAL",
-        "tokens": [
-          "v:Reveal:left",
-          "v:Reveal:mask",
-          "e:Reveal:li",
-          "e:Reveal:h1",
-          "i:intensity=\"BALANCED\"",
-          "p:MotionImageReveal",
-          "p:MotionReveal",
-          "d:duration-300"
-        ]
-      }
-    },
-    {
       "slug": "r_beauty",
       "segment": "beleza",
       "file": "src/components/site/RBeautyEditorialView.tsx",
@@ -1090,6 +1214,35 @@
           "i:intensity=\"BALANCED\"",
           "p:MotionReveal",
           "p:MotionScope"
+        ]
+      }
+    },
+    {
+      "slug": "adhonep-curitiba",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/AdhonepCuritibaPage.tsx",
+      "score": 40,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 10,
+        "transitions": 0,
+        "hover": 0,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:mask",
+          "v:Stagger:up",
+          "p:MotionReveal",
+          "p:MotionStagger"
         ]
       }
     },
@@ -1498,6 +1651,39 @@
       }
     },
     {
+      "slug": "cris-presentes-colonia-rio-grande",
+      "segment": "comercios",
+      "file": "src/components/site/CrisPresentesColoniaRioGrandePage.tsx",
+      "score": 47,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 11,
+        "transitions": 0,
+        "hover": 3,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:scale",
+          "v:Stagger:up",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
+        ]
+      }
+    },
+    {
       "slug": "rm-fretes",
       "segment": "servicos",
       "file": "src/components/site/RMFretesPage.tsx",
@@ -1876,6 +2062,39 @@
       }
     },
     {
+      "slug": "catharine-lima-studio",
+      "segment": "beleza",
+      "file": "src/components/site/CatharineLimaStudioPage.tsx",
+      "score": 51,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 11,
+        "transitions": 0,
+        "hover": 7,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:scale",
+          "v:Stagger:up",
+          "e:Reveal:h1",
+          "i:intensity=\"BALANCED\"",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger"
+        ]
+      }
+    },
+    {
       "slug": "beto-pasteis",
       "segment": "restaurantes",
       "file": "src/components/site/BetoPasteisPage.tsx",
@@ -2010,6 +2229,42 @@
           "p:MotionStagger",
           "d:duration-500",
           "h:group-hover:scale-105"
+        ]
+      }
+    },
+    {
+      "slug": "guaratuba-reparos-residenciais",
+      "segment": "prestadores-de-servicos",
+      "file": "src/components/site/ReparosDoLitoralPage.tsx",
+      "score": 53,
+      "level": "SIGNATURE",
+      "hasSignature": true,
+      "signals": {
+        "primitives": 12,
+        "transitions": 2,
+        "hover": 3,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "Ficha branca chegando em escala curta",
+        "sectionSignature": "Checklist de reparos aparecendo item a item",
+        "interactionSignature": "Números 01–03 contando ao entrar, com leve elevação no ponteiro",
+        "motionIntensity": "SUBTLE",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "NONE",
+        "tokens": [
+          "v:Reveal:scale",
+          "v:Reveal:up",
+          "v:Reveal:scale",
+          "e:Reveal:li",
+          "e:Reveal:div",
+          "i:intensity=\"SUBTLE\"",
+          "p:MotionCounter",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "d:duration-200",
+          "d:duration-300"
         ]
       }
     },
@@ -2183,38 +2438,36 @@
       }
     },
     {
-      "slug": "guaratuba-reparos-residenciais",
-      "segment": "prestadores-de-servicos",
-      "file": "src/components/site/ReparosDoLitoralPage.tsx",
-      "score": 57,
+      "slug": "estrutura-nacional",
+      "segment": "construcao",
+      "file": "src/components/site/EstruturaNacionalPage.tsx",
+      "score": 55,
       "level": "SIGNATURE",
       "hasSignature": true,
       "signals": {
-        "primitives": 13,
-        "transitions": 2,
-        "hover": 3,
+        "primitives": 11,
+        "transitions": 0,
+        "hover": 11,
         "animate": 0
       },
       "fingerprint": {
-        "heroSignature": "Ficha branca chegando em escala curta",
-        "sectionSignature": "Checklist de reparos aparecendo item a item",
-        "interactionSignature": "Números 01–03 contando ao entrar, com leve elevação no ponteiro",
-        "motionIntensity": "SUBTLE",
-        "scrollBehavior": "none",
+        "heroSignature": "Título se revela sobre grade técnica e fotografia documental entra por clip curto",
+        "sectionSignature": "Régua 01–04 revela as frentes de atuação alternadamente",
+        "interactionSignature": "Dúvidas usam details nativo e CTA mantém realce dourado de foco",
+        "motionIntensity": "IMMERSIVE",
+        "scrollBehavior": "progressive",
         "textMotion": "NONE",
-        "imageMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
         "tokens": [
-          "v:Reveal:up",
-          "v:Reveal:scale",
-          "v:Stagger:scale",
-          "e:Reveal:div",
-          "i:intensity=\"SUBTLE\"",
-          "p:MotionCounter",
+          "v:Reveal:mask",
+          "e:Reveal:article",
+          "e:Reveal:h1",
+          "i:intensity=\"IMMERSIVE\"",
+          "p:MotionImageReveal",
           "p:MotionReveal",
           "p:MotionScope",
-          "p:MotionStagger",
-          "d:duration-200",
-          "d:duration-300"
+          "c:[clip-path:polygon(0_100%,12%_44%,22%_72%,35%_22%,47%_78%,62%_0,75%_64%,88%_30%,100%_100%)]",
+          "c:[clip-path:polygon(33%_0,100%_0,100%_100%,0_100%)]"
         ]
       }
     },
@@ -2288,37 +2541,6 @@
           "d:duration-200",
           "d:duration-300",
           "h:group-hover:translate-x-1"
-        ]
-      }
-    },
-    {
-      "slug": "btb-construcao",
-      "segment": "construcao",
-      "file": "src/components/site/BtbConstrucaoPage.tsx",
-      "score": 58,
-      "level": "PREMIUM",
-      "hasSignature": false,
-      "signals": {
-        "primitives": 12,
-        "transitions": 0,
-        "hover": 10,
-        "animate": 0
-      },
-      "fingerprint": {
-        "heroSignature": "—",
-        "sectionSignature": "—",
-        "interactionSignature": "—",
-        "motionIntensity": "BALANCED",
-        "scrollBehavior": "none",
-        "textMotion": "NONE",
-        "imageMotion": "IMAGE_REVEAL",
-        "tokens": [
-          "v:Reveal:up",
-          "p:MotionImageReveal",
-          "p:MotionReveal",
-          "p:MotionScope",
-          "p:MotionStagger",
-          "c:[clip-path:polygon(0_18%,50%_0,100%_18%,100%_82%,50%_100%,0_82%)]"
         ]
       }
     },
@@ -2818,6 +3040,38 @@
       }
     },
     {
+      "slug": "btb-construcao",
+      "segment": "construcao",
+      "file": "src/components/site/BtbConstrucaoPage.tsx",
+      "score": 72,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 16,
+        "transitions": 0,
+        "hover": 8,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "none",
+        "textMotion": "NONE",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:up",
+          "v:Reveal:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionScope",
+          "p:MotionStagger",
+          "c:[clip-path:polygon(0_0,100%_10%,86%_100%,10%_86%)]"
+        ]
+      }
+    },
+    {
       "slug": "angel-mix-brecho",
       "segment": "comercios",
       "file": "src/components/site/AngelMixBrechoPage.tsx",
@@ -2880,7 +3134,7 @@
           "v:Reveal:scale",
           "v:Reveal:up",
           "v:Stagger:left",
-          "e:Stagger:dl",
+          "e:Stagger:div",
           "i:intensity=\"BALANCED\"",
           "p:MotionImageReveal",
           "p:MotionReveal",
@@ -2925,6 +3179,39 @@
           "p:MotionReveal",
           "p:MotionScope",
           "d:duration-200"
+        ]
+      }
+    },
+    {
+      "slug": "autoescola-aptos",
+      "segment": "servicos",
+      "file": "src/components/site/AutoescolaAptosPage.tsx",
+      "score": 93,
+      "level": "PREMIUM",
+      "hasSignature": false,
+      "signals": {
+        "primitives": 23,
+        "transitions": 0,
+        "hover": 1,
+        "animate": 0
+      },
+      "fingerprint": {
+        "heroSignature": "—",
+        "sectionSignature": "—",
+        "interactionSignature": "—",
+        "motionIntensity": "BALANCED",
+        "scrollBehavior": "progressive",
+        "textMotion": "TEXT_REVEAL",
+        "imageMotion": "IMAGE_REVEAL",
+        "tokens": [
+          "v:Reveal:left",
+          "v:Reveal:right",
+          "v:Stagger:up",
+          "v:Stagger:up",
+          "p:MotionImageReveal",
+          "p:MotionReveal",
+          "p:MotionStagger",
+          "p:MotionTextReveal"
         ]
       }
     },

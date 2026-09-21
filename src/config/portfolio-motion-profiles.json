@@ -1378,6 +1378,24 @@
       "tabletBehavior": "hero empilhado; categorias em duas colunas",
       "mobileBehavior": "cards em coluna única; sem parallax; CTA prioritário",
       "wave": "onda4"
+    },
+    "autoescola-aptos": {
+      "intensity": "BALANCED",
+      "preset": "EDITORIAL",
+      "heroMotion": "maskedSplit",
+      "sectionReveal": "stagger",
+      "imageReveal": "clip",
+      "textReveal": "line",
+      "iconMotion": "pop",
+      "hoverBehavior": "lift",
+      "depthBehavior": "crossing",
+      "scrollBehavior": "progressive",
+      "staggerPattern": "linear",
+      "reducedMotionFallback": "opacityOnly",
+      "desktopBehavior": "carro oficial em máscara diagonal; painel de escolhas e marcos alternados; linha de rota curta",
+      "tabletBehavior": "hero empilhado, escolhas em duas colunas e movimento direcional reduzido",
+      "mobileBehavior": "uma coluna, CTA persistente, sem parallax e linha de rota estática em reduced motion",
+      "wave": "NEW_CLIENT_AUTOESCOLA_APTOS"
     }
   },
   "decisions": {

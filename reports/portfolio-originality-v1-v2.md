@@ -8,8 +8,8 @@ originalidade: nenhuma página pública mudou.
 | Métrica | V1 | V2 |
 |---|---|---|
 | CLONES | 0 | 0 |
-| HIGH_SIMILARITY | 6 | 6 |
-| PROJECTS_OVER_60 | 6 | 6 |
+| HIGH_SIMILARITY | 5 | 5 |
+| PROJECTS_OVER_60 | 5 | 5 |
 | CLUSTERS | 0 | 0 |
 
 | Projeto | Nearest V1 | Nearest V2 | V1 | V2 | Delta | Mudou vizinho? | Motivo | ASSET V1 | ASSET V2 |
@@ -23,11 +23,9 @@ originalidade: nenhuma página pública mudou.
 | toquinho-de-gente-brecho | woodhouse-hamburgueres | woodhouse-hamburgueres | 52 | 46 | -6 | não | METRIC_CORRECTION | 100 | 15 |
 | woodhouse-hamburgueres | toquinho-de-gente-brecho | toquinho-de-gente-brecho | 52 | 46 | -6 | não | METRIC_CORRECTION | 100 | 15 |
 | angel-mix-brecho | dlara-pizzaria | dlara-pizzaria | 46 | 42 | -4 | não | METRIC_CORRECTION | 100 | 15 |
-| btb-construcao | easy-clean | easy-clean | 73 | 69 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | casa-nativa | guaratuba-oficina-nautica | guaratuba-oficina-nautica | 40 | 36 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | dlara-pizzaria | angel-mix-brecho | angel-mix-brecho | 46 | 42 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | dona-lucy-salgados | mania-de-limpeza | mania-de-limpeza | 48 | 44 | -4 | não | METRIC_CORRECTION | 100 | 15 |
-| easy-clean | btb-construcao | btb-construcao | 73 | 69 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | guaratuba-oficina-nautica | casa-nativa | casa-nativa | 40 | 36 | -4 | não | METRIC_CORRECTION | 100 | 15 |
 | reuse-house-brecho | angel-mix-brecho | beto-pasteis | 34 | 30 | -4 | SIM | METRIC_CORRECTION | 100 | 15 |
 | beto-pasteis | reuse-house-brecho | reuse-house-brecho | 33 | 30 | -3 | não | METRIC_CORRECTION | 100 | 15 |
@@ -48,6 +46,7 @@ originalidade: nenhuma página pública mudou.
 | assistencia-microondas-santos | liz-moraes-nail-designer | liz-moraes-nail-designer | 51 | 49 | -2 | não | METRIC_CORRECTION | 50 | 9 |
 | catharine-lima-studio | cris-presentes-colonia-rio-grande | cris-presentes-colonia-rio-grande | 59 | 57 | -2 | não | METRIC_CORRECTION | 80 | 7.5 |
 | cris-presentes-colonia-rio-grande | catharine-lima-studio | catharine-lima-studio | 59 | 57 | -2 | não | METRIC_CORRECTION | 80 | 7.5 |
+| easy-clean | bruna-diarista | bruna-diarista | 67 | 65 | -2 | não | METRIC_CORRECTION | 66.7 | 15 |
 | eletro-solucoes-eficazes | eletrovale-eletromecanica | eletrovale-eletromecanica | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
 | eletrovale-eletromecanica | eletro-solucoes-eficazes | eletro-solucoes-eficazes | 52 | 50 | -2 | não | METRIC_CORRECTION | 37.5 | 9 |
 | kitutes-na-mesa | liz-moraes-nail-designer | liz-moraes-nail-designer | 55 | 53 | -2 | não | METRIC_CORRECTION | 40 | 9 |
@@ -56,6 +55,7 @@ originalidade: nenhuma página pública mudou.
 | almeida-torres | guaratuba-atelie-presentes | estrutura-nacional | 34 | 33 | -1 | SIM | METRIC_CORRECTION | 100 | 6 |
 | bruna-diarista | easy-clean | popys-conservacao-limpeza | 67 | 66 | -1 | SIM | METRIC_CORRECTION | 66.7 | 15 |
 | clinica-integrada | sos-presentes-cosmeticos | cris-presentes-colonia-rio-grande | 45 | 44 | -1 | SIM | METRIC_CORRECTION | 27.3 | 7.5 |
+| enoel-portas | maximos-cabeleireiros | aguia-sul-sinalizacao | 55 | 54 | -1 | SIM | METRIC_CORRECTION | 100 | 3 |
 | estrutura-nacional | pinturas-nunes | pinturas-nunes | 42 | 41 | -1 | não | METRIC_CORRECTION | 25 | 9 |
 | fernanda-amaral-drywall | rj-servicos-drywall | rj-servicos-drywall | 50 | 49 | -1 | não | METRIC_CORRECTION | 9.1 | 3.3 |
 | liz-moraes-nail-designer | kitutes-na-mesa | mp-festas-eventos | 55 | 54 | -1 | SIM | METRIC_CORRECTION | 40 | 2.1 |
@@ -76,7 +76,9 @@ originalidade: nenhuma página pública mudou.
 | ag-electrical-services | lk-alvenaria | lk-alvenaria | 51 | 51 | 0 | não | UNCHANGED | 0 | 3.2 |
 | aguia-sul-sinalizacao | acai-total-araucaria | diego-montador-moveis | 59 | 59 | 0 | SIM | UNCHANGED | 20 | 7.5 |
 | artesanatos-darleia-oliveira | lk-alvenaria | lk-alvenaria | 42 | 42 | 0 | não | UNCHANGED | 8.3 | 7.5 |
+| autoescola-aptos | auto-socorro-dentinho | auto-socorro-dentinho | 24 | 24 | 0 | não | UNCHANGED | 0 | 3.3 |
 | bh-barreiro-marmitas | uberlandia-eletrica-residencial | your-brutus-burguer | 40 | 40 | 0 | SIM | UNCHANGED | 100 | 5 |
+| btb-construcao | embalar-embalagens | embalar-embalagens | 44 | 44 | 0 | não | UNCHANGED | 10 | 4.3 |
 | confeitaria-sabor-da-realeza | sos-presentes-cosmeticos | sos-presentes-cosmeticos | 50 | 50 | 0 | não | UNCHANGED | 7.7 | 5 |
 | denise-gomes-psicologa | mp-festas-eventos | mp-festas-eventos | 53 | 53 | 0 | não | UNCHANGED | 0 | 4.3 |
 | diego-montador-moveis | aguia-sul-sinalizacao | aguia-sul-sinalizacao | 59 | 59 | 0 | não | UNCHANGED | 0 | 7.5 |
@@ -84,7 +86,6 @@ originalidade: nenhuma página pública mudou.
 | ecommerce-on | acai-total-araucaria | acai-total-araucaria | 54 | 54 | 0 | não | UNCHANGED | 10 | 7.5 |
 | eisenfer-tubos-acos | no-brilho-higienizacao | no-brilho-higienizacao | 43 | 43 | 0 | não | UNCHANGED | 11.1 | 4.3 |
 | emporio-lelecute | assistencia-microondas-santos | assistencia-microondas-santos | 29 | 29 | 0 | não | UNCHANGED | 0 | 2.5 |
-| enoel-portas | btb-construcao | btb-construcao | 56 | 56 | 0 | não | UNCHANGED | 11.1 | 11.2 |
 | espaco-cih-luh | kitutes-na-mesa | kitutes-na-mesa | 39 | 39 | 0 | não | UNCHANGED | 0 | 4.3 |
 | guaratuba-sabores-da-baia | heloa-gas | heloa-gas | 30 | 30 | 0 | não | UNCHANGED | 14.3 | 3 |
 | heloa-gas | dona-lucy-salgados | dona-lucy-salgados | 42 | 42 | 0 | não | UNCHANGED | 12.5 | 15 |

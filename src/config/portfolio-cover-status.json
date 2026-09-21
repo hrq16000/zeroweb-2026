@@ -2,11 +2,11 @@
   "generator": "scripts/build-portfolio-cover-status.mjs",
   "contract": "src/lib/portfolio-cover-status.mjs",
   "doc": "docs/PORTFOLIO_COVER_STATUS_CONTRACT.md",
-  "generatedAt": "2026-09-13",
+  "generatedAt": "2026-09-21",
   "summary": {
-    "total": 92,
+    "total": 95,
     "valid": 47,
-    "pending": 45,
+    "pending": 48,
     "byStatus": {
       "VALID": 47,
       "NEEDS_CROP": 0,
@@ -14,7 +14,7 @@
       "PROMOTIONAL_MATERIAL": 2,
       "LOGO_ONLY": 10,
       "NO_REAL_ASSET": 14,
-      "UNCERTAIN_ORIGIN": 12
+      "UNCERTAIN_ORIGIN": 15
     },
     "balanced": true
   },
@@ -37,11 +37,11 @@
       "asset": "/images/adhonep-curitiba/capa.jpg",
       "catalogImage": "/images/adhonep-curitiba/capa.jpg",
       "catalogImageRole": "EDITORIAL",
-      "origin": "VISUAL_REVIEW",
-      "reviewedAt": "2026-09-13",
-      "status": "VALID",
-      "reason": null,
-      "cardValid": true,
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
       "businessName": "ADHONEP Curitiba",
       "segment": "prestadores-de-servicos"
     },
@@ -137,6 +137,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "autoescola-aptos",
+      "asset": "/images/autoescola-aptos/capa-og.jpg",
+      "catalogImage": "/images/autoescola-aptos/capa-og.jpg",
+      "catalogImageRole": "SOCIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Autoescola APTOS",
+      "segment": "servicos"
+    },
+    {
       "slug": "beto-pasteis",
       "asset": "public/images/beto-pasteis/capa.png",
       "catalogImage": null,
@@ -228,6 +241,19 @@
       "segment": "servicos"
     },
     {
+      "slug": "catharine-lima-studio",
+      "asset": "/images/catharine-lima-studio/capa-card.svg",
+      "catalogImage": "/images/catharine-lima-studio/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Catharine Lima Studio",
+      "segment": "beleza"
+    },
+    {
       "slug": "centro-mega",
       "asset": "/images/centro-mega/hero.png",
       "catalogImage": "/images/centro-mega/hero.png",
@@ -278,6 +304,19 @@
       "cardValid": false,
       "businessName": "Confeitaria Sabor da Realeza",
       "segment": "restaurantes"
+    },
+    {
+      "slug": "cris-presentes-colonia-rio-grande",
+      "asset": "/images/cris-presentes-colonia-rio-grande/capa-card.svg",
+      "catalogImage": "/images/cris-presentes-colonia-rio-grande/capa-card.svg",
+      "catalogImageRole": "EDITORIAL",
+      "origin": "CATALOG",
+      "reviewedAt": null,
+      "status": "UNCERTAIN_ORIGIN",
+      "reason": "Sem julgamento humano registrado para a capa.",
+      "cardValid": false,
+      "businessName": "Cris Presentes · Colônia Rio Grande",
+      "segment": "comercios"
     },
     {
       "slug": "denise-gomes-psicologa",
