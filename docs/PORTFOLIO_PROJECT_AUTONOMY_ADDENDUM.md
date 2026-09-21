@@ -98,6 +98,18 @@ Novos gates aditivos de decisão: `OFFER_SINGULARITY_GATE`,
 `DELIVERABLE_PREVIEW_GATE`, `PRIVACY_CONSENT_GATE` e
 `POST_CONVERSION_CONTINUITY_GATE`.
 
+## 1.4 RESOURCE_UTILIZATION_GATE
+
+Autonomia significa também **não esperar o operador pedir o óbvio depois**.
+Todo projeto novo segue `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md` e
+tenta ativamente os recursos relevantes de pesquisa, mídia, skills, identidade,
+decisão, interação, SEO, acessibilidade, performance, conversão, medição e QA.
+
+O pipeline registra os recursos centrais utilizados e os que ficaram
+`ATTEMPTED_BLOCKED`, `REJECTED` ou `NOT_APPLICABLE`. Ignorar recurso útil por
+conveniência impede considerar a etapa autônoma concluída; ligar recurso sem
+benefício também é falha.
+
 ## 2. IDENTITY_COMPLETENESS_GATE (§3–§6)
 
 Toda landing declara uma decisão explícita de identidade:
@@ -182,7 +194,7 @@ Card, modal, Hero, capa e OG formam uma identidade contínua (§28).
 
 ```text
 ENTITY → ENRICHMENT → IDENTITY → MEDIA → CREATIVE DIRECTION → BLUEPRINT
-→ MOTION → FUNNEL → SEARCH → SEO → COVER → DIRECT QA → EMBED QA
+→ RESOURCE UTILIZATION → MOTION → FUNNEL → SEARCH → SEO → COVER → DIRECT QA → EMBED QA
 → QUALITY → READY
 ```
 
