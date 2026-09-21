@@ -1021,13 +1021,13 @@
       "icon": "/images/centro-mega/logo.png",
       "socialImage": "/images/centro-mega/social-og.jpg",
       "proof": {
-        "eyebrow": "Centro Mega · Store Sample",
-        "title": "Do post para a vitrine, com origem rastreável.",
-        "description": "Amostra de loja virtual com tecnologia e outlet. Produtos entram como itens específicos somente quando existe evidência pública verificável; preço e estoque atuais são confirmados pela equipe.",
-        "ctaLabel": "Ver drops",
-        "ctaHref": "#drops"
+        "eyebrow": "Centro Mega Store · Tech + Outlet",
+        "title": "Do social para uma vitrine digital que organiza o pedido.",
+        "description": "Celulares, gaming, acessórios, perfumes e itens de outlet com consulta de preço e disponibilidade pelo funil da própria Centro Mega.",
+        "ctaLabel": "Explorar a loja",
+        "ctaHref": "#catalogo"
       },
-      "socialVersion": "9e729e85"
+      "socialVersion": "store-sample-20260921"
     },
     "your_brutus_burguer": {
       "icon": "/images/your-brutus-burguer/logo.svg",
