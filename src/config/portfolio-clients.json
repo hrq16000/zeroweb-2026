@@ -1247,5 +1247,26 @@
       "source": "CNPJ público + diretórios locais + endereço do Jacomar",
       "reference": "CNPJ 01.340.329/0003-26"
     }
+  },
+  {
+    "clientKey": "autoescola-aptos",
+    "slug": "autoescola-aptos",
+    "siteName": "Autoescola APTOS",
+    "tagline": "Sua CNH pode começar no automático — agora com carro e moto automáticos.",
+    "phone": "",
+    "logoFile": "/images/autoescola-aptos/logo.svg",
+    "ctaMode": "proposal",
+    "ctaLabel": "Consultar minha opção",
+    "funnelRecipientConfigured": true,
+    "contactMode": "funnelOnly",
+    "funnelType": "orcamento",
+    "production": true,
+    "componentFile": "src/components/site/AutoescolaAptosPage.tsx",
+    "creativeContractVersion": 2,
+    "creativeBrief": "docs/portfolio/briefs/autoescola-aptos.md",
+    "provenance": {
+      "source": "Site oficial da Autoescola APTOS + atualização operacional fornecida pelo responsável em 21/09/2026.",
+      "collectedAt": "2026-09-21"
+    }
   }
 ]
