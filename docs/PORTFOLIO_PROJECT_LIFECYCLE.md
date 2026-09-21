@@ -17,6 +17,7 @@ PORTFOLIO_PROJECT_LIFECYCLE
 ├── Entity Enrichment ....... docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md
 ├── Media Enrichment ........ docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md (§ mídia) + docs/PORTFOLIO_COVER_STANDARD.md
 ├── Landing Blueprint ....... docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md + docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md
+├── Resource Utilization ..... docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md
 ├── Search Discovery ........ src/config/portfolio-discovery.json + src/lib/portfolio-search.ts
 ├── SEO ..................... docs/PORTFOLIO_CONVERSION_INTELLIGENCE_STANDARD.md + docs/SEO_LOCAL_TEMPLATE.md
 ├── Funnel .................. docs/PORTFOLIO_FUNNELS.md + docs/PORTFOLIO_FUNNEL_CONTEXT_STANDARD.md
@@ -32,13 +33,15 @@ Um projeto novo **não** é `dados + template + publicar`. O fluxo oficial é:
 ```text
 INTAKE → ENTITY DISCOVERY → ENTITY RESOLUTION → EVIDENCE COLLECTION →
 MEDIA DISCOVERY → CONTENT ENRICHMENT → DISCOVERY INDEX → BLUEPRINT →
-SEO / ENTITY → FUNNEL → COVER / OG → QA → READINESS GATE → PUBLISH →
+RESOURCE UTILIZATION → SEO / ENTITY → FUNNEL → COVER / OG → QA → READINESS GATE → PUBLISH →
 POST-PUBLISH VALIDATION
 ```
 
 Regra fundamental de todo o ciclo:
 
 > **DADO AUSENTE pode ser aceitável. PESQUISA NÃO REALIZADA não é aceitável.**
+>
+> **RECURSO RELEVANTE IGNORADO por conveniência não é aceitável.** O projeto deve descobrir, avaliar, tentar e registrar recursos aplicáveis conforme `PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`; recursos rejeitados/bloqueados/NA precisam de motivo quando forem materiais.
 
 ## 2. Manifesto por projeto
 
