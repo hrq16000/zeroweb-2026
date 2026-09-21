@@ -12,6 +12,7 @@ Este arquivo é um roteador. Antes de qualquer tarefa não trivial, abra
 | Direção criativa anti-template | `.agents/skills/0web-portfolio-art-direction/SKILL.md` · `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md` |
 | Repertório de componentes, layout, motion, integrações e QA | `docs/PORTFOLIO_CAPABILITY_PALETTE.md` |
 | Estrutura, blueprint paramétrico e seções de uma nova landing `/portfolio/:slug` | `docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` |
+| Inteligência de decisão/CRO baseada em 34 LPs + sites oficiais revalidados | `docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` |
 | Pesquisa de entidade, fontes, provas, fotos, Google/redes e enriquecimento de conteúdo | `docs/PORTFOLIO_ENTITY_ENRICHMENT_STANDARD.md` · `docs/portfolio/enrichment/` |
 | Pipeline autônomo nome + localização (R1 pesquisa → R2 composição factual → mídia/QA) | `.agents/skills/0web-portfolio-autonomous-pipeline/SKILL.md` · `docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md` |
 | Direção visual, tokens, componentes | `.agents/skills/0web-design-system/SKILL.md` · `docs/design/DESIGN_SYSTEM.md` |
@@ -64,7 +65,8 @@ Dado ausente pode ser aceitável; pesquisa não realizada, não.
 Antes de criar ou alterar qualquer rota em `src/routes/portfolio.*`, leia
 `docs/PORTFOLIO_CLIENT_STANDARD.md`, `docs/PORTFOLIO_CREATIVE_DIRECTION_STANDARD.md`,
 `docs/PORTFOLIO_CAPABILITY_PALETTE.md`,
-`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md` e execute
+`docs/PORTFOLIO_LANDING_BLUEPRINT_STANDARD.md`,
+`docs/PORTFOLIO_LANDING_RESEARCH_INTELLIGENCE_STANDARD.md` e execute
 `bun run validate:portfolio-boundaries`.
 
 ## Skills obrigatórias
