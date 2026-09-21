@@ -782,7 +782,7 @@ export function CentroMegaPage() {
                 </div>
                 <div className="p-6 sm:p-8">
                   <h2 className="text-3xl font-black tracking-[-.04em]">{activeProduct.name}</h2>
-                  <p className="mt-4 leading-7 text-white/55">{activeProduct.short}</p>
+                  <p className="mt-4 leading-7 text-white/55">{activeProduct.description}</p>
 
                   {activeProduct.detail && (
                     <div className="mt-5 flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[.035] p-4">
