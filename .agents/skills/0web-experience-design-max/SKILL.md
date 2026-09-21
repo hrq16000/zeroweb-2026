@@ -143,3 +143,21 @@ Also review mutable commercial facts for freshness windows, material claims for
 evidence placement, high-risk decisions for evidence-first persuasion, and
 mobile for a deliberate decision budget. A/B testing is not a quality signal by
 itself; it requires a decision-barrier hypothesis, primary metric and guardrail.
+
+
+## Mandatory resource utilization
+
+Every material portfolio task must follow
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`. Force the **discovery,
+evaluation and attempted use** of relevant resources across research, media,
+skills, decision aids, identity, layout, motion, accessibility, performance,
+SEO, funnel, analytics and runtime QA.
+
+A materially relevant resource that is not used must have a reason:
+`REJECTED`, `ATTEMPTED_BLOCKED` or `NOT_APPLICABLE`. Do not accept convenience
+as the reason when the resource would materially improve truth, decision quality,
+identity, conversion or reliability.
+
+This is not a mandate to maximize effects. Reject redundant or costly
+capabilities that add no user value. The target is **maximum relevant capability
+coverage with minimum noise**.
