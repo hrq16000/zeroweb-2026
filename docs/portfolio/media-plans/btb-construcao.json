@@ -1,0 +1,162 @@
+{
+  "doc": "Media plan — BTB Construção. Evolução R3 em 2026-09-21. Toda mídia pública usada na landing é classificada como não documental até existir prova de origem real do negócio.",
+  "slug": "btb-construcao",
+  "status": "CONTEXTUAL_MEDIA_ONLY_REAL_MEDIA_PENDING",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [
+      {
+        "asset": "public/images/btb-construcao/hero.png",
+        "purpose": "ARCHIVED_CONTEXTUAL_REFERENCE",
+        "source": "ORIGINAL_CONTEXTUAL_COMPOSITION",
+        "documentary": false,
+        "mediaNarrative": "ESTABLISH_RENOVATION_CONTEXT",
+        "usageMode": "ARCHIVED_NOT_RENDERED",
+        "disclosure": "A landing informa que a imagem é composição editorial de apoio.",
+        "note": "Retirado do hero ativo na evolução de performance; preservado apenas como asset contextual legado."
+      }
+    ],
+    "graphicMedia": [
+      {
+        "asset": "public/images/btb-construcao/capa-card.jpg",
+        "purpose": "CATALOG_COVER",
+        "source": "EXISTING_EDITORIAL_COMPOSITION",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/btb-construcao/capa-marca.jpg",
+        "purpose": "FALLBACK_COVER",
+        "source": "EXISTING_BRAND_COMPOSITION",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/btb-construcao/hero-og.jpg",
+        "purpose": "OG_MEDIA",
+        "source": "EXISTING_EDITORIAL_COMPOSITION",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/btb-construcao/social-source.svg",
+        "purpose": "SOCIAL_SOURCE_GRAPHIC",
+        "source": "EXISTING_EDITORIAL_COMPOSITION",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/btb-construcao/logo.svg",
+        "purpose": "ICON",
+        "source": "GENERATED_BRAND_ASSET_LEGACY",
+        "documentary": false,
+        "note": "Não é apresentado como logotipo histórico/oficial fornecido separadamente pelo cliente."
+      }
+    ],
+    "missingMedia": [
+      "logotipo oficial isolado, se existir",
+      "fotos reais de obras",
+      "fotos reais de execução/equipe com autorização",
+      "vídeo real de obra/processo"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "searchedAt": "2026-09-21",
+    "sources": [
+      "OWNER_SUPPLIED_REFERENCE",
+      "PUBLIC_WEB",
+      "OFFICIAL_WEBSITE_CANDIDATES",
+      "OFFICIAL_SOCIAL_CANDIDATES"
+    ],
+    "result": "Nenhuma entidade pública de Curitiba foi resolvida com confiança. Homônimos em Goiás/engenharia foram rejeitados. Nenhuma mídia externa foi copiada ou promovida."
+  },
+  "referenceOnlyAssets": [
+    {
+      "file": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png",
+      "purpose": "EVIDENCE_ONLY",
+      "source": "OWNER_SUPPLIED",
+      "editorialAllowed": false,
+      "reason": "Material-fonte do cliente; pode conter contato/condições e serve para factualidade/identidade, não como peça editorial pública."
+    }
+  ],
+  "sections": [
+    {
+      "section": "hero",
+      "requiredMediaRole": "editorial-graphic-composition",
+      "sourceType": "DOM_CSS_GRAPHIC_COMPOSITION",
+      "asset": null,
+      "status": "done",
+      "resolution": "zero-raster-hero",
+      "note": "Hero ativo usa composição gráfica em CSS/DOM para manter identidade e reduzir custo de LCP; não é mídia documental."
+    },
+    {
+      "section": "mapa-da-reforma",
+      "requiredMediaRole": "decision-aid",
+      "sourceType": "INTERACTIVE_UI",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed",
+      "note": "A interação é o conteúdo visual principal; foto competiria com a tarefa."
+    },
+    {
+      "section": "frentes",
+      "requiredMediaRole": "service-index",
+      "sourceType": "STRUCTURED_ICONOGRAPHY",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    },
+    {
+      "section": "processo",
+      "requiredMediaRole": "process-spine",
+      "sourceType": "TYPOGRAPHY_AND_RULES",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    },
+    {
+      "section": "facts",
+      "requiredMediaRole": "evidence-strip",
+      "sourceType": "TEXT_EVIDENCE",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    },
+    {
+      "section": "close",
+      "requiredMediaRole": "editorial-close",
+      "sourceType": "GRAPHIC_COMPOSITION",
+      "asset": null,
+      "status": "done",
+      "resolution": "no-media-needed"
+    }
+  ],
+  "cover": {
+    "asset": "public/images/btb-construcao/capa-card.jpg",
+    "strategy": "EXISTING_EDITORIAL_COVER",
+    "approved": false,
+    "status": "UNCERTAIN_ORIGIN",
+    "reason": "Cover registry ainda não possui julgamento humano de origem; preservar até revisão visual específica, sem promover a foto como prova real."
+  },
+  "heroMedia": {
+    "asset": null,
+    "source": "Composição editorial gráfica construída em CSS/DOM",
+    "provenance": "ORIGINAL_GRAPHIC_COMPOSITION",
+    "narrativeRole": "ESTABLISH_RENOVATION_CONTEXT",
+    "documentary": false,
+    "crop": "NOT_APPLICABLE",
+    "performanceDecision": "Raster hero removido do caminho crítico para elevar performance/LCP."
+  },
+  "brandIdentity": {
+    "decision": "TEXT_WORDMARK_WITH_LEGACY_GENERATED_ICON",
+    "asset": "public/images/btb-construcao/logo.svg",
+    "provenance": "GENERATED_BRAND_ASSET_LEGACY",
+    "disclosure": "Não tratado como logo histórico/oficial. O header usa assinatura tipográfica BTB Construção.",
+    "replacementPlan": "substituir por logotipo oficial caso o cliente forneça."
+  },
+  "warnings": [
+    "Nenhuma foto da landing deve ser descrita como obra real da BTB.",
+    "Nenhum homônimo público encontrado nesta rodada pode ser usado como fonte de mídia ou prova."
+  ],
+  "lastUpdatedAt": "2026-09-21"
+}

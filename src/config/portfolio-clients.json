@@ -868,7 +868,15 @@
     "socialProofRequired": false,
     "hostCaptureRequired": true,
     "creativeContractVersion": 2,
-    "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md"
+    "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md",
+    "funnelType": "orcamento",
+    "contactMode": "funnelOnly",
+    "funnelRecipientConfigured": true,
+    "provenance": {
+      "kind": "CLIENT_BRIEF",
+      "source": "Flyer oficial e briefing fornecidos pelo cliente; busca pública reexecutada em 21/09/2026 sem entidade externa de Curitiba resolvida com segurança.",
+      "reference": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png"
+    }
   },
   {
     "clientKey": "easy-clean",

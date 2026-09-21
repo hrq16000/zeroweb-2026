@@ -816,6 +816,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
             ? "Moreira Auto Mecânica, oficina mecânica São José dos Pinhais, mecânica para carros, mecânico Cidade Jardim, barulho na suspensão, manutenção automotiva, agendar avaliação do carro"
             : isCarecasInfotec
             ? "Careca's Infotec, assistência técnica São José dos Pinhais, conserto de celular São José dos Pinhais, conserto de notebook, conserto de impressora, recarga de cartucho, recarga de toner, Santo Antônio"
+            : isBtb
+            ? "BTB Construção Curitiba, reforma interna Curitiba, orçamento de reforma, pintura, elétrica, hidráulica, pisos e revestimentos, drywall, forro, acabamentos, iluminação LED"
             : isSscons
             ? "S&S Construções, construção civil Curitiba, reformas Curitiba, alvenaria, carpintaria, pintura, azulejo, obras residenciais, Região Metropolitana de Curitiba"
             : isEstruturaNacional
@@ -935,20 +937,48 @@ export const Route = createFileRoute("/portfolio/$slug")({
                   inLanguage: "pt-BR",
                   isPartOf: { "@id": "https://0web.com.br/portfolio" },
                 },
-                {
-                  ...serviceNode({
-                    slug: vertical.slug,
-                    name: vertical.name,
-                    keyword: vertical.keywords,
-                    intent: vertical.hero,
-                    services: vertical.services.map((service) => service.to),
-                    hubs: [],
-                    showcases: [],
-                    deliverables: vertical.services.map((service) => service.title),
-                  }),
-                  "@id": `${url}#service`,
-                  url,
-                },
+                ...(isBtb
+                  ? [
+                      {
+                        "@type": "GeneralContractor",
+                        "@id": `${url}#business`,
+                        name: "BTB Construção",
+                        description,
+                        url,
+                        areaServed: [
+                          { "@type": "City", name: "Curitiba" },
+                          { "@type": "AdministrativeArea", name: "Região Metropolitana de Curitiba" },
+                        ],
+                        makesOffer: [
+                          "Pintura",
+                          "Elétrica",
+                          "Hidráulica",
+                          "Pisos e revestimentos",
+                          "Drywall e forro",
+                          "Acabamentos",
+                          "Iluminação LED",
+                        ].map((name) => ({
+                          "@type": "Offer",
+                          itemOffered: { "@type": "Service", name },
+                        })),
+                      },
+                    ]
+                  : [
+                      {
+                        ...serviceNode({
+                          slug: vertical.slug,
+                          name: vertical.name,
+                          keyword: vertical.keywords,
+                          intent: vertical.hero,
+                          services: vertical.services.map((service) => service.to),
+                          hubs: [],
+                          showcases: [],
+                          deliverables: vertical.services.map((service) => service.title),
+                        }),
+                        "@id": `${url}#service`,
+                        url,
+                      },
+                    ]),
                 ...(isMarido
                   ? [
                       {

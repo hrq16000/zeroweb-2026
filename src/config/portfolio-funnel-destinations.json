@@ -237,6 +237,17 @@
         "Econodata confirma a mesma filial no endereço Rua Pedro Trevisan, 58, Colônia Rio Grande, São José dos Pinhais.",
         "Destino versionado exclusivamente para client_key cris-presentes-colonia-rio-grande; sem fallback cross-client."
       ]
+    },
+    "btb-construcao": {
+      "status": "CONFIGURED_UNVERIFIED",
+      "source": "LEGACY_OPERATIONAL_CONFIG",
+      "confidence": 40,
+      "verifiedAt": null,
+      "evidence": [
+        "Destino operacional já existente em src/config/portfolio-whatsapp.json e preservado nesta evolução.",
+        "Busca pública reexecutada em 21/09/2026 não resolveu com segurança a entidade BTB Construção de Curitiba; homônimos de outros estados/segmentos foram rejeitados.",
+        "A evolução não alterou o número nem criou fallback; titularidade externa permanece pendente de evidência adicional."
+      ]
     }
   }
 }
