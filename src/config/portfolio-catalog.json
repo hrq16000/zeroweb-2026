@@ -2194,5 +2194,31 @@
     "fallbackImage": "/images/cris-presentes-colonia-rio-grande/hero.svg",
     "metrics": "Consulta pelo funil",
     "summary": "Cris Presentes Filial 2 no Colônia Rio Grande, em São José dos Pinhais: brinquedos, papelaria e outras categorias de presentes com consulta pelo funil."
+  },
+  {
+    "slug": "autoescola-aptos",
+    "clientKey": "autoescola-aptos",
+    "title": "Autoescola APTOS",
+    "segment": "servicos",
+    "projectType": "landing",
+    "status": "published",
+    "live": true,
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "tags": [
+      "autoescola",
+      "primeira-habilitacao",
+      "carro-automatico",
+      "moto-automatica",
+      "categorias-a-b-ab",
+      "curso-online"
+    ],
+    "subtitle": "Sua CNH, do seu jeito — agora também no automático",
+    "location": "Rua Passos de Oliveira, 810 · Centro · São José dos Pinhais — PR",
+    "badge": "Projeto real",
+    "image": "/images/autoescola-aptos/capa-og.jpg",
+    "fallbackImage": "/images/autoescola-aptos/carro-aptos.webp",
+    "metrics": "Agendamento pelo funil",
+    "summary": "Autoescola APTOS em São José dos Pinhais: primeira habilitação, categorias A, B e AB, carro e moto automáticos, reteste, renovação, reciclagem e curso online."
   }
 ]
