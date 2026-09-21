@@ -42,6 +42,8 @@ type Props = {
   studioName: string;
   theme: Theme;
   service?: string;
+  /** Quando o contexto anterior já escolheu o serviço, inicia na etapa seguinte sem perguntar novamente. */
+  skipServiceWhenPrefilled?: boolean;
   recipientName: string;
   mode?: "booking" | "proposal";
   quizConfig?: PortfolioQuizConfig;
@@ -139,6 +141,7 @@ export function BeautyBookingQuiz({
   studioName,
   theme,
   service,
+  skipServiceWhenPrefilled = false,
   recipientName,
   mode = "booking",
   quizConfig: localQuizConfig,
@@ -210,7 +213,7 @@ export function BeautyBookingQuiz({
     onOpen?.();
     window.dispatchEvent(new CustomEvent("0web:portfolio-funnel-open", { detail: { clientKey } }));
     setAnswers({ service: service ?? "", experience: "", period: "", timing: "", note: "" });
-    setStep(0);
+    setStep(service && skipServiceWhenPrefilled ? 1 : 0);
     setRecoveryError(null);
     void getGeoForLead().then((geo) => setPreviewLocation(formatLocation(geo)));
     setOpen(true);
