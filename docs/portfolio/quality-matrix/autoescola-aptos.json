@@ -3,102 +3,198 @@
   "slug": "autoescola-aptos",
   "matrixVersion": 2,
   "contractVersion": 3,
-  "evaluatedAt": null,
+  "evaluatedAt": "2026-09-21",
   "technicalPass": false,
-  "editorialPass": false,
+  "editorialPass": true,
   "score": {
-    "total": null,
-    "byDimension": {}
+    "total": 90,
+    "byDimension": {
+      "strategy": 10,
+      "engineering": 8,
+      "brand": 10,
+      "motion": 8,
+      "interaction": 8,
+      "content": 10,
+      "conversion": 10,
+      "seo": 9,
+      "accessibility": 8,
+      "performance": 9,
+      "originality": 10,
+      "privacy": 10
+    }
   },
-  "dimensions": {},
+  "dimensions": {
+    "strategy": "PASS",
+    "engineering": "PENDING_RUNTIME",
+    "brand": "PASS",
+    "motion": "PASS_SOURCE",
+    "interaction": "PENDING_RUNTIME",
+    "content": "PASS",
+    "conversion": "PASS_SOURCE",
+    "seo": "PASS_SOURCE",
+    "accessibility": "PASS_SOURCE",
+    "performance": "PASS_SOURCE",
+    "originality": "PASS",
+    "privacy": "PASS"
+  },
   "experience": {
-    "visualRhythm": null,
-    "signatureMoments": [],
-    "motionNarrative": null,
-    "heroArchetype": null
+    "visualRhythm": "impacto→escolha→travessia→percurso→local→convergência",
+    "signatureMoments": [
+      "faixa de novidade no hero",
+      "painel de escolha automático/manual",
+      "linha de rota animada"
+    ],
+    "motionNarrative": "Escolhas entram por direção e convergem em atendimento.",
+    "heroArchetype": "road-stage assimétrico documental"
   },
   "motion": {
     "doc": "docs/PORTFOLIO_LANDING_MOTION_ADDENDUM.md",
     "profile": {
-      "intensity": null,
-      "personality": null,
-      "entrance": [],
-      "scroll": [],
-      "hover": [],
-      "typography": [],
-      "media": [],
-      "transitions": [],
-      "signatureEffects": [],
-      "reducedMotionStrategy": null,
-      "mobileStrategy": null
+      "intensity": "BALANCED",
+      "personality": "directional and decisive",
+      "entrance": [
+        "fade-up",
+        "fade-left/right"
+      ],
+      "scroll": [
+        "image-reveal",
+        "stagger-up"
+      ],
+      "hover": [
+        "short lift"
+      ],
+      "typography": [
+        "text-line-reveal"
+      ],
+      "media": [
+        "clip-reveal"
+      ],
+      "transitions": [
+        "route-line"
+      ],
+      "signatureEffects": [
+        "crossing novelty band",
+        "moving route line"
+      ],
+      "reducedMotionStrategy": "remove displacement and looping while keeping all content visible",
+      "mobileStrategy": "shorter distances, no parallax or pinned scenes"
     },
-    "narrativeRoles": {},
-    "gate": {},
+    "narrativeRoles": {
+      "hero": "arrival",
+      "choices": "decision",
+      "route": "progress",
+      "closing": "convergence"
+    },
+    "gate": {
+      "sourceReviewed": true,
+      "browserReviewed": false
+    },
     "qualityProfile": {
-      "motionIntensity": null,
-      "motionPurpose": null,
-      "interactionDensity": null,
-      "scrollExperience": null,
-      "microinteractionQuality": null,
-      "reducedMotionCoverage": null,
-      "motionPerformance": null
+      "motionIntensity": "BALANCED",
+      "motionPurpose": "decision guidance",
+      "interactionDensity": "LOW",
+      "scrollExperience": "NATIVE",
+      "microinteractionQuality": "FOCUSED",
+      "reducedMotionCoverage": "COMPLETE_SOURCE",
+      "motionPerformance": "CSS_TRANSFORM_OPACITY"
     }
   },
   "qualityProfile": {
-    "visualDensity": null,
-    "editorialDepth": null,
-    "motionIntensity": null,
-    "mediaRichness": null,
-    "proofLevel": null,
-    "interactionLevel": null,
-    "localContext": null,
-    "conversionIntensity": null
+    "visualDensity": "BALANCED",
+    "editorialDepth": "HIGH",
+    "motionIntensity": "BALANCED",
+    "mediaRichness": "REAL_OFFICIAL",
+    "proofLevel": "ATTRIBUTED_OFFICIAL",
+    "interactionLevel": "FOCUSED",
+    "localContext": "HIGH",
+    "conversionIntensity": "PERSISTENT_CONTEXTUAL"
   },
   "autonomy": {
     "doc": "docs/PORTFOLIO_PROJECT_AUTONOMY_ADDENDUM.md",
     "identity": {
-      "decision": null,
-      "asset": null,
-      "provenance": null,
-      "evidence": null
+      "decision": "OFFICIAL_IDENTITY",
+      "asset": "/images/autoescola-aptos/logo.webp",
+      "provenance": "OFFICIAL_WEBSITE",
+      "evidence": "local copy present"
     },
     "aboveTheFold": {
-      "status": null,
-      "visualStrategy": null,
-      "notes": null
+      "status": "PASS_SOURCE",
+      "visualStrategy": "official vehicle + brand + automatic novelty",
+      "notes": "No generic stock."
     },
     "motionPresence": {
-      "state": null,
-      "evidence": []
+      "state": "IMPLEMENTED",
+      "evidence": [
+        "MotionReveal",
+        "MotionImageReveal",
+        "MotionStagger",
+        "MotionTextReveal",
+        "route-line"
+      ]
     },
     "floatingConversion": {
-      "mode": null,
-      "label": null,
+      "mode": "contextual-mobile",
+      "label": "Escolher meu caminho",
       "destination": "funnel",
-      "reason": null
+      "reason": "persists after value proposition without exposing contact"
     },
     "embed": {
-      "status": null,
-      "checkedAt": null,
-      "notes": null
+      "status": "REGISTERED",
+      "checkedAt": "2026-09-21",
+      "notes": "Catalog and composition registries include the slug."
     },
     "structuralSkeleton": {
-      "topology": [],
-      "rationale": null
+      "topology": [
+        "road-stage",
+        "choice-board",
+        "proof-crossing",
+        "route-sequence",
+        "local-document",
+        "converging-decision",
+        "faq"
+      ],
+      "rationale": "Local driver decision journey, not a generic service stack."
     }
   },
   "hero": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS_SOURCE",
+    "criteria": {
+      "brandFirstViewport": true,
+      "officialVehicle": true,
+      "ownerProvidedMessage": true,
+      "primaryCta": true,
+      "nextSectionHint": true
+    }
   },
   "cover": {
-    "status": null,
-    "criteria": {}
+    "status": "PASS",
+    "criteria": {
+      "dimensions": "1200x630",
+      "sameSubjectAsPage": true,
+      "realPhotoDerived": true,
+      "noFalseEvidence": true
+    }
   },
-  "coverage": [],
+  "coverage": [
+    "desktop source",
+    "mobile composition source",
+    "reduced motion",
+    "keyboard focus",
+    "schema factual",
+    "isolated funnel",
+    "canonical destination"
+  ],
   "deadZones": [],
-  "mediaSourceMix": {},
-  "p0": [],
-  "warnings": [],
+  "mediaSourceMix": {
+    "OFFICIAL_WEBSITE": 3,
+    "PHOTO_DERIVED": 1,
+    "GENERATED": 0
+  },
+  "p0": [
+    "Visual QA and funnel runtime before publish"
+  ],
+  "warnings": [
+    "Final browser evidence pending"
+  ],
   "ownerRequired": []
 }

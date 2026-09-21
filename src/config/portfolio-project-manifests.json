@@ -421,22 +421,35 @@
       "contractVersion": 3,
       "structuralContract": 1,
       "structuralSignature": {
-        "segment": null,
-        "layoutFamily": null,
-        "heroFamily": null,
-        "sectionRhythm": null,
-        "proofStyle": null,
-        "mediaNarrative": null,
-        "ctaStyle": null,
-        "motionProfile": null
+        "segment": "autoescola",
+        "layoutFamily": "painel-de-decisao-viaria",
+        "heroFamily": "road-stage-assimetrico",
+        "sectionRhythm": "impacto→escolha→prova→percurso→local→convergencia→FAQ",
+        "proofStyle": "travessia documental atribuída",
+        "mediaNarrative": "carro oficial→fachada→curso online",
+        "ctaStyle": "convergência de faixas",
+        "motionProfile": "aptos-route-balanced"
       },
       "structuralOriginalityReview": {
-        "approved": false,
-        "reviewedAt": null,
-        "notes": null
+        "approved": true,
+        "reviewedAt": "2026-09-21",
+        "notes": "Composição comparada com Moreira Auto Mecânica, Careca’s Infotec e pilotos Blueprint; não compartilha ordem, hero, topologia ou assinatura de motion."
       },
       "compositionContract": 1,
-      "compositionFingerprint": null,
+      "compositionFingerprint": {
+        "heroGeometry": "offset road-stage with diagonal documentary vehicle frame and crossing novelty band",
+        "headerTreatment": "compact floating decision bar over paper field",
+        "sectionGraph": "road-stage→choice-board→proof-crossing→route-sequence→local-document→converging-decision→faq",
+        "contentOrder": "promessa→modalidade→credibilidade→percurso→local→decisão→dúvidas",
+        "gridTopology": "asymmetric 7/5 stage, one dominant automatic lane, alternating numbered spine",
+        "mediaDistribution": "official vehicle hero, official facade proof, contextual course inset",
+        "backgroundRhythm": "warm paper→red proof crossing→paper→asphalt→yellow decision panel",
+        "proofPlacement": "facts embedded into red crossing beside official facade",
+        "ctaDistribution": "hero, route checkpoint, persistent mobile action, converging final panel",
+        "navigationPattern": "four-stop local route navigation",
+        "motionSignature": "moving route line, masked vehicle reveal, alternating checkpoints",
+        "closingStructure": "two-lane decision panel converging into one funnel, then factual FAQ"
+      },
       "perceptualReview": {
         "screenshots": {
           "390": null,
@@ -446,30 +459,43 @@
         "noBrandTest": null
       },
       "contentFacts": {
-        "ownSourcedContent": false
+        "ownSourcedContent": true,
+        "sources": [
+          "OWNER_REQUEST",
+          "OFFICIAL_WEBSITE"
+        ],
+        "claimsAttribution": "Métricas apresentadas somente como divulgadas pela APTOS."
       },
-      "stage": "draft",
+      "stage": "qa",
       "lifecycle": {
         "intake": "complete",
-        "entityDiscovery": "not_started",
-        "entityResolution": "not_started",
-        "evidence": "not_started",
-        "media": "not_started",
-        "mediaPlan": "not_started",
-        "content": "not_started",
-        "discovery": "not_started",
-        "blueprint": "not_started",
-        "composition": "not_started",
-        "seo": "not_started",
-        "funnel": "not_started",
-        "cover": "not_started",
-        "qa": "not_started",
+        "entityDiscovery": "complete",
+        "entityResolution": "complete",
+        "evidence": "complete",
+        "media": "complete",
+        "mediaPlan": "complete",
+        "content": "complete",
+        "discovery": "complete",
+        "blueprint": "complete",
+        "composition": "complete",
+        "seo": "complete",
+        "funnel": "complete",
+        "cover": "complete",
+        "qa": "in_progress",
         "publish": "not_started"
       },
-      "blockers": [],
-      "warnings": [],
+      "blockers": [
+        "Visual QA 390/768/1440 e runtime ainda não executados."
+      ],
+      "warnings": [
+        "Destino móvel OWNER_REQUEST diverge do telefone fixo exibido na home oficial; conflito documentado e sem exposição no bundle."
+      ],
       "ownerRequired": [],
-      "searchQa": [],
+      "searchQa": [
+        "Official website inspected",
+        "Entity resolved by name, city, services and official assets",
+        "Metrics kept attributed to APTOS"
+      ],
       "visualQa": {
         "status": "NOT_EXECUTED",
         "notes": null,
@@ -477,7 +503,9 @@
       },
       "notes": {
         "enrichment": "docs/portfolio/enrichment/autoescola-aptos.json",
-        "mediaPlan": "docs/portfolio/media-plans/autoescola-aptos.json"
+        "mediaPlan": "docs/portfolio/media-plans/autoescola-aptos.json",
+        "brief": "docs/portfolio/briefs/autoescola-aptos.md",
+        "qualityMatrix": "docs/portfolio/quality-matrix/autoescola-aptos.json"
       },
       "lastUpdatedAt": "2026-09-21"
     }
