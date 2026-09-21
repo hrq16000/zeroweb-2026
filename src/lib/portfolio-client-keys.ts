@@ -1,5 +1,5 @@
 /** Chaves públicas de roteamento. Contatos e credenciais permanecem server-only. */
-export const PORTFOLIO_CLIENT_KEYS = [
+export const PORTFOLIO_CLIENT_KEYS = [\n  "autoescola-aptos",
   
   
   
