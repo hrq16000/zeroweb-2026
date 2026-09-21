@@ -1,5 +1,14 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — publicação BTB R3 · Mapa da Reforma
+
+- **Projeto:** `/portfolio/btb-construcao`.
+- **Entrega:** evolução legado → experiência R3 com Mapa da Reforma, carryover para o funil, schema específico, factualidade evidence-first e Resource Effort Ledger.
+- **Performance:** hero raster removido do caminho crítico e substituído por composição CSS/DOM; preview Vercel do runtime final `f0d5437637818ce9f3eb405e5276802f5cce9f76` ficou READY.
+- **Merge:** PR #120 integrada a `main` em `f0399143387d85b146de0c10006c297b3dba8c5a`.
+- **Lovable:** sincronizado no mesmo SHA e publicado.
+- **Vercel:** o primeiro gatilho do merge encontrou `build-rate-limit`; o closeout documental foi criado para reacionar o deploy após o limite liberar.
+
 ## 2026-09-21 — piloto R3 · BTB Construção / Mapa da Reforma
 
 - **Escopo:** primeiro portfolio legado escolhido para aplicar de forma explícita R1/R2/R3 + Resource Utilization Gate em uma evolução material, sem usar os demais projetos como lote automático.
