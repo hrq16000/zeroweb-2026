@@ -459,6 +459,76 @@
         "categoria A B AB",
         "curso online autoescola"
       ]
+    },
+    "centro-mega": {
+      "aliases": [
+        "Centro Mega",
+        "Centro Mega Store",
+        "Centro Mega Outlet",
+        "centro.mega"
+      ],
+      "categories": [
+        "loja de celulares",
+        "loja de smartphones",
+        "outlet",
+        "acessórios",
+        "calçados",
+        "tênis",
+        "bonés",
+        "loja virtual"
+      ],
+      "services": [
+        "consulta de produtos",
+        "consulta de estoque",
+        "consulta de preço",
+        "retirada em loja",
+        "entrega e envio"
+      ],
+      "equipment": [
+        "smartphone",
+        "celular",
+        "acessórios para celular"
+      ],
+      "products": [
+        "Poco X5 Pro 8GB 256GB",
+        "Tênis Dunk Low Pro",
+        "bonés de outlet",
+        "calçados de outlet",
+        "acessórios para tecnologia"
+      ],
+      "problems": [
+        "quero confirmar estoque de celular",
+        "quero saber o preço atual",
+        "quero confirmar numeração do tênis",
+        "quero encontrar oferta de outlet",
+        "vi um produto nas redes e quero comprar"
+      ],
+      "useCases": [
+        "comprar celular em São José dos Pinhais",
+        "consultar produto visto no Instagram",
+        "consultar produto visto no Facebook",
+        "ver ofertas de outlet",
+        "montar seleção de produtos antes do atendimento"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "SJP",
+        "Curitiba",
+        "Região Metropolitana de Curitiba",
+        "Galeria Di Brunno",
+        "Shopping Cidade",
+        "Pinheirinho"
+      ],
+      "keywords": [
+        "Centro Mega São José dos Pinhais",
+        "Centro Mega Outlet",
+        "celulares São José dos Pinhais",
+        "smartphones SJP",
+        "outlet São José dos Pinhais",
+        "tênis outlet SJP",
+        "Centro Mega Instagram",
+        "Centro Mega Facebook"
+      ]
     }
   }
 }
