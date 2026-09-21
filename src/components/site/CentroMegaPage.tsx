@@ -372,6 +372,13 @@ export function CentroMegaPage() {
         } as CSSProperties
       }
     >
+      <style>{`
+        @keyframes mega-float { 0%,100% { transform: translate3d(0,0,0) rotate(-1deg); } 50% { transform: translate3d(0,-14px,0) rotate(1deg); } }
+        @keyframes mega-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (prefers-reduced-motion: reduce) {
+          .mega-float, .mega-marquee { animation: none !important; transform: none !important; }
+        }
+      `}</style>
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#040711]/78 px-4 py-3 backdrop-blur-2xl lg:px-8">
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-3" aria-label="Centro Mega Store — início">
@@ -475,7 +482,7 @@ export function CentroMegaPage() {
             </div>
 
             <div className="relative min-h-[34rem] lg:min-h-[43rem]">
-              <div className="absolute left-[12%] top-[10%] h-[72%] w-[70%] rounded-[4rem] border border-white/10 bg-white/[.04] shadow-[0_0_100px_rgba(36,120,255,.18)] backdrop-blur-2xl motion-safe:animate-[float_6s_ease-in-out_infinite]" />
+              <div className="absolute left-[12%] top-[10%] h-[72%] w-[70%] rounded-[4rem] border border-white/10 bg-white/[.04] shadow-[0_0_100px_rgba(36,120,255,.18)] backdrop-blur-2xl mega-float motion-safe:animate-[mega-float_6s_ease-in-out_infinite]" />
               <div className="absolute left-[19%] top-[16%] grid h-[60%] w-[56%] place-items-center overflow-hidden rounded-[3.5rem] border border-cyan-300/20 bg-[linear-gradient(145deg,#0b1424,#050812)] shadow-[0_0_80px_rgba(88,239,255,.16)]">
                 <Smartphone className="h-48 w-48 text-cyan-300 drop-shadow-[0_0_35px_rgba(88,239,255,.5)] sm:h-56 sm:w-56" />
                 <div className="absolute inset-5 rounded-[2.8rem] border border-white/10" />
@@ -505,7 +512,7 @@ export function CentroMegaPage() {
 
         <div className="border-y border-white/10 bg-white/[.035] py-3">
           <div className="overflow-hidden whitespace-nowrap text-[10px] font-black uppercase tracking-[.22em] text-white/55">
-            <div className="inline-flex min-w-full motion-safe:animate-[marquee_22s_linear_infinite] motion-reduce:translate-x-0">
+            <div className="inline-flex min-w-full mega-marquee motion-safe:animate-[mega-marquee_22s_linear_infinite] motion-reduce:translate-x-0">
               {Array.from({ length: 2 }).map((_, group) => (
                 <span key={group} className="inline-flex shrink-0 items-center gap-8 px-4">
                   {["smartphones", "outlet", "tênis", "bonés", "acessórios", "achadinhos", "novidades do feed"].map((item) => (
