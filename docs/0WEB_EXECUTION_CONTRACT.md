@@ -47,6 +47,12 @@ publicada imediatamente no repositório oficial
 Não deixar alterações apenas locais, em Lovable, em `chatgpt.site` ou em outra
 hospedagem. Ao final, confirmar branch, commit, build, gates e working tree.
 
+### Revalidação imediatamente antes do merge
+
+Imediatamente antes de integrar qualquer branch de portfolio, reler o estado atual de `origin/main` e comparar a branch candidata. Se o mesmo `slug`/`client_key` já tiver sido incorporado por outra execução, ou se a branch estiver atrás/divergida em relação ao `main`, é proibido fazer merge cego do trabalho antigo. Nesse caso, reconciliar somente o delta ainda necessário a partir de uma branch fresca do `main` atual ou abandonar a branch obsoleta.
+
+O preview e os gates de publicação precisam corresponder ao **head candidato após essa reconciliação**. Depois do merge, confirmar produção, rota real, funil, destino e isolamento do cliente. Uma branch antiga nunca prevalece sobre uma implementação posterior já validada em `main` apenas por ter sido criada primeiro.
+
 ## Evolução contínua
 
 Cada inspeção deve transformar achados em correções ou backlog priorizado e

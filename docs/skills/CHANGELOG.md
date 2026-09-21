@@ -1,5 +1,14 @@
 # Skill changelog / usage log
 
+## 2026-09-20 — fechamento canônico · Catharine Lima Studio
+
+- **Tarefa:** consolidar em uma única fonte o estado publicado da Catharine, sem reabrir auditoria nem alterar a experiência do cliente.
+- **Governança/skills:** nenhuma skill externa nova instalada; revisão apoiada no roteamento e padrões canônicos de lifecycle, provenance de mídia, quality gates, conversão/funil e isolamento por cliente já documentados em `AGENTS.md` e `docs/AGENT_SKILLS_GOVERNANCE.md`.
+- **Achados:** a implementação canônica já estava em `main`; a branch histórica `feat/catharine-lima-studio-publish-20260920` estava divergida (6 à frente / 19 atrás) e não deve ser mesclada. Facebook identificado mas não ingerível; nenhuma mídia social foi copiada ou falsamente apresentada como real.
+- **Documentação:** criado media plan canônico e relatório de fechamento; o contrato de execução passou a exigir revalidação de `origin/main` imediatamente antes de merge/publicação para impedir branch stale ou slug duplicado.
+- **Lifecycle:** não houve enrollment retroativo no manifesto gerenciado nesta rodada documental, pois isso ativaria gates estruturais adicionais sem a correspondente migração de registry/quality matrix. A decisão e o próximo passo opcional ficaram explicitamente registrados no relatório de fechamento.
+- **Runtime:** zero alteração em layout, textos públicos, SEO, assets ativos, funil, WhatsApp ou rotas.
+
 ## 2026-09-13 — matriz visual do convite ADHONEP Curitiba
 
 - **Tarefa:** integrar ao projeto a referência visual enviada pelo responsável.
