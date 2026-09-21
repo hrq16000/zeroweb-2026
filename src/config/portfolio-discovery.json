@@ -399,6 +399,68 @@
         "drywall e revestimentos Curitiba",
         "BTB Construção Curitiba"
       ]
+    },
+    "centro-mega": {
+      "aliases": [
+        "Centro Mega",
+        "Centro Mega Outlet",
+        "Centro Mega São José dos Pinhais",
+        "centro.mega"
+      ],
+      "categories": [
+        "loja de celulares",
+        "outlet",
+        "loja de tecnologia",
+        "calçados",
+        "acessórios"
+      ],
+      "services": [
+        "consulta de disponibilidade",
+        "atendimento por unidade",
+        "assistência técnica"
+      ],
+      "equipment": [
+        "smartphone",
+        "celular",
+        "acessórios para tecnologia"
+      ],
+      "products": [
+        "Poco X5 Pro 8GB 256GB",
+        "Tênis Dunk Low Pro",
+        "tênis",
+        "calçados",
+        "bonés",
+        "acessórios"
+      ],
+      "problems": [
+        "quero confirmar se o produto ainda está disponível",
+        "vi um produto nas redes e quero consultar",
+        "quero saber a unidade com disponibilidade"
+      ],
+      "useCases": [
+        "comprar celular",
+        "consultar produto visto no Instagram",
+        "consultar produto visto no Facebook",
+        "procurar tênis no outlet",
+        "procurar boné no outlet",
+        "consultar novidades da Centro Mega"
+      ],
+      "locality": [
+        "São José dos Pinhais",
+        "SJP",
+        "Curitiba",
+        "Galeria Di Bruno",
+        "Shopping Cidade",
+        "Pinheirinho"
+      ],
+      "keywords": [
+        "Centro Mega São José dos Pinhais",
+        "Centro Mega celulares",
+        "Centro Mega outlet",
+        "Centro Mega tênis",
+        "Centro Mega Instagram",
+        "Centro Mega loja virtual"
+      ]
     }
   }
 }
