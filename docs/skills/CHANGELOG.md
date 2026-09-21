@@ -1,5 +1,21 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — Centro Mega Store · amostra autônoma social-commerce
+
+- **Escopo:** evolução material de `/portfolio/centro-mega` para uma amostra de loja virtual premium, preservando `client_key=centro-mega` e o funil isolado.
+- **Pesquisa social:** Facebook oficial tentado diretamente; como posts não ficaram legíveis no crawler, produtos sociais só foram criados a partir de texto público atribuível no espelho/indexação. Instagram oficial e seis URLs de posts/reels foram preservados como links, sem inventar captions ou SKUs.
+- **Produtos evidence-first:** POCO X5 Pro 8 GB/256 GB e Tênis Dunk Low Pro vieram de posts públicos atribuíveis; preço do POCO permanece marcado como histórico de 25/01/2024, nunca atual.
+- **Catálogo complementar:** seller público Centro Mega no Magazine Luiza foi usado para nomes de produtos adicionais, sem copiar mídia e sem persistir preço/estoque temporário como atual.
+- **Owner input:** bonés, calçados, tênis e outros itens de outlet orientam categorias; modelo/estoque específico continua exigindo evidência.
+- **Experiência:** hero neon-retail, ticker, busca, filtros, cards com depth/glow, social drop, feed oficial, presença de unidades, sacola local, drawer e sticky cart.
+- **Motion:** perfil `IMMERSIVE / NEON_RETAIL_DROP`, usando apenas primitives já existentes; reduced motion permanece fail-open.
+- **Conversão:** itens selecionados seguem em `initialAnswers` + `orderContext.order_items` para o funil `pedido` do próprio cliente; preço, estoque, cor, tamanho, unidade e entrega são confirmados pela equipe.
+- **SEO/entity:** Centro Mega passa a usar descrição/keywords/store schema específicos de varejo, não o `Service` genérico da vertical.
+- **Proveniência:** fotos externas de marketplace/social não foram republicadas; cards usam composição gráfica original e disclosure “visual de amostra”.
+- **Documentação:** creative brief v3, enrichment, media plan, social-product ledger, relatório de evolução e teste dedicado.
+- **Skills/camadas aplicadas:** Landing Page Premium, Decision Intelligence R1/R2/R3, Art Direction, Experience Design Max, Resource Utilization, Landing Experience, Funnel Isolation e Quality Gates.
+- **Publicação:** somente após gates e preview do head final; este registro não presume PASS.
+
 ## 2026-09-21 — conhecimento aditivo · Landing Page Premium 0WEB
 
 - **Origem:** documentação fornecida pelo responsável e incorporada como conhecimento complementar, sem alterar páginas públicas nesta rodada.
