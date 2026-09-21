@@ -25,7 +25,6 @@ import { PortfolioCTAQuiz } from "@/components/site/BeautyBookingQuiz";
 import { PortfolioHostCredit } from "@/components/portfolio/PortfolioHostCredit";
 import { PortfolioImage } from "@/components/portfolio/PortfolioImage";
 import { PortfolioSocialProofPopup } from "@/components/portfolio/PortfolioSocialProofPopup";
-import { PortfolioUpsellPopup } from "@/components/site/PortfolioUpsellPopup";
 
 const links = {
   instagram: "https://www.instagram.com/centro.mega/",
@@ -858,7 +857,6 @@ export function CentroMegaPage() {
         className="border-cyan-300/20 bg-[#07101f]/95 text-white"
         accentClassName="text-cyan-300"
       />
-      <PortfolioUpsellPopup pageName="portfolio-centro-mega-store" />
     </div>
   );
 }
