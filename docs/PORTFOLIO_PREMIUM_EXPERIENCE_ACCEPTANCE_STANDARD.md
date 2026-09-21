@@ -14,6 +14,7 @@ Fontes canônicas relacionadas:
 - `docs/PORTFOLIO_BRAND_STANDARD.md`
 - `docs/PORTFOLIO_PRESENCE_KIT_STANDARD.md`
 - `docs/AGENT_SKILLS_GOVERNANCE.md`
+- `docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`
 
 ## 1. Princípio de aceitação
 
@@ -521,3 +522,26 @@ Um novo portfolio só pode ser apresentado como entrega visual final quando:
 18. performance/acessibilidade/SEO/factualidade preservados.
 
 **Build verde é condição necessária. Nunca é prova suficiente de qualidade visual.**
+
+## Resource Utilization Gate
+
+Uma entrega premium precisa demonstrar **esforço real de utilização de recursos**.
+Não basta ter acesso a pesquisa, mídia, skills, decision aids, motion, browser QA,
+SEO, analytics ou recursos de performance e simplesmente ignorá-los.
+
+Reprova quando:
+
+- fonte oficial relevante não foi pesquisada;
+- mídia real disponível não foi tentada;
+- competência/skill útil não foi avaliada;
+- decision aid evidente não foi considerado;
+- mobile, acessibilidade, reduced motion ou performance ficaram sem revisão;
+- funil, destino, analytics ou runtime não foram exercitados;
+- `NOT_APPLICABLE` virou atalho sem justificativa;
+- a implementação mais pobre foi escolhida apenas por conveniência.
+
+Também reprova quando o agente liga recurso sem benefício apenas para “mostrar
+capacidade”. A meta é **máximo de recursos relevantes, não máximo de ruído**.
+
+A evidência mínima segue o `Resource Effort Ledger` de
+`docs/PORTFOLIO_RESOURCE_UTILIZATION_STANDARD.md`.
