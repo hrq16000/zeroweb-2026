@@ -250,14 +250,14 @@ export function CentroMegaPage() {
                 <div className="mt-9 flex flex-wrap gap-3">
                   <a
                     href="#vitrine"
-                    className="inline-flex min-h-13 items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-black text-[#04101d] shadow-[0_0_44px_rgba(255,255,255,.12)] transition hover:-translate-y-1 hover:bg-cyan-200"
+                    className="inline-flex min-h-[3.25rem] items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-black text-[#04101d] shadow-[0_0_44px_rgba(255,255,255,.12)] transition hover:-translate-y-1 hover:bg-cyan-200"
                   >
                     Ver vitrine
                     <ShoppingCart className="h-4 w-4" aria-hidden="true" />
                   </a>
                   <FunnelCTA
                     selectedNames={selectedNames}
-                    className="inline-flex min-h-13 items-center gap-3 rounded-full border border-cyan-300/35 bg-cyan-300/10 px-6 py-3.5 text-sm font-black text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300 hover:text-[#04101d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200"
+                    className="inline-flex min-h-[3.25rem] items-center gap-3 rounded-full border border-cyan-300/35 bg-cyan-300/10 px-6 py-3.5 text-sm font-black text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300 hover:text-[#04101d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200"
                   >
                     Consultar disponibilidade
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -361,7 +361,7 @@ export function CentroMegaPage() {
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
                     placeholder="Buscar celular, tênis, outlet..."
-                    className="min-h-13 w-full rounded-full border border-white/15 bg-white/[.05] pl-11 pr-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/20"
+                    className="min-h-[3.25rem] w-full rounded-full border border-white/15 bg-white/[.05] pl-11 pr-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/20"
                   />
                 </label>
               </div>
