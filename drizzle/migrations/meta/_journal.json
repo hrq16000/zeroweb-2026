@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790012227321,
+      "tag": "0000_seed_autoescola_aptos_funnel_real",
+      "breakpoints": true
+    }
+  ]
+}
