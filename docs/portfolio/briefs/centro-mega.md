@@ -1,6 +1,6 @@
-# Creative brief v3 — Centro Mega Store · amostra de loja virtual
+# Creative brief — Centro Mega Store · amostra de loja virtual · revisão 3
 
-Contrato: v3 · Slug: `centro-mega` · Client key: `centro-mega`  
+Contrato criativo canônico: v2 · Slug: `centro-mega` · Client key: `centro-mega`  
 Data de revalidação: 2026-09-21
 
 > Evolução material do portfolio existente. A página passa de uma landing centrada em assistência/acessórios para uma **amostra de loja virtual social-commerce**, preservando identidade, client_key e funil isolado.
@@ -68,7 +68,7 @@ A página não finge checkout transacional completo nem inventa disponibilidade.
 
 ## Produtos derivados de evidência
 
-### Facebook / espelho público atribuível
+### Post social / espelho público atribuível
 
 1. **POCO X5 Pro · 8 GB / 256 GB**
    - publicação: 25/01/2024;
@@ -115,7 +115,7 @@ Preço/estoque do marketplace não são persistidos como atuais na landing.
 | Recurso | Estado | Evidência / decisão |
 |---|---|---|
 | Facebook direto | ATTEMPTED_BLOCKED | página oficial não ficou legível diretamente; usar espelho público apenas quando texto é atribuível |
-| Posts Facebook indexados | USED | POCO X5 Pro e Dunk Low Pro viraram produtos evidence-first |
+| Posts sociais indexados | USED | POCO X5 Pro e Dunk Low Pro viraram produtos evidence-first a partir de texto público atribuível |
 | Instagram oficial | USED | URLs oficiais preservadas como feed; captions não legíveis não viram produtos |
 | Linktree oficial | USED | resolve canais/unidades/frentes da marca |
 | Seller público Magalu | USED | complementa variedade de produtos; não transfere preço/estoque |
