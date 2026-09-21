@@ -1,0 +1,110 @@
+{
+  "doc": "Media plan canônico da evolução R3 — BTB Construção.",
+  "slug": "btb-construcao",
+  "status": "PUBLISHED_WITH_OWNER_SOURCE_AND_GENERATED_CONTEXTUAL_MEDIA",
+  "inventory": {
+    "realBusinessPhotos": [],
+    "officialBrandAssets": [
+      {
+        "asset": "docs/portfolio/source-materials/btb-construcao/flyer-reference.png",
+        "classification": "OWNER_SUPPLIED_SOURCE_MATERIAL",
+        "purpose": "identity-and-offer-reference",
+        "documentary": true,
+        "publicSurface": false,
+        "notes": "Material-fonte arquivado para verdade do cliente; não é usado como capa pública por conter composição promocional original."
+      }
+    ],
+    "externalMedia": [],
+    "licensedMedia": [],
+    "generatedMedia": [
+      {
+        "asset": "public/images/btb-construcao/hero.png",
+        "classification": "GENERATED_CONTEXTUAL_MEDIA",
+        "source": "OWNER_SUPPLIED_SOURCE_MATERIAL + ORIGINAL_COMPOSITION",
+        "purpose": "hero",
+        "documentary": false,
+        "notes": "Composição conceitual de reforma. Não é fotografia de obra executada pela BTB."
+      },
+      {
+        "asset": "public/images/btb-construcao/capa-card.jpg",
+        "classification": "COVER_MEDIA",
+        "source": "ORIGINAL_COMPOSITION",
+        "purpose": "catalog-cover",
+        "documentary": false
+      },
+      {
+        "asset": "public/images/btb-construcao/hero-og.jpg",
+        "classification": "OG_MEDIA",
+        "source": "ORIGINAL_COMPOSITION",
+        "purpose": "social-preview",
+        "documentary": false
+      }
+    ],
+    "graphicMedia": [
+      {
+        "asset": "public/images/btb-construcao/logo.svg",
+        "classification": "GENERATED_BRAND_ASSET",
+        "purpose": "runtime-icon",
+        "documentary": false,
+        "notes": "Marca gráfica criada para a presença digital; não é declarada como logotipo oficial anterior do cliente."
+      },
+      {
+        "asset": "public/images/btb-construcao/capa-marca.jpg",
+        "classification": "BRAND_COMPOSITION",
+        "purpose": "fallback-cover",
+        "documentary": false
+      }
+    ],
+    "missingMedia": [
+      "fotos reais de obras executadas",
+      "fotos reais da equipe",
+      "vídeos reais",
+      "logo oficial vetorial confirmado"
+    ]
+  },
+  "discovery": {
+    "searched": true,
+    "sources": [
+      "OWNER_SUPPLIED_SOURCE_MATERIAL",
+      "PUBLIC_WEB",
+      "LOCAL_BUSINESS_SEARCH"
+    ],
+    "result": "A busca externa atual não resolveu uma presença oficial inequívoca da BTB Construção de Curitiba. Resultados homônimos foram rejeitados. Nenhuma mídia de terceiros foi copiada ou apresentada como prova."
+  },
+  "sections": [
+    {
+      "section": "hero",
+      "asset": "public/images/btb-construcao/hero.png",
+      "classification": "GENERATED_CONTEXTUAL_MEDIA",
+      "status": "complete"
+    },
+    {
+      "section": "mapa-da-reforma",
+      "resolution": "interaction-led-no-documentary-media-needed",
+      "status": "complete"
+    },
+    {
+      "section": "camadas-da-obra",
+      "resolution": "typography-and-structure-led",
+      "status": "complete"
+    },
+    {
+      "section": "processo",
+      "resolution": "typography-and-structure-led",
+      "status": "complete"
+    },
+    {
+      "section": "social-preview",
+      "asset": "public/images/btb-construcao/hero-og.jpg",
+      "classification": "OG_MEDIA",
+      "status": "complete"
+    }
+  ],
+  "cover": {
+    "asset": "public/images/btb-construcao/capa-card.jpg",
+    "strategy": "GENERATED_EDITORIAL",
+    "approved": false,
+    "notes": "Permanece operacional; precisa de revisão humana específica de origem/focal point no gate de capa antes de ser promovida a VALID."
+  },
+  "lastUpdatedAt": "2026-09-21"
+}
