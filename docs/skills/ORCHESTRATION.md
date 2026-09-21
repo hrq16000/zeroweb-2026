@@ -18,8 +18,8 @@ classificar tarefa
 
 | Entrada | Stack |
 |---|---|
-| Landing page / nova página comercial | `0web-skill-router` → `0web-skill-discovery` → `0web-portfolio-art-direction` → `PORTFOLIO_CAPABILITY_PALETTE` → 1 especialista landing/CRO → `0web-design-system` → `0web-ui-quality-gates` → QA no navegador |
-| Site de cliente em `/portfolio/<slug>` | `PORTFOLIO_NEW_CLIENT_PLAYBOOK` → `0web-skill-discovery` → `0web-portfolio-art-direction` → `PORTFOLIO_CAPABILITY_PALETTE` → 1 especialista landing/CRO → `0web-design-system` (identidade escopada do cliente) → motion/a11y/perf conforme necessidade → `0web-ui-quality-gates` → originality/funnel/browser QA |
+| Landing page / nova página comercial | `0web-skill-router` → `0web-skill-discovery` → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → `PORTFOLIO_CAPABILITY_PALETTE` → 1 especialista landing/CRO → `0web-design-system` → `0web-ui-quality-gates` → QA no navegador |
+| Site de cliente em `/portfolio/<slug>` | `PORTFOLIO_NEW_CLIENT_PLAYBOOK` → `0web-skill-discovery` → `0web-experience-design-max` → `0web-portfolio-art-direction` → `0web-landing-page-premium` → `0web-landing-experience` → `PORTFOLIO_CAPABILITY_PALETTE` → 1 especialista landing/CRO → `0web-design-system` (identidade escopada do cliente) → motion/a11y/perf conforme necessidade → `0web-ui-quality-gates` → originality/funnel/browser QA |
 | Criação autônoma por nome + localização | `0web-skill-router` → `0web-portfolio-autonomous-pipeline` → R1 entity/public research → R2 evidence-only content plan → identity/media/composition skills quando houver evidência → funnel/SEO/QA → readiness |
 | Dashboard / painel admin | `0web-design-system` (densidade, tabelas, estados) → `0web-ui-quality-gates` |
 | Formulário / etapa de funil | `0web-ui-quality-gates` (labels, erros, alvos de toque) → `docs/PORTFOLIO_FUNNELS.md` |
@@ -71,3 +71,13 @@ e `docs/PORTFOLIO_CAPABILITY_PALETTE.md`. A direção precisa definir topologia,
 hero, tipografia, imagem, motion e assinatura interativa antes de codificar.
 Recolorir o mesmo esqueleto ou ligar todos os efeitos disponíveis não atende o
 padrão.
+
+## Landing Page Premium — camada aditiva
+
+`0web-landing-page-premium` trata **completude de presença digital e arquitetura modular adaptativa**. Ela não substitui direção criativa, Decision Intelligence, Resource Utilization ou Landing Experience.
+
+A sequência conceitual é:
+
+`o que o visitante precisa decidir → quais módulos realmente ajudam → como a marca transforma isso em experiência única → quais recursos elevam a experiência → como provar em runtime`.
+
+O teste anti-template continua simples: se trocar nome e cor e a página ainda servir para outro cliente, a composição não está pronta.
