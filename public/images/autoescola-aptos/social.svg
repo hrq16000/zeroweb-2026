@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+<title id="t">Autoescola APTOS — agora com carro e moto automáticos</title><desc id="d">Imagem social editorial do portfolio.</desc>
+<rect width="1200" height="630" fill="#0b0d10"/>
+<circle cx="1030" cy="95" r="210" fill="#ef3340" opacity=".14"/>
+<path d="M-80 640L1280 140" stroke="#202833" stroke-width="170"/>
+<path d="M-80 640L1280 140" stroke="#ffcc00" stroke-width="8" stroke-dasharray="58 40"/>
+<rect x="62" y="55" width="213" height="68" rx="14" fill="#fff"/>
+<text x="84" y="101" font-family="Arial Black,Arial" font-size="36" font-style="italic" fill="#171a1f">APT</text><text x="172" y="101" font-family="Arial Black,Arial" font-size="36" font-style="italic" fill="#ef3340">OS</text>
+<text x="62" y="225" font-family="Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="4" fill="#ffcc00">SÃO JOSÉ DOS PINHAIS</text>
+<text x="62" y="316" font-family="Arial Black,Arial" font-size="66" letter-spacing="-3" fill="#fff">CARRO + MOTO</text>
+<text x="62" y="389" font-family="Arial Black,Arial" font-size="66" letter-spacing="-3" fill="#ef3340">AUTOMÁTICOS.</text>
+<text x="62" y="452" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#d9dde2">Uma nova opção para o seu caminho até a CNH.</text>
+<g transform="translate(871 335)"><circle cx="112" cy="112" r="112" fill="#ef3340"/><text x="112" y="151" text-anchor="middle" font-family="Arial Black,Arial" font-size="112" fill="#fff">A</text></g>
+</svg>
