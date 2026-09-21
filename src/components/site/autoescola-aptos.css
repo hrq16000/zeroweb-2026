@@ -1,0 +1,169 @@
+.aptos-site {
+  --aptos-ink: #141414;
+  --aptos-paper: #f5f3ee;
+  --aptos-white: #ffffff;
+  --aptos-red: #d71920;
+  --aptos-red-dark: #a80f16;
+  --aptos-yellow: #f5c518;
+  --aptos-asphalt: #252525;
+  --aptos-muted: #6f6c65;
+  --aptos-line: #d8d4cb;
+  --background: #f5f3ee;
+  --foreground: #141414;
+  --card: #ffffff;
+  --card-foreground: #141414;
+  --muted: #e9e6df;
+  --muted-foreground: #5f5c56;
+  --primary: #d71920;
+  --primary-foreground: #ffffff;
+  --border: #d8d4cb;
+  --ring: #d71920;
+  background: var(--aptos-paper);
+  color: var(--aptos-ink);
+  font-family: var(--font-sans);
+  overflow: clip;
+}
+
+.aptos-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.aptos-nav {
+  background: color-mix(in srgb, var(--aptos-paper) 92%, transparent);
+  border-color: color-mix(in srgb, var(--aptos-ink) 14%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.aptos-hero {
+  min-height: min(900px, 100svh);
+  background: var(--aptos-paper);
+}
+
+.aptos-hero::before {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--aptos-yellow) 0,
+    var(--aptos-yellow) 28px,
+    var(--aptos-ink) 28px,
+    var(--aptos-ink) 56px
+  );
+  content: "";
+  height: 8px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.aptos-photo-frame {
+  background: var(--aptos-asphalt);
+  box-shadow: 18px 18px 0 var(--aptos-yellow);
+  clip-path: polygon(11% 0, 100% 0, 100% 90%, 89% 100%, 0 100%, 0 10%);
+}
+
+.aptos-photo-frame img {
+  filter: saturate(0.94) contrast(1.04);
+}
+
+.aptos-route-line {
+  background: var(--aptos-line);
+  height: 2px;
+  overflow: hidden;
+}
+
+.aptos-route-line::after {
+  animation: aptos-route 2.8s ease-in-out infinite;
+  background: var(--aptos-red);
+  content: "";
+  display: block;
+  height: 100%;
+  width: 36%;
+}
+
+.aptos-choice {
+  border-color: var(--aptos-line);
+  transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+.aptos-choice:hover,
+.aptos-choice:focus-within {
+  background: var(--aptos-white);
+  border-color: var(--aptos-red);
+  transform: translateY(-3px);
+}
+
+.aptos-red-band {
+  background: var(--aptos-red);
+  color: var(--aptos-white);
+}
+
+.aptos-dark-band {
+  background: var(--aptos-ink);
+  color: var(--aptos-white);
+}
+
+.aptos-yellow-band {
+  background: var(--aptos-yellow);
+  color: var(--aptos-ink);
+}
+
+.aptos-proof-number {
+  color: var(--aptos-red);
+  font-variant-numeric: tabular-nums;
+}
+
+.aptos-step-marker {
+  background: var(--aptos-red);
+  color: var(--aptos-white);
+}
+
+.aptos-faq summary::marker {
+  color: var(--aptos-red);
+}
+
+.aptos-cta {
+  background: var(--aptos-red);
+  color: var(--aptos-white);
+  box-shadow: 0 8px 0 var(--aptos-red-dark);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.aptos-cta:hover {
+  box-shadow: 0 5px 0 var(--aptos-red-dark);
+  transform: translateY(3px);
+}
+
+.aptos-cta:focus-visible {
+  outline: 3px solid var(--aptos-yellow);
+  outline-offset: 4px;
+}
+
+.aptos-ghost-cta {
+  border-color: var(--aptos-ink);
+  color: var(--aptos-ink);
+}
+
+.aptos-mobile-cta {
+  background: color-mix(in srgb, var(--aptos-ink) 94%, transparent);
+  border-color: color-mix(in srgb, var(--aptos-white) 18%, transparent);
+  color: var(--aptos-white);
+  backdrop-filter: blur(14px);
+}
+
+@keyframes aptos-route {
+  0% { transform: translateX(-105%); }
+  55%, 100% { transform: translateX(285%); }
+}
+
+@media (max-width: 767px) {
+  .aptos-hero { min-height: auto; }
+  .aptos-photo-frame { box-shadow: 10px 10px 0 var(--aptos-yellow); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aptos-route-line::after { animation: none; transform: none; width: 100%; }
+  .aptos-choice, .aptos-cta { transition: none; }
+  .aptos-choice:hover, .aptos-choice:focus-within, .aptos-cta:hover { transform: none; }
+}
