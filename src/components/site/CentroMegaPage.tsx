@@ -17,7 +17,6 @@ import {
   Sparkles,
   Store,
   Tag,
-  Truck,
   X,
   Zap,
 } from "lucide-react";
