@@ -2099,8 +2099,8 @@
     "title": "JKL Decor",
     "segment": "prestadores-de-servicos",
     "projectType": "landing",
-    "status": "published",
-    "live": true,
+    "status": "draft",
+    "live": false,
     "city": "São José dos Pinhais",
     "state": "PR",
     "tags": [
