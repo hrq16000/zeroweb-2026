@@ -870,7 +870,7 @@
     "socialProofRequired": false,
     "hostCaptureRequired": true,
     "funnelRecipientConfigured": true,
-    "creativeContractVersion": 3,
+    "creativeContractVersion": 2,
     "creativeBriefFile": "docs/portfolio/briefs/btb-construcao.md",
     "provenance": {
       "kind": "CLIENT_BRIEF",
