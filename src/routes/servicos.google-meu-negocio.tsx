@@ -91,7 +91,9 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
           serviceType: "Google Business Profile",
           url: URL,
           provider: {
-            "@id": "https://0web.com.br/#localbusiness",
+            "@type": "Organization",
+            name: "0WEB Marketing Digital",
+            url: "https://0web.com.br",
           },
           areaServed: "BR",
           description: DESC,
