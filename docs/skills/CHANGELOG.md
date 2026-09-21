@@ -1,5 +1,19 @@
 # Skill changelog / usage log
 
+## 2026-09-21 — piloto R3 · BTB Construção / Mapa da Reforma
+
+- **Escopo:** primeiro portfolio legado escolhido para aplicar de forma explícita R1/R2/R3 + Resource Utilization Gate em uma evolução material, sem usar os demais projetos como lote automático.
+- **Pesquisa:** reexecutada resolução pública de entidade/site/social/telefone/mídia. Nenhuma entidade BTB de Curitiba foi resolvida com confiança; homônimos externos foram rejeitados e nenhum dado/mídia deles foi promovido.
+- **Decisão:** a barreira principal deixou de ser “mostrar serviços” e passou a ser “organizar uma reforma com várias frentes antes do orçamento”.
+- **Experiência:** hero full-bleed, `Mapa da Reforma` multi-seleção, índice linear de frentes, linha de processo e fechamento focado.
+- **Context carryover:** `PortfolioCTAQuiz` recebeu `initialAnswers` + `skipPrefilledSteps`; a BTB carrega serviço/tipo de espaço já escolhidos e começa o funil na primeira informação ausente. Chamadas antigas permanecem inalteradas.
+- **Claims:** desconto/parcelamento e “profissionais qualificados” removidos por falta de revalidação; garantia de 90 dias permanece como condição fornecida pelo cliente.
+- **Mídia:** hero/capa/OG classificados como não documentais; flyer permanece `EVIDENCE_ONLY`; nenhuma foto pública externa foi copiada.
+- **SEO:** JSON-LD específico da BTB passa a usar `GeneralContractor` + serviços reais, sem telefone/endereço/review inventados.
+- **Funil:** `client_key=btb-construcao`, `funnelType=orcamento`, `contactMode=funnelOnly`; destino operacional preservado e registrado como `CONFIGURED_UNVERIFIED`, sem fallback cross-client.
+- **Documentação:** brief v3, enrichment, media plan, Resource Effort Ledger, relatório de evolução e teste dedicado.
+- **Publicação:** somente após preview/gates do head final; este registro não presume PASS antes de observação.
+
 ## 2026-09-21 — norma oficial · empenho máximo no uso de recursos do portfolio
 
 - **Decisão oficial:** todo novo `/portfolio/:slug`, redesign material e evolução relevante deve descobrir, avaliar, tentar e registrar o uso do máximo de recursos **relevantes e não redundantes**; ignorar recurso útil por conveniência passa a reprovar a entrega.
