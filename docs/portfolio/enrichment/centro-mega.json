@@ -1,0 +1,185 @@
+{
+  "slug": "centro-mega",
+  "lastResearchAt": "2026-09-21T17:56:00Z",
+  "entity": {
+    "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
+    "name": "Centro Mega",
+    "legalName": "Ereque Fernandes Cardoso",
+    "cnpj": "17.991.627/0001-54",
+    "locality": "São José dos Pinhais — PR",
+    "resolutionBasis": [
+      "OFFICIAL_LINKTREE",
+      "OFFICIAL_SOCIAL_LINKS",
+      "PUBLIC_STORE_PAGE",
+      "PUBLIC_BUSINESS_REGISTRY_MIRROR",
+      "PUBLIC_SOCIAL_POST_INDEX"
+    ],
+    "notes": "Linktree @centro.mega, página pública de contato/loja VHSYS e CNPJ público convergem para a mesma operação Centro Mega em São José dos Pinhais. Endereços públicos apresentam pequenas variações de numeração/galeria em fontes distintas; a amostra privilegia cidade/unidade e não promove um único endereço completo como verdade canônica nova."
+  },
+  "researchLedger": {
+    "linktree": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "url": "https://linktr.ee/centro.mega",
+      "evidence": [
+        "Centro Mega - SAC",
+        "Centro Mega Outlet - São José Dos Pinhais",
+        "Centro Mega - Galeria Di Brunno",
+        "Centro Mega - Shopping Cidade",
+        "Centro Mega - Pinheirinho",
+        "Centro Mega - Instagram"
+      ]
+    },
+    "instagram": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "url": "https://www.instagram.com/centro.mega/",
+      "note": "Perfil oficial resolvido via Linktree. Links de reels/posts já estavam versionados no componente anterior; o conteúdo individual não ficou legível com segurança nesta rodada, portanto nenhum SKU foi inferido a partir desses links."
+    },
+    "facebook": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "url": "https://www.facebook.com/CentroMega.com.br/",
+      "note": "Página pública resolvida; a leitura direta de posts ficou limitada. Conteúdo de produto foi usado apenas quando também aparecia em índice público rastreável."
+    },
+    "publicStore": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "url": "https://www.vhsys.net/centromega/contato/",
+      "evidence": [
+        "CNPJ 17.991.627/0001-54",
+        "canal São José dos Pinhais",
+        "canal Araucária",
+        "endereço Galeria Di Brunno"
+      ]
+    },
+    "socialPostIndex": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": true,
+      "url": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega",
+      "evidence": [
+        "25/01/2024 — Poco X5 Pro 8GB RAM / 256GB; postagem exibia R$ 2.399,00 → R$ 1.899,00",
+        "08/11/2023 — Tênis Dunk Low Pro; espelhos públicos mostram numerações conflitantes 34–39 e 34–43"
+      ],
+      "freshnessRule": "Produtos e preços das postagens são evidência histórica de mix; não representam estoque, preço ou numeração atuais sem confirmação."
+    },
+    "businessRegistryMirror": {
+      "searched": true,
+      "found": true,
+      "resolved": true,
+      "verified": false,
+      "url": "https://cnpj.biz/17991627000154",
+      "note": "Espelho público de dados cadastrais, usado como apoio e não como substituto de fonte oficial. Mostra atividade principal em equipamentos de telefonia/comunicação e CNAEs secundários compatíveis com informática, vestuário/acessórios, calçados, eletroeletrônicos, brinquedos e outras linhas."
+    },
+    "photos": {
+      "searched": true,
+      "found": false,
+      "resolved": false,
+      "verified": false,
+      "note": "Não houve ingestão confiável de fotos atuais de produtos/estoque a partir de Facebook/Instagram. A amostra usa composição gráfica e ícones, evitando fingir fotografia de estoque real."
+    },
+    "videos": {
+      "searched": true,
+      "found": true,
+      "resolved": false,
+      "verified": false,
+      "note": "Reels públicos foram identificados por URL, mas não tiveram conteúdo individual interpretado com segurança; permanecem como links de descoberta."
+    }
+  },
+  "verifiedProductEvidence": [
+    {
+      "id": "poco-x5-pro-8-256",
+      "name": "Poco X5 Pro",
+      "spec": "8GB RAM / 256GB memória interna",
+      "sourceDate": "2024-01-25",
+      "historicalPriceBefore": "R$ 2.399,00",
+      "historicalPriceAfter": "R$ 1.899,00",
+      "source": "PUBLIC_SOCIAL_POST_INDEX",
+      "status": "HISTORICAL_POST_EVIDENCE",
+      "currentStock": "UNKNOWN",
+      "currentPrice": "UNKNOWN"
+    },
+    {
+      "id": "dunk-low-pro",
+      "name": "Tênis Dunk Low Pro",
+      "sourceDate": "2023-11-08",
+      "source": "PUBLIC_SOCIAL_POST_INDEX",
+      "status": "HISTORICAL_POST_EVIDENCE",
+      "sizeEvidence": [
+        "34–39",
+        "34–43"
+      ],
+      "conflict": "Fontes espelhadas da mesma data mostram faixas de tamanho diferentes; não publicar numeração atual como fato.",
+      "currentStock": "UNKNOWN",
+      "currentPrice": "UNKNOWN"
+    }
+  ],
+  "ownerSuppliedAssortment": [
+    "bonés",
+    "calçados",
+    "tênis",
+    "itens variados de outlet"
+  ],
+  "storeCategories": [
+    "celulares e smartphones",
+    "acessórios para tecnologia",
+    "tênis",
+    "bonés",
+    "calçados",
+    "outlet"
+  ],
+  "sources": [
+    {
+      "type": "OFFICIAL_LINKTREE",
+      "url": "https://linktr.ee/centro.mega"
+    },
+    {
+      "type": "OFFICIAL_INSTAGRAM",
+      "url": "https://www.instagram.com/centro.mega/"
+    },
+    {
+      "type": "OFFICIAL_FACEBOOK",
+      "url": "https://www.facebook.com/CentroMega.com.br/"
+    },
+    {
+      "type": "PUBLIC_STORE_PAGE",
+      "url": "https://www.vhsys.net/centromega/contato/"
+    },
+    {
+      "type": "PUBLIC_SOCIAL_POST_INDEX",
+      "url": "https://www.findglocal.com/BR/S%C3%A3o-Jos%C3%A9-dos-Pinhais/148646501973380/Centro-Mega"
+    },
+    {
+      "type": "PUBLIC_BUSINESS_REGISTRY_MIRROR",
+      "url": "https://cnpj.biz/17991627000154"
+    }
+  ],
+  "unverified": [
+    "estoque atual de qualquer produto",
+    "preço atual de qualquer produto",
+    "cores disponíveis",
+    "numeração atual de tênis/calçados",
+    "catálogo completo atual",
+    "cobertura atual de envio/entrega",
+    "conteúdo dos posts/reels do Instagram que não ficou legível",
+    "destino operacional de WhatsApp do portfolio",
+    "endereço único canônico para todas as unidades"
+  ],
+  "publicationRules": [
+    "Preço de postagem antiga deve ser rotulado explicitamente como histórico.",
+    "Produto social verificado pode virar card de demonstração, mas não estoque atual.",
+    "Categoria fornecida pelo responsável pode virar categoria de amostra sem SKU/preço inventado.",
+    "Post social não legível não autoriza inferir nome/modelo/preço.",
+    "Nenhuma mídia gerada ou ícone pode ser apresentado como foto real de estoque."
+  ]
+}
