@@ -485,3 +485,58 @@ Ela é boa quando a estrutura escolhida reduz a incerteza específica daquela
 decisão e leva a uma ação coerente, mensurável, acessível e factual.
 
 **A seção existe porque resolve uma pergunta da decisão. Se não resolve, sai.**
+
+
+## 13. Mapa de fontes públicas revalidadas
+
+Registro de pesquisa para orientar futuras rodadas. A existência de uma URL aqui
+não transfere direito sobre texto, identidade ou assets; serve apenas para
+estudo de arquitetura de informação, conversão e fatos públicos.
+
+| Marca/referência | URL revalidada | Observação útil |
+|---|---|---|
+| RD Station · Aceleração de Vendas | https://materiais.rdstation.com/evento-aceleracao-vendas-digitais/ | agenda, especialistas, benefícios de inscrição, FAQ, CTA único |
+| Lexos · materiais | https://materiais.lexos.com.br/lp-home-materiais-ricos | biblioteca de materiais + escalada para conversa comercial |
+| Lexos Hub | https://www.lexos.com.br/ | problemas operacionais, capacidades, integrações, métricas, FAQ, demo |
+| Suri Shop | https://www.suri.ai/suri-shop | promessa + capacidade + funcionalidades + venda assistida |
+| Dinbrasil | https://dinbrasil.com.br/ | captação integrada, material, serviços e prova de estratégia multicanal |
+| Cristallux | https://conteudo.cristallux.com.br/ebook-iluminacao | eBook, formulário, escopo do material e autoridade temática |
+| Grupo Paraíso | https://materiais.grupoparaisooficial.com.br/potencialize-sua-loja | promessa B2B, marcas, suporte ao lojista e CTA |
+| UNIFACIG · pós Enfermagem | https://unifacig.edu.br/pos/enfermagem/ | visão geral, carreira, duração, local, coordenação e candidatura |
+| Sincor-SP · associação | https://materiais.sincorsp.org.br/associacao | benefícios, planos, prova social e associação |
+| Sincor-SP · benefícios | https://www.sincorsp.org.br/beneficios/ | ecossistema de serviços + associação |
+| NR · intercâmbio 2026 | https://site.homologacao.nr.com.br/intercambios/new-york-dc-julho-2026/ | programa, depoimentos, preço, logística e condições |
+| FAISP · ADS | https://faisp.edu.br/curso/analise-e-desenvolvimento-de-sistemas/ | duração, reconhecimento, proposta e inscrição |
+| Mercafacil | https://mercafacil.com/ | métricas, escala, soluções e CTA B2B |
+| Mercafacil · clientes | https://mercafacil.com/clientes | cases e números próximos das objeções comerciais |
+| Dígitro · Interact | https://digitro.com/interact-software-para-gestao-de-contact-center-administracao-publica/ | canais, integração, comparação operacional, resultados |
+| Cocari · Unidade Digital | https://lp.cocari.com.br/lancamento-aplicativo-cocari | funcionalidades orientadas a tarefas, segurança, cadastro |
+| Cocari · Corretora | https://www.cocari.com.br/informativo/cocari-corretora-de-seguros-protege-o-que-e-importante-para-voce | modalidades, especialização e contato consultivo |
+| Psicologus · III Simpósio | https://conteudo.psicologus.com.br/iii-simposio-de-atualizacoes-em-neuropsicologia | dor, agenda, público, exclusão, preço, FAQ e certificação |
+| Biscoitê Franquias | https://franquia.biscoite.com.br/expansao | formulário, investimento, formatos, escala e diferenciais |
+| Suprimed Implantes | https://www.suprimedimplantes.com/ | especialização, catálogo, parceiros e capacidade operacional |
+| Lavland | https://lavland.com.br/ | expansão, diferenciais, unidades e franquia |
+| Hemocord · cordão | https://hemocord.com.br/sangue-de-cordao-umbilical/ | educação, processo, especialista e objeções |
+| Hemocord · captação | https://relacionamento.hemocord.com.br/coleta-de-celulas-tronco-do-cordao-umbilical | formulário contextual, WhatsApp e orçamento por região |
+| PSG Academy Brasil | https://barraolimpica.psgacademy.com.br/ | experiência, método, números, prova e treino de nivelamento |
+| Fibercom | https://www.fibercom.net.br/ | plano residencial/empresarial, preço-base e viabilidade |
+| LOCLAV | https://loclav.com.br/ | categorias, equipamentos e cotação rápida |
+| Comtele | https://comtele.com.br/ | capacidades de SMS/RCS, benefícios, integração e prova |
+
+### 13.1 Referências sem URL atual confirmada
+
+Não promover para “site atual” sem nova pesquisa:
+
+- template de busca de imóveis do RD Station;
+- template educacional do RD Station;
+- campanha específica da Copa/Comtele mostrada no artigo;
+- campanha original do SENAI Goiás mostrada no artigo;
+- landing antiga do NR reproduzida no PDF;
+- landing antiga do Ext Trade Tech;
+- landing antiga da Machado Alimentos;
+- campanha pré-Black Friday específica da Biscoitê;
+- landing original da Cocari Corretora mostrada no artigo, quando diferente do
+  conteúdo institucional hoje acessível.
+
+Para esses casos, usar o artigo/PDF somente como referência histórica de padrão
+de conversão e reexecutar pesquisa pública antes de qualquer uso factual.
