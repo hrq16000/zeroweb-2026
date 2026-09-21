@@ -91,9 +91,7 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
           serviceType: "Google Business Profile",
           url: URL,
           provider: {
-            "@type": "Organization",
-            name: "0WEB Marketing Digital",
-            url: "https://0web.com.br",
+            "@id": "https://0web.com.br/#localbusiness",
           },
           areaServed: "BR",
           description: DESC,
@@ -126,36 +124,6 @@ export const Route = createFileRoute("/servicos/google-meu-negocio")({
             name: f.q,
             acceptedAnswer: { "@type": "Answer", text: f.a },
           })),
-        }),
-      },
-      {
-        // Perfil local da própria 0WEB. Sem telefone/endereço no bundle público:
-        // o contato acontece pelo funil, conforme a política do projeto.
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          "@id": "https://0web.com.br/#localbusiness",
-          name: "0WEB Marketing Digital",
-          url: "https://0web.com.br",
-          image: cover.url,
-          description:
-            "Agência de presença digital especializada em Google Meu Negócio, sites institucionais e funis de captação para empresas locais.",
-          taxID: "41.723.708/0001-58",
-          priceRange: "$$",
-          address: { "@type": "PostalAddress", addressCountry: "BR", addressRegion: "PR" },
-          areaServed: [
-            { "@type": "Country", name: "Brasil" },
-            { "@type": "State", name: "Paraná" },
-          ],
-          sameAs: ["https://www.instagram.com/0webbr"],
-          makesOffer: {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Configuração e otimização de Google Meu Negócio",
-            },
-          },
         }),
       },
     ],
