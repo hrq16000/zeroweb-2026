@@ -399,6 +399,19 @@
         "drywall e revestimentos Curitiba",
         "BTB Construção Curitiba"
       ]
+    },
+    "autoescola-aptos": {
+      "aliases": [
+        "Autoescola APTOS"
+      ],
+      "categories": [],
+      "services": [],
+      "equipment": [],
+      "products": [],
+      "problems": [],
+      "useCases": [],
+      "locality": [],
+      "keywords": []
     }
   }
 }
