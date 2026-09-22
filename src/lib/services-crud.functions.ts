@@ -243,7 +243,7 @@ const upsertSchema = z.object({
 
 export const upsertService = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) => upsertSchema.parse(data))
+  .validator((data: unknown) => upsertSchema.parse(data))
   .handler(async ({ data, context }) => {
     await assertAdmin((context as { userId: string }).userId);
     const sb = await getAdmin();
@@ -274,7 +274,7 @@ export const upsertService = createServerFn({ method: "POST" })
 
 export const deleteService = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) => z.object({ id: z.string().uuid() }).parse(data))
+  .validator((data: unknown) => z.object({ id: z.string().uuid() }).parse(data))
   .handler(async ({ data, context }) => {
     await assertAdmin((context as { userId: string }).userId);
     const sb = await getAdmin();
@@ -291,7 +291,7 @@ export const deleteService = createServerFn({ method: "POST" })
 
 export const reorderServices = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z.object({
       order: z.array(z.object({ id: z.string().uuid(), display_order: z.number().int().min(0) })).max(200),
     }).parse(data),
@@ -309,7 +309,7 @@ export const reorderServices = createServerFn({ method: "POST" })
 // Signed upload URL for direct browser upload.
 export const getServiceImageUploadUrl = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) =>
+  .validator((data: unknown) =>
     z.object({
       slug: z.string().min(1).max(80).regex(slugRegex),
       filename: z.string().min(1).max(120),
