@@ -644,32 +644,31 @@ export function CentroMegaPage() {
                   </div>
                 </div>
 
-                <MotionStagger className="grid gap-4 sm:grid-cols-2" variant="up" step={90}>
-                  {CENTRO_MEGA_SOCIAL_FEED.map((post) => (
-                    <a
-                      key={post.href + post.title}
-                      href={post.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group rounded-[1.75rem] border border-white/10 bg-white/[.04] p-6 transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
-                    >
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="rounded-full bg-white/8 px-3 py-1 text-[10px] font-black uppercase tracking-[.18em] text-white/55">
-                          {post.platform}
-                        </span>
-                        <ExternalLink className="h-4 w-4 text-white/25 transition group-hover:text-fuchsia-200" />
-                      </div>
-                      <p className="mt-8 text-2xl font-black tracking-[-.03em]">{post.title}</p>
-                      <p className="mt-3 text-sm leading-6 text-white/50">{post.description}</p>
-                      <div className="mt-6 flex items-center justify-between gap-4 text-[10px] font-black uppercase tracking-[.16em] text-white/35">
-                        <span>{post.date ?? "canal oficial"}</span>
-                        <span>{post.status}</span>
-                      </div>
-                    </a>
-                  ))}
-                </MotionStagger>
+                <div className="rounded-[2rem] border border-white/10 bg-white/[.035] p-5 sm:p-6">
+                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-white/35">Atividade pública confirmada</p>
+                  <div className="mt-4 divide-y divide-white/10">
+                    {CENTRO_MEGA_SOCIAL_FEED.slice(0, 3).map((post) => (
+                      <a
+                        key={post.href + post.title}
+                        href={post.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-start justify-between gap-4 py-4 first:pt-0 last:pb-0"
+                      >
+                        <div className="min-w-0">
+                          <p className="text-xs font-black uppercase tracking-[.14em] text-fuchsia-200/70">
+                            {post.platform} · {post.date ?? "canal oficial"}
+                          </p>
+                          <p className="mt-1 text-lg font-black tracking-[-.02em] text-white">{post.title}</p>
+                          <p className="mt-1 line-clamp-2 text-sm leading-6 text-white/45">{post.description}</p>
+                        </div>
+                        <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-white/25 transition group-hover:text-fuchsia-200" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
 
-                <div className="mt-10">
+                <div className="mt-10 lg:col-span-2">
                   <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
                     <div>
                       <p className="text-xs font-black uppercase tracking-[.22em] text-fuchsia-300">Instagram oficial · mídia real</p>
@@ -685,35 +684,51 @@ export function CentroMegaPage() {
                     </a>
                   </div>
 
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                     {CENTRO_MEGA_SOCIAL_SOURCES.filter(
                       (source) => source.kind === "Instagram" && /\/(?:p|reel)\//.test(source.href),
-                    ).map((source) => (
-                      <article
-                        key={source.href}
-                        className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.04]"
-                      >
-                        <iframe
-                          src={`${source.href.replace(/\/?$/, "/")}embed/`}
-                          title={`${source.label} · Centro Mega no Instagram`}
-                          loading="lazy"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          allow="encrypted-media; picture-in-picture"
-                          className="h-[560px] w-full border-0 bg-white"
-                        />
-                        <div className="flex items-center justify-between gap-3 border-t border-white/10 px-4 py-3">
-                          <span className="text-xs font-bold text-white/55">{source.label}</span>
-                          <a
-                            href={source.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-1 text-xs font-black text-fuchsia-200 hover:text-white"
-                          >
-                            Fonte <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                          </a>
-                        </div>
-                      </article>
-                    ))}
+                    ).map((source) => {
+                      if (!("mediaUrl" in source) || !("mediaAlt" in source) || !source.mediaUrl) return null;
+
+                      return (
+                        <a
+                          key={source.href}
+                          href={source.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[.04] transition hover:-translate-y-1 hover:border-fuchsia-300/35 hover:bg-white/[.065]"
+                        >
+                          <div className="relative aspect-[4/5] overflow-hidden bg-white">
+                            <PortfolioImage
+                              src={source.mediaUrl}
+                              alt={source.mediaAlt}
+                              width={1080}
+                              height={1350}
+                              loading="lazy"
+                              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent px-4 pb-4 pt-14">
+                              <div className="flex items-center justify-between gap-3">
+                                <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-black uppercase tracking-[.14em] text-white">
+                                  {source.label}
+                                </span>
+                                <ExternalLink className="h-4 w-4 text-white/80" aria-hidden="true" />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="border-t border-white/10 px-4 py-4">
+                            <p className="text-xs leading-5 text-white/55">
+                              {"provenance" in source ? source.provenance : "Instagram oficial @centro.mega"}
+                            </p>
+                            {"shortcode" in source && (
+                              <p className="mt-2 text-[10px] font-black uppercase tracking-[.14em] text-fuchsia-200/75">
+                                {source.shortcode}
+                              </p>
+                            )}
+                          </div>
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

@@ -125,9 +125,10 @@
         "classification": "OFFICIAL_SOCIAL_MEDIA",
         "purpose": "live-social-feed",
         "documentary": true,
-        "usageMode": "OFFICIAL_PUBLIC_EMBED",
+        "usageMode": "VERSIONED_REAL_MEDIA_WITH_OFFICIAL_PERMALINKS",
         "sourceUrl": "https://www.instagram.com/centro.mega/",
-        "notes": "Posts e reels públicos oficiais são incorporados na loja; bloqueio de download direto não encerra o uso da mídia."
+        "resolvedAssets": 5,
+        "notes": "Cinco posts/reels oficiais têm mídia própria recuperada por permalink e versionada no CDN. Iframes foram removidos porque falhavam em clientes/navegadores. O sexto post recente permanece no gate SOCIAL_LATEST_6_INCOMPLETE."
       }
     ],
     "licensedMedia": [],
@@ -194,9 +195,9 @@
     },
     {
       "section": "social-feed",
-      "resolution": "OFFICIAL_INSTAGRAM_EMBEDS_PLUS_LATEST_PUBLIC_SIGNAL",
+      "resolution": "VERSIONED_OFFICIAL_INSTAGRAM_MEDIA",
       "status": "in-progress",
-      "notes": "Cinco permalinks oficiais do Instagram estão resolvidos. Latest-six permanece SOCIAL_LATEST_6_INCOMPLETE até resolver o sexto permalink recente verificável."
+      "notes": "5 mídias oficiais reais renderizadas sem iframe; falta resolver o 6º permalink recente para concluir latest-six."
     },
     {
       "section": "locations",

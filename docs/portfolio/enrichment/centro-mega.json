@@ -1,6 +1,6 @@
 {
   "slug": "centro-mega",
-  "lastResearchAt": "2026-09-22T08:30:00Z",
+  "lastResearchAt": "2026-09-22T15:21:00Z",
   "entity": {
     "resolutionStatus": "RESOLVED_WITH_PUBLIC_EVIDENCE",
     "name": "Centro Mega",
@@ -65,7 +65,46 @@
           "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
           "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/"
         ],
-        "note": "Cinco permalinks oficiais estão resolvidos e incorporados. O sexto permalink recente ainda não pôde ser resolvido de forma verificável porque a leitura direta do Instagram está bloqueada neste ambiente. Não usar perfil genérico ou mirror como se fosse o sexto post."
+        "note": "Cinco permalinks oficiais estão com a própria mídia recuperada e versionada em CDN; o frontend não usa mais iframe do Instagram. O sexto permalink recente continua pendente de descoberta verificável.",
+        "mediaResolved": 5,
+        "mediaAssets": [
+          {
+            "shortcode": "DV8haszkdOy",
+            "mediaType": "REEL_POSTER",
+            "mediaUrl": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090448/centro-mega-instagram-DV8haszkdOy.jpg",
+            "permalink": "https://www.instagram.com/centro.mega/reel/DV8haszkdOy/",
+            "provenance": "OFFICIAL_INSTAGRAM_PERMALINK_MEDIA_VERSIONED"
+          },
+          {
+            "shortcode": "DHzjkeutEKu",
+            "mediaType": "REEL_POSTER",
+            "mediaUrl": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090453/centro-mega-instagram-DHzjkeutEKu.jpg",
+            "permalink": "https://www.instagram.com/centro.mega/reel/DHzjkeutEKu/",
+            "provenance": "OFFICIAL_INSTAGRAM_PERMALINK_MEDIA_VERSIONED"
+          },
+          {
+            "shortcode": "DDPCypWxVZZ",
+            "mediaType": "IMAGE",
+            "mediaUrl": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090398/centro-mega-instagram-DDPCypWxVZZ.jpg",
+            "permalink": "https://www.instagram.com/centro.mega/p/DDPCypWxVZZ/",
+            "provenance": "OFFICIAL_INSTAGRAM_PERMALINK_MEDIA_VERSIONED"
+          },
+          {
+            "shortcode": "DGjBSGIPSKO",
+            "mediaType": "IMAGE",
+            "mediaUrl": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090407/centro-mega-instagram-DGjBSGIPSKO.jpg",
+            "permalink": "https://www.instagram.com/centro.mega/p/DGjBSGIPSKO/",
+            "provenance": "OFFICIAL_INSTAGRAM_PERMALINK_MEDIA_VERSIONED"
+          },
+          {
+            "shortcode": "DCt4G0HxLRu",
+            "mediaType": "IMAGE",
+            "mediaUrl": "https://res.cloudinary.com/dqnwlodjs/image/upload/v1790090412/centro-mega-instagram-DCt4G0HxLRu.jpg",
+            "permalink": "https://www.instagram.com/centro.mega/p/DCt4G0HxLRu/",
+            "provenance": "OFFICIAL_INSTAGRAM_PERMALINK_MEDIA_VERSIONED"
+          }
+        ],
+        "renderStrategy": "VERSIONED_REAL_MEDIA_NO_IFRAME"
       }
     },
     "facebook": {

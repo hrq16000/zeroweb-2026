@@ -60,6 +60,19 @@ Cada item social precisa renderizar a própria mídia da publicação, preferenc
 
 Não usar ícone, gradiente ou imagem genérica no lugar da mídia real quando o post estiver resolvido.
 
+### 4.1 Renderização resiliente
+
+Embed/iframe oficial pode ser usado como fonte complementar, mas **não pode ser a única renderização visual** quando a plataforma costuma bloquear terceiros, cookies ou carregamento cross-origin.
+
+Para evitar lacunas visuais:
+
+- preferir mídia real do post versionada em CDN com permalink preservado;
+- reel deve ter poster real;
+- imagem/carrossel deve ter thumbnail real;
+- se o embed falhar, o card deve continuar visualmente completo;
+- nunca exibir retângulo cinza, broken-image icon ou área vazia como estado final;
+- falha visual de embed gera `SOCIAL_EMBED_BROKEN` e exige fallback estável.
+
 ## 5. Factualidade e freshness
 
 A camada social deve guardar no mínimo:
@@ -93,6 +106,7 @@ Falhas bloqueantes:
 - `SOCIAL_POST_REAL_MEDIA_MISSING`
 - `SOCIAL_POST_ORIGIN_UNVERIFIED`
 - `SOCIAL_FEED_STALE`
+- `SOCIAL_EMBED_BROKEN`
 
 Se a página já estiver online, ela pode continuar publicada durante a remediação, mas o estado interno permanece incompleto até o gate ser satisfeito.
 

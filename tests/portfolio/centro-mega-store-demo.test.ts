@@ -62,6 +62,15 @@ describe("Centro Mega — Store Concept", () => {
     expect(page).toContain("<iframe");
     expect(page).toContain("embed/");
     expect(page).toContain("Instagram oficial · mídia real");
+    expect(page).not.toContain("<iframe");
+    expect(page).not.toContain("embed/");
+    expect(products).toContain("centro-mega-instagram-DV8haszkdOy.jpg");
+    expect(products).toContain("centro-mega-instagram-DHzjkeutEKu.jpg");
+    expect(products).toContain("centro-mega-instagram-DDPCypWxVZZ.jpg");
+    expect(products).toContain("centro-mega-instagram-DGjBSGIPSKO.jpg");
+    expect(products).toContain("centro-mega-instagram-DCt4G0HxLRu.jpg");
+    expect(enrichment.researchLedger.instagram.latestSix.mediaResolved).toBe(5);
+    expect(enrichment.researchLedger.instagram.latestSix.renderStrategy).toBe("VERSIONED_REAL_MEDIA_NO_IFRAME");
     expect(products).toContain("30/08/2026");
     expect(products).toContain("Ótimo Domingo");
     expect(products).toContain("LATEST_PUBLIC_SOCIAL_SIGNAL");
@@ -142,6 +151,8 @@ describe("Centro Mega — Store Concept", () => {
   test("latest-six social é obrigatório e a Centro Mega registra o sexto post pendente", () => {
     expect(socialLatestSixStandard).toContain("6 publicações públicas mais recentes verificáveis");
     expect(socialLatestSixStandard).toContain("SOCIAL_LATEST_6_INCOMPLETE");
+    expect(socialLatestSixStandard).toContain("SOCIAL_EMBED_BROKEN");
+    expect(socialLatestSixStandard).toContain("não pode ser a única renderização visual");
     expect(enrichment.researchLedger.instagram.latestSix.requiredCount).toBe(6);
     expect(enrichment.researchLedger.instagram.latestSix.resolvedOfficialPermalinks).toBe(5);
     expect(enrichment.researchLedger.instagram.latestSix.status).toBe("SOCIAL_LATEST_6_INCOMPLETE");
