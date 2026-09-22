@@ -33,7 +33,6 @@ const mobileNav: { to: string; label: string }[] = [
   { to: "/sobre", label: "Sobre" },
   { to: "/faq", label: "FAQ" },
   { to: "/blog", label: "Blog" },
-  { to: "/contato", label: "Contato" },
 ];
 
 
@@ -263,7 +262,7 @@ export function Header() {
           </Link>
           {!isLojaArea && (
             <FunnelCTAButton
-              intent={{ purpose: "diagnosis", source: "header", pagePath: "/", placement: "header" }}
+              intent={{ purpose: "diagnosis", source: "header", pagePath: pathname, placement: "header" }}
               label="Solicitar Diagnóstico"
               location="header"
               showArrow={false}
@@ -399,7 +398,7 @@ export function Header() {
                 </Link>
                 {!isLojaArea && (
                   <FunnelCTAButton
-                    intent={{ purpose: "diagnosis", source: "mobile_menu", pagePath: "/", placement: "header" }}
+                    intent={{ purpose: "diagnosis", source: "mobile_menu", pagePath: pathname, placement: "header" }}
                     label="Solicitar Diagnóstico"
                     location="mobile_menu"
                     showArrow={false}
